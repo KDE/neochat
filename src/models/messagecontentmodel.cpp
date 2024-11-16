@@ -569,15 +569,22 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
     case MessageComponentType::Video: {
         if (!event->is<StickerEvent>()) {
             const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
-            QList<MessageComponent> components;
-            components += MessageComponent{type, QString(), {}};
-            auto body = EventHandler::rawMessageBody(*roomMessageEvent);
-            components += TextHandler().textComponents(body,
-                                                       EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                       m_room,
-                                                       roomMessageEvent,
-                                                       roomMessageEvent->isReplaced());
-            return components;
+            const auto fileContent = roomMessageEvent->get<EventContent::FileContentBase>();
+            if (fileContent != nullptr) {
+                const auto fileInfo = fileContent->commonInfo();
+                const auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+                // Do not attach the description to the image, if it's the same as the original filename.
+                if (fileInfo.originalName != body) {
+                    QList<MessageComponent> components;
+                    components += MessageComponent{type, QString(), {}};
+                    components += TextHandler().textComponents(body,
+                                                               EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                               m_room,
+                                                               roomMessageEvent,
+                                                               roomMessageEvent->isReplaced());
+                    return components;
+                }
+            }
         }
     }
     default:
