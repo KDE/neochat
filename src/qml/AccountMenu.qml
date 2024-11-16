@@ -27,7 +27,8 @@ QQC2.Menu {
                 text: "https://matrix.to/#/" + root.connection.localUser.id,
                 title: root.connection.localUser.displayName,
                 subtitle: root.connection.localUser.id,
-                avatarSource: root.connection.makeMediaUrl(root.connection.localUser.avatarUrl)
+                // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
+                avatarSource: root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : ""
             });
             if (typeof root.closeDialog === "function") {
                 root.closeDialog();

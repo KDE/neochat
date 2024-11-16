@@ -12,7 +12,7 @@ Components.AbstractMaximizeComponent {
 
     required property string text
     property color avatarColor
-    required property string avatarSource
+    required property url avatarSource
 
     onOpened: forceActiveFocus()
 

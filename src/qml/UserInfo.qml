@@ -37,14 +37,15 @@ RowLayout {
     }
     KirigamiComponents.AvatarButton {
         id: accountButton
-        readonly property string mediaId: root.connection.localUser.avatarMediaId
+        readonly property url avatarUrl: root.connection.localUser.avatarUrl
 
         Layout.preferredWidth: Kirigami.Units.iconSizes.medium
         Layout.preferredHeight: Kirigami.Units.iconSizes.medium
         Layout.leftMargin: Kirigami.Units.largeSpacing
 
         text: i18n("Edit this account")
-        source: mediaId ? root.connection.makeMediaUrl("mxc://" + mediaId) : ""
+        // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
+        source: avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(avatarUrl) : ""
         name: root.connection.localUser.displayName
 
         activeFocusOnTab: true
