@@ -4,6 +4,7 @@
 #include "texthandler.h"
 
 #include <QDebug>
+#include <QFontMetrics>
 #include <QGuiApplication>
 #include <QStringLiteral>
 #include <QTextBlock>
@@ -34,7 +35,8 @@ static const QHash<QString, QStringList> allowedAttributes = {
     {QStringLiteral("font"), {QStringLiteral("data-mx-bg-color"), QStringLiteral("data-mx-color"), QStringLiteral("color")}},
     {QStringLiteral("span"), {QStringLiteral("data-mx-bg-color"), QStringLiteral("data-mx-color"), QStringLiteral("data-mx-spoiler")}},
     {QStringLiteral("a"), {QStringLiteral("name"), QStringLiteral("target"), QStringLiteral("href")}},
-    {QStringLiteral("img"), {QStringLiteral("width"), QStringLiteral("height"), QStringLiteral("alt"), QStringLiteral("title"), QStringLiteral("src")}},
+    {QStringLiteral("img"),
+     {QStringLiteral("style"), QStringLiteral("width"), QStringLiteral("height"), QStringLiteral("alt"), QStringLiteral("title"), QStringLiteral("src")}},
     {QStringLiteral("ol"), {QStringLiteral("start")}},
     {QStringLiteral("code"), {QStringLiteral("class")}}};
 static const QStringList allowedLinkSchemes = {QStringLiteral("https"),
@@ -49,6 +51,8 @@ static const QStringList blockTags = {QStringLiteral("blockquote"),
                                       QStringLiteral("div"),
                                       QStringLiteral("table"),
                                       QStringLiteral("pre")};
+
+static const QString customEmojiStyle = QStringLiteral("vertical-align:bottom");
 
 QString TextHandler::data() const
 {
@@ -131,9 +135,29 @@ TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom
         while (i.hasNext()) {
             const QRegularExpressionMatch match = i.next();
             const QUrl mediaUrl = room->makeMediaUrl(event->id(), QUrl(QStringLiteral("mxc://") + match.captured(2) + u'/' + match.captured(3)));
+
+            QStringList extraAttributes = match.captured(4).split(QChar::Space);
+            const bool isEmoticon = match.captured(1).contains(QStringLiteral("data-mx-emoticon"));
+
+            // If the image does not have an explicit width, but has a vertical-align it's most likely an emoticon.
+            // We must do some pre-processing for it to show up nicely in and around text.
+            if (isEmoticon) {
+                // Remove any pre-existing height
+                extraAttributes.removeIf([](const QString &s) {
+                    return s.contains(QStringLiteral("height="));
+                });
+
+                // Make sure it's the same height as the rest of the text
+                const QFontMetrics metrics(QGuiApplication::font());
+                extraAttributes.append(QStringLiteral("height=\"%1\"").arg(metrics.height()));
+
+                // Align it properly
+                extraAttributes.append(QStringLiteral("style=\"%1\"").arg(customEmojiStyle));
+            }
+
             m_dataBuffer.replace(match.captured(0),
-                                 QStringLiteral("<img ") + match.captured(1) + QStringLiteral("src=\"") + mediaUrl.toString() + u'"' + match.captured(4)
-                                     + u'>');
+                                 QStringLiteral("<img ") + match.captured(1) + QStringLiteral("src=\"") + mediaUrl.toString() + u'"'
+                                     + extraAttributes.join(QChar::Space) + u'>');
         }
     }
 
@@ -491,6 +515,12 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
                     }
                 } else if (tag == QStringLiteral("code") && getAttributeType(nextAttribute) == QStringLiteral("class")) {
                     if (getAttributeData(nextAttribute).remove(u'"').startsWith(QStringLiteral("language-"))) {
+                        outputString.append(u' ' + nextAttribute);
+                    }
+                } else if (tag == QStringLiteral("img") && getAttributeType(nextAttribute) == QStringLiteral("style")) {
+                    const QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    // Ignore every other style attribute except for our own, which we use to align custom emoticons
+                    if (attributeData == customEmojiStyle) {
                         outputString.append(u' ' + nextAttribute);
                     }
                 } else {
