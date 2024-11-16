@@ -182,7 +182,7 @@ QQC2.Control {
                         id: spaceDelegate
 
                         required property string displayName
-                        required property string avatar
+                        required property url avatar
                         required property string roomId
                         required property var currentRoom
 
@@ -191,7 +191,7 @@ QQC2.Control {
                         Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
                         text: displayName
-                        source: avatar ? root.connection.makeMediaUrl("mxc://" + avatar) : ""
+                        source: avatar
 
                         notificationCount: spaceDelegate.currentRoom.childrenNotificationCount
                         notificationHighlight: spaceDelegate.currentRoom.childrenHaveHighlightNotifications

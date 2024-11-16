@@ -324,7 +324,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return room->displayName();
     }
     if (role == AvatarRole) {
-        return room->avatarMediaId();
+        return room->avatarMediaUrl();
     }
     if (role == CanonicalAliasRole) {
         return room->canonicalAlias();

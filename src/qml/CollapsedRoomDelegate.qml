@@ -18,7 +18,7 @@ QQC2.ItemDelegate {
     required property NeoChatRoom currentRoom
     required property bool categoryVisible
     required property string filterText
-    required property string avatar
+    required property url avatar
     required property string displayName
 
     topPadding: Kirigami.Units.largeSpacing
@@ -32,7 +32,7 @@ QQC2.ItemDelegate {
     visible: root.categoryVisible || filterText.length > 0
 
     contentItem: KirigamiComponents.Avatar {
-        source: root.avatar ? root.currentRoom.connection.makeMediaUrl("mxc://" + root.avatar) : ""
+        source: root.avatar
         name: root.displayName
 
         sourceSize {

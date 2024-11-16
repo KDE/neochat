@@ -431,9 +431,9 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
-QString NeoChatRoom::avatarMediaId() const
+QUrl NeoChatRoom::avatarMediaUrl() const
 {
-    if (const auto avatar = Room::avatarMediaId(); !avatar.isEmpty()) {
+    if (const auto avatar = Room::avatarUrl(); !avatar.isEmpty()) {
         return avatar;
     }
 
@@ -441,7 +441,7 @@ QString NeoChatRoom::avatarMediaId() const
     const auto directChatMembers = this->directChatMembers();
     for (const auto member : directChatMembers) {
         if (member != localMember()) {
-            return member.avatarMediaId();
+            return member.avatarUrl();
         }
     }
 

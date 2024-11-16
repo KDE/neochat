@@ -212,7 +212,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->displayName().toHtmlEscaped();
     }
     if (role == AvatarRole) {
-        return room->avatarMediaId();
+        return room->avatarMediaUrl();
     }
     if (role == CanonicalAliasRole) {
         return room->canonicalAlias();

@@ -168,7 +168,7 @@ Loader {
                     spacing: Kirigami.Units.largeSpacing
                     KirigamiComponents.Avatar {
                         id: avatar
-                        source: room.avatarMediaId ? root.connection.makeMediaUrl("mxc://" + room.avatarMediaId) : ""
+                        source: room.avatarMediaUrl
                         name: room.displayName
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
