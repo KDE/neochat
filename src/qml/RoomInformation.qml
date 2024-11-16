@@ -133,7 +133,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
-                text: i18nc("@action:button", "Leave this room")
+                text: root.room.isSpace ? i18nc("@action:button", "Leave this space") : i18nc("@action:button", "Leave this room")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
