@@ -110,8 +110,8 @@ Components.AlbumMaximizeComponent {
 
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
+        dialog.selectedFile = currentRoom.fileNameToDownload(root.currentEventId);
         dialog.open();
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId);
     }
 
     Connections {

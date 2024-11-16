@@ -72,8 +72,8 @@ ColumnLayout {
 
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.Overlay.overlay);
+        dialog.selectedFile = root.room.fileNameToDownload(root.eventId);
         dialog.open();
-        dialog.currentFile = dialog.folder + "/" + root.room.fileNameToDownload(root.eventId);
     }
 
     function openSavedFile() {

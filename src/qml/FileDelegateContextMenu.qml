@@ -54,8 +54,8 @@ DelegateContextMenu {
             icon.name: "document-save"
             onTriggered: {
                 var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
+                dialog.selectedFile = currentRoom.fileNameToDownload(eventId);
                 dialog.open();
-                dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId);
             }
         },
         DelegateContextMenu.ReplyMessageAction {},
