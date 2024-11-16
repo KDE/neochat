@@ -413,11 +413,11 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
             string.remove(0, string.indexOf(u'>') + 1);
             string.remove(string.indexOf(QLatin1String("</p>")), string.size());
         }
-        if (!string.startsWith(u'"')) {
-            string.prepend(u'"');
+        if (!string.startsWith(u'“')) {
+            string.prepend(u'“');
         }
-        if (!string.endsWith(u'"')) {
-            string.append(u'"');
+        if (!string.endsWith(u'”')) {
+            string.append(u'”');
         }
     }
 

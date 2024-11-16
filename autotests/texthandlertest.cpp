@@ -535,7 +535,7 @@ void TextHandlerTest::componentOutput_data()
                                                                       QVariantMap{{QStringLiteral("class"), QStringLiteral("html")}}}};
     QTest::newRow("quote") << QStringLiteral("<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>")
                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                      MessageComponent{MessageComponentType::Quote, QStringLiteral("\"blockquote\""), {}}};
+                                                      MessageComponent{MessageComponentType::Quote, QStringLiteral("“blockquote”"), {}}};
     QTest::newRow("no tag first paragraph") << QStringLiteral("Text\n<p>Text</p>")
                                             << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
                                                                        MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
