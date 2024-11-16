@@ -75,6 +75,7 @@ ColumnLayout {
                 textFormat: TextEdit.PlainText
                 visible: root.room && root.room.canonicalAlias
                 text: root.room && root.room.canonicalAlias ? root.room.canonicalAlias : ""
+                color: Kirigami.Theme.disabledTextColor
             }
         }
         QQC2.AbstractButton {
