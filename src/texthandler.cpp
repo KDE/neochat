@@ -413,9 +413,11 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
             string.remove(0, string.indexOf(u'>') + 1);
             string.remove(string.indexOf(QLatin1String("</p>")), string.size());
         }
+        // This is not a normal quotation mark but U+201C
         if (!string.startsWith(u'“')) {
             string.prepend(u'“');
         }
+        // This is U+201D
         if (!string.endsWith(u'”')) {
             string.append(u'”');
         }
