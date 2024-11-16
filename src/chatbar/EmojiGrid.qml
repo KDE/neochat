@@ -84,6 +84,7 @@ QQC2.ScrollView {
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
+            icon.name: root.stickers ? "stickers" : "preferences-desktop-emoticons"
             text: root.stickers ? i18n("No stickers") : i18n("No emojis")
             visible: emojis.count === 0
         }
