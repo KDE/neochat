@@ -134,16 +134,15 @@ void RoomManager::activateUserModel()
     m_userListModel->activate();
 }
 
-UriResolveResult RoomManager::resolveResource(const Uri &uri)
-{
-    return UriResolverBase::visitResource(m_connection, uri);
-}
-
 void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
 {
-    Uri uri{idOrUri};
+    resolveResource(Uri{idOrUri}, action);
+}
+
+void RoomManager::resolveResource(Uri uri, const QString &action)
+{
     if (!uri.isValid()) {
-        Q_EMIT showMessage(MessageType::Warning, i18n("Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier", idOrUri));
+        Q_EMIT showMessage(MessageType::Warning, i18n("Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier", uri.toDisplayString()));
         return;
     }
 
