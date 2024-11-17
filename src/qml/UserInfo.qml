@@ -27,7 +27,7 @@ RowLayout {
     Layout.topMargin: Kirigami.Units.smallSpacing
     Layout.bottomMargin: Kirigami.Units.smallSpacing
     Layout.rightMargin: Kirigami.Units.largeSpacing
-    Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 2 : -1
+    Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 3 : -1
 
     onVisibleChanged: {
         if (!visible) {
