@@ -176,13 +176,14 @@ QQC2.Control {
         RowLayout {
             QQC2.ScrollView {
                 id: chatBarScrollView
+                Layout.topMargin: Kirigami.Units.smallSpacing
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
 
                 Layout.fillWidth: true
                 Layout.maximumHeight: Kirigami.Units.gridUnit * 8
-
-                Layout.topMargin: Kirigami.Units.smallSpacing
-                Layout.bottomMargin: Kirigami.Units.smallSpacing
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
 
                 // HACK: This is to stop the ScrollBar flickering on and off as the height is increased
                 QQC2.ScrollBar.vertical.policy: chatBarHeightAnimation.running && implicitHeight <= height ? QQC2.ScrollBar.AlwaysOff : QQC2.ScrollBar.AsNeeded
@@ -320,12 +321,11 @@ QQC2.Control {
                 id: actionsRow
                 spacing: 0
                 Layout.alignment: Qt.AlignBottom
-                Layout.bottomMargin: Kirigami.Units.smallSpacing * 1.5
+                Layout.bottomMargin: Kirigami.Units.smallSpacing * 4
 
                 Repeater {
                     model: root.actions
                     delegate: QQC2.ToolButton {
-                        Layout.alignment: Qt.AlignVCenter
                         icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
                         onClicked: modelData.trigger()
 
@@ -342,7 +342,6 @@ QQC2.Control {
             }
         }
     }
-
     DelegateSizeHelper {
         id: chatBarSizeHelper
         startBreakpoint: Kirigami.Units.gridUnit * 46
