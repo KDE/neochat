@@ -96,7 +96,7 @@ Kirigami.Page {
                         required property string userId
                         required property NeoChatConnection connection
 
-                        text: connection.localUser.displayName
+                        text: QmlUtils.escapeString(connection.localUser.displayName)
                         description: connection.localUser.id
                         leadingPadding: Kirigami.Units.largeSpacing
 
