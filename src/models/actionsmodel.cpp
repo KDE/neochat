@@ -600,14 +600,19 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
                         } else {
                             originalString = event->plainBody();
                         }
+                        QString replaceId = event->id();
+                        const auto eventRelation = event->relatesTo();
+                        if (eventRelation && eventRelation->type == "m.replace"_L1) {
+                            replaceId = eventRelation->eventId;
+                        }
                         if (flags == "/g"_L1) {
-                            room->postHtmlMessage(messageText, originalString.replace(regex, replacement), event->msgtype(), {}, event->id());
+                            room->postHtmlMessage(messageText, originalString.replace(regex, replacement), event->msgtype(), {}, replaceId);
                         } else {
                             room->postHtmlMessage(messageText,
                                                   originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
                                                   event->msgtype(),
                                                   {},
-                                                  event->id());
+                                                  replaceId);
                         }
                         return true;
                     }
