@@ -106,8 +106,6 @@ Kirigami.Page {
                         }
                         leading: KirigamiComponents.Avatar {
                             id: avatar
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.topMargin: Kirigami.Units.gridUnit
                             name: delegate.text
                             // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                             source: delegate.connection.localUser.avatarUrl.toString().length > 0 ? delegate.connection.makeMediaUrl(delegate.connection.localUser.avatarUrl) : ""
