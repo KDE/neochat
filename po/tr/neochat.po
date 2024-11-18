@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-10 02:41+0000\n"
+"POT-Creation-Date: 2024-11-18 02:38+0000\n"
 "PO-Revision-Date: 2024-11-10 13:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -70,12 +70,12 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/chatbar/EmojiGrid.qml:87
+#: src/chatbar/EmojiGrid.qml:88
 #, kde-format
 msgid "No stickers"
 msgstr "Çıkartma yok"
 
-#: src/chatbar/EmojiGrid.qml:87
+#: src/chatbar/EmojiGrid.qml:88
 #, kde-format
 msgid "No emojis"
 msgstr "Emoji yok"
@@ -945,7 +945,7 @@ msgstr "Matrix Kimliği"
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:232
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -1042,47 +1042,47 @@ msgstr "Kullanıcı adı:"
 msgid "Username unavailable"
 msgstr "Kullanıcı adı kullanılabilir değil"
 
-#: src/login/WelcomePage.qml:25
+#: src/login/WelcomePage.qml:26
 #, kde-format
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
-#: src/login/WelcomePage.qml:73 src/main.cpp:141
+#: src/login/WelcomePage.qml:74 src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/login/WelcomePage.qml:81
+#: src/login/WelcomePage.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Var Olan Bir Hesapla Sürdür"
 
-#: src/login/WelcomePage.qml:115
+#: src/login/WelcomePage.qml:133
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (yükleniyor)"
 
-#: src/login/WelcomePage.qml:124
+#: src/login/WelcomePage.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Bu hesaptan çıkış yap"
 
-#: src/login/WelcomePage.qml:153
+#: src/login/WelcomePage.qml:171
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Oturum Aç veya Hesap Oluştur"
 
-#: src/login/WelcomePage.qml:240
+#: src/login/WelcomePage.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Geri Git"
 
-#: src/login/WelcomePage.qml:252
+#: src/login/WelcomePage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -1868,7 +1868,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Bu odayı NeoChat’te açın"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:110
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:111
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2025,7 +2025,7 @@ msgid "Attachment:"
 msgstr "İlişik:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:21 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
@@ -2378,18 +2378,18 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Tamam"
 
-#: src/qml/DelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84
 #, kde-format
 msgid "View Source"
 msgstr "Kaynağını Göster"
 
-#: src/qml/DelegateContextMenu.qml:90 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:91 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/qml/DelegateContextMenu.qml:95 src/qml/DelegateContextMenu.qml:100
+#: src/qml/DelegateContextMenu.qml:96 src/qml/DelegateContextMenu.qml:101
 #: src/qml/FileDelegateContextMenu.qml:76
 #: src/qml/FileDelegateContextMenu.qml:81
 #, kde-format
@@ -2397,55 +2397,55 @@ msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "İletiyi Kaldır"
 
-#: src/qml/DelegateContextMenu.qml:96 src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Bu iletiyi kaldırma gerekçesi"
 
-#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:78
+#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/qml/DelegateContextMenu.qml:120 src/qml/DelegateContextMenu.qml:128
+#: src/qml/DelegateContextMenu.qml:121 src/qml/DelegateContextMenu.qml:129
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/qml/DelegateContextMenu.qml:125
+#: src/qml/DelegateContextMenu.qml:126
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/qml/DelegateContextMenu.qml:126
+#: src/qml/DelegateContextMenu.qml:127
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Bu iletiyi bildirme gerekçesi"
 
-#: src/qml/DelegateContextMenu.qml:130
+#: src/qml/DelegateContextMenu.qml:131
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/qml/DelegateContextMenu.qml:140
+#: src/qml/DelegateContextMenu.qml:141
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Kullanıcıyı Göster"
 
-#: src/qml/DelegateContextMenu.qml:188
+#: src/qml/DelegateContextMenu.qml:204
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Ara: “%1”"
 
-#: src/qml/DelegateContextMenu.qml:210
+#: src/qml/DelegateContextMenu.qml:226
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Web Kısayollarını Yapılandır…"
@@ -2810,19 +2810,19 @@ msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "Şu anda seçili bağlantı"
 
-#: src/qml/ImageEditorPage.qml:37
+#: src/qml/ImageEditorPage.qml:36
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/ImageEditorPage.qml:44
+#: src/qml/ImageEditorPage.qml:43
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/qml/ImageEditorPage.qml:52
+#: src/qml/ImageEditorPage.qml:51
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -2831,36 +2831,36 @@ msgstr ""
 "Dosya kaydedilemiyor. Önbellek dizinini düzenlemek için yeterli izinlere iye "
 "olduğunuzdan emin olun."
 
-#: src/qml/ImageEditorPage.qml:124
+#: src/qml/ImageEditorPage.qml:123
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/qml/ImageEditorPage.qml:124 src/qml/ImageEditorPage.qml:140
+#: src/qml/ImageEditorPage.qml:123 src/qml/ImageEditorPage.qml:139
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Kırp"
 
-#: src/qml/ImageEditorPage.qml:145
+#: src/qml/ImageEditorPage.qml:144
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Sola Döndür"
 
-#: src/qml/ImageEditorPage.qml:151
+#: src/qml/ImageEditorPage.qml:150
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Sağa Döndür"
 
-#: src/qml/ImageEditorPage.qml:157
+#: src/qml/ImageEditorPage.qml:156
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Ters Çevir"
 
-#: src/qml/ImageEditorPage.qml:163
+#: src/qml/ImageEditorPage.qml:162
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -3230,18 +3230,18 @@ msgstr "Sessize alınmış oda"
 msgid "Configure room"
 msgstr "Odayı yapılandır"
 
-#: src/qml/RoomDrawer.qml:111 src/qml/RoomDrawerPage.qml:45
+#: src/qml/RoomDrawer.qml:114 src/qml/RoomDrawerPage.qml:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Oda ayarları"
 
-#: src/qml/RoomDrawer.qml:160 src/qml/RoomDrawerPage.qml:85
+#: src/qml/RoomDrawer.qml:163 src/qml/RoomDrawerPage.qml:85
 #, kde-format
 msgid "Information"
 msgstr "Bilgi"
 
-#: src/qml/RoomDrawer.qml:165 src/qml/RoomDrawerPage.qml:90
+#: src/qml/RoomDrawer.qml:168 src/qml/RoomDrawerPage.qml:90
 #, kde-format
 msgid "Media"
 msgstr "Ortam"
@@ -3369,7 +3369,7 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Odadaki Ortamlar"
 
-#: src/qml/RoomPage.qml:93
+#: src/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
@@ -3667,7 +3667,7 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
 
-#: src/qml/UnlockSSSSDialog.qml:17
+#: src/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
@@ -4130,17 +4130,17 @@ msgstr ""
 "Hatalı oluşturulmuş veya boş Matrik kimliği.<br />%1, doğru bir Matrix "
 "tanımlayıcısı değil"
 
-#: src/roommanager.cpp:342
+#: src/roommanager.cpp:344
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Odaya katılınılamadı<br />%1"
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:368
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "“%1” odasına katılmak istediniz"
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:372
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Odaya katılma istenemedi<br />%1"
@@ -4510,7 +4510,7 @@ msgctxt "@title"
 msgid "Stickers & Emojis"
 msgstr "Çıkartmalar ve Emojiler"
 
-#: src/settings/ExportKeysDialog.qml:18
+#: src/settings/ExportKeysDialog.qml:17
 #: src/settings/NeoChatSecurityPage.qml:107
 #, kde-format
 msgctxt "@title"
@@ -4661,7 +4661,7 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Bu Kullanıcıyı Yok Sayma"
 
-#: src/settings/ImportKeysDialog.qml:22 src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
@@ -4826,7 +4826,7 @@ msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "Tüm Yapılandırmayı Öntanımlı Değerlere Sıfırla"
 
-#: src/settings/NeoChatSecurityPage.qml:19
+#: src/settings/NeoChatSecurityPage.qml:18
 #: src/settings/NeoChatSettingsView.qml:51
 #, kde-format
 msgctxt "@title"
