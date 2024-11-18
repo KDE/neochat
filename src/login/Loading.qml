@@ -13,6 +13,7 @@ LoginStep {
     id: root
 
     FormCard.FormTextDelegate {
+        textItem.wrapMode: Text.Wrap
         text: i18n("Please wait while your messages are loaded from the server. This might take a little while.")
     }
     FormCard.AbstractFormDelegate {
