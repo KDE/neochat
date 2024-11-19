@@ -46,6 +46,9 @@ QQC2.ScrollView {
 
     ListView {
         id: userList
+        topMargin: Kirigami.Units.largeSpacing
+        leftMargin: Kirigami.Units.largeSpacing
+        rightMargin: Kirigami.Units.largeSpacing
         header: ColumnLayout {
             id: columnLayout
 
@@ -57,7 +60,6 @@ QQC2.ScrollView {
             Loader {
                 active: true
                 Layout.fillWidth: true
-                Layout.topMargin: Kirigami.Units.smallSpacing
                 visible: !root.room.isSpace
                 sourceComponent: root.room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
                 onItemChanged: if (item) {
@@ -209,7 +211,7 @@ QQC2.ScrollView {
         section.delegate: Kirigami.ListSectionHeader {
             required property string section
 
-            width: ListView.view.width
+            width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
             text: section
         }
 
@@ -224,6 +226,7 @@ QQC2.ScrollView {
             required property string powerLevelString
 
             implicitHeight: Kirigami.Units.gridUnit * 2
+            width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
 
             text: name
 
