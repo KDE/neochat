@@ -4,11 +4,12 @@
 #include "linkpreviewer.h"
 
 #include <Quotient/connection.h>
+#include <Quotient/csapi/authed-content-repo.h>
 #include <Quotient/csapi/content-repo.h>
+
 #include <Quotient/events/roommessageevent.h>
 
 #include "neochatconfig.h"
-#include "neochatconnection.h"
 #include "utils.h"
 
 using namespace Quotient;
@@ -61,7 +62,13 @@ void LinkPreviewer::loadUrlPreview()
         if (conn == nullptr) {
             return;
         }
-        GetUrlPreviewJob *job = conn->callApi<GetUrlPreviewJob>(m_url);
+
+        BaseJob *job = nullptr;
+        if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
+            job = conn->callApi<GetUrlPreviewAuthedJob>(m_url);
+        } else {
+            QT_IGNORE_DEPRECATIONS(job = conn->callApi<GetUrlPreviewJob>(m_url);)
+        }
 
         connect(job, &BaseJob::success, this, [this, job, conn]() {
             const auto json = job->jsonData();

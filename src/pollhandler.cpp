@@ -168,9 +168,8 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
         ownAnswers.insert(0, answerId);
     }
 
-    auto response = new PollResponseEvent(eventId, ownAnswers);
+    const auto &response = room->post<PollResponseEvent>(eventId, ownAnswers);
     handleAnswer(response->contentJson(), room->localMember().id(), QDateTime::currentDateTime());
-    room->postEvent(response);
 }
 
 bool PollHandler::hasEnded() const

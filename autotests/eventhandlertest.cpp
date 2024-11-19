@@ -99,8 +99,9 @@ void EventHandlerTest::time()
 {
     const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(EventHandler::time(event), QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC));
-    QCOMPARE(EventHandler::time(event, true, QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC)), QDateTime::fromMSecsSinceEpoch(1234, Qt::UTC));
+    QCOMPARE(EventHandler::time(event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
+    QCOMPARE(EventHandler::time(event, true, QDateTime::fromMSecsSinceEpoch(1234, QTimeZone(QTimeZone::UTC))),
+             QDateTime::fromMSecsSinceEpoch(1234, QTimeZone(QTimeZone::UTC)));
 }
 
 void EventHandlerTest::nullTime()
@@ -119,19 +120,19 @@ void EventHandlerTest::timeString()
     KFormat format;
 
     QCOMPARE(EventHandler::timeString(event, false),
-             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toLocalTime().time(), QLocale::ShortFormat));
+             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
     QCOMPARE(EventHandler::timeString(event, true),
-             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, false, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
-             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().time(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, true, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
-             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, false, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
-             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().time(), QLocale::LongFormat));
-    QCOMPARE(EventHandler::timeString(event, true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC)),
-             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, Qt::UTC).toLocalTime().date(), QLocale::LongFormat));
+             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(event, false, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
+             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(event, true, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
+             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(event, false, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
+             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::LongFormat));
+    QCOMPARE(EventHandler::timeString(event, true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
+             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::LongFormat));
     QCOMPARE(EventHandler::timeString(event, QStringLiteral("hh:mm")),
-             QDateTime::fromMSecsSinceEpoch(1432735824654, Qt::UTC).toString(QStringLiteral("hh:mm")));
+             QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(QStringLiteral("hh:mm")));
 }
 
 void EventHandlerTest::highlighted()

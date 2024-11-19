@@ -612,6 +612,7 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
             }
         }
     }
+        [[fallthrough]];
     default:
         return {MessageComponent{type, QString(), {}}};
     }

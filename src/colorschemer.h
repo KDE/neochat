@@ -49,7 +49,4 @@ public:
      * @sa KColorScheme
      */
     Q_INVOKABLE int indexForCurrentScheme();
-
-private:
-    KColorSchemeManager *c;
 };
