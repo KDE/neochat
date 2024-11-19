@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -910,7 +910,7 @@ msgstr "此服务器已禁用注册。"
 msgid "Loading"
 msgstr "加载中"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -934,7 +934,7 @@ msgstr "Matrix ID"
 msgid "Loading…"
 msgstr "加载中…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:251
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:249
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -1046,31 +1046,31 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "使用现有账户登录"
 
-#: src/login/WelcomePage.qml:134
+#: src/login/WelcomePage.qml:132
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (加载中)"
 
-#: src/login/WelcomePage.qml:143
+#: src/login/WelcomePage.qml:141
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr ""
 
-#: src/login/WelcomePage.qml:172
+#: src/login/WelcomePage.qml:170
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "登录或创建一个新账户"
 
-#: src/login/WelcomePage.qml:259
+#: src/login/WelcomePage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "返回"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -2150,8 +2150,7 @@ msgid "Mark as Read"
 msgstr "标记为已读"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "通知"
@@ -2621,25 +2620,22 @@ msgid "No public rooms found"
 msgstr "未找到公共聊天室"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "设置图像"
+msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "设置图像"
+msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgid "Change Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "更改图像"
+msgstr ""
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3065,12 +3061,10 @@ msgid "The input is not a valid user ID"
 msgstr "输入内容不是有效的用户 ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "转发"
+msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3079,18 +3073,16 @@ msgid "Forward Message"
 msgstr "转发消息"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "复制"
+msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "复制链接"
+msgstr ""
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3241,8 +3233,7 @@ msgid "Space Members"
 msgstr "空间成员"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "聊天室信息"
@@ -3286,12 +3277,10 @@ msgid "Show locations for this room"
 msgstr "显示此聊天室的位置"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "离开空间"
+msgstr ""
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
@@ -5674,16 +5663,3 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
-
-#~ msgid "Notification State"
-#~ msgstr "通知状态"
-
-#~ msgid "Open Externally"
-#~ msgstr "在外部打开"
-
-#~ msgid "Save As"
-#~ msgstr "另存为"
-
-#~ msgctxt "@action:title"
-#~ msgid "Room information"
-#~ msgstr "聊天室信息"

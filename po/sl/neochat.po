@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
-"PO-Revision-Date: 2024-11-10 07:39+0100\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
+"PO-Revision-Date: 2024-11-18 08:51+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -924,7 +924,7 @@ msgstr "Registracija je onemogočena na tem strežniku."
 msgid "Loading"
 msgstr "Nalaganje"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -950,7 +950,7 @@ msgstr "Matrixov ID"
 msgid "Loading…"
 msgstr "Nalaganje …"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:251
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:249
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -1062,31 +1062,31 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Nadaljuj na obstoječem računu"
 
-#: src/login/WelcomePage.qml:134
+#: src/login/WelcomePage.qml:132
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (nalaganje)"
 
-#: src/login/WelcomePage.qml:143
+#: src/login/WelcomePage.qml:141
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Odjavi se iz tega računa"
 
-#: src/login/WelcomePage.qml:172
+#: src/login/WelcomePage.qml:170
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Prijavite se ali ustvarite nov račun"
 
-#: src/login/WelcomePage.qml:259
+#: src/login/WelcomePage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Pojdi nazaj"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -2178,8 +2178,7 @@ msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Obvestila"
@@ -2651,26 +2650,22 @@ msgid "No public rooms found"
 msgstr "Nobene javne sobe ni najdene"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Nastavi sliko"
+msgstr "Odpri sliko"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Nastavi sliko"
+msgstr "Shrani sliko…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Prikaži sliko"
+msgstr "Kopiraj sliko"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3099,12 +3094,10 @@ msgid "The input is not a valid user ID"
 msgstr "Vneseno ni veljavni določilnik uporabnika"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Naprej"
+msgstr "Naprej…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3113,18 +3106,16 @@ msgid "Forward Message"
 msgstr "Prenesi sporočilo naprej"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopiraj"
+msgstr "Kopiraj besedilo"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Kopiraj povezavo"
+msgstr "Kopiraj povezavo na sporočilo"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3275,8 +3266,7 @@ msgid "Space Members"
 msgstr "Člani prostora"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Informacije o sobi"
@@ -3320,12 +3310,10 @@ msgid "Show locations for this room"
 msgstr "Pokaži mesta za to sobo"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "Zapusti prostor"
+msgstr "Zapusti ta prostor"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format

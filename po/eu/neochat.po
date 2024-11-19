@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
-"PO-Revision-Date: 2024-11-10 19:29+0100\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
+"PO-Revision-Date: 2024-11-18 22:44+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -922,7 +922,7 @@ msgstr "Erregistratzea ezgaituta dago zerbitzari horretan."
 msgid "Loading"
 msgstr "Zamatzen..."
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -948,7 +948,7 @@ msgstr "Matrix ID"
 msgid "Loading…"
 msgstr "Zamatzen..."
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:251
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:249
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -1062,31 +1062,31 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Jarraitu aurrez dagoen kontu batekin"
 
-#: src/login/WelcomePage.qml:134
+#: src/login/WelcomePage.qml:132
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (Zamatzen)"
 
-#: src/login/WelcomePage.qml:143
+#: src/login/WelcomePage.qml:141
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Irten kontu honetatik"
 
-#: src/login/WelcomePage.qml:172
+#: src/login/WelcomePage.qml:170
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Saioa hasi edo sortu kontu bat"
 
-#: src/login/WelcomePage.qml:259
+#: src/login/WelcomePage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Itzuli"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -2174,8 +2174,7 @@ msgid "Mark as Read"
 msgstr "Markatu irakurritako gisa"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Jakinarazpenak"
@@ -2649,26 +2648,22 @@ msgid "No public rooms found"
 msgstr "Ez da gela publikorik aurkitu"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Ezarri irudia"
+msgstr "Ireki irudia"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Ezarri irudia"
+msgstr "Gorde irudia..."
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Erakutsi irudia"
+msgstr "Kopiatu irudia"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3098,12 +3093,10 @@ msgid "The input is not a valid user ID"
 msgstr "Sarrera ez da erabiltzaile ID balioduna"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Birbidali"
+msgstr "Birbidali..."
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3112,18 +3105,16 @@ msgid "Forward Message"
 msgstr "Birbidali mezua"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopiatu"
+msgstr "Kopiatu testua"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Kopiatu esteka"
+msgstr "Kopiatu mezuaren esteka"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3275,8 +3266,7 @@ msgid "Space Members"
 msgstr "Tokiko kideak"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Gelaren informazioa"
@@ -3320,12 +3310,10 @@ msgid "Show locations for this room"
 msgstr "Erakutsi gela honetarako kokalekuak"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "Utzi tokia"
+msgstr "Utzi tokia hau"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format

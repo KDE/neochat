@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-18 00:40+0000\n"
-"PO-Revision-Date: 2024-11-10 14:27+0100\n"
+"POT-Creation-Date: 2024-11-19 00:40+0000\n"
+"PO-Revision-Date: 2024-11-18 11:58+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -919,7 +919,7 @@ msgstr "Registratie is uitgeschakeld op deze server."
 msgid "Loading"
 msgstr "Laden"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -945,7 +945,7 @@ msgstr "Matrix-ID"
 msgid "Loading…"
 msgstr "Laden…"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:251
+#: src/login/Login.qml:38 src/login/WelcomePage.qml:249
 #: src/settings/ThreePIdCard.qml:183
 #, kde-format
 msgctxt "@action:button"
@@ -1059,31 +1059,31 @@ msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Doorgaan met een bestaand account"
 
-#: src/login/WelcomePage.qml:134
+#: src/login/WelcomePage.qml:132
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (bezig met laden)"
 
-#: src/login/WelcomePage.qml:143
+#: src/login/WelcomePage.qml:141
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Uit dit account afmelden"
 
-#: src/login/WelcomePage.qml:172
+#: src/login/WelcomePage.qml:170
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Aanmelden of een nieuw account aanmaken"
 
-#: src/login/WelcomePage.qml:259
+#: src/login/WelcomePage.qml:257
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Ga terug"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -2176,8 +2176,7 @@ msgid "Mark as Read"
 msgstr "Markeren als gelezen"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Meldingen"
@@ -2654,26 +2653,22 @@ msgid "No public rooms found"
 msgstr "Geen publieke rooms gevonden"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Afbeelding instellen"
+msgstr "Afbeelding openen"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Afbeelding instellen"
+msgstr "Afbeelding opslaan…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Afbeelding tonen"
+msgstr "Afbeelding kopiëren"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3103,12 +3098,10 @@ msgid "The input is not a valid user ID"
 msgstr "De invoer is geen geldig gebruikers-ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Doorsturen"
+msgstr "Verder…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3117,18 +3110,16 @@ msgid "Forward Message"
 msgstr "Bericht doorsturen"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopiëren"
+msgstr "Tekst kopiëren"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Koppeling kopiëren"
+msgstr "Koppeling naar bericht kopiëren"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3281,8 +3272,7 @@ msgid "Space Members"
 msgstr "Leden in ruimtes"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Informatie over room"
@@ -3326,12 +3316,10 @@ msgid "Show locations for this room"
 msgstr "Locaties in deze room tonen"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "De ruimte verlaten"
+msgstr "Deze ruimte verlaten"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
