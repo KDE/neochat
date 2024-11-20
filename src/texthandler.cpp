@@ -142,15 +142,6 @@ TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom
             // If the image does not have an explicit width, but has a vertical-align it's most likely an emoticon.
             // We must do some pre-processing for it to show up nicely in and around text.
             if (isEmoticon) {
-                // Remove any pre-existing height
-                extraAttributes.removeIf([](const QString &s) {
-                    return s.contains(QStringLiteral("height="));
-                });
-
-                // Make sure it's the same height as the rest of the text
-                const QFontMetrics metrics(QGuiApplication::font());
-                extraAttributes.append(QStringLiteral("height=\"%1\"").arg(metrics.height()));
-
                 // Align it properly
                 extraAttributes.append(QStringLiteral("style=\"%1\"").arg(customEmojiStyle));
             }
