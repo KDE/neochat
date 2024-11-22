@@ -66,7 +66,7 @@ void CallController::handleConnect(ConnectCallback &&callback)
 {
     qWarning() << "Connecting to" << callback.result().room().info().name() << "with id" << callback.asyncId();
     if (!m_connectingRooms.contains(callback.asyncId()) || !m_connectingRooms[callback.asyncId()]
-        || m_connectingRooms[callback.asyncId()]->id() != callback.room().info().name()) {
+        || m_connectingRooms[callback.asyncId()]->id() != callback.result().room().info().name()) {
         qWarning() << "Connecting to unexpected room";
         return;
     }
@@ -434,7 +434,7 @@ void CallController::publishTrack(uint64_t id)
 {
 
     PublishTrackRequest publishTrackRequest;
-    publishTrackRequest.setTrackHandle(m_localVideoTrackHandle);
+    publishTrackRequest.setTrackHandle(id);
     publishTrackRequest.setLocalParticipantHandle(localParticipant);
     TrackPublishOptions options;
     options.setSource(TrackSourceGadget::SOURCE_CAMERA);
