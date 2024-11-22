@@ -18,7 +18,7 @@ FormCard.FormCardPage {
     title: i18nc("@title:window", "Appearance")
 
     FormCard.FormHeader {
-        title: i18n("General theme")
+        title: i18nc("@title:group", "General Theme")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {

@@ -20,7 +20,7 @@ FormCard.FormCardPage {
     title: i18nc("@title:window", "General")
 
     FormCard.FormHeader {
-        title: i18n("General settings")
+        title: i18nc("@title:group", "General Settings")
         visible: Qt.platform.os !== "android"
     }
     FormCard.FormCard {
@@ -88,7 +88,7 @@ FormCard.FormCardPage {
 
     }
     FormCard.FormHeader {
-        title: i18n("Room list sort order")
+        title: i18nc("@title:group", "Room List Sort Order")
     }
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
@@ -273,7 +273,7 @@ FormCard.FormCardPage {
             id: openDeveloperToolsDelegate
             visible: NeoChatConfig.developerTools
             icon.name: "tools"
-            text: i18n("Open developer tools")
+            text: i18n("Open Developer Tools")
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection
             }, {
@@ -282,11 +282,12 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title", "Default Settings")
+        title: i18nc("@title:group", "Default Settings")
     }
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Reset all configuration values to their default")
+            icon.name: "kt-restore-defaults-symbolic"
+            text: i18nc("@action:button", "Reset All Configuration Values to Their Default")
             onClicked: Controller.revertToDefaultConfig()
         }
     }
