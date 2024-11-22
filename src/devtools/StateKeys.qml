@@ -37,7 +37,7 @@ FormCard.FormCardPage {
     }
 
     function openEventSource(stateKey: string): void {
-        applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
             model: stateKeysModel,
             allowEdit: true,
             room: root.room,
