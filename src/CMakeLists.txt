@@ -198,6 +198,12 @@ set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
 )
 
+if(ANDROID OR WIN32)
+    set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
+        QT_QML_SOURCE_TYPENAME ShareAction
+    )
+endif()
+
 ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat
     QML_FILES
@@ -308,12 +314,8 @@ add_subdirectory(chatbar)
 if(UNIX)
     qt_target_qml_sources(neochat QML_FILES qml/ShareAction.qml)
 else()
-    set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
-        QT_RESOURCE_ALIAS qml/ShareAction.qml
-    )
     qt_target_qml_sources(neochat QML_FILES qml/ShareActionStub.qml)
 endif()
-
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
