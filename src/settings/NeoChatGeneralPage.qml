@@ -256,6 +256,7 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
+            id: enableDeveloperToolsDelegate
             text: i18n("Enable developer tools")
             checked: NeoChatConfig.developerTools
             enabled: !NeoChatConfig.isDeveloperToolsImmutable
@@ -264,8 +265,14 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: enableDeveloperToolsDelegate
+            below: openDeveloperToolsDelegate
+        }
         FormCard.FormButtonDelegate {
+            id: openDeveloperToolsDelegate
             visible: NeoChatConfig.developerTools
+            icon.name: "tools"
             text: i18n("Open developer tools")
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
                 connection: root.connection
