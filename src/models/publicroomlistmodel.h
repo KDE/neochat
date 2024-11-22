@@ -52,6 +52,11 @@ class PublicRoomListModel : public QAbstractListModel
      */
     Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
+    /**
+     * @brief The text returned by the server after redirection
+     */
+    Q_PROPERTY(QString redirectedText READ redirectedText NOTIFY redirectedChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -113,6 +118,8 @@ public:
      */
     Q_INVOKABLE void search(int limit = 50);
 
+    QString redirectedText() const;
+
 private:
     QPointer<NeoChatConnection> m_connection = nullptr;
     QString m_server;
@@ -135,6 +142,7 @@ private:
     QList<Quotient::PublicRoomsChunk> rooms;
 
     Quotient::QueryPublicRoomsJob *job = nullptr;
+    QString m_redirectedText;
 
 Q_SIGNALS:
     void connectionChanged();
@@ -142,4 +150,5 @@ Q_SIGNALS:
     void searchTextChanged();
     void showOnlySpacesChanged();
     void searchingChanged();
+    void redirectedChanged();
 };

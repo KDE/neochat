@@ -50,6 +50,8 @@ SearchPage {
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     title: i18nc("@action:title", "Explore Rooms")
+    customPlaceholderText: publicRoomListModel.redirectedText
+    customPlaceholderIcon: "data-warning"
 
     Component.onCompleted: focusSearch()
 
@@ -93,6 +95,7 @@ SearchPage {
 
         activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
         text: i18n("Enter a Room Manually")
+        visible: publicRoomListModel.redirectedText.length === 0
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
         icon.height: Kirigami.Units.gridUnit * 2

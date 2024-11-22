@@ -83,6 +83,15 @@ def create_room():
     next_sync_payload = "sync_response_new_room"
     return response
 
+@app.route("/_matrix/client/v3/publicRooms", methods=["POST"])
+def public_rooms():
+    if request.get_json()["filter"]["generic_search_term"] == "forbidden":
+        data = dict()
+        data["errcode"] = "M_FORBIDDEN"
+        data["error"] = "You are not allowed to search for this. Go to https://wikipedia.org for more information"
+        return data, 403
+    return dict()
+
 
 
 if __name__ == "__main__":

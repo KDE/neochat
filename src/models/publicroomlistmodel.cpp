@@ -8,6 +8,23 @@
 
 using namespace Quotient;
 
+class NeoChatQueryPublicRoomsJob : public QueryPublicRoomsJob
+{
+public:
+    explicit NeoChatQueryPublicRoomsJob(const QString &server = {},
+                                        std::optional<int> limit = std::nullopt,
+                                        const QString &since = {},
+                                        const std::optional<Filter> &filter = std::nullopt,
+                                        std::optional<bool> includeAllNetworks = std::nullopt,
+                                        const QString &thirdPartyInstanceId = {})
+        : QueryPublicRoomsJob(server, limit, since, filter, includeAllNetworks, thirdPartyInstanceId)
+    {
+        // TODO Remove once we can use libQuotient's job directly
+        // This is to make libQuotient happy about results not having the "chunk" field
+        setExpectedKeys({});
+    }
+};
+
 PublicRoomListModel::PublicRoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -153,6 +170,8 @@ void PublicRoomListModel::next(int limit)
     if (m_connection == nullptr || limit < 1) {
         return;
     }
+    m_redirectedText.clear();
+    Q_EMIT redirectedChanged();
 
     if (job) {
         qCDebug(PublicRoomList) << "Other job running, ignore";
@@ -163,7 +182,7 @@ void PublicRoomListModel::next(int limit)
     if (m_showOnlySpaces) {
         roomTypes += QLatin1String("m.space");
     }
-    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, limit, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
+    job = m_connection->callApi<NeoChatQueryPublicRoomsJob>(m_server, limit, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
     Q_EMIT searchingChanged();
 
     connect(job, &BaseJob::finished, this, [this] {
@@ -181,6 +200,9 @@ void PublicRoomListModel::next(int limit)
             this->beginInsertRows({}, rooms.count(), rooms.count() + job->chunk().count() - 1);
             rooms.append(job->chunk());
             this->endInsertRows();
+        } else if (job->error() == BaseJob::ContentAccessError) {
+            m_redirectedText = job->jsonData()[u"error"_s].toString();
+            Q_EMIT redirectedChanged();
         }
 
         this->job = nullptr;
@@ -300,6 +322,11 @@ void PublicRoomListModel::fetchMore(const QModelIndex &parent)
 bool PublicRoomListModel::searching() const
 {
     return job != nullptr;
+}
+
+QString PublicRoomListModel::redirectedText() const
+{
+    return m_redirectedText;
 }
 
 #include "moc_publicroomlistmodel.cpp"

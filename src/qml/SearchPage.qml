@@ -81,6 +81,17 @@ Kirigami.ScrollablePage {
     property bool showSearchButton: true
 
     /**
+     * @brief Message to be shown in a custom placeholder.
+     * The custom placeholder will be shown if the text is not empty
+     */
+    property alias customPlaceholderText: customPlaceholder.text
+
+    /**
+     * @brief icon for the custom placeholder
+     */
+    property string customPlaceholderIcon: ""
+
+    /**
      * @brief Force the search field to be focussed.
      */
     function focusSearch() {
@@ -167,18 +178,25 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             id: noSearchMessage
             anchors.centerIn: parent
-            visible: searchField.text.length === 0 && listView.count === 0
+            visible: searchField.text.length === 0 && listView.count === 0 && !root.showCustomPlaceholder && customPlaceholder.text.length === 0
         }
 
         Kirigami.PlaceholderMessage {
             id: noResultMessage
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching
+            visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
+        }
+
+        Kirigami.PlaceholderMessage {
+            id: customPlaceholder
+            anchors.centerIn: parent
+            visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && text.length > 0
+            icon.name: root.customPlaceholderIcon
         }
 
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && root.model.searching
+            visible: searchField.text.length > 0 && listView.count === 0 && root.model.searching && customPlaceholder.text.length === 0
         }
 
         Keys.onUpPressed: {
