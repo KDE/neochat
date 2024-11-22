@@ -48,12 +48,13 @@ public:
     // Internal. Do not use.
     void handleEvent(livekit::proto::FfiEvent &&event);
     Q_INVOKABLE void setVideoSink(QObject *sink);
-    void setCameraVideoSink(QVideoSink *videoSink);
+    Q_INVOKABLE void setCameraVideoSink(QVideoSink *videoSink);
 
     Q_INVOKABLE void toggleCamera();
 
 Q_SIGNALS:
     void callStarted();
+    void connected();
 
 private:
     CallController();
@@ -74,6 +75,7 @@ private:
     uint64_t localParticipant = 100000;
     QString m_localVideoTrackSid;
     uint64_t m_localVideoTrackId;
+    uint64_t m_localVideoTrackHandle;
 };
 
 class LivekitVideoSink : public QObject

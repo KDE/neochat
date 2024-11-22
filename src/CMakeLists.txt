@@ -411,10 +411,6 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=1)
     target_sources(neochat PRIVATE runner.cpp)
-if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    #target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
-    target_compile_definitions(neochat PUBLIC -DHAVE_X11)
-    #target_sources(neochat PRIVATE runner.cpp)
 
     if (TARGET KUnifiedPush)
         target_sources(neochat PRIVATE fakerunner.cpp)
@@ -435,9 +431,10 @@ qt_add_protobuf(neochat
         protocols/participant.proto
         protocols/stats.proto
         protocols/track.proto
+        protocols/rpc.proto
 )
 
-target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
+target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums ${CMAKE_CURRENT_SOURCE_DIR}/calls)
 target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     Qt::Core

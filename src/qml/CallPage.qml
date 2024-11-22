@@ -12,66 +12,46 @@ Kirigami.Page {
 
     title: i18nc("@title", "Call")
 
-    VideoOutput {
-        id: video
+    RowLayout {
         anchors.fill: parent
-        visible: false
-        Component.onCompleted: CallController.setVideoSink(video.videoSink)
-    }
 
-    VideoOutput {
-        id: viewFinder
-        anchors.centerIn: parent
+        VideoOutput {
+            id: viewFinder
 
-        ToolBar {
-            id: toolbar
+            Layout.fillWidth: parent.width / 2
+            Layout.preferredHeight: parent.height
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: Kirigami.Units.gridUnit * 8
-
-            z: 1000
-
-            background: Kirigami.ShadowedRectangle {
-                color: Kirigami.Theme.backgroundColor
-                radius: 5
-
-                shadow {
-                    size: 15
-                    yOffset: 3
-                    color: Qt.rgba(0, 0, 0, 0.2)
-                }
-
-                border {
-                    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-                    width: 1
-                }
-
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Label {
+                text: "You"
             }
-            RowLayout {
-                ToolButton {
-                    id: cameraButton
-                    icon.name: "camera-on-symbolic"
-                    text: i18nc("@action:button", "Enable Camera")
-                    display: AbstractButton.IconOnly
-                    checkable: true
-                    onClicked: CallController.toggleCamera()
+        }
 
-                    ToolTip.text: text
-                    ToolTip.visible: hovered
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
+        VideoOutput {
+            id: otherViewFinder
+
+            Layout.fillWidth: parent.width / 2
+            Layout.preferredHeight: parent.height
+
+            Label {
+                text: "Them"
             }
         }
     }
 
     LivekitVideoSink {
-        videoSink: viewFinder.videoSink
+        videoSink: otherViewFinder.videoSink
     }
 
-    //Component.onCompleted: camera.start()
+    Component.onCompleted: camera.start()
+
+    Connections {
+        target: CallController
+
+        function onConnected(): void {
+            CallController.setCameraVideoSink(viewFinder.videoSink)
+            CallController.toggleCamera()
+        }
+    }
 
     CaptureSession {
         camera: Camera {
@@ -82,5 +62,4 @@ Kirigami.Page {
         }
         videoOutput: viewFinder
     }
-
 }
