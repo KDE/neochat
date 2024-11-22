@@ -11,7 +11,6 @@
 #include <QVideoFrame>
 #include <QVideoFrameFormat>
 #include <QVideoSink>
-#include <qprotobufregistration.h>
 
 #include <livekit_ffi.h>
 
@@ -29,7 +28,7 @@ using namespace livekit::proto;
 using namespace Quotient;
 
 extern "C" {
-void livekit_ffi_initialize(void(ffiCallbackFn(const uint8_t *, size_t)), bool capture_logs);
+void livekit_ffi_initialize(void(ffiCallbackFn(const uint8_t *, size_t)), bool capture_logs, const char *, const char *);
 }
 
 void callback(const uint8_t *data, size_t length)
@@ -50,7 +49,7 @@ CallController::CallController()
 void CallController::init()
 {
     qRegisterProtobufTypes();
-    livekit_ffi_initialize(callback, true);
+    livekit_ffi_initialize(callback, true, "test", "1.0");
 }
 
 static void handleLog(LogRecordRepeated &&logs)
@@ -65,15 +64,16 @@ static void handleLog(LogRecordRepeated &&logs)
 
 void CallController::handleConnect(ConnectCallback &&callback)
 {
-    qWarning() << "Connecting to" << callback.room().info().name() << "with id" << callback.asyncId();
+    qWarning() << "Connecting to" << callback.result().room().info().name() << "with id" << callback.asyncId();
     if (!m_connectingRooms.contains(callback.asyncId()) || !m_connectingRooms[callback.asyncId()]
         || m_connectingRooms[callback.asyncId()]->id() != callback.room().info().name()) {
         qWarning() << "Connecting to unexpected room";
         return;
     }
     m_connectingRooms.remove(callback.asyncId());
-    m_rooms[callback.asyncId()] = callback.room();
-    localParticipant = callback.localParticipant().handle().id_proto();
+    m_rooms[callback.asyncId()] = callback.result().room();
+    localParticipant = callback.result().localParticipant().handle().id_proto();
+    Q_EMIT connected();
 }
 
 void CallController::handleDispose(DisposeCallback &&callback)
@@ -92,7 +92,7 @@ void CallController::handleRoomEvent(livekit::proto::RoomEvent &&event)
     if (event.hasParticipantConnected()) {
         qWarning() << "Participant connected" << event.participantConnected().info().info().identity();
     } else if (event.hasParticipantDisconnected()) {
-        qWarning() << "Participant connected" << event.participantDisconnected().participantSid();
+        qWarning() << "Participant connected" << event.participantDisconnected().participantIdentity();
     } else if (event.hasLocalTrackPublished()) {
         qWarning() << "Local track published";
         m_localVideoTrackSid = event.localTrackPublished().trackSid();
@@ -140,7 +140,7 @@ void CallController::handleRoomEvent(livekit::proto::RoomEvent &&event)
     } else if (event.hasTrackUnmuted()) {
         qWarning() << "Track unmuted";
     } else if (event.hasActiveSpeakersChanged()) {
-        // qWarning() << "Active speakers changed";
+        qWarning() << "Active speakers changed";
     } else if (event.hasRoomMetadataChanged()) {
         qWarning() << "room metadata changed";
     } else if (event.hasParticipantMetadataChanged()) {
@@ -265,10 +265,6 @@ void CallController::handleEvent(FfiEvent &&event)
         qWarning() << "publish data";
     } else if (event.hasCaptureAudioFrame()) {
         qWarning() << "audio frame";
-    } else if (event.hasUpdateLocalMetadata()) {
-        qWarning() << "update local metadata";
-    } else if (event.hasUpdateLocalName()) {
-        qWarning() << "update local name";
     } else if (event.hasGetStats()) {
         qWarning() << "get stats";
     } else if (event.hasGetSessionStats()) {
@@ -297,11 +293,11 @@ void CallController::handleCallMemberEvent(const Quotient::CallMemberEvent *even
                                       {"device_id"_ls, connection->deviceId()},
                                   })
                         .toJson();
-        if (event->memberships().isEmpty()) {
+        // This is an old event!
+        if (!event->contentJson().contains("foci_preferred"_ls)) {
             return;
         }
-        auto membership = event->memberships()[0].toObject();
-        QNetworkRequest request(QUrl((membership["foci_active"_ls].toArray()[0]["livekit_service_url"_ls].toString() + "/sfu/get"_ls)));
+        QNetworkRequest request(QUrl((event->contentJson()["foci_preferred"_ls].toArray()[0]["livekit_service_url"_ls].toString() + "/sfu/get"_ls)));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json"_ls);
         auto reply = nam->post(request, json);
         connect(reply, &QNetworkReply::finished, this, [reply, this, room]() {
@@ -363,6 +359,7 @@ void CallController::setCameraVideoSink(QVideoSink *videoSink)
             ffiRequest.setNewVideoSource(newVideoSourceRequest);
             auto response = request(std::move(ffiRequest));
             handle = response.newVideoSource().source().handle().id_proto();
+            m_localVideoTrackHandle = handle;
 
             CreateVideoTrackRequest createVideoTrackRequest;
             createVideoTrackRequest.setName("Camera"_ls);
@@ -410,7 +407,7 @@ void CallController::setVideoSink(QObject *sink)
 void LivekitVideoSink::setVideoSink(QVideoSink *videoSink)
 {
     m_videoSink = videoSink;
-    CallController::instance().setCameraVideoSink(videoSink);
+    CallController::instance().setVideoSink(videoSink);
     Q_EMIT videoSinkChanged();
 }
 QVideoSink *LivekitVideoSink::videoSink() const
@@ -437,10 +434,11 @@ void CallController::publishTrack(uint64_t id)
 {
 
     PublishTrackRequest publishTrackRequest;
-    publishTrackRequest.setTrackHandle(id);
+    publishTrackRequest.setTrackHandle(m_localVideoTrackHandle);
     publishTrackRequest.setLocalParticipantHandle(localParticipant);
     TrackPublishOptions options;
     options.setSource(TrackSourceGadget::SOURCE_CAMERA);
+    options.setVideoCodec(VideoCodecGadget::VideoCodec::VP8);
     publishTrackRequest.setOptions(options);
 
     auto request = FfiRequest();
