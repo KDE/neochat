@@ -20,7 +20,7 @@ QQC2.Menu {
     margins: Kirigami.Units.smallSpacing
 
     QQC2.MenuItem {
-        text: i18nc("@action:button", "Show QR code")
+        text: i18nc("@action:button", "Show QR Code")
         icon.name: "view-barcode-qr-symbolic"
         onTriggered: {
             let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
@@ -37,7 +37,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        text: i18n("Edit this account")
+        text: i18n("Edit This Account")
         icon.name: "document-edit"
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
             connection: root.connection
@@ -46,7 +46,7 @@ QQC2.Menu {
         })
     }
     QQC2.MenuItem {
-        text: i18n("Notification settings")
+        text: i18n("Notification Settings")
         icon.name: "notifications"
         onTriggered: {
             NeoChatSettingsView.open('notifications');
@@ -60,7 +60,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        text: i18n("Open developer tools")
+        text: i18n("Open Developer Tools")
         icon.name: "tools"
         visible: NeoChatConfig.developerTools
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
@@ -80,7 +80,7 @@ QQC2.Menu {
         })
     }
     QQC2.MenuItem {
-        text: i18nc("@action:inmenu", "Verify this Device")
+        text: i18nc("@action:inmenu", "Verify This Device")
         icon.name: "security-low"
         onTriggered: root.connection.startSelfVerification()
         enabled: Controller.csSupported
