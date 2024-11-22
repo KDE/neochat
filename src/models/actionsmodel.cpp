@@ -505,6 +505,20 @@ QList<ActionsModel::Action> actions{
         kli18n("<user id> [<reason>]"),
         kli18n("Removes the user from the room"),
     },
+    Action{
+        QStringLiteral("endcall"),
+        [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
+            auto events = room->currentState().eventsOfType(QStringLiteral("org.matrix.msc3401.call.member"));
+            for (auto event : events) {
+                room->setRoomState(QStringLiteral("org.matrix.msc3401.call.member"), event->stateKey(), {});
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n(""),
+        kli18n("Forcibly end the call in this room"),
+    },
 };
 
 int ActionsModel::rowCount(const QModelIndex &parent) const
