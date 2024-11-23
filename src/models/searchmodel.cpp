@@ -108,11 +108,17 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     case HighlightRole:
         return EventHandler::isHighlighted(m_room, &event);
     case EventIdRole:
-        return EventHandler::id(&event);
+        return event.displayId();
     case IsThreadedRole:
-        return EventHandler::isThreaded(&event);
+        if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event)) {
+            return roomMessageEvent->isThreaded();
+        }
+        return {};
     case ThreadRootRole:
-        return EventHandler::threadRoot(&event);
+        if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event); roomMessageEvent->isThreaded()) {
+            return roomMessageEvent->threadRootEventId();
+        }
+        return {};
     case ContentModelRole: {
         if (!event.isStateEvent()) {
             return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, event.id()));

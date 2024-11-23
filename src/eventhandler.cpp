@@ -49,16 +49,6 @@ Q_DECLARE_FLAGS(MemberChanges, MemberChange)
 Q_DECLARE_OPERATORS_FOR_FLAGS(MemberChanges)
 };
 
-QString EventHandler::id(const Quotient::RoomEvent *event)
-{
-    if (event == nullptr) {
-        qCWarning(EventHandling) << "id called with event set to nullptr.";
-        return {};
-    }
-
-    return !event->id().isEmpty() ? event->id() : event->transactionId();
-}
-
 QString EventHandler::authorDisplayName(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending)
 {
     if (room == nullptr) {
@@ -834,31 +824,6 @@ QVariantMap EventHandler::getMediaInfoFromTumbnail(const NeoChatRoom *room, cons
     return thumbnailInfo;
 }
 
-bool EventHandler::hasReply(const Quotient::RoomEvent *event, bool showFallbacks)
-{
-    if (event == nullptr) {
-        qCWarning(EventHandling) << "hasReply called with event set to nullptr.";
-        return false;
-    }
-
-    const auto relations = event->contentPart<QJsonObject>("m.relates_to"_ls);
-    if (!relations.isEmpty()) {
-        const bool hasReplyRelation = relations.contains("m.in_reply_to"_ls);
-        bool isFallingBack = relations["is_falling_back"_ls].toBool();
-        return hasReplyRelation && (showFallbacks ? true : !isFallingBack);
-    }
-    return false;
-}
-
-QString EventHandler::replyId(const Quotient::RoomEvent *event)
-{
-    if (event == nullptr) {
-        qCWarning(EventHandling) << "replyId called with event set to nullptr.";
-        return {};
-    }
-    return event->contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
-}
-
 Quotient::RoomMember EventHandler::replyAuthor(const NeoChatRoom *room, const Quotient::RoomEvent *event)
 {
     if (room == nullptr) {
@@ -875,38 +840,6 @@ Quotient::RoomMember EventHandler::replyAuthor(const NeoChatRoom *room, const Qu
     } else {
         return room->member(QString());
     }
-}
-
-bool EventHandler::isThreaded(const Quotient::RoomEvent *event)
-{
-    if (event == nullptr) {
-        qCWarning(EventHandling) << "isThreaded called with event set to nullptr.";
-        return false;
-    }
-
-    return (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
-            && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls)
-        || (!event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls));
-}
-
-QString EventHandler::threadRoot(const Quotient::RoomEvent *event)
-{
-    if (event == nullptr) {
-        qCWarning(EventHandling) << "threadRoot called with event set to nullptr.";
-        return {};
-    }
-
-    // Get the thread root ID from m.relates_to if it exists.
-    if (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
-        && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.thread"_ls) {
-        return event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString();
-    }
-    // For thread root events they have an m.relations in the unsigned part with a m.thread object.
-    // If so return the event ID as it is the root.
-    if (!event->unsignedPart<QJsonObject>("m.relations"_ls).isEmpty() && event->unsignedPart<QJsonObject>("m.relations"_ls).contains("m.thread"_ls)) {
-        return id(event);
-    }
-    return {};
 }
 
 float EventHandler::latitude(const Quotient::RoomEvent *event)

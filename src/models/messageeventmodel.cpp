@@ -501,7 +501,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
-        if (EventHandler::isThreaded(&evt) && EventHandler::threadRoot(&evt) != EventHandler::id(&evt) && NeoChatConfig::threads()) {
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&evt);
+        if (roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() != evt.id() && NeoChatConfig::threads()) {
             return EventStatus::Hidden;
         }
 
@@ -509,7 +510,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == EventIdRole) {
-        return EventHandler::id(&evt);
+        return evt.displayId();
     }
 
     if (role == ProgressInfoRole) {
@@ -534,11 +535,18 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsThreadedRole) {
-        return EventHandler::isThreaded(&evt);
+        if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&evt)) {
+            return roomMessageEvent->isThreaded();
+        }
+        return {};
     }
 
     if (role == ThreadRootRole) {
-        return EventHandler::threadRoot(&evt);
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&evt);
+        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+            return roomMessageEvent->threadRootEventId();
+        }
+        return {};
     }
 
     if (role == ShowSectionRole) {
@@ -654,8 +662,10 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event, boo
         }
     }
 
-    if (EventHandler::isThreaded(event) && !m_threadModels.contains(EventHandler::threadRoot(event))) {
-        m_threadModels[EventHandler::threadRoot(event)] = QSharedPointer<ThreadModel>(new ThreadModel(EventHandler::threadRoot(event), m_currentRoom));
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    if (roomMessageEvent && roomMessageEvent->isThreaded() && !m_threadModels.contains(roomMessageEvent->threadRootEventId())) {
+        m_threadModels[roomMessageEvent->threadRootEventId()] =
+            QSharedPointer<ThreadModel>(new ThreadModel(roomMessageEvent->threadRootEventId(), m_currentRoom));
     }
 
     // ReadMarkerModel handles updates to add and remove markers, we only need to

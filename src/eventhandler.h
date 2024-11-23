@@ -38,14 +38,6 @@ class EventHandler
 {
 public:
     /**
-     * @brief Return the ID of the event.
-     *
-     * Returns the transaction ID if the Matrix ID is empty, which may be the case
-     * for a pending event.
-     */
-    static QString id(const Quotient::RoomEvent *event);
-
-    /**
      * @brief Get the display name of the event author.
      *
      * This method is special in that it will return
@@ -221,20 +213,6 @@ public:
     static QVariantMap mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event);
 
     /**
-     * @brief Whether the event is a reply to another in the timeline.
-     *
-     * @param showFallbacks whether message that have is_falling_back set true should
-     *                      show the fallback reply. Leave true for non-threaded
-     *                      timelines.
-     */
-    static bool hasReply(const Quotient::RoomEvent *event, bool showFallbacks = true);
-
-    /**
-     * @brief Return the Matrix ID of the event replied to.
-     */
-    static QString replyId(const Quotient::RoomEvent *event);
-
-    /**
      * @brief Get the author of the event replied to in context of the room.
      *
      * An empty Quotient::RoomMember will be returned if the EventHandler hasn't had
@@ -248,20 +226,6 @@ public:
      * @sa Quotient::RoomMember
      */
     static Quotient::RoomMember replyAuthor(const NeoChatRoom *room, const Quotient::RoomEvent *event);
-
-    /**
-     * @brief Whether the message is part of a thread.
-     *
-     * i.e. There is a rel_type of m.thread.
-     */
-    static bool isThreaded(const Quotient::RoomEvent *event);
-
-    /**
-     * @brief Return the Matrix ID of the thread's root message.
-     *
-     * Empty if this not part of a thread.
-     */
-    static QString threadRoot(const Quotient::RoomEvent *event);
 
     /**
      * @brief Return the latitude for the event.

@@ -514,7 +514,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
         QString replyEventId = isFallingBack ? fallbackId : QString();
         if (isReply) {
             isFallingBack = false;
-            replyEventId = EventHandler::id(replyIt->get());
+            replyEventId = replyIt->event()->displayId();
         }
 
         // If we are not replying and there is no fallback ID it means a new thread

@@ -25,7 +25,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
 
     connect(room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
-            if (EventHandler::isThreaded(roomEvent) && EventHandler::threadRoot(roomEvent) == m_threadRootId) {
+            if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
                 addNewEvent(event);
                 addModels();
             }
@@ -34,7 +34,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     connect(room, &Quotient::Room::aboutToAddNewMessages, this, [this](Quotient::RoomEventsRange events) {
         for (const auto &event : events) {
             if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
-                if (EventHandler::isThreaded(roomEvent) && EventHandler::threadRoot(roomEvent) == m_threadRootId) {
+                if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
                     addNewEvent(roomEvent);
                 }
             }

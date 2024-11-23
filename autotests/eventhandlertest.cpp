@@ -32,8 +32,6 @@ private:
 private Q_SLOTS:
     void initTestCase();
 
-    void eventId();
-    void nullEventId();
     void authorDisplayName();
     void nullAuthorDisplayName();
     void singleLineSidplayName();
@@ -56,14 +54,8 @@ private Q_SLOTS:
     void nullSubtitle();
     void mediaInfo();
     void nullMediaInfo();
-    void hasReply();
-    void nullHasReply();
-    void replyId();
-    void nullReplyId();
     void replyAuthor();
     void nullReplyAuthor();
-    void thread();
-    void nullThread();
     void location();
     void nullLocation();
 };
@@ -72,17 +64,6 @@ void EventHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
     room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-eventhandler-sync.json"));
-}
-
-void EventHandlerTest::eventId()
-{
-    QCOMPARE(EventHandler::id(room->messageEvents().at(0).get()), QStringLiteral("$153456789:example.org"));
-}
-
-void EventHandlerTest::nullEventId()
-{
-    QTest::ignoreMessage(QtWarningMsg, "id called with event set to nullptr.");
-    QCOMPARE(EventHandler::id(nullptr), QString());
 }
 
 void EventHandlerTest::authorDisplayName()
@@ -295,30 +276,6 @@ void EventHandlerTest::nullMediaInfo()
     QCOMPARE(EventHandler::mediaInfo(room, nullptr), QVariantMap());
 }
 
-void EventHandlerTest::hasReply()
-{
-    QCOMPARE(EventHandler::hasReply(room->messageEvents().at(5).get()), true);
-    QCOMPARE(EventHandler::hasReply(room->messageEvents().at(0).get()), false);
-}
-
-void EventHandlerTest::nullHasReply()
-{
-    QTest::ignoreMessage(QtWarningMsg, "hasReply called with event set to nullptr.");
-    QCOMPARE(EventHandler::hasReply(nullptr), false);
-}
-
-void EventHandlerTest::replyId()
-{
-    QCOMPARE(EventHandler::replyId(room->messageEvents().at(5).get()), QStringLiteral("$153456789:example.org"));
-    QCOMPARE(EventHandler::replyId(room->messageEvents().at(0).get()), QStringLiteral(""));
-}
-
-void EventHandlerTest::nullReplyId()
-{
-    QTest::ignoreMessage(QtWarningMsg, "replyId called with event set to nullptr.");
-    QCOMPARE(EventHandler::replyId(nullptr), QString());
-}
-
 void EventHandlerTest::replyAuthor()
 {
     auto replyEvent = room->messageEvents().at(0).get();
@@ -342,29 +299,6 @@ void EventHandlerTest::nullReplyAuthor()
 
     QTest::ignoreMessage(QtWarningMsg, "replyAuthor called with event set to nullptr. Returning empty user.");
     QCOMPARE(EventHandler::replyAuthor(room, nullptr), RoomMember());
-}
-
-void EventHandlerTest::thread()
-{
-    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(0).get()), false);
-    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(0).get()), QString());
-
-    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(9).get()), true);
-    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(9).get()), QStringLiteral("$threadroot:example.org"));
-    QCOMPARE(EventHandler::replyId(room->messageEvents().at(9).get()), QStringLiteral("$threadroot:example.org"));
-
-    QCOMPARE(EventHandler::isThreaded(room->messageEvents().at(10).get()), true);
-    QCOMPARE(EventHandler::threadRoot(room->messageEvents().at(10).get()), QStringLiteral("$threadroot:example.org"));
-    QCOMPARE(EventHandler::replyId(room->messageEvents().at(10).get()), QStringLiteral("$threadmessage1:example.org"));
-}
-
-void EventHandlerTest::nullThread()
-{
-    QTest::ignoreMessage(QtWarningMsg, "isThreaded called with event set to nullptr.");
-    QCOMPARE(EventHandler::isThreaded(nullptr), false);
-
-    QTest::ignoreMessage(QtWarningMsg, "threadRoot called with event set to nullptr.");
-    QCOMPARE(EventHandler::threadRoot(nullptr), QString());
 }
 
 void EventHandlerTest::location()

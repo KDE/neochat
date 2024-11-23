@@ -305,7 +305,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return component.attributes;
     }
     if (role == EventIdRole) {
-        return EventHandler::id(event.first);
+        return event.first->displayId();
     }
     if (role == TimeRole) {
         const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [event](const PendingEventItem &pendingEvent) {
@@ -348,7 +348,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue<PollHandler *>(m_room->poll(m_eventId));
     }
     if (role == ReplyEventIdRole) {
-        return EventHandler::replyId(event.first);
+        if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first)) {
+            return roomMessageEvent->replyEventId();
+        }
     }
     if (role == ReplyAuthorRole) {
         return QVariant::fromValue(EventHandler::replyAuthor(m_room, event.first));
@@ -456,8 +458,8 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     QList<MessageComponent> newComponents;
 
-    if (eventCast<const Quotient::RoomMessageEvent>(event.first)
-        && eventCast<const Quotient::RoomMessageEvent>(event.first)->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
+    if (roomMessageEvent && roomMessageEvent->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
         newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
         return newComponents;
     }
@@ -482,7 +484,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
-    if (isThreading && !EventHandler::isThreaded(event.first)) {
+    if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded()) {
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     }
 
@@ -496,7 +498,8 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    if (!EventHandler::hasReply(event.first) || (EventHandler::isThreaded(event.first) && NeoChatConfig::self()->threads())) {
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
+    if (!roomMessageEvent->isReply() || (roomMessageEvent && roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
         if (m_replyModel) {
             delete m_replyModel;
         }
@@ -507,7 +510,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    m_replyModel = new MessageContentModel(m_room, EventHandler::replyId(event.first), true, false, this);
+    m_replyModel = new MessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this);
 
     connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {
         Q_EMIT dataChanged(index(0), index(0), {ReplyAuthorRole});
