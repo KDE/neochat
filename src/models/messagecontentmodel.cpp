@@ -499,7 +499,10 @@ void MessageContentModel::updateReplyModel()
     }
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-    if (!roomMessageEvent->isReply() || (roomMessageEvent && roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
+    if (roomMessageEvent == nullptr) {
+        return;
+    }
+    if (!roomMessageEvent->isReply() || (roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
         if (m_replyModel) {
             delete m_replyModel;
         }
