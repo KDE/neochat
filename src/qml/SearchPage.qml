@@ -178,7 +178,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             id: noSearchMessage
             anchors.centerIn: parent
-            visible: searchField.text.length === 0 && listView.count === 0 && !root.showCustomPlaceholder && customPlaceholder.text.length === 0
+            visible: searchField.text.length === 0 && listView.count === 0 && customPlaceholder.text.length === 0
         }
 
         Kirigami.PlaceholderMessage {
