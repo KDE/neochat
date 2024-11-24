@@ -85,7 +85,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onCurrentRoomChanged() {
-            if (RoomManager.currentRoom && pageStack.depth <= 1 && initialized && Kirigami.Settings.isMobile) {
+            if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
                 let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
                     connection: root.connection
                 });
@@ -300,7 +300,7 @@ Kirigami.ApplicationWindow {
         target: ShareHandler
         function onTextChanged(): void {
             if (root.connection && ShareHandler.text.length > 0) {
-                handleShare();
+                root.handleShare();
             }
         }
     }
