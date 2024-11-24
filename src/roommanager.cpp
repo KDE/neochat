@@ -455,10 +455,12 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
         return;
     }
 
-    if (spaceId.length() > 3) {
-        resolveResource(spaceId, "no_join"_ls);
-    } else if (!m_isMobile) {
-        visitRoom({}, {});
+    if (!m_isMobile) {
+        if (spaceId.length() > 3) {
+            resolveResource(spaceId, "no_join"_ls);
+        } else {
+            visitRoom({}, {});
+        }
     }
 }
 

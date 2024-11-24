@@ -200,7 +200,6 @@ QQC2.Control {
                         activeFocusOnTab: true
 
                         onSelected: {
-                            RoomManager.resolveResource(spaceDelegate.roomId);
                             RoomManager.currentSpace = spaceDelegate.roomId;
                         }
                         checked: RoomManager.currentSpace === roomId
