@@ -161,3 +161,5 @@ QUrl NeochatRoomMember::avatarUrl() const
 
     return m_room->member(m_memberId).avatarUrl();
 }
+
+#include "moc_neochatroommember.cpp"
