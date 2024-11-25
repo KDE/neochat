@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-24 00:40+0000\n"
-"PO-Revision-Date: 2024-10-05 08:13+0200\n"
+"POT-Creation-Date: 2024-11-25 00:40+0000\n"
+"PO-Revision-Date: 2024-11-24 19:36+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1088,10 +1088,9 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Dela en webbadress med Matrix"
+msgstr "Chatta på Matrix"
 
 #: src/main.cpp:145
 #, kde-format
@@ -2170,8 +2169,7 @@ msgid "Mark as Read"
 msgstr "Markera som läst"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Underrättelser"
@@ -2263,8 +2261,8 @@ msgstr "Rumsinställningar"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
 #: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
-#: src/qml/SpaceDrawer.qml:275
+#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
+#: src/qml/SpaceDrawer.qml:274
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2624,15 +2622,15 @@ msgid "Only show spaces"
 msgstr "Visa bara utrymmen"
 
 #: src/qml/ExploreRoomsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Ange en rumsadress"
+msgstr "Gå in i ett rum manuellt"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr ""
+"Om du redan känner till ett rums adress eller alias, och det inte visas här."
 
 #: src/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -2646,26 +2644,22 @@ msgid "No public rooms found"
 msgstr "Inga öppna rum hittades"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Ange bild"
+msgstr "Öppna bild"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Ange bild"
+msgstr "Spara bild…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Visa bild"
+msgstr "Kopiera bild"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3050,7 +3044,7 @@ msgstr "Dela"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Gå in i ett rum manuellt"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3095,12 +3089,10 @@ msgid "The input is not a valid user ID"
 msgstr "Indata är inte en giltig användaridentifikation"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Vidarebefordra"
+msgstr "Vidarebefordra…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3109,18 +3101,16 @@ msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopiera"
+msgstr "Kopiera text"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Kopiera länk"
+msgstr "Kopiera meddelandelänk"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3273,8 +3263,7 @@ msgid "Space Members"
 msgstr "Utrymmesmedlemmar"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Rumsinformation"
@@ -3318,9 +3307,7 @@ msgid "Show locations for this room"
 msgstr "Visa platser för rummet"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Lämna utrymmet"
@@ -3576,13 +3563,13 @@ msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Vänner"
 
-#: src/qml/SpaceDrawer.qml:221
+#: src/qml/SpaceDrawer.qml:220
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Gå med i %1"
 
-#: src/qml/SpaceDrawer.qml:263
+#: src/qml/SpaceDrawer.qml:262
 #, kde-format
 msgid "Create a space"
 msgstr "Skapa ett utrymme"
@@ -4763,7 +4750,7 @@ msgstr "Aktivitet"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "Rum med olästa underrättelser visas först"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4808,17 +4795,16 @@ msgid "Editor"
 msgstr "Editor"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Skicka meddelande"
+msgstr "Skicka meddelanden med Enter"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Skicka meddelanden med Ctrl+Enter"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
