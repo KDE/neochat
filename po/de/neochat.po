@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-23 02:27+0000\n"
-"PO-Revision-Date: 2024-10-05 12:38+0200\n"
+"PO-Revision-Date: 2024-11-25 19:26+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -128,10 +128,9 @@ msgid "Unable to read access token: %1"
 msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
 #: src/controller.cpp:358
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Receiving push notifications"
-msgstr "Tippbenachrichtigungen senden"
+msgstr "Push-Benachrichtigungen empfangen"
 
 #: src/devtools/AccountData.qml:20
 #, kde-format
@@ -140,11 +139,10 @@ msgid "Account Data"
 msgstr "Kontendaten"
 
 #: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
-#, fuzzy, kde-format
-#| msgid "Event Source"
+#, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
-msgstr "Ereignis-Quelltext"
+msgstr "Ereignisquelle"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -153,12 +151,10 @@ msgid "Show hidden events in the timeline"
 msgstr "Ausgeblendete Ereignisse in der Zeitleiste anzeigen"
 
 #: src/devtools/DebugOptions.qml:26
-#, fuzzy, kde-format
-#| msgid "Waiting for device to accept verification."
+#, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
-msgstr ""
-"Es wird auf die Annahme der Sitzungsverifizierung durch das Gerät gewartet."
+msgstr "Geräteverifizierung immer zulassen"
 
 #: src/devtools/DebugOptions.qml:27
 #, kde-format
@@ -218,7 +214,7 @@ msgstr "Diskussionsfäden"
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
-msgstr ""
+msgstr "Verschlüsselte Sicherungskopie"
 
 #: src/devtools/FeatureFlagPage.qml:32
 #, kde-format
@@ -257,10 +253,9 @@ msgid "Event Source"
 msgstr "Ereignis-Quelltext"
 
 #: src/devtools/RoomData.qml:62
-#, fuzzy, kde-format
-#| msgid "Room State for %1"
+#, kde-format
 msgid "Room State"
-msgstr "Raum-Zustand für %1"
+msgstr "Raum-Zustand"
 
 #: src/devtools/RoomData.qml:76
 #, kde-format
@@ -517,12 +512,12 @@ msgstr "hat etwas Unbekanntes getan"
 #: src/eventhandler.cpp:412
 #, kde-format
 msgid "cleared the room main alias"
-msgstr "hat den Hauptalias des Raums gelöscht"
+msgstr "hat die Hauptklarkennung des Raums gelöscht"
 
 #: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room main alias to: %1"
-msgstr "hat den Hauptalias des Raums geändert zu: %1"
+msgstr "hat die Hauptklarkennung des Raums geändert zu: %1"
 
 #: src/eventhandler.cpp:415
 #, kde-format
@@ -646,83 +641,62 @@ msgstr "%1 hat den Raum betreten"
 #: src/eventhandler.cpp:565
 #, kde-format
 msgid "%1 set a display name and set an avatar"
-msgstr ""
+msgstr "%1 hat einen Anzeigenamen und Avatar festgelegt"
 
 #: src/eventhandler.cpp:567
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
+#, kde-format
 msgid "%1 set a display name and updated their avatar"
-msgstr "hat den eigenen Avatar aktualisiert"
+msgstr "%1 haben einen Anzeigenamen festgelegt und ihren Avatar geändert"
 
 #: src/eventhandler.cpp:569
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their avatar"
+#, kde-format
 msgid "%1 set a display name and cleared their avatar"
-msgstr "hat den eigenen Avatar gelöscht"
+msgstr "%1 haben einen Anzeigenamen hinzugefügt und ihren Avatar gelöscht"
 
 #: src/eventhandler.cpp:571
-#, fuzzy, kde-format
-#| msgid "Changes your display name in this room"
+#, kde-format
 msgid "%1 set a display name for this room"
-msgstr "Ihren Anzeigenamen für diesen Raum ändern"
+msgstr "%1 haben ihren Anzeigenamen für diesen Raum geändert"
 
 #: src/eventhandler.cpp:574
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and set an avatar"
-msgstr "hat den eigenen Anzeigenamen zu %1 geändert"
+msgstr "%1 haben ihren Anzeigenamen geändert und einen Avatar hinzugefügt"
 
 #: src/eventhandler.cpp:576
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and updated their avatar"
-msgstr "hat den eigenen Anzeigenamen zu %1 geändert"
+msgstr "%1 haben ihren Anzeigenamen und Avatar geändert"
 
 #: src/eventhandler.cpp:578
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgid "%1 changed their display name and cleared their avatar"
-msgstr "hat den eigenen Anzeigenamen zu %1 geändert"
+msgstr "%1 haben ihren Anzeigenamen geändert und ihren Avatar gelöscht"
 
 #: src/eventhandler.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name"
+#, kde-format
 msgid "%1 changed their display name"
-msgstr "hat den eigenen Anzeigenamen geändert"
+msgstr "%1 haben ihren Anzeigenamen geändert"
 
 #: src/eventhandler.cpp:583
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and set an avatar"
-msgstr "hat den eigenen Anzeigenamen gelöscht"
+msgstr "%1 haben ihren Anzeigenamen gelöscht und einen Avatar hinzugefügt"
 
 #: src/eventhandler.cpp:585
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and updated their avatar"
-msgstr "hat den eigenen Anzeigenamen gelöscht"
+msgstr "%1 haben ihren Anzeigenamen gelöscht und ihren Avatar geändert"
 
 #: src/eventhandler.cpp:587
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
-msgstr "hat den eigenen Anzeigenamen gelöscht"
+msgstr "%1 haben ihren Anzeigenamen und Avatar gelöscht"
 
 #: src/eventhandler.cpp:589
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "%1 cleared their display name"
-msgstr "hat den eigenen Anzeigenamen gelöscht"
+msgstr "%1 haben ihren Anzeigenamen gelöscht"
 
 #: src/eventhandler.cpp:592
 #, kde-format
@@ -731,16 +705,14 @@ msgid "%1 changed nothing"
 msgstr "%1 hat nichts geändert"
 
 #: src/eventhandler.cpp:596
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 withdrew a user's invitation"
-msgstr "hat die Einladung eines Benutzers zurückgezogen"
+msgstr "%1 haben die Einladung eines Benutzers zurückgezogen"
 
 #: src/eventhandler.cpp:597
-#, fuzzy, kde-format
-#| msgid "rejected the invitation"
+#, kde-format
 msgid "%1 rejected the invitation"
-msgstr "hat die Einladung abgelehnt"
+msgstr "%1 haben die Einladung abgelehnt"
 
 #: src/eventhandler.cpp:601
 #, kde-format
@@ -783,28 +755,24 @@ msgid "%1 made something unknown"
 msgstr "%1 hat etwas Unbekanntes getan"
 
 #: src/eventhandler.cpp:618
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "%1 cleared the room main alias"
-msgstr "hat den Hauptalias des Raums gelöscht"
+msgstr "%1 hat die Hauptklarkennung des Raumes gelöscht"
 
 #: src/eventhandler.cpp:618
-#, fuzzy, kde-format
-#| msgid "set the room main alias"
+#, kde-format
 msgid "%1 set the room main alias"
-msgstr "hat den Hauptalias des Raums geändert"
+msgstr "%1 hat den Hauptklarkennung des Raums festgelegt"
 
 #: src/eventhandler.cpp:621
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "%1 cleared the room name"
-msgstr "hat den Raumnamen gelöscht"
+msgstr "%1 hat den Raumnamen gelöscht"
 
 #: src/eventhandler.cpp:621
-#, fuzzy, kde-format
-#| msgid "set the room name"
+#, kde-format
 msgid "%1 set the room name"
-msgstr "hat den Raumnamen geändert"
+msgstr "%1 hat den Raumnamen festgelegt"
 
 #: src/eventhandler.cpp:624
 #, kde-format
@@ -817,22 +785,19 @@ msgid "%1 set the topic"
 msgstr "%1 hat das Thema geändert"
 
 #: src/eventhandler.cpp:627
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "%1 changed the room avatar"
-msgstr "hat das Raumbild geändert"
+msgstr "%1 haben das Raumbild geändert"
 
 #: src/eventhandler.cpp:630
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr "hat die Ende-zu-Ende-Verschlüsselung aktiviert"
+msgstr "%1 haben die Ende-zu-Ende-Verschlüsselung aktiviert"
 
 #: src/eventhandler.cpp:633
-#, fuzzy, kde-format
-#| msgid "upgraded the room version"
+#, kde-format
 msgid "%1 upgraded the room version"
-msgstr "hat die Raum-Version aktualisiert"
+msgstr "%1 haben die Raum-Version aktualisiert"
 
 #: src/eventhandler.cpp:633
 #, kde-format
@@ -851,10 +816,9 @@ msgid "%1 sent a live location beacon"
 msgstr ""
 
 #: src/eventhandler.cpp:642
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr "hat die Server-Zugangskontrollliste für diesen Raum geändert"
+msgstr "%1 haben die Server-Zugangskontrollliste für diesen Raum geändert"
 
 #: src/eventhandler.cpp:646
 #, kde-format
@@ -872,16 +836,14 @@ msgid "%1 configured a widget"
 msgstr "%1 hat ein Element eingerichtet"
 
 #: src/eventhandler.cpp:654
-#, fuzzy, kde-format
-#| msgid "updated the state"
+#, kde-format
 msgid "%1 updated the state"
-msgstr "hat den Zustand aktualisiert"
+msgstr "%1 haben den Zustand aktualisiert"
 
 #: src/eventhandler.cpp:657
-#, fuzzy, kde-format
-#| msgid "started a poll"
+#, kde-format
 msgid "%1 started a poll"
-msgstr "hat eine Abstimmung gestartet"
+msgstr "%1 haben eine Abstimmung gestartet"
 
 #: src/filetransferpseudojob.cpp:48
 #, kde-format
@@ -951,7 +913,7 @@ msgstr "Server-Adresse:"
 #: src/login/Homeserver.qml:26
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Die Registrierung ist auf diesem Server deaktiviert."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
 #: src/models/messagecontentmodel.cpp:245
@@ -1004,11 +966,10 @@ msgid "Login with password"
 msgstr "Anmeldung mit Passwort"
 
 #: src/login/LoginMethod.qml:26
-#, fuzzy, kde-format
-#| msgid "Login with single sign-on"
+#, kde-format
 msgctxt "@action:button"
 msgid "Login with single sign-on"
-msgstr "Anmeldung mit Single Sign-On"
+msgstr "Anmeldung mit Einfachanmeldung (SSO)"
 
 #: src/login/LoginRegister.qml:24 src/login/Password.qml:41
 #, kde-format
@@ -1130,10 +1091,9 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Eine Adresse auf Matrix teilen"
+msgstr "Über Matrix unterhalten"
 
 #: src/main.cpp:145
 #, kde-format
@@ -1244,7 +1204,7 @@ msgstr "Der Raum wird verlassen."
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr "„%1“ scheint kein Raumname oder -alias zu sein."
+msgstr "„%1“ scheint keine Raum(klar)kennung zu sein."
 
 #: src/models/actionsmodel.cpp:45
 #, kde-format
@@ -1323,13 +1283,13 @@ msgstr "„%1“ scheint keine Matrix-Kennung zu sein."
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "%1 wurde bereits in diesen Raum eingeladen."
+msgstr "%1 ist bereits in diesen Raum eingeladen."
 
 #: src/models/actionsmodel.cpp:208
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "%1 wurde aus dem Raum verbannt."
+msgstr "%1 ist aus dem Raum verbannt."
 
 #: src/models/actionsmodel.cpp:212
 #, kde-format
@@ -1351,7 +1311,7 @@ msgstr "%1 wurde in den Raum eingeladen"
 #: src/models/actionsmodel.cpp:225 src/models/actionsmodel.cpp:375
 #: src/models/actionsmodel.cpp:398 src/models/actionsmodel.cpp:491
 msgid "<user id>"
-msgstr "<Nutzername>"
+msgstr "<Benutzername>"
 
 #: src/models/actionsmodel.cpp:226
 msgid "Invites the user to this room"
@@ -1365,7 +1325,7 @@ msgstr "Beitritt zu Raum %1."
 
 #: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:304
 msgid "<room alias or id>"
-msgstr "<Raumalias oder -ID>"
+msgstr "<Raum(klar)kennung>"
 
 #: src/models/actionsmodel.cpp:250 src/models/actionsmodel.cpp:305
 msgid "Joins the given room"
@@ -1379,7 +1339,7 @@ msgstr "Bei Raum %1 wird geklopft."
 
 #: src/models/actionsmodel.cpp:281
 msgid "<room alias or id> [<reason>]"
-msgstr "<room alias or id> [<reason>]"
+msgstr "<Raum(klar)kennung> [<Grund>]"
 
 #: src/models/actionsmodel.cpp:282
 #, fuzzy
@@ -1395,7 +1355,7 @@ msgstr "Sie sind bereits in Raum %1."
 
 #: src/models/actionsmodel.cpp:312 src/models/actionsmodel.cpp:320
 msgid "[<room alias or id>]"
-msgstr "[<Raumalias oder -ID>]"
+msgstr "[<Raum(klar)kennung>]"
 
 #: src/models/actionsmodel.cpp:313 src/models/actionsmodel.cpp:321
 msgid "Leaves the given room or this room, if there is none given"
@@ -1481,7 +1441,7 @@ msgstr "%1 wurde aus dem Raum verbannt."
 
 #: src/models/actionsmodel.cpp:458 src/models/actionsmodel.cpp:535
 msgid "<user id> [<reason>]"
-msgstr "<Nutzer-ID> [<Grund>]"
+msgstr "<Benutzerkennung> [<Grund>]"
 
 #: src/models/actionsmodel.cpp:459
 msgid "Bans the given user"
@@ -1678,68 +1638,49 @@ msgid "Remove messages sent by other users"
 msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
 #: src/models/permissionsmodel.cpp:64
-#, fuzzy
-#| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr "Einen Standort senden"
+msgstr "Reaktionen senden"
 
 #: src/models/permissionsmodel.cpp:65
-#, fuzzy
-#| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr "Nachrichten löschen"
+msgstr "Eigene Nachrichten löschen"
 
 #: src/models/permissionsmodel.cpp:66
-#, fuzzy
-#| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
-msgstr "Benutzer-Berechtigungen ändern"
+msgstr "Benutzerrechte ändern"
 
 #: src/models/permissionsmodel.cpp:67
-#, fuzzy
-#| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Raumnamen ändern"
 
 #: src/models/permissionsmodel.cpp:68
-#, fuzzy
-#| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Raumbild ändern"
 
 #: src/models/permissionsmodel.cpp:69
-#, fuzzy
-#| msgid "Make this alias the room's canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
-msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
+msgstr "Hauptklarkennung des Raumes ändern"
 
 #: src/models/permissionsmodel.cpp:70
-#, fuzzy
-#| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room topic"
-msgstr "hat das Raumbild geändert"
+msgstr "Thema des Raumes ändern"
 
 #: src/models/permissionsmodel.cpp:71
-#, fuzzy
-#| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
-msgstr "Verschlüsselung für diesen Raum aktivieren"
+msgstr "Verschlüsselung des Raumes aktivieren"
 
 #: src/models/permissionsmodel.cpp:72
-#, fuzzy
-#| msgctxt "@option:check"
-#| msgid "Message history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
-msgstr "Sichtbarkeit des Nachrichtenverlaufs"
+msgstr "Sichtbarkeit des Nachrichtenverlaufs ändern"
 
 #: src/models/permissionsmodel.cpp:73
 #, fuzzy
@@ -1749,18 +1690,14 @@ msgid "Set pinned events"
 msgstr "Zeitleisten-Ereignisse"
 
 #: src/models/permissionsmodel.cpp:74
-#, fuzzy
-#| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
-msgstr "Den Raum aktualisieren"
+msgstr "Raum aktualisieren"
 
 #: src/models/permissionsmodel.cpp:75
-#, fuzzy
-#| msgid "changed the server access control lists for this room"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
-msgstr "hat die Server-Zugangskontrollliste für diesen Raum geändert"
+msgstr "Server-Zugangskontrollliste des Raumes ändern"
 
 #: src/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
@@ -1789,36 +1726,26 @@ msgid ""
 msgstr ""
 
 #: src/models/pushrulemodel.cpp:19
-#, fuzzy
-#| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
-msgstr "Benachrichtigung für dieses Konto aktivieren"
+msgstr "Benachrichtigungen für dieses Konto aktivieren"
 
 #: src/models/pushrulemodel.cpp:20
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Nachrichten in privaten Unterhaltungen"
 
 #: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Verschlüsselte Nachrichten in privaten Unterhaltungen"
 
 #: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Nachrichten in Gruppenchats"
 
 #: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Nachrichten in verschlüsselten Gruppenchats"
@@ -1840,12 +1767,12 @@ msgstr "Nachrichten, die meinen Anzeigenamen enthalten"
 #: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "Nachrichten mit Nennung meiner Matrix-Benutzerkennung"
 
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "Nachrichten mit Nennung eines Raumes"
 
 #: src/models/pushrulemodel.cpp:28
 #, fuzzy
@@ -1862,15 +1789,11 @@ msgid "Whole room (@room) notifications"
 msgstr "Raum-Erwähnungen (@room)"
 
 #: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Einladungen in einen Raum"
 
 #: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Call invitation"
 msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Einladung zu einem Anruf"
@@ -2059,13 +1982,13 @@ msgstr "Entwicklungswerkzeuge"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "Verschlüsselte Sicherungskopie öffnen"
 
 #: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "Schlüsselsicherung öffnen"
 
 #: src/qml/AccountMenu.qml:83
 #, kde-format
@@ -2467,13 +2390,12 @@ msgstr ""
 "Status beim nachgeordneten Element"
 
 #: src/qml/CreateRoomDialog.qml:258
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
+msgstr "Diese als übergeordnete Hauptumgebung festlegen"
 
 #: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
@@ -2725,15 +2647,16 @@ msgid "Only show spaces"
 msgstr "Nur Umgebungen anzeigen"
 
 #: src/qml/ExploreRoomsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Raumadresse eingeben"
+msgstr "Raum direkt eingeben"
 
 #: src/qml/ExploreRoomsPage.qml:103
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr ""
+"Sofern die Raum(klar)kennung bereits bekannt ist und hier nicht angezeigt "
+"wird."
 
 #: src/qml/ExploreRoomsPage.qml:115
 #, kde-format
@@ -3146,7 +3069,7 @@ msgstr "Teilen"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Raum direkt eingeben"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3157,17 +3080,19 @@ msgstr "OK"
 #: src/qml/ManualRoomDialog.qml:81
 #, kde-format
 msgid "Room ID or Alias:"
-msgstr "Raumnummer oder -kennung:"
+msgstr "Raum(klar)kennung:"
 
 #: src/qml/ManualRoomDialog.qml:84 src/qml/ManualRoomDialog.qml:92
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr ""
+"Muss mit „#“ für eine interne Raumkennung oder „!“ für eine Raumklarkennung "
+"beginnen"
 
 #: src/qml/ManualRoomDialog.qml:90
 #, kde-format
 msgid "The input is not a valid room ID or alias"
-msgstr "Der eingegebene Text ist keine gültige Raumnummer oder -kennung"
+msgstr "Der eingegebene Text ist keine gültige Raum(klar)kennung"
 
 #: src/qml/ManualUserDialog.qml:26
 #, kde-format
@@ -3569,10 +3494,9 @@ msgid "You do not have the privileges to complete this action"
 msgstr "Sie besitzen nicht die Berechtigung zum Ausführen dieser Aktion"
 
 #: src/qml/SelectParentDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
+msgstr "Diese als übergeordnete Hauptumgebung festlegen"
 
 #: src/qml/SelectSpacesDialog.qml:35
 #, kde-format
@@ -3646,7 +3570,7 @@ msgstr "Benachrichtigungen anzeigen"
 #: src/qml/SpaceDrawer.qml:86
 #, kde-format
 msgid "Home"
-msgstr ""
+msgstr "Start"
 
 #: src/qml/SpaceDrawer.qml:132
 #, kde-format
@@ -3859,12 +3783,10 @@ msgid "Request from other Devices"
 msgstr ""
 
 #: src/qml/UserDetailDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
-msgstr "Kontodetail"
+msgstr "Konten-Details"
 
 #: src/qml/UserDetailDialog.qml:111
 #, kde-format
@@ -4241,7 +4163,7 @@ msgstr "Fortsetzen"
 #: src/registration.cpp:324
 #, kde-format
 msgid "Working"
-msgstr ""
+msgstr "Arbeitend"
 
 #: src/roommanager.cpp:145
 #, kde-format
@@ -4298,7 +4220,7 @@ msgstr "Beschriftung:"
 #: src/settings/AccountEditorPage.qml:114
 #, kde-format
 msgid "Work"
-msgstr ""
+msgstr "Arbeit"
 
 #: src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4604,7 +4526,7 @@ msgstr "Bild festlegen"
 #: src/settings/EmoticonEditorPage.qml:98
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Kürzel:"
 
 #: src/settings/EmoticonEditorPage.qml:103
 #, kde-format
@@ -4849,7 +4771,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr ""
+msgstr "Alle Räume bei „Start“ anzeigen"
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
@@ -4866,7 +4788,7 @@ msgstr "Aktivität"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "Räume mit ungelesenen Benachrichtigungen werden zuerst angezeigt"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4911,17 +4833,16 @@ msgid "Editor"
 msgstr "Editor"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Nachricht senden"
+msgstr "Nachricht mit der Eingabetaste senden"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Nachrichten mit Strg+Eingabetaste senden"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
@@ -5201,7 +5122,7 @@ msgstr "Passwort:"
 #: src/settings/Permissions.qml:32
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Privilegierte Benutzer"
 
 #: src/settings/Permissions.qml:233
 #, kde-format
@@ -5276,32 +5197,32 @@ msgstr "Raum aktualisieren"
 #: src/settings/RoomGeneralPage.qml:162
 #, kde-format
 msgid "Aliases"
-msgstr "Aliasse"
+msgstr "Klarnamen"
 
 #: src/settings/RoomGeneralPage.qml:167
 #, kde-format
 msgid "No canonical alias set"
-msgstr "Keine Hauptadresse gesetzt"
+msgstr "Keine Hauptklarkennung gesetzt"
 
 #: src/settings/RoomGeneralPage.qml:182
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
+msgstr "Diese Klarkennung zur Hauptadresse des Raumes machen"
 
 #: src/settings/RoomGeneralPage.qml:197
 #, kde-format
 msgid "Delete alias"
-msgstr "Alias löschen"
+msgstr "Klarkennung löschen"
 
 #: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr "#neuer_alias:server.org"
+msgstr "#neue_Klarkennung:server.org"
 
 #: src/settings/RoomGeneralPage.qml:238
 #, kde-format
 msgid "Add new alias"
-msgstr "Neuen Alias hinzufügen"
+msgstr "Neuen Klarkennung hinzufügen"
 
 #: src/settings/RoomGeneralPage.qml:258
 #, kde-format
@@ -5447,10 +5368,10 @@ msgid "Space members"
 msgstr "Mitglieder der Umgebung"
 
 #: src/settings/RoomSecurityPage.qml:56
-#, fuzzy, kde-format
-#| msgid "Anyone in a space can find and join."
+#, kde-format
 msgid "Anyone in the selected spaces can find and join."
-msgstr "Jeder im Space kann den Raum finden und betreten."
+msgstr ""
+"Jeder in den ausgewählten Umgebungen kann den Raum finden und betreten."
 
 #: src/settings/RoomSecurityPage.qml:65
 #, kde-format
@@ -5513,7 +5434,7 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
-"Alle Mitglieder können den gesamten Verlauf sehen, sogar von vor ihrem "
+"Alle Mitglieder können den gesamten Verlauf sehen, sogar den vor ihrem "
 "Beitritt."
 
 #: src/settings/RoomSecurityPage.qml:126
@@ -5777,7 +5698,7 @@ msgstr "Bild anzeigen"
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
-msgstr ""
+msgstr "Zu KDE-Itinerary senden"
 
 #: src/timeline/LinkPreviewComponent.qml:136
 #: src/timeline/LinkPreviewLoadComponent.qml:79
@@ -5808,10 +5729,9 @@ msgid "Open Externally"
 msgstr "Extern öffnen"
 
 #: src/timeline/MessageComponentChooser.qml:211
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
+#, kde-format
 msgid "%1 started a user verification"
-msgstr "hat die Einladung eines Benutzers zurückgezogen"
+msgstr "%1 startete eine Überprüfung des Benutzers"
 
 #: src/timeline/PollComponent.qml:80
 #, kde-format
