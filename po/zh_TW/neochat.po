@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:40+0000\n"
-"PO-Revision-Date: 2024-10-20 00:11+0900\n"
+"PO-Revision-Date: 2024-11-26 22:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1081,10 +1081,9 @@ msgid "Settings"
 msgstr "設定"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "將網址分享到 Matrix"
+msgstr "在 Matrix 上聊天"
 
 #: src/main.cpp:145
 #, kde-format
@@ -2154,8 +2153,7 @@ msgid "Mark as Read"
 msgstr "標記為已讀"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "通知"
@@ -2604,15 +2602,14 @@ msgid "Only show spaces"
 msgstr "只顯示聊天空間"
 
 #: src/qml/ExploreRoomsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "輸入聊天室位址"
+msgstr "手動輸入聊天室"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "您已經知道某個聊天室的位址或別名而它沒有出現在此時可使用。"
 
 #: src/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -2626,26 +2623,22 @@ msgid "No public rooms found"
 msgstr "沒有找到公開聊天室"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "設定影像"
+msgstr "開啟影像"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "設定影像"
+msgstr "儲存影像…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "設定影像"
+msgstr "複製影像"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3026,7 +3019,7 @@ msgstr "分享"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "手動輸入聊天室"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3071,12 +3064,10 @@ msgid "The input is not a valid user ID"
 msgstr "輸入值不是有效的使用者 ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "轉寄"
+msgstr "轉寄…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3085,18 +3076,16 @@ msgid "Forward Message"
 msgstr "轉寄訊息"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "複製"
+msgstr "複製文字"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "複製連結"
+msgstr "複製訊息連結"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3247,8 +3236,7 @@ msgid "Space Members"
 msgstr "聊天空間成員"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "聊天室資訊"
@@ -3292,12 +3280,10 @@ msgid "Show locations for this room"
 msgstr "顯示這個聊天室的位置"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "離開聊天空間"
+msgstr "離開這個聊天空間"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
@@ -4700,7 +4686,7 @@ msgstr "活動"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "有未讀通知的聊天室會顯示在上方"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4745,17 +4731,16 @@ msgid "Editor"
 msgstr "編輯器"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "傳送訊息"
+msgstr "用 Enter 鍵傳送訊息"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "用 Ctrl+Enter 鍵傳送訊息"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
