@@ -325,7 +325,7 @@ Kirigami.Page {
     QtObject {
         id: _private
         property int currentWidth: NeoChatConfig.collapsed ? collapsedSize : defaultWidth
-        readonly property int defaultWidth: Kirigami.Units.gridUnit * 17
+        readonly property int defaultWidth: Kirigami.Units.gridUnit * 15
         readonly property int collapseWidth: Kirigami.Units.gridUnit * 10
         readonly property int collapsedSize: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + Kirigami.Units.largeSpacing * 2 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
     }
