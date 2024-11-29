@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:40+0000\n"
-"PO-Revision-Date: 2024-10-10 08:55+0400\n"
+"PO-Revision-Date: 2024-11-28 12:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1088,10 +1088,9 @@ msgid "Settings"
 msgstr "إعدادات"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "شارِك رابط على مارتكس"
+msgstr "دردش على ماتركس"
 
 #: src/main.cpp:145
 #, kde-format
@@ -2178,8 +2177,7 @@ msgid "Mark as Read"
 msgstr "علّم كمقروءة"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "الإشعارات"
@@ -2628,10 +2626,9 @@ msgid "Only show spaces"
 msgstr "أظهر الفضاءات فقط"
 
 #: src/qml/ExploreRoomsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "أدخل عنوان الغرفة"
+msgstr "ادخل الغرفة يدويًا"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
@@ -2650,26 +2647,22 @@ msgid "No public rooms found"
 msgstr "لم يعثر على غرف عامة"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "عيّن صورة"
+msgstr "افتح صورة"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "عيّن صورة"
+msgstr "احفظ الصّورة…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "أظهر الصورة"
+msgstr "انسخ الصورة"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3052,7 +3045,7 @@ msgstr "شارك"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "دخول الغرفة يدويًا"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3097,12 +3090,10 @@ msgid "The input is not a valid user ID"
 msgstr "ليس النص المُدخَل ليس رقم مستخدم صالح"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "تقدّم"
+msgstr "تقدّم…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3111,18 +3102,16 @@ msgid "Forward Message"
 msgstr "تمرير الرسالة"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "انسخ"
+msgstr "انسخ النّصّ"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "نسخ الرابط"
+msgstr "انسخ رابط الرِّسالة"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3273,8 +3262,7 @@ msgid "Space Members"
 msgstr "أعضاء الفضاء"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "معلومات الغرفة"
@@ -3318,12 +3306,10 @@ msgid "Show locations for this room"
 msgstr "اعرض المواقع لهذه الغرفة"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "اترك الفضاء"
+msgstr "غادر هذا الفضاء"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
@@ -4795,11 +4781,10 @@ msgid "Editor"
 msgstr "المحرّر"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "أرسل رسالة"
+msgstr "أرسل رسالة مع عند الضغط على زر الإدخال"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
