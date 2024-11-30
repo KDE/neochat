@@ -423,10 +423,14 @@ void Controller::setTestMode(bool test)
 
 void Controller::removeConnection(const QString &userId)
 {
-    if (m_connectionsLoading.contains(userId) && m_connectionsLoading[userId]) {
-        auto connection = m_connectionsLoading[userId];
+    // When loadAccessTokenFromKeyChain() fails m_connectionsLoading won't have an
+    // entry for it so we need to check both separately.
+    if (m_accountsLoading.contains(userId)) {
         m_accountsLoading.removeAll(userId);
         Q_EMIT accountsLoadingChanged();
+    }
+    if (m_connectionsLoading.contains(userId) && m_connectionsLoading[userId]) {
+        auto connection = m_connectionsLoading[userId];
         SettingsGroup("Accounts"_ls).remove(userId);
     }
 }
