@@ -93,10 +93,7 @@ void Registration::registerAccount()
             auto matrixId = "@%1:%2"_ls.arg(m_username, m_homeserver);
             connection->resolveServer(matrixId);
 
-            auto displayName = "NeoChat %1 %2 %3 %4"_ls.arg(QSysInfo::machineHostName(),
-                                                            QSysInfo::productType(),
-                                                            QSysInfo::productVersion(),
-                                                            QSysInfo::currentCpuArchitecture());
+            auto displayName = "NeoChat"_ls;
             connection->loginWithPassword(matrixId, m_password, displayName);
 
             connect(connection, &Connection::connected, this, [this, displayName, connection] {
