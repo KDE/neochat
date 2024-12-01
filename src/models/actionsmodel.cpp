@@ -109,11 +109,10 @@ QList<ActionsModel::Action> actions{
                 rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
-            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
-                              rainbowText,
-                              RoomMessageEvent::MsgType::Text,
-                              chatBarCache->replyId(),
-                              chatBarCache->editId());
+            auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
+            EventRelation relatesTo =
+                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            room->post<Quotient::RoomMessageEvent>("/rainbow %1"_L1.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
         false,
@@ -129,11 +128,10 @@ QList<ActionsModel::Action> actions{
                 rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
-            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
-                              rainbowText,
-                              RoomMessageEvent::MsgType::Emote,
-                              chatBarCache->replyId(),
-                              chatBarCache->editId());
+            auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
+            EventRelation relatesTo =
+                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
         false,
@@ -144,7 +142,7 @@ QList<ActionsModel::Action> actions{
     Action{
         QStringLiteral("plain"),
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            room->postMessage(text, text.toHtmlEscaped(), RoomMessageEvent::MsgType::Text, {}, {});
+            room->postPlainText(text.toHtmlEscaped());
             return QString();
         },
         false,
@@ -156,11 +154,10 @@ QList<ActionsModel::Action> actions{
         QStringLiteral("spoiler"),
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
-            room->postMessage(QStringLiteral("/spoiler %1").arg(text),
-                              QStringLiteral("<span data-mx-spoiler>%1</span>").arg(text),
-                              RoomMessageEvent::MsgType::Text,
-                              chatBarCache->replyId(),
-                              chatBarCache->editId());
+            auto content = std::make_unique<Quotient::EventContent::TextContent>(u"<span data-mx-spoiler>%1</span>"_s.arg(text), u"text/html"_s);
+            EventRelation relatesTo =
+                chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
+            room->post<Quotient::RoomMessageEvent>(u"/spoiler %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
         false,
@@ -605,15 +602,15 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
                         if (eventRelation && eventRelation->type == "m.replace"_L1) {
                             replaceId = eventRelation->eventId;
                         }
+
+                        std::unique_ptr<EventContent::TextContent> content = nullptr;
                         if (flags == "/g"_L1) {
-                            room->postHtmlMessage(messageText, originalString.replace(regex, replacement), event->msgtype(), {}, replaceId);
+                            content = std::make_unique<Quotient::EventContent::TextContent>(originalString.replace(regex, replacement), u"text/html"_s);
                         } else {
-                            room->postHtmlMessage(messageText,
-                                                  originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
-                                                  event->msgtype(),
-                                                  {},
-                                                  replaceId);
+                            content = std::make_unique<Quotient::EventContent::TextContent>(originalString.replace(regex, replacement), u"text/html"_s);
                         }
+                        Quotient::EventRelation relatesTo = Quotient::EventRelation::replace(replaceId);
+                        room->post<Quotient::RoomMessageEvent>(messageText, event->msgtype(), std::move(content), relatesTo);
                         return true;
                     }
                 }

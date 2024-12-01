@@ -248,7 +248,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
             TextHandler textHandler;
             textHandler.setData(text);
-            room->postMessage(text, textHandler.handleSendText(), RoomMessageEvent::MsgType::Text, replyEventId, QString());
+            auto content = std::make_unique<Quotient::EventContent::TextContent>(textHandler.handleSendText(), u"text/html"_s);
+            EventRelation relatesTo = EventRelation::replyTo(replyEventId);
+            room->post<Quotient::RoomMessageEvent>(text, MessageEventType::Text, std::move(content), relatesTo);
         });
         notification->setReplyAction(std::move(replyAction));
     }

@@ -11,6 +11,8 @@
 #include "neochatroom.h"
 #include "texthandler.h"
 
+using namespace Qt::StringLiterals;
+
 ChatBarCache::ChatBarCache(QObject *parent)
     : QObject(parent)
 {
@@ -319,7 +321,24 @@ void ChatBarCache::postMessage()
         return;
     }
 
-    room->postMessage(text(), sendText, *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), replyId(), editId(), threadId());
+    bool isReply = !replyId().isEmpty();
+    const auto replyIt = room->findInTimeline(replyId());
+    if (replyIt == room->historyEdge()) {
+        isReply = false;
+    }
+
+    auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
+    std::optional<Quotient::EventRelation> relatesTo = std::nullopt;
+
+    if (!threadId().isEmpty()) {
+        relatesTo = Quotient::EventRelation::replyInThread(threadId(), !isReply, isReply ? replyId() : threadId());
+    } else if (!editId().isEmpty()) {
+        relatesTo = Quotient::EventRelation::replace(editId());
+    } else if (isReply) {
+        relatesTo = Quotient::EventRelation::replyTo(replyId());
+    }
+
+    room->post<Quotient::RoomMessageEvent>(text(), *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), std::move(content), relatesTo);
     clearCache();
 }
 

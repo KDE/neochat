@@ -692,40 +692,6 @@ public Q_SLOTS:
     void sendTypingNotification(bool isTyping);
 
     /**
-     * @brief Send a message to the room.
-     *
-     * @param rawText the text as it was typed.
-     * @param cleanedText the text marked up as html.
-     * @param type the type of message being sent.
-     * @param replyEventId the id of the message being replied to if a reply.
-     * @param relateToEventId the id of the message being edited if an edit.
-     */
-    void postMessage(const QString &rawText,
-                     const QString &cleanedText,
-                     Quotient::MessageEventType type = Quotient::MessageEventType::Text,
-                     const QString &replyEventId = QString(),
-                     const QString &relateToEventId = QString(),
-                     const QString &threadRootId = QString(),
-                     const QString &fallbackId = QString());
-
-    /**
-     * @brief Send an html message to the room.
-     *
-     * @param text the text as it was typed.
-     * @param html the text marked up as html.
-     * @param type the type of message being sent.
-     * @param replyEventId the id of the message being replied to if a reply.
-     * @param relateToEventId the id of the message being edited if an edit.
-     */
-    void postHtmlMessage(const QString &text,
-                         const QString &html,
-                         Quotient::MessageEventType type = Quotient::MessageEventType::Text,
-                         const QString &replyEventId = QString(),
-                         const QString &relateToEventId = QString(),
-                         const QString &threadRootId = QString(),
-                         const QString &fallbackId = QString());
-
-    /**
      * @brief Set the room avatar.
      */
     void changeAvatar(const QUrl &localFile);

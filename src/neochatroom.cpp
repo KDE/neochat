@@ -484,65 +484,6 @@ QString msgTypeToString(MessageEventType msgType)
     }
 }
 
-void NeoChatRoom::postMessage(const QString &rawText,
-                              const QString &text,
-                              MessageEventType type,
-                              const QString &replyEventId,
-                              const QString &relateToEventId,
-                              const QString &threadRootId,
-                              const QString &fallbackId)
-{
-    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId, threadRootId, fallbackId);
-}
-
-void NeoChatRoom::postHtmlMessage(const QString &text,
-                                  const QString &html,
-                                  MessageEventType type,
-                                  const QString &replyEventId,
-                                  const QString &relateToEventId,
-                                  const QString &threadRootId,
-                                  const QString &fallbackId)
-{
-    bool isReply = !replyEventId.isEmpty();
-    bool isEdit = !relateToEventId.isEmpty();
-    bool isThread = !threadRootId.isEmpty();
-    const auto replyIt = findInTimeline(replyEventId);
-    if (replyIt == historyEdge()) {
-        isReply = false;
-    }
-
-    auto content = std::make_unique<EventContent::TextContent>(html, u"text/html"_s);
-    std::optional<EventRelation> relatesTo = std::nullopt;
-
-    if (isThread) {
-        bool isFallingBack = !fallbackId.isEmpty();
-        QString replyEventId = isFallingBack ? fallbackId : QString();
-        if (isReply) {
-            isFallingBack = false;
-            replyEventId = replyIt->event()->displayId();
-        }
-
-        // If we are not replying and there is no fallback ID it means a new thread
-        // is being created.
-        if (!isFallingBack && !isReply) {
-            isFallingBack = true;
-            replyEventId = threadRootId;
-        }
-
-        relatesTo = EventRelation::replyInThread(threadRootId, isFallingBack, replyEventId);
-    }
-
-    if (isEdit) {
-        relatesTo = EventRelation::replace(relateToEventId);
-    }
-
-    if (isReply) {
-        relatesTo = EventRelation::replyTo(replyEventId);
-    }
-
-    post<RoomMessageEvent>(text, type, std::move(content), relatesTo);
-}
-
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
 {
     if (eventId.isEmpty() || reaction.isEmpty()) {
