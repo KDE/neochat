@@ -10,6 +10,8 @@
 #include <QTemporaryFile>
 
 #include <Quotient/events/eventcontent.h>
+#include <Quotient/events/eventrelation.h>
+#include <Quotient/events/roommessageevent.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qcoro/qcorosignal.h>
@@ -509,6 +511,9 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
         isReply = false;
     }
 
+    auto content = std::make_unique<EventContent::TextContent>(html, u"text/html"_s);
+    std::optional<EventRelation> relatesTo = std::nullopt;
+
     if (isThread) {
         bool isFallingBack = !fallbackId.isEmpty();
         QString replyEventId = isFallingBack ? fallbackId : QString();
@@ -524,75 +529,18 @@ void NeoChatRoom::postHtmlMessage(const QString &text,
             replyEventId = threadRootId;
         }
 
-        // clang-format off
-        QJsonObject json{
-          {"msgtype"_ls, msgTypeToString(type)},
-          {"body"_ls, text},
-          {"format"_ls, "org.matrix.custom.html"_ls},
-          {"m.relates_to"_ls,
-            QJsonObject {
-              {"rel_type"_ls, "m.thread"_ls},
-              {"event_id"_ls, threadRootId},
-              {"is_falling_back"_ls, isFallingBack},
-              {"m.in_reply_to"_ls,
-                QJsonObject {
-                  {"event_id"_ls, replyEventId}
-                }
-              }
-            }
-          },
-          {"formatted_body"_ls, html}
-        };
-        // clang-format on
-
-        postJson("m.room.message"_ls, json);
-        return;
+        relatesTo = EventRelation::replyInThread(threadRootId, isFallingBack, replyEventId);
     }
 
     if (isEdit) {
-        QJsonObject json{
-            {"type"_ls, "m.room.message"_ls},
-            {"msgtype"_ls, msgTypeToString(type)},
-            {"body"_ls, "* %1"_ls.arg(text)},
-            {"format"_ls, "org.matrix.custom.html"_ls},
-            {"formatted_body"_ls, html},
-            {"m.new_content"_ls,
-             QJsonObject{{"body"_ls, text}, {"msgtype"_ls, msgTypeToString(type)}, {"format"_ls, "org.matrix.custom.html"_ls}, {"formatted_body"_ls, html}}},
-            {"m.relates_to"_ls, QJsonObject{{"rel_type"_ls, "m.replace"_ls}, {"event_id"_ls, relateToEventId}}}};
-
-        postJson("m.room.message"_ls, json);
-        return;
+        relatesTo = EventRelation::replace(relateToEventId);
     }
 
     if (isReply) {
-        const auto &replyEvt = **replyIt;
-
-        // clang-format off
-        QJsonObject json{
-          {"msgtype"_ls, msgTypeToString(type)},
-          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), EventHandler::plainBody(this, &replyEvt), text)},
-          {"format"_ls, "org.matrix.custom.html"_ls},
-          {"m.relates_to"_ls,
-            QJsonObject {
-              {"m.in_reply_to"_ls,
-                QJsonObject {
-                  {"event_id"_ls, replyEventId}
-                }
-              }
-            }
-          },
-          {"formatted_body"_ls,
-              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), EventHandler::richBody(this, &replyEvt), html)
-          }
-        };
-        // clang-format on
-
-        postJson("m.room.message"_ls, json);
-
-        return;
+        relatesTo = EventRelation::replyTo(replyEventId);
     }
 
-    Room::postHtmlMessage(text, html, type);
+    post<RoomMessageEvent>(text, type, std::move(content), relatesTo);
 }
 
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
