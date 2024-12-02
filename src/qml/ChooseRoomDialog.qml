@@ -23,7 +23,11 @@ SearchPage {
 
     model: RoomManager.sortFilterRoomListModel
     modelDelegate: RoomDelegate {
-        onClicked: root.chosen(currentRoom.id)
+        onClicked: {
+            root.chosen(currentRoom.id);
+            root.closeDialog();
+        }
         connection: root.connection
+        openOnClick: false
     }
 }

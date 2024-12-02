@@ -21,19 +21,22 @@ ColumnLayout {
         title: i18nc("@title", "Choose Room")
     }
     FormCard.FormCard {
-        FormCard.FormComboBoxDelegate {
-            id: roomComboBox
-            text: i18n("Room")
-            textRole: "escapedDisplayName"
-            valueRole: "roomId"
-            displayText: RoomManager.roomListModel.data(RoomManager.roomListModel.index(currentIndex, 0), RoomListModel.EscapedDisplayNameRole)
-            model: RoomManager.roomListModel
-            currentIndex: 0
-            displayMode: FormCard.FormComboBoxDelegate.Page
-            Component.onCompleted: currentIndex = RoomManager.roomListModel.rowForRoom(root.room)
-            onCurrentValueChanged: root.room = RoomManager.roomListModel.roomByAliasOrId(roomComboBox.currentValue)
+        FormCard.FormButtonDelegate {
+            text: root.room?.displayNameForHtml ?? i18nc("@info", "No room selected")
+            description: i18nc("@info", "Click to choose a room");
+
+            onClicked: {
+                let dialog = root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
+                    connection: root.connection,
+                }, {
+                    title: i18nc("@title:dialog", "Choose Room"),
+                    width: Kirigami.Units.gridUnit * 24
+                });
+                dialog.chosen.connect(id => root.room = root.connection.room(id))
+            }
         }
         FormCard.FormTextDelegate {
+            visible: root.room
             text: i18n("Room Id: %1", root.room.id)
         }
     }

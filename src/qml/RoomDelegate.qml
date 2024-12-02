@@ -25,6 +25,7 @@ Delegates.RoundedItemDelegate {
     required property string subtitleText
     required property string displayName
 
+    property bool openOnClick: true
     property bool showConfigure: true
 
     property bool collapsed: false
@@ -35,8 +36,10 @@ Delegates.RoundedItemDelegate {
     Accessible.onPressAction: clicked()
 
     onClicked: {
-        RoomManager.resolveResource(currentRoom.id);
-        pageStack.currentIndex = 1;
+        if (root.openOnClick) {
+            RoomManager.resolveResource(currentRoom.id);
+            pageStack.currentIndex = 1;
+        }
     }
 
     onPressAndHold: createRoomListContextMenu()
