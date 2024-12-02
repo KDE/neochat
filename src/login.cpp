@@ -25,8 +25,7 @@ void LoginHelper::init()
     m_connection = new NeoChatConnection();
     m_matrixId = QString();
     m_password = QString();
-    m_deviceName = QStringLiteral("NeoChat %1 %2 %3 %4")
-                       .arg(QSysInfo::machineHostName(), QSysInfo::productType(), QSysInfo::productVersion(), QSysInfo::currentCpuArchitecture());
+    m_deviceName = QStringLiteral("NeoChat");
     m_supportsSso = false;
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
