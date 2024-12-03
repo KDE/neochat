@@ -271,7 +271,6 @@ int main(int argc, char *argv[])
 #endif
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QCoreApplication::quit);
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
     if (parser.isSet("ignore-ssl-errors"_ls)) {
