@@ -64,8 +64,17 @@ static const QVector<RoomTreeModel::EventRoles> activitySortPriorities{
     RoomTreeModel::HasHighlightNotificationsRole,
     RoomTreeModel::ContextNotificationCountRole,
     RoomTreeModel::FavouriteRole,
-    // Finally sort by last activity time
+};
+
+static const QVector<RoomTreeModel::EventRoles> lastMessageSortPriorities{
+    // Sort by last activity time
     RoomTreeModel::LastActiveTimeRole,
+    // Anything useful at the top, quiet rooms at the bottom
+    RoomTreeModel::AttentionRole,
+    // Organize by highlights, notifications, unread favorites, all other unread, in that order
+    RoomTreeModel::HasHighlightNotificationsRole,
+    RoomTreeModel::ContextNotificationCountRole,
+    RoomTreeModel::FavouriteRole,
 };
 
 bool SortFilterRoomTreeModel::roleCmp(const QVariant &sortLeft, const QVariant &sortRight) const
@@ -110,8 +119,9 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
         return prioritiesCmp(alphabeticalSortPriorities, source_left, source_right);
     case SortFilterRoomTreeModel::Activity:
         return prioritiesCmp(activitySortPriorities, source_left, source_right);
+    case SortFilterRoomTreeModel::LastMessage:
+        return prioritiesCmp(lastMessageSortPriorities, source_left, source_right);
     }
-
     return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 

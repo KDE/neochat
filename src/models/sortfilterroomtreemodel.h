@@ -53,6 +53,7 @@ public:
     enum RoomSortOrder {
         Alphabetical,
         Activity,
+        LastMessage,
     };
     Q_ENUM(RoomSortOrder)
 

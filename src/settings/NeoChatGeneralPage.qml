@@ -110,6 +110,16 @@ FormCard.FormCardPage {
                 NeoChatConfig.save()
             }
         }
+        FormCard.FormRadioDelegate {
+            text: i18nc("As in 'sort something based on the last message'", "Last Message Activity")
+            description: i18nc("@info", "Rooms with the newest activity will be shown first")
+            checked: NeoChatConfig.sortOrder === 2
+            enabled: !NeoChatConfig.isSortOrderImmutable
+            onToggled: {
+                NeoChatConfig.sortOrder = 2
+                NeoChatConfig.save()
+            }
+        }
     }
     FormCard.FormHeader {
         title: i18n("Timeline Events")
