@@ -33,4 +33,28 @@ ColumnLayout {
             }
         }
     }
+    FormCard.FormCard {
+        FormCard.FormSwitchDelegate {
+            id: showAccessTokenCheckbox
+            text: i18nc("@info", "Show Access Token")
+            description: i18n("This should not be shared with anyone, even other users. This token gives full access to your account.")
+        }
+        FormCard.FormTextDelegate {
+            text: i18nc("@info", "Access Token")
+            description: root.connection.accessToken
+            visible: showAccessTokenCheckbox.checked
+
+            contentItem.children: QQC2.Button {
+                text: i18nc("@action:button", "Copy access token to clipboard")
+                icon.name: "edit-copy"
+                display: QQC2.AbstractButton.IconOnly
+
+                onClicked: Clipboard.saveText(root.connection.accessToken)
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: hovered
+            }
+        }
+    }
 }
