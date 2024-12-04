@@ -17,7 +17,7 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
-    title: i18n("Edit Account")
+    title: i18nc("@title:window", "Edit Account")
     property NeoChatConnection connection
 
     KirigamiComponents.AvatarButton {
@@ -99,7 +99,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("User Information")
+        title: i18nc("@title:group", "User Information")
     }
     FormCard.FormCard {
         FormCard.FormTextFieldDelegate {
@@ -151,7 +151,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Password")
+        title: i18nc("@title:group", "Password")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
@@ -204,18 +204,18 @@ FormCard.FormCardPage {
     }
     ThreePIdCard {
         connection: root.connection
-        title: i18n("Email Addresses")
+        title: i18nc("@title:group", "Email Addresses")
         medium: "email"
     }
     ThreePIdCard {
         visible: NeoChatConfig.phone3PId
         connection: root.connection
-        title: i18n("Phone Numbers")
+        title: i18nc("@title:group", "Phone Numbers")
         medium: "msisdn"
     }
     FormCard.FormHeader {
         Layout.fillWidth: true
-        title: i18n("Identity Server")
+        title: i18nc("@title:group", "Identity Server")
     }
     FormCard.FormCard {
         IdentityServerDelegate {
@@ -224,7 +224,7 @@ FormCard.FormCardPage {
     }
     FormCard.FormHeader {
         Layout.fillWidth: true
-        title: i18n("Server Information")
+        title: i18nc("@title:group", "Server Information")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
@@ -249,7 +249,7 @@ FormCard.FormCardPage {
         }*/
     }
     FormCard.FormHeader {
-        title: i18nc("@title", "Account Management")
+        title: i18nc("@title:group", "Account Management")
     }
     FormCard.FormCard {
         FormCard.FormButtonDelegate {

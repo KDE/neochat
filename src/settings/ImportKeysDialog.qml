@@ -18,7 +18,7 @@ FormCard.FormCardPage {
 
     signal success
 
-    title: i18nc("@title", "Import Keys")
+    title: i18nc("@title:window", "Import Keys")
 
     header: Kirigami.InlineMessage {
         id: banner

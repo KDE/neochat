@@ -23,7 +23,7 @@ FormCard.FormCardPage {
     title: i18nc('@title:window', 'Notifications')
 
     FormCard.FormHeader {
-        title: i18n("Room notifications setting")
+        title: i18nc("@title:group", "Room notifications setting")
     }
 
     FormCard.FormCard {
@@ -62,7 +62,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Keywords")
+        title: i18nc("@title:group", "Keywords")
     }
     FormCard.FormCard {
         Repeater {

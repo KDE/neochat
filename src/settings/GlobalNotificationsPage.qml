@@ -36,7 +36,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Room Notifications")
+        title: i18nc("@title:group", "Room Notifications")
     }
     FormCard.FormCard {
         Repeater {
@@ -53,7 +53,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("@Mentions")
+        title: i18nc("@title:group", "@Mentions")
     }
     FormCard.FormCard {
         Repeater {
@@ -70,7 +70,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Keywords")
+        title: i18nc("@title:group", "Keywords")
     }
     FormCard.FormCard {
         Repeater {
@@ -134,7 +134,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Invites")
+        title: i18nc("@title:group", "Invites")
     }
     FormCard.FormCard {
         Repeater {
@@ -151,7 +151,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Unknown")
+        title: i18nc("@title:group", "Unknown")
         visible: unknownModel.rowCount() > 0
     }
     FormCard.FormCard {

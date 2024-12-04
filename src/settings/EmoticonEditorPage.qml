@@ -24,10 +24,10 @@ FormCard.FormCardPage {
     property bool newEmoticon: false
     required property var emoticonType
 
-    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title", "Add Sticker") : i18nc("@title", "Edit Sticker")) : (newEmoticon ? i18nc("@title", "Add Emoji") : i18nc("@title", "Edit Emoji"))
+    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title:window", "Add Sticker") : i18nc("@title:window", "Edit Sticker")) : (newEmoticon ? i18nc("@title:window", "Add Emoji") : i18nc("@title:window", "Edit Emoji"))
 
     FormCard.FormHeader {
-        title: emoticonType === EmoticonFormCard.Stickers ? i18n("Sticker") : i18n("Emoji")
+        title: emoticonType === EmoticonFormCard.Stickers ? i18nc("@info:group", "Sticker") : i18nc("@info:group", "Emoji")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {

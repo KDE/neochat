@@ -13,10 +13,10 @@ FormCard.FormCardPage {
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "Stickers & Emojis")
+    title: i18nc("@title:window", "Stickers & Emojis")
 
     FormCard.FormHeader {
-        title: i18n("Emojis")
+        title: i18nc("@title:group", "Emojis")
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Emojis
@@ -24,7 +24,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Stickers")
+        title: i18nc("@title:group", "Stickers")
     }
     EmoticonFormCard {
         emoticonType: EmoticonFormCard.Stickers

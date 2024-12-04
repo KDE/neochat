@@ -14,7 +14,7 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
-    title: i18nc("@title", "Export Keys")
+    title: i18nc("@title:window", "Export Keys")
 
     required property NeoChatConnection connection
 

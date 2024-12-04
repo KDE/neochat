@@ -15,7 +15,7 @@ FormCard.FormCardPage {
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "Ignored Users")
+    title: i18nc("@title:window", "Ignored Users")
 
     width: Kirigami.Units.gridUnit * 16
     height: Kirigami.Units.gridUnit * 32

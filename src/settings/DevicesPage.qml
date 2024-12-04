@@ -14,7 +14,7 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
-    title: i18n("Devices")
+    title: i18nc("@title:window", "Devices")
 
     background: Kirigami.PlaceholderMessage {
         text: i18n("Loading…")
@@ -30,22 +30,22 @@ FormCard.FormCardPage {
 
     DevicesCard {
         id: thisDeviceCard
-        title: i18n("This Device")
+        title: i18nc("@info:group", "This Device")
         type: DevicesModel.This
         showVerifyButton: false
     }
     DevicesCard {
-        title: i18n("Verified Devices")
+        title: i18nc("@info:group", "Verified Devices")
         type: DevicesModel.Verified
         showVerifyButton: true
     }
     DevicesCard {
-        title: i18n("Unverified Devices")
+        title: i18nc("@info:group", "Unverified Devices")
         type: DevicesModel.Unverified
         showVerifyButton: true
     }
     DevicesCard {
-        title: i18n("Devices without Encryption Support")
+        title: i18nc("@info:group", "Devices without Encryption Support")
         type: DevicesModel.Unencrypted
         showVerifyButton: false
     }

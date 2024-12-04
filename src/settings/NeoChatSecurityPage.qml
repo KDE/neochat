@@ -15,7 +15,7 @@ FormCard.FormCardPage {
 
     required property NeoChatConnection connection
 
-    title: i18nc("@title", "Security & Safety")
+    title: i18nc("@title:window", "Security & Safety")
 
     header: Kirigami.InlineMessage {
         id: banner
@@ -67,7 +67,7 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18nc("@title", "Encryption")
+        title: i18nc("@title:group", "Encryption")
         visible: Controller.csSupported
     }
     FormCard.FormCard {

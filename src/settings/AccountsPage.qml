@@ -17,7 +17,7 @@ FormCard.FormCardPage {
 
     property NeoChatConnection initialAccount
 
-    title: i18n("Accounts")
+    title: i18nc("@title:window", "Accounts")
 
     Component.onCompleted: if (initialAccount) {
         intialAccountTimer.restart()
@@ -35,7 +35,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Accounts")
+        title: i18nc("@title:group", "Accounts")
     }
     FormCard.FormCard {
         Repeater {
