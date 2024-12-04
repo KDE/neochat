@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -222,40 +222,58 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "选择聊天室"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "聊天室"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "没有找到聊天室"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "选择聊天室"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "选择聊天室"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "聊天室 ID：%1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "聊天室账户数据"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "事件源码"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "聊天室状态"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
 msgstr[0] ""
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2271,6 +2289,11 @@ msgstr "新建聊天室信息"
 msgid "Select type"
 msgstr "选择类型"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "聊天室"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3200,12 +3223,12 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "已静音的聊天室"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "配置聊天室"

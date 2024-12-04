@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -239,36 +239,51 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "o pali e tomo toki"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
+#: src/devtools/RoomData.qml:25
 #, fuzzy, kde-format
-#| msgid "Room Name"
-msgid "Room"
-msgstr "nimi tomo"
+#| msgid "Send message"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "o pana e toki"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "o pali e tomo toki"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "o pali e tomo toki"
+
+#: src/devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "Room Id: %1"
 msgstr "nimi tomo"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr ""
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr ""
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "Room State"
 msgstr "nimi tomo"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -278,7 +293,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2394,6 +2409,12 @@ msgstr ""
 msgid "Select type"
 msgstr ""
 
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgid "Room"
+msgstr "nimi tomo"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3370,12 +3391,12 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr ""

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -230,33 +230,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Vel rom"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Rom"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Fann ikkje nokon rom"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Vel rom"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Vel rom"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Rom-ID: %1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "Romkonto-data"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Hendingskjelde"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "Romtilstand"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -264,7 +283,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 hending av denne typen"
 msgstr[1] "%1 hendingar av denne typen"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2326,6 +2345,11 @@ msgstr "Ny rominformasjon"
 msgid "Select type"
 msgstr "Vel type"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Rom"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3274,12 +3298,12 @@ msgid ""
 "cleared?"
 msgstr "Dette rommet er offisielt overområde til rommet. Skal dette fjernast?"
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "Dempa rom"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Set opp rommet"

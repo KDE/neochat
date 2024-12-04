@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-11-10 15:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -230,33 +230,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Wybierz pokój"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Pokój"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Nie znaleziono żadnego pokoju"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Wybierz pokój"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Wybierz pokój"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Id pokoju: %1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "Dane konta pokoju"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Źródło wydarzenia"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "Stan pokoju"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -265,7 +284,7 @@ msgstr[0] "%1 zdarzenie tego rodzaju"
 msgstr[1] "%1 zdarzenia tego rodzaju"
 msgstr[2] "%1 zdarzeń tego rodzaju"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2298,6 +2317,11 @@ msgstr "Szczegóły o nowym pokoju"
 msgid "Select type"
 msgstr "Wybór rodzaju"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Pokój"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3246,12 +3270,12 @@ msgid ""
 msgstr ""
 "Bieżąca przestrzeń jest oficjalną podrzędną tego pokoju, czy wyczyścić to?"
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "Wyciszony pokój"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Ustawienia pokoju"

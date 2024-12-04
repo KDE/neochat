@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -233,38 +233,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr ""
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
+#: src/devtools/RoomData.qml:25
 #, fuzzy, kde-format
-#| msgid "Room Name"
-msgid "Room"
-msgstr "Værelsesnavn:"
+#| msgid "Send message"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Send besked"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, kde-format
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr ""
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Lydløs"
+
+#: src/devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "Room Id: %1"
 msgstr "Værelsesnavn:"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "Room Account Data"
 msgstr "Konti"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgid "Event Source"
 msgstr "Se kildetekst"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, fuzzy, kde-format
 #| msgid "Room Name"
 msgid "Room State"
 msgstr "Værelsesnavn:"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -272,7 +286,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -2384,6 +2398,12 @@ msgstr "Indstillinger"
 msgid "Select type"
 msgstr ""
 
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgid "Room"
+msgstr "Værelsesnavn:"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Members"
@@ -3372,13 +3392,13 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Lydløs"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr ""

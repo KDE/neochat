@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-11-18 08:51+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -232,33 +232,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Izberi sobo"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Soba"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Nobene sobe ni mogoče najti"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Izberi sobo"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Izberi sobo"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "ID sobe: %1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "Podatki o računu sobe"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Vir dogodka"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "Stanje sobe"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -268,7 +287,7 @@ msgstr[1] "%1 dogodek te vrste"
 msgstr[2] "%1 dogodka te vrste"
 msgstr[3] "%1 dogodki te vrste"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2299,6 +2318,11 @@ msgstr "Nove informacije o sobi"
 msgid "Select type"
 msgstr "Izberi vrsto"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Soba"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3233,12 +3257,12 @@ msgid ""
 "cleared?"
 msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "Utišana soba"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-11-24 16:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -227,33 +227,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "அரங்கைத் தேர்வு செய்தல்"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "அரங்கு"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "எந்த அரங்கும் கிடைக்கவில்லை"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "அரங்கைத் தேர்வு செய்தல்"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "அரங்கைத் தேர்வு செய்தல்"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "அரங்கின் அடையாள எண்: %1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "அரங்கிற்கான கணக்கு விவரங்கள்"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "நிகழ்வுக்கான மூலம்"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "அரங்கின் நிலை"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -261,7 +280,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "இவ்வகையான %1 நிகழ்வு"
 msgstr[1] "இவ்வகையான %1 நிகழ்வுகள்"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -2289,6 +2308,11 @@ msgstr "புதிய அரங்கின் விவரங்கள்"
 msgid "Select type"
 msgstr "வகையைத் தேர்ந்தெடுக்கவும்"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "அரங்கு"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3224,12 +3248,12 @@ msgid ""
 "cleared?"
 msgstr "தற்போதைய இடம், இந்த அரங்கின் அதிகாரப்பூர்வ தாய் ஆகும். இந்த தொடர்பை நீக்க வேண்டுமா?"
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"

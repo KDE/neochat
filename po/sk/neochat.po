@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -238,38 +238,54 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Vybrať miestny súbor"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Miestnosť"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Vybrať miestny súbor"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Vybrať miestny súbor"
+
+#: src/devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room Id: %1"
 msgstr "Miestnosti"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Room Account Data"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgid "Event Source"
 msgstr "Zobraziť zdroj"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, fuzzy, kde-format
 #| msgctxt "%1 is the room name"
 #| msgid "Room Settings - %1"
 msgid "Room State"
 msgstr "Nastavenia miestnosti - %1"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -278,7 +294,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -2536,6 +2552,11 @@ msgstr "Informácie o miestnosti"
 msgid "Select type"
 msgstr "Vyberať typ"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Miestnosť"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
@@ -3527,13 +3548,13 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Stlmený"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Nastaviť miestnosť"

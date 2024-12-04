@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
-"PO-Revision-Date: 2024-10-14 21:07+0300\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"PO-Revision-Date: 2024-12-01 20:57+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -230,33 +230,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Izvēlēties istabu"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Istaba"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Neviena istaba nav atrasta"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose a Room"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Izvēlēties istabu"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Izvēlēties istabu"
+
+#: src/devtools/RoomData.qml:40
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Istabas ID: %1"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, kde-format
 msgid "Room Account Data"
 msgstr "Istabas konta dati"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Notikuma avots"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "Istabas statuss"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -265,7 +284,7 @@ msgstr[0] "%1 šāda veida notikums"
 msgstr[1] "%1 šāda veida notikumi"
 msgstr[2] "%1 šāda veida notikumu"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -1089,10 +1108,9 @@ msgid "Settings"
 msgstr "Iestatījumi"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Dalīties ar URL „Matrix“ klientā"
+msgstr "Tērzējiet „Matrix“ tīklā"
 
 #: src/main.cpp:145
 #, kde-format
@@ -2173,8 +2191,7 @@ msgid "Mark as Read"
 msgstr "Atzīmēt kā lasītu"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Paziņojumi"
@@ -2294,6 +2311,11 @@ msgstr "Jaunās istabas informācija"
 #, kde-format
 msgid "Select type"
 msgstr "Atlasīt tipu"
+
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Istaba"
 
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
@@ -2629,15 +2651,14 @@ msgid "Only show spaces"
 msgstr "Rādīt tikai telpas"
 
 #: src/qml/ExploreRoomsPage.qml:97
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Ievadiet istabas adresi"
+msgstr "Manuāli ierakstiet istabas adresi"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "Ja jau zināt istabas adresi vai aizstājējvārdu, bet tas te neuzrādās."
 
 #: src/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -2651,26 +2672,22 @@ msgid "No public rooms found"
 msgstr "Nav atrastas publiskas istabas"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Iestatīt attēlu"
+msgstr "Atvērt attēlu"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Iestatīt attēlu"
+msgstr "Saglabāt attēlu…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Rādīt attēlu"
+msgstr "Kopēt attēlu"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3054,7 +3071,7 @@ msgstr "Kopīgot"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Manuāli norādiet istabu"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3099,12 +3116,10 @@ msgid "The input is not a valid user ID"
 msgstr "Ievadītais nav derīgs lietotāja ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Pārsūtīt"
+msgstr "Pārsūtīt…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3113,18 +3128,16 @@ msgid "Forward Message"
 msgstr "Pārsūtīt ziņu"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopēt"
+msgstr "Kopēt tekstu"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Kopēt saiti"
+msgstr "Kopēt ziņojuma saiti"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3243,12 +3256,12 @@ msgid ""
 msgstr ""
 "Pašreizējā telpa ir šīs istabas oficiālais vecākobjekts. Vai to notīrīt?"
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "Apklusināta istaba"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Konfigurēt istabu"
@@ -3276,11 +3289,10 @@ msgid "Space Members"
 msgstr "Telpas dalībnieki"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
-msgstr "Istabas informācija"
+msgstr "Istabas informāciju"
 
 #: src/qml/RoomInformation.qml:70
 #, kde-format
@@ -3321,12 +3333,10 @@ msgid "Show locations for this room"
 msgstr "Parādīt šīs istabas atrašanās vietas"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "Pamest telpu"
+msgstr "Pamest šo telpu"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
@@ -4754,7 +4764,7 @@ msgstr "Aktivitāte"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "Vispirms būs redzamas telpas ar neredzamiem paziņojumiem"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4799,17 +4809,16 @@ msgid "Editor"
 msgstr "Redaktors"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Sūtīt ziņu"
+msgstr "Sūtīt ziņojumus ar „Enter“ taustiņu"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Sūtīt ziņojumus ar „Ctrl+Enter“ taustiņu"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format

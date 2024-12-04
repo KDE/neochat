@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -242,35 +242,52 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Αίθουσα"
+#: src/devtools/RoomData.qml:25
+#, fuzzy, kde-format
+#| msgctxt "Placeholder message"
+#| msgid "No room found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Δεν βρέθηκε αίθουσα"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Επιλογή τοπικού αρχείου"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Επιλογή τοπικού αρχείου"
+
+#: src/devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Room ID"
 msgid "Room Id: %1"
 msgstr "Room ID"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Room Account Data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, kde-format
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
 msgstr "Κατάσταση αίθουσας"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -278,7 +295,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 γεγονός αυτού του τύπου"
 msgstr[1] "%1 γεγονότα αυτού του τύπου"
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -2406,6 +2423,11 @@ msgstr "Πληροφορίες νέας αίθουσας"
 msgid "Select type"
 msgstr "Επιλογή όλων"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Αίθουσα"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgid "Space"
@@ -3381,12 +3403,12 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, kde-format
 msgid "Muted room"
 msgstr "Αίθουσα σε σίγαση"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"

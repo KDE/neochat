@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-03 00:40+0000\n"
+"POT-Creation-Date: 2024-12-04 00:40+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -242,39 +242,54 @@ msgctxt "@title"
 msgid "Choose Room"
 msgstr "Yerli faylı seçin"
 
-#: src/devtools/RoomData.qml:26 src/qml/CreateRoomDialog.qml:54
+#: src/devtools/RoomData.qml:25
 #, fuzzy, kde-format
-#| msgid "Rooms"
-msgid "Room"
-msgstr "Otaqlar"
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No room selected"
+msgstr "Otaqlar tapılmadı"
 
-#: src/devtools/RoomData.qml:37
+#: src/devtools/RoomData.qml:26
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@info"
+msgid "Click to choose a room"
+msgstr "Yerli faylı seçin"
+
+#: src/devtools/RoomData.qml:32
+#, fuzzy, kde-format
+#| msgid "Choose local file"
+msgctxt "@title:dialog"
+msgid "Choose Room"
+msgstr "Yerli faylı seçin"
+
+#: src/devtools/RoomData.qml:40
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Room Id: %1"
 msgstr "Otaqlar"
 
-#: src/devtools/RoomData.qml:41
+#: src/devtools/RoomData.qml:44
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Room Account Data"
 msgstr "Otaqlar tapılmadı"
 
-#: src/devtools/RoomData.qml:54 src/devtools/RoomData.qml:100
+#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
 #: src/qml/MessageSourceSheet.qml:42
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgid "Event Source"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/devtools/RoomData.qml:62
+#: src/devtools/RoomData.qml:65
 #, fuzzy, kde-format
 #| msgctxt "%1 is the room name"
 #| msgid "Room Settings - %1"
 msgid "Room State"
 msgstr "Otaq ayarları - %1"
 
-#: src/devtools/RoomData.qml:76
+#: src/devtools/RoomData.qml:79
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -282,7 +297,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/devtools/RoomData.qml:85
+#: src/devtools/RoomData.qml:88
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -2584,6 +2599,12 @@ msgstr "Otaq haqqında"
 msgid "Select type"
 msgstr "Hamısını seçin"
 
+#: src/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room"
+msgstr "Otaqlar"
+
 #: src/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Spaces"
@@ -3586,13 +3607,13 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/qml/RoomDelegate.qml:111
+#: src/qml/RoomDelegate.qml:114
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Səssiz"
 
-#: src/qml/RoomDelegate.qml:144
+#: src/qml/RoomDelegate.qml:147
 #, kde-format
 msgid "Configure room"
 msgstr "Otağı tənzimləmək"
