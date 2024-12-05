@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
-"PO-Revision-Date: 2024-11-18 04:01+0100\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
+"PO-Revision-Date: 2024-12-04 03:30+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -79,12 +79,12 @@ msgstr "სტიკერების გარეშე"
 msgid "No emojis"
 msgstr "ემოჯიების გარეშე"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, kde-format
 msgid "Emojis"
 msgstr "ემოჯიები"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "სტიკერები"
@@ -139,6 +139,35 @@ msgstr "ანგარიშის მონაცემები"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "მოვლენის წყარო"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "წვდომა"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "მისამართის ბუფერში კოპირება"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -229,25 +258,19 @@ msgid "Choose Room"
 msgstr "აირჩიეთ ოთახი"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "ოთახი ვერ ვიპოვე"
+msgstr "ოთახი არჩეული არაა"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "აირჩიეთ ოთახი"
+msgstr "დააწკაპუნეთ ოთახის ასარჩევად"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "აირჩიეთ ოთახი"
@@ -1005,8 +1028,7 @@ msgstr "რესგისტრაცია"
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "პაროლი"
@@ -1938,15 +1960,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat-ის გახსნა"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
+msgid "Show QR Code"
 msgstr "QR კოდის ჩვენება"
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "ამ ანგარიშის ჩასწორება"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -1956,19 +1979,20 @@ msgid "Account editor"
 msgstr "ანგარიშების რედაქტორი"
 
 #: src/qml/AccountMenu.qml:49
-#, kde-format
-msgid "Notification settings"
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "გაფრთხილებების მორგება"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "მოწყობილობები"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "პროგრამისტის ხელსაწყოების გახსნა"
 
 #: src/qml/AccountMenu.qml:69
@@ -1990,9 +2014,11 @@ msgid "Open Key Backup"
 msgstr "გასაღების მარქაფის გახსნა"
 
 #: src/qml/AccountMenu.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify this Device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "ამ მოწყობილობის გადამოწმება"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -3906,6 +3932,11 @@ msgstr "მოწვევა პირად საუბარში"
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "ამ ანგარიშის ჩასწორება"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4165,7 +4196,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "ოთახში შესვლის მოთხოვნის შეცდომა<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "ანგარიშის ჩასწორება"
 
@@ -4180,7 +4213,9 @@ msgid "Remove current avatar"
 msgstr "მიმდინარე ავატარის წაშლა"
 
 #: src/settings/AccountEditorPage.qml:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User Information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "მომხმარებლის ინფორმაცია"
 
@@ -4199,18 +4234,19 @@ msgstr "ჭდე:"
 msgid "Work"
 msgstr "სამუშაო"
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "QR კოდის ჩვენება"
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "შენახვა"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "პაროლი"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4243,22 +4279,30 @@ msgid "Passwords do not match"
 msgstr "პაროლები არ ემთხვევა"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Email Addresses"
+msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "ელფოსტის მისამართები"
 
 #: src/settings/AccountEditorPage.qml:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Phone Numbers"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "ტელეფონის ნომრები"
 
 #: src/settings/AccountEditorPage.qml:218
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Identity Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "იდენტიფიკატორების სერვერი"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "ინფორმაცია სერვერის შესახებ"
 
@@ -4268,8 +4312,10 @@ msgid "Homeserver url"
 msgstr "სახლის სერვერის URL"
 
 #: src/settings/AccountEditorPage.qml:252
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Account Management"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "ანგარიშის მართვა"
 
@@ -4293,9 +4339,17 @@ msgstr "შეყვანილი პაროლი არასწორი�
 msgid "Unknown problem while trying to change password"
 msgstr "უცნობი პრობლემა პაროლის შეცვლილსას"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "ანგარიშები"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "ანგარიშები"
 
@@ -4311,8 +4365,10 @@ msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "ზოგადი თემა"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4417,23 +4473,38 @@ msgstr "დამოწმებულია"
 msgid "Logout device"
 msgstr "მოწყობილობიდან გასვლა"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "მოწყობილობები"
+
 #: src/settings/DevicesPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This Device"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "ეს მოწყობილობა"
 
 #: src/settings/DevicesPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verified Devices"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "გადამოწმებული მოწყობილობები"
 
 #: src/settings/DevicesPage.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unverified Devices"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "გადაუმოწმებელი მოწყობილობები"
 
 #: src/settings/DevicesPage.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Devices without Encryption Support"
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "მოწყობილობები დაშიფვრის მხარდაჭერის გარეშე"
 
@@ -4454,37 +4525,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "ემოჯის ჩასწორება"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "სტიკერის ჩასწორება"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "ემოჯის დამატება"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Sticker"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "სტიკერის დამატება"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "სტიკერის ჩასწორება"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "ემოჯის დამატება"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "ემოჯის ჩასწორება"
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sticker"
+msgctxt "@info:group"
 msgid "Sticker"
 msgstr "სტიკერი"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "ემოჯი"
 
@@ -4508,11 +4589,35 @@ msgstr "მოკლე კოდი:"
 msgid "Description:"
 msgstr "აღწერა:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "ემოჯის ჩასწორება"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "სტიკერის ჩასწორება"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "აღწერის გარეშე"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "ემოჯის დამატება"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "სტიკერის დამატება"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4525,15 +4630,31 @@ msgid "Add Sticker"
 msgstr "სტიკერის დამატება"
 
 #: src/settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Stickers & Emojis"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "ემოჯიები და სტიკერები"
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "ემოჯიები"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "სტიკერები"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Export Keys"
+msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "გასაღებების გატანა"
 
@@ -4587,18 +4708,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "გენერირდება თუ არა პუშ გაფრთხილებები თქვენი Matrix სერვერის მიერ"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "ოთახის გაფრთხილებები"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@ხსენებები"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "საკვანძო სიტყვები"
 
@@ -4615,12 +4742,16 @@ msgid "Add keyword"
 msgstr "საკვანძო სიტყვის დამატება"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "მოსაწვევები"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "უცნობი"
 
@@ -4664,8 +4795,9 @@ msgid "Remove identity server"
 msgstr "იდენტიფიკატორების სერვერის წაშლა"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "დაიგნორებული მომხმარებლები"
 
@@ -4681,9 +4813,11 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "ამ მომხმარებლის იგნორის გაუქმება"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
+msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
@@ -4718,8 +4852,10 @@ msgid "General"
 msgstr "ზოგადი"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "ზოგადი პარამეტრები"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -4743,8 +4879,10 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "ყველა ოთახის ჩვენება \"საწყის\" ჩანართში"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, kde-format
-msgid "Room list sort order"
+#, fuzzy, kde-format
+#| msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "ოთახების სიის დალაგების მიმდევრობა"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -4834,33 +4972,32 @@ msgid "Enable developer tools"
 msgstr "პროგრამირების ხელსაწყოების ჩართვა"
 
 #: src/settings/NeoChatGeneralPage.qml:285
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Default Settings"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
-#: src/settings/NeoChatGeneralPage.qml:289
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:290
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset all configuration values to their default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr "ყველა კონფიგურაციის მნიშვნელობის ნაგულისხმევზე ჩამოყრა"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Security & Safety"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "უსაფრთხოება და დაცვა"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "დაიგნორებული მომხმარებლები"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "დაიგნორებული მომხმარებლები"
 
@@ -4903,8 +5040,10 @@ msgid "Your server does not support this setting."
 msgstr "თქვენს სერვერს ამ პარამეტრის მხარდაჭერა არ გააჩნია."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Encryption"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "დაშიფვრა"
 
@@ -4919,6 +5058,12 @@ msgstr "გასაღებების შემოტანა"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფიდან."
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr "გასაღებების შემოტანა"
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4938,6 +5083,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "ამ მოწყობილობის დაშიფვრის გასაღებების გატანა."
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr "გასაღებების გატანა"
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -4953,6 +5104,17 @@ msgstr "გარემოს იერსახე"
 #, kde-format
 msgid "Notifications"
 msgstr "გაფრთხილებები"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "უსაფრთხოება და დაცვა"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "ანგარიშები"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5111,7 +5273,9 @@ msgid "Event Type…"
 msgstr "მოვლენის ტიპი…"
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "ოთახის შეტყობინებების პარამეტრები"
 
@@ -5762,6 +5926,18 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "QR კოდის ჩვენება"
+
+#~ msgctxt "@title"
+#~ msgid "Stickers & Emojis"
+#~ msgstr "ემოჯიები და სტიკერები"
+
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "დაიგნორებული მომხმარებლები"
 
 #~ msgid "Notification State"
 #~ msgstr "გაფრთხილების მდგომარეობა"

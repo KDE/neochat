@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -79,12 +79,12 @@ msgstr "Neniuj glumarkoj"
 msgid "No emojis"
 msgstr "Neniuj emojis"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, kde-format
 msgid "Emojis"
 msgstr "Emojis"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "Glumarkoj"
@@ -141,6 +141,35 @@ msgstr "Datumoj pri Konto"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Eventa Fonto"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Aliro"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Kopii Adreson al Tondujo"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -1007,8 +1036,7 @@ msgstr "Registri"
 msgid "Password:"
 msgstr "Pasvorto:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Pasvorto"
@@ -1939,15 +1967,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Malfermi NeoChat"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
-msgstr "Montri QR-kodon"
+msgid "Show QR Code"
+msgstr "Montri QR-Kodon"
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Redakti ĉi tiun konton"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -1957,19 +1986,20 @@ msgid "Account editor"
 msgstr "Kontoredaktilo"
 
 #: src/qml/AccountMenu.qml:49
-#, kde-format
-msgid "Notification settings"
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Sciigaj agordoj"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Aparatoj"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "Malfermi programistajn ilojn"
 
 #: src/qml/AccountMenu.qml:69
@@ -1991,9 +2021,11 @@ msgid "Open Key Backup"
 msgstr "Malfermi Ŝlosilan Sekurkopion"
 
 #: src/qml/AccountMenu.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify this Device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Konfirmi ĉi Aparaton"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -3922,6 +3954,11 @@ msgstr "Inviti al privata babilejo"
 msgid "Copy link"
 msgstr "Kopii ligilon"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Redakti ĉi tiun konton"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4183,7 +4220,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Malsukcesis peti aliĝon al ĉambro"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Redakti Konton"
 
@@ -4198,7 +4237,9 @@ msgid "Remove current avatar"
 msgstr "Forigi nunan avataron"
 
 #: src/settings/AccountEditorPage.qml:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User Information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Uzant-Informo"
 
@@ -4217,18 +4258,19 @@ msgstr "Etikedo:"
 msgid "Work"
 msgstr "Laboro"
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Montri QR-Kodon"
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Konservi"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Pasvorto"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4261,22 +4303,30 @@ msgid "Passwords do not match"
 msgstr "pasvortoj ne egalas"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Email Addresses"
+msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Retpoŝtaj Adresoj"
 
 #: src/settings/AccountEditorPage.qml:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Phone Numbers"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonnumeroj"
 
 #: src/settings/AccountEditorPage.qml:218
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Identity Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identeca Servilo"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Servila Informo"
 
@@ -4286,8 +4336,10 @@ msgid "Homeserver url"
 msgstr "Hejmservilo url"
 
 #: src/settings/AccountEditorPage.qml:252
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Account Management"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Administrado de kontoj"
 
@@ -4311,9 +4363,17 @@ msgstr "Malĝusta pasvorto enigita"
 msgid "Unknown problem while trying to change password"
 msgstr "Nekonata problemo dum vi provas ŝanĝi pasvorton"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Kontoj"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Kontoj"
 
@@ -4329,8 +4389,10 @@ msgid "Appearance"
 msgstr "Aspekto"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Ĝenerala etoso"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4435,23 +4497,38 @@ msgstr "Konfirmita"
 msgid "Logout device"
 msgstr "Elsaluti aparato"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Aparatoj"
+
 #: src/settings/DevicesPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This Device"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Ĉi tiu Aparato"
 
 #: src/settings/DevicesPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verified Devices"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Konfirmitaj Aparatoj"
 
 #: src/settings/DevicesPage.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unverified Devices"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Nekonfirmitaj Aparatoj"
 
 #: src/settings/DevicesPage.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Devices without Encryption Support"
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Aparatoj sen Ĉifrada Subteno"
 
@@ -4471,37 +4548,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Redakti Emoji"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Redakti glumarkon"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Aldoni Emoji"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Sticker"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Aldoni glumarkon"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Redakti glumarkon"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Aldoni Emoji"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Redakti Emoji"
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sticker"
+msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Glumarko"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
 
@@ -4525,11 +4612,35 @@ msgstr "Mallongkodo:"
 msgid "Description:"
 msgstr "Priskribo:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Redakti Emoji"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Redakti glumarkon"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Neniu Priskribo"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Aldoni Emoji"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Aldoni glumarkon"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4542,15 +4653,31 @@ msgid "Add Sticker"
 msgstr "Aldoni glumarkon"
 
 #: src/settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Stickers & Emojis"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
-msgstr "Glumarkoj kaj Emojis"
+msgstr "Glumarkoj & Emoĝioj"
+
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Emojis"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Glumarkoj"
 
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Export Keys"
+msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Elporti Ŝlosilojn"
 
@@ -4604,18 +4731,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Ĉu puŝaj sciigoj estas generitaj de via Matrix-servilo"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Ĉambro Sciigoj"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Mencioj"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ŝlosilvortoj"
 
@@ -4632,12 +4765,16 @@ msgid "Add keyword"
 msgstr "Aldoni ŝlosilvorton"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Invitas"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Nekonata"
 
@@ -4681,8 +4818,9 @@ msgid "Remove identity server"
 msgstr "Forigi identecoservilon"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignoritaj Uzantoj"
 
@@ -4698,9 +4836,11 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Malignori ĉi tiun uzanton"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
+msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Enporti Ŝlosilojn"
 
@@ -4735,8 +4875,10 @@ msgid "General"
 msgstr "Ĝenerala"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Ĝeneralaj Agordoj"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -4761,8 +4903,10 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "Montri ĉiujn ĉambrojn en \"Home\"-langeto"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, kde-format
-msgid "Room list sort order"
+#, fuzzy, kde-format
+#| msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "Ĉambrolista ordigospeco"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -4853,33 +4997,32 @@ msgid "Enable developer tools"
 msgstr "Ebligi programistajn ilojn"
 
 #: src/settings/NeoChatGeneralPage.qml:285
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Default Settings"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Defaŭlta Agordo"
 
-#: src/settings/NeoChatGeneralPage.qml:289
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:290
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset all configuration values to their default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr "Restarigi ĉiujn agordvalorojn al ĝiaj defaŭltoj"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Security & Safety"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Sekureco & Sekurigo"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Ignoritaj Uzantoj"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignoritaj Uzantoj"
 
@@ -4920,8 +5063,10 @@ msgid "Your server does not support this setting."
 msgstr "Via servilo ne subtenas ĉi tiun agordon."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Encryption"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Ĉifrado"
 
@@ -4936,6 +5081,12 @@ msgstr "Enporti Ŝlosilojn"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Enporti ĉifradajn ŝlosilojn el sekurkopio."
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr "Enporti Ŝlosilojn"
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4955,6 +5106,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Elporti la ĉifradajn ŝlosilojn de ĉi aparato."
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr "Elporti Ŝlosilojn"
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -4970,6 +5127,17 @@ msgstr "Aspekto"
 #, kde-format
 msgid "Notifications"
 msgstr "Sciigoj"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Sekureco & Sekurigo"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Kontoj"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5128,7 +5296,9 @@ msgid "Event Type…"
 msgstr "Eventtipo…"
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Agordo de sciigoj pri ĉambro"
 
@@ -5778,6 +5948,18 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "Montri QR-kodon"
+
+#~ msgctxt "@title"
+#~ msgid "Stickers & Emojis"
+#~ msgstr "Glumarkoj kaj Emojis"
+
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Ignoritaj Uzantoj"
 
 #~ msgid "Notification State"
 #~ msgstr "Sciigostato"

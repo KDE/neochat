@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -78,12 +78,12 @@ msgstr "스티커 없음"
 msgid "No emojis"
 msgstr "이모지 없음"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, kde-format
 msgid "Emojis"
 msgstr "이모지"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "스티커"
@@ -141,6 +141,35 @@ msgstr "대화방 계정 데이터"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "이벤트 소스"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "접근"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "클립보드에 주소 복사"
 
 #: src/devtools/DebugOptions.qml:19
 #, fuzzy, kde-format
@@ -1077,8 +1106,7 @@ msgstr "등록"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "암호"
@@ -2052,16 +2080,16 @@ msgstr "%1(%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat 열기"
 
-#: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
-msgctxt "@action:button"
-msgid "Show QR code"
-msgstr "단축 코드:"
-
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
-msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "이 계정 편집"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2071,19 +2099,20 @@ msgid "Account editor"
 msgstr "계정 편집기"
 
 #: src/qml/AccountMenu.qml:49
-#, kde-format
-msgid "Notification settings"
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "알림 설정"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "개발자 도구 열기"
 
 #: src/qml/AccountMenu.qml:69
@@ -2109,7 +2138,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "장치 확인"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4113,6 +4142,11 @@ msgstr "개인 대화로 초대"
 msgid "Copy link"
 msgstr "링크 복사"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "이 계정 편집"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4364,7 +4398,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "대화방 입장 요청을 할 수 없음"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "계정 편집"
 
@@ -4381,6 +4417,7 @@ msgstr "현재 아바타 삭제"
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "User information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "사용자 정보"
 
@@ -4401,18 +4438,19 @@ msgstr "이름표:"
 msgid "Work"
 msgstr "작업 중"
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "저장"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "암호"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4445,24 +4483,30 @@ msgid "Passwords do not match"
 msgstr "암호가 일치하지 않음"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add an e-mail address:"
+msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "이메일 주소 추가:"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "구성원"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Add New Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "새 서버 추가"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "서버 정보"
 
@@ -4472,8 +4516,10 @@ msgid "Homeserver url"
 msgstr "홈 서버 URL"
 
 #: src/settings/AccountEditorPage.qml:252
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Account Management"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "계정 관리"
 
@@ -4497,9 +4543,17 @@ msgstr "암호가 잘못됨"
 msgid "Unknown problem while trying to change password"
 msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "계정"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "계정"
 
@@ -4515,8 +4569,10 @@ msgid "Appearance"
 msgstr "모양"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "일반 테마"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4622,23 +4678,38 @@ msgstr "확인된 장치"
 msgid "Logout device"
 msgstr "장치 로그아웃"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "장치"
+
 #: src/settings/DevicesPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This Device"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "이 장치"
 
 #: src/settings/DevicesPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verified Devices"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "확인된 장치"
 
 #: src/settings/DevicesPage.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unverified Devices"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "확인되지 않은 장치"
 
 #: src/settings/DevicesPage.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Devices without Encryption Support"
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "암호화를 지원하지 않는 장치"
 
@@ -4658,37 +4729,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "이모지 편집"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "스티커 편집"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "이모지 추가"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Sticker"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "스티커 추가"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "스티커 편집"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "이모지 추가"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "이모지 편집"
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sticker"
+msgctxt "@info:group"
 msgid "Sticker"
 msgstr "스티커"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "이모지"
 
@@ -4712,11 +4793,35 @@ msgstr "단축 코드:"
 msgid "Description:"
 msgstr "설명:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "이모지 편집"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "스티커 편집"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "설명 없음"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "이모지 추가"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "스티커 추가"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4729,17 +4834,32 @@ msgid "Add Sticker"
 msgstr "스티커 추가"
 
 #: src/settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Stickers & Emojis"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "스티커와 이모지"
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "이모지"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "스티커"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "암호화 키"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -4792,18 +4912,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Matrix 서버에서 푸시 알림 생성 여부"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "대화방 알림"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@멘션"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "키워드"
 
@@ -4820,12 +4946,16 @@ msgid "Add keyword"
 msgstr "키워드 추가"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "초대"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "알 수 없음"
 
@@ -4873,9 +5003,10 @@ msgid "Remove identity server"
 msgstr "장치 삭제"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "이 사용자 무시"
 
@@ -4894,11 +5025,12 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "이 사용자 무시 해제"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "암호화 키"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -4932,8 +5064,10 @@ msgid "General"
 msgstr "일반"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "일반 설정"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -4959,7 +5093,8 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:91
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "<방 별명이나 id>"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5054,21 +5189,20 @@ msgstr "개발자 도구 활성화"
 #: src/settings/NeoChatGeneralPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Developer Settings"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "개발자 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "보안"
 
@@ -5076,13 +5210,6 @@ msgstr "보안"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "이 사용자 무시"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "이 사용자 무시"
 
@@ -5125,7 +5252,7 @@ msgstr "서버에서 암호 변경을 지원하지 않습니다"
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "암호화"
 
@@ -5142,6 +5269,12 @@ msgstr "암호화 키"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "암호화 키"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5164,6 +5297,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "암호화 키"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5179,6 +5318,18 @@ msgstr "모양"
 #, kde-format
 msgid "Notifications"
 msgstr "알림"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "보안"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "계정"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5341,7 +5492,9 @@ msgid "Event Type…"
 msgstr ""
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "대화방 알림 설정"
 
@@ -5997,6 +6150,22 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#, fuzzy
+#~| msgid "Shortcode:"
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "단축 코드:"
+
+#~ msgctxt "@title"
+#~ msgid "Stickers & Emojis"
+#~ msgstr "스티커와 이모지"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "이 사용자 무시"
 
 #~ msgid "Notification State"
 #~ msgstr "알림 상태"

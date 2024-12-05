@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -80,12 +80,12 @@ msgstr "Nincsenek matricák"
 msgid "No emojis"
 msgstr "Nincsenek emodzsik"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, kde-format
 msgid "Emojis"
 msgstr "Emodzsik"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "Matricák"
@@ -141,6 +141,35 @@ msgstr "Fiókadatok"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Esemény forrása"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Hozzáférés"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Cím másolása a vágólapra"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -1008,8 +1037,7 @@ msgstr "Regisztráció"
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Jelszó"
@@ -1943,15 +1971,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat megnyitása"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
+msgid "Show QR Code"
 msgstr "QR-kód megjelenítése"
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Fiók szerkesztése"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -1961,19 +1990,20 @@ msgid "Account editor"
 msgstr "Fiókszerkesztő"
 
 #: src/qml/AccountMenu.qml:49
-#, kde-format
-msgid "Notification settings"
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Értesítési beállítások"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Eszközök"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "Fejlesztői eszközök megnyitása"
 
 #: src/qml/AccountMenu.qml:69
@@ -1995,9 +2025,11 @@ msgid "Open Key Backup"
 msgstr "Kulcsmentés megnyitása"
 
 #: src/qml/AccountMenu.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify this Device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Ezen eszköz ellenőrzése"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -3932,6 +3964,11 @@ msgstr "Meghívás privát csevegésbe"
 msgid "Copy link"
 msgstr "Hivatkozás másolása"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Fiók szerkesztése"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4201,7 +4238,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Nem sikerült csatlakozási kérést küldeni a szobához<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Fiók szerkesztése"
 
@@ -4216,7 +4255,9 @@ msgid "Remove current avatar"
 msgstr "Jelenlegi profilkép eltávolítása"
 
 #: src/settings/AccountEditorPage.qml:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User Information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Felhasználóinformációk"
 
@@ -4235,18 +4276,19 @@ msgstr "Címke:"
 msgid "Work"
 msgstr "Munkahelyi"
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "QR-kód megjelenítése"
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Jelszó"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4279,22 +4321,30 @@ msgid "Passwords do not match"
 msgstr "A jelszavak nem egyeznek"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Email Addresses"
+msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-mail címek"
 
 #: src/settings/AccountEditorPage.qml:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Phone Numbers"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonszámok"
 
 #: src/settings/AccountEditorPage.qml:218
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Identity Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitáskiszolgáló"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Kiszolgálóinformációk"
 
@@ -4304,8 +4354,10 @@ msgid "Homeserver url"
 msgstr "Alapértelmezett kiszolgáló URL-je"
 
 #: src/settings/AccountEditorPage.qml:252
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Account Management"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Fiókkezelés"
 
@@ -4329,9 +4381,17 @@ msgstr "Hibás jelszó"
 msgid "Unknown problem while trying to change password"
 msgstr "Ismeretlen hiba történt a jelszó megváltoztatásakor"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Fiókok"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Fiókok"
 
@@ -4347,8 +4407,10 @@ msgid "Appearance"
 msgstr "Megjelenés"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Általános téma"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4454,23 +4516,38 @@ msgstr "Ellenőrizve"
 msgid "Logout device"
 msgstr "Eszköz kijelentkeztetése"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Eszközök"
+
 #: src/settings/DevicesPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This Device"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Ez az eszköz"
 
 #: src/settings/DevicesPage.qml:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Verified Devices"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Ellenőrzött eszközök"
 
 #: src/settings/DevicesPage.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unverified Devices"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Nem ellenőrzött eszközök"
 
 #: src/settings/DevicesPage.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Devices without Encryption Support"
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Eszközök titkosítási támogatás nélkül"
 
@@ -4492,37 +4569,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Emodzsi szerkesztése"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Matrica szerkesztése"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Emodzsi hozzáadása"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Sticker"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Matrica hozzáadása"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Matrica szerkesztése"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Emodzsi hozzáadása"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Emodzsi szerkesztése"
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sticker"
+msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Matrica"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emodzsi"
 
@@ -4546,11 +4633,35 @@ msgstr "Rövidkód:"
 msgid "Description:"
 msgstr "Leírás:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Emodzsi szerkesztése"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Matrica szerkesztése"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Nincs leírás"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Emodzsi hozzáadása"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Matrica hozzáadása"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4563,15 +4674,31 @@ msgid "Add Sticker"
 msgstr "Matrica hozzáadása"
 
 #: src/settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Stickers & Emojis"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Matricák és emodzsik"
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Emodzsik"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Matricák"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Export Keys"
+msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Kulcsok exportálása"
 
@@ -4625,18 +4752,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Küldjön-e leküldéses értesítéseket a Matrix kiszolgálója"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Szobaértesítések"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Említések"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Kulcsszavak"
 
@@ -4653,12 +4786,16 @@ msgid "Add keyword"
 msgstr "Kulcsszó hozzáadása"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Meghívások"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -4702,8 +4839,9 @@ msgid "Remove identity server"
 msgstr "Identitáskiszolgáló eltávolítása"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Mellőzött felhasználók"
 
@@ -4719,9 +4857,11 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Figyelmen kívül hagyás feloldása"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Import Keys"
+msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Kulcsok importálása"
 
@@ -4756,8 +4896,10 @@ msgid "General"
 msgstr "Általános"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Általános beállítások"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -4783,8 +4925,10 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "Összes szoba megjelenítése a „Kezdőlap” lapon"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, kde-format
-msgid "Room list sort order"
+#, fuzzy, kde-format
+#| msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "Szobalista rendezési szempontja"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -4877,33 +5021,32 @@ msgid "Enable developer tools"
 msgstr "Fejlesztői eszközök engedélyezése"
 
 #: src/settings/NeoChatGeneralPage.qml:285
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Default Settings"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Alapértelmezett beállítások"
 
-#: src/settings/NeoChatGeneralPage.qml:289
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:290
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset all configuration values to their default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr "Minden beállítás visszaállítása az alapértelmezettre"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Security & Safety"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Biztonság és védelem"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Mellőzött felhasználók"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, kde-format
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Mellőzött felhasználók"
 
@@ -4946,8 +5089,10 @@ msgid "Your server does not support this setting."
 msgstr "A kiszolgáló nem támogatja ezt a beállítást."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Encryption"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Titkosítás"
 
@@ -4962,6 +5107,12 @@ msgstr "Kulcsok importálása"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Titkosítási kulcsok importálása biztonsági mentésből."
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr "Kulcsok importálása"
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
@@ -4981,6 +5132,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Az eszköz titkosítási kulcsainak exportálása."
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr "Kulcsok exportálása"
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -4996,6 +5153,17 @@ msgstr "Megjelenés"
 #, kde-format
 msgid "Notifications"
 msgstr "Értesítések"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, kde-format
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Biztonság és védelem"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Fiókok"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5154,7 +5322,9 @@ msgid "Event Type…"
 msgstr "Eseménytípus…"
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "A szoba értesítéseinek beállítása"
 
@@ -5809,6 +5979,18 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "QR-kód megjelenítése"
+
+#~ msgctxt "@title"
+#~ msgid "Stickers & Emojis"
+#~ msgstr "Matricák és emodzsik"
+
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Mellőzött felhasználók"
 
 #~ msgid "Notification State"
 #~ msgstr "Értesítési állapot"

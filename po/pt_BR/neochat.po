@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-08-03 00:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -85,13 +85,13 @@ msgstr "Adiciona palavra"
 msgid "No emojis"
 msgstr "Emoji personalizado"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Emojis"
 msgstr "Emoji personalizado"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -151,6 +151,35 @@ msgstr "Nenhuma sala encontrada"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Exibir origem"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access:"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Acesso:"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Copiar endereço para a área de transferência"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -1095,8 +1124,7 @@ msgstr "Registrar"
 msgid "Password:"
 msgstr "Senha:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -2160,15 +2188,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
+msgid "Show QR Code"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Editar esta conta"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2182,19 +2211,19 @@ msgstr "Detalhes da conta"
 #: src/qml/AccountMenu.qml:49
 #, fuzzy, kde-format
 #| msgid "Show notifications"
-msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Mostrar notificações"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Developer Tools"
+msgstr "Configurações"
 
 #: src/qml/AccountMenu.qml:69
 #, fuzzy, kde-format
@@ -2219,7 +2248,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Editar dispositivo"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4296,6 +4325,11 @@ msgstr "Abrir um bate-papo privado:"
 msgid "Copy link"
 msgstr "Copiar"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Editar esta conta"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4551,7 +4585,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "%1 convidou você para uma sala"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Editar conta"
 
@@ -4569,6 +4605,7 @@ msgstr ""
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Room information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Informação da sala"
 
@@ -4588,18 +4625,20 @@ msgstr "Legenda:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Salvar"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Senha"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4633,25 +4672,31 @@ msgid "Passwords do not match"
 msgstr "As senhas não coincidem"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "limpou seu nome de exibição"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Membros"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Servidor doméstico:"
 
 #: src/settings/AccountEditorPage.qml:227
 #, fuzzy, kde-format
 #| msgid "Room information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informação da sala"
 
@@ -4665,7 +4710,7 @@ msgstr "Servidor doméstico:"
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Detalhes da conta"
 
@@ -4690,9 +4735,17 @@ msgstr "Senha digitada errada"
 msgid "Unknown problem while trying to change password"
 msgstr "Erro desconhecido ao alterar a senha"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Contas"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Contas"
 
@@ -4712,7 +4765,8 @@ msgstr "Aparência"
 #: src/settings/AppearanceSettingsPage.qml:21
 #, fuzzy, kde-format
 #| msgid "General"
-msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Geral"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4828,26 +4882,37 @@ msgstr "Editar dispositivo"
 msgid "Logout device"
 msgstr "Sair do dispositivo"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Dispositivos"
+
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Dispositivos"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Editar dispositivo"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Editar dispositivo"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
@@ -4868,43 +4933,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Adicionar emoji..."
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Editar dispositivo"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Adicionar emoji..."
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Adiciona palavra"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Editar dispositivo"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Adicionar emoji..."
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Adicionar emoji..."
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@info:group"
 msgid "Sticker"
-msgstr ""
+msgstr "Adiciona palavra"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji personalizado"
 
@@ -4930,12 +4999,41 @@ msgstr ""
 msgid "Description:"
 msgstr "Enviar convite"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Adicionar emoji..."
+
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Editar dispositivo"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Enviar convite"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Adicionar emoji..."
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Adiciona palavra"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, fuzzy, kde-format
@@ -4952,16 +5050,31 @@ msgstr "Adiciona palavra"
 
 #: src/settings/EmoticonsPage.qml:16
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr ""
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Emoji personalizado"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Adiciona palavra"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "ativou criptografia ponta-a-ponta"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -5018,17 +5131,22 @@ msgstr ""
 #: src/settings/GlobalNotificationsPage.qml:39
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Mostrar notificações"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Options:"
+msgctxt "@title:group"
 msgid "@Mentions"
-msgstr ""
+msgstr "Opções:"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Palavras-chave"
 
@@ -5049,6 +5167,7 @@ msgstr "Adiciona palavra"
 #: src/settings/GlobalNotificationsPage.qml:137
 #, fuzzy, kde-format
 #| msgid "Invite"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Convidar"
 
@@ -5056,6 +5175,7 @@ msgstr "Convidar"
 #, fuzzy, kde-format
 #| msgctxt "Unknown attachment size"
 #| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Desconhecido"
 
@@ -5104,9 +5224,10 @@ msgid "Remove identity server"
 msgstr "Remover dispositivo"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignorar este ignorar"
 
@@ -5124,11 +5245,12 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Não ignorar mais este usuário"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "ativou criptografia ponta-a-ponta"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -5165,7 +5287,8 @@ msgstr "Geral"
 #: src/settings/NeoChatGeneralPage.qml:23
 #, fuzzy, kde-format
 #| msgid "General settings:"
-msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Configurações gerais:"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -5193,7 +5316,8 @@ msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5291,21 +5415,20 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Settings"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Configurações"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Segurança"
 
@@ -5313,13 +5436,6 @@ msgstr "Segurança"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Ignorar este ignorar"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignorar este ignorar"
 
@@ -5360,7 +5476,7 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:70
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "ativou criptografia ponta-a-ponta"
 
@@ -5377,6 +5493,12 @@ msgstr "ativou criptografia ponta-a-ponta"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "ativou criptografia ponta-a-ponta"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5399,6 +5521,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "ativou criptografia ponta-a-ponta"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5415,6 +5543,18 @@ msgstr "Aparência"
 #| msgid "Show notifications"
 msgid "Notifications"
 msgstr "Mostrar notificações"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Segurança"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Contas"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5586,6 +5726,7 @@ msgstr ""
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Mostrar notificações"
 
@@ -6260,6 +6401,12 @@ msgid "Quit"
 msgstr "Sair"
 
 #, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Ignorar este ignorar"
+
+#, fuzzy
 #~| msgid "Show notifications"
 #~ msgid "Notification State"
 #~ msgstr "Mostrar notificações"
@@ -6517,11 +6664,6 @@ msgstr "Sair"
 #~ msgctxt "@action:button"
 #~ msgid "Remove this account"
 #~ msgstr "Editar esta conta"
-
-#, fuzzy
-#~| msgid "Options:"
-#~ msgid "Options"
-#~ msgstr "Opções:"
 
 #~ msgid "Make room favorite"
 #~ msgstr "Marcar sala como favorito"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -83,13 +83,13 @@ msgstr "Söz əlavə edin"
 msgid "No emojis"
 msgstr "Xüsusi Emoji"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Emojis"
 msgstr "Xüsusi Emoji"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -150,6 +150,35 @@ msgstr "Otaqlar tapılmadı"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Mənbəyə nəzər salamaq"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access:"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Giriş:"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -1100,8 +1129,7 @@ msgstr "Qeydiyyat"
 msgid "Password:"
 msgstr "Şifrə:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -2181,15 +2209,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
+msgid "Show QR Code"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Bu hesaba düzəliş edin"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2203,19 +2232,19 @@ msgstr "İstifadəçi hesabı təfərrüatları"
 #: src/qml/AccountMenu.qml:49
 #, fuzzy, kde-format
 #| msgid "Show notifications"
-msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Cihazlar"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Developer Tools"
+msgstr "Ayarlar"
 
 #: src/qml/AccountMenu.qml:69
 #, fuzzy, kde-format
@@ -2240,7 +2269,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Cihaza düzəliş etmək"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4320,6 +4349,11 @@ msgstr "Məxfi çatı açmaq"
 msgid "Copy link"
 msgstr "Kopyalamaq"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Bu hesaba düzəliş edin"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4575,7 +4609,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "%1,sizi otağa dəvət etdi"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Hesaba düzəliş etmək"
 
@@ -4593,6 +4629,7 @@ msgstr ""
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Room information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Otaq haqqında"
 
@@ -4612,18 +4649,20 @@ msgstr "Yarlıq:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Saxlayın"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Şifrə"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4657,25 +4696,31 @@ msgid "Passwords do not match"
 msgstr "Şifrələr oxşar deyil"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "onların görünən adı silindi"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Üzvlər"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Əsas server:"
 
 #: src/settings/AccountEditorPage.qml:227
 #, fuzzy, kde-format
 #| msgid "Room information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Otaq haqqında"
 
@@ -4689,7 +4734,7 @@ msgstr "Əsas server:"
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
@@ -4714,9 +4759,17 @@ msgstr "Səhv şifrə daxil edildi"
 msgid "Unknown problem while trying to change password"
 msgstr "Şifrəni dəyişdirərkən naməlum xəta baş verdi"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "İstifadəçi Hesabları"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "İstifadəçi Hesabları"
 
@@ -4736,7 +4789,8 @@ msgstr "Xarici görünüş"
 #: src/settings/AppearanceSettingsPage.qml:21
 #, fuzzy, kde-format
 #| msgid "General"
-msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Əsas"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4851,26 +4905,37 @@ msgstr "Cihaza düzəliş etmək"
 msgid "Logout device"
 msgstr "Cihazdan çıxmaq"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Cihazlar"
+
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Cihazlar"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Cihaza düzəliş etmək"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Cihaza düzəliş etmək"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
@@ -4891,43 +4956,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Emoji əlavə edin..."
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Cihaza düzəliş etmək"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Emoji əlavə edin..."
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Söz əlavə edin"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Cihaza düzəliş etmək"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Emoji əlavə edin..."
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Emoji əlavə edin..."
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@info:group"
 msgid "Sticker"
-msgstr ""
+msgstr "Söz əlavə edin"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Xüsusi Emoji"
 
@@ -4953,12 +5022,41 @@ msgstr ""
 msgid "Description:"
 msgstr "Dəvət göndərmək"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Emoji əlavə edin..."
+
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Cihaza düzəliş etmək"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Dəvət göndərmək"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Emoji əlavə edin..."
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Söz əlavə edin"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, fuzzy, kde-format
@@ -4975,16 +5073,31 @@ msgstr "Söz əlavə edin"
 
 #: src/settings/EmoticonsPage.qml:16
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr ""
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Xüsusi Emoji"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Söz əlavə edin"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -5041,19 +5154,25 @@ msgstr ""
 #: src/settings/GlobalNotificationsPage.qml:39
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Bildirişlərdə göstərmək"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Options:"
+msgctxt "@title:group"
 msgid "@Mentions"
-msgstr ""
+msgstr "Seçimlər:"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title:group"
 msgid "Keywords"
-msgstr ""
+msgstr "Söz əlavə edin"
 
 #: src/settings/GlobalNotificationsPage.qml:97
 #: src/settings/PushNotification.qml:100
@@ -5072,6 +5191,7 @@ msgstr "Söz əlavə edin"
 #: src/settings/GlobalNotificationsPage.qml:137
 #, fuzzy, kde-format
 #| msgid "Invite"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Dəvət edin"
 
@@ -5079,6 +5199,7 @@ msgstr "Dəvət edin"
 #, fuzzy, kde-format
 #| msgctxt "Unknown attachment size"
 #| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Naməlum"
 
@@ -5127,9 +5248,10 @@ msgid "Remove identity server"
 msgstr "Cihazı silmək"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Bu istifadəçini gözardı etmək"
 
@@ -5147,11 +5269,12 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Bi istifadəçini gözardı etməyi ləğv edin"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -5188,7 +5311,8 @@ msgstr "Əsas"
 #: src/settings/NeoChatGeneralPage.qml:23
 #, fuzzy, kde-format
 #| msgid "General settings:"
-msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Ümumi ayarlar:"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -5216,7 +5340,8 @@ msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5316,21 +5441,20 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Settings"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Ayarlar"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Təhlükəsizlik"
 
@@ -5338,13 +5462,6 @@ msgstr "Təhlükəsizlik"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Bu istifadəçini gözardı etmək"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Bu istifadəçini gözardı etmək"
 
@@ -5385,7 +5502,7 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:70
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
@@ -5402,6 +5519,12 @@ msgstr "Ucdan Uca şifrələməni aktiv etmək"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5424,6 +5547,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5440,6 +5569,18 @@ msgstr "Xarici görünüş"
 #| msgid "Show notifications"
 msgid "Notifications"
 msgstr "Bildirişlərdə göstərmək"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Təhlükəsizlik"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "İstifadəçi Hesabları"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5613,6 +5754,7 @@ msgstr ""
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Bildirişlərdə göstərmək"
 
@@ -6298,6 +6440,12 @@ msgid "Quit"
 msgstr "Çıxış"
 
 #, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Bu istifadəçini gözardı etmək"
+
+#, fuzzy
 #~| msgid "Show notifications"
 #~ msgid "Notification State"
 #~ msgstr "Bildirişlərdə göstərmək"
@@ -6557,11 +6705,6 @@ msgstr "Çıxış"
 #~ msgctxt "@action:button"
 #~ msgid "Remove this account"
 #~ msgstr "Bu hesaba düzəliş edin"
-
-#, fuzzy
-#~| msgid "Options:"
-#~ msgid "Options"
-#~ msgstr "Seçimlər:"
 
 #~ msgid "Make room favorite"
 #~ msgstr "Otağı seçilmiş edin"

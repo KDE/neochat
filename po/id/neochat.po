@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -80,12 +80,12 @@ msgstr "Tidak ada stiker"
 msgid "No emojis"
 msgstr "Tidak ada emoji"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, kde-format
 msgid "Emojis"
 msgstr "Emoji"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "Stiker"
@@ -146,6 +146,35 @@ msgstr "Data Akun Ruangan untuk %1 - %2"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Sumber Peristiwa"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Akses"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Salin Alamat ke Papan Klip"
 
 #: src/devtools/DebugOptions.qml:19
 #, fuzzy, kde-format
@@ -1085,8 +1114,7 @@ msgstr "Daftar"
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Kata sandi"
@@ -2110,16 +2138,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23
-#, fuzzy, kde-format
-#| msgid "Shortcode:"
-msgctxt "@action:button"
-msgid "Show QR code"
-msgstr "Kode pendek:"
-
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
-msgid "Edit this account"
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Sunting akun ini"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2129,19 +2157,20 @@ msgid "Account editor"
 msgstr "Penyunting akun"
 
 #: src/qml/AccountMenu.qml:49
-#, kde-format
-msgid "Notification settings"
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Pengaturan notifikasi"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Peranti"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "Buka alat pengembang"
 
 #: src/qml/AccountMenu.qml:69
@@ -2167,7 +2196,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Verifikasi peranti"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4234,6 +4263,11 @@ msgstr "Buka sebuah obrolan privat"
 msgid "Copy link"
 msgstr "Salin tautan"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Sunting akun ini"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4513,7 +4547,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Gagal meminta bergabung ke ruangan"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Sunting Akun"
 
@@ -4531,6 +4567,7 @@ msgstr "Hapus avatar saat ini"
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "User information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Informasi pengguna"
 
@@ -4550,18 +4587,19 @@ msgstr "Label:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Simpan"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Kata sandi"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4594,24 +4632,30 @@ msgid "Passwords do not match"
 msgstr "Kata sandi tidak cocok"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "Konfirmasi nama tampilan baru"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Anggota"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Add New Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Tambahkan Server Baru"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informasi Server"
 
@@ -4623,7 +4667,7 @@ msgstr "URL Homeserver"
 #: src/settings/AccountEditorPage.qml:252
 #, fuzzy, kde-format
 #| msgid "Account editor"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Penyunting akun"
 
@@ -4648,9 +4692,17 @@ msgstr "Kata sandi salah"
 msgid "Unknown problem while trying to change password"
 msgstr "Terjadi masalah yang tidak diketahui saat mengubah kata sandi"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Akun"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Akun"
 
@@ -4666,8 +4718,10 @@ msgid "Appearance"
 msgstr "Tampilan"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Tema umum"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4773,26 +4827,37 @@ msgstr "Verifikasi peranti"
 msgid "Logout device"
 msgstr "Keluarkan peranti"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Peranti"
+
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Peranti"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Verify device"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verifikasi peranti"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Verify device"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Verifikasi peranti"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
@@ -4814,37 +4879,47 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Hapus"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Sunting Emoji"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Sunting Stiker"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Tambahkan Emoji"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Sticker"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Tambahkan Stiker"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Sticker"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Sunting Stiker"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Tambahkan Emoji"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Sunting Emoji"
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Sticker"
+msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Stiker"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Emoji"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
 
@@ -4868,11 +4943,35 @@ msgstr "Kode pendek:"
 msgid "Description:"
 msgstr "Deskripsi:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Sunting Emoji"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Sunting Stiker"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Tidak ada deskripsi"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Tambahkan Emoji"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Tambahkan Stiker"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4887,16 +4986,31 @@ msgstr "Tambahkan Stiker"
 #: src/settings/EmoticonsPage.qml:16
 #, fuzzy, kde-format
 #| msgid "Stickers & Emojis"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Stiker & Emoji"
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Emoji"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Stiker"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "Enkripsi"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -4949,18 +5063,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Ketika notifikasi dorongan dibuat oleh server Matrix Anda"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Notifikasi Ruangan"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Sebutan"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Kata Kunci"
 
@@ -4977,13 +5097,16 @@ msgid "Add keyword"
 msgstr "Tambahkan kata kunci"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Undangan"
 
 #: src/settings/GlobalNotificationsPage.qml:154
 #, fuzzy, kde-format
 #| msgid "Unknown event"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Peristiwa tidak diketahui"
 
@@ -5031,9 +5154,10 @@ msgid "Remove identity server"
 msgstr "Hapus peranti"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Abaikan pengguna ini"
 
@@ -5051,11 +5175,13 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Hilangkan pengabaian pengguna ini"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "Enkripsi"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -5089,8 +5215,10 @@ msgid "General"
 msgstr "Umum"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Pengaturan umum"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -5119,7 +5247,8 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:91
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "<alias ruangan atau id>"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5214,21 +5343,20 @@ msgstr "Aktifkan alat pengembang"
 #: src/settings/NeoChatGeneralPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Developer Settings"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Pengaturan Pengembang"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Keamanan"
 
@@ -5236,13 +5364,6 @@ msgstr "Keamanan"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Abaikan pengguna ini"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Abaikan pengguna ini"
 
@@ -5285,7 +5406,7 @@ msgstr "Server Anda tidak mendukung mengubah kata sandi Anda"
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Enkripsi"
 
@@ -5304,6 +5425,12 @@ msgstr "Enkripsi"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Enkripsi"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5328,6 +5455,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Enkripsi"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5343,6 +5476,18 @@ msgstr "Tampilan"
 #, kde-format
 msgid "Notifications"
 msgstr "Notifikasi"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Keamanan"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Akun"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5505,7 +5650,9 @@ msgid "Event Type…"
 msgstr ""
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Pengaturan notifikasi ruangan"
 
@@ -6177,6 +6324,24 @@ msgstr "Tampilkan"
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
+
+#, fuzzy
+#~| msgid "Shortcode:"
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "Kode pendek:"
+
+#, fuzzy
+#~| msgid "Stickers & Emojis"
+#~ msgctxt "@title"
+#~ msgid "Stickers & Emojis"
+#~ msgstr "Stiker & Emoji"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Abaikan pengguna ini"
 
 #~ msgid "Notification State"
 #~ msgstr "Status Pemberitahuan"

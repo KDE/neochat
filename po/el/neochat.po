@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -81,13 +81,13 @@ msgstr "Προσθήκη λέξης κλειδιού"
 msgid "No emojis"
 msgstr "Χωρίς εμότζι"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgid "Emojis"
 msgstr "Χωρίς εμότζι"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr "Αυτοκόλλητα"
@@ -147,6 +147,35 @@ msgstr "Δεν βρέθηκαν αίθουσες"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Πρόσβαση"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
 
 #: src/devtools/DebugOptions.qml:19
 #, fuzzy, kde-format
@@ -1064,8 +1093,7 @@ msgstr "Εγγραφή"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
@@ -2030,15 +2058,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
-msgstr "Εμφάνιση κώδικα QR"
+msgid "Show QR Code"
+msgstr ""
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2050,18 +2079,18 @@ msgstr "Συντάκτης λογαριασμού"
 #: src/qml/AccountMenu.qml:49
 #, fuzzy, kde-format
 #| msgid "Room notifications setting"
-msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Συσκευές"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
 msgstr "Άνοιγμα εργαλείων προγραμματιστή"
 
 #: src/qml/AccountMenu.qml:69
@@ -2086,7 +2115,7 @@ msgstr "Άνοιγμα αντιγράφων ασφαλείας κλειδιού"
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Επαλήθευση συσκευής"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4084,6 +4113,11 @@ msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 msgid "Copy link"
 msgstr "Αντιγραφή συνδέσμου"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Επεξεργασία αυτού του λογαριασμού"
+
 #: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
@@ -4364,7 +4398,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Επεξεργασία λογαριασμού"
 
@@ -4380,7 +4416,9 @@ msgid "Remove current avatar"
 msgstr "Αφαίρεση του τρέχοντος avatar"
 
 #: src/settings/AccountEditorPage.qml:102
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User Information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Πληροφορίες χρήστη"
 
@@ -4399,18 +4437,19 @@ msgstr "Ετικέτα:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Αποθήκευση"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4443,24 +4482,30 @@ msgid "Passwords do not match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new display name"
+msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "Επιβεβαίωση νέου ονόματος"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Μέλη"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Add New Server"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Προσθήκη νέου εξυπηρετητή"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Πληροφορίες εξυπηρετητή"
 
@@ -4472,7 +4517,7 @@ msgstr "Url εξυπηρετητή"
 #: src/settings/AccountEditorPage.qml:252
 #, fuzzy, kde-format
 #| msgid "Account editor"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Συντάκτης λογαριασμού"
 
@@ -4497,9 +4542,17 @@ msgstr "Δόθηκε λάθος κωδικός πρόσβασης"
 msgid "Unknown problem while trying to change password"
 msgstr "Άγνωστο πρόβλημα κατά την αλλαγή κωδικού πρόσβασης"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Λογαριασμοί"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Λογαριασμοί"
 
@@ -4515,8 +4568,10 @@ msgid "Appearance"
 msgstr "Εμφάνιση"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, kde-format
-msgid "General theme"
+#, fuzzy, kde-format
+#| msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Γενικό θέμα"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4622,26 +4677,37 @@ msgstr "Επαλήθευση συσκευής"
 msgid "Logout device"
 msgstr "Αποσύνδεση από συσκευή"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Συσκευές"
+
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Συσκευές"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Verify device"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Επαλήθευση συσκευής"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Verify device"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Επαλήθευση συσκευής"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
@@ -4661,40 +4727,45 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Προσθήκη εμότζι..."
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr ""
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Emoji"
-msgstr "Προσθήκη εμότζι"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Add keyword"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Προσθήκη λέξης κλειδιού"
 
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@title:window"
+msgid "Edit Sticker"
+msgstr "Προσθήκη λέξης κλειδιού"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@title:window"
+msgid "Add Emoji"
+msgstr "Προσθήκη εμότζι"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Προσθήκη εμότζι..."
+
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@info:group"
 msgid "Sticker"
-msgstr ""
+msgstr "Αυτοκόλλητα"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
 #| msgid "No emojis"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Χωρίς εμότζι"
 
@@ -4721,6 +4792,19 @@ msgstr ""
 msgid "Description:"
 msgstr "Προορισμός"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Προσθήκη εμότζι..."
+
+#: src/settings/EmoticonFormCard.qml:53
+#, kde-format
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr ""
+
 #: src/settings/EmoticonFormCard.qml:71
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
@@ -4728,6 +4812,19 @@ msgstr "Προορισμός"
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Προορισμός"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Προσθήκη εμότζι"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Προσθήκη λέξης κλειδιού"
 
 #: src/settings/EmoticonFormCard.qml:112
 #, kde-format
@@ -4741,17 +4838,33 @@ msgid "Add Sticker"
 msgstr "Προσθήκη λέξης κλειδιού"
 
 #: src/settings/EmoticonsPage.qml:16
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
-msgstr ""
+msgstr "Αυτοκόλλητα"
+
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Χωρίς εμότζι"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Αυτοκόλλητα"
 
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "Κρυπτογράφηση"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -4804,18 +4917,24 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room Notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Ειδοποιήσεις αίθουσας"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Αναφορές"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Λέξεις κλειδιά"
 
@@ -4832,13 +4951,16 @@ msgid "Add keyword"
 msgstr "Προσθήκη λέξης κλειδιού"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Προσκαλεί"
 
 #: src/settings/GlobalNotificationsPage.qml:154
 #, fuzzy, kde-format
 #| msgid "Unknown event"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Άγνωστο γεγονός"
 
@@ -4886,9 +5008,10 @@ msgid "Remove identity server"
 msgstr "Αφαίρεση συσκευής"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Αγνόηση αυτού του χρήστη"
 
@@ -4905,11 +5028,13 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Αναίρεση αγνόησης αυτού του χρήστη"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "Κρυπτογράφηση"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -4943,8 +5068,10 @@ msgid "General"
 msgstr "Γενικά"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, kde-format
-msgid "General settings"
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Γενικές ρυθμίσεις"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -4973,7 +5100,8 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:91
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "<ψευδώνυμο ή αναγνωριστικό αίθουσας>"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5069,21 +5197,20 @@ msgstr "Ενεργοποίηση εργαλείων προγραμματιστή
 #: src/settings/NeoChatGeneralPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Developer Settings"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Ρυθμίσεις προγραμματιστή"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Ασφάλεια"
 
@@ -5091,13 +5218,6 @@ msgstr "Ασφάλεια"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Αγνόηση αυτού του χρήστη"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Αγνόηση αυτού του χρήστη"
 
@@ -5137,8 +5257,10 @@ msgid "Your server does not support this setting."
 msgstr "Ο εξυπηρετητής σου δεν υποστηρίζει αλλαγή κωδικού πρόσβασης"
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Encryption"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
@@ -5157,6 +5279,12 @@ msgstr "Κρυπτογράφηση"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Κρυπτογράφηση"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5181,6 +5309,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Κρυπτογράφηση"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5196,6 +5330,18 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Ασφάλεια"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Λογαριασμοί"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5356,7 +5502,9 @@ msgid "Event Type…"
 msgstr ""
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
@@ -6025,6 +6173,16 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "Εμφάνιση κώδικα QR"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Αγνόηση αυτού του χρήστη"
 
 #~ msgid "Notification State"
 #~ msgstr "Κατάσταση ειδοποίησης"

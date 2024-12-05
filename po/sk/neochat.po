@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:40+0000\n"
+"POT-Creation-Date: 2024-12-05 00:40+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -83,13 +83,13 @@ msgstr "Upraviť zariadenie"
 msgid "No emojis"
 msgstr "Vlastné"
 
-#: src/chatbar/EmojiPicker.qml:52 src/settings/EmoticonsPage.qml:19
+#: src/chatbar/EmojiPicker.qml:52
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgid "Emojis"
 msgstr "Vlastné"
 
-#: src/chatbar/EmojiPicker.qml:59 src/settings/EmoticonsPage.qml:27
+#: src/chatbar/EmojiPicker.qml:59
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -148,6 +148,33 @@ msgstr "Žiadne miestnosti neboli nájdené"
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Zobraziť zdroj"
+
+#: src/devtools/AccountData.qml:39
+#, kde-format
+msgctxt "@info"
+msgid "Show Access Token"
+msgstr ""
+
+#: src/devtools/AccountData.qml:40
+#, kde-format
+msgid ""
+"This should not be shared with anyone, even other users. This token gives "
+"full access to your account."
+msgstr ""
+
+#: src/devtools/AccountData.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access"
+msgctxt "@info"
+msgid "Access Token"
+msgstr "Prístup"
+
+#: src/devtools/AccountData.qml:48
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Copy access token to clipboard"
+msgstr "Kopírovať do schránky"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -1088,8 +1115,7 @@ msgstr "Registrovať"
 msgid "Password:"
 msgstr "Heslo:"
 
-#: src/login/Password.qml:32 src/settings/AccountEditorPage.qml:154
-#: src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Heslo"
@@ -2154,15 +2180,16 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23
+#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR code"
+msgid "Show QR Code"
 msgstr "Zobraziť QR kód"
 
-#: src/qml/AccountMenu.qml:40 src/qml/UserInfo.qml:46
-#, kde-format
-msgid "Edit this account"
+#: src/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
 msgstr "Upraviť tento účet"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
@@ -2176,19 +2203,19 @@ msgstr "Podrobnosti konta"
 #: src/qml/AccountMenu.qml:49
 #, fuzzy, kde-format
 #| msgid "Show notifications"
-msgid "Notification settings"
+msgid "Notification Settings"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/AccountMenu.qml:56 src/settings/DevicesPage.qml:17
-#: src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Zariadenia"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
-#, kde-format
-msgid "Open developer tools"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgid "Open Developer Tools"
+msgstr "Nástroje pre vývojárov"
 
 #: src/qml/AccountMenu.qml:69
 #, kde-format
@@ -2212,7 +2239,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
-msgid "Verify this Device"
+msgid "Verify This Device"
 msgstr "Upraviť zariadenie"
 
 #: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
@@ -4257,6 +4284,11 @@ msgstr "Otvoriť súkromný chat"
 msgid "Copy link"
 msgstr "Kopírovať odkaz"
 
+#: src/qml/UserInfo.qml:46
+#, kde-format
+msgid "Edit this account"
+msgstr "Upraviť tento účet"
+
 #: src/qml/UserInfo.qml:92
 #, fuzzy, kde-format
 msgid "Switch User"
@@ -4509,7 +4541,9 @@ msgid "Failed to request joining room<br />%1"
 msgstr "pozval %1 do miestnosti"
 
 #: src/settings/AccountEditorPage.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Upraviť účet"
 
@@ -4528,6 +4562,7 @@ msgstr ""
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Room information"
+msgctxt "@title:group"
 msgid "User Information"
 msgstr "Informácie o miestnosti"
 
@@ -4546,18 +4581,19 @@ msgstr "Popis:"
 msgid "Work"
 msgstr "Práca"
 
-#: src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Zobraziť QR kód"
-
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
 #: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
 #, kde-format
 msgid "Save"
 msgstr "Uložiť"
+
+#: src/settings/AccountEditorPage.qml:154
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@title:group"
+msgid "Password"
+msgstr "Heslo"
 
 #: src/settings/AccountEditorPage.qml:159
 #, kde-format
@@ -4591,24 +4627,30 @@ msgid "Passwords do not match"
 msgstr "Heslá sa nezhodujú"
 
 #: src/settings/AccountEditorPage.qml:207
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Email Addresses"
+msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Emailové adresy"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Members"
+msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefónne čísla"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
+msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Domáci server:"
 
 #: src/settings/AccountEditorPage.qml:227
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server Information"
+msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informácie o serveri"
 
@@ -4622,7 +4664,7 @@ msgstr "Domáci server:"
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Podrobnosti konta"
 
@@ -4647,9 +4689,17 @@ msgstr "Zadané nesprávne heslo"
 msgid "Unknown problem while trying to change password"
 msgstr "Neznámy problém pri pokuse o zmenu hesla"
 
-#: src/settings/AccountsPage.qml:20 src/settings/AccountsPage.qml:38
-#: src/settings/NeoChatSettingsView.qml:63
-#, kde-format
+#: src/settings/AccountsPage.qml:20
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:window"
+msgid "Accounts"
+msgstr "Kontá"
+
+#: src/settings/AccountsPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Kontá"
 
@@ -4668,7 +4718,8 @@ msgstr "Vzhľad"
 #: src/settings/AppearanceSettingsPage.qml:21
 #, fuzzy, kde-format
 #| msgid "General"
-msgid "General theme"
+msgctxt "@title:group"
+msgid "General Theme"
 msgstr "Všeobecné"
 
 #: src/settings/AppearanceSettingsPage.qml:115
@@ -4781,26 +4832,37 @@ msgstr "Overený"
 msgid "Logout device"
 msgstr "Odhlásiť zariadenie"
 
+#: src/settings/DevicesPage.qml:17
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@title:window"
+msgid "Devices"
+msgstr "Zariadenia"
+
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Devices"
+msgctxt "@info:group"
 msgid "This Device"
 msgstr "Zariadenia"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Upraviť zariadenie"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Upraviť zariadenie"
 
 #: src/settings/DevicesPage.qml:48
 #, kde-format
+msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
@@ -4820,41 +4882,45 @@ msgctxt "As in 'Remove this device'"
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
-#, fuzzy, kde-format
-#| msgid "Add an Emoji"
-msgctxt "@title"
-msgid "Edit Emoji"
-msgstr "Pridať emoji"
-
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:53
+#: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Edit device"
-msgctxt "@title"
+msgctxt "@title:window"
+msgid "Add Sticker"
+msgstr "Upraviť zariadenie"
+
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "Upraviť zariadenie"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Add an Emoji"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "Pridať emoji"
 
-#: src/settings/EmoticonEditorPage.qml:27 src/settings/EmoticonFormCard.qml:103
-#, kde-format
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr ""
+#: src/settings/EmoticonEditorPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Add an Emoji"
+msgctxt "@title:window"
+msgid "Edit Emoji"
+msgstr "Pridať emoji"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@info:group"
 msgid "Sticker"
-msgstr ""
+msgstr "Upraviť zariadenie"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
 #| msgid "Custom"
+msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Vlastné"
 
@@ -4878,12 +4944,39 @@ msgstr ""
 msgid "Description:"
 msgstr "Popis:"
 
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Add an Emoji"
+msgctxt "@title"
+msgid "Edit Emoji"
+msgstr "Pridať emoji"
+
+#: src/settings/EmoticonFormCard.qml:53
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Upraviť zariadenie"
+
 #: src/settings/EmoticonFormCard.qml:71
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Žiadny popis"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, fuzzy, kde-format
+#| msgid "Add an Emoji"
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Pridať emoji"
+
+#: src/settings/EmoticonFormCard.qml:103
+#, kde-format
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr ""
 
 #: src/settings/EmoticonFormCard.qml:112
 #, fuzzy, kde-format
@@ -4898,16 +4991,30 @@ msgstr ""
 
 #: src/settings/EmoticonsPage.qml:16
 #, kde-format
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr ""
 
+#: src/settings/EmoticonsPage.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@title:group"
+msgid "Emojis"
+msgstr "Vlastné"
+
+#: src/settings/EmoticonsPage.qml:27
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title:group"
+msgid "Stickers"
+msgstr "Upraviť zariadenie"
+
 #: src/settings/ExportKeysDialog.qml:17
-#: src/settings/NeoChatSecurityPage.qml:107
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Export Keys"
-msgstr ""
+msgstr "aktivoval End-to-End šifrovanie"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, fuzzy, kde-format
@@ -4961,17 +5068,22 @@ msgstr ""
 #: src/settings/GlobalNotificationsPage.qml:39
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Zobraziť upozornenia"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:group"
 msgid "@Mentions"
-msgstr ""
+msgstr "Voľby"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Keywords"
+msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Kľúčové slová"
 
@@ -4990,6 +5102,7 @@ msgstr ""
 #: src/settings/GlobalNotificationsPage.qml:137
 #, fuzzy, kde-format
 #| msgid "Invite"
+msgctxt "@title:group"
 msgid "Invites"
 msgstr "Pozvať"
 
@@ -4997,6 +5110,7 @@ msgstr "Pozvať"
 #, fuzzy, kde-format
 #| msgctxt "Unknown attachment size"
 #| msgid "Unknown"
+msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Neznáme"
 
@@ -5045,9 +5159,10 @@ msgid "Remove identity server"
 msgstr "Odstrániť zariadenie"
 
 #: src/settings/IgnoredUsersDialog.qml:18
+#: src/settings/NeoChatSecurityPage.qml:35
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignorovať tohto používateľa"
 
@@ -5064,11 +5179,12 @@ msgctxt "@action:button"
 msgid "Unignore this user"
 msgstr "Prestať ignorovať tohto požívateľa"
 
-#: src/settings/ImportKeysDialog.qml:21 src/settings/NeoChatSecurityPage.qml:84
-#, kde-format
-msgctxt "@title"
+#: src/settings/ImportKeysDialog.qml:21
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:window"
 msgid "Import Keys"
-msgstr ""
+msgstr "aktivoval End-to-End šifrovanie"
 
 #: src/settings/ImportKeysDialog.qml:35
 #, fuzzy, kde-format
@@ -5105,7 +5221,8 @@ msgstr "Všeobecné"
 #: src/settings/NeoChatGeneralPage.qml:23
 #, fuzzy, kde-format
 #| msgid "General settings:"
-msgid "General settings"
+msgctxt "@title:group"
+msgid "General Settings"
 msgstr "Všeobecné nastavenie"
 
 #: src/settings/NeoChatGeneralPage.qml:29
@@ -5131,7 +5248,8 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:91
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
-msgid "Room list sort order"
+msgctxt "@title:group"
+msgid "Room List Sort Order"
 msgstr "<alias miestnosti alebo jej id>"
 
 #: src/settings/NeoChatGeneralPage.qml:95
@@ -5228,22 +5346,23 @@ msgid "Enable developer tools"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:285
-#, kde-format
-msgctxt "@title"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Default Settings"
+msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Štandardné nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#: src/settings/NeoChatSettingsView.qml:51
 #, fuzzy, kde-format
 #| msgid "Security"
-msgctxt "@title"
+msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Bezpečnosť"
 
@@ -5251,13 +5370,6 @@ msgstr "Bezpečnosť"
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
-msgid "Ignored Users"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/settings/NeoChatSecurityPage.qml:35
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:window"
 msgid "Ignored Users"
 msgstr "Ignorovať tohto používateľa"
 
@@ -5298,7 +5410,7 @@ msgstr ""
 #: src/settings/NeoChatSecurityPage.qml:70
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
-msgctxt "@title"
+msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifrovanie"
 
@@ -5315,6 +5427,12 @@ msgstr "aktivoval End-to-End šifrovanie"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "aktivoval End-to-End šifrovanie"
+
+#: src/settings/NeoChatSecurityPage.qml:84
+#, kde-format
+msgctxt "@title"
+msgid "Import Keys"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
@@ -5337,6 +5455,12 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "aktivoval End-to-End šifrovanie"
 
+#: src/settings/NeoChatSecurityPage.qml:107
+#, kde-format
+msgctxt "@title"
+msgid "Export Keys"
+msgstr ""
+
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
 #, kde-format
@@ -5353,6 +5477,18 @@ msgstr "Vzhľad"
 #| msgid "Show notifications"
 msgid "Notifications"
 msgstr "Oznámenia"
+
+#: src/settings/NeoChatSettingsView.qml:51
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
+msgid "Security & Safety"
+msgstr "Bezpečnosť"
+
+#: src/settings/NeoChatSettingsView.qml:63
+#, kde-format
+msgid "Accounts"
+msgstr "Kontá"
 
 #: src/settings/NeoChatSettingsView.qml:70
 #, kde-format
@@ -5523,6 +5659,7 @@ msgstr "Typ udalosti"
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Zobraziť upozornenia"
 
@@ -6195,6 +6332,16 @@ msgstr "Zobraziť"
 msgid "Quit"
 msgstr "Ukončiť"
 
+#~ msgctxt "@action:button"
+#~ msgid "Show QR code"
+#~ msgstr "Zobraziť QR kód"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@title"
+#~ msgid "Ignored Users"
+#~ msgstr "Ignorovať tohto používateľa"
+
 #, fuzzy
 #~| msgid "Show notifications"
 #~ msgid "Notification State"
@@ -6414,9 +6561,6 @@ msgstr "Ukončiť"
 #~ msgctxt "@action:button"
 #~ msgid "Remove this account"
 #~ msgstr "Upraviť tento účet"
-
-#~ msgid "Options"
-#~ msgstr "Voľby"
 
 #~ msgid "Make room favorite"
 #~ msgstr "Nastaviť miestnosť ako obľúbenú"
