@@ -232,7 +232,8 @@ public:
     /**
      * @brief Show a context menu for the given event.
      */
-    Q_INVOKABLE void viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText = {});
+    Q_INVOKABLE void
+    viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText = {}, const QString &hoveredLink = {});
 
     ChatDocumentHandler *chatDocumentHandler() const;
     void setChatDocumentHandler(ChatDocumentHandler *handler);
@@ -313,7 +314,8 @@ Q_SIGNALS:
                          MessageComponentType::Type messageComponentType,
                          const QString &plainText,
                          const QString &htmlText,
-                         const QString &selectedText);
+                         const QString &selectedText,
+                         const QString &hoveredLink);
 
     /**
      * @brief Request to show a menu for the given media event.

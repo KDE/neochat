@@ -43,6 +43,11 @@ DelegateChooser {
     signal selectedTextChanged(string selectedText)
 
     /**
+     * @brief The user hovered link has changed.
+     */
+    signal hoveredLinkChanged(string hoveredLink)
+
+    /**
      * @brief Request a context menu be show for the message.
      */
     signal showMessageMenu
@@ -63,6 +68,7 @@ DelegateChooser {
         delegate: TextComponent {
             maxContentWidth: root.maxContentWidth
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
+            onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
             onShowMessageMenu: root.showMessageMenu()
         }
     }

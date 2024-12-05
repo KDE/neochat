@@ -58,6 +58,11 @@ Loader {
     property string selectedText: ""
 
     /**
+     * @brief The link the user has currently hovered.
+     */
+    property string hoveredLink: ""
+
+    /**
      * @brief The list of menu item actions that have sub-actions.
      *
      * Each action will be instantiated as a single line that open a sub menu.

@@ -195,7 +195,7 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText)
+void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText, const QString &hoveredLink)
 {
     const auto &event = **room->findInTimeline(eventId);
 
@@ -214,7 +214,8 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
                            MessageComponentType::typeForEvent(event),
                            EventHandler::plainBody(room, &event),
                            EventHandler::richBody(room, &event),
-                           selectedText);
+                           selectedText,
+                           hoveredLink);
 }
 
 bool RoomManager::hasOpenRoom() const

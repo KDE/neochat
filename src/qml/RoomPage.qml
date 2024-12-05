@@ -245,9 +245,10 @@ Kirigami.Page {
             });
         }
 
-        function onShowMessageMenu(eventId, author, messageComponentType, plainText, htmlText, selectedText, isThread) {
+        function onShowMessageMenu(eventId, author, messageComponentType, plainText, htmlText, selectedText, hoveredLink, isThread) {
             const contextMenu = messageDelegateContextMenu.createObject(root, {
                 selectedText: selectedText,
+                hoveredLink: hoveredLink,
                 author: author,
                 eventId: eventId,
                 messageComponentType: messageComponentType,

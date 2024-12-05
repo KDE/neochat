@@ -64,6 +64,12 @@ DelegateContextMenu {
         },
         DelegateContextMenu.RemoveMessageAction {},
         Kirigami.Action {
+            text: i18nc("@action:inmenu", "Copy Link Address")
+            icon.name: "edit-copy"
+            visible: root.hoveredLink.length > 0
+            onTriggered: Clipboard.saveText(root.hoveredLink)
+        },
+        Kirigami.Action {
             text: i18nc("@action:inmenu", "Copy Text")
             icon.name: "edit-copy"
             onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)

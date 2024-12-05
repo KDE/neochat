@@ -79,6 +79,11 @@ QQC2.Control {
     signal selectedTextChanged(string selectedText)
 
     /**
+     * @brief The user hovered link has changed.
+     */
+    signal hoveredLinkChanged(string hoveredLink)
+
+    /**
      * @brief Request a context menu be show for the message.
      */
     signal showMessageMenu
@@ -107,6 +112,9 @@ QQC2.Control {
                     }
                     onSelectedTextChanged: selectedText => {
                         root.selectedTextChanged(selectedText);
+                    }
+                    onHoveredLinkChanged: hoveredLink => {
+                        root.hoveredLinkChanged(hoveredLink);
                     }
                     onShowMessageMenu: root.showMessageMenu()
                     onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)

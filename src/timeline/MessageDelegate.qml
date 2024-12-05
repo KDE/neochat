@@ -182,6 +182,11 @@ TimelineDelegate {
      */
     property string selectedText: ""
 
+    /**
+     * @brief The user hovered link.
+     */
+    property string hoveredLink: ""
+
     onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
         temporaryHighlightTimer.start();
     }
@@ -307,6 +312,9 @@ TimelineDelegate {
                 onSelectedTextChanged: selectedText => {
                     root.selectedText = selectedText;
                 }
+                onHoveredLinkChanged: hoveredLink => {
+                    root.hoveredLink = hoveredLink;
+                }
                 onShowMessageMenu: _private.showMessageMenu()
 
                 showBackground: root.cardBackground && !NeoChatConfig.compactLayout
@@ -378,7 +386,7 @@ TimelineDelegate {
         property bool showUserMessageOnRight: NeoChatConfig.showLocalMessagesOnRight && root.author.isLocalMember && !NeoChatConfig.compactLayout && !root.alwaysFillWidth
 
         function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.selectedText);
+            RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.selectedText, root.hoveredLink);
         }
     }
 }
