@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-05 00:40+0000\n"
+"POT-Creation-Date: 2024-12-06 00:40+0000\n"
 "PO-Revision-Date: 2024-11-25 19:26+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -198,7 +198,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:280
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:290
 #, kde-format
 msgid "Developer Tools"
 msgstr "Entwicklungswerkzeuge"
@@ -1937,7 +1937,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in diesem Raum öffnen"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:111
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2015,7 +2015,7 @@ msgstr "Benachrichtigungseinstellungen"
 msgid "Devices"
 msgstr "Geräte"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:276
+#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
 #, fuzzy, kde-format
 #| msgid "Open developer tools"
 msgid "Open Developer Tools"
@@ -2460,18 +2460,18 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/qml/DelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:89
 #, kde-format
 msgid "View Source"
 msgstr "Quelltext anzeigen"
 
-#: src/qml/DelegateContextMenu.qml:91 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: src/qml/DelegateContextMenu.qml:96 src/qml/DelegateContextMenu.qml:101
+#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
 #: src/qml/FileDelegateContextMenu.qml:82
 #: src/qml/FileDelegateContextMenu.qml:87
 #, kde-format
@@ -2479,55 +2479,55 @@ msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Nachricht löschen"
 
-#: src/qml/DelegateContextMenu.qml:97 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Begründung für das Löschen dieser Nachricht"
 
-#: src/qml/DelegateContextMenu.qml:98 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Löschen"
 
-#: src/qml/DelegateContextMenu.qml:121 src/qml/DelegateContextMenu.qml:129
+#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Melden"
 
-#: src/qml/DelegateContextMenu.qml:126
+#: src/qml/DelegateContextMenu.qml:131
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Nachricht melden"
 
-#: src/qml/DelegateContextMenu.qml:127
+#: src/qml/DelegateContextMenu.qml:132
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Begründung für das Melden dieser Nachricht"
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:136
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Nachricht melden"
 
-#: src/qml/DelegateContextMenu.qml:141
+#: src/qml/DelegateContextMenu.qml:146
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Benutzer anzeigen"
 
-#: src/qml/DelegateContextMenu.qml:204
+#: src/qml/DelegateContextMenu.qml:209
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Suchen nach „%1“"
 
-#: src/qml/DelegateContextMenu.qml:226
+#: src/qml/DelegateContextMenu.qml:231
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Web-Kurzbefehle festlegen …"
@@ -3187,12 +3187,19 @@ msgid "Forward Message"
 msgstr "Nachricht weiterleiten"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Link Address"
+msgstr "Verknüpfung kopieren"
+
+#: src/qml/MessageDelegateContextMenu.qml:73
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Text kopieren"
 
-#: src/qml/MessageDelegateContextMenu.qml:72
+#: src/qml/MessageDelegateContextMenu.qml:78
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgctxt "@action:inmenu"
@@ -4243,17 +4250,17 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Ungültige oder leere Matrix-Kennung<br />%1 ist keine korrekte Matrix-Kennung"
 
-#: src/roommanager.cpp:342
+#: src/roommanager.cpp:343
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Raum kann nicht betreten werden<br />%1"
 
-#: src/roommanager.cpp:366
+#: src/roommanager.cpp:367
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:370
+#: src/roommanager.cpp:371
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room<br />%1"
@@ -4974,77 +4981,93 @@ msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alphabetisch"
 
+#: src/settings/NeoChatGeneralPage.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "As in 'sort something based on the last message'"
+msgid "Last Message Activity"
+msgstr "%1, letzte Aktivität: %2"
+
 #: src/settings/NeoChatGeneralPage.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
+msgctxt "@info"
+msgid "Rooms with the newest activity will be shown first"
+msgstr "Räume mit ungelesenen Benachrichtigungen werden zuerst angezeigt"
+
+#: src/settings/NeoChatGeneralPage.qml:125
 #, kde-format
 msgid "Timeline Events"
 msgstr "Zeitleisten-Ereignisse"
 
-#: src/settings/NeoChatGeneralPage.qml:120
+#: src/settings/NeoChatGeneralPage.qml:130
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Gelöschte Nachricht anzeigen"
 
-#: src/settings/NeoChatGeneralPage.qml:136
+#: src/settings/NeoChatGeneralPage.qml:146
 #, kde-format
 msgid "Show state events"
 msgstr "Statusänderungen anzeigen"
 
-#: src/settings/NeoChatGeneralPage.qml:154
+#: src/settings/NeoChatGeneralPage.qml:164
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Ereignisse des Betretens und Verlassens anzeigen"
 
-#: src/settings/NeoChatGeneralPage.qml:172
+#: src/settings/NeoChatGeneralPage.qml:182
 #, kde-format
 msgid "Show name change events"
 msgstr "Namensänderungen anzeigen"
 
-#: src/settings/NeoChatGeneralPage.qml:190
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Avataränderungen anzeigen"
 
-#: src/settings/NeoChatGeneralPage.qml:200
+#: src/settings/NeoChatGeneralPage.qml:210
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:204
+#: src/settings/NeoChatGeneralPage.qml:214
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Nachricht mit der Eingabetaste senden"
 
-#: src/settings/NeoChatGeneralPage.qml:215
+#: src/settings/NeoChatGeneralPage.qml:225
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Nachrichten mit Strg+Eingabetaste senden"
 
-#: src/settings/NeoChatGeneralPage.qml:231
+#: src/settings/NeoChatGeneralPage.qml:241
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Die Syntax „s/Text/Ersetzungstext“ verwenden, um Ihre letzte Nachricht zu "
 "bearbeiten"
 
-#: src/settings/NeoChatGeneralPage.qml:245
+#: src/settings/NeoChatGeneralPage.qml:255
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Tippbenachrichtigungen senden"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:265
 #, kde-format
 msgid "Developer Settings"
 msgstr "Entwicklungseinstellungen"
 
-#: src/settings/NeoChatGeneralPage.qml:260
+#: src/settings/NeoChatGeneralPage.qml:270
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Entwicklungswerkzeuge aktivieren"
 
-#: src/settings/NeoChatGeneralPage.qml:285
+#: src/settings/NeoChatGeneralPage.qml:295
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Default Settings"
@@ -5052,7 +5075,7 @@ msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Voreinstellungen"
 
-#: src/settings/NeoChatGeneralPage.qml:290
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
@@ -5929,7 +5952,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Extern öffnen"
 
-#: src/timeline/MessageComponentChooser.qml:211
+#: src/timeline/MessageComponentChooser.qml:217
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 startete eine Überprüfung des Benutzers"
