@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-06 00:40+0000\n"
-"PO-Revision-Date: 2024-11-29 06:32+0400\n"
+"PO-Revision-Date: 2024-12-06 07:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -144,7 +144,7 @@ msgstr "مصدر الحدث"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "أظهر رمز الوصول"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
@@ -152,22 +152,20 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"لا ينبغي مشاركة هذه المعلومات مع أي شخص، حتى المستخدمين الآخرين. يمنح هذا "
+"الرمز إمكانية الوصول الكامل إلى حسابك."
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "الوصول"
+msgstr "رمز الوصول"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "انسخ العنوان للحافظة"
+msgstr "انسخ رمز الوصول للحافظة"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -257,25 +255,19 @@ msgid "Choose Room"
 msgstr "اختر غرفة"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "لم يعثر على غرفة"
+msgstr "لم تحدد أي غرفة"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "اختر غرفة"
+msgstr "انقر لتختار غرفة"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "اختر غرفة"
@@ -1979,8 +1971,7 @@ msgid "Show QR Code"
 msgstr "أظهر رمز الاستجابة السريعة"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
 msgstr "حرر هذا الحساب"
 
@@ -1991,8 +1982,7 @@ msgid "Account editor"
 msgstr "تفاصيل الحساب"
 
 #: src/qml/AccountMenu.qml:49
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
 msgstr "إعدادات الإشعارات"
 
@@ -2002,8 +1992,7 @@ msgid "Devices"
 msgstr "الأجهزة"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "افتح أدوات المطوّر"
 
@@ -2026,9 +2015,7 @@ msgid "Open Key Backup"
 msgstr "النسخة الاحتياطية لمفتاح الفتح"
 
 #: src/qml/AccountMenu.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "تَثَبّت من هذا الجهاز"
@@ -4214,8 +4201,7 @@ msgid "Failed to request joining room<br />%1"
 msgstr "فشل في طلب الانضمام لغرفة<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "حرّر الحساب"
@@ -4231,8 +4217,7 @@ msgid "Remove current avatar"
 msgstr "أزل الصورة الرمزية الحالية"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "معلومات مستخدم"
@@ -4260,8 +4245,7 @@ msgid "Save"
 msgstr "احفظ"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "كلمة السّر"
@@ -4297,29 +4281,25 @@ msgid "Passwords do not match"
 msgstr "كلمتا السر لم تتطابقا"
 
 #: src/settings/AccountEditorPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "عنوان البريد الإلكتروني"
 
 #: src/settings/AccountEditorPage.qml:213
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "أرقام الهاتف"
 
 #: src/settings/AccountEditorPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Identity Server"
+#, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "خادم الهوية"
 
 #: src/settings/AccountEditorPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "معلومات الخادوم"
@@ -4330,9 +4310,7 @@ msgid "Homeserver url"
 msgstr "رابط الخادم المنزل"
 
 #: src/settings/AccountEditorPage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "إدارة الحساب"
@@ -4358,15 +4336,13 @@ msgid "Unknown problem while trying to change password"
 msgstr "مشكلة غير معروفة أثناء محاولة تغيير كلمة السر"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "الحسابات"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "الحسابات"
@@ -4383,8 +4359,7 @@ msgid "Appearance"
 msgstr "المظهر"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "سمة عامّ"
@@ -4492,36 +4467,31 @@ msgid "Logout device"
 msgstr "اخرج الجهاز"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "الأجهزة"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "هذا الجهاز"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "الأجهزة المتحقق منها"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "الأجهزة غير المتحقق منها"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "الأجهزة التي دون دعم للتعمية"
@@ -4543,45 +4513,37 @@ msgid "Remove"
 msgstr "أزل"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "أضف ملصقاً"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "حرر ملصقاً"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "أضف صورة تعبيرية"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "حرر صورة تعبيرية"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "ملصق"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "صورة تعبيرية"
@@ -4647,30 +4609,25 @@ msgid "Add Sticker"
 msgstr "أضف ملصقاً"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "الملصقات والصور التعبيرية"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "الصورة التعبيرية"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "الملصقات"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "صدّر المفاتيح"
@@ -4724,23 +4681,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "إذا ما كانت الإشعارات مولدة من قبل خادوم ماتركس"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "إشعارات الغرفة"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@الذّكورات"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "الكلمات المفتاحيّة"
@@ -4758,15 +4712,13 @@ msgid "Add keyword"
 msgstr "أضِف كلمة مفتاحية"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "الدعوات"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "مجهول"
@@ -4830,9 +4782,7 @@ msgid "Unignore this user"
 msgstr "ألغ تجاهل هذا المستخدم"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "استورد مفاتيح"
@@ -4868,11 +4818,10 @@ msgid "General"
 msgstr "عامّ"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
-msgstr "إعدادات عامّة"
+msgstr "إعدادات عامة"
 
 #: src/settings/NeoChatGeneralPage.qml:29
 #, kde-format
@@ -4895,8 +4844,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "أظهر كل الغرف في لسان البيت"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "ترتيب فرز قائمة الغرفة"
@@ -5004,25 +4952,19 @@ msgid "Enable developer tools"
 msgstr "مكّن أدوات المطوّر"
 
 #: src/settings/NeoChatGeneralPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
-msgstr "الإعدادات الافتراضيّة"
+msgstr "الإعدادات المبدئية"
 
 #: src/settings/NeoChatGeneralPage.qml:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
 msgstr "أعد كلّ الإعدادات إلى قيمها المبدئية"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "الأمان والسلامة"
@@ -5071,9 +5013,7 @@ msgid "Your server does not support this setting."
 msgstr "لا يدعم خادمك هذا الإعداد."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "التعمية"
@@ -5304,8 +5244,7 @@ msgid "Event Type…"
 msgstr "نوع الحدث…"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "إعدادات إشعارات الغرفة"
