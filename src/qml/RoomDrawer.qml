@@ -19,6 +19,7 @@ Kirigami.OverlayDrawer {
     required property NeoChatConnection connection
 
     width: actualWidth
+    interactive: modal
 
     readonly property int minWidth: Kirigami.Units.gridUnit * 15
     readonly property int maxWidth: Kirigami.Units.gridUnit * 25
