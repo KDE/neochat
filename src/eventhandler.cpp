@@ -60,7 +60,7 @@ QString EventHandler::authorDisplayName(const NeoChatRoom *room, const Quotient:
         return {};
     }
 
-    if (is<RoomMemberEvent>(*event) && !event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].isNull()
+    if (is<RoomMemberEvent>(*event) && event->unsignedJson()[QStringLiteral("prev_content")].toObject().contains("displayname"_L1)
         && event->stateKey() == event->senderId()) {
         auto previousDisplayName = event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].toString().toHtmlEscaped();
         if (previousDisplayName.isEmpty()) {
