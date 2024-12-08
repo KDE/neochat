@@ -6,6 +6,7 @@
 
 #include "neochatconfig.h"
 #include "neochatconnection.h"
+#include "neochatroom.h"
 #include "neochatroomtype.h"
 #include "roommanager.h"
 #include "roomtreemodel.h"
@@ -44,67 +45,49 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
 void SortFilterRoomTreeModel::setRoomSortOrder(SortFilterRoomTreeModel::RoomSortOrder sortOrder)
 {
     m_sortOrder = sortOrder;
-    if (sortOrder == SortFilterRoomTreeModel::Alphabetical) {
-        setSortRole(RoomTreeModel::DisplayNameRole);
-    } else if (sortOrder == SortFilterRoomTreeModel::Activity) {
-        setSortRole(RoomTreeModel::LastActiveTimeRole);
-    }
     invalidate();
 }
 
-static const QVector<RoomTreeModel::EventRoles> alphabeticalSortPriorities{
+static const QVector<RoomSortParameter::Parameter> alphabeticalSortPriorities{
     // Does exactly what it says on the tin.
-    RoomTreeModel::DisplayNameRole,
+    RoomSortParameter::AlphabeticalAscending,
 };
 
-static const QVector<RoomTreeModel::EventRoles> activitySortPriorities{
-    // Anything useful at the top, quiet rooms at the bottom
-    RoomTreeModel::AttentionRole,
-    // Organize by highlights, notifications, unread favorites, all other unread, in that order
-    RoomTreeModel::HasHighlightNotificationsRole,
-    RoomTreeModel::ContextNotificationCountRole,
-    RoomTreeModel::FavouriteRole,
+static const QVector<RoomSortParameter::Parameter> activitySortPriorities{
+    RoomSortParameter::HasHighlight,
+    RoomSortParameter::MostHighlights,
+    RoomSortParameter::HasUnread,
+    RoomSortParameter::MostUnread,
+    RoomSortParameter::LastActive,
 };
 
-static const QVector<RoomTreeModel::EventRoles> lastMessageSortPriorities{
-    // Sort by last activity time
-    RoomTreeModel::LastActiveTimeRole,
-    // Anything useful at the top, quiet rooms at the bottom
-    RoomTreeModel::AttentionRole,
-    // Organize by highlights, notifications, unread favorites, all other unread, in that order
-    RoomTreeModel::HasHighlightNotificationsRole,
-    RoomTreeModel::ContextNotificationCountRole,
-    RoomTreeModel::FavouriteRole,
+static const QVector<RoomSortParameter::Parameter> lastMessageSortPriorities{
+    RoomSortParameter::LastActive,
 };
 
-bool SortFilterRoomTreeModel::roleCmp(const QVariant &sortLeft, const QVariant &sortRight) const
-{
-    switch (sortLeft.typeId()) {
-    case QMetaType::Bool:
-        return (sortLeft == sortRight) ? false : sortLeft.toBool();
-    case QMetaType::QString:
-        return sortLeft.toString() < sortRight.toString();
-    case QMetaType::Int:
-        return sortLeft.toInt() > sortRight.toInt();
-    case QMetaType::QDateTime:
-        return sortLeft.toDateTime() > sortRight.toDateTime();
-    default:
-        return false;
-    }
-}
-
-bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomTreeModel::EventRoles> &priorities,
+bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomSortParameter::Parameter> &priorities,
                                             const QModelIndex &source_left,
                                             const QModelIndex &source_right) const
 {
-    for (RoomTreeModel::EventRoles sortRole : priorities) {
-        const auto sortLeft = sourceModel()->data(source_left, sortRole);
-        const auto sortRight = sourceModel()->data(source_right, sortRole);
-        if (sortLeft != sortRight) {
-            return roleCmp(sortLeft, sortRight);
+    const auto treeModel = dynamic_cast<RoomTreeModel *>(sourceModel());
+    if (treeModel == nullptr) {
+        return false;
+    }
+
+    const auto leftRoom = dynamic_cast<NeoChatRoom *>(treeModel->connection()->room(source_left.data(RoomTreeModel::RoomIdRole).toString()));
+    const auto rightRoom = dynamic_cast<NeoChatRoom *>(treeModel->connection()->room(source_right.data(RoomTreeModel::RoomIdRole).toString()));
+    if (leftRoom == nullptr || rightRoom == nullptr) {
+        return false;
+    }
+
+    for (auto sortRole : priorities) {
+        auto result = RoomSortParameter::compareParameter(sortRole, leftRoom, rightRoom);
+
+        if (result != 0) {
+            return result > 0;
         }
     }
-    return QSortFilterProxyModel::lessThan(source_left, source_right);
+    return false;
 }
 
 bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const

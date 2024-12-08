@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
+#include "enums/roomsortparameter.h"
 #include "models/roomtreemodel.h"
 
 /**
@@ -105,6 +106,5 @@ private:
     QString m_filterText;
     QString m_activeSpaceId;
 
-    bool roleCmp(const QVariant &left, const QVariant &right) const;
-    bool prioritiesCmp(const QVector<RoomTreeModel::EventRoles> &priorities, const QModelIndex &left, const QModelIndex &right) const;
+    bool prioritiesCmp(const QVector<RoomSortParameter::Parameter> &priorities, const QModelIndex &left, const QModelIndex &right) const;
 };

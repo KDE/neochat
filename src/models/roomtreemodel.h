@@ -36,7 +36,6 @@ public:
         CategoryRole, /**< The room category, e.g favourite. */
         ContextNotificationCountRole, /**< The context aware notification count for the room. */
         HasHighlightNotificationsRole, /**< Whether there are any highlight notifications. */
-        LastActiveTimeRole, /**< The timestamp of the last event sent in the room. */
         JoinStateRole, /**< The local user's join state in the room. */
         CurrentRoomRole, /**< The room object for the room. */
         SubtitleTextRole, /**< The text to show as the room subtitle. */
@@ -48,8 +47,6 @@ public:
         IsDirectChat, /**< Whether this room is a direct chat. */
         DelegateTypeRole,
         IconRole,
-        AttentionRole, /**< Whether there are any notifications. */
-        FavouriteRole, /**< Whether the room is favourited. */
         RoomTypeRole, /**< The room's type. */
     };
     Q_ENUM(EventRoles)

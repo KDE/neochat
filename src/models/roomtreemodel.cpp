@@ -176,7 +176,7 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
         refreshRoomRoles(room);
     });
     connect(room, &Room::addedMessages, this, [this, room] {
-        refreshRoomRoles(room, {SubtitleTextRole, LastActiveTimeRole});
+        refreshRoomRoles(room, {SubtitleTextRole});
     });
     connect(room, &Room::pendingEventMerged, this, [this, room] {
         refreshRoomRoles(room, {SubtitleTextRole});
@@ -274,7 +274,6 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[CategoryRole] = "category";
     roles[ContextNotificationCountRole] = "contextNotificationCount";
     roles[HasHighlightNotificationsRole] = "hasHighlightNotifications";
-    roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
     roles[SubtitleTextRole] = "subtitleText";
@@ -284,8 +283,6 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[IsDirectChat] = "isDirectChat";
     roles[DelegateTypeRole] = "delegateType";
     roles[IconRole] = "icon";
-    roles[AttentionRole] = "attention";
-    roles[FavouriteRole] = "favourite";
     roles[RoomTypeRole] = "roomType";
     return roles;
 }
@@ -341,9 +338,6 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     if (role == HasHighlightNotificationsRole) {
         return room->highlightCount() > 0 && room->contextAwareNotificationCount() > 0;
     }
-    if (role == LastActiveTimeRole) {
-        return room->lastActiveTime();
-    }
     if (role == JoinStateRole) {
         if (!room->successorId().isEmpty()) {
             return QStringLiteral("upgraded");
@@ -379,12 +373,6 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     }
     if (role == DelegateTypeRole) {
         return QStringLiteral("normal");
-    }
-    if (role == AttentionRole) {
-        return room->notificationCount() + room->highlightCount() > 0;
-    }
-    if (role == FavouriteRole) {
-        return room->isFavourite();
     }
     if (role == RoomTypeRole) {
         if (room->creation()) {
