@@ -281,7 +281,7 @@ QString EventHandler::markdownBody(const Quotient::RoomEvent *event)
 
 QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent *event, Qt::TextFormat format, bool stripNewlines)
 {
-    if (event->isRedacted()) {
+    if (event->isRedacted() && !event->isStateEvent()) {
         auto reason = event->redactedBecause()->reason();
         return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>") : i18n("<i>[This message was deleted: %1]</i>", reason.toHtmlEscaped());
     }
@@ -498,7 +498,7 @@ QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomE
         qCWarning(EventHandling) << "genericBody called with event set to nullptr.";
         return {};
     }
-    if (event->isRedacted()) {
+    if (event->isRedacted() && !event->isStateEvent()) {
         return i18n("<i>[This message was deleted]</i>");
     }
 
