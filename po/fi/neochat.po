@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:40+0000\n"
-"PO-Revision-Date: 2024-11-17 10:08+0200\n"
+"POT-Creation-Date: 2024-12-09 00:41+0000\n"
+"PO-Revision-Date: 2024-12-01 17:19+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -404,6 +404,102 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/enums/roomsortparameter.h:47
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "Aakkosjärjestys"
+
+#: src/enums/roomsortparameter.h:49
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "Aakkosjärjestys"
+
+#: src/enums/roomsortparameter.h:51
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "Salattu viesti"
+
+#: src/enums/roomsortparameter.h:53
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "Edennä viesti"
+
+#: src/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:57
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "Näytä poistetut viestit"
+
+#: src/enums/roomsortparameter.h:59
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "%1, viimeisin toiminta: %2"
+
+#: src/enums/roomsortparameter.h:74
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:76
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:78
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Room upgrade messages"
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "Huoneenpäivitysviestit"
+
+#: src/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:86
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr ""
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -1130,10 +1226,9 @@ msgid "Settings"
 msgstr "Asetukset"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Tietoa Neochatistä"
+msgstr "Keskustele Matrixissä"
 
 #: src/main.cpp:145
 #, kde-format
@@ -2216,8 +2311,7 @@ msgid "Mark as Read"
 msgstr "Merkitse luetuksi"
 
 #: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Ilmoitukset"
@@ -2698,25 +2792,22 @@ msgid "No public rooms found"
 msgstr "Julkisia huoneita ei löytynyt"
 
 #: src/qml/FileDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Aseta kuva"
+msgstr "Avaa kuva"
 
 #: src/qml/FileDelegateContextMenu.qml:57
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Aseta kuva"
+msgstr "Tallenna kuva…"
 
 #: src/qml/FileDelegateContextMenu.qml:66
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Aseta kuva"
+msgstr "Kopioi kuva"
 
 #: src/qml/FileDelegateContextMenu.qml:77
 #, kde-format
@@ -3145,12 +3236,10 @@ msgid "The input is not a valid user ID"
 msgstr "Syöte ei ole kelvollinen käyttäjätunniste"
 
 #: src/qml/MessageDelegateContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
+#, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
-msgstr "Edennä"
+msgstr "Edennä…"
 
 #: src/qml/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -3166,18 +3255,16 @@ msgid "Copy Link Address"
 msgstr "Kopioi linkki"
 
 #: src/qml/MessageDelegateContextMenu.qml:73
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Kopioi"
+msgstr "Kopioi teksti"
 
 #: src/qml/MessageDelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Kopioi linkki"
+msgstr "Kopioi viestin linkki"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3328,11 +3415,10 @@ msgid "Space Members"
 msgstr "Tilan jäsenet"
 
 #: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
+#, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
-msgstr "Tietoa huoneesta"
+msgstr "Huoneen tiedot"
 
 #: src/qml/RoomInformation.qml:70
 #, kde-format
@@ -3373,12 +3459,10 @@ msgid "Show locations for this room"
 msgstr "Näytä sijainnit tälle huoneelle"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
-msgstr "Poistu tilasta"
+msgstr "Poistu tästä tilasta"
 
 #: src/qml/RoomInformation.qml:136
 #, kde-format
@@ -4920,7 +5004,7 @@ msgstr "Toiminta"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "Huoneet, joilta on ilmoituksia lukematta, näytetään ensin"
 
 #: src/settings/NeoChatGeneralPage.qml:105
 #, kde-format
@@ -4979,17 +5063,16 @@ msgid "Editor"
 msgstr "Muokkain"
 
 #: src/settings/NeoChatGeneralPage.qml:214
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Lähetä viesti"
+msgstr "Lähetä viestit Enterillä"
 
 #: src/settings/NeoChatGeneralPage.qml:225
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Lähetä viestit Ctrl+Enterillä"
 
 #: src/settings/NeoChatGeneralPage.qml:241
 #, kde-format

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:40+0000\n"
-"PO-Revision-Date: 2024-12-06 09:16+0100\n"
+"POT-Creation-Date: 2024-12-09 00:41+0000\n"
+"PO-Revision-Date: 2024-12-07 10:30+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -397,6 +397,105 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/enums/roomsortparameter.h:47
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "Alphabétique"
+
+#: src/enums/roomsortparameter.h:49
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "Alphabétique"
+
+#: src/enums/roomsortparameter.h:51
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "Message chiffré"
+
+#: src/enums/roomsortparameter.h:53
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "Transférer un message"
+
+#: src/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:57
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "Afficher les messages supprimés"
+
+#: src/enums/roomsortparameter.h:59
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something based on the last message'"
+#| msgid "Last Message Activity"
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "Activité du dernier message"
+
+#: src/enums/roomsortparameter.h:74
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:76
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:78
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Room upgrade messages"
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "Messages de mise à jour de salon"
+
+#: src/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:86
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr ""
+"Les salons avec l'activité la plus récente seront affichées en premier."
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -3157,11 +3256,10 @@ msgid "Forward Message"
 msgstr "Transférer un message"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "Copier un lien"
+msgstr "Copier l'adresse d'un lien"
 
 #: src/qml/MessageDelegateContextMenu.qml:73
 #, kde-format
@@ -4914,21 +5012,17 @@ msgid "Alphabetical"
 msgstr "Alphabétique"
 
 #: src/settings/NeoChatGeneralPage.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, Dernière activité : %2"
+msgstr "Activité du dernier message"
 
 #: src/settings/NeoChatGeneralPage.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
 msgstr ""
-"Les salons avec des notifications non lues seront affichées en premier."
+"Les salons avec l'activité la plus récente seront affichées en premier."
 
 #: src/settings/NeoChatGeneralPage.qml:125
 #, kde-format

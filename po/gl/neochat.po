@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:40+0000\n"
-"PO-Revision-Date: 2024-12-06 12:02+0100\n"
+"POT-Creation-Date: 2024-12-09 00:41+0000\n"
+"PO-Revision-Date: 2024-12-08 12:57+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -399,6 +399,104 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/enums/roomsortparameter.h:47
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "Alfabética"
+
+#: src/enums/roomsortparameter.h:49
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "Alfabética"
+
+#: src/enums/roomsortparameter.h:51
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "Mensaxe cifrada"
+
+#: src/enums/roomsortparameter.h:53
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "Reenviar a mensaxe"
+
+#: src/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:57
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "Amosar as mensaxes eliminadas."
+
+#: src/enums/roomsortparameter.h:59
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something based on the last message'"
+#| msgid "Last Message Activity"
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "Última actividade de mensaxaría"
+
+#: src/enums/roomsortparameter.h:74
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:76
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:78
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Room upgrade messages"
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "Mensaxes de anovación de sala."
+
+#: src/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:86
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "As salas coa actividade máis recente amosaranse ao principio."
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -5685,7 +5783,7 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
-"Non se verificou o número de teléfono. Abra o mensaxe de texto e siga as "
+"Non se verificou o número de teléfono. Abra a mensaxe de texto e siga as "
 "instrucións nela e prema o botón embaixo."
 
 #: src/settings/ThreePIdCard.qml:183
@@ -5721,7 +5819,7 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button above"
 msgstr ""
-"Non se verificou o número de teléfono. Abra o mensaxe de texto e siga as "
+"Non se verificou o número de teléfono. Abra a mensaxe de texto e siga as "
 "instrucións nela e prema o botón arriba."
 
 #: src/timeline/ChatBarComponent.qml:98

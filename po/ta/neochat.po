@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:40+0000\n"
-"PO-Revision-Date: 2024-11-24 16:37+0530\n"
+"POT-Creation-Date: 2024-12-09 00:41+0000\n"
+"PO-Revision-Date: 2024-12-08 12:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -144,30 +144,26 @@ msgstr "நிகழ்வுக்கான மூலம்"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "அணுகல் டோக்கனை காட்டு"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
 msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
-msgstr ""
+msgstr "இதை யாருடனும் பகிரக்கூடாது. உங்கள் கணக்கு மீதான முழு அதிகாரத்தை இட்டோக்கன் தரும்."
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "அணுகல்"
+msgstr "அணுகல் டோக்கன்"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
+msgstr "அணுகல் டோக்கனை பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -257,28 +253,22 @@ msgid "Choose Room"
 msgstr "அரங்கைத் தேர்வு செய்தல்"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "எந்த அரங்கும் கிடைக்கவில்லை"
+msgstr "எந்த அரங்கும் தேர்ந்தெடுக்கப்படவில்லை"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "அரங்கைத் தேர்வு செய்தல்"
+msgstr "அரங்கைத் தேர்வு செய்ய கிளிக் செய்யவும்"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
-msgstr "அரங்கைத் தேர்வு செய்தல்"
+msgstr "அரங்கைத் தேர்வு செய்யவும்"
 
 #: src/devtools/RoomData.qml:40
 #, kde-format
@@ -406,6 +396,104 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/enums/roomsortparameter.h:47
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "அகரவரிசை"
+
+#: src/enums/roomsortparameter.h:49
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "அகரவரிசை"
+
+#: src/enums/roomsortparameter.h:51
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
+
+#: src/enums/roomsortparameter.h:53
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "செய்தியை முன்ன‍னுப்புவது"
+
+#: src/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:57
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "நீக்கப்பட்டுள்ள செய்திகளைக் பாட்டு"
+
+#: src/enums/roomsortparameter.h:59
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something based on the last message'"
+#| msgid "Last Message Activity"
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "கடைசியாக செய்தியிடப்பட்டது"
+
+#: src/enums/roomsortparameter.h:74
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:76
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:78
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Room upgrade messages"
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "அரங்கு புதுப்பிப்பு செய்திகள்"
+
+#: src/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:86
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "சமீபத்தில் செய்திகளைப் பெற்ற அரங்குகள் முதலில் காட்டப்படும்"
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -1970,8 +2058,7 @@ msgid "Show QR Code"
 msgstr "QR குறியைக் காட்டு"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
 msgstr "இந்தக் கணக்கைத் திருத்து"
 
@@ -1982,8 +2069,7 @@ msgid "Account editor"
 msgstr "கணக்கு திருத்தி"
 
 #: src/qml/AccountMenu.qml:49
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
@@ -1993,8 +2079,7 @@ msgid "Devices"
 msgstr "சாதனங்கள்"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
@@ -2017,9 +2102,7 @@ msgid "Open Key Backup"
 msgstr "சாவி காப்புநகலைத் திறப்பது"
 
 #: src/qml/AccountMenu.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "இச்சாதனத்தை உறுதிப்படுத்து"
@@ -3153,8 +3236,7 @@ msgid "Forward Message"
 msgstr "செய்தியை முன்ன‍னுப்புவது"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "இணைப்பை நகலெடு"
@@ -4203,11 +4285,10 @@ msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
-msgstr "கணக்கைத் திருத்து"
+msgstr "கணக்கைத் திருத்துவது"
 
 #: src/settings/AccountEditorPage.qml:62
 #, kde-format
@@ -4220,8 +4301,7 @@ msgid "Remove current avatar"
 msgstr "தற்போதைய சின்னத்தை நீக்கு"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "பயனரின் விவரங்கள்"
@@ -4249,8 +4329,7 @@ msgid "Save"
 msgstr "சேமி"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "கடவுச்சொல்"
@@ -4286,29 +4365,25 @@ msgid "Passwords do not match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
 #: src/settings/AccountEditorPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "மின்னஞ்சல் முகவரிகள்"
 
 #: src/settings/AccountEditorPage.qml:213
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "தொலைபேசி எண்கள்"
 
 #: src/settings/AccountEditorPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Identity Server"
+#, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "அடையாள சேவையகம்"
 
 #: src/settings/AccountEditorPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "சேவையக விவரங்கள்"
@@ -4319,9 +4394,7 @@ msgid "Homeserver url"
 msgstr "தாய் சேவையக முகவரி"
 
 #: src/settings/AccountEditorPage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "கணக்கு மேலாண்மை"
@@ -4347,15 +4420,13 @@ msgid "Unknown problem while trying to change password"
 msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "கணக்குகள்"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "கணக்குகள்"
@@ -4372,8 +4443,7 @@ msgid "Appearance"
 msgstr "தோற்றம்"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "பொதுவான தோற்றத்திட்டம்"
@@ -4481,36 +4551,31 @@ msgid "Logout device"
 msgstr "சாதனத்தை வெளியேற்று"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "இந்த சாதனம்"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "உறுதிப்படுத்தியுள்ள சாதனங்கள்"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "உறுதிப்படுத்தாத சாதனங்கள்"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "மறையாக்கத்தை ஆதரிக்காத சாதனங்கள்"
@@ -4532,45 +4597,37 @@ msgid "Remove"
 msgstr "நீக்கு"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "ஒட்டியை சேர்"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "ஒட்டியை திருத்துவது"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "முகவடியை சேர்"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "முகவடியை திருத்துவது"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "ஒட்டி"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "முகவடி"
@@ -4636,33 +4693,28 @@ msgid "Add Sticker"
 msgstr "ஒட்டியை சேர்"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "ஒட்டிகளும் முகவடிகளும்"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "முகவடிகள்"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "ஒட்டிகள்"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
-msgstr "சாவிகளை ஏற்றுமதி செய்"
+msgstr "சாவிகளை ஏற்றுமதி செய்வது"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
 #, kde-format
@@ -4714,23 +4766,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "உங்கள் Matrix சேவையகம் push அறிவிப்புகளை ஆதிரிக்குமா"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "அரங்குக்கான அறிவிப்புகள்"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
-msgstr "@சுட்டுவது"
+msgstr "@ கோண்டு சுட்டுவது"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "முதன்மைச்சொற்கள்"
@@ -4748,18 +4797,16 @@ msgid "Add keyword"
 msgstr "முதன்மைச்சொல்லைச் சேர்"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "வரவழைப்புகள்"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
-msgstr "தெரியாதது"
+msgstr "தெரியாதவை"
 
 #: src/settings/IdentityServerDelegate.qml:39
 #, kde-format
@@ -4820,9 +4867,7 @@ msgid "Unignore this user"
 msgstr "இந்த பயனரை பொருட்படுத்தாமல் இருந்ததை செயல்தவிர்"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "சாவிகளை இறக்குமதி செய்வது"
@@ -4858,8 +4903,7 @@ msgid "General"
 msgstr "பொதுவானவை"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "பொதுவான அமைப்புகள்"
@@ -4885,8 +4929,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "முகப்பு கீற்றில் அனைத்து அரங்குகளையும் காட்டு"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "அரங்குகளை வரிசைப்படுத்தும் முறை"
@@ -4910,20 +4953,16 @@ msgid "Alphabetical"
 msgstr "அகரவரிசை"
 
 #: src/settings/NeoChatGeneralPage.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, கடைசி செயல்: %2"
+msgstr "கடைசியாக செய்தியிடப்பட்டது"
 
 #: src/settings/NeoChatGeneralPage.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr "படிக்காத அறிவிப்புகளைக் கொண்ட அரங்குகள் முதலில் காட்டப்படும்"
+msgstr "சமீபத்தில் செய்திகளைப் பெற்ற அரங்குகள் முதலில் காட்டப்படும்"
 
 #: src/settings/NeoChatGeneralPage.qml:125
 #, kde-format
@@ -4994,25 +5033,19 @@ msgid "Enable developer tools"
 msgstr "நிரலாக்க கருவிகளை இயக்கு"
 
 #: src/settings/NeoChatGeneralPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "இயல்பிருப்பு அமைப்புகள்"
 
 #: src/settings/NeoChatGeneralPage.qml:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
 msgstr "அனைத்து அமைப்புகளையும் அவற்றின் இயல்பிருப்பு நிலைக்கு மீட்டமை"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "பாதுகாப்பு"
@@ -5061,9 +5094,7 @@ msgid "Your server does not support this setting."
 msgstr "உங்கள் சேவையகம் இந்த அமைப்பை ஆதரிக்கவில்லை."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "மறையாக்கம்"
@@ -5294,8 +5325,7 @@ msgid "Event Type…"
 msgstr "நிகழ்வு வகை…"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "அரங்குக்கான அறிவிப்பமைப்பு"

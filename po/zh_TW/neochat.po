@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-08 00:40+0000\n"
+"POT-Creation-Date: 2024-12-09 00:41+0000\n"
 "PO-Revision-Date: 2024-11-26 22:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -404,6 +404,104 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/enums/roomsortparameter.h:47
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "按字母順序"
+
+#: src/enums/roomsortparameter.h:49
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something alphabetically'"
+#| msgid "Alphabetical"
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "按字母順序"
+
+#: src/enums/roomsortparameter.h:51
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "已加密訊息"
+
+#: src/enums/roomsortparameter.h:53
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "轉寄訊息"
+
+#: src/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:57
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "顯示已刪除的訊息"
+
+#: src/enums/roomsortparameter.h:59
+#, fuzzy, kde-format
+#| msgctxt "@label"
+#| msgid "%1, Last activity: %2"
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "%1，最後活動：%2"
+
+#: src/enums/roomsortparameter.h:74
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:76
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:78
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Room upgrade messages"
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "聊天室更新訊息"
+
+#: src/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr ""
+
+#: src/enums/roomsortparameter.h:86
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "有未讀通知的聊天室會顯示在上方"
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
