@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-09 00:41+0000\n"
-"PO-Revision-Date: 2024-12-06 15:58+0200\n"
+"PO-Revision-Date: 2024-12-09 15:27+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -406,102 +406,88 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:47
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "За абеткою"
+msgstr "За абеткою (за зростанням)"
 
 #: src/enums/roomsortparameter.h:49
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "За абеткою"
+msgstr "За абеткою (за спаданням)"
 
 #: src/enums/roomsortparameter.h:51
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "Зашифроване повідомлення"
+msgstr "Містить непрочитані повідомлення"
 
 #: src/enums/roomsortparameter.h:53
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "Спрямувати повідомлення"
+msgstr "Більше непрочитаних повідомлень"
 
 #: src/enums/roomsortparameter.h:55
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "Містить підсвічені повідомлення"
 
 #: src/enums/roomsortparameter.h:57
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "Показувати вилучені повідомлення"
+msgstr "Більше підсвічених повідомлень"
 
 #: src/enums/roomsortparameter.h:59
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something based on the last message'"
-#| msgid "Last Message Activity"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "Останні дії щодо повідомлень"
+msgstr "Остання активність"
 
 #: src/enums/roomsortparameter.h:74
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "Назви кімнат, ближчі до A за абеткою, будуть вище"
 
 #: src/enums/roomsortparameter.h:76
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "Назви кімнат, ближчі до Z за абеткою, будуть вище"
 
 #: src/enums/roomsortparameter.h:78
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "Повідомлення щодо оновлення кімнат"
+msgstr "Кімнати із непрочитаними повідомленнями будуть вище"
 
 #: src/enums/roomsortparameter.h:80
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "Кімнати з більшою кількістю непрочитаних повідомлень будуть вище"
 
 #: src/enums/roomsortparameter.h:82
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "Кімнати із підсвіченими повідомленнями будуть вище"
 
 #: src/enums/roomsortparameter.h:84
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "Кімнати із більшою кількістю підсвічених повідомлень будуть вище"
 
 #: src/enums/roomsortparameter.h:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr "Кімнати із свіжими діями буде показано першими"
+msgstr "Кімнати із новішими повідомленнями будуть вище"
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
