@@ -319,7 +319,8 @@ void ChatBarCache::postMessage()
         return;
     }
 
-    room->postMessage(text(), sendText, *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), replyId(), editId(), threadId());
+    auto type = std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result);
+    room->postMessage(text(), sendText, type ? *type : Quotient::RoomMessageEvent::MsgType::Text, replyId(), editId(), threadId());
     clearCache();
 }
 
