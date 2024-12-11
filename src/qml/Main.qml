@@ -20,8 +20,15 @@ Kirigami.ApplicationWindow {
 
     property bool initialized: false
 
-
-    title: NeoChatConfig.windowTitleFocus ? activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "") : "NeoChat"
+    title: {
+        if (NeoChatConfig.windowTitleFocus) {
+            return activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "");
+        } else if (RoomManager.currentRoom) {
+            return RoomManager.currentRoom.displayName;
+        } else {
+            return Application.displayName;
+        }
+    }
 
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
