@@ -163,6 +163,15 @@ Kirigami.Page {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
         color: NeoChatConfig.compactLayout ? Kirigami.Theme.backgroundColor : "transparent"
+
+        Image {
+            visible: !NeoChatConfig.compactLayout && !NeoChatConfig.blur
+            source: "qrc:/qt/qml/org/kde/neochat/timeline/images/chat-page-background.svg"
+            anchors.fill: parent
+            fillMode: Image.Tile
+            horizontalAlignment: Image.AlignLeft
+            verticalAlignment: Image.AlignTop
+        }
     }
 
     footer: Loader {

@@ -79,6 +79,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         images/transfer.svg
         images/wait.svg
         images/walk.svg
+        images/chat-page-background.svg
     DEPENDENCIES
         QtQuick
 )
