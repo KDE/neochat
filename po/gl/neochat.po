@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-09 00:41+0000\n"
-"PO-Revision-Date: 2024-12-08 12:57+0100\n"
+"POT-Creation-Date: 2024-12-12 00:40+0000\n"
+"PO-Revision-Date: 2024-12-11 20:26+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -401,102 +401,88 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:47
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "Alfabética"
+msgstr "A-Z"
 
 #: src/enums/roomsortparameter.h:49
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "Alfabética"
+msgstr "Z-A"
 
 #: src/enums/roomsortparameter.h:51
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "Mensaxe cifrada"
+msgstr "Con mensaxes sen ler"
 
 #: src/enums/roomsortparameter.h:53
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "Reenviar a mensaxe"
+msgstr "Máis mensaxes sen ler"
 
 #: src/enums/roomsortparameter.h:55
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "Con mensaxes resaltadas"
 
 #: src/enums/roomsortparameter.h:57
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "Amosar as mensaxes eliminadas."
+msgstr "Máis mensaxes resaltadas"
 
 #: src/enums/roomsortparameter.h:59
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something based on the last message'"
-#| msgid "Last Message Activity"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "Última actividade de mensaxaría"
+msgstr "Actividade máis recente"
 
 #: src/enums/roomsortparameter.h:74
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "Primeiro as salas cun nome que comeza por «a»."
 
 #: src/enums/roomsortparameter.h:76
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "Primeiro as salas cun nome que comeza por «z»."
 
 #: src/enums/roomsortparameter.h:78
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "Mensaxes de anovación de sala."
+msgstr "Primeiro as salas con mensaxes sen ler."
 
 #: src/enums/roomsortparameter.h:80
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "Primeiro as salas con máis mensaxes sen ler."
 
 #: src/enums/roomsortparameter.h:82
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "Primeiro as salas con mensaxes realzadas."
 
 #: src/enums/roomsortparameter.h:84
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "Primeiro as salas con máis mensaxes realzadas."
 
 #: src/enums/roomsortparameter.h:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr "As salas coa actividade máis recente amosaranse ao principio."
+msgstr "Primeiro as salas coas mensaxes máis recentes."
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -3159,25 +3145,25 @@ msgstr "Localizacións"
 msgid "There are no locations shared in this room."
 msgstr "Non se compartiu ningunha localización nesta sala."
 
-#: src/qml/Main.qml:153
+#: src/qml/Main.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Amosar a información da sala"
 
-#: src/qml/Main.qml:156
+#: src/qml/Main.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Pechar o caixón de información da sala"
 
-#: src/qml/Main.qml:275
+#: src/qml/Main.qml:282
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificación de sesión"
 
-#: src/qml/Main.qml:311 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:318 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
