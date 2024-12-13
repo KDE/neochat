@@ -496,6 +496,7 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
             nextAttribute = tagString.mid(nextAttributeIndex, nextSpaceIndex - nextAttributeIndex);
 
             if (isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
+                QString style;
                 if (tag == QStringLiteral("img") && getAttributeType(nextAttribute) == QStringLiteral("src")) {
                     QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
                     if (isAllowedLink(attributeData, true)) {
@@ -516,8 +517,18 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
                     if (attributeData == customEmojiStyle) {
                         outputString.append(u' ' + nextAttribute);
                     }
+                } else if (getAttributeType(nextAttribute) == QStringLiteral("data-mx-color")) {
+                    const QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    style.append(u"color: " + attributeData + u';');
+                } else if (getAttributeType(nextAttribute) == QStringLiteral("data-mx-bg-color")) {
+                    const QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    style.append(u"background-color: " + attributeData + u';');
                 } else {
                     outputString.append(u' ' + nextAttribute);
+                }
+
+                if (!style.isEmpty()) {
+                    outputString.append(u" style=\"" + style + u'"');
                 }
             }
             nextAttributeIndex = nextSpaceIndex + 1;
