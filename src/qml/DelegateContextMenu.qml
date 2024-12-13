@@ -212,7 +212,7 @@ Loader {
                     model: WebShortcutModel {
                         id: webshortcutmodel
                         selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
-                        onOpenUrl: RoomManager.resolveResource(url)
+                        onOpenUrl: url => RoomManager.resolveResource(url.toString())
                     }
                     delegate: QQC2.MenuItem {
                         text: model.display
