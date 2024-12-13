@@ -63,6 +63,7 @@ private Q_SLOTS:
     void receiveRichEdited();
     void receiveLineSeparator();
     void receiveRichCodeUrl();
+    void receiveRichColor();
 
     void componentOutput_data();
     void componentOutput();
@@ -518,6 +519,25 @@ void TextHandlerTest::receiveRichCodeUrl()
     TextHandler testTextHandler;
     testTextHandler.setData(input);
     QCOMPARE(testTextHandler.handleRecieveRichText(), input);
+}
+
+void TextHandlerTest::receiveRichColor()
+{
+    const QString testInputString = QStringLiteral(
+        "<span data-mx-color=\"#ff00be\">¯</span><span data-mx-color=\"#ff3b1d\">\\</span><span data-mx-color=\"#ffa600\">_</span><span "
+        "data-mx-color=\"#64d200\">(</span><span data-mx-color=\"#00e261\">ツ</span><span data-mx-color=\"#00e7ff\">)</span><span "
+        "data-mx-color=\"#00e1ff\">_</span><span data-mx-color=\"#00bdff\">/</span><span data-mx-color=\"#ff60ff\">¯</span>");
+    const QString testOutputString = QStringLiteral(
+        "<span style=\"color: #ff00be;\">¯</span><span style=\"color: #ff3b1d;\">\\</span><span style=\"color: #ffa600;\">_</span><span style=\"color: "
+        "#64d200;\">(</span><span style=\"color: #00e261;\">ツ</span><span style=\"color: #00e7ff;\">)</span><span style=\"color: #00e1ff;\">_</span><span "
+        "style=\"color: #00bdff;\">/</span><span style=\"color: #ff60ff;\">¯</span>");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    qInfo() << testTextHandler.handleRecieveRichText();
+
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
 }
 
 void TextHandlerTest::componentOutput_data()
