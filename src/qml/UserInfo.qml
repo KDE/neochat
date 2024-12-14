@@ -32,7 +32,6 @@ RowLayout {
     onVisibleChanged: {
         if (!visible) {
             accountsPopup.close();
-            switchUserButton.checked = false;
         }
     }
     KirigamiComponents.AvatarButton {
