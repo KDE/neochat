@@ -111,43 +111,6 @@ RowLayout {
             onActivated: switchUserButton.toggle()
         }
     }
-    // QQC2.ToolButton {
-    //     Layout.alignment: Qt.AlignRight
-    //     display: QQC2.AbstractButton.IconOnly
-    //     action: Kirigami.Action {
-    //         id: switchUserButton
-    //         text: i18n("Switch User")
-    //         icon.name: "system-switch-user"
-    //         onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
-    //             connection: root.connection
-    //         }).open();
-    //     }
-    //     QQC2.ToolTip.text: text
-    //     QQC2.ToolTip.visible: hovered
-    //     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    //     Shortcut {
-    //         sequence: "Ctrl+U"
-    //         onActivated: switchUserButton.trigger()
-    //     }
-    // }
-    // QQC2.ToolButton {
-    //     Layout.alignment: Qt.AlignRight
-    //     display: QQC2.AbstractButton.IconOnly
-    //     action: Kirigami.Action {
-    //         text: i18n("Open Settings")
-    //         icon.name: "settings-configure"
-    //         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'NeoChatSettings.qml'), {
-    //             connection: root.connection
-    //         }, {
-    //             title: i18n("Configure"),
-    //             width: Kirigami.Units.gridUnit * 50,
-    //             height: Kirigami.Units.gridUnit * 42
-    //         })
-    //     }
-    //     QQC2.ToolTip.text: text
-    //     QQC2.ToolTip.visible: hovered
-    //     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    // }
 
     AccountMenu {
         id: accountMenu
