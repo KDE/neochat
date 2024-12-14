@@ -63,9 +63,6 @@ Kirigami.Dialog {
                 pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), {}, {
                     title: i18nc("@title:window", "Login")
                 });
-                if (switchUserButton.checked) {
-                    switchUserButton.checked = false;
-                }
                 root.close();
             }
             Keys.onUpPressed: {
