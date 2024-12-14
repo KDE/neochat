@@ -87,7 +87,6 @@ RowLayout {
 
         actions: [
             Kirigami.Action {
-                id: switchUserButton
                 text: i18n("Switch User")
                 icon.name: "system-switch-user"
                 shortcut: "Ctrl+U"
@@ -96,8 +95,6 @@ RowLayout {
                 }).open();
             },
             Kirigami.Action {
-                id: openSettingsAction
-
                 text: i18n("Open Settings")
                 icon.name: "settings-configure-symbolic"
                 onTriggered: {
