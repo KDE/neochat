@@ -4,6 +4,7 @@
 
 #include "sortfilterroomtreemodel.h"
 
+#include "enums/roomsortparameter.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -65,10 +66,13 @@ static const QVector<RoomSortParameter::Parameter> lastMessageSortPriorities{
     RoomSortParameter::LastActive,
 };
 
-bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomSortParameter::Parameter> &priorities,
-                                            const QModelIndex &source_left,
-                                            const QModelIndex &source_right) const
+bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
+    // Don't sort the top level categories.
+    if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
+        return false;
+    }
+
     const auto treeModel = dynamic_cast<RoomTreeModel *>(sourceModel());
     if (treeModel == nullptr) {
         return false;
@@ -80,7 +84,7 @@ bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomSortParameter::Par
         return false;
     }
 
-    for (auto sortRole : priorities) {
+    for (auto sortRole : RoomSortParameter::currentParameterList()) {
         auto result = RoomSortParameter::compareParameter(sortRole, leftRoom, rightRoom);
 
         if (result != 0) {
@@ -88,24 +92,6 @@ bool SortFilterRoomTreeModel::prioritiesCmp(const QVector<RoomSortParameter::Par
         }
     }
     return false;
-}
-
-bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
-{
-    // Don't sort the top level categories.
-    if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
-        return false;
-    }
-
-    switch (m_sortOrder) {
-    case SortFilterRoomTreeModel::Alphabetical:
-        return prioritiesCmp(alphabeticalSortPriorities, source_left, source_right);
-    case SortFilterRoomTreeModel::Activity:
-        return prioritiesCmp(activitySortPriorities, source_left, source_right);
-    case SortFilterRoomTreeModel::LastMessage:
-        return prioritiesCmp(lastMessageSortPriorities, source_left, source_right);
-    }
-    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 void SortFilterRoomTreeModel::setFilterText(const QString &text)

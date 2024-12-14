@@ -3,11 +3,12 @@
 
 #pragma once
 
-#include "neochatroom.h"
 #include <QObject>
 #include <QQmlEngine>
 
 #include <KLocalizedString>
+
+class NeoChatRoom;
 
 /**
  * @class RoomSortParameter
@@ -23,15 +24,19 @@ class RoomSortParameter : public QObject
 public:
     /**
      * @brief Defines the available sort parameters.
+     *
+     * @note All values are specifically numbered as they should never change even
+     *       if new options are later added. This is because they are stored in
+     *       the config as ints and changing would break someones config on upgrade.
      */
     enum Parameter {
-        AlphabeticalAscending,
-        AlphabeticalDescending,
-        HasUnread,
-        MostUnread,
-        HasHighlight,
-        MostHighlights,
-        LastActive,
+        AlphabeticalAscending = 0,
+        AlphabeticalDescending = 1,
+        HasUnread = 2,
+        MostUnread = 3,
+        HasHighlight = 4,
+        MostHighlights = 5,
+        LastActive = 6,
     };
     Q_ENUM(Parameter)
 
@@ -40,7 +45,7 @@ public:
      *
      * @sa Parameter
      */
-    static QString parameterName(Parameter parameter)
+    Q_INVOKABLE static QString parameterName(Parameter parameter)
     {
         switch (parameter) {
         case Parameter::AlphabeticalAscending:
@@ -67,7 +72,7 @@ public:
      *
      * @sa Parameter
      */
-    static QString parameterDescription(Parameter parameter)
+    Q_INVOKABLE static QString parameterDescription(Parameter parameter)
     {
         switch (parameter) {
         case Parameter::AlphabeticalAscending:
@@ -88,6 +93,21 @@ public:
             return {};
         }
     };
+
+    /**
+     * @brief List of all available Parameter sort orders.
+     */
+    static QList<Parameter> allParameterList();
+
+    /**
+     * @brief The current Parameter sort order list.
+     */
+    static QList<Parameter> currentParameterList();
+
+    /**
+     * @brief Save the give Parameter sort order list as the custom sort order.
+     */
+    static void saveNewParameterList(const QList<Parameter> &newList);
 
     /**
      * @brief Compare the given parameter of the two given rooms.
