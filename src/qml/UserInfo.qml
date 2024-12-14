@@ -91,6 +91,7 @@ RowLayout {
                 id: switchUserButton
                 text: i18n("Switch User")
                 icon.name: "system-switch-user"
+                shortcut: "Ctrl+U"
                 onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
                     connection: root.connection
                 }).open();
@@ -105,11 +106,6 @@ RowLayout {
                 }
             }
         ]
-
-        Shortcut {
-            sequence: "Ctrl+U"
-            onActivated: switchUserButton.toggle()
-        }
     }
     // QQC2.ToolButton {
     //     Layout.alignment: Qt.AlignRight
