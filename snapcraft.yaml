@@ -27,6 +27,10 @@ apps:
 
 compression: lzo
 
+package-repositories:
+ - type: apt
+   ppa: ubuntu-toolchain-r/test
+
 slots:
   session-dbus-interface:
     interface: dbus
@@ -62,7 +66,7 @@ parts:
       - -Dcrypto=disabled
       - -Dgtk_doc=false
     build-packages:
-      - meson
+      - meson 
       - libglib2.0-dev
       - libgcrypt20-dev
     prime:
@@ -76,6 +80,7 @@ parts:
     source-depth: 1
     plugin: cmake
     build-environment:
+      - PATH: /snap/bin:${PATH}
       - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$PKG_CONFIG_PATH
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
@@ -95,7 +100,13 @@ parts:
     source-tag: 0.9.1
     source-depth: 1
     plugin: cmake
+    build-environment:
+      - PATH: /snap/bin:${PATH}
+    build-snaps:
+      - cmake
     build-packages:
+      - gcc-13
+      - g++-13
       - libssl-dev
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
@@ -103,6 +114,9 @@ parts:
       - -DBUILD_TESTING=OFF
       - -DQuotient_ENABLE_E2EE=ON
       - -DBUILD_WITH_QT6=ON
+    override-build: |
+      update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100 --slave /usr/bin/g++ g++ /usr/bin/g++-13 --slave /usr/bin/gcov gcov /usr/bin/gcov-13
+      craftctl default
     prime:
       - -usr/include
       - -usr/lib/*/pkgconfig
@@ -113,6 +127,8 @@ parts:
     source-tag: 'v0.3.0'
     source-depth: 1
     plugin: cmake
+    build-environment:
+      - PATH: /snap/bin:${PATH}
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -130,9 +146,10 @@ parts:
       - kquickimageeditor
     parse-info:
       - usr/share/metainfo/org.kde.neochat.appdata.xml
-    source: https://invent.kde.org/network/neochat.git
-    source-tag: 'v24.08.1'
+    source: .
     plugin: cmake
+    build-environment:
+      - PATH: /snap/bin:${PATH}
     build-packages:
       - cmark
       - libcmark-dev
