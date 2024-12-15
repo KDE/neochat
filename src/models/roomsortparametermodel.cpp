@@ -49,7 +49,7 @@ QHash<int, QByteArray> RoomSortParameterModel::roleNames() const
     };
 }
 
-void RoomSortParameterModel::addRow(RoomSortParameter::Parameter parameter)
+void RoomSortParameterModel::addParameter(RoomSortParameter::Parameter parameter)
 {
     if (m_currentParameters.contains(parameter)) {
         return;
