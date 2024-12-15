@@ -50,7 +50,7 @@ Kirigami.Dialog {
                 contentItem: RowLayout {
                     ColumnLayout {
                         QQC2.Label {
-                            text: parameterDelegate.index == 0 ? "first:" : "then:"
+                            text: parameterDelegate.index == 0 ? i18n("first:") : i18n("then:")
                         }
                         Kirigami.Heading {
                             text: parameterDelegate.name
