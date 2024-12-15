@@ -171,6 +171,14 @@ Kirigami.Page {
             fillMode: Image.Tile
             horizontalAlignment: Image.AlignLeft
             verticalAlignment: Image.AlignTop
+
+            function isDarkColor(background: color): bool {
+                const temp = Qt.darker(background, 1);
+                const darkness = 1 - (0.299 * temp.r + 0.587 * temp.g + 0.114 * temp.b);
+                return temp.a > 0 && darkness >= 0.4;
+            }
+
+            opacity: isDarkColor(Kirigami.Theme.backgroundColor) ? 0.2 : 1
         }
     }
 
