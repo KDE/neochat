@@ -167,7 +167,6 @@ void MessageContentModel::initializeEvent()
     }
 
     const auto eventResult = m_room->getEvent(m_eventId);
-    qWarning() << m_eventId << eventResult;
     if (eventResult.first == nullptr) {
         if (m_currentState != Pending) {
             getEvent();
