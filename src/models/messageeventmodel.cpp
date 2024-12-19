@@ -336,31 +336,6 @@ inline bool hasValidTimestamp(const Quotient::TimelineItem &ti)
     return ti->originTimestamp().isValid();
 }
 
-QDateTime MessageEventModel::makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const
-{
-    const auto &timeline = m_currentRoom->messageEvents();
-    auto ts = baseIt->event()->originTimestamp();
-    if (ts.isValid()) {
-        return ts;
-    }
-
-    // The event is most likely redacted or just invalid.
-    // Look for the nearest date around and slap zero time to it.
-    using Quotient::TimelineItem;
-    auto rit = std::find_if(baseIt, timeline.rend(), hasValidTimestamp);
-    if (rit != timeline.rend()) {
-        return {rit->event()->originTimestamp().date(), {0, 0}, QTimeZone::LocalTime};
-    };
-    auto it = std::find_if(baseIt.base(), timeline.end(), hasValidTimestamp);
-    if (it != timeline.end()) {
-        return {it->event()->originTimestamp().date(), {0, 0}, QTimeZone::LocalTime};
-    };
-
-    // What kind of room is that?..
-    qCCritical(MessageEvent) << "No valid timestamps in the room timeline!";
-    return {};
-}
-
 void MessageEventModel::refreshLastUserEvents(int baseTimelineRow)
 {
     if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow) {
