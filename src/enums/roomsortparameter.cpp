@@ -33,7 +33,6 @@ static const QList<RoomSortParameter::Parameter> allSortPriorities = {
 };
 
 static const QList<RoomSortParameter::Parameter> alphabeticalSortPriorities = {
-    // Does exactly what it says on the tin.
     RoomSortParameter::AlphabeticalAscending,
 };
 

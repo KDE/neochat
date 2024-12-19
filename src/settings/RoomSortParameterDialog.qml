@@ -13,7 +13,7 @@ import org.kde.neochat
 
 Kirigami.Dialog {
     id: root
-    title: i18nc("@title", "Custom Room Sort Order")
+    title: i18nc("@title:dialog", "Custom Room Sort Order")
 
     width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
     height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)
@@ -49,17 +49,23 @@ Kirigami.Dialog {
 
                 contentItem: RowLayout {
                     ColumnLayout {
+                        Layout.fillWidth: true
+
                         QQC2.Label {
-                            text: parameterDelegate.index == 0 ? i18n("first:") : i18n("then:")
+                            Layout.fillWidth: true
+                            text: parameterDelegate.index == 0 ? i18nc("As in first sort chat rooms by the parameter", "first:") : i18nc("As in then sort chat rooms by the parameter", "then:")
                         }
                         Kirigami.Heading {
+                            Layout.fillWidth: true
                             text: parameterDelegate.name
                             level: 4
                         }
                         QQC2.Label {
+                            Layout.fillWidth: true
                             text: parameterDelegate.description
                             color: Kirigami.Theme.disabledTextColor
                             font: Kirigami.Theme.smallFont
+                            wrapMode: Text.Wrap
                         }
                     }
                     QQC2.ToolButton {
@@ -96,7 +102,7 @@ Kirigami.Dialog {
             }
 
             footer: Delegates.RoundedItemDelegate {
-                text: i18n("Add parameter")
+                text: i18nc("@action:button", "Add parameter")
                 icon.name: "list-add"
 
                 onClicked: addParameterDialogComponent.createObject(root).open()
@@ -109,7 +115,7 @@ Kirigami.Dialog {
 
         Kirigami.Dialog {
             id: addParameterDialog
-            title: i18nc("@title", "Select Parameter to Add")
+            title: i18nc("@title:dialog", "Select Parameter to Add")
 
             width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
             height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)

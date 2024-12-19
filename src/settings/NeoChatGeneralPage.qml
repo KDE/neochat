@@ -125,11 +125,11 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             id: openCustomRoomSortButton
-            text: i18n("Custom")
+            text: i18nc("@option:radio", "Custom")
             checked: NeoChatConfig.sortOrder === 3
             enabled: !NeoChatConfig.isSortOrderImmutable
             onClicked: {
-                let dialog = Qt.createComponent('org.kde.neochat.settings', 'RoomSortParameterDialog').createObject(root, {}).open();
+                Qt.createComponent('org.kde.neochat.settings', 'RoomSortParameterDialog').createObject(root).open();
             }
         }
     }
