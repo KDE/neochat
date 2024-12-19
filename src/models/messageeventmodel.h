@@ -125,7 +125,6 @@ private:
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;
-    [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
 
     bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;
