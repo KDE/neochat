@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-12 00:40+0000\n"
-"PO-Revision-Date: 2024-11-19 10:57+0100\n"
+"PO-Revision-Date: 2024-12-19 10:34+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -145,7 +145,7 @@ msgstr "Fonte de evento"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "Monstra Indicio de accesso"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
@@ -153,22 +153,20 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"Isto non deberea esser compartite con alicun, anque altere usatores. Iste "
+"indicio da accesso plen a tu conto."
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "Accesso"
+msgstr "Indicio de accesso"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "Copia adresse a area de transferentia"
+msgstr "Copia indicio de accesso a area de transferentia"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -259,25 +257,19 @@ msgid "Choose Room"
 msgstr "Selige Sala"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "Nulle sala trovate"
+msgstr "Nulle sala seligite"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "Selige un Sala"
+msgstr "Clicac per seliger un sala"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Selige Sala"
@@ -410,102 +402,88 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:47
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "Alphabetic"
+msgstr "Alphabetic ascendente"
 
 #: src/enums/roomsortparameter.h:49
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "Alphabetic"
+msgstr "Alphabetic descendente"
 
 #: src/enums/roomsortparameter.h:51
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "Message Cryptate"
+msgstr "Ha Messages non legite"
 
 #: src/enums/roomsortparameter.h:53
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "Expedi message"
+msgstr "Majoritate de Messages non legite"
 
 #: src/enums/roomsortparameter.h:55
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "Ha Messages Evidentiate"
 
 #: src/enums/roomsortparameter.h:57
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "Monstra  messages delite"
+msgstr "MAjoritate de messages evidentiate"
 
 #: src/enums/roomsortparameter.h:59
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "%1, Ultime activitate: %2"
+msgstr "Ultime Active"
 
 #: src/enums/roomsortparameter.h:74
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "Nomine de salas plus vicin alphabeticamente a A es plus alte"
 
 #: src/enums/roomsortparameter.h:76
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "Nomine de salas plus vicin alphabeticamente a Z es plus alte"
 
 #: src/enums/roomsortparameter.h:78
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "Messages de sala actualisate"
+msgstr "Salas con messages non legites es plus in alto"
 
 #: src/enums/roomsortparameter.h:80
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "Salas con majoritate de messages non legites es plus in alto"
 
 #: src/enums/roomsortparameter.h:82
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "Salas con messages evidentiate es plus in alto"
 
 #: src/enums/roomsortparameter.h:84
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "Salas con le majoritate de messages evidentiate es plus in alto"
 
 #: src/enums/roomsortparameter.h:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr "Salas con notificationes non legite essera monstrate prime"
+msgstr "Salas con le messages plus nove es plus in alto"
 
 #: src/eventhandler.cpp:286 src/eventhandler.cpp:502
 #, kde-format
@@ -2073,8 +2051,7 @@ msgid "Show QR Code"
 msgstr "Monstra codice QR"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
 msgstr "Edita iste conto"
 
@@ -2085,10 +2062,9 @@ msgid "Account editor"
 msgstr "Editor de conto"
 
 #: src/qml/AccountMenu.qml:49
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
-msgstr "Preferentias de notificationes"
+msgstr "Preferentias de notification"
 
 #: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
@@ -2096,8 +2072,7 @@ msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "Aperi instrumentos de disveloppator"
 
@@ -2120,9 +2095,7 @@ msgid "Open Key Backup"
 msgstr "Aperi copia secrete de clave"
 
 #: src/qml/AccountMenu.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verifica iste Dispositivo"
@@ -3261,11 +3234,10 @@ msgid "Forward Message"
 msgstr "Expedi message"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "Copia Ligamine"
+msgstr "Copia adresse de ligamine"
 
 #: src/qml/MessageDelegateContextMenu.qml:73
 #, kde-format
@@ -4340,8 +4312,7 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Il falleva a requirer unir sala<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Modifica conto"
@@ -4357,8 +4328,7 @@ msgid "Remove current avatar"
 msgstr "Remove avatar currente"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Information de Usator"
@@ -4386,8 +4356,7 @@ msgid "Save"
 msgstr "Salveguarda"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Contrasigno"
@@ -4423,29 +4392,25 @@ msgid "Passwords do not match"
 msgstr "Le contrasigno non es equal"
 
 #: src/settings/AccountEditorPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Adresses de E-Posta"
 
 #: src/settings/AccountEditorPage.qml:213
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Numeros de telephono"
 
 #: src/settings/AccountEditorPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Identity Server"
+#, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Servitor de Identitate"
 
 #: src/settings/AccountEditorPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Information de servitor"
@@ -4456,9 +4421,7 @@ msgid "Homeserver url"
 msgstr "Url de Servitor de casa (Homeserver):"
 
 #: src/settings/AccountEditorPage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Gestion de conto"
@@ -4484,15 +4447,13 @@ msgid "Unknown problem while trying to change password"
 msgstr "Problema incognite quando il essayava a cambiar contrasigno"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "Contos"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Contos"
@@ -4509,8 +4470,7 @@ msgid "Appearance"
 msgstr "Apparentia"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "Thema General"
@@ -4620,36 +4580,31 @@ msgid "Logout device"
 msgstr "Dispositivo de clausura de session"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
-msgstr "Iste Dispositivos"
+msgstr "Iste Dispositivo"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Dispositivos verificate"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Dispositivos non verificate"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Dispositivos sin Supporte de Cryptation"
@@ -4671,45 +4626,37 @@ msgid "Remove"
 msgstr "Remove"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Adde Sticker (Etiquetta Gummate)"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "Edita Sticker( Etiquetta gummate)"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "Adde Emoji"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "Modifica Emoji"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Etiquetta gummate (Sticker)"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
@@ -4775,30 +4722,25 @@ msgid "Add Sticker"
 msgstr "Adde Sticker (Etiquetta Gummate)"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Etiquettas Gummate (Stickers) & Emoji"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "Emojis"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "Etiquettas Gummate (Stickers)"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Exporta claves"
@@ -4853,23 +4795,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Si pulsar notificationes es generate per tu servitor de Matrix"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Notificationes de sala"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Mentiones"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Parolas clave"
@@ -4887,15 +4826,13 @@ msgid "Add keyword"
 msgstr "Adde parola clave"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Invitationes"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Incognite"
@@ -4959,9 +4896,7 @@ msgid "Unignore this user"
 msgstr "Cessa a ignorar iste usator"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Importa claves"
@@ -4997,8 +4932,7 @@ msgid "General"
 msgstr "General"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "Preferentias General"
@@ -5026,8 +4960,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "Monstra omne salas in le scheda de \"Initio\"(\"Domo\")"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "Ordine de ordinar de lista de sala"
@@ -5051,20 +4984,16 @@ msgid "Alphabetical"
 msgstr "Alphabetic"
 
 #: src/settings/NeoChatGeneralPage.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, Ultime activitate: %2"
+msgstr "Ultime activitate de message"
 
 #: src/settings/NeoChatGeneralPage.qml:115
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr "Salas con notificationes non legite essera monstrate prime"
+msgstr "Salas con notificationes plus nove essera monstrate prime"
 
 #: src/settings/NeoChatGeneralPage.qml:125
 #, kde-format
@@ -5135,25 +5064,19 @@ msgid "Enable developer tools"
 msgstr "Habilita instrumentos de disveloppator"
 
 #: src/settings/NeoChatGeneralPage.qml:295
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Preferentias predefinite"
 
 #: src/settings/NeoChatGeneralPage.qml:300
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
-msgstr "Re-fixa omne valores de configuration a loervalores predefinite"
+msgstr "Reassigna omne valores de configuration a lor valores predefinite"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Securitate"
@@ -5203,9 +5126,7 @@ msgid "Your server does not support this setting."
 msgstr "Tu servitor non supporta iste preferentia."
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Cryptation"
@@ -5436,8 +5357,7 @@ msgid "Event Type…"
 msgstr "Typo de Evento..."
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Monstra preferentias de  notificationes"
