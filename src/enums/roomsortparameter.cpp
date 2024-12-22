@@ -3,6 +3,11 @@
 
 #include "roomsortparameter.h"
 
+#include <algorithm>
+
+#include "neochatconfig.h"
+#include "neochatroom.h"
+
 namespace
 {
 template<typename T>
@@ -16,6 +21,78 @@ int typeCompare<QString>(QString left, QString right)
 {
     return left.localeAwareCompare(right);
 }
+
+static const QList<RoomSortParameter::Parameter> allSortPriorities = {
+    RoomSortParameter::AlphabeticalAscending,
+    RoomSortParameter::AlphabeticalDescending,
+    RoomSortParameter::HasUnread,
+    RoomSortParameter::MostUnread,
+    RoomSortParameter::HasHighlight,
+    RoomSortParameter::MostHighlights,
+    RoomSortParameter::LastActive,
+};
+
+static const QList<RoomSortParameter::Parameter> alphabeticalSortPriorities = {
+    RoomSortParameter::AlphabeticalAscending,
+};
+
+static const QList<RoomSortParameter::Parameter> activitySortPriorities = {
+    RoomSortParameter::HasHighlight,
+    RoomSortParameter::MostHighlights,
+    RoomSortParameter::HasUnread,
+    RoomSortParameter::MostUnread,
+    RoomSortParameter::LastActive,
+};
+
+static const QList<RoomSortParameter::Parameter> lastMessageSortPriorities = {
+    RoomSortParameter::LastActive,
+};
+}
+
+QList<RoomSortParameter::Parameter> RoomSortParameter::allParameterList()
+{
+    return allSortPriorities;
+}
+
+QList<RoomSortParameter::Parameter> RoomSortParameter::currentParameterList()
+{
+    QList<RoomSortParameter::Parameter> configParamList;
+    switch (static_cast<NeoChatConfig::EnumSortOrder::type>(NeoChatConfig::sortOrder())) {
+    case NeoChatConfig::EnumSortOrder::Activity:
+        configParamList = activitySortPriorities;
+        break;
+    case NeoChatConfig::EnumSortOrder::Alphabetical:
+        configParamList = alphabeticalSortPriorities;
+        break;
+    case NeoChatConfig::EnumSortOrder::LastMessage:
+        configParamList = lastMessageSortPriorities;
+        break;
+    case NeoChatConfig::EnumSortOrder::Custom: {
+        const auto intList = NeoChatConfig::customSortOrder();
+        std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
+            return static_cast<Parameter>(param);
+        });
+        break;
+    }
+    default:
+        break;
+    }
+
+    if (configParamList.isEmpty()) {
+        return activitySortPriorities;
+    }
+    return configParamList;
+}
+
+void RoomSortParameter::saveNewParameterList(const QList<Parameter> &newList)
+{
+    QList<int> intList;
+    std::transform(newList.constBegin(), newList.constEnd(), std::back_inserter(intList), [](Parameter param) {
+        return static_cast<int>(param);
+    });
+    NeoChatConfig::setCustomSortOrder(intList);
+    NeoChatConfig::setSortOrder(NeoChatConfig::EnumSortOrder::Custom);
+    NeoChatConfig::self()->save();
 }
 
 int RoomSortParameter::compareParameter(Parameter parameter, NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
@@ -36,7 +113,7 @@ int RoomSortParameter::compareParameter(Parameter parameter, NeoChatRoom *leftRo
     case LastActive:
         return compareParameter<LastActive>(leftRoom, rightRoom);
     default:
-        return false;
+        return 0;
     }
 }
 

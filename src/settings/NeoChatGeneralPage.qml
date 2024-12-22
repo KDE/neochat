@@ -98,6 +98,7 @@ FormCard.FormCardPage {
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
                 NeoChatConfig.sortOrder = 1
+                NeoChatConfig.customSortOrder = []
                 NeoChatConfig.save()
             }
         }
@@ -107,6 +108,7 @@ FormCard.FormCardPage {
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
                 NeoChatConfig.sortOrder = 0
+                NeoChatConfig.customSortOrder = []
                 NeoChatConfig.save()
             }
         }
@@ -117,7 +119,17 @@ FormCard.FormCardPage {
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
                 NeoChatConfig.sortOrder = 2
+                NeoChatConfig.customSortOrder = []
                 NeoChatConfig.save()
+            }
+        }
+        FormCard.FormRadioDelegate {
+            id: openCustomRoomSortButton
+            text: i18nc("@option:radio", "Custom")
+            checked: NeoChatConfig.sortOrder === 3
+            enabled: !NeoChatConfig.isSortOrderImmutable
+            onClicked: {
+                Qt.createComponent('org.kde.neochat.settings', 'RoomSortParameterDialog').createObject(root).open();
             }
         }
     }

@@ -196,6 +196,8 @@ add_library(neochat STATIC
     messagecomponent.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
+    models/roomsortparametermodel.cpp
+    models/roomsortparametermodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
