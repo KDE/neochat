@@ -15,6 +15,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 ThreePIdBindHelper::ThreePIdBindHelper(QObject *parent)
     : QObject(parent)
 {
@@ -96,8 +98,8 @@ void ThreePIdBindHelper::initiateNewIdBind()
 
     const auto openIdJob = m_connection->callApi<Quotient::RequestOpenIdTokenJob>(m_connection->userId());
     connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob]() {
-        const auto requestUrl = QUrl(m_connection->identityServer().toString() + QStringLiteral("/_matrix/identity/v2/account/register"));
-        if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+        const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
+        if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
             m_bindStatus = AuthFailure;
             Q_EMIT bindStatusChanged();
             return;
@@ -107,10 +109,10 @@ void ThreePIdBindHelper::initiateNewIdBind()
         auto newRequest = Quotient::NetworkAccessManager::instance()->post(request, QJsonDocument(openIdJob->jsonData()).toJson());
         connect(newRequest, &QNetworkReply::finished, this, [this, newRequest]() {
             QJsonObject replyJson = parseJson(newRequest->readAll());
-            m_identityServerToken = replyJson[QLatin1String("token")].toString();
+            m_identityServerToken = replyJson["token"_L1].toString();
 
-            const auto requestUrl = QUrl(m_connection->identityServer().toString() + QStringLiteral("/_matrix/identity/v2/validate/email/requestToken"));
-            if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+            const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/validate/email/requestToken"_s);
+            if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
                 m_bindStatus = AuthFailure;
                 Q_EMIT bindStatusChanged();
                 return;
@@ -131,15 +133,15 @@ QByteArray ThreePIdBindHelper::validationRequestData()
 {
     m_newIdSecret = QString::fromLatin1(QUuid::createUuid().toString().toLatin1().toBase64());
     QJsonObject requestData = {
-        {QLatin1String("client_secret"), m_newIdSecret},
-        {QLatin1String("send_attempt"), 0},
+        {"client_secret"_L1, m_newIdSecret},
+        {"send_attempt"_L1, 0},
     };
 
-    if (m_medium == QLatin1String("email")) {
-        requestData[QLatin1String("email")] = m_newId;
+    if (m_medium == u"email"_s) {
+        requestData["email"_L1] = m_newId;
     } else {
-        requestData[QLatin1String("phone_number")] = m_newId;
-        requestData[QLatin1String("country")] = m_newCountryCode;
+        requestData["phone_number"_L1] = m_newId;
+        requestData["country"_L1] = m_newCountryCode;
     }
 
     return QJsonDocument(requestData).toJson();
@@ -152,7 +154,7 @@ void ThreePIdBindHelper::tokenRequestFinished(QNetworkReply *reply)
     }
 
     QJsonObject replyJson = parseJson(reply->readAll());
-    m_newIdSid = replyJson[QLatin1String("sid")].toString();
+    m_newIdSid = replyJson["sid"_L1].toString();
 
     if (m_newIdSid.isEmpty()) {
         m_bindStatus = Invalid;
@@ -173,11 +175,11 @@ QString ThreePIdBindHelper::bindStatusString() const
     switch (m_bindStatus) {
     case Verification:
         return i18n("%1. Please follow the instructions there and then click the button above",
-                    m_medium == QStringLiteral("email") ? i18n("We've sent you an email") : i18n("We've sent you a text message"));
+                    m_medium == u"email"_s ? i18n("We've sent you an email") : i18n("We've sent you a text message"));
     case Invalid:
-        return m_medium == QStringLiteral("email") ? i18n("The entered email is not valid") : i18n("The entered phone number is not valid");
+        return m_medium == u"email"_s ? i18n("The entered email is not valid") : i18n("The entered phone number is not valid");
     case VerificationFailure:
-        return m_medium == QStringLiteral("email")
+        return m_medium == u"email"_s
             ? i18n("The email has not been verified. Please go to the email and follow the instructions there and then click the button above")
             : i18n("The phone number has not been verified. Please go to the text message and follow the instructions there and then click the button above");
     default:
@@ -194,7 +196,7 @@ void ThreePIdBindHelper::finalizeNewIdBind()
         m_connection->threePIdModel()->refreshModel();
     });
     connect(job, &Quotient::BaseJob::failure, this, [this, job]() {
-        if (job->jsonData()[QLatin1String("errcode")] == QLatin1String("M_SESSION_NOT_VALIDATED")) {
+        if (job->jsonData()["errcode"_L1] == "M_SESSION_NOT_VALIDATED"_L1) {
             m_bindStatus = VerificationFailure;
             Q_EMIT bindStatusChanged();
         } else {

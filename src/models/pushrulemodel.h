@@ -11,6 +11,8 @@
 #include "enums/pushrule.h"
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 /**
  * @class PushRuleModel
  *
@@ -136,6 +138,6 @@ private:
     void setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled);
     void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action);
     PushRuleAction::Action variantToAction(const QList<QVariant> &actions, bool enabled);
-    QList<QVariant> actionToVariant(PushRuleAction::Action action, const QString &sound = QStringLiteral("default"));
+    QList<QVariant> actionToVariant(PushRuleAction::Action action, const QString &sound = u"default"_s);
 };
 Q_DECLARE_METATYPE(PushRuleModel *)

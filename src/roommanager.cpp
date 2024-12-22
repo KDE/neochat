@@ -50,9 +50,9 @@ RoomManager::RoomManager(QObject *parent)
     }
 #endif
 
-    m_lastRoomConfig = m_config->group(QStringLiteral("LastOpenRoom"));
-    m_lastSpaceConfig = m_config->group(QStringLiteral("LastOpenSpace"));
-    m_directChatsConfig = m_config->group(QStringLiteral("DirectChatsActive"));
+    m_lastRoomConfig = m_config->group(u"LastOpenRoom"_s);
+    m_lastSpaceConfig = m_config->group(u"LastOpenSpace"_s);
+    m_directChatsConfig = m_config->group(u"DirectChatsActive"_s);
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
@@ -146,7 +146,7 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
         return;
     }
 
-    if (uri.type() == Uri::NonMatrix && action == "qr"_ls) {
+    if (uri.type() == Uri::NonMatrix && action == "qr"_L1) {
         Q_EMIT externalUrl(uri.toUrl());
         return;
     }
@@ -155,7 +155,7 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
         if (!m_connection) {
             return;
         }
-        if (!action.isEmpty() && (uri.type() != Uri::UserId || action != "join"_ls)) {
+        if (!action.isEmpty() && (uri.type() != Uri::UserId || action != "join"_L1)) {
             uri.setAction(action);
         }
         // TODO we should allow the user to select a connection.
@@ -163,7 +163,7 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
 
     const auto result = visitResource(m_connection, uri);
     if (result == Quotient::CouldNotResolve) {
-        if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_ls) {
+        if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_L1) {
             Q_EMIT askJoinRoom(uri.primaryId());
         }
     }
@@ -199,12 +199,12 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
 {
     const auto &event = **room->findInTimeline(eventId);
 
-    if (EventHandler::mediaInfo(room, &event).contains("mimeType"_ls)) {
+    if (EventHandler::mediaInfo(room, &event).contains("mimeType"_L1)) {
         Q_EMIT showFileMenu(eventId,
                             sender,
                             MessageComponentType::typeForEvent(event),
                             EventHandler::plainBody(room, &event),
-                            EventHandler::mediaInfo(room, &event)["mimeType"_ls].toString(),
+                            EventHandler::mediaInfo(room, &event)["mimeType"_L1].toString(),
                             room->fileTransferInfo(eventId));
         return;
     }
@@ -271,12 +271,12 @@ void RoomManager::openRoomForActiveConnection()
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
-    if (action == "mention"_ls || action == "qr"_ls || action.isEmpty()) {
+    if (action == "mention"_L1 || action == "qr"_L1 || action.isEmpty()) {
         user->load();
-        Q_EMIT showUserDetail(user, action == "qr"_ls ? nullptr : currentRoom());
-    } else if (action == "_interactive"_ls) {
+        Q_EMIT showUserDetail(user, action == "qr"_L1 ? nullptr : currentRoom());
+    } else if (action == "_interactive"_L1) {
         user->requestDirectChat();
-    } else if (action == "chat"_ls) {
+    } else if (action == "chat"_L1) {
         user->load();
         Q_EMIT askDirectChatConfirmation(user);
     } else {
@@ -445,7 +445,7 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
     // This need to happen before the signal so TreeView.expandRecursively() can work nicely.
     m_sortFilterRoomTreeModel->setActiveSpaceId(m_currentSpaceId);
-    m_sortFilterRoomTreeModel->setMode(m_currentSpaceId == QLatin1String("DM") ? SortFilterRoomTreeModel::DirectChats : SortFilterRoomTreeModel::Rooms);
+    m_sortFilterRoomTreeModel->setMode(m_currentSpaceId == u"DM"_s ? SortFilterRoomTreeModel::DirectChats : SortFilterRoomTreeModel::Rooms);
 
     Q_EMIT currentSpaceChanged();
     if (m_connection) {
@@ -458,7 +458,7 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
     if (!m_isMobile) {
         if (spaceId.length() > 3) {
-            resolveResource(spaceId, "no_join"_ls);
+            resolveResource(spaceId, "no_join"_L1);
         } else {
             visitRoom({}, {});
         }
@@ -492,8 +492,8 @@ void RoomManager::setCurrentRoom(const QString &roomId)
         return;
     }
     if (m_currentRoom->isDirectChat()) {
-        if (m_currentSpaceId != "DM"_ls) {
-            setCurrentSpace("DM"_ls, false);
+        if (m_currentSpaceId != "DM"_L1) {
+            setCurrentSpace("DM"_L1, false);
         }
         return;
     }

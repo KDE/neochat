@@ -6,11 +6,13 @@
 
 #include "windowcontroller.h"
 
+using namespace Qt::StringLiterals;
+
 TrayIcon::TrayIcon(QObject *parent)
     : KStatusNotifierItem(parent)
 {
     setCategory(KStatusNotifierItem::ItemCategory::Communications);
-    setIconByName(QStringLiteral("org.kde.neochat.tray"));
+    setIconByName(u"org.kde.neochat.tray"_s);
 
     connect(&WindowController::instance(), &WindowController::windowChanged, this, [this] {
         setAssociatedWindow(WindowController::instance().window());

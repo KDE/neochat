@@ -62,7 +62,7 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
     const auto &data = m_locations.at(index.row());
     switch (roleName) {
     case LatitudeRole: {
-        const auto geoUri = data.beacon["org.matrix.msc3488.location"_ls].toObject()["uri"_ls].toString();
+        const auto geoUri = data.beacon["org.matrix.msc3488.location"_L1].toObject()["uri"_L1].toString();
         if (geoUri.isEmpty()) {
             return {};
         }
@@ -70,7 +70,7 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         return latitude.toFloat();
     }
     case LongitudeRole: {
-        const auto geoUri = data.beacon["org.matrix.msc3488.location"_ls].toObject()["uri"_ls].toString();
+        const auto geoUri = data.beacon["org.matrix.msc3488.location"_L1].toObject()["uri"_L1].toString();
         if (geoUri.isEmpty()) {
             return {};
         }
@@ -78,21 +78,21 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         return longitude.toFloat();
     }
     case AssetRole:
-        return data.beaconInfo["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
+        return data.beaconInfo["org.matrix.msc3488.asset"_L1].toObject()["type"_L1].toString();
     case AuthorRole:
         return QVariant::fromValue(m_room->member(data.senderId));
     case IsLiveRole: {
-        if (!data.beaconInfo["live"_ls].toBool()) {
+        if (!data.beaconInfo["live"_L1].toBool()) {
             return false;
         }
         // TODO Qt6: port to toInteger(), timestamps are in ms since epoch, ie. 64 bit values
-        const auto lastTs = std::max(data.beaconInfo.value("org.matrix.msc3488.ts"_ls).toDouble(), data.beacon.value("org.matrix.msc3488.ts"_ls).toDouble());
-        const auto timeout = data.beaconInfo.value("timeout"_ls).toDouble(600000);
+        const auto lastTs = std::max(data.beaconInfo.value("org.matrix.msc3488.ts"_L1).toDouble(), data.beacon.value("org.matrix.msc3488.ts"_L1).toDouble());
+        const auto timeout = data.beaconInfo.value("timeout"_L1).toDouble(600000);
         return lastTs + timeout >= QDateTime::currentDateTime().toMSecsSinceEpoch();
     }
     case HeadingRole: {
         bool success = false;
-        const auto heading = data.beacon["org.matrix.msc3488.location"_ls].toObject()["org.kde.itinerary.heading"_ls].toString().toDouble(&success);
+        const auto heading = data.beacon["org.matrix.msc3488.location"_L1].toObject()["org.kde.itinerary.heading"_L1].toString().toDouble(&success);
         return success ? heading : NAN;
     }
     }
@@ -129,20 +129,20 @@ QRectF LiveLocationsModel::boundingBox() const
 
 void LiveLocationsModel::addEvent(const Quotient::RoomEvent *event)
 {
-    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
+    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_L1) {
         LiveLocationData data;
         data.senderId = event->senderId();
         data.beaconInfo = event->contentJson();
-        if (event->contentJson()["live"_ls].toBool()) {
+        if (event->contentJson()["live"_L1].toBool()) {
             data.eventId = event->id();
         } else {
-            data.eventId = event->fullJson()["replaces_state"_ls].toString();
+            data.eventId = event->fullJson()["replaces_state"_L1].toString();
         }
         updateLocationData(std::move(data));
     }
-    if (event->matrixType() == "org.matrix.msc3672.beacon"_ls) {
+    if (event->matrixType() == "org.matrix.msc3672.beacon"_L1) {
         LiveLocationData data;
-        data.eventId = event->contentJson()["m.relates_to"_ls].toObject()["event_id"_ls].toString();
+        data.eventId = event->contentJson()["m.relates_to"_L1].toObject()["event_id"_L1].toString();
         data.senderId = event->senderId();
         data.beacon = event->contentJson();
         updateLocationData(std::move(data));
@@ -167,11 +167,11 @@ void LiveLocationsModel::updateLocationData(LiveLocationData &&data)
     const auto idx = index(std::distance(m_locations.begin(), it), 0);
 
     // TODO Qt6: port to toInteger(), timestamps are in ms since epoch, ie. 64 bit values
-    if (it->beacon.isEmpty() || it->beacon.value("org.matrix.msc3488.ts"_ls).toDouble() < data.beacon.value("org.matrix.msc3488.ts"_ls).toDouble()) {
+    if (it->beacon.isEmpty() || it->beacon.value("org.matrix.msc3488.ts"_L1).toDouble() < data.beacon.value("org.matrix.msc3488.ts"_L1).toDouble()) {
         it->beacon = std::move(data.beacon);
     }
     if (it->beaconInfo.isEmpty()
-        || it->beaconInfo.value("org.matrix.msc3488.ts"_ls).toDouble() < data.beaconInfo.value("org.matrix.msc3488.ts"_ls).toDouble()) {
+        || it->beaconInfo.value("org.matrix.msc3488.ts"_L1).toDouble() < data.beaconInfo.value("org.matrix.msc3488.ts"_L1).toDouble()) {
         it->beaconInfo = std::move(data.beaconInfo);
     }
 

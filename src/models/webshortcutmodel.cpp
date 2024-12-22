@@ -10,6 +10,8 @@
 #endif
 #include <KStringHandler>
 
+using namespace Qt::StringLiterals;
+
 struct WebShortcutModelPrivate {
     QString selectedText;
 #ifdef HAVE_KIO
@@ -125,7 +127,7 @@ void WebShortcutModel::trigger(const QString &data)
 void WebShortcutModel::configureWebShortcuts()
 {
 #ifdef HAVE_KIO
-    auto job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell6"), QStringList() << QStringLiteral("webshortcuts"), this);
+    auto job = new KIO::CommandLauncherJob(u"kcmshell6"_s, QStringList() << u"webshortcuts"_s, this);
     job->exec();
 #endif
 }

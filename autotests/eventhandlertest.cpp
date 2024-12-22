@@ -62,13 +62,13 @@ private Q_SLOTS:
 
 void EventHandlerTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-eventhandler-sync.json"));
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-eventhandler-sync.json"_s);
 }
 
 void EventHandlerTest::authorDisplayName()
 {
-    QCOMPARE(EventHandler::authorDisplayName(room, room->messageEvents().at(1).get()), QStringLiteral("before"));
+    QCOMPARE(EventHandler::authorDisplayName(room, room->messageEvents().at(1).get()), u"before"_s);
 }
 
 void EventHandlerTest::nullAuthorDisplayName()
@@ -82,8 +82,7 @@ void EventHandlerTest::nullAuthorDisplayName()
 
 void EventHandlerTest::singleLineSidplayName()
 {
-    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, room->messageEvents().at(11).get()),
-             QStringLiteral("Look at me I put newlines in my display name"));
+    QCOMPARE(EventHandler::singleLineAuthorDisplayname(room, room->messageEvents().at(11).get()), "Look at me I put newlines in my display name"_L1);
 }
 
 void EventHandlerTest::nullSingleLineDisplayName()
@@ -131,8 +130,7 @@ void EventHandlerTest::timeString()
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::LongFormat));
     QCOMPARE(EventHandler::timeString(event, true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::LongFormat));
-    QCOMPARE(EventHandler::timeString(event, QStringLiteral("hh:mm")),
-             QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(QStringLiteral("hh:mm")));
+    QCOMPARE(EventHandler::timeString(event, u"hh:mm"_s), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(u"hh:mm"_s));
 }
 
 void EventHandlerTest::highlighted()
@@ -169,10 +167,10 @@ void EventHandlerTest::body()
 {
     const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(EventHandler::richBody(room, event), QStringLiteral("<b>This is an example<br>text message</b>"));
-    QCOMPARE(EventHandler::richBody(room, event, true), QStringLiteral("<b>This is an example text message</b>"));
-    QCOMPARE(EventHandler::plainBody(room, event), QStringLiteral("This is an example\ntext message"));
-    QCOMPARE(EventHandler::plainBody(room, event, true), QStringLiteral("This is an example text message"));
+    QCOMPARE(EventHandler::richBody(room, event), u"<b>This is an example<br>text message</b>"_s);
+    QCOMPARE(EventHandler::richBody(room, event, true), u"<b>This is an example text message</b>"_s);
+    QCOMPARE(EventHandler::plainBody(room, event), u"This is an example\ntext message"_s);
+    QCOMPARE(EventHandler::plainBody(room, event, true), u"This is an example text message"_s);
 }
 
 void EventHandlerTest::nullBody()
@@ -195,13 +193,11 @@ void EventHandlerTest::genericBody_data()
     QTest::addColumn<int>("eventNum");
     QTest::addColumn<QString>("output");
 
-    QTest::newRow("message") << 0 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
-    QTest::newRow("member") << 1
-                            << QStringLiteral(
-                                   "<a href=\"https://matrix.to/#/@example:example.org\">after</a> changed their display name and updated their avatar");
-    QTest::newRow("message 2") << 2 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
-    QTest::newRow("reaction") << 3 << QStringLiteral("Unknown event");
-    QTest::newRow("video") << 4 << QStringLiteral("<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message");
+    QTest::newRow("message") << 0 << u"<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message"_s;
+    QTest::newRow("member") << 1 << u"<a href=\"https://matrix.to/#/@example:example.org\">after</a> changed their display name and updated their avatar"_s;
+    QTest::newRow("message 2") << 2 << u"<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message"_s;
+    QTest::newRow("reaction") << 3 << u"Unknown event"_s;
+    QTest::newRow("video") << 4 << u"<a href=\"https://matrix.to/#/@example:example.org\">after</a> sent a message"_s;
 }
 
 void EventHandlerTest::genericBody()
@@ -223,19 +219,19 @@ void EventHandlerTest::nullGenericBody()
 
 void EventHandlerTest::markdownBody()
 {
-    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(0).get()), QStringLiteral("This is an example\ntext message"));
+    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(0).get()), u"This is an example\ntext message"_s);
 }
 
 void EventHandlerTest::markdownBodyReply()
 {
-    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(5).get()), QStringLiteral("reply"));
+    QCOMPARE(EventHandler::markdownBody(room->messageEvents().at(5).get()), u"reply"_s);
 }
 
 void EventHandlerTest::subtitle()
 {
-    QCOMPARE(EventHandler::subtitleText(room, room->messageEvents().at(0).get()), QStringLiteral("after: This is an example text message"));
+    QCOMPARE(EventHandler::subtitleText(room, room->messageEvents().at(0).get()), u"after: This is an example text message"_s);
     QCOMPARE(EventHandler::subtitleText(room, room->messageEvents().at(2).get()),
-             QStringLiteral("after: This is a highlight @bob:kde.org and this is a link https://kde.org"));
+             u"after: This is a highlight @bob:kde.org and this is a link https://kde.org"_s);
 }
 
 void EventHandlerTest::nullSubtitle()
@@ -251,21 +247,21 @@ void EventHandlerTest::mediaInfo()
 {
     auto event = room->messageEvents().at(4).get();
     auto mediaInfo = EventHandler::mediaInfo(room, event);
-    auto thumbnailInfo = mediaInfo["tempInfo"_ls].toMap();
+    auto thumbnailInfo = mediaInfo["tempInfo"_L1].toMap();
 
-    QCOMPARE(mediaInfo["source"_ls], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/1234567"_ls)));
-    QCOMPARE(mediaInfo["mimeType"_ls], QStringLiteral("video/mp4"));
-    QCOMPARE(mediaInfo["mimeIcon"_ls], QStringLiteral("video-mp4"));
-    QCOMPARE(mediaInfo["size"_ls], 62650636);
-    QCOMPARE(mediaInfo["duration"_ls], 10);
-    QCOMPARE(mediaInfo["width"_ls], 1920);
-    QCOMPARE(mediaInfo["height"_ls], 1080);
-    QCOMPARE(thumbnailInfo["source"_ls], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/2234567"_ls)));
-    QCOMPARE(thumbnailInfo["mimeType"_ls], QStringLiteral("image/jpeg"));
-    QCOMPARE(thumbnailInfo["mimeIcon"_ls], QStringLiteral("image-jpeg"));
-    QCOMPARE(thumbnailInfo["size"_ls], 382249);
-    QCOMPARE(thumbnailInfo["width"_ls], 800);
-    QCOMPARE(thumbnailInfo["height"_ls], 450);
+    QCOMPARE(mediaInfo["source"_L1], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/1234567"_L1)));
+    QCOMPARE(mediaInfo["mimeType"_L1], u"video/mp4"_s);
+    QCOMPARE(mediaInfo["mimeIcon"_L1], u"video-mp4"_s);
+    QCOMPARE(mediaInfo["size"_L1], 62650636);
+    QCOMPARE(mediaInfo["duration"_L1], 10);
+    QCOMPARE(mediaInfo["width"_L1], 1920);
+    QCOMPARE(mediaInfo["height"_L1], 1080);
+    QCOMPARE(thumbnailInfo["source"_L1], room->makeMediaUrl(event->id(), QUrl("mxc://kde.org/2234567"_L1)));
+    QCOMPARE(thumbnailInfo["mimeType"_L1], u"image/jpeg"_s);
+    QCOMPARE(thumbnailInfo["mimeIcon"_L1], u"image-jpeg"_s);
+    QCOMPARE(thumbnailInfo["size"_L1], 382249);
+    QCOMPARE(thumbnailInfo["width"_L1], 800);
+    QCOMPARE(thumbnailInfo["height"_L1], 450);
 }
 
 void EventHandlerTest::nullMediaInfo()
@@ -304,9 +300,9 @@ void EventHandlerTest::nullReplyAuthor()
 
 void EventHandlerTest::location()
 {
-    QCOMPARE(EventHandler::latitude(room->messageEvents().at(7).get()), QStringLiteral("51.7035").toFloat());
-    QCOMPARE(EventHandler::longitude(room->messageEvents().at(7).get()), QStringLiteral("-1.14394").toFloat());
-    QCOMPARE(EventHandler::locationAssetType(room->messageEvents().at(7).get()), QStringLiteral("m.pin"));
+    QCOMPARE(EventHandler::latitude(room->messageEvents().at(7).get()), u"51.7035"_s.toFloat());
+    QCOMPARE(EventHandler::longitude(room->messageEvents().at(7).get()), u"-1.14394"_s.toFloat());
+    QCOMPARE(EventHandler::locationAssetType(room->messageEvents().at(7).get()), u"m.pin"_s);
 }
 
 void EventHandlerTest::nullLocation()

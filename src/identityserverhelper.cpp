@@ -11,6 +11,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 IdentityServerHelper::IdentityServerHelper(QObject *parent)
     : QObject(parent)
 {
@@ -75,8 +77,8 @@ void IdentityServerHelper::checkUrl()
         return;
     }
 
-    const auto requestUrl = QUrl(m_url + QStringLiteral("/_matrix/identity/v2"));
-    if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+    const auto requestUrl = QUrl(m_url + u"/_matrix/identity/v2"_s);
+    if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
         m_status = Invalid;
         Q_EMIT statusChanged();
         return;
@@ -101,7 +103,7 @@ void IdentityServerHelper::setIdentityServer()
         return;
     }
 
-    m_connection->setAccountData(QLatin1String("m.identity_server"), {{QLatin1String("base_url"), m_url}});
+    m_connection->setAccountData(u"m.identity_server"_s, {{"base_url"_L1, m_url}});
     m_status = Ready;
     Q_EMIT statusChanged();
 }
@@ -111,7 +113,7 @@ void IdentityServerHelper::clearIdentityServer()
     if (m_connection->identityServer().isEmpty()) {
         return;
     }
-    m_connection->setAccountData(QLatin1String("m.identity_server"), {{QLatin1String("base_url"), QString()}});
+    m_connection->setAccountData(u"m.identity_server"_s, {{"base_url"_L1, QString()}});
     m_status = Ready;
     Q_EMIT statusChanged();
 }

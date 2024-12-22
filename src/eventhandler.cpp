@@ -60,9 +60,9 @@ QString EventHandler::authorDisplayName(const NeoChatRoom *room, const Quotient:
         return {};
     }
 
-    if (is<RoomMemberEvent>(*event) && event->unsignedJson()[QStringLiteral("prev_content")].toObject().contains("displayname"_L1)
+    if (is<RoomMemberEvent>(*event) && event->unsignedJson()["prev_content"_L1].toObject().contains("displayname"_L1)
         && event->stateKey() == event->senderId()) {
-        auto previousDisplayName = event->unsignedJson()[QStringLiteral("prev_content")][QStringLiteral("displayname")].toString().toHtmlEscaped();
+        auto previousDisplayName = event->unsignedJson()["prev_content"_L1]["displayname"_L1].toString().toHtmlEscaped();
         if (previousDisplayName.isEmpty()) {
             previousDisplayName = event->senderId();
         }
@@ -86,12 +86,12 @@ QString EventHandler::singleLineAuthorDisplayname(const NeoChatRoom *room, const
 
     const auto author = isPending ? room->localMember() : room->member(event->senderId());
     auto displayName = author.displayName();
-    displayName.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
-    displayName.replace(QStringLiteral("<br>"), QStringLiteral(" "));
-    displayName.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
-    displayName.replace(QStringLiteral("<br />"), QStringLiteral(" "));
-    displayName.replace(u'\n', QStringLiteral(" "));
-    displayName.replace(u'\u2028', QStringLiteral(" "));
+    displayName.replace(u"<br>\n"_s, u" "_s);
+    displayName.replace(u"<br>"_s, u" "_s);
+    displayName.replace(u"<br />\n"_s, u" "_s);
+    displayName.replace(u"<br />"_s, u" "_s);
+    displayName.replace(u'\n', u" "_s);
+    displayName.replace(u'\u2028', u" "_s);
     return displayName;
 }
 
@@ -195,7 +195,7 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
     }
 
     // hide ending live location beacons
-    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_ls && !event->contentJson()["live"_ls].toBool()) {
+    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_L1 && !event->contentJson()["live"_L1].toBool()) {
         return true;
     }
 
@@ -204,7 +204,7 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
 
 Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageEvent &event)
 {
-    if (event.mimeType().name() == "text/plain"_ls) {
+    if (event.mimeType().name() == "text/plain"_L1) {
         return Qt::PlainText;
     } else {
         return Qt::RichText;
@@ -309,8 +309,8 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
             }
 
             if (prettyPrint) {
-                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), room->member(e.userId()).color().name(), subjectName);
+                subjectName =
+                    u"<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>"_s.arg(e.userId(), room->member(e.userId()).color().name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole
@@ -376,7 +376,7 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                 if (e.senderId() == e.userId()) {
                     return i18n("left the room");
                 }
-                if (const auto &reason = e.contentJson()["reason"_ls].toString().toHtmlEscaped(); !reason.isEmpty()) {
+                if (const auto &reason = e.contentJson()["reason"_L1].toString().toHtmlEscaped(); !reason.isEmpty()) {
                     return i18n("has put %1 out of the room: %2", subjectName, reason);
                 }
                 return i18n("has put %1 out of the room", subjectName);
@@ -391,7 +391,7 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                     return i18n("self-banned from the room");
                 }
             case Membership::Knock: {
-                QString reason(e.contentJson()["reason"_ls].toString().toHtmlEscaped());
+                QString reason(e.contentJson()["reason"_L1].toString().toHtmlEscaped());
                 return reason.isEmpty() ? i18n("requested an invite") : i18n("requested an invite with reason: %1", reason);
             }
             default:;
@@ -419,26 +419,26 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
         },
         [prettyPrint](const RoomCreateEvent &e) {
             return e.isUpgrade()
-                ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_ls : (prettyPrint ? e.version().toHtmlEscaped() : e.version()))
-                : i18n("created the room, version %1", e.version().isEmpty() ? "1"_ls : (prettyPrint ? e.version().toHtmlEscaped() : e.version()));
+                ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_L1 : (prettyPrint ? e.version().toHtmlEscaped() : e.version()))
+                : i18n("created the room, version %1", e.version().isEmpty() ? "1"_L1 : (prettyPrint ? e.version().toHtmlEscaped() : e.version()));
         },
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
         [](const LocationBeaconEvent &e) {
-            return e.contentJson()["description"_ls].toString();
+            return e.contentJson()["description"_L1].toString();
         },
         [](const RoomServerAclEvent &) {
             return i18n("changed the server access control lists for this room");
         },
         [](const WidgetEvent &e) {
-            if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
-                return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_ls].toString());
+            if (e.fullJson()["unsigned"_L1]["prev_content"_L1].toObject().isEmpty()) {
+                return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_L1].toString());
             }
             if (e.contentJson().isEmpty()) {
-                return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_ls]["prev_content"_ls]["name"_ls].toString());
+                return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_L1]["prev_content"_L1]["name"_L1].toString());
             }
-            return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_ls].toString());
+            return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_L1].toString());
         },
         [prettyPrint](const StateEvent &e) {
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
@@ -459,7 +459,7 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
         if (fileCaption.isEmpty()) {
             fileCaption = event.plainBody();
         } else if (fileCaption != event.plainBody()) {
-            fileCaption = event.plainBody() + " | "_ls + fileCaption;
+            fileCaption = event.plainBody() + " | "_L1 + fileCaption;
         }
         textHandler.setData(fileCaption);
         return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
@@ -475,7 +475,7 @@ QString EventHandler::getMessageBody(const NeoChatRoom *room, const RoomMessageE
     textHandler.setData(body);
 
     Qt::TextFormat inputFormat;
-    if (event.mimeType().name() == "text/plain"_ls) {
+    if (event.mimeType().name() == "text/plain"_L1) {
         inputFormat = Qt::PlainText;
     } else {
         inputFormat = Qt::RichText;
@@ -503,7 +503,7 @@ QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomE
     }
 
     const auto sender = room->member(event->senderId());
-    const auto senderString = QStringLiteral("<a href=\"https://matrix.to/#/%1\">%2</a>").arg(sender.id(), sender.htmlSafeDisplayName());
+    const auto senderString = u"<a href=\"https://matrix.to/#/%1\">%2</a>"_s.arg(sender.id(), sender.htmlSafeDisplayName());
 
     return switchOnType(
         *event,
@@ -632,7 +632,7 @@ QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomE
             return i18n("%1 changed the server access control lists for this room", senderString);
         },
         [senderString](const WidgetEvent &e) {
-            if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
+            if (e.fullJson()["unsigned"_L1]["prev_content"_L1].toObject().isEmpty()) {
                 return i18n("%1 added a widget", senderString);
             }
             if (e.contentJson().isEmpty()) {
@@ -659,7 +659,7 @@ QString EventHandler::subtitleText(const NeoChatRoom *room, const Quotient::Room
         qCWarning(EventHandling) << "subtitleText called with event set to nullptr.";
         return {};
     }
-    return singleLineAuthorDisplayname(room, event) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": ")) + plainBody(room, event, true);
+    return singleLineAuthorDisplayname(room, event) + (event->isStateEvent() ? u" "_s : u": "_s) + plainBody(room, event, true);
 }
 
 QVariantMap EventHandler::mediaInfo(const NeoChatRoom *room, const Quotient::RoomEvent *event)
@@ -690,7 +690,7 @@ QVariantMap EventHandler::getMediaInfoForEvent(const NeoChatRoom *room, const Qu
         QVariantMap mediaInfo = getMediaInfoFromFileInfo(room, content.get(), eventId, false, false);
         // if filename isn't specifically given, it is in body
         // https://spec.matrix.org/latest/client-server-api/#mfile
-        mediaInfo["filename"_ls] = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
+        mediaInfo["filename"_L1] = content->commonInfo().originalName.isEmpty() ? roomMessageEvent->plainBody() : content->commonInfo().originalName;
 
         return mediaInfo;
     } else if (event->is<StickerEvent>()) {
@@ -712,80 +712,80 @@ QVariantMap EventHandler::getMediaInfoFromFileInfo(const NeoChatRoom *room,
     QVariantMap mediaInfo;
 
     // Get the mxc URL for the media.
-    if (!fileContent->url().isValid() || fileContent->url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
-        mediaInfo["source"_ls] = QUrl();
+    if (!fileContent->url().isValid() || fileContent->url().scheme() != u"mxc"_s || eventId.isEmpty()) {
+        mediaInfo["source"_L1] = QUrl();
     } else {
         QUrl source = room->makeMediaUrl(eventId, fileContent->url());
 
         if (source.isValid()) {
-            mediaInfo["source"_ls] = source;
+            mediaInfo["source"_L1] = source;
         } else {
-            mediaInfo["source"_ls] = QUrl();
+            mediaInfo["source"_L1] = QUrl();
         }
     }
 
     auto mimeType = fileContent->type();
     // Add the MIME type for the media if available.
-    mediaInfo["mimeType"_ls] = mimeType.name();
+    mediaInfo["mimeType"_L1] = mimeType.name();
 
     // Add the MIME type icon if available.
-    mediaInfo["mimeIcon"_ls] = mimeType.iconName();
+    mediaInfo["mimeIcon"_L1] = mimeType.iconName();
 
     // Add media size if available.
-    mediaInfo["size"_ls] = fileContent->commonInfo().payloadSize;
+    mediaInfo["size"_L1] = fileContent->commonInfo().payloadSize;
 
-    mediaInfo["isSticker"_ls] = isSticker;
+    mediaInfo["isSticker"_L1] = isSticker;
 
     // Add parameter depending on media type.
-    if (mimeType.name().contains(QStringLiteral("image"))) {
+    if (mimeType.name().contains(u"image"_s)) {
         if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileContent)) {
-            mediaInfo["width"_ls] = castInfo->imageSize.width();
-            mediaInfo["height"_ls] = castInfo->imageSize.height();
+            mediaInfo["width"_L1] = castInfo->imageSize.width();
+            mediaInfo["height"_L1] = castInfo->imageSize.height();
 
             // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
-            mediaInfo["animated"_ls] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
+            mediaInfo["animated"_L1] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
 
             QVariantMap tempInfo;
             auto thumbnailInfo = getMediaInfoFromTumbnail(room, castInfo->thumbnail, eventId);
-            if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
+            if (thumbnailInfo["source"_L1].toUrl().scheme() == "mxc"_L1) {
                 tempInfo = thumbnailInfo;
             } else {
-                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
+                QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
                 if (blurhash.isEmpty()) {
-                    tempInfo["source"_ls] = QUrl();
+                    tempInfo["source"_L1] = QUrl();
                 } else {
-                    tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
+                    tempInfo["source"_L1] = QUrl("image://blurhash/"_L1 + blurhash);
                 }
             }
-            mediaInfo["tempInfo"_ls] = tempInfo;
+            mediaInfo["tempInfo"_L1] = tempInfo;
         }
     }
-    if (mimeType.name().contains(QStringLiteral("video"))) {
+    if (mimeType.name().contains(u"video"_s)) {
         if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileContent)) {
-            mediaInfo["width"_ls] = castInfo->imageSize.width();
-            mediaInfo["height"_ls] = castInfo->imageSize.height();
-            mediaInfo["duration"_ls] = castInfo->duration;
+            mediaInfo["width"_L1] = castInfo->imageSize.width();
+            mediaInfo["height"_L1] = castInfo->imageSize.height();
+            mediaInfo["duration"_L1] = castInfo->duration;
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
                 auto thumbnailInfo = getMediaInfoFromTumbnail(room, castInfo->thumbnail, eventId);
-                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
+                if (thumbnailInfo["source"_L1].toUrl().scheme() == "mxc"_L1) {
                     tempInfo = thumbnailInfo;
                 } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
+                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_L1].toString();
                     if (blurhash.isEmpty()) {
-                        tempInfo["source"_ls] = QUrl();
+                        tempInfo["source"_L1] = QUrl();
                     } else {
-                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
+                        tempInfo["source"_L1] = QUrl("image://blurhash/"_L1 + blurhash);
                     }
                 }
-                mediaInfo["tempInfo"_ls] = tempInfo;
+                mediaInfo["tempInfo"_L1] = tempInfo;
             }
         }
     }
-    if (mimeType.name().contains(QStringLiteral("audio"))) {
+    if (mimeType.name().contains(u"audio"_s)) {
         if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileContent)) {
-            mediaInfo["duration"_ls] = castInfo->duration;
+            mediaInfo["duration"_L1] = castInfo->duration;
         }
     }
 
@@ -796,30 +796,30 @@ QVariantMap EventHandler::getMediaInfoFromTumbnail(const NeoChatRoom *room, cons
 {
     QVariantMap thumbnailInfo;
 
-    if (!thumbnail.url().isValid() || thumbnail.url().scheme() != QStringLiteral("mxc") || eventId.isEmpty()) {
-        thumbnailInfo["source"_ls] = QUrl();
+    if (!thumbnail.url().isValid() || thumbnail.url().scheme() != u"mxc"_s || eventId.isEmpty()) {
+        thumbnailInfo["source"_L1] = QUrl();
     } else {
         QUrl source = room->makeMediaUrl(eventId, thumbnail.url());
 
         if (source.isValid()) {
-            thumbnailInfo["source"_ls] = source;
+            thumbnailInfo["source"_L1] = source;
         } else {
-            thumbnailInfo["source"_ls] = QUrl();
+            thumbnailInfo["source"_L1] = QUrl();
         }
     }
 
     auto mimeType = thumbnail.mimeType;
     // Add the MIME type for the media if available.
-    thumbnailInfo["mimeType"_ls] = mimeType.name();
+    thumbnailInfo["mimeType"_L1] = mimeType.name();
 
     // Add the MIME type icon if available.
-    thumbnailInfo["mimeIcon"_ls] = mimeType.iconName();
+    thumbnailInfo["mimeIcon"_L1] = mimeType.iconName();
 
     // Add media size if available.
-    thumbnailInfo["size"_ls] = thumbnail.payloadSize;
+    thumbnailInfo["size"_L1] = thumbnail.payloadSize;
 
-    thumbnailInfo["width"_ls] = thumbnail.imageSize.width();
-    thumbnailInfo["height"_ls] = thumbnail.imageSize.height();
+    thumbnailInfo["width"_L1] = thumbnail.imageSize.width();
+    thumbnailInfo["height"_L1] = thumbnail.imageSize.height();
 
     return thumbnailInfo;
 }
@@ -849,7 +849,7 @@ float EventHandler::latitude(const Quotient::RoomEvent *event)
         return -100.0;
     }
 
-    const auto geoUri = event->contentJson()["geo_uri"_ls].toString();
+    const auto geoUri = event->contentJson()["geo_uri"_L1].toString();
     if (geoUri.isEmpty()) {
         return -100.0; // latitude runs from -90deg to +90deg so -100 is out of range.
     }
@@ -864,7 +864,7 @@ float EventHandler::longitude(const Quotient::RoomEvent *event)
         return -200.0;
     }
 
-    const auto geoUri = event->contentJson()["geo_uri"_ls].toString();
+    const auto geoUri = event->contentJson()["geo_uri"_L1].toString();
     if (geoUri.isEmpty()) {
         return -200.0; // longitude runs from -180deg to +180deg so -200 is out of range.
     }
@@ -879,7 +879,7 @@ QString EventHandler::locationAssetType(const Quotient::RoomEvent *event)
         return {};
     }
 
-    const auto assetType = event->contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
+    const auto assetType = event->contentJson()["org.matrix.msc3488.asset"_L1].toObject()["type"_L1].toString();
     if (assetType.isEmpty()) {
         return {};
     }

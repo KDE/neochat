@@ -20,17 +20,17 @@ using Action = ActionsModel::Action;
 using namespace Quotient;
 using namespace Qt::StringLiterals;
 
-QStringList rainbowColors{"#ff2b00"_ls, "#ff5500"_ls, "#ff8000"_ls, "#ffaa00"_ls, "#ffd500"_ls, "#ffff00"_ls, "#d4ff00"_ls, "#aaff00"_ls, "#80ff00"_ls,
-                          "#55ff00"_ls, "#2bff00"_ls, "#00ff00"_ls, "#00ff2b"_ls, "#00ff55"_ls, "#00ff80"_ls, "#00ffaa"_ls, "#00ffd5"_ls, "#00ffff"_ls,
-                          "#00d4ff"_ls, "#00aaff"_ls, "#007fff"_ls, "#0055ff"_ls, "#002bff"_ls, "#0000ff"_ls, "#2a00ff"_ls, "#5500ff"_ls, "#7f00ff"_ls,
-                          "#aa00ff"_ls, "#d400ff"_ls, "#ff00ff"_ls, "#ff00d4"_ls, "#ff00aa"_ls, "#ff0080"_ls, "#ff0055"_ls, "#ff002b"_ls, "#ff0000"_ls};
+QStringList rainbowColors{"#ff2b00"_L1, "#ff5500"_L1, "#ff8000"_L1, "#ffaa00"_L1, "#ffd500"_L1, "#ffff00"_L1, "#d4ff00"_L1, "#aaff00"_L1, "#80ff00"_L1,
+                          "#55ff00"_L1, "#2bff00"_L1, "#00ff00"_L1, "#00ff2b"_L1, "#00ff55"_L1, "#00ff80"_L1, "#00ffaa"_L1, "#00ffd5"_L1, "#00ffff"_L1,
+                          "#00d4ff"_L1, "#00aaff"_L1, "#007fff"_L1, "#0055ff"_L1, "#002bff"_L1, "#0000ff"_L1, "#2a00ff"_L1, "#5500ff"_L1, "#7f00ff"_L1,
+                          "#aa00ff"_L1, "#d400ff"_L1, "#ff00ff"_L1, "#ff00d4"_L1, "#ff00aa"_L1, "#ff0080"_L1, "#ff0055"_L1, "#ff002b"_L1, "#ff0000"_L1};
 
 auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(MessageType::Information, i18n("Leaving this room."));
         room->connection()->leaveRoom(room);
     } else {
-        QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+        QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
         auto regexMatch = roomRegex.match(text);
         if (!regexMatch.hasMatch()) {
             Q_EMIT room->showMessage(MessageType::Error,
@@ -62,9 +62,9 @@ auto roomNickLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *)
 
 QList<ActionsModel::Action> actions{
     Action{
-        QStringLiteral("shrug"),
+        u"shrug"_s,
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
-            return QStringLiteral("¯\\\\_(ツ)_/¯ %1").arg(message);
+            return u"¯\\\\_(ツ)_/¯ %1"_s.arg(message);
         },
         true,
         std::nullopt,
@@ -72,9 +72,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message"),
     },
     Action{
-        QStringLiteral("lenny"),
+        u"lenny"_s,
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
-            return QStringLiteral("( ͡° ͜ʖ ͡°) %1").arg(message);
+            return u"( ͡° ͜ʖ ͡°) %1"_s.arg(message);
         },
         true,
         std::nullopt,
@@ -82,9 +82,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"),
     },
     Action{
-        QStringLiteral("tableflip"),
+        u"tableflip"_s,
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
-            return QStringLiteral("(╯°□°）╯︵ ┻━┻ %1").arg(message);
+            return u"(╯°□°）╯︵ ┻━┻ %1"_s.arg(message);
         },
         true,
         std::nullopt,
@@ -92,9 +92,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"),
     },
     Action{
-        QStringLiteral("unflip"),
+        u"unflip"_s,
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
-            return QStringLiteral("┬──┬ ノ( ゜-゜ノ) %1").arg(message);
+            return u"┬──┬ ノ( ゜-゜ノ) %1"_s.arg(message);
         },
         true,
         std::nullopt,
@@ -102,11 +102,11 @@ QList<ActionsModel::Action> actions{
         kli18n("Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"),
     },
     Action{
-        QStringLiteral("rainbow"),
+        u"rainbow"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
-                rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
+                rainbowText += u"<font color='%2'>%3</font>"_s.arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
@@ -121,11 +121,11 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given message colored as a rainbow"),
     },
     Action{
-        QStringLiteral("rainbowme"),
+        u"rainbowme"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             QString rainbowText;
             for (int i = 0; i < text.length(); i++) {
-                rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
+                rainbowText += u"<font color='%2'>%3</font>"_s.arg(rainbowColors[i % rainbowColors.length()], text.at(i));
             }
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
@@ -140,7 +140,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given emote colored as a rainbow"),
     },
     Action{
-        QStringLiteral("plain"),
+        u"plain"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             room->postPlainText(text.toHtmlEscaped());
             return QString();
@@ -151,7 +151,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given message as plain text"),
     },
     Action{
-        QStringLiteral("spoiler"),
+        u"spoiler"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
             auto content = std::make_unique<Quotient::EventContent::TextContent>(u"<span data-mx-spoiler>%1</span>"_s.arg(text), u"text/html"_s);
@@ -166,7 +166,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given message as a spoiler"),
     },
     Action{
-        QStringLiteral("me"),
+        u"me"_s,
         [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
@@ -176,7 +176,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given emote"),
     },
     Action{
-        QStringLiteral("notice"),
+        u"notice"_s,
         [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
@@ -186,10 +186,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Sends the given message as a notice"),
     },
     Action{
-        QStringLiteral("invite"),
+        u"invite"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -223,9 +222,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Invites the user to this room"),
     },
     Action{
-        QStringLiteral("join"),
+        u"join"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error,
@@ -238,7 +237,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().resolveResource(text, "join"_ls);
+            RoomManager::instance().resolveResource(text, "join"_L1);
             return QString();
         },
         false,
@@ -247,11 +246,11 @@ QList<ActionsModel::Action> actions{
         kli18n("Joins the given room"),
     },
     Action{
-        QStringLiteral("knock"),
+        u"knock"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            auto parts = text.split(QLatin1String(" "));
+            auto parts = text.split(u" "_s);
             QString roomName = parts[0];
-            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
             auto regexMatch = roomRegex.match(roomName);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error,
@@ -265,7 +264,7 @@ QList<ActionsModel::Action> actions{
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
             auto connection = dynamic_cast<NeoChatConnection *>(room->connection());
-            const auto knownServer = roomName.mid(roomName.indexOf(":"_ls) + 1);
+            const auto knownServer = roomName.mid(roomName.indexOf(":"_L1) + 1);
             if (parts.length() >= 2) {
                 RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
             } else {
@@ -279,9 +278,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Requests to join the given room"),
     },
     Action{
-        QStringLiteral("j"),
+        u"j"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
             auto regexMatch = roomRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error,
@@ -293,7 +292,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().resolveResource(text, "join"_ls);
+            RoomManager::instance().resolveResource(text, "join"_L1);
             return QString();
         },
         false,
@@ -302,7 +301,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Joins the given room"),
     },
     Action{
-        QStringLiteral("part"),
+        u"part"_s,
         leaveRoomLambda,
         false,
         std::nullopt,
@@ -310,7 +309,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Leaves the given room or this room, if there is none given"),
     },
     Action{
-        QStringLiteral("leave"),
+        u"leave"_s,
         leaveRoomLambda,
         false,
         std::nullopt,
@@ -318,7 +317,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Leaves the given room or this room, if there is none given"),
     },
     Action{
-        QStringLiteral("nick"),
+        u"nick"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             if (text.isEmpty()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18n("No new nickname provided, no changes will happen."));
@@ -333,7 +332,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Changes your global display name"),
     },
     Action{
-        QStringLiteral("roomnick"),
+        u"roomnick"_s,
         roomNickLambda,
         false,
         std::nullopt,
@@ -341,7 +340,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Changes your display name in this room"),
     },
     Action{
-        QStringLiteral("myroomnick"),
+        u"myroomnick"_s,
         roomNickLambda,
         false,
         std::nullopt,
@@ -349,10 +348,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Changes your display name in this room"),
     },
     Action{
-        QStringLiteral("ignore"),
+        u"ignore"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -373,10 +371,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Ignores the given user"),
     },
     Action{
-        QStringLiteral("unignore"),
+        u"unignore"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -396,7 +393,7 @@ QList<ActionsModel::Action> actions{
         kli18n("Unignores the given user"),
     },
     Action{
-        QStringLiteral("react"),
+        u"react"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *chatBarCache) {
             if (chatBarCache->replyId().isEmpty()) {
                 for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
@@ -416,11 +413,10 @@ QList<ActionsModel::Action> actions{
         kli18n("React to the message with the given text"),
     },
     Action{
-        QStringLiteral("ban"),
+        u"ban"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            auto parts = text.split(QLatin1String(" "));
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto parts = text.split(u" "_s);
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(parts[0]);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -456,10 +452,9 @@ QList<ActionsModel::Action> actions{
         kli18n("Bans the given user"),
     },
     Action{
-        QStringLiteral("unban"),
+        u"unban"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
@@ -489,11 +484,10 @@ QList<ActionsModel::Action> actions{
         kli18n("Removes the ban of the given user"),
     },
     Action{
-        QStringLiteral("kick"),
+        u"kick"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            auto parts = text.split(QLatin1String(" "));
-            static const QRegularExpression mxidRegex(
-                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto parts = text.split(u" "_s);
+            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
             auto regexMatch = mxidRegex.match(parts[0]);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error,
@@ -552,7 +546,7 @@ QVariant ActionsModel::data(const QModelIndex &index, int role) const
         return actions[index.row()].description.toString();
     }
     if (role == CompletionType) {
-        return QStringLiteral("action");
+        return u"action"_s;
     }
     if (role == Parameters) {
         return actions[index.row()].parameters.toString();
@@ -581,7 +575,7 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
     }
 
     if (NeoChatConfig::allowQuickEdit()) {
-        QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
+        QRegularExpression sed(u"^s/([^/]*)/([^/]*)(/g)?$"_s);
         auto match = sed.match(messageText);
         if (match.hasMatch()) {
             const QString regex = match.captured(1);
@@ -632,7 +626,7 @@ std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgT
     if (sendText.startsWith(QLatin1Char('/'))) {
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (sendText.indexOf(action.prefix) == 1
-                && (sendText.indexOf(" "_ls) == action.prefix.length() + 1 || sendText.length() == action.prefix.length() + 1)) {
+                && (sendText.indexOf(" "_L1) == action.prefix.length() + 1 || sendText.length() == action.prefix.length() + 1)) {
                 sendText = action.handle(sendText.mid(action.prefix.length() + 1).trimmed(), room, chatBarCache);
                 if (action.messageType.has_value()) {
                     messageType = action.messageType;

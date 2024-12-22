@@ -105,26 +105,26 @@ void NotificationsModel::loadData()
             if (std::any_of(notification.actions.constBegin(), notification.actions.constEnd(), [](const QVariant &it) {
                     if (it.canConvert<QVariantMap>()) {
                         auto map = it.toMap();
-                        if (map["set_tweak"_ls] == "highlight"_ls) {
+                        if (map["set_tweak"_L1] == "highlight"_L1) {
                             return true;
                         }
                     }
                     return false;
                 })) {
-                const auto &authorId = notification.event->fullJson()["sender"_ls].toString();
+                const auto &authorId = notification.event->fullJson()["sender"_L1].toString();
                 const auto &room = m_connection->room(notification.roomId);
                 if (!room) {
                     continue;
                 }
                 auto u = room->member(authorId).avatarUrl();
                 auto avatar = u.isEmpty() ? QUrl() : connection()->makeMediaUrl(u);
-                const auto &authorAvatar = avatar.isValid() && avatar.scheme() == QStringLiteral("mxc") ? avatar : QUrl();
+                const auto &authorAvatar = avatar.isValid() && avatar.scheme() == u"mxc"_s ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
-                    .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->is<StateEvent>() ? QStringLiteral(" ") : QStringLiteral(": "))
+                    .text = room->member(authorId).htmlSafeDisplayName() + (roomEvent->is<StateEvent>() ? u" "_s : u": "_s)
                         + EventHandler::plainBody(dynamic_cast<NeoChatRoom *>(room), roomEvent, true),
                     .authorName = room->member(authorId).htmlSafeDisplayName(),
                     .authorAvatar = authorAvatar,

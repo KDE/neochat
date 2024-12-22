@@ -55,7 +55,7 @@ void SearchModel::search()
         .searchTerm = m_searchText,
         .keys = {},
         .filter = filter,
-        .orderBy = "recent"_ls,
+        .orderBy = "recent"_L1,
         .eventContext = SearchJob::IncludeEventContext{3, 3, true},
         .includeState = false,
         .groupings = std::nullopt,
@@ -124,7 +124,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, event.id()));
         }
         if (event.isStateEvent()) {
-            if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+            if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
                 return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, event.id()));
             }
         }

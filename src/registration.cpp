@@ -20,12 +20,12 @@ using namespace Quotient;
 Registration::Registration()
 {
     auto server = new QTcpServer(this);
-    server->listen(QHostAddress("127.0.0.1"_ls), 20847);
+    server->listen(QHostAddress("127.0.0.1"_L1), 20847);
     connect(server, &QTcpServer::newConnection, this, [this, server]() {
         auto conn = server->nextPendingConnection();
         connect(conn, &QIODevice::readyRead, this, [this, conn]() {
             auto code =
-                "HTTP/1.0 200\nContent-type: text/html\n\n<html><head><script src=\"https://www.google.com/recaptcha/api.js\" async defer></script></head><body style=\"background: #00000000\"><center><div class=\"g-recaptcha\" data-sitekey=\"%1\"></div></center></body></html>"_ls
+                "HTTP/1.0 200\nContent-type: text/html\n\n<html><head><script src=\"https://www.google.com/recaptcha/api.js\" async defer></script></head><body style=\"background: #00000000\"><center><div class=\"g-recaptcha\" data-sitekey=\"%1\"></div></center></body></html>"_L1
                     .arg(m_recaptchaSiteKey);
             conn->write(code.toLatin1().data(), code.length());
             conn->close();
@@ -63,37 +63,37 @@ void Registration::registerAccount()
 {
     setStatus(Working);
     std::optional<QJsonObject> authData;
-    if (nextStep() == "m.login.recaptcha"_ls) {
+    if (nextStep() == "m.login.recaptcha"_L1) {
         authData = QJsonObject{
-            {"type"_ls, "m.login.recaptcha"_ls},
-            {"response"_ls, m_recaptchaResponse},
-            {"session"_ls, m_session},
+            {"type"_L1, "m.login.recaptcha"_L1},
+            {"response"_L1, m_recaptchaResponse},
+            {"session"_L1, m_session},
         };
-    } else if (nextStep() == "m.login.terms"_ls) {
+    } else if (nextStep() == "m.login.terms"_L1) {
         authData = QJsonObject{
-            {"type"_ls, "m.login.terms"_ls},
-            {"session"_ls, m_session},
+            {"type"_L1, "m.login.terms"_L1},
+            {"session"_L1, m_session},
         };
-    } else if (nextStep() == "m.login.email.identity"_ls) {
+    } else if (nextStep() == "m.login.email.identity"_L1) {
         authData = QJsonObject{
-            {"type"_ls, "m.login.email.identity"_ls},
-            {"threepid_creds"_ls,
+            {"type"_L1, "m.login.email.identity"_L1},
+            {"threepid_creds"_L1,
              QJsonObject{
-                 {"sid"_ls, m_sid},
-                 {"client_secret"_ls, m_emailSecret},
+                 {"sid"_L1, m_sid},
+                 {"client_secret"_L1, m_emailSecret},
              }},
-            {"session"_ls, m_session},
+            {"session"_L1, m_session},
         };
     }
-    auto job = m_connection->callApi<NeoChatRegisterJob>("user"_ls, authData, m_username, m_password, QString(), QString(), true);
+    auto job = m_connection->callApi<NeoChatRegisterJob>("user"_L1, authData, m_username, m_password, QString(), QString(), true);
     connect(job, &BaseJob::result, this, [this, job]() {
         if (job->status() == BaseJob::Success) {
-            setNextStep("loading"_ls);
+            setNextStep("loading"_L1);
             auto connection = new NeoChatConnection(this);
-            auto matrixId = "@%1:%2"_ls.arg(m_username, m_homeserver);
+            auto matrixId = "@%1:%2"_L1.arg(m_username, m_homeserver);
             connection->resolveServer(matrixId);
 
-            auto displayName = "NeoChat"_ls;
+            auto displayName = "NeoChat"_L1;
             connection->loginWithPassword(matrixId, m_password, displayName);
 
             connect(connection, &Connection::connected, this, [this, displayName, connection] {
@@ -120,27 +120,27 @@ void Registration::registerAccount()
             return;
         }
         const auto &data = job->jsonData();
-        m_session = data["session"_ls].toString();
-        const auto &params = data["params"_ls].toObject();
+        m_session = data["session"_L1].toString();
+        const auto &params = data["params"_L1].toObject();
 
         // I'm not motivated enough to figure out how we should handle the flow stuff, so:
         // If there is a flow that requires e-mail, we use that, to make sure that the user can recover the account from a forgotten password.
         // Otherwise, we're using the first flow.
-        auto selectedFlow = data["flows"_ls].toArray()[0].toObject()["stages"_ls].toArray();
-        for (const auto &flow : data["flows"_ls].toArray()) {
-            if (flow.toObject()["stages"_ls].toArray().contains("m.login.email.identity"_ls)) {
-                selectedFlow = flow.toObject()["stages"_ls].toArray();
+        auto selectedFlow = data["flows"_L1].toArray()[0].toObject()["stages"_L1].toArray();
+        for (const auto &flow : data["flows"_L1].toArray()) {
+            if (flow.toObject()["stages"_L1].toArray().contains("m.login.email.identity"_L1)) {
+                selectedFlow = flow.toObject()["stages"_L1].toArray();
             }
         }
 
-        setNextStep(selectedFlow[data["completed"_ls].toArray().size()].toString());
-        m_recaptchaSiteKey = params["m.login.recaptcha"_ls]["public_key"_ls].toString();
+        setNextStep(selectedFlow[data["completed"_L1].toArray().size()].toString());
+        m_recaptchaSiteKey = params["m.login.recaptcha"_L1]["public_key"_L1].toString();
         Q_EMIT recaptchaSiteKeyChanged();
         m_terms.clear();
-        for (const auto &term : params["m.login.terms"_ls]["policies"_ls].toObject().keys()) {
+        for (const auto &term : params["m.login.terms"_L1]["policies"_L1].toObject().keys()) {
             QVariantMap termData;
-            termData["title"_ls] = params["m.login.terms"_ls]["policies"_ls][term]["en"_ls]["name"_ls].toString();
-            termData["url"_ls] = params["m.login.terms"_ls]["policies"_ls][term]["en"_ls]["url"_ls].toString();
+            termData["title"_L1] = params["m.login.terms"_L1]["policies"_L1][term]["en"_L1]["name"_L1].toString();
+            termData["url"_L1] = params["m.login.terms"_L1]["policies"_L1][term]["en"_L1]["url"_L1].toString();
             m_terms += termData;
             Q_EMIT termsChanged();
         }
@@ -170,7 +170,7 @@ void Registration::testHomeserver()
     }
 
     m_connection = new NeoChatConnection(this);
-    m_connection->resolveServer("@user:%1"_ls.arg(m_homeserver));
+    m_connection->resolveServer("@user:%1"_L1.arg(m_homeserver));
     connect(
         m_connection.data(),
         &Connection::loginFlowsChanged,
@@ -179,7 +179,7 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
-            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_ls, std::nullopt, "user"_ls, QString(), QString(), QString(), false);
+            m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_L1, std::nullopt, "user"_L1, QString(), QString(), QString(), false);
 
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
                 if (m_testServerJob->error() == BaseJob::StatusCode::ContentAccessError) {
@@ -255,19 +255,19 @@ NeoChatRegisterJob::NeoChatRegisterJob(const QString &kind,
                                        const QString &deviceId,
                                        const QString &initialDeviceDisplayName,
                                        std::optional<bool> inhibitLogin)
-    : BaseJob(HttpVerb::Post, "RegisterJob"_ls, QByteArrayLiteral("/_matrix/client/r0/register"), false)
+    : BaseJob(HttpVerb::Post, "RegisterJob"_L1, QByteArrayLiteral("/_matrix/client/r0/register"), false)
 {
     QJsonObject _data;
     if (auth) {
-        addParam<>(_data, "auth"_ls, auth);
+        addParam<>(_data, "auth"_L1, auth);
     }
-    addParam<>(_data, "username"_ls, username);
-    addParam<IfNotEmpty>(_data, "password"_ls, password);
-    addParam<IfNotEmpty>(_data, "device_id"_ls, deviceId);
-    addParam<IfNotEmpty>(_data, "initial_device_display_name"_ls, initialDeviceDisplayName);
-    addParam<IfNotEmpty>(_data, "inhibit_login"_ls, inhibitLogin);
-    addParam<IfNotEmpty>(_data, "kind"_ls, kind);
-    addParam<IfNotEmpty>(_data, "refresh_token"_ls, false);
+    addParam<>(_data, "username"_L1, username);
+    addParam<IfNotEmpty>(_data, "password"_L1, password);
+    addParam<IfNotEmpty>(_data, "device_id"_L1, deviceId);
+    addParam<IfNotEmpty>(_data, "initial_device_display_name"_L1, initialDeviceDisplayName);
+    addParam<IfNotEmpty>(_data, "inhibit_login"_L1, inhibitLogin);
+    addParam<IfNotEmpty>(_data, "kind"_L1, kind);
+    addParam<IfNotEmpty>(_data, "refresh_token"_L1, false);
     setRequestData(_data);
 }
 
@@ -339,7 +339,7 @@ void Registration::registerEmail()
 
     auto job = m_connection->callApi<RequestTokenToRegisterEmailJob>(data);
     connect(job, &BaseJob::finished, this, [this, job]() {
-        m_sid = job->jsonData()["sid"_ls].toString();
+        m_sid = job->jsonData()["sid"_L1].toString();
     });
 }
 

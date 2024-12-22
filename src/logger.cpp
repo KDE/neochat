@@ -13,6 +13,8 @@
 #include <QMutex>
 #include <QStandardPaths>
 
+using namespace Qt::StringLiterals;
+
 static QLoggingCategory::CategoryFilter oldCategoryFilter = nullptr;
 static QtMessageHandler oldHandler = nullptr;
 static bool e2eeDebugEnabled = false;
@@ -87,32 +89,32 @@ public:
         QMutexLocker locker(&mutex);
         QByteArray buf;
         QTextStream str(&buf);
-        str << QDateTime::currentDateTime().toString(Qt::ISODate) << QStringLiteral(" [");
+        str << QDateTime::currentDateTime().toString(Qt::ISODate) << u" ["_s;
         switch (type) {
         case QtDebugMsg:
-            str << QStringLiteral("DEBUG");
+            str << u"DEBUG"_s;
             break;
         case QtInfoMsg:
-            str << QStringLiteral("INFO ");
+            str << u"INFO "_s;
             break;
         case QtWarningMsg:
-            str << QStringLiteral("WARN ");
+            str << u"WARN "_s;
             break;
         case QtFatalMsg:
-            str << QStringLiteral("FATAL");
+            str << u"FATAL"_s;
             break;
         case QtCriticalMsg:
-            str << QStringLiteral("CRITICAL");
+            str << u"CRITICAL"_s;
             break;
         }
-        str << QStringLiteral("] ") << context.category << QStringLiteral(": ");
+        str << u"] "_s << context.category << u": "_s;
         if (context.file && *context.file && context.line) {
-            str << context.file << QStringLiteral(":") << context.line << QStringLiteral(": ");
+            str << context.file << u":"_s << context.line << u": "_s;
         }
         if (context.function && *context.function) {
-            str << context.function << QStringLiteral(": ");
+            str << context.function << u": "_s;
         }
-        str << message << QStringLiteral("\n");
+        str << message << u"\n"_s;
         str.flush();
         file.write(buf.constData(), buf.size());
         file.flush();
@@ -129,18 +131,18 @@ public:
         if (file.isOpen()) {
             file.close();
         }
-        const auto &filePath = QStringLiteral("%1%2%3").arg(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), QDir::separator(), appName);
+        const auto &filePath = u"%1%2%3"_s.arg(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation), QDir::separator(), appName);
 
         QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator());
-        auto entryList = dir.entryList({appName + QStringLiteral(".*")});
+        auto entryList = dir.entryList({appName + u".*"_s});
         std::sort(entryList.begin(), entryList.end(), [](const auto &left, const auto &right) {
-            auto leftIndex = left.split(QStringLiteral(".")).last().toInt();
-            auto rightIndex = right.split(QStringLiteral(".")).last().toInt();
+            auto leftIndex = left.split(u"."_s).last().toInt();
+            auto rightIndex = right.split(u"."_s).last().toInt();
             return leftIndex > rightIndex;
         });
         for (const auto &entry : entryList) {
             bool ok = false;
-            const auto index = entry.split(QStringLiteral(".")).last().toInt(&ok);
+            const auto index = entry.split(u"."_s).last().toInt(&ok);
             if (!ok) {
                 continue;
             }
@@ -151,7 +153,7 @@ public:
                     file.remove();
                     continue;
                 }
-                const auto &newName = QStringLiteral("%1.%2").arg(filePath, QString::number(index + 1));
+                const auto &newName = u"%1.%2"_s.arg(filePath, QString::number(index + 1));
                 const auto success = file.copy(newName);
                 if (success) {
                     file.remove();
@@ -168,7 +170,7 @@ public:
         if (!finfo.absoluteDir().exists()) {
             QDir().mkpath(finfo.absolutePath());
         }
-        file.setFileName(filePath + QStringLiteral(".0"));
+        file.setFileName(filePath + u".0"_s);
         file.open(QIODevice::WriteOnly | QIODevice::Unbuffered);
     }
 
@@ -215,7 +217,7 @@ void initLogging()
     oldCategoryFilter = QLoggingCategory::installFilter(filter);
     oldHandler = qInstallMessageHandler(messageHandler);
     sInstance->setOrigHandler(oldHandler);
-    sInstance->setName(QStringLiteral("neochat.log"));
+    sInstance->setName(u"neochat.log"_s);
 }
 
 #include "logger.moc"

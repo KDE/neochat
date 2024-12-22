@@ -6,9 +6,9 @@
 using namespace Quotient;
 
 NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const std::optional<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("DisableDeviceJob"), "_matrix/client/v3/account/deactivate")
+    : BaseJob(HttpVerb::Post, u"DisableDeviceJob"_s, "_matrix/client/v3/account/deactivate")
 {
     QJsonObject data;
-    addParam<IfNotEmpty>(data, QStringLiteral("auth"), auth);
+    addParam<IfNotEmpty>(data, u"auth"_s, auth);
     setRequestData(data);
 }

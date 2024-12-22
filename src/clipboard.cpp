@@ -14,6 +14,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+using namespace Qt::StringLiterals;
+
 Clipboard::Clipboard(QObject *parent)
     : QObject(parent)
     , m_clipboard(QGuiApplication::clipboard())
@@ -33,14 +35,14 @@ QImage Clipboard::image() const
 
 QString Clipboard::saveImage(QString localPath) const
 {
-    QString imageDir(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
+    QString imageDir(u"%1/screenshots"_s.arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
 
     if (!QDir().exists(imageDir)) {
         QDir().mkdir(imageDir);
     }
 
     if (localPath.isEmpty()) {
-        localPath = QStringLiteral("file://%1/%2.png").arg(imageDir, QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd-hh-mm-ss")));
+        localPath = u"file://%1/%2.png"_s.arg(imageDir, QDateTime::currentDateTime().toString(u"yyyy-MM-dd-hh-mm-ss"_s));
     }
     QUrl url(localPath);
     if (!url.isLocalFile()) {
@@ -61,7 +63,7 @@ QString Clipboard::saveImage(QString localPath) const
 
 void Clipboard::saveText(QString message)
 {
-    static QRegularExpression re(QStringLiteral("<[^>]*>"));
+    static QRegularExpression re(u"<[^>]*>"_s);
     auto *mimeData = new QMimeData; // ownership is transferred to clipboard
     mimeData->setHtml(message);
     mimeData->setText(message.replace(re, QString()));

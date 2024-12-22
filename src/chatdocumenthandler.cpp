@@ -16,6 +16,8 @@
 
 #include "chatdocumenthandler_logging.h"
 
+using namespace Qt::StringLiterals;
+
 class SyntaxHighlighter : public QSyntaxHighlighter
 {
 public:
@@ -228,7 +230,7 @@ void ChatDocumentHandler::complete(int index)
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(name + QStringLiteral(" "));
+        cursor.insertText(name + u" "_s);
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);
@@ -241,7 +243,7 @@ void ChatDocumentHandler::complete(int index)
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(QStringLiteral("/%1 ").arg(command));
+        cursor.insertText(u"/%1 "_s.arg(command));
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
         auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
         auto text = getText();
@@ -249,7 +251,7 @@ void ChatDocumentHandler::complete(int index)
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(alias + QStringLiteral(" "));
+        cursor.insertText(alias + u" "_s);
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);

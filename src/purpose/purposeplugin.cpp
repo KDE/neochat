@@ -5,6 +5,8 @@
 #include <KPluginFactory>
 #include <Purpose/PluginBase>
 
+using namespace Qt::StringLiterals;
+
 class NeoChatJob : public Purpose::Job
 {
     Q_OBJECT
@@ -25,11 +27,11 @@ public:
 
     void start() override
     {
-        const QJsonArray urlsJson = data().value(QStringLiteral("urls")).toArray();
-        const QString title = data().value(QStringLiteral("title")).toString();
-        const QString message = QStringLiteral("%1 - %2").arg(title, arrayToList(urlsJson).join(QLatin1Char(' ')));
+        const QJsonArray urlsJson = data().value("urls"_L1).toArray();
+        const QString title = data().value("title"_L1).toString();
+        const QString message = u"%1 - %2"_s.arg(title, arrayToList(urlsJson).join(QLatin1Char(' ')));
 
-        auto *job = new KIO::CommandLauncherJob(QStringLiteral("neochat"), {QStringLiteral("--share"), message});
+        auto *job = new KIO::CommandLauncherJob(u"neochat"_s, {u"--share"_s, message});
         connect(job, &KJob::finished, this, &NeoChatJob::emitResult);
         job->start();
     }

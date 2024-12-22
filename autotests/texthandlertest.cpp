@@ -71,25 +71,25 @@ private Q_SLOTS:
 
 void TextHandlerTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    connection->setAccountData("im.ponies.user_emotes"_ls,
-                               QJsonObject{{"images"_ls,
-                                            QJsonObject{{"test"_ls,
-                                                         QJsonObject{{"body"_ls, "Test custom emoji"_ls},
-                                                                     {"url"_ls, "mxc://example.org/test"_ls},
-                                                                     {"usage"_ls, QJsonArray{"emoticon"_ls}}}}}}});
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    connection->setAccountData(u"im.ponies.user_emotes"_s,
+                               QJsonObject{{"images"_L1,
+                                            QJsonObject{{"test"_L1,
+                                                         QJsonObject{{"body"_L1, "Test custom emoji"_L1},
+                                                                     {"url"_L1, "mxc://example.org/test"_L1},
+                                                                     {"usage"_L1, QJsonArray{"emoticon"_L1}}}}}}});
     CustomEmojiModel::instance().setConnection(static_cast<NeoChatConnection *>(connection));
 
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-texthandler-sync.json"));
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-texthandler-sync.json"_s);
 }
 
 void TextHandlerTest::allowedAttributes()
 {
-    const QString testInputString1 = QStringLiteral("<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>");
-    const QString testOutputString1 = QStringLiteral("<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>");
+    const QString testInputString1 = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
+    const QString testOutputString1 = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
     // Handle urls where the href has either single (') or double (") quotes.
-    const QString testInputString2 = QStringLiteral("<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>");
-    const QString testOutputString2 = QStringLiteral("<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>");
+    const QString testInputString2 = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
+    const QString testOutputString2 = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString1);
@@ -104,8 +104,8 @@ void TextHandlerTest::allowedAttributes()
 
 void TextHandlerTest::stripDisallowedTags()
 {
-    const QString testInputString = QStringLiteral("<p>Allowed</p> <span>Allowed</span> <body>Disallowed</body>");
-    const QString testOutputString = QStringLiteral("<p>Allowed</p> <span>Allowed</span> Disallowed");
+    const QString testInputString = u"<p>Allowed</p> <span>Allowed</span> <body>Disallowed</body>"_s;
+    const QString testOutputString = u"<p>Allowed</p> <span>Allowed</span> Disallowed"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -116,8 +116,8 @@ void TextHandlerTest::stripDisallowedTags()
 
 void TextHandlerTest::stripDisallowedAttributes()
 {
-    const QString testInputString = QStringLiteral("<p style=\"font-size:50px;\" color=#FFFFFF>Test</p>");
-    const QString testOutputString = QStringLiteral("Test");
+    const QString testInputString = u"<p style=\"font-size:50px;\" color=#FFFFFF>Test</p>"_s;
+    const QString testOutputString = u"Test"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -132,8 +132,8 @@ void TextHandlerTest::stripDisallowedAttributes()
  */
 void TextHandlerTest::emptyCodeTags()
 {
-    const QString testInputString = QStringLiteral("<pre><code></code></pre>");
-    const QString testOutputString = QStringLiteral("<pre><code></code></pre>");
+    const QString testInputString = u"<pre><code></code></pre>"_s;
+    const QString testOutputString = u"<pre><code></code></pre>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -144,8 +144,8 @@ void TextHandlerTest::emptyCodeTags()
 
 void TextHandlerTest::sendSimpleStringCase()
 {
-    const QString testInputString = QStringLiteral("This data should just be left alone.");
-    const QString testOutputString = QStringLiteral("This data should just be left alone.");
+    const QString testInputString = u"This data should just be left alone."_s;
+    const QString testOutputString = u"This data should just be left alone."_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -155,11 +155,10 @@ void TextHandlerTest::sendSimpleStringCase()
 
 void TextHandlerTest::sendSingleParaMarkup()
 {
-    const QString testInputString = QStringLiteral(
-        "Text para with **bold**, *italic*, [link](https://kde.org), ![image](mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e), `inline code`.");
-    const QString testOutputString = QStringLiteral(
-        "Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img "
-        "src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>.");
+    const QString testInputString =
+        u"Text para with **bold**, *italic*, [link](https://kde.org), ![image](mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e), `inline code`."_s;
+    const QString testOutputString =
+        u"Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>."_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -170,11 +169,9 @@ void TextHandlerTest::sendSingleParaMarkup()
 void TextHandlerTest::sendMultipleSectionMarkup()
 {
     const QString testInputString =
-        QStringLiteral("Text para\n> blockquote\n* List 1\n* List 2\n1. one\n2. two\n# Heading 1\n## Heading 2\nhorizontal rule\n\n---\n```\ncodeblock\n```");
-    const QString testOutputString = QStringLiteral(
-        "<p>Text para</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>\n<ul>\n<li>List 1</li>\n<li>List "
-        "2</li>\n</ul>\n<ol>\n<li>one</li>\n<li>two</li>\n</ol>\n<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<p>horizontal "
-        "rule</p>\n<hr>\n<pre><code>codeblock\n</code></pre>");
+        u"Text para\n> blockquote\n* List 1\n* List 2\n1. one\n2. two\n# Heading 1\n## Heading 2\nhorizontal rule\n\n---\n```\ncodeblock\n```"_s;
+    const QString testOutputString =
+        u"<p>Text para</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>\n<ul>\n<li>List 1</li>\n<li>List 2</li>\n</ul>\n<ol>\n<li>one</li>\n<li>two</li>\n</ol>\n<h1>Heading 1</h1>\n<h2>Heading 2</h2>\n<p>horizontal rule</p>\n<hr>\n<pre><code>codeblock\n</code></pre>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -184,8 +181,8 @@ void TextHandlerTest::sendMultipleSectionMarkup()
 
 void TextHandlerTest::sendBadLinks()
 {
-    const QString testInputString = QStringLiteral("[link](kde.org), ![image](https://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e)");
-    const QString testOutputString = QStringLiteral("<a>link</a>, <img alt=\"image\">");
+    const QString testInputString = u"[link](kde.org), ![image](https://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e)"_s;
+    const QString testOutputString = u"<a>link</a>, <img alt=\"image\">"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -198,9 +195,9 @@ void TextHandlerTest::sendBadLinks()
  */
 void TextHandlerTest::sendEscapeCode()
 {
-    const QString testInputString = QStringLiteral("```\n<p>Test <span style=\"font-size:50px;\">some</span> code</p>\n```");
+    const QString testInputString = u"```\n<p>Test <span style=\"font-size:50px;\">some</span> code</p>\n```"_s;
     const QString testOutputString =
-        QStringLiteral("<pre><code>&lt;p&gt;Test &lt;span style=&quot;font-size:50px;&quot;&gt;some&lt;/span&gt; code&lt;/p&gt;\n</code></pre>");
+        u"<pre><code>&lt;p&gt;Test &lt;span style=&quot;font-size:50px;&quot;&gt;some&lt;/span&gt; code&lt;/p&gt;\n</code></pre>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -210,8 +207,8 @@ void TextHandlerTest::sendEscapeCode()
 
 void TextHandlerTest::sendCodeClass()
 {
-    const QString testInputString = QStringLiteral("```html\nsome code\n```\n<pre><code class=\"code-underline\">some more code</code></pre>");
-    const QString testOutputString = QStringLiteral("<pre><code class=\"language-html\">some code\n</code></pre>\n<pre><code>some more code</code></pre>");
+    const QString testInputString = u"```html\nsome code\n```\n<pre><code class=\"code-underline\">some more code</code></pre>"_s;
+    const QString testOutputString = u"<pre><code class=\"language-html\">some code\n</code></pre>\n<pre><code>some more code</code></pre>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -221,9 +218,9 @@ void TextHandlerTest::sendCodeClass()
 
 void TextHandlerTest::sendCustomEmoji()
 {
-    const QString testInputString = QStringLiteral(":test:");
+    const QString testInputString = u":test:"_s;
     const QString testOutputString =
-        QStringLiteral("<img data-mx-emoticon=\"\" src=\"mxc://example.org/test\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" />");
+        u"<img data-mx-emoticon=\"\" src=\"mxc://example.org/test\" alt=\":test:\" title=\":test:\" height=\"32\" vertical-align=\"middle\" />"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -236,8 +233,8 @@ void TextHandlerTest::sendCustomEmojiCode_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("inline") << QStringLiteral("`:test:`") << QStringLiteral("<code>:test:</code>");
-    QTest::newRow("block") << QStringLiteral("```\n:test:\n```") << QStringLiteral("<pre><code>:test:\n</code></pre>");
+    QTest::newRow("inline") << u"`:test:`"_s << u"<code>:test:</code>"_s;
+    QTest::newRow("block") << u"```\n:test:\n```"_s << u"<pre><code>:test:\n</code></pre>"_s;
 }
 
 // Custom emojis in code blocks should be left alone.
@@ -254,9 +251,9 @@ void TextHandlerTest::sendCustomEmojiCode()
 
 void TextHandlerTest::receiveSpacelessSelfClosingTag()
 {
-    const QString testInputString = QStringLiteral("Test...<br/>...ing");
-    const QString testRichOutputString = QStringLiteral("Test...<br/>...ing");
-    const QString testPlainOutputString = QStringLiteral("Test...\n...ing");
+    const QString testInputString = u"Test...<br/>...ing"_s;
+    const QString testRichOutputString = u"Test...<br/>...ing"_s;
+    const QString testPlainOutputString = u"Test...\n...ing"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -267,10 +264,9 @@ void TextHandlerTest::receiveSpacelessSelfClosingTag()
 
 void TextHandlerTest::receiveStripReply()
 {
-    const QString testInputString = QStringLiteral(
-        "<mx-reply><blockquote><a href=\"https://matrix.to/#/!somewhere:example.org/$event:example.org\">In reply to</a><a "
-        "href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a><br />Message replied to.</blockquote></mx-reply>Reply message.");
-    const QString testOutputString = QStringLiteral("Reply message.");
+    const QString testInputString =
+        u"<mx-reply><blockquote><a href=\"https://matrix.to/#/!somewhere:example.org/$event:example.org\">In reply to</a><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a><br />Message replied to.</blockquote></mx-reply>Reply message."_s;
+    const QString testOutputString = u"Reply message."_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -284,10 +280,10 @@ void TextHandlerTest::receiveRichInPlainOut_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("ampersand") << QStringLiteral("a &amp; b") << QStringLiteral("a & b");
-    QTest::newRow("quote") << QStringLiteral("&quot;a and b&quot;") << QStringLiteral("\"a and b\"");
-    QTest::newRow("new line") << QStringLiteral("new<br>line") << QStringLiteral("new\nline");
-    QTest::newRow("unescape") << QStringLiteral("can&#x27;t") << QStringLiteral("can't");
+    QTest::newRow("ampersand") << u"a &amp; b"_s << u"a & b"_s;
+    QTest::newRow("quote") << u"&quot;a and b&quot;"_s << u"\"a and b\""_s;
+    QTest::newRow("new line") << u"new<br>line"_s << u"new\nline"_s;
+    QTest::newRow("unescape") << u"can&#x27;t"_s << u"can't"_s;
 }
 
 void TextHandlerTest::receiveRichInPlainOut()
@@ -303,13 +299,13 @@ void TextHandlerTest::receiveRichInPlainOut()
 
 void TextHandlerTest::receivePlainTextIn()
 {
-    const QString testInputString = QStringLiteral("<plain text in tag bracket>\nTest link https://kde.org.");
-    const QString testOutputStringRich = QStringLiteral("&lt;plain text in tag bracket&gt;<br>Test link <a href=\"https://kde.org\">https://kde.org</a>.");
-    QString testOutputStringPlain = QStringLiteral("<plain text in tag bracket>\nTest link https://kde.org.");
+    const QString testInputString = u"<plain text in tag bracket>\nTest link https://kde.org."_s;
+    const QString testOutputStringRich = u"&lt;plain text in tag bracket&gt;<br>Test link <a href=\"https://kde.org\">https://kde.org</a>."_s;
+    QString testOutputStringPlain = u"<plain text in tag bracket>\nTest link https://kde.org."_s;
 
     // Make sure quotes are maintained in a plain string.
-    const QString testInputString2 = QStringLiteral("last line is \"Time to switch to a new topic.\"");
-    const QString testOutputString2 = QStringLiteral("last line is \"Time to switch to a new topic.\"");
+    const QString testInputString2 = u"last line is \"Time to switch to a new topic.\""_s;
+    const QString testOutputString2 = u"last line is \"Time to switch to a new topic.\""_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -324,12 +320,12 @@ void TextHandlerTest::receivePlainTextIn()
 
 void TextHandlerTest::receiveStripNewlines()
 {
-    const QString testInputStringPlain = QStringLiteral("Test\nmany\nnew\nlines.");
-    const QString testInputStringRich = QStringLiteral("Test<br>many<br />new<br>lines.");
-    const QString testOutputString = QStringLiteral("Test many new lines.");
+    const QString testInputStringPlain = u"Test\nmany\nnew\nlines."_s;
+    const QString testInputStringRich = u"Test<br>many<br />new<br>lines."_s;
+    const QString testOutputString = u"Test many new lines."_s;
 
-    const QString testInputStringPlain2 = QStringLiteral("* List\n* Items");
-    const QString testOutputString2 = QStringLiteral("List Items");
+    const QString testInputStringPlain2 = u"* List\n* Items"_s;
+    const QString testOutputString2 = u"List Items"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputStringPlain);
@@ -351,8 +347,8 @@ void TextHandlerTest::receiveStripNewlines()
  */
 void TextHandlerTest::receivePlainStripHtml()
 {
-    const QString testInputString = QStringLiteral("<p>Test</p> <pre><code>Some code <strong>with tags</strong></code></pre>");
-    const QString testOutputString = QStringLiteral("Test Some code <strong>with tags</strong>");
+    const QString testInputString = u"<p>Test</p> <pre><code>Some code <strong>with tags</strong></code></pre>"_s;
+    const QString testOutputString = u"Test Some code <strong>with tags</strong>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -362,8 +358,8 @@ void TextHandlerTest::receivePlainStripHtml()
 
 void TextHandlerTest::receivePlainStripMarkup()
 {
-    const QString testInputString = QStringLiteral("**bold** `<p>inline code</p>` *italic*");
-    const QString testOutputString = QStringLiteral("bold <p>inline code</p> italic");
+    const QString testInputString = u"**bold** `<p>inline code</p>` *italic*"_s;
+    const QString testOutputString = u"bold <p>inline code</p> italic"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -373,8 +369,8 @@ void TextHandlerTest::receivePlainStripMarkup()
 
 void TextHandlerTest::receiveRichUserPill()
 {
-    const QString testInputString = QStringLiteral("<p><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></p>");
-    const QString testOutputString = QStringLiteral("<b><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></b>");
+    const QString testInputString = u"<p><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></p>"_s;
+    const QString testOutputString = u"<b><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></b>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -384,8 +380,8 @@ void TextHandlerTest::receiveRichUserPill()
 
 void TextHandlerTest::receiveRichStrikethrough()
 {
-    const QString testInputString = QStringLiteral("<p><del>Test</del></p>");
-    const QString testOutputString = QStringLiteral("<s>Test</s>");
+    const QString testInputString = u"<p><del>Test</del></p>"_s;
+    const QString testOutputString = u"<s>Test</s>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -395,8 +391,8 @@ void TextHandlerTest::receiveRichStrikethrough()
 
 void TextHandlerTest::receiveRichtextIn()
 {
-    const QString testInputString = QStringLiteral("<p>Test</p> <pre><code>Some code <strong>with tags</strong></code></pre>");
-    const QString testOutputString = QStringLiteral("<p>Test</p> <pre><code>Some code &lt;strong&gt;with tags&lt;/strong&gt;</code></pre>");
+    const QString testInputString = u"<p>Test</p> <pre><code>Some code <strong>with tags</strong></code></pre>"_s;
+    const QString testOutputString = u"<p>Test</p> <pre><code>Some code &lt;strong&gt;with tags&lt;/strong&gt;</code></pre>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -406,15 +402,10 @@ void TextHandlerTest::receiveRichtextIn()
 
 void TextHandlerTest::receiveRichMxcUrl()
 {
-    const QString testInputString = QStringLiteral(
-        "<img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\"><img src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73\" "
-        "alt=\"image\">");
-    const QString testOutputString = QStringLiteral(
-        "<img "
-        "src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" "
-        "alt=\"image\"><img "
-        "src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" "
-        "alt=\"image\">");
+    const QString testInputString =
+        u"<img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\"><img src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73\" alt=\"image\">"_s;
+    const QString testOutputString =
+        u"<img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\"><img src=\"mxc://kde.org/34c3464b3a1bd7f55af2d559e07d2c773c430e73?user_id=@bob:kde.org&room_id=%23myroom:kde.org&event_id=$143273582443PhrSn:example.org\" alt=\"image\">"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -432,38 +423,27 @@ void TextHandlerTest::receiveRichPlainUrl()
 {
     // This is an actual link that caused trouble which is why it's so long. Keeping
     // so we can confirm consistent behaviour for complex urls.
-    const QString testInputStringLink1 = QStringLiteral(
-        "https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im "
-        "<a "
-        "href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/"
-        "$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>");
-    const QString testOutputStringLink1 = QStringLiteral(
-        "<a "
-        "href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/"
-        "$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">https://matrix.to/#/"
-        "!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a "
-        "href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/"
-        "$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>");
+    const QString testInputStringLink1 =
+        u"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
+    const QString testOutputStringLink1 =
+        u"<a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
 
     // Another real case. The linkification wasn't handling it when a single link
     // contains what looks like and email. It was been broken into 3 but needs to
     // be just single link.
-    const QString testInputStringLink2 = QStringLiteral("https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/");
-    const QString testOutputStringLink2 = QStringLiteral(
-        "<a "
-        "href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\">https://lore.kernel.org/lkml/"
-        "CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>");
+    const QString testInputStringLink2 = u"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/"_s;
+    const QString testOutputStringLink2 =
+        u"<a href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\">https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>"_s;
 
-    QString testInputStringEmail = QStringLiteral(R"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)");
-    QString testOutputStringEmail =
-        QStringLiteral(R"(<a href="mailto:email@example.com">email@example.com</a> <a href="mailto:email@example.com">Link already rich</a>)");
+    QString testInputStringEmail = uR"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)"_s;
+    QString testOutputStringEmail = uR"(<a href="mailto:email@example.com">email@example.com</a> <a href="mailto:email@example.com">Link already rich</a>)"_s;
 
-    QString testInputStringMxId = QStringLiteral("@user:kde.org <a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a>");
-    QString testOutputStringMxId = QStringLiteral(
-        "<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>");
+    QString testInputStringMxId = u"@user:kde.org <a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a>"_s;
+    QString testOutputStringMxId =
+        u"<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>"_s;
 
-    QString testInputStringMxIdWithPrefix = QStringLiteral("a @user:kde.org b");
-    QString testOutputStringMxIdWithPrefix = QStringLiteral("a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b");
+    QString testInputStringMxIdWithPrefix = u"a @user:kde.org b"_s;
+    QString testOutputStringMxIdWithPrefix = u"a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputStringLink1);
@@ -488,9 +468,9 @@ void TextHandlerTest::receiveRichEdited_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("basic") << QStringLiteral("Edited") << QStringLiteral("Edited <span style=\"color:#000000\">(edited)</span>");
-    QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Edited</p>\n<p>Edited</p>")
-                                         << QStringLiteral("<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>");
+    QTest::newRow("basic") << u"Edited"_s << u"Edited <span style=\"color:#000000\">(edited)</span>"_s;
+    QTest::newRow("multiple paragraphs") << u"<p>Edited</p>\n<p>Edited</p>"_s
+                                         << u"<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>"_s;
 }
 
 void TextHandlerTest::receiveRichEdited()
@@ -507,15 +487,15 @@ void TextHandlerTest::receiveRichEdited()
 
 void TextHandlerTest::receiveLineSeparator()
 {
-    auto text = QStringLiteral("foo\u2028bar");
+    auto text = u"foo\u2028bar"_s;
     TextHandler textHandler;
     textHandler.setData(text);
-    QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), QStringLiteral("foo bar"));
+    QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), u"foo bar"_s);
 }
 
 void TextHandlerTest::receiveRichCodeUrl()
 {
-    auto input = QStringLiteral("<code>https://kde.org</code>");
+    auto input = u"<code>https://kde.org</code>"_s;
     TextHandler testTextHandler;
     testTextHandler.setData(input);
     QCOMPARE(testTextHandler.handleRecieveRichText(), input);
@@ -523,14 +503,10 @@ void TextHandlerTest::receiveRichCodeUrl()
 
 void TextHandlerTest::receiveRichColor()
 {
-    const QString testInputString = QStringLiteral(
-        "<span data-mx-color=\"#ff00be\">¯</span><span data-mx-color=\"#ff3b1d\">\\</span><span data-mx-color=\"#ffa600\">_</span><span "
-        "data-mx-color=\"#64d200\">(</span><span data-mx-color=\"#00e261\">ツ</span><span data-mx-color=\"#00e7ff\">)</span><span "
-        "data-mx-color=\"#00e1ff\">_</span><span data-mx-color=\"#00bdff\">/</span><span data-mx-color=\"#ff60ff\">¯</span>");
-    const QString testOutputString = QStringLiteral(
-        "<span style=\"color: #ff00be;\">¯</span><span style=\"color: #ff3b1d;\">\\</span><span style=\"color: #ffa600;\">_</span><span style=\"color: "
-        "#64d200;\">(</span><span style=\"color: #00e261;\">ツ</span><span style=\"color: #00e7ff;\">)</span><span style=\"color: #00e1ff;\">_</span><span "
-        "style=\"color: #00bdff;\">/</span><span style=\"color: #ff60ff;\">¯</span>");
+    const QString testInputString =
+        u"<span data-mx-color=\"#ff00be\">¯</span><span data-mx-color=\"#ff3b1d\">\\</span><span data-mx-color=\"#ffa600\">_</span><span data-mx-color=\"#64d200\">(</span><span data-mx-color=\"#00e261\">ツ</span><span data-mx-color=\"#00e7ff\">)</span><span data-mx-color=\"#00e1ff\">_</span><span data-mx-color=\"#00bdff\">/</span><span data-mx-color=\"#ff60ff\">¯</span>"_s;
+    const QString testOutputString =
+        u"<span style=\"color: #ff00be;\">¯</span><span style=\"color: #ff3b1d;\">\\</span><span style=\"color: #ffa600;\">_</span><span style=\"color: #64d200;\">(</span><span style=\"color: #00e261;\">ツ</span><span style=\"color: #00e7ff;\">)</span><span style=\"color: #00e1ff;\">_</span><span style=\"color: #00bdff;\">/</span><span style=\"color: #ff60ff;\">¯</span>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -545,42 +521,35 @@ void TextHandlerTest::componentOutput_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QList<MessageComponent>>("testOutputComponents");
 
-    QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Text</p>\n<p>Text</p>")
-                                         << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                                    MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
-    QTest::newRow("code") << QStringLiteral("<p>Text</p>\n<pre><code class=\"language-html\">Some code\n</code></pre>")
-                          << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                     MessageComponent{MessageComponentType::Code,
-                                                                      QStringLiteral("Some code"),
-                                                                      QVariantMap{{QStringLiteral("class"), QStringLiteral("html")}}}};
-    QTest::newRow("quote") << QStringLiteral("<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>")
-                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                      MessageComponent{MessageComponentType::Quote, QStringLiteral("“blockquote”"), {}}};
-    QTest::newRow("no tag first paragraph") << QStringLiteral("Text\n<p>Text</p>")
-                                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                                       MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
-    QTest::newRow("no tag last paragraph") << QStringLiteral("<p>Text</p>\nText")
-                                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}},
-                                                                      MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
-    QTest::newRow("inline code") << QStringLiteral("<p><code>https://kde.org</code></p>\n<p>Text</p>")
-                                 << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, QStringLiteral("<code>https://kde.org</code>"), {}},
-                                                            MessageComponent{MessageComponentType::Text, QStringLiteral("Text"), {}}};
-    QTest::newRow("inline code single block") << QStringLiteral("<code>https://kde.org</code>")
-                                              << QList<MessageComponent>{
-                                                     MessageComponent{MessageComponentType::Text, QStringLiteral("<code>https://kde.org</code>"), {}}};
+    QTest::newRow("multiple paragraphs") << u"<p>Text</p>\n<p>Text</p>"_s
+                                         << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
+                                                                    MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+    QTest::newRow("code") << u"<p>Text</p>\n<pre><code class=\"language-html\">Some code\n</code></pre>"_s
+                          << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
+                                                     MessageComponent{MessageComponentType::Code, u"Some code"_s, QVariantMap{{u"class"_s, u"html"_s}}}};
+    QTest::newRow("quote") << u"<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>"_s
+                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
+                                                      MessageComponent{MessageComponentType::Quote, u"“blockquote”"_s, {}}};
+    QTest::newRow("no tag first paragraph") << u"Text\n<p>Text</p>"_s
+                                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
+                                                                       MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+    QTest::newRow("no tag last paragraph") << u"<p>Text</p>\nText"_s
+                                           << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
+                                                                      MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+    QTest::newRow("inline code") << u"<p><code>https://kde.org</code></p>\n<p>Text</p>"_s
+                                 << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"<code>https://kde.org</code>"_s, {}},
+                                                            MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
+    QTest::newRow("inline code single block") << u"<code>https://kde.org</code>"_s
+                                              << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"<code>https://kde.org</code>"_s, {}}};
     QTest::newRow("long start tag")
-        << QStringLiteral(
-               "Ah, you mean something like<br/><pre data-md=\"```\"><code class=\"language-qml\"># main.qml\nimport CustomQml\n...\nControls.TextField { id: "
-               "someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you "
-               "defined the id")
+        << u"Ah, you mean something like<br/><pre data-md=\"```\"><code class=\"language-qml\"># main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}\n</code></pre>Sure you can, it's still local to the same file where you defined the id"_s
         << QList<MessageComponent>{
-               MessageComponent{MessageComponentType::Text, QStringLiteral("Ah, you mean something like<br/>"), {}},
+               MessageComponent{MessageComponentType::Text, u"Ah, you mean something like<br/>"_s, {}},
                MessageComponent{
                    MessageComponentType::Code,
-                   QStringLiteral(
-                       "# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"),
-                   QVariantMap{{QStringLiteral("class"), QStringLiteral("qml")}}},
-               MessageComponent{MessageComponentType::Text, QStringLiteral("Sure you can, it's still local to the same file where you defined the id"), {}}};
+                   u"# main.qml\nimport CustomQml\n...\nControls.TextField { id: someField }\nCustomQml {\n    someTextProperty: someField.text\n}"_s,
+                   QVariantMap{{u"class"_s, u"qml"_s}}},
+               MessageComponent{MessageComponentType::Text, u"Sure you can, it's still local to the same file where you defined the id"_s, {}}};
 }
 
 void TextHandlerTest::componentOutput()

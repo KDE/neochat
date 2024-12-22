@@ -104,7 +104,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         // User might not in the room yet, in this case pl can be nullptr.
         // e.g. When invited but user not accepted or denied the invitation.
         if (!pl) {
-            return QStringLiteral("Not Available");
+            return u"Not Available"_s;
         }
 
         auto userPl = pl->powerLevelForUser(memberId);

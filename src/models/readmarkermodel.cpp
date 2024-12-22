@@ -9,6 +9,8 @@
 
 #define MAXMARKERS 5
 
+using namespace Qt::StringLiterals;
+
 ReadMarkerModel::ReadMarkerModel(const QString &eventId, NeoChatRoom *room)
     : QAbstractListModel(nullptr)
     , m_room(room)
@@ -127,7 +129,7 @@ QString ReadMarkerModel::excessReadMarkersString()
     }
 
     if (m_markerIds.size() > MAXMARKERS) {
-        return QStringLiteral("+ ") + QString::number(m_markerIds.size() - MAXMARKERS);
+        return u"+ "_s + QString::number(m_markerIds.size() - MAXMARKERS);
     } else {
         return QString();
     }

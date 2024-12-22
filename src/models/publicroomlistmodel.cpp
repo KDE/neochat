@@ -180,7 +180,7 @@ void PublicRoomListModel::next(int limit)
 
     QStringList roomTypes;
     if (m_showOnlySpaces) {
-        roomTypes += QLatin1String("m.space");
+        roomTypes += u"m.space"_s;
     }
     job = m_connection->callApi<NeoChatQueryPublicRoomsJob>(m_server, limit, nextBatch, QueryPublicRoomsJob::Filter{m_searchText, roomTypes});
     Q_EMIT searchingChanged();
@@ -274,7 +274,7 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
         return m_connection->room(room.roomId, JoinState::Join) != nullptr;
     }
     if (role == IsSpaceRole) {
-        return room.roomType == QLatin1String("m.space");
+        return room.roomType == u"m.space"_s;
     }
 
     return {};

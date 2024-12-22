@@ -66,7 +66,7 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
 
     if (m_room) {
         connect(m_room->connection(), &Connection::accountDataChanged, this, [this](const QString &type) {
-            if (type == "im.ponies.user_emotes"_ls) {
+            if (type == "im.ponies.user_emotes"_L1) {
                 reloadImages();
             }
         });
@@ -85,10 +85,10 @@ void ImagePacksModel::reloadImages()
     m_events.clear();
 
     // Load emoticons from the account data
-    if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_ls)) {
-        auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
-        json["pack"_ls] = QJsonObject{
-            {"display_name"_ls,
+    if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_L1)) {
+        auto json = m_room->connection()->accountData("im.ponies.user_emotes"_L1)->contentJson();
+        json["pack"_L1] = QJsonObject{
+            {"display_name"_L1,
              m_showStickers ? i18nc("As in 'The user's own Stickers'", "Own Stickers") : i18nc("As in 'The user's own emojis", "Own Emojis")},
         };
         const auto &content = ImagePackEventContent(json);
@@ -98,9 +98,9 @@ void ImagePacksModel::reloadImages()
     }
 
     // Load emoticons from the saved rooms
-    const auto &accountData = m_room->connection()->accountData("im.ponies.emote_rooms"_ls);
+    const auto &accountData = m_room->connection()->accountData("im.ponies.emote_rooms"_L1);
     if (accountData) {
-        const auto &rooms = accountData->contentJson()["rooms"_ls].toObject();
+        const auto &rooms = accountData->contentJson()["rooms"_L1].toObject();
         for (const auto &roomId : rooms.keys()) {
             if (roomId == m_room->id()) {
                 continue;
@@ -113,8 +113,8 @@ void ImagePacksModel::reloadImages()
             for (const auto &packKey : packs.keys()) {
                 if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
-                    if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_ls) && showEmoticons())
-                         || (packContent.pack->usage->contains("sticker"_ls) && showStickers()))
+                    if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_L1) && showEmoticons())
+                         || (packContent.pack->usage->contains("sticker"_L1) && showStickers()))
                         && !packContent.images.isEmpty()) {
                         m_events += packContent;
                     }
@@ -124,12 +124,12 @@ void ImagePacksModel::reloadImages()
     }
 
     // Load emoticons from the current room
-    auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes"_ls);
+    auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes"_L1);
     for (const auto &event : events) {
         auto packContent = eventCast<const ImagePackEvent>(event)->content();
         if (packContent.pack.has_value()) {
-            if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_ls) && showEmoticons())
-                || (packContent.pack->usage->contains("sticker"_ls) && showStickers())) {
+            if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_L1) && showEmoticons())
+                || (packContent.pack->usage->contains("sticker"_L1) && showStickers())) {
                 m_events += packContent;
             }
         }

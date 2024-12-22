@@ -7,10 +7,10 @@ using namespace Quotient;
 
 QString JoinRulesEvent::joinRule() const
 {
-    return fromJson<QString>(contentJson()["join_rule"_ls]);
+    return fromJson<QString>(contentJson()["join_rule"_L1]);
 }
 
 QJsonArray JoinRulesEvent::allow() const
 {
-    return contentJson()["allow"_ls].toArray();
+    return contentJson()["allow"_L1].toArray();
 }

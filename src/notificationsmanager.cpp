@@ -77,20 +77,20 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
 
     const auto connectionId = connection->user()->id();
 
-    const auto notifications = job->jsonData()["notifications"_ls].toArray();
+    const auto notifications = job->jsonData()["notifications"_L1].toArray();
     if (initialization) {
         for (const auto &notification : notifications) {
             if (!m_initialTimestamp.contains(connectionId)) {
-                m_initialTimestamp[connectionId] = notification["ts"_ls].toVariant().toLongLong();
+                m_initialTimestamp[connectionId] = notification["ts"_L1].toVariant().toLongLong();
             } else {
-                qint64 timestamp = notification["ts"_ls].toVariant().toLongLong();
+                qint64 timestamp = notification["ts"_L1].toVariant().toLongLong();
                 if (timestamp > m_initialTimestamp[connectionId]) {
                     m_initialTimestamp[connectionId] = timestamp;
                 }
             }
 
             auto connectionNotifications = m_oldNotifications.value(connectionId);
-            connectionNotifications += notification["event"_ls]["event_id"_ls].toString();
+            connectionNotifications += notification["event"_L1]["event_id"_L1].toString();
             m_oldNotifications[connectionId] = connectionNotifications;
         }
         return;
@@ -99,23 +99,23 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
     QMap<QString, std::pair<qint64, QJsonObject>> notificationsToPost;
     for (const auto &n : notifications) {
         const auto notification = n.toObject();
-        if (notification["read"_ls].toBool()) {
+        if (notification["read"_L1].toBool()) {
             continue;
         }
         auto connectionNotifications = m_oldNotifications.value(connectionId);
-        if (connectionNotifications.contains(notification["event"_ls]["event_id"_ls].toString())) {
+        if (connectionNotifications.contains(notification["event"_L1]["event_id"_L1].toString())) {
             continue;
         }
-        connectionNotifications += notification["event"_ls]["event_id"_ls].toString();
+        connectionNotifications += notification["event"_L1]["event_id"_L1].toString();
         m_oldNotifications[connectionId] = connectionNotifications;
 
         if (!shouldPostNotification(connection, n)) {
             continue;
         }
 
-        const auto &roomId = notification["room_id"_ls].toString();
-        if (!notificationsToPost.contains(roomId) || notificationsToPost[roomId].first < notification["ts"_ls].toVariant().toLongLong()) {
-            notificationsToPost[roomId] = {notification["ts"_ls].toVariant().toLongLong(), notification};
+        const auto &roomId = notification["room_id"_L1].toString();
+        if (!notificationsToPost.contains(roomId) || notificationsToPost[roomId].first < notification["ts"_L1].toVariant().toLongLong()) {
+            notificationsToPost[roomId] = {notification["ts"_L1].toVariant().toLongLong(), notification};
         }
     }
 
@@ -125,7 +125,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
         if (!room) {
             continue;
         }
-        auto sender = room->member(notification["event"_ls]["sender"_ls].toString());
+        auto sender = room->member(notification["event"_L1]["sender"_L1].toString());
 
         // Don't display notifications for events in invited rooms
         // This should prevent empty notifications from appearing when they shouldn't
@@ -134,16 +134,16 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
         }
 
         QString body;
-        if (notification["event"_ls]["type"_ls].toString() == "org.matrix.msc3381.poll.start"_ls) {
-            body = notification["event"_ls]["content"_ls]["org.matrix.msc3381.poll.start"_ls]["question"_ls]["body"_ls].toString();
-        } else if (notification["event"_ls]["type"_ls] == "m.room.encrypted"_ls) {
+        if (notification["event"_L1]["type"_L1].toString() == "org.matrix.msc3381.poll.start"_L1) {
+            body = notification["event"_L1]["content"_L1]["org.matrix.msc3381.poll.start"_L1]["question"_L1]["body"_L1].toString();
+        } else if (notification["event"_L1]["type"_L1] == "m.room.encrypted"_L1) {
             const auto decrypted = connection->decryptNotification(notification);
-            body = decrypted["content"_ls]["body"_ls].toString();
+            body = decrypted["content"_L1]["body"_L1].toString();
             if (body.isEmpty()) {
                 body = i18n("Encrypted Message");
             }
         } else {
-            body = notification["event"_ls]["content"_ls]["body"_ls].toString();
+            body = notification["event"_L1]["content"_L1]["body"_L1].toString();
         }
 
         QImage avatar_image;
@@ -156,7 +156,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
                          sender.displayName(),
                          body,
                          avatar_image,
-                         notification["event"_ls].toObject()["event_id"_ls].toString(),
+                         notification["event"_L1].toObject()["event_id"_L1].toString(),
                          true,
                          pair.first);
     }
@@ -168,7 +168,7 @@ bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> co
         return false;
     }
 
-    auto room = connection->room(notification["room_id"_ls].toString());
+    auto room = connection->room(notification["room_id"_L1].toString());
     if (room == nullptr) {
         return false;
     }
@@ -184,7 +184,7 @@ bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> co
 
     // If the notification timestamp is earlier than the initial timestamp assume
     // the notification is old and shouldn't be posted.
-    qint64 timestamp = notification["ts"_ls].toDouble();
+    qint64 timestamp = notification["ts"_L1].toDouble();
     if (timestamp < m_initialTimestamp[connection->user()->id()]) {
         return false;
     }
@@ -210,7 +210,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         notification->close();
     }
 
-    auto notification = new KNotification(QStringLiteral("message"));
+    auto notification = new KNotification(u"message"_s);
     m_notifications.insert(roomId, {timestamp, notification});
     connect(notification, &KNotification::closed, this, [this, roomId, notification] {
         if (m_notifications[roomId].second == notification) {
@@ -255,7 +255,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         notification->setReplyAction(std::move(replyAction));
     }
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
+    notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
     notification->sendEvent();
 }
 
@@ -272,8 +272,8 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
         auto job = room->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
         connect(job, &BaseJob::result, this, [this, job, room] {
             QJsonObject replyData = job->jsonData();
-            if (replyData.contains(QStringLiteral("joined"))) {
-                const bool inAnyOfOurRooms = !replyData[QStringLiteral("joined")].toArray().isEmpty();
+            if (replyData.contains(u"joined"_s)) {
+                const bool inAnyOfOurRooms = !replyData["joined"_L1].toArray().isEmpty();
                 if (inAnyOfOurRooms) {
                     doPostInviteNotification(room);
                 } else {
@@ -302,7 +302,7 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
         avatar_image = room->avatar(128);
     }
 
-    KNotification *notification = new KNotification(QStringLiteral("invite"));
+    KNotification *notification = new KNotification(u"invite"_s);
     notification->setText(i18n("%1 invited you to a room", sender.htmlSafeDisplayName()));
     notification->setTitle(room->displayName());
     notification->setPixmap(createNotificationImage(avatar_image, nullptr));
@@ -348,7 +348,7 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
         m_invitations.remove(room->id());
     });
 
-    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localMember().id());
+    notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
 
     notification->sendEvent();
 }
@@ -364,15 +364,15 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 {
     const auto json = QJsonDocument::fromJson(message).object();
 
-    const auto type = json["notification"_ls]["type"_ls].toString();
+    const auto type = json["notification"_L1]["type"_L1].toString();
 
     // the only two types of push notifications we support right now
-    if (type == QStringLiteral("m.room.message") || type == QStringLiteral("m.room.encrypted")) {
-        auto notification = new KNotification("message"_ls);
+    if (type == u"m.room.message"_s || type == u"m.room.encrypted"_s) {
+        auto notification = new KNotification("message"_L1);
 
-        const auto sender = json["notification"_ls]["sender_display_name"_ls].toString();
-        const auto roomName = json["notification"_ls]["room_name"_ls].toString();
-        const auto roomId = json["notification"_ls]["room_id"_ls].toString();
+        const auto sender = json["notification"_L1]["sender_display_name"_L1].toString();
+        const auto roomName = json["notification"_L1]["room_name"_L1].toString();
+        const auto roomId = json["notification"_L1]["room_id"_L1].toString();
 
         if (roomName.isEmpty() || sender == roomName) {
             notification->setTitle(sender);
@@ -380,10 +380,10 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
             notification->setTitle(i18n("%1 (%2)", sender, roomName));
         }
 
-        if (type == QStringLiteral("m.room.message")) {
-            const auto text = json["notification"_ls]["content"_ls]["body"_ls].toString();
+        if (type == u"m.room.message"_s) {
+            const auto text = json["notification"_L1]["content"_L1]["body"_L1].toString();
             notification->setText(text.toHtmlEscaped());
-        } else if (type == QStringLiteral("m.room.encrypted")) {
+        } else if (type == u"m.room.encrypted"_s) {
             notification->setText(i18n("Encrypted Message"));
         }
 
@@ -391,11 +391,11 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
         auto openAction = notification->addAction(i18n("Open NeoChat"));
         connect(openAction, &KNotificationAction::activated, this, [=]() {
             QString properId = roomId;
-            properId = properId.replace(QStringLiteral("#"), QString());
-            properId = properId.replace(QStringLiteral("!"), QString());
+            properId = properId.replace(u"#"_s, QString());
+            properId = properId.replace(u"!"_s, QString());
 
-            auto *job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(QStringLiteral("org.kde.neochat")));
-            job->setUrls({QUrl::fromUserInput(QStringLiteral("matrix:r/%1").arg(properId))});
+            auto *job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(u"org.kde.neochat"_s));
+            job->setUrls({QUrl::fromUserInput(u"matrix:r/%1"_s.arg(properId))});
             job->start();
         });
 #endif
@@ -404,7 +404,7 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 
         notification->sendEvent();
 
-        m_notifications.insert(roomId, {json["ts"_ls].toVariant().toLongLong(), notification});
+        m_notifications.insert(roomId, {json["ts"_L1].toVariant().toLongLong(), notification});
     } else {
         qWarning() << "Skipping unsupported push notification" << type;
     }

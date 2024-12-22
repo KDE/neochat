@@ -56,10 +56,10 @@ NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
 void NeoChatConnection::connectSignals()
 {
     connect(this, &NeoChatConnection::accountDataChanged, this, [this](const QString &type) {
-        if (type == QLatin1String("org.kde.neochat.account_label")) {
+        if (type == u"org.kde.neochat.account_label"_s) {
             Q_EMIT labelChanged();
         }
-        if (type == QLatin1String("m.identity_server")) {
+        if (type == u"m.identity_server"_s) {
             Q_EMIT identityServerChanged();
         }
     });
@@ -75,7 +75,7 @@ void NeoChatConnection::connectSignals()
         }
     });
     connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
-        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_ls].toString() == "M_TOO_LARGE"_ls) {
+        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_L1].toString() == "M_TOO_LARGE"_L1) {
             Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
         }
     });
@@ -140,7 +140,7 @@ void NeoChatConnection::connectSignals()
         [this] {
             auto job = callApi<GetVersionsJob>(BackgroundRequest);
             connect(job, &GetVersionsJob::success, this, [this, job] {
-                m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_ls);
+                m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_L1);
                 Q_EMIT canCheckMutualRoomsChanged();
             });
         },
@@ -169,7 +169,7 @@ void NeoChatConnection::refreshBadgeNotificationCount()
 
 void NeoChatConnection::logout(bool serverSideLogout)
 {
-    SettingsGroup(QStringLiteral("Accounts")).remove(userId());
+    SettingsGroup(u"Accounts"_s).remove(userId());
 
     QKeychain::DeletePasswordJob job(qAppName());
     job.setAutoDelete(true);
@@ -205,9 +205,9 @@ QVariantList NeoChatConnection::getSupportedRoomVersions() const
     QVariantList supportedRoomVersions;
     for (const auto &v : roomVersions) {
         QVariantMap roomVersionMap;
-        roomVersionMap.insert("id"_ls, v.id);
-        roomVersionMap.insert("status"_ls, v.status);
-        roomVersionMap.insert("isStable"_ls, v.isStable());
+        roomVersionMap.insert("id"_L1, v.id);
+        roomVersionMap.insert("status"_L1, v.status);
+        roomVersionMap.insert("isStable"_L1, v.isStable());
         supportedRoomVersions.append(roomVersionMap);
     }
     return supportedRoomVersions;
@@ -225,18 +225,18 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
         if (job->error() == 103) {
             QJsonObject replyData = job->jsonData();
             QJsonObject authData;
-            authData["session"_ls] = replyData["session"_ls];
-            authData["password"_ls] = currentPassword;
-            authData["type"_ls] = "m.login.password"_ls;
-            authData["user"_ls] = user()->id();
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
-            authData["identifier"_ls] = identifier;
+            authData["session"_L1] = replyData["session"_L1];
+            authData["password"_L1] = currentPassword;
+            authData["type"_L1] = "m.login.password"_L1;
+            authData["user"_L1] = user()->id();
+            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
+            authData["identifier"_L1] = identifier;
             NeochatChangePasswordJob *innerJob = callApi<NeochatChangePasswordJob>(newPassword, false, authData);
             connect(innerJob, &BaseJob::success, this, [this]() {
                 Q_EMIT passwordStatus(PasswordStatus::Success);
             });
             connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
-                Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_ls] == "M_FORBIDDEN"_ls ? PasswordStatus::Wrong : PasswordStatus::Other);
+                Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1 ? PasswordStatus::Wrong : PasswordStatus::Other);
             });
         }
     });
@@ -245,15 +245,15 @@ void NeoChatConnection::changePassword(const QString &currentPassword, const QSt
 void NeoChatConnection::setLabel(const QString &label)
 {
     QJsonObject json{
-        {"account_label"_ls, label},
+        {"account_label"_L1, label},
     };
-    setAccountData("org.kde.neochat.account_label"_ls, json);
+    setAccountData("org.kde.neochat.account_label"_L1, json);
     Q_EMIT labelChanged();
 }
 
 QString NeoChatConnection::label() const
 {
-    return accountDataJson("org.kde.neochat.account_label"_ls)["account_label"_ls].toString();
+    return accountDataJson("org.kde.neochat.account_label"_L1)["account_label"_L1].toString();
 }
 
 void NeoChatConnection::deactivateAccount(const QString &password)
@@ -263,12 +263,12 @@ void NeoChatConnection::deactivateAccount(const QString &password)
         if (job->error() == 103) {
             QJsonObject replyData = job->jsonData();
             QJsonObject authData;
-            authData["session"_ls] = replyData["session"_ls];
-            authData["password"_ls] = password;
-            authData["type"_ls] = "m.login.password"_ls;
-            authData["user"_ls] = user()->id();
-            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
-            authData["identifier"_ls] = identifier;
+            authData["session"_L1] = replyData["session"_L1];
+            authData["password"_L1] = password;
+            authData["type"_L1] = "m.login.password"_L1;
+            authData["user"_L1] = user()->id();
+            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
+            authData["identifier"_L1] = identifier;
             auto innerJob = callApi<NeoChatDeactivateAccountJob>(authData);
             connect(innerJob, &BaseJob::success, this, [this]() {
                 logout(false);
@@ -284,11 +284,11 @@ ThreePIdModel *NeoChatConnection::threePIdModel() const
 
 bool NeoChatConnection::hasIdentityServer() const
 {
-    if (!hasAccountData(QLatin1String("m.identity_server"))) {
+    if (!hasAccountData(u"m.identity_server"_s)) {
         return false;
     }
 
-    const auto url = accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
+    const auto url = accountData(u"m.identity_server"_s)->contentPart<QUrl>("base_url"_L1);
     if (!url.isEmpty()) {
         return true;
     }
@@ -297,11 +297,11 @@ bool NeoChatConnection::hasIdentityServer() const
 
 QUrl NeoChatConnection::identityServer() const
 {
-    if (!hasAccountData(QLatin1String("m.identity_server"))) {
+    if (!hasAccountData(u"m.identity_server"_s)) {
         return {};
     }
 
-    const auto url = accountData(QLatin1String("m.identity_server"))->contentPart<QUrl>(QLatin1String("base_url"));
+    const auto url = accountData(u"m.identity_server"_s)->contentPart<QUrl>("base_url"_L1);
     if (!url.isEmpty()) {
         return url;
     }
@@ -322,10 +322,10 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
     QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
         initialStateEvents.append(CreateRoomJob::StateEvent{
-            "m.space.parent"_ls,
+            "m.space.parent"_L1,
             QJsonObject{
-                {"canonical"_ls, true},
-                {"via"_ls, QJsonArray{domain()}},
+                {"canonical"_L1, true},
+                {"via"_L1, QJsonArray{domain()}},
             },
             parent,
         });
@@ -336,7 +336,7 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
         connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
             if (setChildParent) {
                 if (auto parentRoom = room(parent)) {
-                    parentRoom->setState(QLatin1String("m.space.child"), job->roomId(), QJsonObject{{QLatin1String("via"), QJsonArray{domain()}}});
+                    parentRoom->setState(u"m.space.child"_s, job->roomId(), QJsonObject{{"via"_L1, QJsonArray{domain()}}});
                 }
             }
         });
@@ -351,21 +351,22 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     QList<CreateRoomJob::StateEvent> initialStateEvents;
     if (!parent.isEmpty()) {
         initialStateEvents.append(CreateRoomJob::StateEvent{
-            "m.space.parent"_ls,
+            "m.space.parent"_L1,
             QJsonObject{
-                {"canonical"_ls, true},
-                {"via"_ls, QJsonArray{domain()}},
+                {"canonical"_L1, true},
+                {"via"_L1, QJsonArray{domain()}},
             },
             parent,
         });
     }
 
-    const auto job = Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_ls, "m.space"_ls}});
+    const auto job =
+        Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_L1, "m.space"_L1}});
     if (!parent.isEmpty()) {
         connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
             if (setChildParent) {
                 if (auto parentRoom = room(parent)) {
-                    parentRoom->setState(QLatin1String("m.space.child"), job->roomId(), QJsonObject{{QLatin1String("via"), QJsonArray{domain()}}});
+                    parentRoom->setState(u"m.space.child"_s, job->roomId(), QJsonObject{{"via"_L1, QJsonArray{domain()}}});
                 }
             }
         });
@@ -451,7 +452,7 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
 {
 #ifdef HAVE_KUNIFIEDPUSH
     QUrl gatewayEndpoint(endpoint);
-    gatewayEndpoint.setPath(QStringLiteral("/_matrix/push/v1/notify"));
+    gatewayEndpoint.setPath(u"/_matrix/push/v1/notify"_s);
 
     QNetworkRequest checkGateway(gatewayEndpoint);
     auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
@@ -460,15 +461,15 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     // This is because Matrix does not natively support UnifiedPush
     const auto &replyJson = QJsonDocument::fromJson(reply->readAll()).object();
 
-    if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == QStringLiteral("matrix")) {
+    if (replyJson["unifiedpush"_L1]["gateway"_L1].toString() == u"matrix"_s) {
         callApi<PostPusherJob>(endpoint,
-                               QStringLiteral("http"),
-                               QStringLiteral("org.kde.neochat"),
-                               QStringLiteral("NeoChat"),
+                               u"http"_s,
+                               u"org.kde.neochat"_s,
+                               u"NeoChat"_s,
                                deviceId(),
                                QString(), // profileTag is intentionally left empty for now, it's optional
-                               QStringLiteral("en-US"),
-                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), QStringLiteral(" ")},
+                               u"en-US"_s,
+                               PostPusherJob::PusherData{QUrl::fromUserInput(gatewayEndpoint.toString()), u" "_s},
                                false);
 
         qInfo() << "Registered for push notifications";
@@ -488,9 +489,9 @@ QString NeoChatConnection::deviceKey() const
 
 QString NeoChatConnection::encryptionKey() const
 {
-    auto query = database()->prepareQuery(QStringLiteral("SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"));
-    query.bindValue(QStringLiteral(":matrixId"), userId());
-    query.bindValue(QStringLiteral(":deviceId"), deviceId());
+    auto query = database()->prepareQuery(u"SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"_s);
+    query.bindValue(u":matrixId"_s, userId());
+    query.bindValue(u":deviceId"_s, deviceId());
     database()->execute(query);
     if (!query.next()) {
         return {};

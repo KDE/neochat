@@ -8,31 +8,31 @@ using namespace Quotient;
 
 ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
 {
-    if (json.contains(QStringLiteral("pack"))) {
+    if (json.contains("pack"_L1)) {
         pack = ImagePackEventContent::Pack{
-            fromJson<std::optional<QString>>(json["pack"_ls].toObject()["display_name"_ls]),
-            fromJson<std::optional<QUrl>>(json["pack"_ls].toObject()["avatar_url"_ls]),
-            fromJson<std::optional<QStringList>>(json["pack"_ls].toObject()["usage"_ls]),
-            fromJson<std::optional<QString>>(json["pack"_ls].toObject()["attribution"_ls]),
+            fromJson<std::optional<QString>>(json["pack"_L1].toObject()["display_name"_L1]),
+            fromJson<std::optional<QUrl>>(json["pack"_L1].toObject()["avatar_url"_L1]),
+            fromJson<std::optional<QStringList>>(json["pack"_L1].toObject()["usage"_L1]),
+            fromJson<std::optional<QString>>(json["pack"_L1].toObject()["attribution"_L1]),
         };
     } else {
         pack = std::nullopt;
     }
 
-    const auto &keys = json["images"_ls].toObject().keys();
+    const auto &keys = json["images"_L1].toObject().keys();
     for (const auto &k : keys) {
         std::optional<EventContent::ImageInfo> info;
-        if (json["images"_ls][k].toObject().contains(QStringLiteral("info"))) {
-            info = EventContent::ImageInfo(QUrl(json["images"_ls][k]["url"_ls].toString()), json["images"_ls][k]["info"_ls].toObject(), k);
+        if (json["images"_L1][k].toObject().contains("info"_L1)) {
+            info = EventContent::ImageInfo(QUrl(json["images"_L1][k]["url"_L1].toString()), json["images"_L1][k]["info"_L1].toObject(), k);
         } else {
             info = std::nullopt;
         }
         images += ImagePackImage{
             k,
-            fromJson<QUrl>(json["images"_ls][k]["url"_ls].toString()),
-            fromJson<std::optional<QString>>(json["images"_ls][k]["body"_ls]),
+            fromJson<QUrl>(json["images"_L1][k]["url"_L1].toString()),
+            fromJson<std::optional<QString>>(json["images"_L1][k]["body"_L1]),
             info,
-            fromJson<std::optional<QStringList>>(json["images"_ls][k]["usage"_ls]),
+            fromJson<std::optional<QStringList>>(json["images"_L1][k]["usage"_L1]),
         };
     }
 }
@@ -42,42 +42,42 @@ void ImagePackEventContent::fillJson(QJsonObject *o) const
     if (pack) {
         QJsonObject packJson;
         if (pack->displayName) {
-            packJson["display_name"_ls] = *pack->displayName;
+            packJson["display_name"_L1] = *pack->displayName;
         }
         if (pack->usage) {
             QJsonArray usageJson;
             for (const auto &usage : *pack->usage) {
                 usageJson += usage;
             }
-            packJson["usage"_ls] = usageJson;
+            packJson["usage"_L1] = usageJson;
         }
         if (pack->avatarUrl) {
-            packJson["avatar_url"_ls] = pack->avatarUrl->toString();
+            packJson["avatar_url"_L1] = pack->avatarUrl->toString();
         }
         if (pack->attribution) {
-            packJson["attribution"_ls] = *pack->attribution;
+            packJson["attribution"_L1] = *pack->attribution;
         }
-        (*o)["pack"_ls] = packJson;
+        (*o)["pack"_L1] = packJson;
     }
 
     QJsonObject imagesJson;
     for (const auto &image : images) {
         QJsonObject imageJson;
-        imageJson["url"_ls] = image.url.toString();
+        imageJson["url"_L1] = image.url.toString();
         if (image.body) {
-            imageJson["body"_ls] = *image.body;
+            imageJson["body"_L1] = *image.body;
         }
         if (image.usage) {
             QJsonArray usageJson;
             for (const auto &usage : *image.usage) {
                 usageJson += usage;
             }
-            imageJson["usage"_ls] = usageJson;
+            imageJson["usage"_L1] = usageJson;
         }
         if (image.info.has_value()) {
-            imageJson["info"_ls] = Quotient::EventContent::toInfoJson(*image.info);
+            imageJson["info"_L1] = Quotient::EventContent::toInfoJson(*image.info);
         }
         imagesJson[image.shortcode] = imageJson;
     }
-    (*o)["images"_ls] = imagesJson;
+    (*o)["images"_L1] = imagesJson;
 }

@@ -147,7 +147,7 @@ void SpaceChildrenModel::insertChildren(std::vector<Quotient::GetSpaceHierarchyJ
                                                                     children[i].avatarUrl,
                                                                     children[i].guestCanJoin,
                                                                     children[i].worldReadable,
-                                                                    children[i].roomType == QLatin1String("m.space"),
+                                                                    children[i].roomType == u"m.space"_s,
                                                                     std::move(children[i].childrenState)));
         }
     }
@@ -217,7 +217,7 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
     }
     if (role == CanAddChildrenRole) {
         if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
-            return room->canSendState(QLatin1String("m.space.child"));
+            return room->canSendState(u"m.space.child"_s);
         }
         return false;
     }
@@ -237,20 +237,20 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
     }
     if (role == CanSetParentRole) {
         if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
-            return room->canSendState(QLatin1String("m.space.parent"));
+            return room->canSendState(u"m.space.parent"_s);
         }
         return false;
     }
     if (role == IsDeclaredParentRole) {
         if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
-            return room->currentState().contains(QLatin1String("m.space.parent"), child->parentItem()->id());
+            return room->currentState().contains(u"m.space.parent"_s, child->parentItem()->id());
         }
         return false;
     }
     if (role == CanRemove) {
         const auto parent = child->parentItem();
         if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(parent->id()))) {
-            return room->canSendState(QLatin1String("m.space.child"));
+            return room->canSendState(u"m.space.child"_s);
         }
         return false;
     }
@@ -265,14 +265,14 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
             return QString();
         }
         const auto childState = child->parentItem()->childStateContent(child);
-        return childState[QLatin1String("order")].toString();
+        return childState["order"_L1].toString();
     }
     if (role == ChildTimestampRole) {
         if (child->parentItem() == nullptr) {
             return QString();
         }
         const auto childState = child->parentItem()->childState(child);
-        return childState[QLatin1String("origin_server_ts")].toString();
+        return childState["origin_server_ts"_L1].toString();
     }
 
     return {};

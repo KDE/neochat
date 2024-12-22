@@ -15,7 +15,7 @@ LocationsModel::LocationsModel(QObject *parent)
             if (!is<RoomMessageEvent>(*event)) {
                 continue;
             }
-            if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
+            if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
                 const auto &e = *event;
                 addLocation(eventCast<const RoomMessageEvent>(&e));
             }
@@ -25,7 +25,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
                 }
-                if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
+                if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
                     const auto &e = *event;
                     addLocation(eventCast<const RoomMessageEvent>(&e));
                 }
@@ -36,7 +36,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
                 }
-                if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
+                if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
                     const auto &e = *event;
                     addLocation(eventCast<const RoomMessageEvent>(&e));
                 }
@@ -49,7 +49,7 @@ LocationsModel::LocationsModel(QObject *parent)
 
 void LocationsModel::addLocation(const RoomMessageEvent *event)
 {
-    const auto uri = event->contentJson()["org.matrix.msc3488.location"_ls]["uri"_ls].toString();
+    const auto uri = event->contentJson()["org.matrix.msc3488.location"_L1]["uri"_L1].toString();
     const auto parts = uri.mid(4).split(QLatin1Char(','));
     if (parts.size() < 2) {
         qWarning() << "invalid geo: URI" << uri;
@@ -101,9 +101,9 @@ QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
     } else if (roleName == LatitudeRole) {
         return m_locations[row].latitude;
     } else if (roleName == TextRole) {
-        return m_locations[row].content["body"_ls].toString();
+        return m_locations[row].content["body"_L1].toString();
     } else if (roleName == AssetRole) {
-        return m_locations[row].content["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
+        return m_locations[row].content["org.matrix.msc3488.asset"_L1].toObject()["type"_L1].toString();
     } else if (roleName == AuthorRole) {
         return QVariant::fromValue(m_locations[row].member);
     }

@@ -27,8 +27,8 @@ private Q_SLOTS:
 
 void NeoChatRoomTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), "test-min-sync.json"_ls);
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-min-sync.json"_s);
 }
 
 void NeoChatRoomTest::eventTest()

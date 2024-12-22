@@ -86,7 +86,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
                 return;
             }
             auto localPath = this->fileTransferInfo(eventId).localPath.toLocalFile();
-            auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+            auto config = KSharedConfig::openStateConfig(u"neochatdownloads"_s)->group(u"downloads"_s);
             config.writePathEntry(mxcUrl.mid(6), localPath);
         }
     });
@@ -123,7 +123,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         &Room::baseStateLoaded,
         this,
         [this]() {
-            updatePushNotificationState(QStringLiteral("m.push_rules"));
+            updatePushNotificationState(u"m.push_rules"_s);
 
             Q_EMIT canEncryptRoomChanged();
             if (this->joinState() == JoinState::Invite) {
@@ -143,7 +143,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT defaultUrlPreviewStateChanged();
     });
     connect(this, &Room::accountDataChanged, this, [this](QString type) {
-        if (type == "org.matrix.room.preview_urls"_ls) {
+        if (type == "org.matrix.room.preview_urls"_L1) {
             Q_EMIT urlPreviewEnabledChanged();
         }
     });
@@ -216,15 +216,15 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     }
 
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
-    url.setScheme("file"_ls);
+    url.setScheme("file"_L1);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
     EventContent::FileContentBase *content;
-    if (mime.name().startsWith("image/"_ls)) {
+    if (mime.name().startsWith("image/"_L1)) {
         QImage image(url.toLocalFile());
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
-    } else if (mime.name().startsWith("audio/"_ls)) {
+    } else if (mime.name().startsWith("audio/"_L1)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
-    } else if (mime.name().startsWith("video/"_ls)) {
+    } else if (mime.name().startsWith("video/"_L1)) {
         QMediaPlayer player;
         player.setSource(url);
         co_await qCoro(&player, &QMediaPlayer::mediaStatusChanged);
@@ -365,9 +365,9 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 {
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
-            if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_ls) {
+            if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_L1) {
                 auto htmlBody = e->get<EventContent::TextContent>()->body;
-                return htmlBody.contains("data-mx-spoiler"_ls);
+                return htmlBody.contains("data-mx-spoiler"_L1);
             }
         }
     }
@@ -455,7 +455,7 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
     const auto job = connection()->uploadFile(localFile.toLocalFile());
     if (isJobPending(job)) {
         connect(job, &BaseJob::success, this, [this, job] {
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_ls, QString(), QJsonObject{{"url"_ls, job->contentUri().toString()}});
+            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_L1, QString(), QJsonObject{{"url"_L1, job->contentUri().toString()}});
         });
     }
 }
@@ -464,23 +464,23 @@ QString msgTypeToString(MessageEventType msgType)
 {
     switch (msgType) {
     case MessageEventType::Text:
-        return "m.text"_ls;
+        return "m.text"_L1;
     case MessageEventType::File:
-        return "m.file"_ls;
+        return "m.file"_L1;
     case MessageEventType::Audio:
-        return "m.audio"_ls;
+        return "m.audio"_L1;
     case MessageEventType::Emote:
-        return "m.emote"_ls;
+        return "m.emote"_L1;
     case MessageEventType::Image:
-        return "m.image"_ls;
+        return "m.image"_L1;
     case MessageEventType::Video:
-        return "m.video"_ls;
+        return "m.video"_L1;
     case MessageEventType::Notice:
-        return "m.notice"_ls;
+        return "m.notice"_L1;
     case MessageEventType::Location:
-        return "m.location"_ls;
+        return "m.location"_L1;
     default:
-        return "m.text"_ls;
+        return "m.text"_L1;
     }
 }
 
@@ -566,7 +566,7 @@ bool NeoChatRoom::isInvite() const
 
 bool NeoChatRoom::readOnly() const
 {
-    return !canSendEvent("m.room.message"_ls);
+    return !canSendEvent("m.room.message"_L1);
 }
 
 bool NeoChatRoom::isUserBanned(const QString &user) const
@@ -594,29 +594,29 @@ QString NeoChatRoom::joinRule() const
 
 void NeoChatRoom::setJoinRule(const QString &joinRule, const QList<QString> &allowedSpaces)
 {
-    if (!canSendState("m.room.join_rules"_ls)) {
+    if (!canSendState("m.room.join_rules"_L1)) {
         qWarning() << "Power level too low to set join rules";
         return;
     }
     auto actualRule = joinRule;
-    if (joinRule == "restricted"_ls && allowedSpaces.isEmpty()) {
-        actualRule = "private"_ls;
+    if (joinRule == "restricted"_L1 && allowedSpaces.isEmpty()) {
+        actualRule = "private"_L1;
     }
 
     QJsonArray allowConditions;
-    if (actualRule == "restricted"_ls) {
+    if (actualRule == "restricted"_L1) {
         for (auto allowedSpace : allowedSpaces) {
-            allowConditions += QJsonObject{{"type"_ls, "m.room_membership"_ls}, {"room_id"_ls, allowedSpace}};
+            allowConditions += QJsonObject{{"type"_L1, "m.room_membership"_L1}, {"room_id"_L1, allowedSpace}};
         }
     }
 
     QJsonObject content;
-    content.insert("join_rule"_ls, joinRule);
+    content.insert("join_rule"_L1, joinRule);
     if (!allowConditions.isEmpty()) {
-        content.insert("allow"_ls, allowConditions);
+        content.insert("allow"_L1, allowConditions);
     }
     qWarning() << content;
-    setState("m.room.join_rules"_ls, {}, content);
+    setState("m.room.join_rules"_L1, {}, content);
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
@@ -626,40 +626,40 @@ QList<QString> NeoChatRoom::restrictedIds() const
     if (!joinRulesEvent) {
         return {};
     }
-    if (joinRulesEvent->joinRule() != "restricted"_ls) {
+    if (joinRulesEvent->joinRule() != "restricted"_L1) {
         return {};
     }
 
     QList<QString> roomIds;
     for (auto allow : joinRulesEvent->allow()) {
-        roomIds += allow.toObject().value("room_id"_ls).toString();
+        roomIds += allow.toObject().value("room_id"_L1).toString();
     }
     return roomIds;
 }
 
 QString NeoChatRoom::historyVisibility() const
 {
-    return currentState().get("m.room.history_visibility"_ls)->contentJson()["history_visibility"_ls].toString();
+    return currentState().get("m.room.history_visibility"_L1)->contentJson()["history_visibility"_L1].toString();
 }
 
 void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
 {
-    if (!canSendState("m.room.history_visibility"_ls)) {
+    if (!canSendState("m.room.history_visibility"_L1)) {
         qWarning() << "Power level too low to set history visibility";
         return;
     }
 
-    setState("m.room.history_visibility"_ls, {}, QJsonObject{{"history_visibility"_ls, historyVisibilityRule}});
+    setState("m.room.history_visibility"_L1, {}, QJsonObject{{"history_visibility"_L1, historyVisibilityRule}});
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 bool NeoChatRoom::defaultUrlPreviewState() const
 {
-    auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls"_ls);
+    auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls"_L1);
 
     // Some rooms will not have this state event set so check for a nullptr return.
     if (urlPreviewsDisabled != nullptr) {
-        return !urlPreviewsDisabled->contentJson()["disable"_ls].toBool();
+        return !urlPreviewsDisabled->contentJson()["disable"_L1].toBool();
     } else {
         return false;
     }
@@ -667,7 +667,7 @@ bool NeoChatRoom::defaultUrlPreviewState() const
 
 void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
 {
-    if (!canSendState("org.matrix.room.preview_urls"_ls)) {
+    if (!canSendState("org.matrix.room.preview_urls"_L1)) {
         qWarning() << "Power level too low to set the default URL preview state for the room";
         return;
     }
@@ -701,13 +701,13 @@ void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
      *
      * You just have to set disable to true to disable URL previews by default.
      */
-    setState("org.matrix.room.preview_urls"_ls, {}, QJsonObject{{"disable"_ls, !defaultUrlPreviewState}});
+    setState("org.matrix.room.preview_urls"_L1, {}, QJsonObject{{"disable"_L1, !defaultUrlPreviewState}});
 }
 
 bool NeoChatRoom::urlPreviewEnabled() const
 {
-    if (hasAccountData("org.matrix.room.preview_urls"_ls)) {
-        return !accountData("org.matrix.room.preview_urls"_ls)->contentJson()["disable"_ls].toBool();
+    if (hasAccountData("org.matrix.room.preview_urls"_L1)) {
+        return !accountData("org.matrix.room.preview_urls"_L1)->contentJson()["disable"_L1].toBool();
     } else {
         return defaultUrlPreviewState();
     }
@@ -728,8 +728,8 @@ void NeoChatRoom::setUrlPreviewEnabled(const bool &urlPreviewEnabled)
      */
     connection()->callApi<SetAccountDataPerRoomJob>(localMember().id(),
                                                     id(),
-                                                    "org.matrix.room.preview_urls"_ls,
-                                                    QJsonObject{{"disable"_ls, !urlPreviewEnabled}});
+                                                    "org.matrix.room.preview_urls"_L1,
+                                                    QJsonObject{{"disable"_L1, !urlPreviewEnabled}});
 }
 
 void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel)
@@ -738,7 +738,7 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
         qWarning() << "Cannot modify the power level of the only user";
         return;
     }
-    if (!canSendState("m.room.power_levels"_ls)) {
+    if (!canSendState("m.room.power_levels"_L1)) {
         qWarning() << "Power level too low to set user power levels";
         return;
     }
@@ -748,14 +748,14 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
     }
     int clampPowerLevel = std::clamp(powerLevel, -1, 100);
 
-    auto powerLevelContent = currentState().get("m.room.power_levels"_ls)->contentJson();
-    auto powerLevelUserOverrides = powerLevelContent["users"_ls].toObject();
+    auto powerLevelContent = currentState().get("m.room.power_levels"_L1)->contentJson();
+    auto powerLevelUserOverrides = powerLevelContent["users"_L1].toObject();
 
     if (powerLevelUserOverrides[userID] != clampPowerLevel) {
         powerLevelUserOverrides[userID] = clampPowerLevel;
-        powerLevelContent["users"_ls] = powerLevelUserOverrides;
+        powerLevelContent["users"_L1] = powerLevelUserOverrides;
 
-        setState("m.room.power_levels"_ls, {}, powerLevelContent);
+        setState("m.room.power_levels"_L1, {}, powerLevelContent);
     }
 }
 
@@ -795,15 +795,15 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
 
 bool NeoChatRoom::hasParent() const
 {
-    return currentState().eventsOfType("m.space.parent"_ls).size() > 0;
+    return currentState().eventsOfType("m.space.parent"_L1).size() > 0;
 }
 
 QList<QString> NeoChatRoom::parentIds() const
 {
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     QList<QString> parentIds;
     for (const auto &parentEvent : parentEvents) {
-        if (parentEvent->contentJson().contains("via"_ls) && !parentEvent->contentPart<QJsonArray>("via"_ls).isEmpty()) {
+        if (parentEvent->contentJson().contains("via"_L1) && !parentEvent->contentPart<QJsonArray>("via"_L1).isEmpty()) {
             parentIds += parentEvent->stateKey();
         }
     }
@@ -827,10 +827,10 @@ QList<NeoChatRoom *> NeoChatRoom::parentObjects(bool multiLevel) const
 
 QString NeoChatRoom::canonicalParent() const
 {
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     for (const auto &parentEvent : parentEvents) {
-        if (parentEvent->contentJson().contains("via"_ls) && !parentEvent->contentPart<QJsonArray>("via"_ls).isEmpty()) {
-            if (parentEvent->contentPart<bool>("canonical"_ls)) {
+        if (parentEvent->contentJson().contains("via"_L1) && !parentEvent->contentPart<QJsonArray>("via"_L1).isEmpty()) {
+            if (parentEvent->contentPart<bool>("canonical"_L1)) {
                 return parentEvent->stateKey();
             }
         }
@@ -843,28 +843,28 @@ void NeoChatRoom::setCanonicalParent(const QString &parentId)
     if (!canModifyParent(parentId)) {
         return;
     }
-    if (const auto &parent = currentState().get("m.space.parent"_ls, parentId)) {
+    if (const auto &parent = currentState().get("m.space.parent"_L1, parentId)) {
         auto content = parent->contentJson();
-        content.insert("canonical"_ls, true);
-        setState("m.space.parent"_ls, parentId, content);
+        content.insert("canonical"_L1, true);
+        setState("m.space.parent"_L1, parentId, content);
     } else {
         return;
     }
 
     // Only one canonical parent can exist so make sure others are set false.
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     for (const auto &parentEvent : parentEvents) {
-        if (parentEvent->contentPart<bool>("canonical"_ls) && parentEvent->stateKey() != parentId) {
+        if (parentEvent->contentPart<bool>("canonical"_L1) && parentEvent->stateKey() != parentId) {
             auto content = parentEvent->contentJson();
-            content.insert("canonical"_ls, false);
-            setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+            content.insert("canonical"_L1, false);
+            setState("m.space.parent"_L1, parentEvent->stateKey(), content);
         }
     }
 }
 
 bool NeoChatRoom::canModifyParent(const QString &parentId) const
 {
-    if (!canSendState("m.space.parent"_ls)) {
+    if (!canSendState("m.space.parent"_L1)) {
         return false;
     }
     // If we can't peek the parent we assume that we neither have permission nor is
@@ -876,12 +876,12 @@ bool NeoChatRoom::canModifyParent(const QString &parentId) const
         // If the user is allowed to set space child events in the parent they are
         // allowed to set the space as a parent (even if a space child event doesn't
         // exist).
-        if (parent->canSendState("m.space.child"_ls)) {
+        if (parent->canSendState("m.space.child"_L1)) {
             return true;
         }
         // If the parent has a space child event the user can set as a parent (even
         // if they don't have permission to set space child events in that parent).
-        if (parent->currentState().contains("m.space.child"_ls, id())) {
+        if (parent->currentState().contains("m.space.child"_L1, id())) {
             return true;
         }
     }
@@ -895,21 +895,21 @@ void NeoChatRoom::addParent(const QString &parentId, bool canonical, bool setPar
     }
     if (canonical) {
         // Only one canonical parent can exist so make sure others are set false.
-        auto parentEvents = currentState().eventsOfType("m.space.parent"_ls);
+        auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
         for (const auto &parentEvent : parentEvents) {
-            if (parentEvent->contentPart<bool>("canonical"_ls)) {
+            if (parentEvent->contentPart<bool>("canonical"_L1)) {
                 auto content = parentEvent->contentJson();
-                content.insert("canonical"_ls, false);
-                setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+                content.insert("canonical"_L1, false);
+                setState("m.space.parent"_L1, parentEvent->stateKey(), content);
             }
         }
     }
 
-    setState("m.space.parent"_ls, parentId, QJsonObject{{"canonical"_ls, canonical}, {"via"_ls, QJsonArray{connection()->domain()}}});
+    setState("m.space.parent"_L1, parentId, QJsonObject{{"canonical"_L1, canonical}, {"via"_L1, QJsonArray{connection()->domain()}}});
 
     if (setParentChild) {
         if (auto parent = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
-            parent->setState("m.space.child"_ls, id(), QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}});
+            parent->setState("m.space.child"_L1, id(), QJsonObject{{"via"_L1, QJsonArray{connection()->domain()}}});
         }
     }
 }
@@ -919,10 +919,10 @@ void NeoChatRoom::removeParent(const QString &parentId)
     if (!canModifyParent(parentId)) {
         return;
     }
-    if (!currentState().contains("m.space.parent"_ls, parentId)) {
+    if (!currentState().contains("m.space.parent"_L1, parentId)) {
         return;
     }
-    setState("m.space.parent"_ls, parentId, {});
+    setState("m.space.parent"_L1, parentId, {});
 }
 
 bool NeoChatRoom::isSpace() const
@@ -956,26 +956,24 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool can
     if (!isSpace()) {
         return;
     }
-    if (!canSendEvent("m.space.child"_ls)) {
+    if (!canSendEvent("m.space.child"_L1)) {
         return;
     }
-    setState("m.space.child"_ls,
-             childId,
-             QJsonObject{{QLatin1String("via"), QJsonArray{connection()->domain()}}, {"suggested"_ls, suggested}, {"order"_ls, order}});
+    setState("m.space.child"_L1, childId, QJsonObject{{"via"_L1, QJsonArray{connection()->domain()}}, {"suggested"_L1, suggested}, {"order"_L1, order}});
 
     if (setChildParent) {
         if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
-            if (child->canSendState("m.space.parent"_ls)) {
-                child->setState("m.space.parent"_ls, id(), QJsonObject{{"canonical"_ls, canonical}, {"via"_ls, QJsonArray{connection()->domain()}}});
+            if (child->canSendState("m.space.parent"_L1)) {
+                child->setState("m.space.parent"_L1, id(), QJsonObject{{"canonical"_L1, canonical}, {"via"_L1, QJsonArray{connection()->domain()}}});
 
                 if (canonical) {
                     // Only one canonical parent can exist so make sure others are set to false.
-                    auto parentEvents = child->currentState().eventsOfType("m.space.parent"_ls);
+                    auto parentEvents = child->currentState().eventsOfType("m.space.parent"_L1);
                     for (const auto &parentEvent : parentEvents) {
-                        if (parentEvent->contentPart<bool>("canonical"_ls)) {
+                        if (parentEvent->contentPart<bool>("canonical"_L1)) {
                             auto content = parentEvent->contentJson();
-                            content.insert("canonical"_ls, false);
-                            setState("m.space.parent"_ls, parentEvent->stateKey(), content);
+                            content.insert("canonical"_L1, false);
+                            setState("m.space.parent"_L1, parentEvent->stateKey(), content);
                         }
                     }
                 }
@@ -989,15 +987,15 @@ void NeoChatRoom::removeChild(const QString &childId, bool unsetChildParent)
     if (!isSpace()) {
         return;
     }
-    if (!canSendEvent("m.space.child"_ls)) {
+    if (!canSendEvent("m.space.child"_L1)) {
         return;
     }
-    setState("m.space.child"_ls, childId, {});
+    setState("m.space.child"_L1, childId, {});
 
     if (unsetChildParent) {
         if (auto child = static_cast<NeoChatRoom *>(connection()->room(childId))) {
-            if (child->canSendState("m.space.parent"_ls) && child->currentState().contains("m.space.parent"_ls, id())) {
-                child->setState("m.space.parent"_ls, id(), {});
+            if (child->canSendState("m.space.parent"_L1) && child->currentState().contains("m.space.parent"_L1, id())) {
+                child->setState("m.space.parent"_L1, id(), {});
             }
         }
     }
@@ -1005,11 +1003,11 @@ void NeoChatRoom::removeChild(const QString &childId, bool unsetChildParent)
 
 bool NeoChatRoom::isSuggested(const QString &childId)
 {
-    if (!currentState().contains("m.space.child"_ls, childId)) {
+    if (!currentState().contains("m.space.child"_L1, childId)) {
         return false;
     }
-    const auto childEvent = currentState().get("m.space.child"_ls, childId);
-    return childEvent->contentPart<bool>("suggested"_ls);
+    const auto childEvent = currentState().get("m.space.child"_L1, childId);
+    return childEvent->contentPart<bool>("suggested"_L1);
 }
 
 void NeoChatRoom::toggleChildSuggested(const QString &childId)
@@ -1017,13 +1015,13 @@ void NeoChatRoom::toggleChildSuggested(const QString &childId)
     if (!isSpace()) {
         return;
     }
-    if (!canSendEvent("m.space.child"_ls)) {
+    if (!canSendEvent("m.space.child"_L1)) {
         return;
     }
-    if (const auto childEvent = currentState().get("m.space.child"_ls, childId)) {
+    if (const auto childEvent = currentState().get("m.space.child"_L1, childId)) {
         auto content = childEvent->contentJson();
-        content.insert("suggested"_ls, !childEvent->contentPart<bool>("suggested"_ls));
-        setState("m.space.child"_ls, childId, content);
+        content.insert("suggested"_L1, !childEvent->contentPart<bool>("suggested"_L1));
+        setState("m.space.child"_L1, childId, content);
     }
 }
 
@@ -1032,20 +1030,20 @@ void NeoChatRoom::setChildOrder(const QString &childId, const QString &order)
     if (!isSpace()) {
         return;
     }
-    if (!canSendEvent("m.space.child"_ls)) {
+    if (!canSendEvent("m.space.child"_L1)) {
         return;
     }
-    if (const auto childEvent = currentState().get("m.space.child"_ls, childId)) {
+    if (const auto childEvent = currentState().get("m.space.child"_L1, childId)) {
         auto content = childEvent->contentJson();
-        if (!content.contains("via"_ls)) {
+        if (!content.contains("via"_L1)) {
             return;
         }
-        if (content.value("order"_ls).toString() == order) {
+        if (content.value("order"_L1).toString() == order) {
             return;
         }
 
-        content.insert("order"_ls, order);
-        setState("m.space.child"_ls, childId, content);
+        content.insert("order"_L1, order);
+        setState("m.space.child"_L1, childId, content);
     }
 }
 
@@ -1076,26 +1074,26 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
      * Note to prevent race conditions any rule that is going ot be overridden later is not removed.
      * If the default push notification state is chosen any existing rule needs to be removed.
      */
-    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_ls);
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_L1);
 
     // For default and mute check for a room rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::Mute) {
-        QJsonArray roomRuleArray = accountData["global"_ls].toObject()["room"_ls].toArray();
+        QJsonArray roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
-            if (roomRule["rule_id"_ls] == id()) {
-                connection()->callApi<DeletePushRuleJob>("room"_ls, id());
+            if (roomRule["rule_id"_L1] == id()) {
+                connection()->callApi<DeletePushRuleJob>("room"_L1, id());
             }
         }
     }
 
     // For default, all and @mentions and keywords check for an override rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::All || state == PushNotificationState::MentionKeyword) {
-        QJsonArray overrideRuleArray = accountData["global"_ls].toObject()["override"_ls].toArray();
+        QJsonArray overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
-            if (overrideRule["rule_id"_ls] == id()) {
-                connection()->callApi<DeletePushRuleJob>("override"_ls, id());
+            if (overrideRule["rule_id"_L1] == id()) {
+                connection()->callApi<DeletePushRuleJob>("override"_L1, id());
             }
         }
     }
@@ -1111,7 +1109,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QList<QVariant> actions = {"dont_notify"_ls};
+        const QList<QVariant> actions = {"dont_notify"_L1};
         /**
          * Setup the push condition to get all events for the current room
          * see https://spec.matrix.org/v1.3/client-server-api/#conditions-1
@@ -1125,15 +1123,15 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          * ]
          */
         PushCondition pushCondition;
-        pushCondition.kind = "event_match"_ls;
-        pushCondition.key = "room_id"_ls;
+        pushCondition.kind = "event_match"_L1;
+        pushCondition.key = "room_id"_L1;
         pushCondition.pattern = id();
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-        auto job = connection()->callApi<SetPushRuleJob>("override"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto job = connection()->callApi<SetPushRuleJob>("override"_L1, id(), actions, QString(), QString(), conditions, QString());
         connect(job, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("override"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("override"_L1, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1153,13 +1151,13 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QList<QVariant> actions = {"dont_notify"_ls};
+        const QList<QVariant> actions = {"dont_notify"_L1};
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
-        auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto setJob = connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1181,16 +1179,16 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          * ]
          */
         QJsonObject tweaks;
-        tweaks.insert("set_tweak"_ls, "sound"_ls);
-        tweaks.insert("value"_ls, "default"_ls);
-        const QList<QVariant> actions = {"notify"_ls, tweaks};
+        tweaks.insert("set_tweak"_L1, "sound"_L1);
+        tweaks.insert("value"_L1, "default"_L1);
+        const QList<QVariant> actions = {"notify"_L1, tweaks};
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-        auto setJob = connection()->callApi<SetPushRuleJob>("room"_ls, id(), actions, QString(), QString(), conditions, QString());
+        auto setJob = connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_ls, id(), true);
+            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1203,28 +1201,28 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
 void NeoChatRoom::updatePushNotificationState(QString type)
 {
-    if (type != "m.push_rules"_ls || m_pushNotificationStateUpdating) {
+    if (type != "m.push_rules"_L1 || m_pushNotificationStateUpdating) {
         return;
     }
 
-    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_ls);
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_L1);
 
     // First look for a room rule with the room id
-    QJsonArray roomRuleArray = accountData["global"_ls].toObject()["room"_ls].toArray();
+    QJsonArray roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
     for (const auto &i : roomRuleArray) {
         QJsonObject roomRule = i.toObject();
-        if (roomRule["rule_id"_ls] == id()) {
-            if (roomRule["actions"_ls].toArray().size() == 0) {
+        if (roomRule["rule_id"_L1] == id()) {
+            if (roomRule["actions"_L1].toArray().size() == 0) {
                 m_currentPushNotificationState = PushNotificationState::MentionKeyword;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
             }
-            QString notifyAction = roomRule["actions"_ls].toArray()[0].toString();
-            if (notifyAction == "notify"_ls) {
+            QString notifyAction = roomRule["actions"_L1].toArray()[0].toString();
+            if (notifyAction == "notify"_L1) {
                 m_currentPushNotificationState = PushNotificationState::All;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
-            } else if (notifyAction == "dont_notify"_ls) {
+            } else if (notifyAction == "dont_notify"_L1) {
                 m_currentPushNotificationState = PushNotificationState::MentionKeyword;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
@@ -1233,17 +1231,17 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     }
 
     // Check for an override rule with the room id
-    QJsonArray overrideRuleArray = accountData["global"_ls].toObject()["override"_ls].toArray();
+    QJsonArray overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
     for (const auto &i : overrideRuleArray) {
         QJsonObject overrideRule = i.toObject();
-        if (overrideRule["rule_id"_ls] == id()) {
-            if (overrideRule["actions"_ls].toArray().isEmpty()) {
+        if (overrideRule["rule_id"_L1] == id()) {
+            if (overrideRule["actions"_L1].toArray().isEmpty()) {
                 m_currentPushNotificationState = PushNotificationState::Mute;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
             }
-            QString notifyAction = overrideRule["actions"_ls].toArray()[0].toString();
-            if (notifyAction == "dont_notify"_ls) {
+            QString notifyAction = overrideRule["actions"_L1].toArray()[0].toString();
+            if (notifyAction == "dont_notify"_L1) {
                 m_currentPushNotificationState = PushNotificationState::Mute;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
@@ -1363,7 +1361,7 @@ FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *
         return transferInfo;
     }
 
-    auto config = KSharedConfig::openStateConfig(QStringLiteral("neochatdownloads"))->group(QStringLiteral("downloads"));
+    auto config = KSharedConfig::openStateConfig(u"neochatdownloads"_s)->group(u"downloads"_s);
     if (!config.hasKey(mxcUrl.mid(6))) {
         return transferInfo;
     }
@@ -1419,9 +1417,9 @@ void NeoChatRoom::replyLastMessage()
 
         if (e->msgtype() != MessageEventType::Unknown) {
             QString eventId;
-            if (content.contains("m.new_content"_ls)) {
+            if (content.contains("m.new_content"_L1)) {
                 // The message has been edited so we have to return the id of the original message instead of the replacement
-                eventId = content["m.relates_to"_ls].toObject()["event_id"_ls].toString();
+                eventId = content["m.relates_to"_L1].toObject()["event_id"_L1].toString();
             } else {
                 // For any message that isn't an edit return the id of the current message
                 eventId = (*it)->id();
@@ -1453,9 +1451,9 @@ void NeoChatRoom::editLastMessage()
 
             if (e->msgtype() != MessageEventType::Unknown) {
                 QString eventId;
-                if (content.contains("m.new_content"_ls)) {
+                if (content.contains("m.new_content"_L1)) {
                     // The message has been edited so we have to return the id of the original message instead of the replacement
-                    eventId = content["m.relates_to"_ls].toObject()["event_id"_ls].toString();
+                    eventId = content["m.relates_to"_L1].toObject()["event_id"_L1].toString();
                 } else {
                     // For any message that isn't an edit return the id of the current message
                     eventId = (*it)->id();
@@ -1469,7 +1467,7 @@ void NeoChatRoom::editLastMessage()
 
 bool NeoChatRoom::canEncryptRoom() const
 {
-    return !usesEncryption() && canSendState("m.room.encryption"_ls);
+    return !usesEncryption() && canSendState("m.room.encryption"_L1);
 }
 
 static PollHandler *emptyPollHandler = new PollHandler;
@@ -1585,25 +1583,25 @@ NeochatRoomMember *NeoChatRoom::directChatRemoteMember()
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
 {
     QJsonObject locationContent{
-        {"uri"_ls, "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
+        {"uri"_L1, "geo:%1,%2"_L1.arg(QString::number(lat), QString::number(lon))},
     };
 
     if (!description.isEmpty()) {
-        locationContent["description"_ls] = description;
+        locationContent["description"_L1] = description;
     }
 
     QJsonObject content{
-        {"body"_ls, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
-        {"msgtype"_ls, "m.location"_ls},
-        {"geo_uri"_ls, "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
-        {"org.matrix.msc3488.location"_ls, locationContent},
-        {"org.matrix.msc3488.asset"_ls,
+        {"body"_L1, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"msgtype"_L1, "m.location"_L1},
+        {"geo_uri"_L1, "geo:%1,%2"_L1.arg(QString::number(lat), QString::number(lon))},
+        {"org.matrix.msc3488.location"_L1, locationContent},
+        {"org.matrix.msc3488.asset"_L1,
          QJsonObject{
-             {"type"_ls, "m.pin"_ls},
+             {"type"_L1, "m.pin"_L1},
          }},
-        {"org.matrix.msc1767.text"_ls, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"org.matrix.msc1767.text"_L1, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
     };
-    postJson("m.room.message"_ls, content);
+    postJson("m.room.message"_L1, content);
 }
 
 QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
@@ -1667,7 +1665,7 @@ std::pair<const Quotient::RoomEvent *, bool> NeoChatRoom::getEvent(const QString
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
-    const QString &replyEventId = event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
+    const QString &replyEventId = event.contentJson()["m.relates_to"_L1].toObject()["m.in_reply_to"_L1].toObject()["event_id"_L1].toString();
     if (replyEventId.isEmpty()) {
         return {};
     };

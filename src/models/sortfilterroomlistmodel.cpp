@@ -7,6 +7,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 SortFilterRoomListModel::SortFilterRoomListModel(RoomListModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel(parent)
 {
@@ -39,7 +41,7 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 {
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
-    if (sourceModel()->data(index, RoomListModel::JoinStateRole).toString() == QStringLiteral("upgraded")
+    if (sourceModel()->data(index, RoomListModel::JoinStateRole).toString() == u"upgraded"_s
         && dynamic_cast<RoomListModel *>(sourceModel())->connection()->room(sourceModel()->data(index, RoomListModel::ReplacementIdRole).toString())) {
         return false;
     }

@@ -469,7 +469,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (isPending) {
             // A pending event with an m.new_content key will be merged into the
             // original event so don't show.
-            if (evt.contentJson().contains("m.new_content"_ls)) {
+            if (evt.contentJson().contains("m.new_content"_L1)) {
                 return EventStatus::Hidden;
             }
             return pendingIt->deliveryStatus();
@@ -644,7 +644,7 @@ void MessageEventModel::createEventObjects(const Quotient::RoomEvent *event, boo
     }
 
     if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
-        if (!event->isStateEvent() || event->matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+        if (!event->isStateEvent() || event->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
             m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_currentRoom, eventId, false, isPending));
         }
     }

@@ -54,7 +54,7 @@ QUrl LinkPreviewer::url() const
 
 void LinkPreviewer::loadUrlPreview()
 {
-    if (m_url.scheme() == QStringLiteral("https")) {
+    if (m_url.scheme() == u"https"_s) {
         m_loaded = false;
         Q_EMIT loadedChanged();
 
@@ -72,11 +72,11 @@ void LinkPreviewer::loadUrlPreview()
 
         connect(job, &BaseJob::success, this, [this, job, conn]() {
             const auto json = job->jsonData();
-            m_title = json["og:title"_ls].toString().trimmed();
-            m_description = json["og:description"_ls].toString().trimmed().replace("\n"_ls, " "_ls);
+            m_title = json["og:title"_L1].toString().trimmed();
+            m_description = json["og:description"_L1].toString().trimmed().replace("\n"_L1, " "_L1);
 
-            auto imageUrl = QUrl(json["og:image"_ls].toString());
-            if (imageUrl.isValid() && imageUrl.scheme() == QStringLiteral("mxc")) {
+            auto imageUrl = QUrl(json["og:image"_L1].toString());
+            if (imageUrl.isValid() && imageUrl.scheme() == u"mxc"_s) {
                 m_imageSource = conn->makeMediaUrl(imageUrl);
             } else {
                 m_imageSource = QUrl();
@@ -103,7 +103,7 @@ QList<QUrl> LinkPreviewer::linkPreviews(QString string)
     QList<QUrl> links;
     while (linksMatch.hasNext()) {
         auto link = linksMatch.next().captured();
-        if (!link.contains(QStringLiteral("matrix.to")) && !links.contains(QUrl(link))) {
+        if (!link.contains(u"matrix.to"_s) && !links.contains(QUrl(link))) {
             links += QUrl(link);
         }
     }

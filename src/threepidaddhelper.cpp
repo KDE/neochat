@@ -10,6 +10,8 @@
 #include "jobs/neochatadd3pidjob.h"
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 ThreePIdAddHelper::ThreePIdAddHelper(QObject *parent)
     : QObject(parent)
 {
@@ -86,7 +88,7 @@ void ThreePIdAddHelper::initiateNewIdAdd()
     if (m_newId.isEmpty()) {
         return;
     }
-    if (m_medium == QLatin1String("email")) {
+    if (m_medium == u"email"_s) {
         emailTokenJob();
     } else {
         msisdnTokenJob();
@@ -121,7 +123,7 @@ void ThreePIdAddHelper::msisdnTokenJob()
 void ThreePIdAddHelper::tokenJobFinished(Quotient::BaseJob *job)
 {
     if (job->status() == Quotient::BaseJob::Success) {
-        m_newIdSid = job->jsonData()[QLatin1String("sid")].toString();
+        m_newIdSid = job->jsonData()["sid"_L1].toString();
         m_newIdStatus = Verification;
         Q_EMIT newIdStatusChanged();
         return;
@@ -145,11 +147,11 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
         if (static_cast<Quotient::BaseJob::StatusCode>(job->error()) == Quotient::BaseJob::Unauthorised) {
             QJsonObject replyData = job->jsonData();
             QJsonObject authData;
-            authData[QLatin1String("session")] = replyData[QLatin1String("session")];
-            authData[QLatin1String("password")] = password;
-            authData[QLatin1String("type")] = QLatin1String("m.login.password");
-            QJsonObject identifier = {{QLatin1String("type"), QLatin1String("m.id.user")}, {QLatin1String("user"), m_connection->userId()}};
-            authData[QLatin1String("identifier")] = identifier;
+            authData["session"_L1] = replyData["session"_L1];
+            authData["password"_L1] = password;
+            authData["type"_L1] = "m.login.password"_L1;
+            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->userId()}};
+            authData["identifier"_L1] = identifier;
             const auto innerJob = m_connection->callApi<NeochatAdd3PIdJob>(m_newIdSecret, m_newIdSid, authData);
             connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
                 m_connection->threePIdModel()->refreshModel();
@@ -159,10 +161,10 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
                 Q_EMIT newIdStatusChanged();
             });
             connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, this]() {
-                if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_FORBIDDEN")) {
+                if (innerJob->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1) {
                     m_newIdStatus = AuthFailure;
                     Q_EMIT newIdStatusChanged();
-                } else if (innerJob->jsonData()[QLatin1String("errcode")] == QLatin1String("M_THREEPID_AUTH_FAILED")) {
+                } else if (innerJob->jsonData()["errcode"_L1] == "M_THREEPID_AUTH_FAILED"_L1) {
                     m_newIdStatus = VerificationFailure;
                     Q_EMIT newIdStatusChanged();
                 } else {

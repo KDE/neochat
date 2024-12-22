@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QQmlEngine>
 
+using namespace Qt::StringLiterals;
+
 /**
  * @class PushRuleKind
  *
@@ -42,15 +44,15 @@ public:
     {
         switch (kind) {
         case Kind::Override:
-            return QLatin1String("override");
+            return u"override"_s;
         case Kind::Content:
-            return QLatin1String("content");
+            return u"content"_s;
         case Kind::Room:
-            return QLatin1String("room");
+            return u"room"_s;
         case Kind::Sender:
-            return QLatin1String("sender");
+            return u"sender"_s;
         case Kind::Underride:
-            return QLatin1String("underride");
+            return u"underride"_s;
         default:
             return {};
         }
@@ -170,15 +172,15 @@ public:
     {
         switch (section) {
         case Section::Master:
-            return QLatin1String("Master");
+            return u"Master"_s;
         case Section::Room:
-            return QLatin1String("Room Notifications");
+            return u"Room Notifications"_s;
         case Section::Mentions:
-            return QLatin1String("@Mentions");
+            return u"@Mentions"_s;
         case Section::Keywords:
-            return QLatin1String("Keywords");
+            return u"Keywords"_s;
         case Section::Invites:
-            return QLatin1String("Invites");
+            return u"Invites"_s;
         default:
             return {};
         }

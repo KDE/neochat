@@ -33,13 +33,13 @@ QVariant StickerModel::data(const QModelIndex &index, int role) const
     }
     if (role == IsStickerRole) {
         if (image.usage) {
-            return image.usage->isEmpty() || image.usage->contains("sticker"_ls);
+            return image.usage->isEmpty() || image.usage->contains("sticker"_L1);
         }
         return true;
     }
     if (role == IsEmojiRole) {
         if (image.usage) {
-            return image.usage->isEmpty() || image.usage->contains("emoticon"_ls);
+            return image.usage->isEmpty() || image.usage->contains("emoticon"_L1);
         }
         return true;
     }
@@ -118,18 +118,18 @@ void StickerModel::postSticker(int index)
     const auto &body = image.body ? *image.body : image.shortcode;
     QJsonObject infoJson;
     if (image.info) {
-        infoJson["w"_ls] = image.info->imageSize.width();
-        infoJson["h"_ls] = image.info->imageSize.height();
-        infoJson["mimetype"_ls] = image.info->mimeType.name();
-        infoJson["size"_ls] = image.info->payloadSize;
+        infoJson["w"_L1] = image.info->imageSize.width();
+        infoJson["h"_L1] = image.info->imageSize.height();
+        infoJson["mimetype"_L1] = image.info->mimeType.name();
+        infoJson["size"_L1] = image.info->payloadSize;
         // TODO thumbnail
     }
     QJsonObject content{
-        {"body"_ls, body},
-        {"url"_ls, image.url.toString()},
-        {"info"_ls, infoJson},
+        {"body"_L1, body},
+        {"url"_L1, image.url.toString()},
+        {"info"_L1, infoJson},
     };
-    m_room->postJson("m.sticker"_ls, content);
+    m_room->postJson("m.sticker"_L1, content);
 }
 
 #include "moc_stickermodel.cpp"

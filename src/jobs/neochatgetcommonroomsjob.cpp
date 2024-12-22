@@ -6,9 +6,6 @@
 using namespace Quotient;
 
 NeochatGetCommonRoomsJob::NeochatGetCommonRoomsJob(const QString &userId)
-    : BaseJob(HttpVerb::Get,
-              QStringLiteral("GetCommonRoomsJob"),
-              QStringLiteral("/_matrix/client/unstable/uk.half-shot.msc2666/user/mutual_rooms").toLatin1(),
-              QUrlQuery({{QStringLiteral("user_id"), userId}}))
+    : BaseJob(HttpVerb::Get, u"GetCommonRoomsJob"_s, "/_matrix/client/unstable/uk.half-shot.msc2666/user/mutual_rooms", QUrlQuery({{u"user_id"_s, userId}}))
 {
 }

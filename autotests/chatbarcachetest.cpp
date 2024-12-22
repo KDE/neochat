@@ -38,8 +38,8 @@ private Q_SLOTS:
 
 void ChatBarCacheTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-min-sync.json"));
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, "test-min-sync.json"_L1);
 }
 
 void ChatBarCacheTest::empty()
@@ -59,7 +59,7 @@ void ChatBarCacheTest::empty()
 void ChatBarCacheTest::noRoom()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache());
-    chatBarCache->setReplyId(QLatin1String("$153456789:example.org"));
+    chatBarCache->setReplyId(u"$153456789:example.org"_s);
 
     // These should return empty even though a reply ID has been set because the
     // ChatBarCache has no parent.
@@ -75,7 +75,7 @@ void ChatBarCacheTest::badParent()
 {
     QScopedPointer<QObject> badParent(new QObject());
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(badParent.get()));
-    chatBarCache->setReplyId(QLatin1String("$153456789:example.org"));
+    chatBarCache->setReplyId(u"$153456789:example.org"_s);
 
     // These should return empty even though a reply ID has been set because the
     // ChatBarCache has no parent.
@@ -90,17 +90,17 @@ void ChatBarCacheTest::badParent()
 void ChatBarCacheTest::reply()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->setText(QLatin1String("some text"));
-    chatBarCache->setAttachmentPath(QLatin1String("some/path"));
-    chatBarCache->setReplyId(QLatin1String("$153456789:example.org"));
+    chatBarCache->setText(u"some text"_s);
+    chatBarCache->setAttachmentPath(u"some/path"_s);
+    chatBarCache->setReplyId(u"$153456789:example.org"_s);
 
-    QCOMPARE(chatBarCache->text(), QLatin1String("some text"));
+    QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), true);
-    QCOMPARE(chatBarCache->replyId(), QLatin1String("$153456789:example.org"));
+    QCOMPARE(chatBarCache->replyId(), u"$153456789:example.org"_s);
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(QLatin1String("@example:example.org")));
-    QCOMPARE(chatBarCache->relationMessage(), QLatin1String("This is an example\ntext message"));
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
 
@@ -108,39 +108,39 @@ void ChatBarCacheTest::edit()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
-    chatBarCache->setText(QLatin1String("some text"));
-    chatBarCache->setAttachmentPath(QLatin1String("some/path"));
+    chatBarCache->setText(u"some text"_s);
+    chatBarCache->setAttachmentPath(u"some/path"_s);
     connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [](const QString &oldEventId, const QString &newEventId) {
         QCOMPARE(oldEventId, QString());
-        QCOMPARE(newEventId, QString(QLatin1String("$153456789:example.org")));
+        QCOMPARE(newEventId, QString(u"$153456789:example.org"_s));
     });
-    chatBarCache->setEditId(QLatin1String("$153456789:example.org"));
+    chatBarCache->setEditId(u"$153456789:example.org"_s);
 
-    QCOMPARE(chatBarCache->text(), QLatin1String("some text"));
+    QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), true);
-    QCOMPARE(chatBarCache->editId(), QLatin1String("$153456789:example.org"));
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(QLatin1String("@example:example.org")));
-    QCOMPARE(chatBarCache->relationMessage(), QLatin1String("This is an example\ntext message"));
+    QCOMPARE(chatBarCache->editId(), u"$153456789:example.org"_s);
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
 
 void ChatBarCacheTest::attachment()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->setText(QLatin1String("some text"));
-    chatBarCache->setEditId(QLatin1String("$153456789:example.org"));
-    chatBarCache->setAttachmentPath(QLatin1String("some/path"));
+    chatBarCache->setText(u"some text"_s);
+    chatBarCache->setEditId(u"$153456789:example.org"_s);
+    chatBarCache->setAttachmentPath(u"some/path"_s);
 
-    QCOMPARE(chatBarCache->text(), QLatin1String("some text"));
+    QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
     QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
     QCOMPARE(chatBarCache->relationMessage(), QString());
-    QCOMPARE(chatBarCache->attachmentPath(), QLatin1String("some/path"));
+    QCOMPARE(chatBarCache->attachmentPath(), u"some/path"_s);
 }
 
 QTEST_MAIN(ChatBarCacheTest)

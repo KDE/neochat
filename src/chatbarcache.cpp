@@ -57,7 +57,7 @@ QString ChatBarCache::formatMentions() const
         }
         formattedText = formattedText.replace(mention.cursor.anchor(),
                                               mention.cursor.position() - mention.cursor.anchor(),
-                                              QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text.toHtmlEscaped(), mention.id));
+                                              u"[%1](https://matrix.to/#/%2)"_s.arg(mention.text.toHtmlEscaped(), mention.id));
     }
 
     return formattedText;
@@ -256,7 +256,7 @@ void ChatBarCache::updateMentions(QQuickTextDocument *document, ChatDocumentHand
     if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
         if (const auto &roomMessageEvent = &*event->viewAs<Quotient::RoomMessageEvent>()) {
             // Replaces the mentions that are baked into the HTML but plaintext in the original markdown
-            const QRegularExpression re(QStringLiteral(R"lit(<a\shref="https:\/\/matrix.to\/#\/([\S]*)"\s?>([\S]*)<\/a>)lit"));
+            const QRegularExpression re(uR"lit(<a\shref="https:\/\/matrix.to\/#\/([\S]*)"\s?>([\S]*)<\/a>)lit"_s);
 
             m_mentions.clear();
 

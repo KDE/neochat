@@ -36,20 +36,20 @@ static const QStringList basicPermissions = {
 };
 
 static const QStringList knownPermissions = {
-    QStringLiteral("m.reaction"),
-    QStringLiteral("m.room.redaction"),
-    QStringLiteral("m.room.power_levels"),
-    QStringLiteral("m.room.name"),
-    QStringLiteral("m.room.avatar"),
-    QStringLiteral("m.room.canonical_alias"),
-    QStringLiteral("m.room.topic"),
-    QStringLiteral("m.room.encryption"),
-    QStringLiteral("m.room.history_visibility"),
-    QStringLiteral("m.room.pinned_events"),
-    QStringLiteral("m.room.tombstone"),
-    QStringLiteral("m.room.server_acl"),
-    QStringLiteral("m.space.child"),
-    QStringLiteral("m.space.parent"),
+    u"m.reaction"_s,
+    u"m.room.redaction"_s,
+    u"m.room.power_levels"_s,
+    u"m.room.name"_s,
+    u"m.room.avatar"_s,
+    u"m.room.canonical_alias"_s,
+    u"m.room.topic"_s,
+    u"m.room.encryption"_s,
+    u"m.room.history_visibility"_s,
+    u"m.room.pinned_events"_s,
+    u"m.room.tombstone"_s,
+    u"m.room.server_acl"_s,
+    u"m.space.child"_s,
+    u"m.space.parent"_s,
 };
 
 // Alternate name text for default permissions.
@@ -61,20 +61,20 @@ static const QHash<QString, KLazyLocalizedString> permissionNames = {
     {KickKey, kli18nc("Room permission type", "Kick users")},
     {BanKey, kli18nc("Room permission type", "Ban users")},
     {RedactKey, kli18nc("Room permission type", "Remove messages sent by other users")},
-    {QStringLiteral("m.reaction"), kli18nc("Room permission type", "Send reactions")},
-    {QStringLiteral("m.room.redaction"), kli18nc("Room permission type", "Remove their own messages")},
-    {QStringLiteral("m.room.power_levels"), kli18nc("Room permission type", "Change user permissions")},
-    {QStringLiteral("m.room.name"), kli18nc("Room permission type", "Change the room name")},
-    {QStringLiteral("m.room.avatar"), kli18nc("Room permission type", "Change the room avatar")},
-    {QStringLiteral("m.room.canonical_alias"), kli18nc("Room permission type", "Change the room canonical alias")},
-    {QStringLiteral("m.room.topic"), kli18nc("Room permission type", "Change the room topic")},
-    {QStringLiteral("m.room.encryption"), kli18nc("Room permission type", "Enable encryption for the room")},
-    {QStringLiteral("m.room.history_visibility"), kli18nc("Room permission type", "Change the room history visibility")},
-    {QStringLiteral("m.room.pinned_events"), kli18nc("Room permission type", "Set pinned events")},
-    {QStringLiteral("m.room.tombstone"), kli18nc("Room permission type", "Upgrade the room")},
-    {QStringLiteral("m.room.server_acl"), kli18nc("Room permission type", "Set the room server access control list (ACL)")},
-    {QStringLiteral("m.space.child"), kli18nc("Room permission type", "Set the children of this space")},
-    {QStringLiteral("m.space.parent"), kli18nc("Room permission type", "Set the parent space of this room")},
+    {u"m.reaction"_s, kli18nc("Room permission type", "Send reactions")},
+    {u"m.room.redaction"_s, kli18nc("Room permission type", "Remove their own messages")},
+    {u"m.room.power_levels"_s, kli18nc("Room permission type", "Change user permissions")},
+    {u"m.room.name"_s, kli18nc("Room permission type", "Change the room name")},
+    {u"m.room.avatar"_s, kli18nc("Room permission type", "Change the room avatar")},
+    {u"m.room.canonical_alias"_s, kli18nc("Room permission type", "Change the room canonical alias")},
+    {u"m.room.topic"_s, kli18nc("Room permission type", "Change the room topic")},
+    {u"m.room.encryption"_s, kli18nc("Room permission type", "Enable encryption for the room")},
+    {u"m.room.history_visibility"_s, kli18nc("Room permission type", "Change the room history visibility")},
+    {u"m.room.pinned_events"_s, kli18nc("Room permission type", "Set pinned events")},
+    {u"m.room.tombstone"_s, kli18nc("Room permission type", "Upgrade the room")},
+    {u"m.room.server_acl"_s, kli18nc("Room permission type", "Set the room server access control list (ACL)")},
+    {u"m.space.child"_s, kli18nc("Room permission type", "Set the children of this space")},
+    {u"m.space.parent"_s, kli18nc("Room permission type", "Set the parent space of this room")},
 };
 
 // Subtitles for the default values.
@@ -86,9 +86,9 @@ static const QHash<QString, KLazyLocalizedString> permissionSubtitles = {
 
 // Permissions that should use the event default.
 static const QStringList eventPermissions = {
-    QStringLiteral("m.room.message"),
-    QStringLiteral("m.reaction"),
-    QStringLiteral("m.room.redaction"),
+    u"m.room.message"_s,
+    u"m.reaction"_s,
+    u"m.room.redaction"_s,
 };
 };
 
@@ -267,9 +267,9 @@ void PermissionsModel::setPowerLevel(const QString &permission, const int &newPo
         } else if (defaultPermissions.contains(permission) || basicPermissions.contains(permission)) {
             powerLevelContent[permission] = clampPowerLevel;
         } else {
-            auto eventPowerLevels = powerLevelContent[QLatin1String("events")].toObject();
+            auto eventPowerLevels = powerLevelContent["events"_L1].toObject();
             eventPowerLevels[permission] = clampPowerLevel;
-            powerLevelContent[QLatin1String("events")] = eventPowerLevels;
+            powerLevelContent["events"_L1] = eventPowerLevels;
         }
 
         m_room->setState<Quotient::RoomPowerLevelsEvent>(Quotient::fromJson<Quotient::PowerLevelsEventContent>(powerLevelContent));

@@ -49,19 +49,19 @@ QVariant AccountEmoticonModel::data(const QModelIndex &index, int role) const
     }
     if (role == IsStickerRole) {
         if (image.usage) {
-            return image.usage->isEmpty() || image.usage->contains("sticker"_ls);
+            return image.usage->isEmpty() || image.usage->contains("sticker"_L1);
         }
         if (m_images->pack && m_images->pack->usage) {
-            return m_images->pack->usage->isEmpty() || m_images->pack->usage->contains("sticker"_ls);
+            return m_images->pack->usage->isEmpty() || m_images->pack->usage->contains("sticker"_L1);
         }
         return true;
     }
     if (role == IsEmojiRole) {
         if (image.usage) {
-            return image.usage->isEmpty() || image.usage->contains("emoticon"_ls);
+            return image.usage->isEmpty() || image.usage->contains("emoticon"_L1);
         }
         if (m_images->pack && m_images->pack->usage) {
-            return m_images->pack->usage->isEmpty() || m_images->pack->usage->contains("emoticon"_ls);
+            return m_images->pack->usage->isEmpty() || m_images->pack->usage->contains("emoticon"_L1);
         }
         return true;
     }
@@ -93,7 +93,7 @@ void AccountEmoticonModel::setConnection(NeoChatConnection *connection)
     m_connection = connection;
     Q_EMIT connectionChanged();
     connect(m_connection, &Connection::accountDataChanged, this, [this](QString type) {
-        if (type == QStringLiteral("im.ponies.user_emotes")) {
+        if (type == u"im.ponies.user_emotes"_s) {
             reloadEmoticons();
         }
     });
@@ -107,8 +107,8 @@ void AccountEmoticonModel::reloadEmoticons()
     }
 
     QJsonObject json;
-    if (m_connection->hasAccountData("im.ponies.user_emotes"_ls)) {
-        json = m_connection->accountData("im.ponies.user_emotes"_ls)->contentJson();
+    if (m_connection->hasAccountData("im.ponies.user_emotes"_L1)) {
+        json = m_connection->accountData("im.ponies.user_emotes"_L1)->contentJson();
     }
     const auto &content = ImagePackEventContent(json);
     beginResetModel();
@@ -125,7 +125,7 @@ void AccountEmoticonModel::deleteEmoticon(int index)
     QJsonObject data;
     m_images->images.removeAt(index);
     m_images->fillJson(&data);
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, data);
 }
 
 void AccountEmoticonModel::setEmoticonBody(int index, const QString &text)
@@ -137,7 +137,7 @@ void AccountEmoticonModel::setEmoticonBody(int index, const QString &text)
     m_images->images[index].body = text;
     QJsonObject data;
     m_images->fillJson(&data);
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, data);
 }
 
 void AccountEmoticonModel::setEmoticonShortcode(int index, const QString &shortcode)
@@ -149,7 +149,7 @@ void AccountEmoticonModel::setEmoticonShortcode(int index, const QString &shortc
     m_images->images[index].shortcode = shortcode;
     QJsonObject data;
     m_images->fillJson(&data);
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, data);
 }
 
 void AccountEmoticonModel::setEmoticonImage(int index, const QUrl &source)
@@ -169,17 +169,17 @@ QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl sourc
     }
     m_images->images[index].url = job->contentUri();
     auto mime = QMimeDatabase().mimeTypeForUrl(source);
-    source.setScheme("file"_ls);
+    source.setScheme("file"_L1);
     QFileInfo fileInfo(source.isLocalFile() ? source.toLocalFile() : source.toString());
     EventContent::ImageInfo info;
-    if (mime.name().startsWith("image/"_ls)) {
+    if (mime.name().startsWith("image/"_L1)) {
         QImage image(source.toLocalFile());
         info = EventContent::ImageInfo(source, fileInfo.size(), mime, image.size(), fileInfo.fileName());
     }
     m_images->images[index].info = info;
     QJsonObject data;
     m_images->fillJson(&data);
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, data);
 }
 
 QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString shortcode, QString description, QString type)
@@ -191,10 +191,10 @@ QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString short
     }
 
     auto mime = QMimeDatabase().mimeTypeForUrl(source);
-    source.setScheme("file"_ls);
+    source.setScheme("file"_L1);
     QFileInfo fileInfo(source.isLocalFile() ? source.toLocalFile() : source.toString());
     EventContent::ImageInfo info;
-    if (mime.name().startsWith("image/"_ls)) {
+    if (mime.name().startsWith("image/"_L1)) {
         QImage image(source.toLocalFile());
         info = EventContent::ImageInfo(source, fileInfo.size(), mime, image.size(), fileInfo.fileName());
     }
@@ -208,7 +208,7 @@ QCoro::Task<void> AccountEmoticonModel::doAddEmoticon(QUrl source, QString short
     });
     QJsonObject data;
     m_images->fillJson(&data);
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, data);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, data);
 }
 
 void AccountEmoticonModel::addEmoticon(const QUrl &source, const QString &shortcode, const QString &description, const QString &type)

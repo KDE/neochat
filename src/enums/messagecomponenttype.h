@@ -13,6 +13,8 @@
 
 #include "events/pollevent.h"
 
+using namespace Qt::StringLiterals;
+
 /**
  * @class MessageComponentType
  *
@@ -92,7 +94,7 @@ public:
             return MessageComponentType::Image;
         }
         if (event.isStateEvent()) {
-            if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+            if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
                 return MessageComponentType::LiveLocation;
             }
             return MessageComponentType::Other;
@@ -120,10 +122,10 @@ public:
      */
     static Type typeForTag(const QString &tag)
     {
-        if (tag == QLatin1String("pre") || tag == QLatin1String("pre")) {
+        if (tag == u"pre"_s || tag == u"pre"_s) {
             return Code;
         }
-        if (tag == QLatin1String("blockquote")) {
+        if (tag == u"blockquote"_s) {
             return Quote;
         }
         return Text;

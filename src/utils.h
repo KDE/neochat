@@ -11,6 +11,8 @@
 
 #include <Quotient/user.h>
 
+using namespace Qt::StringLiterals;
+
 class QmlUtils : public QObject
 {
     Q_OBJECT
@@ -60,26 +62,23 @@ bool isEmoji(const QString &text);
 
 namespace TextRegex
 {
-static const QRegularExpression endTagType{QStringLiteral("[> /]")};
-static const QRegularExpression endAttributeType{QStringLiteral("[> ]")};
-static const QRegularExpression attributeData{QStringLiteral("['\"](.*?)['\"]")};
-static const QRegularExpression removeReply{QStringLiteral("> <.*?>.*?\\n\\n"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression removeRichReply{QStringLiteral("<mx-reply>.*?</mx-reply>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression codePill{QStringLiteral("<pre><code[^>]*>(.*?)</code></pre>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression userPill{QStringLiteral("(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression blockQuote{QStringLiteral("<blockquote>\n?(?:<p>)?(.*?)(?:</p>)?\n?</blockquote>"),
-                                           QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression strikethrough{QStringLiteral("<del>(.*?)</del>"), QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression mxcImage{QStringLiteral(R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA")};
+static const QRegularExpression endTagType{u"[> /]"_s};
+static const QRegularExpression endAttributeType{u"[> ]"_s};
+static const QRegularExpression attributeData{u"['\"](.*?)['\"]"_s};
+static const QRegularExpression removeReply{u"> <.*?>.*?\\n\\n"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression removeRichReply{u"<mx-reply>.*?</mx-reply>"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression codePill{u"<pre><code[^>]*>(.*?)</code></pre>"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression userPill{u"(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression blockQuote{u"<blockquote>\n?(?:<p>)?(.*?)(?:</p>)?\n?</blockquote>"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression strikethrough{u"<del>(.*?)</del>"_s, QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression mxcImage{uR"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA"_s};
 static const QRegularExpression plainUrl(
-    QStringLiteral(
-        R"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^?&!,.\s<>'"\]):])))"),
+    uR"(<a.*?<\/a>(*SKIP)(*F)|\b((www\.(?!\.)(?!(\w|\.|-)+@)|(https?|ftp):(//)?\w|(magnet|matrix):)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^?&!,.\s<>'"\]):])))"_s,
     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression
-    url(QStringLiteral(R"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(//)?\w)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"),
-        QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression emailAddress(QStringLiteral(R"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto:)?((\w|\.|-)+@(\w|\.|-)+\.\w+\b))"),
+static const QRegularExpression url(uR"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(//)?\w)(&(?![lg]t;)|[^&\s<>'"])+(&(?![lg]t;)|[^&!,.\s<>'"\]):])))"_s,
+                                    QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
+static const QRegularExpression emailAddress(uR"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto:)?((\w|\.|-)+@(\w|\.|-)+\.\w+\b))"_s,
                                              QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression mxId(QStringLiteral(R"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"),
+static const QRegularExpression mxId(uR"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s,
                                      QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 }

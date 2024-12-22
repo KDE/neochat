@@ -283,11 +283,11 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
             if (theme != nullptr) {
                 disabledTextColor = theme->disabledTextColor().name();
             } else {
-                disabledTextColor = QStringLiteral("#000000");
+                disabledTextColor = u"#000000"_s;
             }
-            return QString(QStringLiteral("<span style=\"color:%1\">").arg(disabledTextColor)
+            return QString(u"<span style=\"color:%1\">"_s.arg(disabledTextColor)
                            + i18nc("@info", "This message was either not found, you do not have permission to view it, or it was sent by an ignored user")
-                           + QStringLiteral("</span>"));
+                           + u"</span>"_s);
         }
         if (component.type == MessageComponentType::Loading) {
             if (m_isReply) {
@@ -324,7 +324,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         });
 
         auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return EventHandler::timeString(event.first, QStringLiteral("hh:mm"), m_currentState == Pending, lastUpdated);
+        return EventHandler::timeString(event.first, u"hh:mm"_s, m_currentState == Pending, lastUpdated);
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
@@ -364,7 +364,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == LinkPreviewerRole) {
         if (component.type == MessageComponentType::LinkPreview) {
             return QVariant::fromValue<LinkPreviewer *>(
-                dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_ls].toUrl()));
+                dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(component.attributes["link"_L1].toUrl()));
         } else {
             return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
         }
@@ -462,7 +462,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     QList<MessageComponent> newComponents;
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-    if (roomMessageEvent && roomMessageEvent->rawMsgtype() == QStringLiteral("m.key.verification.request")) {
+    if (roomMessageEvent && roomMessageEvent->rawMsgtype() == u"m.key.verification.request"_s) {
         newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
         return newComponents;
     }
@@ -556,7 +556,7 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
 #ifndef Q_OS_ANDROID
                 Q_ASSERT(roomMessageEvent->content() != nullptr && roomMessageEvent->has<EventContent::FileContent>());
                 const QMimeType mimeType = roomMessageEvent->get<EventContent::FileContent>()->mimeType;
-                if (mimeType.name() == QStringLiteral("text/plain") || mimeType.parentMimeTypes().contains(QStringLiteral("text/plain"))) {
+                if (mimeType.name() == u"text/plain"_s || mimeType.parentMimeTypes().contains(u"text/plain"_s)) {
                     QString originalName = roomMessageEvent->get<EventContent::FileContent>()->originalName;
                     if (originalName.isEmpty()) {
                         originalName = roomMessageEvent->plainBody();
@@ -571,13 +571,13 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
                     file.open(QIODevice::ReadOnly);
                     components += MessageComponent{MessageComponentType::Code,
                                                    QString::fromStdString(file.readAll().toStdString()),
-                                                   {{QStringLiteral("class"), definitionForFile.name()}}};
+                                                   {{u"class"_s, definitionForFile.name()}}};
                 }
 #endif
 
                 if (FileType::instance().fileHasImage(fileTransferInfo.localPath)) {
                     QImageReader reader(fileTransferInfo.localPath.path());
-                    components += MessageComponent{MessageComponentType::Pdf, QString(), {{QStringLiteral("size"), reader.size()}}};
+                    components += MessageComponent{MessageComponentType::Pdf, QString(), {{u"size"_s, reader.size()}}};
                 }
             }
         } else if (m_itineraryModel != nullptr) {
@@ -632,13 +632,13 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
         return {};
     }
     if (linkPreviewer->loaded()) {
-        return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_ls, link}}};
+        return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_L1, link}}};
     } else {
         connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
             const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
             if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
                 for (auto &component : m_components) {
-                    if (component.attributes["link"_ls].toUrl() == link) {
+                    if (component.attributes["link"_L1].toUrl() == link) {
                         // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
                         beginResetModel();
                         component.type = MessageComponentType::LinkPreview;
@@ -647,7 +647,7 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
                 }
             }
         });
-        return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_ls, link}}};
+        return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
     }
 }
 
@@ -682,7 +682,7 @@ void MessageContentModel::closeLinkPreview(int row)
 
     if (m_components[row].type == MessageComponentType::LinkPreview || m_components[row].type == MessageComponentType::LinkPreviewLoad) {
         beginResetModel();
-        m_removedLinkPreviews += m_components[row].attributes["link"_ls].toUrl();
+        m_removedLinkPreviews += m_components[row].attributes["link"_L1].toUrl();
         m_components.remove(row);
         m_components.squeeze();
         endResetModel();

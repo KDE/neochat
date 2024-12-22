@@ -58,13 +58,13 @@ RemoteMatches Runner::Match(const QString &searchTerm)
 
         const QString name = m_model->data(m_model->index(i, 0), RoomListModel::DisplayNameRole).toString();
 
-        match.iconName = QStringLiteral("org.kde.neochat");
+        match.iconName = u"org.kde.neochat"_s;
         match.id = m_model->data(m_model->index(i, 0), RoomListModel::RoomIdRole).toString();
         match.text = name;
         match.relevance = 1;
         const RemoteImage remoteImage = serializeImage(m_model->data(m_model->index(i, 0), RoomListModel::AvatarImageRole).value<QImage>());
-        match.properties.insert(QStringLiteral("icon-data"), QVariant::fromValue(remoteImage));
-        match.properties.insert(QStringLiteral("subtext"), m_model->data(m_model->index(i, 0), RoomListModel::TopicRole).toString());
+        match.properties.insert(u"icon-data"_s, QVariant::fromValue(remoteImage));
+        match.properties.insert(u"subtext"_s, m_model->data(m_model->index(i, 0), RoomListModel::TopicRole).toString());
 
         if (name.compare(searchTerm, Qt::CaseInsensitive) == 0) {
             match.type = ExactMatch;

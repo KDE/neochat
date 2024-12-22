@@ -31,7 +31,7 @@ public:
     {
         if (!syncFileName.isEmpty()) {
             QFile testSyncFile;
-            testSyncFile.setFileName(QLatin1String(DATA_DIR) + u'/' + syncFileName);
+            testSyncFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + syncFileName);
             testSyncFile.open(QIODevice::ReadOnly);
             const auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll());
             Quotient::SyncRoomData roomData(id(), Quotient::JoinState::Join, testSyncJson.object());
@@ -45,7 +45,7 @@ inline Quotient::event_ptr_tt<EventT> loadEventFromFile(const QString &eventFile
 {
     if (!eventFileName.isEmpty()) {
         QFile testEventFile;
-        testEventFile.setFileName(QLatin1String(DATA_DIR) + u'/' + eventFileName);
+        testEventFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + eventFileName);
         testEventFile.open(QIODevice::ReadOnly);
         auto testSyncJson = QJsonDocument::fromJson(testEventFile.readAll()).object();
         return Quotient::loadEvent<EventT>(testSyncJson);

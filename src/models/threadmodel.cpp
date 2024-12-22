@@ -77,8 +77,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
     if (!m_currentJob && m_nextBatch.has_value()) {
         const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
         const auto connection = room->connection();
-        m_currentJob =
-            connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, QLatin1String("m.thread"), *m_nextBatch, QString(), 5);
+        m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), 5);
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
             const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
             auto newEvents = m_currentJob->chunk();

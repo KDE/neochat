@@ -43,9 +43,9 @@ void PollHandler::updatePoll(Quotient::RoomEventsRange events)
         if (event->is<PollResponseEvent>()) {
             handleAnswer(event->contentJson(), event->senderId(), event->originTimestamp());
         }
-        if (event->contentPart<QJsonObject>("m.relates_to"_ls).contains("rel_type"_ls)
-            && event->contentPart<QJsonObject>("m.relates_to"_ls)["rel_type"_ls].toString() == "m.replace"_ls
-            && event->contentPart<QJsonObject>("m.relates_to"_ls)["event_id"_ls].toString() == m_pollStartEvent->id()) {
+        if (event->contentPart<QJsonObject>("m.relates_to"_L1).contains("rel_type"_L1)
+            && event->contentPart<QJsonObject>("m.relates_to"_L1)["rel_type"_L1].toString() == "m.replace"_L1
+            && event->contentPart<QJsonObject>("m.relates_to"_L1)["event_id"_L1].toString() == m_pollStartEvent->id()) {
             Q_EMIT questionChanged();
             Q_EMIT optionsChanged();
         }
@@ -86,7 +86,7 @@ void PollHandler::handleAnswer(const QJsonObject &content, const QString &sender
         m_answerTimestamps[sender] = timestamp;
         m_answers[sender] = {};
         int i = 0;
-        for (const auto &answer : content["org.matrix.msc3381.poll.response"_ls]["answers"_ls].toArray()) {
+        for (const auto &answer : content["org.matrix.msc3381.poll.response"_L1]["answers"_L1].toArray()) {
             auto array = m_answers[sender].toArray();
             array.insert(0, answer);
             m_answers[sender] = array;
@@ -109,7 +109,7 @@ QString PollHandler::question() const
     if (m_pollStartEvent == nullptr) {
         return {};
     }
-    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["question"_ls].toObject()["body"_ls].toString();
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_L1)["question"_L1].toObject()["body"_L1].toString();
 }
 
 QJsonArray PollHandler::options() const
@@ -117,7 +117,7 @@ QJsonArray PollHandler::options() const
     if (m_pollStartEvent == nullptr) {
         return {};
     }
-    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["answers"_ls].toArray();
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_L1)["answers"_L1].toArray();
 }
 
 QJsonObject PollHandler::answers() const
@@ -141,7 +141,7 @@ QString PollHandler::kind() const
     if (m_pollStartEvent == nullptr) {
         return {};
     }
-    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_ls)["kind"_ls].toString();
+    return m_pollStartEvent->contentPart<QJsonObject>("org.matrix.msc3381.poll.start"_L1)["kind"_L1].toString();
 }
 
 void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId)

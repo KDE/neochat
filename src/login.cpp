@@ -25,14 +25,14 @@ void LoginHelper::init()
     m_connection = new NeoChatConnection();
     m_matrixId = QString();
     m_password = QString();
-    m_deviceName = QStringLiteral("NeoChat");
+    m_deviceName = u"NeoChat"_s;
     m_supportsSso = false;
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
 
     connect(this, &LoginHelper::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
-        QRegularExpression validator(QStringLiteral("^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$"));
+        QRegularExpression validator(u"^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$"_s);
         if (!validator.match(m_matrixId).hasMatch()) {
             return;
         }
@@ -89,7 +89,7 @@ void LoginHelper::init()
         Q_EMIT isLoggingInChanged();
     });
     connect(m_connection, &Connection::loginError, this, [this](QString error, const QString &) {
-        if (error == QStringLiteral("Invalid username or password")) {
+        if (error == u"Invalid username or password"_s) {
             setInvalidPassword(true);
         } else {
             Q_EMIT loginErrorOccured(i18n("Login Failed: %1", error));

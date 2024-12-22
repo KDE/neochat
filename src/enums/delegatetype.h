@@ -13,6 +13,8 @@
 
 #include "events/pollevent.h"
 
+using namespace Qt::StringLiterals;
+
 /**
  * @class DelegateType
  *
@@ -58,7 +60,7 @@ public:
             return Message;
         }
         if (event.isStateEvent()) {
-            if (event.matrixType() == QStringLiteral("org.matrix.msc3672.beacon_info")) {
+            if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
                 return Message;
             }
             return State;

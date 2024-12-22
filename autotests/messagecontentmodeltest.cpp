@@ -32,25 +32,25 @@ private Q_SLOTS:
 
 void MessageContentModelTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
 }
 
 void MessageContentModelTest::missingEvent()
 {
-    auto room = new TestUtils::TestRoom(connection, QStringLiteral("#firstRoom:kde.org"));
-    auto model1 = MessageContentModel(room, "$153456789:example.org"_L1);
+    auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
+    auto model1 = MessageContentModel(room, u"$153456789:example.org"_s);
 
     QCOMPARE(model1.rowCount(), 1);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), "Loading"_L1);
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), u"Loading"_s);
 
-    auto model2 = MessageContentModel(room, "$153456789:example.org"_L1, true);
+    auto model2 = MessageContentModel(room, u"$153456789:example.org"_s, true);
 
     QCOMPARE(model2.rowCount(), 1);
     QCOMPARE(model2.data(model2.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);
-    QCOMPARE(model2.data(model2.index(0), MessageContentModel::DisplayRole), "Loading reply"_L1);
+    QCOMPARE(model2.data(model2.index(0), MessageContentModel::DisplayRole), u"Loading reply"_s);
 
-    room->syncNewEvents(QLatin1String("test-min-sync.json"));
+    room->syncNewEvents(u"test-min-sync.json"_s);
     QCOMPARE(model1.rowCount(), 2);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Author);
     QCOMPARE(model1.data(model1.index(1), MessageContentModel::ComponentTypeRole), MessageComponentType::Text);

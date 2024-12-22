@@ -5,6 +5,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 SpaceTreeItem::SpaceTreeItem(NeoChatConnection *connection,
                              SpaceTreeItem *parent,
                              const QString &id,
@@ -122,11 +124,11 @@ int SpaceTreeItem::memberCount() const
 
 QUrl SpaceTreeItem::avatarUrl() const
 {
-    if (m_avatarUrl.isEmpty() || m_avatarUrl.scheme() != QLatin1String("mxc")) {
+    if (m_avatarUrl.isEmpty() || m_avatarUrl.scheme() != u"mxc"_s) {
         return {};
     }
     auto url = m_connection->makeMediaUrl(m_avatarUrl);
-    if (url.scheme() == QLatin1String("mxc")) {
+    if (url.scheme() == u"mxc"_s) {
         return url;
     }
     return {};
@@ -199,5 +201,5 @@ bool SpaceTreeItem::isSuggested() const
         return false;
     }
     const auto childStateContent = m_parentItem->childStateContent(this);
-    return childStateContent.value(QLatin1String("suggested")).toBool();
+    return childStateContent.value("suggested"_L1).toBool();
 }

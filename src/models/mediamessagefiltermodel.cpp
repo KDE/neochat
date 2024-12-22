@@ -10,6 +10,8 @@
 #include "messageeventmodel.h"
 #include "messagefiltermodel.h"
 
+using namespace Qt::StringLiterals;
+
 MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent, MessageFilterModel *sourceMediaModel)
     : QSortFilterProxyModel(parent)
 {
@@ -21,8 +23,8 @@ bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-    if (index.data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("image"))
-        || index.data(MessageEventModel::MediaInfoRole).toMap()[QLatin1String("mimeType")].toString().contains(QLatin1String("video"))) {
+    if (index.data(MessageEventModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("image"_L1)
+        || index.data(MessageEventModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("video"_L1)) {
         return true;
     }
     return false;
@@ -49,19 +51,19 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
     QVariantMap mediaInfo = mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap();
 
     if (role == TempSourceRole) {
-        return mediaInfo[QStringLiteral("tempInfo")].toMap()[QStringLiteral("source")].toUrl();
+        return mediaInfo[u"tempInfo"_s].toMap()[u"source"_s].toUrl();
     }
     if (role == CaptionRole) {
         return mapToSource(index).data(Qt::DisplayRole);
     }
     if (role == SourceWidthRole) {
-        return mediaInfo[QStringLiteral("width")].toFloat();
+        return mediaInfo[u"width"_s].toFloat();
     }
     if (role == SourceHeightRole) {
-        return mediaInfo[QStringLiteral("height")].toFloat();
+        return mediaInfo[u"height"_s].toFloat();
     }
 
-    bool isVideo = mediaInfo[QStringLiteral("mimeType")].toString().contains(QStringLiteral("video"));
+    bool isVideo = mediaInfo[u"mimeType"_s].toString().contains("video"_L1);
 
     if (role == TypeRole) {
         return (isVideo) ? MediaType::Video : MediaType::Image;
@@ -73,7 +75,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
                 return mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
             }
         } else {
-            return mediaInfo[QStringLiteral("source")].toUrl();
+            return mediaInfo[u"source"_s].toUrl();
         }
     }
 

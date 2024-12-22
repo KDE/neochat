@@ -31,8 +31,8 @@ private Q_SLOTS:
 
 void PollHandlerTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), "test-pollhandlerstart-sync.json"_ls);
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-pollhandlerstart-sync.json"_s);
 }
 
 // Basically don't crash.
@@ -54,16 +54,16 @@ void PollHandlerTest::poll()
     auto startEvent = eventCast<const PollStartEvent>(room->messageEvents().at(0).get());
     auto pollHandler = PollHandler(room, startEvent);
 
-    auto options = QJsonArray{QJsonObject{{"id"_ls, "option1"_ls}, {"org.matrix.msc1767.text"_ls, "option1"_ls}},
-                              QJsonObject{{"id"_ls, "option2"_ls}, {"org.matrix.msc1767.text"_ls, "option2"_ls}}};
+    auto options = QJsonArray{QJsonObject{{"id"_L1, "option1"_L1}, {"org.matrix.msc1767.text"_L1, "option1"_L1}},
+                              QJsonObject{{"id"_L1, "option2"_L1}, {"org.matrix.msc1767.text"_L1, "option2"_L1}}};
 
     QCOMPARE(pollHandler.hasEnded(), false);
     QCOMPARE(pollHandler.answerCount(), 0);
-    QCOMPARE(pollHandler.question(), QStringLiteral("test"));
+    QCOMPARE(pollHandler.question(), u"test"_s);
     QCOMPARE(pollHandler.options(), options);
     QCOMPARE(pollHandler.answers(), QJsonObject());
     QCOMPARE(pollHandler.counts(), QJsonObject());
-    QCOMPARE(pollHandler.kind(), QStringLiteral("org.matrix.msc3381.poll.disclosed"));
+    QCOMPARE(pollHandler.kind(), u"org.matrix.msc3381.poll.disclosed"_s);
 }
 
 QTEST_GUILESS_MAIN(PollHandlerTest)

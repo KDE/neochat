@@ -16,6 +16,8 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/util.h>
 
+using namespace Qt::StringLiterals;
+
 namespace Quotient
 {
 class CheckUsernameAvailabilityJob;
@@ -26,7 +28,7 @@ class NeoChatConnection;
 class NeoChatRegisterJob : public Quotient::BaseJob
 {
 public:
-    explicit NeoChatRegisterJob(const QString &kind = QStringLiteral("user"),
+    explicit NeoChatRegisterJob(const QString &kind = u"user"_s,
                                 const std::optional<QJsonObject> &auth = {},
                                 const QString &username = {},
                                 const QString &password = {},
@@ -36,22 +38,22 @@ public:
 
     QString userId() const
     {
-        return loadFromJson<QString>(QStringLiteral("user_id"));
+        return loadFromJson<QString>(u"user_id"_s);
     }
 
     QString accessToken() const
     {
-        return loadFromJson<QString>(QStringLiteral("access_token"));
+        return loadFromJson<QString>(u"access_token"_s);
     }
 
     QString homeServer() const
     {
-        return loadFromJson<QString>(QStringLiteral("home_server"));
+        return loadFromJson<QString>(u"home_server"_s);
     }
 
     QString deviceId() const
     {
-        return loadFromJson<QString>(QStringLiteral("device_id"));
+        return loadFromJson<QString>(u"device_id"_s);
     }
 };
 

@@ -34,14 +34,14 @@ void CustomEmojiModel::fetchEmojis()
         return;
     }
 
-    const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
+    const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
     if (data == nullptr) {
         return;
     }
-    QJsonObject emojis = data->contentJson()["images"_ls].toObject();
+    QJsonObject emojis = data->contentJson()["images"_L1].toObject();
 
     // TODO: Remove with stable migration
-    const auto legacyEmojis = data->contentJson()["emoticons"_ls].toObject();
+    const auto legacyEmojis = data->contentJson()["emoticons"_L1].toObject();
     for (const auto &emoji : legacyEmojis.keys()) {
         if (!emojis.contains(emoji)) {
             emojis[emoji] = legacyEmojis[emoji];
@@ -54,9 +54,9 @@ void CustomEmojiModel::fetchEmojis()
     for (const auto &emoji : emojis.keys()) {
         const auto &data = emojis[emoji];
 
-        const auto e = emoji.startsWith(":"_ls) ? emoji : (QStringLiteral(":") + emoji + QStringLiteral(":"));
+        const auto e = emoji.startsWith(":"_L1) ? emoji : (u":"_s + emoji + u":"_s);
 
-        m_emojis << CustomEmoji{e, data.toObject()["url"_ls].toString(), QRegularExpression(e)};
+        m_emojis << CustomEmoji{e, data.toObject()["url"_L1].toString(), QRegularExpression(e)};
     }
 
     endResetModel();
@@ -69,29 +69,29 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
     auto job = m_connection->uploadFile(location.toLocalFile());
 
     connect(job, &BaseJob::success, this, [name, location, job, this] {
-        const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
+        const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
         auto json = data != nullptr ? data->contentJson() : QJsonObject();
-        auto emojiData = json["images"_ls].toObject();
+        auto emojiData = json["images"_L1].toObject();
 
         QString url;
         url = job->contentUri().toString();
 
         QImage image(location.toLocalFile());
         QJsonObject imageInfo;
-        imageInfo["w"_ls] = image.width();
-        imageInfo["h"_ls] = image.height();
-        imageInfo["mimetype"_ls] = QMimeDatabase().mimeTypeForFile(location.toLocalFile()).name();
-        imageInfo["size"_ls] = image.sizeInBytes();
+        imageInfo["w"_L1] = image.width();
+        imageInfo["h"_L1] = image.height();
+        imageInfo["mimetype"_L1] = QMimeDatabase().mimeTypeForFile(location.toLocalFile()).name();
+        imageInfo["size"_L1] = image.sizeInBytes();
 
-        emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
-            {QStringLiteral("url"), url},
-            {QStringLiteral("info"), imageInfo},
-            {QStringLiteral("body"), location.fileName()},
-            {"usage"_ls, "emoticon"_ls},
+        emojiData["%1"_L1.arg(name)] = QJsonObject({
+            {u"url"_s, url},
+            {u"info"_s, imageInfo},
+            {u"body"_s, location.fileName()},
+            {u"usage"_s, "emoticon"_L1},
         });
 
-        json["images"_ls] = emojiData;
-        m_connection->setAccountData("im.ponies.user_emotes"_ls, json);
+        json["images"_L1] = emojiData;
+        m_connection->setAccountData("im.ponies.user_emotes"_L1, json);
     });
 }
 
@@ -99,30 +99,30 @@ void CustomEmojiModel::removeEmoji(const QString &name)
 {
     using namespace Quotient;
 
-    const auto &data = m_connection->accountData("im.ponies.user_emotes"_ls);
+    const auto &data = m_connection->accountData("im.ponies.user_emotes"_L1);
     Q_ASSERT(data);
     auto json = data->contentJson();
     const QString _name = name.mid(1).chopped(1);
-    auto emojiData = json["images"_ls].toObject();
+    auto emojiData = json["images"_L1].toObject();
 
     if (emojiData.contains(name)) {
         emojiData.remove(name);
-        json["images"_ls] = emojiData;
+        json["images"_L1] = emojiData;
     }
     if (emojiData.contains(_name)) {
         emojiData.remove(_name);
-        json["images"_ls] = emojiData;
+        json["images"_L1] = emojiData;
     }
-    emojiData = json["emoticons"_ls].toObject();
+    emojiData = json["emoticons"_L1].toObject();
     if (emojiData.contains(name)) {
         emojiData.remove(name);
-        json["emoticons"_ls] = emojiData;
+        json["emoticons"_L1] = emojiData;
     }
     if (emojiData.contains(_name)) {
         emojiData.remove(_name);
-        json["emoticons"_ls] = emojiData;
+        json["emoticons"_L1] = emojiData;
     }
-    m_connection->setAccountData("im.ponies.user_emotes"_ls, json);
+    m_connection->setAccountData("im.ponies.user_emotes"_L1, json);
 }
 
 CustomEmojiModel::CustomEmojiModel(QObject *parent)
@@ -134,7 +134,7 @@ CustomEmojiModel::CustomEmojiModel(QObject *parent)
         }
         CustomEmojiModel::fetchEmojis();
         connect(m_connection, &Connection::accountDataChanged, this, [this](const QString &id) {
-            if (id != QStringLiteral("im.ponies.user_emotes")) {
+            if (id != u"im.ponies.user_emotes"_s) {
                 return;
             }
             fetchEmojis();
@@ -189,9 +189,8 @@ QHash<int, QByteArray> CustomEmojiModel::roleNames() const
 QString CustomEmojiModel::preprocessText(QString text)
 {
     for (const auto &emoji : std::as_const(m_emojis)) {
-        text.replace(
-            emoji.regexp,
-            QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
+        text.replace(emoji.regexp,
+                     uR"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)"_s.arg(emoji.url, emoji.name));
     }
     return text;
 }

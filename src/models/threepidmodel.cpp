@@ -11,6 +11,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 ThreePIdModel::ThreePIdModel(NeoChatConnection *connection)
     : QAbstractListModel(connection)
 {
@@ -82,8 +84,8 @@ void ThreePIdModel::refreshBindStatus()
 
     const auto openIdJob = connection->callApi<Quotient::RequestOpenIdTokenJob>(connection->userId());
     connect(openIdJob, &Quotient::BaseJob::success, this, [this, connection, openIdJob]() {
-        const auto requestUrl = QUrl(connection->identityServer().toString() + QStringLiteral("/_matrix/identity/v2/account/register"));
-        if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+        const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
+        if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
             return;
         }
 
@@ -91,10 +93,10 @@ void ThreePIdModel::refreshBindStatus()
         auto newRequest = Quotient::NetworkAccessManager::instance()->post(request, QJsonDocument(openIdJob->jsonData()).toJson());
         connect(newRequest, &QNetworkReply::finished, this, [this, connection, newRequest]() {
             QJsonObject replyJson = QJsonDocument::fromJson(newRequest->readAll()).object();
-            const auto identityServerToken = replyJson[QLatin1String("token")].toString();
+            const auto identityServerToken = replyJson["token"_L1].toString();
 
-            const auto requestUrl = QUrl(connection->identityServer().toString() + QStringLiteral("/_matrix/identity/v2/hash_details"));
-            if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+            const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/hash_details"_s);
+            if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
                 return;
             }
 
@@ -104,10 +106,10 @@ void ThreePIdModel::refreshBindStatus()
             auto hashReply = Quotient::NetworkAccessManager::instance()->get(hashRequest);
             connect(hashReply, &QNetworkReply::finished, this, [this, connection, identityServerToken, hashReply]() {
                 QJsonObject replyJson = QJsonDocument::fromJson(hashReply->readAll()).object();
-                const auto lookupPepper = replyJson[QLatin1String("lookup_pepper")].toString();
+                const auto lookupPepper = replyJson["lookup_pepper"_L1].toString();
 
-                const auto requestUrl = QUrl(connection->identityServer().toString() + QStringLiteral("/_matrix/identity/v2/lookup"));
-                if (!(requestUrl.scheme() == QStringLiteral("https") || requestUrl.scheme() == QStringLiteral("http"))) {
+                const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/lookup"_s);
+                if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
                     return;
                 }
 
@@ -115,21 +117,21 @@ void ThreePIdModel::refreshBindStatus()
                 lookupRequest.setRawHeader("Authorization", "Bearer " + identityServerToken.toLatin1());
 
                 QJsonObject requestData = {
-                    {QLatin1String("algorithm"), QLatin1String("none")},
-                    {QLatin1String("pepper"), lookupPepper},
+                    {"algorithm"_L1, "none"_L1},
+                    {"pepper"_L1, lookupPepper},
                 };
                 QJsonArray idLookups;
                 for (const auto &id : m_threePIds) {
-                    idLookups += QStringLiteral("%1 %2").arg(id.address, id.medium);
+                    idLookups += u"%1 %2"_s.arg(id.address, id.medium);
                 }
-                requestData[QLatin1String("addresses")] = idLookups;
+                requestData["addresses"_L1] = idLookups;
 
                 auto lookupReply = Quotient::NetworkAccessManager::instance()->post(lookupRequest, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
                 connect(lookupReply, &QNetworkReply::finished, this, [this, connection, lookupReply]() {
                     beginResetModel();
                     m_bindings.clear();
 
-                    QJsonObject mappings = QJsonDocument::fromJson(lookupReply->readAll()).object()[QLatin1String("mappings")].toObject();
+                    QJsonObject mappings = QJsonDocument::fromJson(lookupReply->readAll()).object()["mappings"_L1].toObject();
                     for (const auto &id : mappings.keys()) {
                         if (mappings[id] == connection->userId()) {
                             m_bindings += id.section(u' ', 0, 0);

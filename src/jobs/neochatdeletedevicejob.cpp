@@ -6,9 +6,9 @@
 using namespace Quotient;
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const std::optional<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
+    : BaseJob(HttpVerb::Delete, u"DeleteDeviceJob"_s, u"/_matrix/client/r0/devices/%1"_s.arg(deviceId).toLatin1())
 {
     QJsonObject _data;
-    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
+    addParam<IfNotEmpty>(_data, u"auth"_s, auth);
     setRequestData(std::move(_data));
 }

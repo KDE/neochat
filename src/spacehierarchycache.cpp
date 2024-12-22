@@ -62,7 +62,7 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 
     m_nextBatchTokens[spaceId] = QString();
     auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId]);
-    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
+    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_L1), "Cache"_L1);
     m_spaceHierarchy.insert(spaceId, group.readEntry(spaceId, QStringList()));
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
@@ -83,7 +83,7 @@ void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHie
     }
     m_spaceHierarchy.insert(spaceId, roomList);
     Q_EMIT spaceHierarchyChanged();
-    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_ls), "Cache"_ls);
+    auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_L1), "Cache"_L1);
     group.writeEntry(spaceId, roomList);
     group.sync();
 
@@ -208,34 +208,34 @@ void SpaceHierarchyCache::setConnection(NeoChatConnection *connection)
 
 QString SpaceHierarchyCache::recommendedSpaceId() const
 {
-    return KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecommendedSpace")).readEntry(QStringLiteral("Id"), {});
+    return KConfigGroup(KSharedConfig::openConfig(), u"RecommendedSpace"_s).readEntry(u"Id"_s, {});
 }
 
 QString SpaceHierarchyCache::recommendedSpaceAvatar() const
 {
-    return KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecommendedSpace")).readEntry(QStringLiteral("Avatar"), {});
+    return KConfigGroup(KSharedConfig::openConfig(), u"RecommendedSpace"_s).readEntry(u"Avatar"_s, {});
 }
 
 QString SpaceHierarchyCache::recommendedSpaceDisplayName() const
 {
-    return KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecommendedSpace")).readEntry(QStringLiteral("DisplayName"), {});
+    return KConfigGroup(KSharedConfig::openConfig(), u"RecommendedSpace"_s).readEntry(u"DisplayName"_s, {});
 }
 
 QString SpaceHierarchyCache::recommendedSpaceDescription() const
 {
-    return KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("RecommendedSpace")).readEntry(QStringLiteral("Description"), {});
+    return KConfigGroup(KSharedConfig::openConfig(), u"RecommendedSpace"_s).readEntry(u"Description"_s, {});
 }
 
 bool SpaceHierarchyCache::recommendedSpaceHidden() const
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("RecommendedSpace"));
-    return group.readEntry<bool>(QStringLiteral("hidden"), false);
+    KConfigGroup group(KSharedConfig::openStateConfig(), u"RecommendedSpace"_s);
+    return group.readEntry<bool>(u"hidden"_s, false);
 }
 
 void SpaceHierarchyCache::setRecommendedSpaceHidden(bool hidden)
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("RecommendedSpace"));
-    group.writeEntry(QStringLiteral("hidden"), hidden);
+    KConfigGroup group(KSharedConfig::openStateConfig(), u"RecommendedSpace"_s);
+    group.writeEntry(u"hidden"_s, hidden);
     group.sync();
     Q_EMIT recommendedSpaceHiddenChanged();
 }

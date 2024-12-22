@@ -11,10 +11,12 @@
 
 #include "windowcontroller.h"
 
+using namespace Qt::StringLiterals;
+
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    setIcon(QIcon(QStringLiteral(":/icons/org.kde.neochat.tray.svg")));
+    setIcon(QIcon(u":/icons/org.kde.neochat.tray.svg"_s));
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
@@ -32,7 +34,7 @@ TrayIcon::TrayIcon(QObject *parent)
     menu->addSeparator();
 
     auto quitAction = new QAction(i18n("Quit"), parent);
-    quitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
+    quitAction->setIcon(QIcon::fromTheme(u"application-exit"_s));
     connect(quitAction, &QAction::triggered, QCoreApplication::instance(), QCoreApplication::quit);
 
     menu->addAction(quitAction);

@@ -12,6 +12,8 @@
 #include <KIO/ApplicationLauncherJob>
 #endif
 
+using namespace Qt::StringLiterals;
+
 ItineraryModel::ItineraryModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -25,122 +27,114 @@ QVariant ItineraryModel::data(const QModelIndex &index, int role) const
     auto row = index.row();
     auto data = m_data[row];
     if (role == NameRole) {
-        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            auto trainName = QStringLiteral("%1 %2").arg(data[QStringLiteral("reservationFor")][QStringLiteral("trainName")].toString(),
-                                                         data[QStringLiteral("reservationFor")][QStringLiteral("trainNumber")].toString());
+        if (data["@type"_L1] == u"TrainReservation"_s) {
+            auto trainName = u"%1 %2"_s.arg(data["reservationFor"_L1]["trainName"_L1].toString(), data["reservationFor"_L1]["trainNumber"_L1].toString());
             if (trainName.trimmed().isEmpty()) {
-                return QStringLiteral("%1 to %2")
-                    .arg(data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("name")].toString(),
-                         data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("name")].toString());
+                return u"%1 to %2"_s.arg(data["reservationFor"_L1]["departureStation"_L1]["name"_L1].toString(),
+                                         data["reservationFor"_L1]["arrivalStation"_L1]["name"_L1].toString());
                 ;
             }
             return trainName;
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("LodgingReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("name")];
+        if (data["@type"_L1] == u"LodgingReservation"_s) {
+            return data["reservationFor"_L1]["name"_L1];
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FoodEstablishmentReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("name")];
+        if (data["@type"_L1] == u"FoodEstablishmentReservation"_s) {
+            return data["reservationFor"_L1]["name"_L1];
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            return QStringLiteral("%1 %2 %3 → %4")
-                .arg(data[QStringLiteral("reservationFor")][QStringLiteral("airline")][QStringLiteral("iataCode")].toString(),
-                     data[QStringLiteral("reservationFor")][QStringLiteral("flightNumber")].toString(),
-                     data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("iataCode")].toString(),
-                     data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("iataCode")].toString());
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            return u"%1 %2 %3 → %4"_s.arg(data["reservationFor"_L1]["airline"_L1]["iataCode"_L1].toString(),
+                                          data["reservationFor"_L1]["flightNumber"_L1].toString(),
+                                          data["reservationFor"_L1]["departureAirport"_L1]["iataCode"_L1].toString(),
+                                          data["reservationFor"_L1]["arrivalAirport"_L1]["iataCode"_L1].toString());
         }
     }
     if (role == TypeRole) {
-        return data[QStringLiteral("@type")];
+        return data["@type"_L1];
     }
     if (role == DepartureLocationRole) {
-        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("name")];
+        if (data["@type"_L1] == u"TrainReservation"_s) {
+            return data["reservationFor"_L1]["departureStation"_L1]["name"_L1];
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("iataCode")];
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            return data["reservationFor"_L1]["departureAirport"_L1]["iataCode"_L1];
         }
     }
     if (role == DepartureAddressRole) {
-        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("departureStation")][QStringLiteral("address")][QStringLiteral("addressCountry")]
-                .toString();
+        if (data["@type"_L1] == u"TrainReservation"_s) {
+            return data["reservationFor"_L1]["departureStation"_L1]["address"_L1]["addressCountry"_L1].toString();
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("departureAirport")][QStringLiteral("address")][QStringLiteral("addressCountry")]
-                .toString();
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            return data["reservationFor"_L1]["departureAirport"_L1]["address"_L1]["addressCountry"_L1].toString();
         }
     }
     if (role == ArrivalLocationRole) {
-        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("name")];
+        if (data["@type"_L1] == u"TrainReservation"_s) {
+            return data["reservationFor"_L1]["arrivalStation"_L1]["name"_L1];
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("iataCode")];
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            return data["reservationFor"_L1]["arrivalAirport"_L1]["iataCode"_L1];
         }
     }
     if (role == ArrivalAddressRole) {
-        if (data[QStringLiteral("@type")] == QStringLiteral("TrainReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalStation")][QStringLiteral("address")][QStringLiteral("addressCountry")]
-                .toString();
+        if (data["@type"_L1] == u"TrainReservation"_s) {
+            return data["reservationFor"_L1]["arrivalStation"_L1]["address"_L1]["addressCountry"_L1].toString();
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalAirport")][QStringLiteral("address")][QStringLiteral("addressCountry")]
-                .toString();
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            return data["reservationFor"_L1]["arrivalAirport"_L1]["address"_L1]["addressCountry"_L1].toString();
         }
     }
     if (role == DepartureTimeRole) {
-        const auto &time = data[QStringLiteral("reservationFor")][QStringLiteral("departureTime")];
-        auto dateTime = (time.isString() ? time : time[QStringLiteral("@value")]).toVariant().toDateTime();
-        if (const auto &timeZone = time[QStringLiteral("timezone")].toString(); timeZone.length() > 0) {
+        const auto &time = data["reservationFor"_L1]["departureTime"_L1];
+        auto dateTime = (time.isString() ? time : time["@value"_L1]).toVariant().toDateTime();
+        if (const auto &timeZone = time["timezone"_L1].toString(); timeZone.length() > 0) {
             dateTime.setTimeZone(QTimeZone(timeZone.toLatin1().data()));
         }
         return dateTime.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat));
     }
     if (role == ArrivalTimeRole) {
-        const auto &time = data[QStringLiteral("reservationFor")][QStringLiteral("arrivalTime")];
-        auto dateTime = (time.isString() ? time : time[QStringLiteral("@value")]).toVariant().toDateTime();
-        if (const auto &timeZone = time[QStringLiteral("timezone")].toString(); timeZone.length() > 0) {
+        const auto &time = data["reservationFor"_L1]["arrivalTime"_L1];
+        auto dateTime = (time.isString() ? time : time["@value"_L1]).toVariant().toDateTime();
+        if (const auto &timeZone = time["timezone"_L1].toString(); timeZone.length() > 0) {
             dateTime.setTimeZone(QTimeZone(timeZone.toLatin1().data()));
         }
         return dateTime.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat));
     }
     if (role == AddressRole) {
-        const auto &addressData = data[QStringLiteral("reservationFor")][QStringLiteral("address")];
-        return QStringLiteral("%1 - %2 %3 %4")
-            .arg(addressData[QStringLiteral("streetAddress")].toString(),
-                 addressData[QStringLiteral("postalCode")].toString(),
-                 addressData[QStringLiteral("addressLocality")].toString(),
-                 addressData[QStringLiteral("addressCountry")].toString());
+        const auto &addressData = data["reservationFor"_L1]["address"_L1];
+        return u"%1 - %2 %3 %4"_s.arg(addressData["streetAddress"_L1].toString(),
+                                      addressData["postalCode"_L1].toString(),
+                                      addressData["addressLocality"_L1].toString(),
+                                      addressData["addressCountry"_L1].toString());
     }
     if (role == StartTimeRole) {
         QDateTime dateTime;
-        if (data[QStringLiteral("@type")] == QStringLiteral("LodgingReservation")) {
-            dateTime = data[QStringLiteral("checkinTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        if (data["@type"_L1] == u"LodgingReservation"_s) {
+            dateTime = data["checkinTime"_L1]["@value"_L1].toVariant().toDateTime();
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FoodEstablishmentReservation")) {
-            dateTime = data[QStringLiteral("startTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        if (data["@type"_L1] == u"FoodEstablishmentReservation"_s) {
+            dateTime = data["startTime"_L1]["@value"_L1].toVariant().toDateTime();
         }
-        if (data[QStringLiteral("@type")] == QStringLiteral("FlightReservation")) {
-            dateTime = data[QStringLiteral("reservationFor")][QStringLiteral("boardingTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        if (data["@type"_L1] == u"FlightReservation"_s) {
+            dateTime = data["reservationFor"_L1]["boardingTime"_L1]["@value"_L1].toVariant().toDateTime();
         }
         return dateTime.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat));
     }
     if (role == EndTimeRole) {
-        auto dateTime = data[QStringLiteral("checkoutTime")][QStringLiteral("@value")].toVariant().toDateTime();
+        auto dateTime = data["checkoutTime"_L1]["@value"_L1].toVariant().toDateTime();
         return dateTime.toString(QLocale::system().dateTimeFormat(QLocale::ShortFormat));
     }
     if (role == DeparturePlatformRole) {
-        return data[QStringLiteral("reservationFor")][QStringLiteral("departurePlatform")];
+        return data["reservationFor"_L1]["departurePlatform"_L1];
     }
     if (role == ArrivalPlatformRole) {
-        return data[QStringLiteral("reservationFor")][QStringLiteral("arrivalPlatform")];
+        return data["reservationFor"_L1]["arrivalPlatform"_L1];
     }
     if (role == CoachRole) {
-        return data[QStringLiteral("reservedTicket")][QStringLiteral("ticketedSeat")][QStringLiteral("seatSection")];
+        return data["reservedTicket"_L1]["ticketedSeat"_L1]["seatSection"_L1];
     }
     if (role == SeatRole) {
-        return data[QStringLiteral("reservedTicket")][QStringLiteral("ticketedSeat")][QStringLiteral("seatNumber")];
+        return data["reservedTicket"_L1]["ticketedSeat"_L1]["seatNumber"_L1];
     }
     return {};
 }
@@ -186,7 +180,7 @@ void ItineraryModel::setPath(const QString &path)
 void ItineraryModel::loadData()
 {
     auto process = new QProcess(this);
-    process->start(QLatin1String(CMAKE_INSTALL_FULL_LIBEXECDIR_KF6) + QLatin1String("/kitinerary-extractor"), {m_path.mid(7)});
+    process->start(QStringLiteral(CMAKE_INSTALL_FULL_LIBEXECDIR_KF6) + u"/kitinerary-extractor"_s, {m_path.mid(7)});
     connect(process, &QProcess::finished, this, [this, process]() {
         auto data = process->readAllStandardOutput();
         beginResetModel();
@@ -203,7 +197,7 @@ void ItineraryModel::loadData()
 void ItineraryModel::sendToItinerary()
 {
 #ifndef Q_OS_ANDROID
-    auto job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(QStringLiteral("org.kde.itinerary")));
+    auto job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(u"org.kde.itinerary"_s));
     job->setUrls({QUrl::fromLocalFile(m_path.mid(7))});
     job->start();
 #endif

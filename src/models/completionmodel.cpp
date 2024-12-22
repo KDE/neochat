@@ -64,14 +64,14 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
 
     if (m_autoCompletionType == Command) {
         if (role == DisplayNameRole) {
-            return QStringLiteral("%1 %2").arg(m_filterModel->data(filterIndex, ActionsModel::Prefix).toString(),
-                                               m_filterModel->data(filterIndex, ActionsModel::Parameters).toString());
+            return u"%1 %2"_s.arg(m_filterModel->data(filterIndex, ActionsModel::Prefix).toString(),
+                                  m_filterModel->data(filterIndex, ActionsModel::Parameters).toString());
         }
         if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Description);
         }
         if (role == IconNameRole) {
-            return QStringLiteral("invalid");
+            return u"invalid"_s;
         }
         if (role == ReplacedTextRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Prefix);

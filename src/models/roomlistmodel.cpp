@@ -231,7 +231,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     if (role == JoinStateRole) {
         if (!room->successorId().isEmpty()) {
-            return QStringLiteral("upgraded");
+            return u"upgraded"_s;
         }
         return QVariant::fromValue(room->joinState());
     }

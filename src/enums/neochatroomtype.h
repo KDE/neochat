@@ -10,6 +10,8 @@
 
 #include <KLocalizedString>
 
+using namespace Qt::StringLiterals;
+
 class NeoChatRoomType : public QObject
 {
     Q_OBJECT
@@ -75,19 +77,19 @@ public:
     {
         switch (category) {
         case NeoChatRoomType::Invited:
-            return QStringLiteral("user-invisible");
+            return u"user-invisible"_s;
         case NeoChatRoomType::Favorite:
-            return QStringLiteral("favorite");
+            return u"favorite"_s;
         case NeoChatRoomType::Direct:
-            return QStringLiteral("dialog-messages");
+            return u"dialog-messages"_s;
         case NeoChatRoomType::Normal:
-            return QStringLiteral("group");
+            return u"group"_s;
         case NeoChatRoomType::Deprioritized:
-            return QStringLiteral("object-order-lower");
+            return u"object-order-lower"_s;
         case NeoChatRoomType::Space:
-            return QStringLiteral("group");
+            return u"group"_s;
         default:
-            return QStringLiteral("tools-report-bug");
+            return u"tools-report-bug"_s;
         }
     }
 };

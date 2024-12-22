@@ -6,11 +6,11 @@
 using namespace Quotient;
 
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const std::optional<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
+    : BaseJob(HttpVerb::Post, u"ChangePasswordJob"_s, "/_matrix/client/r0/account/password")
 {
     QJsonObject _data;
-    addParam<>(_data, QStringLiteral("new_password"), newPassword);
-    addParam<IfNotEmpty>(_data, QStringLiteral("logout_devices"), logoutDevices);
-    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
+    addParam<>(_data, u"new_password"_s, newPassword);
+    addParam<IfNotEmpty>(_data, u"logout_devices"_s, logoutDevices);
+    addParam<IfNotEmpty>(_data, u"auth"_s, auth);
     setRequestData(_data);
 }

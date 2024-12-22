@@ -12,10 +12,12 @@
 #include "customemojimodel.h"
 #include <KLocalizedString>
 
+using namespace Qt::StringLiterals;
+
 EmojiModel::EmojiModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_config(KSharedConfig::openStateConfig())
-    , m_configGroup(KConfigGroup(m_config, QStringLiteral("Editor")))
+    , m_configGroup(KConfigGroup(m_config, u"Editor"_s))
 {
     if (_emojis.isEmpty()) {
 #include "emojis.h"
@@ -43,14 +45,14 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
         auto emoji = category[row].value<Emoji>();
         switch (role) {
         case ShortNameRole:
-            return QStringLiteral(":%1:").arg(emoji.shortName);
+            return u":%1:"_s.arg(emoji.shortName);
         case UnicodeRole:
         case ReplacedTextRole:
             return emoji.unicode;
         case InvalidRole:
-            return QStringLiteral("invalid");
+            return u"invalid"_s;
         case DisplayRole:
-            return QStringLiteral("%2   :%1:").arg(emoji.shortName, emoji.unicode);
+            return u"%2   :%1:"_s.arg(emoji.shortName, emoji.unicode);
         case DescriptionRole:
             return emoji.description;
         }
@@ -65,7 +67,7 @@ QHash<int, QByteArray> EmojiModel::roleNames() const
 
 QStringList EmojiModel::lastUsedEmojis() const
 {
-    return m_configGroup.readEntry(QStringLiteral("lastUsedEmojis"), QStringList());
+    return m_configGroup.readEntry(u"lastUsedEmojis"_s, QStringList());
 }
 
 QVariantList EmojiModel::filterModel(const QString &filter, bool limit)
@@ -110,7 +112,7 @@ void EmojiModel::emojiUsed(const QVariant &modelData)
 
     list.push_front(emoji.shortName);
 
-    m_configGroup.writeEntry(QStringLiteral("lastUsedEmojis"), list);
+    m_configGroup.writeEntry(u"lastUsedEmojis"_s, list);
 
     Q_EMIT historyChanged();
 }
@@ -139,8 +141,8 @@ QVariantList EmojiModel::emojis(Category category) const
 
 QVariantList EmojiModel::tones(const QString &baseEmoji) const
 {
-    if (baseEmoji.endsWith(QStringLiteral("tone"))) {
-        return EmojiTones::_tones.values(baseEmoji.split(QStringLiteral(":"))[0]);
+    if (baseEmoji.endsWith(u"tone"_s)) {
+        return EmojiTones::_tones.values(baseEmoji.split(u":"_s)[0]);
     }
     return EmojiTones::_tones.values(baseEmoji);
 }
@@ -151,54 +153,54 @@ QVariantList EmojiModel::categories() const
 {
     return QVariantList{
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::HistoryNoCustom},
-            {QStringLiteral("name"), i18nc("Previously used emojis", "History")},
-            {QStringLiteral("emoji"), QStringLiteral("⌛️")},
+            {u"category"_s, EmojiModel::HistoryNoCustom},
+            {u"name"_s, i18nc("Previously used emojis", "History")},
+            {u"emoji"_s, u"⌛️"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Smileys},
-            {QStringLiteral("name"), i18nc("'Smileys' is a category of emoji", "Smileys")},
-            {QStringLiteral("emoji"), QStringLiteral("😏")},
+            {u"category"_s, EmojiModel::Smileys},
+            {u"name"_s, i18nc("'Smileys' is a category of emoji", "Smileys")},
+            {u"emoji"_s, u"😏"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::People},
-            {QStringLiteral("name"), i18nc("'People' is a category of emoji", "People")},
-            {QStringLiteral("emoji"), QStringLiteral("🙋‍♂️")},
+            {u"category"_s, EmojiModel::People},
+            {u"name"_s, i18nc("'People' is a category of emoji", "People")},
+            {u"emoji"_s, u"🙋‍♂️"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Nature},
-            {QStringLiteral("name"), i18nc("'Nature' is a category of emoji", "Nature")},
-            {QStringLiteral("emoji"), QStringLiteral("🌲")},
+            {u"category"_s, EmojiModel::Nature},
+            {u"name"_s, i18nc("'Nature' is a category of emoji", "Nature")},
+            {u"emoji"_s, u"🌲"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Food},
-            {QStringLiteral("name"), i18nc("'Food' is a category of emoji", "Food")},
-            {QStringLiteral("emoji"), QStringLiteral("🍛")},
+            {u"category"_s, EmojiModel::Food},
+            {u"name"_s, i18nc("'Food' is a category of emoji", "Food")},
+            {u"emoji"_s, u"🍛"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Activities},
-            {QStringLiteral("name"), i18nc("'Activities' is a category of emoji", "Activities")},
-            {QStringLiteral("emoji"), QStringLiteral("🚁")},
+            {u"category"_s, EmojiModel::Activities},
+            {u"name"_s, i18nc("'Activities' is a category of emoji", "Activities")},
+            {u"emoji"_s, u"🚁"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Travel},
-            {QStringLiteral("name"), i18nc("'Travel' is  a category of emoji", "Travel")},
-            {QStringLiteral("emoji"), QStringLiteral("🚅")},
+            {u"category"_s, EmojiModel::Travel},
+            {u"name"_s, i18nc("'Travel' is  a category of emoji", "Travel")},
+            {u"emoji"_s, u"🚅"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Objects},
-            {QStringLiteral("name"), i18nc("'Objects' is a category of emoji", "Objects")},
-            {QStringLiteral("emoji"), QStringLiteral("💡")},
+            {u"category"_s, EmojiModel::Objects},
+            {u"name"_s, i18nc("'Objects' is a category of emoji", "Objects")},
+            {u"emoji"_s, u"💡"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Symbols},
-            {QStringLiteral("name"), i18nc("'Symbols' is a category of emoji", "Symbols")},
-            {QStringLiteral("emoji"), QStringLiteral("🔣")},
+            {u"category"_s, EmojiModel::Symbols},
+            {u"name"_s, i18nc("'Symbols' is a category of emoji", "Symbols")},
+            {u"emoji"_s, u"🔣"_s},
         }},
         {QVariantMap{
-            {QStringLiteral("category"), EmojiModel::Flags},
-            {QStringLiteral("name"), i18nc("'Flags' is a category of emoji", "Flags")},
-            {QStringLiteral("emoji"), QStringLiteral("🏁")},
+            {u"category"_s, EmojiModel::Flags},
+            {u"name"_s, i18nc("'Flags' is a category of emoji", "Flags")},
+            {u"emoji"_s, u"🏁"_s},
         }},
     };
 }
@@ -209,15 +211,15 @@ QVariantList EmojiModel::categoriesWithCustom() const
     cats.removeAt(0);
     cats.insert(0,
                 QVariantMap{
-                    {QStringLiteral("category"), EmojiModel::History},
-                    {QStringLiteral("name"), i18nc("Previously used emojis", "History")},
-                    {QStringLiteral("emoji"), QStringLiteral("⌛️")},
+                    {u"category"_s, EmojiModel::History},
+                    {u"name"_s, i18nc("Previously used emojis", "History")},
+                    {u"emoji"_s, u"⌛️"_s},
                 });
     cats.insert(1,
                 QVariantMap{
-                    {QStringLiteral("category"), EmojiModel::Custom},
-                    {QStringLiteral("name"), i18nc("'Custom' is a category of emoji", "Custom")},
-                    {QStringLiteral("emoji"), QStringLiteral("🖼️")},
+                    {u"category"_s, EmojiModel::Custom},
+                    {u"name"_s, i18nc("'Custom' is a category of emoji", "Custom")},
+                    {u"emoji"_s, u"🖼️"_s},
                 });
     ;
     return cats;

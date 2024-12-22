@@ -301,9 +301,9 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         }
         if (role == DelegateTypeRole) {
             if (index.row() == NeoChatRoomType::AddDirect) {
-                return QStringLiteral("addDirect");
+                return u"addDirect"_s;
             }
-            return QStringLiteral("section");
+            return u"section"_s;
         }
         if (role == IconRole) {
             return NeoChatRoomType::typeIconName(index.row());
@@ -340,7 +340,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
     }
     if (role == JoinStateRole) {
         if (!room->successorId().isEmpty()) {
-            return QStringLiteral("upgraded");
+            return u"upgraded"_s;
         }
         return QVariant::fromValue(room->joinState());
     }
@@ -372,7 +372,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return room->isDirectChat();
     }
     if (role == DelegateTypeRole) {
-        return QStringLiteral("normal");
+        return u"normal"_s;
     }
     if (role == RoomTypeRole) {
         if (room->creation()) {

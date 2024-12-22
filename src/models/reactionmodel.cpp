@@ -9,6 +9,8 @@
 
 #include <KLocalizedString>
 
+using namespace Qt::StringLiterals;
+
 ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room)
     : QAbstractListModel(nullptr)
     , m_room(room)
@@ -40,7 +42,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == TextContentRole) {
         if (reaction.authors.count() > 1) {
-            return QStringLiteral("%1  %2").arg(reactionText(reaction.reaction), QString::number(reaction.authors.count()));
+            return u"%1  %2"_s.arg(reactionText(reaction.reaction), QString::number(reaction.authors.count()));
         } else {
             return reactionText(reaction.reaction);
         }
@@ -56,7 +58,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
         for (int i = 0; i < reaction.authors.count() && i < 3; i++) {
             if (i != 0) {
                 if (i < reaction.authors.count() - 1) {
-                    text += QStringLiteral(", ");
+                    text += u", "_s;
                 } else {
                     text += i18nc("Separate the usernames of users", " and ");
                 }
@@ -115,8 +117,8 @@ void ReactionModel::updateReactions()
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
             reactions[e->key()].append(e->senderId());
-            if (e->contentJson()[QStringLiteral("shortcode")].toString().length()) {
-                m_shortcodes[e->key()] = e->contentJson()[QStringLiteral("shortcode")].toString().toHtmlEscaped();
+            if (e->contentJson()["shortcode"_L1].toString().length()) {
+                m_shortcodes[e->key()] = e->contentJson()["shortcode"_L1].toString().toHtmlEscaped();
             }
         }
     }
@@ -152,17 +154,16 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
 QString ReactionModel::reactionText(QString text) const
 {
     text = text.toHtmlEscaped();
-    if (text.startsWith(QStringLiteral("mxc://"))) {
+    if (text.startsWith(u"mxc://"_s)) {
         static QFont font;
         static int size = font.pixelSize();
         if (size == -1) {
             size = font.pointSizeF() * 1.333;
         }
-        return QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%2\">")
-            .arg(m_room->connection()->makeMediaUrl(QUrl(text)).toString(), QString::number(size));
+        return u"<img src=\"%1\" width=\"%2\" height=\"%2\">"_s.arg(m_room->connection()->makeMediaUrl(QUrl(text)).toString(), QString::number(size));
     }
 
-    return Utils::isEmoji(text) ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + text + QStringLiteral("</span>") : text;
+    return Utils::isEmoji(text) ? u"<span style=\"font-family: 'emoji';\">"_s + text + u"</span>"_s : text;
 }
 
 #include "moc_reactionmodel.cpp"

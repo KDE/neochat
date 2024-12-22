@@ -31,8 +31,8 @@ private Q_SLOTS:
 
 void ReactionModelTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-reactionmodel-sync.json"));
+    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-reactionmodel-sync.json"_s);
 }
 
 void ReactionModelTest::nullModel()
@@ -49,10 +49,9 @@ void ReactionModelTest::basicReaction()
     auto model = ReactionModel(event, room);
 
     QCOMPARE(model.rowCount(), 1);
-    QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), QStringLiteral("<span style=\"font-family: 'emoji';\">👍</span>"));
-    QCOMPARE(model.data(model.index(0), ReactionModel::ReactionRole), QStringLiteral("👍"));
-    QCOMPARE(model.data(model.index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+    QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), u"<span style=\"font-family: 'emoji';\">👍</span>"_s);
+    QCOMPARE(model.data(model.index(0), ReactionModel::ReactionRole), u"👍"_s);
+    QCOMPARE(model.data(model.index(0), ReactionModel::ToolTipRole), u"Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"_s);
     QCOMPARE(model.data(model.index(0), ReactionModel::HasLocalMember), false);
 }
 
@@ -62,17 +61,16 @@ void ReactionModelTest::newReaction()
     auto model = new ReactionModel(event, room);
 
     QCOMPARE(model->rowCount(), 1);
-    QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+    QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole), u"Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"_s);
 
     QSignalSpy spy(model, SIGNAL(modelReset()));
 
-    room->syncNewEvents(QLatin1String("test-reactionmodel-extra-sync.json"));
+    room->syncNewEvents(u"test-reactionmodel-extra-sync.json"_s);
     QCOMPARE(model->rowCount(), 2);
     QCOMPARE(spy.count(), 2); // Once for each of the 2 new reactions.
-    QCOMPARE(model->data(model->index(1), ReactionModel::ReactionRole), QStringLiteral("😆"));
+    QCOMPARE(model->data(model->index(1), ReactionModel::ReactionRole), u"😆"_s);
     QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole),
-             QStringLiteral("Alice Margatroid and Bob reacted with <span style=\"font-family: 'emoji';\">👍</span>"));
+             u"Alice Margatroid and Bob reacted with <span style=\"font-family: 'emoji';\">👍</span>"_s);
 
     delete model;
 }

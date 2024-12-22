@@ -136,7 +136,7 @@ QString MessageFilterModel::aggregateEventToString(int sourceRow) const
     QString aggregateString;
     for (int i = sourceRow; i >= 0; i--) {
         aggregateString += sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::GenericDisplayRole).toString();
-        aggregateString += ", "_ls;
+        aggregateString += ", "_L1;
         QVariant nextAuthor = sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole);
         if (i > 0
             && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole) != DelegateType::State // If it's not a state event
@@ -158,9 +158,9 @@ QVariantList MessageFilterModel::stateEventsList(int sourceRow) const
     QVariantList stateEvents;
     for (int i = sourceRow; i >= 0; i--) {
         auto nextState = QVariantMap{
-            {QStringLiteral("author"), sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole)},
-            {QStringLiteral("authorDisplayName"), sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorDisplayNameRole).toString()},
-            {QStringLiteral("text"), sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},
+            {u"author"_s, sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole)},
+            {u"authorDisplayName"_s, sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorDisplayNameRole).toString()},
+            {u"text"_s, sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},
         };
         stateEvents.append(nextState);
         if (i > 0
@@ -221,7 +221,7 @@ QString MessageFilterModel::excessAuthors(int row) const
     if (excessAuthors == 0) {
         return QString();
     } else {
-        return QStringLiteral("+ %1").arg(excessAuthors);
+        return u"+ %1"_s.arg(excessAuthors);
     }
 }
 

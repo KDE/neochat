@@ -63,7 +63,7 @@ Controller::Controller(QObject *parent)
         });
     } else {
         auto c = new NeoChatConnection(this);
-        c->assumeIdentity(QStringLiteral("@user:localhost:1234"), QStringLiteral("device_1234"), QStringLiteral("token_1234"));
+        c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
         connect(c, &Connection::connected, this, [c, this]() {
             m_accountRegistry.add(c);
             c->syncLoop();
@@ -117,7 +117,7 @@ Controller::Controller(QObject *parent)
     });
 
 #ifdef HAVE_KUNIFIEDPUSH
-    auto connector = new KUnifiedPush::Connector(QStringLiteral("org.kde.neochat"));
+    auto connector = new KUnifiedPush::Connector(u"org.kde.neochat"_s);
     connect(connector, &KUnifiedPush::Connector::endpointChanged, this, [this](const QString &endpoint) {
         m_endpoint = endpoint;
         for (auto &quotientConnection : m_accountRegistry) {
@@ -187,7 +187,7 @@ void Controller::dropConnection(NeoChatConnection *c)
 
 void Controller::invokeLogin()
 {
-    const auto accounts = SettingsGroup("Accounts"_ls).childGroups();
+    const auto accounts = SettingsGroup("Accounts"_L1).childGroups();
     for (const auto &accountId : accounts) {
         AccountSettings account{accountId};
         m_accountsLoading += accountId;
@@ -288,7 +288,7 @@ bool Controller::supportSystemTray() const
     return false;
 #else
     auto de = QString::fromLatin1(qgetenv("XDG_CURRENT_DESKTOP"));
-    return de != QStringLiteral("GNOME") && de != QStringLiteral("Pantheon");
+    return de != u"GNOME"_s && de != u"Pantheon"_s;
 #endif
 }
 
@@ -341,7 +341,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
 void Controller::listenForNotifications()
 {
 #ifdef HAVE_KUNIFIEDPUSH
-    auto connector = new KUnifiedPush::Connector(QStringLiteral("org.kde.neochat"));
+    auto connector = new KUnifiedPush::Connector(u"org.kde.neochat"_s);
 
     auto timer = new QTimer();
     connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
@@ -370,19 +370,19 @@ void Controller::updateBadgeNotificationCount(NeoChatConnection *connection, int
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
 #ifndef Q_OS_ANDROID
         // copied from Telegram desktop
-        const auto launcherUrl = "application://org.kde.neochat.desktop"_ls;
+        const auto launcherUrl = "application://org.kde.neochat.desktop"_L1;
         // Gnome requires that count is a 64bit integer
         const qint64 counterSlice = std::min(count, 9999);
         QVariantMap dbusUnityProperties;
 
         if (counterSlice > 0) {
-            dbusUnityProperties["count"_ls] = counterSlice;
-            dbusUnityProperties["count-visible"_ls] = true;
+            dbusUnityProperties["count"_L1] = counterSlice;
+            dbusUnityProperties["count-visible"_L1] = true;
         } else {
-            dbusUnityProperties["count-visible"_ls] = false;
+            dbusUnityProperties["count-visible"_L1] = false;
         }
 
-        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_ls, "com.canonical.Unity.LauncherEntry"_ls, "Update"_ls);
+        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_L1, "com.canonical.Unity.LauncherEntry"_L1, "Update"_L1);
 
         signal.setArguments({launcherUrl, dbusUnityProperties});
 
@@ -431,7 +431,7 @@ void Controller::removeConnection(const QString &userId)
     }
     if (m_connectionsLoading.contains(userId) && m_connectionsLoading[userId]) {
         auto connection = m_connectionsLoading[userId];
-        SettingsGroup("Accounts"_ls).remove(userId);
+        SettingsGroup("Accounts"_L1).remove(userId);
     }
 }
 

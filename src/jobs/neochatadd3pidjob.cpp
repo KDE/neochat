@@ -6,11 +6,11 @@
 using namespace Quotient;
 
 NeochatAdd3PIdJob::NeochatAdd3PIdJob(const QString &clientSecret, const QString &sid, const std::optional<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("Add3PIDJob"), makePath("/_matrix/client/v3", "/account/3pid/add"))
+    : BaseJob(HttpVerb::Post, u"Add3PIDJob"_s, makePath("/_matrix/client/v3", "/account/3pid/add"))
 {
     QJsonObject _dataJson;
-    addParam<IfNotEmpty>(_dataJson, QStringLiteral("auth"), auth);
-    addParam<>(_dataJson, QStringLiteral("client_secret"), clientSecret);
-    addParam<>(_dataJson, QStringLiteral("sid"), sid);
+    addParam<IfNotEmpty>(_dataJson, u"auth"_s, auth);
+    addParam<>(_dataJson, u"client_secret"_s, clientSecret);
+    addParam<>(_dataJson, u"sid"_s, sid);
     setRequestData({_dataJson});
 }

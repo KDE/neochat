@@ -11,6 +11,8 @@
 
 #include "neochatconnection.h"
 
+using namespace Qt::StringLiterals;
+
 ServerListModel::ServerListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -56,7 +58,7 @@ int ServerListModel::rowCount(const QModelIndex &parent) const
 void ServerListModel::checkServer(const QString &url)
 {
     const auto stateConfig = KSharedConfig::openStateConfig();
-    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+    const KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
     if (!serverGroup.hasKey(url)) {
         if (Quotient::isJobPending(m_checkServerJob)) {
@@ -73,7 +75,7 @@ void ServerListModel::checkServer(const QString &url)
 void ServerListModel::addServer(const QString &url)
 {
     const auto stateConfig = KSharedConfig::openStateConfig();
-    KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+    KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
     if (!serverGroup.hasKey(url)) {
         Server newServer = Server{
@@ -95,7 +97,7 @@ void ServerListModel::addServer(const QString &url)
 void ServerListModel::removeServerAtIndex(int row)
 {
     const auto stateConfig = KSharedConfig::openStateConfig();
-    KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+    KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
     serverGroup.deleteEntry(data(index(row), UrlRole).toString());
 
@@ -140,7 +142,7 @@ void ServerListModel::initialize()
 
     beginResetModel();
     const auto stateConfig = KSharedConfig::openStateConfig();
-    const KConfigGroup serverGroup = stateConfig->group(QStringLiteral("Servers"));
+    const KConfigGroup serverGroup = stateConfig->group(u"Servers"_s);
 
     QString domain = m_connection->domain();
 
@@ -153,7 +155,7 @@ void ServerListModel::initialize()
     });
     // Add matrix.org
     m_servers.append(Server{
-        QStringLiteral("matrix.org"),
+        u"matrix.org"_s,
         false,
         false,
         false,
