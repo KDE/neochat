@@ -23,7 +23,11 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
 
     m_threadRootContentModel = std::unique_ptr<MessageContentModel>(new MessageContentModel(room, threadRootId));
 
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
+    connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
+#else
     connect(room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
+#endif
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
             if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
                 addNewEvent(event);
@@ -102,7 +106,11 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
 void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
 {
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-    m_contentModels.push_front(new MessageContentModel(room, event->id()));
+    auto eventId = event->id();
+    if (eventId.isEmpty()) {
+        eventId = event->transactionId();
+    }
+    m_contentModels.push_front(new MessageContentModel(room, eventId));
 }
 
 void ThreadModel::addModels()
