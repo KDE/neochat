@@ -309,7 +309,7 @@ void ChatBarCache::postMessage()
     }
 
     const auto result = ActionsModel::handleAction(room, this);
-    if (!result.first.has_value()) {
+    if (!result.second.has_value()) {
         return;
     }
 
@@ -338,8 +338,7 @@ void ChatBarCache::postMessage()
         relatesTo = Quotient::EventRelation::replyTo(replyId());
     }
 
-    const auto type = std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result);
-    room->post<Quotient::RoomMessageEvent>(text(), type ? *type : Quotient::RoomMessageEvent::MsgType::Text, std::move(content), relatesTo);
+    room->post<Quotient::RoomMessageEvent>(text(), *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), std::move(content), relatesTo);
     clearCache();
 }
 

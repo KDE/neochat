@@ -66,8 +66,7 @@ QList<ActionsModel::Action> actions{
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return u"¯\\\\_(ツ)_/¯ %1"_s.arg(message);
         },
-        true,
-        std::nullopt,
+        Quotient::RoomMessageEvent::MsgType::Text,
         kli18n("<message>"),
         kli18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message"),
     },
@@ -76,8 +75,7 @@ QList<ActionsModel::Action> actions{
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return u"( ͡° ͜ʖ ͡°) %1"_s.arg(message);
         },
-        true,
-        std::nullopt,
+        Quotient::RoomMessageEvent::MsgType::Text,
         kli18n("<message>"),
         kli18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"),
     },
@@ -86,8 +84,7 @@ QList<ActionsModel::Action> actions{
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return u"(╯°□°）╯︵ ┻━┻ %1"_s.arg(message);
         },
-        true,
-        std::nullopt,
+        Quotient::RoomMessageEvent::MsgType::Text,
         kli18n("<message>"),
         kli18n("Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"),
     },
@@ -96,8 +93,7 @@ QList<ActionsModel::Action> actions{
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
             return u"┬──┬ ノ( ゜-゜ノ) %1"_s.arg(message);
         },
-        true,
-        std::nullopt,
+        Quotient::RoomMessageEvent::MsgType::Text,
         kli18n("<message>"),
         kli18n("Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"),
     },
@@ -115,7 +111,6 @@ QList<ActionsModel::Action> actions{
             room->post<Quotient::RoomMessageEvent>("/rainbow %1"_L1.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<message>"),
         kli18n("Sends the given message colored as a rainbow"),
@@ -134,7 +129,6 @@ QList<ActionsModel::Action> actions{
             room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Emote, std::move(content), relatesTo);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<message>"),
         kli18n("Sends the given emote colored as a rainbow"),
@@ -145,7 +139,6 @@ QList<ActionsModel::Action> actions{
             room->postPlainText(text.toHtmlEscaped());
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<message>"),
         kli18n("Sends the given message as plain text"),
@@ -160,7 +153,6 @@ QList<ActionsModel::Action> actions{
             room->post<Quotient::RoomMessageEvent>(u"/spoiler %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<message>"),
         kli18n("Sends the given message as a spoiler"),
@@ -170,7 +162,6 @@ QList<ActionsModel::Action> actions{
         [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
-        true,
         RoomMessageEvent::MsgType::Emote,
         kli18n("<message>"),
         kli18n("Sends the given emote"),
@@ -180,7 +171,6 @@ QList<ActionsModel::Action> actions{
         [](const QString &text, NeoChatRoom *, ChatBarCache *) {
             return text;
         },
-        true,
         RoomMessageEvent::MsgType::Notice,
         kli18n("<message>"),
         kli18n("Sends the given message as a notice"),
@@ -216,7 +206,6 @@ QList<ActionsModel::Action> actions{
             Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> was invited into this room", "%1 was invited into this room", text));
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id>"),
         kli18n("Invites the user to this room"),
@@ -240,7 +229,6 @@ QList<ActionsModel::Action> actions{
             RoomManager::instance().resolveResource(text, "join"_L1);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<room alias or id>"),
         kli18n("Joins the given room"),
@@ -272,7 +260,6 @@ QList<ActionsModel::Action> actions{
             }
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<room alias or id> [<reason>]"),
         kli18n("Requests to join the given room"),
@@ -295,7 +282,6 @@ QList<ActionsModel::Action> actions{
             RoomManager::instance().resolveResource(text, "join"_L1);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<room alias or id>"),
         kli18n("Joins the given room"),
@@ -303,7 +289,6 @@ QList<ActionsModel::Action> actions{
     Action{
         u"part"_s,
         leaveRoomLambda,
-        false,
         std::nullopt,
         kli18n("[<room alias or id>]"),
         kli18n("Leaves the given room or this room, if there is none given"),
@@ -311,7 +296,6 @@ QList<ActionsModel::Action> actions{
     Action{
         u"leave"_s,
         leaveRoomLambda,
-        false,
         std::nullopt,
         kli18n("[<room alias or id>]"),
         kli18n("Leaves the given room or this room, if there is none given"),
@@ -326,7 +310,6 @@ QList<ActionsModel::Action> actions{
             }
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<display name>"),
         kli18n("Changes your global display name"),
@@ -334,7 +317,6 @@ QList<ActionsModel::Action> actions{
     Action{
         u"roomnick"_s,
         roomNickLambda,
-        false,
         std::nullopt,
         kli18n("<display name>"),
         kli18n("Changes your display name in this room"),
@@ -342,7 +324,6 @@ QList<ActionsModel::Action> actions{
     Action{
         u"myroomnick"_s,
         roomNickLambda,
-        false,
         std::nullopt,
         kli18n("<display name>"),
         kli18n("Changes your display name in this room"),
@@ -365,7 +346,6 @@ QList<ActionsModel::Action> actions{
 
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id>"),
         kli18n("Ignores the given user"),
@@ -387,7 +367,6 @@ QList<ActionsModel::Action> actions{
             Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id>"),
         kli18n("Unignores the given user"),
@@ -407,7 +386,6 @@ QList<ActionsModel::Action> actions{
             room->toggleReaction(chatBarCache->replyId(), text);
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<reaction text>"),
         kli18n("React to the message with the given text"),
@@ -446,7 +424,6 @@ QList<ActionsModel::Action> actions{
             Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> was banned from this room.", "%1 was banned from this room.", parts[0]));
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id> [<reason>]"),
         kli18n("Bans the given user"),
@@ -478,7 +455,6 @@ QList<ActionsModel::Action> actions{
 
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id>"),
         kli18n("Removes the ban of the given user"),
@@ -521,7 +497,6 @@ QList<ActionsModel::Action> actions{
             Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> was kicked from this room.", "%1 was kicked from this room.", parts[0]));
             return QString();
         },
-        false,
         std::nullopt,
         kli18n("<user id> [<reason>]"),
         kli18n("Removes the user from the room"),
@@ -622,7 +597,7 @@ std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgT
         return std::make_pair(std::nullopt, std::nullopt);
     }
 
-    std::optional<Quotient::RoomMessageEvent::MsgType> messageType = std::nullopt;
+    std::optional<Quotient::RoomMessageEvent::MsgType> messageType = Quotient::RoomMessageEvent::MsgType::Text;
     if (sendText.startsWith(QLatin1Char('/'))) {
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (sendText.indexOf(action.prefix) == 1
@@ -630,15 +605,12 @@ std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgT
                 sendText = action.handle(sendText.mid(action.prefix.length() + 1).trimmed(), room, chatBarCache);
                 if (action.messageType.has_value()) {
                     messageType = action.messageType;
-                }
-                if (action.messageAction) {
-                    break;
                 } else {
-                    return std::make_pair(std::nullopt, std::nullopt);
+                    messageType = std::nullopt;
                 }
             }
         }
     }
 
-    return std::make_pair(sendText, messageType);
+    return std::make_pair(messageType.has_value() ? std::make_optional(sendText) : std::nullopt, messageType);
 }

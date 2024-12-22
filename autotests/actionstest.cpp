@@ -37,18 +37,20 @@ void ActionsTest::testActions_data()
     QTest::addColumn<std::optional<QString>>("resultText");
     QTest::addColumn<std::optional<Quotient::RoomMessageEvent::MsgType>>("type");
 
-    QTest::newRow("shrug") << u"/shrug Hello"_s << std::make_optional(u"¯\\\\_(ツ)_/¯ Hello"_s) << std::optional<Quotient::RoomMessageEvent::MsgType>();
-    QTest::newRow("lenny") << u"/lenny Hello"_s << std::make_optional(u"( ͡° ͜ʖ ͡°) Hello"_s) << std::optional<Quotient::RoomMessageEvent::MsgType>();
+    QTest::newRow("shrug") << u"/shrug Hello"_s << std::make_optional(u"¯\\\\_(ツ)_/¯ Hello"_s)
+                           << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
+    QTest::newRow("lenny") << u"/lenny Hello"_s << std::make_optional(u"( ͡° ͜ʖ ͡°) Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
     QTest::newRow("tableflip") << u"/tableflip Hello"_s << std::make_optional(u"(╯°□°）╯︵ ┻━┻ Hello"_s)
-                               << std::optional<Quotient::RoomMessageEvent::MsgType>();
-    QTest::newRow("unflip") << u"/unflip Hello"_s << std::make_optional(u"┬──┬ ノ( ゜-゜ノ) Hello"_s) << std::optional<Quotient::RoomMessageEvent::MsgType>();
+                               << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
+    QTest::newRow("unflip") << u"/unflip Hello"_s << std::make_optional(u"┬──┬ ノ( ゜-゜ノ) Hello"_s)
+                            << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
     QTest::newRow("rainbow") << u"/rainbow Hello"_s << std::optional<QString>() << std::optional<Quotient::RoomMessageEvent::MsgType>();
     QTest::newRow("rainbowme") << u"/rainbowme Hello"_s << std::optional<QString>() << std::optional<Quotient::RoomMessageEvent::MsgType>();
     QTest::newRow("plain") << u"/plain <b>Hello</b>"_s << std::optional<QString>() << std::optional<Quotient::RoomMessageEvent::MsgType>();
     QTest::newRow("spoiler") << u"/spoiler Hello"_s << std::optional<QString>() << std::optional<Quotient::RoomMessageEvent::MsgType>();
-    QTest::newRow("me") << u"/me Hello"_s << std::make_optional(u"Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Emote),
-        QTest::newRow("notice") << u"/notice Hello"_s << std::make_optional(u"Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Notice),
-        QTest::newRow("message") << u"Hello"_s << std::make_optional(u"Hello"_s) << std::optional<Quotient::RoomMessageEvent::MsgType>();
+    QTest::newRow("me") << u"/me Hello"_s << std::make_optional(u"Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Emote);
+    QTest::newRow("notice") << u"/notice Hello"_s << std::make_optional(u"Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Notice);
+    QTest::newRow("message") << u"Hello"_s << std::make_optional(u"Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
 }
 
 void ActionsTest::testActions()

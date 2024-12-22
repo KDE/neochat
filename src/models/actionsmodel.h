@@ -31,17 +31,9 @@ public:
          */
         std::function<QString(const QString &, NeoChatRoom *, ChatBarCache *)> handle;
         /**
-         * @brief Whether the action is a message type action.
-         *
-         * If this is true, a message action will be sent. If this is false, this
-         * message does some action on the client and should not be sent as a message.
-         */
-        bool messageAction;
-        /**
          * @brief The new message type of a message being sent.
          *
-         * For a non-message action or a message action that outputs the same type
-         * as its input, it's nullopt.
+         * For a non-message action, it's nullopt.
          */
         std::optional<Quotient::RoomMessageEvent::MsgType> messageType = std::nullopt;
         KLazyLocalizedString parameters; /**< The input parameters expected by the action. */
