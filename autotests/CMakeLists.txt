@@ -11,13 +11,11 @@ ecm_add_test(
     TEST_NAME neochatroomtest
 )
 
-if (NOT DEFINED ENV{KDECI_BUILD})
-    ecm_add_test(
-        texthandlertest.cpp
-        LINK_LIBRARIES neochat Qt::Test
-        TEST_NAME texthandlertest
-    )
-endif()
+ecm_add_test(
+    texthandlertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME texthandlertest
+)
 
 ecm_add_test(
     delegatesizehelpertest.cpp
