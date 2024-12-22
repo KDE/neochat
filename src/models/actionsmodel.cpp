@@ -131,7 +131,7 @@ QList<ActionsModel::Action> actions{
             auto content = std::make_unique<Quotient::EventContent::TextContent>(rainbowText, u"text/html"_s);
             EventRelation relatesTo =
                 chatBarCache->isReplying() ? EventRelation::replyTo(chatBarCache->replyId()) : EventRelation::replace(chatBarCache->editId());
-            room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Text, std::move(content), relatesTo);
+            room->post<Quotient::RoomMessageEvent>(u"/rainbow %1"_s.arg(text), MessageEventType::Emote, std::move(content), relatesTo);
             return QString();
         },
         false,
