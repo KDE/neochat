@@ -13,6 +13,9 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/roommember.h>
+#if Quotient_VERSION_MINOR > 9
+#include <Quotient/thread.h>
+#endif
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -477,9 +480,18 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&evt);
+#if Quotient_VERSION_MINOR > 9
+        if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_currentRoom->threads().contains(evt.id()))) {
+            const auto &thread = m_currentRoom->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : evt.id());
+            if (thread.latestEventId != evt.id()) {
+                return EventStatus::Hidden;
+            }
+        }
+#else
         if (roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() != evt.id() && NeoChatConfig::threads()) {
             return EventStatus::Hidden;
         }
+#endif
 
         return EventStatus::Normal;
     }
