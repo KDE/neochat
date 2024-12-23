@@ -203,7 +203,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             room->inviteToRoom(text);
-            Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> was invited into this room", "%1 was invited into this room", text));
+            Q_EMIT room->showMessage(MessageType::Positive, i18nc("<username> was invited into this room.", "%1 was invited into this room.", text));
             return QString();
         },
         std::nullopt,
@@ -538,7 +538,7 @@ QHash<int, QByteArray> ActionsModel::roleNames() const
     };
 }
 
-QList<Action> &ActionsModel::allActions() const
+QList<Action> &ActionsModel::allActions()
 {
     return actions;
 }

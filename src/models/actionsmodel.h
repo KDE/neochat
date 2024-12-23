@@ -80,7 +80,7 @@ public:
     /**
      * @brief Return a vector with all supported actions.
      */
-    QList<Action> &allActions() const;
+    static QList<Action> &allActions();
 
     /**
      * @brief Handle special sed style edit action.

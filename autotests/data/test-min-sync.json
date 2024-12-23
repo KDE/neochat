@@ -49,6 +49,51 @@
         "unsigned": {
           "age": 1234
         }
+      },
+      {
+        "content": {
+          "displayname": "Bob",
+          "membership": "join"
+        },
+        "event_id": "$143273blorb3PhrSn:example.org",
+        "origin_server_ts": 1432735824653,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@bob:kde.org",
+        "state_key": "@bob:kde.org",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 1234
+        }
+      },
+      {
+        "content": {
+          "displayname": "Invited",
+          "membership": "invite"
+        },
+        "event_id": "$asdfpj443PhrSn:example.org",
+        "origin_server_ts": 1432735824653,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "state_key": "@invited:example.com",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 1234
+        }
+      },
+      {
+        "content": {
+          "displayname": "Banned",
+          "membership": "ban"
+        },
+        "event_id": "$asdfpj443PhrSnasfd:example.org",
+        "origin_server_ts": 1432735824653,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@banned:example.com",
+        "state_key": "@banned:example.com",
+        "type": "m.room.member",
+        "unsigned": {
+          "age": 1234
+        }
       }
     ]
   },
@@ -57,7 +102,7 @@
       "@alice:example.com",
       "@bob:example.com"
     ],
-    "m.invited_member_count": 0,
+    "m.invited_member_count": 1,
     "m.joined_member_count": 2
   },
   "timeline": {
