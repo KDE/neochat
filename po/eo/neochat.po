@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:40+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-09-17 21:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -198,7 +198,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Montri fokuson en fenestrokapo"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:290
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
 #, kde-format
 msgid "Developer Tools"
 msgstr "Iloj por programistoj"
@@ -346,32 +346,32 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Statoklavoj"
 
-#: src/enums/neochatroomtype.h:59
+#: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Invited"
 msgstr "Invititaj"
 
-#: src/enums/neochatroomtype.h:61
+#: src/enums/neochatroomtype.h:63
 #, kde-format
 msgid "Favorite"
 msgstr "Ŝatata"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
+#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "Amikoj"
 
-#: src/enums/neochatroomtype.h:65
+#: src/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Normal"
 msgstr "Normala"
 
-#: src/enums/neochatroomtype.h:67
+#: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Low priority"
 msgstr "Malalta prioritato"
 
-#: src/enums/neochatroomtype.h:69
+#: src/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Spaces"
 msgstr "Spacoj"
@@ -410,7 +410,7 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/enums/roomsortparameter.h:47
+#: src/enums/roomsortparameter.h:52
 #, fuzzy, kde-format
 #| msgctxt "As in 'sort something alphabetically'"
 #| msgid "Alphabetical"
@@ -418,7 +418,7 @@ msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
 msgstr "Alfabeta"
 
-#: src/enums/roomsortparameter.h:49
+#: src/enums/roomsortparameter.h:54
 #, fuzzy, kde-format
 #| msgctxt "As in 'sort something alphabetically'"
 #| msgid "Alphabetical"
@@ -426,14 +426,14 @@ msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
 msgstr "Alfabeta"
 
-#: src/enums/roomsortparameter.h:51
+#: src/enums/roomsortparameter.h:56
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
 msgstr "Ĉifrita Mesaĝo"
 
-#: src/enums/roomsortparameter.h:53
+#: src/enums/roomsortparameter.h:58
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Forward Message"
@@ -441,20 +441,20 @@ msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
 msgstr "Antaŭen Mesaĝon"
 
-#: src/enums/roomsortparameter.h:55
+#: src/enums/roomsortparameter.h:60
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:57
+#: src/enums/roomsortparameter.h:62
 #, fuzzy, kde-format
 #| msgid "Show deleted messages"
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
 msgstr "Montri forigitajn mesaĝojn"
 
-#: src/enums/roomsortparameter.h:59
+#: src/enums/roomsortparameter.h:64
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "%1, Last activity: %2"
@@ -462,19 +462,19 @@ msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
 msgstr "%1, Lasta agado: %2"
 
-#: src/enums/roomsortparameter.h:74
+#: src/enums/roomsortparameter.h:79
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:76
+#: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:78
+#: src/enums/roomsortparameter.h:83
 #, fuzzy, kde-format
 #| msgctxt "Notification type"
 #| msgid "Room upgrade messages"
@@ -482,25 +482,25 @@ msgctxt "@info"
 msgid "Rooms with unread messages are higher"
 msgstr "Mesaĝoj pri babileja promociiĝo"
 
-#: src/enums/roomsortparameter.h:80
+#: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:82
+#: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:84
+#: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
 msgstr ""
 
-#: src/enums/roomsortparameter.h:86
+#: src/enums/roomsortparameter.h:91
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
@@ -1058,8 +1058,8 @@ msgid "Registration is disabled on this server."
 msgstr "Registrado estas malŝaltita ĉe ĉi tiu servilo."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:265
-#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:268
+#: src/models/messagecontentmodel.cpp:296 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Ŝargante"
@@ -1248,90 +1248,90 @@ msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-Komunumo"
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148
 #, kde-format
 msgid "Maintainer"
 msgstr "Prizorganto"
 
-#: src/main.cpp:151
+#: src/main.cpp:147
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:148
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Nigra Ĉapelo"
 
-#: src/main.cpp:153
+#: src/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Origina verkinto de Spectral"
 
-#: src/main.cpp:154
+#: src/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Aleksej Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Prizorganto de libQuotient"
 
-#: src/main.cpp:155
+#: src/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Oliver Kellogg"
 
-#: src/main.cpp:155
+#: src/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "olivermkellogg@gmail.com"
 
-#: src/main.cpp:159
+#: src/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Qt-biblioteko por skribi transplatformajn klientojn por Matrix"
 
-#: src/main.cpp:161
+#: src/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (konstruita kontraŭ %2)"
 
-#: src/main.cpp:189
+#: src/main.cpp:184
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Kliento por la matrica komunika protokolo"
 
-#: src/main.cpp:190
+#: src/main.cpp:185
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Elportas matrico: url-skemo"
 
-#: src/main.cpp:191
+#: src/main.cpp:186
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignori ĉiujn SSL-erarojn, ekz., nesubskribitajn atestojn."
 
-#: src/main.cpp:193
+#: src/main.cpp:188
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Nur uzata por aŭtomataj testoj"
 
-#: src/main.cpp:198
+#: src/main.cpp:193
 #, kde-format
 msgid "Internal usage only."
 msgstr "Nur por interna uzo."
 
-#: src/main.cpp:203
+#: src/main.cpp:198
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Kundividi URL al Matrix"
@@ -1341,8 +1341,8 @@ msgstr "Kundividi URL al Matrix"
 msgid "Leaving this room."
 msgstr "Forlasante ĉi tiun ĉambron."
 
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:232
-#: src/models/actionsmodel.cpp:258 src/models/actionsmodel.cpp:288
+#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:245 src/models/actionsmodel.cpp:274
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
@@ -1360,345 +1360,345 @@ msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Ĉambro %1 ne trovita."
 
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:324
+#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:307
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Neniu nova kromnomo provizita, neniuj ŝanĝoj okazos."
 
-#: src/models/actionsmodel.cpp:71 src/models/actionsmodel.cpp:81
-#: src/models/actionsmodel.cpp:91 src/models/actionsmodel.cpp:101
-#: src/models/actionsmodel.cpp:120 src/models/actionsmodel.cpp:139
-#: src/models/actionsmodel.cpp:150 src/models/actionsmodel.cpp:165
-#: src/models/actionsmodel.cpp:175 src/models/actionsmodel.cpp:185
+#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
+#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
+#: src/models/actionsmodel.cpp:143 src/models/actionsmodel.cpp:157
+#: src/models/actionsmodel.cpp:166 src/models/actionsmodel.cpp:175
 msgid "<message>"
 msgstr "<mesaĝo>"
 
-#: src/models/actionsmodel.cpp:72
+#: src/models/actionsmodel.cpp:71
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Antaŭmetas ¯\\_(ツ)_/¯ al mesaĝo"
 
-#: src/models/actionsmodel.cpp:82
+#: src/models/actionsmodel.cpp:80
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Antaŭmetas ( ͡° ͜ʖ ͡°) al klarteksta mesaĝo"
 
-#: src/models/actionsmodel.cpp:92
+#: src/models/actionsmodel.cpp:89
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Antaŭmetas (╯°□°）╯︵ ┻━┻ al simplateksta mesaĝo"
 
-#: src/models/actionsmodel.cpp:102
+#: src/models/actionsmodel.cpp:98
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Antaŭmetas ┬──┬ ノ( ゜-゜ノ) al simplateksta mesaĝo"
 
-#: src/models/actionsmodel.cpp:121
+#: src/models/actionsmodel.cpp:116
 msgid "Sends the given message colored as a rainbow"
 msgstr "Sendas la donitan mesaĝon kolorigita kiel ĉielarko"
 
-#: src/models/actionsmodel.cpp:140
+#: src/models/actionsmodel.cpp:134
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Sendas la donitan emocion kolorigitan kiel ĉielarko"
 
-#: src/models/actionsmodel.cpp:151
+#: src/models/actionsmodel.cpp:144
 msgid "Sends the given message as plain text"
 msgstr "Sendas la donitan mesaĝon kiel simpla teksto"
 
-#: src/models/actionsmodel.cpp:166
+#: src/models/actionsmodel.cpp:158
 msgid "Sends the given message as a spoiler"
 msgstr "Sendas la donitan mesaĝon kiel spoiler"
 
-#: src/models/actionsmodel.cpp:176
+#: src/models/actionsmodel.cpp:167
 msgid "Sends the given emote"
 msgstr "Sendas la donitan emociaĵon"
 
-#: src/models/actionsmodel.cpp:186
+#: src/models/actionsmodel.cpp:176
 msgid "Sends the given message as a notice"
 msgstr "Sendas la donitan mesaĝon kiel avizo"
 
-#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:358
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:426
-#: src/models/actionsmodel.cpp:465 src/models/actionsmodel.cpp:500
+#: src/models/actionsmodel.cpp:184 src/models/actionsmodel.cpp:337
+#: src/models/actionsmodel.cpp:359 src/models/actionsmodel.cpp:400
+#: src/models/actionsmodel.cpp:437 src/models/actionsmodel.cpp:470
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "'%1' ne aspektas kiel matrica id."
 
-#: src/models/actionsmodel.cpp:201
+#: src/models/actionsmodel.cpp:190
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 jam estas invitita al ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:205
+#: src/models/actionsmodel.cpp:194
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 estas malpermesita el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:209
+#: src/models/actionsmodel.cpp:198
 #, kde-format
 msgid "You are already in this room."
 msgstr "Vi jam estas en ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:213
+#: src/models/actionsmodel.cpp:202
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 jam estas en ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:217
+#: src/models/actionsmodel.cpp:206
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 estis invitita en ĉi tiun ĉambron"
 
-#: src/models/actionsmodel.cpp:222 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:395 src/models/actionsmodel.cpp:488
+#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
+#: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
 msgid "<user id>"
 msgstr "<uzantidentigilo>"
 
-#: src/models/actionsmodel.cpp:223
+#: src/models/actionsmodel.cpp:211
 msgid "Invites the user to this room"
 msgstr "Invitas la uzanton al ĉi tiu ĉambro"
 
-#: src/models/actionsmodel.cpp:240 src/models/actionsmodel.cpp:295
+#: src/models/actionsmodel.cpp:228 src/models/actionsmodel.cpp:281
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Aliĝante al ĉambro %1."
 
-#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:301
+#: src/models/actionsmodel.cpp:233 src/models/actionsmodel.cpp:286
 msgid "<room alias or id>"
 msgstr "<ĉambra kaŝnomo aŭ identigilo>"
 
-#: src/models/actionsmodel.cpp:247 src/models/actionsmodel.cpp:302
+#: src/models/actionsmodel.cpp:234 src/models/actionsmodel.cpp:287
 msgid "Joins the given room"
 msgstr "Aliĝas al la donita ĉambro"
 
-#: src/models/actionsmodel.cpp:266
+#: src/models/actionsmodel.cpp:253
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Frapante ĉambron %1."
 
-#: src/models/actionsmodel.cpp:278
+#: src/models/actionsmodel.cpp:264
 msgid "<room alias or id> [<reason>]"
 msgstr "<ĉambra kaŝnomo aŭ identigilo> [<kialo>]"
 
-#: src/models/actionsmodel.cpp:279
+#: src/models/actionsmodel.cpp:265
 msgid "Requests to join the given room"
 msgstr "Petoj aliĝi al la donita ĉambro"
 
-#: src/models/actionsmodel.cpp:292
+#: src/models/actionsmodel.cpp:278
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Vi jam estas en la ĉambro %1."
 
-#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
+#: src/models/actionsmodel.cpp:293 src/models/actionsmodel.cpp:300
 msgid "[<room alias or id>]"
 msgstr "[<ĉambra kaŝnomo aŭ identigilo>]"
 
-#: src/models/actionsmodel.cpp:310 src/models/actionsmodel.cpp:318
+#: src/models/actionsmodel.cpp:294 src/models/actionsmodel.cpp:301
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Forlasas la donitan ĉambron aŭ ĉi tiun ĉambron, se neniu estas donita"
 
-#: src/models/actionsmodel.cpp:332 src/models/actionsmodel.cpp:340
-#: src/models/actionsmodel.cpp:348
+#: src/models/actionsmodel.cpp:314 src/models/actionsmodel.cpp:321
+#: src/models/actionsmodel.cpp:328
 msgid "<display name>"
 msgstr "<montra nomo>"
 
-#: src/models/actionsmodel.cpp:333
+#: src/models/actionsmodel.cpp:315
 msgid "Changes your global display name"
 msgstr "Ŝanĝas vian ĉiean montran nomon"
 
-#: src/models/actionsmodel.cpp:341 src/models/actionsmodel.cpp:349
+#: src/models/actionsmodel.cpp:322 src/models/actionsmodel.cpp:329
 msgid "Changes your display name in this room"
 msgstr "Ŝanĝas vian montran nomon en ĉi tiu ĉambro"
 
-#: src/models/actionsmodel.cpp:362
+#: src/models/actionsmodel.cpp:341
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 jam estas ignorita."
 
-#: src/models/actionsmodel.cpp:366
+#: src/models/actionsmodel.cpp:345
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 nun estas ignorita."
 
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:351
 msgid "Ignores the given user"
 msgstr "Ignoras la donitan uzanton"
 
-#: src/models/actionsmodel.cpp:386
+#: src/models/actionsmodel.cpp:363
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 ne estas ignorita."
 
-#: src/models/actionsmodel.cpp:390
+#: src/models/actionsmodel.cpp:367
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 ne plu estas ignorata."
 
-#: src/models/actionsmodel.cpp:396
+#: src/models/actionsmodel.cpp:372
 msgid "Unignores the given user"
 msgstr "Neignoras la donitan uzanton"
 
-#: src/models/actionsmodel.cpp:415
+#: src/models/actionsmodel.cpp:390
 msgid "<reaction text>"
 msgstr "<reaga teksto>"
 
-#: src/models/actionsmodel.cpp:416
+#: src/models/actionsmodel.cpp:391
 msgid "React to the message with the given text"
 msgstr "Reagi al la mesaĝo per la donita teksto"
 
-#: src/models/actionsmodel.cpp:432
+#: src/models/actionsmodel.cpp:406
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 jam estas malpermesita el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:440
+#: src/models/actionsmodel.cpp:414
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Vi ne rajtas malpermesi uzantojn de ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:446
+#: src/models/actionsmodel.cpp:420
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Vi ne rajtas malpermesi %1 el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:424
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 estis malpermesita el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:455 src/models/actionsmodel.cpp:532
+#: src/models/actionsmodel.cpp:428 src/models/actionsmodel.cpp:501
 msgid "<user id> [<reason>]"
 msgstr "<uzantidentigilo> [<kialo>]"
 
-#: src/models/actionsmodel.cpp:456
+#: src/models/actionsmodel.cpp:429
 msgid "Bans the given user"
 msgstr "Malpermesas la donitan uzanton"
 
-#: src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:445
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Vi ne rajtas malmalpermesi uzantojn de ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:478
+#: src/models/actionsmodel.cpp:450
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 ne estas malpermesita el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:454
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 estis nemalpermesita de ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:489
+#: src/models/actionsmodel.cpp:460
 msgid "Removes the ban of the given user"
 msgstr "Forigas la malpermeson de la donita uzanto"
 
-#: src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:474
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Vi ne povas piedbati vin el la ĉambro."
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:478
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 ne estas en ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:487
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Vi ne rajtas forpeli uzantojn el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:523
+#: src/models/actionsmodel.cpp:493
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Vi ne rajtas piedbati %1 el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:497
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 estis forpelita el ĉi tiu ĉambro."
 
-#: src/models/actionsmodel.cpp:533
+#: src/models/actionsmodel.cpp:502
 msgid "Removes the user from the room"
 msgstr "Forigas la uzanton el la ĉambro"
 
-#: src/models/emojimodel.cpp:155 src/models/emojimodel.cpp:213
+#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Historio"
 
-#: src/models/emojimodel.cpp:160
+#: src/models/emojimodel.cpp:162
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Smileys"
 
-#: src/models/emojimodel.cpp:165
+#: src/models/emojimodel.cpp:167
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Homoj"
 
-#: src/models/emojimodel.cpp:170
+#: src/models/emojimodel.cpp:172
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Naturo"
 
-#: src/models/emojimodel.cpp:175
+#: src/models/emojimodel.cpp:177
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Manĝaĵo"
 
-#: src/models/emojimodel.cpp:180
+#: src/models/emojimodel.cpp:182
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktivecoj"
 
-#: src/models/emojimodel.cpp:185
+#: src/models/emojimodel.cpp:187
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Vojaĝi"
 
-#: src/models/emojimodel.cpp:190
+#: src/models/emojimodel.cpp:192
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Objektoj"
 
-#: src/models/emojimodel.cpp:195
+#: src/models/emojimodel.cpp:197
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Simboloj"
 
-#: src/models/emojimodel.cpp:200
+#: src/models/emojimodel.cpp:202
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Flagoj"
 
-#: src/models/emojimodel.cpp:219
+#: src/models/emojimodel.cpp:221
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -1716,14 +1716,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Propraj Emoĝioj"
 
-#: src/models/messagecontentmodel.cpp:263
-#: src/models/messagecontentmodel.cpp:291
+#: src/models/messagecontentmodel.cpp:266
+#: src/models/messagecontentmodel.cpp:294
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Ŝargante respondon"
 
-#: src/models/messagecontentmodel.cpp:286
+#: src/models/messagecontentmodel.cpp:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1923,13 +1923,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Voka invito"
 
-#: src/models/reactionmodel.cpp:61
+#: src/models/reactionmodel.cpp:63
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " kaj "
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:70
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1937,7 +1937,7 @@ msgid_plural " and %1 others"
 msgstr[0] " kaj %1 alia"
 msgstr[1] " kaj %1 aliaj"
 
-#: src/models/reactionmodel.cpp:72
+#: src/models/reactionmodel.cpp:74
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1945,20 +1945,20 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 redaktis kun %3"
 msgstr[1] "%2 redaktis kun %3"
 
-#: src/models/readmarkermodel.cpp:110
+#: src/models/readmarkermodel.cpp:112
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 uzanto:"
 msgstr[1] "%1 uzantoj:"
 
-#: src/models/readmarkermodel.cpp:115
+#: src/models/readmarkermodel.cpp:117
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "nekonata membro"
 
-#: src/models/readmarkermodel.cpp:117
+#: src/models/readmarkermodel.cpp:119
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1983,17 +1983,17 @@ msgstr "Agordiĝis neniu identeca servilo"
 msgid "Room creation failed: %1"
 msgstr "Kreado de ĉambro malsukcesis: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
 
-#: src/neochatroom.cpp:1264
+#: src/neochatroom.cpp:1262
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raporto sukcese sendita."
 
-#: src/neochatroom.cpp:1596 src/neochatroom.cpp:1604
+#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1602
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2092,7 +2092,7 @@ msgstr "Sciigaj agordoj"
 msgid "Devices"
 msgstr "Aparatoj"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
+#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
 #, fuzzy, kde-format
 #| msgid "Open developer tools"
 msgid "Open Developer Tools"
@@ -3772,6 +3772,7 @@ msgid "Add new room"
 msgstr "Aldoni novan ĉambron"
 
 #: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -5024,13 +5025,13 @@ msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:105
+#: src/settings/NeoChatGeneralPage.qml:106
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabeta"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "%1, Last activity: %2"
@@ -5038,82 +5039,89 @@ msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
 msgstr "%1, Lasta agado: %2"
 
-#: src/settings/NeoChatGeneralPage.qml:115
+#: src/settings/NeoChatGeneralPage.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:125
+#: src/settings/NeoChatGeneralPage.qml:128
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@option:radio"
+msgid "Custom"
+msgstr "Tajlorita"
+
+#: src/settings/NeoChatGeneralPage.qml:137
 #, kde-format
 msgid "Timeline Events"
 msgstr "Templinio-Eventoj"
 
-#: src/settings/NeoChatGeneralPage.qml:130
+#: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Montri forigitajn mesaĝojn"
 
-#: src/settings/NeoChatGeneralPage.qml:146
+#: src/settings/NeoChatGeneralPage.qml:158
 #, kde-format
 msgid "Show state events"
 msgstr "Montri statajn eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:164
+#: src/settings/NeoChatGeneralPage.qml:176
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Montri forir- kaj aliĝ-eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:194
 #, kde-format
 msgid "Show name change events"
 msgstr "Montri nomŝanĝajn eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:200
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Montri eventojn pri ĝisdatigo de avataro"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:222
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Redaktoro"
 
-#: src/settings/NeoChatGeneralPage.qml:214
+#: src/settings/NeoChatGeneralPage.qml:226
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Sendi mesaĝon"
 
-#: src/settings/NeoChatGeneralPage.qml:225
+#: src/settings/NeoChatGeneralPage.qml:237
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:241
+#: src/settings/NeoChatGeneralPage.qml:253
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Uzu s/text/anstataŭan sintakson por redakti vian lastan mesaĝon"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:267
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
-#: src/settings/NeoChatGeneralPage.qml:265
+#: src/settings/NeoChatGeneralPage.qml:277
 #, kde-format
 msgid "Developer Settings"
 msgstr "Agordoj por programistoj"
 
-#: src/settings/NeoChatGeneralPage.qml:270
+#: src/settings/NeoChatGeneralPage.qml:282
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Ebligi programistajn ilojn"
 
-#: src/settings/NeoChatGeneralPage.qml:295
+#: src/settings/NeoChatGeneralPage.qml:307
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Default Settings"
@@ -5121,7 +5129,7 @@ msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Defaŭlta Agordo"
 
-#: src/settings/NeoChatGeneralPage.qml:300
+#: src/settings/NeoChatGeneralPage.qml:312
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reset all configuration values to their default"
@@ -5746,6 +5754,54 @@ msgstr "Ĉambraj Agordoj"
 msgid "Permissions"
 msgstr "Permesoj"
 
+#: src/settings/RoomSortParameterDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Room list sort order"
+msgctxt "@title:dialog"
+msgid "Custom Room Sort Order"
+msgstr "Ĉambrolista ordigospeco"
+
+#: src/settings/RoomSortParameterDialog.qml:56
+#, kde-format
+msgctxt "As in first sort chat rooms by the parameter"
+msgid "first:"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:56
+#, kde-format
+msgctxt "As in then sort chat rooms by the parameter"
+msgid "then:"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:72
+#, kde-format
+msgctxt "@button"
+msgid "Up"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to download its file"
+#| msgid "Download"
+msgctxt "@button"
+msgid "Down"
+msgstr "Elŝutu"
+
+#: src/settings/RoomSortParameterDialog.qml:105
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add server"
+msgctxt "@action:button"
+msgid "Add parameter"
+msgstr "Aldoni servilon"
+
+#: src/settings/RoomSortParameterDialog.qml:118
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Select Parameter to Add"
+msgstr ""
+
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
 msgctxt "@action:button"
@@ -5788,12 +5844,12 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Nova Telefonnumero:"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Ni sendis al vi retpoŝton"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Ni sendis al vi tekstmesaĝon"
@@ -5804,12 +5860,12 @@ msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Bonvolu sekvi la instruojn tie kaj poste klaki la butonon malsupre"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "La enigita retpoŝto ne estas valida"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "La enigita telefonnumero ne estas valida"
@@ -5849,13 +5905,13 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Reen"
 
-#: src/threepidbindhelper.cpp:175
+#: src/threepidbindhelper.cpp:177
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr "%1. Bonvolu sekvi la instruojn tie kaj poste klaki la butonon supre"
 
-#: src/threepidbindhelper.cpp:181
+#: src/threepidbindhelper.cpp:183
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5864,7 +5920,7 @@ msgstr ""
 "La retpoŝto ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi la "
 "instruojn tie kaj poste klaki la butonon supre"
 
-#: src/threepidbindhelper.cpp:182
+#: src/threepidbindhelper.cpp:184
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -6056,12 +6112,12 @@ msgstr "Laŭteco"
 msgid "Maximize"
 msgstr "Maksimumigi"
 
-#: src/trayicon.cpp:19
+#: src/trayicon.cpp:21
 #, kde-format
 msgid "Show"
 msgstr "Montri"
 
-#: src/trayicon.cpp:34
+#: src/trayicon.cpp:36
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"

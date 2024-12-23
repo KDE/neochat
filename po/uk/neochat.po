@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:40+0000\n"
+"POT-Creation-Date: 2024-12-23 00:40+0000\n"
 "PO-Revision-Date: 2024-12-09 15:27+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -197,7 +197,7 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Показувати фокусування у заголовку вікна"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:290
+#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
@@ -341,32 +341,32 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Ключі стану"
 
-#: src/enums/neochatroomtype.h:59
+#: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Invited"
 msgstr "Запрошено"
 
-#: src/enums/neochatroomtype.h:61
+#: src/enums/neochatroomtype.h:63
 #, kde-format
 msgid "Favorite"
 msgstr "Улюблене"
 
-#: src/enums/neochatroomtype.h:63 src/qml/UserSearchPage.qml:84
+#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
 #, kde-format
 msgid "Friends"
 msgstr "Друзі"
 
-#: src/enums/neochatroomtype.h:65
+#: src/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Normal"
 msgstr "Звичайні"
 
-#: src/enums/neochatroomtype.h:67
+#: src/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Low priority"
 msgstr "Низький пріоритет"
 
-#: src/enums/neochatroomtype.h:69
+#: src/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Spaces"
 msgstr "Простори"
@@ -405,85 +405,85 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/enums/roomsortparameter.h:47
+#: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
 msgstr "За абеткою (за зростанням)"
 
-#: src/enums/roomsortparameter.h:49
+#: src/enums/roomsortparameter.h:54
 #, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
 msgstr "За абеткою (за спаданням)"
 
-#: src/enums/roomsortparameter.h:51
+#: src/enums/roomsortparameter.h:56
 #, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
 msgstr "Містить непрочитані повідомлення"
 
-#: src/enums/roomsortparameter.h:53
+#: src/enums/roomsortparameter.h:58
 #, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
 msgstr "Більше непрочитаних повідомлень"
 
-#: src/enums/roomsortparameter.h:55
+#: src/enums/roomsortparameter.h:60
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
 msgstr "Містить підсвічені повідомлення"
 
-#: src/enums/roomsortparameter.h:57
+#: src/enums/roomsortparameter.h:62
 #, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
 msgstr "Більше підсвічених повідомлень"
 
-#: src/enums/roomsortparameter.h:59
+#: src/enums/roomsortparameter.h:64
 #, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
 msgstr "Остання активність"
 
-#: src/enums/roomsortparameter.h:74
+#: src/enums/roomsortparameter.h:79
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
 msgstr "Назви кімнат, ближчі до A за абеткою, будуть вище"
 
-#: src/enums/roomsortparameter.h:76
+#: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
 msgstr "Назви кімнат, ближчі до Z за абеткою, будуть вище"
 
-#: src/enums/roomsortparameter.h:78
+#: src/enums/roomsortparameter.h:83
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
 msgstr "Кімнати із непрочитаними повідомленнями будуть вище"
 
-#: src/enums/roomsortparameter.h:80
+#: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
 msgstr "Кімнати з більшою кількістю непрочитаних повідомлень будуть вище"
 
-#: src/enums/roomsortparameter.h:82
+#: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
 msgstr "Кімнати із підсвіченими повідомленнями будуть вище"
 
-#: src/enums/roomsortparameter.h:84
+#: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
 msgstr "Кімнати із більшою кількістю підсвічених повідомлень будуть вище"
 
-#: src/enums/roomsortparameter.h:86
+#: src/enums/roomsortparameter.h:91
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
@@ -1042,8 +1042,8 @@ msgid "Registration is disabled on this server."
 msgstr "На цьому сервері реєстрацію вимкнено."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:265
-#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:268
+#: src/models/messagecontentmodel.cpp:296 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Завантаження"
@@ -1230,91 +1230,91 @@ msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2024"
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147 src/main.cpp:151 src/main.cpp:152
+#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: src/main.cpp:151
+#: src/main.cpp:147
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:152
+#: src/main.cpp:148
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:153
+#: src/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Перший автор Spectral"
 
-#: src/main.cpp:154
+#: src/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:154
+#: src/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Супровідник libQuotient"
 
-#: src/main.cpp:155
+#: src/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: src/main.cpp:155
+#: src/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/main.cpp:159
+#: src/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt для написання багатоплатформових клієнтських програм для Matrix"
 
-#: src/main.cpp:161
+#: src/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:189
+#: src/main.cpp:184
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:190
+#: src/main.cpp:185
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:191
+#: src/main.cpp:186
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
 
-#: src/main.cpp:193
+#: src/main.cpp:188
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Використовують лише для автоматичного тестування"
 
-#: src/main.cpp:198
+#: src/main.cpp:193
 #, kde-format
 msgid "Internal usage only."
 msgstr "Лише для внутрішнього використання."
 
-#: src/main.cpp:203
+#: src/main.cpp:198
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
@@ -1324,8 +1324,8 @@ msgstr "Оприлюднити адресу у Matrix"
 msgid "Leaving this room."
 msgstr "Полишаємо цю кімнату."
 
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:232
-#: src/models/actionsmodel.cpp:258 src/models/actionsmodel.cpp:288
+#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:245 src/models/actionsmodel.cpp:274
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
@@ -1343,345 +1343,345 @@ msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Кімнати %1 не знайдено."
 
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:324
+#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:307
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Не вказано нового псевдоніма, ніяких змін внесено не буде."
 
-#: src/models/actionsmodel.cpp:71 src/models/actionsmodel.cpp:81
-#: src/models/actionsmodel.cpp:91 src/models/actionsmodel.cpp:101
-#: src/models/actionsmodel.cpp:120 src/models/actionsmodel.cpp:139
-#: src/models/actionsmodel.cpp:150 src/models/actionsmodel.cpp:165
-#: src/models/actionsmodel.cpp:175 src/models/actionsmodel.cpp:185
+#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
+#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
+#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
+#: src/models/actionsmodel.cpp:143 src/models/actionsmodel.cpp:157
+#: src/models/actionsmodel.cpp:166 src/models/actionsmodel.cpp:175
 msgid "<message>"
 msgstr "<повідомлення>"
 
-#: src/models/actionsmodel.cpp:72
+#: src/models/actionsmodel.cpp:71
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Дописати ¯\\_(ツ)_/¯ перед звичайним текстовим повідомленням"
 
-#: src/models/actionsmodel.cpp:82
+#: src/models/actionsmodel.cpp:80
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Дописати ( ͡° ͜ʖ ͡°) перед звичайним текстовим повідомленням"
 
-#: src/models/actionsmodel.cpp:92
+#: src/models/actionsmodel.cpp:89
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Дописати (╯°□°）╯︵ ┻━┻ перед звичайним текстовим повідомленням"
 
-#: src/models/actionsmodel.cpp:102
+#: src/models/actionsmodel.cpp:98
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
 
-#: src/models/actionsmodel.cpp:121
+#: src/models/actionsmodel.cpp:116
 msgid "Sends the given message colored as a rainbow"
 msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
 
-#: src/models/actionsmodel.cpp:140
+#: src/models/actionsmodel.cpp:134
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
 
-#: src/models/actionsmodel.cpp:151
+#: src/models/actionsmodel.cpp:144
 msgid "Sends the given message as plain text"
 msgstr "Надіслати вказане повідомлення як звичайний текст"
 
-#: src/models/actionsmodel.cpp:166
+#: src/models/actionsmodel.cpp:158
 msgid "Sends the given message as a spoiler"
 msgstr "Надіслати вказане повідомлення як спойлер"
 
-#: src/models/actionsmodel.cpp:176
+#: src/models/actionsmodel.cpp:167
 msgid "Sends the given emote"
 msgstr "Надіслати вказану емоцію"
 
-#: src/models/actionsmodel.cpp:186
+#: src/models/actionsmodel.cpp:176
 msgid "Sends the given message as a notice"
 msgstr "Надіслати вказане повідомлення як зауваження"
 
-#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:358
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:426
-#: src/models/actionsmodel.cpp:465 src/models/actionsmodel.cpp:500
+#: src/models/actionsmodel.cpp:184 src/models/actionsmodel.cpp:337
+#: src/models/actionsmodel.cpp:359 src/models/actionsmodel.cpp:400
+#: src/models/actionsmodel.cpp:437 src/models/actionsmodel.cpp:470
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "Здається, «%1» не є ідентифікатором matrix."
 
-#: src/models/actionsmodel.cpp:201
+#: src/models/actionsmodel.cpp:190
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 вже запрошено до цієї кімнати."
 
-#: src/models/actionsmodel.cpp:205
+#: src/models/actionsmodel.cpp:194
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 заблоковано у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:209
+#: src/models/actionsmodel.cpp:198
 #, kde-format
 msgid "You are already in this room."
 msgstr "Ви вже перебуваєте у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:213
+#: src/models/actionsmodel.cpp:202
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 вже перебуває у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:217
+#: src/models/actionsmodel.cpp:206
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 було запрошено до цієї кімнати"
 
-#: src/models/actionsmodel.cpp:222 src/models/actionsmodel.cpp:372
-#: src/models/actionsmodel.cpp:395 src/models/actionsmodel.cpp:488
+#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
+#: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
 msgid "<user id>"
 msgstr "<ідентифікатор користувача>"
 
-#: src/models/actionsmodel.cpp:223
+#: src/models/actionsmodel.cpp:211
 msgid "Invites the user to this room"
 msgstr "Запрошує користувача до цієї кімнати"
 
-#: src/models/actionsmodel.cpp:240 src/models/actionsmodel.cpp:295
+#: src/models/actionsmodel.cpp:228 src/models/actionsmodel.cpp:281
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Долучається до кімнати %1."
 
-#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:301
+#: src/models/actionsmodel.cpp:233 src/models/actionsmodel.cpp:286
 msgid "<room alias or id>"
 msgstr "<альтернативна назва або ідентифікатор кімнати>"
 
-#: src/models/actionsmodel.cpp:247 src/models/actionsmodel.cpp:302
+#: src/models/actionsmodel.cpp:234 src/models/actionsmodel.cpp:287
 msgid "Joins the given room"
 msgstr "Долучається до вказаної кімнати"
 
-#: src/models/actionsmodel.cpp:266
+#: src/models/actionsmodel.cpp:253
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Стукаємося до кімнати %1."
 
-#: src/models/actionsmodel.cpp:278
+#: src/models/actionsmodel.cpp:264
 msgid "<room alias or id> [<reason>]"
 msgstr "<альтернативна назва або ідентифікатор кімнати> [<причина>]"
 
-#: src/models/actionsmodel.cpp:279
+#: src/models/actionsmodel.cpp:265
 msgid "Requests to join the given room"
 msgstr "Надсилає запит щодо долучення до вказаної кімнати"
 
-#: src/models/actionsmodel.cpp:292
+#: src/models/actionsmodel.cpp:278
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Ви вже перебуваєте у кімнаті %1."
 
-#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
+#: src/models/actionsmodel.cpp:293 src/models/actionsmodel.cpp:300
 msgid "[<room alias or id>]"
 msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
 
-#: src/models/actionsmodel.cpp:310 src/models/actionsmodel.cpp:318
+#: src/models/actionsmodel.cpp:294 src/models/actionsmodel.cpp:301
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
 
-#: src/models/actionsmodel.cpp:332 src/models/actionsmodel.cpp:340
-#: src/models/actionsmodel.cpp:348
+#: src/models/actionsmodel.cpp:314 src/models/actionsmodel.cpp:321
+#: src/models/actionsmodel.cpp:328
 msgid "<display name>"
 msgstr "<показане ім'я>"
 
-#: src/models/actionsmodel.cpp:333
+#: src/models/actionsmodel.cpp:315
 msgid "Changes your global display name"
 msgstr "Змінює ваше загальне показане ім'я"
 
-#: src/models/actionsmodel.cpp:341 src/models/actionsmodel.cpp:349
+#: src/models/actionsmodel.cpp:322 src/models/actionsmodel.cpp:329
 msgid "Changes your display name in this room"
 msgstr "Змінює ваше показане ім'я у цій кімнаті"
 
-#: src/models/actionsmodel.cpp:362
+#: src/models/actionsmodel.cpp:341
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 вже додано до ігнорованих."
 
-#: src/models/actionsmodel.cpp:366
+#: src/models/actionsmodel.cpp:345
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 тепер є ігнорованим."
 
-#: src/models/actionsmodel.cpp:373
+#: src/models/actionsmodel.cpp:351
 msgid "Ignores the given user"
 msgstr "Ігнорує вказаного користувача"
 
-#: src/models/actionsmodel.cpp:386
+#: src/models/actionsmodel.cpp:363
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 не включено до ігнорованих."
 
-#: src/models/actionsmodel.cpp:390
+#: src/models/actionsmodel.cpp:367
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 Ігнорується."
 
-#: src/models/actionsmodel.cpp:396
+#: src/models/actionsmodel.cpp:372
 msgid "Unignores the given user"
 msgstr "Скасовує ігнорування вказаного користувача"
 
-#: src/models/actionsmodel.cpp:415
+#: src/models/actionsmodel.cpp:390
 msgid "<reaction text>"
 msgstr "<текст реакції>"
 
-#: src/models/actionsmodel.cpp:416
+#: src/models/actionsmodel.cpp:391
 msgid "React to the message with the given text"
 msgstr "Зреагувати на це повідомлення вказаним текстом"
 
-#: src/models/actionsmodel.cpp:432
+#: src/models/actionsmodel.cpp:406
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 вже заблоковано у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:440
+#: src/models/actionsmodel.cpp:414
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Ви не можете блокувати користувачів у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:446
+#: src/models/actionsmodel.cpp:420
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Ви не можете заблокувати %1 у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:450
+#: src/models/actionsmodel.cpp:424
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 було заблоковано у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:455 src/models/actionsmodel.cpp:532
+#: src/models/actionsmodel.cpp:428 src/models/actionsmodel.cpp:501
 msgid "<user id> [<reason>]"
 msgstr "<ідентифікатор користувача> [<причина>]"
 
-#: src/models/actionsmodel.cpp:456
+#: src/models/actionsmodel.cpp:429
 msgid "Bans the given user"
 msgstr "Блокує вказаного користувача"
 
-#: src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:445
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Ви не можете розблоковувати користувачів у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:478
+#: src/models/actionsmodel.cpp:450
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 не заблоковано у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:482
+#: src/models/actionsmodel.cpp:454
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 було розблоковано у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:489
+#: src/models/actionsmodel.cpp:460
 msgid "Removes the ban of the given user"
 msgstr "Вилучає блокування зі вказаного користувача"
 
-#: src/models/actionsmodel.cpp:504
+#: src/models/actionsmodel.cpp:474
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Ви не можете викинути себе з кімнати."
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:478
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 не перебуває у цій кімнаті."
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:487
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Ви не можете викидати користувачів з цієї кімнати."
 
-#: src/models/actionsmodel.cpp:523
+#: src/models/actionsmodel.cpp:493
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Ви не можете викидати %1 з цієї кімнати."
 
-#: src/models/actionsmodel.cpp:527
+#: src/models/actionsmodel.cpp:497
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 було викинуто з цієї кімнати."
 
-#: src/models/actionsmodel.cpp:533
+#: src/models/actionsmodel.cpp:502
 msgid "Removes the user from the room"
 msgstr "Вилучає користувача з кімнати"
 
-#: src/models/emojimodel.cpp:155 src/models/emojimodel.cpp:213
+#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Журнал"
 
-#: src/models/emojimodel.cpp:160
+#: src/models/emojimodel.cpp:162
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Смайл"
 
-#: src/models/emojimodel.cpp:165
+#: src/models/emojimodel.cpp:167
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Люди"
 
-#: src/models/emojimodel.cpp:170
+#: src/models/emojimodel.cpp:172
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Природа"
 
-#: src/models/emojimodel.cpp:175
+#: src/models/emojimodel.cpp:177
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Їжа"
 
-#: src/models/emojimodel.cpp:180
+#: src/models/emojimodel.cpp:182
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Діяльність"
 
-#: src/models/emojimodel.cpp:185
+#: src/models/emojimodel.cpp:187
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Подорожі"
 
-#: src/models/emojimodel.cpp:190
+#: src/models/emojimodel.cpp:192
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Об'єкти"
 
-#: src/models/emojimodel.cpp:195
+#: src/models/emojimodel.cpp:197
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Символи"
 
-#: src/models/emojimodel.cpp:200
+#: src/models/emojimodel.cpp:202
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Прапорці"
 
-#: src/models/emojimodel.cpp:219
+#: src/models/emojimodel.cpp:221
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -1699,14 +1699,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Власні емоційки"
 
-#: src/models/messagecontentmodel.cpp:263
-#: src/models/messagecontentmodel.cpp:291
+#: src/models/messagecontentmodel.cpp:266
+#: src/models/messagecontentmodel.cpp:294
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Завантаження відповіді"
 
-#: src/models/messagecontentmodel.cpp:286
+#: src/models/messagecontentmodel.cpp:289
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1908,13 +1908,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Запрошення до дзвінка"
 
-#: src/models/reactionmodel.cpp:61
+#: src/models/reactionmodel.cpp:63
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " і "
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:70
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1924,7 +1924,7 @@ msgstr[1] " і %1 інші"
 msgstr[2] " і %1 інших"
 msgstr[3] " і %1 інший"
 
-#: src/models/reactionmodel.cpp:72
+#: src/models/reactionmodel.cpp:74
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1934,7 +1934,7 @@ msgstr[1] "Реакція %2 — %3"
 msgstr[2] "Реакція %2 — %3"
 msgstr[3] "Реакція %2 — %3"
 
-#: src/models/readmarkermodel.cpp:110
+#: src/models/readmarkermodel.cpp:112
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -1943,13 +1943,13 @@ msgstr[1] "%1 користувачі: "
 msgstr[2] "%1 користувачів: "
 msgstr[3] "%1 користувач: "
 
-#: src/models/readmarkermodel.cpp:115
+#: src/models/readmarkermodel.cpp:117
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "невідомий учасник"
 
-#: src/models/readmarkermodel.cpp:117
+#: src/models/readmarkermodel.cpp:119
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1975,17 +1975,17 @@ msgstr "Не налаштовано жодного сервера профілі
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1264
+#: src/neochatroom.cpp:1262
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1596 src/neochatroom.cpp:1604
+#: src/neochatroom.cpp:1594 src/neochatroom.cpp:1602
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2082,7 +2082,7 @@ msgstr "Параметри сповіщення"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:286
+#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
@@ -3761,6 +3761,7 @@ msgid "Add new room"
 msgstr "Додати нову кімнату"
 
 #: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -4992,101 +4993,108 @@ msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
 msgstr "Кімнати із непрочитаними сповіщеннями буде показано першими"
 
-#: src/settings/NeoChatGeneralPage.qml:105
+#: src/settings/NeoChatGeneralPage.qml:106
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "За абеткою"
 
-#: src/settings/NeoChatGeneralPage.qml:114
+#: src/settings/NeoChatGeneralPage.qml:116
 #, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
 msgstr "Останні дії щодо повідомлень"
 
-#: src/settings/NeoChatGeneralPage.qml:115
+#: src/settings/NeoChatGeneralPage.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
 msgstr "Кімнати із свіжими діями буде показано першими"
 
-#: src/settings/NeoChatGeneralPage.qml:125
+#: src/settings/NeoChatGeneralPage.qml:128
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@option:radio"
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/settings/NeoChatGeneralPage.qml:137
 #, kde-format
 msgid "Timeline Events"
 msgstr "Події розкладу"
 
-#: src/settings/NeoChatGeneralPage.qml:130
+#: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Показувати вилучені повідомлення"
 
-#: src/settings/NeoChatGeneralPage.qml:146
+#: src/settings/NeoChatGeneralPage.qml:158
 #, kde-format
 msgid "Show state events"
 msgstr "Показувати події стану"
 
-#: src/settings/NeoChatGeneralPage.qml:164
+#: src/settings/NeoChatGeneralPage.qml:176
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Показувати події з виходу і приєднання"
 
-#: src/settings/NeoChatGeneralPage.qml:182
+#: src/settings/NeoChatGeneralPage.qml:194
 #, kde-format
 msgid "Show name change events"
 msgstr "Показувати події зі зміни імені"
 
-#: src/settings/NeoChatGeneralPage.qml:200
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Показувати події з оновлення аватарів"
 
-#: src/settings/NeoChatGeneralPage.qml:210
+#: src/settings/NeoChatGeneralPage.qml:222
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/settings/NeoChatGeneralPage.qml:214
+#: src/settings/NeoChatGeneralPage.qml:226
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Надсилати повідомлення клавішею Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:225
+#: src/settings/NeoChatGeneralPage.qml:237
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Надсилати повідомлення клавішами Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:241
+#: src/settings/NeoChatGeneralPage.qml:253
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Для редагування вашого останнього повідомлення скористайтеся синтаксисом s/"
 "текст/заміна"
 
-#: src/settings/NeoChatGeneralPage.qml:255
+#: src/settings/NeoChatGeneralPage.qml:267
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Надсилати сповіщення щодо введення"
 
-#: src/settings/NeoChatGeneralPage.qml:265
+#: src/settings/NeoChatGeneralPage.qml:277
 #, kde-format
 msgid "Developer Settings"
 msgstr "Параметри розробки"
 
-#: src/settings/NeoChatGeneralPage.qml:270
+#: src/settings/NeoChatGeneralPage.qml:282
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Увімкнути інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:295
+#: src/settings/NeoChatGeneralPage.qml:307
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Типові параметри"
 
-#: src/settings/NeoChatGeneralPage.qml:300
+#: src/settings/NeoChatGeneralPage.qml:312
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
@@ -5710,6 +5718,55 @@ msgstr "Параметри кімнати"
 msgid "Permissions"
 msgstr "Права доступу"
 
+#: src/settings/RoomSortParameterDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Room List Sort Order"
+msgctxt "@title:dialog"
+msgid "Custom Room Sort Order"
+msgstr "Порядок сортування списку кімнат"
+
+#: src/settings/RoomSortParameterDialog.qml:56
+#, kde-format
+msgctxt "As in first sort chat rooms by the parameter"
+msgid "first:"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:56
+#, kde-format
+msgctxt "As in then sort chat rooms by the parameter"
+msgid "then:"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:72
+#, kde-format
+msgctxt "@button"
+msgid "Up"
+msgstr ""
+
+#: src/settings/RoomSortParameterDialog.qml:82
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to download its file"
+#| msgid "Download"
+msgctxt "@button"
+msgid "Down"
+msgstr "Отримати"
+
+#: src/settings/RoomSortParameterDialog.qml:105
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add server"
+msgctxt "@action:button"
+msgid "Add parameter"
+msgstr "Додавання сервера"
+
+#: src/settings/RoomSortParameterDialog.qml:118
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Select Parameter to Add"
+msgstr ""
+
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
 msgctxt "@action:button"
@@ -5752,12 +5809,12 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Новий номер телефону:"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Ми надіслали вам повідомлення електронної пошти"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:176
+#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Ми надіслали вам текстове повідомлення"
@@ -5770,12 +5827,12 @@ msgstr ""
 "%1. Будь ласка, виконайте настанови з нього, а потім натисніть кнопку, яку "
 "розташовано нижче"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "Введена адреса електронної пошти є некоректною"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Введений номер телефону є некоректним"
@@ -5817,7 +5874,7 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Назад"
 
-#: src/threepidbindhelper.cpp:175
+#: src/threepidbindhelper.cpp:177
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
@@ -5825,7 +5882,7 @@ msgstr ""
 "%1. Будь ласка, виконайте настанови з нього, а потім натисніть кнопку, яку "
 "розташовано вище"
 
-#: src/threepidbindhelper.cpp:181
+#: src/threepidbindhelper.cpp:183
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5835,7 +5892,7 @@ msgstr ""
 "повідомлення електронної пошти і виконайте настанови з нього, а потім "
 "натисніть кнопку, яку розташовано вище"
 
-#: src/threepidbindhelper.cpp:182
+#: src/threepidbindhelper.cpp:184
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -6028,12 +6085,12 @@ msgstr "Гучність"
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: src/trayicon.cpp:19
+#: src/trayicon.cpp:21
 #, kde-format
 msgid "Show"
 msgstr "Показати"
 
-#: src/trayicon.cpp:34
+#: src/trayicon.cpp:36
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
