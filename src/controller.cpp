@@ -64,6 +64,7 @@ Controller::Controller(QObject *parent)
     } else {
         auto c = new NeoChatConnection(this);
         c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
+        setActiveConnection(c);
         connect(c, &Connection::connected, this, [c, this]() {
             m_accountRegistry.add(c);
             c->syncLoop();
