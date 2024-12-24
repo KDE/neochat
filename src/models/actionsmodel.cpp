@@ -9,6 +9,7 @@
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "roommanager.h"
+#include "utils.h"
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
@@ -178,8 +179,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"invite"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(text);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();

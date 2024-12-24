@@ -6,10 +6,12 @@
 #include <QSignalSpy>
 #include <QVariantList>
 
+#include "controller.h"
 #include "chatbarcache.h"
 #include "models/actionsmodel.h"
 
 #include "testutils.h"
+#include "server.h"
 
 using namespace Quotient;
 
@@ -25,6 +27,8 @@ private:
 
     void expectMessage(const QString &actionName, const QString &args, MessageType::Type type, const QString &message);
 
+    Server server;
+
 private Q_SLOTS:
     void initTestCase();
     void testActions();
@@ -34,7 +38,12 @@ private Q_SLOTS:
 
 void ActionsTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
+    Controller::setTestMode(true);
+    QSignalSpy spy(&Controller::instance(), &Controller::connectionAdded);
+    spy.wait();
+    server.start();
+    connection = spy.takeFirst()[0].value<NeoChatConnection *>();
     room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-min-sync.json"));
 }
 

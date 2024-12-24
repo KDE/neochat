@@ -157,6 +157,7 @@ set_package_properties(KUnifiedPush PROPERTIES
 if(ANDROID)
     find_package(Sqlite3)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
+    set(BUILD_TESTING FALSE)
 endif()
 
 ki18n_install(po)
@@ -171,7 +172,7 @@ add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
 
 if (BUILD_TESTING)
-    find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
+    find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test HttpServer)
     add_subdirectory(autotests)
     add_subdirectory(appiumtests)
 endif()
