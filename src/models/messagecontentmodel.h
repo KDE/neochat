@@ -62,6 +62,8 @@ public:
         ReplyAuthorRole, /**< The author of the event that was replied to. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
 
+        ThreadRootRole, /**< The thread root event ID for the event. */
+
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
     };

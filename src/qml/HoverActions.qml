@@ -44,7 +44,7 @@ QQC2.Control {
     leftPadding: 0
     rightPadding: 0
 
-    visible: (root.hovered || root.showActions || showActionsTimer.running) && !Kirigami.Settings.isMobile
+    visible: (root.hovered || root.showActions || showActionsTimer.running) && !Kirigami.Settings.isMobile && (!root.delegate.isThreaded || !NeoChatConfig.threads)
     onVisibleChanged: {
         if (visible) {
             // HACK: delay disapearing by 200ms, otherwise this can create some glitches

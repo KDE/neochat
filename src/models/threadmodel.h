@@ -41,6 +41,7 @@ public:
     enum Roles {
         ComponentTypeRole = MessageContentModel::ComponentTypeRole, /**< The type of component to visualise the message. */
         ChatBarCacheRole = MessageContentModel::ChatBarCacheRole, /**< The ChatBarCache to use. */
+        ThreadRootRole = MessageContentModel::ThreadRootRole, /**< The thread root event ID for the thread. */
     };
     Q_ENUM(Roles)
 

@@ -178,8 +178,14 @@ QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
         return {};
     }
 
+    const auto threadModel = dynamic_cast<ThreadModel *>(parent());
+    if (threadModel == nullptr) {
+        qWarning() << "ThreadChatBarModel created with incorrect parent, a ThreadModel must be set as the parent on creation.";
+        return {};
+    }
+
     if (role == ComponentTypeRole) {
-        return MessageComponentType::ChatBar;
+        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? MessageComponentType::ChatBar : MessageComponentType::ReplyButton;
     }
     if (role == ChatBarCacheRole) {
         if (m_room == nullptr) {
@@ -187,20 +193,16 @@ QVariant ThreadChatBarModel::data(const QModelIndex &idx, int role) const
         }
         return QVariant::fromValue<ChatBarCache *>(m_room->threadCache());
     }
+    if (role == ThreadRootRole) {
+        return threadModel->threadRootId();
+    }
     return {};
 }
 
 int ThreadChatBarModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    if (m_room == nullptr) {
-        return 0;
-    }
-    const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());
-    if (threadModel != nullptr) {
-        return m_room->threadCache()->threadId() == threadModel->threadRootId() ? 1 : 0;
-    }
-    return 0;
+    return 1;
 }
 
 QHash<int, QByteArray> ThreadChatBarModel::roleNames() const
@@ -208,6 +210,7 @@ QHash<int, QByteArray> ThreadChatBarModel::roleNames() const
     return {
         {ComponentTypeRole, "componentType"},
         {ChatBarCacheRole, "chatBarCache"},
+        {ThreadRootRole, "threadRoot"},
     };
 }
 

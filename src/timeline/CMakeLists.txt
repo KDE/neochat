@@ -46,6 +46,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         PollComponent.qml
         QuoteComponent.qml
         ReplyAuthorComponent.qml
+        ReplyButtonComponent.qml
         ReplyComponent.qml
         StateComponent.qml
         TextComponent.qml

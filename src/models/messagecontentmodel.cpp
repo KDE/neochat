@@ -405,6 +405,7 @@ QHash<int, QByteArray> MessageContentModel::roleNames() const
     roles[ReplyEventIdRole] = "replyEventId";
     roles[ReplyAuthorRole] = "replyAuthor";
     roles[ReplyContentModelRole] = "replyContentModel";
+    roles[ThreadRootRole] = "threadRoot";
     roles[LinkPreviewerRole] = "linkPreviewer";
     roles[ChatBarCacheRole] = "chatBarCache";
     return roles;

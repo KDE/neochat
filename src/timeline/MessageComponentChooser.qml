@@ -211,6 +211,14 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.ReplyButton
+        delegate: ReplyButtonComponent {
+            room: root.room
+            maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Verification
         delegate: MimeComponent {
             mimeIconSource: "security-high"
