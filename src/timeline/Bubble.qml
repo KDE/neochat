@@ -52,6 +52,11 @@ QQC2.Control {
     required property var contentModel
 
     /**
+     * @brief Whether the message in a thread.
+     */
+    required property bool isThreaded
+
+    /**
      * @brief Whether the bubble background should be shown.
      */
     property alias showBackground: bubbleBackground.visible
@@ -134,7 +139,7 @@ QQC2.Control {
         visible: root.showBackground
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        color: if (root.author.isLocalMember) {
+        color: if (root.author.isLocalMember && !root.isThreaded) {
             return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15);
         } else if (root.showHighlight) {
             return Kirigami.Theme.positiveBackgroundColor;
