@@ -46,8 +46,26 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
         addModels();
     });
 
+    // If the thread was created by the local user fetchMore() won't find the current
+    // pending event.
+    checkPending();
     fetchMore({});
     addModels();
+}
+
+void ThreadModel::checkPending()
+{
+    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
+    if (room == nullptr) {
+        return;
+    }
+
+    for (auto i = room->pendingEvents().rbegin(); i != room->pendingEvents().rend(); i++) {
+        if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(i->event());
+            roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() == m_threadRootId) {
+            addNewEvent(roomMessageEvent);
+        }
+    }
 }
 
 QString ThreadModel::threadRootId() const

@@ -135,6 +135,7 @@ private:
     std::optional<QString> m_nextBatch = QString();
     bool m_addingPending = false;
 
+    void checkPending();
     void addNewEvent(const Quotient::RoomEvent *event);
     void addModels();
     void clearModels();
