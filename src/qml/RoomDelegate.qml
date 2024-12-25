@@ -67,6 +67,7 @@ Delegates.RoundedItemDelegate {
             notificationCount: root.contextNotificationCount
             notificationHighlight: root.hasHighlightNotifications
             showNotificationLabel: root.hasNotifications && root.collapsed
+            asynchronous: true
 
             Layout.preferredWidth: height
         }
