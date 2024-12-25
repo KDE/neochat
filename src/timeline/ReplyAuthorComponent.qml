@@ -40,6 +40,7 @@ RowLayout {
         source: root.author.avatarUrl
         name: root.author.displayName
         color: root.author.color
+        asynchronous: true
     }
     QQC2.Label {
         id: replyName

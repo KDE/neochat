@@ -49,6 +49,7 @@ RowLayout {
         source: root.author?.avatarUrl ?? ""
         name: root.author?.displayName ?? ""
         color: root.author?.color ?? Kirigami.Theme.highlightColor
+        asynchronous: true
 
         MouseArea {
             anchors.fill: parent

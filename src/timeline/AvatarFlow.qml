@@ -28,6 +28,7 @@ Flow {
             name: displayName
             source: avatarUrl
             color: memberColor
+            asynchronous: true
         }
     }
     QQC2.Label {

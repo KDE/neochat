@@ -250,6 +250,7 @@ TimelineDelegate {
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
+                asynchronous: true
                 QQC2.ToolTip.text: root.author.htmlSafeDisambiguatedName
 
                 onClicked: RoomManager.resolveResource(root.author.uri)

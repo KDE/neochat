@@ -36,6 +36,7 @@ TimelineDelegate {
 
                 name: root.room ? root.room.displayName : ""
                 source: root.room ? root.room.avatarMediaUrl : ""
+                asynchronous: true
 
                 Rectangle {
                     visible: room.usesEncryption

@@ -105,6 +105,7 @@ TimelineDelegate {
                             name: parent.modelData.displayName
                             source: parent.modelData.avatarUrl
                             color: parent.modelData.color
+                            asynchronous: true
                         }
                     }
                 }
