@@ -6,7 +6,6 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
-#include "jobs/neochatchangepasswordjob.h"
 #include "jobs/neochatdeactivateaccountjob.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -20,6 +19,7 @@
 
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
+#include <Quotient/csapi/registration.h>
 #include <Quotient/csapi/versions.h>
 #include <Quotient/database.h>
 #include <Quotient/jobs/downloadfilejob.h>
@@ -220,18 +220,17 @@ bool NeoChatConnection::canCheckMutualRooms() const
 
 void NeoChatConnection::changePassword(const QString &currentPassword, const QString &newPassword)
 {
-    auto job = callApi<NeochatChangePasswordJob>(newPassword, false);
+    auto job = callApi<ChangePasswordJob>(newPassword, false);
     connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword] {
         if (job->error() == 103) {
             QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_L1] = replyData["session"_L1];
-            authData["password"_L1] = currentPassword;
-            authData["type"_L1] = "m.login.password"_L1;
-            authData["user"_L1] = user()->id();
-            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
-            authData["identifier"_L1] = identifier;
-            NeochatChangePasswordJob *innerJob = callApi<NeochatChangePasswordJob>(newPassword, false, authData);
+            AuthenticationData authData;
+            authData.session = replyData["session"_L1].toString();
+            authData.type = "m.login.password"_L1;
+            authData.authInfo["password"_L1] = currentPassword;
+            authData.authInfo["user"_L1] = user()->id();
+            authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
+            auto innerJob = callApi<ChangePasswordJob>(newPassword, false, authData);
             connect(innerJob, &BaseJob::success, this, [this]() {
                 Q_EMIT passwordStatus(PasswordStatus::Success);
             });
