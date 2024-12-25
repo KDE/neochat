@@ -6,7 +6,6 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
-#include "jobs/neochatdeactivateaccountjob.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
@@ -142,6 +141,8 @@ void NeoChatConnection::connectSignals()
             connect(job, &GetVersionsJob::success, this, [this, job] {
                 m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_L1);
                 Q_EMIT canCheckMutualRoomsChanged();
+                m_canEraseData = job->unstableFeatures().contains("org.matrix.msc4025"_L1) || job->versions().count("v1.10"_L1);
+                Q_EMIT canEraseDataChanged();
             });
         },
         Qt::SingleShotConnection);
@@ -255,20 +256,20 @@ QString NeoChatConnection::label() const
     return accountDataJson("org.kde.neochat.account_label"_L1)["account_label"_L1].toString();
 }
 
-void NeoChatConnection::deactivateAccount(const QString &password)
+void NeoChatConnection::deactivateAccount(const QString &password, const bool erase)
 {
-    auto job = callApi<NeoChatDeactivateAccountJob>();
-    connect(job, &BaseJob::result, this, [this, job, password] {
+    auto job = callApi<DeactivateAccountJob>();
+    connect(job, &BaseJob::result, this, [this, job, password, erase] {
         if (job->error() == 103) {
             QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_L1] = replyData["session"_L1];
-            authData["password"_L1] = password;
-            authData["type"_L1] = "m.login.password"_L1;
-            authData["user"_L1] = user()->id();
+            AuthenticationData authData;
+            authData.session = replyData["session"_L1].toString();
+            authData.authInfo["password"_L1] = password;
+            authData.type = "m.login.password"_L1;
+            authData.authInfo["user"_L1] = user()->id();
             QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
-            authData["identifier"_L1] = identifier;
-            auto innerJob = callApi<NeoChatDeactivateAccountJob>(authData);
+            authData.authInfo["identifier"_L1] = identifier;
+            auto innerJob = callApi<DeactivateAccountJob>(authData, QString{}, erase);
             connect(innerJob, &BaseJob::success, this, [this]() {
                 logout(false);
             });
@@ -546,6 +547,11 @@ KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphra
     file.write(result.value());
     file.close();
     return KeyImport::Success;
+}
+
+bool NeoChatConnection::canEraseData() const
+{
+    return m_canEraseData;
 }
 
 #include "moc_neochatconnection.cpp"

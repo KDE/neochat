@@ -87,6 +87,11 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool canCheckMutualRooms READ canCheckMutualRooms NOTIFY canCheckMutualRoomsChanged)
 
+    /**
+     * @brief Whether the server supports erasing user data when deactivating the account. This checks for MSC4025.
+     */
+    Q_PROPERTY(bool canEraseData READ canEraseData NOTIFY canEraseDataChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -104,6 +109,7 @@ public:
     Q_INVOKABLE void logout(bool serverSideLogout);
     Q_INVOKABLE QVariantList getSupportedRoomVersions() const;
     bool canCheckMutualRooms() const;
+    bool canEraseData() const;
 
     /**
      * @brief Change the password for an account.
@@ -123,7 +129,7 @@ public:
     [[nodiscard]] QString label() const;
     void setLabel(const QString &label);
 
-    Q_INVOKABLE void deactivateAccount(const QString &password);
+    Q_INVOKABLE void deactivateAccount(const QString &password, bool erase);
 
     ThreePIdModel *threePIdModel() const;
 
@@ -194,6 +200,7 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
     void canCheckMutualRoomsChanged();
+    void canEraseDataChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -223,4 +230,5 @@ private:
     QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
     bool m_canCheckMutualRooms = false;
+    bool m_canEraseData = false;
 };

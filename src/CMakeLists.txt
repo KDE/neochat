@@ -126,8 +126,6 @@ add_library(neochat STATIC
     registration.cpp
     neochatconnection.cpp
     neochatconnection.h
-    jobs/neochatdeactivateaccountjob.cpp
-    jobs/neochatdeactivateaccountjob.h
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -18,12 +19,21 @@ Kirigami.PromptDialog {
 
     dialogType: Kirigami.PromptDialog.Warning
 
-    mainItem: FormCard.FormTextFieldDelegate {
-        id: passwordField
-        label: i18nc("@label:textbox", "Password")
-        echoMode: TextInput.Password
-        horizontalPadding: 0
-        bottomPadding: 0
+    mainItem: ColumnLayout {
+        FormCard.FormTextFieldDelegate {
+            id: passwordField
+            label: i18nc("@label:textbox", "Password")
+            echoMode: TextInput.Password
+            horizontalPadding: 0
+            bottomPadding: 0
+        }
+
+        FormCard.FormCheckDelegate {
+            id: eraseDelegate
+            text: i18nc("@label:checkbox", "Erase Data")
+            description: i18nc("@info", "Request your server to delete as much user data as possible.")
+            visible: connection.canEraseData
+        }
     }
 
     footer: QQC2.DialogButtonBox {
@@ -34,7 +44,7 @@ Kirigami.PromptDialog {
             icon.name: "emblem-warning"
             enabled: passwordField.text.length > 0
             onClicked: {
-                root.connection.deactivateAccount(passwordField.text);
+                root.connection.deactivateAccount(passwordField.text, eraseDelegate.checked);
                 root.closeDialog();
             }
         }
