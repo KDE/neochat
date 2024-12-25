@@ -146,6 +146,11 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), u"tobias.fella@kde.org"_s, u"https://tobiasfella.de"_s);
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), u"james.h.graham@protonmail.com"_s);
+    about.addAuthor(i18n("Joshua Goins"),
+                    i18n("Maintainer"),
+                    u"josh@redstrate.com"_s,
+                    u"https://redstrate.com/"_s,
+                    QUrl(u"https://redstrate.com/rss-image.png"_s));
     about.addCredit(i18n("Black Hat"), i18n("Original author of Spectral"), u"bhat@encom.eu.org"_s);
     about.addCredit(i18n("Alexey Rusakov"), i18n("Maintainer of libQuotient"), u"Kitsune-Ral@users.sf.net"_s);
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
