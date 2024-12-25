@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2024-12-25 00:40+0000\n"
 "PO-Revision-Date: 2024-12-05 20:32+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1436,9 +1436,11 @@ msgid "%1 is already in this room."
 msgstr "%1 är redan i rummet."
 
 #: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room"
+#| msgid "%1 was invited into this room"
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
 msgstr "%1 bjöds in till rummet."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
@@ -6000,7 +6002,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Öppna externt"
 
-#: src/timeline/MessageComponentChooser.qml:217
+#: src/timeline/MessageComponentChooser.qml:225
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 startade en användarverifikation"
@@ -6023,6 +6025,13 @@ msgstr "(Avslutad)"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Senast läst: %1"
+
+#: src/timeline/ReplyButtonComponent.qml:42
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Svara"
 
 #: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format

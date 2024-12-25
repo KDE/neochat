@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
-"PO-Revision-Date: 2024-12-10 09:05+0100\n"
+"POT-Creation-Date: 2024-12-25 00:40+0000\n"
+"PO-Revision-Date: 2024-12-24 10:27+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.90\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1429,9 +1429,11 @@ msgid "%1 is already in this room."
 msgstr "%1 est déjà présent dans ce salon."
 
 #: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room"
+#| msgid "%1 was invited into this room"
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
 msgstr "%1 a été invité dans ce salon."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
@@ -5016,8 +5018,7 @@ msgstr ""
 "Les salons avec l'activité la plus récente seront affichées en premier."
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Personnalisé"
@@ -5730,53 +5731,46 @@ msgid "Permissions"
 msgstr "Permissions"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Room List Sort Order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr "Ordre de tri pour la liste de salons"
+msgstr "Ordre de tri personnalisé des salons"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "Premier :"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "Ensuite :"
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "Haut"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Télécharger"
+msgstr "Bas"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "Ajouter un serveur"
+msgstr "Ajouter un paramètre"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "Sélectionner le paramètre à ajouter"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -6034,7 +6028,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Ouvrir de façon externe"
 
-#: src/timeline/MessageComponentChooser.qml:217
+#: src/timeline/MessageComponentChooser.qml:225
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 a démarré une vérification d'utilisateurs"
@@ -6057,6 +6051,13 @@ msgstr "(Terminé)"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Dernier lu : %1"
+
+#: src/timeline/ReplyButtonComponent.qml:42
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Répondre"
 
 #: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format

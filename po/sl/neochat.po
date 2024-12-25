@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2024-12-25 00:40+0000\n"
 "PO-Revision-Date: 2024-12-23 06:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1427,9 +1427,11 @@ msgid "%1 is already in this room."
 msgstr "%1 je že v tej sobi."
 
 #: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room"
+#| msgid "%1 was invited into this room"
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
 msgstr "%1 je bi povabljen v to sobo"
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
@@ -5981,7 +5983,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Odpri od zunaj"
 
-#: src/timeline/MessageComponentChooser.qml:217
+#: src/timeline/MessageComponentChooser.qml:225
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 je začel preverjanje uporabnika"
@@ -6006,6 +6008,13 @@ msgstr "(Končano)"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Nazadnje prebrano: %1"
+
+#: src/timeline/ReplyButtonComponent.qml:42
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Odgovori"
 
 #: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:40+0000\n"
+"POT-Creation-Date: 2024-12-25 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 16:13+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1418,9 +1418,11 @@ msgid "%1 is already in this room."
 msgstr "%1 இவ்வரங்கில் ஏற்கனவே உள்ளார்."
 
 #: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room"
+#| msgid "%1 was invited into this room"
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
 msgstr "%1 இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார்"
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
@@ -5945,7 +5947,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "வெளியமைவாகத் திற"
 
-#: src/timeline/MessageComponentChooser.qml:217
+#: src/timeline/MessageComponentChooser.qml:225
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 பயனர் உறுதிப்பாட்டைத் துவக்கினார்"
@@ -5968,6 +5970,13 @@ msgstr "(முடிந்துள்ளது)"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
+
+#: src/timeline/ReplyButtonComponent.qml:42
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "பதிலளி"
 
 #: src/timeline/TimelineEndDelegate.qml:89
 #, kde-format
