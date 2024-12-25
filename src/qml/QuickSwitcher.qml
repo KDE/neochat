@@ -27,6 +27,7 @@ Kirigami.SearchDialog {
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
     model: RoomManager.sortFilterRoomListModel
     emptyText: i18nc("Placeholder message", "No room found")
+    parent: QQC2.Overlay.overlay
 
     delegate: RoomDelegate {
         connection: root.connection
