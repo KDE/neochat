@@ -38,6 +38,8 @@ Delegates.RoundedItemDelegate {
     leftInset: 0
     rightInset: 0
 
+    highlighted: true
+
     icon.name: "mail-reply-custom"
     text: i18nc("@action:button", "Reply")
 

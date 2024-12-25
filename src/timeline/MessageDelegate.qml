@@ -201,7 +201,7 @@ TimelineDelegate {
     /**
      * @brief The width available to the bubble content.
      */
-    property real contentMaxWidth: bubbleSizeHelper.currentWidth - bubble.leftPadding - bubble.rightPadding
+    property real contentMaxWidth: (root.isThreaded ? bubbleSizeHelper.parentWidth : bubbleSizeHelper.currentWidth) - bubble.leftPadding - bubble.rightPadding
 
     width: parent?.width
     rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
@@ -246,7 +246,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: (root.contentModel?.showAuthor ?? false) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
+                visible: ((root.contentModel?.showAuthor ?? false) || root.isThreaded) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
@@ -258,7 +258,7 @@ TimelineDelegate {
                 id: bubble
                 anchors.left: avatar.right
                 anchors.leftMargin: Kirigami.Units.largeSpacing
-                anchors.rightMargin: Kirigami.Units.largeSpacing
+                anchors.rightMargin: rightPadding
                 maxContentWidth: root.contentMaxWidth
 
                 topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
@@ -290,8 +290,8 @@ TimelineDelegate {
 
                 room: root.room
                 index: root.index
-
                 author: root.author
+                isThreaded: root.isThreaded
 
                 // HACK: This is stupid but seemingly QConcatenateTablesProxyModel
                 // can't be passed as a model role, always returning null.
@@ -383,7 +383,7 @@ TimelineDelegate {
         /**
          * @brief Whether local user messages should be aligned right.
          */
-        property bool showUserMessageOnRight: NeoChatConfig.showLocalMessagesOnRight && root.author.isLocalMember && !NeoChatConfig.compactLayout && !root.alwaysFillWidth
+        property bool showUserMessageOnRight: NeoChatConfig.showLocalMessagesOnRight && root.author.isLocalMember && !NeoChatConfig.compactLayout && !root.alwaysFillWidth && !root.isThreaded
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.selectedText, root.hoveredLink);
