@@ -156,35 +156,35 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormTextDelegate {
             visible: root.connection !== undefined && root.connection.canChangePassword === false
-            text: i18n("Your server doesn't support changing your password")
+            text: i18nc("@info", "Your server doesn't support changing your password")
         }
         FormCard.FormDelegateSeparator {
             visible: root.connection !== undefined && root.connection.canChangePassword === false
         }
         FormCard.FormTextFieldDelegate {
             id: currentPassword
-            label: i18n("Current Password:")
+            label: i18nc("@label:textbox", "Current Password:")
             enabled: root.connection !== undefined && root.connection.canChangePassword !== false
             echoMode: TextInput.Password
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextFieldDelegate {
             id: newPassword
-            label: i18n("New Password:")
+            label: i18nc("@label:textbox", "New Password:")
             enabled: root.connection !== undefined && root.connection.canChangePassword !== false
             echoMode: TextInput.Password
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextFieldDelegate {
             id: confirmPassword
-            label: i18n("Confirm new Password:")
+            label: i18nc("@label:textbox", "Confirm new Password:")
             enabled: root.connection !== undefined && root.connection.canChangePassword !== false
             echoMode: TextInput.Password
             onTextChanged: if (newPassword.text !== confirmPassword.text && confirmPassword.text.length > 0) {
-                confirmPassword.status = FormCard.AbstractFormDelegate.Status.Error;
-                confirmPassword.statusMessage = i18n("Passwords don't match");
+                confirmPassword.status = Kirigami.MessageType.Error;
+                confirmPassword.statusMessage = i18nc("@info", "Passwords don't match");
             } else {
-                confirmPassword.status = FormCard.AbstractFormDelegate.Status.Default;
+                confirmPassword.status = Kirigami.MessageType.Information;
                 confirmPassword.statusMessage = '';
             }
         }
@@ -192,12 +192,10 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             text: i18n("Save")
             icon.name: "document-save-symbolic"
-            enabled: currentPassword.text.length > 0 && newPassword.text.length > 0 && confirmPassword.text.length > 0
+            enabled: currentPassword.text.length > 0 && newPassword.text.length > 0 && confirmPassword.text.length > 0 && newPassword.text === confirmPassword.text
             onClicked: {
                 if (newPassword.text === confirmPassword.text) {
                     root.connection.changePassword(currentPassword.text, newPassword.text);
-                } else {
-                    showPassiveNotification(i18n("Passwords do not match"));
                 }
             }
         }
@@ -270,11 +268,14 @@ FormCard.FormCardPage {
         target: root.connection
         function onPasswordStatus(status) {
             if (status === NeoChatConnection.Success) {
-                showPassiveNotification(i18n("Password changed successfully"));
+                confirmPassword.status = Kirigami.MessageType.Positive
+                confirmPassword.statusMessage = i18nc("@info", "Password changed successfully");
             } else if (status === NeoChatConnection.Wrong) {
-                showPassiveNotification(i18n("Wrong password entered"));
+                confirmPassword.status = Kirigami.MessageType.Error
+                confirmPassword.statusMessage = i18nc("@info", "Invalid password");
             } else {
-                showPassiveNotification(i18n("Unknown problem while trying to change password"));
+                confirmPassword.status = Kirigami.MessageType.Error
+                confirmPassword.statusMessage = i18nc("@info", "Unknown problem while trying to change password");
             }
         }
     }
