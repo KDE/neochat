@@ -11,7 +11,6 @@
 #include <Quotient/accountregistry.h>
 
 class TrayIcon;
-class QQuickTextDocument;
 
 namespace QKeychain
 {
