@@ -194,6 +194,8 @@ add_library(neochat STATIC
     models/messagemodel.h
     models/messagecontentfiltermodel.cpp
     models/messagecontentfiltermodel.h
+    models/pinnedmessagemodel.cpp
+    models/pinnedmessagemodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -249,6 +251,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/MessageSourceSheet.qml
         qml/ConfirmEncryptionDialog.qml
         qml/RoomSearchPage.qml
+        qml/RoomPinnedMessagesPage.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
         qml/InvitationView.qml
@@ -534,6 +537,7 @@ if(ANDROID)
         "list-remove-symbolic"
         "edit-delete"
         "user-home-symbolic"
+        "pin-symbolic"
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()

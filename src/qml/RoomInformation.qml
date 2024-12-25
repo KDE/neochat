@@ -131,6 +131,24 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
+                id: pinnedMessagesButton
+                visible: !root.room.isSpace
+                icon.name: "pin-symbolic"
+                text: i18nc("@action:button", "Pinned messages")
+                activeFocusOnTab: true
+
+                Layout.fillWidth: true
+
+                onClicked: {
+                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
+                        room: root.room
+                    }, {
+                        title: i18nc("@title", "Pinned Messages")
+                    });
+                }
+            }
+
+            Delegates.RoundedItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
                 text: root.room.isSpace ? i18nc("@action:button", "Leave this space") : i18nc("@action:button", "Leave this room")
