@@ -3,8 +3,6 @@
 
 #include "devicesmodel.h"
 
-#include "jobs/neochatdeletedevicejob.h"
-
 #include <QDateTime>
 #include <QLocale>
 
@@ -111,7 +109,7 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
     for (index = 0; m_devices[index].deviceId != deviceId; index++)
         ;
 
-    auto job = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
+    auto job = m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId);
 
     connect(job, &BaseJob::result, this, [this, job, password, index] {
         auto onSuccess = [this, index]() {
@@ -122,13 +120,12 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
         };
         if (job->error() != BaseJob::Success) {
             QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_L1] = replyData["session"_L1];
-            authData["password"_L1] = password;
-            authData["type"_L1] = "m.login.password"_L1;
-            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
-            authData["identifier"_L1] = identifier;
-            auto innerJob = m_connection->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
+            AuthenticationData authData;
+            authData.session = replyData["session"_L1].toString();
+            authData.authInfo["password"_L1] = password;
+            authData.type = "m.login.password"_L1;
+            authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
+            auto innerJob = m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData);
             connect(innerJob.get(), &BaseJob::success, this, onSuccess);
         } else {
             onSuccess();
