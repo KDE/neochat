@@ -198,6 +198,8 @@ add_library(neochat STATIC
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
     models/roomsortparametermodel.h
+    models/pinnedmessagesmodel.cpp
+    models/pinnedmessagesmodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -253,6 +255,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/MessageSourceSheet.qml
         qml/ConfirmEncryptionDialog.qml
         qml/RoomSearchPage.qml
+        qml/RoomPinnedMessagesPage.qml
         qml/LocationChooser.qml
         qml/TimelineView.qml
         qml/InvitationView.qml
