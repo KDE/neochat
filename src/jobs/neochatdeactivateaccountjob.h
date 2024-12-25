@@ -8,5 +8,5 @@
 class NeoChatDeactivateAccountJob : public Quotient::BaseJob
 {
 public:
-    explicit NeoChatDeactivateAccountJob(const std::optional<QJsonObject> &auth = {});
+    explicit NeoChatDeactivateAccountJob(const std::optional<QJsonObject> &auth = {}, bool erase = false);
 };
