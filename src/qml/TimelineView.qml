@@ -186,7 +186,7 @@ QQC2.ScrollView {
             padding: Kirigami.Units.largeSpacing
 
             z: 2
-            visible: (root.currentRoom?.hasUnreadMessages ?? false)
+            visible: (!root.currentRoom?.partiallyReadStats.empty())
 
             text: root.currentRoom.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
             action: Kirigami.Action {
@@ -195,7 +195,7 @@ QQC2.ScrollView {
                         root.focusChatBar();
                     }
                     goReadMarkerFab.textChanged()
-                    messageListView.goToEvent(root.currentRoom.readMarkerEventId);
+                    messageListView.goToEvent(root.currentRoom.lastFullyReadEventId);
                 }
                 icon.name: "go-up"
                 shortcut: "Shift+PgUp"
@@ -354,7 +354,7 @@ QQC2.ScrollView {
         }
 
         function allUnreadVisible() {
-            let readMarkerRow = eventToIndex(root.currentRoom.readMarkerEventId);
+            let readMarkerRow = eventToIndex(root.currentRoom.lastFullyReadEventId);
             if (readMarkerRow >= 0 && readMarkerRow < firstVisibleIndex() && messageListView.atYEnd) {
                 return true;
             }

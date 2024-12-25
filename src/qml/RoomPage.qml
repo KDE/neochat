@@ -198,7 +198,7 @@ Kirigami.Page {
     Shortcut {
         sequence: StandardKey.Cancel
         onActivated: {
-            if (!timelineViewLoader.item.atYEnd || root.currentRoom.hasUnreadMessages) {
+            if (!timelineViewLoader.item.atYEnd || !root.currentRoom.partiallyReadStats.empty()) {
                 timelineViewLoader.item.goToLastMessage();
                 root.currentRoom.markAllMessagesAsRead();
             } else {
