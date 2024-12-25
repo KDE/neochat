@@ -172,8 +172,6 @@ add_library(neochat STATIC
     models/threepidmodel.h
     threepidaddhelper.cpp
     threepidaddhelper.h
-    jobs/neochatadd3pidjob.cpp
-    jobs/neochatadd3pidjob.h
     identityserverhelper.cpp
     identityserverhelper.h
     enums/powerlevel.cpp

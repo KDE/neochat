@@ -4,13 +4,14 @@
 #include "threepidaddhelper.h"
 
 #include <Quotient/converters.h>
+#include <Quotient/csapi/administrative_contact.h>
 #include <Quotient/csapi/definitions/auth_data.h>
 #include <Quotient/csapi/definitions/request_msisdn_validation.h>
 
-#include "jobs/neochatadd3pidjob.h"
 #include "neochatconnection.h"
 
 using namespace Qt::StringLiterals;
+using namespace Quotient;
 
 ThreePIdAddHelper::ThreePIdAddHelper(QObject *parent)
     : QObject(parent)
@@ -139,20 +140,19 @@ ThreePIdAddHelper::ThreePIdStatus ThreePIdAddHelper::newIdStatus() const
 
 void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
 {
-    const auto job = m_connection->callApi<NeochatAdd3PIdJob>(m_newIdSecret, m_newIdSid);
+    const auto job = m_connection->callApi<Add3PIDJob>(m_newIdSecret, m_newIdSid);
     connect(job, &Quotient::BaseJob::result, this, [this, job, password] {
         m_newIdStatus = Authentication;
         Q_EMIT newIdStatusChanged();
 
         if (static_cast<Quotient::BaseJob::StatusCode>(job->error()) == Quotient::BaseJob::Unauthorised) {
             QJsonObject replyData = job->jsonData();
-            QJsonObject authData;
-            authData["session"_L1] = replyData["session"_L1];
-            authData["password"_L1] = password;
-            authData["type"_L1] = "m.login.password"_L1;
-            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->userId()}};
-            authData["identifier"_L1] = identifier;
-            const auto innerJob = m_connection->callApi<NeochatAdd3PIdJob>(m_newIdSecret, m_newIdSid, authData);
+            AuthenticationData authData;
+            authData.session = replyData["session"_L1].toString();
+            authData.authInfo["password"_L1] = password;
+            authData.type = "m.login.password"_L1;
+            authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->userId()}};
+            const auto innerJob = m_connection->callApi<Add3PIDJob>(m_newIdSecret, m_newIdSid, authData);
             connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
                 m_connection->threePIdModel()->refreshModel();
                 m_newIdSecret.clear();
