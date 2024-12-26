@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-25 00:40+0000\n"
+"POT-Creation-Date: 2024-12-26 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1413,12 +1413,10 @@ msgid "%1 is already in this room."
 msgstr "%1 已在此聊天室。"
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 被邀请加入此聊天室。"
+msgstr ""
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -1932,18 +1930,18 @@ msgid ""
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
@@ -5903,9 +5901,8 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "上次查看：%1"
 
-#: src/timeline/ReplyButtonComponent.qml:42
-#, fuzzy, kde-format
-#| msgid "Reply"
+#: src/timeline/ReplyButtonComponent.qml:44
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "回复"

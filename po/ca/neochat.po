@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-25 00:40+0000\n"
-"PO-Revision-Date: 2024-12-23 10:44+0100\n"
+"POT-Creation-Date: 2024-12-26 00:41+0000\n"
+"PO-Revision-Date: 2024-12-25 09:03+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1429,12 +1429,10 @@ msgid "%1 is already in this room."
 msgstr "%1 ja està en aquesta sala."
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 s'ha convidat en aquesta sala"
+msgstr "%1 s'ha convidat en aquesta sala."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -1961,18 +1959,18 @@ msgstr ""
 "El fitxer és massa gran per a baixar.<br />Contacteu amb l'administrador del "
 "servidor Matrix per a ajuda."
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No s'ha configurat cap servidor d'identitats"
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ha fallat la creació de la sala: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ha fallat la creació de l'espai: %1"
@@ -6028,9 +6026,8 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
-#: src/timeline/ReplyButtonComponent.qml:42
-#, fuzzy, kde-format
-#| msgid "Reply"
+#: src/timeline/ReplyButtonComponent.qml:44
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Respon"
@@ -6082,328 +6079,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgctxt "@action:button"
-#~ msgid "Show QR code"
-#~ msgstr "Mostra el codi QR"
-
-#~ msgctxt "@title"
-#~ msgid "Stickers & Emojis"
-#~ msgstr "Adhesius i emojis"
-
-#~ msgctxt "@title"
-#~ msgid "Ignored Users"
-#~ msgstr "Usuaris ignorats"
-
-#~ msgid "Notification State"
-#~ msgstr "Estat de les notificacions"
-
-#~ msgid "Open Externally"
-#~ msgstr "Obre externament"
-
-#~ msgid "Save As"
-#~ msgstr "Desa com a"
-
-#~ msgctxt "@action:title"
-#~ msgid "Room information"
-#~ msgstr "Informació de la sala"
-
-#~ msgid "Matrix client"
-#~ msgstr "Client de Matrix"
-
-#~ msgctxt "@title"
-#~ msgid "Room ID or Alias"
-#~ msgstr "ID de la sala o àlies"
-
-#~ msgid "Maybe it was deleted?"
-#~ msgstr "Potser s'ha suprimit?"
-
-#~ msgid "Access to keychain was denied."
-#~ msgstr "S'ha denegat l'accés al clauer."
-
-#~ msgid "No keychain available."
-#~ msgstr "No hi ha cap clauer disponible."
-
-#~ msgid "Network Error"
-#~ msgstr "Error de la xarxa"
-
-#~ msgid "File too large to download."
-#~ msgstr "El fitxer és massa gran per a baixar."
-
-#~ msgid "Malformed or empty Matrix id"
-#~ msgstr "ID de Matrix amb format incorrecte o buida"
-
-#~ msgctxt "%1: What's being done; %2: How often it is done."
-#~ msgid " %1"
-#~ msgid_plural " %1 %2 times"
-#~ msgstr[0] " %1"
-#~ msgstr[1] " %1 %2 vegades"
-
-#~ msgctxt "n users"
-#~ msgid " %1 user "
-#~ msgid_plural " %1 users "
-#~ msgstr[0] " %1 usuari "
-#~ msgstr[1] " %1 usuaris "
-
-#~ msgctxt "[action 1], [action 2 and/or action 3]"
-#~ msgid ", "
-#~ msgstr ", "
-
-#~ msgctxt "[action 1, action 2] or [action 3]"
-#~ msgid " or "
-#~ msgstr " o "
-
-#~ msgctxt "[action 1, action 2] and [action 3]"
-#~ msgid " and "
-#~ msgstr " i "
-
-#~ msgctxt ""
-#~ "userText (%1) is either a Matrix username if a single user sent all the "
-#~ "states or n users if they were sent by multiple users.chunksText (%2) is "
-#~ "a list of comma separated actions for each of the state events in the "
-#~ "group."
-#~ msgid "<style>a {text-decoration: none;}</style>%1 %2"
-#~ msgstr "<style>a {text-decoration: none;}</style>%1 %2"
-
-#~ msgctxt "@title"
-#~ msgid "Remove Message"
-#~ msgstr "Eliminació d'un missatge"
-
-#~ msgid "Add"
-#~ msgstr "Afegeix"
-
-#~ msgid "No users available"
-#~ msgstr "No hi ha cap usuari disponible"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Bandeja l'usuari"
-
-#~ msgctxt "@title"
-#~ msgid "Security"
-#~ msgstr "Seguretat"
-
-#~ msgctxt "@title:group"
-#~ msgid "Invitations"
-#~ msgstr "Invitacions"
-
-#~ msgctxt "@title:group"
-#~ msgid "Ignored Users"
-#~ msgstr "Usuaris ignorats"
-
-#~ msgctxt "@action:button"
-#~ msgid "Manage ignored users"
-#~ msgstr "Gestiona els usuaris ignorats"
-
-#~ msgctxt "@title"
-#~ msgid "Keys"
-#~ msgstr "Claus"
-
-#~ msgid "Device key"
-#~ msgstr "Clau del dispositiu"
-
-#~ msgid "Encryption key"
-#~ msgstr "Clau d'encriptatge"
-
-#~ msgid "Device id"
-#~ msgstr "ID del dispositiu"
-
-#~ msgctxt "@title"
-#~ msgid "Encryption Keys"
-#~ msgstr "Claus d'encriptatge"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open proxy settings"
-#~ msgstr "Obre la configuració del servidor intermediari"
-
-#~ msgctxt "@title:window"
-#~ msgid "Proxy Settings"
-#~ msgstr "Configuració del servidor intermediari"
-
-#~ msgid "Media id '%1' doesn't follow server/mediaId pattern"
-#~ msgstr ""
-#~ "L'element multimèdia amb ID «%1» no segueix el patró servidor/mediaId"
-
-#~ msgid "Image request has been cancelled"
-#~ msgstr "S'ha cancel·lat la sol·licitud d'imatge"
-
-#~ msgctxt "@action:button"
-#~ msgid "Cancel edit"
-#~ msgstr "Cancel·la l'edició"
-
-#~ msgctxt "@action:button"
-#~ msgid "QR code for account"
-#~ msgstr "Codi QR per del compte"
-
-#~ msgctxt "Placeholder message when no user is ignored"
-#~ msgid "You are not ignoring any users"
-#~ msgstr "No heu ignorat cap usuari"
-
-#~ msgid "Room Settings"
-#~ msgstr "Configuració de la sala"
-
-#~ msgid "Valid server entered"
-#~ msgstr "S'ha introduït un servidor vàlid"
-
-#~ msgid "Enter server url e.g. kde.org"
-#~ msgstr "Introduïu l'URL del servidor (p. ex. kde.org)"
-
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgctxt "@button"
-#~ msgid "Space settings"
-#~ msgstr "Configuració dels espais"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgctxt "@title:window"
-#~ msgid "About NeoChat"
-#~ msgstr "Quant al NeoChat"
-
-#~ msgctxt "@title:window"
-#~ msgid "About KDE"
-#~ msgstr "Quant a KDE"
-
-#~ msgid "Spell Checking"
-#~ msgstr "Verificació ortogràfica"
-
-#~ msgctxt "@title"
-#~ msgid "Spellchecking"
-#~ msgstr "Verificació ortogràfica"
-
-#~ msgid "Enable automatic spell checking"
-#~ msgstr "Activa la verificació ortogràfica automàtica"
-
-#~ msgid "Ignore uppercase words"
-#~ msgstr "Ignora les paraules en majúscules"
-
-#~ msgid "Ignore hyphenated words"
-#~ msgstr "Ignora les paraules amb guió"
-
-#~ msgid "Detect language automatically"
-#~ msgstr "Detecta automàticament l'idioma"
-
-#~ msgid "Selected default language:"
-#~ msgstr "Idioma predeterminat seleccionat:"
-
-#~ msgid "None"
-#~ msgstr "Cap"
-
-#~ msgid "Additional spell checking languages"
-#~ msgstr "Idiomes addicionals de verificació ortogràfica"
-
-#~ msgid ""
-#~ "%1 will provide spell checking and suggestions for the languages listed "
-#~ "here when autodetection is enabled."
-#~ msgstr ""
-#~ "%1 proporcionarà la verificació ortogràfica i suggeriments per als "
-#~ "idiomes llistats aquí si s'ha activat la detecció automàtica."
-
-#~ msgid "Open Personal Dictionary"
-#~ msgstr "Obre un diccionari personal"
-
-#~ msgctxt "@title:window"
-#~ msgid "Spell checking languages"
-#~ msgstr "Idiomes de verificació ortogràfica"
-
-#~ msgid "Default Language"
-#~ msgstr "Idioma predeterminat"
-
-#~ msgid "Spell checking dictionary"
-#~ msgstr "Diccionari de verificació ortogràfica"
-
-#~ msgid "Add a new word to your personal dictionary…"
-#~ msgstr "Afegeix una paraula nova al vostre diccionari personal…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Add word"
-#~ msgstr "Afegeix una paraula"
-
-#~ msgctxt "@action:button"
-#~ msgid "Delete word"
-#~ msgstr "Suprimeix la paraula"
-
-#~ msgctxt "menu"
-#~ msgid "Matrix FAQ"
-#~ msgstr "PMF del Matrix"
-
-#~ msgctxt "@action:button"
-#~ msgid "Remove this account"
-#~ msgstr "Elimina aquest compte"
-
-#~ msgid "Options"
-#~ msgstr "Opcions"
-
-#~ msgid "Make room favorite"
-#~ msgstr "Fes preferida la sala"
-
-#~ msgid "Member (0)"
-#~ msgstr "Membre (0)"
-
-#~ msgctxt "@title:window"
-#~ msgid "Account editor"
-#~ msgstr "Editor de comptes"
-
-#~ msgctxt "@title"
-#~ msgid "Deactivate Account"
-#~ msgstr "Desactiva el compte"
-
-#~ msgctxt "@title"
-#~ msgid "Warning"
-#~ msgstr "Avís"
-
-#~ msgid "Show fancy effects in chat"
-#~ msgstr "Mostra efectes sofisticats al xat"
-
-#~ msgctxt "number of room members"
-#~ msgid " members"
-#~ msgstr " membres"
-
-#~ msgctxt "@button"
-#~ msgid "Add new child"
-#~ msgstr "Afegeix un fill nou"
-
-#~ msgid "Log in to an existing account"
-#~ msgstr "Inicia la sessió amb un compte existent"
-
-#~ msgid "Open in New Window"
-#~ msgstr "Obre en una finestra nova"
-
-#~ msgid "Room not found"
-#~ msgstr "No s'ha trobat la sala"
-
-#~ msgid ""
-#~ "There's no room %1 in the room list. Check the spelling and the account."
-#~ msgstr ""
-#~ "No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
-#~ "compte."
-
-#~ msgid "No application for the link"
-#~ msgstr "No hi ha cap aplicació per a l'enllaç"
-
-#~ msgid "Your operating system could not find an application for the link."
-#~ msgstr ""
-#~ "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
-
-#~ msgid "Could not open URL"
-#~ msgstr "No s'ha pogut obrir l'URL"
-
-#~ msgid "Coach: %1, Seat: %2"
-#~ msgstr "Cotxe: %1, Seient: %2"
-
-#~ msgctxt "<start time> - <end time>"
-#~ msgid "%1 - %2"
-#~ msgstr "%1 - %2"
-
-#~ msgctxt "<username> is not a known user"
-#~ msgid "%1 is not a known user."
-#~ msgstr "%1 no és un usuari conegut."
-
-#~ msgid "Show m.room.member events"
-#~ msgstr "Mostra els esdeveniments de «m.room.member»"
-
-#~ msgid "Show room account data"
-#~ msgstr "Mostra les dades de comptatge de la sala"
