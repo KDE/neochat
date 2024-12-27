@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-26 00:41+0000\n"
-"PO-Revision-Date: 2024-12-09 14:19+0100\n"
+"POT-Creation-Date: 2024-12-27 00:41+0000\n"
+"PO-Revision-Date: 2024-12-25 17:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1230,7 +1230,7 @@ msgstr "© 2018-2020 Black Hat, 2020-2024 La comunità KDE"
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148
+#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148 src/main.cpp:150
 #, kde-format
 msgid "Maintainer"
 msgstr "Responsabile"
@@ -1247,73 +1247,78 @@ msgstr "James Graham"
 
 #: src/main.cpp:149
 #, kde-format
+msgid "Joshua Goins"
+msgstr ""
+
+#: src/main.cpp:154
+#, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:149
+#: src/main.cpp:154
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Autore originale di Spectral"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:150
+#: src/main.cpp:155
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Responsabile di libQuotient"
 
-#: src/main.cpp:151
+#: src/main.cpp:156
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Vincenzo Reale"
 
-#: src/main.cpp:151
+#: src/main.cpp:156
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: src/main.cpp:155
+#: src/main.cpp:160
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Una libreria Qt per scrivere client multipiattaforma per Matrix"
 
-#: src/main.cpp:157
+#: src/main.cpp:162
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilato con %2)"
 
-#: src/main.cpp:184
+#: src/main.cpp:189
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client per il protocollo di comunicazione matrix"
 
-#: src/main.cpp:185
+#: src/main.cpp:190
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Supporta schema URL matrix:"
 
-#: src/main.cpp:186
+#: src/main.cpp:191
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignora tutti gli errori SSL, ad es. certificati non firmati."
 
-#: src/main.cpp:188
+#: src/main.cpp:193
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Utilizzato solo per autotest"
 
-#: src/main.cpp:193
+#: src/main.cpp:198
 #, kde-format
 msgid "Internal usage only."
 msgstr "Solo per uso interno."
 
-#: src/main.cpp:198
+#: src/main.cpp:203
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Condividi un URL su Matrix"
@@ -1427,12 +1432,10 @@ msgid "%1 is already in this room."
 msgstr "%1 è già in questa stanza."
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 è stato invitato in questa stanza"
+msgstr "%1 è stato invitato in questa stanza."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -5010,8 +5013,7 @@ msgid "Rooms with the newest activity will be shown first"
 msgstr "Le stanze con l'attività più recente saranno mostrate per prime"
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Personalizzato"
@@ -5723,53 +5725,46 @@ msgid "Permissions"
 msgstr "Permessi"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Room List Sort Order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr "Ordinamento dell'elenco delle stanze"
+msgstr "Ordinamento personalizzato delle stanze"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "prima:"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "poi:"
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "Su"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Scarica"
+msgstr "Giù"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "Aggiungi server"
+msgstr "Aggiungi parametro"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "Seleziona il parametro da aggiungere"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -6045,8 +6040,7 @@ msgid "Last read: %1"
 msgstr "Ultima lettura: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Rispondi"
