@@ -39,8 +39,9 @@ DelegateContextMenu {
             onTriggered: {
                 currentRoom.editCache.editId = eventId;
                 currentRoom.mainCache.replyId = "";
+                currentRoom.mainCache.threadId = "";
             }
-            visible: author.isLocalMember && (root.messageComponentType === MessageComponentType.Emote || root.messageComponentType === MessageComponentType.Message)
+            visible: root.author.isLocalMember && root.messageComponentType === MessageComponentType.Text
         },
         DelegateContextMenu.ReplyMessageAction {},
         Kirigami.Action {
