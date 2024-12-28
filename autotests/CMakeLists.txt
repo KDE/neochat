@@ -50,9 +50,9 @@ ecm_add_test(
 )
 
 ecm_add_test(
-    messageeventmodeltest.cpp
+    timelinemessagemodeltest.cpp
     LINK_LIBRARIES neochat Qt::Test
-    TEST_NAME messageeventmodeltest
+    TEST_NAME timelinemessagemodeltest
 )
 
 ecm_add_test(

@@ -7,8 +7,8 @@
 #include <QConcatenateTablesProxyModel>
 #include <QQmlEngine>
 
-#include "messageeventmodel.h"
 #include "neochatroom.h"
+#include "timelinemessagemodel.h"
 
 /**
  * @class TimelineBeginningModel
@@ -25,7 +25,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        DelegateTypeRole = MessageEventModel::DelegateTypeRole, /**< The delegate type of the message. */
+        DelegateTypeRole = TimelineMessageModel::DelegateTypeRole, /**< The delegate type of the message. */
     };
     Q_ENUM(Roles)
 
@@ -79,7 +79,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        DelegateTypeRole = MessageEventModel::DelegateTypeRole, /**< The delegate type of the message. */
+        DelegateTypeRole = TimelineMessageModel::DelegateTypeRole, /**< The delegate type of the message. */
     };
     Q_ENUM(Roles)
 
@@ -120,9 +120,9 @@ private:
  *
  * A model to visualise a room timeline.
  *
- * This model combines a MessageEventModel with a TimelineEndModel.
+ * This model combines a TimelineMessageModel with a TimelineEndModel.
  *
- * @sa MessageEventModel, TimelineEndModel
+ * @sa TimelineMessageModel, TimelineEndModel
  */
 class TimelineModel : public QConcatenateTablesProxyModel
 {
@@ -135,9 +135,9 @@ class TimelineModel : public QConcatenateTablesProxyModel
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
     /**
-     * @brief The MessageEventModel for the timeline.
+     * @brief The TimelineMessageModel for the timeline.
      */
-    Q_PROPERTY(MessageEventModel *messageEventModel READ messageEventModel CONSTANT)
+    Q_PROPERTY(TimelineMessageModel *timelineMessageModel READ timelineMessageModel CONSTANT)
 
 public:
     TimelineModel(QObject *parent = nullptr);
@@ -145,7 +145,7 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    MessageEventModel *messageEventModel() const;
+    TimelineMessageModel *timelineMessageModel() const;
 
     /**
      * @brief Returns a mapping from Role enum values to role names.
@@ -158,7 +158,7 @@ Q_SIGNALS:
     void roomChanged();
 
 private:
-    MessageEventModel *m_messageEventModel = nullptr;
+    TimelineMessageModel *m_timelineMessageModel = nullptr;
     TimelineBeginningModel *m_timelineBeginningModel = nullptr;
     TimelineEndModel *m_timelineEndModel = nullptr;
 };

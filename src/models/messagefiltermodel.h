@@ -6,7 +6,7 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
-#include "messageeventmodel.h"
+#include "timelinemessagemodel.h"
 #include "timelinemodel.h"
 
 /**
@@ -30,7 +30,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        AggregateDisplayRole = MessageEventModel::LastRole + 1, /**< Single line aggregation of all the state events. */
+        AggregateDisplayRole = TimelineMessageModel::LastRole + 1, /**< Single line aggregation of all the state events. */
         StateEventsRole, /**< List of state events in the aggregated state. */
         AuthorListRole, /**< List of the first 5 unique authors of the aggregated state event. */
         ExcessAuthorsRole, /**< The number of unique authors beyond the first 5. */

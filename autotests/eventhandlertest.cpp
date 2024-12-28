@@ -11,6 +11,8 @@
 #include <Quotient/connection.h>
 #include <Quotient/quotient_common.h>
 #include <Quotient/syncdata.h>
+#include <qcbormap.h>
+#include <qtestcase.h>
 
 #include "linkpreviewer.h"
 #include "models/reactionmodel.h"
@@ -98,18 +100,24 @@ void EventHandlerTest::time()
 {
     const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(EventHandler::time(event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
-    QCOMPARE(EventHandler::time(event, true, QDateTime::fromMSecsSinceEpoch(1234, QTimeZone(QTimeZone::UTC))),
-             QDateTime::fromMSecsSinceEpoch(1234, QTimeZone(QTimeZone::UTC)));
+    QCOMPARE(EventHandler::time(room, event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
+
+    const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
+    QCOMPARE(room->pendingEvents().size(), 1);
+    const auto pendingIt = room->findPendingEvent(txID);
+    QCOMPARE(EventHandler::time(room, pendingIt->event(), true), pendingIt->lastUpdated());
+
+    room->discardMessage(txID);
+    QCOMPARE(room->pendingEvents().size(), 0);
 }
 
 void EventHandlerTest::nullTime()
 {
-    QTest::ignoreMessage(QtWarningMsg, "time called with event set to nullptr.");
-    QCOMPARE(EventHandler::time(nullptr), QDateTime());
+    QTest::ignoreMessage(QtWarningMsg, "time called with room set to nullptr.");
+    QCOMPARE(EventHandler::time(nullptr, nullptr), QDateTime());
 
-    QTest::ignoreMessage(QtWarningMsg, "a value must be provided for lastUpdated for a pending event.");
-    QCOMPARE(EventHandler::time(room->messageEvents().at(0).get(), true), QDateTime());
+    QTest::ignoreMessage(QtWarningMsg, "time called with event set to nullptr.");
+    QCOMPARE(EventHandler::time(room, nullptr), QDateTime());
 }
 
 void EventHandlerTest::timeString()
@@ -118,19 +126,27 @@ void EventHandlerTest::timeString()
 
     KFormat format;
 
-    QCOMPARE(EventHandler::timeString(event, false),
+    QCOMPARE(EventHandler::timeString(room, event, false),
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, true),
+    QCOMPARE(EventHandler::timeString(room, event, true),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, false, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
-             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, true, QLocale::ShortFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
-             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(event, false, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
-             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::LongFormat));
-    QCOMPARE(EventHandler::timeString(event, true, QLocale::LongFormat, true, QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC))),
-             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1690699214545, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::LongFormat));
-    QCOMPARE(EventHandler::timeString(event, u"hh:mm"_s), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(u"hh:mm"_s));
+    QCOMPARE(EventHandler::timeString(room, event, u"hh:mm"_s), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(u"hh:mm"_s));
+
+    const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
+    QCOMPARE(room->pendingEvents().size(), 1);
+    const auto pendingIt = room->findPendingEvent(txID);
+
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), false, QLocale::ShortFormat, true),
+             QLocale().toString(pendingIt->lastUpdated().toLocalTime().time(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), true, QLocale::ShortFormat, true),
+             format.formatRelativeDate(pendingIt->lastUpdated().toLocalTime().date(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), false, QLocale::LongFormat, true),
+             QLocale().toString(pendingIt->lastUpdated().toLocalTime().time(), QLocale::LongFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), true, QLocale::LongFormat, true),
+             format.formatRelativeDate(pendingIt->lastUpdated().toLocalTime().date(), QLocale::LongFormat));
+
+    room->discardMessage(txID);
+    QCOMPARE(room->pendingEvents().size(), 0);
 }
 
 void EventHandlerTest::highlighted()

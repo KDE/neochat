@@ -297,7 +297,7 @@ TimelineDelegate {
                 // HACK: This is stupid but seemingly QConcatenateTablesProxyModel
                 // can't be passed as a model role, always returning null.
                 contentModel: if (root.isThreaded && NeoChatConfig.threads) {
-                   return RoomManager.timelineModel.messageEventModel.threadModelForRootId(root.threadRoot);
+                   return RoomManager.timelineModel.timelineMessageModel.threadModelForRootId(root.threadRoot);
                 } else {
                    return root.contentModel;
                 }

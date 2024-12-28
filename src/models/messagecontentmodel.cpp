@@ -311,20 +311,10 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return event.first->displayId();
     }
     if (role == TimeRole) {
-        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [event](const PendingEventItem &pendingEvent) {
-            return event.first->transactionId() == pendingEvent->transactionId();
-        });
-
-        auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return EventHandler::time(event.first, m_currentState == Pending, lastUpdated);
+        return EventHandler::time(m_room, event.first, m_currentState == Pending);
     }
     if (role == TimeStringRole) {
-        const auto pendingIt = std::find_if(m_room->pendingEvents().cbegin(), m_room->pendingEvents().cend(), [event](const PendingEventItem &pendingEvent) {
-            return event.first->transactionId() == pendingEvent->transactionId();
-        });
-
-        auto lastUpdated = pendingIt == m_room->pendingEvents().cend() ? QDateTime() : pendingIt->lastUpdated();
-        return EventHandler::timeString(event.first, u"hh:mm"_s, m_currentState == Pending, lastUpdated);
+        return EventHandler::timeString(m_room, event.first, u"hh:mm"_s, m_currentState == Pending);
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());

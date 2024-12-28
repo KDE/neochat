@@ -7,8 +7,8 @@
 #include <Quotient/room.h>
 
 #include "messagecontentmodel.h"
-#include "messageeventmodel.h"
 #include "messagefiltermodel.h"
+#include "timelinemessagemodel.h"
 
 using namespace Qt::StringLiterals;
 
@@ -23,8 +23,8 @@ bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex 
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-    if (index.data(MessageEventModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("image"_L1)
-        || index.data(MessageEventModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("video"_L1)) {
+    if (index.data(TimelineMessageModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("image"_L1)
+        || index.data(TimelineMessageModel::MediaInfoRole).toMap()["mimeType"_L1].toString().contains("video"_L1)) {
         return true;
     }
     return false;
@@ -34,21 +34,21 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 {
     // We need to catch this one and return true if the next media object was
     // on a different day.
-    if (role == MessageEventModel::ShowSectionRole) {
-        const auto day = mapToSource(index).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
-        const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(MessageEventModel::TimeRole).toDateTime().toLocalTime().date();
+    if (role == TimelineMessageModel::ShowSectionRole) {
+        const auto day = mapToSource(index).data(TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date();
+        const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date();
         return day != previousEventDay;
     }
     // Catch and force the author to be shown for all rows
-    if (role == MessageEventModel::ContentModelRole) {
-        const auto model = qvariant_cast<MessageContentModel *>(mapToSource(index).data(MessageEventModel::ContentModelRole));
+    if (role == TimelineMessageModel::ContentModelRole) {
+        const auto model = qvariant_cast<MessageContentModel *>(mapToSource(index).data(TimelineMessageModel::ContentModelRole));
         if (model != nullptr) {
             model->setShowAuthor(true);
         }
         return QVariant::fromValue<MessageContentModel *>(model);
     }
 
-    QVariantMap mediaInfo = mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap();
+    QVariantMap mediaInfo = mapToSource(index).data(TimelineMessageModel::MediaInfoRole).toMap();
 
     if (role == TempSourceRole) {
         return mediaInfo[u"tempInfo"_s].toMap()[u"source"_s].toUrl();
@@ -70,9 +70,9 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
     }
     if (role == SourceRole) {
         if (isVideo) {
-            auto progressInfo = mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
+            auto progressInfo = mapToSource(index).data(TimelineMessageModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
             if (progressInfo.completed()) {
-                return mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
+                return mapToSource(index).data(TimelineMessageModel::ProgressInfoRole).value<Quotient::FileTransferInfo>().localPath;
             }
         } else {
             return mediaInfo[u"source"_s].toUrl();

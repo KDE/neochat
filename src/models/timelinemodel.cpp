@@ -12,33 +12,33 @@ TimelineModel::TimelineModel(QObject *parent)
 {
     m_timelineBeginningModel = new TimelineBeginningModel(this);
     addSourceModel(m_timelineBeginningModel);
-    m_messageEventModel = new MessageEventModel(this);
-    addSourceModel(m_messageEventModel);
+    m_timelineMessageModel = new TimelineMessageModel(this);
+    addSourceModel(m_timelineMessageModel);
     m_timelineEndModel = new TimelineEndModel(this);
     addSourceModel(m_timelineEndModel);
 }
 
 NeoChatRoom *TimelineModel::room() const
 {
-    return m_messageEventModel->room();
+    return m_timelineMessageModel->room();
 }
 
 void TimelineModel::setRoom(NeoChatRoom *room)
 {
     // Both models do their own null checking so just pass along.
-    m_messageEventModel->setRoom(room);
+    m_timelineMessageModel->setRoom(room);
     m_timelineBeginningModel->setRoom(room);
     m_timelineEndModel->setRoom(room);
 }
 
-MessageEventModel *TimelineModel::messageEventModel() const
+TimelineMessageModel *TimelineModel::timelineMessageModel() const
 {
-    return m_messageEventModel;
+    return m_timelineMessageModel;
 }
 
 QHash<int, QByteArray> TimelineModel::roleNames() const
 {
-    return m_messageEventModel->roleNames();
+    return m_timelineMessageModel->roleNames();
 }
 
 TimelineBeginningModel::TimelineBeginningModel(QObject *parent)

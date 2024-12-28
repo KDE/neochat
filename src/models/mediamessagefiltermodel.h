@@ -13,9 +13,9 @@ class MessageFilterModel;
 /**
  * @class MediaMessageFilterModel
  *
- * This model filters a MessageEventModel for image and video messages.
+ * This model filters a TimelineMessageModel for image and video messages.
  *
- * @sa MessageEventModel
+ * @sa TimelineMessageModel
  */
 class MediaMessageFilterModel : public QSortFilterProxyModel
 {

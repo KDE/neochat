@@ -80,16 +80,16 @@ QQC2.ScrollView {
             running: messageListView.atYBeginning
             triggeredOnStart: true
             onTriggered: {
-                if (messageListView.atYBeginning && root.timelineModel.messageEventModel.canFetchMore(root.timelineModel.index(0, 0))) {
-                    root.timelineModel.messageEventModel.fetchMore(root.timelineModel.index(0, 0));
+                if (messageListView.atYBeginning && root.timelineModel.timelineMessageModel.canFetchMore(root.timelineModel.index(0, 0))) {
+                    root.timelineModel.timelineMessageModel.fetchMore(root.timelineModel.index(0, 0));
                 }
             }
             repeat: true
         }
 
         // HACK: The view should do this automatically but doesn't.
-        onAtYBeginningChanged: if (atYBeginning && root.timelineModel.messageEventModel.canFetchMore(root.timelineModel.index(0, 0))) {
-            root.timelineModel.messageEventModel.fetchMore(root.timelineModel.index(0, 0));
+        onAtYBeginningChanged: if (atYBeginning && root.timelineModel.timelineMessageModel.canFetchMore(root.timelineModel.index(0, 0))) {
+            root.timelineModel.timelineMessageModel.fetchMore(root.timelineModel.index(0, 0));
         }
 
         Timer {
@@ -325,7 +325,7 @@ QQC2.ScrollView {
         }
 
         function eventToIndex(eventID) {
-            const index = root.timelineModel.messageEventModel.eventIdToRow(eventID);
+            const index = root.timelineModel.timelineMessageModel.eventIdToRow(eventID);
             if (index === -1)
                 return -1;
             return root.messageFilterModel.mapFromSource(root.timelineModel.index(index, 0)).row;

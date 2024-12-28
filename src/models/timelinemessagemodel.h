@@ -6,18 +6,17 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
-#include "linkpreviewer.h"
-#include "messagecontentmodel.h"
-#include "neochatroom.h"
-#include "neochatroommember.h"
-#include "pollhandler.h"
-#include "readmarkermodel.h"
-#include "threadmodel.h"
+#include "messagemodel.h"
 
 class ReactionModel;
 
+namespace Quotient
+{
+class RoomEvent;
+}
+
 /**
- * @class MessageEventModel
+ * @class TimelineMessageModel
  *
  * This class defines the model for visualising the room timeline.
  *
@@ -27,15 +26,10 @@ class ReactionModel;
  *
  * @sa NeoChatRoom
  */
-class MessageEventModel : public QAbstractListModel
+class TimelineMessageModel : public MessageModel
 {
     Q_OBJECT
     QML_ELEMENT
-
-    /**
-     * @brief The current room that the model is getting its messages from.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
 public:
     /**
@@ -74,17 +68,7 @@ public:
     };
     Q_ENUM(EventRoles)
 
-    explicit MessageEventModel(QObject *parent = nullptr);
-
-    [[nodiscard]] NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
-
-    /**
-     * @brief Get the given role value at the given index.
-     *
-     * @sa QAbstractItemModel::data
-     */
-    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    explicit TimelineMessageModel(QObject *parent = nullptr);
 
     /**
      * @brief Number of rows in the model.
@@ -93,52 +77,22 @@ public:
      */
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    /**
-     * @brief Returns a mapping from Role enum values to role names.
-     *
-     * @sa EventRoles, QAbstractItemModel::roleNames()
-     */
-    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-
-    /**
-     * @brief Get the row number of the given event ID in the model.
-     */
-    Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
-
-    Q_INVOKABLE ThreadModel *threadModelForRootId(const QString &threadRootId) const;
-
-protected:
-    bool event(QEvent *event) override;
-
 private:
-    QPointer<NeoChatRoom> m_currentRoom = nullptr;
-    QString lastReadEventId;
-    QPersistentModelIndex m_lastReadEventIndex;
+    void connectNewRoom();
+
+    std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
+
     int rowBelowInserted = -1;
     bool resetting = false;
     bool movingEvent = false;
 
-    std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
-    std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
-    QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
-    QMap<QString, QSharedPointer<ThreadModel>> m_threadModels;
-    QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
-
-    [[nodiscard]] int timelineBaseIndex() const;
+    int timelineServerIndex() const override;
 
     bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;
 
-    void fullEventRefresh(int row);
-    void refreshLastUserEvents(int baseTimelineRow);
-    void refreshEventRoles(int row, const QList<int> &roles = {});
-    int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    void createEventObjects(const Quotient::RoomEvent *event, bool isPending = false);
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;
-
-Q_SIGNALS:
-    void roomChanged();
 };

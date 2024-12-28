@@ -18,8 +18,8 @@ add_library(neochat STATIC
     models/customemojimodel.h
     clipboard.cpp
     clipboard.h
-    models/messageeventmodel.cpp
-    models/messageeventmodel.h
+    models/timelinemessagemodel.cpp
+    models/timelinemessagemodel.h
     models/messagefiltermodel.cpp
     models/messagefiltermodel.h
     models/roomlistmodel.cpp
@@ -192,6 +192,8 @@ add_library(neochat STATIC
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
     models/roomsortparametermodel.h
+    models/messagemodel.cpp
+    models/messagemodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -325,10 +327,10 @@ if(WIN32)
 endif()
 
 ecm_qt_declare_logging_category(neochat
-    HEADER "messageeventmodel_logging.h"
-    IDENTIFIER "MessageEvent"
-    CATEGORY_NAME "org.kde.neochat.messageeventmodel"
-    DESCRIPTION "Neochat: messageeventmodel"
+    HEADER "messagemodel_logging.h"
+    IDENTIFIER "Message"
+    CATEGORY_NAME "org.kde.neochat.messagemodel"
+    DESCRIPTION "Neochat: messagemodel"
     DEFAULT_SEVERITY Info
     EXPORT NEOCHAT
 )

@@ -64,7 +64,7 @@ public:
     /**
      * @brief Return a QDateTime object for the event timestamp.
      */
-    static QDateTime time(const Quotient::RoomEvent *event, bool isPending = false, QDateTime lastUpdated = {});
+    static QDateTime time(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
 
     /**
      * @brief Return a QString for the event timestamp.
@@ -80,11 +80,11 @@ public:
      * @param lastUpdated the time the event was last updated locally as this cannot be
      *                    obtained from the event.
      */
-    static QString timeString(const Quotient::RoomEvent *event,
+    static QString timeString(const NeoChatRoom *room,
+                              const Quotient::RoomEvent *event,
                               bool relative,
                               QLocale::FormatType format = QLocale::ShortFormat,
-                              bool isPending = false,
-                              QDateTime lastUpdated = {});
+                              bool isPending = false);
 
     /**
      * @brief Return a QString for the event timestamp.
@@ -98,7 +98,7 @@ public:
      * @param lastUpdated the time the event was last updated locally as this cannot be
      *                    obtained from the event.
      */
-    static QString timeString(const Quotient::RoomEvent *event, const QString &format, bool isPending = false, const QDateTime &lastUpdated = {});
+    static QString timeString(const NeoChatRoom *room, const Quotient::RoomEvent *event, const QString &format, bool isPending = false);
 
     /**
      * @brief Whether the event should be highlighted in the timeline.

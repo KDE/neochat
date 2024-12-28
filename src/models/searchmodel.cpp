@@ -3,23 +3,12 @@
 
 #include "searchmodel.h"
 
-#include "enums/delegatetype.h"
-#include "eventhandler.h"
-#include "models/messagecontentmodel.h"
-#include "neochatroom.h"
-
-#include <QGuiApplication>
-
-#include <Quotient/events/stickerevent.h>
-
-#include <KLocalizedString>
-
 using namespace Quotient;
 
 // TODO search only in the current room
 
 SearchModel::SearchModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : MessageModel(parent)
 {
 }
 
@@ -65,15 +54,14 @@ void SearchModel::search()
     auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria});
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
+        clearEventObjects();
+
         beginResetModel();
-        m_memberObjects.clear();
         m_result = job->searchCategories().roomEvents;
 
         if (m_result.has_value()) {
             for (const auto &result : m_result.value().results) {
-                if (!m_memberObjects.contains(result.result->senderId())) {
-                    m_memberObjects[result.result->senderId()] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, result.result->senderId()));
-                }
+                Q_EMIT newEventAdded(result.result.get());
             }
         }
 
@@ -84,57 +72,13 @@ void SearchModel::search()
     });
 }
 
-QVariant SearchModel::data(const QModelIndex &index, int role) const
+std::optional<std::reference_wrapper<const RoomEvent>> SearchModel::getEventForIndex(QModelIndex index) const
 {
-    auto row = index.row();
-    const auto &event = *m_result->results[row].result;
+    if (!m_result.has_value()) {
+        return std::nullopt;
+    }
 
-    switch (role) {
-    case AuthorRole:
-        return QVariant::fromValue<NeochatRoomMember *>(m_memberObjects.at(event.senderId()).get());
-    case ShowSectionRole:
-        if (row == 0) {
-            return true;
-        }
-        return event.originTimestamp().date() != m_result->results[row - 1].result->originTimestamp().date();
-    case SectionRole:
-        return EventHandler::timeString(&event, true);
-    case ShowReactionsRole:
-        return false;
-    case ShowReadMarkersRole:
-        return false;
-    case IsPendingRole:
-        return false;
-    case HighlightRole:
-        return EventHandler::isHighlighted(m_room, &event);
-    case EventIdRole:
-        return event.displayId();
-    case IsThreadedRole:
-        if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event)) {
-            return roomMessageEvent->isThreaded();
-        }
-        return {};
-    case ThreadRootRole:
-        if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event); roomMessageEvent->isThreaded()) {
-            return roomMessageEvent->threadRootEventId();
-        }
-        return {};
-    case ContentModelRole: {
-        if (!event.isStateEvent()) {
-            return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, event.id()));
-        }
-        if (event.isStateEvent()) {
-            if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
-                return QVariant::fromValue<MessageContentModel *>(new MessageContentModel(m_room, event.id()));
-            }
-        }
-        return {};
-    }
-    case IsEditableRole: {
-        return false;
-    }
-    }
-    return DelegateType::Message;
+    return *m_result.value().results.at(index.row()).result.get();
 }
 
 int SearchModel::rowCount(const QModelIndex &parent) const
@@ -146,55 +90,9 @@ int SearchModel::rowCount(const QModelIndex &parent) const
     return 0;
 }
 
-QHash<int, QByteArray> SearchModel::roleNames() const
-{
-    return {
-        {DelegateTypeRole, "delegateType"},
-        {AuthorRole, "author"},
-        {ShowSectionRole, "showSection"},
-        {SectionRole, "section"},
-        {EventIdRole, "eventId"},
-        {ExcessReadMarkersRole, "excessReadMarkers"},
-        {HighlightRole, "isHighlighted"},
-        {ReadMarkersString, "readMarkersString"},
-        {VerifiedRole, "verified"},
-        {ShowReactionsRole, "showReactions"},
-        {ReactionRole, "reaction"},
-        {ReadMarkersRole, "readMarkers"},
-        {IsPendingRole, "isPending"},
-        {ShowReadMarkersRole, "showReadMarkers"},
-        {IsThreadedRole, "isThreaded"},
-        {ThreadRootRole, "threadRoot"},
-        {ContentModelRole, "contentModel"},
-        {IsEditableRole, "isEditable"},
-    };
-}
-
-NeoChatRoom *SearchModel::room() const
-{
-    return m_room;
-}
-
-void SearchModel::setRoom(NeoChatRoom *room)
-{
-    if (m_room) {
-        disconnect(m_room, nullptr, this, nullptr);
-    }
-    m_room = room;
-    Q_EMIT roomChanged();
-}
-
 bool SearchModel::searching() const
 {
     return m_searching;
-}
-
-bool SearchModel::event(QEvent *event)
-{
-    if (event->type() == QEvent::ApplicationPaletteChange) {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
-    }
-    return QObject::event(event);
 }
 
 void SearchModel::setSearching(bool searching)

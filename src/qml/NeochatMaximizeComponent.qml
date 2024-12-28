@@ -21,13 +21,13 @@ Components.AlbumMaximizeComponent {
      */
     required property NeoChatRoom currentRoom
 
-    readonly property string currentEventId: model.data(model.index(content.currentIndex, 0), MessageEventModel.EventIdRole)
+    readonly property string currentEventId: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.EventIdRole)
 
-    readonly property var currentAuthor: model.data(model.index(content.currentIndex, 0), MessageEventModel.AuthorRole)
+    readonly property var currentAuthor: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.AuthorRole)
 
-    readonly property var currentTime: model.data(model.index(content.currentIndex, 0), MessageEventModel.TimeRole)
+    readonly property var currentTime: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.TimeRole)
 
-    readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), MessageEventModel.ProgressInfoRole)
+    readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
 
     /**
      * @brief Whether the delegate is part of a thread timeline.

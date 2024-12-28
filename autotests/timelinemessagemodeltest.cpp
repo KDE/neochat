@@ -10,20 +10,20 @@
 #include <Quotient/syncdata.h>
 
 #include "enums/delegatetype.h"
-#include "models/messageeventmodel.h"
+#include "models/timelinemessagemodel.h"
 #include "neochatroom.h"
 
 #include "testutils.h"
 
 using namespace Quotient;
 
-class MessageEventModelTest : public QObject
+class TimelineMessageModelTest : public QObject
 {
     Q_OBJECT
 
 private:
     Connection *connection = nullptr;
-    MessageEventModel *model = nullptr;
+    TimelineMessageModel *model = nullptr;
 
 private Q_SLOTS:
     void initTestCase();
@@ -40,19 +40,19 @@ private Q_SLOTS:
     void cleanup();
 };
 
-void MessageEventModelTest::initTestCase()
+void TimelineMessageModelTest::initTestCase()
 {
     connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
 }
 
-void MessageEventModelTest::init()
+void TimelineMessageModelTest::init()
 {
     QCOMPARE(model, nullptr);
-    model = new MessageEventModel;
+    model = new TimelineMessageModel;
 }
 
 // Make sure that basic empty rooms can be switched without crashing.
-void MessageEventModelTest::switchEmptyRoom()
+void TimelineMessageModelTest::switchEmptyRoom()
 {
     auto firstRoom = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
     auto secondRoom = new TestUtils::TestRoom(connection, u"#secondRoom:kde.org"_s);
@@ -72,7 +72,7 @@ void MessageEventModelTest::switchEmptyRoom()
 }
 
 // Make sure that rooms with some events can be switched without crashing
-void MessageEventModelTest::switchSyncedRoom()
+void TimelineMessageModelTest::switchSyncedRoom()
 {
     auto firstRoom = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
     auto secondRoom = new TestUtils::TestRoom(connection, u"#secondRoom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
@@ -91,19 +91,19 @@ void MessageEventModelTest::switchSyncedRoom()
     QCOMPARE(model->room(), nullptr);
 }
 
-void MessageEventModelTest::simpleTimeline()
+void TimelineMessageModelTest::simpleTimeline()
 {
     auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
 
     model->setRoom(room);
     QCOMPARE(model->rowCount(), 2);
 
-    QCOMPARE(model->data(model->index(0), MessageEventModel::DelegateTypeRole), DelegateType::State);
+    QCOMPARE(model->data(model->index(0), TimelineMessageModel::DelegateTypeRole), DelegateType::State);
     QCOMPARE(model->data(model->index(0)), u"changed their display name to Example Changed"_s);
 
     QCOMPARE(model->data(model->index(1)), u"<b>This is an example<br>text message</b>"_s);
-    QCOMPARE(model->data(model->index(1), MessageEventModel::DelegateTypeRole), DelegateType::Message);
-    QCOMPARE(model->data(model->index(1), MessageEventModel::EventIdRole), u"$153456789:example.org"_s);
+    QCOMPARE(model->data(model->index(1), TimelineMessageModel::DelegateTypeRole), DelegateType::Message);
+    QCOMPARE(model->data(model->index(1), TimelineMessageModel::EventIdRole), u"$153456789:example.org"_s);
 
     QTest::ignoreMessage(QtWarningMsg, "Index QModelIndex(-1,-1,0x0,QObject(0x0)) is not valid (expected valid)");
     QCOMPARE(model->data(model->index(-1)), QVariant());
@@ -111,8 +111,8 @@ void MessageEventModelTest::simpleTimeline()
     QCOMPARE(model->data(model->index(model->rowCount())), QVariant());
 }
 
-// Sync some events into the MessageEventModel's current room and don't crash.
-void MessageEventModelTest::syncNewEvents()
+// Sync some events into the TimelineMessageModel's current room and don't crash.
+void TimelineMessageModelTest::syncNewEvents()
 {
     auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s);
     QSignalSpy spy(room, SIGNAL(aboutToAddNewMessages(Quotient::RoomEventsRange)));
@@ -127,7 +127,7 @@ void MessageEventModelTest::syncNewEvents()
 }
 
 // Check the adding of pending events to the room doesn't cause any issues in the model.
-void MessageEventModelTest::pendingEvent()
+void TimelineMessageModelTest::pendingEvent()
 {
     QSignalSpy spyInsert(model, SIGNAL(rowsInserted(const QModelIndex &, int, int)));
     QSignalSpy spyRemove(model, SIGNAL(rowsRemoved(const QModelIndex &, int, int)));
@@ -174,7 +174,7 @@ void MessageEventModelTest::pendingEvent()
     auto isPendingChanged = false;
     for (auto signal : spyChanged) {
         auto roles = signal.at(2).toList();
-        if (roles.contains(MessageEventModel::IsPendingRole)) {
+        if (roles.contains(TimelineMessageModel::IsPendingRole)) {
             isPendingChanged = true;
         }
     }
@@ -182,7 +182,7 @@ void MessageEventModelTest::pendingEvent()
 }
 
 // Make sure that the signals are disconnecting correctly when a room is switched.
-void MessageEventModelTest::disconnect()
+void TimelineMessageModelTest::disconnect()
 {
     auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s);
     model->setRoom(room);
@@ -195,7 +195,7 @@ void MessageEventModelTest::disconnect()
     QCOMPARE(spy.count(), 0);
 }
 
-void MessageEventModelTest::idToRow()
+void TimelineMessageModelTest::idToRow()
 {
     auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-min-sync.json"_s);
     model->setRoom(room);
@@ -203,12 +203,12 @@ void MessageEventModelTest::idToRow()
     QCOMPARE(model->eventIdToRow(u"$153456789:example.org"_s), 0);
 }
 
-void MessageEventModelTest::cleanup()
+void TimelineMessageModelTest::cleanup()
 {
     delete model;
     model = nullptr;
     QCOMPARE(model, nullptr);
 }
 
-QTEST_MAIN(MessageEventModelTest)
-#include "messageeventmodeltest.moc"
+QTEST_MAIN(TimelineMessageModelTest)
+#include "timelinemessagemodeltest.moc"
