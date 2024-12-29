@@ -27,6 +27,22 @@ Kirigami.SearchDialog {
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
     model: RoomManager.sortFilterRoomListModel
     emptyText: i18nc("Placeholder message", "No room found")
+    emptyHelpfulAction: Kirigami.Action {
+        text: i18nc("@action:button", "Explore rooms")
+        icon.name: "compass"
+        onTriggered: {
+            root.close()
+            let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Explore Rooms")
+            });
+            dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
+                RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
+            });
+        }
+    }
+
     parent: QQC2.Overlay.overlay
 
     delegate: RoomDelegate {
