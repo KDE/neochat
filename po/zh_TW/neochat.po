@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-28 00:41+0000\n"
-"PO-Revision-Date: 2024-11-26 22:02+0900\n"
+"POT-Creation-Date: 2024-12-29 00:41+0000\n"
+"PO-Revision-Date: 2024-12-29 01:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -144,7 +144,7 @@ msgstr "事件原始碼"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "顯示存取權杖"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
@@ -152,22 +152,20 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"這不該分享給任何人，包含其他使用者。只要有這個權杖就會對您的帳號有完整的存取"
+"權。"
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "存取"
+msgstr "存取權杖"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "複製位址到剪貼簿"
+msgstr "複製存取權杖到剪貼簿"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -256,25 +254,19 @@ msgid "Choose Room"
 msgstr "選擇聊天室"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "沒有找到聊天室"
+msgstr "未選取聊天室"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "選擇聊天室"
+msgstr "點擊來選擇聊天室"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "選擇聊天室"
@@ -406,581 +398,567 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:52
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "按字母順序"
+msgstr "字母（遞增）"
 
 #: src/enums/roomsortparameter.h:54
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "按字母順序"
+msgstr "字母（遞減）"
 
 #: src/enums/roomsortparameter.h:56
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "已加密訊息"
+msgstr "有未讀訊息"
 
 #: src/enums/roomsortparameter.h:58
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "轉寄訊息"
+msgstr "最多未讀訊息"
 
 #: src/enums/roomsortparameter.h:60
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "有已突顯的訊息"
 
 #: src/enums/roomsortparameter.h:62
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "顯示已刪除的訊息"
+msgstr "最多已突顯的訊息"
 
 #: src/enums/roomsortparameter.h:64
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "%1，最後活動：%2"
+msgstr "上次活躍時間"
 
 #: src/enums/roomsortparameter.h:79
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "名稱接近 A 的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "名稱接近 Z 的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "聊天室更新訊息"
+msgstr "有未讀訊息的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "有最多未讀訊息的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "有已突顯的訊息的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "有最多已突顯的訊息的聊天室會排在上面"
 
 #: src/enums/roomsortparameter.h:91
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr "有未讀通知的聊天室會顯示在上方"
+msgstr "有較新訊息的聊天室會排在上面"
 
-#: src/eventhandler.cpp:286 src/eventhandler.cpp:502
+#: src/eventhandler.cpp:293 src/eventhandler.cpp:509
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
-#: src/eventhandler.cpp:286
+#: src/eventhandler.cpp:293
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
 
-#: src/eventhandler.cpp:320
+#: src/eventhandler.cpp:327
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "已重新邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:322
+#: src/eventhandler.cpp:329
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:331
+#: src/eventhandler.cpp:338
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "已加入聊天室（重複）"
 
-#: src/eventhandler.cpp:333
+#: src/eventhandler.cpp:340
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "已邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:333
+#: src/eventhandler.cpp:340
 #, kde-format
 msgid "joined the room"
 msgstr "已加入聊天室"
 
-#: src/eventhandler.cpp:337
+#: src/eventhandler.cpp:344
 #, kde-format
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:344
+#: src/eventhandler.cpp:351
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "將其顯示名稱清除了"
 
-#: src/eventhandler.cpp:347
+#: src/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "將其顯示名稱變更為 %1"
 
-#: src/eventhandler.cpp:353
+#: src/eventhandler.cpp:360
 #, kde-format
 msgid " and "
 msgstr " 和 "
 
-#: src/eventhandler.cpp:356
+#: src/eventhandler.cpp:363
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "將其頭貼清除了"
 
-#: src/eventhandler.cpp:358
+#: src/eventhandler.cpp:365
 #, kde-format
 msgid "set an avatar"
 msgstr "設定了頭貼"
 
-#: src/eventhandler.cpp:360
+#: src/eventhandler.cpp:367
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "更新了他的頭貼"
 
-#: src/eventhandler.cpp:364
+#: src/eventhandler.cpp:371
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "什麼都沒改"
 
-#: src/eventhandler.cpp:370
+#: src/eventhandler.cpp:377
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "撤回了 %1 的邀請"
 
-#: src/eventhandler.cpp:370
+#: src/eventhandler.cpp:377
 #, kde-format
 msgid "rejected the invitation"
 msgstr "拒絕了邀請"
 
-#: src/eventhandler.cpp:374
+#: src/eventhandler.cpp:381
 #, kde-format
 msgid "unbanned %1"
 msgstr "解除了 %1 的封鎖"
 
-#: src/eventhandler.cpp:374
+#: src/eventhandler.cpp:381
 #, kde-format
 msgid "self-unbanned"
 msgstr "已自我解除封鎖"
 
-#: src/eventhandler.cpp:377
+#: src/eventhandler.cpp:384
 #, kde-format
 msgid "left the room"
 msgstr "已離開聊天室"
 
-#: src/eventhandler.cpp:380
+#: src/eventhandler.cpp:387
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "已將 %1 移出聊天室：%2"
 
-#: src/eventhandler.cpp:382
+#: src/eventhandler.cpp:389
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "已將 %1 移出聊天室"
 
-#: src/eventhandler.cpp:386
+#: src/eventhandler.cpp:393
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "已從聊天室封鎖 %1"
 
-#: src/eventhandler.cpp:388
+#: src/eventhandler.cpp:395
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "已從聊天室封鎖 %1：%2"
 
-#: src/eventhandler.cpp:391
+#: src/eventhandler.cpp:398
 #, kde-format
 msgid "self-banned from the room"
 msgstr "已從聊天室自行封鎖"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:402
 #, kde-format
 msgid "requested an invite"
 msgstr "請求了邀請"
 
-#: src/eventhandler.cpp:395
+#: src/eventhandler.cpp:402
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "請求了邀請，理由：%1"
 
-#: src/eventhandler.cpp:399
+#: src/eventhandler.cpp:406
 #, kde-format
 msgid "made something unknown"
 msgstr "做了不明的東西"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:409
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "清除了聊天室的主別名"
 
-#: src/eventhandler.cpp:402
+#: src/eventhandler.cpp:409
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "設定聊天室的主別名為：%1"
 
-#: src/eventhandler.cpp:405
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "cleared the room name"
 msgstr "清除了聊天室名稱"
 
-#: src/eventhandler.cpp:405
+#: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "設定聊天室名稱為：%1"
 
-#: src/eventhandler.cpp:408
+#: src/eventhandler.cpp:415
 #, kde-format
 msgid "cleared the topic"
 msgstr "清除了主題"
 
-#: src/eventhandler.cpp:409
+#: src/eventhandler.cpp:416
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "設定主題為：%1"
 
-#: src/eventhandler.cpp:415
+#: src/eventhandler.cpp:422
 #, kde-format
 msgid "changed the room avatar"
 msgstr "變更了聊天室頭貼"
 
-#: src/eventhandler.cpp:418
+#: src/eventhandler.cpp:425
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "啟用了端對端加密"
 
-#: src/eventhandler.cpp:422
+#: src/eventhandler.cpp:429
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "更新了聊天室到版本 %1"
 
-#: src/eventhandler.cpp:423
+#: src/eventhandler.cpp:430
 #, kde-format
 msgid "created the room, version %1"
 msgstr "建立了聊天室，版本 %1"
 
-#: src/eventhandler.cpp:426
+#: src/eventhandler.cpp:433
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "變更了這個聊天室的能力等級"
 
-#: src/eventhandler.cpp:432
+#: src/eventhandler.cpp:439
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
-#: src/eventhandler.cpp:436
+#: src/eventhandler.cpp:443
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "新增了 %1 元件"
 
-#: src/eventhandler.cpp:439
+#: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "移除了 %1 元件"
 
-#: src/eventhandler.cpp:441
+#: src/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "設定了 %1 元件"
 
-#: src/eventhandler.cpp:444
+#: src/eventhandler.cpp:451
 #, kde-format
 msgid "updated %1 state"
 msgstr "更新了 %1 狀態"
 
-#: src/eventhandler.cpp:445
+#: src/eventhandler.cpp:452
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "為 %2 更新了 %1 狀態"
 
-#: src/eventhandler.cpp:450 src/eventhandler.cpp:649
+#: src/eventhandler.cpp:457 src/eventhandler.cpp:656
 #, kde-format
 msgid "Unknown event"
 msgstr "未知事件"
 
-#: src/eventhandler.cpp:465
+#: src/eventhandler.cpp:472
 #, kde-format
 msgid "a file"
 msgstr "一個檔案"
 
-#: src/eventhandler.cpp:511
+#: src/eventhandler.cpp:518
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 傳送了訊息"
 
-#: src/eventhandler.cpp:514
+#: src/eventhandler.cpp:521
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 傳送了貼圖"
 
-#: src/eventhandler.cpp:520
+#: src/eventhandler.cpp:527
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 重新邀請了某人到聊天室裡"
 
-#: src/eventhandler.cpp:526
+#: src/eventhandler.cpp:533
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 已加入聊天室（重複）"
 
-#: src/eventhandler.cpp:528
+#: src/eventhandler.cpp:535
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 已邀請某人到聊天室裡"
 
-#: src/eventhandler.cpp:529
+#: src/eventhandler.cpp:536
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 已加入聊天室"
 
-#: src/eventhandler.cpp:555
+#: src/eventhandler.cpp:562
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 設定了顯示名稱和頭貼"
 
-#: src/eventhandler.cpp:557
+#: src/eventhandler.cpp:564
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 設定了顯示名稱並更新了他的頭貼"
 
-#: src/eventhandler.cpp:559
+#: src/eventhandler.cpp:566
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 設定了顯示名稱並將其頭貼清除了"
 
-#: src/eventhandler.cpp:561
+#: src/eventhandler.cpp:568
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 設定了這個聊天室的顯示名稱"
 
-#: src/eventhandler.cpp:564
+#: src/eventhandler.cpp:571
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 變更了他的顯示名稱並設定了頭貼"
 
-#: src/eventhandler.cpp:566
+#: src/eventhandler.cpp:573
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 變更了他的顯示名稱並更新了頭貼"
 
-#: src/eventhandler.cpp:568
+#: src/eventhandler.cpp:575
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 變更了他的顯示名稱並清除了頭貼"
 
-#: src/eventhandler.cpp:570
+#: src/eventhandler.cpp:577
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 變更了他的顯示名稱"
 
-#: src/eventhandler.cpp:573
+#: src/eventhandler.cpp:580
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 清除了他的顯示名稱並設定了頭貼"
 
-#: src/eventhandler.cpp:575
+#: src/eventhandler.cpp:582
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 清除了他的顯示名稱並更新了頭貼"
 
-#: src/eventhandler.cpp:577
+#: src/eventhandler.cpp:584
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 清除了他的顯示名稱與頭貼"
 
-#: src/eventhandler.cpp:579
+#: src/eventhandler.cpp:586
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 將其顯示名稱清除了"
 
-#: src/eventhandler.cpp:582
+#: src/eventhandler.cpp:589
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 什麼都沒改"
 
-#: src/eventhandler.cpp:586
+#: src/eventhandler.cpp:593
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 撤回了一個使用者的邀請"
 
-#: src/eventhandler.cpp:587
+#: src/eventhandler.cpp:594
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 拒絕了邀請"
 
-#: src/eventhandler.cpp:591
+#: src/eventhandler.cpp:598
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 已解除封鎖一個使用者"
 
-#: src/eventhandler.cpp:591
+#: src/eventhandler.cpp:598
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 已自我解除封鎖"
 
-#: src/eventhandler.cpp:593
+#: src/eventhandler.cpp:600
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 已將一個使用者移出聊天室"
 
-#: src/eventhandler.cpp:593
+#: src/eventhandler.cpp:600
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 已離開聊天室"
 
-#: src/eventhandler.cpp:596
+#: src/eventhandler.cpp:603
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 已從聊天室封鎖一個使用者"
 
-#: src/eventhandler.cpp:598
+#: src/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 已從聊天室自行封鎖"
 
-#: src/eventhandler.cpp:601
+#: src/eventhandler.cpp:608
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 請求了邀請"
 
-#: src/eventhandler.cpp:605
+#: src/eventhandler.cpp:612
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 做了不明的東西"
 
-#: src/eventhandler.cpp:608
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 清除了聊天室的主別名"
 
-#: src/eventhandler.cpp:608
+#: src/eventhandler.cpp:615
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 設定了聊天室的主別名"
 
-#: src/eventhandler.cpp:611
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 清除了聊天室名稱"
 
-#: src/eventhandler.cpp:611
+#: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 設定了聊天室名稱"
 
-#: src/eventhandler.cpp:614
+#: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 清除了主題"
 
-#: src/eventhandler.cpp:614
+#: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 設定了主題"
 
-#: src/eventhandler.cpp:617
+#: src/eventhandler.cpp:624
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 變更了聊天室頭貼"
 
-#: src/eventhandler.cpp:620
+#: src/eventhandler.cpp:627
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 啟用了端對端加密"
 
-#: src/eventhandler.cpp:623
+#: src/eventhandler.cpp:630
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 更新了聊天室版本"
 
-#: src/eventhandler.cpp:623
+#: src/eventhandler.cpp:630
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 建立了聊天室"
 
-#: src/eventhandler.cpp:626
+#: src/eventhandler.cpp:633
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 變更了這個聊天室的能力等級"
 
-#: src/eventhandler.cpp:629
+#: src/eventhandler.cpp:636
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 傳送即時位置信標"
 
-#: src/eventhandler.cpp:632
+#: src/eventhandler.cpp:639
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
-#: src/eventhandler.cpp:636
+#: src/eventhandler.cpp:643
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 新增了一個元件"
 
-#: src/eventhandler.cpp:639
+#: src/eventhandler.cpp:646
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 移除了一個元件"
 
-#: src/eventhandler.cpp:641
+#: src/eventhandler.cpp:648
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 設定了一個元件"
 
-#: src/eventhandler.cpp:644
+#: src/eventhandler.cpp:651
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 更新了狀態"
 
-#: src/eventhandler.cpp:647
+#: src/eventhandler.cpp:654
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 開始了投票"
@@ -1258,7 +1236,7 @@ msgstr "James Graham"
 #: src/main.cpp:149
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: src/main.cpp:154
 #, kde-format
@@ -1442,12 +1420,10 @@ msgid "%1 is already in this room."
 msgstr "%1 已經在這個聊天室裡了。"
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 已邀請到這個聊天室裡"
+msgstr "%1 已被邀請到這個聊天室裡。"
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -2060,8 +2036,7 @@ msgid "Show QR Code"
 msgstr "顯示 QR 碼"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
 msgstr "編輯這個帳號"
 
@@ -2072,8 +2047,7 @@ msgid "Account editor"
 msgstr "帳號編輯器"
 
 #: src/qml/AccountMenu.qml:49
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
 msgstr "通知設定"
 
@@ -2083,8 +2057,7 @@ msgid "Devices"
 msgstr "裝置"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "開啟開發者工具"
 
@@ -2107,9 +2080,7 @@ msgid "Open Key Backup"
 msgstr "開啟金鑰備份"
 
 #: src/qml/AccountMenu.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "驗證此裝置"
@@ -3237,11 +3208,10 @@ msgid "Forward Message"
 msgstr "轉寄訊息"
 
 #: src/qml/MessageDelegateContextMenu.qml:67
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "複製連結"
+msgstr "複製連結位址"
 
 #: src/qml/MessageDelegateContextMenu.qml:73
 #, kde-format
@@ -4271,8 +4241,7 @@ msgid "Failed to request joining room<br />%1"
 msgstr "請求加入聊天室失敗<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "編輯帳號"
@@ -4288,8 +4257,7 @@ msgid "Remove current avatar"
 msgstr "移除目前頭貼"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "使用者資訊"
@@ -4317,8 +4285,7 @@ msgid "Save"
 msgstr "儲存"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "密碼"
@@ -4354,29 +4321,25 @@ msgid "Passwords do not match"
 msgstr "密碼不相符"
 
 #: src/settings/AccountEditorPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "電子郵件地址"
 
 #: src/settings/AccountEditorPage.qml:213
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "電話號碼"
 
 #: src/settings/AccountEditorPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Identity Server"
+#, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "身份伺服器"
 
 #: src/settings/AccountEditorPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "伺服器資訊"
@@ -4387,9 +4350,7 @@ msgid "Homeserver url"
 msgstr "家伺服器網址"
 
 #: src/settings/AccountEditorPage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "帳號管理"
@@ -4415,15 +4376,13 @@ msgid "Unknown problem while trying to change password"
 msgstr "變更密碼時發生未知問題"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "帳號"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "帳號"
@@ -4440,8 +4399,7 @@ msgid "Appearance"
 msgstr "外觀"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "一般主題"
@@ -4549,36 +4507,31 @@ msgid "Logout device"
 msgstr "登出裝置"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "裝置"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "這台裝置"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "已驗證的裝置"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "未驗證的裝置"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "不支援加密的裝置"
@@ -4600,45 +4553,37 @@ msgid "Remove"
 msgstr "移除"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "新增貼圖"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "編輯貼圖"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "新增表情符號"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "編輯表情符號"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "貼圖"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "表情符號"
@@ -4704,30 +4649,25 @@ msgid "Add Sticker"
 msgstr "新增貼圖"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "貼圖與表情符號"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "表情符號"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "貼圖"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "匯出金鑰"
@@ -4780,23 +4720,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "您的 Matrix 伺服器是否會產生推送通知"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "聊天室通知"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Mention 提及"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "關鍵字"
@@ -4814,15 +4751,13 @@ msgid "Add keyword"
 msgstr "新增關鍵字"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "邀請"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "未知"
@@ -4886,9 +4821,7 @@ msgid "Unignore this user"
 msgstr "取消忽略這個使用者"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "匯入金鑰"
@@ -4924,8 +4857,7 @@ msgid "General"
 msgstr "一般"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "一般設定"
@@ -4951,8 +4883,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "在「首頁」分頁顯示所有聊天室"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "聊天室列表排序方式"
@@ -4976,24 +4907,19 @@ msgid "Alphabetical"
 msgstr "按字母順序"
 
 #: src/settings/NeoChatGeneralPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1，最後活動：%2"
+msgstr "最新訊息活動"
 
 #: src/settings/NeoChatGeneralPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr "有未讀通知的聊天室會顯示在上方"
+msgstr "有最新活動的聊天室會顯示在上方"
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "自訂"
@@ -5067,25 +4993,19 @@ msgid "Enable developer tools"
 msgstr "啟用開發者工具"
 
 #: src/settings/NeoChatGeneralPage.qml:307
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
-msgstr "預設設定"
+msgstr "預設設定值"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
 msgstr "將所有設定值重設為預設值"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "安全性與人身安全"
@@ -5131,9 +5051,7 @@ msgid "Your server does not support this setting."
 msgstr "您的伺服器不支援這個設定。"
 
 #: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "加密"
@@ -5364,8 +5282,7 @@ msgid "Event Type…"
 msgstr "事件類型…"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "聊天室通知設定"
@@ -5691,52 +5608,46 @@ msgid "Permissions"
 msgstr "權限"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr "聊天室列表排序方式"
+msgstr "自訂聊天室排序方式"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "首要排序方式："
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "次要排序方式："
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "下載"
+msgstr "下"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "新增伺服器"
+msgstr "新增參數"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "選擇要加入的參數"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -6001,8 +5912,7 @@ msgid "Last read: %1"
 msgstr "最後閱讀：%1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "回覆"
