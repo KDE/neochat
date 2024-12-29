@@ -237,20 +237,6 @@ QQC2.Control {
                         onFormattingSelected: _private.formatText(format, selectionStart, selectionEnd)
                     }
 
-                    Keys.onDeletePressed: {
-                        if (selectedText.length > 0) {
-                            remove(selectionStart, selectionEnd);
-                        } else {
-                            remove(cursorPosition, cursorPosition + 1);
-                        }
-                        if (textField.text == selectedText || textField.text.length <= 1) {
-                            root.currentRoom.sendTypingNotification(false);
-                            repeatTimer.stop();
-                        }
-                        if (quickFormatBar.visible) {
-                            quickFormatBar.close();
-                        }
-                    }
                     Keys.onEnterPressed: event => {
                         const controlIsPressed = event.modifiers & Qt.ControlModifier;
                         if (completionMenu.visible) {
@@ -289,7 +275,7 @@ QQC2.Control {
                             completionMenu.decrementIndex();
                         } else if (event.key === Qt.Key_Down && completionMenu.visible) {
                             completionMenu.incrementIndex();
-                        } else if (event.key === Qt.Key_Backspace) {
+                        } else if (event.key === Qt.Key_Backspace || event.key === Qt.Key_Delete) {
                             if (textField.text == selectedText || textField.text.length <= 1) {
                                 root.currentRoom.sendTypingNotification(false);
                                 repeatTimer.stop();
