@@ -153,12 +153,12 @@ Delegates.RoundedItemDelegate {
         }
     }
 
-    function createRoomListContextMenu() {
-        const component = Qt.createComponent('org.kde.neochat', 'ContextMenu');
+    function createRoomListContextMenu(): void {
+        const component = Qt.createComponent('org.kde.neochat', 'RoomContextMenu');
         if (component.status === Component.Error) {
             console.error(component.errorString());
         }
-        const menu = component.createObject(root, {
+        const menu = component.createObject(root.ListView.view ?? root.treeView, {
             room: root.currentRoom,
             connection: root.connection
         });
@@ -172,6 +172,6 @@ Delegates.RoundedItemDelegate {
                 return root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList;
             });
         });
-        menu.open();
+        menu.popup();
     }
 }
