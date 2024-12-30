@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-29 00:41+0000\n"
-"PO-Revision-Date: 2024-12-21 11:07+0100\n"
+"POT-Creation-Date: 2024-12-30 00:42+0000\n"
+"PO-Revision-Date: 2024-12-29 08:43+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -64,7 +64,7 @@ msgstr "Nadaj podpis załącznikowi…"
 msgid "Send a message…"
 msgstr "Wiadomość do wysłania…"
 
-#: src/chatbar/ChatBar.qml:375
+#: src/chatbar/ChatBar.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1098,7 +1098,7 @@ msgstr "Wejdź jednorazowo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
-msgstr "Wejdź"
+msgstr "Zaloguj się"
 
 #: src/login/LoginRegister.qml:31
 #, kde-format
@@ -1244,7 +1244,7 @@ msgstr "James Graham"
 #: src/main.cpp:149
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: src/main.cpp:154
 #, kde-format
@@ -1428,12 +1428,10 @@ msgid "%1 is already in this room."
 msgstr "%1 przebywa już w tym pokoju."
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 został zaproszony do tego pokoju"
+msgstr "%1 został zaproszony do tego pokoju."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -2479,8 +2477,8 @@ msgstr "Wybierz pokój"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:38
+#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -3333,6 +3331,13 @@ msgstr "Wstaw odnośnik"
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nie znaleziono żadnego pokoju"
+
+#: src/qml/QuickSwitcher.qml:31
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Przeglądaj pokoje"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format
@@ -4997,8 +5002,7 @@ msgid "Rooms with the newest activity will be shown first"
 msgstr "Pokoje z najświeższą aktywnością pojawią się pierwsze"
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Własny"
@@ -5700,9 +5704,7 @@ msgid "Permissions"
 msgstr "Uprawnienia"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Room List Sort Order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "Porządek szeregowania spisu pokojów"
@@ -5711,42 +5713,37 @@ msgstr "Porządek szeregowania spisu pokojów"
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "pierwszy:"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "następnie:"
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "W górę"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Pobierz"
+msgstr "W dół"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "Dodawanie serwera"
+msgstr "Dodaj parametr"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "Wybierz parametr do dodania"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -6025,8 +6022,7 @@ msgid "Last read: %1"
 msgstr "Ostatnio odczytywany: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odpowiedz"

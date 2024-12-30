@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-29 00:41+0000\n"
+"POT-Creation-Date: 2024-12-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-27 21:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -65,7 +65,7 @@ msgstr "Встановити підпис до долучення…"
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/chatbar/ChatBar.qml:375
+#: src/chatbar/ChatBar.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2487,8 +2487,8 @@ msgstr "Вибрати кімнату"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:38
+#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -3343,6 +3343,13 @@ msgstr "Вставити посилання"
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Кімнати не знайдено"
+
+#: src/qml/QuickSwitcher.qml:31
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Ознайомитися з кімнатами"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format

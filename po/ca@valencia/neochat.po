@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-29 00:41+0000\n"
+"POT-Creation-Date: 2024-12-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-27 08:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -65,7 +65,7 @@ msgstr "Establix un títol d'adjunt…"
 msgid "Send a message…"
 msgstr "Envia un missatge…"
 
-#: src/chatbar/ChatBar.qml:375
+#: src/chatbar/ChatBar.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2482,8 +2482,8 @@ msgstr "Tria la sala"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:38
+#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -3336,6 +3336,13 @@ msgstr "Inserix un enllaç"
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "No s'ha trobat cap sala"
+
+#: src/qml/QuickSwitcher.qml:31
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Explora les sales"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format

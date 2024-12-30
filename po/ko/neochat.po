@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-29 00:41+0000\n"
+"POT-Creation-Date: 2024-12-30 00:42+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr "첨부 파일 캡션 설정…"
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:375
+#: src/chatbar/ChatBar.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2641,8 +2641,8 @@ msgstr "대화방 선택"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:38
+#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -3529,6 +3529,13 @@ msgstr "링크 삽입"
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "대화방을 찾을 수 없음"
+
+#: src/qml/QuickSwitcher.qml:31
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "대화방 탐색"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format

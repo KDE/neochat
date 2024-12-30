@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-29 00:41+0000\n"
+"POT-Creation-Date: 2024-12-30 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -64,7 +64,7 @@ msgstr "Ορίστε μια λεζάντα συνημμένου…"
 msgid "Send a message…"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/chatbar/ChatBar.qml:375
+#: src/chatbar/ChatBar.qml:361
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2603,8 +2603,8 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:38
+#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -3492,6 +3492,13 @@ msgstr ""
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Δεν βρέθηκε αίθουσα"
+
+#: src/qml/QuickSwitcher.qml:31
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Εξερεύνηση αιθουσών"
 
 #: src/qml/ReasonDialog.qml:53
 #, kde-format
