@@ -213,7 +213,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AccountMenu.qml
         qml/ExploreComponent.qml
         qml/ExploreComponentMobile.qml
-        qml/ContextMenu.qml
+        qml/RoomContextMenu.qml
         qml/CollapsedRoomDelegate.qml
         qml/RoomDelegate.qml
         qml/RoomListPage.qml
