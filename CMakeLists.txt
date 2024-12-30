@@ -174,6 +174,7 @@ if (BUILD_TESTING)
     find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
     add_subdirectory(autotests)
     add_subdirectory(appiumtests)
+    add_subdirectory(memorytests)
 endif()
 
 if(KF6DocTools_FOUND)
