@@ -23,11 +23,7 @@ QQC2.ApplicationWindow {
         height: root.height
 
         contentItem: ListView {
-            model: MessageFilterModel {
-                sourceModel: MemTestTimelineModel {
-                    id: memTestTimelineModel
-                }
-            }
+            model: messageFilterModel
 
             delegate: EventDelegate {
                 room: memTestTimelineModel.room

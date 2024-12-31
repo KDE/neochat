@@ -3,8 +3,12 @@
 
 #include <QApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include <KLocalizedString>
+
+#include "memtesttimelinemodel.h"
+#include "models/messagefiltermodel.h"
 
 using namespace Qt::StringLiterals;
 
@@ -16,6 +20,11 @@ int main(int argc, char **argv)
 
     QQmlApplicationEngine engine;
     engine.loadFromModule("org.kde.neochat.timeline-memtest", "Main");
+
+    MemTestTimelineModel *memTestTimelineModel = new MemTestTimelineModel;
+    MessageFilterModel *messageFilterModel = new MessageFilterModel(nullptr, memTestTimelineModel);
+    engine.rootContext()->setContextProperty(u"memTestTimelineModel"_s, memTestTimelineModel);
+    engine.rootContext()->setContextProperty(u"messageFilterModel"_s, messageFilterModel);
 
     return app.exec();
 }
