@@ -45,9 +45,10 @@ public:
 };
 
 /**
- * @class SearchModel
+ * @class MemTestTimelineModel
  *
- * This class defines the model for visualising the results of a room message search.
+ * This is a special version of the MessageModel design to load an unchanging set
+ * of events from a json file so that timeline memory optimisations can be measured.
  */
 class MemTestTimelineModel : public MessageModel
 {

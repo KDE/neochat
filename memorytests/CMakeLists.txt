@@ -32,5 +32,3 @@ ecm_add_qml_module(timeline-memtest URI org.kde.neochat.timeline-memtest GENERAT
     IMPORTS
         org.kde.neochat
 )
-
-install(TARGETS timeline-memtest ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
