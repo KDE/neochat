@@ -19,11 +19,27 @@ class ReactionModel;
 /**
  * @class MessageModel
  *
- * This class defines a model for visualising the room events.
+ * This class defines a base model for visualising the room events.
  *
- * This model covers all event types in the room with many of the roles being
- * specific to a subset of events. This means the user needs to understand which
- * roles will return useful information for a given event type.
+ * On its own MessageModel will result in an empty timeline as there is no mechanism
+ * to retrieve events. This is by design as it allows the model to be inherited from
+ * and the user can specify their own source of events, e.g. a room timeline or a
+ * search result.
+ *
+ * The inherited model MUST do the following:
+ *  - Define methods for retrieving events
+ *  - Call newEventAdded() for each new event in the model so that all the required
+ *    event objects are created.
+ *  - Override getEventForIndex() so that the data() function can get an event for a
+ *    given index
+ *  - Override rowCount()
+ *
+ * Optionally the new model can:
+ *  - override timelineServerIndex() if dealing with pending events otherwise the default
+ *    function returns 0 which is correct for other use cases.
+ *  - m_lastReadEventIndex is available to track a read marker location (so that the
+ *    data function can output the appropriate values). The new class must implement
+ *    the functionality to add, move, remove, etc though.
  *
  * @sa NeoChatRoom
  */
@@ -98,10 +114,23 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
+    /**
+     * @brief Get a ThreadModel for the give thread root Matrix ID.
+     */
     Q_INVOKABLE ThreadModel *threadModelForRootId(const QString &threadRootId) const;
 
 Q_SIGNALS:
+    /**
+     * @brief Emitted when the room is changed.
+     */
     void roomChanged();
+
+    /**
+     * @brief A signal to tell the MessageModel that a new event has been added.
+     *
+     * Any model inheriting from MessageModel needs to emit this signal for every
+     * new event it adds.
+     */
     void newEventAdded(const Quotient::RoomEvent *event, bool isPending = false);
 
 protected:
