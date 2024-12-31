@@ -12,7 +12,7 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/qt_connection_util.h>
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
 #include <Quotient/thread.h>
 #endif
 
@@ -478,7 +478,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
 #else
     if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded()) {
