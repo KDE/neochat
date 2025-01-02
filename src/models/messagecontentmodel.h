@@ -113,8 +113,8 @@ Q_SIGNALS:
 private:
     QPointer<NeoChatRoom> m_room;
     QString m_eventId;
-    QString m_eventSenderId;
-    std::unique_ptr<NeochatRoomMember> m_eventSenderObject = nullptr;
+    QString senderId() const;
+    NeochatRoomMember *senderObject() const;
 
     MessageState m_currentState = Unknown;
     bool m_showAuthor = true;

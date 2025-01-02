@@ -54,6 +54,9 @@ void MessageModel::setRoom(NeoChatRoom *room)
 
     beginResetModel();
     m_room = room;
+    if (m_room != nullptr) {
+        m_room->setVisible(true);
+    }
     Q_EMIT roomChanged();
     endResetModel();
 }
@@ -493,12 +496,17 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isP
 void MessageModel::clearModel()
 {
     if (m_room) {
+        const auto oldRoom = m_room;
+
         // HACK: Reset the model to a null room first to make sure QML dismantles
         // last room's objects before the room is actually changed
         beginResetModel();
         m_room->disconnect(this);
         m_room = nullptr;
         endResetModel();
+
+        // Because we don't want any of the object deleted before the model is cleared.
+        oldRoom->setVisible(false);
     }
 
     // Don't clear the member objects until the model has been fully reset and all

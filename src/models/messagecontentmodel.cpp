@@ -135,14 +135,14 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr) {
-            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
+            if (senderId().isEmpty() || senderId() == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
             }
         }
     });
     connect(m_room, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr) {
-            if (m_eventSenderId.isEmpty() || m_eventSenderId == member.id()) {
+            if (senderId().isEmpty() || senderId() == member.id()) {
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
             }
         }
@@ -178,16 +178,6 @@ void MessageContentModel::initializeEvent()
     } else {
         m_currentState = Available;
     }
-
-    if (m_eventSenderObject == nullptr) {
-        auto senderId = eventResult.first->senderId();
-        // A pending event might not have a sender ID set yet but in that case it must
-        // be the local member.
-        if (senderId.isEmpty()) {
-            senderId = m_room->localMember().id();
-        }
-        m_eventSenderObject = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, senderId));
-    }
     Q_EMIT eventUpdated();
 }
 
@@ -218,6 +208,31 @@ void MessageContentModel::getEvent()
     m_room->downloadEventFromServer(m_eventId);
 }
 
+QString MessageContentModel::senderId() const
+{
+    const auto eventResult = m_room->getEvent(m_eventId);
+    if (eventResult.first == nullptr) {
+        return {};
+    }
+    auto senderId = eventResult.first->senderId();
+    if (senderId.isEmpty()) {
+        senderId = m_room->localMember().id();
+    }
+    return senderId;
+}
+
+NeochatRoomMember *MessageContentModel::senderObject() const
+{
+    const auto eventResult = m_room->getEvent(m_eventId);
+    if (eventResult.first == nullptr) {
+        return nullptr;
+    }
+    if (eventResult.first->senderId().isEmpty()) {
+        return m_room->qmlSafeMember(m_room->localMember().id());
+    }
+    return m_room->qmlSafeMember(eventResult.first->senderId());
+}
+
 bool MessageContentModel::showAuthor() const
 {
     return m_showAuthor;
@@ -230,7 +245,7 @@ void MessageContentModel::setShowAuthor(bool showAuthor)
     }
     m_showAuthor = showAuthor;
 
-    if (m_room->connection()->isIgnored(m_eventSenderId)) {
+    if (m_room->connection()->isIgnored(senderId())) {
         if (showAuthor) {
             beginInsertRows({}, 0, 0);
             m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
@@ -275,7 +290,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     }
 
     if (role == DisplayRole) {
-        if (m_currentState == UnAvailable || m_room->connection()->isIgnored(m_eventSenderId)) {
+        if (m_currentState == UnAvailable || m_room->connection()->isIgnored(senderId())) {
             Kirigami::Platform::PlatformTheme *theme =
                 static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
 
@@ -317,7 +332,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return EventHandler::timeString(m_room, event.first, u"hh:mm"_s, m_currentState == Pending);
     }
     if (role == AuthorRole) {
-        return QVariant::fromValue<NeochatRoomMember *>(m_eventSenderObject.get());
+        return QVariant::fromValue<NeochatRoomMember *>(senderObject());
     }
     if (role == MediaInfoRole) {
         return EventHandler::mediaInfo(m_room, event.first);
@@ -406,7 +421,7 @@ void MessageContentModel::resetModel()
     beginResetModel();
     m_components.clear();
 
-    if (m_room->connection()->isIgnored(m_eventSenderId) || m_currentState == UnAvailable) {
+    if (m_room->connection()->isIgnored(senderId()) || m_currentState == UnAvailable) {
         m_components += MessageComponent{MessageComponentType::Text, QString(), {}};
         endResetModel();
         return;
