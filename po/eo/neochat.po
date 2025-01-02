@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 02:31+0000\n"
-"PO-Revision-Date: 2024-09-17 21:39+0200\n"
+"PO-Revision-Date: 2024-12-28 20:45+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -98,32 +98,31 @@ msgid "Receiving notifications for new messages"
 msgstr "Ricevante sciigojn por novaj mesaĝoj"
 
 #: src/controller.cpp:249
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Alirĵetono ne estis trovita"
+msgstr "Alirĵetono ne estis trovita: Eble ĝi estis forigita?"
 
 #: src/controller.cpp:253
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Bonvolu permesi al NeoChat legi la alirĵetonon"
+msgstr ""
+"Aliro al ŝlosilĉeno estis neita: Bonvolu permesi al NeoChat legi la "
+"alirĵetonon"
 
 #: src/controller.cpp:256
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Bonvolu instali ŝlosilĉenon, ekz. KWallet aŭ GNOME-ŝlosilringo en Linukso"
+"Ŝlosilĉeno ne haveblas: Bonvolu instali ŝlosilĉenon, ekz. KWallet aŭ GNOME-"
+"ŝlosilringo en Linukso"
 
 #: src/controller.cpp:259
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Ne eblas legi alirĵetonon"
+msgstr "Ne eblas legi alirĵetonon: %1"
 
 #: src/controller.cpp:358
 #, kde-format
@@ -172,7 +171,7 @@ msgstr "Montri fokuson en fenestrokapo"
 #: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgid "Developer Tools"
-msgstr "Iloj por programistoj"
+msgstr "Evoluistaj Iloj"
 
 #: src/devtools/DevtoolsPage.qml:29
 #, kde-format
@@ -418,7 +417,7 @@ msgstr "ŝanĝis ilian montran nomon al %1"
 #: src/eventhandler.cpp:363
 #, kde-format
 msgid " and "
-msgstr "kaj"
+msgstr " kaj "
 
 #: src/eventhandler.cpp:366
 #, kde-format
@@ -1090,10 +1089,9 @@ msgid "Settings"
 msgstr "Agordo"
 
 #: src/main.cpp:143
-#, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Kundividi URL al Matrix"
+msgstr "Babilo en Matrix"
 
 #: src/main.cpp:145
 #, kde-format
@@ -1559,7 +1557,7 @@ msgstr "Flagoj"
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Propra"
+msgstr "Tajlorita"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
@@ -1822,12 +1820,13 @@ msgid ", "
 msgstr ", "
 
 #: src/neochatconnection.cpp:79
-#, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Kontaktu vian administranton de matrica servilo por subteno."
+msgstr ""
+"Dosiero tro granda por elŝuti.<br />Kontaktu vian administranton de matrix-"
+"servilo por subteno."
 
 #: src/neochatconnection.cpp:314
 #, kde-format
@@ -1992,7 +1991,7 @@ msgstr "Ŝanĝi Konton"
 #, kde-format
 msgctxt "@button: login to or register a new account."
 msgid "Add Account"
-msgstr "Aldoni Konton"
+msgstr "Aldoni konton"
 
 #: src/qml/AccountSwitchDialog.qml:57
 #, kde-format
@@ -2371,7 +2370,7 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Igi ĉi tiun spacon la kanonan gepatron"
+msgstr "Igi ĉi tiun spacon la kanonikan gepatron"
 
 #: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
 #, kde-format
@@ -2623,10 +2622,9 @@ msgid "Only show spaces"
 msgstr "Nur montri spacojn"
 
 #: src/qml/ExploreRoomsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Enter a room address"
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Enigi ĉambro-adreson"
+msgstr "Enigi Ĉambron Permane"
 
 #: src/qml/ExploreRoomsPage.qml:103
 #, kde-format
@@ -3095,7 +3093,7 @@ msgstr "Antaŭen"
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
-msgstr "Antaŭen Mesaĝon"
+msgstr "Plusendi Mesaĝon"
 
 #: src/qml/MessageDelegateContextMenu.qml:72
 #, kde-format
@@ -4114,16 +4112,15 @@ msgid "Working"
 msgstr "Laborante"
 
 #: src/roommanager.cpp:145
-#, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 ne estas ĝusta Matrico-identigilo"
+msgstr ""
+"Misformita aŭ malplena Matrix-id<br />%1 ne estas ĝusta Matrico-identigilo"
 
 #: src/roommanager.cpp:342
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Malsukcesis aliĝi al ĉambro"
+msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
 
 #: src/roommanager.cpp:366
 #, kde-format
@@ -4131,10 +4128,9 @@ msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
 #: src/roommanager.cpp:370
-#, fuzzy, kde-format
-#| msgid "Failed to request joining room"
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Malsukcesis peti aliĝon al ĉambro"
+msgstr "Malsukcesis peti aliĝon al ĉambro<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4499,7 +4495,7 @@ msgstr "Aldoni glumarkon"
 #, kde-format
 msgctxt "@title"
 msgid "Stickers & Emojis"
-msgstr "Glumarkoj kaj Emojis"
+msgstr "Glumarkoj & Emoĝioj"
 
 #: src/settings/ExportKeysDialog.qml:17
 #: src/settings/NeoChatSecurityPage.qml:107
@@ -4774,17 +4770,16 @@ msgid "Editor"
 msgstr "Redaktoro"
 
 #: src/settings/NeoChatGeneralPage.qml:204
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Sendi mesaĝon"
+msgstr "Sendi mesaĝojn per Enter"
 
 #: src/settings/NeoChatGeneralPage.qml:215
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Sendi mesaĝojn per Ctrl+Enter"
 
 #: src/settings/NeoChatGeneralPage.qml:231
 #, kde-format
@@ -5732,28 +5727,3 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgid "Matrix client"
-#~ msgstr "Matrico-kliento"
-
-#~ msgctxt "@title"
-#~ msgid "Room ID or Alias"
-#~ msgstr "Ĉambro ID aŭ Kaŝnomo"
-
-#~ msgid "Maybe it was deleted?"
-#~ msgstr "Eble ĝi estis forigita?"
-
-#~ msgid "Access to keychain was denied."
-#~ msgstr "Aliro al ŝlosilĉeno estis rifuzita."
-
-#~ msgid "No keychain available."
-#~ msgstr "Neniu ŝlosilĉeno havebla."
-
-#~ msgid "Network Error"
-#~ msgstr "Reta Eraro"
-
-#~ msgid "File too large to download."
-#~ msgstr "Dosiero tro granda por elŝuti."
-
-#~ msgid "Malformed or empty Matrix id"
-#~ msgstr "Misforma aŭ malplena Matrico-id"
