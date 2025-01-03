@@ -15,6 +15,7 @@
  */
 class FileTransferPseudoJob : public KJob
 {
+    Q_OBJECT
 public:
     enum Operation {
         Download,
@@ -47,6 +48,12 @@ public:
      * @brief Start the file transfer.
      */
     void start() override;
+
+protected:
+    bool doKill() override;
+
+Q_SIGNALS:
+    void cancelRequested(const QString &id);
 
 private:
     QString m_path;

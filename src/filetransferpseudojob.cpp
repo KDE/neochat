@@ -12,6 +12,7 @@ FileTransferPseudoJob::FileTransferPseudoJob(Operation operation, const QString 
     , m_eventId(eventId)
     , m_operation(operation)
 {
+    setCapabilities(KJob::Killable);
 }
 
 void FileTransferPseudoJob::fileTransferProgress(const QString &id, qint64 progress, qint64 total)
@@ -57,4 +58,10 @@ void FileTransferPseudoJob::start()
                        m_operation == Download ? i18nc("Job heading, like 'Copying'", "Downloading") : i18nc("Job heading, like 'Copying'", "Uploading"),
                        {i18nc("The URL being downloaded/uploaded", "Source"), m_path},
                        {i18nc("The location being downloaded to", "Destination"), m_path});
+}
+
+bool FileTransferPseudoJob::doKill()
+{
+    Q_EMIT cancelRequested(m_eventId);
+    return true;
 }

@@ -264,6 +264,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
             job->fileTransferFailed(txnId);
         }
     });
+    connect(job, &FileTransferPseudoJob::cancelRequested, this, &Room::cancelFileTransfer);
     KIO::getJobTracker()->registerJob(job);
     job->start();
 #endif
@@ -1526,6 +1527,7 @@ void NeoChatRoom::download(const QString &eventId, const QUrl &localFilename)
             job->fileTransferFailed(eventId);
         }
     });
+    connect(job, &FileTransferPseudoJob::cancelRequested, this, &Room::cancelFileTransfer);
     KIO::getJobTracker()->registerJob(job);
     job->start();
 #endif
