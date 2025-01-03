@@ -283,7 +283,7 @@ QQC2.Control {
             room: room,
             connection: root.connection
         });
-        context.open();
+        context.popup();
     }
     Component {
         id: spaceListContextMenu
