@@ -256,7 +256,14 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     auto job = new FileTransferPseudoJob(FileTransferPseudoJob::Upload, url.toLocalFile(), txnId);
     connect(this, &Room::fileTransferProgress, job, &FileTransferPseudoJob::fileTransferProgress);
     connect(this, &Room::fileTransferCompleted, job, &FileTransferPseudoJob::fileTransferCompleted);
-    connect(this, &Room::fileTransferFailed, job, &FileTransferPseudoJob::fileTransferFailed);
+    connect(this, &Room::fileTransferFailed, job, [this, job, txnId] {
+        auto info = fileTransferInfo(txnId);
+        if (info.status == FileTransferInfo::Cancelled) {
+            job->fileTransferCanceled(txnId);
+        } else {
+            job->fileTransferFailed(txnId);
+        }
+    });
     KIO::getJobTracker()->registerJob(job);
     job->start();
 #endif
@@ -1511,7 +1518,14 @@ void NeoChatRoom::download(const QString &eventId, const QUrl &localFilename)
     auto job = new FileTransferPseudoJob(FileTransferPseudoJob::Download, localFilename.toLocalFile(), eventId);
     connect(this, &Room::fileTransferProgress, job, &FileTransferPseudoJob::fileTransferProgress);
     connect(this, &Room::fileTransferCompleted, job, &FileTransferPseudoJob::fileTransferCompleted);
-    connect(this, &Room::fileTransferFailed, job, &FileTransferPseudoJob::fileTransferFailed);
+    connect(this, &Room::fileTransferFailed, job, [this, job, eventId] {
+        auto info = fileTransferInfo(eventId);
+        if (info.status == FileTransferInfo::Cancelled) {
+            job->fileTransferCanceled(eventId);
+        } else {
+            job->fileTransferFailed(eventId);
+        }
+    });
     KIO::getJobTracker()->registerJob(job);
     job->start();
 #endif

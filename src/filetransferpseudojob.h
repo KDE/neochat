@@ -39,6 +39,11 @@ public:
     void fileTransferFailed(const QString &id, const QString &errorMessage = {});
 
     /**
+     * @brief Set the file transfer as canceled.
+     */
+    void fileTransferCanceled(const QString &id);
+
+    /**
      * @brief Start the file transfer.
      */
     void start() override;

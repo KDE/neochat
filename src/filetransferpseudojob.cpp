@@ -41,6 +41,15 @@ void FileTransferPseudoJob::fileTransferFailed(const QString &id, const QString 
     emitResult();
 }
 
+void FileTransferPseudoJob::fileTransferCanceled(const QString &id)
+{
+    if (id != m_eventId) {
+        return;
+    }
+    setError(KJob::KilledJobError);
+    emitResult();
+}
+
 void FileTransferPseudoJob::start()
 {
     setTotalAmount(Unit::Files, 1);
