@@ -6,20 +6,19 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
 import org.kde.neochat.devtools
 
-QQC2.Menu {
+KirigamiComponents.ConvergentContextMenu {
     id: root
 
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
 
-    margins: Kirigami.Units.smallSpacing
-
-    QQC2.MenuItem {
+    QQC2.Action {
         text: i18nc("@action:button", "Show QR Code")
         icon.name: "view-barcode-qr-symbolic"
         onTriggered: {
@@ -36,7 +35,8 @@ QQC2.Menu {
             qrMax.open();
         }
     }
-    QQC2.MenuItem {
+
+    QQC2.Action {
         text: i18n("Edit This Account")
         icon.name: "document-edit"
         onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
@@ -45,21 +45,24 @@ QQC2.Menu {
             title: i18n("Account editor")
         })
     }
-    QQC2.MenuItem {
+
+    QQC2.Action {
         text: i18n("Notification Settings")
         icon.name: "notifications"
         onTriggered: {
             NeoChatSettingsView.open('notifications');
         }
     }
-    QQC2.MenuItem {
+
+    QQC2.Action {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
         onTriggered: {
             NeoChatSettingsView.open('devices');
         }
     }
-    QQC2.MenuItem {
+
+    Kirigami.Action {
         text: i18n("Open Developer Tools")
         icon.name: "tools"
         visible: NeoChatConfig.developerTools
@@ -71,7 +74,8 @@ QQC2.Menu {
             height: Kirigami.Units.gridUnit * 42
         })
     }
-    QQC2.MenuItem {
+
+    Kirigami.Action {
         text: i18nc("@action:inmenu", "Open Secret Backup")
         icon.name: "unlock"
         visible: NeoChatConfig.secretBackup
@@ -79,22 +83,21 @@ QQC2.Menu {
             title: i18nc("@title:window", "Open Key Backup")
         })
     }
-    QQC2.MenuItem {
+
+    QQC2.Action {
         text: i18nc("@action:inmenu", "Verify This Device")
         icon.name: "security-low"
         onTriggered: root.connection.startSelfVerification()
         enabled: Controller.csSupported
     }
-    QQC2.MenuItem {
+
+    QQC2.Action {
         text: i18n("Logout")
         icon.name: "im-kick-user"
         onTriggered: confirmLogoutDialogComponent.createObject(QQC2.ApplicationWindow.window.overlay).open()
     }
 
-    Component {
-        id: confirmLogoutDialogComponent
-        ConfirmLogoutDialog {
-            connection: root.connection
-        }
+    readonly property Component confirmLogoutDialogComponent: ConfirmLogoutDialog {
+        connection: root.connection
     }
 }
