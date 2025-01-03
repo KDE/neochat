@@ -255,7 +255,7 @@ Kirigami.Page {
                 plainText: plainText,
                 htmlText: htmlText,
             });
-            contextMenu.open();
+            contextMenu.popup();
         }
 
         function onShowFileMenu(eventId, author, messageComponentType, plainText, mimeType, progressInfo, isThread) {
@@ -266,7 +266,7 @@ Kirigami.Page {
                 mimeType: mimeType,
                 progressInfo: progressInfo,
             });
-            contextMenu.open();
+            contextMenu.popup();
         }
 
         function onShowMaximizedMedia(index) {

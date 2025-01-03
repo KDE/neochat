@@ -32,67 +32,101 @@ DelegateContextMenu {
      */
     required property string htmlText
 
-    actions: [
-        Kirigami.Action {
-            text: i18n("Edit")
-            icon.name: "document-edit"
-            onTriggered: {
-                currentRoom.editCache.editId = eventId;
-                currentRoom.mainCache.replyId = "";
-                currentRoom.mainCache.threadId = "";
-            }
-            visible: root.author.isLocalMember && root.messageComponentType === MessageComponentType.Text
-        },
-        DelegateContextMenu.ReplyMessageAction {},
-        Kirigami.Action {
-            text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
-            icon.name: "mail-forward-symbolic"
-            onTriggered: {
-                let page = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
-                    connection: root.connection
-                }, {
-                    title: i18nc("@title", "Forward Message"),
-                    width: Kirigami.Units.gridUnit * 25
-                });
-                page.chosen.connect(function (targetRoomId) {
-                    root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText);
-                    page.closeDialog();
-                });
-            }
-        },
-        Kirigami.Action {
-            separator: true
-        },
-        DelegateContextMenu.RemoveMessageAction {},
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Copy Link Address")
-            icon.name: "edit-copy"
-            visible: root.hoveredLink.length > 0
-            onTriggered: Clipboard.saveText(root.hoveredLink)
-        },
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Copy Text")
-            icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
-        },
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Copy Message Link")
-            icon.name: "edit-copy"
-            onTriggered: {
-                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
-            }
-        },
-        Kirigami.Action {
-            separator: true
-        },
-        DelegateContextMenu.ReportMessageAction {},
-        DelegateContextMenu.ShowUserAction {},
-        Kirigami.Action {
-            separator: true
-            visible: viewSourceAction.visible
-        },
-        DelegateContextMenu.ViewSourceAction {
-            id: viewSourceAction
+    Kirigami.Action {
+        text: i18n("Edit")
+        icon.name: "document-edit"
+        onTriggered: {
+            currentRoom.editCache.editId = eventId;
+            currentRoom.mainCache.replyId = "";
+            currentRoom.mainCache.threadId = "";
         }
-    ]
+        visible: root.author.isLocalMember && root.messageComponentType === MessageComponentType.Text
+    }
+
+    DelegateContextMenu.ReplyMessageAction {}
+
+    QQC2.Action {
+        text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
+        icon.name: "mail-forward-symbolic"
+        onTriggered: {
+            let page = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
+                connection: root.connection
+            }, {
+                title: i18nc("@title", "Forward Message"),
+                width: Kirigami.Units.gridUnit * 25
+            });
+            page.chosen.connect(function (targetRoomId) {
+                root.connection.room(targetRoomId).postHtmlMessage(root.plainText, root.htmlText.length > 0 ? root.htmlText : root.plainText);
+                page.closeDialog();
+            });
+        }
+    }
+    Kirigami.Action {
+        separator: true
+    }
+    DelegateContextMenu.RemoveMessageAction {}
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Copy Link Address")
+        icon.name: "edit-copy"
+        visible: root.hoveredLink.length > 0
+        onTriggered: Clipboard.saveText(root.hoveredLink)
+    }
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Copy Text")
+        icon.name: "edit-copy"
+        onTriggered: Clipboard.saveText(root.selectedText.length > 0 ? root.selectedText : root.plainText)
+    }
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Copy Message Link")
+        icon.name: "edit-copy"
+        onTriggered: {
+            Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
+        }
+    }
+    Kirigami.Action {
+        separator: true
+    }
+    DelegateContextMenu.ReportMessageAction {}
+    DelegateContextMenu.ShowUserAction {}
+    Kirigami.Action {
+        separator: true
+        visible: viewSourceAction.visible
+    }
+    DelegateContextMenu.ViewSourceAction {
+        id: viewSourceAction
+    }
+
+    Kirigami.Action {
+        separator: true
+        visible: webShortcutModel.enabled
+    }
+
+    Kirigami.Action {
+        id: webShortcutModelAction
+
+        text: i18n("Search for '%1'", webshortcutModel.trunkatedSearchText)
+        icon.name: "search-symbolic"
+        visible: webshortcutModel.enabled
+
+        readonly property Instantiator instantiator: Instantiator {
+            model: WebShortcutModel {
+                id: webshortcutModel
+                selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
+                onOpenUrl: url => RoomManager.resolveResource(url.toString())
+            }
+            delegate: QQC2.Action {
+                text: model.display
+                icon.name: model.decoration
+                onTriggered: webshortcutModel.trigger(model.edit)
+            }
+            onObjectAdded: (index, object) => webShortcutModelAction.children.push(object)
+        }
+    }
+
+    Kirigami.Action {
+        text: i18n("Configure Web Shortcuts...")
+        icon.name: "configure"
+        visible: !Controller.isFlatpak && webshortcutModel.enabled
+        onTriggered: webshortcutmodel.configureWebShortcuts()
+    }
 }
