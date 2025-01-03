@@ -33,107 +33,97 @@ DelegateContextMenu {
      */
     required property var progressInfo
 
-    // Web search isn't useful for images
-    enableWebSearch: false
+    DelegateContextMenu.ReplyMessageAction {}
 
-    /**
-     * @brief The main list of menu item actions.
-     *
-     * Each action will be instantiated as a single line in the menu.
-     */
-    property list<Kirigami.Action> actions: [
-        DelegateContextMenu.ReplyMessageAction {},
-        Kirigami.Action {
-            separator: true
-        },
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Open Image")
-            icon.name: "document-open"
-            onTriggered: {
-                currentRoom.openEventMediaExternally(root.eventId);
-            }
-        },
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Save Image…")
-            icon.name: "document-save"
-            onTriggered: {
-                var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
-                dialog.selectedFile = currentRoom.fileNameToDownload(eventId);
-                dialog.open();
-            }
-        },
-        Kirigami.Action {
-            text: i18nc("@action:inmenu", "Copy Image")
-            icon.name: "edit-copy"
-            onTriggered: {
-                currentRoom.copyEventMedia(root.eventId);
-            }
-        },
-        Kirigami.Action {
-            separator: true
-        },
-        Kirigami.Action {
-            visible: author.id === currentRoom.localMember.id || currentRoom.canSendState("redact")
-            text: i18n("Remove")
-            icon.name: "edit-delete-remove"
-            icon.color: "red"
-            onTriggered: {
-                let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                    title: i18nc("@title:dialog", "Remove Message"),
-                    placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
-                    actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
-                    icon: "delete"
-                }, {
-                    title: i18nc("@title:dialog", "Remove Message"),
-                    width: Kirigami.Units.gridUnit * 25
-                });
-                dialog.accepted.connect(reason => {
-                    currentRoom.redactEvent(root.eventId, reason);
-                });
-            }
-        },
-        DelegateContextMenu.ReportMessageAction {},
-        DelegateContextMenu.ShowUserAction {},
-        Kirigami.Action {
-            separator: true
-            visible: viewSourceAction.visible
-        },
-        DelegateContextMenu.ViewSourceAction {
-            id: viewSourceAction
+    Kirigami.Action {
+        separator: true
+    }
+
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Open Image")
+        icon.name: "document-open"
+        onTriggered: {
+            currentRoom.openEventMediaExternally(root.eventId);
         }
-    ]
+    }
 
-    /**
-     * @brief The list of menu item actions that have sub-actions.
-     *
-     * Each action will be instantiated as a single line that opens a sub menu.
-     */
-    property list<Kirigami.Action> nestedActions: [
-        ShareAction {
-            id: shareAction
-            inputData: {
-                "urls": [filename],
-                "mimeType": [root.mimeType]
-            }
-            room: currentRoom
-            eventId: root.eventId
-            property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId)
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Save Image…")
+        icon.name: "document-save"
+        onTriggered: {
+            var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
+            dialog.selectedFile = currentRoom.fileNameToDownload(eventId);
+            dialog.open();
         }
-    ]
+    }
 
-    Component {
-        id: saveAsDialog
-        Dialogs.FileDialog {
-            fileMode: Dialogs.FileDialog.SaveFile
-            currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
-            onAccepted: {
-                if (!selectedFile) {
-                    return;
-                }
-                NeoChatConfig.lastSaveDirectory = currentFolder;
-                NeoChatConfig.save();
-                currentRoom.downloadFile(eventId, selectedFile);
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Copy Image")
+        icon.name: "edit-copy"
+        onTriggered: {
+            currentRoom.copyEventMedia(root.eventId);
+        }
+    }
+
+    Kirigami.Action {
+        separator: true
+    }
+
+    Kirigami.Action {
+        visible: author.id === currentRoom.localMember.id || currentRoom.canSendState("redact")
+        text: i18n("Remove")
+        icon.name: "edit-delete-remove"
+        icon.color: "red"
+        onTriggered: {
+            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                title: i18nc("@title:dialog", "Remove Message"),
+                placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
+                actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
+                icon: "delete"
+            }, {
+                title: i18nc("@title:dialog", "Remove Message"),
+                width: Kirigami.Units.gridUnit * 25
+            });
+            dialog.accepted.connect(reason => {
+                currentRoom.redactEvent(root.eventId, reason);
+            });
+        }
+    }
+
+    DelegateContextMenu.ReportMessageAction {}
+
+    DelegateContextMenu.ShowUserAction {}
+
+    Kirigami.Action {
+        separator: true
+        visible: viewSourceAction.visible
+    }
+
+    DelegateContextMenu.ViewSourceAction {
+        id: viewSourceAction
+    }
+
+    ShareAction {
+        id: shareAction
+        inputData: {
+            "urls": [filename],
+            "mimeType": [root.mimeType]
+        }
+        room: currentRoom
+        eventId: root.eventId
+        property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId)
+    }
+
+    readonly property Component saveAsDialog: Dialogs.FileDialog {
+        fileMode: Dialogs.FileDialog.SaveFile
+        currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
+        onAccepted: {
+            if (!selectedFile) {
+                return;
             }
+            NeoChatConfig.lastSaveDirectory = currentFolder;
+            NeoChatConfig.save();
+            currentRoom.downloadFile(eventId, selectedFile);
         }
     }
 }

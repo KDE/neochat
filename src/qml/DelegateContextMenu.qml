@@ -9,6 +9,7 @@ import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -25,7 +26,7 @@ import org.kde.neochat
  * For event types that need alternate actions this class can be used as a base and
  * the actions and nested actions can be overwritten to show the alternate items.
  */
-Loader {
+KirigamiComponents.ConvergentContextMenu {
     id: root
 
     /**
@@ -63,25 +64,6 @@ Loader {
     property string hoveredLink: ""
 
     /**
-     * @brief The list of menu item actions that have sub-actions.
-     *
-     * Each action will be instantiated as a single line that open a sub menu.
-     */
-    property list<Kirigami.Action> nestedActions
-
-    /**
-     * @brief The main list of menu item actions.
-     *
-     * Each action will be instantiated as a single line in the menu.
-     */
-    property list<Kirigami.Action> actions
-
-    /**
-     * @brief Whether the web search menu should be shown or not.
-     */
-    property bool enableWebSearch: true
-
-    /**
      * Some common actions shared between menus
      */
     component ViewSourceAction: Kirigami.Action {
@@ -112,7 +94,7 @@ Loader {
         }
     }
 
-    component ReplyMessageAction: Kirigami.Action {
+    component ReplyMessageAction: QQC2.Action {
         text: i18n("Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
@@ -150,90 +132,70 @@ Loader {
         }
     }
 
-    Component {
-        id: regularMenu
+    headerContentItem: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
 
-        QQC2.Menu {
-            id: menu
-            Instantiator {
-                model: root.nestedActions
-                delegate: QQC2.Menu {
-                    id: menuItem
-                    visible: modelData.visible
-                    title: modelData.text
-                    icon: modelData.icon
+        KirigamiComponents.Avatar {
+            source: root.author.avatarUrl
 
-                    Instantiator {
-                        model: modelData.children
-                        delegate: QQC2.MenuItem {
-                            text: modelData.text
-                            icon.name: modelData.icon.name
-                            onTriggered: modelData.trigger()
-                        }
-                        onObjectAdded: (index, object) => {
-                            menuItem.insertItem(0, object);
-                        }
-                    }
-                }
-                onObjectAdded: (index, object) => {
-                    object.visible = false;
-                    menu.addMenu(object);
-                }
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+            Layout.alignment: Qt.AlignTop
+        }
+
+        ColumnLayout {
+            spacing: 0
+
+            Layout.fillWidth: true
+
+            Kirigami.Heading {
+                level: 4
+                text: root.author.htmlSafeDisplayName
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
             }
 
+            QQC2.Label {
+                text: root.plainText
+                textFormat: Text.PlainText
+                elide: Text.ElideRight
+                onLinkActivated: RoomManager.resolveResource(link, "join")
+                Layout.fillWidth: true
+            }
+        }
+    }
+
+    Kirigami.Action {
+        visible: Kirigami.Settings.isMobile
+
+        displayComponent: RowLayout {
+            spacing: 0
+            Layout.fillWidth: true
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
             Repeater {
-                model: root.actions
-                DelegateChooser {
-                    role: "separator"
-                    DelegateChoice {
-                        roleValue: true
+                model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
+                delegate: Delegates.RoundedItemDelegate {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
 
-                        QQC2.MenuSeparator {
-                            visible: modelData.visible
-                        }
+                    contentItem: Kirigami.Heading {
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+
+                        font.family: "emoji"
+                        text: modelData
                     }
 
-                    DelegateChoice {
-                        roleValue: false
-
-                        QQC2.MenuItem {
-                            visible: modelData.visible
-                            action: modelData
-                            onClicked: root.item.close()
-                        }
+                    onClicked: {
+                        currentRoom.toggleReaction(eventId, modelData);
+                        root.item.close();
                     }
                 }
             }
-            QQC2.Menu {
-                id: webshortcutmenu
-                title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
-                icon.name: "search-symbolic"
-                property bool isVisible: webshortcutmodel.enabled && root.enableWebSearch
-                Component.onCompleted: {
-                    webshortcutmenu.parent.visible = isVisible;
-                }
-                onIsVisibleChanged: webshortcutmenu.parent.visible = isVisible
-                Instantiator {
-                    model: WebShortcutModel {
-                        id: webshortcutmodel
-                        selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
-                        onOpenUrl: url => RoomManager.resolveResource(url.toString())
-                    }
-                    delegate: QQC2.MenuItem {
-                        text: model.display
-                        icon.name: model.decoration
-                        onTriggered: webshortcutmodel.trigger(model.edit)
-                    }
-                    onObjectAdded: (index, object) => webshortcutmenu.insertItem(0, object)
-                }
-                QQC2.MenuSeparator {}
-                QQC2.MenuItem {
-                    text: i18n("Configure Web Shortcuts...")
-                    icon.name: "configure"
-                    visible: !Controller.isFlatpak
-                    onTriggered: webshortcutmodel.configureWebShortcuts()
-                }
-            }
+        }
+    }
+
+    /*
         }
     }
     Component {
@@ -330,31 +292,6 @@ Loader {
                     Kirigami.Separator {
                         Layout.fillWidth: true
                     }
-                    RowLayout {
-                        spacing: 0
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
-                        Repeater {
-                            model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
-                            delegate: QQC2.ItemDelegate {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                contentItem: Kirigami.Heading {
-                                    horizontalAlignment: Text.AlignHCenter
-                                    verticalAlignment: Text.AlignVCenter
-
-                                    font.family: "emoji"
-                                    text: modelData
-                                }
-
-                                onClicked: {
-                                    currentRoom.toggleReaction(eventId, modelData);
-                                    root.item.close();
-                                }
-                            }
-                        }
-                    }
                     Kirigami.Separator {
                         Layout.fillWidth: true
                     }
@@ -422,5 +359,5 @@ Loader {
         } else {
             item.popup();
         }
-    }
+    }*/
 }
