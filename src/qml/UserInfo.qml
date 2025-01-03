@@ -53,9 +53,11 @@ RowLayout {
             NeoChatSettingsView.open("accounts")
         }
 
+        onPressAndHold: accountMenu.popup();
+
         TapHandler {
             acceptedButtons: Qt.RightButton
-            onTapped: accountMenu.open()
+            onTapped: accountMenu.popup()
         }
     }
 
