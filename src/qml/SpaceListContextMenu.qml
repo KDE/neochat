@@ -16,146 +16,62 @@ import org.kde.neochat.settings
 /**
  * Context menu when clicking on a room in the room list
  */
-Loader {
+KirigamiComponents.ConvergentContextMenu {
     id: root
 
     property NeoChatRoom room
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
 
-    signal closed
+    headerContentItem: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
 
-    Component {
-        id: regularMenu
-        QQC2.Menu {
-            QQC2.MenuItem {
-                text: i18nc("'Space' is a matrix space", "View Space")
-                icon.name: "view-list-details"
-                onTriggered: RoomManager.resolveResource(room.id)
-            }
+        KirigamiComponents.Avatar {
+            id: avatar
+            source: room.avatarMediaUrl
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+        }
 
-            QQC2.MenuItem {
-                text: i18nc("@action:inmenu", "Copy Address to Clipboard")
-                icon.name: "edit-copy"
-                onTriggered: if (room.canonicalAlias.length === 0) {
-                    Clipboard.saveText(room.id);
-                } else {
-                    Clipboard.saveText(room.canonicalAlias);
-                }
-            }
-
-            QQC2.MenuItem {
-                text: i18nc("'Space' is a matrix space", "Space Settings")
-                icon.name: 'settings-configure-symbolic'
-                onTriggered: {
-                    RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Space);
-                }
-            }
-
-            QQC2.MenuSeparator {}
-
-            QQC2.MenuItem {
-                text: i18nc("'Space' is a matrix space", "Leave Space")
-                icon.name: "go-previous"
-                onTriggered: RoomManager.leaveRoom(room)
-            }
-
-            onClosed: {
-                root.closed();
-                regularMenu.destroy();
-            }
+        Kirigami.Heading {
+            level: 2
+            Layout.fillWidth: true
+            text: room.displayName
+            wrapMode: Text.WordWrap
         }
     }
 
-    Component {
-        id: mobileMenu
-
-        Kirigami.OverlayDrawer {
-            id: drawer
-            height: popupContent.implicitHeight
-            edge: Qt.BottomEdge
-            padding: 0
-            leftPadding: 0
-            rightPadding: 0
-            bottomPadding: 0
-            topPadding: 0
-
-            parent: applicationWindow().overlay
-
-            ColumnLayout {
-                id: popupContent
-
-                width: parent.width
-                spacing: 0
-
-                RowLayout {
-                    id: headerLayout
-                    Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.largeSpacing
-                    spacing: Kirigami.Units.largeSpacing
-
-                    KirigamiComponents.Avatar {
-                        id: avatar
-                        source: room.avatarMediaUrl
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-                        Layout.alignment: Qt.AlignTop
-                    }
-
-                    Kirigami.Heading {
-                        level: 5
-                        Layout.fillWidth: true
-                        text: room.displayName
-                        wrapMode: Text.WordWrap
-                    }
-                }
-
-                FormCard.FormButtonDelegate {
-                    text: i18nc("'Space' is a matrix space", "View Space")
-                    icon.name: "view-list-details"
-                    onClicked: RoomManager.resolveResource(root.room.id)
-                }
-
-                FormCard.FormButtonDelegate {
-                    text: i18nc("@action:inmenu", "Copy Address to Clipboard")
-                    icon.name: "edit-copy"
-                    onClicked: if (room.canonicalAlias.length === 0) {
-                        Clipboard.saveText(room.id);
-                    } else {
-                        Clipboard.saveText(room.canonicalAlias);
-                    }
-                }
-
-                FormCard.FormButtonDelegate {
-                    text: i18nc("'Space' is a matrix space", "Space Settings")
-                    icon.name: 'settings-configure-symbolic'
-                    onClicked: {
-                        RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Space);
-                        drawer.close();
-                    }
-                }
-
-                FormCard.FormButtonDelegate {
-                    text: i18nc("'Space' is a matrix space", "Leave Space")
-                    onClicked: RoomManager.leaveRoom(room)
-                }
-            }
-            onClosed: root.closed()
-        }
+    QQC2.Action {
+        text: i18nc("'Space' is a matrix space", "View Space")
+        icon.name: "view-list-details"
+        onTriggered: RoomManager.resolveResource(room.id)
     }
 
-    asynchronous: true
-    sourceComponent: Kirigami.Settings.isMobile ? mobileMenu : regularMenu
-
-    function open() {
-        active = true;
-    }
-
-    onStatusChanged: if (status == Loader.Ready) {
-        if (Kirigami.Settings.isMobile) {
-            item.open();
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+        icon.name: "edit-copy"
+        onTriggered: if (room.canonicalAlias.length === 0) {
+            Clipboard.saveText(room.id);
         } else {
-            item.popup();
+            Clipboard.saveText(room.canonicalAlias);
         }
+    }
+
+    QQC2.Action {
+        text: i18nc("'Space' is a matrix space", "Space Settings")
+        icon.name: 'settings-configure-symbolic'
+        onTriggered: {
+            RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Space);
+        }
+    }
+
+    Kirigami.Action {
+        separator: true
+    }
+
+    QQC2.Action {
+        text: i18nc("'Space' is a matrix space", "Leave Space")
+        icon.name: "go-previous"
+        onTriggered: RoomManager.leaveRoom(room)
     }
 }
