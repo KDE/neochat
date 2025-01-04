@@ -14,7 +14,7 @@
 
 using namespace Quotient;
 
-MessageFilterModel::MessageFilterModel(QObject *parent, TimelineModel *sourceModel)
+MessageFilterModel::MessageFilterModel(QObject *parent, QAbstractItemModel *sourceModel)
     : QSortFilterProxyModel(parent)
 {
     Q_ASSERT(sourceModel);
