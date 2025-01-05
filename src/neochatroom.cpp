@@ -44,6 +44,7 @@
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
 #include "neochatconfig.h"
+#include "neochatroommember.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
 #include "texthandler.h"
@@ -159,6 +160,20 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             Q_EMIT childrenHaveHighlightNotificationsChanged();
         }
     });
+}
+
+bool NeoChatRoom::visible() const
+{
+    return m_visible;
+}
+
+void NeoChatRoom::setVisible(bool visible)
+{
+    m_visible = visible;
+
+    if (!visible) {
+        m_memberObjects.clear();
+    }
 }
 
 int NeoChatRoom::contextAwareNotificationCount() const
@@ -1724,6 +1739,15 @@ QString NeoChatRoom::invitingUserId() const
 void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, const QByteArray &content)
 {
     setState(type, stateKey, QJsonDocument::fromJson(content).object());
+}
+
+NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
+{
+    if (!m_memberObjects.contains(memberId)) {
+        return m_memberObjects.emplace(memberId, std::make_unique<NeochatRoomMember>(this, memberId)).first->second.get();
+    }
+
+    return m_memberObjects[memberId].get();
 }
 
 #include "moc_neochatroom.cpp"

@@ -211,6 +211,9 @@ class NeoChatRoom : public Quotient::Room
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
+    bool visible() const;
+    void setVisible(bool visible);
+
     [[nodiscard]] QDateTime lastActiveTime();
 
     /**
@@ -590,7 +593,11 @@ public:
      */
     Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
 
+    NeochatRoomMember *qmlSafeMember(const QString &memberId);
+
 private:
+    bool m_visible = false;
+
     QSet<const Quotient::RoomEvent *> highlights;
 
     bool m_hasFileUploading = false;
@@ -618,6 +625,8 @@ private:
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     void cleanupExtraEventRange(Quotient::RoomEventsRange events);
     void cleanupExtraEvent(const QString &eventId);
+
+    std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
