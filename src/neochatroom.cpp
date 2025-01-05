@@ -1743,6 +1743,10 @@ void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, con
 
 NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
 {
+    if (!isMember(memberId)) {
+        return nullptr;
+    }
+
     if (!m_memberObjects.contains(memberId)) {
         return m_memberObjects.emplace(memberId, std::make_unique<NeochatRoomMember>(this, memberId)).first->second.get();
     }

@@ -9,7 +9,6 @@
 
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
-#include "neochatroommember.h"
 #include "pollhandler.h"
 #include "readmarkermodel.h"
 #include "threadmodel.h"
@@ -154,7 +153,6 @@ private:
     bool resetting = false;
     bool movingEvent = false;
 
-    std::map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
     QMap<QString, QSharedPointer<ThreadModel>> m_threadModels;

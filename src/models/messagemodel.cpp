@@ -18,6 +18,7 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "models/reactionmodel.h"
+#include "neochatroommember.h"
 
 using namespace Quotient;
 
@@ -147,11 +148,11 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             mId = event.value().get().senderId();
         }
 
-        if (!m_memberObjects.contains(mId)) {
+        if (!m_room->isMember(mId)) {
             return QVariant::fromValue<NeochatRoomMember *>(emptyNeochatRoomMember);
         }
 
-        return QVariant::fromValue<NeochatRoomMember *>(m_memberObjects.at(mId).get());
+        return QVariant::fromValue<NeochatRoomMember *>(m_room->qmlSafeMember(mId));
     }
 
     if (role == HighlightRole) {
@@ -427,10 +428,6 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isP
         senderId = m_room->localMember().id();
     }
 
-    if (!m_memberObjects.contains(senderId)) {
-        m_memberObjects[senderId] = std::unique_ptr<NeochatRoomMember>(new NeochatRoomMember(m_room, senderId));
-    }
-
     if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
         if (!event->isStateEvent() || event->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
             m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_room, eventId, false, isPending));
@@ -516,7 +513,6 @@ void MessageModel::clearModel()
 
 void MessageModel::clearEventObjects()
 {
-    m_memberObjects.clear();
     m_contentModels.clear();
     m_reactionModels.clear();
     m_readMarkerModels.clear();

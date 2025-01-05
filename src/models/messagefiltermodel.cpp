@@ -9,7 +9,6 @@
 #include "enums/delegatetype.h"
 #include "messagecontentmodel.h"
 #include "neochatconfig.h"
-#include "neochatroommember.h"
 #include "timelinemessagemodel.h"
 
 using namespace Quotient;
