@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:41+0000\n"
+"POT-Creation-Date: 2025-01-06 00:41+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -101,20 +101,17 @@ msgstr "Varsling av nye meldingar"
 
 #: src/controller.cpp:249
 #, fuzzy, kde-format
-#| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Fann ikkje tilgangspollett"
 
 #: src/controller.cpp:253
 #, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
 
 #: src/controller.cpp:256
 #, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
@@ -122,7 +119,6 @@ msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 
 #: src/controller.cpp:259
 #, fuzzy, kde-format
-#| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
@@ -158,16 +154,12 @@ msgstr ""
 
 #: src/devtools/AccountData.qml:43
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
 msgctxt "@info"
 msgid "Access Token"
 msgstr "Tilgang"
 
 #: src/devtools/AccountData.qml:48
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr "Kopier adressa til utklippstavla"
@@ -261,24 +253,18 @@ msgstr "Vel rom"
 
 #: src/devtools/RoomData.qml:25
 #, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
 msgctxt "@info"
 msgid "No room selected"
 msgstr "Fann ikkje nokon rom"
 
 #: src/devtools/RoomData.qml:26
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
 msgctxt "@info"
 msgid "Click to choose a room"
 msgstr "Vel rom"
 
 #: src/devtools/RoomData.qml:32
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Vel rom"
@@ -415,31 +401,24 @@ msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:52
 #, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
 msgstr "Alfabetisk"
 
 #: src/enums/roomsortparameter.h:54
 #, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
 msgstr "Alfabetisk"
 
 #: src/enums/roomsortparameter.h:56
 #, fuzzy, kde-format
-#| msgid "Encrypted Message"
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
 msgstr "Kryptert melding"
 
 #: src/enums/roomsortparameter.h:58
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
 msgstr "Vidaresend meldinga"
@@ -452,15 +431,12 @@ msgstr ""
 
 #: src/enums/roomsortparameter.h:62
 #, fuzzy, kde-format
-#| msgid "Show deleted messages"
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
 msgstr "Vis sletta meldingar"
 
 #: src/enums/roomsortparameter.h:64
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
 msgstr "%1 – siste aktivitet: %2"
@@ -479,8 +455,6 @@ msgstr ""
 
 #: src/enums/roomsortparameter.h:83
 #, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
 msgstr "Meldingar om romoppgradering"
@@ -793,70 +767,51 @@ msgstr ""
 # Kan gjelda meir enn éin person, så «oppdaterte avataren sin» vert feil.
 #: src/eventhandler.cpp:564
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "valde ein ny avatar"
 
 #: src/eventhandler.cpp:566
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "fjerna avataren sin"
 
 #: src/eventhandler.cpp:568
 #, fuzzy, kde-format
-#| msgid "Changes your display name in this room"
 msgid "%1 set a display name for this room"
 msgstr "Byter visingsnamnet ditt i dette rommet"
 
 #: src/eventhandler.cpp:571
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and set an avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:573
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:575
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:577
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name"
 msgid "%1 changed their display name"
 msgstr "endra visingsnamnet sitt"
 
 #: src/eventhandler.cpp:580
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "fjerna visingsnamnet"
 
 #: src/eventhandler.cpp:582
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "fjerna visingsnamnet"
 
 #: src/eventhandler.cpp:584
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "fjerna visingsnamnet"
 
@@ -973,8 +928,6 @@ msgstr "%1 oppretta rommet"
 
 #: src/eventhandler.cpp:633
 #, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "endra maktnivået for rommet"
@@ -1084,8 +1037,8 @@ msgid "Registration is disabled on this server."
 msgstr "Denne tenaren er stengd for nye registreringar."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:268
-#: src/models/messagecontentmodel.cpp:296 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:283
+#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Hentar inn"
@@ -1252,15 +1205,12 @@ msgstr "Gå tilbake"
 
 #: src/login/WelcomePage.qml:269
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Room Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Romval"
 
 #: src/main.cpp:143
 #, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
 msgid "Chat on Matrix"
 msgstr "Del ei adresse på Matrix"
 
@@ -1477,8 +1427,6 @@ msgstr "%1 er alt i dette rommet."
 
 #: src/models/actionsmodel.cpp:206
 #, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "%1 vart invitert til rommet"
@@ -1750,14 +1698,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
-#: src/models/messagecontentmodel.cpp:266
-#: src/models/messagecontentmodel.cpp:294
+#: src/models/messagecontentmodel.cpp:281
+#: src/models/messagecontentmodel.cpp:309
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Hentar inn svar"
 
-#: src/models/messagecontentmodel.cpp:289
+#: src/models/messagecontentmodel.cpp:304
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -2004,7 +1952,6 @@ msgstr ", "
 
 #: src/neochatconnection.cpp:79
 #, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
@@ -2026,12 +1973,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/neochatroom.cpp:1270
+#: src/neochatroom.cpp:1285
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/neochatroom.cpp:1610 src/neochatroom.cpp:1618
+#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2109,7 +2056,6 @@ msgstr "Vis QR-kode"
 
 #: src/qml/AccountMenu.qml:40
 #, fuzzy, kde-format
-#| msgid "Edit this account"
 msgid "Edit This Account"
 msgstr "Rediger kontoen"
 
@@ -2121,7 +2067,6 @@ msgstr "Konto­redigering"
 
 #: src/qml/AccountMenu.qml:49
 #, fuzzy, kde-format
-#| msgid "Notification settings"
 msgid "Notification Settings"
 msgstr "Varslings­innstillingar"
 
@@ -2132,7 +2077,6 @@ msgstr "Einingar"
 
 #: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
 #, fuzzy, kde-format
-#| msgid "Open developer tools"
 msgid "Open Developer Tools"
 msgstr "Opna utviklarverktøy"
 
@@ -2156,8 +2100,6 @@ msgstr "Opna reservekopi av nøkkel"
 
 #: src/qml/AccountMenu.qml:83
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Stadfest eininga"
@@ -2358,7 +2300,6 @@ msgstr "Merk som lese"
 
 #: src/qml/ContextMenu.qml:40
 #, fuzzy, kde-format
-#| msgid "Notifications"
 msgctxt "@action:inmenu"
 msgid "Notifications"
 msgstr "Varslingar"
@@ -2818,7 +2759,6 @@ msgstr "Berre vis rom"
 
 #: src/qml/ExploreRoomsPage.qml:97
 #, fuzzy, kde-format
-#| msgid "Enter a room address"
 msgid "Enter a Room Manually"
 msgstr "Skriv inn romadresse"
 
@@ -2840,22 +2780,18 @@ msgstr "Fann ingen offentlege rom"
 
 #: src/qml/FileDelegateContextMenu.qml:50
 #, fuzzy, kde-format
-#| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Vel bilete"
 
 #: src/qml/FileDelegateContextMenu.qml:57
 #, fuzzy, kde-format
-#| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Vel bilete"
 
 #: src/qml/FileDelegateContextMenu.qml:66
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Vis bilete"
@@ -3200,8 +3136,6 @@ msgstr ""
 
 #: src/qml/LocationChooser.qml:41
 #, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Posisjonar"
@@ -3291,8 +3225,6 @@ msgstr "Teksten er ikkje ein gyldig brukar-ID"
 
 #: src/qml/MessageDelegateContextMenu.qml:48
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Vidaresend"
@@ -3305,21 +3237,18 @@ msgstr "Vidaresend meldinga"
 
 #: src/qml/MessageDelegateContextMenu.qml:68
 #, fuzzy, kde-format
-#| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopier lenkje"
 
 #: src/qml/MessageDelegateContextMenu.qml:74
 #, fuzzy, kde-format
-#| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopier"
 
 #: src/qml/MessageDelegateContextMenu.qml:79
 #, fuzzy, kde-format
-#| msgid "Copy Link"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopier lenkje"
@@ -3400,7 +3329,6 @@ msgstr "Fann ikkje nokon rom"
 
 #: src/qml/QuickSwitcher.qml:31
 #, fuzzy, kde-format
-#| msgid "Explore rooms"
 msgctxt "@action:button"
 msgid "Explore rooms"
 msgstr "Utforsk rom"
@@ -3481,7 +3409,6 @@ msgstr "Områdemedlemmar"
 
 #: src/qml/RoomInformation.qml:42
 #, fuzzy, kde-format
-#| msgid "Room Information"
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Rominformasjon"
@@ -3526,8 +3453,6 @@ msgstr "Vis posisjonar i rommet"
 
 #: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Forlat området"
@@ -4354,7 +4279,6 @@ msgstr "Arbeider"
 
 #: src/roommanager.cpp:145
 #, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
@@ -4375,7 +4299,6 @@ msgstr "Klarte ikkje be om å få verta med i rommet<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
 #, fuzzy, kde-format
-#| msgid "Edit Account"
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Rediger konto"
@@ -4392,7 +4315,6 @@ msgstr "Fjern gjeldande avatar"
 
 #: src/settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
-#| msgid "User Information"
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Brukarinformasjon"
@@ -4421,7 +4343,6 @@ msgstr "Lagra"
 
 #: src/settings/AccountEditorPage.qml:154
 #, fuzzy, kde-format
-#| msgid "Password"
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Passord"
@@ -4458,28 +4379,24 @@ msgstr "Passorda er ikkje like"
 
 #: src/settings/AccountEditorPage.qml:207
 #, fuzzy, kde-format
-#| msgid "Email Addresses"
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
 #: src/settings/AccountEditorPage.qml:213
 #, fuzzy, kde-format
-#| msgid "Phone Numbers"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonnummer"
 
 #: src/settings/AccountEditorPage.qml:218
 #, fuzzy, kde-format
-#| msgid "Identity Server"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitetstenar"
 
 #: src/settings/AccountEditorPage.qml:227
 #, fuzzy, kde-format
-#| msgid "Server Information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Tenarinformasjon"
@@ -4491,8 +4408,6 @@ msgstr "Adresse til heimetenar"
 
 #: src/settings/AccountEditorPage.qml:252
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Kontohandsaming"
@@ -4519,14 +4434,12 @@ msgstr "Ukjent problem ved endring av passord"
 
 #: src/settings/AccountsPage.qml:20
 #, fuzzy, kde-format
-#| msgid "Accounts"
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "Kontoar"
 
 #: src/settings/AccountsPage.qml:38
 #, fuzzy, kde-format
-#| msgid "Accounts"
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Kontoar"
@@ -4544,7 +4457,6 @@ msgstr "Utsjånad"
 
 #: src/settings/AppearanceSettingsPage.qml:21
 #, fuzzy, kde-format
-#| msgid "General theme"
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "Generelt tema"
@@ -4653,35 +4565,30 @@ msgstr "Logg ut av eininga"
 
 #: src/settings/DevicesPage.qml:17
 #, fuzzy, kde-format
-#| msgid "Devices"
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "Einingar"
 
 #: src/settings/DevicesPage.qml:33
 #, fuzzy, kde-format
-#| msgid "This Device"
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "Denne eininga"
 
 #: src/settings/DevicesPage.qml:38
 #, fuzzy, kde-format
-#| msgid "Verified Devices"
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Stadfesta einingar"
 
 #: src/settings/DevicesPage.qml:43
 #, fuzzy, kde-format
-#| msgid "Unverified Devices"
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Ikkje-stadfesta einingar"
 
 #: src/settings/DevicesPage.qml:48
 #, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Einingar utan krypteringsstøtte"
@@ -4704,44 +4611,36 @@ msgstr "Fjern"
 
 #: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
-#| msgid "Add Sticker"
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Legg til klistremerke"
 
 #: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "Rediger klistremerke"
 
 #: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
-#| msgid "Add Emoji"
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "Legg til emoji"
 
 #: src/settings/EmoticonEditorPage.qml:27
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "Rediger emoji"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
-#| msgid "Sticker"
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Klistremerke"
 
 #: src/settings/EmoticonEditorPage.qml:30
 #, fuzzy, kde-format
-#| msgid "Emoji"
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
@@ -4808,29 +4707,24 @@ msgstr "Legg til klistremerke"
 
 #: src/settings/EmoticonsPage.qml:16
 #, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Klistremerke og emojiar"
 
 #: src/settings/EmoticonsPage.qml:19
 #, fuzzy, kde-format
-#| msgid "Emojis"
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "Emojiar"
 
 #: src/settings/EmoticonsPage.qml:27
 #, fuzzy, kde-format
-#| msgid "Stickers"
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "Klistremerke"
 
 #: src/settings/ExportKeysDialog.qml:17
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Eksporter nøklar"
@@ -4886,14 +4780,12 @@ msgstr "Om push-varslingar vert genererte av Matrix-tenaren din"
 
 #: src/settings/GlobalNotificationsPage.qml:39
 #, fuzzy, kde-format
-#| msgid "Room Notifications"
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Romvarslingar"
 
 #: src/settings/GlobalNotificationsPage.qml:56
 #, fuzzy, kde-format
-#| msgid "@Mentions"
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@-nemning"
@@ -4901,7 +4793,6 @@ msgstr "@-nemning"
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
 #, fuzzy, kde-format
-#| msgid "Keywords"
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Nøkkelord"
@@ -4920,14 +4811,12 @@ msgstr "Legg til nøkkelord"
 
 #: src/settings/GlobalNotificationsPage.qml:137
 #, fuzzy, kde-format
-#| msgid "Invites"
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Invitasjonar"
 
 #: src/settings/GlobalNotificationsPage.qml:154
 #, fuzzy, kde-format
-#| msgid "Unknown"
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Ukjend"
@@ -4992,8 +4881,6 @@ msgstr "Avignorer brukaren"
 
 #: src/settings/ImportKeysDialog.qml:21
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Importer nøklar"
@@ -5030,7 +4917,6 @@ msgstr "Generelt"
 
 #: src/settings/NeoChatGeneralPage.qml:23
 #, fuzzy, kde-format
-#| msgid "General settings"
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "Generelle innstillingar"
@@ -5057,7 +4943,6 @@ msgstr "Vis alle romma på heimefana"
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, fuzzy, kde-format
-#| msgid "Room list sort order"
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "Sortering for romliste"
@@ -5082,8 +4967,6 @@ msgstr "Alfabetisk"
 
 #: src/settings/NeoChatGeneralPage.qml:116
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
 msgstr "%1 – siste aktivitet: %2"
@@ -5096,7 +4979,6 @@ msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:128
 #, fuzzy, kde-format
-#| msgid "Custom"
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Tilpassa"
@@ -5140,7 +5022,6 @@ msgstr "Tekstredigering"
 # Namn på «send»-knappen i skrivefeltet.
 #: src/settings/NeoChatGeneralPage.qml:226
 #, fuzzy, kde-format
-#| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Send meldinga"
@@ -5173,24 +5054,18 @@ msgstr "Vis utviklarverktøy"
 
 #: src/settings/NeoChatGeneralPage.qml:307
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Standardinnstillingar"
 
 #: src/settings/NeoChatGeneralPage.qml:312
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
 msgstr "Nullstill alle innstillingane til standardverdiar"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Tryggleik"
@@ -5241,8 +5116,6 @@ msgstr "Tenaren din støttar ikkje denne innstillinga."
 
 #: src/settings/NeoChatSecurityPage.qml:70
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Kryptering"
@@ -5474,7 +5347,6 @@ msgstr "Hendingstype …"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
-#| msgid "Room notifications setting"
 msgctxt "@title:group"
 msgid "Room notifications setting"
 msgstr "Innstillingar for romvarsling"
@@ -5811,7 +5683,6 @@ msgstr "Løyve"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, fuzzy, kde-format
-#| msgid "Room list sort order"
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "Sortering for romliste"
@@ -5836,17 +5707,12 @@ msgstr ""
 
 #: src/settings/RoomSortParameterDialog.qml:82
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
 msgctxt "@button"
 msgid "Down"
 msgstr "Last ned"
 
 #: src/settings/RoomSortParameterDialog.qml:105
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
 msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "Legg tenar"
@@ -6132,7 +5998,6 @@ msgstr "Sist lese: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
 #, fuzzy, kde-format
-#| msgid "Reply"
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Svar"
