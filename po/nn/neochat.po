@@ -101,20 +101,17 @@ msgstr "Varsling av nye meldingar"
 
 #: src/controller.cpp:249
 #, fuzzy, kde-format
-#| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Fann ikkje tilgangspollett"
 
 #: src/controller.cpp:253
 #, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
 
 #: src/controller.cpp:256
 #, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
@@ -122,7 +119,6 @@ msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
 
 #: src/controller.cpp:259
 #, fuzzy, kde-format
-#| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Klarte ikkje lesa tilgangspollett"
 
@@ -649,70 +645,51 @@ msgstr ""
 # Kan gjelda meir enn éin person, så «oppdaterte avataren sin» vert feil.
 #: src/eventhandler.cpp:567
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "valde ein ny avatar"
 
 #: src/eventhandler.cpp:569
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "fjerna avataren sin"
 
 #: src/eventhandler.cpp:571
 #, fuzzy, kde-format
-#| msgid "Changes your display name in this room"
 msgid "%1 set a display name for this room"
 msgstr "Byter visingsnamnet ditt i dette rommet"
 
 #: src/eventhandler.cpp:574
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and set an avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:576
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:578
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "endra visingsnamnet sitt til %1"
 
 #: src/eventhandler.cpp:580
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name"
 msgid "%1 changed their display name"
 msgstr "endra visingsnamnet sitt"
 
 #: src/eventhandler.cpp:583
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "fjerna visingsnamnet"
 
 #: src/eventhandler.cpp:585
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "fjerna visingsnamnet"
 
 #: src/eventhandler.cpp:587
 #, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "fjerna visingsnamnet"
 
@@ -829,8 +806,6 @@ msgstr "%1 oppretta rommet"
 
 #: src/eventhandler.cpp:636
 #, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "endra maktnivået for rommet"
@@ -1109,15 +1084,12 @@ msgstr "Gå tilbake"
 
 #: src/login/WelcomePage.qml:269
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Room Settings"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Romval"
 
 #: src/main.cpp:143
 #, fuzzy, kde-format
-#| msgid "Share a URL to Matrix"
 msgid "Chat on Matrix"
 msgstr "Del ei adresse på Matrix"
 
@@ -1854,7 +1826,6 @@ msgstr ", "
 
 #: src/neochatconnection.cpp:79
 #, fuzzy, kde-format
-#| msgid "Contact your matrix server administrator for support."
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
@@ -2657,7 +2628,6 @@ msgstr "Berre vis rom"
 
 #: src/qml/ExploreRoomsPage.qml:95
 #, fuzzy, kde-format
-#| msgid "Enter a room address"
 msgid "Enter a Room Manually"
 msgstr "Skriv inn romadresse"
 
@@ -3033,8 +3003,6 @@ msgstr ""
 
 #: src/qml/LocationChooser.qml:41
 #, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Posisjonar"
@@ -4153,7 +4121,6 @@ msgstr "Arbeider"
 
 #: src/roommanager.cpp:145
 #, fuzzy, kde-format
-#| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
@@ -4811,7 +4778,6 @@ msgstr "Tekstredigering"
 # Namn på «send»-knappen i skrivefeltet.
 #: src/settings/NeoChatGeneralPage.qml:204
 #, fuzzy, kde-format
-#| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Send meldinga"
