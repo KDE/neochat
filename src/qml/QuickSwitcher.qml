@@ -27,7 +27,8 @@ Kirigami.SearchDialog {
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
     model: RoomManager.sortFilterRoomListModel
     emptyText: i18nc("Placeholder message", "No room found")
-    emptyHelpfulAction: Kirigami.Action {
+    Kirigami.Action {
+        id: exploreRoomAction
         text: i18nc("@action:button", "Explore rooms")
         icon.name: "compass"
         onTriggered: {
@@ -42,6 +43,8 @@ Kirigami.SearchDialog {
             });
         }
     }
+
+    Component.onCompleted: emptyHelpfulAction = exploreRoomAction
 
     parent: QQC2.Overlay.overlay
 
