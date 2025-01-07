@@ -11,7 +11,7 @@ namespace Quotient
 {
 namespace EventContent
 {
-class FileInfo;
+struct FileInfo;
 }
 class RoomEvent;
 class RoomMember;
