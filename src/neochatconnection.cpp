@@ -145,6 +145,10 @@ void NeoChatConnection::connectSignals()
             });
         },
         Qt::SingleShotConnection);
+    setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
+        setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const

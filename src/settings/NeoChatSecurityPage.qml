@@ -65,6 +65,21 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: rejectInvitationsDelegate
+            below: preferEncryptionDelegate
+        }
+        FormCard.FormCheckDelegate {
+            id: preferEncryptionDelegate
+            text: i18nc("@option:check", "Turn on encryption in new chats")
+            description: i18nc("@info", "If enabled, NeoChat will use encryption when starting new direct messages.")
+            checked: NeoChatConfig.preferUsingEncryption
+            enabled: !NeoChatConfig.preferUsingEncryptionImmutable
+            onToggled: {
+                NeoChatConfig.preferUsingEncryption = checked;
+                NeoChatConfig.save();
+            }
+        }
     }
     FormCard.FormHeader {
         title: i18nc("@title:group", "Encryption")
