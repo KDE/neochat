@@ -201,13 +201,15 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
     if (role == ProgressInfoRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&event.value().get())) {
-            if (e->has<EventContent::FileContent>()) {
+            if (e->has<EventContent::FileContent>() || e->has<EventContent::ImageContent>() || e->has<EventContent::VideoContent>()
+                || e->has<EventContent::AudioContent>()) {
                 return QVariant::fromValue(m_room->cachedFileTransferInfo(&event.value().get()));
             }
         }
         if (eventCast<const StickerEvent>(&event.value().get())) {
             return QVariant::fromValue(m_room->cachedFileTransferInfo(&event.value().get()));
         }
+        return {};
     }
 
     if (role == TimeRole) {
