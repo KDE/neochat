@@ -29,13 +29,20 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
 
+    onCurrentProgressInfoChanged: () => {
+        if (root.currentProgressInfo) {
+            root.downloadAction.progress = root.currentProgressInfo.progress / root.currentProgressInfo.total * 100.0;
+        } else {
+            root.downloadAction.progress = 0;
+        }
+    }
+
     /**
      * @brief Whether the delegate is part of a thread timeline.
      */
     property bool isThread: false
 
     downloadAction: Components.DownloadAction {
-        id: downloadAction
         onTriggered: {
             currentRoom.downloadFile(root.currentEventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
         }
@@ -62,16 +69,8 @@ Components.AlbumMaximizeComponent {
 
         function onFileTransferProgress(id, progress, total) {
             if (id == root.currentEventId) {
-                downloadAction.progress = progress / total * 100.0;
+                root.downloadAction.progress = progress / total * 100.0;
             }
-        }
-    }
-
-    Connections {
-        target: content
-
-        function onCurrentIndexChanged() {
-            downloadAction.progress = currentProgressInfo.progress / currentProgressInfo.total * 100.0;
         }
     }
 
