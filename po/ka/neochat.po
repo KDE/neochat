@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
+"POT-Creation-Date: 2025-01-10 09:28+0000\n"
 "PO-Revision-Date: 2024-12-30 03:13+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1948,7 +1948,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:79
+#: src/neochatconnection.cpp:78
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1957,18 +1957,18 @@ msgstr ""
 "გადმოსაწერად ფაილი მეტისმეტად დიდია.<br />მხარდაჭერისთვის დაუკავშირდით "
 "თქვენი Matrix-ის სერვერის ადმინისტრატორს."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "იდენტიფიკატორების სერვერი მორგებული არაა"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -2177,13 +2177,13 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "ბუფერში კოპირება"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:16
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
 msgstr "დაადასტურეთ ანგარიშის დეაქტივაცია"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
+#: src/qml/ConfirmDeactivateAccountDialog.qml:18
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -2196,13 +2196,25 @@ msgstr ""
 "თქვენი Matrx ID ახალი ანგარიშებისთვის ხელმისაწვდომი არ იქნება.\n"
 "თქვენი შეტყობინებები ხელმისაწვდომი იქნება."
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#: src/qml/ConfirmDeactivateAccountDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "პაროლი"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
 msgid "Deactivate account"
 msgstr "ანგარიშის დეაქტივაცია"

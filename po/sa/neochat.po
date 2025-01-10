@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:41+0000\n"
+"POT-Creation-Date: 2025-01-10 09:28+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1939,7 +1939,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", ९. "
 
-#: src/neochatconnection.cpp:79
+#: src/neochatconnection.cpp:78
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1948,18 +1948,18 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:314
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:345
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:375
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
@@ -2168,13 +2168,13 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:16
+#: src/qml/ConfirmDeactivateAccountDialog.qml:17
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Account Deactivation"
 msgstr "खाता निष्क्रियीकरणस्य पुष्टिः कुर्वन्तु"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
+#: src/qml/ConfirmDeactivateAccountDialog.qml:18
 #, kde-format
 msgid ""
 "Your account will be permanently disabled.\n"
@@ -2187,13 +2187,25 @@ msgstr ""
 "नूतनलेखानां कृते भवतः Matrix ID उपलब्धं न भविष्यति।\n"
 "भवतः सन्देशाः उपलब्धाः एव तिष्ठन्ति।"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:23
+#: src/qml/ConfirmDeactivateAccountDialog.qml:25
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "समाभाष्"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
 msgid "Deactivate account"
 msgstr "खातं निष्क्रियं कुर्वन्तु"
