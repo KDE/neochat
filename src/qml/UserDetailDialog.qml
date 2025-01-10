@@ -84,7 +84,7 @@ Kirigami.Dialog {
                 }
 
                 onClicked: {
-                    let map = qrMaximizeComponent.createObject(parent, {
+                    let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                         text: barcode.content,
                         title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
                         subtitle: root.user.id,
@@ -264,9 +264,5 @@ Kirigami.Dialog {
                 }
             }
         }
-    }
-    Component {
-        id: qrMaximizeComponent
-        QrCodeMaximizeComponent {}
     }
 }

@@ -308,6 +308,7 @@ Kirigami.Page {
         NeochatMaximizeComponent {
             currentRoom: root.currentRoom
             model: root.mediaMessageFilterModel
+            parent: root.QQC2.Overlay.overlay
         }
     }
 }

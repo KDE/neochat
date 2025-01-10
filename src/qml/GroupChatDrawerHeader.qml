@@ -89,7 +89,7 @@ ColumnLayout {
             }
 
             onClicked: {
-                let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(parent, {
+                let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                     text: barcode.content,
                     title: root.room ? root.room.displayName : "",
                     subtitle: root.room ? root.room.id : "",
