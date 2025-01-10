@@ -505,7 +505,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ProgressInfoRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (e->has<EventContent::FileContent>()) {
+            if (e->has<EventContent::FileContent>() || e->has<EventContent::ImageContent>() || e->has<EventContent::VideoContent>()
+                || e->has<EventContent::AudioContent>()) {
                 return QVariant::fromValue(m_currentRoom->cachedFileTransferInfo(&evt));
             }
         }
