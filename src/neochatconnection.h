@@ -31,8 +31,6 @@ class NeoChatConnection : public Quotient::Connection
      * Set to an empty string to remove the label.
      */
     Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
-    Q_PROPERTY(QString deviceKey READ deviceKey CONSTANT)
-    Q_PROPERTY(QString encryptionKey READ encryptionKey CONSTANT)
 
     /**
      * @brief The model with the account's 3PIDs.
@@ -179,9 +177,6 @@ public:
     // note: this is intentionally a copied QString because
     // the reference could be destroyed before the task is finished
     QCoro::Task<void> setupPushNotifications(QString endpoint);
-
-    QString deviceKey() const;
-    QString encryptionKey() const;
 
     bool isOnline() const;
 

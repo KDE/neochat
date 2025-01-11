@@ -20,7 +20,6 @@
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/registration.h>
 #include <Quotient/csapi/versions.h>
-#include <Quotient/database.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/room.h>
@@ -480,23 +479,6 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     Q_UNUSED(endpoint)
     co_return;
 #endif
-}
-
-QString NeoChatConnection::deviceKey() const
-{
-    return edKeyForUserDevice(userId(), deviceId());
-}
-
-QString NeoChatConnection::encryptionKey() const
-{
-    auto query = database()->prepareQuery(u"SELECT curveKey FROM tracked_devices WHERE matrixId=:matrixId AND deviceid=:deviceId LIMIT 1;"_s);
-    query.bindValue(u":matrixId"_s, userId());
-    query.bindValue(u":deviceId"_s, deviceId());
-    database()->execute(query);
-    if (!query.next()) {
-        return {};
-    }
-    return query.value(0).toString();
 }
 
 bool NeoChatConnection::isOnline() const
