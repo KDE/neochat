@@ -40,7 +40,13 @@ LoginStep {
     nextAction: Kirigami.Action {
         text: Registration.testing ? i18n("Loading") : null
         enabled: Registration.status > Registration.ServerNoRegistration
-        onTriggered: root.processed("Username")
+        onTriggered: {
+            if (Registration.status === Registration.Oidc) {
+                Qt.openUrlExternally(Registration.oidcUrl)
+            } else {
+                root.processed("Username")
+            }
+        }
     }
     previousAction: Kirigami.Action {
         onTriggered: root.processed("LoginRegister")

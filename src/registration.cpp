@@ -179,6 +179,15 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
+            auto ssoFlow = m_connection->getLoginFlow(LoginFlowTypes::SSO);
+            if (ssoFlow && ssoFlow->delegatedOidcCompatibility) {
+                auto session = m_connection->prepareForSso(u"NeoChat"_s);
+                m_oidcUrl = session->ssoUrlForRegistration();
+                qWarning() << "REG" << session->ssoUrlForRegistration();
+                Q_EMIT oidcUrlChanged();
+                setStatus(Oidc);
+                return;
+            }
             m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_L1, std::nullopt, "user"_L1, QString(), QString(), QString(), false);
 
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
