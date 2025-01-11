@@ -300,6 +300,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             && event.value().get().senderId() == m_room->localMember().id();
     }
 
+    if (role == ShowAuthorRole) {
+        return true;
+    }
+
     return {};
 }
 
@@ -329,6 +333,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ContentModelRole] = "contentModel";
     roles[MediaInfoRole] = "mediaInfo";
     roles[IsEditableRole] = "isEditable";
+    roles[ShowAuthorRole] = "showAuthor";
     return roles;
 }
 

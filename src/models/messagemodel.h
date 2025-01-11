@@ -84,6 +84,7 @@ public:
         IsRedactedRole, /**< Whether an event has been deleted. */
         IsPendingRole, /**< Whether an event is waiting to be accepted by the server. */
         IsEditableRole, /**< Whether the event can be edited by the user. */
+        ShowAuthorRole, /**< Whether the author of a message should be shown. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

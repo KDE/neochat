@@ -92,7 +92,7 @@ QVariant MessageFilterModel::data(const QModelIndex &index, int role) const
         return authorList(mapToSource(index).row());
     } else if (role == ExcessAuthorsRole) {
         return excessAuthors(mapToSource(index).row());
-    } else if (role == ShowAuthorRole) {
+    } else if (role == MessageModel::ShowAuthorRole) {
         return showAuthor(index);
     }
     return QSortFilterProxyModel::data(index, role);
@@ -105,7 +105,6 @@ QHash<int, QByteArray> MessageFilterModel::roleNames() const
     roles[StateEventsRole] = "stateEvents";
     roles[AuthorListRole] = "authorList";
     roles[ExcessAuthorsRole] = "excessAuthors";
-    roles[ShowAuthorRole] = "showAuthor";
     return roles;
 }
 
