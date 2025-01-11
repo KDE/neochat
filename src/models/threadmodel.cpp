@@ -97,10 +97,9 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
         const auto connection = room->connection();
         m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), 5);
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
-            const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
             auto newEvents = m_currentJob->chunk();
             for (auto &event : newEvents) {
-                m_contentModels.push_back(new MessageContentModel(room, event->id()));
+                m_events.push_back(event->id());
             }
 
             addModels();
@@ -122,12 +121,11 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
 
 void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
 {
-    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
     auto eventId = event->id();
     if (eventId.isEmpty()) {
         eventId = event->transactionId();
     }
-    m_contentModels.push_front(new MessageContentModel(room, eventId));
+    m_events.push_front(eventId);
 }
 
 void ThreadModel::addModels()
@@ -137,8 +135,15 @@ void ThreadModel::addModels()
     }
 
     addSourceModel(m_threadRootContentModel.get());
-    for (auto it = m_contentModels.crbegin(); it != m_contentModels.crend(); ++it) {
-        addSourceModel(*it);
+    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
+    if (room == nullptr) {
+        return;
+    }
+    for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
+        const auto contentModel = room->contentModelForEvent(*it);
+        if (contentModel != nullptr) {
+            addSourceModel(room->contentModelForEvent(*it));
+        }
     }
     addSourceModel(m_threadChatBarModel);
 
@@ -149,9 +154,15 @@ void ThreadModel::addModels()
 void ThreadModel::clearModels()
 {
     removeSourceModel(m_threadRootContentModel.get());
-    for (const auto &model : m_contentModels) {
-        if (sourceModels().contains(model)) {
-            removeSourceModel(model);
+
+    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
+    if (room == nullptr) {
+        return;
+    }
+    for (const auto &model : m_events) {
+        const auto contentModel = room->contentModelForEvent(model);
+        if (sourceModels().contains(contentModel)) {
+            removeSourceModel(contentModel);
         }
     }
     removeSourceModel(m_threadChatBarModel);

@@ -7,7 +7,6 @@
 #include <QQmlEngine>
 #include <functional>
 
-#include "messagecontentmodel.h"
 #include "neochatroom.h"
 #include "pollhandler.h"
 #include "readmarkermodel.h"
@@ -153,7 +152,6 @@ private:
     bool resetting = false;
     bool movingEvent = false;
 
-    std::map<QString, std::unique_ptr<MessageContentModel>> m_contentModels;
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
     QMap<QString, QSharedPointer<ThreadModel>> m_threadModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;

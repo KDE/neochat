@@ -39,14 +39,6 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
         const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date();
         return day != previousEventDay;
     }
-    // Catch and force the author to be shown for all rows
-    if (role == TimelineMessageModel::ContentModelRole) {
-        const auto model = qvariant_cast<MessageContentModel *>(mapToSource(index).data(TimelineMessageModel::ContentModelRole));
-        if (model != nullptr) {
-            model->setShowAuthor(true);
-        }
-        return QVariant::fromValue<MessageContentModel *>(model);
-    }
 
     QVariantMap mediaInfo = mapToSource(index).data(TimelineMessageModel::MediaInfoRole).toMap();
 

@@ -53,6 +53,11 @@ TimelineDelegate {
     required property NeochatRoomMember author
 
     /**
+     * @brief Whether the message author should be shown.
+     */
+    required property bool showAuthor
+
+    /**
      * @brief The model to visualise the content of the message.
      */
     required property MessageContentModel contentModel
@@ -222,11 +227,11 @@ TimelineDelegate {
             id: mainContainer
 
             Layout.fillWidth: true
-            Layout.topMargin: root.contentModel?.showAuthor ? Kirigami.Units.largeSpacing : (NeoChatConfig.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+            Layout.topMargin: root.showAuthor ? Kirigami.Units.largeSpacing : (NeoChatConfig.compactLayout ? 1 : Kirigami.Units.smallSpacing)
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing
 
-            implicitHeight: Math.max(root.contentModel?.showAuthor ? avatar.implicitHeight : 0, bubble.height)
+            implicitHeight: Math.max(root.showAuthor ? avatar.implicitHeight : 0, bubble.height)
 
             // show hover actions
             onHoveredChanged: {
@@ -246,7 +251,7 @@ TimelineDelegate {
                     topMargin: Kirigami.Units.smallSpacing
                 }
 
-                visible: ((root.contentModel?.showAuthor ?? false) || root.isThreaded) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
+                visible: ((root.showAuthor ?? false) || root.isThreaded) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
                 name: root.author.displayName
                 source: root.author.avatarUrl
                 color: root.author.color
@@ -292,6 +297,7 @@ TimelineDelegate {
                 room: root.room
                 index: root.index
                 author: root.author
+                showAuthor: root.showAuthor
                 isThreaded: root.isThreaded
 
                 // HACK: This is stupid but seemingly QConcatenateTablesProxyModel

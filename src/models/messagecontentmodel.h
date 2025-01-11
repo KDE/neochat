@@ -25,11 +25,6 @@ class MessageContentModel : public QAbstractListModel
     QML_ELEMENT
     QML_UNCREATABLE("")
 
-    /**
-     * @brief Whether the author component is being shown.
-     */
-    Q_PROPERTY(bool showAuthor READ showAuthor WRITE setShowAuthor NOTIFY showAuthorChanged)
-
 public:
     enum MessageState {
         Unknown, /**< The message state is unknown. */
@@ -75,9 +70,6 @@ public:
                                  bool isPending = false,
                                  MessageContentModel *parent = nullptr);
 
-    bool showAuthor() const;
-    void setShowAuthor(bool showAuthor);
-
     /**
      * @brief Get the given role value at the given index.
      *
@@ -117,7 +109,6 @@ private:
     NeochatRoomMember *senderObject() const;
 
     MessageState m_currentState = Unknown;
-    bool m_showAuthor = true;
     bool m_isReply;
 
     void initializeModel();

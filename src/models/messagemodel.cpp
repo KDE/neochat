@@ -120,16 +120,11 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        QString modelId;
-        if (!event->get().id().isEmpty() && m_contentModels.contains(event->get().id())) {
-            modelId = event.value().get().id();
-        } else if (!event.value().get().transactionId().isEmpty() && m_contentModels.contains(event.value().get().transactionId())) {
-            modelId = event.value().get().transactionId();
+        auto evtOrTxnId = event->get().id();
+        if (evtOrTxnId.isEmpty()) {
+            evtOrTxnId = event->get().transactionId();
         }
-        if (!modelId.isEmpty()) {
-            return QVariant::fromValue<MessageContentModel *>(m_contentModels.at(modelId).get());
-        }
-        return {};
+        return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(evtOrTxnId));
     }
 
     if (role == GenericDisplayRole) {
@@ -430,12 +425,6 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isP
         senderId = m_room->localMember().id();
     }
 
-    if (!m_contentModels.contains(eventId) && !m_contentModels.contains(event->transactionId())) {
-        if (!event->isStateEvent() || event->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
-            m_contentModels[eventId] = std::unique_ptr<MessageContentModel>(new MessageContentModel(m_room, eventId, false, isPending));
-        }
-    }
-
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
     if (roomMessageEvent && roomMessageEvent->isThreaded() && !m_threadModels.contains(roomMessageEvent->threadRootEventId())) {
         m_threadModels[roomMessageEvent->threadRootEventId()] = QSharedPointer<ThreadModel>(new ThreadModel(roomMessageEvent->threadRootEventId(), m_room));
@@ -515,7 +504,6 @@ void MessageModel::clearModel()
 
 void MessageModel::clearEventObjects()
 {
-    m_contentModels.clear();
     m_reactionModels.clear();
     m_readMarkerModels.clear();
 }

@@ -122,13 +122,8 @@ private:
 
     std::unique_ptr<MessageContentModel> m_threadRootContentModel;
 
-    std::deque<MessageContentModel *> m_contentModels;
+    std::deque<QString> m_events;
     ThreadChatBarModel *m_threadChatBarModel;
-
-    QList<QString> m_events;
-    QList<QString> m_pendingEvents;
-
-    std::unordered_map<QString, std::unique_ptr<Quotient::RoomEvent>> m_unloadedEvents;
 
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 

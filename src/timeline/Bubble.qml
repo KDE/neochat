@@ -42,6 +42,11 @@ QQC2.Control {
     property var author
 
     /**
+     * @brief Whether the message author should be shown.
+     */
+    required property bool showAuthor
+
+    /**
      * @brief Whether the message should be highlighted.
      */
     property bool showHighlight: false
@@ -105,7 +110,10 @@ QQC2.Control {
             spacing: Kirigami.Units.smallSpacing
             Repeater {
                 id: contentRepeater
-                model: root.contentModel
+                model: MessageContentFilterModel {
+                    showAuthor: root.showAuthor
+                    sourceModel: root.contentModel
+                }
                 delegate: MessageComponentChooser {
                     room: root.room
                     index: root.index

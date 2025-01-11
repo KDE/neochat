@@ -14,6 +14,7 @@
 
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
+#include "models/messagecontentmodel.h"
 #include "neochatroommember.h"
 #include "pollhandler.h"
 
@@ -595,6 +596,8 @@ public:
 
     NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
+    MessageContentModel *contentModelForEvent(const QString &evtOrTxnId);
+
 private:
     bool m_visible = false;
 
@@ -627,6 +630,7 @@ private:
     void cleanupExtraEvent(const QString &eventId);
 
     std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
+    std::unordered_map<QString, std::unique_ptr<MessageContentModel>> m_eventContentModels;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);

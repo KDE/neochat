@@ -233,32 +233,6 @@ NeochatRoomMember *MessageContentModel::senderObject() const
     return m_room->qmlSafeMember(eventResult.first->senderId());
 }
 
-bool MessageContentModel::showAuthor() const
-{
-    return m_showAuthor;
-}
-
-void MessageContentModel::setShowAuthor(bool showAuthor)
-{
-    if (showAuthor == m_showAuthor) {
-        return;
-    }
-    m_showAuthor = showAuthor;
-
-    if (m_room->connection()->isIgnored(senderId())) {
-        if (showAuthor) {
-            beginInsertRows({}, 0, 0);
-            m_components.prepend(MessageComponent{MessageComponentType::Author, QString(), {}});
-            endInsertRows();
-        } else {
-            beginRemoveRows({}, 0, 0);
-            m_components.remove(0, 1);
-            endRemoveRows();
-        }
-    }
-    Q_EMIT showAuthorChanged();
-}
-
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
 
 QVariant MessageContentModel::data(const QModelIndex &index, int role) const
@@ -434,9 +408,7 @@ void MessageContentModel::resetModel()
         return;
     }
 
-    if (m_showAuthor) {
-        m_components += MessageComponent{MessageComponentType::Author, QString(), {}};
-    }
+    m_components += MessageComponent{MessageComponentType::Author, QString(), {}};
 
     m_components += messageContentComponents();
     endResetModel();

@@ -173,6 +173,7 @@ void NeoChatRoom::setVisible(bool visible)
 
     if (!visible) {
         m_memberObjects.clear();
+        m_eventContentModels.clear();
     }
 }
 
@@ -1752,6 +1753,48 @@ NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
     }
 
     return m_memberObjects[memberId].get();
+}
+
+MessageContentModel *NeoChatRoom::contentModelForEvent(const QString &evtOrTxnId)
+{
+    const auto event = getEvent(evtOrTxnId);
+    if (event.first == nullptr) {
+        // If for some reason a model is there remove.
+        if (m_eventContentModels.contains(evtOrTxnId)) {
+            m_eventContentModels.erase(evtOrTxnId);
+        }
+        return nullptr;
+    }
+
+    if (event.first->isStateEvent() || event.first->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
+        return nullptr;
+    }
+
+    auto eventId = event.first->id();
+    const auto txnId = event.first->transactionId();
+    if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
+        if (eventId.isEmpty()) {
+            eventId = txnId;
+        }
+        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId, false, event.second)).first->second.get();
+    }
+
+    if (!eventId.isEmpty() && m_eventContentModels.contains(eventId)) {
+        return m_eventContentModels[eventId].get();
+    }
+
+    if (!txnId.isEmpty() && m_eventContentModels.contains(txnId)) {
+        if (eventId.isEmpty()) {
+            return m_eventContentModels[txnId].get();
+        }
+
+        // If we now have an event ID use that as the map key instead of transaction ID.
+        auto txnModel = std::move(m_eventContentModels[txnId]);
+        m_eventContentModels.erase(txnId);
+        return m_eventContentModels.emplace(eventId, std::move(txnModel)).first->second.get();
+    }
+
+    return nullptr;
 }
 
 #include "moc_neochatroom.cpp"
