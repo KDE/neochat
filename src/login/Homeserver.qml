@@ -37,10 +37,23 @@ LoginStep {
         onTriggered: Registration.homeserver = urlField.text
     }
 
+    Connections {
+        target: Registration
+        function onConnected(connection): void {
+            root.processed("Loading");
+        }
+    }
+
     nextAction: Kirigami.Action {
-        text: Registration.testing ? i18n("Loading") : null
+        text: Registration.testing ? i18n("Loading") : Registration.status === Registration.Oidc ? i18nc("@action:button", "Continue in Browser") : null
         enabled: Registration.status > Registration.ServerNoRegistration
-        onTriggered: root.processed("Username")
+        onTriggered: {
+            if (Registration.status === Registration.Oidc) {
+                Qt.openUrlExternally(Registration.oidcUrl)
+            } else {
+                root.processed("Username")
+            }
+        }
     }
     previousAction: Kirigami.Action {
         onTriggered: root.processed("LoginRegister")
