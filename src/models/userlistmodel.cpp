@@ -174,8 +174,8 @@ void UserListModel::refreshAllMembers()
         m_members = m_currentRoom->joinedMemberIds();
         MemberSorter sorter;
         std::sort(m_members.begin(), m_members.end(), [&sorter, this](const auto &left, const auto &right) {
-            const auto leftPl = m_currentRoom->getUserPowerLevel(left);
-            const auto rightPl = m_currentRoom->getUserPowerLevel(right);
+            const auto leftPl = m_currentRoom->memberEffectivePowerLevel(left);
+            const auto rightPl = m_currentRoom->memberEffectivePowerLevel(right);
             if (leftPl > rightPl) {
                 return true;
             } else if (rightPl > leftPl) {
@@ -184,7 +184,6 @@ void UserListModel::refreshAllMembers()
 
             return sorter(m_currentRoom->member(left), m_currentRoom->member(right));
         });
-
     }
     endResetModel();
     Q_EMIT usersRefreshed();

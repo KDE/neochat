@@ -118,7 +118,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("kick") && room.containsUser(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUserId)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("kick") && room.containsUser(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
@@ -156,7 +156,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.getUserPowerLevel(root.user.id) < room.getUserPowerLevel(root.connection.localUserId)
+            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
@@ -203,7 +203,7 @@ Kirigami.Dialog {
                     let dialog = powerLevelDialog.createObject(this, {
                         room: root.room,
                         userId: root.user.id,
-                        powerLevel: root.room.getUserPowerLevel(root.user.id)
+                        powerLevel: root.room.memberEffectivePowerLevel(root.user.id)
                     });
                     dialog.open();
                     root.close();

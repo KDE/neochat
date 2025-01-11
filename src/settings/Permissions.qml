@@ -57,7 +57,7 @@ FormCard.FormCardPage {
                     QQC2.Label {
                         id: powerLevelLabel
                         text: privilegedUserDelegate.powerLevelString
-                        visible: !room.canSendState("m.room.power_levels") || (room.getUserPowerLevel(room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localMember.id)
+                        visible: !room.canSendState("m.room.power_levels") || (room.memberEffectivePowerLevel(room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localMember.id)
                         color: Kirigami.Theme.disabledTextColor
                     }
                     QQC2.ComboBox {

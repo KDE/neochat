@@ -503,14 +503,6 @@ public:
 
     bool canEncryptRoom() const;
 
-    /**
-     * @brief Get the power level for the given user ID in the room.
-     *
-     * Returns the default value for a user in the room if they have no escalated
-     * privileges or if they are not a member so membership should be known before using.
-     */
-    Q_INVOKABLE [[nodiscard]] int getUserPowerLevel(const QString &userId) const;
-
     Q_INVOKABLE void setUserPowerLevel(const QString &userID, const int &powerLevel);
 
     ChatBarCache *mainCache() const;
