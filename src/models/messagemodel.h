@@ -153,7 +153,6 @@ private:
     bool movingEvent = false;
 
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
-    QMap<QString, QSharedPointer<ThreadModel>> m_threadModels;
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     void createEventObjects(const Quotient::RoomEvent *event, bool isPending = false);

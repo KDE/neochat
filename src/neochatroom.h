@@ -15,6 +15,7 @@
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
 #include "models/messagecontentmodel.h"
+#include "models/threadmodel.h"
 #include "neochatroommember.h"
 #include "pollhandler.h"
 
@@ -598,6 +599,14 @@ public:
 
     MessageContentModel *contentModelForEvent(const QString &evtOrTxnId);
 
+    /**
+     * @brief Returns the thread model for the given thread root event ID.
+     *
+     * A model is created is one doesn't exist. Will return nullptr if threadRootId
+     * is empty.
+     */
+    ThreadModel *modelForThread(const QString &threadRootId);
+
 private:
     bool m_visible = false;
 
@@ -631,6 +640,7 @@ private:
 
     std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     std::unordered_map<QString, std::unique_ptr<MessageContentModel>> m_eventContentModels;
+    std::unordered_map<QString, std::unique_ptr<ThreadModel>> m_threadModels;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);

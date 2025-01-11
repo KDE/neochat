@@ -425,11 +425,6 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isP
         senderId = m_room->localMember().id();
     }
 
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
-    if (roomMessageEvent && roomMessageEvent->isThreaded() && !m_threadModels.contains(roomMessageEvent->threadRootEventId())) {
-        m_threadModels[roomMessageEvent->threadRootEventId()] = QSharedPointer<ThreadModel>(new ThreadModel(roomMessageEvent->threadRootEventId(), m_room));
-    }
-
     // ReadMarkerModel handles updates to add and remove markers, we only need to
     // handle adding and removing whole models here.
     if (m_readMarkerModels.contains(eventId)) {
@@ -518,7 +513,7 @@ bool MessageModel::event(QEvent *event)
 
 ThreadModel *MessageModel::threadModelForRootId(const QString &threadRootId) const
 {
-    return m_threadModels[threadRootId].data();
+    return m_room->modelForThread(threadRootId);
 }
 
 #include "moc_messagemodel.cpp"

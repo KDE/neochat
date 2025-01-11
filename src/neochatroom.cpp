@@ -174,6 +174,7 @@ void NeoChatRoom::setVisible(bool visible)
     if (!visible) {
         m_memberObjects.clear();
         m_eventContentModels.clear();
+        m_threadModels.clear();
     }
 }
 
@@ -1795,6 +1796,19 @@ MessageContentModel *NeoChatRoom::contentModelForEvent(const QString &evtOrTxnId
     }
 
     return nullptr;
+}
+
+ThreadModel *NeoChatRoom::modelForThread(const QString &threadRootId)
+{
+    if (threadRootId.isEmpty()) {
+        return nullptr;
+    }
+
+    if (!m_threadModels.contains(threadRootId)) {
+        return m_threadModels.emplace(threadRootId, std::make_unique<ThreadModel>(threadRootId, this)).first->second.get();
+    }
+
+    return m_threadModels[threadRootId].get();
 }
 
 #include "moc_neochatroom.cpp"
