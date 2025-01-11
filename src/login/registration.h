@@ -75,6 +75,7 @@ class Registration : public QObject
     Q_PROPERTY(QList<QVariantMap> terms READ terms NOTIFY termsChanged)
     Q_PROPERTY(Status status READ status NOTIFY statusChanged)
     Q_PROPERTY(QString statusString READ statusString NOTIFY statusChanged)
+    Q_PROPERTY(QUrl oidcUrl MEMBER m_oidcUrl NOTIFY oidcUrlChanged)
 
 public:
     enum Status {
@@ -87,6 +88,7 @@ public:
         UsernameTaken,
         Ready,
         Working,
+        Oidc,
     };
     Q_ENUM(Status);
     static Registration &instance()
@@ -147,6 +149,8 @@ Q_SIGNALS:
     void nextStepChanged();
     void statusChanged();
     void loaded();
+    void oidcUrlChanged();
+    void connected(NeoChatConnection *connection);
 
 private:
     QPointer<AccountManager> m_accountManager;
@@ -163,6 +167,7 @@ private:
     QString m_session;
     QString m_sid;
     QString m_emailSecret;
+    QUrl m_oidcUrl;
 
     QPointer<Quotient::CheckUsernameAvailabilityJob> m_usernameJob;
     QPointer<NeoChatRegisterJob> m_testServerJob;

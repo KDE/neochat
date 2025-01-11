@@ -180,6 +180,41 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
+#if Quotient_VERSION_MINOR > 9 || Quotient_VERSION_PATCH > 2
+            auto ssoFlow = m_connection->getLoginFlow(LoginFlowTypes::SSO);
+            if (ssoFlow && ssoFlow->delegatedOidcCompatibility) {
+                auto session = m_connection->prepareForSso(u"NeoChat"_s);
+                m_oidcUrl = session->ssoUrlForRegistration();
+                Q_EMIT oidcUrlChanged();
+                setStatus(Oidc);
+                connect(m_connection, &Connection::connected, this, [this] {
+                    Q_EMIT connected(m_connection.get());
+                    Q_ASSERT(m_connection);
+                    AccountSettings account(m_connection->userId());
+                    account.setKeepLoggedIn(true);
+                    account.setHomeserver(m_connection->homeserver());
+                    account.setDeviceId(m_connection->deviceId());
+                    account.sync();
+                    QMetaObject::invokeMethod(
+                        this,
+                        [this]() {
+                            m_accountManager->addConnection(m_connection);
+                            m_accountManager->setActiveConnection(m_connection);
+                            m_connection = nullptr;
+                        },
+                        Qt::QueuedConnection);
+                    connect(
+                        m_connection.get(),
+                        &Connection::syncDone,
+                        this,
+                        [this]() {
+                            Q_EMIT loaded();
+                        },
+                        Qt::SingleShotConnection);
+                });
+                return;
+            }
+#endif
             m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_L1, std::nullopt, "user"_L1, QString(), QString(), QString(), false);
 
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {
