@@ -63,7 +63,7 @@ Kirigami.Page {
             when: root.session.state === KeyVerificationSession.READY
             PropertyChanges {
                 target: stateLoader
-                sourceComponent: emojiVerificationComponent
+                sourceComponent: chooseVerificationComponent
             }
         },
         State {
@@ -152,15 +152,22 @@ Kirigami.Page {
     }
 
     Component {
-        id: emojiVerificationComponent
-        Delegates.RoundedItemDelegate {
-            id: emojiVerification
-            text: i18n("Emoji Verification")
-            contentItem: Delegates.SubtitleContentItem {
-                subtitle: i18n("Compare a set of emoji on both devices")
-                itemDelegate: emojiVerification
+        id: chooseVerificationComponent
+        Item {
+            ColumnLayout {
+                anchors.centerIn: parent
+                spacing: Kirigami.Units.largeSpacing
+                QQC2.Label {
+                    text: i18nc("@info", "Choose a verification method to continue")
+                }
+                QQC2.Button {
+                    id: emojiVerification
+                    text: i18nc("@action:button", "Emoji Verification")
+                    icon.name: "smiley"
+                    onClicked: root.session.sendStartSas()
+                    Layout.alignment: Qt.AlignHCenter
+                }
             }
-            onClicked: root.session.sendStartSas()
         }
     }
 }
