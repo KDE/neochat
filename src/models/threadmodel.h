@@ -92,11 +92,6 @@ public:
     QString threadRootId() const;
 
     /**
-     * @brief The content model for the thread root event.
-     */
-    MessageContentModel *threadRootContentModel() const;
-
-    /**
      * @brief Returns a mapping from Role enum values to role names.
      *
      * @sa Roles, QAbstractItemModel::roleNames()
@@ -119,8 +114,7 @@ public:
 
 private:
     QString m_threadRootId;
-
-    std::unique_ptr<MessageContentModel> m_threadRootContentModel;
+    QPointer<MessageContentModel> m_threadRootContentModel;
 
     std::deque<QString> m_events;
     ThreadChatBarModel *m_threadChatBarModel;

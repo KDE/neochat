@@ -21,8 +21,6 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
 
-    m_threadRootContentModel = std::unique_ptr<MessageContentModel>(new MessageContentModel(room, threadRootId));
-
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
     connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
 #else
@@ -73,14 +71,17 @@ QString ThreadModel::threadRootId() const
     return m_threadRootId;
 }
 
-MessageContentModel *ThreadModel::threadRootContentModel() const
-{
-    return m_threadRootContentModel.get();
-}
-
 QHash<int, QByteArray> ThreadModel::roleNames() const
 {
-    return m_threadRootContentModel->roleNames();
+    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
+    if (room == nullptr) {
+        return {};
+    }
+    const auto threadRootModel = room->contentModelForEvent(m_threadRootId);
+    if (threadRootModel == nullptr) {
+        return {};
+    }
+    return threadRootModel->roleNames();
 }
 
 bool ThreadModel::canFetchMore(const QModelIndex &parent) const
@@ -134,7 +135,6 @@ void ThreadModel::addModels()
         clearModels();
     }
 
-    addSourceModel(m_threadRootContentModel.get());
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
     if (room == nullptr) {
         return;
@@ -153,8 +153,6 @@ void ThreadModel::addModels()
 
 void ThreadModel::clearModels()
 {
-    removeSourceModel(m_threadRootContentModel.get());
-
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
     if (room == nullptr) {
         return;

@@ -300,13 +300,7 @@ TimelineDelegate {
                 showAuthor: root.showAuthor
                 isThreaded: root.isThreaded
 
-                // HACK: This is stupid but seemingly QConcatenateTablesProxyModel
-                // can't be passed as a model role, always returning null.
-                contentModel: if (root.isThreaded && NeoChatConfig.threads) {
-                   return RoomManager.timelineModel.timelineMessageModel.threadModelForRootId(root.threadRoot);
-                } else {
-                   return root.contentModel;
-                }
+                contentModel: root.contentModel
                 timeline: root.ListView.view
 
                 showHighlight: root.showHighlight

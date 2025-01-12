@@ -7,7 +7,7 @@
 
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
 #include <Quotient/thread.h>
 #endif
 
@@ -120,6 +120,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
+        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+            return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(roomMessageEvent->threadRootEventId()));
+        }
         return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(&event->get()));
     }
 
@@ -169,7 +173,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
         if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(event.value().get().id()))) {
             const auto &thread = m_room->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
             if (thread.latestEventId != event.value().get().id()) {

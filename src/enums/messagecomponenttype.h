@@ -53,6 +53,8 @@ public:
         LinkPreview, /**< A preview of a URL in the message. */
         LinkPreviewLoad, /**< A loading dialog for a link preview. */
         ChatBar, /**< A text edit for editing a message. */
+        ThreadRoot, /**< The root message of the thread. */
+        ThreadBody, /**< The other messages in the thread. */
         ReplyButton, /**< A button to reply in the current thread. */
         Verification, /**< A user verification session start message. */
         Loading, /**< The component is loading. */

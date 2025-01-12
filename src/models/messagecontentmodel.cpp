@@ -340,6 +340,17 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
+    if (role == ThreadRootRole) {
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first);
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+        if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
+#else
+        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+#endif
+            return roomMessageEvent->threadRootEventId();
+        }
+        return {};
+    }
     if (role == LinkPreviewerRole) {
         if (component.type == MessageComponentType::LinkPreview) {
             return QVariant::fromValue<LinkPreviewer *>(
@@ -462,6 +473,15 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     if (m_room->urlPreviewEnabled()) {
         newComponents = addLinkPreviews(newComponents);
+    }
+
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+    if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
+        && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+#else
+    if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+#endif
+        newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
