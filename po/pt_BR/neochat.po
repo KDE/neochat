@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
 "PO-Revision-Date: 2024-08-03 00:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1138,8 +1138,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:283
-#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:257
+#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1881,15 +1881,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emoji personalizado"
 
-#: src/models/messagecontentmodel.cpp:281
-#: src/models/messagecontentmodel.cpp:309
+#: src/models/messagecontentmodel.cpp:255
+#: src/models/messagecontentmodel.cpp:283
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
 msgstr "Carregando..."
 
-#: src/models/messagecontentmodel.cpp:304
+#: src/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -2183,38 +2183,38 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:78
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Criação de sala falhou: \"%1\""
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Criação de sala falhou: \"%1\""
 
-#: src/neochatroom.cpp:1285
+#: src/neochatroom.cpp:1271
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Senha alterada com sucesso"
 
-#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
+#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2235,7 +2235,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Abrir o NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2287,7 +2287,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
+#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -2307,50 +2307,50 @@ msgstr "Editar esta conta"
 msgid "Account editor"
 msgstr "Detalhes da conta"
 
-#: src/qml/AccountMenu.qml:49
+#: src/qml/AccountMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notification Settings"
 msgstr "Mostrar notificações"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
+#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Developer Tools"
 msgstr "Configurações"
 
-#: src/qml/AccountMenu.qml:69
+#: src/qml/AccountMenu.qml:72
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Configurações"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:79
+#: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:83
+#: src/qml/AccountMenu.qml:88
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Editar dispositivo"
 
-#: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Sair"
@@ -2406,7 +2406,7 @@ msgid "Attachment:"
 msgstr "Anexo:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
@@ -2574,113 +2574,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/ContextMenu.qml:31 src/qml/ContextMenu.qml:209
-#, kde-format
-msgid "Mark as Read"
-msgstr "Marcar como lida"
-
-#: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Mostrar notificações"
-
-#: src/qml/ContextMenu.qml:44
-#, kde-format
-msgid "Follow Global Setting"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:55 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:66 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:77 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Remove from Favourites"
-msgid "Remove from Favorites"
-msgstr "Remover dos favoritos"
-
-#: src/qml/ContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Add to Favourites"
-msgid "Add to Favorites"
-msgstr "Adicionar aos favoritos"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Reprioritize"
-msgstr "Priorizar novamente"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Deprioritize"
-msgstr "Remover prioridade"
-
-#: src/qml/ContextMenu.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copiar endereço para a área de transferência"
-
-#: src/qml/ContextMenu.qml:104 src/qml/SpaceListContextMenu.qml:38
-#: src/qml/SpaceListContextMenu.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Copiar endereço para a área de transferência"
-
-#: src/qml/ContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Configurações da sala"
-
-#: src/qml/ContextMenu.qml:126 src/qml/ContextMenu.qml:216
-#, kde-format
-msgid "Leave Room"
-msgstr "Sair da sala"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Remover dos favoritos"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Adicionar aos favoritos"
-
-#: src/qml/ContextMenu.qml:192
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgctxt "@action:button"
-msgid "Room Settings"
-msgstr "Configurações da sala"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
-#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
 #: src/qml/SpaceDrawer.qml:274
 #, fuzzy, kde-format
@@ -2689,7 +2584,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Criar uma sala"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
 #: src/qml/ExploreComponentMobile.qml:149
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -2773,7 +2668,7 @@ msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
+#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
 #: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, fuzzy, kde-format
@@ -2814,84 +2709,74 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/qml/DelegateContextMenu.qml:89
+#: src/qml/DelegateContextMenu.qml:71
 #, kde-format
 msgid "View Source"
 msgstr "Exibir origem"
 
-#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
-#: src/qml/FileDelegateContextMenu.qml:82
-#: src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
+#: src/qml/FileDelegateContextMenu.qml:79
+#: src/qml/FileDelegateContextMenu.qml:84
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Editar mensagem"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Desbanir este usuário"
 
-#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
+#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr ""
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:113
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Editar mensagem"
 
-#: src/qml/DelegateContextMenu.qml:132
+#: src/qml/DelegateContextMenu.qml:114
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Desbanir este usuário"
 
-#: src/qml/DelegateContextMenu.qml:136
+#: src/qml/DelegateContextMenu.qml:118
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Editar mensagem"
 
-#: src/qml/DelegateContextMenu.qml:146
+#: src/qml/DelegateContextMenu.qml:128
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Banir este usuário"
-
-#: src/qml/DelegateContextMenu.qml:209
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Pesquisar por '%1'"
-
-#: src/qml/DelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Configurar os atalhos da Web..."
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2971,20 +2856,41 @@ msgstr ""
 msgid "They don't match"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:47
+#: src/qml/ExploreComponent.qml:34
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Salas"
+
+#: src/qml/ExploreComponent.qml:46
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Abrir o NeoChat nesta sala"
+
+#: src/qml/ExploreComponent.qml:64
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Banir este usuário"
+
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
 #: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorar salas"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2992,54 +2898,27 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "Criar uma sala"
 
-#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a Space"
 msgstr "Criar uma sala"
 
-#: src/qml/ExploreComponent.qml:72
+#: src/qml/ExploreComponent.qml:136
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
-
-#: src/qml/ExploreComponent.qml:93
-#, fuzzy, kde-format
-#| msgid "Rooms"
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Salas"
-
-#: src/qml/ExploreComponent.qml:105
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Abrir o NeoChat nesta sala"
-
-#: src/qml/ExploreComponent.qml:123
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Banir este usuário"
-
-#: src/qml/ExploreComponent.qml:192
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create rooms and chats"
-msgstr "Salas e bate-papos privados:"
 
 #: src/qml/ExploreComponentMobile.qml:31
 #, kde-format
@@ -3097,28 +2976,28 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nenhuma sala encontrada"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:43
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "limpou o nome da sala"
 
-#: src/qml/FileDelegateContextMenu.qml:57
+#: src/qml/FileDelegateContextMenu.qml:51
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Enviar uma mensagem…"
 
-#: src/qml/FileDelegateContextMenu.qml:66
+#: src/qml/FileDelegateContextMenu.qml:61
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "limpou o nome da sala"
 
-#: src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgid "Remove"
 msgstr "Remover"
@@ -3570,39 +3449,49 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:55
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Editar mensagem"
 
-#: src/qml/MessageDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:69
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Copiar"
 
-#: src/qml/MessageDelegateContextMenu.qml:74
+#: src/qml/MessageDelegateContextMenu.qml:75
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Copiar"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Copiar"
+
+#: src/qml/MessageDelegateContextMenu.qml:107
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Pesquisar por '%1'"
+
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Configurar os atalhos da Web..."
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
@@ -3736,6 +3625,93 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+
+#: src/qml/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Marcar como lida"
+
+#: src/qml/RoomContextMenu.qml:57
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Mostrar notificações"
+
+#: src/qml/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:110
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgid "Remove from Favorites"
+msgstr "Remover dos favoritos"
+
+#: src/qml/RoomContextMenu.qml:110
+#, fuzzy, kde-format
+#| msgid "Add to Favourites"
+msgid "Add to Favorites"
+msgstr "Adicionar aos favoritos"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "Priorizar novamente"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "Remover prioridade"
+
+#: src/qml/RoomContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Copiar endereço para a área de transferência"
+
+#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Copiar endereço para a área de transferência"
+
+#: src/qml/RoomContextMenu.qml:138
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Configurações da sala"
+
+#: src/qml/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Sair da sala"
 
 #: src/qml/RoomDelegate.qml:115
 #, fuzzy, kde-format
@@ -4172,8 +4148,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "%1 convidou você para uma sala"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
-#: src/qml/SpaceListContextMenu.qml:130
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
@@ -4187,14 +4162,14 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "Criar uma sala"
 
-#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
+#: src/qml/SpaceListContextMenu.qml:45
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Exibir origem"
 
-#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
+#: src/qml/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4456,12 +4431,12 @@ msgstr "Copiar"
 msgid "Edit this account"
 msgstr "Editar esta conta"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:100
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
@@ -6596,6 +6571,23 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Remove from Favourites"
+#~ msgstr "Remover dos favoritos"
+
+#~ msgid "Add to Favourites"
+#~ msgstr "Adicionar aos favoritos"
+
+#, fuzzy
+#~| msgid "Room settings"
+#~ msgctxt "@action:button"
+#~ msgid "Room Settings"
+#~ msgstr "Configurações da sala"
+
+#, fuzzy
+#~| msgid "Rooms and private chats:"
+#~ msgid "Create rooms and chats"
+#~ msgstr "Salas e bate-papos privados:"
 
 #, fuzzy
 #~| msgid "Ignore this user"

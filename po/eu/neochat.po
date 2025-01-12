@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
 "PO-Revision-Date: 2025-01-10 20:53+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1040,8 +1040,8 @@ msgid "Registration is disabled on this server."
 msgstr "Erregistratzea ezgaituta dago zerbitzari horretan."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:283
-#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:257
+#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Zamatzen..."
@@ -1704,14 +1704,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emoji propioak"
 
-#: src/models/messagecontentmodel.cpp:281
-#: src/models/messagecontentmodel.cpp:309
+#: src/models/messagecontentmodel.cpp:255
+#: src/models/messagecontentmodel.cpp:283
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Erantzuna zamatzen"
 
-#: src/models/messagecontentmodel.cpp:304
+#: src/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1949,7 +1949,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:78
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1958,28 +1958,28 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/neochatroom.cpp:1285
+#: src/neochatroom.cpp:1271
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
+#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2000,7 +2000,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Ireki NeoChat gela honetan"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2049,7 +2049,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Ireki NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
+#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -2066,46 +2066,46 @@ msgstr "Editatu kontu hau"
 msgid "Account editor"
 msgstr "Kontu-editorea"
 
-#: src/qml/AccountMenu.qml:49
+#: src/qml/AccountMenu.qml:50
 #, kde-format
 msgid "Notification Settings"
 msgstr "Jakinarazpen-ezarpenak"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Gailuak"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
+#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Ireki garatzailearen tresnak"
 
-#: src/qml/AccountMenu.qml:69
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Ireki babeskopia-sekretua"
 
-#: src/qml/AccountMenu.qml:79
+#: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Ireki gakoaren babeskopia"
 
-#: src/qml/AccountMenu.qml:83
+#: src/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Gailu hau egiaztatu"
 
-#: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Saioa itxi"
@@ -2156,7 +2156,7 @@ msgid "Attachment:"
 msgstr "Eranskina:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
@@ -2308,104 +2308,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Ireki"
 
-#: src/qml/ContextMenu.qml:31 src/qml/ContextMenu.qml:209
-#, kde-format
-msgid "Mark as Read"
-msgstr "Markatu irakurritako gisa"
-
-#: src/qml/ContextMenu.qml:40
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Jakinarazpenak"
-
-#: src/qml/ContextMenu.qml:44
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Jarraitu ezarpen orokorra"
-
-#: src/qml/ContextMenu.qml:55 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Guztia"
-
-#: src/qml/ContextMenu.qml:66 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@aipamenak eta gako-hitzak"
-
-#: src/qml/ContextMenu.qml:77 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Itzalita"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "Kendu gogokoetatik"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Add to Favorites"
-msgstr "Gehitu gogokoetara"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Reprioritize"
-msgstr "Lehentasuna aldatzea"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Deprioritize"
-msgstr "Lehentasuna kentzea"
-
-#: src/qml/ContextMenu.qml:104
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Kopiatu erabiltzailearen «Matrix»eko IDa arbelera"
-
-#: src/qml/ContextMenu.qml:104 src/qml/SpaceListContextMenu.qml:38
-#: src/qml/SpaceListContextMenu.qml:120
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Kopiatu helbidea arbelera"
-
-#: src/qml/ContextMenu.qml:116
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Gelaren ezarpenak"
-
-#: src/qml/ContextMenu.qml:126 src/qml/ContextMenu.qml:216
-#, kde-format
-msgid "Leave Room"
-msgstr "Irten gelatik"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Kendu gogokoetatik"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Gehitu gogokoetara"
-
-#: src/qml/ContextMenu.qml:192
-#, kde-format
-msgctxt "@action:button"
-msgid "Room Settings"
-msgstr "Gelaren ezarpenak"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
-#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
 #: src/qml/SpaceDrawer.qml:274
 #, kde-format
@@ -2413,7 +2317,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
 #: src/qml/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
@@ -2487,7 +2391,7 @@ msgid "Pick room"
 msgstr "Hautatu gela"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
+#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
 #: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
@@ -2527,77 +2431,67 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ados"
 
-#: src/qml/DelegateContextMenu.qml:89
+#: src/qml/DelegateContextMenu.qml:71
 #, kde-format
 msgid "View Source"
 msgstr "Ikusi sorburua"
 
-#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
-#: src/qml/FileDelegateContextMenu.qml:82
-#: src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
+#: src/qml/FileDelegateContextMenu.qml:79
+#: src/qml/FileDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Kendu mezua"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Mezu hori kentzeko arrazoia"
 
-#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
+#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Txostena"
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:113
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Mezuaren berri ematea"
 
-#: src/qml/DelegateContextMenu.qml:132
+#: src/qml/DelegateContextMenu.qml:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Mezu honen berri emateko arrazoia"
 
-#: src/qml/DelegateContextMenu.qml:136
+#: src/qml/DelegateContextMenu.qml:118
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Mezuaren berri ematea"
 
-#: src/qml/DelegateContextMenu.qml:146
+#: src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Erakutsi erabiltzailea"
-
-#: src/qml/DelegateContextMenu.qml:209
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Bilatu '%1'"
-
-#: src/qml/DelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Konfiguratu web-lasterbideak..."
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2676,20 +2570,38 @@ msgstr "Bat datoz"
 msgid "They don't match"
 msgstr "Ez datoz bat"
 
-#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:47
+#: src/qml/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Gelak"
+
+#: src/qml/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Bilatu gelak"
+
+#: src/qml/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Erakutsi menua"
+
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
 #: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2697,49 +2609,26 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "Sortu gela bat"
 
-#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
 #, kde-format
 msgid "Create a Space"
 msgstr "Sortu toki bat"
 
-#: src/qml/ExploreComponent.qml:72
+#: src/qml/ExploreComponent.qml:136
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Eskaneatu QR kode bat"
 
-#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Eskaneatu QR kode bat"
-
-#: src/qml/ExploreComponent.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Gelak"
-
-#: src/qml/ExploreComponent.qml:105
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Bilatu gelak"
-
-#: src/qml/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Erakutsi menua"
-
-#: src/qml/ExploreComponent.qml:192
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "Gelak eta berriketak sortzea"
 
 #: src/qml/ExploreComponentMobile.qml:31
 #, kde-format
@@ -2792,25 +2681,25 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Ez da gela publikorik aurkitu"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Ireki irudia"
 
-#: src/qml/FileDelegateContextMenu.qml:57
+#: src/qml/FileDelegateContextMenu.qml:51
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Gorde irudia..."
 
-#: src/qml/FileDelegateContextMenu.qml:66
+#: src/qml/FileDelegateContextMenu.qml:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiatu irudia"
 
-#: src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgid "Remove"
 msgstr "Kendu"
@@ -3237,35 +3126,45 @@ msgstr "Erabiltzaile IDak \"@\"rekin hasi behar du"
 msgid "The input is not a valid user ID"
 msgstr "Sarrera ez da erabiltzaile ID balioduna"
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Birbidali..."
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Birbidali mezua"
 
-#: src/qml/MessageDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiatu estekaren helbidea"
 
-#: src/qml/MessageDelegateContextMenu.qml:74
+#: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiatu testua"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiatu mezuaren esteka"
+
+#: src/qml/MessageDelegateContextMenu.qml:107
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Bilatu '%1'"
+
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Konfiguratu web-lasterbideak..."
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3389,6 +3288,85 @@ msgid ""
 "cleared?"
 msgstr ""
 "Uneko tokia gela horren guraso ofiziala da, hori garbitu beharko litzateke?"
+
+#: src/qml/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Markatu irakurritako gisa"
+
+#: src/qml/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Jakinarazpenak"
+
+#: src/qml/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "Jarraitu ezarpen orokorra"
+
+#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Guztia"
+
+#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@aipamenak eta gako-hitzak"
+
+#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Itzalita"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "Kendu gogokoetatik"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "Gehitu gogokoetara"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "Lehentasuna aldatzea"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "Lehentasuna kentzea"
+
+#: src/qml/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Kopiatu erabiltzailearen «Matrix»eko IDa arbelera"
+
+#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Kopiatu helbidea arbelera"
+
+#: src/qml/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Gelaren ezarpenak"
+
+#: src/qml/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Irten gelatik"
 
 #: src/qml/RoomDelegate.qml:115
 #, kde-format
@@ -3785,8 +3763,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Gonbidatu erabiltzailea tokira"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
-#: src/qml/SpaceListContextMenu.qml:130
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3798,13 +3775,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "Sortu haur bat"
 
-#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
+#: src/qml/SpaceListContextMenu.qml:45
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Ikusi tokia"
 
-#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
+#: src/qml/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4052,12 +4029,12 @@ msgstr "Kopiatu esteka"
 msgid "Edit this account"
 msgstr "Editatu kontu hau"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
 msgstr "Aldatu erabiltzailea"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "Ireki ezarpenak"
@@ -6077,6 +6054,19 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgid "Remove from Favourites"
+#~ msgstr "Kendu gogokoetatik"
+
+#~ msgid "Add to Favourites"
+#~ msgstr "Gehitu gogokoetara"
+
+#~ msgctxt "@action:button"
+#~ msgid "Room Settings"
+#~ msgstr "Gelaren ezarpenak"
+
+#~ msgid "Create rooms and chats"
+#~ msgstr "Gelak eta berriketak sortzea"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show QR code"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1035,8 +1035,8 @@ msgid "Registration is disabled on this server."
 msgstr "अस्मिन् सर्वरे पञ्जीकरणं निष्क्रियं भवति ।"
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:283
-#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:257
+#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "लोडिंग"
@@ -1696,14 +1696,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "स्वकीय इमोजी"
 
-#: src/models/messagecontentmodel.cpp:281
-#: src/models/messagecontentmodel.cpp:309
+#: src/models/messagecontentmodel.cpp:255
+#: src/models/messagecontentmodel.cpp:283
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "उत्तरं लोडयति"
 
-#: src/models/messagecontentmodel.cpp:304
+#: src/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1939,7 +1939,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", ९. "
 
-#: src/neochatconnection.cpp:78
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1948,28 +1948,28 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
 
-#: src/neochatroom.cpp:1285
+#: src/neochatroom.cpp:1271
 #, kde-format
 msgid "Report sent successfully."
 msgstr "प्रतिवेदनं सफलतया प्रेषितम्।"
 
-#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
+#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1990,7 +1990,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "अस्मिन् कक्षे NeoChat उद्घाटयन्तु"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2039,7 +2039,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat उद्घाटयन्तु"
 
-#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
+#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -2056,46 +2056,46 @@ msgstr "एतत् खातं सम्पादयतु"
 msgid "Account editor"
 msgstr "खाता सम्पादक"
 
-#: src/qml/AccountMenu.qml:49
+#: src/qml/AccountMenu.qml:50
 #, kde-format
 msgid "Notification Settings"
 msgstr "सूचना सेटिंग्स्"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "यन्त्राणि"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
+#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "विकासकसाधनं उद्घाटयन्तु"
 
-#: src/qml/AccountMenu.qml:69
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "विकासकसाधनम्"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "गुप्तं बैकअपं उद्घाटयन्तु"
 
-#: src/qml/AccountMenu.qml:79
+#: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "कील बैकअप उद्घाटयन्तु"
 
-#: src/qml/AccountMenu.qml:83
+#: src/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "एतत् यन्त्रं सत्यापयन्तु"
 
-#: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "लॉगआउट्"
@@ -2146,7 +2146,7 @@ msgid "Attachment:"
 msgstr "संलग्न:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादन"
@@ -2296,104 +2296,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "उद्घाटित"
 
-#: src/qml/ContextMenu.qml:31 src/qml/ContextMenu.qml:209
-#, kde-format
-msgid "Mark as Read"
-msgstr "Read इति चिह्नं कुर्वन्तु"
-
-#: src/qml/ContextMenu.qml:40
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "अधिसूचना"
-
-#: src/qml/ContextMenu.qml:44
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "वैश्विकसेटिंग् अनुसरणं कुर्वन्तु"
-
-#: src/qml/ContextMenu.qml:55 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "सर्वे"
-
-#: src/qml/ContextMenu.qml:66 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@उल्लेख तथा कीवर्ड"
-
-#: src/qml/ContextMenu.qml:77 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "दूरे"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "प्रियतः निष्कासयन्तु"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Add to Favorites"
-msgstr "प्रियं योजयतु"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Reprioritize"
-msgstr "पुनः प्राधान्यं ददातु"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Deprioritize"
-msgstr "प्राथमिकता वंचित करें"
-
-#: src/qml/ContextMenu.qml:104
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "उपयोक्तुः Matrix ID Clipboard मध्ये प्रतिलिख्यताम्"
-
-#: src/qml/ContextMenu.qml:104 src/qml/SpaceListContextMenu.qml:38
-#: src/qml/SpaceListContextMenu.qml:120
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Address इत्यस्य प्रतिलिपिं Clipboard इत्यत्र कुर्वन्तु"
-
-#: src/qml/ContextMenu.qml:116
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "कक्षस्य सेटिंग्स्"
-
-#: src/qml/ContextMenu.qml:126 src/qml/ContextMenu.qml:216
-#, kde-format
-msgid "Leave Room"
-msgstr "कक्षं त्यजतु"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "प्रियतः निष्कासयन्तु"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Add to Favourites"
-msgstr "प्रियं योजयतु"
-
-#: src/qml/ContextMenu.qml:192
-#, kde-format
-msgctxt "@action:button"
-msgid "Room Settings"
-msgstr "कक्षस्य सेटिंग्स्"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
-#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
 #: src/qml/SpaceDrawer.qml:274
 #, kde-format
@@ -2401,7 +2305,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "एकं Space रचयन्तु"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
 #: src/qml/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
@@ -2475,7 +2379,7 @@ msgid "Pick room"
 msgstr "कक्षं चिनुत"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
+#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
 #: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
@@ -2514,77 +2418,67 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "अस्तु"
 
-#: src/qml/DelegateContextMenu.qml:89
+#: src/qml/DelegateContextMenu.qml:71
 #, kde-format
 msgid "View Source"
 msgstr "स्रोतः पश्यन्तु"
 
-#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
-#: src/qml/FileDelegateContextMenu.qml:82
-#: src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
+#: src/qml/FileDelegateContextMenu.qml:79
+#: src/qml/FileDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "सन्देशं निष्कासयन्तु"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "अस्य सन्देशस्य निष्कासनस्य कारणम्"
 
-#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
+#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "वृत्तान्तः"
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:113
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: src/qml/DelegateContextMenu.qml:132
+#: src/qml/DelegateContextMenu.qml:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "अस्य सन्देशस्य निवेदनस्य कारणम्"
 
-#: src/qml/DelegateContextMenu.qml:136
+#: src/qml/DelegateContextMenu.qml:118
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: src/qml/DelegateContextMenu.qml:146
+#: src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "उपयोक्तारं दर्शयतु"
-
-#: src/qml/DelegateContextMenu.qml:209
-#, kde-format
-msgid "Search for '%1'"
-msgstr "'%1' इति अन्वेषणं कुर्वन्तु ।"
-
-#: src/qml/DelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "जालशॉर्टकट् विन्यस्तं कुर्वन्तु..."
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2662,20 +2556,38 @@ msgstr "ते मेलनं कुर्वन्ति"
 msgid "They don't match"
 msgstr "ते न मेलन्ति"
 
-#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:47
+#: src/qml/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "कक्ष्याः"
+
+#: src/qml/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
+
+#: src/qml/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "मेनू दर्शयतु"
+
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
 #: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "कक्ष्याः अन्वेषणं कुर्वन्तु"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
-#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2683,49 +2595,26 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
-#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
 #, kde-format
 msgid "Create a Space"
 msgstr "एकं Space रचयन्तु"
 
-#: src/qml/ExploreComponent.qml:72
+#: src/qml/ExploreComponent.qml:136
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
 
-#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
-
-#: src/qml/ExploreComponent.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "कक्ष्याः"
-
-#: src/qml/ExploreComponent.qml:105
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
-
-#: src/qml/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "मेनू दर्शयतु"
-
-#: src/qml/ExploreComponent.qml:192
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "कक्ष्याः, गपशपस्य च निर्माणं कुर्वन्तु"
 
 #: src/qml/ExploreComponentMobile.qml:31
 #, kde-format
@@ -2776,25 +2665,25 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "सार्वजनिककक्ष्याः न प्राप्ताः"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "चित्रं उद्घाटयतु"
 
-#: src/qml/FileDelegateContextMenu.qml:57
+#: src/qml/FileDelegateContextMenu.qml:51
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "चित्रं रक्षतु..."
 
-#: src/qml/FileDelegateContextMenu.qml:66
+#: src/qml/FileDelegateContextMenu.qml:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "प्रतिलिपि चित्रम्"
 
-#: src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgid "Remove"
 msgstr "अपाकरोति"
@@ -3219,35 +3108,45 @@ msgstr "उपयोक्तृपरिचयः @ 1000 इत्यनेन 
 msgid "The input is not a valid user ID"
 msgstr "निवेशः वैधः उपयोक्तृ-ID नास्ति"
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "अग्रतः…"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "अग्रे सन्देशः"
 
-#: src/qml/MessageDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "लिङ्क पता प्रतिलिपि कुर्वन्तु"
 
-#: src/qml/MessageDelegateContextMenu.qml:74
+#: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "पाठ प्रतिलिपि कुर्वन्तु"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "प्रतिलिपि सन्देश लिङ्क"
+
+#: src/qml/MessageDelegateContextMenu.qml:107
+#, kde-format
+msgid "Search for '%1'"
+msgstr "'%1' इति अन्वेषणं कुर्वन्तु ।"
+
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "जालशॉर्टकट् विन्यस्तं कुर्वन्तु..."
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3371,6 +3270,85 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "वर्तमानं स्थानं अस्य कक्षस्य आधिकारिकः मातापिता अस्ति, एतत् स्वच्छं कर्तव्यम् वा?"
+
+#: src/qml/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Read इति चिह्नं कुर्वन्तु"
+
+#: src/qml/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "अधिसूचना"
+
+#: src/qml/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "वैश्विकसेटिंग् अनुसरणं कुर्वन्तु"
+
+#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "सर्वे"
+
+#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@उल्लेख तथा कीवर्ड"
+
+#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "दूरे"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "प्रियतः निष्कासयन्तु"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "प्रियं योजयतु"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "पुनः प्राधान्यं ददातु"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "प्राथमिकता वंचित करें"
+
+#: src/qml/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "उपयोक्तुः Matrix ID Clipboard मध्ये प्रतिलिख्यताम्"
+
+#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Address इत्यस्य प्रतिलिपिं Clipboard इत्यत्र कुर्वन्तु"
+
+#: src/qml/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "कक्षस्य सेटिंग्स्"
+
+#: src/qml/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "कक्षं त्यजतु"
 
 #: src/qml/RoomDelegate.qml:115
 #, kde-format
@@ -3764,8 +3742,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "उपयोक्तारं अन्तरिक्षं प्रति आमन्त्रयन्तु"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
-#: src/qml/SpaceListContextMenu.qml:130
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3777,13 +3754,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "बालकं सृजतु"
 
-#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
+#: src/qml/SpaceListContextMenu.qml:45
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "अन्तरिक्षं पश्यन्तु"
 
-#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
+#: src/qml/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4031,12 +4008,12 @@ msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन�
 msgid "Edit this account"
 msgstr "एतत् खातं सम्पादयतु"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
 msgstr "उपयोक्तारं स्विच कुर्वन्तु"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "सेटिंग्स् उद्घाटयन्तु"
@@ -6010,3 +5987,16 @@ msgstr "दर्शयतु"
 #, kde-format
 msgid "Quit"
 msgstr "परिजहातु"
+
+#~ msgid "Remove from Favourites"
+#~ msgstr "प्रियतः निष्कासयन्तु"
+
+#~ msgid "Add to Favourites"
+#~ msgstr "प्रियं योजयतु"
+
+#~ msgctxt "@action:button"
+#~ msgid "Room Settings"
+#~ msgstr "कक्षस्य सेटिंग्स्"
+
+#~ msgid "Create rooms and chats"
+#~ msgstr "कक्ष्याः, गपशपस्य च निर्माणं कुर्वन्तु"

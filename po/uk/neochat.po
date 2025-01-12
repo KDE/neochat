@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
-"PO-Revision-Date: 2024-12-30 11:54+0200\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"PO-Revision-Date: 2025-01-11 13:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1042,8 +1042,8 @@ msgid "Registration is disabled on this server."
 msgstr "На цьому сервері реєстрацію вимкнено."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:283
-#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:257
+#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Завантаження"
@@ -1704,14 +1704,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Власні емоційки"
 
-#: src/models/messagecontentmodel.cpp:281
-#: src/models/messagecontentmodel.cpp:309
+#: src/models/messagecontentmodel.cpp:255
+#: src/models/messagecontentmodel.cpp:283
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Завантаження відповіді"
 
-#: src/models/messagecontentmodel.cpp:304
+#: src/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1960,7 +1960,7 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:78
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1969,28 +1969,28 @@ msgstr ""
 "Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
 "вашого сервера matrix, щоб отримати допомогу."
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Не налаштовано жодного сервера профілів"
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/neochatroom.cpp:1285
+#: src/neochatroom.cpp:1271
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
+#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2011,7 +2011,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2060,7 +2060,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Відкрити NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
+#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -2077,46 +2077,46 @@ msgstr "Редагувати цей обліковий запис"
 msgid "Account editor"
 msgstr "Редактор облікових записів"
 
-#: src/qml/AccountMenu.qml:49
+#: src/qml/AccountMenu.qml:50
 #, kde-format
 msgid "Notification Settings"
 msgstr "Параметри сповіщення"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
+#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/qml/AccountMenu.qml:69
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Відкриття резервної копії реєстраційних даних"
 
-#: src/qml/AccountMenu.qml:79
+#: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Відкриття резервної копії ключів"
 
-#: src/qml/AccountMenu.qml:83
+#: src/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Перевірити цей пристрій"
 
-#: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Вийти"
@@ -2167,7 +2167,7 @@ msgid "Attachment:"
 msgstr "Долучення:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -2219,13 +2219,15 @@ msgstr "Пароль"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Витерти дані"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr ""
+"Надіслати на сервер запит щодо вилучення максимального можливого обсягу "
+"даних користувача."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -2319,104 +2321,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/ContextMenu.qml:31 src/qml/ContextMenu.qml:209
-#, kde-format
-msgid "Mark as Read"
-msgstr "Позначити як прочитане"
-
-#: src/qml/ContextMenu.qml:40
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Сповіщення"
-
-#: src/qml/ContextMenu.qml:44
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Використовувати загальні параметри"
-
-#: src/qml/ContextMenu.qml:55 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Усі"
-
-#: src/qml/ContextMenu.qml:66 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@Згадки і ключові слова"
-
-#: src/qml/ContextMenu.qml:77 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Вимкнено"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "Вилучити з улюблених"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Add to Favorites"
-msgstr "Додати до улюблених"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Reprioritize"
-msgstr "Змінити пріоритетність"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Deprioritize"
-msgstr "Зменшити пріоритетність"
-
-#: src/qml/ContextMenu.qml:104
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Копіювати ідентифікатор користувача Matrix до буфера обміну"
-
-#: src/qml/ContextMenu.qml:104 src/qml/SpaceListContextMenu.qml:38
-#: src/qml/SpaceListContextMenu.qml:120
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Копіювати адресу до буфера обміну"
-
-#: src/qml/ContextMenu.qml:116
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Параметри кімнати"
-
-#: src/qml/ContextMenu.qml:126 src/qml/ContextMenu.qml:216
-#, kde-format
-msgid "Leave Room"
-msgstr "Полишити кімнату"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Вилучити з улюблених"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Додати до улюблених"
-
-#: src/qml/ContextMenu.qml:192
-#, kde-format
-msgctxt "@action:button"
-msgid "Room Settings"
-msgstr "Параметри кімнати"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
-#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
 #: src/qml/SpaceDrawer.qml:274
 #, kde-format
@@ -2424,7 +2330,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Створити простір"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
 #: src/qml/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
@@ -2498,7 +2404,7 @@ msgid "Pick room"
 msgstr "Вибрати кімнату"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
+#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
 #: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
@@ -2541,77 +2447,67 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "Гаразд"
 
-#: src/qml/DelegateContextMenu.qml:89
+#: src/qml/DelegateContextMenu.qml:71
 #, kde-format
 msgid "View Source"
 msgstr "Переглянути джерело"
 
-#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
-#: src/qml/FileDelegateContextMenu.qml:82
-#: src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
+#: src/qml/FileDelegateContextMenu.qml:79
+#: src/qml/FileDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Вилучити повідомлення"
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Причина вилучення цього повідомлення"
 
-#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
+#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Поскаржитися"
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:113
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/qml/DelegateContextMenu.qml:132
+#: src/qml/DelegateContextMenu.qml:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Причина скарги на це повідомлення"
 
-#: src/qml/DelegateContextMenu.qml:136
+#: src/qml/DelegateContextMenu.qml:118
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/qml/DelegateContextMenu.qml:146
+#: src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Показати користувача"
-
-#: src/qml/DelegateContextMenu.qml:209
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Пошук «%1»"
-
-#: src/qml/DelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Налаштувати вебскорочення…"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2691,20 +2587,38 @@ msgstr "Збігаються"
 msgid "They don't match"
 msgstr "Не збігаються"
 
-#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:47
+#: src/qml/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Кімнати"
+
+#: src/qml/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Шукати кімнати"
+
+#: src/qml/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Показати меню"
+
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
 #: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
-#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2712,49 +2626,26 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
-#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "Створити кімнату"
 
-#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
 #, kde-format
 msgid "Create a Space"
 msgstr "Створити простір"
 
-#: src/qml/ExploreComponent.qml:72
+#: src/qml/ExploreComponent.qml:136
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Сканувати QR-код"
 
-#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Сканувати QR-код"
-
-#: src/qml/ExploreComponent.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Кімнати"
-
-#: src/qml/ExploreComponent.qml:105
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Шукати кімнати"
-
-#: src/qml/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Показати меню"
-
-#: src/qml/ExploreComponent.qml:192
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "Створити кімнати і спілкування"
 
 #: src/qml/ExploreComponentMobile.qml:31
 #, kde-format
@@ -2807,25 +2698,25 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Не знайдено загальнодоступних кімнат"
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:43
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Відкрити зображення"
 
-#: src/qml/FileDelegateContextMenu.qml:57
+#: src/qml/FileDelegateContextMenu.qml:51
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Зберегти зображення…"
 
-#: src/qml/FileDelegateContextMenu.qml:66
+#: src/qml/FileDelegateContextMenu.qml:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Копіювати зображення"
 
-#: src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
@@ -3252,35 +3143,45 @@ msgstr "Ідентифікатори користувачів мають поч�
 msgid "The input is not a valid user ID"
 msgstr "Введений рядок не є коректним ідентифікатором користувача"
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Спрямувати…"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Спрямувати повідомлення"
 
-#: src/qml/MessageDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Скопіювати адресу посилання"
 
-#: src/qml/MessageDelegateContextMenu.qml:74
+#: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Копіювати текст"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Копіювати посилання на повідомлення"
+
+#: src/qml/MessageDelegateContextMenu.qml:107
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Пошук «%1»"
+
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Налаштувати вебскорочення…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3404,6 +3305,85 @@ msgid ""
 "cleared?"
 msgstr ""
 "Поточний простір є офіційним батьківським для цієї кімнати. Вилучити ці дані?"
+
+#: src/qml/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Позначити як прочитане"
+
+#: src/qml/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Сповіщення"
+
+#: src/qml/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "Використовувати загальні параметри"
+
+#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Усі"
+
+#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@Згадки і ключові слова"
+
+#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Вимкнено"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "Вилучити з улюблених"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "Додати до улюблених"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "Змінити пріоритетність"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "Зменшити пріоритетність"
+
+#: src/qml/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Копіювати ідентифікатор користувача Matrix до буфера обміну"
+
+#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Копіювати адресу до буфера обміну"
+
+#: src/qml/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Параметри кімнати"
+
+#: src/qml/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Полишити кімнату"
 
 #: src/qml/RoomDelegate.qml:115
 #, kde-format
@@ -3808,8 +3788,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Запросити користувача до простору"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
-#: src/qml/SpaceListContextMenu.qml:130
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3821,13 +3800,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr "Створення дочірнього запису"
 
-#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
+#: src/qml/SpaceListContextMenu.qml:45
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Переглянути простір"
 
-#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
+#: src/qml/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4080,12 +4059,12 @@ msgstr "Копіювати посилання"
 msgid "Edit this account"
 msgstr "Редагувати цей обліковий запис"
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
 msgstr "Змінити користувача"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "Відкрити налаштування"
@@ -6115,6 +6094,19 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Remove from Favourites"
+#~ msgstr "Вилучити з улюблених"
+
+#~ msgid "Add to Favourites"
+#~ msgstr "Додати до улюблених"
+
+#~ msgctxt "@action:button"
+#~ msgid "Room Settings"
+#~ msgstr "Параметри кімнати"
+
+#~ msgid "Create rooms and chats"
+#~ msgstr "Створити кімнати і спілкування"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show QR code"

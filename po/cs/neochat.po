@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:28+0000\n"
+"POT-Creation-Date: 2025-01-12 00:42+0000\n"
 "PO-Revision-Date: 2024-09-17 15:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1044,8 +1044,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:283
-#: src/models/messagecontentmodel.cpp:311 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:257
+#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Načítání"
@@ -1705,14 +1705,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastní emotikony"
 
-#: src/models/messagecontentmodel.cpp:281
-#: src/models/messagecontentmodel.cpp:309
+#: src/models/messagecontentmodel.cpp:255
+#: src/models/messagecontentmodel.cpp:283
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:304
+#: src/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1950,35 +1950,35 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/neochatconnection.cpp:78
+#: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:314
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:345
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatconnection.cpp:375
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/neochatroom.cpp:1285
+#: src/neochatroom.cpp:1271
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Hlášení bylo úspěšně odesláno."
 
-#: src/neochatroom.cpp:1625 src/neochatroom.cpp:1633
+#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1999,7 +1999,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr ""
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:116
+#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
@@ -2048,7 +2048,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Otevřít NeoChat"
 
-#: src/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
+#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -2066,42 +2066,42 @@ msgstr "Upravit účet"
 msgid "Account editor"
 msgstr "Editor účtů"
 
-#: src/qml/AccountMenu.qml:49
+#: src/qml/AccountMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Notification settings"
 msgid "Notification Settings"
 msgstr "Nastavení oznamování"
 
-#: src/qml/AccountMenu.qml:56 src/settings/NeoChatSettingsView.qml:89
+#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Zařízení"
 
-#: src/qml/AccountMenu.qml:63 src/settings/NeoChatGeneralPage.qml:298
+#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgid "Open Developer Tools"
 msgstr "Vývojové nástroje"
 
-#: src/qml/AccountMenu.qml:69
+#: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Vývojové nástroje"
 
-#: src/qml/AccountMenu.qml:75
+#: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:79
+#: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/qml/AccountMenu.qml:83
+#: src/qml/AccountMenu.qml:88
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Verify this Device"
@@ -2109,7 +2109,7 @@ msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Ověřit toto zařízení"
 
-#: src/qml/AccountMenu.qml:89 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásit se"
@@ -2160,7 +2160,7 @@ msgid "Attachment:"
 msgstr "Příloha:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:37
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "Upravit"
@@ -2304,105 +2304,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/qml/ContextMenu.qml:31 src/qml/ContextMenu.qml:209
-#, kde-format
-msgid "Mark as Read"
-msgstr "Označit jako přečtený"
-
-#: src/qml/ContextMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Notifications"
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Upozornění"
-
-#: src/qml/ContextMenu.qml:44
-#, kde-format
-msgid "Follow Global Setting"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:55 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Vše"
-
-#: src/qml/ContextMenu.qml:66 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:77 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Vypnuto"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "Odstranit z oblíbených"
-
-#: src/qml/ContextMenu.qml:90
-#, kde-format
-msgid "Add to Favorites"
-msgstr "Přidat do oblíbených"
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Reprioritize"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:96 src/qml/ContextMenu.qml:202
-#, kde-format
-msgid "Deprioritize"
-msgstr ""
-
-#: src/qml/ContextMenu.qml:104
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Kopírovat Matrix ID uživatele do schránky"
-
-#: src/qml/ContextMenu.qml:104 src/qml/SpaceListContextMenu.qml:38
-#: src/qml/SpaceListContextMenu.qml:120
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Kopírovat adresu do schránky"
-
-#: src/qml/ContextMenu.qml:116
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Nastavení místnosti"
-
-#: src/qml/ContextMenu.qml:126 src/qml/ContextMenu.qml:216
-#, kde-format
-msgid "Leave Room"
-msgstr "Opustit místnost"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Odstranit z oblíbených"
-
-#: src/qml/ContextMenu.qml:187
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Přidat k oblíbeným"
-
-#: src/qml/ContextMenu.qml:192
-#, kde-format
-msgctxt "@action:button"
-msgid "Room Settings"
-msgstr "Nastavení místnosti"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:64
-#: src/qml/ExploreComponent.qml:66 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
+#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
 #: src/qml/SpaceDrawer.qml:274
 #, kde-format
@@ -2410,7 +2313,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "Vytvořit místnost"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:52
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
 #: src/qml/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
@@ -2484,7 +2387,7 @@ msgid "Pick room"
 msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:29 src/qml/ExploreComponentMobile.qml:54
+#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
 #: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
 #, kde-format
@@ -2523,77 +2426,67 @@ msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
 
-#: src/qml/DelegateContextMenu.qml:89
+#: src/qml/DelegateContextMenu.qml:71
 #, kde-format
 msgid "View Source"
 msgstr "Zobrazit zdroj"
 
-#: src/qml/DelegateContextMenu.qml:96 src/settings/ThreePIdCard.qml:66
+#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Odstranit"
 
-#: src/qml/DelegateContextMenu.qml:101 src/qml/DelegateContextMenu.qml:106
-#: src/qml/FileDelegateContextMenu.qml:82
-#: src/qml/FileDelegateContextMenu.qml:87
+#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
+#: src/qml/FileDelegateContextMenu.qml:79
+#: src/qml/FileDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr ""
 
-#: src/qml/DelegateContextMenu.qml:102 src/qml/FileDelegateContextMenu.qml:83
+#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr ""
 
-#: src/qml/DelegateContextMenu.qml:103 src/qml/FileDelegateContextMenu.qml:84
+#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstranit"
 
-#: src/qml/DelegateContextMenu.qml:126 src/qml/DelegateContextMenu.qml:134
+#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Hlášení"
 
-#: src/qml/DelegateContextMenu.qml:131
+#: src/qml/DelegateContextMenu.qml:113
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Nahlásit zprávu"
 
-#: src/qml/DelegateContextMenu.qml:132
+#: src/qml/DelegateContextMenu.qml:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/DelegateContextMenu.qml:136
+#: src/qml/DelegateContextMenu.qml:118
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Nahlásit zprávu"
 
-#: src/qml/DelegateContextMenu.qml:146
+#: src/qml/DelegateContextMenu.qml:128
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr ""
-
-#: src/qml/DelegateContextMenu.qml:209
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Vyhledat '%1'"
-
-#: src/qml/DelegateContextMenu.qml:231
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr "Nastavit webové zkratky..."
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2671,20 +2564,38 @@ msgstr "Jsou stejné"
 msgid "They don't match"
 msgstr "Nejsou stejné"
 
-#: src/qml/ExploreComponent.qml:23 src/qml/ExploreComponentMobile.qml:47
+#: src/qml/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Místnosti"
+
+#: src/qml/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Hledat místnosti"
+
+#: src/qml/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Zobrazovat nabídku"
+
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
 #: src/qml/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:37 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:42 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2692,49 +2603,26 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:46 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "Vytvořit místnost"
 
-#: src/qml/ExploreComponent.qml:58 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
 #, kde-format
 msgid "Create a Space"
 msgstr "Vytvořit místnost"
 
-#: src/qml/ExploreComponent.qml:72
+#: src/qml/ExploreComponent.qml:136
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/qml/ExploreComponent.qml:77 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
-
-#: src/qml/ExploreComponent.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Místnosti"
-
-#: src/qml/ExploreComponent.qml:105
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Hledat místnosti"
-
-#: src/qml/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Zobrazovat nabídku"
-
-#: src/qml/ExploreComponent.qml:192
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "Vytvářejte místnosti a rozhovory"
 
 #: src/qml/ExploreComponentMobile.qml:31
 #, kde-format
@@ -2785,21 +2673,21 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr ""
 
-#: src/qml/FileDelegateContextMenu.qml:50
+#: src/qml/FileDelegateContextMenu.qml:43
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Nastavit obrázek"
 
-#: src/qml/FileDelegateContextMenu.qml:57
+#: src/qml/FileDelegateContextMenu.qml:51
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Nastavit obrázek"
 
-#: src/qml/FileDelegateContextMenu.qml:66
+#: src/qml/FileDelegateContextMenu.qml:61
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Image"
@@ -2807,7 +2695,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Zobrazit obrázek"
 
-#: src/qml/FileDelegateContextMenu.qml:77
+#: src/qml/FileDelegateContextMenu.qml:74
 #, kde-format
 msgid "Remove"
 msgstr "Odstranit"
@@ -3230,7 +3118,7 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:48
+#: src/qml/MessageDelegateContextMenu.qml:49
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu As in 'Forward this message'"
 #| msgid "Forward"
@@ -3238,30 +3126,40 @@ msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Vpřed"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
+#: src/qml/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Předat zprávu"
 
-#: src/qml/MessageDelegateContextMenu.qml:68
+#: src/qml/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopírovat adresu odkazu"
 
-#: src/qml/MessageDelegateContextMenu.qml:74
+#: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopírovat text"
 
-#: src/qml/MessageDelegateContextMenu.qml:79
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopírovat odkaz"
+
+#: src/qml/MessageDelegateContextMenu.qml:107
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Vyhledat '%1'"
+
+#: src/qml/MessageDelegateContextMenu.qml:127
+#, kde-format
+msgid "Configure Web Shortcuts..."
+msgstr "Nastavit webové zkratky..."
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3384,6 +3282,86 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
+
+#: src/qml/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Označit jako přečtený"
+
+#: src/qml/RoomContextMenu.qml:57
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Upozornění"
+
+#: src/qml/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Vše"
+
+#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Vypnuto"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "Odstranit z oblíbených"
+
+#: src/qml/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "Přidat do oblíbených"
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr ""
+
+#: src/qml/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Kopírovat Matrix ID uživatele do schránky"
+
+#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Kopírovat adresu do schránky"
+
+#: src/qml/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Nastavení místnosti"
+
+#: src/qml/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Opustit místnost"
 
 #: src/qml/RoomDelegate.qml:115
 #, kde-format
@@ -3782,8 +3760,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:48
-#: src/qml/SpaceListContextMenu.qml:130
+#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3795,13 +3772,13 @@ msgctxt "@title"
 msgid "Create a Child"
 msgstr ""
 
-#: src/qml/SpaceListContextMenu.qml:32 src/qml/SpaceListContextMenu.qml:114
+#: src/qml/SpaceListContextMenu.qml:45
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr ""
 
-#: src/qml/SpaceListContextMenu.qml:58 src/qml/SpaceListContextMenu.qml:139
+#: src/qml/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
@@ -4046,12 +4023,12 @@ msgstr "Kopírovat odkaz"
 msgid "Edit this account"
 msgstr ""
 
-#: src/qml/UserInfo.qml:90
+#: src/qml/UserInfo.qml:92
 #, kde-format
 msgid "Switch User"
 msgstr "Přepnout uživatele"
 
-#: src/qml/UserInfo.qml:98
+#: src/qml/UserInfo.qml:100
 #, kde-format
 msgid "Open Settings"
 msgstr "Otevřít nastavení"
@@ -6068,6 +6045,19 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgid "Remove from Favourites"
+#~ msgstr "Odstranit z oblíbených"
+
+#~ msgid "Add to Favourites"
+#~ msgstr "Přidat k oblíbeným"
+
+#~ msgctxt "@action:button"
+#~ msgid "Room Settings"
+#~ msgstr "Nastavení místnosti"
+
+#~ msgid "Create rooms and chats"
+#~ msgstr "Vytvářejte místnosti a rozhovory"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show QR code"
