@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <Quotient/events/roomevent.h>
 #include <Quotient/room.h>
 
 #include <QCache>
@@ -589,7 +590,34 @@ public:
 
     NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
+    /**
+     * @brief Returns the content model for the given event ID.
+     *
+     * A model is created is one doesn't exist. Will return nullptr if evtOrTxnId
+     * is empty.
+     *
+     * @warning If a non-empty ID is given it is assumed to be a valid Quotient::RoomMessageEvent
+     *          event ID. The caller must ensure that the ID is a real event. A model will be
+     *          returned unconditionally.
+     *
+     * @warning Do NOT use for pending events as this function has no way to differentiate.
+     */
     MessageContentModel *contentModelForEvent(const QString &evtOrTxnId);
+
+    /**
+     * @brief Returns the content model for the given event.
+     *
+     * A model is created is one doesn't exist. Will return nullptr if event is:
+     *  - nullptr
+     *  - not a Quotient::RoomMessageEvent (e.g a state event)
+     *
+     * @note This method is preferred to the version using just an event ID as it
+     *       can perform some basic checks. If a copy of the event is not available,
+     *       you may have to use the version that takes an event ID.
+     *
+     * @note This version must be used for pending events as it can differentiate.
+     */
+    MessageContentModel *contentModelForEvent(const Quotient::RoomEvent *event);
 
     /**
      * @brief Returns the thread model for the given thread root event ID.

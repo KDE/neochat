@@ -1740,28 +1740,42 @@ NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
     return m_memberObjects[memberId].get();
 }
 
-MessageContentModel *NeoChatRoom::contentModelForEvent(const QString &evtOrTxnId)
+MessageContentModel *NeoChatRoom::contentModelForEvent(const QString &eventId)
 {
-    const auto event = getEvent(evtOrTxnId);
-    if (event.first == nullptr) {
+    if (eventId.isEmpty()) {
+        return nullptr;
+    }
+
+    if (!m_eventContentModels.contains(eventId)) {
+        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId)).first->second.get();
+    }
+
+    return m_eventContentModels[eventId].get();
+}
+
+MessageContentModel *NeoChatRoom::contentModelForEvent(const Quotient::RoomEvent *event)
+{
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
+    if (roomMessageEvent == nullptr) {
         // If for some reason a model is there remove.
-        if (m_eventContentModels.contains(evtOrTxnId)) {
-            m_eventContentModels.erase(evtOrTxnId);
+        if (m_eventContentModels.contains(event->id())) {
+            m_eventContentModels.erase(event->id());
+        }
+        if (m_eventContentModels.contains(event->transactionId())) {
+            m_eventContentModels.erase(event->transactionId());
         }
         return nullptr;
     }
 
-    if (event.first->isStateEvent() || event.first->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
+    if (event->isStateEvent() || event->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
         return nullptr;
     }
 
-    auto eventId = event.first->id();
-    const auto txnId = event.first->transactionId();
+    auto eventId = event->id();
+    const auto txnId = event->transactionId();
     if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
-        if (eventId.isEmpty()) {
-            eventId = txnId;
-        }
-        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId, false, event.second)).first->second.get();
+        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId.isEmpty() ? txnId : eventId, false, eventId.isEmpty()))
+            .first->second.get();
     }
 
     if (!eventId.isEmpty() && m_eventContentModels.contains(eventId)) {

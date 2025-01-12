@@ -120,11 +120,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        auto evtOrTxnId = event->get().id();
-        if (evtOrTxnId.isEmpty()) {
-            evtOrTxnId = event->get().transactionId();
-        }
-        return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(evtOrTxnId));
+        return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(&event->get()));
     }
 
     if (role == GenericDisplayRole) {
