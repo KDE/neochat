@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2024-11-23 12:05+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -3843,43 +3843,50 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Load your encrypted messages"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Encryption key"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "The security phrase was not correct."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Unlock using Passphrase"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "If you have a backup passphrase for this account, enter it below."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Backup Password:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Unlock"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Unlock using Security Key"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3889,25 +3896,25 @@ msgstr ""
 "If you have a security key for this account, enter it below or upload it as "
 "a file."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Security Key:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Upload from File"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Unlock from Cross-Signing"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3917,7 +3924,7 @@ msgstr ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -6263,9 +6270,6 @@ msgstr "Quit"
 
 #~ msgid "Device key"
 #~ msgstr "Device key"
-
-#~ msgid "Encryption key"
-#~ msgstr "Encryption key"
 
 #~ msgid "Device id"
 #~ msgstr "Device ID"

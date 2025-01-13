@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2025-01-10 15:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3817,43 +3817,49 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Şifreli İletileri Yükle"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "Güvenlik ifadesi doğru değildi."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Anahtar Parolası ile Kilit Aç"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "Bu hesap için bir anahtar parolası yedeğiniz varsa onu aşağıya girin."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Yedek parolası:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Kilidi Aç"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Güvenlik Anahtar ile Kilit Aç"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3863,25 +3869,25 @@ msgstr ""
 "Bu hesap için bir güvenlik anahtarınız varsa onu aşağıya girin veya bir "
 "dosya olarak yükleyin."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Güvenlik anahtarı:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Dosyadan Yükle"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Çapraz İmzalama ile Kilit Aç"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3891,7 +3897,7 @@ msgstr ""
 "Bu aygıtı daha önce doğruladıysanız aşağıdaki düğmeye tıklayarak başka "
 "aygıtlardan yedek anahtarı yüklemeyi deneyebilirsiniz."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"

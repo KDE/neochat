@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2025-01-04 07:47+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -3829,43 +3829,50 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Wczytaj swoje zaszyfrowane wiadomości"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Klucz szyfrujący"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "Wyrażenie zabezpieczające jest niepoprawne."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Odblokowywanie przy użyciu hasła"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "Jeśli masz hasło kopii zapasowej dla tego konta, to wpisz je poniżej."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Hasło kopii zapasowej:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Odblokuj"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Odblokuj przy użyciu klucza zabezpieczającego"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3875,25 +3882,25 @@ msgstr ""
 "Jeśli masz klucz zabezpieczający dla tego konta, wpisz go poniżej lub wyślij "
 "jako plik."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Klucz zabezpieczający:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Wyślij z pliku"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Odblokuj z podpisywania krzyżowego"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3903,7 +3910,7 @@ msgstr ""
 "Jeśli poprzednio potwierdziłeś ważność tego urządzenia, to możesz wczytać "
 "klucz kopii zapasowej z innych urządzeń, naciskając na poniższy przycisk."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -6194,9 +6201,6 @@ msgstr "Zakończ"
 
 #~ msgid "Device key"
 #~ msgstr "Klucz urządzenia"
-
-#~ msgid "Encryption key"
-#~ msgstr "Klucz szyfrujący"
 
 #~ msgid "Device id"
 #~ msgstr "ID urządzenia"

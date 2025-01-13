@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2025-01-10 20:53+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3821,43 +3821,50 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Zamatu zifratutako zure mezuak"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Zifratzeko gakoa"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "Segurtasun-esaldia ez zen zuzena."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Giltzapetik askatu pasaesaldi bat erabiliz"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "Kontu honetarako babeskopia-pasaesaldi bat baduzu, sartu behean."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Babeskopia pasahitza:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Giltzapetik askatu"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Giltzapetik askatu gako sekretua erabiliz"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3867,25 +3874,25 @@ msgstr ""
 "Kontu honetarako segurtasun gako bat baduzu, sar ezazu behean edo zama-igo "
 "fitxategi gisa."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Segurtasun gakoa:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Zama-igo fitxategitik"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Giltzapetik askatu sinadura-gurutzatu bidez"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3895,7 +3902,7 @@ msgstr ""
 "Gailu hau aurrez egiaztatu baduzu, beheko botoiari klik eginez beste "
 "gailuetako babeskopia-gakoa zamatzen saia zaitezke."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -6186,9 +6193,6 @@ msgstr "Irten"
 
 #~ msgid "Device key"
 #~ msgstr "Gailuaren gakoa"
-
-#~ msgid "Encryption key"
-#~ msgstr "Zifratzeko gakoa"
 
 #~ msgid "Device id"
 #~ msgstr "Gailuaren ID"

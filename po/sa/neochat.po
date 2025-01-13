@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3800,43 +3800,49 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "स्वस्य एन्क्रिप्टेड् सन्देशान् लोड् कुर्वन्तु"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr ""
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "सुरक्षावाक्यं सम्यक् नासीत् ।"
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Passphrase इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "यदि भवतां समीपे अस्य खातेः कृते बैकअप पासफ्रेज् अस्ति तर्हि अधः प्रविशतु ।"
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "बैकअप गुप्तशब्दः :"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "अनलॉक"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Security Key इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3846,25 +3852,25 @@ msgstr ""
 "यदि भवतां समीपे अस्य खातेः सुरक्षाकुंजी अस्ति तर्हि अधः प्रविशतु अथवा सञ्चिकारूपेण अपलोड् "
 "कुर्वन्तु ।"
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "सुरक्षाकुंजी :"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "सञ्चिकातः अपलोड् कुर्वन्तु"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "क्रॉस्-साइनिंग् इत्यस्मात् अनलॉक् कुर्वन्तु"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3874,7 +3880,7 @@ msgstr ""
 "यदि भवान् पूर्वं एतत् यन्त्रं सत्यापितवान् तर्हि अधोलिखितं बटनं नुत्वा अन्येभ्यः उपकरणेभ्यः बैकअप "
 "कीलं लोड् कर्तुं प्रयतितुं शक्नोति ।"
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"

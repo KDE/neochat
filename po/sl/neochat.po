@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
-"PO-Revision-Date: 2024-12-30 07:31+0100\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"PO-Revision-Date: 2025-01-12 07:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2212,13 +2212,13 @@ msgstr "Geslo"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Zbriši podatke"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Zahtevaj od strežnika, da izbriše čim več uporabniških podatkov."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -3829,44 +3829,51 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Naloži vaša šifrirana sporočila"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Šifrirni ključ"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "Varnostna fraza ni pravilna."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Odkleni z uporabo varnostne fraze"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
 "Če imate varnostno kopijo skrivne fraze za ta račun, jo vnesite spodaj."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Varnostna kopija gesla:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Odkleni"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Odkleni z uporabo varnostnega ključa"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3876,25 +3883,25 @@ msgstr ""
 "Če imate varnostni ključ za ta račun, ga vnesite spodaj ali ga prenesite kot "
 "datoteko."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Varnostni ključ:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Prenesi iz datoteke"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Odkleni iz navskrižnega podpisovanja"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3904,7 +3911,7 @@ msgstr ""
 "Če ste že preverili to napravo, lahko poskusite naložiti varnostni ključ iz "
 "drugih naprav, tako da kliknete spodnji gumb."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -6194,9 +6201,6 @@ msgstr "Zapusti"
 
 #~ msgid "Device key"
 #~ msgstr "Ključ naprave"
-
-#~ msgid "Encryption key"
-#~ msgstr "Šifrirni ključ"
 
 #~ msgid "Device id"
 #~ msgstr "Določilnik naprave"

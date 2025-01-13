@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
 "PO-Revision-Date: 2025-01-11 14:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3816,43 +3816,50 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "ჩატვირთეთ თქვენი დაშიფრული შეტყობინებები"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "დაშიფვრის გასაღები"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "საიდუმლო ფრაზა სწორი არ იყო."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "განბლოკვა საკვანძო ფრაზით"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr "თუ გაქვთ საკვანძო ფრაზა ამ ანგარიშისთვის, შეიყვანეთ ის ქვემოთ."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "მარქაფის პაროლი:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "განბლოკვა"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "განბლოკვა უსაფრთხოების გასაღებით"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3862,25 +3869,25 @@ msgstr ""
 "თუ გაქვთ გასაღები ამ ანგარიშისთვის, შეიყვანეთ ის ქვემოთ, ან ატვირთეთ ფაილის "
 "სახით."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "უსაფრთხოების გასაღები:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "ატვირთვა ფაილიდან"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "განბლოკვა ჯვარედინი ხელმოწერიდან"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3890,7 +3897,7 @@ msgstr ""
 "თუ ეს მოწყობილობა ადრე უკვე გადაამოწმეთ, შეგიძლიათ, მარქაფის გასაღების "
 "ჩატვირთვა სხვა მოწყობილობებიდანაც სცადოთ, ქვემოთ ღილაკის დაწკაპუნებით."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -6163,9 +6170,6 @@ msgstr "დატოვება"
 
 #~ msgid "Device key"
 #~ msgstr "მოწყობილობის გასაღები"
-
-#~ msgid "Encryption key"
-#~ msgstr "დაშიფვრის გასაღები"
 
 #~ msgid "Device id"
 #~ msgstr "მოწყობილობის ID"

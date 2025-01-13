@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:42+0000\n"
-"PO-Revision-Date: 2024-12-31 09:31+0100\n"
+"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"PO-Revision-Date: 2025-01-12 15:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -603,17 +603,17 @@ msgstr "sacou a %1 da sala"
 #: src/eventhandler.cpp:393
 #, kde-format
 msgid "banned %1 from the room"
-msgstr "prohibiu a %1 o acceso á sala"
+msgstr "expulsou a %1 da sala"
 
 #: src/eventhandler.cpp:395
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr "prohibiu a %1 o acceso á sala: %2"
+msgstr "expulsou a %1 da sala: %2"
 
 #: src/eventhandler.cpp:398
 #, kde-format
 msgid "self-banned from the room"
-msgstr "auto-prohibiuse o acceso á sala"
+msgstr "auto-expulsouse da sala"
 
 #: src/eventhandler.cpp:402
 #, kde-format
@@ -858,12 +858,12 @@ msgstr "%1 saíu da sala"
 #: src/eventhandler.cpp:603
 #, kde-format
 msgid "%1 banned a user from the room"
-msgstr "%1 prohibiu a alguén o acceso á sala"
+msgstr "%1 expulsou a alguén da sala"
 
 #: src/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
-msgstr "%1 auto-prohibiuse o acceso á sala"
+msgstr "%1 auto-expulsouse da sala"
 
 #: src/eventhandler.cpp:608
 #, kde-format
@@ -1411,7 +1411,7 @@ msgstr "Xa se invitou a %1 á sala."
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "%1 ten prohibido o acceso á sala."
+msgstr "%1 está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:198
 #, kde-format
@@ -1538,24 +1538,24 @@ msgstr "Reaccionar á mensaxe co texto indicado."
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "%1 xa ten prohibido o acceso á sala."
+msgstr "%1 xa está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:414
 #, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Non ten permiso para prohibir a ninguén o acceso a esta sala."
+msgstr "Non ten permiso para expulsar a ninguén desta sala."
 
 #: src/models/actionsmodel.cpp:420
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Non ten permiso para prohibir a %1 o acceso a esta sala."
+msgstr "Non ten permiso para expulsar a %1 desta sala."
 
 #: src/models/actionsmodel.cpp:424
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "Prohibiuse a %1 o acceso á sala."
+msgstr "Expulsouse a %1 da sala."
 
 #: src/models/actionsmodel.cpp:428 src/models/actionsmodel.cpp:501
 msgid "<user id> [<reason>]"
@@ -1563,7 +1563,7 @@ msgstr "<identificador de persoa> [<motivo>]"
 
 #: src/models/actionsmodel.cpp:429
 msgid "Bans the given user"
-msgstr "Prohibe o acceso á persoa indicada."
+msgstr "Expulsa á persoa indicada."
 
 #: src/models/actionsmodel.cpp:445
 #, kde-format
@@ -1574,7 +1574,7 @@ msgstr "Non ten permiso para readmitir a ninguén nesta sala."
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "%1 non ten prohibido o acceso á sala."
+msgstr "%1 non está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:454
 #, kde-format
@@ -1584,7 +1584,7 @@ msgstr "Readmitiuse a %1 na sala."
 
 #: src/models/actionsmodel.cpp:460
 msgid "Removes the ban of the given user"
-msgstr "Retira a prohibición de acceso á persoa indicada."
+msgstr "Retira a expulsión da persoa indicada."
 
 #: src/models/actionsmodel.cpp:474
 #, kde-format
@@ -1741,7 +1741,7 @@ msgstr "Expulsar as persoas."
 #: src/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Ban users"
-msgstr "Prohibir o acceso a persoas."
+msgstr "Expulsar persoas."
 
 #: src/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -2205,13 +2205,14 @@ msgstr "Contrasinal"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Borrar os datos."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr ""
+"Solicitar ao servidor que elimine todos os datos posíbeis de persoa usuaria."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -3819,44 +3820,51 @@ msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Cargar as súas mensaxes cifradas"
 
-#: src/qml/UnlockSSSSDialog.qml:48
+#: src/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Chave de cifraxe"
+
+#: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
 msgctxt "@info:status"
 msgid "The security phrase was not correct."
 msgstr "A frase de seguridade non é correcta."
 
-#: src/qml/UnlockSSSSDialog.qml:54
+#: src/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
 msgstr "Desbloquear o uso dunha frase de paso"
 
-#: src/qml/UnlockSSSSDialog.qml:58
+#: src/qml/UnlockSSSSDialog.qml:60
 #, kde-format
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
 "Se ten unha frase de paso de salvagarda para esta conta, escríbaa embaixo."
 
-#: src/qml/UnlockSSSSDialog.qml:62
+#: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
 msgstr "Contrasinal de salvagarda:"
 
-#: src/qml/UnlockSSSSDialog.qml:67 src/qml/UnlockSSSSDialog.qml:102
+#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Unlock"
 msgstr "Desbloquear"
 
-#: src/qml/UnlockSSSSDialog.qml:79
+#: src/qml/UnlockSSSSDialog.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key"
 msgstr "Desbloquear o uso dunha chave de seguridade"
 
-#: src/qml/UnlockSSSSDialog.qml:83
+#: src/qml/UnlockSSSSDialog.qml:85
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3866,25 +3874,25 @@ msgstr ""
 "Se ten unha chave de seguridade para esta conta, escríbaa embaixo ou envíea "
 "como un ficheiro."
 
-#: src/qml/UnlockSSSSDialog.qml:87
+#: src/qml/UnlockSSSSDialog.qml:89
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key:"
 msgstr "Chave de seguridade:"
 
-#: src/qml/UnlockSSSSDialog.qml:92
+#: src/qml/UnlockSSSSDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Enviar dun ficheiro"
 
-#: src/qml/UnlockSSSSDialog.qml:113
+#: src/qml/UnlockSSSSDialog.qml:115
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Desbloquear de sinatura cruzada"
 
-#: src/qml/UnlockSSSSDialog.qml:117
+#: src/qml/UnlockSSSSDialog.qml:119
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3894,7 +3902,7 @@ msgstr ""
 "Se verificou o dispositivo previamente, pode premer o botón embaixo para "
 "intentar cargar a chave de salvagarda doutros dispositivos."
 
-#: src/qml/UnlockSSSSDialog.qml:122
+#: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -3947,25 +3955,25 @@ msgstr "Invitar a esta persoa"
 #: src/qml/UserDetailDialog.qml:162
 #, kde-format
 msgid "Ban this user"
-msgstr "Prohibir o acceso a esta persoa"
+msgstr "Expulsar esta persoa"
 
 #: src/qml/UserDetailDialog.qml:167 src/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
-msgstr "Prohibir o acceso"
+msgstr "Expulsar a persoa"
 
 #: src/qml/UserDetailDialog.qml:168
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
-msgstr "Motivo polo que se prohibiu o acceso a esta persoa."
+msgstr "Motivo polo que se expulsou esta persoa."
 
 #: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr "Prohibir o acceso"
+msgstr "Expulsar"
 
 #: src/qml/UserDetailDialog.qml:187
 #, kde-format
@@ -6186,9 +6194,6 @@ msgstr "Saír"
 
 #~ msgid "Device key"
 #~ msgstr "Chave de dispositivo"
-
-#~ msgid "Encryption key"
-#~ msgstr "Chave de cifraxe"
 
 #~ msgid "Device id"
 #~ msgstr "Identificador de dispositivo"
