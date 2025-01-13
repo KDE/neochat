@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2024, 2025 Adrián Chaves (Gallaecio)
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 02:31+0000\n"
-"PO-Revision-Date: 2024-12-19 22:31+0100\n"
+"PO-Revision-Date: 2025-01-12 15:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -479,17 +479,17 @@ msgstr "sacou a %1 da sala"
 #: src/eventhandler.cpp:396
 #, kde-format
 msgid "banned %1 from the room"
-msgstr "prohibiu a %1 o acceso á sala"
+msgstr "expulsou a %1 da sala"
 
 #: src/eventhandler.cpp:398
 #, kde-format
 msgid "banned %1 from the room: %2"
-msgstr "prohibiu a %1 o acceso á sala: %2"
+msgstr "expulsou a %1 da sala: %2"
 
 #: src/eventhandler.cpp:401
 #, kde-format
 msgid "self-banned from the room"
-msgstr "auto-prohibiuse o acceso á sala"
+msgstr "auto-expulsouse da sala"
 
 #: src/eventhandler.cpp:405
 #, kde-format
@@ -734,12 +734,12 @@ msgstr "%1 saíu da sala"
 #: src/eventhandler.cpp:606
 #, kde-format
 msgid "%1 banned a user from the room"
-msgstr "%1 prohibiu a alguén o acceso á sala"
+msgstr "%1 expulsou a alguén da sala"
 
 #: src/eventhandler.cpp:608
 #, kde-format
 msgid "%1 self-banned from the room"
-msgstr "%1 auto-prohibiuse o acceso á sala"
+msgstr "%1 auto-expulsouse da sala"
 
 #: src/eventhandler.cpp:611
 #, kde-format
@@ -1283,7 +1283,7 @@ msgstr "Xa se invitou a %1 á sala."
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "%1 ten prohibido o acceso á sala."
+msgstr "%1 está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:212
 #, kde-format
@@ -1410,24 +1410,24 @@ msgstr "Reaccionar á mensaxe co texto indicado."
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "%1 xa ten prohibido o acceso á sala."
+msgstr "%1 xa está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:443
 #, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Non ten permiso para prohibir a ninguén o acceso a esta sala."
+msgstr "Non ten permiso para expulsar a ninguén desta sala."
 
 #: src/models/actionsmodel.cpp:449
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Non ten permiso para prohibir a %1 o acceso a esta sala."
+msgstr "Non ten permiso para expulsar a %1 desta sala."
 
 #: src/models/actionsmodel.cpp:453
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "Prohibiuse a %1 o acceso á sala."
+msgstr "Expulsouse a %1 da sala."
 
 #: src/models/actionsmodel.cpp:458 src/models/actionsmodel.cpp:535
 msgid "<user id> [<reason>]"
@@ -1435,7 +1435,7 @@ msgstr "<identificador de persoa> [<motivo>]"
 
 #: src/models/actionsmodel.cpp:459
 msgid "Bans the given user"
-msgstr "Prohibe o acceso á persoa indicada."
+msgstr "Expulsa á persoa indicada."
 
 #: src/models/actionsmodel.cpp:476
 #, kde-format
@@ -1446,7 +1446,7 @@ msgstr "Non ten permiso para readmitir a ninguén nesta sala."
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "%1 non ten prohibido o acceso á sala."
+msgstr "%1 non está en expulsión da sala."
 
 #: src/models/actionsmodel.cpp:485
 #, kde-format
@@ -1456,7 +1456,7 @@ msgstr "Readmitiuse a %1 na sala."
 
 #: src/models/actionsmodel.cpp:492
 msgid "Removes the ban of the given user"
-msgstr "Retira a prohibición de acceso á persoa indicada."
+msgstr "Retira a expulsión da persoa indicada."
 
 #: src/models/actionsmodel.cpp:507
 #, kde-format
@@ -1613,7 +1613,7 @@ msgstr "Expulsar as persoas."
 #: src/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Ban users"
-msgstr "Prohibir o acceso a persoas."
+msgstr "Expulsar persoas."
 
 #: src/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -3803,25 +3803,25 @@ msgstr "Invitar a esta persoa"
 #: src/qml/UserDetailDialog.qml:162
 #, kde-format
 msgid "Ban this user"
-msgstr "Prohibir o acceso a esta persoa"
+msgstr "Expulsar esta persoa"
 
 #: src/qml/UserDetailDialog.qml:167 src/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
-msgstr "Prohibir o acceso"
+msgstr "Expulsar a persoa"
 
 #: src/qml/UserDetailDialog.qml:168
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
-msgstr "Motivo polo que se prohibiu o acceso a esta persoa."
+msgstr "Motivo polo que se expulsou esta persoa."
 
 #: src/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr "Prohibir o acceso"
+msgstr "Expulsar"
 
 #: src/qml/UserDetailDialog.qml:187
 #, kde-format
