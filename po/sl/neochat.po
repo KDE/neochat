@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2025-01-12 07:55+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 05:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1963,18 +1963,18 @@ msgstr ""
 "Datoteka je prevelika za prenos.<br />Za podporo se obrnite na skrbnika "
 "strežnika matrix."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ni konfigurirana identiteta strežnika"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -3443,35 +3443,49 @@ msgstr "Označi to sobo za najljubšo"
 msgid "Show locations for this room"
 msgstr "Pokaži mesta za to sobo"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Najdi sporočila …"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Najdi sporočila …"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Zapusti ta prostor"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Zapusti to sobo"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Člani"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Povabi uporabnika"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Povabite uporabnika v sobo"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3480,7 +3494,7 @@ msgstr[1] "%1 član"
 msgstr[2] "%1 člana"
 msgstr[3] "%1 člani"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Ni števila članov"
@@ -3543,6 +3557,14 @@ msgstr "Izberi ali pridruži sobi za začetek"
 #, kde-format
 msgid "Message Source"
 msgstr "Vir sporočila"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Največ neprebranih sporočil"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3830,11 +3852,10 @@ msgid "Load your encrypted messages"
 msgstr "Naloži vaša šifrirana sporočila"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Šifrirni ključ"
+msgstr "Šifrirni ključi obnovljeni."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5132,49 +5153,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Vaš strežnik ne podpira te nastavitve."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Uvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Uvozi šifrirne ključe iz varnostne kopije."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Uvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ključi uspešno uvoženi"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Izvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Izvozi šifrirne ključe te naprave."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"

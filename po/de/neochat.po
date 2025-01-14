@@ -4,13 +4,13 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
-# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2024, 2025 Johannes Obermayr <johannesobermayr@gmx.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2024-11-25 19:26+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -260,25 +260,19 @@ msgid "Choose Room"
 msgstr "Raum auswählen"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "Kein Raum gefunden"
+msgstr "Kein Raum ausgewählt"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "Einen Raum auswählen"
+msgstr "Klicken, um einen Raum auszuwählen"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Raum auswählen"
@@ -412,20 +406,16 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:52
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "Alphabetisch"
+msgstr "Alphabetisch (aufsteigend)"
 
 #: src/enums/roomsortparameter.h:54
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "Alphabetisch"
+msgstr "Alphabetisch (absteigend)"
 
 #: src/enums/roomsortparameter.h:56
 #, fuzzy, kde-format
@@ -456,12 +446,10 @@ msgid "Most Highlighted Messages"
 msgstr "Gelöschte Nachricht anzeigen"
 
 #: src/enums/roomsortparameter.h:64
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "%1, letzte Aktivität: %2"
+msgstr "Zuletzt aktiv"
 
 #: src/enums/roomsortparameter.h:79
 #, kde-format
@@ -1452,12 +1440,10 @@ msgid "%1 is already in this room."
 msgstr "%1 ist bereits in dem Raum."
 
 #: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 wurde in den Raum eingeladen"
+msgstr "%1 wurde in den Raum eingeladen."
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:350
 #: src/models/actionsmodel.cpp:371 src/models/actionsmodel.cpp:459
@@ -1999,18 +1985,18 @@ msgstr ""
 "Die Datei ist zu groß für das Herunterladen.<br />Kontaktieren Sie den "
 "Administrator Ihres Matrix-Servers für die Unterstützung."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Erstellen der Umgebung ist fehlgeschlagen: %1"
@@ -2097,8 +2083,7 @@ msgid "Show QR Code"
 msgstr "QR-Code anzeigen"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
 msgstr "Dieses Konto bearbeiten"
 
@@ -2109,8 +2094,7 @@ msgid "Account editor"
 msgstr "Kontodetails"
 
 #: src/qml/AccountMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
 msgstr "Benachrichtigungseinstellungen"
 
@@ -2120,8 +2104,7 @@ msgid "Devices"
 msgstr "Geräte"
 
 #: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "Entwicklungswerkzeuge öffnen"
 
@@ -2144,9 +2127,7 @@ msgid "Open Key Backup"
 msgstr "Schlüsselsicherung öffnen"
 
 #: src/qml/AccountMenu.qml:88
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Dieses Gerät verifizieren"
@@ -3192,11 +3173,10 @@ msgid "Forward Message"
 msgstr "Nachricht weiterleiten"
 
 #: src/qml/MessageDelegateContextMenu.qml:69
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "Verknüpfung kopieren"
+msgstr "Verknüpfungsadresse kopieren"
 
 #: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
@@ -3205,11 +3185,10 @@ msgid "Copy Text"
 msgstr "Text kopieren"
 
 #: src/qml/MessageDelegateContextMenu.qml:80
-#, fuzzy, kde-format
-#| msgid "Copy Link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Verknüpfung kopieren"
+msgstr "Nachrichtenverknüpfung kopieren"
 
 #: src/qml/MessageDelegateContextMenu.qml:107
 #, kde-format
@@ -3296,8 +3275,7 @@ msgid "No room found"
 msgstr "Kein Raum gefunden"
 
 #: src/qml/QuickSwitcher.qml:32
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
 msgstr "Räume erkunden"
@@ -3501,42 +3479,56 @@ msgstr "Raum favorisieren"
 msgid "Show locations for this room"
 msgstr "Orte für diesen Raum anzeigen"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Nachrichten suchen …"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Direktnachrichten"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Umgebung verlassen"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Diesen Raum verlassen"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Mitglieder"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Einen Benutzer einladen"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Einen Benutzer in den Raum einladen"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Keine Mitgliederanzahl"
@@ -3599,6 +3591,14 @@ msgstr "Einen Raum auswählen oder betreten, um zu beginnen"
 #, kde-format
 msgid "Message Source"
 msgstr "Nachrichten-Quelltext"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Nachricht weiterleiten"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -4376,8 +4376,7 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Einladungen in einen Raum"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Konto bearbeiten"
@@ -4393,8 +4392,7 @@ msgid "Remove current avatar"
 msgstr "Aktuellen Avatar löschen"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Benutzer-Informationen"
@@ -4422,8 +4420,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Passwort"
@@ -4459,15 +4456,13 @@ msgid "Passwords do not match"
 msgstr "Die Passwörter stimmen nicht überein"
 
 #: src/settings/AccountEditorPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-Mail-Adressen"
 
 #: src/settings/AccountEditorPage.qml:213
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonnummern"
@@ -4480,8 +4475,7 @@ msgid "Identity Server"
 msgstr "Neuen Server hinzufügen"
 
 #: src/settings/AccountEditorPage.qml:227
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Server-Informationen"
@@ -4492,9 +4486,7 @@ msgid "Homeserver url"
 msgstr "Heimserver-URL:"
 
 #: src/settings/AccountEditorPage.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Kontenverwaltung"
@@ -4520,15 +4512,13 @@ msgid "Unknown problem while trying to change password"
 msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "Konten"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Konten"
@@ -4545,8 +4535,7 @@ msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "Allgemeines Design"
@@ -4654,36 +4643,31 @@ msgid "Logout device"
 msgstr "Gerät abmelden"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "Geräte"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "Dieses Gerät"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verifizierte Geräte"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Nicht verifizierte Geräte"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Geräte ohne Unterstützung der Verschlüsselung"
@@ -4707,45 +4691,37 @@ msgid "Remove"
 msgstr "Entfernen"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Sticker hinzufügen"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "Sticker bearbeiten"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "Emoji hinzufügen"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "Emoji bearbeiten"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Sticker"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
@@ -4811,37 +4787,31 @@ msgid "Add Sticker"
 msgstr "Sticker hinzufügen"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Sticker & Emojis"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "Emojis"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "Sticker"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Schlüssel exportieren"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
 msgstr "Passwort:"
@@ -4860,11 +4830,10 @@ msgid "Export keys"
 msgstr "Schlüssel exportieren"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Report sent successfully."
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "Meldung erfolgreich übertragen."
+msgstr "Schlüssel erfolgreich exportiert"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
 #, kde-format
@@ -4889,23 +4858,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Raum-Benachrichtigungen"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Erwähnungen"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Schlüsselwörter"
@@ -4923,15 +4889,13 @@ msgid "Add keyword"
 msgstr "Wort hinzufügen"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Einladungen"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Unbekannt"
@@ -4999,9 +4963,7 @@ msgid "Unignore this user"
 msgstr "Diesen Benutzer nicht mehr ignorieren"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Schlüssel importieren"
@@ -5037,8 +4999,7 @@ msgid "General"
 msgstr "Allgemein"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
@@ -5066,8 +5027,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "Alle Räume bei „Start“ anzeigen"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "Sortier-Reihenfolge der Raumliste"
@@ -5091,24 +5051,19 @@ msgid "Alphabetical"
 msgstr "Alphabetisch"
 
 #: src/settings/NeoChatGeneralPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, letzte Aktivität: %2"
+msgstr "Letzte Nachrichtenaktivität"
 
 #: src/settings/NeoChatGeneralPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr "Räume mit ungelesenen Benachrichtigungen werden zuerst angezeigt"
+msgstr "Räume mit den neuesten Aktivitäten werden zuerst angezeigt"
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
@@ -5184,9 +5139,7 @@ msgid "Enable developer tools"
 msgstr "Entwicklungswerkzeuge aktivieren"
 
 #: src/settings/NeoChatGeneralPage.qml:307
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Voreinstellungen"
@@ -5198,11 +5151,10 @@ msgid "Reset All Configuration Values to Their Default"
 msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
-msgstr "Sicherheit"
+msgstr "Sicherheit & Verschlüsselung"
 
 #: src/settings/NeoChatSecurityPage.qml:32
 #, kde-format
@@ -5248,51 +5200,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Der Server unterstützt diese Einstellung nicht."
 
-#: src/settings/NeoChatSecurityPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Verschlüsselung"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Schlüssel importieren"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Die Verschlüsselungsschlüssel aus einer Sicherungskopie importieren."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Schlüssel importieren"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Die Schlüssel sind erfolgreich importiert"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Schlüssel exportieren"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Die Verschlüsselungsschlüssel dieses Gerätes exportieren."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -5315,11 +5278,10 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: src/settings/NeoChatSettingsView.qml:51
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@title"
 msgid "Security & Safety"
-msgstr "Sicherheit"
+msgstr "Sicherheit & Verschlüsselung"
 
 #: src/settings/NeoChatSettingsView.qml:63
 #, kde-format
@@ -5826,11 +5788,10 @@ msgid "Permissions"
 msgstr "Berechtigungen"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr "Sortier-Reihenfolge der Raumliste"
+msgstr "Benutzerdefinierte Sortier-Reihenfolge der Raumliste"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
@@ -5851,21 +5812,16 @@ msgid "Up"
 msgstr ""
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Herunterladen"
+msgstr "Nach unten"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "Server hinzufügen"
+msgstr "Parameter hinzufügen"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
@@ -6141,8 +6097,7 @@ msgid "Last read: %1"
 msgstr "Zuletzt gelesen: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Antworten"
@@ -6593,9 +6548,6 @@ msgstr "Beenden"
 
 #~ msgid "Intermixed"
 #~ msgstr "Gemischt"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Direktnachrichten"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr ""

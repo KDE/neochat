@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2025-01-10 20:53+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 15:53+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -1958,18 +1958,18 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
@@ -3444,42 +3444,56 @@ msgstr "Gela hau gogoko egin"
 msgid "Show locations for this room"
 msgstr "Erakutsi gela honetarako kokalekuak"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Bidali mezuak..."
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Zuzeneko mezua"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Utzi tokia hau"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Irten gela honetatik"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Kideak"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Gonbidatu erabiltzaile bat"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gonbidatu erabiltzaile bat gelara"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "Kide %1"
 msgstr[1] "%1 kide"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Ez dago kide kopururik"
@@ -3542,6 +3556,14 @@ msgstr "Hasteko, hautatu edo batu gela batera"
 #, kde-format
 msgid "Message Source"
 msgstr "Mezuaren sorburua"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Irakurri gabeko mezu gehien"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3822,11 +3844,10 @@ msgid "Load your encrypted messages"
 msgstr "Zamatu zifratutako zure mezuak"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Zifratzeko gakoa"
+msgstr "Zifratzeko gakoak lehengoratu dira."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5130,49 +5151,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Zure zerbitzariak ez du ezarpen hau onartzen."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Zifratzea"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Inportatu gakoak"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Inportatu zifratzeko gakoak babes-kopia batetik."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Inportatu gakoak"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Gakoen inportatze arrakastatsua"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Esportatu gakoak"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Esportatu gailu honetako zifratzeko gakoak."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6424,9 +6458,6 @@ msgstr "Irten"
 
 #~ msgid "Intermixed"
 #~ msgstr "Elkarren artean nahastuta"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Zuzeneko mezua"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr ""

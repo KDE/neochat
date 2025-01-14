@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2025-01-06 18:58+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 22:15+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1956,18 +1956,18 @@ msgstr ""
 "Dosiero tro granda por elŝuti.<br />Kontaktu vian administranton de matrix-"
 "servilo por subteno."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Agordiĝis neniu identeca servilo"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Kreado de ĉambro malsukcesis: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Spackreado malsukcesis: %1"
@@ -2205,13 +2205,13 @@ msgstr "Pasvorto"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Viŝi Datumojn"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Peti al servilo forigi kiel eble plej da uzantodatumoj."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -3075,7 +3075,7 @@ msgstr "Kunhavigi"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Permane Enigi Ĉambron"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3438,42 +3438,56 @@ msgstr "Plejŝatigi ĉi tiun ĉambron"
 msgid "Show locations for this room"
 msgstr "Montri lokojn por ĉi tiu ĉambro"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Trovi mesaĝojn…"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Trovi mesaĝojn…"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Forlasi ĉi spacon"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Forlasi ĉi tiun ĉambron"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Membroj"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviti Uzanton"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviti uzanton al ĉambro"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membroj"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
@@ -3535,6 +3549,14 @@ msgstr "Elekti aŭ aliĝi al ĉambro por komenciĝi"
 #, kde-format
 msgid "Message Source"
 msgstr "Mesaĝfonto"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Plejmultaj Nelegitaj Mesaĝoj"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3819,7 +3841,7 @@ msgstr "Ŝargi viajn ĉifritajn mesaĝojn"
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr ""
+msgstr "Ĉifradŝlosiloj estis restaŭritaj."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5104,49 +5126,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Via servilo ne subtenas ĉi tiun agordon."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Ĉifrado"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Enporti Ŝlosilojn"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Enporti ĉifradajn ŝlosilojn el sekurkopio."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Enporti Ŝlosilojn"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ŝlosiloj sukcese enportiĝis"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Elporti Ŝlosilojn"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Elporti la ĉifradajn ŝlosilojn de ĉi aparato."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6035,16 +6070,3 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
-
-#~ msgid "Remove from Favourites"
-#~ msgstr "Forigi el Favoritoj"
-
-#~ msgid "Add to Favourites"
-#~ msgstr "Aldoni al Favoritoj"
-
-#~ msgctxt "@action:button"
-#~ msgid "Room Settings"
-#~ msgstr "Ĉambraj Agordoj"
-
-#~ msgid "Create rooms and chats"
-#~ msgstr "Krei ĉambrojn kaj babilojn"

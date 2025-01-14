@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1948,18 +1948,18 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
@@ -3426,42 +3426,56 @@ msgstr "इदं कक्षं प्रियम्"
 msgid "Show locations for this room"
 msgstr "अस्य कक्षस्य स्थानानि दर्शयतु"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "सन्देशान् अन्वेष्टुम्..."
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "सन्देशान् अन्वेष्टुम्..."
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "एतत् स्थानं त्यजतु"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "एतत् कक्षं त्यजन्तु"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "सदस्य"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "एकं उपयोक्तारं आमन्त्रयन्तु"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "उपयोक्तारं कक्षं प्रति आमन्त्रयन्तु"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 सदस्यः"
 msgstr[1] "%1 सदस्याः"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "सदस्यगणना नास्ति"
@@ -3522,6 +3536,14 @@ msgstr "आरम्भार्थं कक्षं चिनोतु वा
 #, kde-format
 msgid "Message Source"
 msgstr "सन्देशस्य स्रोतः"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "अधिकांशः अपठितः सन्देशः"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -5075,49 +5097,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "भवतः सर्वरः एतत् सेटिङ्ग् समर्थयति न ।"
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "एन्क्रिप्शन"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "आयात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "बैकअपतः एन्क्रिप्शन कीलानि आयातयन्तु ।"
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "आयात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "कीलानि सफलतया आयातानि"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "निर्यात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "अस्य यन्त्रस्य एन्क्रिप्शन-कुंजी निर्यातयन्तु ।"
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"

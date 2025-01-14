@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2049,18 +2049,18 @@ msgid ""
 "for support."
 msgstr "o toki tawa lawa sina pi ilo Matrix."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -3589,38 +3589,52 @@ msgstr "o pali e tomo toki"
 msgid "Show locations for this room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "o pana e toki"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "o pana e toki"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "o pali e tomo toki"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "o pali e tomo toki"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "o len e jan ni"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr ""
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3629,7 +3643,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr ""
@@ -3694,6 +3708,13 @@ msgstr ""
 #, kde-format
 msgid "Message Source"
 msgstr ""
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "o ante e toki"
 
 #: src/qml/RoomSearchPage.qml:26
 #, fuzzy, kde-format
@@ -5306,51 +5327,64 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "o ante e toki"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "o ante e toki"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"

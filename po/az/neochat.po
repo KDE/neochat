@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2204,19 +2204,19 @@ msgid ""
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -3818,39 +3818,53 @@ msgstr "NeoChatı bu otaqla açın"
 msgid "Show locations for this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "İsmarıcı göndərin..."
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Birbaşa İsmarıclar"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Otaq yaratmaq"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Üzvlər"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "İstifadəçi dəvət etmək"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3859,7 +3873,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Üzv"
 msgstr[1] "%1 Üzvlər"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -3926,6 +3940,13 @@ msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 #, kde-format
 msgid "Message Source"
 msgstr "İsmarıc mənbəyi"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "İsmarıca düzəliş etmək"
 
 #: src/qml/RoomSearchPage.qml:26
 #, fuzzy, kde-format
@@ -5620,55 +5641,68 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6994,9 +7028,6 @@ msgstr "Çıxış"
 
 #~ msgid "Intermixed"
 #~ msgstr "Bir yerdə"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Birbaşa İsmarıclar"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "Giriş baş tutmadı: Giriş Tokeni səhvdir və ya ləğv edilib"

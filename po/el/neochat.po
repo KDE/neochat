@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2060,18 +2060,18 @@ msgid ""
 "for support."
 msgstr "Επικοινωνήστε με τον διαχειριστή του διακομιστή matrix για υποστήριξη."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Δεν έχει ρυθμιστεί διακομιστής ταυτότητας"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -3607,7 +3607,21 @@ msgstr "Εξέρχεται από αυτήν την αίθουσα."
 msgid "Show locations for this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Αποστολή μηνύματος…"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Άμεσα μηνύματα"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -3615,36 +3629,36 @@ msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Αποχώρηση από την αίθουσα"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Μέλη"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Πρόσκληση σε χρήστη"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Πρόσκληση χρήστη στην αίθουσα"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 μέλος"
 msgstr[1] "%1 μέλη"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Δεν καταμετρήθηκαν μέλη"
@@ -3710,6 +3724,14 @@ msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσ�
 #, kde-format
 msgid "Message Source"
 msgstr "Πηγή μηνύματος"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Αναφορά μηνύματος"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -5362,13 +5384,26 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Ο εξυπηρετητής σου δεν υποστηρίζει αλλαγή κωδικού πρόσβασης"
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -5376,7 +5411,7 @@ msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Κρυπτογράφηση"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -5384,20 +5419,20 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Κρυπτογράφηση"
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Report sent successfully."
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -5405,7 +5440,7 @@ msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Κρυπτογράφηση"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -5413,7 +5448,7 @@ msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Κρυπτογράφηση"
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6744,9 +6779,6 @@ msgstr "Έξοδος"
 
 #~ msgid "Intermixed"
 #~ msgstr "Ανάμικτα"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Άμεσα μηνύματα"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "Αποτυχία σύνδεσης: μη έγκυρο ενδεικτικό πρόσβασης ή έχει ανακληθεί"

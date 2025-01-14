@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 13:54+0200\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 13:14+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1969,18 +1969,18 @@ msgstr ""
 "Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
 "вашого сервера matrix, щоб отримати допомогу."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Не налаштовано жодного сервера профілів"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
@@ -3461,35 +3461,49 @@ msgstr "Зробити улюбленою цю кімнату"
 msgid "Show locations for this room"
 msgstr "Показувати місця перебування для цієї кімнати"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Знайти повідомлення…"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Безпосередні повідомлення"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Полишити цей простір"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Полишити цю кімнату"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Учасники"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Запрошення користувача"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Запросити користувача до кімнати"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3498,7 +3512,7 @@ msgstr[1] "%1 учасники"
 msgstr[2] "%1 учасників"
 msgstr[3] "%1 учасник"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Немає лічильника учасників"
@@ -3562,6 +3576,14 @@ msgstr "Для початку, виберіть кімнату або долуч
 #, kde-format
 msgid "Message Source"
 msgstr "Джерело повідомлення"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Більше непрочитаних повідомлень"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3849,11 +3871,10 @@ msgid "Load your encrypted messages"
 msgstr "Завантаження ваших зашифрованих повідомлень"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Ключ шифрування"
+msgstr "Ключі шифрування відновлено."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5158,49 +5179,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "На вашому сервері не передбачено підтримки цього параметра."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Імпортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Імпортувати ключі шифрування з резервної копії."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Імпортування ключів"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ключі успішно імпортовано"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Експортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Експортувати ключі шифрування цього пристрою."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6471,9 +6505,6 @@ msgstr "Вийти"
 
 #~ msgid "Intermixed"
 #~ msgstr "Разом"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Безпосередні повідомлення"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr ""

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2025-01-11 14:11+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 05:14+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1957,18 +1957,18 @@ msgstr ""
 "გადმოსაწერად ფაილი მეტისმეტად დიდია.<br />მხარდაჭერისთვის დაუკავშირდით "
 "თქვენი Matrix-ის სერვერის ადმინისტრატორს."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "იდენტიფიკატორების სერვერი მორგებული არაა"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -3440,42 +3440,56 @@ msgstr "ამ ოთახის რჩეულებში ჩამატე
 msgid "Show locations for this room"
 msgstr "ამ ოთახისთვის მდებარეობების ჩვენება"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "შეტყობინებების ძებნა…"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "პირდაპირი შეტყობინებები"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "ამ სივრციდან გასვლა"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "ამ ოთახიდან გასვლა"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "წევრები"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "მომხმარებლის მოწვევა"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "მომხმარებლის ოთახში მოწვევა"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 წევრი"
 msgstr[1] "%1 წევრი"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
@@ -3537,6 +3551,14 @@ msgstr "დასაწყისისთვის შეუერთდით �
 #, kde-format
 msgid "Message Source"
 msgstr "შეტყობინების წყარო"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "ყველაზე მეტი წაუკითხავი შეტყობინება"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3817,11 +3839,10 @@ msgid "Load your encrypted messages"
 msgstr "ჩატვირთეთ თქვენი დაშიფრული შეტყობინებები"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "დაშიფვრის გასაღები"
+msgstr "დაშიფვრის გასაღებები აღდგენილია."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5106,49 +5127,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "თქვენს სერვერს ამ პარამეტრის მხარდაჭერა არ გააჩნია."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "დაშიფვრა"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფიდან."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "გასაღებების შემოტანა წარმატებულია"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "გასაღებების გატანა"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "ამ მოწყობილობის დაშიფვრის გასაღებების გატანა."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6399,9 +6433,6 @@ msgstr "დატოვება"
 
 #~ msgid "Intermixed"
 #~ msgstr "არეული"
-
-#~ msgid "Direct Messages"
-#~ msgstr "პირდაპირი შეტყობინებები"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "შესვლის შეცდომა: წვდომის კოდი არასწორი ან გაუქმებულია"

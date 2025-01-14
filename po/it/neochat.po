@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
-"PO-Revision-Date: 2024-12-30 13:57+0100\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"PO-Revision-Date: 2025-01-13 17:47+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1965,18 +1965,18 @@ msgstr ""
 "File troppo grande per essere scaricato.<br />Contatta l'amministratore del "
 "server Matrix per assistenza."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nessun server delle identità configurato"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -2214,13 +2214,13 @@ msgstr "Password"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Cancella dati"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Richiedi al tuo server di eliminare quanti più dati utente possibile."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -3455,42 +3455,56 @@ msgstr "Rendi preferita questa stanza"
 msgid "Show locations for this room"
 msgstr "Mostra le posizioni per questa stanza"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Trova messaggi..."
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Messaggi diretti"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "Abbandona questo spazio"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "Lascia questa stanza"
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "Membri"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Invita un utente"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "Invita utente alla stanza"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membri"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "Nessun conteggio dei membri"
@@ -3553,6 +3567,14 @@ msgstr "Seleziona o unisciti a una stanza per iniziare"
 #, kde-format
 msgid "Message Source"
 msgstr "Sorgente del messaggio"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "As in sorting rooms with the most unread messages higher"
+#| msgid "Most Unread Messages"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Più messaggi non letti"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3834,11 +3856,10 @@ msgid "Load your encrypted messages"
 msgstr "Carica i tuoi messaggi cifrati"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Chiave di cifratura"
+msgstr "Chiavi di cifratura ripristinate"
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5151,49 +5172,62 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Il tuo server non supporta questa impostazione."
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Cifratura"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importa chiavi"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Importa le chiavi di cifratura da un copia di sicurezza."
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importa chiavi"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Chiavi importate correttamente"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Esporta chiavi"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Esporta le chiavi di cifratura di questo dispositivo."
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6457,9 +6491,6 @@ msgstr "Esci"
 
 #~ msgid "Intermixed"
 #~ msgstr "Mescolate"
-
-#~ msgid "Direct Messages"
-#~ msgstr "Messaggi diretti"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "Accesso non riuscito: token di accesso non valido o revocato"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-13 00:40+0000\n"
+"POT-Creation-Date: 2025-01-14 00:41+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2088,18 +2088,18 @@ msgid ""
 "for support."
 msgstr "Matrix 서버 관리자에게 연락하십시오."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:348
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
@@ -3651,7 +3651,21 @@ msgstr "이 대화방을 떠납니다."
 msgid "Show locations for this room"
 msgstr "이 대화방에서 위치 표시"
 
-#: src/qml/RoomInformation.qml:136 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "메시지 찾기…"
+
+#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "개인 메시지"
+
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Leave the space"
@@ -3659,36 +3673,36 @@ msgctxt "@action:button"
 msgid "Leave this space"
 msgstr "스페이스 떠나기"
 
-#: src/qml/RoomInformation.qml:136
+#: src/qml/RoomInformation.qml:154
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgctxt "@action:button"
 msgid "Leave this room"
 msgstr "이 대화방을 떠납니다."
 
-#: src/qml/RoomInformation.qml:149
+#: src/qml/RoomInformation.qml:167
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomInformation.qml:164 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/qml/RoomInformation.qml:168
+#: src/qml/RoomInformation.qml:186
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/RoomInformation.qml:175
+#: src/qml/RoomInformation.qml:193
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
@@ -3750,6 +3764,14 @@ msgstr "시작하려면 대화방에 입장하십시오"
 #, kde-format
 msgid "Message Source"
 msgstr "메시지 소스"
+
+#: src/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "메시지 전달"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -5378,7 +5400,20 @@ msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "서버에서 암호 변경을 지원하지 않습니다"
 
-#: src/settings/NeoChatSecurityPage.qml:70
+#: src/settings/NeoChatSecurityPage.qml:74
+#, kde-format
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:75
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Encryption"
@@ -5386,48 +5421,48 @@ msgctxt "@title:group"
 msgid "Encryption"
 msgstr "암호화"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Encryption key"
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "암호화 키"
 
-#: src/settings/NeoChatSecurityPage.qml:78
+#: src/settings/NeoChatSecurityPage.qml:93
 #, fuzzy, kde-format
 #| msgid "Encryption key"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "암호화 키"
 
-#: src/settings/NeoChatSecurityPage.qml:84
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Report sent successfully."
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "신고했습니다."
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:115
 #, fuzzy, kde-format
 #| msgid "Encryption key"
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "암호화 키"
 
-#: src/settings/NeoChatSecurityPage.qml:101
+#: src/settings/NeoChatSecurityPage.qml:116
 #, fuzzy, kde-format
 #| msgid "Encryption key"
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "암호화 키"
 
-#: src/settings/NeoChatSecurityPage.qml:107
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -6715,9 +6750,6 @@ msgstr "끝내기"
 
 #~ msgid "Intermixed"
 #~ msgstr "혼합됨"
-
-#~ msgid "Direct Messages"
-#~ msgstr "개인 메시지"
 
 #~ msgid "Login Failed: Access Token invalid or revoked"
 #~ msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
