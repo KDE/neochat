@@ -588,6 +588,15 @@ public:
      */
     Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
 
+    /**
+     * @brief Return a NeochatRoomMember object for the given user ID.
+     *
+     * @warning Because we can't guarantee that a member state event is downloaded
+     *          before a message they sent arrives this will create the object unconditionally
+     *          assuming that the state event will turn up later. It is therefor the
+     *          responsibility of the caller to ensure that they only ask for objects
+     *          for real senders.
+     */
     NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
     /**
