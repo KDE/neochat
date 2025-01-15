@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-14 00:41+0000\n"
-"PO-Revision-Date: 2025-01-10 14:47+0100\n"
+"PO-Revision-Date: 2025-01-14 12:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -3451,18 +3451,16 @@ msgid "Show locations for this room"
 msgstr "Mostrar ubicaciones de esta sala"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Buscar mensajes..."
+msgstr "Mensajes fijados"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Mensajes directos"
+msgstr "Mensajes fijados"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3562,12 +3560,10 @@ msgid "Message Source"
 msgstr "Fuente del mensaje"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "As in sorting rooms with the most unread messages higher"
-#| msgid "Most Unread Messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Mayor número de mensajes sin leer"
+msgstr "No hay mensajes fijados"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3849,11 +3845,10 @@ msgid "Load your encrypted messages"
 msgstr "Cargar mensajes cifrados..."
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Clave de cifrado"
+msgstr "Claves de cifrado restauradas."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5168,7 +5163,7 @@ msgstr "Su servidor no permite este ajuste."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Activar cifrado en chats nuevos"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5176,6 +5171,7 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Si está activado, NeoChat usará cifrado al empezar nuevos mensajes directos."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
