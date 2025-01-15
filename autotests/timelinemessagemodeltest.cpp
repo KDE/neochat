@@ -137,7 +137,11 @@ void TimelineMessageModelTest::pendingEvent()
     model->setRoom(room);
     QCOMPARE(model->rowCount(), 0);
 
+#if Quotient_VERSION_MINOR > 9
+    auto txnId = room->postText("New plain message"_L1);
+#else
     auto txnId = room->postPlainText("New plain message"_L1);
+#endif
     QCOMPARE(model->rowCount(), 1);
     QCOMPARE(spyInsert.count(), 1);
 
@@ -145,7 +149,11 @@ void TimelineMessageModelTest::pendingEvent()
     QCOMPARE(model->rowCount(), 0);
     QCOMPARE(spyRemove.count(), 1);
 
+#if Quotient_VERSION_MINOR > 9
+    txnId = room->postText("New plain message"_L1);
+#else
     txnId = room->postPlainText("New plain message"_L1);
+#endif
     QCOMPARE(model->rowCount(), 1);
     QCOMPARE(spyInsert.count(), 2);
 
