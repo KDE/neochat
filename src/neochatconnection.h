@@ -207,11 +207,6 @@ Q_SIGNALS:
      */
     void errorOccured(const QString &error);
 
-    /**
-     * @brief Request a notification be shown for an invite to this room.
-     */
-    void showInviteNotification(NeoChatRoom *room);
-
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);

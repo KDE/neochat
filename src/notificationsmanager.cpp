@@ -127,9 +127,8 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
         }
         auto sender = room->member(notification["event"_L1]["sender"_L1].toString());
 
-        // Don't display notifications for events in invited rooms
-        // This should prevent empty notifications from appearing when they shouldn't
         if (room->joinState() == JoinState::Invite) {
+            postInviteNotification(qobject_cast<NeoChatRoom *>(room));
             continue;
         }
 

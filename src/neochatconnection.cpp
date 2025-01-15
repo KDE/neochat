@@ -107,10 +107,6 @@ void NeoChatConnection::connectSignals()
             Q_EMIT homeHaveHighlightNotificationsChanged();
         });
     });
-    connect(this, &NeoChatConnection::invitedRoom, this, [this](Quotient::Room *room) {
-        auto r = dynamic_cast<NeoChatRoom *>(room);
-        connect(r, &NeoChatRoom::showInviteNotification, this, &NeoChatConnection::showInviteNotification);
-    });
     connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {
         Q_UNUSED(room)
         if (prev && prev->isDirectChat()) {
