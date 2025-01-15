@@ -7,6 +7,7 @@
 #include <QGuiApplication>
 #include <QPalette>
 #include <QQmlEngine>
+#include <QQuickItem>
 #include <QRegularExpression>
 
 #include <Quotient/user.h>
@@ -36,6 +37,7 @@ public:
     Q_INVOKABLE bool isValidJson(const QByteArray &json);
     Q_INVOKABLE QString escapeString(const QString &string);
     Q_INVOKABLE QColor getUserColor(qreal hueF);
+    Q_INVOKABLE QQuickItem *focusedWindowItem();
 
 private:
     QmlUtils() = default;
