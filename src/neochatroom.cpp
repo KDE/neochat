@@ -124,9 +124,6 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             updatePushNotificationState(QStringLiteral("m.push_rules"));
 
             Q_EMIT canEncryptRoomChanged();
-            if (this->joinState() == JoinState::Invite) {
-                Q_EMIT showInviteNotification(this);
-            }
         },
         Qt::SingleShotConnection);
     connect(this, &Room::changed, this, [this] {

@@ -168,7 +168,6 @@ void Controller::addConnection(NeoChatConnection *c)
     connect(c, &NeoChatConnection::syncDone, this, [this, c]() {
         m_notificationsManager.handleNotifications(c);
     });
-    connect(c, &NeoChatConnection::showInviteNotification, &m_notificationsManager, &NotificationsManager::postInviteNotification);
 
     c->sync();
 
