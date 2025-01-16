@@ -538,6 +538,8 @@ if(ANDROID)
         "edit-delete"
         "user-home-symbolic"
         "pin-symbolic"
+
+        ${KIRIGAMI_ADDONS_ICONS}
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
