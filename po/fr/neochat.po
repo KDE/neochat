@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-14 00:41+0000\n"
-"PO-Revision-Date: 2025-01-11 10:06+0100\n"
+"PO-Revision-Date: 2025-01-14 17:59+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1721,8 +1721,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
-"Soit ce message n’a pas été trouvé car vous n’avez pas la permission de le "
-"voir ou soit il a été envoyé par un utilisateur ignoré"
+"Soit il a été impossible de trouver ce message car vous n'avez pas la "
+"permission de le voir ou soit il a été envoyé par un utilisateur ignoré"
 
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -3861,11 +3861,10 @@ msgid "Load your encrypted messages"
 msgstr "Charger vos messages chiffrés"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Clé de chiffrement"
+msgstr "Les clés de chiffrement ont été restaurées."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -5133,7 +5132,7 @@ msgstr "Configuration par défaut"
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
 msgstr ""
-"Réinitialiser toutes les valeurs de la configuration  à leurs valeurs par "
+"Réinitialiser toutes les valeurs de la configuration à leurs valeurs par "
 "défaut"
 
 #: src/settings/NeoChatSecurityPage.qml:18
