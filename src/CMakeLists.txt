@@ -373,6 +373,8 @@ if(ANDROID)
         "pin-symbolic"
         "kt-restore-defaults-symbolic"
         "user-symbolic"
+
+        ${KIRIGAMI_ADDONS_ICONS}
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
