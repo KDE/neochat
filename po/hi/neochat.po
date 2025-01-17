@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -98,18 +98,18 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नए संदेशों के लिए सूचनाएं प्राप्त करना"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "एक्सेस टोकन नहीं मिला: शायद इसे हटा दिया गया?"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:252
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "कीचेन तक पहुंच अस्वीकृत कर दी गई: कृपया नियोचैट को एक्सेस टोकन पढ़ने की अनुमति दें"
 
-#: src/controller.cpp:256
+#: src/controller.cpp:255
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -118,12 +118,12 @@ msgstr ""
 "कोई कीचेन उपलब्ध नहीं है: कृपया एक कीचेन स्थापित करें, जैसे कि KWallet या Linux पर "
 "GNOME कीरिंग"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:258
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "पहुँच टोकन पढ़ने में असमर्थ: %1"
 
-#: src/controller.cpp:358
+#: src/controller.cpp:357
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश नोटिफिकेशन प्राप्त करना"
@@ -1952,93 +1952,93 @@ msgstr ""
 "फ़ाइल डाउनलोड करने के लिए बहुत बड़ी है.<br /> सहायता के लिए अपने मैट्रिक्स सर्वर "
 "व्यवस्थापक से संपर्क करें।"
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोई पहचान सर्वर कॉन्फ़िगर नहीं किया गया"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्ष निर्माण विफल: %1"
 
-#: src/neochatconnection.cpp:378
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "स्थान निर्माण विफल: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1268
 #, kde-format
 msgid "Report sent successfully."
 msgstr "रिपोर्ट सफलतापूर्वक भेजी गई."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1608 src/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "अक्षांश:%1, देशांतर:%2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:387
+#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "एन्क्रिप्टेड संदेश"
 
-#: src/notificationsmanager.cpp:227
+#: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "इस कमरे में NeoChat खोलें"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "जवाब"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply..."
 msgstr "जवाब..."
 
-#: src/notificationsmanager.cpp:306
+#: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 ने आपको एक कमरे में आमंत्रित किया"
 
-#: src/notificationsmanager.cpp:309
+#: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "इस आमंत्रण को NeoChat में खोलें"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "स्वीकार करना"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "अस्वीकार करना"
 
-#: src/notificationsmanager.cpp:321
+#: src/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "उपयोगकर्ता को अस्वीकार करें और अनदेखा करें"
 
-#: src/notificationsmanager.cpp:380
+#: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:391
+#: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "नियोचैट खोलें"
@@ -4347,87 +4347,99 @@ msgid "Password"
 msgstr "पासवर्ड"
 
 #: src/settings/AccountEditorPage.qml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "आपका सर्वर आपका पासवर्ड बदलने का समर्थन नहीं करता"
 
 #: src/settings/AccountEditorPage.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "वर्तमान पासवर्ड:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Password:"
+msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "नया पासवर्ड:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "नए पासवर्ड की पुष्टि करें:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Passwords don't match"
+msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "पासवर्ड मेल नहीं खाते"
 
-#: src/settings/AccountEditorPage.qml:200
-#, kde-format
-msgid "Passwords do not match"
-msgstr "सांकेतिक शब्द मेल नहीं खाते"
-
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "ईमेल पते"
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "दूरभाष संख्या"
 
-#: src/settings/AccountEditorPage.qml:218
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "पहचान सर्वर"
 
-#: src/settings/AccountEditorPage.qml:227
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "सर्वर जानकारी"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "होमसर्वर यूआरएल"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "खाता प्रबंधन"
 
-#: src/settings/AccountEditorPage.qml:257
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "खाता निष्क्रिय करें"
 
-#: src/settings/AccountEditorPage.qml:273
-#, kde-format
+#: src/settings/AccountEditorPage.qml:272
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "पासवर्ड सफलतापूर्वक बदला गया"
 
 #: src/settings/AccountEditorPage.qml:275
-#, kde-format
-msgid "Wrong password entered"
-msgstr "ग़लत पासवर्ड दर्ज किया गया"
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Invalid passphrase"
+msgctxt "@info"
+msgid "Invalid password"
+msgstr "अमान्य पासफ़्रेज़"
 
-#: src/settings/AccountEditorPage.qml:277
-#, kde-format
+#: src/settings/AccountEditorPage.qml:278
+#, fuzzy, kde-format
+#| msgid "Unknown problem while trying to change password"
+msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "पासवर्ड बदलने का प्रयास करते समय अज्ञात समस्या"
 
@@ -6055,6 +6067,12 @@ msgstr "दिखाओ"
 #, kde-format
 msgid "Quit"
 msgstr "छोड़ना"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "सांकेतिक शब्द मेल नहीं खाते"
+
+#~ msgid "Wrong password entered"
+#~ msgstr "ग़लत पासवर्ड दर्ज किया गया"
 
 #~ msgid "Remove from Favourites"
 #~ msgstr "पसंदीदा से निकालें"

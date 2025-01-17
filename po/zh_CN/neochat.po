@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -96,30 +96,30 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "接收新消息通知"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:253
+#: src/controller.cpp:252
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:256
+#: src/controller.cpp:255
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:259
+#: src/controller.cpp:258
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/controller.cpp:358
+#: src/controller.cpp:357
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -1935,93 +1935,93 @@ msgid ""
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/neochatconnection.cpp:378
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1268
 #, kde-format
 msgid "Report sent successfully."
 msgstr "举报成功。"
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1608 src/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "纬度：%1，经度：%2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:387
+#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "加密的消息"
 
-#: src/notificationsmanager.cpp:227
+#: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1：%2"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "在此聊天室打开 NeoChat"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "回复"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply..."
 msgstr "回复..."
 
-#: src/notificationsmanager.cpp:306
+#: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 邀请您加入聊天室"
 
-#: src/notificationsmanager.cpp:309
+#: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "在 NeoChat 中打开此邀请"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "接受"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "拒绝"
 
-#: src/notificationsmanager.cpp:321
+#: src/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "拒绝并忽略用户"
 
-#: src/notificationsmanager.cpp:380
+#: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:391
+#: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "打开 NeoChat"
@@ -4305,87 +4305,98 @@ msgid "Password"
 msgstr "密码"
 
 #: src/settings/AccountEditorPage.qml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "您的服务器不支持更改您的密码"
 
 #: src/settings/AccountEditorPage.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "当前密码："
 
 #: src/settings/AccountEditorPage.qml:173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Password:"
+msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "新密码："
 
 #: src/settings/AccountEditorPage.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "确认新密码："
 
 #: src/settings/AccountEditorPage.qml:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Passwords don't match"
+msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-#: src/settings/AccountEditorPage.qml:200
-#, kde-format
-msgid "Passwords do not match"
-msgstr "密码不匹配"
-
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:218
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:227
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "服务器信息"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "主服务器 URL"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "账户管理"
 
-#: src/settings/AccountEditorPage.qml:257
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "停用账户"
 
-#: src/settings/AccountEditorPage.qml:273
-#, kde-format
+#: src/settings/AccountEditorPage.qml:272
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "密码修改成功"
 
 #: src/settings/AccountEditorPage.qml:275
-#, kde-format
-msgid "Wrong password entered"
-msgstr "输入的密码错误"
+#, fuzzy, kde-format
+#| msgid "Invalid username or password"
+msgctxt "@info"
+msgid "Invalid password"
+msgstr "用户名或密码错误"
 
-#: src/settings/AccountEditorPage.qml:277
-#, kde-format
+#: src/settings/AccountEditorPage.qml:278
+#, fuzzy, kde-format
+#| msgid "Unknown problem while trying to change password"
+msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "尝试更改密码时出现未知问题"
 
@@ -5988,3 +5999,9 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "密码不匹配"
+
+#~ msgid "Wrong password entered"
+#~ msgstr "输入的密码错误"

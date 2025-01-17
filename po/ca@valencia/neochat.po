@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2025-01-13 10:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -99,12 +99,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Rebre les notificacions dels missatges nous"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "No s'ha trobat el testimoni d'accés: Potser s'ha suprimit?"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:252
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -112,7 +112,7 @@ msgstr ""
 "S'ha denegat l'accés a clauer: Permeteu que NeoChat llija el testimoni "
 "d'accés"
 
-#: src/controller.cpp:256
+#: src/controller.cpp:255
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -121,12 +121,12 @@ msgstr ""
 "No hi ha cap clauer disponible: Instal·leu un clauer, p. ex., KWallet o "
 "l'anell de claus de GNOME a Linux"
 
-#: src/controller.cpp:259
+#: src/controller.cpp:258
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "No s'ha pogut llegir el testimoni d'accés: %1"
 
-#: src/controller.cpp:358
+#: src/controller.cpp:357
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Rebre les notificacions «push»"
@@ -1966,93 +1966,93 @@ msgstr ""
 "El fitxer és massa gran per a baixar.<br />Contacteu amb l'administrador del "
 "servidor Matrix per a ajuda."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No s'ha configurat cap servidor d'identitats"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "No s'ha pogut crear la sala: %1"
 
-#: src/neochatconnection.cpp:378
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "No s'ha pogut crear l'espai: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1268
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1608 src/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat.: %1, lon.: %2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:387
+#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Missatge encriptat"
 
-#: src/notificationsmanager.cpp:227
+#: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Obri NeoChat en esta sala"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply..."
 msgstr "Respon…"
 
-#: src/notificationsmanager.cpp:306
+#: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vos ha convidat a la sala"
 
-#: src/notificationsmanager.cpp:309
+#: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Obri esta invitació en NeoChat"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rebutja"
 
-#: src/notificationsmanager.cpp:321
+#: src/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Rebutja i ignora l'usuari"
 
-#: src/notificationsmanager.cpp:380
+#: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:391
+#: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Obri NeoChat"
@@ -4401,87 +4401,99 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: src/settings/AccountEditorPage.qml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "El vostre servidor no permet canviar la contrasenya"
 
 #: src/settings/AccountEditorPage.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Contrasenya actual:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Password:"
+msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Contrasenya nova:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirma la contrasenya nova:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Passwords don't match"
+msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Les contrasenyes no coincidixen"
 
-#: src/settings/AccountEditorPage.qml:200
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Les contrasenyes no coincidixen"
-
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Adreces de correu electrònic"
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Números de telèfon"
 
-#: src/settings/AccountEditorPage.qml:218
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Servidor d'identitats"
 
-#: src/settings/AccountEditorPage.qml:227
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informació del servidor"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL del servidor domèstic"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Gestioneu el compte"
 
-#: src/settings/AccountEditorPage.qml:257
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Desactivació del compte"
 
-#: src/settings/AccountEditorPage.qml:273
-#, kde-format
+#: src/settings/AccountEditorPage.qml:272
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
 #: src/settings/AccountEditorPage.qml:275
-#, kde-format
-msgid "Wrong password entered"
-msgstr "S'ha introduït una contrasenya errònia"
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Invalid passphrase"
+msgctxt "@info"
+msgid "Invalid password"
+msgstr "Frase de pas no vàlida"
 
-#: src/settings/AccountEditorPage.qml:277
-#, kde-format
+#: src/settings/AccountEditorPage.qml:278
+#, fuzzy, kde-format
+#| msgid "Unknown problem while trying to change password"
+msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Problema desconegut en intentar canviar la contrasenya"
 
@@ -6126,3 +6138,9 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "Les contrasenyes no coincidixen"
+
+#~ msgid "Wrong password entered"
+#~ msgstr "S'ha introduït una contrasenya errònia"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
-"PO-Revision-Date: 2025-01-14 17:59+0100\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"PO-Revision-Date: 2025-01-15 09:04+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -94,12 +94,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Réception de notifications de nouveaux messages"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:248
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Impossible de trouver le jeton d'accès : peut-être a-t-il été effacé ?"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:252
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -107,7 +107,7 @@ msgstr ""
 "L'accès au trousseau de clés a été refusé : veuillez autoriser NeoChat à "
 "lire le jeton d'accès."
 
-#: src/controller.cpp:256
+#: src/controller.cpp:255
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -116,12 +116,12 @@ msgstr ""
 "Aucun trousseau de clés disponible : veuillez installer un trousseau de "
 "clés, par exemple, KWallet ou le trousseau de clés de GNOME sous Linux."
 
-#: src/controller.cpp:259
+#: src/controller.cpp:258
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Impossible de lire le jeton d'accès : %1"
 
-#: src/controller.cpp:358
+#: src/controller.cpp:357
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Réception des notifications"
@@ -1966,93 +1966,93 @@ msgstr ""
 "Fichier trop volumineux pour être téléchargé.<br />Veuillez contact votre "
 "administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Aucun serveur d'identité n'a été configuré."
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/neochatconnection.cpp:378
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer un espace : %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1268
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport envoyé avec succès."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1608 src/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat : %1, Long : %2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:387
+#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Message chiffré"
 
-#: src/notificationsmanager.cpp:227
+#: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1 : %2"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Ouvrir NeoChat dans cette salon"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply..."
 msgstr "Répondre..."
 
-#: src/notificationsmanager.cpp:306
+#: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vous a invité dans un salon"
 
-#: src/notificationsmanager.cpp:309
+#: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Ouvrir cette invitation dans NeoChat"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Accepter"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rejeter"
 
-#: src/notificationsmanager.cpp:321
+#: src/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Rejeter et ignorer un utilisateur"
 
-#: src/notificationsmanager.cpp:380
+#: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:391
+#: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Ouvrir NeoChat"
@@ -3461,18 +3461,16 @@ msgid "Show locations for this room"
 msgstr "Afficher des emplacements dans ce salon"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Rechercher un message..."
+msgstr "Messages épinglés"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Messages directs"
+msgstr "Messages épinglés"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3574,12 +3572,10 @@ msgid "Message Source"
 msgstr "Source du message"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "As in sorting rooms with the most unread messages higher"
-#| msgid "Most Unread Messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Messages les plus non lus"
+msgstr "Aucun messages épinglé"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -4406,88 +4402,100 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: src/settings/AccountEditorPage.qml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr ""
 "Votre serveur ne prend pas en charge la modification de votre mot de passe."
 
 #: src/settings/AccountEditorPage.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Mot de passe actuel :"
 
 #: src/settings/AccountEditorPage.qml:173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Password:"
+msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nouveau mot de passe :"
 
 #: src/settings/AccountEditorPage.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirmer le nouveau mot de passe :"
 
 #: src/settings/AccountEditorPage.qml:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Passwords don't match"
+msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: src/settings/AccountEditorPage.qml:200
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Les mots de passe ne correspondent pas"
-
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:205
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Adresses de courriel"
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Numéros de téléphone"
 
-#: src/settings/AccountEditorPage.qml:218
+#: src/settings/AccountEditorPage.qml:216
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Serveur d'identité"
 
-#: src/settings/AccountEditorPage.qml:227
+#: src/settings/AccountEditorPage.qml:225
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informations sur le serveur"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL du serveur d'accueil"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Gestion des comptes"
 
-#: src/settings/AccountEditorPage.qml:257
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Désactiver un compte"
 
-#: src/settings/AccountEditorPage.qml:273
-#, kde-format
+#: src/settings/AccountEditorPage.qml:272
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Mot de passe changé avec succès"
 
 #: src/settings/AccountEditorPage.qml:275
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Mot de passe erroné"
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Invalid passphrase"
+msgctxt "@info"
+msgid "Invalid password"
+msgstr "Phrase de passe non valable"
 
-#: src/settings/AccountEditorPage.qml:277
-#, kde-format
+#: src/settings/AccountEditorPage.qml:278
+#, fuzzy, kde-format
+#| msgid "Unknown problem while trying to change password"
+msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Problème inconnu durant la tentative de chargement de mot de passe."
 
@@ -5189,7 +5197,7 @@ msgstr "Votre serveur ne prend pas en charge cette configuration."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Activer le chiffrement dans les nouvelles discussions"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5197,6 +5205,8 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Si cette option est activée, NeoChat utilisera le chiffrement lors du "
+"démarrage de nouveaux messages directs."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
@@ -6145,6 +6155,12 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "Les mots de passe ne correspondent pas"
+
+#~ msgid "Wrong password entered"
+#~ msgstr "Mot de passe erroné"
 
 #~ msgid "Remove from Favourites"
 #~ msgstr "Supprimer de vos préférés"

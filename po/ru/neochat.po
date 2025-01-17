@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-14 00:41+0000\n"
+"POT-Creation-Date: 2025-01-17 00:41+0000\n"
 "PO-Revision-Date: 2024-10-31 10:08+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -98,18 +98,18 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Получение уведомлений о новых сообщениях"
 
-#: src/controller.cpp:249
+#: src/controller.cpp:248
 #, fuzzy, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Не найден токен доступа"
 
-#: src/controller.cpp:253
+#: src/controller.cpp:252
 #, fuzzy, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Разрешите приложению NeoChat прочитать токен доступа"
 
-#: src/controller.cpp:256
+#: src/controller.cpp:255
 #, fuzzy, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -118,12 +118,12 @@ msgstr ""
 "Установите приложение, предоставляющее службу связки ключей, например "
 "KWallet или Gnome Keyring."
 
-#: src/controller.cpp:259
+#: src/controller.cpp:258
 #, fuzzy, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Не удалось прочитать токен доступа"
 
-#: src/controller.cpp:358
+#: src/controller.cpp:357
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Получение push-уведомлений"
@@ -1987,93 +1987,93 @@ msgid ""
 "for support."
 msgstr "Обратитесь за помощью к администратору сервера Matrix."
 
-#: src/neochatconnection.cpp:317
+#: src/neochatconnection.cpp:313
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Не настроен сервер профилей"
 
-#: src/neochatconnection.cpp:348
+#: src/neochatconnection.cpp:344
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Не удалось создать комнату: %1"
 
-#: src/neochatconnection.cpp:378
+#: src/neochatconnection.cpp:374
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Не удалось создать пространство: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1268
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Жалоба отправлена."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1608 src/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Широта: %1, долгота: %2"
 
-#: src/notificationsmanager.cpp:143 src/notificationsmanager.cpp:387
+#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Зашифрованное сообщение"
 
-#: src/notificationsmanager.cpp:227
+#: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:246 src/qml/DelegateContextMenu.qml:98
+#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
 
-#: src/notificationsmanager.cpp:247
+#: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply..."
 msgstr "Ответить…"
 
-#: src/notificationsmanager.cpp:306
+#: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 пригласил вас в комнату"
 
-#: src/notificationsmanager.cpp:309
+#: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Открыть это приглашение в NeoChat"
 
-#: src/notificationsmanager.cpp:319
+#: src/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Отклонить"
 
-#: src/notificationsmanager.cpp:321
+#: src/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Отклонить и игнорировать пользователя"
 
-#: src/notificationsmanager.cpp:380
+#: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:391
+#: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Открыть NeoChat"
@@ -4428,69 +4428,74 @@ msgid "Password"
 msgstr "Пароль"
 
 #: src/settings/AccountEditorPage.qml:159
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your server doesn't support changing your password"
+msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Сервер не позволяет сменить пароль"
 
 #: src/settings/AccountEditorPage.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Current Password:"
+msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Текущий пароль:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "New Password:"
+msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Новый пароль:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Confirm new Password:"
+msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Проверка нового пароля:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Passwords don't match"
+msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: src/settings/AccountEditorPage.qml:200
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Пароли не совпадают"
-
-#: src/settings/AccountEditorPage.qml:207
+#: src/settings/AccountEditorPage.qml:205
 #, fuzzy, kde-format
 #| msgid "Email Addresses"
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Адреса электронной почты"
 
-#: src/settings/AccountEditorPage.qml:213
+#: src/settings/AccountEditorPage.qml:211
 #, fuzzy, kde-format
 #| msgid "Phone Numbers"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Телефонные номера"
 
-#: src/settings/AccountEditorPage.qml:218
+#: src/settings/AccountEditorPage.qml:216
 #, fuzzy, kde-format
 #| msgid "Identity Server"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Сервер профилей"
 
-#: src/settings/AccountEditorPage.qml:227
+#: src/settings/AccountEditorPage.qml:225
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Информация о сервере"
 
-#: src/settings/AccountEditorPage.qml:231
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgid "Homeserver url"
 msgstr "Адрес домашнего сервера"
 
-#: src/settings/AccountEditorPage.qml:252
+#: src/settings/AccountEditorPage.qml:250
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Account Management"
@@ -4498,23 +4503,28 @@ msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Управление учётной записью"
 
-#: src/settings/AccountEditorPage.qml:257
+#: src/settings/AccountEditorPage.qml:255
 #, kde-format
 msgid "Deactivate Account"
 msgstr "Деактивировать учётную запись"
 
-#: src/settings/AccountEditorPage.qml:273
-#, kde-format
+#: src/settings/AccountEditorPage.qml:272
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Пароль успешно изменён"
 
 #: src/settings/AccountEditorPage.qml:275
-#, kde-format
-msgid "Wrong password entered"
-msgstr "Введён неверный пароль"
+#, fuzzy, kde-format
+msgctxt "@info"
+msgid "Invalid password"
+msgstr "Разблокировка с помощью парольной фразы"
 
-#: src/settings/AccountEditorPage.qml:277
-#, kde-format
+#: src/settings/AccountEditorPage.qml:278
+#, fuzzy, kde-format
+#| msgid "Unknown problem while trying to change password"
+msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "При попытке сменить пароль произошла ошибка"
 
@@ -6202,6 +6212,12 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "Пароли не совпадают"
+
+#~ msgid "Wrong password entered"
+#~ msgstr "Введён неверный пароль"
 
 #~ msgid "Remove from Favourites"
 #~ msgstr "Убрать из избранного"
