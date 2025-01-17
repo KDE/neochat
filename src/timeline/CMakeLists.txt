@@ -19,6 +19,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         AvatarFlow.qml
         ReactionDelegate.qml
         SectionDelegate.qml
+        BaseMessageComponentChooser.qml
         MessageComponentChooser.qml
         ReplyMessageComponentChooser.qml
         AuthorComponent.qml
@@ -50,6 +51,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         ReplyComponent.qml
         StateComponent.qml
         TextComponent.qml
+        ThreadBodyComponent.qml
         VideoComponent.qml
     SOURCES
         timelinedelegate.cpp

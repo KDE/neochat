@@ -11,6 +11,7 @@
 #include "chatbarcache.h"
 #include "eventhandler.h"
 #include "messagecomponenttype.h"
+#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
@@ -20,8 +21,6 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
 {
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
-
-    m_threadRootContentModel = std::unique_ptr<MessageContentModel>(new MessageContentModel(room, threadRootId));
 
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
     connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
@@ -73,14 +72,9 @@ QString ThreadModel::threadRootId() const
     return m_threadRootId;
 }
 
-MessageContentModel *ThreadModel::threadRootContentModel() const
-{
-    return m_threadRootContentModel.get();
-}
-
 QHash<int, QByteArray> ThreadModel::roleNames() const
 {
-    return m_threadRootContentModel->roleNames();
+    return MessageContentModel::roleNamesStatic();
 }
 
 bool ThreadModel::canFetchMore(const QModelIndex &parent) const
@@ -134,7 +128,6 @@ void ThreadModel::addModels()
         clearModels();
     }
 
-    addSourceModel(m_threadRootContentModel.get());
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
     if (room == nullptr) {
         return;
@@ -153,8 +146,6 @@ void ThreadModel::addModels()
 
 void ThreadModel::clearModels()
 {
-    removeSourceModel(m_threadRootContentModel.get());
-
     const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
     if (room == nullptr) {
         return;
@@ -166,6 +157,35 @@ void ThreadModel::clearModels()
         }
     }
     removeSourceModel(m_threadChatBarModel);
+}
+
+void ThreadModel::closeLinkPreview(int row)
+{
+    if (row < 0 || row >= rowCount()) {
+        return;
+    }
+
+    const auto index = this->index(row, 0);
+    if (!index.isValid()) {
+        return;
+    }
+
+    const auto sourceIndex = mapToSource(index);
+    const auto sourceModel = sourceIndex.model();
+    if (sourceModel == nullptr) {
+        return;
+    }
+    // This is a bit silly but we can only get a const reference to the model from the
+    // index so we need to search the source models.
+    for (const auto &model : sourceModels()) {
+        if (model == sourceModel) {
+            const auto sourceContentModel = dynamic_cast<MessageContentModel *>(model);
+            if (sourceContentModel == nullptr) {
+                return;
+            }
+            sourceContentModel->closeLinkPreview(sourceIndex.row());
+        }
+    }
 }
 
 ThreadChatBarModel::ThreadChatBarModel(QObject *parent, NeoChatRoom *room)

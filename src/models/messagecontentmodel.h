@@ -91,6 +91,8 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    static QHash<int, QByteArray> roleNamesStatic();
+
     /**
      * @brief Close the link preview at the given index.
      *

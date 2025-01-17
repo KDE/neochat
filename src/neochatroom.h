@@ -634,7 +634,7 @@ public:
      * A model is created is one doesn't exist. Will return nullptr if threadRootId
      * is empty.
      */
-    ThreadModel *modelForThread(const QString &threadRootId);
+    Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
 private:
     bool m_visible = false;

@@ -340,6 +340,17 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
+    if (role == ThreadRootRole) {
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first);
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+        if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
+#else
+        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+#endif
+            return roomMessageEvent->threadRootEventId();
+        }
+        return {};
+    }
     if (role == LinkPreviewerRole) {
         if (component.type == MessageComponentType::LinkPreview) {
             return QVariant::fromValue<LinkPreviewer *>(
@@ -366,27 +377,32 @@ int MessageContentModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> MessageContentModel::roleNames() const
 {
-    QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
-    roles[DisplayRole] = "display";
-    roles[ComponentTypeRole] = "componentType";
-    roles[ComponentAttributesRole] = "componentAttributes";
-    roles[EventIdRole] = "eventId";
-    roles[TimeRole] = "time";
-    roles[TimeStringRole] = "timeString";
-    roles[AuthorRole] = "author";
-    roles[MediaInfoRole] = "mediaInfo";
-    roles[FileTransferInfoRole] = "fileTransferInfo";
-    roles[ItineraryModelRole] = "itineraryModel";
-    roles[LatitudeRole] = "latitude";
-    roles[LongitudeRole] = "longitude";
-    roles[AssetRole] = "asset";
-    roles[PollHandlerRole] = "pollHandler";
-    roles[ReplyEventIdRole] = "replyEventId";
-    roles[ReplyAuthorRole] = "replyAuthor";
-    roles[ReplyContentModelRole] = "replyContentModel";
-    roles[ThreadRootRole] = "threadRoot";
-    roles[LinkPreviewerRole] = "linkPreviewer";
-    roles[ChatBarCacheRole] = "chatBarCache";
+    return roleNamesStatic();
+}
+
+QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
+{
+    QHash<int, QByteArray> roles;
+    roles[MessageContentModel::DisplayRole] = "display";
+    roles[MessageContentModel::ComponentTypeRole] = "componentType";
+    roles[MessageContentModel::ComponentAttributesRole] = "componentAttributes";
+    roles[MessageContentModel::EventIdRole] = "eventId";
+    roles[MessageContentModel::TimeRole] = "time";
+    roles[MessageContentModel::TimeStringRole] = "timeString";
+    roles[MessageContentModel::AuthorRole] = "author";
+    roles[MessageContentModel::MediaInfoRole] = "mediaInfo";
+    roles[MessageContentModel::FileTransferInfoRole] = "fileTransferInfo";
+    roles[MessageContentModel::ItineraryModelRole] = "itineraryModel";
+    roles[MessageContentModel::LatitudeRole] = "latitude";
+    roles[MessageContentModel::LongitudeRole] = "longitude";
+    roles[MessageContentModel::AssetRole] = "asset";
+    roles[MessageContentModel::PollHandlerRole] = "pollHandler";
+    roles[MessageContentModel::ReplyEventIdRole] = "replyEventId";
+    roles[MessageContentModel::ReplyAuthorRole] = "replyAuthor";
+    roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
+    roles[MessageContentModel::ThreadRootRole] = "threadRoot";
+    roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
+    roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
     return roles;
 }
 
@@ -462,6 +478,15 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     if (m_room->urlPreviewEnabled()) {
         newComponents = addLinkPreviews(newComponents);
+    }
+
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+    if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
+        && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+#else
+    if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+#endif
+        newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
