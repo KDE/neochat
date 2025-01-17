@@ -124,7 +124,7 @@ DelegateContextMenu {
     }
 
     Kirigami.Action {
-        text: i18n("Configure Web Shortcuts...")
+        text: i18n("Configure Web Shortcuts…")
         icon.name: "configure"
         visible: !Controller.isFlatpak && webshortcutModel.enabled
         onTriggered: webshortcutmodel.configureWebShortcuts()

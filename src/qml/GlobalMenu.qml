@@ -22,7 +22,7 @@ Labs.MenuBar {
 
         Labs.MenuItem {
             enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat…")
-            text: i18nc("menu", "Configure NeoChat...")
+            text: i18nc("menu", "Configure NeoChat…")
 
             shortcut: StandardKey.Preferences
             onTriggered: NeoChatSettingsView.open()

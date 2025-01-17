@@ -39,7 +39,7 @@ struct WebShortcutModelPrivate;
  *      }
  *      QQC2.MenuSeparator {}
  *      QQC2.MenuItem {
- *          text: i18n("Configure Web Shortcuts...")
+ *          text: i18n("Configure Web Shortcuts…")
  *          icon.name: "configure"
  *          onTriggered: webshortcutmodel.configureWebShortcuts()
  *      }

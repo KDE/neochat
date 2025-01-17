@@ -243,7 +243,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     if (canReply) {
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
-        replyAction->setPlaceholderText(i18n("Reply..."));
+        replyAction->setPlaceholderText(i18n("Reply…"));
         connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
             TextHandler textHandler;
             textHandler.setData(text);
