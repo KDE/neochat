@@ -196,6 +196,8 @@ add_library(neochat STATIC
     models/messagecontentfiltermodel.h
     models/pinnedmessagemodel.cpp
     models/pinnedmessagemodel.h
+    models/commonroomsmodel.cpp
+    models/commonroomsmodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

@@ -56,6 +56,8 @@ Kirigami.Dialog {
             ColumnLayout {
                 Layout.fillWidth: true
 
+                spacing: 0
+
                 Kirigami.Heading {
                     level: 1
                     Layout.fillWidth: true
@@ -70,6 +72,19 @@ Kirigami.Dialog {
                 Kirigami.SelectableLabel {
                     textFormat: TextEdit.PlainText
                     text: root.user.id
+                }
+
+                QQC2.Label {
+                    property CommonRoomsModel model: CommonRoomsModel {
+                        connection: root.connection
+                        userId: root.user.id
+                    }
+
+                    text: i18ncp("@info", "One mutual room", "%1 mutual rooms", model.count)
+                    color: Kirigami.Theme.disabledTextColor
+                    visible: model.count > 0
+
+                    Layout.topMargin: Kirigami.Units.smallSpacing
                 }
             }
             QQC2.AbstractButton {
