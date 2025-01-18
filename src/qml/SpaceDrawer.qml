@@ -131,7 +131,7 @@ QQC2.Control {
 
                     text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
                     contentItem: Kirigami.Icon {
-                        source: "system-users"
+                        source: "system-users-symbolic"
 
                         QQC2.Label {
                             id: directChatNotificationCountLabel

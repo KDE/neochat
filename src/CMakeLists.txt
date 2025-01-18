@@ -535,6 +535,7 @@ if(ANDROID)
         "kde"
         "list-remove-symbolic"
         "edit-delete"
+        "user-home-symbolic"
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
