@@ -318,11 +318,13 @@ Kirigami.ApplicationWindow {
         })
     }
     function showUserDetail(user, room) {
-        Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root.QQC2.ApplicationWindow.window, {
+        const dialog = Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root, {
             room: room,
             user: user,
-            connection: root.connection
-        }).open();
+            connection: root.connection,
+        });
+        dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
+        dialog.open();
     }
 
     function load() {
