@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2034,9 +2034,10 @@ msgid "Reply"
 msgstr "Antworten"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Antworten …"
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Antworten"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2757,9 +2758,10 @@ msgid "Configure NeoChat…"
 msgstr "NeoChat einrichten …"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "NeoChat einrichten …"
 
 #: src/qml/GlobalMenu.qml:31
@@ -3196,8 +3198,9 @@ msgid "Search for '%1'"
 msgstr "Suchen nach „%1“"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Web-Kurzbefehle festlegen …"
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5961,6 +5964,11 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 startete eine Überprüfung des Benutzers"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6083,11 +6091,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Extern öffnen"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 startete eine Überprüfung des Benutzers"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6159,6 +6162,13 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid "Reply..."
+#~ msgstr "Antworten …"
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "NeoChat einrichten …"
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Die Passwörter stimmen nicht überein"

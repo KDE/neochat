@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2137,9 +2137,10 @@ msgid "Reply"
 msgstr "답장"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "답장..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "답장"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2900,9 +2901,10 @@ msgid "Configure NeoChat…"
 msgstr "NeoChat 설정..."
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat..."
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "NeoChat 설정..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3356,8 +3358,9 @@ msgid "Search for '%1'"
 msgstr "'%1' 검색"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "웹 바로 가기 설정..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6177,6 +6180,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 started a user verification"
+msgstr "님이 사용자의 초대를 거절함"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6305,12 +6314,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "외부 프로그램으로 열기"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
-msgid "%1 started a user verification"
-msgstr "님이 사용자의 초대를 거절함"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6381,6 +6384,13 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Reply..."
+#~ msgstr "답장..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "NeoChat 설정..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "암호가 일치하지 않음"

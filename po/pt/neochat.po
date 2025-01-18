@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2192,9 +2192,10 @@ msgid "Reply"
 msgstr "Responder"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Responder..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Responder"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2971,9 +2972,10 @@ msgid "Configure NeoChat…"
 msgstr "Configurar os NeoChat..."
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat..."
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Configurar os NeoChat..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3434,8 +3436,9 @@ msgid "Search for '%1'"
 msgstr "Procurar por '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Configurar os Atalhos Web..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6357,6 +6360,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, fuzzy, kde-format
+#| msgid "withdrew a user's invitation"
+msgid "%1 started a user verification"
+msgstr "retirou o convite de um utilizador"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6485,12 +6494,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir Externamente"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, fuzzy, kde-format
-#| msgid "withdrew a user's invitation"
-msgid "%1 started a user verification"
-msgstr "retirou o convite de um utilizador"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6562,6 +6565,13 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
+
+#~ msgid "Reply..."
+#~ msgstr "Responder..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Configurar os NeoChat..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "As senhas não correspondem"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -2133,9 +2133,10 @@ msgid "Reply"
 msgstr "Responder"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Responder..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Responder"
 
 #: src/notificationsmanager.cpp:305
 #, fuzzy, kde-format
@@ -2886,9 +2887,10 @@ msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat..."
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat..."
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3340,8 +3342,9 @@ msgid "Search for '%1'"
 msgstr "Serchar por «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Configurar abreviationes de web..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6185,6 +6188,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "%1 started a user verification"
+msgstr "revocat li invitation de %1"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "Confirm"
@@ -6309,12 +6318,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Aperter _externmen"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
-msgid "%1 started a user verification"
-msgstr "revocat li invitation de %1"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6386,6 +6389,13 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgid "Reply..."
+#~ msgstr "Responder..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Configurar NeoChat..."
 
 #, fuzzy
 #~ msgid "Passwords do not match"

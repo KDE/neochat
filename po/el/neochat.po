@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2110,9 +2110,10 @@ msgid "Reply"
 msgstr "Απάντηση"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Απάντηση..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Απάντηση"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2860,10 +2861,11 @@ msgid "Configure NeoChat…"
 msgstr "Διαμόρφωση του NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Διαμόρφωση του NeoChat..."
+msgid "Configure NeoChat…"
+msgstr "Διαμόρφωση του NeoChat…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3315,8 +3317,9 @@ msgid "Search for '%1'"
 msgstr "Αναζήτηση για το '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Διαμόρφωση συντομεύσεων ιστού..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6173,6 +6176,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "%1 started a user verification"
+msgstr "απόσυρε την πρόσκληση για %1"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "Confirm"
@@ -6300,12 +6309,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Άνοιγμα εξωτερικά"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
-msgid "%1 started a user verification"
-msgstr "απόσυρε την πρόσκληση για %1"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6376,6 +6379,13 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#~ msgid "Reply..."
+#~ msgstr "Απάντηση..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Διαμόρφωση του NeoChat..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"

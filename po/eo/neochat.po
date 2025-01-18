@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-13 22:15+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2005,9 +2005,10 @@ msgid "Reply"
 msgstr "Respondi"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Respondi..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Respondi"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2721,10 +2722,11 @@ msgid "Configure NeoChat…"
 msgstr "Agordi NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Agordi NeoChat..."
+msgid "Configure NeoChat…"
+msgstr "Agordi NeoChat…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3155,8 +3157,9 @@ msgid "Search for '%1'"
 msgstr "Serĉi '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Agordi Retajn Ŝparvojojn..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5884,6 +5887,11 @@ msgstr ""
 "La telefonnumero ne estis konfirmita. Bonvolu iri al la retpoŝto kaj sekvi "
 "la instruojn tie kaj poste klaki la butonon supre"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 komencis uzant-konfirmon"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6006,11 +6014,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Malfermi Ekstere"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 komencis uzant-konfirmon"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6082,6 +6085,13 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgid "Reply..."
+#~ msgstr "Respondi..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Agordi NeoChat..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "pasvortoj ne egalas"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -2228,9 +2228,10 @@ msgid "Reply"
 msgstr "Odpovedať"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Odpovedať..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Odpovedať"
 
 #: src/notificationsmanager.cpp:305
 #, fuzzy, kde-format
@@ -3000,7 +3001,7 @@ msgstr "Nastaviť webové skratky..."
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Nastaviť webové skratky..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3456,8 +3457,9 @@ msgid "Search for '%1'"
 msgstr "Hľadať '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Nastaviť webové skratky..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6349,6 +6351,12 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "%1 started a user verification"
+msgstr "stiahol pozvanie %1"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "Confirm"
@@ -6472,12 +6480,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Otvoriť externe"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
-msgid "%1 started a user verification"
-msgstr "stiahol pozvanie %1"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6549,6 +6551,15 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#~ msgid "Reply..."
+#~ msgstr "Odpovedať..."
+
+#, fuzzy
+#~| msgid "Configure Web Shortcuts..."
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Nastaviť webové skratky..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Heslá sa nezhodujú"

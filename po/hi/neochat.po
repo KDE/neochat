@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2001,9 +2001,10 @@ msgid "Reply"
 msgstr "जवाब"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "जवाब..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "जवाब"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2716,10 +2717,11 @@ msgid "Configure NeoChat…"
 msgstr "नियोचैट कॉन्फ़िगर करें…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "नियोचैट कॉन्फ़िगर करें..."
+msgid "Configure NeoChat…"
+msgstr "नियोचैट कॉन्फ़िगर करें…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3150,8 +3152,9 @@ msgid "Search for '%1'"
 msgstr "'%1' को खोजें"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "वेब शॉर्टकट कॉन्फ़िगर करें..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5872,6 +5875,11 @@ msgstr ""
 "फ़ोन नंबर सत्यापित नहीं किया गया है। कृपया टेक्स्ट संदेश पर जाएँ और वहाँ दिए गए निर्देशों का "
 "पालन करें और फिर ऊपर दिए गए बटन पर क्लिक करें"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 ने उपयोगकर्ता सत्यापन शुरू किया"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -5992,11 +6000,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "बाहरी रूप से खोलें"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 ने उपयोगकर्ता सत्यापन शुरू किया"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6067,6 +6070,13 @@ msgstr "दिखाओ"
 #, kde-format
 msgid "Quit"
 msgstr "छोड़ना"
+
+#~ msgid "Reply..."
+#~ msgstr "जवाब..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "नियोचैट कॉन्फ़िगर करें..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "सांकेतिक शब्द मेल नहीं खाते"

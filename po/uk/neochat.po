@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-14 18:21+0200\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 09:57+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2018,9 +2018,10 @@ msgid "Reply"
 msgstr "Відповісти"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Відповісти…"
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Відповісти"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2743,9 +2744,10 @@ msgid "Configure NeoChat…"
 msgstr "Налаштувати NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Налаштувати NeoChat…"
 
 #: src/qml/GlobalMenu.qml:31
@@ -3179,8 +3181,9 @@ msgid "Search for '%1'"
 msgstr "Пошук «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Налаштувати вебскорочення…"
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -4405,36 +4408,31 @@ msgid "Password"
 msgstr "Пароль"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "На вашому сервері не передбачено підтримки зміни вашого пароля"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Поточний пароль:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Новий пароль:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Підтвердження нового пароля:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Паролі не збігаються"
@@ -4480,23 +4478,19 @@ msgid "Deactivate Account"
 msgstr "Деактивувати обліковий запис"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Пароль успішно змінено"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Некоректний пароль"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Невідома проблема під час спроби змінити пароль"
@@ -5947,6 +5941,11 @@ msgstr ""
 "повідомлення і виконайте настанови з нього, а потім натисніть кнопку, яку "
 "розташовано вище"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 розпочато перевірку користувача"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6069,11 +6068,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Відкрити у сторонній програмі"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 розпочато перевірку користувача"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6145,6 +6139,13 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Reply..."
+#~ msgstr "Відповісти…"
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Налаштувати NeoChat…"
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Паролі не збігаються"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2036,9 +2036,10 @@ msgid "Reply"
 msgstr "Válasz"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Válasz…"
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Válasz"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2764,9 +2765,10 @@ msgid "Configure NeoChat…"
 msgstr "A Neochat beállításai…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "A Neochat beállításai…"
 
 #: src/qml/GlobalMenu.qml:31
@@ -3207,8 +3209,9 @@ msgid "Search for '%1'"
 msgstr "„%1” keresése"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Keresőazonosítók beállítása…"
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -6027,6 +6030,11 @@ msgstr ""
 "A telefonszám nincs ellenőrizve. Kérjük, nyissa meg a szöveges üzenetet, és "
 "kövesse az ott található utasításokat, majd kattintson a fenti gombra"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 elindított egy felhasználóellenőrzést"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6149,11 +6157,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 elindított egy felhasználóellenőrzést"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6224,6 +6227,13 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "Reply..."
+#~ msgstr "Válasz…"
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "A Neochat beállításai…"
 
 #~ msgid "Passwords do not match"
 #~ msgstr "A jelszavak nem egyeznek"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1997,9 +1997,10 @@ msgid "Reply"
 msgstr "उत्तरं"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "उत्तरं..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "उत्तरं"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2710,9 +2711,10 @@ msgid "Configure NeoChat…"
 msgstr "NeoChat विन्यस्तं कुर्वन्तु..."
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "NeoChat विन्यस्तं कुर्वन्तु..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3144,8 +3146,9 @@ msgid "Search for '%1'"
 msgstr "'%1' इति अन्वेषणं कुर्वन्तु ।"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "जालशॉर्टकट् विन्यस्तं कुर्वन्तु..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5846,6 +5849,11 @@ msgstr ""
 "दूरभाषसङ्ख्या सत्यापितं नास्ति। कृपया पाठसन्देशं गत्वा तत्रत्याः निर्देशान् अनुसृत्य ततः उपरि "
 "स्थापितं बटनं नुदन्तु"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 इत्यनेन उपयोक्तृसत्यापनम् आरब्धम्"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -5966,11 +5974,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "बाह्यरूपेण उद्घाटयतु"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 इत्यनेन उपयोक्तृसत्यापनम् आरब्धम्"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6040,6 +6043,13 @@ msgstr "दर्शयतु"
 #, kde-format
 msgid "Quit"
 msgstr "परिजहातु"
+
+#~ msgid "Reply..."
+#~ msgstr "उत्तरं..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "NeoChat विन्यस्तं कुर्वन्तु..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "गुप्तशब्दाः न मेलन्ति"

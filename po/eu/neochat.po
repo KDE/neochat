@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-14 06:40+0100\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 05:35+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2007,9 +2007,10 @@ msgid "Reply"
 msgstr "Erantzun"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Erantzun..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Erantzun"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2726,9 +2727,10 @@ msgid "Configure NeoChat…"
 msgstr "Konfiguratu NeoChat..."
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Konfiguratu NeoChat..."
 
 #: src/qml/GlobalMenu.qml:31
@@ -3162,8 +3164,9 @@ msgid "Search for '%1'"
 msgstr "Bilatu '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Konfiguratu web-lasterbideak..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -4380,36 +4383,31 @@ msgid "Password"
 msgstr "Pasahitza"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Zure zerbitzariak ez du onartzen zure pasahitza aldatzea"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Uneko pasahitza:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Pasahitz berria:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
-msgstr "Berretsi pasahitza:"
+msgstr "Baieztatu pasahitz berria:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Pasahitzak ez datoz bat"
@@ -4455,26 +4453,22 @@ msgid "Deactivate Account"
 msgstr "Desaktibatu kontua"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
-msgstr "Pasahitza behar bezala aldatu da"
+msgstr "Pasahitz aldaketa arrakastatsua"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "Pasaesaldi baliogabea"
+msgstr "Pasahitz baliogabea"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
-msgstr "Arazo ezezaguna pasahitza aldatzen saiatzean"
+msgstr "Pasahitza aldatzen saiatzean arazo ezezaguna"
 
 #: src/settings/AccountsPage.qml:20
 #, kde-format
@@ -5908,6 +5902,11 @@ msgstr ""
 "Telefono-zenbaki ez da egiaztatu. Mesedez, joan testu-mezura, jarraitu hango "
 "jarraibideak eta egin klik goiko botoian"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6029,11 +6028,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Ireki kanpotik"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6105,6 +6099,13 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgid "Reply..."
+#~ msgstr "Erantzun..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Konfiguratu NeoChat..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Pasahitzak ez datoz bat"

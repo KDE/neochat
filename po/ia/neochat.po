@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-14 18:17+0100\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 12:21+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2007,9 +2007,10 @@ msgid "Reply"
 msgstr "Responde"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Responde..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Responde"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2727,10 +2728,11 @@ msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Configura NeoChat..."
+msgid "Configure NeoChat…"
+msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3163,8 +3165,9 @@ msgid "Search for '%1'"
 msgstr "Cerca '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Configura vias breve de Web..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -4387,36 +4390,31 @@ msgid "Password"
 msgstr "Contrasigno"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Tu servitor non supporta que tu pote cambiar tu contrasigno"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Contrasigno currente:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nove contrasigno:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirma nove contrasigno:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Le contrasigno non coincide"
@@ -4462,23 +4460,19 @@ msgid "Deactivate Account"
 msgstr "Deactiva conto"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Contrassigno cambiava con successo"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "Phrase de contrasigno invalide"
+msgstr "Contrasigno invalide"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Problema incognite quando il essayava a cambiar contrasigno"
@@ -5922,6 +5916,11 @@ msgstr ""
 "Le numero de telephono non ha essite verificate. Pro favor vade al message "
 "de texto e seque le instructiones illac e postea clicca le button in alto"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 initiava un verification de usator"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6044,11 +6043,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Aperi externemente"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 initiava un verification de usator"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6120,6 +6114,13 @@ msgstr "Monstra "
 #, kde-format
 msgid "Quit"
 msgstr "Quita"
+
+#~ msgid "Reply..."
+#~ msgstr "Responde..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Configura NeoChat..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Le contrasigno non es equal"

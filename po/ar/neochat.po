@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-14 18:33+0400\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 23:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2011,9 +2011,10 @@ msgid "Reply"
 msgstr "ردّ"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "ردّ..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "ردّ"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2724,10 +2725,11 @@ msgid "Configure NeoChat…"
 msgstr "اضبط نيوتشات…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "اضبط نيوتشات..."
+msgid "Configure NeoChat…"
+msgstr "اضبط نيوتشات…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3158,8 +3160,9 @@ msgid "Search for '%1'"
 msgstr "بحث عن '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "اضبط اختصارات الوِب..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -4359,36 +4362,31 @@ msgid "Password"
 msgstr "كلمة السّر"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "لا يدعم خادمك تغيير كلمة سرك"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "كلمة السرّ الحاليّة:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "كلمة السرّ الجديدة:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "أكد كلمة السر الجديدة:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "كلمات السر لم تتطابق"
@@ -4434,23 +4432,19 @@ msgid "Deactivate Account"
 msgstr "عطّل الحساب"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "عبارة مرور غير صالحة"
+msgstr "كلمة السر غير صحيحة"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "مشكلة غير معروفة أثناء محاولة تغيير كلمة السر"
@@ -5874,6 +5868,11 @@ msgstr ""
 "لم يتحقق من رقم الهاتف. الرجاء الذهاب إلى الرسالة النصية واتباع التعليمات "
 "هناك ثم انقر فوق الزر أعلاه"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "بدأ %1 عملية تَثَبّت لمستخدم"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -5994,11 +5993,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "افتحه خارجيا"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "بدأ %1 عملية تَثَبّت لمستخدم"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6072,6 +6066,13 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
+
+#~ msgid "Reply..."
+#~ msgstr "ردّ..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "اضبط نيوتشات..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "كلمتا السر لم تتطابقا"

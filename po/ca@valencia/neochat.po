@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
-"PO-Revision-Date: 2025-01-13 10:01+0100\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
+"PO-Revision-Date: 2025-01-17 10:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2015,9 +2015,10 @@ msgid "Reply"
 msgstr "Respon"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Respon…"
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Respon"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2735,9 +2736,10 @@ msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
+msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:31
@@ -3172,8 +3174,9 @@ msgid "Search for '%1'"
 msgstr "Busca «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Configura les dreceres web…"
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -3454,18 +3457,16 @@ msgid "Show locations for this room"
 msgstr "Mostra les ubicacions per a esta sala"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Busca missatges…"
+msgstr "Missatges fixats"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Busca missatges…"
+msgstr "Missatges fixats"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3569,12 +3570,10 @@ msgid "Message Source"
 msgstr "Codi font del missatge"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "As in sorting rooms with the most unread messages higher"
-#| msgid "Most Unread Messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Més missatges sense llegir"
+msgstr "Sense missatges fixats"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -4401,36 +4400,31 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "El vostre servidor no permet canviar la contrasenya"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Contrasenya actual:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Contrasenya nova:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirma la contrasenya nova:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Les contrasenyes no coincidixen"
@@ -4476,23 +4470,19 @@ msgid "Deactivate Account"
 msgstr "Desactivació del compte"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "Frase de pas no vàlida"
+msgstr "Contrasenya no vàlida"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Problema desconegut en intentar canviar la contrasenya"
@@ -5187,7 +5177,7 @@ msgstr "El vostre servidor no permet este paràmetre."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Activa l'encriptació als xats nous"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5195,6 +5185,8 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Si s'activa, NeoChat utilitzarà l'encriptació en iniciar missatges directes "
+"nous."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
@@ -5939,6 +5931,11 @@ msgstr ""
 "El número de telèfon no s'ha verificat. Aneu fins al missatge de text i "
 "seguiu les seues instruccions i després feu clic en el botó de dalt"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 ha començat una verificació d'usuari"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6061,11 +6058,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Obri externament"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 ha començat una verificació d'usuari"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6139,8 +6131,9 @@ msgstr "Mostra"
 msgid "Quit"
 msgstr "Ix"
 
-#~ msgid "Passwords do not match"
-#~ msgstr "Les contrasenyes no coincidixen"
+#~ msgid "Reply..."
+#~ msgstr "Respon…"
 
-#~ msgid "Wrong password entered"
-#~ msgstr "S'ha introduït una contrasenya errònia"
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Configura NeoChat…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-01 20:57+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2030,9 +2030,10 @@ msgid "Reply"
 msgstr "Atbildēt"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Atbildēt..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Atbildēt"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2754,10 +2755,11 @@ msgid "Configure NeoChat…"
 msgstr "Konfigurēt „NeoChat“…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Konfigurēt „NeoChat“..."
+msgid "Configure NeoChat…"
+msgstr "Konfigurēt „NeoChat“…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3190,8 +3192,9 @@ msgid "Search for '%1'"
 msgstr "Meklēt „%1“"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Konfigurēt tīmekļa saīsnes..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5979,6 +5982,11 @@ msgstr ""
 "Tālruņa numurs nav verificēts. Atveriet īsziņu, sekojiet tajā esošajiem "
 "norādījumiem un klikšķiniet uz pogas augstāk"
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 uzsāka lietotāja verifikāciju"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6099,11 +6107,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Atvērt ārēji"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 uzsāka lietotāja verifikāciju"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6175,6 +6178,13 @@ msgstr "Rādīt"
 #, kde-format
 msgid "Quit"
 msgstr "Iziet"
+
+#~ msgid "Reply..."
+#~ msgstr "Atbildēt..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Konfigurēt „NeoChat“..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Paroles nesakrīt"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-04 07:47+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -2010,9 +2010,10 @@ msgid "Reply"
 msgstr "Odpowiedz"
 
 #: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply..."
-msgstr "Odpowiedz..."
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Odpowiedz"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2729,10 +2730,11 @@ msgid "Configure NeoChat…"
 msgstr "Ustawienia NeoChata…"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr "Ustawienia NeoChata..."
+msgid "Configure NeoChat…"
+msgstr "Ustawienia NeoChata…"
 
 #: src/qml/GlobalMenu.qml:31
 #, kde-format
@@ -3165,8 +3167,9 @@ msgid "Search for '%1'"
 msgstr "Poszukaj '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
 msgstr "Ustawienia skrótów sieciowych..."
 
 #: src/qml/MessageSourceSheet.qml:46
@@ -5916,6 +5919,11 @@ msgstr ""
 "Numer telefonu nie został potwierdzony. Wróć do wiadomości tekstowej i "
 "przejdź przez wypisane tam kroki, a na końcu naciśnij powyższy przycisk."
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 rozpoczął sprawdzanie użytkownika"
+
 #: src/timeline/ChatBarComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
@@ -6038,11 +6046,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Otwórz zewnętrznie"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 rozpoczął sprawdzanie użytkownika"
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6114,6 +6117,13 @@ msgstr "Pokaż"
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
+
+#~ msgid "Reply..."
+#~ msgstr "Odpowiedz..."
+
+#~ msgctxt "menu"
+#~ msgid "Configure NeoChat..."
+#~ msgstr "Ustawienia NeoChata..."
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Hasła nie są sobie równe"

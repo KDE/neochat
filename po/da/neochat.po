@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 00:41+0000\n"
+"POT-Creation-Date: 2025-01-18 00:41+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2080,7 +2080,7 @@ msgstr "Svar"
 #: src/notificationsmanager.cpp:246
 #, fuzzy, kde-format
 #| msgid "Reply"
-msgid "Reply..."
+msgid "Reply…"
 msgstr "Svar"
 
 #: src/notificationsmanager.cpp:305
@@ -2838,10 +2838,11 @@ msgid "Configure NeoChat…"
 msgstr "Annullér"
 
 #: src/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "menu"
-msgid "Configure NeoChat..."
-msgstr ""
+msgid "Configure NeoChat…"
+msgstr "Annullér"
 
 #: src/qml/GlobalMenu.qml:31
 #, fuzzy, kde-format
@@ -3296,9 +3297,10 @@ msgid "Search for '%1'"
 msgstr ""
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, kde-format
-msgid "Configure Web Shortcuts..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Configure Web Shortcuts…"
+msgstr "Annullér"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, fuzzy, kde-format
@@ -6106,6 +6108,11 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
+#: src/timeline/BaseMessageComponentChooser.qml:225
+#, kde-format
+msgid "%1 started a user verification"
+msgstr ""
+
 #: src/timeline/ChatBarComponent.qml:98
 #, fuzzy, kde-format
 #| msgid "Cancel"
@@ -6231,11 +6238,6 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Åbn eksternt"
 
-#: src/timeline/MessageComponentChooser.qml:225
-#, kde-format
-msgid "%1 started a user verification"
-msgstr ""
-
 #: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
@@ -6307,6 +6309,11 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Reply"
+#~ msgid "Reply..."
+#~ msgstr "Svar"
 
 #~ msgid "Passwords do not match"
 #~ msgstr "Adgangskoderne matcher ikke"
