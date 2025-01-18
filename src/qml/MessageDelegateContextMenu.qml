@@ -127,6 +127,6 @@ DelegateContextMenu {
         text: i18n("Configure Web Shortcuts…")
         icon.name: "configure"
         visible: !Controller.isFlatpak && webshortcutModel.enabled
-        onTriggered: webshortcutmodel.configureWebShortcuts()
+        onTriggered: webshortcutModel.configureWebShortcuts()
     }
 }
