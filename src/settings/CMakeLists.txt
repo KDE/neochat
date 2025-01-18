@@ -43,4 +43,5 @@ ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
         ImportKeysDialog.qml
         ExportKeysDialog.qml
         RoomSortParameterDialog.qml
+        RoomProfile.qml
 )

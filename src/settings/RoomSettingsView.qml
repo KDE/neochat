@@ -78,6 +78,17 @@ KirigamiSettings.ConfigurationView {
                     room: root._room
                 };
             }
+        },
+        KirigamiSettings.ConfigurationModule {
+            moduleId: "profile"
+            text: i18nc("@title", "Profile")
+            icon.name: "user-symbolic"
+            page: () => Qt.createComponent("org.kde.neochat.settings", "RoomProfile")
+            initialProperties: () => {
+                return {
+                    room: root._room
+                };
+            }
         }
     ]
 }
