@@ -136,7 +136,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"plain"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-#if Quotient_VERSION_MINOR > 9
+#if Quotient_VERSION_MINOR >= 9
             room->postText(text.toHtmlEscaped());
 #else
             room->postPlainText(text.toHtmlEscaped());
