@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-15 00:09+0100\n"
+"PO-Revision-Date: 2025-01-19 12:38+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2004,10 +2004,9 @@ msgid "Reply"
 msgstr "Responder"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Responder"
+msgstr "Responder…"
 
 # skip-rule: trasno-file-a_reverse
 #: src/notificationsmanager.cpp:305
@@ -2541,6 +2540,7 @@ msgctxt "@title As in 'edit the state of this room'"
 msgid "Edit State"
 msgstr "Editar o estado"
 
+# skip-rule: trasno-undo_reverse
 #: src/qml/EditStateDialog.qml:32
 #, kde-format
 msgctxt "@action"
@@ -2725,8 +2725,7 @@ msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat…"
@@ -3164,8 +3163,7 @@ msgid "Search for '%1'"
 msgstr "Buscar «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Configurar os atallos web…"
 
@@ -4390,39 +4388,34 @@ msgid "Password"
 msgstr "Contrasinal"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "O seu servidor non permite cambiar o contrasinal."
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Contrasinal actual:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Novo contrasinal:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirmar o novo contrasinal:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
-msgstr "Os contrasinais non se corresponden"
+msgstr "Os contrasinais non se corresponden."
 
 #: src/settings/AccountEditorPage.qml:205
 #, kde-format
@@ -4465,23 +4458,19 @@ msgid "Deactivate Account"
 msgstr "Desactivar a conta"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
-msgstr "´Cambiado correctamente o contrasinal"
+msgstr "´Cambiado correctamente o contrasinal."
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "A frase de paso é incorrecta."
+msgstr "O contrasinal é incorrecto."
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Produciuse un problema descoñecido ao intentar cambiar o contrasinal."
