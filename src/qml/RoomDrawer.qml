@@ -87,6 +87,7 @@ Kirigami.OverlayDrawer {
 
             Kirigami.Separator {
                 Layout.fillHeight: true
+                visible: root.modal
             }
 
             ColumnLayout {
