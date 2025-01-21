@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-18 08:34+0100\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
+"PO-Revision-Date: 2025-01-20 10:26+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2015,10 +2015,9 @@ msgid "Reply"
 msgstr "Répondre"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Répondre"
+msgstr "Répondre..."
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2740,8 +2739,7 @@ msgid "Configure NeoChat…"
 msgstr "Configurer NeoChat..."
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Configurer NeoChat..."
@@ -3179,8 +3177,7 @@ msgid "Search for '%1'"
 msgstr "Rechercher « %1 »"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Configurer les raccourcis Internet..."
 
@@ -3955,14 +3952,12 @@ msgid "Account Details"
 msgstr "Détails du compte"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Invitations pour un salon"
-msgstr[1] "Invitations pour un salon"
+msgstr[0] "Un salon commun"
+msgstr[1] "%1 salons communs"
 
 #: src/qml/UserDetailDialog.qml:126
 #, kde-format
@@ -5610,6 +5605,33 @@ msgstr "Mettre à jour le salon"
 msgid "Select new version"
 msgstr "Sélectionner une nouvelle version"
 
+#: src/settings/RoomProfile.qml:30
+#, kde-format
+msgctxt "@info"
+msgid "Customize your profile only for this room."
+msgstr ""
+
+#: src/settings/RoomProfile.qml:38
+#, fuzzy, kde-format
+#| msgid "Display Name:"
+msgctxt "@label:textbox"
+msgid "Display Name"
+msgstr "Nom d'affichage :"
+
+#: src/settings/RoomProfile.qml:48
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save profile"
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/settings/RoomProfile.qml:54
+#, fuzzy, kde-format
+#| msgid "System Default"
+msgctxt "@action:button"
+msgid "Reset to Default"
+msgstr "Paramètres par défaut du système"
+
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
 msgid ""
@@ -5784,6 +5806,13 @@ msgstr "Configuration du salon"
 #, kde-format
 msgid "Permissions"
 msgstr "Permissions"
+
+#: src/settings/RoomSettingsView.qml:84
+#, fuzzy, kde-format
+#| msgid "a file"
+msgctxt "@title"
+msgid "Profile"
+msgstr "un fichier"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format

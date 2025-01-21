@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-17 10:48+0100\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
+"PO-Revision-Date: 2025-01-19 12:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2015,10 +2015,9 @@ msgid "Reply"
 msgstr "Respon"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Respon"
+msgstr "Respon…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2736,8 +2735,7 @@ msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
@@ -3174,8 +3172,7 @@ msgid "Search for '%1'"
 msgstr "Busca «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Configura les dreceres web…"
 
@@ -3950,14 +3947,12 @@ msgid "Account Details"
 msgstr "Detalls del compte"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Convida a una sala"
-msgstr[1] "Convida a una sala"
+msgstr[0] "Una sala col·lectiva"
+msgstr[1] "%1 sales col·lectives"
 
 #: src/qml/UserDetailDialog.qml:126
 #, kde-format
@@ -5602,6 +5597,33 @@ msgstr "Actualitza la sala"
 msgid "Select new version"
 msgstr "Selecciona la versió nova"
 
+#: src/settings/RoomProfile.qml:30
+#, kde-format
+msgctxt "@info"
+msgid "Customize your profile only for this room."
+msgstr ""
+
+#: src/settings/RoomProfile.qml:38
+#, fuzzy, kde-format
+#| msgid "Display Name:"
+msgctxt "@label:textbox"
+msgid "Display Name"
+msgstr "Nom que s'ha de mostrar:"
+
+#: src/settings/RoomProfile.qml:48
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save profile"
+msgid "Save"
+msgstr "Guarda"
+
+#: src/settings/RoomProfile.qml:54
+#, fuzzy, kde-format
+#| msgid "System Default"
+msgctxt "@action:button"
+msgid "Reset to Default"
+msgstr "Predeterminada del sistema"
+
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
 msgid ""
@@ -5769,6 +5791,13 @@ msgstr "Configureu la sala"
 #, kde-format
 msgid "Permissions"
 msgstr "Permisos"
+
+#: src/settings/RoomSettingsView.qml:84
+#, fuzzy, kde-format
+#| msgid "a file"
+msgctxt "@title"
+msgid "Profile"
+msgstr "un fitxer"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6140,10 +6169,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
-
-#~ msgid "Reply..."
-#~ msgstr "Respon…"
-
-#~ msgctxt "menu"
-#~ msgid "Configure NeoChat..."
-#~ msgstr "Configura NeoChat…"

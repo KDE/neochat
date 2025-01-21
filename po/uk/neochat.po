@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2025-01-19 16:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -5602,6 +5602,33 @@ msgstr "Оновити кімнату"
 msgid "Select new version"
 msgstr "Виберіть нову версію"
 
+#: src/settings/RoomProfile.qml:30
+#, kde-format
+msgctxt "@info"
+msgid "Customize your profile only for this room."
+msgstr ""
+
+#: src/settings/RoomProfile.qml:38
+#, fuzzy, kde-format
+#| msgid "Display Name:"
+msgctxt "@label:textbox"
+msgid "Display Name"
+msgstr "Екранне ім'я:"
+
+#: src/settings/RoomProfile.qml:48
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save profile"
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/settings/RoomProfile.qml:54
+#, fuzzy, kde-format
+#| msgid "System Default"
+msgctxt "@action:button"
+msgid "Reset to Default"
+msgstr "Типовий для системи"
+
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
 msgid ""
@@ -5770,6 +5797,13 @@ msgstr "Параметри кімнати"
 #, kde-format
 msgid "Permissions"
 msgstr "Права доступу"
+
+#: src/settings/RoomSettingsView.qml:84
+#, fuzzy, kde-format
+#| msgid "a file"
+msgctxt "@title"
+msgid "Profile"
+msgstr "файл"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format

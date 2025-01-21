@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -5842,6 +5842,33 @@ msgstr "Αναβάθμιση της αίθουσας"
 msgid "Select new version"
 msgstr "Επιλογή νέας έκδοσης"
 
+#: src/settings/RoomProfile.qml:30
+#, kde-format
+msgctxt "@info"
+msgid "Customize your profile only for this room."
+msgstr ""
+
+#: src/settings/RoomProfile.qml:38
+#, fuzzy, kde-format
+#| msgid "Display Name:"
+msgctxt "@label:textbox"
+msgid "Display Name"
+msgstr "Όνομα όπως εμφανίζεται:"
+
+#: src/settings/RoomProfile.qml:48
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save profile"
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: src/settings/RoomProfile.qml:54
+#, fuzzy, kde-format
+#| msgid "System Default"
+msgctxt "@action:button"
+msgid "Reset to Default"
+msgstr "Προκαθορισμένο συστήματος"
+
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
 msgid ""
@@ -6012,6 +6039,13 @@ msgstr "Ρυθμίσεις αίθουσας"
 #, kde-format
 msgid "Permissions"
 msgstr "Δικαιώματα"
+
+#: src/settings/RoomSettingsView.qml:84
+#, fuzzy, kde-format
+#| msgid "a file"
+msgctxt "@title"
+msgid "Profile"
+msgstr "ένα αρχείο"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, fuzzy, kde-format

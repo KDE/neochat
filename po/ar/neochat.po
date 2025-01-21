@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-19 00:41+0000\n"
-"PO-Revision-Date: 2025-01-17 23:15+0400\n"
+"POT-Creation-Date: 2025-01-21 00:41+0000\n"
+"PO-Revision-Date: 2025-01-20 18:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2011,10 +2011,9 @@ msgid "Reply"
 msgstr "ردّ"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "ردّ"
+msgstr "ردّ…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2725,8 +2724,7 @@ msgid "Configure NeoChat…"
 msgstr "اضبط نيوتشات…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "اضبط نيوتشات…"
@@ -3160,10 +3158,9 @@ msgid "Search for '%1'"
 msgstr "بحث عن '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
-msgstr "اضبط اختصارات الوِب..."
+msgstr "اضبط اختصارات الوبّ…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3942,18 +3939,16 @@ msgid "Account Details"
 msgstr "تفاصيل الحساب"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "دعوات إلى غرفة"
-msgstr[1] "دعوات إلى غرفة"
-msgstr[2] "دعوات إلى غرفة"
-msgstr[3] "دعوات إلى غرفة"
-msgstr[4] "دعوات إلى غرفة"
-msgstr[5] "دعوات إلى غرفة"
+msgstr[0] "غرفة واحدة مشتركة"
+msgstr[1] "غرفة واحدة مشتركة"
+msgstr[2] "غرفتان مشتركان"
+msgstr[3] "%1 غرف مشتركة"
+msgstr[4] "%1 غرفة مشتركة"
+msgstr[5] "%1 غرفة مشتركة"
 
 #: src/qml/UserDetailDialog.qml:126
 #, kde-format
@@ -5553,6 +5548,33 @@ msgstr "رقّ الغرفة"
 msgid "Select new version"
 msgstr "حدد الإصدارة الأحدث"
 
+#: src/settings/RoomProfile.qml:30
+#, kde-format
+msgctxt "@info"
+msgid "Customize your profile only for this room."
+msgstr ""
+
+#: src/settings/RoomProfile.qml:38
+#, fuzzy, kde-format
+#| msgid "Display Name:"
+msgctxt "@label:textbox"
+msgid "Display Name"
+msgstr "اسم العرض:"
+
+#: src/settings/RoomProfile.qml:48
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button Save profile"
+msgid "Save"
+msgstr "احفظ"
+
+#: src/settings/RoomProfile.qml:54
+#, fuzzy, kde-format
+#| msgid "System Default"
+msgctxt "@action:button"
+msgid "Reset to Default"
+msgstr "مبدئي النظام"
+
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
 msgid ""
@@ -5712,6 +5734,13 @@ msgstr "إعدادات الغرفة"
 #, kde-format
 msgid "Permissions"
 msgstr "التّصاريح"
+
+#: src/settings/RoomSettingsView.qml:84
+#, fuzzy, kde-format
+#| msgid "a file"
+msgctxt "@title"
+msgid "Profile"
+msgstr "ملف"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
