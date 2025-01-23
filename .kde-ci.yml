@@ -2,43 +2,43 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 Dependencies:
-- 'on': ['Linux', 'Android', 'FreeBSD', 'Windows']
-  'require':
-    'frameworks/extra-cmake-modules': '@latest-kf6'
-    'frameworks/kcoreaddons': '@latest-kf6'
-    'frameworks/kirigami': '@latest-kf6'
-    'frameworks/ki18n': '@latest-kf6'
-    'frameworks/kconfig': '@latest-kf6'
-    'frameworks/syntax-highlighting': '@latest-kf6'
-    'frameworks/kitemmodels': '@latest-kf6'
-    'frameworks/kquickcharts': '@latest-kf6'
-    'frameworks/knotifications': '@latest-kf6'
-    'frameworks/kcolorscheme': '@latest-kf6'
-    'frameworks/kiconthemes': '@latest-kf6'
-    'libraries/kquickimageeditor': '@latest-kf6'
-    'frameworks/sonnet': '@latest-kf6'
-    'frameworks/prison': '@latest-kf6'
-    'libraries/kirigami-addons': '@latest-kf6'
-    'third-party/libquotient': '@latest'
-    'third-party/qtkeychain': '@latest'
-    'third-party/cmark': '@latest'
-    'third-party/qcoro': '@latest'
-- 'on': ['Windows', 'Linux', 'FreeBSD']
-  'require':
-    'frameworks/qqc2-desktop-style': '@latest-kf6'
-    'frameworks/kio': '@latest-kf6'
-    'frameworks/kwindowsystem': '@latest-kf6'
-    'frameworks/kstatusnotifieritem': '@latest-kf6'
-    'frameworks/kcrash': '@latest-kf6'
-- 'on': ['Linux', 'FreeBSD']
-  'require':
-    'frameworks/kdbusaddons': '@latest-kf6'
-    'frameworks/purpose': '@latest-kf6'
+  - 'on': ['Linux', 'Android', 'FreeBSD', 'Windows']
+    'require':
+      'frameworks/extra-cmake-modules': '@latest-kf6'
+      'frameworks/kcoreaddons': '@latest-kf6'
+      'frameworks/kirigami': '@latest-kf6'
+      'frameworks/ki18n': '@latest-kf6'
+      'frameworks/kconfig': '@latest-kf6'
+      'frameworks/syntax-highlighting': '@latest-kf6'
+      'frameworks/kitemmodels': '@latest-kf6'
+      'frameworks/kquickcharts': '@latest-kf6'
+      'frameworks/knotifications': '@latest-kf6'
+      'frameworks/kcolorscheme': '@latest-kf6'
+      'frameworks/kiconthemes': '@latest-kf6'
+      'libraries/kquickimageeditor': '@latest-kf6'
+      'frameworks/sonnet': '@latest-kf6'
+      'frameworks/prison': '@latest-kf6'
+      'libraries/kirigami-addons': '@latest-kf6'
+      'third-party/libquotient': '@latest'
+      'third-party/qtkeychain': '@latest'
+      'third-party/cmark': '@latest'
+      'third-party/qcoro': '@latest'
+  - 'on': ['Windows', 'Linux', 'FreeBSD']
+    'require':
+      'frameworks/qqc2-desktop-style': '@latest-kf6'
+      'frameworks/kio': '@latest-kf6'
+      'frameworks/kwindowsystem': '@latest-kf6'
+      'frameworks/kstatusnotifieritem': '@latest-kf6'
+      'frameworks/kcrash': '@latest-kf6'
+  - 'on': ['Linux', 'FreeBSD']
+    'require':
+      'frameworks/kdbusaddons': '@latest-kf6'
+      'frameworks/purpose': '@latest-kf6'
 
-- 'on': ['Linux']
-  'require':
-    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+  - 'on': ['Linux']
+    'require':
+      'sdk/selenium-webdriver-at-spi': '@latest-kf6'
 
 Options:
   per-test-timeout: 90
-  require-passing-tests-on: [ 'Linux', 'Android', 'FreeBSD', 'Windows' ]
+  require-passing-tests-on: ['Linux', 'Android', 'FreeBSD', 'Windows']

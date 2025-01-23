@@ -28,8 +28,8 @@ apps:
 compression: lzo
 
 package-repositories:
- - type: apt
-   ppa: ubuntu-toolchain-r/test
+  - type: apt
+    ppa: ubuntu-toolchain-r/test
 
 slots:
   session-dbus-interface:
@@ -66,7 +66,7 @@ parts:
       - -Dcrypto=disabled
       - -Dgtk_doc=false
     build-packages:
-      - meson 
+      - meson
       - libglib2.0-dev
       - libgcrypt20-dev
     prime:
@@ -81,7 +81,8 @@ parts:
     plugin: cmake
     build-environment:
       - PATH: /snap/bin:${PATH}
-      - PKG_CONFIG_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$PKG_CONFIG_PATH
+      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET\
+      /pkgconfig:$PKG_CONFIG_PATH"
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -115,7 +116,9 @@ parts:
       - -DQuotient_ENABLE_E2EE=ON
       - -DBUILD_WITH_QT6=ON
     override-build: |
-      update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100 --slave /usr/bin/g++ g++ /usr/bin/g++-13 --slave /usr/bin/gcov gcov /usr/bin/gcov-13
+      "update-alternatives --install /usr/bin/gcc gcc\
+       /usr/bin/gcc-13 100 --slave /usr/bin/g++ g++ \
+       /usr/bin/g++-13 --slave /usr/bin/gcov gcov /usr/bin/gcov-13"
       craftctl default
     prime:
       - -usr/include
@@ -172,4 +175,3 @@ parts:
       - libcmark0.30.2
     prime:
       - usr/lib/*/libcmark.so*
-
