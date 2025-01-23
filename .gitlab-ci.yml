@@ -5,6 +5,9 @@ include:
   - project: sysadmin/ci-utilities
     file:
       - /gitlab-templates/reuse-lint.yml
+      - /gitlab-templates/json-validation.yml
+      - /gitlab-templates/xml-lint.yml
+      - /gitlab-templates/yaml-lint.yml
       - /gitlab-templates/android-qt6.yml
       - /gitlab-templates/linux-qt6.yml
       - /gitlab-templates/windows-qt6.yml
