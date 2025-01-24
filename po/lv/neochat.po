@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 # Māris Nartišs <maris.kde@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-21 00:41+0000\n"
-"PO-Revision-Date: 2024-12-01 20:57+0200\n"
+"PO-Revision-Date: 2025-01-20 16:41+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -146,7 +146,7 @@ msgstr "Notikuma avots"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "Rādīt piekļuves pilnvaru"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
@@ -154,22 +154,20 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"Šo informāciju jūs nedrīkstat nevienam izpaust, pat citiem lietotājiem, jo "
+"piekļuves pilnvara nodrošina pilnu piekļuvi jūsu kontam."
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "Piekļuve"
+msgstr "Piekļuves pilnvara"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "Kopēt adresi starpliktuvē"
+msgstr "Kopēt piekļuves pilnvaru savā starpliktuvē"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -260,28 +258,22 @@ msgid "Choose Room"
 msgstr "Izvēlēties istabu"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
-#| msgctxt "Placeholder message"
-#| msgid "No room found"
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "Neviena istaba nav atrasta"
+msgstr "Nav atlasīta neviena istaba"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose a Room"
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "Izvēlēties istabu"
+msgstr "Klikšķiniet, lai atlasītu istabu"
 
 #: src/devtools/RoomData.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
-msgstr "Izvēlēties istabu"
+msgstr "Izvēlieties istabu"
 
 #: src/devtools/RoomData.qml:40
 #, kde-format
@@ -412,102 +404,88 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:52
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "Alfabētiski"
+msgstr "Alfabētiski augoši"
 
 #: src/enums/roomsortparameter.h:54
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something alphabetically'"
-#| msgid "Alphabetical"
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "Alfabētiski"
+msgstr "Alfabētiski dilstoši"
 
 #: src/enums/roomsortparameter.h:56
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "Šifrēta ziņa"
+msgstr "Ir nelasītas ziņas"
 
 #: src/enums/roomsortparameter.h:58
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "Pārsūtīt ziņu"
+msgstr "Pēc nelasītajām ziņām dilstoši"
 
 #: src/enums/roomsortparameter.h:60
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "Pēc nelasītajām ziņām augoši"
 
 #: src/enums/roomsortparameter.h:62
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "Rādīt dzēstās ziņas"
+msgstr "Pēc izceltajām ziņām dilstoši"
 
 #: src/enums/roomsortparameter.h:64
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "%1, pēdējā aktivitāte: %2"
+msgstr "Pēdējo reizi aktīvs"
 
 #: src/enums/roomsortparameter.h:79
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "Augstāk būs istabas, kuru nosaukumi ir tuvāk burtam „A“"
 
 #: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "Augstāk būs istabas, kuru nosaukumi ir tuvāk burtam „Z“"
 
 #: src/enums/roomsortparameter.h:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Room upgrade messages"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "Istabas atjauninājumu ziņas"
+msgstr "Istabas ar vairāk nelasītām ziņām ir augstāk"
 
 #: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "Augstāk būs istabas ar vairāk nelasītām ziņām"
 
 #: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "Augstāk būs istabas ar izceltām ziņām"
 
 #: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "Augstāk būs istabas ar vairāk izceltām ziņām"
 
 #: src/enums/roomsortparameter.h:91
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr "Vispirms būs redzamas telpas ar neredzamiem paziņojumiem"
+msgstr "Augstāk būs istabas ar jaunākām ziņām"
 
 #: src/eventhandler.cpp:293 src/eventhandler.cpp:509
 #, kde-format
@@ -1266,7 +1244,7 @@ msgstr "James Graham"
 #: src/main.cpp:149
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: src/main.cpp:154
 #, kde-format
@@ -1450,12 +1428,10 @@ msgid "%1 is already in this room."
 msgstr "%1 jau ir šajā istabā."
 
 #: src/models/actionsmodel.cpp:210
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "%1 ir uzaicināts šajā istabā"
+msgstr "%1 ir uzaicināts šajā istabā."
 
 #: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
 #: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
@@ -2030,10 +2006,9 @@ msgid "Reply"
 msgstr "Atbildēt"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Atbildēt"
+msgstr "Atbildēt…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2080,10 +2055,9 @@ msgid "Show QR Code"
 msgstr "Rādīt kvadrātkodu"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
+#, kde-format
 msgid "Edit This Account"
-msgstr "Rediģēt kontu"
+msgstr "Rediģēt šo kontu"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
@@ -2092,8 +2066,7 @@ msgid "Account editor"
 msgstr "Konta redaktors"
 
 #: src/qml/AccountMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Notification settings"
+#, kde-format
 msgid "Notification Settings"
 msgstr "Paziņojumu iestatījumi"
 
@@ -2103,8 +2076,7 @@ msgid "Devices"
 msgstr "Ierīces"
 
 #: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "Atvērt rīkus izstrādātājiem"
 
@@ -2127,12 +2099,10 @@ msgid "Open Key Backup"
 msgstr "Atvērt atslēgas rezervi"
 
 #: src/qml/AccountMenu.qml:88
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
-msgstr "Pārbaudīt šo ierīci"
+msgstr "Verificēt šo ierīci"
 
 #: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2236,13 +2206,13 @@ msgstr "Parole"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Dzēst datus"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Pieprasīt jūsu serverim dzēst pēc iespējas vairāk lietotāju datu."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -2755,8 +2725,7 @@ msgid "Configure NeoChat…"
 msgstr "Konfigurēt „NeoChat“…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Konfigurēt „NeoChat“…"
@@ -3168,11 +3137,10 @@ msgid "Forward Message"
 msgstr "Pārsūtīt ziņu"
 
 #: src/qml/MessageDelegateContextMenu.qml:69
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "Kopēt saiti"
+msgstr "Kopēt saites adresi"
 
 #: src/qml/MessageDelegateContextMenu.qml:75
 #, kde-format
@@ -3192,10 +3160,9 @@ msgid "Search for '%1'"
 msgstr "Meklēt „%1“"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
-msgstr "Konfigurēt tīmekļa saīsnes..."
+msgstr "Konfigurēt tīmekļa saīsnes…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3272,8 +3239,7 @@ msgid "No room found"
 msgstr "Neviena istaba nav atrasta"
 
 #: src/qml/QuickSwitcher.qml:32
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
 msgstr "Izpētīt istabas"
@@ -3477,18 +3443,16 @@ msgid "Show locations for this room"
 msgstr "Parādīt šīs istabas atrašanās vietas"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Atrast ziņas..."
+msgstr "Piespraustās ziņas"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Atrast ziņas..."
+msgstr "Piespraustās ziņas"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3589,12 +3553,10 @@ msgid "Message Source"
 msgstr "Ziņas avots"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Pārsūtīt ziņu"
+msgstr "Nav piespraustu ziņu"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3879,11 +3841,10 @@ msgid "Load your encrypted messages"
 msgstr "Ielādēt šifrētās ziņas"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Šifrēšanas atslēga"
+msgstr "Šifrēšanas atslēgas ir atjaunotas."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -3972,15 +3933,13 @@ msgid "Account Details"
 msgstr "Konta informācija"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Uzaicinājumi uz istabu"
-msgstr[1] "Uzaicinājumi uz istabu"
-msgstr[2] "Uzaicinājumi uz istabu"
+msgstr[0] "%1 kopīga istaba"
+msgstr[1] "%1 kopīgas istabas"
+msgstr[2] "%1 kopīgu istabu"
 
 #: src/qml/UserDetailDialog.qml:126
 #, kde-format
@@ -4363,8 +4322,7 @@ msgid "Failed to request joining room<br />%1"
 msgstr "Neizdevās lūgt pievienoties istabai<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Edit Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Rediģēt kontu"
@@ -4380,8 +4338,7 @@ msgid "Remove current avatar"
 msgstr "Noņemt pašreizējo attēlu"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
-#| msgid "User Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Lietotāja informācija"
@@ -4409,71 +4366,61 @@ msgid "Save"
 msgstr "Saglabāt"
 
 #: src/settings/AccountEditorPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Password"
+#, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Parole"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Jūsu serveris neatbalsta paroles maiņu"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Pašreizējā parole:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Jaunā parole:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Apstipriniet jauno paroli:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Paroles nesakrīt"
 
 #: src/settings/AccountEditorPage.qml:205
-#, fuzzy, kde-format
-#| msgid "Email Addresses"
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-pasta adreses"
 
 #: src/settings/AccountEditorPage.qml:211
-#, fuzzy, kde-format
-#| msgid "Phone Numbers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Tālruņa numuri"
 
 #: src/settings/AccountEditorPage.qml:216
-#, fuzzy, kde-format
-#| msgid "Identity Server"
+#, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitātes serveris"
 
 #: src/settings/AccountEditorPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Server Information"
+#, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Servera informācija"
@@ -4484,9 +4431,7 @@ msgid "Homeserver url"
 msgstr "Mājas servera URL"
 
 #: src/settings/AccountEditorPage.qml:250
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Account Management"
+#, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Konta pārvaldība"
@@ -4497,37 +4442,31 @@ msgid "Deactivate Account"
 msgstr "Deaktivizēt kontu"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
-msgstr "Parole ir veiksmīgi nomainīta"
+msgstr "Parole ir nomainīta"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Nederīga parole"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Nezināma problēma, mainot paroli"
 
 #: src/settings/AccountsPage.qml:20
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "Konti"
 
 #: src/settings/AccountsPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Konti"
@@ -4544,8 +4483,7 @@ msgid "Appearance"
 msgstr "Izskats"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General theme"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "Pamata motīvs"
@@ -4653,36 +4591,31 @@ msgid "Logout device"
 msgstr "Izrakstīt ierīci"
 
 #: src/settings/DevicesPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@title:window"
 msgid "Devices"
 msgstr "Ierīces"
 
 #: src/settings/DevicesPage.qml:33
-#, fuzzy, kde-format
-#| msgid "This Device"
+#, kde-format
 msgctxt "@info:group"
 msgid "This Device"
 msgstr "Šī ierīce"
 
 #: src/settings/DevicesPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Verified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verificētās ierīces"
 
 #: src/settings/DevicesPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Unverified Devices"
+#, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Neverificētās ierīces"
 
 #: src/settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Devices without Encryption Support"
+#, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Ierīces bez šifrēšanas atbalsta"
@@ -4704,45 +4637,37 @@ msgid "Remove"
 msgstr "Noņemt"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Sticker"
 msgstr "Pievienot uzlīmi"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Sticker"
 msgstr "Rediģēt uzlīmi"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Emoji"
 msgstr "Pievienot emocijzīmi"
 
 #: src/settings/EmoticonEditorPage.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Edit Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Emoji"
 msgstr "Rediģēt emocijzīmi"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Sticker"
+#, kde-format
 msgctxt "@info:group"
 msgid "Sticker"
 msgstr "Uzlīme"
 
 #: src/settings/EmoticonEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Emoji"
+#, kde-format
 msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emocijzīme"
@@ -4808,30 +4733,25 @@ msgid "Add Sticker"
 msgstr "Pievienot uzlīmi"
 
 #: src/settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Stickers & Emojis"
+#, kde-format
 msgctxt "@title:window"
 msgid "Stickers & Emojis"
 msgstr "Uzlīmes un emocijzīmes"
 
 #: src/settings/EmoticonsPage.qml:19
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@title:group"
 msgid "Emojis"
 msgstr "Emocijzīmes"
 
 #: src/settings/EmoticonsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title:group"
 msgid "Stickers"
 msgstr "Uzlīmes"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Export Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
 msgstr "Eksportēt atslēgas"
@@ -4885,23 +4805,20 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Ja jūsu „Matrix“ serveris ģenerē pašpiegādes paziņojumus"
 
 #: src/settings/GlobalNotificationsPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Istabas paziņojumi"
 
 #: src/settings/GlobalNotificationsPage.qml:56
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Pieminējumi"
 
 #: src/settings/GlobalNotificationsPage.qml:73
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
-#| msgid "Keywords"
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Atslēgas vārdi"
@@ -4919,15 +4836,13 @@ msgid "Add keyword"
 msgstr "Pievienot atslēgas vārdu"
 
 #: src/settings/GlobalNotificationsPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Uzaicinājumi"
 
 #: src/settings/GlobalNotificationsPage.qml:154
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
 msgstr "Nezināms"
@@ -4991,9 +4906,7 @@ msgid "Unignore this user"
 msgstr "Beigt ignorēt šo lietotāju"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
 msgstr "Importēt atslēgas"
@@ -5029,8 +4942,7 @@ msgid "General"
 msgstr "Pamata"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
-#| msgid "General settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "Pamata iestatījumi"
@@ -5056,8 +4968,7 @@ msgid "Show all rooms in \"Home\" tab"
 msgstr "Rādīt visas istabas „Mājas“ cilnē"
 
 #: src/settings/NeoChatGeneralPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room List Sort Order"
 msgstr "Istabu saraksta kārtošana secība"
@@ -5081,24 +4992,19 @@ msgid "Alphabetical"
 msgstr "Alfabētiski"
 
 #: src/settings/NeoChatGeneralPage.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "%1, Last activity: %2"
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, pēdējā aktivitāte: %2"
+msgstr "Pēdējā ziņu aktivitāte"
 
 #: src/settings/NeoChatGeneralPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr "Vispirms būs redzamas telpas ar neredzamiem paziņojumiem"
+msgstr "Vispirms būs redzamas istabas ar neredzamiem paziņojumiem"
 
 #: src/settings/NeoChatGeneralPage.qml:128
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Pielāgots"
@@ -5172,25 +5078,19 @@ msgid "Enable developer tools"
 msgstr "Ieslēgt rīkus izstrādātājiem"
 
 #: src/settings/NeoChatGeneralPage.qml:307
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Noklusējuma iestatījumi"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
-msgstr "Atiestatīt visas konfigurācijas vērtības un noklusējumiem"
+msgstr "Atiestatīt visas konfigurācijas vērtības uz noklusējumiem"
 
 #: src/settings/NeoChatSecurityPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Security & Safety"
+#, kde-format
 msgctxt "@title:window"
 msgid "Security & Safety"
 msgstr "Drošība un drošums"
@@ -5242,7 +5142,7 @@ msgstr "Jūsu serveris šo iestatījumu neatbalsta."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Ieslēgt šifrēšanu jaunās tērzētavās"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5250,11 +5150,11 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Ja ieslēgts, „NeoChat“ no jauna sāktiem tiešiem ziņojumiem izmantos "
+"šifrēšanu."
 
 #: src/settings/NeoChatSecurityPage.qml:85
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifrēšana"
@@ -5485,11 +5385,10 @@ msgid "Event Type…"
 msgstr "Notikuma tips…"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
-msgstr "Telpas paziņojumu iestatījums"
+msgstr "Istabu paziņojumu iestatījums"
 
 #: src/settings/PushNotification.qml:31
 #, kde-format
@@ -5853,52 +5752,46 @@ msgid "Profile"
 msgstr "datne"
 
 #: src/settings/RoomSortParameterDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Room list sort order"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
-msgstr "Istabu saraksta kārtošana secība"
+msgstr "Pielāgota istabu kārtošanas secība"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "vispirms:"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "pēc tam:"
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "Augšup"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Lejupielādēt"
+msgstr "Lejup"
 
 #: src/settings/RoomSortParameterDialog.qml:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
-msgstr "Pievienot serveri"
+msgstr "Pievienot parametru"
 
 #: src/settings/RoomSortParameterDialog.qml:118
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
-msgstr ""
+msgstr "Atlasiet pievienojamu parametru"
 
 #: src/settings/ThreePIdCard.qml:55
 #, kde-format
@@ -6173,8 +6066,7 @@ msgid "Last read: %1"
 msgstr "Pēdējo reizi lasīta: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:44
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Atbildēt"
