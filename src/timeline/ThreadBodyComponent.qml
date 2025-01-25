@@ -87,6 +87,7 @@ ColumnLayout {
             }
             onShowMessageMenu: root.showMessageMenu()
             onRemoveLinkPreview: index => threadRepeater.model.closeLinkPreview(index)
+            onFetchMoreEvents: threadRepeater.model.fetchMoreEvents(5)
         }
     }
 }

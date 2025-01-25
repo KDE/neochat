@@ -22,6 +22,52 @@ class NeoChatRoom;
 class ReactionModel;
 
 /**
+ * @class ThreadFetchModel
+ *
+ * A model to provide a fetch more historical messages button in a thread.
+ */
+class ThreadFetchModel : public QAbstractListModel
+{
+    Q_OBJECT
+
+public:
+    /**
+     * @brief Defines the model roles.
+     *
+     * The role values need to match MessageContentModel not to blow up.
+     *
+     * @sa MessageContentModel
+     */
+    enum Roles {
+        ComponentTypeRole = MessageContentModel::ComponentTypeRole, /**< The type of component to visualise the message. */
+    };
+    Q_ENUM(Roles)
+
+    explicit ThreadFetchModel(QObject *parent);
+
+    /**
+     * @brief Get the given role value at the given index.
+     *
+     * @sa QAbstractItemModel::data
+     */
+    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+
+    /**
+     * @brief 1 or 0, depending on whether there are more messages to download.
+     *
+     * @sa QAbstractItemModel::rowCount
+     */
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    /**
+     * @brief Returns a map with ComponentTypeRole it's the only one.
+     *
+     * @sa Roles, QAbstractItemModel::roleNames()
+     */
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+};
+
+/**
  * @class ThreadChatBarModel
  *
  * A model to provide a chat bar component to send new messages in a thread.
@@ -99,18 +145,14 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * @brief Whether there is more data available for the model to fetch.
-     *
-     * @sa QAbstractItemModel::canFetchMore()
+     * @brief Whether there are more events for the model to fetch.
      */
-    bool canFetchMore(const QModelIndex &parent) const override;
+    bool moreEventsAvailable(const QModelIndex &parent) const;
 
     /**
-     * @brief Fetches the next batch of model data if any is available.
-     *
-     * @sa QAbstractItemModel::fetchMore()
+     * @brief Fetches the next batch of events if any is available.
      */
-    void fetchMore(const QModelIndex &parent) override;
+    Q_INVOKABLE void fetchMoreEvents(int max = 5);
 
     /**
      * @brief Close the link preview at the given index.
@@ -119,11 +161,15 @@ public:
      */
     Q_INVOKABLE void closeLinkPreview(int row);
 
+Q_SIGNALS:
+    void moreEventsAvailableChanged();
+
 private:
     QString m_threadRootId;
     QPointer<MessageContentModel> m_threadRootContentModel;
 
     std::deque<QString> m_events;
+    ThreadFetchModel *m_threadFetchModel;
     ThreadChatBarModel *m_threadChatBarModel;
 
     QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;

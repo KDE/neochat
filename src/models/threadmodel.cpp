@@ -17,6 +17,7 @@
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     : QConcatenateTablesProxyModel(room)
     , m_threadRootId(threadRootId)
+    , m_threadFetchModel(new ThreadFetchModel(this))
     , m_threadChatBarModel(new ThreadChatBarModel(this, room))
 {
     Q_ASSERT(!m_threadRootId.isEmpty());
@@ -48,7 +49,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     // If the thread was created by the local user fetchMore() won't find the current
     // pending event.
     checkPending();
-    fetchMore({});
+    fetchMoreEvents(3);
     addModels();
 }
 
@@ -77,19 +78,19 @@ QHash<int, QByteArray> ThreadModel::roleNames() const
     return MessageContentModel::roleNamesStatic();
 }
 
-bool ThreadModel::canFetchMore(const QModelIndex &parent) const
+bool ThreadModel::moreEventsAvailable(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return !m_currentJob && m_nextBatch.has_value();
 }
 
-void ThreadModel::fetchMore(const QModelIndex &parent)
+void ThreadModel::fetchMoreEvents(int max)
 {
-    Q_UNUSED(parent);
     if (!m_currentJob && m_nextBatch.has_value()) {
         const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
         const auto connection = room->connection();
-        m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), 5);
+        m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), max);
+        Q_EMIT moreEventsAvailableChanged();
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
             auto newEvents = m_currentJob->chunk();
             for (auto &event : newEvents) {
@@ -109,6 +110,7 @@ void ThreadModel::fetchMore(const QModelIndex &parent)
             }
 
             m_currentJob.clear();
+            Q_EMIT moreEventsAvailableChanged();
         });
     }
 }
@@ -132,6 +134,7 @@ void ThreadModel::addModels()
     if (room == nullptr) {
         return;
     }
+    addSourceModel(m_threadFetchModel);
     for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
         const auto contentModel = room->contentModelForEvent(*it);
         if (contentModel != nullptr) {
@@ -150,6 +153,7 @@ void ThreadModel::clearModels()
     if (room == nullptr) {
         return;
     }
+    removeSourceModel(m_threadFetchModel);
     for (const auto &model : m_events) {
         const auto contentModel = room->contentModelForEvent(model);
         if (sourceModels().contains(contentModel)) {
@@ -186,6 +190,47 @@ void ThreadModel::closeLinkPreview(int row)
             sourceContentModel->closeLinkPreview(sourceIndex.row());
         }
     }
+}
+
+ThreadFetchModel::ThreadFetchModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+    const auto threadModel = dynamic_cast<ThreadModel *>(parent);
+    Q_ASSERT(threadModel != nullptr);
+    connect(threadModel, &ThreadModel::moreEventsAvailableChanged, this, [this]() {
+        beginResetModel();
+        endResetModel();
+    });
+}
+
+QVariant ThreadFetchModel::data(const QModelIndex &idx, int role) const
+{
+    if (idx.row() < 0 || idx.row() > 1) {
+        return {};
+    }
+
+    if (role == ComponentTypeRole) {
+        return MessageComponentType::FetchButton;
+    }
+    return {};
+}
+
+int ThreadFetchModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    const auto threadModel = dynamic_cast<ThreadModel *>(this->parent());
+    if (threadModel == nullptr) {
+        qWarning() << "ThreadFetchModel created with incorrect parent, a ThreadModel must be set as the parent on creation.";
+        return {};
+    }
+    return threadModel->moreEventsAvailable({}) ? 1 : 0;
+}
+
+QHash<int, QByteArray> ThreadFetchModel::roleNames() const
+{
+    return {
+        {ComponentTypeRole, "componentType"},
+    };
 }
 
 ThreadChatBarModel::ThreadChatBarModel(QObject *parent, NeoChatRoom *room)

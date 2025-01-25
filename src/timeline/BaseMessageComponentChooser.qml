@@ -2,7 +2,10 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
+import QtQuick.Layouts
 import Qt.labs.qmlmodels
+
+import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
@@ -53,6 +56,11 @@ DelegateChooser {
     signal showMessageMenu
 
     signal removeLinkPreview(int index)
+
+    /**
+     * @brief Request more events in the thread be loaded.
+     */
+    signal fetchMoreEvents()
 
     role: "componentType"
 
@@ -219,6 +227,14 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.FetchButton
+        delegate: FetchButtonComponent {
+            maxContentWidth: root.maxContentWidth
+            onFetchMoreEvents: root.fetchMoreEvents()
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.Verification
         delegate: MimeComponent {
             mimeIconSource: "security-high"
@@ -230,6 +246,14 @@ DelegateChooser {
         roleValue: MessageComponentType.Loading
         delegate: LoadComponent {
             maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
+        roleValue: MessageComponentType.Separator
+        delegate: Kirigami.Separator {
+            Layout.fillWidth: true
+            Layout.maximumWidth: root.maxContentWidth
         }
     }
 

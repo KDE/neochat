@@ -56,8 +56,10 @@ public:
         ThreadRoot, /**< The root message of the thread. */
         ThreadBody, /**< The other messages in the thread. */
         ReplyButton, /**< A button to reply in the current thread. */
+        FetchButton, /**< A button to fetch more messages in the current thread. */
         Verification, /**< A user verification session start message. */
         Loading, /**< The component is loading. */
+        Separator, /**< A horizontal separator. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);

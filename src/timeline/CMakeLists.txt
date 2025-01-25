@@ -27,6 +27,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         ChatBarComponent.qml
         CodeComponent.qml
         EncryptedComponent.qml
+        FetchButtonComponent.qml
         FileComponent.qml
         ImageComponent.qml
         ItineraryComponent.qml

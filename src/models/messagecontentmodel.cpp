@@ -486,6 +486,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 #else
     if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #endif
+        newComponents += MessageComponent{MessageComponentType::Separator, {}, {}};
         newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
     }
 
