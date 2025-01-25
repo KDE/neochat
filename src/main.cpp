@@ -37,6 +37,7 @@
 #include <KCrash>
 #endif
 
+#include <KIconTheme>
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -101,6 +102,7 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
+    KIconTheme::initTheme();
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
 #ifdef HAVE_WEBVIEW
