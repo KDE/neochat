@@ -423,6 +423,7 @@ target_link_libraries(neochat PUBLIC
     KF6::ConfigGui
     KF6::CoreAddons
     KF6::SonnetCore
+    KF6::IconThemes
     KF6::ColorScheme
     KF6::ItemModels
     QuotientQt6
