@@ -135,22 +135,6 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
 
     /**
-     * @brief The current join rule for the room as a QString.
-     *
-     * Possible values are [public, knock, invite, private, restricted].
-     *
-     * @sa https://spec.matrix.org/v1.5/client-server-api/#mroomjoin_rules
-     */
-    Q_PROPERTY(QString joinRule READ joinRule WRITE setJoinRule NOTIFY joinRuleChanged)
-
-    /**
-     * @brief The space IDs that members of can join this room.
-     *
-     * Empty if the join rule is not restricted.
-     */
-    Q_PROPERTY(QList<QString> restrictedIds READ restrictedIds NOTIFY joinRuleChanged)
-
-    /**
      * @brief Get the maximum room version that the server supports.
      *
      * Only returns main integer room versions (i.e. no msc room versions).
@@ -420,25 +404,6 @@ public:
 
     bool readOnly() const;
 
-    [[nodiscard]] QString joinRule() const;
-
-    /**
-     * @brief Set the join rule for the room.
-     *
-     * Will fail if the user doesn't have the required privileges.
-     *
-     * @param joinRule the join rule [public, knock, invite, private, restricted].
-     * @param allowedSpaces only used when the join rule is restricted. This is a
-     *        list of space Matrix IDs that members of can join without an invite.
-     *        If the rule is restricted and this list is empty it is treated as a join
-     *        rule of private instead.
-     *
-     * @sa https://spec.matrix.org/latest/client-server-api/#mroomjoin_rules
-     */
-    Q_INVOKABLE void setJoinRule(const QString &joinRule, const QList<QString> &allowedSpaces = {});
-
-    QList<QString> restrictedIds() const;
-
     int maxRoomVersion() const;
 
     /**
@@ -693,7 +658,6 @@ Q_SIGNALS:
     void displayNameChanged();
     void pushNotificationStateChanged(PushNotificationState::State state);
     void canEncryptRoomChanged();
-    void joinRuleChanged();
     void historyVisibilityChanged();
     void defaultUrlPreviewStateChanged();
     void urlPreviewEnabledChanged();

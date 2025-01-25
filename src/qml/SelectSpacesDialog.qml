@@ -9,6 +9,8 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
+import Quotient
+
 import org.kde.neochat
 
 Kirigami.Dialog {
@@ -42,7 +44,7 @@ Kirigami.Dialog {
                 ids.push(spaceGroup.buttons[i].modelData.id);
             }
         }
-        root.room.setJoinRule("restricted", ids);
+        root.room.setJoinRule(JoinRule.Restricted, ids);
     }
 
     QQC2.ButtonGroup {

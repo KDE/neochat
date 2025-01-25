@@ -107,8 +107,6 @@ add_library(neochat STATIC
     models/imagepacksmodel.h
     events/imagepackevent.cpp
     events/imagepackevent.h
-    events/joinrulesevent.cpp
-    events/joinrulesevent.h
     models/reactionmodel.cpp
     models/reactionmodel.h
     delegatesizehelper.cpp
