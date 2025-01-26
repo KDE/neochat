@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:41+0000\n"
+"POT-Creation-Date: 2025-01-26 00:41+0000\n"
 "PO-Revision-Date: 2025-01-21 20:26+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1169,7 +1169,7 @@ msgstr "Användarnamn inte tillgängligt"
 msgid "Welcome"
 msgstr "Välkommen"
 
-#: src/login/WelcomePage.qml:74 src/main.cpp:141
+#: src/login/WelcomePage.qml:74 src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1210,110 +1210,110 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/main.cpp:143
+#: src/main.cpp:145
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Chatta på Matrix"
 
-#: src/main.cpp:145
+#: src/main.cpp:147
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE-gemenskapen"
 
-#: src/main.cpp:146
+#: src/main.cpp:148
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148 src/main.cpp:150
+#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: src/main.cpp:147
+#: src/main.cpp:149
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:148
+#: src/main.cpp:150
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:149
+#: src/main.cpp:151
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Ursprunglig upphovsman till Spectral"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Underhållsansvarig för libQuotient"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: src/main.cpp:160
+#: src/main.cpp:162
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Att Qt-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (byggd med %2)"
 
-#: src/main.cpp:189
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:190
+#: src/main.cpp:192
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Stöder matrix: webbadresschema"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorera alla SSL-fel, t.ex. osignerade certifikat."
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Bara använd för automatiska tester"
 
-#: src/main.cpp:198
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr "Bara intern användning."
 
-#: src/main.cpp:203
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dela en webbadress med Matrix"
@@ -3006,15 +3006,19 @@ msgstr "Väntar på att andra sidan ska verifiera."
 msgid "Successfully verified device **%1**"
 msgstr "Verifierade enhet **%1** med lyckat resultat"
 
-#: src/qml/KeyVerificationDialog.qml:158
-#, kde-format
+#: src/qml/KeyVerificationDialog.qml:161
+#, fuzzy, kde-format
+#| msgid "The session verification timed out."
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "Tidsgräns för sessionsverifikation gick ut."
+
+#: src/qml/KeyVerificationDialog.qml:165
+#, fuzzy, kde-format
+#| msgid "Emoji Verification"
+msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Verifikation av emoji"
-
-#: src/qml/KeyVerificationDialog.qml:160
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Jämför en uppsättning emoji på båda enheter"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -5930,7 +5934,7 @@ msgstr ""
 "Telefonnumret har inte verifierats. Gå till textmeddelandet och följ "
 "instruktionerna där och klicka sedan på knappen ovan."
 
-#: src/timeline/BaseMessageComponentChooser.qml:225
+#: src/timeline/BaseMessageComponentChooser.qml:241
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 startade en användarverifikation"
@@ -5966,6 +5970,12 @@ msgid ""
 msgstr ""
 "Meddelandet är krypterat och avsändaren har inte delat nyckeln med den här "
 "enheten."
+
+#: src/timeline/FetchButtonComponent.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
@@ -6128,6 +6138,9 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgid "Compare a set of emoji on both devices"
+#~ msgstr "Jämför en uppsättning emoji på båda enheter"
 
 #~ msgid "Reply..."
 #~ msgstr "Svara..."

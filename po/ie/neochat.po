@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:41+0000\n"
+"POT-Creation-Date: 2025-01-26 00:41+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1221,7 +1221,7 @@ msgstr "Null usatores disponibil"
 msgid "Welcome"
 msgstr "Benevenit"
 
-#: src/login/WelcomePage.qml:74 src/main.cpp:141
+#: src/login/WelcomePage.qml:74 src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1263,114 +1263,114 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Parametres del chambre"
 
-#: src/main.cpp:143
+#: src/main.cpp:145
 #, fuzzy, kde-format
 #| msgid "About NeoChat"
 msgid "Chat on Matrix"
 msgstr "Pri NeoChat"
 
-#: src/main.cpp:145
+#: src/main.cpp:147
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 li comunité de KDE"
 
-#: src/main.cpp:146
+#: src/main.cpp:148
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148 src/main.cpp:150
+#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:147
+#: src/main.cpp:149
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:148
+#: src/main.cpp:150
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:149
+#: src/main.cpp:151
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "OIS"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mistresssilvara@hotmail.com"
 
-#: src/main.cpp:160
+#: src/main.cpp:162
 #, fuzzy, kde-format
 #| msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Un biblioteca usante Qt5 por scrir transplatformal clientes por Matrix."
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:189
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un cliente del protocol de communication Matrix"
 
-#: src/main.cpp:190
+#: src/main.cpp:192
 #, fuzzy, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ínsupportat schema de URL"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/main.cpp:198
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/main.cpp:203
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
@@ -3175,16 +3175,19 @@ msgstr ""
 msgid "Successfully verified device **%1**"
 msgstr "Null medium in li unité por %1"
 
-#: src/qml/KeyVerificationDialog.qml:158
+#: src/qml/KeyVerificationDialog.qml:161
+#, fuzzy, kde-format
+#| msgid "The session verification timed out."
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "Timeout evenit durante de verification del session."
+
+#: src/qml/KeyVerificationDialog.qml:165
 #, fuzzy, kde-format
 #| msgid "Session Verification"
+msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Verification del session"
-
-#: src/qml/KeyVerificationDialog.qml:160
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr ""
 
 #: src/qml/LocationChooser.qml:22
 #, fuzzy, kde-format
@@ -6228,7 +6231,7 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
-#: src/timeline/BaseMessageComponentChooser.qml:225
+#: src/timeline/BaseMessageComponentChooser.qml:241
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"
@@ -6265,6 +6268,12 @@ msgstr ""
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
+msgstr ""
+
+#: src/timeline/FetchButtonComponent.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
 msgstr ""
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187

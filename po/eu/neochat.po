@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:41+0000\n"
+"POT-Creation-Date: 2025-01-26 00:41+0000\n"
 "PO-Revision-Date: 2025-01-21 06:42+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1174,7 +1174,7 @@ msgstr "Erabiltzaile-izena ez dago erabilgarri"
 msgid "Welcome"
 msgstr "Ongi etorri"
 
-#: src/login/WelcomePage.qml:74 src/main.cpp:141
+#: src/login/WelcomePage.qml:74 src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1215,110 +1215,110 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: src/main.cpp:143
+#: src/main.cpp:145
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Berriketa Matrix-en"
 
-#: src/main.cpp:145
+#: src/main.cpp:147
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE komunitatea"
 
-#: src/main.cpp:146
+#: src/main.cpp:148
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148 src/main.cpp:150
+#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Arduraduna"
 
-#: src/main.cpp:147
+#: src/main.cpp:149
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:148
+#: src/main.cpp:150
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:149
+#: src/main.cpp:151
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "«Spectral»en Jatorrizko egilea"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "«libQuotient» mantentzailea"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Iñigo Salvador Azurmendi"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: src/main.cpp:160
+#: src/main.cpp:162
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "«Matrix»en plataforma anitzeko bezeroak idazteko Qt liburutegia"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 erabiliz eraikia)"
 
-#: src/main.cpp:189
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix, deszentralizatutako komunikazio protokolorako bezeroa"
 
-#: src/main.cpp:190
+#: src/main.cpp:192
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix onartzen du: URL eskema"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ez egin kasu SSL erroreei, adib., sinatu gabeko ziurtagiriei."
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Auto-probetarako bakarrik erabilia"
 
-#: src/main.cpp:198
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr "Barneko erabilera bakarrik."
 
-#: src/main.cpp:203
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Partekatu URL bat «Matrix»ekin"
@@ -3011,15 +3011,19 @@ msgstr "Beste aldea egiaztatzeko zain."
 msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
-#: src/qml/KeyVerificationDialog.qml:158
-#, kde-format
+#: src/qml/KeyVerificationDialog.qml:161
+#, fuzzy, kde-format
+#| msgid "The session verification timed out."
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "Saioaren egiaztapenaren denbora-muga gainditu da."
+
+#: src/qml/KeyVerificationDialog.qml:165
+#, fuzzy, kde-format
+#| msgid "Emoji Verification"
+msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Emoji egiaztapena"
-
-#: src/qml/KeyVerificationDialog.qml:160
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Konparatu emoji multzo bat bi gailuetan"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -5937,7 +5941,7 @@ msgstr ""
 "Telefono-zenbaki ez da egiaztatu. Mesedez, joan testu-mezura, jarraitu hango "
 "jarraibideak eta egin klik goiko botoian"
 
-#: src/timeline/BaseMessageComponentChooser.qml:225
+#: src/timeline/BaseMessageComponentChooser.qml:241
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
@@ -5972,6 +5976,12 @@ msgid ""
 "device."
 msgstr ""
 "Mezu hori zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
+
+#: src/timeline/FetchButtonComponent.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
@@ -6134,6 +6144,9 @@ msgstr "Erakutsi"
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
+
+#~ msgid "Compare a set of emoji on both devices"
+#~ msgstr "Konparatu emoji multzo bat bi gailuetan"
 
 #~ msgid "Reply..."
 #~ msgstr "Erantzun..."

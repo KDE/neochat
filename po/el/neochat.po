@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-25 00:41+0000\n"
+"POT-Creation-Date: 2025-01-26 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1248,7 +1248,7 @@ msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 msgid "Welcome"
 msgstr "Καλώς ήρθατε"
 
-#: src/login/WelcomePage.qml:74 src/main.cpp:141
+#: src/login/WelcomePage.qml:74 src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1295,113 +1295,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ρυθμίσεις αίθουσας"
 
-#: src/main.cpp:143
+#: src/main.cpp:145
 #, fuzzy, kde-format
 #| msgid "Share a URL to Matrix"
 msgid "Chat on Matrix"
 msgstr "Κοινοποίηση ενός URL στο Matrix"
 
-#: src/main.cpp:145
+#: src/main.cpp:147
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 
-#: src/main.cpp:146
+#: src/main.cpp:148
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:146 src/main.cpp:147 src/main.cpp:148 src/main.cpp:150
+#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
 #, kde-format
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: src/main.cpp:147
+#: src/main.cpp:149
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:148
+#: src/main.cpp:150
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:149
+#: src/main.cpp:151
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Αρχικός συγγραφέας του Spectral"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:155
+#: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Συντηρητής του libQuotient"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stelios"
 
-#: src/main.cpp:156
+#: src/main.cpp:158
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: src/main.cpp:160
+#: src/main.cpp:162
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Μια βιβλιοθήκη Qt για τη συγγραφή πελατών ανεξάρτητων από πλατφόρμες για το "
 "Matrix"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (κατασκευάστηκε με τη %2)"
 
-#: src/main.cpp:189
+#: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Πελάτης για το πρωτόκολλο επικοινωνίας Matrix"
 
-#: src/main.cpp:190
+#: src/main.cpp:192
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Υποστηρίζει το matrix: url σχήμα"
 
-#: src/main.cpp:191
+#: src/main.cpp:193
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Αγνόηση όλων των σφαλμάτων SSL, π.χ. μη υπογεγραμμένα πιστοποιητικά."
 
-#: src/main.cpp:193
+#: src/main.cpp:195
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Χρήση μόνο για αυτόματες δοκιμές"
 
-#: src/main.cpp:198
+#: src/main.cpp:200
 #, kde-format
 msgid "Internal usage only."
 msgstr "Μόνο για εσωτερική χρήση."
 
-#: src/main.cpp:203
+#: src/main.cpp:205
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Κοινοποίηση ενός URL στο Matrix"
@@ -3150,16 +3150,19 @@ msgstr "Αναμονή επαλήθευσης από την άλλη πλευρ�
 msgid "Successfully verified device **%1**"
 msgstr "Επιτυχημένη επαλήθευση συσκευής **%1**"
 
-#: src/qml/KeyVerificationDialog.qml:158
+#: src/qml/KeyVerificationDialog.qml:161
+#, fuzzy, kde-format
+#| msgid "The session verification timed out."
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "Η επαλήθευση συνεδρίας εξέπνευσε."
+
+#: src/qml/KeyVerificationDialog.qml:165
 #, fuzzy, kde-format
 #| msgid "Session Verification"
+msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Επαλήθευση συνεδρίας"
-
-#: src/qml/KeyVerificationDialog.qml:160
-#, kde-format
-msgid "Compare a set of emoji on both devices"
-msgstr "Σύγκρινε ένα σύνολο από εμότζι και στις δύο συσκευές"
 
 #: src/qml/LocationChooser.qml:22
 #, fuzzy, kde-format
@@ -6208,7 +6211,7 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
-#: src/timeline/BaseMessageComponentChooser.qml:225
+#: src/timeline/BaseMessageComponentChooser.qml:241
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"
@@ -6249,6 +6252,12 @@ msgid ""
 msgstr ""
 "Το μήνυμα αυτό είναι κρυπτογραφημένο και ο αποστολέας δεν έχει μοιραστεί το "
 "κλειδί με τη συσκευή αυτή."
+
+#: src/timeline/FetchButtonComponent.qml:41
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr ""
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
@@ -6411,6 +6420,9 @@ msgstr "Εμφάνιση"
 #, kde-format
 msgid "Quit"
 msgstr "Έξοδος"
+
+#~ msgid "Compare a set of emoji on both devices"
+#~ msgstr "Σύγκρινε ένα σύνολο από εμότζι και στις δύο συσκευές"
 
 #~ msgid "Reply..."
 #~ msgstr "Απάντηση..."
