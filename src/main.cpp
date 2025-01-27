@@ -50,6 +50,7 @@
 #include "controller.h"
 #include "logger.h"
 #include "roommanager.h"
+#include "sentryintegration.h"
 #include "sharehandler.h"
 #include "windowcontroller.h"
 
@@ -173,6 +174,8 @@ int main(int argc, char *argv[])
 #if __has_include("KCrash")
     KCrash::initialize();
 #endif
+
+    Sentry::instance();
 
     initLogging();
 

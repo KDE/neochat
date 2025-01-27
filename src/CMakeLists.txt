@@ -198,6 +198,8 @@ add_library(neochat STATIC
     models/pinnedmessagemodel.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
+    sentryintegration.cpp
+    sentryintegration.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -298,6 +300,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/HoverLinkIndicator.qml
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
+        qml/SendLogsDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick
@@ -430,6 +433,7 @@ target_link_libraries(neochat PUBLIC
     cmark::cmark
     QCoro::Core
     QCoro::Network
+    sentry::sentry
 )
 
 if (TARGET KF6::Crash)

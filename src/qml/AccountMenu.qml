@@ -92,10 +92,19 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
+        text: i18nc("@action:inmenu", "Do Sentry Things")
+        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "SendLogsDialog"), {}, {
+            title: i18nc("@title:window", "Send Logs")
+        })
+    }
+
+
+    QQC2.Action {
         text: i18n("Logout")
         icon.name: "im-kick-user"
         onTriggered: confirmLogoutDialogComponent.createObject(QQC2.ApplicationWindow.window.overlay).open()
     }
+
 
     readonly property Component confirmLogoutDialogComponent: ConfirmLogoutDialog {
         connection: root.connection
