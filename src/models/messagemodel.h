@@ -45,6 +45,7 @@ class MessageModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief The current room that the model is getting its messages from.
