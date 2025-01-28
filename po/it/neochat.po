@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-26 00:41+0000\n"
-"PO-Revision-Date: 2025-01-13 17:47+0100\n"
+"PO-Revision-Date: 2025-01-26 11:02+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2014,10 +2014,9 @@ msgid "Reply"
 msgstr "Rispondi"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Rispondi"
+msgstr "Rispondi…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2737,8 +2736,7 @@ msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Configura NeoChat…"
@@ -3024,15 +3022,13 @@ msgid "Successfully verified device **%1**"
 msgstr "Dispositivo **%1** verificato correttamente"
 
 #: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
-#| msgid "The session verification timed out."
+#, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "La verifica della sessione è scaduta."
+msgstr "Scegli un metodo di verifica per continuare"
 
 #: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Emoji Verification"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Verifica emoji"
@@ -3178,10 +3174,9 @@ msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
-msgstr "Configura le scorciatoie web..."
+msgstr "Configura le scorciatoie web…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3463,18 +3458,16 @@ msgid "Show locations for this room"
 msgstr "Mostra le posizioni per questa stanza"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Trova messaggi..."
+msgstr "Messaggi appuntati"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Messaggi diretti"
+msgstr "Messaggi appuntati"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3576,12 +3569,10 @@ msgid "Message Source"
 msgstr "Sorgente del messaggio"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "As in sorting rooms with the most unread messages higher"
-#| msgid "Most Unread Messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Più messaggi non letti"
+msgstr "Nessun messaggio appuntato"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3957,14 +3948,12 @@ msgid "Account Details"
 msgstr "Dettagli dell'account"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Inviti a una stanza"
-msgstr[1] "Inviti a una stanza"
+msgstr[0] "Una stanza comune"
+msgstr[1] "%1 stanze comuni"
 
 #: src/qml/UserDetailDialog.qml:126
 #, kde-format
@@ -4419,36 +4408,31 @@ msgid "Password"
 msgstr "Password"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Il tuo server non supporta la modifica della password"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Password attuale:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nuova password:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Conferma la nuova password:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Le password non corrispondono"
@@ -4494,23 +4478,19 @@ msgid "Deactivate Account"
 msgstr "Disattiva account"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Password modificata correttamente"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr "Frase segreta non valida"
+msgstr "Password non valida"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Problema sconosciuto durante il tentativo di cambiare la password"
@@ -5205,7 +5185,7 @@ msgstr "Il tuo server non supporta questa impostazione."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Attiva la cifratura nelle nuove chat"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5213,6 +5193,8 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Se abilitata, NeoChat utilizzerà la cifratura quando si avviano nuovi "
+"messaggi diretti."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
@@ -5622,28 +5604,25 @@ msgstr "Seleziona la nuova versione"
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
-msgstr ""
+msgstr "Personalizza il tuo profilo solo per questa stanza."
 
 #: src/settings/RoomProfile.qml:38
-#, fuzzy, kde-format
-#| msgid "Display Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
-msgstr "Nome visualizzato:"
+msgstr "Nome visualizzato"
 
 #: src/settings/RoomProfile.qml:48
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Salva"
 
 #: src/settings/RoomProfile.qml:54
-#, fuzzy, kde-format
-#| msgid "System Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
-msgstr "Impostazioni predefinite di sistema"
+msgstr "Ripristina predefiniti"
 
 #: src/settings/RoomSecurityPage.qml:18
 #, kde-format
@@ -5817,11 +5796,10 @@ msgid "Permissions"
 msgstr "Permessi"
 
 #: src/settings/RoomSettingsView.qml:84
-#, fuzzy, kde-format
-#| msgid "a file"
+#, kde-format
 msgctxt "@title"
 msgid "Profile"
-msgstr "un file"
+msgstr "Profilo"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6033,7 +6011,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "Recupera altri eventi"
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
