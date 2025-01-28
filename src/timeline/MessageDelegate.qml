@@ -289,7 +289,7 @@ TimelineDelegate {
                         AnchorChanges {
                             target: bubble
                             anchors.left: avatar.right
-                            anchors.right: undefined
+                            anchors.right: root.isThreaded ? parent.right : undefined
                         }
                     }
                 ]
