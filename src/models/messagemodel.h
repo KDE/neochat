@@ -77,8 +77,6 @@ public:
 
         ReadMarkersRole, /**< The first 5 other users at the event for read marker tracking. */
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
-        ReactionRole, /**< List model for this event. */
-        ShowReactionsRole, /**< Whether there are any reactions to be shown. */
 
         VerifiedRole, /**< Whether an encrypted message is sent in a verified session. */
         AuthorDisplayNameRole, /**< The displayname for the event's sender; for name change events, the old displayname. */
@@ -155,7 +153,6 @@ private:
     bool movingEvent = false;
 
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
-    QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     void createEventObjects(const Quotient::RoomEvent *event, bool isPending = false);
 };

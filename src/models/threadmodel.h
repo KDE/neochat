@@ -19,7 +19,6 @@
 #include "messagecontentmodel.h"
 
 class NeoChatRoom;
-class ReactionModel;
 
 /**
  * @class ThreadFetchModel
@@ -171,8 +170,6 @@ private:
     std::deque<QString> m_events;
     ThreadFetchModel *m_threadFetchModel;
     ThreadChatBarModel *m_threadChatBarModel;
-
-    QMap<QString, QSharedPointer<ReactionModel>> m_reactionModels;
 
     QPointer<Quotient::GetRelatingEventsWithRelTypeJob> m_currentJob = nullptr;
     std::optional<QString> m_nextBatch = QString();

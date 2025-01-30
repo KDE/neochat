@@ -7,11 +7,11 @@
 #include <QQmlEngine>
 
 #include <Quotient/events/roomevent.h>
-#include <Quotient/room.h>
 
 #include "enums/messagecomponenttype.h"
 #include "itinerarymodel.h"
 #include "messagecomponent.h"
+#include "models/reactionmodel.h"
 #include "neochatroommember.h"
 
 /**
@@ -24,6 +24,22 @@ class MessageContentModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
     QML_UNCREATABLE("")
+
+    /**
+     * @brief Add a MessageComponentType::Reaction component to the model.
+     *
+     * Designed so the delegate can be shown even if there are no reactions for the event.
+     * This is typically done as the delegate has a button for a new reaction so can
+     * be used to send the first.
+     */
+    Q_PROPERTY(bool showReaction READ showReaction WRITE setShowReaction NOTIFY showReactionChanged)
+
+    /**
+     * @brief Force a MessageComponentType::Reaction component to be added to the model.
+     *
+     * Latches the reaction component visible event if show reaction false or no reactions.
+     */
+    Q_PROPERTY(bool forceReaction READ forceReaction WRITE setForceReaction NOTIFY forceReactionChanged)
 
 public:
     enum MessageState {
@@ -57,6 +73,8 @@ public:
         ReplyAuthorRole, /**< The author of the event that was replied to. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
 
+        ReactionModelRole, /**< Reaction model for this event. */
+
         ThreadRootRole, /**< The thread root event ID for the event. */
 
         LinkPreviewerRole, /**< The link preview details. */
@@ -69,6 +87,12 @@ public:
                                  bool isReply = false,
                                  bool isPending = false,
                                  MessageContentModel *parent = nullptr);
+
+    bool showReaction() const;
+    void setShowReaction(bool show);
+
+    bool forceReaction() const;
+    void setForceReaction(bool force);
 
     /**
      * @brief Get the given role value at the given index.
@@ -101,6 +125,8 @@ public:
     Q_INVOKABLE void closeLinkPreview(int row);
 
 Q_SIGNALS:
+    void showReactionChanged();
+    void forceReactionChanged();
     void showAuthorChanged();
     void eventUpdated();
 
@@ -109,6 +135,9 @@ private:
     QString m_eventId;
     QString senderId() const;
     NeochatRoomMember *senderObject() const;
+
+    bool m_showReaction = false;
+    bool m_forceReaction = false;
 
     MessageState m_currentState = Unknown;
     bool m_isReply;
@@ -125,6 +154,7 @@ private:
     QPointer<MessageContentModel> m_replyModel;
     void updateReplyModel();
 
+    ReactionModel *m_reactionModel = nullptr;
     ItineraryModel *m_itineraryModel = nullptr;
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
@@ -135,4 +165,6 @@ private:
 
     void updateItineraryModel();
     bool m_emptyItinerary = false;
+
+    void updateReactionModel();
 };

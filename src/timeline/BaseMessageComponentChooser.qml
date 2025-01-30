@@ -58,6 +58,14 @@ DelegateChooser {
     signal removeLinkPreview(int index)
 
     /**
+     * @brief Request the ReactionComponent be kept even if all other conditions are false.
+     *
+     * Used for when the EmojiDialog is opened and therefore the event delegate is
+     * no longer hovered.
+     */
+    signal forceReaction(bool force)
+
+    /**
      * @brief Request more events in the thread be loaded.
      */
     signal fetchMoreEvents()
@@ -190,6 +198,15 @@ DelegateChooser {
             onReplyClicked: eventId => {
                 root.replyClicked(eventId);
             }
+        }
+    }
+
+    DelegateChoice {
+        roleValue: MessageComponentType.Reaction
+        delegate: ReactionComponent {
+            room: root.room
+            maxContentWidth: root.maxContentWidth
+            onForceReaction: force => root.forceReaction(force)
         }
     }
 

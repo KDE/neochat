@@ -131,6 +131,9 @@ QQC2.Control {
                     }
                     onShowMessageMenu: root.showMessageMenu()
                     onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)
+                    onForceReaction: force => {
+                        root.contentModel.forceReaction = force;
+                    }
                 }
             }
         }
