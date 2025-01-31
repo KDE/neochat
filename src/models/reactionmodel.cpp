@@ -21,6 +21,7 @@ ReactionModel::ReactionModel(MessageContentModel *parent, const QString &eventId
     Q_ASSERT(parent);
     Q_ASSERT(parent != nullptr);
     Q_ASSERT(!eventId.isEmpty());
+    Q_ASSERT(room != nullptr);
 
     connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
         if (m_eventId == eventId) {
@@ -103,6 +104,10 @@ int ReactionModel::rowCount(const QModelIndex &parent) const
 
 void ReactionModel::updateReactions()
 {
+    if (m_room == nullptr) {
+        return;
+    }
+
     beginResetModel();
 
     m_reactions.clear();

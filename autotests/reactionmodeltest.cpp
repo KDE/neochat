@@ -37,14 +37,6 @@ void ReactionModelTest::initTestCase()
     parentModel = new MessageContentModel(room, "123456"_L1);
 }
 
-void ReactionModelTest::nullModel()
-{
-    auto model = ReactionModel(parentModel, {}, nullptr);
-
-    QCOMPARE(model.rowCount(), 0);
-    QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), QVariant());
-}
-
 void ReactionModelTest::basicReaction()
 {
     auto event = eventCast<const RoomMessageEvent>(room->messageEvents().at(0).get());
