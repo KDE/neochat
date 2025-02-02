@@ -348,6 +348,12 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(room);
     }
     if (role == SubtitleTextRole) {
+        if (room->isInvite()) {
+            if (room->isDirectChat()) {
+                return i18nc("@info:label", "Invited you to chat");
+            }
+            return i18nc("@info:label", "%1 invited you", room->member(room->invitingUserId()).displayName());
+        }
         if (room->lastEvent() == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
