@@ -747,7 +747,10 @@ QList<QString> NeoChatRoom::restrictedIds() const
 
 QString NeoChatRoom::historyVisibility() const
 {
-    return currentState().get("m.room.history_visibility"_ls)->contentJson()["history_visibility"_ls].toString();
+    if (auto stateEvent = currentState().get("m.room.history_visibility"_ls)) {
+        return stateEvent->contentJson()["history_visibility"_ls].toString();
+    }
+    return {};
 }
 
 void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
