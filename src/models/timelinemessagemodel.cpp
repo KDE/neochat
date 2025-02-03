@@ -27,24 +27,20 @@ void TimelineMessageModel::connectNewRoom()
         }
 
         connect(m_room, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
-            for (auto &&event : events) {
-                Q_EMIT newEventAdded(event.get());
-            }
             m_initialized = true;
             beginInsertRows({}, timelineServerIndex(), timelineServerIndex() + int(events.size()) - 1);
         });
         connect(m_room, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
-            for (auto &event : events) {
-                Q_EMIT newEventAdded(event.get());
-            }
-            if (rowCount() > 0) {
-                rowBelowInserted = rowCount() - 1; // See #312
-            }
             m_initialized = true;
             beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
         });
         connect(m_room, &Room::addedMessages, this, [this](int lowest, int biggest) {
             if (m_initialized) {
+                for (int i = lowest; i == biggest; ++i) {
+                    const auto event = m_room->findInTimeline(i)->event();
+                    Q_EMIT newEventAdded(event);
+                }
+
                 endInsertRows();
             }
             if (!m_lastReadEventIndex.isValid()) {
