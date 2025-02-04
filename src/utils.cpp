@@ -48,6 +48,11 @@ QQuickItem *QmlUtils::focusedWindowItem()
     }
 }
 
+QString QmlUtils::nameForLevel(const PowerLevel::Level level)
+{
+    return PowerLevel::nameForLevel(level);
+}
+
 bool Utils::isEmoji(const QString &text)
 {
 #ifdef HAVE_ICU

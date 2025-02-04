@@ -12,6 +12,8 @@
 
 #include <Quotient/user.h>
 
+#include "enums/powerlevel.h"
+
 using namespace Qt::StringLiterals;
 
 class QmlUtils : public QObject
@@ -38,6 +40,10 @@ public:
     Q_INVOKABLE QString escapeString(const QString &string);
     Q_INVOKABLE QColor getUserColor(qreal hueF);
     Q_INVOKABLE QQuickItem *focusedWindowItem();
+    /**
+     * @brief Invokable version of PowerLevel::nameForLevel.
+     */
+    Q_INVOKABLE QString nameForLevel(PowerLevel::Level level);
 
 private:
     QmlUtils() = default;

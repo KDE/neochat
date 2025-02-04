@@ -116,6 +116,16 @@ Kirigami.Dialog {
             }
         }
 
+        Kirigami.Chip {
+            visible: root.room
+            text: root.room ? QmlUtils.nameForLevel(root.room.memberEffectivePowerLevel(root.user.id)) : ""
+            closable: false
+            checkable: false
+
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
+        }
+
         Kirigami.Separator {
             Layout.fillWidth: true
         }
