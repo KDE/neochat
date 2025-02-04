@@ -48,9 +48,9 @@ QQuickItem *QmlUtils::focusedWindowItem()
     }
 }
 
-QString QmlUtils::nameForLevel(const PowerLevel::Level level)
+QString QmlUtils::nameForPowerLevelValue(const int value)
 {
-    return PowerLevel::nameForLevel(level);
+    return PowerLevel::nameForLevel(PowerLevel::levelForValue(value));
 }
 
 bool Utils::isEmoji(const QString &text)

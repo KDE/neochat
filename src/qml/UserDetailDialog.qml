@@ -118,7 +118,7 @@ Kirigami.Dialog {
 
         Kirigami.Chip {
             visible: root.room
-            text: root.room ? QmlUtils.nameForLevel(root.room.memberEffectivePowerLevel(root.user.id)) : ""
+            text: root.room ? QmlUtils.nameForPowerLevelValue(root.room.memberEffectivePowerLevel(root.user.id)) : ""
             closable: false
             checkable: false
 

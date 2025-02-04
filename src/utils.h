@@ -41,9 +41,9 @@ public:
     Q_INVOKABLE QColor getUserColor(qreal hueF);
     Q_INVOKABLE QQuickItem *focusedWindowItem();
     /**
-     * @brief Invokable version of PowerLevel::nameForLevel.
+     * @brief Invokable version of PowerLevel::nameForLevel which also calls PowerLevel::levelForValue.
      */
-    Q_INVOKABLE QString nameForLevel(PowerLevel::Level level);
+    Q_INVOKABLE QString nameForPowerLevelValue(int value);
 
 private:
     QmlUtils() = default;
