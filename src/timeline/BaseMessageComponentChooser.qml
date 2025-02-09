@@ -62,6 +62,11 @@ DelegateChooser {
      */
     signal fetchMoreEvents()
 
+    /**
+     * @brief Request that the chat bar be focussed.
+     */
+    signal focusChatBar
+
     role: "componentType"
 
     DelegateChoice {

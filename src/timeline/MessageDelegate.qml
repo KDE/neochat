@@ -123,32 +123,6 @@ TimelineDelegate {
     required property bool verified
 
     /**
-     * @brief The x position of the message bubble.
-     *
-     * @note Used for positioning the hover actions.
-     */
-    readonly property real bubbleX: bubble.x + bubble.anchors.leftMargin
-
-    /**
-     * @brief The y position of the message bubble.
-     *
-     * @note Used for positioning the hover actions.
-     */
-    readonly property alias bubbleY: mainContainer.y
-
-    /**
-     * @brief The width of the message bubble.
-     *
-     * @note Used for sizing the hover actions.
-     */
-    readonly property alias bubbleWidth: bubble.width
-
-    /**
-     * @brief Whether this message is hovered.
-     */
-    readonly property alias hovered: bubble.hovered
-
-    /**
      * @brief Open the any message media externally.
      */
     signal openExternally
@@ -158,11 +132,6 @@ TimelineDelegate {
      */
     signal replyClicked(string eventID)
     onReplyClicked: eventID => ListView.view.goToEvent(eventID)
-
-    /**
-     * @brief The main delegate content item to show in the bubble.
-     */
-    property var bubbleContent
 
     /**
      * @brief Whether the bubble background is enabled.
@@ -233,12 +202,32 @@ TimelineDelegate {
 
             implicitHeight: Math.max(root.showAuthor ? avatar.implicitHeight : 0, bubble.height)
 
-            // show hover actions
-            onHoveredChanged: {
-                if (hovered && !Kirigami.Settings.isMobile) {
-                    root.setHoverActionsToDelegate();
+            // states for anchor animations on window resize
+            // as setting anchors to undefined did not work reliably
+            states: [
+                State {
+                    name: "userMessageOnRight"
+                    when: _private.showUserMessageOnRight && !root.isThreaded
+                    AnchorChanges {
+                        target: bubble
+                        anchors.left: undefined
+                        anchors.right: parent.right
+                    }
+                    AnchorChanges {
+                        target: actionHolder
+                        anchors.left: undefined
+                        anchors.right: bubble.left
+                    }
+                },
+                State {
+                    name: "threaded"
+                    when: root.isThreaded
+                    AnchorChanges {
+                        target: bubble
+                        anchors.right: parent.right
+                    }
                 }
-            }
+            ]
 
             KirigamiComponents.AvatarButton {
                 id: avatar
@@ -272,28 +261,6 @@ TimelineDelegate {
                 leftPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
                 rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-                state: _private.showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
-                // states for anchor animations on window resize
-                // as setting anchors to undefined did not work reliably
-                states: [
-                    State {
-                        name: "userMessageOnRight"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: undefined
-                            anchors.right: parent.right
-                        }
-                    },
-                    State {
-                        name: "userMessageOnLeft"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: avatar.right
-                            anchors.right: root.isThreaded ? parent.right : undefined
-                        }
-                    }
-                ]
-
                 room: root.room
                 index: root.index
                 author: root.author
@@ -319,6 +286,77 @@ TimelineDelegate {
                 onShowMessageMenu: _private.showMessageMenu()
 
                 showBackground: root.cardBackground && !NeoChatConfig.compactLayout
+            }
+
+            RowLayout {
+                id: actionHolder
+
+                readonly property int availableWidth: mainContainer.availableWidth - (NeoChatConfig.showAvatarInTimeline && !_private.showUserMessageOnRight ? avatar.width : 0) - bubble.anchors.leftMargin - bubble.anchors.rightMargin - anchors.leftMargin - bubble.width
+
+                anchors {
+                    left: bubble.right
+                    leftMargin: Kirigami.Units.largeSpacing
+                    rightMargin: Kirigami.Units.largeSpacing
+                    verticalCenter: parent.verticalCenter
+                }
+
+                visible: mainContainer.hovered && !root.isThreaded
+
+                QQC2.Button {
+                    id: reactButton
+                    visible: actionHolder.availableWidth > overflowButton.width + actionHolder.spacing + bubble.anchors.rightMargin
+                    text: i18n("React")
+                    icon.name: "preferences-desktop-emoticons"
+                    display: QQC2.ToolButton.IconOnly
+                    onClicked: {
+                        var dialog = emojiDialog.createObject(reactButton);
+                        dialog.chosen.connect(emoji => {
+                            root.room.toggleReaction(root.eventId, emoji);
+                            if (!Kirigami.Settings.isMobile) {
+                                // root.focusChatBar();
+                            }
+                        });
+                        dialog.open();
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                    Component {
+                        id: emojiDialog
+                        EmojiDialog {
+                            currentRoom: root.room
+                            showQuickReaction: true
+                        }
+                    }
+                }
+                QQC2.Button {
+                    visible: !root.room.readOnly && actionHolder.availableWidth > overflowButton.width + reactButton.width + actionHolder.spacing + bubble.anchors.rightMargin
+                    text: i18n("Reply")
+                    icon.name: "mail-replied-symbolic"
+                    display: QQC2.Button.IconOnly
+                    onClicked: {
+                        root.room.mainCache.replyId = root.eventId;
+                        root.room.editCache.editId = "";
+                        root.room.mainCache.threadId = "";
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                QQC2.Button {
+                    id: overflowButton
+                    text: i18n("Message menu")
+                    icon.name: "overflow-menu"
+                    onClicked: _private.showMessageMenu()
+                    display: QQC2.ToolButton.IconOnly
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
             }
 
             background: Rectangle {
@@ -370,12 +408,6 @@ TimelineDelegate {
     function isVisibleInTimeline() {
         let yoff = Math.round(y - ListView.view.contentY);
         return (yoff + height > 0 && yoff < ListView.view.height);
-    }
-
-    function setHoverActionsToDelegate() {
-        if (ListView.view.setHoverActionsToDelegate) {
-            ListView.view.setHoverActionsToDelegate(root);
-        }
     }
 
     QtObject {

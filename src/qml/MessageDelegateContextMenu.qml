@@ -45,6 +45,8 @@ DelegateContextMenu {
 
     DelegateContextMenu.ReplyMessageAction {}
 
+    DelegateContextMenu.ReplyThreadMessageAction {}
+
     QQC2.Action {
         text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"

@@ -636,6 +636,10 @@ public:
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
+    Q_INVOKABLE bool eventIsThreaded(const QString &eventId) const;
+
+    Q_INVOKABLE QString rootIdForThread(const QString &eventId) const;
+
 private:
     bool m_visible = false;
 
