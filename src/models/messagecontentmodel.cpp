@@ -3,6 +3,7 @@
 
 #include "messagecontentmodel.h"
 #include "eventhandler.h"
+#include "messagecomponenttype.h"
 #include "neochatconfig.h"
 
 #include <QImageReader>
@@ -27,6 +28,7 @@
 #include "chatbarcache.h"
 #include "filetype.h"
 #include "linkpreviewer.h"
+#include "models/reactionmodel.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
 #include "texthandler.h"
@@ -152,12 +154,18 @@ void MessageContentModel::initializeModel()
         updateReplyModel();
         resetModel();
     });
+    connect(m_room, &Room::updatedEvent, this, [this](const QString &eventId) {
+        if (eventId == m_eventId) {
+            updateReactionModel();
+        }
+    });
 
     initializeEvent();
     if (m_currentState == Available || m_currentState == Pending) {
         updateReplyModel();
     }
     resetModel();
+    updateReactionModel();
 }
 
 void MessageContentModel::initializeEvent()
@@ -340,6 +348,10 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == ReplyContentModelRole) {
         return QVariant::fromValue<MessageContentModel *>(m_replyModel);
     }
+    if (role == ReactionModelRole) {
+        return QVariant::fromValue<ReactionModel *>(m_reactionModel);
+        ;
+    }
     if (role == ThreadRootRole) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first);
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -400,6 +412,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ReplyEventIdRole] = "replyEventId";
     roles[MessageContentModel::ReplyAuthorRole] = "replyAuthor";
     roles[MessageContentModel::ReplyContentModelRole] = "replyContentModel";
+    roles[MessageContentModel::ReactionModelRole] = "reactionModel";
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
@@ -478,6 +491,10 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     if (m_room->urlPreviewEnabled()) {
         newComponents = addLinkPreviews(newComponents);
+    }
+
+    if ((m_reactionModel && m_reactionModel->rowCount() > 0)) {
+        newComponents += MessageComponent{MessageComponentType::Reaction, QString(), {}};
     }
 
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -729,6 +746,27 @@ void MessageContentModel::updateItineraryModel()
             }
         }
     }
+}
+
+void MessageContentModel::updateReactionModel()
+{
+    if (m_reactionModel != nullptr && m_reactionModel->rowCount() > 0) {
+        return;
+    }
+
+    if (m_reactionModel == nullptr) {
+        m_reactionModel = new ReactionModel(this, m_eventId, m_room);
+        connect(m_reactionModel, &ReactionModel::reactionsUpdated, this, &MessageContentModel::updateReactionModel);
+    }
+
+    if (m_reactionModel->rowCount() <= 0) {
+        m_reactionModel->disconnect(this);
+        delete m_reactionModel;
+        m_reactionModel = nullptr;
+        return;
+    }
+
+    resetContent();
 }
 
 #include "moc_messagecontentmodel.cpp"

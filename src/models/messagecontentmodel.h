@@ -7,11 +7,11 @@
 #include <QQmlEngine>
 
 #include <Quotient/events/roomevent.h>
-#include <Quotient/room.h>
 
 #include "enums/messagecomponenttype.h"
 #include "itinerarymodel.h"
 #include "messagecomponent.h"
+#include "models/reactionmodel.h"
 #include "neochatroommember.h"
 
 /**
@@ -56,6 +56,8 @@ public:
         ReplyEventIdRole, /**< The matrix ID of the message that was replied to. */
         ReplyAuthorRole, /**< The author of the event that was replied to. */
         ReplyContentModelRole, /**< The MessageContentModel for the reply event. */
+
+        ReactionModelRole, /**< Reaction model for this event. */
 
         ThreadRootRole, /**< The thread root event ID for the event. */
 
@@ -125,6 +127,7 @@ private:
     QPointer<MessageContentModel> m_replyModel;
     void updateReplyModel();
 
+    ReactionModel *m_reactionModel = nullptr;
     ItineraryModel *m_itineraryModel = nullptr;
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
@@ -135,4 +138,6 @@ private:
 
     void updateItineraryModel();
     bool m_emptyItinerary = false;
+
+    void updateReactionModel();
 };

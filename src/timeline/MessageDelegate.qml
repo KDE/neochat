@@ -14,7 +14,7 @@ import org.kde.neochat
 /**
  * @brief The base delegate for all messages in the timeline.
  *
- * This supports a message bubble plus sender avatar for each message as well as reactions
+ * This supports a message bubble plus sender avatar for each message
  * and read markers. A date section can be show for when the message is on a different
  * day to the previous one.
  *
@@ -71,16 +71,6 @@ TimelineDelegate {
      * @brief Whether the section header should be shown.
      */
     required property bool showSection
-
-    /**
-     * @brief A model with the reactions to the message in.
-     */
-    required property var reaction
-
-    /**
-     * @brief Whether the reaction component should be shown.
-     */
-    required property bool showReactions
 
     /**
      * @brief A model with the first 5 other user read markers for this message.
@@ -336,18 +326,6 @@ TimelineDelegate {
                 acceptedButtons: Qt.LeftButton
                 onLongPressed: _private.showMessageMenu()
             }
-        }
-
-        ReactionDelegate {
-            Layout.maximumWidth: root.width - Kirigami.Units.largeSpacing * 2
-            Layout.alignment: _private.showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
-            Layout.leftMargin: _private.showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
-            Layout.rightMargin: _private.showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
-
-            visible: root.showReactions
-            model: root.reaction
-
-            onReactionClicked: reaction => root.room.toggleReaction(root.eventId, reaction)
         }
         AvatarFlow {
             Layout.alignment: Qt.AlignRight

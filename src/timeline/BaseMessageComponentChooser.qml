@@ -194,6 +194,14 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageComponentType.Reaction
+        delegate: ReactionComponent {
+            room: root.room
+            maxContentWidth: root.maxContentWidth
+        }
+    }
+
+    DelegateChoice {
         roleValue: MessageComponentType.LinkPreview
         delegate: LinkPreviewComponent {
             maxContentWidth: root.maxContentWidth

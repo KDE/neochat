@@ -20,11 +20,11 @@ class ReactionModelTest : public QObject
 private:
     Connection *connection = nullptr;
     TestUtils::TestRoom *room = nullptr;
+    MessageContentModel *parentModel;
 
 private Q_SLOTS:
     void initTestCase();
 
-    void nullModel();
     void basicReaction();
     void newReaction();
 };
@@ -33,20 +33,13 @@ void ReactionModelTest::initTestCase()
 {
     connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
     room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-reactionmodel-sync.json"_s);
-}
-
-void ReactionModelTest::nullModel()
-{
-    auto model = ReactionModel(nullptr, nullptr);
-
-    QCOMPARE(model.rowCount(), 0);
-    QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), QVariant());
+    parentModel = new MessageContentModel(room, "123456"_L1);
 }
 
 void ReactionModelTest::basicReaction()
 {
     auto event = eventCast<const RoomMessageEvent>(room->messageEvents().at(0).get());
-    auto model = ReactionModel(event, room);
+    auto model = ReactionModel(parentModel, event->id(), room);
 
     QCOMPARE(model.rowCount(), 1);
     QCOMPARE(model.data(model.index(0), ReactionModel::TextContentRole), u"<span style=\"font-family: 'emoji';\">👍</span>"_s);
@@ -58,7 +51,7 @@ void ReactionModelTest::basicReaction()
 void ReactionModelTest::newReaction()
 {
     auto event = eventCast<const RoomMessageEvent>(room->messageEvents().at(0).get());
-    auto model = new ReactionModel(event, room);
+    auto model = new ReactionModel(parentModel, event->id(), room);
 
     QCOMPARE(model->rowCount(), 1);
     QCOMPARE(model->data(model->index(0), ReactionModel::ToolTipRole), u"Alice Margatroid reacted with <span style=\"font-family: 'emoji';\">👍</span>"_s);

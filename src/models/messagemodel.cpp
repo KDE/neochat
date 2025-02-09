@@ -258,18 +258,6 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return m_readMarkerModels.contains(event.value().get().id());
     }
 
-    if (role == ReactionRole) {
-        if (m_reactionModels.contains(event.value().get().id())) {
-            return QVariant::fromValue<ReactionModel *>(m_reactionModels[event.value().get().id()].data());
-        } else {
-            return QVariantList();
-        }
-    }
-
-    if (role == ShowReactionsRole) {
-        return m_reactionModels.contains(event.value().get().id());
-    }
-
     if (role == VerifiedRole) {
         if (event.value().get().originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(event.value().get().originalEvent());
@@ -323,8 +311,6 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
     roles[ShowReadMarkersRole] = "showReadMarkers";
-    roles[ReactionRole] = "reaction";
-    roles[ShowReactionsRole] = "showReactions";
     roles[VerifiedRole] = "verified";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
     roles[IsRedactedRole] = "isRedacted";
@@ -454,31 +440,6 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isP
             }
         }
     }
-
-    if (const auto roomEvent = eventCast<const RoomMessageEvent>(event)) {
-        // ReactionModel handles updates to add and remove reactions, we only need to
-        // handle adding and removing whole models here.
-        if (m_reactionModels.contains(eventId)) {
-            // If a model already exists but now has no reactions remove it
-            if (m_reactionModels[eventId]->rowCount() <= 0) {
-                m_reactionModels.remove(eventId);
-                if (!resetting) {
-                    refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
-                }
-            }
-        } else {
-            if (m_room->relatedEvents(*event, Quotient::EventRelation::AnnotationType).count() > 0) {
-                // If a model doesn't exist and there are reactions add it.
-                auto reactionModel = QSharedPointer<ReactionModel>(new ReactionModel(roomEvent, m_room));
-                if (reactionModel->rowCount() > 0) {
-                    m_reactionModels[eventId] = reactionModel;
-                    if (!resetting) {
-                        refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole});
-                    }
-                }
-            }
-        }
-    }
 }
 
 void MessageModel::clearModel()
@@ -504,7 +465,6 @@ void MessageModel::clearModel()
 
 void MessageModel::clearEventObjects()
 {
-    m_reactionModels.clear();
     m_readMarkerModels.clear();
 }
 

@@ -50,6 +50,7 @@ public:
         LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
         Encrypted, /**< An encrypted message that cannot be decrypted. */
         Reply, /**< A component to show a replied-to message. */
+        Reaction, /**< A component to show the reactions to this message. */
         LinkPreview, /**< A preview of a URL in the message. */
         LinkPreviewLoad, /**< A loading dialog for a link preview. */
         ChatBar, /**< A text edit for editing a message. */

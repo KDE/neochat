@@ -9,22 +9,27 @@
 
 #include <KLocalizedString>
 
+#include "neochatroom.h"
+
 using namespace Qt::StringLiterals;
 
-ReactionModel::ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room)
-    : QAbstractListModel(nullptr)
+ReactionModel::ReactionModel(MessageContentModel *parent, const QString &eventId, NeoChatRoom *room)
+    : QAbstractListModel(parent)
     , m_room(room)
-    , m_event(event)
+    , m_eventId(eventId)
 {
-    if (m_event != nullptr && m_room != nullptr) {
-        connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
-            if (m_event && m_event->id() == eventId) {
-                updateReactions();
-            }
-        });
+    Q_ASSERT(parent);
+    Q_ASSERT(parent != nullptr);
+    Q_ASSERT(!eventId.isEmpty());
+    Q_ASSERT(room != nullptr);
 
-        updateReactions();
-    }
+    connect(m_room, &NeoChatRoom::updatedEvent, this, [this](const QString &eventId) {
+        if (m_eventId == eventId) {
+            updateReactions();
+        }
+    });
+
+    updateReactions();
 }
 
 QVariant ReactionModel::data(const QModelIndex &index, int role) const
@@ -99,12 +104,16 @@ int ReactionModel::rowCount(const QModelIndex &parent) const
 
 void ReactionModel::updateReactions()
 {
+    if (m_room == nullptr) {
+        return;
+    }
+
     beginResetModel();
 
     m_reactions.clear();
     m_shortcodes.clear();
 
-    const auto &annotations = m_room->relatedEvents(*m_event, Quotient::EventRelation::AnnotationType);
+    const auto &annotations = m_room->relatedEvents(m_eventId, Quotient::EventRelation::AnnotationType);
     if (annotations.isEmpty()) {
         endResetModel();
         return;

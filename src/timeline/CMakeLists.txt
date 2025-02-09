@@ -17,7 +17,6 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         TimelineEndDelegate.qml
         Bubble.qml
         AvatarFlow.qml
-        ReactionDelegate.qml
         SectionDelegate.qml
         BaseMessageComponentChooser.qml
         MessageComponentChooser.qml
@@ -47,6 +46,7 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         PdfPreviewComponent.qml
         PollComponent.qml
         QuoteComponent.qml
+        ReactionComponent.qml
         ReplyAuthorComponent.qml
         ReplyButtonComponent.qml
         ReplyComponent.qml

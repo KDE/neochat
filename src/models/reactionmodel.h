@@ -3,10 +3,19 @@
 
 #pragma once
 
-#include "neochatroom.h"
 #include <QAbstractListModel>
+#include <QQmlEngine>
+
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/roommember.h>
+
+namespace Quotient
+{
+class RoomMessageEvent;
+}
+
+class MessageContentModel;
+class NeoChatRoom;
 
 /**
  * @class ReactionModel
@@ -38,7 +47,7 @@ public:
         HasLocalMember, /**< Whether the local member is in the list of authors. */
     };
 
-    explicit ReactionModel(const Quotient::RoomMessageEvent *event, NeoChatRoom *room);
+    explicit ReactionModel(MessageContentModel *parent, const QString &eventId, NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -61,9 +70,15 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+Q_SIGNALS:
+    /**
+     * @brief The reactions in the model have been updated.
+     */
+    void reactionsUpdated();
+
 private:
     QPointer<NeoChatRoom> m_room;
-    const Quotient::RoomMessageEvent *m_event;
+    QString m_eventId;
     QList<Reaction> m_reactions;
     QMap<QString, QString> m_shortcodes;
 
