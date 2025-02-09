@@ -1770,7 +1770,9 @@ MessageContentModel *NeoChatRoom::contentModelForEvent(const Quotient::RoomEvent
     auto eventId = event->id();
     const auto txnId = event->transactionId();
     if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
-        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId.isEmpty() ? txnId : eventId, false, eventId.isEmpty()))
+        return m_eventContentModels
+            .emplace(eventId.isEmpty() ? txnId : eventId,
+                     std::make_unique<MessageContentModel>(this, eventId.isEmpty() ? txnId : eventId, false, eventId.isEmpty()))
             .first->second.get();
     }
 
