@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:41+0000\n"
+"POT-Creation-Date: 2025-02-10 00:40+0000\n"
 "PO-Revision-Date: 2023-02-25 01:00+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1029,8 +1029,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:257
-#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:265
+#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr ""
@@ -1688,14 +1688,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:255
-#: src/models/messagecontentmodel.cpp:283
+#: src/models/messagecontentmodel.cpp:263
+#: src/models/messagecontentmodel.cpp:291
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr ""
 
-#: src/models/messagecontentmodel.cpp:278
+#: src/models/messagecontentmodel.cpp:286
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1889,13 +1889,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr ""
 
-#: src/models/reactionmodel.cpp:63
+#: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr ""
 
-#: src/models/reactionmodel.cpp:70
+#: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1904,7 +1904,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/models/reactionmodel.cpp:74
+#: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -5848,7 +5848,7 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
-#: src/timeline/BaseMessageComponentChooser.qml:241
+#: src/timeline/BaseMessageComponentChooser.qml:249
 #, kde-format
 msgid "%1 started a user verification"
 msgstr ""
@@ -5991,6 +5991,12 @@ msgstr[2] ""
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
+msgstr ""
+
+#: src/timeline/ReactionComponent.qml:97
+#, kde-format
+msgctxt "@button"
+msgid "React"
 msgstr ""
 
 #: src/timeline/ReadMarkerDelegate.qml:42

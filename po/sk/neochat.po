@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-05 00:41+0000\n"
+"POT-Creation-Date: 2025-02-10 00:40+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -1128,8 +1128,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:257
-#: src/models/messagecontentmodel.cpp:285 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:265
+#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1872,15 +1872,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastné"
 
-#: src/models/messagecontentmodel.cpp:255
-#: src/models/messagecontentmodel.cpp:283
+#: src/models/messagecontentmodel.cpp:263
+#: src/models/messagecontentmodel.cpp:291
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
 msgstr "Načítava sa…"
 
-#: src/models/messagecontentmodel.cpp:278
+#: src/models/messagecontentmodel.cpp:286
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -2122,13 +2122,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Odoslať pozvanie"
 
-#: src/models/reactionmodel.cpp:63
+#: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " a "
 
-#: src/models/reactionmodel.cpp:70
+#: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -2137,7 +2137,7 @@ msgstr[0] " a %1 ďalší"
 msgstr[1] " a %1 ďalší"
 msgstr[2] " a %1 ďalších"
 
-#: src/models/reactionmodel.cpp:74
+#: src/models/reactionmodel.cpp:79
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -6397,7 +6397,7 @@ msgid ""
 "follow the instructions there and then click the button above"
 msgstr ""
 
-#: src/timeline/BaseMessageComponentChooser.qml:241
+#: src/timeline/BaseMessageComponentChooser.qml:249
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 started a user verification"
@@ -6545,6 +6545,13 @@ msgstr[2] ""
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "ukončené"
+
+#: src/timeline/ReactionComponent.qml:97
+#, fuzzy, kde-format
+#| msgid "React"
+msgctxt "@button"
+msgid "React"
+msgstr "Reagovať"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
