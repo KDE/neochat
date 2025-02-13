@@ -498,10 +498,11 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
-    if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
+    if (NeoChatConfig::self()->threads() && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
         && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #else
-    if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+    if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()
+        && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #endif
         newComponents += MessageComponent{MessageComponentType::Separator, {}, {}};
         newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
@@ -530,7 +531,7 @@ void MessageContentModel::updateReplyModel()
     if (roomMessageEvent == nullptr) {
         return;
     }
-    if (!roomMessageEvent->isReply() || (roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
+    if (!roomMessageEvent->isReply(!NeoChatConfig::self()->threads()) || (roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
         if (m_replyModel) {
             delete m_replyModel;
         }
@@ -541,7 +542,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    m_replyModel = new MessageContentModel(m_room, roomMessageEvent->replyEventId(), true, false, this);
+    m_replyModel = new MessageContentModel(m_room, roomMessageEvent->replyEventId(!NeoChatConfig::self()->threads()), true, false, this);
 
     connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {
         Q_EMIT dataChanged(index(0), index(0), {ReplyAuthorRole});

@@ -121,7 +121,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
     if (role == ContentModelRole) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+        if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()) {
             return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(roomMessageEvent->threadRootEventId()));
         }
         return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(&event->get()));
@@ -216,6 +216,9 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsThreadedRole) {
+        if (!NeoChatConfig::self()->threads()) {
+            return false;
+        }
         if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get())) {
             return roomMessageEvent->isThreaded();
         }
