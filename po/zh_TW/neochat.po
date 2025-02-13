@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-07 22:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1954,12 +1954,12 @@ msgstr "聊天室建立失敗：%1"
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3606,7 +3606,7 @@ msgstr "您沒有足夠權限以完成此動作"
 msgid "Make this space the canonical parent"
 msgstr "將此聊天空間設為主要上層聊天空間"
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
@@ -5516,128 +5516,128 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "重設為預設值"
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "您必須將此聊天室更新到較新的版本才能啟用這個設定。"
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "安全性"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr "開啟加密"
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "開啟加密後將無法再次關閉。"
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "存取"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "私人（只接收邀請）"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "只有受邀請的使用者才能加入。"
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "聊天空間成員"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "所選聊天空間內的任何人都可以搜尋到或加入。"
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
 msgid "Select spaces"
 msgstr "選取聊天空間"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "敲門"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr "不在聊天室的人必須要請求加入聊天室的邀請。"
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "公開"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "任何人都可以搜尋到或加入。"
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "訊息歷史可見度"
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "任何人"
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "任何人，不管是否加入聊天室，皆可閱讀歷史。"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "僅成員"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "所有成員皆可瀏覽所有訊息歷史，包含他們加入之前的。"
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "僅成員（邀請後）"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5645,13 +5645,13 @@ msgid ""
 "the room."
 msgstr "新成員只能看到被邀請後的訊息歷史。"
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "僅成員（加入後）"
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""

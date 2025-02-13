@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
-"PO-Revision-Date: 2025-01-28 19:08+0400\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-12 17:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1978,12 +1978,12 @@ msgstr "فشل إنشاء غرفة: %1"
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3638,7 +3638,7 @@ msgstr "ليست لديك صلاحيات لتنفيذ هذا الفعل"
 msgid "Make this space the canonical parent"
 msgstr "اجعل هذا الفضاء فضاء عالمي رئيس"
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
@@ -5574,128 +5574,128 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "صفّر إلى المبدئي"
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "تحتاج إلى أن ترقي هذه الغرفة إلى أخر إصدارة حتى تمكن هذا الإعداد."
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "الأمن"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "التعمية"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr "مكن التعمية"
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "عند تفعيله، فلن تستطيع تعطيل التعمية."
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "الوصول"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "خاصة (بالدعوة فقط)"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "فقط المدعوون يمكنهم الانضمام."
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "أعضاء الفضاء"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "أي أحد في الفضاء المحدد يمكنه العثور عليها والانضمام"
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
 msgid "Select spaces"
 msgstr "حدد الفضاءات"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "الاستئذان"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr "يحتاج الأشخاص الذين ليسوا في الغرفة إلى طلب دعوة للانضمام إلى الغرفة."
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "عام"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "أي أحد يمكنه العثور عليها والانضمام"
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "ظهور الرسائل القديمة"
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "أي أحد"
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "أي أحد - بغض النظر إن كان منضم أم لا - يمكنه رؤية الرسائل القديمة."
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "الأعضاء فقط"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "كل الأعضاء يستطيعون رؤية الرسائل القديمة حتى قبل تاريخ الانضمام."
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "الأعضاء فقط (من تاريخ الدعوة)"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5704,13 +5704,13 @@ msgid ""
 msgstr ""
 "يمكن للأعضاء الجدد أن يرو الرسائل القديمة من تاريخ دعوتهم للانضمام للغرفة."
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "الأعضاء فقط (منذ تاريخ الانضمام)"
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6058,8 +6058,7 @@ msgid "(Ended)"
 msgstr "(انتهى)"
 
 #: src/timeline/ReactionComponent.qml:97
-#, fuzzy, kde-format
-#| msgid "React"
+#, kde-format
 msgctxt "@button"
 msgid "React"
 msgstr "تفاعل"

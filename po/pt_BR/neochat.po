@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2024-08-03 00:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -2208,13 +2208,13 @@ msgstr "Criação de sala falhou: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Criação de sala falhou: \"%1\""
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Senha alterada com sucesso"
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4018,7 +4018,7 @@ msgstr ""
 msgid "Make this space the canonical parent"
 msgstr ""
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
@@ -6121,30 +6121,30 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Segurança"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "ativou criptografia ponta-a-ponta"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, fuzzy, kde-format
 #| msgid "Only enabled if the transparent chat page is enabled."
 msgctxt "option:check"
@@ -6152,7 +6152,7 @@ msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 "Habilitado somente se a página do bate-papo transparente estiver habilitado"
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Access:"
@@ -6160,99 +6160,99 @@ msgctxt "@option:check"
 msgid "Access"
 msgstr "Acesso:"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privado (somente por convite)"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Somente pessoas convidadas podem entrar."
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Membros do espaço"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, fuzzy, kde-format
 #| msgid "Anyone in a space can find and join."
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Qualquer um no espaço pode encontrar e entrar."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Select spaces"
 msgstr "Selecionar tudo"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgid "knocked"
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "solicitou entrada na sala"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Público"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Qualquer um pode encontrar e entrar."
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Membros"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6260,13 +6260,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""

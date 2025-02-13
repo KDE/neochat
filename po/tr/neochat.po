@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-10 08:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1970,12 +1970,12 @@ msgstr "Oda oluşturulamadı: %1"
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3637,7 +3637,7 @@ msgstr "Bu eylemi tamamlamak için yeterli izin düzeyine sahip değilsiniz"
 msgid "Make this space the canonical parent"
 msgstr "Bu alanı resmi üst öge yap"
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
@@ -5585,7 +5585,7 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Öntanımlılara Sıfırla"
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -5593,111 +5593,111 @@ msgstr ""
 "Bu ayarı etkinleştirmek için odayı daha yeni bir sürüme yükseltmeniz "
 "gerekiyor."
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Güvenlik"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr "Şifrelemeyi etkinleştir"
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Etkinleştirildiğinde, şifreleme devre dışı bırakılamaz."
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Erişim"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Özel (yalnızca davetliler)"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Yalnızca davet edilen kişiler katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Alan üyeleri"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Seçili alanlardaki herkes bulabilir ve katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
 msgid "Select spaces"
 msgstr "Alanlar seç"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Tıklat"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Odada bulunmayan kişilerin, odaya katılabilmeleri için bir davet isteğinde "
 "bulunmaları gerekir."
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Herkese Açık"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Herkes bulabilir ve katılabilir."
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "İleti Geçmişi Görünürlüğü"
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Herkes"
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Katılıp katılmadığına bakılmaksızın herkes geçmişi görüntüleyebilir."
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Yalnızca üyeler"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5705,13 +5705,13 @@ msgid ""
 msgstr ""
 "Tüm üyeler, katılmadan önce bile tüm ileti geçmişini görüntüleyebilirler."
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Yalnızca üyeler (davetten bu yana)"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5721,13 +5721,13 @@ msgstr ""
 "Yeni üyeler, odaya davet edildikleri andan itibaren ileti geçmişini "
 "görüntüleyebilirler."
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Yalnızca üyeler (katılımdan bu yana)"
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""

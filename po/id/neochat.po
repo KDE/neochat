@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -2156,12 +2156,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3961,7 +3961,7 @@ msgstr ""
 msgid "Make this space the canonical parent"
 msgstr "Buat alias ini sebagai alias kanonik ruangan"
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
@@ -6036,7 +6036,7 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Bawaan Sistem"
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -6044,102 +6044,102 @@ msgstr ""
 "Anda harus meningkatiakn ruangan ini ke versi yang lebih baru untuk "
 "mengaktifkan pengaturan ini."
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Keamanan"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Enkripsi"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr "Aktifkan enkripsi"
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Ketika diaktifkan, enkripsi tidak dapat dinonaktifkan."
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Akses"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privat (undangan saja)"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Hanya orang-orang yang diundang dapat bergabung."
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Anggota space"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, fuzzy, kde-format
 #| msgid "Anyone in a space can find and join."
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Siapa saja yang berada di space dapat bergabung."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Select spaces"
 msgstr "Pilih Semua"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Ketuk"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Orang yang tidak berada dalam ruangan harus meminta undangan untuk bergabung "
 "dengan ruangan."
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publik"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Siapa saja dapat menemukan dan bergabung."
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Keterlihatan riwayat pesan"
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Siapa pun"
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
@@ -6147,13 +6147,13 @@ msgstr ""
 "Siapa pun, tanpa memedulikan bahwa mereka telah bergabung, dapat melihat "
 "riwayat."
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Hanya anggota"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6161,13 +6161,13 @@ msgid ""
 msgstr ""
 "Semua anggota dapat melihat riwayat pesan, bahkan sebelum mereka bergabung."
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Anggota saja (sejak diundang)"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6176,13 +6176,13 @@ msgid ""
 msgstr ""
 "Anggota baru dapat melihat riwayat pesan sejak mereka diundang ke ruangan."
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Anggota saja (sejak bergabung)"
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""

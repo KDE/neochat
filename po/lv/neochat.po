@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-10 00:40+0000\n"
-"PO-Revision-Date: 2025-01-20 16:41+0200\n"
+"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"PO-Revision-Date: 2025-02-11 09:55+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -1973,12 +1973,12 @@ msgstr "Istabas izveide neizdevās: %1"
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/neochatroom.cpp:1271
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/neochatroom.cpp:1611 src/neochatroom.cpp:1619
+#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3010,15 +3010,13 @@ msgid "Successfully verified device **%1**"
 msgstr "Veiksmīgi verificēt ierīce **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
-#| msgid "The session verification timed out."
+#, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "Sesijas verifikācijas laiks ir iztecējis."
+msgstr "Lai turpinātu, izvēlieties verifikācijas metodi"
 
 #: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Emoji Verification"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Emocijzīmju verifikācija"
@@ -3641,7 +3639,7 @@ msgstr "Jums nav nepieciešamo privilēģiju šīs darbības veikšanai"
 msgid "Make this space the canonical parent"
 msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
 
-#: src/qml/SelectSpacesDialog.qml:35
+#: src/qml/SelectSpacesDialog.qml:37
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
@@ -5559,140 +5557,137 @@ msgstr "Izvēlēties jauno versiju"
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
-msgstr ""
+msgstr "Pielāgojiet savu profilu tikai šai istabai."
 
 #: src/settings/RoomProfile.qml:38
-#, fuzzy, kde-format
-#| msgid "Display Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
-msgstr "Parādāmais vārds:"
+msgstr "Parādāmais vārds"
 
 #: src/settings/RoomProfile.qml:48
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Saglabāt"
 
 #: src/settings/RoomProfile.qml:54
-#, fuzzy, kde-format
-#| msgid "System Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
-msgstr "Sistēmas noklusējums"
+msgstr "Atstatīts uz noklusējumu"
 
-#: src/settings/RoomSecurityPage.qml:18
+#: src/settings/RoomSecurityPage.qml:20
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "Lai ieslēgtu šo iestatījumu, istaba ir jāatjaunina uz jaunāku versiju."
 
-#: src/settings/RoomSecurityPage.qml:20 src/settings/RoomSettingsView.qml:51
+#: src/settings/RoomSecurityPage.qml:22 src/settings/RoomSettingsView.qml:51
 #, kde-format
 msgid "Security"
 msgstr "Drošība"
 
-#: src/settings/RoomSecurityPage.qml:23
+#: src/settings/RoomSecurityPage.qml:25
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Šifrēšana"
 
-#: src/settings/RoomSecurityPage.qml:28
+#: src/settings/RoomSecurityPage.qml:30
 #, kde-format
 msgid "Enable encryption"
 msgstr "Ieslēgt šifrēšanu"
 
-#: src/settings/RoomSecurityPage.qml:29
+#: src/settings/RoomSecurityPage.qml:31
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Pēc ieslēgšanas šifrēšanu vairāk nevar izslēgt"
 
-#: src/settings/RoomSecurityPage.qml:42
+#: src/settings/RoomSecurityPage.qml:44
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Piekļuve"
 
-#: src/settings/RoomSecurityPage.qml:46
+#: src/settings/RoomSecurityPage.qml:48
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privāta (tikai ar uzaicinājumiem)"
 
-#: src/settings/RoomSecurityPage.qml:47
+#: src/settings/RoomSecurityPage.qml:49
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Pievienoties var tikai uzaicināti cilvēki."
 
-#: src/settings/RoomSecurityPage.qml:55
+#: src/settings/RoomSecurityPage.qml:57
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Telpas dalībnieki"
 
-#: src/settings/RoomSecurityPage.qml:56
+#: src/settings/RoomSecurityPage.qml:58
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Atrast un pievienoties var jebkurš atlasītajās telpās."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
 msgid "Select spaces"
 msgstr "Atlasīt telpas"
 
-#: src/settings/RoomSecurityPage.qml:83
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Klauvēt"
 
-#: src/settings/RoomSecurityPage.qml:84
+#: src/settings/RoomSecurityPage.qml:86
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Lai istabai pievienoties cilvēkiem, kuri tajā nav, ir jālūdz uzaicinājums."
 
-#: src/settings/RoomSecurityPage.qml:93
+#: src/settings/RoomSecurityPage.qml:95
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publiska"
 
-#: src/settings/RoomSecurityPage.qml:94
+#: src/settings/RoomSecurityPage.qml:96
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Atrast un pievienoties var ikviens."
 
-#: src/settings/RoomSecurityPage.qml:104
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Ziņu vēstures redzamība"
 
-#: src/settings/RoomSecurityPage.qml:108
+#: src/settings/RoomSecurityPage.qml:110
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Visiem"
 
-#: src/settings/RoomSecurityPage.qml:109
+#: src/settings/RoomSecurityPage.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 "Visiem, neskatoties uz to, vai viņi ir pievienojušies, var redzēt vēsturi."
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Tikai dalībnieki"
 
-#: src/settings/RoomSecurityPage.qml:118
+#: src/settings/RoomSecurityPage.qml:120
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5701,13 +5696,13 @@ msgstr ""
 "Visi dalībnieki var redzēt pilnu ziņu vēsturi. Arī par laiku pirms "
 "pievienošanās."
 
-#: src/settings/RoomSecurityPage.qml:126
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Tikai dalībnieki (kopš uzaicināšanas)"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5717,13 +5712,13 @@ msgstr ""
 "Jaunie dalībnieki var redzēt ziņu vēsturi tikai par laiku kopš viņi ir "
 "uzaicināti istabā."
 
-#: src/settings/RoomSecurityPage.qml:135
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Tikai dalībnieki (kopš pievienošanās)"
 
-#: src/settings/RoomSecurityPage.qml:136
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5749,11 +5744,10 @@ msgid "Permissions"
 msgstr "Atļaujas"
 
 #: src/settings/RoomSettingsView.qml:84
-#, fuzzy, kde-format
-#| msgid "a file"
+#, kde-format
 msgctxt "@title"
 msgid "Profile"
-msgstr "datne"
+msgstr "Profils"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -5963,7 +5957,7 @@ msgstr "Šī ziņa ir šifrēta, bet sūtītājs nav kopīgojis atslēgu ar šo 
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "Izgūt vairāk notikumu"
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
@@ -6070,8 +6064,7 @@ msgid "(Ended)"
 msgstr "(Beidzās)"
 
 #: src/timeline/ReactionComponent.qml:97
-#, fuzzy, kde-format
-#| msgid "React"
+#, kde-format
 msgctxt "@button"
 msgid "React"
 msgstr "Reaģēt"
