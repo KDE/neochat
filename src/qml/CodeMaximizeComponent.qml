@@ -139,10 +139,6 @@ Components.AbstractMaximizeComponent {
                     leftMargin: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing
                 }
             }
-            TapHandler {
-                acceptedButtons: Qt.LeftButton
-                onTapped: root.close()
-            }
 
             background: null
         }
