@@ -65,7 +65,8 @@ QQC2.Control {
                     onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                         connection: root.connection
                     }, {
-                        title: i18nc("@title", "Notifications")
+                        title: i18nc("@title", "Notifications"),
+                        modality: Qt.NonModal
                     })
                 }
 
