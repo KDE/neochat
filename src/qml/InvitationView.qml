@@ -67,7 +67,7 @@ ColumnLayout {
             }
 
             QQC2.Label {
-                text: i18nc("@info:label", "is inviting you to chat.")
+                text: i18nc("@info:label", "This user is inviting you to chat.")
 
                 Layout.alignment: Qt.AlignHCenter
             }
