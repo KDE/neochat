@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-20 00:41+0000\n"
 "PO-Revision-Date: 2024-09-17 15:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1931,6 +1931,18 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/models/roomtreemodel.cpp:353
+#, kde-format
+msgctxt "@info:label"
+msgid "Invited you to chat"
+msgstr ""
+
+#: src/models/roomtreemodel.cpp:355
+#, kde-format
+msgctxt "@info:label"
+msgid "%1 invited you"
+msgstr ""
+
 #: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
@@ -2013,7 +2025,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Odmítnout"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -2282,8 +2294,8 @@ msgstr "Otevřít"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
 #: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
+#: src/qml/SpaceDrawer.qml:275
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2871,29 +2883,34 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Zrcadlit"
 
-#: src/qml/InvitationView.qml:17
+#: src/qml/InvitationView.qml:42
 #, kde-format
-msgid "Accept this invitation?"
+msgctxt "@info:label"
+msgid "%1 has invited you to join"
 msgstr ""
 
-#: src/qml/InvitationView.qml:18
+#: src/qml/InvitationView.qml:70
+#, kde-format
+msgctxt "@info:label"
+msgid "This user is inviting you to chat."
+msgstr ""
+
+#: src/qml/InvitationView.qml:79
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 
-#: src/qml/InvitationView.qml:24
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and ignore user"
-msgstr "Odmítnout a ignorovat uživatele"
-
-#: src/qml/InvitationView.qml:33
-#, kde-format
+#: src/qml/InvitationView.qml:102
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button"
 msgid "Reject"
 msgstr "Odmítnout"
 
-#: src/qml/InvitationView.qml:40 src/qml/KeyVerificationDialog.qml:92
-#, kde-format
+#: src/qml/InvitationView.qml:110
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button"
 msgid "Accept"
 msgstr "Přijmout"
 
@@ -2949,6 +2966,11 @@ msgstr "Připojit se do místnosti"
 #, kde-format
 msgid "Session Verification"
 msgstr ""
+
+#: src/qml/KeyVerificationDialog.qml:92
+#, kde-format
+msgid "Accept"
+msgstr "Přijmout"
 
 #: src/qml/KeyVerificationDialog.qml:98
 #, kde-format
@@ -3670,24 +3692,24 @@ msgstr "Sdílená adresa obrázku je <a href='%1'>%1</a>"
 msgid "View notifications"
 msgstr "Zobrazit upozornění"
 
-#: src/qml/SpaceDrawer.qml:86
+#: src/qml/SpaceDrawer.qml:87
 #, kde-format
 msgid "Home"
 msgstr "Domů"
 
-#: src/qml/SpaceDrawer.qml:132
+#: src/qml/SpaceDrawer.qml:133
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Přátelé"
 
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/SpaceDrawer.qml:221
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Připojit se k %1"
 
-#: src/qml/SpaceDrawer.qml:262
+#: src/qml/SpaceDrawer.qml:263
 #, kde-format
 msgid "Create a space"
 msgstr "Vytvořit místnost"
@@ -6053,3 +6075,7 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
+
+#~ msgctxt "@action:button The thing being rejected is an invitation to chat"
+#~ msgid "Reject and ignore user"
+#~ msgstr "Odmítnout a ignorovat uživatele"

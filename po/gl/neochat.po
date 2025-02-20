@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-13 00:44+0000\n"
+"POT-Creation-Date: 2025-02-20 00:41+0000\n"
 "PO-Revision-Date: 2025-02-14 07:40+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1946,6 +1946,21 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/models/roomtreemodel.cpp:353
+#, fuzzy, kde-format
+#| msgid "Invite to private chat"
+msgctxt "@info:label"
+msgid "Invited you to chat"
+msgstr "Invitar a unha conversa privada"
+
+# skip-rule: trasno-file-a_reverse
+#: src/models/roomtreemodel.cpp:355
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgctxt "@info:label"
+msgid "%1 invited you"
+msgstr "%1 envioulle unha invitación a unha sala"
+
 #: src/neochatconnection.cpp:77
 #, kde-format
 msgid ""
@@ -2031,7 +2046,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: src/notificationsmanager.cpp:320
+#: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -2307,8 +2322,8 @@ msgstr "Abrir"
 
 #: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
 #: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:272
-#: src/qml/SpaceDrawer.qml:274
+#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
+#: src/qml/SpaceDrawer.qml:275
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2904,31 +2919,38 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Reflectir"
 
-#: src/qml/InvitationView.qml:17
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "Quere aceptar a invitación?"
+# skip-rule: trasno-file-a_reverse
+#: src/qml/InvitationView.qml:42
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgctxt "@info:label"
+msgid "%1 has invited you to join"
+msgstr "%1 envioulle unha invitación a unha sala"
 
-#: src/qml/InvitationView.qml:18
+#: src/qml/InvitationView.qml:70
+#, kde-format
+msgctxt "@info:label"
+msgid "This user is inviting you to chat."
+msgstr ""
+
+#: src/qml/InvitationView.qml:79
 #, kde-format
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 "Pode rexeitar as invitacións de persoas descoñecidas na configuración de "
 "seguridade."
 
-#: src/qml/InvitationView.qml:24
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and ignore user"
-msgstr "Rexeitar e ignorar a persoa"
-
-#: src/qml/InvitationView.qml:33
-#, kde-format
+#: src/qml/InvitationView.qml:102
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button"
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: src/qml/InvitationView.qml:40 src/qml/KeyVerificationDialog.qml:92
-#, kde-format
+#: src/qml/InvitationView.qml:110
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button"
 msgid "Accept"
 msgstr "Aceptar"
 
@@ -2984,6 +3006,11 @@ msgstr "Unirse á sala"
 #, kde-format
 msgid "Session Verification"
 msgstr "Verificación de sesión"
+
+#: src/qml/KeyVerificationDialog.qml:92
+#, kde-format
+msgid "Accept"
+msgstr "Aceptar"
 
 #: src/qml/KeyVerificationDialog.qml:98
 #, kde-format
@@ -3709,24 +3736,24 @@ msgstr "O URL de imaxe compartido é <a href='%1'>%1</a>"
 msgid "View notifications"
 msgstr "Ver as notificacións"
 
-#: src/qml/SpaceDrawer.qml:86
+#: src/qml/SpaceDrawer.qml:87
 #, kde-format
 msgid "Home"
 msgstr "Inicio"
 
-#: src/qml/SpaceDrawer.qml:132
+#: src/qml/SpaceDrawer.qml:133
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Amizades"
 
-#: src/qml/SpaceDrawer.qml:220
+#: src/qml/SpaceDrawer.qml:221
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Unirse a %1"
 
-#: src/qml/SpaceDrawer.qml:262
+#: src/qml/SpaceDrawer.qml:263
 #, kde-format
 msgid "Create a space"
 msgstr "Crear un espazo"
@@ -6149,6 +6176,13 @@ msgstr "Amosar"
 #, kde-format
 msgid "Quit"
 msgstr "Saír"
+
+#~ msgid "Accept this invitation?"
+#~ msgstr "Quere aceptar a invitación?"
+
+#~ msgctxt "@action:button The thing being rejected is an invitation to chat"
+#~ msgid "Reject and ignore user"
+#~ msgstr "Rexeitar e ignorar a persoa"
 
 #~ msgid "Compare a set of emoji on both devices"
 #~ msgstr "Comparar un conxunto de expresións nos dous dispositivos."
