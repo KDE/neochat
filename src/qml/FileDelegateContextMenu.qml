@@ -90,6 +90,8 @@ DelegateContextMenu {
         }
     }
 
+    DelegateContextMenu.PinMessageAction {}
+
     DelegateContextMenu.ReportMessageAction {}
 
     DelegateContextMenu.ShowUserAction {}

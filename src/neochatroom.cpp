@@ -1751,4 +1751,23 @@ ThreadModel *NeoChatRoom::modelForThread(const QString &threadRootId)
     return m_threadModels[threadRootId].get();
 }
 
+void NeoChatRoom::pinEvent(const QString &eventId)
+{
+    auto eventIds = pinnedEventIds();
+    eventIds.push_back(eventId);
+    setPinnedEvents(eventIds);
+}
+
+void NeoChatRoom::unpinEvent(const QString &eventId)
+{
+    auto eventIds = pinnedEventIds();
+    eventIds.removeAll(eventId);
+    setPinnedEvents(eventIds);
+}
+
+bool NeoChatRoom::isEventPinned(const QString &eventId) const
+{
+    return pinnedEventIds().contains(eventId);
+}
+
 #include "moc_neochatroom.cpp"
