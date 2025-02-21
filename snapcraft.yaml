@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: CC0-1.0
 ---
 name: neochat
-base: core22
+base: core24
 adopt-info: neochat
 grade: stable
 confinement: strict
@@ -106,8 +106,6 @@ parts:
     build-snaps:
       - cmake
     build-packages:
-      - gcc-13
-      - g++-13
       - libssl-dev
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
@@ -115,11 +113,6 @@ parts:
       - -DBUILD_TESTING=OFF
       - -DQuotient_ENABLE_E2EE=ON
       - -DBUILD_WITH_QT6=ON
-    override-build: |
-      "update-alternatives --install /usr/bin/gcc gcc\
-       /usr/bin/gcc-13 100 --slave /usr/bin/g++ g++ \
-       /usr/bin/g++-13 --slave /usr/bin/gcov gcov /usr/bin/gcov-13"
-      craftctl default
     prime:
       - -usr/include
       - -usr/lib/*/pkgconfig
@@ -132,6 +125,8 @@ parts:
     plugin: cmake
     build-environment:
       - PATH: /snap/bin:${PATH}
+      - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
+      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -153,6 +148,8 @@ parts:
     plugin: cmake
     build-environment:
       - PATH: /snap/bin:${PATH}
+      - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
+      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
     build-packages:
       - cmark
       - libcmark-dev
@@ -175,3 +172,13 @@ parts:
       - libcmark0.30.2
     prime:
       - usr/lib/*/libcmark.so*
+
+  gpu-2404:
+    after: [neochat]
+    source: https://github.com/canonical/gpu-snap.git
+    plugin: dump
+    override-prime: |
+      craftctl default
+      ${CRAFT_PART_SRC}/bin/gpu-2404-cleanup mesa-2404
+    prime:
+      - bin/gpu-2404-wrapper
