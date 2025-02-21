@@ -94,11 +94,9 @@ RowLayout {
                 action: QQC2.Action {
                     shortcut: StandardKey.New
                     onTriggered: {
-                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+                        Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
                             connection: root.connection
-                        }, {
-                            title: i18nc("@title", "Create a Room")
-                        });
+                        }).open();
                     }
                 }
             }
