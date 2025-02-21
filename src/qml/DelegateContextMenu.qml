@@ -75,7 +75,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     component RemoveMessageAction: Kirigami.Action {
         visible: author.isLocalMember || currentRoom.canSendState("redact")
-        text: i18nc("@action:button", "Remove")
+        text: i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
         icon.color: "red"
         onTriggered: {
