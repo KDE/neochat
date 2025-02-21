@@ -78,7 +78,7 @@ DelegateContextMenu {
     }
     QQC2.Action {
         text: i18nc("@action:inmenu", "Copy Message Link")
-        icon.name: "edit-copy"
+        icon.name: "link-symbolic"
         onTriggered: {
             Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
         }
