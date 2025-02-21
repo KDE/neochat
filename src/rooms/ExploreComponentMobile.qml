@@ -159,13 +159,9 @@ Kirigami.NavigationTabBar {
                         text: i18n("Create a Space")
                         icon.name: "list-add"
                         onTriggered: {
-                            pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
-                                connection: root.connection,
-                                isSpace: true,
-                                title: i18nc("@title", "Create a Space")
-                            }, {
-                                title: i18nc("@title", "Create a Space")
-                            });
+                            Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
+                                connection: root.connection
+                            }).open();
                             explorePopup.close();
                         }
                     }

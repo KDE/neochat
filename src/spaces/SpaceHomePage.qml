@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
@@ -19,6 +20,30 @@ ColumnLayout {
     anchors.fill: parent
 
     spacing: 0
+
+    Component {
+        id: roomMenuComponent
+
+        KirigamiComponents.ConvergentContextMenu {
+            Kirigami.Action {
+                icon.name: "list-add-symbolic"
+                text: i18nc("@action:inmenu", "New Room…")
+                onTriggered: _private.createRoom(root.currentRoom.id)
+            }
+
+            Kirigami.Action {
+                icon.name: "list-add-symbolic"
+                text: i18nc("@action:inmenu", "New Space…")
+                onTriggered: _private.createSpace(root.currentRoom.id)
+            }
+
+            Kirigami.Action {
+                icon.name: "search-symbolic"
+                text: i18nc("@action:inmenu", "Existing Room…")
+                onTriggered: _private.selectExisting(root.currentRoom.id)
+            }
+        }
+    }
 
     QQC2.Control {
         id: headerItem
@@ -57,10 +82,15 @@ ColumnLayout {
                     })
                 }
                 QQC2.Button {
+                    id: addNewButton
+
                     visible: root.currentRoom.canSendState("m.space.child")
-                    text: i18nc("@button", "Add new room")
+                    text: i18nc("@button", "Add to Space")
                     icon.name: "list-add"
-                    onClicked: _private.createRoom(root.currentRoom.id)
+                    onClicked: {
+                        const menu = roomMenuComponent.createObject(addNewButton);
+                        menu.popup();
+                    }
                 }
                 QQC2.Button {
                     text: i18nc("@action:button", "Leave this space")
@@ -158,15 +188,33 @@ ColumnLayout {
     }
     QtObject {
         id: _private
+
         function createRoom(parentId) {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
-                title: i18nc("@title", "Create a Child"),
+            const dialog = Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
+                connection: root.currentRoom.connection,
+                parentId: parentId
+            });
+            dialog.newChild.connect(childName => {
+                spaceChildrenModel.addPendingChild(childName);
+            });
+            dialog.open();
+        }
+
+        function createSpace(parentId) {
+            const dialog = Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
                 connection: root.currentRoom.connection,
                 parentId: parentId,
-                showChildType: true,
-                showCreateChoice: true
-            }, {
-                title: i18nc("@title", "Create a Child")
+            });
+            dialog.newChild.connect(childName => {
+                spaceChildrenModel.addPendingChild(childName);
+            });
+            dialog.open();
+        }
+
+        function selectExisting(parentId) {
+            const dialog = Qt.createComponent('org.kde.neochat', 'SelectExistingRoomDialog').createObject(root, {
+                connection: root.currentRoom.connection,
+                parentId: parentId,
             });
             dialog.addChild.connect((childId, setChildParent, canonical) => {
                 // We have to get a room object from the connection as we may not
@@ -176,9 +224,7 @@ ColumnLayout {
                     parent.addChild(childId, setChildParent, canonical);
                 }
             });
-            dialog.newChild.connect(childName => {
-                spaceChildrenModel.addPendingChild(childName);
-            });
+            dialog.open();
         }
     }
 }
