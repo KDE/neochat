@@ -48,7 +48,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+        text: i18nc("@action:inmenu", "Copy Space Address")
         icon.name: "edit-copy"
         onTriggered: if (room.canonicalAlias.length === 0) {
             Clipboard.saveText(room.id);

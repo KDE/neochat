@@ -123,7 +123,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
+        text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy room ID to Clipboard") : i18nc("@action:inmenu", "Copy Room Address")
         icon.name: "edit-copy"
         onTriggered: if (room.isDirectChat()) {
             Clipboard.saveText(room.directChatRemoteMember.id);
