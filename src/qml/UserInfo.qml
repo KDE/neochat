@@ -27,6 +27,7 @@ RowLayout {
     Layout.topMargin: Kirigami.Units.smallSpacing
     Layout.bottomMargin: Kirigami.Units.smallSpacing
     Layout.rightMargin: Kirigami.Units.largeSpacing
+    Layout.leftMargin: Kirigami.Units.largeSpacing
     Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 3 : -1
 
     onVisibleChanged: {
@@ -34,58 +35,73 @@ RowLayout {
             accountsPopup.close();
         }
     }
-    KirigamiComponents.AvatarButton {
+
+    QQC2.ToolButton {
         id: accountButton
-        readonly property url avatarUrl: root.connection.localUser.avatarUrl
 
-        Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-        Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-        Layout.leftMargin: Kirigami.Units.largeSpacing
+        down: accountMenu.opened || pressed
 
-        text: i18n("Edit this account")
-        // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-        source: avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(avatarUrl) : ""
-        name: root.connection.localUser.displayName
+        onClicked: accountMenu.popup()
 
-        activeFocusOnTab: true
-
-        onClicked: {
-            NeoChatSettingsView.open("accounts")
-        }
-
-        onPressAndHold: accountMenu.popup();
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: accountMenu.popup()
-        }
-    }
-
-    ColumnLayout {
         Layout.fillWidth: true
-        Layout.maximumWidth: Math.round(root.width * 0.55)
-        visible: !root.collapsed
-        spacing: 0
-        QQC2.Label {
-            id: displayNameLabel
-            Layout.fillWidth: true
-            text: root.connection.localUser.displayName
-            textFormat: Text.PlainText
-            elide: Text.ElideRight
+        Layout.fillHeight: true
+
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.text: i18nc("@info:tooltip", "Manage Account")
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+        contentItem: RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            KirigamiComponents.Avatar {
+                readonly property url avatarUrl: root.connection.localUser.avatarUrl
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+
+                // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
+                source: avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(avatarUrl) : ""
+                name: root.connection.localUser.displayName
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.maximumWidth: Math.round(root.width * 0.55)
+                visible: !root.collapsed
+                spacing: 0
+                QQC2.Label {
+                    id: displayNameLabel
+                    Layout.fillWidth: true
+                    text: root.connection.localUser.displayName
+                    textFormat: Text.PlainText
+                    elide: Text.ElideRight
+                }
+                QQC2.Label {
+                    id: idLabel
+                    Layout.fillWidth: true
+                    text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
+                    font.pointSize: displayNameLabel.font.pointSize * 0.8
+                    opacity: 0.7
+                    textFormat: Text.PlainText
+                    elide: Text.ElideRight
+                }
+            }
         }
-        QQC2.Label {
-            id: idLabel
-            Layout.fillWidth: true
-            text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
-            font.pointSize: displayNameLabel.font.pointSize * 0.8
-            opacity: 0.7
-            textFormat: Text.PlainText
-            elide: Text.ElideRight
+
+        AccountMenu {
+            id: accountMenu
+            connection: root.connection
+            window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
         }
     }
+
     Kirigami.ActionToolBar {
         alignment: Qt.AlignRight
         display: QQC2.Button.IconOnly
+
+        Layout.fillWidth: true
+        Layout.preferredWidth: maximumContentWidth
 
         actions: [
             Kirigami.Action {
@@ -106,12 +122,6 @@ RowLayout {
         ]
     }
 
-    AccountMenu {
-        id: accountMenu
-        y: root.bottomEdge ? -height : accountButton.height
-        connection: root.connection
-        window: accountButton.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
-    }
     Component {
         id: accountSwitchDialog
         AccountSwitchDialog {}
