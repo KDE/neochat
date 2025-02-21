@@ -130,7 +130,17 @@ QQC2.Control {
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                    text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
+                    text: {
+                        if (root.connection.directChatNotifications > 0) {
+                            return i18ncp("@button View all one-on-one chats with your friends.", "Friends (%1 notification)", "Friends (%1 notifications)", root.connection.directChatNotifications);
+                        }
+
+                        if (root.connection.directChatInvites > 0) {
+                            return i18ncp("@button View all one-on-one chats with your friends.", "Friends (%1 invite)", "Friends (%1 invites)", root.connection.directChatInvites);
+                        }
+
+                        return i18nc("@button View all one-on-one chats with your friends.", "Friends");
+                    }
                     contentItem: Kirigami.Icon {
                         source: "system-users-symbolic"
 
