@@ -323,6 +323,7 @@ TimelineDelegate {
             }
 
             TapHandler {
+                acceptedDevices: PointerDevice.TouchScreen
                 acceptedButtons: Qt.LeftButton
                 onLongPressed: _private.showMessageMenu()
             }

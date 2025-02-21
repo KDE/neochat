@@ -128,7 +128,12 @@ QQC2.Control {
             TapHandler {
                 enabled: root.time.toString() !== "Invalid Date"
                 acceptedButtons: Qt.LeftButton
+                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
                 onTapped: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class)
+            }
+
+            TapHandler {
+                acceptedDevices: PointerDevice.TouchScreen
                 onLongPressed: root.showMessageMenu()
             }
 

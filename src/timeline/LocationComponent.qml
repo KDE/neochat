@@ -90,6 +90,9 @@ ColumnLayout {
                 });
                 map.open();
             }
+        }
+        TapHandler {
+            acceptedDevices: PointerDevice.TouchScreen
             onLongPressed: openMessageContext("")
         }
         TapHandler {

@@ -34,9 +34,8 @@ Delegates.RoundedItemDelegate {
     Keys.onSpacePressed: selected()
     Keys.onEnterPressed: selected()
 
-    onPressAndHold: root.contextMenuRequested()
-
     TapHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
         acceptedButtons: Qt.RightButton | Qt.LeftButton
         onTapped: (eventPoint, button) => {
             if (button === Qt.RightButton) {
@@ -45,6 +44,11 @@ Delegates.RoundedItemDelegate {
                 root.selected();
             }
         }
+    }
+
+    TapHandler {
+        acceptedDevices: PointerDevice.TouchScreen
+        onLongPressed: root.contextMenuRequested()
     }
 
     contentItem: AvatarNotification {

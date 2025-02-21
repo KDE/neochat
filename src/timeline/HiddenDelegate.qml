@@ -68,11 +68,13 @@ TimelineDelegate {
 
         TapHandler {
             acceptedButtons: Qt.RightButton
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
             onTapped: _private.showMessageMenu()
         }
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
+            acceptedDevices: PointerDevice.TouchScreen
             onLongPressed: _private.showMessageMenu()
         }
 

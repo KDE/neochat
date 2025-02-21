@@ -132,6 +132,7 @@ a{
     TapHandler {
         enabled: !root.hoveredLink
         acceptedButtons: Qt.LeftButton
+        acceptedDevices: PointerDevice.TouchScreen
         onLongPressed: root.showMessageMenu()
     }
 }

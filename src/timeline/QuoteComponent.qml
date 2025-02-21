@@ -55,6 +55,7 @@ QQC2.Control {
 
         TapHandler {
             enabled: !quoteText.hoveredLink
+            acceptedDevices: PointerDevice.TouchScreen
             acceptedButtons: Qt.LeftButton
             onLongPressed: root.showMessageMenu()
         }

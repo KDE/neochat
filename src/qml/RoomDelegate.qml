@@ -42,8 +42,6 @@ Delegates.RoundedItemDelegate {
         }
     }
 
-    onPressAndHold: createRoomListContextMenu()
-
     Keys.onSpacePressed: clicked()
     Keys.onEnterPressed: clicked()
     Keys.onReturnPressed: clicked()
@@ -52,6 +50,11 @@ Delegates.RoundedItemDelegate {
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
         onTapped: (eventPoint, button) => root.createRoomListContextMenu()
+    }
+
+    TapHandler {
+        acceptedDevices: PointerDevice.TouchScreen
+        onLongPressed: root.createRoomListContextMenu()
     }
 
     contentItem: RowLayout {
