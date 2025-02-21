@@ -105,6 +105,8 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
         qml/NewPollDialog.qml
+        qml/CreateSpaceDialog.qml
+        qml/SelectExistingRoomDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick

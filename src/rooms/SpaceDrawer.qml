@@ -268,13 +268,11 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
-                        connection: root.connection,
-                        isSpace: true,
-                        title: i18nc("@title", "Create a Space")
-                    }, {
-                        title: i18nc("@title", "Create a Space")
-                    })
+                    onSelected: {
+                        Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
+                            connection: root.connection
+                        }).open();
+                    }
                 }
 
                 AvatarTabButton {
