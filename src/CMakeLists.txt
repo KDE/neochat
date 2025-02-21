@@ -236,6 +236,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/QuickFormatBar.qml
         qml/UserDetailDialog.qml
         qml/CreateRoomDialog.qml
+        qml/CreateSpaceDialog.qml
         qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
