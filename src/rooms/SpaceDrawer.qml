@@ -268,7 +268,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog'), {
                         connection: root.connection,
                         isSpace: true,
                         title: i18nc("@title", "Create a Space")

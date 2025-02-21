@@ -159,7 +159,7 @@ ColumnLayout {
     QtObject {
         id: _private
         function createRoom(parentId) {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog'), {
                 title: i18nc("@title", "Create a Child"),
                 connection: root.currentRoom.connection,
                 parentId: parentId,
