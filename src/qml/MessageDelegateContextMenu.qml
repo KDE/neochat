@@ -86,6 +86,7 @@ DelegateContextMenu {
     Kirigami.Action {
         separator: true
     }
+    DelegateContextMenu.PinMessageAction {}
     DelegateContextMenu.ReportMessageAction {}
     DelegateContextMenu.ShowUserAction {}
     Kirigami.Action {

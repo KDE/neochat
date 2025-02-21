@@ -132,6 +132,15 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
+    component PinMessageAction: Kirigami.Action {
+        readonly property bool pinned: currentRoom.isEventPinned(root.eventId)
+
+        visible: currentRoom.canSendState("m.room.pinned_events")
+        text: pinned ? i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
+        icon.name: pinned ? "window-unpin-symbolic" : "pin-symbolic"
+        onTriggered: pinned ? currentRoom.unpinEvent(root.eventId) : currentRoom.pinEvent(root.eventId)
+    }
+
     headerContentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
 

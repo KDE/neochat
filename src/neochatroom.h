@@ -601,6 +601,23 @@ public:
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
+    /**
+     * @brief Pin a message in the room.
+     * @param eventId The id of the event to pin.
+     */
+    Q_INVOKABLE void pinEvent(const QString &eventId);
+
+    /**
+     * @brief Unpin a message in the room.
+     * @param eventId The id of the event to unpin.
+     */
+    Q_INVOKABLE void unpinEvent(const QString &eventId);
+
+    /**
+     * @return True if @p eventId is pinned in the room.
+     */
+    Q_INVOKABLE bool isEventPinned(const QString &eventId) const;
+
 private:
     bool m_visible = false;
 
