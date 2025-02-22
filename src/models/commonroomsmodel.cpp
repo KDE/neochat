@@ -60,6 +60,11 @@ void CommonRoomsModel::reload()
         return;
     }
 
+    // Checking if you have mutual rooms with yourself doesn't make sense and servers reject it too
+    if (m_connection->userId() == m_userId) {
+        return;
+    }
+
     m_connection->callApi<NeochatGetCommonRoomsJob>(m_userId).then([this](const auto job) {
         const auto &replyData = job->jsonData();
         beginResetModel();
