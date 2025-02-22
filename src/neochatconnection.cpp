@@ -138,6 +138,19 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().contains("org.matrix.msc4025"_L1) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
+                m_supportsProfileFields = job->unstableFeatures().contains("uk.tcpip.msc4133"_L1);
+                Q_EMIT supportsProfileFieldsChanged();
+
+                if (m_supportsProfileFields) {
+                    callApi<GetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("us.cloke.msc4175.tz")).then([this](const auto &job) {
+                        m_timezone = job->value();
+                        Q_EMIT timezoneChanged();
+                    });
+                    callApi<GetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("com.redstrate.pronouns")).then([this](const auto &job) {
+                        m_pronouns = job->value();
+                        Q_EMIT pronounsChanged();
+                    });
+                }
             });
         },
         Qt::SingleShotConnection);
@@ -551,6 +564,31 @@ bool NeoChatConnection::pushNotificationsAvailable() const
 bool NeoChatConnection::enablePushNotifications() const
 {
     return m_pushNotificationsEnabled;
+}
+
+bool NeoChatConnection::supportsProfileFields() const
+{
+    return m_supportsProfileFields;
+}
+
+QString NeoChatConnection::timezone() const
+{
+    return m_timezone;
+}
+
+void NeoChatConnection::setTimezone(const QString &value)
+{
+    callApi<SetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("us.cloke.msc4175.tz"), value);
+}
+
+QString NeoChatConnection::pronouns() const
+{
+    return m_pronouns;
+}
+
+void NeoChatConnection::setPronouns(const QString &value)
+{
+    callApi<SetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("com.redstrate.pronouns"), value);
 }
 
 #include "moc_neochatconnection.cpp"
