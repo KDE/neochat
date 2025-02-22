@@ -117,7 +117,7 @@ FormCard.FormCardPage {
             id: addAccountDelegate
             text: i18n("Add Account")
             icon.name: "list-add"
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'))
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), { showSettings: false })
         }
     }
 
