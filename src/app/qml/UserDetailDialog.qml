@@ -23,6 +23,11 @@ Kirigami.Dialog {
 
     property NeoChatConnection connection
 
+    readonly property ProfileFieldsHelper profileFieldsHelper: ProfileFieldsHelper {
+        connection: root.connection
+        userId: root.user.id
+    }
+
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -126,14 +131,38 @@ Kirigami.Dialog {
             }
         }
 
-        Kirigami.Chip {
-            visible: root.room
-            text: root.room ? QmlUtils.nameForPowerLevelValue(root.room.memberEffectivePowerLevel(root.user.id)) : ""
-            closable: false
-            checkable: false
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
 
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+            Kirigami.Chip {
+                visible: root.room
+                text: root.room ? QmlUtils.nameForPowerLevelValue(root.room.memberEffectivePowerLevel(root.user.id)) : ""
+                closable: false
+                checkable: false
+            }
+
+            QQC2.BusyIndicator {
+                visible: root.connection.supportsProfileFields && root.profileFieldsHelper.loading
+            }
+
+            Kirigami.Chip {
+                id: timezoneChip
+                visible: root.connection.supportsProfileFields && !root.profileFieldsHelper.loading && root.profileFieldsHelper.timezone.length > 0
+                text: root.profileFieldsHelper.timezone
+                closable: false
+                checkable: false
+            }
+
+            Kirigami.Chip {
+                id: pronounsChip
+                visible: root.connection.supportsProfileFields && !root.profileFieldsHelper.loading && root.profileFieldsHelper.pronouns.length > 0
+                text: root.profileFieldsHelper.pronouns
+                closable: false
+                checkable: false
+            }
         }
 
         Kirigami.Separator {

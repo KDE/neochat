@@ -22,6 +22,7 @@ target_sources(LibNeoChat PRIVATE
     texthandler.cpp
     urlhelper.cpp
     utils.cpp
+    profilefieldshelper.cpp
     enums/messagecomponenttype.h
     enums/messagetype.h
     enums/powerlevel.cpp
@@ -32,6 +33,7 @@ target_sources(LibNeoChat PRIVATE
     events/imagepackevent.cpp
     events/pollevent.cpp
     jobs/neochatgetcommonroomsjob.cpp
+    jobs/neochatprofilefieldjobs.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
     models/completionproxymodel.cpp
@@ -44,6 +46,8 @@ target_sources(LibNeoChat PRIVATE
     models/stickermodel.cpp
     models/userfiltermodel.cpp
     models/userlistmodel.cpp
+    models/timezonemodel.cpp
+    models/timezonemodel.h
 )
 
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE

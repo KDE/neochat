@@ -90,6 +90,21 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool enablePushNotifications READ enablePushNotifications NOTIFY enablePushNotificationsChanged)
 
+    /**
+     * @brief If the server supports profile fields (MSC4133)
+     */
+    Q_PROPERTY(bool supportsProfileFields READ supportsProfileFields NOTIFY supportsProfileFieldsChanged)
+
+    /**
+     * @brief The timezone profile field for this account.
+     */
+    Q_PROPERTY(QString timezone READ timezone WRITE setTimezone NOTIFY timezoneChanged)
+
+    /**
+     * @brief The pronouns profile field for this account.
+     */
+    Q_PROPERTY(QString pronouns READ pronouns WRITE setPronouns NOTIFY pronounsChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -204,6 +219,14 @@ public:
     bool pushNotificationsAvailable() const;
     bool enablePushNotifications() const;
 
+    bool supportsProfileFields() const;
+
+    QString timezone() const;
+    void setTimezone(const QString &value);
+
+    QString pronouns() const;
+    void setPronouns(const QString &value);
+
     LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
@@ -221,6 +244,9 @@ Q_SIGNALS:
     void canCheckMutualRoomsChanged();
     void canEraseDataChanged();
     void enablePushNotificationsChanged();
+    void supportsProfileFieldsChanged();
+    void timezoneChanged();
+    void pronounsChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -250,4 +276,7 @@ private:
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;
     bool m_pushNotificationsEnabled = false;
+    bool m_supportsProfileFields = false;
+    QString m_timezone;
+    QString m_pronouns;
 };

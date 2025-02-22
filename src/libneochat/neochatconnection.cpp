@@ -6,6 +6,7 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
+#include "jobs/neochatprofilefieldjobs.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
@@ -139,6 +140,19 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().contains("org.matrix.msc4025"_L1) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
+                m_supportsProfileFields = job->unstableFeatures().contains("uk.tcpip.msc4133"_L1);
+                Q_EMIT supportsProfileFieldsChanged();
+
+                if (m_supportsProfileFields) {
+                    callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("us.cloke.msc4175.tz")).then([this](const auto &job) {
+                        m_timezone = job->value();
+                        Q_EMIT timezoneChanged();
+                    });
+                    callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("io.fsky.nyx.pronouns")).then([this](const auto &job) {
+                        m_pronouns = job->value();
+                        Q_EMIT pronounsChanged();
+                    });
+                }
             });
         },
         Qt::SingleShotConnection);
@@ -556,6 +570,35 @@ bool NeoChatConnection::pushNotificationsAvailable() const
 bool NeoChatConnection::enablePushNotifications() const
 {
     return m_pushNotificationsEnabled;
+}
+
+bool NeoChatConnection::supportsProfileFields() const
+{
+    return m_supportsProfileFields;
+}
+
+QString NeoChatConnection::timezone() const
+{
+    return m_timezone;
+}
+
+void NeoChatConnection::setTimezone(const QString &value)
+{
+    callApi<NeoChatSetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("us.cloke.msc4175.tz"), value);
+}
+
+QString NeoChatConnection::pronouns() const
+{
+    return m_pronouns;
+}
+
+void NeoChatConnection::setPronouns(const QString &value)
+{
+    const QJsonObject pronounsObj{{"summary"_L1, value}};
+    callApi<NeoChatSetProfileFieldJob>(BackgroundRequest,
+                                       userId(),
+                                       QStringLiteral("io.fsky.nyx.pronouns"),
+                                       QString::fromUtf8(QJsonDocument(pronounsObj).toJson(QJsonDocument::Compact)));
 }
 
 #include "moc_neochatconnection.cpp"

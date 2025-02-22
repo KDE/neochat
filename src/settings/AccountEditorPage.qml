@@ -115,6 +115,39 @@ FormCard.FormCardPage {
             text: root.connection ? root.connection.label : ""
         }
         FormCard.FormDelegateSeparator {}
+        FormCard.FormComboBoxDelegate {
+            id: timezoneLabel
+
+            property string textValue: root.connection ? root.connection.timezone : ""
+
+            visible: root.connection.supportsProfileFields
+            enabled: root.connection.canChangeProfileFields && root.connection.profileFieldAllowed("us.cloke.msc4175.tz")
+            text: i18nc("@label:combobox", "Timezone:")
+            model: TimeZoneModel {}
+            textRole: "display"
+            valueRole: "display"
+            onActivated: index => {
+                // "Prefer not to say" choice clears it.
+                if (index === 0) {
+                    textValue = "";
+                    return;
+                }
+
+                // Otherwise, set it to the text value which is the IANA identifier
+                textValue = timezoneLabel.currentValue;
+            }
+            Component.onCompleted: currentIndex = model.indexOfValue(textValue)
+        }
+        FormCard.FormDelegateSeparator {}
+        FormCard.FormTextFieldDelegate {
+            id: pronounsLabel
+            visible: root.connection.supportsProfileFields
+            enabled: root.connection.canChangeProfileFields && root.connection.profileFieldAllowed("io.fsky.nyx.pronouns")
+            label: i18nc("@label:textbox", "Pronouns:")
+            placeholderText: i18nc("@placeholder", "she/her")
+            text: root.connection ? root.connection.pronouns : ""
+        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Show QR Code")
             icon.name: "view-barcode-qr-symbolic"
@@ -145,6 +178,12 @@ FormCard.FormCardPage {
                 }
                 if (root.connection.label !== accountLabel.text) {
                     root.connection.label = accountLabel.text;
+                }
+                if (root.connection.timezone !== timezoneLabel.textValue) {
+                    root.connection.timezone = timezoneLabel.textValue;
+                }
+                if (root.connection.pronouns !== pronounsLabel.text) {
+                    root.connection.pronouns = pronounsLabel.text;
                 }
             }
         }
