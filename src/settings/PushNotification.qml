@@ -28,7 +28,7 @@ FormCard.FormCardPage {
 
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
-            text: i18n("Follow global setting")
+            text: i18n("Default Settings")
             checked: room.pushNotificationState === PushNotificationState.Default
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
