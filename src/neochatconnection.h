@@ -90,6 +90,16 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool canEraseData READ canEraseData NOTIFY canEraseDataChanged)
 
+    /**
+     * @brief Whether this build of NeoChat supports push notifications via KUnifiedPush.
+     */
+    Q_PROPERTY(bool pushNotificationsAvailable READ pushNotificationsAvailable CONSTANT)
+
+    /**
+     * @brief Whether we successfully set up push notifications with the server.
+     */
+    Q_PROPERTY(bool enablePushNotifications READ enablePushNotifications NOTIFY enablePushNotificationsChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -178,6 +188,9 @@ public:
     // the reference could be destroyed before the task is finished
     QCoro::Task<void> setupPushNotifications(QString endpoint);
 
+    bool pushNotificationsAvailable() const;
+    bool enablePushNotifications() const;
+
     bool isOnline() const;
 
     LinkPreviewer *previewerForLink(const QUrl &link);
@@ -196,6 +209,7 @@ Q_SIGNALS:
     void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
     void canCheckMutualRoomsChanged();
     void canEraseDataChanged();
+    void enablePushNotificationsChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -221,4 +235,5 @@ private:
 
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;
+    bool m_pushNotificationsEnabled = false;
 };

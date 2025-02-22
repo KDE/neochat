@@ -472,9 +472,12 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
                                false);
 
         qInfo() << "Registered for push notifications";
+        m_pushNotificationsEnabled = true;
     } else {
         qWarning() << "There's no gateway, not setting up push notifications.";
+        m_pushNotificationsEnabled = false;
     }
+    Q_EMIT enablePushNotificationsChanged();
 #else
     Q_UNUSED(endpoint)
     co_return;
@@ -534,6 +537,20 @@ KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphra
 bool NeoChatConnection::canEraseData() const
 {
     return m_canEraseData;
+}
+
+bool NeoChatConnection::pushNotificationsAvailable() const
+{
+#ifdef HAVE_KUNIFIEDPUSH
+    return true;
+#else
+    return false;
+#endif
+}
+
+bool NeoChatConnection::enablePushNotifications() const
+{
+    return m_pushNotificationsEnabled;
 }
 
 #include "moc_neochatconnection.cpp"
