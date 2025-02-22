@@ -8,6 +8,7 @@
 
 #include "jobs/neochatauthmetadatajob.h"
 #include "jobs/neochatreportuserjob.h"
+#include "jobs/neochatprofilefieldjobs.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
@@ -17,6 +18,7 @@
 
 #include <KLocalizedString>
 
+#include <Quotient/csapi/capabilities.h>
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/registration.h>
@@ -147,6 +149,21 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().value("org.matrix.msc4025"_L1, false) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
+                m_supportsProfileFields = job->unstableFeatures().value("uk.tcpip.msc4133.stable"_L1, false);
+                Q_EMIT supportsProfileFieldsChanged();
+
+                if (m_supportsProfileFields) {
+                    callApi<NeoChatGetProfileFieldJob>(BackgroundRequest, userId(), QStringLiteral("m.tz")).then([this](const auto &job) {
+                        m_profileFields[QStringLiteral("m.tz")] = job->value();
+                    });
+                }
+            });
+            callApi<GetCapabilitiesJob>(BackgroundRequest).onResult([this](const auto &job) {
+                const auto profileFields = job->capabilities().additionalProperties["m.profile_fields"_L1].toMap();
+
+                m_profileFieldsWriteable = profileFields["enabled"_L1].toBool();
+                m_allowedFields = profileFields["allowed"_L1].toStringList();
+                m_disallowedFields = profileFields["disallowed"_L1].toStringList();
             });
 
             callApi<NeoChatAuthMetadataJob>().then([this](const auto &job) {
@@ -657,6 +674,45 @@ void NeoChatConnection::setAccountManagementUri(const QString &uri)
 {
     m_accountManagementUri = uri;
     Q_EMIT accountManagementUriChanged();
+}
+
+bool NeoChatConnection::profileFieldWritable(const QString &key) const
+{
+    // No profile fields are writeable in this case
+    if (!m_profileFieldsWriteable) {
+        return false;
+    }
+
+    // If it isn't in the allow list...
+    if (!m_allowedFields.isEmpty() && !m_allowedFields.contains(key)) {
+        return false;
+    }
+
+    // If it isn't in the disallow list...
+    if (!m_disallowedFields.isEmpty() && m_disallowedFields.contains(key)) {
+        return false;
+    }
+
+    return true;
+}
+
+QString NeoChatConnection::profileField(const QString &key)
+{
+    return m_profileFields[key];
+}
+
+void NeoChatConnection::setProfileField(const QString &key, const QString &value)
+{
+    // This should never happen!
+    Q_ASSERT(profileFieldWritable(key));
+
+    callApi<NeoChatSetProfileFieldJob>(BackgroundRequest, userId(), key, value);
+    m_profileFields[key] = value;
+}
+
+bool NeoChatConnection::supportsProfileFields() const
+{
+    return m_supportsProfileFields;
 }
 
 #include "moc_neochatconnection.cpp"

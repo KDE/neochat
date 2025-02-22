@@ -97,6 +97,11 @@ class NeoChatConnection : public Quotient::Connection
 
     Q_PROPERTY(QString accountManagementUri READ accountManagementUri NOTIFY accountManagementUriChanged)
 
+    /**
+     * @brief If the server supports profile fields (MSC4133)
+     */
+    Q_PROPERTY(bool supportsProfileFields READ supportsProfileFields NOTIFY supportsProfileFieldsChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -209,6 +214,8 @@ public:
     bool pushNotificationsAvailable() const;
     bool enablePushNotifications() const;
 
+    bool supportsProfileFields() const;
+
     LinkPreviewer *previewerForLink(const QUrl &link);
 
     /**
@@ -243,6 +250,21 @@ public:
 
     QString accountManagementUri() const;
 
+    /**
+     * @brief Whether the user is allowed to set a profile field named @p key.
+     */
+    Q_INVOKABLE bool profileFieldWritable(const QString &key) const;
+
+    /**
+     * @brief Returns the set value of the profile field named @p key.
+     */
+    Q_INVOKABLE QString profileField(const QString &key);
+
+    /**
+     * @brief Sets the value of a profile field named @p key.
+     */
+    Q_INVOKABLE void setProfileField(const QString &key, const QString &value);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void identityServerChanged();
@@ -259,6 +281,7 @@ Q_SIGNALS:
     void canEraseDataChanged();
     void enablePushNotificationsChanged();
     void accountManagementUriChanged();
+    void supportsProfileFieldsChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
@@ -299,4 +322,9 @@ private:
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;
     bool m_pushNotificationsEnabled = false;
+    bool m_supportsProfileFields = false;
+    QHash<QString, QString> m_profileFields;
+    bool m_profileFieldsWriteable = false;
+    QStringList m_allowedFields;
+    QStringList m_disallowedFields;
 };

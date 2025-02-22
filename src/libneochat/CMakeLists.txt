@@ -59,6 +59,10 @@ target_sources(LibNeoChat PRIVATE
     models/userlistmodel.cpp
     models/widgetmodel.cpp
     models/widgetmodel.h
+    jobs/neochatprofilefieldjobs.cpp
+    models/timezonemodel.cpp
+    models/timezonemodel.h
+    profilefieldshelper.cpp
 )
 
 if (${QuotientQt6_VERSION_MAJOR} LESS 10)

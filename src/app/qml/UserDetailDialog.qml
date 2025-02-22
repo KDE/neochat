@@ -34,6 +34,11 @@ Kirigami.Dialog {
         sourceModel: root.model
     }
 
+    readonly property ProfileFieldsHelper profileFieldsHelper: ProfileFieldsHelper {
+        connection: root.connection
+        userId: root.user.id
+    }
+
     readonly property bool isSelf: root.user.id === root.connection.localUserId
     readonly property bool hasMutualRooms: root.model.count > 0
     readonly property bool isRoomProfile: root.room
@@ -395,6 +400,33 @@ Kirigami.Dialog {
                         id: powerLevelDialog
                     }
                 }
+            }
+        }
+
+        Kirigami.Heading {
+            text: i18nc("@title The user's timezone", "Timezone")
+            level: 2
+            visible: root.connection.supportsProfileFields ? root.profileFieldsHelper.loading || root.profileFieldsHelper.timezone.length > 0 : false
+
+            Layout.topMargin: Kirigami.Units.largeSpacing
+        }
+
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            visible: root.connection.supportsProfileFields
+
+            Layout.topMargin: Kirigami.Units.smallSpacing
+
+            QQC2.BusyIndicator {
+                visible: root.profileFieldsHelper.loading
+            }
+
+            Kirigami.Chip {
+                id: timezoneChip
+                visible: !root.profileFieldsHelper.loading && root.profileFieldsHelper.timezone.length > 0
+                text: root.profileFieldsHelper.timezone
+                closable: false
+                checkable: false
             }
         }
 

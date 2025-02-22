@@ -132,6 +132,30 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormDelegateSeparator {}
+        FormCard.FormComboBoxDelegate {
+            id: timezoneLabel
+
+            property string textValue: root.connection ? root.connection.profileField("m.tz") : ""
+
+            visible: root.connection.supportsProfileFields
+            enabled: root.connection.profileFieldWritable("m.tz")
+            text: i18nc("@label:combobox", "Timezone:")
+            model: TimeZoneModel {}
+            textRole: "display"
+            valueRole: "display"
+            onActivated: index => {
+                // "Prefer not to say" choice clears it.
+                if (index === 0) {
+                    textValue = "";
+                    return;
+                }
+
+                // Otherwise, set it to the text value which is the IANA identifier
+                textValue = timezoneLabel.currentValue;
+            }
+            Component.onCompleted: currentIndex = model.indexOfValue(textValue)
+        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Show QR Code")
             icon.name: "view-barcode-qr-symbolic"
@@ -157,8 +181,8 @@ FormCard.FormCardPage {
                 if (root.connection.localUser.displayName !== name.text) {
                     root.connection.localUser.rename(name.text);
                 }
-                if (root.connection.label !== accountLabel.text) {
-                    root.connection.label = accountLabel.text;
+                if (root.connection.profileField("m.tz") !== timezoneLabel.textValue) {
+                    root.connection.setProfileField("m.tz", timezoneLabel.textValue);
                 }
             }
         }
