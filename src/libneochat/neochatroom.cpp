@@ -190,13 +190,15 @@ void NeoChatRoom::setVisible(bool visible)
 
 int NeoChatRoom::contextAwareNotificationCount() const
 {
-    // DOn't include spaces, rooms that the user hasn't joined and rooms where the user has joined the successor.
+    // Don't include spaces, rooms that the user hasn't joined and rooms where the user has joined the successor.
     if (isSpace() || joinState() != JoinState::Join || successor(JoinState::Join) != nullptr) {
         return 0;
     }
     if (m_currentPushNotificationState == PushNotificationState::Mute) {
         return 0;
     }
+    // There is (currently) no association between our highlight count and the associated push rule,
+    // so we need this check here otherwise everything appears out-of-sync.
     if (m_currentPushNotificationState == PushNotificationState::MentionKeyword || isLowPriority()) {
         return int(highlightCount());
     }
