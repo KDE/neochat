@@ -17,6 +17,7 @@ Kirigami.Page {
 
     property bool showExisting: false
     property bool _showExisting: showExisting && root.currentStepString === root.initialStep
+    property bool showSettings: true
     property alias currentStep: module.item
     property string currentStepString: initialStep
     property string initialStep: "LoginRegister"
@@ -265,6 +266,7 @@ Kirigami.Page {
             FormCard.FormCard {
                 Layout.topMargin: Kirigami.Units.largeSpacing * 2
                 maximumWidth: Kirigami.Units.gridUnit * 20
+                visible: root.showSettings
                 FormCard.FormButtonDelegate {
                     text: i18nc("@action:button", "Settings")
                     icon.name: "settings-configure"
