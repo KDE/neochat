@@ -45,6 +45,26 @@ FormCard.FormCardPage {
         }
     }
 
+    FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        FormCard.AbstractFormDelegate {
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: "data-information"
+                    width: Kirigami.Units.iconSizes.sizeForLabels
+                    height: Kirigami.Units.iconSizes.sizeForLabels
+                }
+                QQC2.Label {
+                    text: i18nc("@info", "These are the default notification settings for all rooms. You can customize notifications per-room in the room list or room settings.")
+                    wrapMode: Text.WordWrap
+
+                    Layout.fillWidth: true
+                }
+            }
+        }
+    }
+
     FormCard.FormHeader {
         title: i18nc("@title:group", "Room Notifications")
     }

@@ -58,7 +58,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "notifications"
 
         Kirigami.Action {
-            text: i18n("Follow Global Setting")
+            text: i18nc("@action:inmenu Notification 'Default Settings'", "Default Settings")
             icon.name: "globe"
             checkable: true
             autoExclusive: true
