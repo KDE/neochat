@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-20 00:41+0000\n"
-"PO-Revision-Date: 2025-01-13 22:15+0100\n"
+"POT-Creation-Date: 2025-02-23 00:41+0000\n"
+"PO-Revision-Date: 2025-02-22 21:54+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1948,15 +1948,13 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Inviti al privata babilejo"
+msgstr "Invitis vin al babilo"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 invitis vin al ĉambro"
@@ -2019,10 +2017,9 @@ msgid "Reply"
 msgstr "Respondi"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Respondi"
+msgstr "Respondi…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2447,10 +2444,12 @@ msgstr "Bone"
 msgid "View Source"
 msgstr "Vidi Fonton"
 
-#: src/qml/DelegateContextMenu.qml:78 src/settings/ThreePIdCard.qml:66
-#, kde-format
+#: src/qml/DelegateContextMenu.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove"
 msgctxt "@action:button"
-msgid "Remove"
+msgid "Remove…"
 msgstr "Forigi"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
@@ -2710,8 +2709,9 @@ msgid "Copy Image"
 msgstr "Kopii Bildon"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgid "Remove"
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove…"
 msgstr "Forigi"
 
 #: src/qml/FullScreenMap.qml:23
@@ -2736,8 +2736,7 @@ msgid "Configure NeoChat…"
 msgstr "Agordi NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Agordi NeoChat…"
@@ -2917,17 +2916,16 @@ msgid "Mirror"
 msgstr "Speguli"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1 invitis vin al ĉambro"
+msgstr "%1 invitis vin kuniĝi"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "Tiu uzanto estas invitanta vin babili."
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2935,15 +2933,13 @@ msgid "You can reject invitations from unknown users under Security settings."
 msgstr "Vi povas malakcepti invitojn de nekonataj uzantoj en Sekurec-agordo."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "Malakcepti"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "Akcepti"
@@ -3032,15 +3028,13 @@ msgid "Successfully verified device **%1**"
 msgstr "Sukcese konfirmita aparato **%1**"
 
 #: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
-#| msgid "The session verification timed out."
+#, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "La seancokonfirmo elĉerpiĝis."
+msgstr "Elektu konfirman metodon por daŭrigi"
 
 #: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Emoji Verification"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Emoĝi-Konfirmo"
@@ -3186,10 +3180,9 @@ msgid "Search for '%1'"
 msgstr "Serĉi '%1'"
 
 #: src/qml/MessageDelegateContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
-msgstr "Agordi Retajn Ŝparvojojn..."
+msgstr "Agordi Retajn Ŝparvojojn…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3394,12 +3387,12 @@ msgstr "Ĉambraj Agordoj"
 msgid "Leave Room"
 msgstr "Forlasi Ĉambron"
 
-#: src/qml/RoomDelegate.qml:115
+#: src/qml/RoomDelegate.qml:118
 #, kde-format
 msgid "Muted room"
 msgstr "Silentigita ĉambro"
 
-#: src/qml/RoomDelegate.qml:148
+#: src/qml/RoomDelegate.qml:151
 #, kde-format
 msgid "Configure room"
 msgstr "Agordi ĉambron"
@@ -3471,18 +3464,16 @@ msgid "Show locations for this room"
 msgstr "Montri lokojn por ĉi tiu ĉambro"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Trovi mesaĝojn…"
+msgstr "Pinglitaj mesaĝoj"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Trovi mesaĝojn…"
+msgstr "Pinglitaj Mesaĝojn"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3583,12 +3574,10 @@ msgid "Message Source"
 msgstr "Mesaĝfonto"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "As in sorting rooms with the most unread messages higher"
-#| msgid "Most Unread Messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Plejmultaj Nelegitaj Mesaĝoj"
+msgstr "Neniuj Pinglitaj Mesaĝoj"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3962,14 +3951,12 @@ msgid "Account Details"
 msgstr "Detaloj pri Konto"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Invitas al ĉambro"
-msgstr[1] "Invitas al ĉambro"
+msgstr[0] "Unu ambaŭflanka ĉambro"
+msgstr[1] "%1 ambaŭflankaj ĉambroj"
 
 #: src/qml/UserDetailDialog.qml:136
 #, kde-format
@@ -4088,17 +4075,19 @@ msgstr "Inviti al privata babilejo"
 msgid "Copy link"
 msgstr "Kopii ligilon"
 
-#: src/qml/UserInfo.qml:45
-#, kde-format
-msgid "Edit this account"
-msgstr "Redakti ĉi tiun konton"
+#: src/qml/UserInfo.qml:50
+#, fuzzy, kde-format
+#| msgid "Deactivate Account"
+msgctxt "@info:tooltip"
+msgid "Manage Account"
+msgstr "Malaktivigi Konton"
 
-#: src/qml/UserInfo.qml:92
+#: src/qml/UserInfo.qml:108
 #, kde-format
 msgid "Switch User"
 msgstr "Ŝanĝi Uzanton"
 
-#: src/qml/UserInfo.qml:100
+#: src/qml/UserInfo.qml:116
 #, kde-format
 msgid "Open Settings"
 msgstr "Malfermi Agordojn"
@@ -4402,36 +4391,31 @@ msgid "Password"
 msgstr "Pasvorto"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Via servilo ne subtenas ŝanĝi vian pasvorton"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Aktuala Pasvorto:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
-msgstr "Nova pasvorto:"
+msgstr "Nova Pasvorto:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
-msgstr "Konfirmi novan pasvorton:"
+msgstr "Konfirmi novan Pasvorton:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Pasvortoj ne kongruas"
@@ -4477,26 +4461,22 @@ msgid "Deactivate Account"
 msgstr "Malaktivigi Konton"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Pasvorto ŝanĝiĝis sukcese"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Nevalida pasfrazo"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
-msgstr "Nekonata problemo dum vi provas ŝanĝi pasvorton"
+msgstr "Nekonata problemo provante ŝanĝi pasvorton"
 
 #: src/settings/AccountsPage.qml:20
 #, kde-format
@@ -4839,49 +4819,59 @@ msgstr "Sciigoj"
 msgid "Enable notifications for this account"
 msgstr "Ebligi sciigojn por ĉi tiu konto"
 
-#: src/settings/GlobalNotificationsPage.qml:29
+#: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
-msgid "Whether push notifications are generated by your Matrix server"
-msgstr "Ĉu puŝaj sciigoj estas generitaj de via Matrix-servilo"
+msgid "Notifications can appear even when NeoChat isn't running."
+msgstr ""
 
-#: src/settings/GlobalNotificationsPage.qml:39
+#: src/settings/GlobalNotificationsPage.qml:34
+#, kde-format
+msgid "Push notifications are available but could not be enabled."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:37
+#, kde-format
+msgid "Notifications will only appear when NeoChat is running."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Ĉambro Sciigoj"
 
-#: src/settings/GlobalNotificationsPage.qml:56
+#: src/settings/GlobalNotificationsPage.qml:66
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Mencioj"
 
-#: src/settings/GlobalNotificationsPage.qml:73
+#: src/settings/GlobalNotificationsPage.qml:83
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ŝlosilvortoj"
 
-#: src/settings/GlobalNotificationsPage.qml:97
+#: src/settings/GlobalNotificationsPage.qml:107
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Ŝlosilvorto…"
 
-#: src/settings/GlobalNotificationsPage.qml:116
+#: src/settings/GlobalNotificationsPage.qml:126
 #: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Aldoni ŝlosilvorton"
 
-#: src/settings/GlobalNotificationsPage.qml:137
+#: src/settings/GlobalNotificationsPage.qml:147
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Invitas"
 
-#: src/settings/GlobalNotificationsPage.qml:154
+#: src/settings/GlobalNotificationsPage.qml:164
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5598,25 +5588,22 @@ msgid "Customize your profile only for this room."
 msgstr ""
 
 #: src/settings/RoomProfile.qml:38
-#, fuzzy, kde-format
-#| msgid "Display Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
 msgstr "Montra Nomo:"
 
 #: src/settings/RoomProfile.qml:48
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Konservi"
 
 #: src/settings/RoomProfile.qml:54
-#, fuzzy, kde-format
-#| msgid "System Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
-msgstr "Sistema Defaŭlto"
+msgstr "Restarigi al Defaŭlto"
 
 #: src/settings/RoomSecurityPage.qml:20
 #, kde-format
@@ -5785,11 +5772,10 @@ msgid "Permissions"
 msgstr "Permesoj"
 
 #: src/settings/RoomSettingsView.qml:84
-#, fuzzy, kde-format
-#| msgid "a file"
+#, kde-format
 msgctxt "@title"
 msgid "Profile"
-msgstr "dosiero"
+msgstr "Profilo"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -5844,6 +5830,12 @@ msgstr "Kaŝi"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Kunhavigi"
+
+#: src/settings/ThreePIdCard.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove"
+msgstr "Forigi"
 
 #: src/settings/ThreePIdCard.qml:85
 #, kde-format
@@ -5977,12 +5969,12 @@ msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Afiŝi mesaĝon en fadeno"
 
-#: src/timeline/CodeComponent.qml:159
+#: src/timeline/CodeComponent.qml:164
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopii al tondujo"
 
-#: src/timeline/CodeComponent.qml:171
+#: src/timeline/CodeComponent.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -6087,7 +6079,7 @@ msgstr "Vastigi antaŭrigardon"
 msgid "Loading URL preview"
 msgstr "Ŝargante antaŭrigardon de URL"
 
-#: src/timeline/LocationComponent.qml:113
+#: src/timeline/LocationComponent.qml:116
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
@@ -6107,8 +6099,7 @@ msgid "(Ended)"
 msgstr "(Finis)"
 
 #: src/timeline/ReactionComponent.qml:97
-#, fuzzy, kde-format
-#| msgid "React"
+#, kde-format
 msgctxt "@button"
 msgid "React"
 msgstr "Reagi"
@@ -6172,25 +6163,8 @@ msgstr "Montri"
 msgid "Quit"
 msgstr "Forlasi"
 
-#~ msgid "Accept this invitation?"
-#~ msgstr "Ĉu akcepti ĉi tiun inviton?"
+#~ msgid "Edit this account"
+#~ msgstr "Redakti ĉi tiun konton"
 
-#~ msgctxt "@action:button The thing being rejected is an invitation to chat"
-#~ msgid "Reject and ignore user"
-#~ msgstr "Malignori kaj ignori uzanton"
-
-#~ msgid "Compare a set of emoji on both devices"
-#~ msgstr "Kompari aron da emoji sur ambaŭ aparatoj"
-
-#~ msgid "Reply..."
-#~ msgstr "Respondi..."
-
-#~ msgctxt "menu"
-#~ msgid "Configure NeoChat..."
-#~ msgstr "Agordi NeoChat..."
-
-#~ msgid "Passwords do not match"
-#~ msgstr "pasvortoj ne egalas"
-
-#~ msgid "Wrong password entered"
-#~ msgstr "Malĝusta pasvorto enigita"
+#~ msgid "Whether push notifications are generated by your Matrix server"
+#~ msgstr "Ĉu puŝaj sciigoj estas generitaj de via Matrix-servilo"
