@@ -145,6 +145,10 @@ void NeoChatConnection::connectSignals()
     connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
         setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
     });
+    setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
+        setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -165,6 +169,25 @@ void NeoChatConnection::refreshBadgeNotificationCount()
         m_badgeNotificationCount = count;
         Q_EMIT badgeNotificationCountChanged(this, m_badgeNotificationCount);
     }
+}
+
+bool NeoChatConnection::globalUrlPreviewEnabled()
+{
+    return m_globalUrlPreviewEnabled;
+}
+
+void NeoChatConnection::setGlobalUrlPreviewEnabled(bool newState)
+{
+    if (m_globalUrlPreviewEnabled == newState) {
+        return;
+    }
+
+    m_globalUrlPreviewEnabled = newState;
+    if (!m_globalUrlPreviewEnabled) {
+        m_linkPreviewers.clear();
+    }
+    NeoChatConfig::setShowLinkPreview(m_globalUrlPreviewEnabled);
+    Q_EMIT globalUrlPreviewEnabledChanged();
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)
@@ -505,7 +528,7 @@ QString NeoChatConnection::accountDataJsonString(const QString &type) const
 
 LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
 {
-    if (!NeoChatConfig::showLinkPreview()) {
+    if (!m_globalUrlPreviewEnabled) {
         return nullptr;
     }
 

@@ -43,6 +43,7 @@
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
 #include "neochatconfig.h"
+#include "neochatconnection.h"
 #include "neochatroommember.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
@@ -155,6 +156,10 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             Q_EMIT childrenHaveHighlightNotificationsChanged();
         }
     });
+
+    const auto neochatconnection = static_cast<NeoChatConnection *>(connection);
+    Q_ASSERT(neochatconnection);
+    connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
 }
 
 bool NeoChatRoom::visible() const
@@ -675,6 +680,9 @@ void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
 
 bool NeoChatRoom::urlPreviewEnabled() const
 {
+    if (!static_cast<NeoChatConnection *>(connection())->globalUrlPreviewEnabled()) {
+        return false;
+    }
     if (hasAccountData("org.matrix.room.preview_urls"_L1)) {
         return !accountData("org.matrix.room.preview_urls"_L1)->contentJson()["disable"_L1].toBool();
     } else {
