@@ -148,6 +148,15 @@ void Controller::addConnection(NeoChatConnection *c)
 
     c->setLazyLoading(true);
 
+    c->setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [c] {
+        c->setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    });
+    c->setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [c]() {
+        c->setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+    });
+    connect(c, &NeoChatConnection::globalUrlPreviewEnabledChanged, NeoChatConfig::self(), &NeoChatConfig::setShowLinkPreview);
     connect(c, &NeoChatConnection::syncDone, this, [c] {
         c->sync(30000);
         c->saveState();
@@ -203,6 +212,15 @@ void Controller::invokeLogin()
                 }
 
                 auto connection = new NeoChatConnection(account.homeserver());
+                connection->setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+                connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [connection] {
+                    connection->setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+                });
+                connection->setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+                connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [connection]() {
+                    connection->setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
+                });
+                connect(connection, &NeoChatConnection::globalUrlPreviewEnabledChanged, NeoChatConfig::self(), &NeoChatConfig::setShowLinkPreview);
                 m_connectionsLoading[accountId] = connection;
                 connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
                     connection->loadState();

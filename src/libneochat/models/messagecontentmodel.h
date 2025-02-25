@@ -102,6 +102,8 @@ public:
      */
     Q_INVOKABLE void closeLinkPreview(int row);
 
+    void setShowThreads(bool newState);
+
 Q_SIGNALS:
     void showAuthorChanged();
     void eventUpdated();
@@ -140,4 +142,6 @@ private:
     bool m_emptyItinerary = false;
 
     void updateReactionModel();
+
+    bool m_showThreads = false;
 };

@@ -17,7 +17,6 @@ namespace Quotient
 class RoomMember;
 }
 
-
 /**
  * @brief Defines a user mention in the current chat or edit text.
  */

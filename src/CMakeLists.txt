@@ -7,6 +7,8 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT NEOCHAT_FLATPAK AND NOT NEOC
     add_subdirectory(purpose)
 endif()
 
+add_subdirectory(libneochat)
+
 add_library(neochat STATIC
     controller.cpp
     controller.h
@@ -16,24 +18,16 @@ add_library(neochat STATIC
     emojitones.h
     models/customemojimodel.cpp
     models/customemojimodel.h
-    clipboard.cpp
-    clipboard.h
     models/timelinemessagemodel.cpp
     models/timelinemessagemodel.h
     models/messagefiltermodel.cpp
     models/messagefiltermodel.h
-    models/roomlistmodel.cpp
-    models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
     models/sortfilterspacelistmodel.h
     models/accountemoticonmodel.cpp
     models/accountemoticonmodel.h
-    spacehierarchycache.cpp
-    spacehierarchycache.h
     roommanager.cpp
     roommanager.h
-    neochatroom.cpp
-    neochatroom.h
     models/userlistmodel.cpp
     models/userlistmodel.h
     models/userfiltermodel.cpp
@@ -58,13 +52,9 @@ add_library(neochat STATIC
     models/sortfilterroomlistmodel.h
     models/roomtreemodel.cpp
     models/roomtreemodel.h
-    chatdocumenthandler.cpp
-    chatdocumenthandler.h
     models/devicesmodel.cpp
     models/devicesmodel.h
     models/devicesproxymodel.cpp
-    filetype.cpp
-    filetype.h
     login.cpp
     login.h
     models/webshortcutmodel.cpp
@@ -79,22 +69,14 @@ add_library(neochat STATIC
     urlhelper.h
     windowcontroller.cpp
     windowcontroller.h
-    linkpreviewer.cpp
-    linkpreviewer.h
-    models/completionmodel.cpp
-    models/completionmodel.h
     models/completionproxymodel.cpp
     models/completionproxymodel.h
-    models/actionsmodel.cpp
-    models/actionsmodel.h
     models/serverlistmodel.cpp
     models/serverlistmodel.h
     models/statemodel.cpp
     models/statemodel.h
     models/statefiltermodel.cpp
     models/statefiltermodel.h
-    filetransferpseudojob.cpp
-    filetransferpseudojob.h
     models/searchmodel.cpp
     models/searchmodel.h
     texthandler.cpp
@@ -107,8 +89,6 @@ add_library(neochat STATIC
     models/imagepacksmodel.h
     events/imagepackevent.cpp
     events/imagepackevent.h
-    models/reactionmodel.cpp
-    models/reactionmodel.h
     delegatesizehelper.cpp
     delegatesizehelper.h
     models/livelocationsmodel.cpp
@@ -117,41 +97,24 @@ add_library(neochat STATIC
     models/locationsmodel.h
     locationhelper.cpp
     locationhelper.h
-    events/pollevent.cpp
-    pollhandler.cpp
-    utils.h
-    utils.cpp
     registration.cpp
-    neochatconnection.cpp
-    neochatconnection.h
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
-    eventhandler.cpp
     enums/delegatetype.h
     roomlastmessageprovider.cpp
     roomlastmessageprovider.h
-    chatbarcache.cpp
-    chatbarcache.h
     colorschemer.cpp
     colorschemer.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     models/timelinemodel.cpp
     models/timelinemodel.h
-    enums/pushrule.h
-    models/itinerarymodel.cpp
-    models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
     models/linemodel.cpp
     models/linemodel.h
-    events/locationbeaconevent.h
-    events/widgetevent.h
-    enums/messagecomponenttype.h
-    models/messagecontentmodel.cpp
-    models/messagecontentmodel.h
     enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h
@@ -164,26 +127,16 @@ add_library(neochat STATIC
     models/roomtreeitem.cpp
     models/roomtreeitem.h
     foreigntypes.h
-    models/threepidmodel.cpp
-    models/threepidmodel.h
     threepidaddhelper.cpp
     threepidaddhelper.h
     identityserverhelper.cpp
     identityserverhelper.h
-    enums/powerlevel.cpp
-    enums/powerlevel.h
     models/permissionsmodel.cpp
     models/permissionsmodel.h
     threepidbindhelper.cpp
     threepidbindhelper.h
     models/readmarkermodel.cpp
     models/readmarkermodel.h
-    neochatroommember.cpp
-    neochatroommember.h
-    models/threadmodel.cpp
-    models/threadmodel.h
-    enums/messagetype.h
-    messagecomponent.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
@@ -323,8 +276,6 @@ else()
     qt_target_qml_sources(neochat QML_FILES qml/ShareActionStub.qml)
 endif()
 
-configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
-
 if(WIN32)
     set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
 endif()
@@ -345,13 +296,6 @@ ecm_qt_declare_logging_category(neochat
     DESCRIPTION "Neochat: publicroomlistmodel"
     DEFAULT_SEVERITY Info
     EXPORT NEOCHAT
-)
-
-ecm_qt_declare_logging_category(neochat
-    HEADER "eventhandler_logging.h"
-    IDENTIFIER "EventHandling"
-    CATEGORY_NAME "org.kde.neochat.eventhandler"
-    DEFAULT_SEVERITY Info
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -407,6 +351,7 @@ endif()
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
 target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
+    LibNeoChat
     Qt::Core
     Qt::Quick
     Qt::Qml

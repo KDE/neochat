@@ -11,7 +11,6 @@
 #include <QQmlEngine>
 
 #include <QCoroTask>
-#include <Quotient/roommember.h>
 
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"

@@ -204,7 +204,7 @@ public:
     LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
-    void globalUrlPreviewEnabledChanged();
+    void globalUrlPreviewEnabledChanged(bool newState);
     void labelChanged();
     void identityServerChanged();
     void directChatNotificationsChanged();

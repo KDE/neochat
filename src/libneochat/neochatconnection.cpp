@@ -6,7 +6,6 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
-#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
@@ -141,14 +140,6 @@ void NeoChatConnection::connectSignals()
             });
         },
         Qt::SingleShotConnection);
-    setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
-    connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
-        setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
-    });
-    setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-        setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
-    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -186,8 +177,7 @@ void NeoChatConnection::setGlobalUrlPreviewEnabled(bool newState)
     if (!m_globalUrlPreviewEnabled) {
         m_linkPreviewers.clear();
     }
-    NeoChatConfig::setShowLinkPreview(m_globalUrlPreviewEnabled);
-    Q_EMIT globalUrlPreviewEnabledChanged();
+    Q_EMIT globalUrlPreviewEnabledChanged(m_globalUrlPreviewEnabled);
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)

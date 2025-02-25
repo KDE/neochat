@@ -3,8 +3,6 @@
 
 #include "messagecontentmodel.h"
 #include "eventhandler.h"
-#include "messagecomponenttype.h"
-#include "neochatconfig.h"
 
 #include <QImageReader>
 
@@ -145,11 +143,6 @@ void MessageContentModel::initializeModel()
                 Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole});
             }
         }
-    });
-
-    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
-        updateReplyModel();
-        resetModel();
     });
     connect(m_room, &Room::updatedEvent, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
@@ -495,11 +488,10 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     }
 
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
-    if (NeoChatConfig::self()->threads() && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
+    if (m_showThreads && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
         && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #else
-    if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()
-        && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+    if (m_showThreads && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #endif
         newComponents += MessageComponent{MessageComponentType::Separator, {}, {}};
         newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
@@ -528,7 +520,7 @@ void MessageContentModel::updateReplyModel()
     if (roomMessageEvent == nullptr) {
         return;
     }
-    if (!roomMessageEvent->isReply(!NeoChatConfig::self()->threads()) || (roomMessageEvent->isThreaded() && NeoChatConfig::self()->threads())) {
+    if (!roomMessageEvent->isReply(!m_showThreads) || (roomMessageEvent->isThreaded() && m_showThreads)) {
         if (m_replyModel) {
             delete m_replyModel;
         }
@@ -539,7 +531,7 @@ void MessageContentModel::updateReplyModel()
         return;
     }
 
-    m_replyModel = new MessageContentModel(m_room, roomMessageEvent->replyEventId(!NeoChatConfig::self()->threads()), true, false, this);
+    m_replyModel = new MessageContentModel(m_room, roomMessageEvent->replyEventId(!m_showThreads), true, false, this);
 
     connect(m_replyModel, &MessageContentModel::eventUpdated, this, [this]() {
         Q_EMIT dataChanged(index(0), index(0), {ReplyAuthorRole});
@@ -765,6 +757,16 @@ void MessageContentModel::updateReactionModel()
     }
 
     resetContent();
+}
+
+void MessageContentModel::setShowThreads(bool newState)
+{
+    if (newState == m_showThreads) {
+        return;
+    }
+    m_showThreads = newState;
+    updateReplyModel();
+    resetModel();
 }
 
 #include "moc_messagecontentmodel.cpp"
