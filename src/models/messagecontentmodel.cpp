@@ -132,9 +132,6 @@ void MessageContentModel::initializeModel()
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
         resetContent();
     });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-        resetContent();
-    });
     connect(m_room, &Room::memberNameUpdated, this, [this](RoomMember member) {
         if (m_room != nullptr) {
             if (senderId().isEmpty() || senderId() == member.id()) {

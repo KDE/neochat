@@ -9,7 +9,6 @@
 
 #include <Quotient/events/roommessageevent.h>
 
-#include "neochatconfig.h"
 #include "utils.h"
 
 using namespace Quotient;
@@ -22,7 +21,6 @@ LinkPreviewer::LinkPreviewer(const QUrl &url, QObject *parent)
     Q_ASSERT(dynamic_cast<Connection *>(this->parent()));
 
     connect(this, &LinkPreviewer::urlChanged, this, &LinkPreviewer::emptyChanged);
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &LinkPreviewer::loadUrlPreview);
 
     loadUrlPreview();
 }

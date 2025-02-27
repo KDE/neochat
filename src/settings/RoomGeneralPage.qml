@@ -267,6 +267,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormCheckDelegate {
+            enabled: root.connection.globalUrlPreviewEnabled
             text: i18n("Enable URL previews")
             // Most users won't see the above setting so tell them the default.
             description: room.defaultUrlPreviewState ? i18n("URL previews are enabled by default in this room") : i18n("URL previews are disabled by default in this room")
@@ -274,6 +275,19 @@ FormCard.FormCardPage {
             onToggled: {
                 room.urlPreviewEnabled = checked;
             }
+        }
+    }
+    Kirigami.InlineMessage {
+        Layout.fillWidth: true
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.alignment: Qt.AlignHCenter
+        text: i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "URL previews are currently disabled for your account")
+        type: Kirigami.MessageType.Information
+        visible: !root.connection.globalUrlPreviewEnabled
+        actions: Kirigami.Action {
+            text: i18n("Enable")
+            onTriggered: root.connection.globalUrlPreviewEnabled = true
         }
     }
     FormCard.FormHeader {

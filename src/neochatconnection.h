@@ -33,6 +33,11 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
 
     /**
+     * @brief Whether URL previews are enabled globally.
+     */
+    Q_PROPERTY(bool globalUrlPreviewEnabled READ globalUrlPreviewEnabled WRITE setGlobalUrlPreviewEnabled NOTIFY globalUrlPreviewEnabledChanged)
+
+    /**
      * @brief The model with the account's 3PIDs.
      */
     Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
@@ -182,6 +187,9 @@ public:
     int badgeNotificationCount() const;
     void refreshBadgeNotificationCount();
 
+    bool globalUrlPreviewEnabled();
+    void setGlobalUrlPreviewEnabled(bool newState);
+
     bool directChatInvites() const;
 
     // note: this is intentionally a copied QString because
@@ -196,6 +204,7 @@ public:
     LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
+    void globalUrlPreviewEnabledChanged();
     void labelChanged();
     void identityServerChanged();
     void directChatNotificationsChanged();
@@ -230,6 +239,7 @@ private:
     void connectSignals();
 
     int m_badgeNotificationCount = 0;
+    bool m_globalUrlPreviewEnabled = true;
 
     QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
