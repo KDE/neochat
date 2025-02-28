@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:41+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1127,8 +1127,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:265
-#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:262
+#: src/models/messagecontentmodel.cpp:290 src/timeline/LoadComponent.qml:33
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1813,15 +1813,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Próprios Emojis"
 
-#: src/models/messagecontentmodel.cpp:263
-#: src/models/messagecontentmodel.cpp:291
+#: src/models/messagecontentmodel.cpp:260
+#: src/models/messagecontentmodel.cpp:288
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
 msgstr "A carregar…"
 
-#: src/models/messagecontentmodel.cpp:286
+#: src/models/messagecontentmodel.cpp:283
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -2157,28 +2157,28 @@ msgid ""
 msgstr ""
 "Contacte o administrador do seu servidor de Matrix para obter algum suporte."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:336
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:367
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Não foi possível criar a sala: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:397
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Não foi possível criar o espaço: %1"
 
-#: src/neochatroom.cpp:1215
+#: src/neochatroom.cpp:1223
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O relatório foi enviado com sucesso."
 
-#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
+#: src/neochatroom.cpp:1563 src/neochatroom.cpp:1571
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3522,7 +3522,7 @@ msgstr "Editar o nível de permissões do utilizador"
 msgid "New power level"
 msgstr "Editar o nível de permissões do utilizador"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:421
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
 #, kde-format
 msgid "Confirm"
 msgstr "Confirmação"
@@ -5990,83 +5990,97 @@ msgstr "Antevisões dos URL's"
 msgid "Enable URL previews by default for room members"
 msgstr "Activar as antevisões dos URL's por omissão nos membros da sala"
 
-#: src/settings/RoomGeneralPage.qml:270
+#: src/settings/RoomGeneralPage.qml:271
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Activar as antevisões dos URL's"
 
-#: src/settings/RoomGeneralPage.qml:272
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "As antevisões dos URL's estão activas por omissão nesta sala"
 
-#: src/settings/RoomGeneralPage.qml:272
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "As antevisões dos URL's estão desactivadas por omissão nesta sala"
 
-#: src/settings/RoomGeneralPage.qml:280
+#: src/settings/RoomGeneralPage.qml:285
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt ""
+"As in the user has switched off showing previews of hyperlinks in timeline "
+"messages"
+msgid "URL previews are currently disabled for your account"
+msgstr "As antevisões dos URL's estão desactivadas por omissão nesta sala"
+
+#: src/settings/RoomGeneralPage.qml:289
+#, kde-format
+msgid "Enable"
+msgstr ""
+
+#: src/settings/RoomGeneralPage.qml:294
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:313
+#: src/settings/RoomGeneralPage.qml:327
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
 msgid "Canonical"
 msgstr "Sem Código Canónico"
 
-#: src/settings/RoomGeneralPage.qml:320
+#: src/settings/RoomGeneralPage.qml:334
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgid "Make canonical parent"
 msgstr "Sem alcunha canónica definida"
 
-#: src/settings/RoomGeneralPage.qml:332
+#: src/settings/RoomGeneralPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgid "Remove parent"
 msgstr "Remover a Mensagem"
 
-#: src/settings/RoomGeneralPage.qml:345
+#: src/settings/RoomGeneralPage.qml:359
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgid "This room has no official parent spaces."
 msgstr "Esta sala foi substituída."
 
-#: src/settings/RoomGeneralPage.qml:349
+#: src/settings/RoomGeneralPage.qml:363
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Sem alcunha canónica definida"
 
-#: src/settings/RoomGeneralPage.qml:366 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Esta sala prossegue com outra conversa."
 
-#: src/settings/RoomGeneralPage.qml:370 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Ver as mensagens mais antigas…"
 
-#: src/settings/RoomGeneralPage.qml:382 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Esta sala foi substituída."
 
-#: src/settings/RoomGeneralPage.qml:386 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Ver a sala nova…"
 
-#: src/settings/RoomGeneralPage.qml:409
+#: src/settings/RoomGeneralPage.qml:423
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Actualizar a Sala"
 
-#: src/settings/RoomGeneralPage.qml:413
+#: src/settings/RoomGeneralPage.qml:427
 #, kde-format
 msgid "Select new version"
 msgstr "Seleccionar a nova versão"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:41+0000\n"
+"POT-Creation-Date: 2025-02-28 00:41+0000\n"
 "PO-Revision-Date: 2025-01-28 18:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1035,8 +1035,8 @@ msgid "Registration is disabled on this server."
 msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:265
-#: src/models/messagecontentmodel.cpp:293 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:262
+#: src/models/messagecontentmodel.cpp:290 src/timeline/LoadComponent.qml:33
 #, kde-format
 msgid "Loading"
 msgstr "Ladataan"
@@ -1694,14 +1694,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Omat emojit"
 
-#: src/models/messagecontentmodel.cpp:263
-#: src/models/messagecontentmodel.cpp:291
+#: src/models/messagecontentmodel.cpp:260
+#: src/models/messagecontentmodel.cpp:288
 #: src/timeline/LinkPreviewLoadComponent.qml:66
 #, kde-format
 msgid "Loading reply"
 msgstr "Ladataan vastausta"
 
-#: src/models/messagecontentmodel.cpp:286
+#: src/models/messagecontentmodel.cpp:283
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1964,28 +1964,28 @@ msgstr ""
 "Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
 "ylläpidolta."
 
-#: src/neochatconnection.cpp:313
+#: src/neochatconnection.cpp:336
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Henkilöyspalvelinta ei ole määritetty"
 
-#: src/neochatconnection.cpp:344
+#: src/neochatconnection.cpp:367
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/neochatconnection.cpp:374
+#: src/neochatconnection.cpp:397
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/neochatroom.cpp:1215
+#: src/neochatroom.cpp:1223
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/neochatroom.cpp:1555 src/neochatroom.cpp:1563
+#: src/neochatroom.cpp:1563 src/neochatroom.cpp:1571
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3237,7 +3237,7 @@ msgstr "Muokkaa käyttäjän voimatasoa"
 msgid "New power level"
 msgstr "Uusi voimataso"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:421
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
 #, kde-format
 msgid "Confirm"
 msgstr "Vahvista"
@@ -5542,79 +5542,94 @@ msgstr "Verkko-osoitteen esikatselut"
 msgid "Enable URL previews by default for room members"
 msgstr "Salli huoneen jäsenille oletuksena verkko-osoitteiden esikatselu"
 
-#: src/settings/RoomGeneralPage.qml:270
+#: src/settings/RoomGeneralPage.qml:271
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Käytä verkko-osoitteiden esikatselua"
 
-#: src/settings/RoomGeneralPage.qml:272
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Verkko-osoitteiden esikatselu on jo käytössä tässä huoneessa"
 
-#: src/settings/RoomGeneralPage.qml:272
+#: src/settings/RoomGeneralPage.qml:273
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
 
-#: src/settings/RoomGeneralPage.qml:280
+#: src/settings/RoomGeneralPage.qml:285
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt ""
+"As in the user has switched off showing previews of hyperlinks in timeline "
+"messages"
+msgid "URL previews are currently disabled for your account"
+msgstr ""
+"Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
+
+#: src/settings/RoomGeneralPage.qml:289
+#, kde-format
+msgid "Enable"
+msgstr ""
+
+#: src/settings/RoomGeneralPage.qml:294
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Viralliset emotilat"
 
-#: src/settings/RoomGeneralPage.qml:313
+#: src/settings/RoomGeneralPage.qml:327
 #, kde-format
 msgid "Canonical"
 msgstr "Kanoninen"
 
-#: src/settings/RoomGeneralPage.qml:320
+#: src/settings/RoomGeneralPage.qml:334
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Tee kanoniseksi emoksi"
 
-#: src/settings/RoomGeneralPage.qml:332
+#: src/settings/RoomGeneralPage.qml:346
 #, kde-format
 msgid "Remove parent"
 msgstr "Poista emo"
 
-#: src/settings/RoomGeneralPage.qml:345
+#: src/settings/RoomGeneralPage.qml:359
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Tällä huoneella ei ole virallista emotilaa."
 
-#: src/settings/RoomGeneralPage.qml:349
+#: src/settings/RoomGeneralPage.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Lisää uusi virallinen emo"
 
-#: src/settings/RoomGeneralPage.qml:366 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Huone jatkaa toista keskustelua."
 
-#: src/settings/RoomGeneralPage.qml:370 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Katso vanhempia viestejä…"
 
-#: src/settings/RoomGeneralPage.qml:382 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Tämä huone on korvattu."
 
-#: src/settings/RoomGeneralPage.qml:386 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Katso uutta huonetta…"
 
-#: src/settings/RoomGeneralPage.qml:409
+#: src/settings/RoomGeneralPage.qml:423
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Päivitä huone"
 
-#: src/settings/RoomGeneralPage.qml:413
+#: src/settings/RoomGeneralPage.qml:427
 #, kde-format
 msgid "Select new version"
 msgstr "Valitse uusi versio"
