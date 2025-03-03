@@ -40,7 +40,8 @@
         {
             "name": "kquickimageeditor",
             "config-opts": [
-                "-DBUILD_WITH_QT6=ON"
+                "-DBUILD_WITH_QT6=ON",
+                "-DBUILD_TESTING=OFF"
             ],
             "buildsystem": "cmake-ninja",
             "sources": [
@@ -112,7 +113,8 @@
                 "-DBUILD_WITH_QT6=ON",
                 "-DCMAKE_INSTALL_LIBDIR=/app/lib",
                 "-DLIB_INSTALL_DIR=/app/lib",
-                "-DBUILD_TRANSLATIONS=NO"
+                "-DBUILD_TRANSLATIONS=NO",
+                "-DBUILD_TESTING=OFF"
             ]
         },
         {
@@ -172,14 +174,15 @@
         {
             "name": "neochat",
             "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF",
+                "-DNEOCHAT_FLATPAK=ON"
+            ],
             "sources": [
                 {
                     "type": "dir",
                     "path": "."
                 }
-            ],
-            "config-opts": [
-                "-DNEOCHAT_FLATPAK=ON"
             ]
         }
     ]
