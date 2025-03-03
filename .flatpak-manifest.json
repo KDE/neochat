@@ -25,13 +25,23 @@
     "modules": [
         {
             "name": "kirigamiaddons",
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kirigami-addons.git", "commit": "34d311219e8b7209746a98b3a29b91ded05ff936" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kirigami-addons.git",
+                    "commit": "34d311219e8b7209746a98b3a29b91ded05ff936"
+                }
+            ]
         },
         {
             "name": "kquickimageeditor",
-            "config-opts": [ "-DBUILD_WITH_QT6=ON" ],
+            "config-opts": [
+                "-DBUILD_WITH_QT6=ON"
+            ],
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
@@ -43,17 +53,19 @@
         {
             "name": "olm",
             "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DOLM_TESTS=OFF" ],
+            "config-opts": [
+                "-DOLM_TESTS=OFF"
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.matrix.org/matrix-org/olm.git",
-                    "tag": "3.2.10",
+                    "tag": "3.2.16",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     },
-                    "commit": "9908862979147a71dc6abaecd521be526ae77be1"
+                    "commit": "7e0c8277032e40308987257b711b38af8d77cc69"
                 }
             ]
         },
@@ -70,8 +82,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.5.tar.xz",
-                    "sha256": "3fb3ce340fcd7db54d87c893e69bfc2b1f6e4d4b279065ffe66dac9f0fd12b4d",
+                    "url": "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.6.tar.xz",
+                    "sha256": "747b8c175be108c880d3adfb9c3537ea66e520e4ad2dccf5dce58003aeeca090",
                     "x-checker-data": {
                         "type": "gnome",
                         "name": "libsecret",
@@ -123,29 +135,31 @@
         {
             "name": "cmark",
             "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DCMARK_TESTS=OFF" ],
+            "config-opts": [
+                "-DCMARK_TESTS=OFF",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_INSTALL_PREFIX=/app"
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/commonmark/cmark.git"
                 }
             ],
-            "config-opts": [
-                "-DCMARK_TESTS=OFF",
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DCMAKE_INSTALL_PREFIX=/app"
-            ],
             "builddir": true
         },
         {
             "name": "qcoro",
             "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DQCORO_BUILD_EXAMPLES=OFF", "-DBUILD_TESTING=OFF" ],
+            "config-opts": [
+                "-DQCORO_BUILD_EXAMPLES=OFF",
+                "-DBUILD_TESTING=OFF"
+            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/danvratil/qcoro/archive/refs/tags/v0.7.0.tar.gz",
-                    "sha256": "23ef0217926e67c8d2eb861cf91617da2f7d8d5a9ae6c62321b21448b1669210",
+                    "url": "https://github.com/danvratil/qcoro/archive/refs/tags/v0.11.0.tar.gz",
+                    "sha256": "9942c5b4c533192f6c5954dc6d10178b3829075e6a621b67df73f0a4b74d8297",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 236236,
