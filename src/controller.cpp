@@ -294,7 +294,7 @@ bool Controller::supportSystemTray() const
 void Controller::setQuitOnLastWindowClosed()
 {
 #ifndef Q_OS_ANDROID
-    if (NeoChatConfig::self()->systemTray()) {
+    if (supportSystemTray() && NeoChatConfig::self()->systemTray()) {
         m_trayIcon = new TrayIcon(this);
         m_trayIcon->show();
     } else {
