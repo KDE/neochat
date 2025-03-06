@@ -324,7 +324,15 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
-    auto job = account->joinRoom(roomAliasOrId, viaServers);
+    QStringList vias = viaServers;
+
+    // If no one gives us a homeserver suggestion, try the server specified in the alias/id.
+    // Otherwise joining a remote room not on our homeserver will fail.
+    if (vias.empty()) {
+        vias.append(roomAliasOrId.mid(roomAliasOrId.lastIndexOf(':'_L1) + 1));
+    }
+
+    auto job = account->joinRoom(roomAliasOrId, vias);
     connect(
         job.get(),
         &Quotient::BaseJob::finished,
