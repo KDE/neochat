@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-28 00:41+0000\n"
+"POT-Creation-Date: 2025-03-06 00:41+0000\n"
 "PO-Revision-Date: 2025-03-01 01:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2116,7 +2116,19 @@ msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "ამ მოწყობილობის გადამოწმება"
 
-#: src/qml/AccountMenu.qml:95 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:93
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr ""
+
+#: src/qml/AccountMenu.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr ""
+
+#: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "გასვლა"
@@ -2319,8 +2331,8 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:128
-#: src/qml/ExploreComponent.qml:130 src/qml/ExploreComponentMobile.qml:165
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:113
+#: src/qml/ExploreComponent.qml:115 src/qml/ExploreComponentMobile.qml:165
 #: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
 #: src/qml/SpaceDrawer.qml:275
 #, kde-format
@@ -2328,7 +2340,7 @@ msgctxt "@title"
 msgid "Create a Space"
 msgstr "სივრცის შექმნა"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:115
+#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:100
 #: src/qml/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
@@ -2402,9 +2414,9 @@ msgid "Pick room"
 msgstr "აირჩიეთ ოთახი"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponent.qml:88 src/qml/ExploreComponentMobile.qml:54
-#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/RoomListPage.qml:210 src/qml/SelectParentDialog.qml:142
+#: src/qml/ExploreComponentMobile.qml:54 src/qml/GlobalMenu.qml:64
+#: src/qml/QuickSwitcher.qml:39 src/qml/RoomListPage.qml:210
+#: src/qml/SelectParentDialog.qml:142 src/qml/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -2611,20 +2623,14 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "მენიუს ჩვენება"
 
-#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:47
-#: src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Explore rooms"
-msgstr "ოთახების დათვალიერება"
-
-#: src/qml/ExploreComponent.qml:97 src/qml/ExploreComponentMobile.qml:63
+#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:63
 #: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
 #: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
 #, kde-format
 msgid "Find your friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
-#: src/qml/ExploreComponent.qml:102 src/qml/ExploreComponentMobile.qml:70
+#: src/qml/ExploreComponent.qml:87 src/qml/ExploreComponentMobile.qml:70
 #: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
 #: src/qml/RoomListPage.qml:225
 #, kde-format
@@ -2632,22 +2638,22 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
-#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:143
+#: src/qml/ExploreComponent.qml:92 src/qml/ExploreComponentMobile.qml:143
 #, kde-format
 msgid "Create a Room"
 msgstr "ახალი ოთახის შექმნა"
 
-#: src/qml/ExploreComponent.qml:122 src/qml/ExploreComponentMobile.qml:159
+#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:159
 #, kde-format
 msgid "Create a Space"
 msgstr "სივრცის შექმნა"
 
-#: src/qml/ExploreComponent.qml:136
+#: src/qml/ExploreComponent.qml:121
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR კოდის სკანირება"
 
-#: src/qml/ExploreComponent.qml:141 src/qml/QrScannerPage.qml:16
+#: src/qml/ExploreComponent.qml:126 src/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -2657,6 +2663,11 @@ msgstr "QR კოდის სკანირება"
 #, kde-format
 msgid "Search"
 msgstr "ძებნა"
+
+#: src/qml/ExploreComponentMobile.qml:47 src/qml/RoomListPage.qml:204
+#, kde-format
+msgid "Explore rooms"
+msgstr "ოთახების დათვალიერება"
 
 #: src/qml/ExploreComponentMobile.qml:76
 #, kde-format
@@ -3271,7 +3282,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
-#: src/qml/QuickSwitcher.qml:32
+#: src/qml/QuickSwitcher.qml:32 src/qml/SpaceDrawer.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
