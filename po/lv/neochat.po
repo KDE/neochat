@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-11 09:55+0200\n"
+"PO-Revision-Date: 2025-03-06 18:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1949,18 +1949,16 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Uzaicināt uz privātu tērzēšanu"
+msgstr "Jūs uzaicināja tērzēt"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1 jūs uzaicināja uz istabu"
+msgstr "%1 jūs uzaicināja"
 
 #: src/neochatconnection.cpp:77
 #, kde-format
@@ -2122,13 +2120,13 @@ msgstr "Verificēt šo ierīci"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Ir nosūtīts verifikācijas pieprasījums"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Lai turpinātu, otrā ierīcē apstipriniet verifikācijas pieprasījumu."
 
 #: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2463,12 +2461,10 @@ msgid "View Source"
 msgstr "Skatīt avotu"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "Noņemt"
+msgstr "Noņemt…"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2525,13 +2521,13 @@ msgstr "Rādīt lietotāju"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "Atspraust"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "Piespraust"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2738,10 +2734,9 @@ msgid "Copy Image"
 msgstr "Kopēt attēlu"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "Noņemt"
+msgstr "Noņemt…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2945,17 +2940,16 @@ msgid "Mirror"
 msgstr "Spoguļot"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1 jūs uzaicināja uz istabu"
+msgstr "%1 jūs uzaicināja pievienoties"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "Šis lietotājs jūs aicina tērzēt."
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2964,15 +2958,13 @@ msgstr ""
 "Uzaicinājumus no nezināmiem lietotājiem varat noraidīt Drošības iestatījumos."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "Noraidīt"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "Pieņemt"
@@ -4112,11 +4104,10 @@ msgid "Copy link"
 msgstr "Kopēt saiti"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "Deaktivizēt kontu"
+msgstr "Pārvaldīt kontu"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4857,17 +4848,17 @@ msgstr "Ieslēgt paziņojumus šim kontam"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "Paziņojumi var būt redzami arī tad, kad „NeoChat“ nav palaists."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Pašpiegādes paziņojumi ir pieejami, bet nav ieslēgti."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Paziņojumi būs redzami tikai tad, kad ir palaists „NeoChat“."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5556,18 +5547,17 @@ msgid "URL previews are disabled by default in this room"
 msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
-msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
+msgstr "URL priekšskatījumi jūsu kontam šobrīd ir izslēgti"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Ieslēgt"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
