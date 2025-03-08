@@ -5,6 +5,7 @@
 
 #include "neochatconfig.h"
 
+#include <Quotient/events/encryptedevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -120,6 +121,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
+        if (event->get().is<EncryptedEvent>()) {
+            return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(event->get().id()));
+        }
+
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
         if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()) {
             return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(roomMessageEvent->threadRootEventId()));
