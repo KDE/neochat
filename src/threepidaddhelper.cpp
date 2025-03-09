@@ -154,11 +154,11 @@ void ThreePIdAddHelper::finalizeNewIdAdd(const QString &password)
             authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->userId()}};
             const auto innerJob = m_connection->callApi<Add3PIDJob>(m_newIdSecret, m_newIdSid, authData);
             connect(innerJob, &Quotient::BaseJob::success, this, [this]() {
-                m_connection->threePIdModel()->refreshModel();
                 m_newIdSecret.clear();
                 m_newIdSid.clear();
                 m_newIdStatus = Success;
                 Q_EMIT newIdStatusChanged();
+                Q_EMIT threePIdAdded();
             });
             connect(innerJob, &Quotient::BaseJob::failure, this, [innerJob, this]() {
                 if (innerJob->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1) {
@@ -180,7 +180,7 @@ void ThreePIdAddHelper::remove3PId(const QString &threePId, const QString &type)
 {
     const auto job = m_connection->callApi<Quotient::Delete3pidFromAccountJob>(type, threePId);
     connect(job, &Quotient::BaseJob::success, this, [this]() {
-        m_connection->threePIdModel()->refreshModel();
+        Q_EMIT threePIdRemoved();
     });
 }
 
@@ -188,7 +188,7 @@ void ThreePIdAddHelper::unbind3PId(const QString &threePId, const QString &type)
 {
     const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
     connect(job, &Quotient::BaseJob::success, this, [this]() {
-        m_connection->threePIdModel()->refreshModel();
+        Q_EMIT threePIdUnbound();
     });
 }
 

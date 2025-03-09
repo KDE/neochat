@@ -12,6 +12,7 @@
 
 #include "models/messagecontentmodel.h"
 
+#include "neochatconnection.h"
 #include "testutils.h"
 
 using namespace Quotient;
@@ -32,7 +33,7 @@ private Q_SLOTS:
 
 void MessageContentModelTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
+    connection = new NeoChatConnection;
 }
 
 void MessageContentModelTest::missingEvent()

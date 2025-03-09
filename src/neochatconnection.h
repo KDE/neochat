@@ -14,7 +14,6 @@
 
 #include "enums/messagetype.h"
 #include "linkpreviewer.h"
-#include "models/threepidmodel.h"
 
 class NeoChatConnection : public Quotient::Connection
 {
@@ -36,11 +35,6 @@ class NeoChatConnection : public Quotient::Connection
      * @brief Whether URL previews are enabled globally.
      */
     Q_PROPERTY(bool globalUrlPreviewEnabled READ globalUrlPreviewEnabled WRITE setGlobalUrlPreviewEnabled NOTIFY globalUrlPreviewEnabledChanged)
-
-    /**
-     * @brief The model with the account's 3PIDs.
-     */
-    Q_PROPERTY(ThreePIdModel *threePIdModel READ threePIdModel CONSTANT)
 
     /**
      * @brief Whether an identity server is configured.
@@ -144,8 +138,6 @@ public:
 
     Q_INVOKABLE void deactivateAccount(const QString &password, bool erase);
 
-    ThreePIdModel *threePIdModel() const;
-
     bool hasIdentityServer() const;
 
     /**
@@ -233,8 +225,6 @@ Q_SIGNALS:
 private:
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
-
-    ThreePIdModel *m_threePIdModel;
 
     void connectSignals();
 

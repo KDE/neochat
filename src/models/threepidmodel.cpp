@@ -13,13 +13,35 @@
 
 using namespace Qt::StringLiterals;
 
-ThreePIdModel::ThreePIdModel(NeoChatConnection *connection)
-    : QAbstractListModel(connection)
+ThreePIdModel::ThreePIdModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
-    Q_ASSERT(connection);
-    connect(connection, &NeoChatConnection::stateChanged, this, [this]() {
+}
+
+NeoChatConnection *ThreePIdModel::connection() const
+{
+    return m_connection;
+}
+
+void ThreePIdModel::setConnection(NeoChatConnection *connection)
+{
+    if (m_connection == connection) {
+        return;
+    }
+
+    if (m_connection != nullptr) {
+        m_connection->disconnect(this);
+    }
+
+    m_connection = connection;
+    if (m_connection) {
+        connect(m_connection, &NeoChatConnection::stateChanged, this, [this]() {
+            refreshModel();
+        });
         refreshModel();
-    });
+    }
+
+    Q_EMIT connectionChanged();
 }
 
 QVariant ThreePIdModel::data(const QModelIndex &index, int role) const
@@ -62,12 +84,14 @@ QHash<int, QByteArray> ThreePIdModel::roleNames() const
 
 void ThreePIdModel::refreshModel()
 {
-    const auto connection = dynamic_cast<NeoChatConnection *>(this->parent());
-    if (connection != nullptr && connection->isLoggedIn()) {
-        const auto threePIdJob = connection->callApi<Quotient::GetAccount3PIDsJob>();
-        connect(threePIdJob, &Quotient::BaseJob::success, this, [this, threePIdJob]() {
+    if (m_connection != nullptr && m_connection->isLoggedIn()) {
+        if (m_job.isRunning()) {
+            m_job.cancel();
+        }
+        m_job = m_connection->callApi<Quotient::GetAccount3PIDsJob>();
+        connect(m_job, &Quotient::BaseJob::success, this, [this]() {
             beginResetModel();
-            m_threePIds = threePIdJob->threepids();
+            m_threePIds = m_job->threepids();
             endResetModel();
 
             refreshBindStatus();
@@ -77,25 +101,24 @@ void ThreePIdModel::refreshModel()
 
 void ThreePIdModel::refreshBindStatus()
 {
-    const auto connection = dynamic_cast<NeoChatConnection *>(this->parent());
-    if (connection == nullptr || !connection->hasIdentityServer()) {
+    if (m_connection == nullptr || !m_connection->hasIdentityServer()) {
         return;
     }
 
-    const auto openIdJob = connection->callApi<Quotient::RequestOpenIdTokenJob>(connection->userId());
-    connect(openIdJob, &Quotient::BaseJob::success, this, [this, connection, openIdJob]() {
-        const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
+    const auto openIdJob = m_connection->callApi<Quotient::RequestOpenIdTokenJob>(m_connection->userId());
+    connect(openIdJob, &Quotient::BaseJob::success, this, [this, openIdJob]() {
+        const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/account/register"_s);
         if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
             return;
         }
 
         QNetworkRequest request(requestUrl);
         auto newRequest = Quotient::NetworkAccessManager::instance()->post(request, QJsonDocument(openIdJob->jsonData()).toJson());
-        connect(newRequest, &QNetworkReply::finished, this, [this, connection, newRequest]() {
+        connect(newRequest, &QNetworkReply::finished, this, [this, newRequest]() {
             QJsonObject replyJson = QJsonDocument::fromJson(newRequest->readAll()).object();
             const auto identityServerToken = replyJson["token"_L1].toString();
 
-            const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/hash_details"_s);
+            const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/hash_details"_s);
             if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
                 return;
             }
@@ -104,11 +127,11 @@ void ThreePIdModel::refreshBindStatus()
             hashRequest.setRawHeader("Authorization", "Bearer " + identityServerToken.toLatin1());
 
             auto hashReply = Quotient::NetworkAccessManager::instance()->get(hashRequest);
-            connect(hashReply, &QNetworkReply::finished, this, [this, connection, identityServerToken, hashReply]() {
+            connect(hashReply, &QNetworkReply::finished, this, [this, identityServerToken, hashReply]() {
                 QJsonObject replyJson = QJsonDocument::fromJson(hashReply->readAll()).object();
                 const auto lookupPepper = replyJson["lookup_pepper"_L1].toString();
 
-                const auto requestUrl = QUrl(connection->identityServer().toString() + u"/_matrix/identity/v2/lookup"_s);
+                const auto requestUrl = QUrl(m_connection->identityServer().toString() + u"/_matrix/identity/v2/lookup"_s);
                 if (!(requestUrl.scheme() == u"https"_s || requestUrl.scheme() == u"http"_s)) {
                     return;
                 }
@@ -127,13 +150,13 @@ void ThreePIdModel::refreshBindStatus()
                 requestData["addresses"_L1] = idLookups;
 
                 auto lookupReply = Quotient::NetworkAccessManager::instance()->post(lookupRequest, QJsonDocument(requestData).toJson(QJsonDocument::Compact));
-                connect(lookupReply, &QNetworkReply::finished, this, [this, connection, lookupReply]() {
+                connect(lookupReply, &QNetworkReply::finished, this, [this, lookupReply]() {
                     beginResetModel();
                     m_bindings.clear();
 
                     QJsonObject mappings = QJsonDocument::fromJson(lookupReply->readAll()).object()["mappings"_L1].toObject();
                     for (const auto &id : mappings.keys()) {
-                        if (mappings[id] == connection->userId()) {
+                        if (mappings[id] == m_connection->userId()) {
                             m_bindings += id.section(u' ', 0, 0);
                         }
                     }

@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 
 #include <Quotient/csapi/administrative_contact.h>
+#include <Quotient/jobs/jobhandle.h>
 
 class NeoChatConnection;
 
@@ -19,19 +20,27 @@ class ThreePIdModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_UNCREATABLE("")
+
+    /**
+     * @brief The current connection for the model to use.
+     */
+    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
      * @brief Defines the model roles.
      */
-    enum EventRoles {
+    enum Roles {
         AddressRole = Qt::DisplayRole, /**< The third-party identifier address. */
         MediumRole, /**< The medium of the third-party identifier. One of: [email, msisdn]. */
         IsBoundRole, /**< Whether the 3PID is bound to the current identity server. */
     };
+    Q_ENUM(Roles)
 
-    explicit ThreePIdModel(NeoChatConnection *parent);
+    explicit ThreePIdModel(QObject *parent = nullptr);
+
+    [[nodiscard]] NeoChatConnection *connection() const;
+    void setConnection(NeoChatConnection *connection);
 
     /**
      * @brief Get the given role value at the given index.
@@ -56,8 +65,14 @@ public:
 
     Q_INVOKABLE void refreshModel();
 
+Q_SIGNALS:
+    void connectionChanged();
+
 private:
+    QPointer<NeoChatConnection> m_connection;
     QVector<Quotient::GetAccount3PIDsJob::ThirdPartyIdentifier> m_threePIds;
+
+    Quotient::JobHandle<Quotient::GetAccount3PIDsJob> m_job;
 
     QList<QString> m_bindings;
 

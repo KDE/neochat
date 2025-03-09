@@ -28,7 +28,10 @@ ColumnLayout {
         Repeater {
             id: deviceRepeater
             model: KSortFilterProxyModel {
-                sourceModel: root.connection.threePIdModel
+                sourceModel: ThreePIdModel {
+                    id: threePIdModel
+                    connection: root.connection
+                }
                 filterRoleName: "medium"
                 filterString: root.medium
             }
@@ -110,6 +113,9 @@ ColumnLayout {
                     connection: root.connection
                     newId: threePIdDelegate.address
                     medium: threePIdDelegate.medium
+
+                    onThreePIdBound: threePIdModel.refreshModel()
+                    onThreePIdUnbound: threePIdModel.refreshModel()
                 }
             }
 
@@ -130,7 +136,7 @@ ColumnLayout {
             label: i18nc("@label:textbox", "Country Code for new phone number")
 
             Connections {
-                target: root.connection.threePIdModel
+                target: threePIdModel
 
                 function onModelReset() {
                     newCountryCode.text = ""
@@ -170,7 +176,7 @@ ColumnLayout {
             onAccepted: _private.openPasswordSheet()
 
             Connections {
-                target: root.connection.threePIdModel
+                target: threePIdModel
 
                 function onModelReset() {
                     newId.text = ""
@@ -198,6 +204,10 @@ ColumnLayout {
         connection: root.connection
         medium: root.medium
         newId: newId.text
+
+        onThreePIdAdded: threePIdModel.refreshModel()
+        onThreePIdRemoved: threePIdModel.refreshModel()
+        onThreePIdUnbound: threePIdModel.refreshModel()
     }
 
     QtObject {

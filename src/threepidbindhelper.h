@@ -127,6 +127,16 @@ Q_SIGNALS:
     void newEmailSessionStartedChanged();
     void bindStatusChanged();
 
+    /**
+     * @brief A 3PID has been unbound.
+     */
+    void threePIdBound();
+
+    /**
+     * @brief A 3PID has been unbound.
+     */
+    void threePIdUnbound();
+
 private:
     QPointer<NeoChatConnection> m_connection;
     QString m_medium = QString();

@@ -37,7 +37,6 @@ using namespace Qt::StringLiterals;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
-    , m_threePIdModel(new ThreePIdModel(this))
 {
     m_linkPreviewers.setMaxCost(20);
     connectSignals();
@@ -45,7 +44,6 @@ NeoChatConnection::NeoChatConnection(QObject *parent)
 
 NeoChatConnection::NeoChatConnection(const QUrl &server, QObject *parent)
     : Connection(server, parent)
-    , m_threePIdModel(new ThreePIdModel(this))
 {
     m_linkPreviewers.setMaxCost(20);
     connectSignals();
@@ -297,11 +295,6 @@ void NeoChatConnection::deactivateAccount(const QString &password, const bool er
             });
         }
     });
-}
-
-ThreePIdModel *NeoChatConnection::threePIdModel() const
-{
-    return m_threePIdModel;
 }
 
 bool NeoChatConnection::hasIdentityServer() const

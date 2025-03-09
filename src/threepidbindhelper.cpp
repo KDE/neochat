@@ -6,6 +6,7 @@
 #include <QNetworkReply>
 
 #include <Quotient/converters.h>
+#include <Quotient/csapi/administrative_contact.h>
 #include <Quotient/csapi/definitions/auth_data.h>
 #include <Quotient/csapi/definitions/request_msisdn_validation.h>
 #include <Quotient/csapi/openid.h>
@@ -193,7 +194,7 @@ void ThreePIdBindHelper::finalizeNewIdBind()
     connect(job, &Quotient::BaseJob::success, this, [this] {
         m_bindStatus = Success;
         Q_EMIT bindStatusChanged();
-        m_connection->threePIdModel()->refreshModel();
+        Q_EMIT threePIdBound();
     });
     connect(job, &Quotient::BaseJob::failure, this, [this, job]() {
         if (job->jsonData()["errcode"_L1] == "M_SESSION_NOT_VALIDATED"_L1) {
@@ -211,7 +212,7 @@ void ThreePIdBindHelper::unbind3PId(const QString &threePId, const QString &type
     const auto job = m_connection->callApi<Quotient::Unbind3pidFromAccountJob>(type, threePId);
     connect(job, &Quotient::BaseJob::success, this, [this]() {
         cancel();
-        m_connection->threePIdModel()->refreshModel();
+        Q_EMIT threePIdUnbound();
     });
 }
 
