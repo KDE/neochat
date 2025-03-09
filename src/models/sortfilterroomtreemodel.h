@@ -32,7 +32,7 @@ class SortFilterRoomTreeModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_UNCREATABLE("")
+    // QML_UNCREATABLE("")
 
     /**
      * @brief The text to use to filter room names.
@@ -64,7 +64,7 @@ public:
     };
     Q_ENUM(Mode)
 
-    explicit SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent = nullptr);
+    explicit SortFilterRoomTreeModel(QObject *parent = nullptr);
 
     void setRoomSortOrder(RoomSortOrder sortOrder);
 

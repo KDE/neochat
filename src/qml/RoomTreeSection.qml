@@ -47,7 +47,7 @@ QQC2.ItemDelegate {
             opacity: 0.7
             level: 5
             type: Kirigami.Heading.Primary
-            text: root.collapsed ? "" : model.displayName
+            text: root.collapsed ? "" : root.displayName
             elide: Text.ElideRight
 
             // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text

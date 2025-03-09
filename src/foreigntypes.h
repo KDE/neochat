@@ -5,44 +5,29 @@
 
 #include <QQmlEngine>
 
-#include <Quotient/accountregistry.h>
-#include <Quotient/e2ee/sssshandler.h>
-#include <Quotient/keyimport.h>
-#include <Quotient/keyverificationsession.h>
-#include <Quotient/roommember.h>
+#include <QuotientNg/Accounts>
+#include <QuotientNg/Homeserver>
 
 #include "controller.h"
 #include "neochatconfig.h"
 
-struct ForeignAccountRegistry {
+struct ForeignAccounts {
     Q_GADGET
-    QML_FOREIGN(Quotient::AccountRegistry)
-    QML_NAMED_ELEMENT(AccountRegistry)
+    QML_ELEMENT
     QML_SINGLETON
-public:
-    static Quotient::AccountRegistry *create(QQmlEngine *, QJSEngine *)
+    QML_FOREIGN(Quotient::Accounts)
+    QML_NAMED_ELEMENT(Accounts)
+    static Quotient::Accounts *create(QQmlEngine *engine, QJSEngine *)
     {
-        QQmlEngine::setObjectOwnership(&Controller::instance().accounts(), QQmlEngine::CppOwnership);
-        return &Controller::instance().accounts();
+        auto &accounts = Controller::instance().accounts();
+        QQmlEngine::setObjectOwnership(&accounts, QQmlEngine::CppOwnership);
+        return &accounts;
     }
 };
 
-struct ForeignKeyVerificationSession {
+struct ForeignHomeserver {
     Q_GADGET
-    QML_FOREIGN(Quotient::KeyVerificationSession)
-    QML_NAMED_ELEMENT(KeyVerificationSession)
-    QML_UNCREATABLE("")
-};
-
-struct ForeignSSSSHandler {
-    Q_GADGET
-    QML_FOREIGN(Quotient::SSSSHandler)
-    QML_NAMED_ELEMENT(SSSSHandler)
-};
-
-struct ForeignKeyImport {
-    Q_GADGET
-    QML_SINGLETON
-    QML_FOREIGN(Quotient::KeyImport)
-    QML_NAMED_ELEMENT(KeyImport)
+    QML_ELEMENT
+    QML_FOREIGN(Quotient::Homeserver)
+    QML_NAMED_ELEMENT(Homeserver)
 };

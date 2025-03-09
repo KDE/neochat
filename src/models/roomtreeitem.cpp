@@ -12,11 +12,11 @@ RoomTreeItem::RoomTreeItem(TreeData data, RoomTreeItem *parent)
 
 bool RoomTreeItem::operator==(const RoomTreeItem &other) const
 {
-    if (std::holds_alternative<NeoChatRoomType::Types>(m_data) && std::holds_alternative<NeoChatRoomType::Types>(other.data())) {
-        return std::get<NeoChatRoomType::Types>(m_data) == std::get<NeoChatRoomType::Types>(m_data);
+    if (std::holds_alternative<NeoChatRoomType::Type>(m_data) && std::holds_alternative<NeoChatRoomType::Type>(other.data())) {
+        return std::get<NeoChatRoomType::Type>(m_data) == std::get<NeoChatRoomType::Type>(m_data);
     }
-    if (std::holds_alternative<NeoChatRoom *>(m_data) && std::holds_alternative<NeoChatRoom *>(other.data())) {
-        return std::get<NeoChatRoom *>(m_data)->id() == std::get<NeoChatRoom *>(m_data)->id();
+    if (std::holds_alternative<RoomWrapper *>(m_data) && std::holds_alternative<RoomWrapper *>(other.data())) {
+        return (*std::get<RoomWrapper *>(m_data)->item)->id() == (*std::get<RoomWrapper *>(other.data())->item)->id();
     }
     return false;
 }
@@ -84,13 +84,13 @@ RoomTreeItem::TreeData RoomTreeItem::data() const
     return m_data;
 }
 
-std::optional<int> RoomTreeItem::rowForRoom(Quotient::Room *room) const
+std::optional<int> RoomTreeItem::rowForRoom(rust::Box<sdk::RoomListRoom> room) const
 {
-    Q_ASSERT_X(std::holds_alternative<NeoChatRoomType::Types>(m_data), __FUNCTION__, "rowForRoom only works items for rooms not categories");
+    Q_ASSERT_X(std::holds_alternative<NeoChatRoomType::Type>(m_data), __FUNCTION__, "rowForRoom only works items for rooms not categories");
 
     int i = 0;
     for (const auto &child : m_children) {
-        if (std::get<NeoChatRoom *>(child->data()) == room) {
+        if ((*std::get<RoomWrapper *>(child->data())->item)->id() == room->id()) {
             return i;
         }
         i++;
