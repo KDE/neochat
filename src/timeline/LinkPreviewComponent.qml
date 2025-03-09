@@ -44,17 +44,12 @@ QQC2.Control {
     property bool truncated: linkPreviewDescription.truncated || !linkPreviewDescription.visible
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief Request for this delegate to be removed.
      */
     signal remove(int index)
 
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     Layout.minimumHeight: root.defaultHeight
 
     leftPadding: 0

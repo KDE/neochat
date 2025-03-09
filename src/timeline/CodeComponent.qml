@@ -38,11 +38,6 @@ QQC2.Control {
     required property var componentAttributes
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
@@ -54,7 +49,7 @@ QQC2.Control {
 
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     Layout.maximumHeight: Kirigami.Units.gridUnit * 20
 
     topPadding: 0
@@ -64,7 +59,7 @@ QQC2.Control {
 
     contentItem: QQC2.ScrollView {
         id: codeScrollView
-        contentWidth: root.maxContentWidth
+        contentWidth: root.Message.maxContentWidth
 
         // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
         QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff

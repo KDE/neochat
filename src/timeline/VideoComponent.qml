@@ -20,16 +20,6 @@ Video {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
-     * @brief The index of the delegate in the model.
-     */
-    required property var index
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -76,16 +66,6 @@ Video {
      * @brief Whether the video should be played when downloaded.
      */
     property bool playOnFinished: false
-
-    /**
-     * @brief The timeline ListView this component is being used in.
-     */
-    required property ListView timeline
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
 
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
@@ -382,13 +362,13 @@ Video {
                     text: i18n("Maximize")
                     icon.name: "view-fullscreen"
                     onTriggered: {
-                        root.timeline.interactive = false;
+                        root.Message.timeline.interactive = false;
                         root.pause();
                         // We need to make sure the index is that of the MediaMessageFilterModel.
-                        if (root.timeline.model instanceof MessageFilterModel) {
-                            RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
+                        if (root.Message.timeline.model instanceof MessageFilterModel) {
+                            RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.Message.index));
                         } else {
-                            RoomManager.maximizeMedia(root.index);
+                            RoomManager.maximizeMedia(root.Message.index);
                         }
                     }
                 }
@@ -440,7 +420,7 @@ Video {
 
     MediaSizeHelper {
         id: mediaSizeHelper
-        contentMaxWidth: root.maxContentWidth
+        contentMaxWidth: root.Message.maxContentWidth
         mediaWidth: root.mediaInfo.width
         mediaHeight: root.mediaInfo.height
     }
@@ -450,7 +430,7 @@ Video {
             playSavedFile();
         } else {
             playOnFinished = true;
-            root.room.downloadFile(root.eventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
+            Message.room.downloadFile(root.eventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
         }
     }
 

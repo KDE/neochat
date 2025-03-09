@@ -6,17 +6,14 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
  * @brief A component for an encrypted message that can't be decrypted.
  */
 TextEdit {
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     text: i18n("This message is encrypted and the sender has not shared the key with this device.")
     color: Kirigami.Theme.disabledTextColor

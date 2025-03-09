@@ -16,11 +16,6 @@ DelegateChooser {
     id: root
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief The reply has been clicked.
      */
     signal replyClicked()
@@ -29,16 +24,12 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Author
-        delegate: ReplyAuthorComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ReplyAuthorComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Text
         delegate: TextComponent {
-            maxContentWidth: root.maxContentWidth
-
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton
@@ -61,7 +52,7 @@ DelegateChooser {
 
             MediaSizeHelper {
                 id: mediaSizeHelper
-                contentMaxWidth: root.maxContentWidth
+                contentMaxWidth: Message.maxContentWidth
                 contentMaxHeight: Kirigami.Units.gridUnit * 5
                 mediaWidth: image.mediaInfo.width ?? 0
                 mediaHeight: image.mediaInfo.height ?? 0
@@ -85,7 +76,6 @@ DelegateChooser {
         roleValue: MessageComponentType.Code
         delegate: CodeComponent {
             Layout.maximumHeight: Kirigami.Units.gridUnit * 5
-            maxContentWidth: root.maxContentWidth
 
             MouseArea {
                 anchors.fill: parent
@@ -99,8 +89,6 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Quote
         delegate: QuoteComponent {
-            maxContentWidth: root.maxContentWidth
-
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton
@@ -137,10 +125,7 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Poll
-        delegate: PollComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: PollComponent {}
     }
 
     DelegateChoice {
@@ -161,16 +146,12 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Encrypted
-        delegate: EncryptedComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: EncryptedComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Loading
-        delegate: LoadComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: LoadComponent {}
     }
 
     DelegateChoice {

@@ -17,11 +17,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -34,13 +29,8 @@ ColumnLayout {
      */
     required property var pollHandler
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     spacing: 0
 
@@ -59,7 +49,7 @@ ColumnLayout {
             Layout.leftMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
             Layout.rightMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
 
-            checked: root.pollHandler.answers[root.room.localMember.id] ? root.pollHandler.answers[root.room.localMember.id].includes(modelData["id"]) : false
+            checked: root.pollHandler.answers[root.Message.room.localMember.id] ? root.pollHandler.answers[root.Message.room.localMember.id].includes(modelData["id"]) : false
             onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
             enabled: !root.pollHandler.hasEnded
             text: modelData["org.matrix.msc1767.text"]

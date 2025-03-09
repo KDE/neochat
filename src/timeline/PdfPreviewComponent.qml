@@ -20,11 +20,6 @@ Rectangle {
      */
     required property var componentAttributes
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
 
@@ -36,7 +31,7 @@ Rectangle {
 
         MediaSizeHelper {
             id: mediaSizeHelper
-            contentMaxWidth: root.maxContentWidth
+            contentMaxWidth: root.Message.maxContentWidth
             mediaWidth: root.componentAttributes.size.width
             mediaHeight: root.componentAttributes.size.height
         }

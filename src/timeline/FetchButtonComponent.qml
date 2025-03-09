@@ -18,17 +18,12 @@ Delegates.RoundedItemDelegate {
     id: root
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief Request more events in the thread be loaded.
      */
     signal fetchMoreEvents()
 
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     leftInset: 0
     rightInset: 0

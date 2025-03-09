@@ -17,16 +17,6 @@ Item {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
-     * @brief The index of the delegate in the model.
-     */
-    required property var index
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -55,16 +45,6 @@ Item {
      * @brief FileTransferInfo for any downloading files.
      */
     required property var fileTransferInfo
-
-    /**
-     * @brief The timeline ListView this component is being used in.
-     */
-    required property ListView timeline
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
 
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
@@ -153,13 +133,13 @@ Item {
             if (root.mediaInfo.animated) {
                 _private.imageItem.paused = true;
             }
-            root.timeline.interactive = false;
+            root.Message.timeline.interactive = false;
             if (!root.mediaInfo.isSticker) {
                 // We need to make sure the index is that of the MediaMessageFilterModel.
-                if (root.timeline.model instanceof MessageFilterModel) {
-                    RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.index));
+                if (root.Message.timeline.model instanceof MessageFilterModel) {
+                    RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.Message.index));
                 } else {
-                    RoomManager.maximizeMedia(root.index);
+                    RoomManager.maximizeMedia(root.Message.index);
                 }
             }
         }
@@ -170,7 +150,7 @@ Item {
             openSavedFile();
         } else {
             openOnFinished = true;
-            root.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(root.eventId));
+            Message.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
         }
     }
 
@@ -183,7 +163,7 @@ Item {
 
     MediaSizeHelper {
         id: mediaSizeHelper
-        contentMaxWidth: root.maxContentWidth
+        contentMaxWidth: root.Message.maxContentWidth
         mediaWidth: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.width ?? 0)
         mediaHeight: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.height ?? 0)
     }
