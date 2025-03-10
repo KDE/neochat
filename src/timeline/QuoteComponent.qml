@@ -7,6 +7,8 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 QQC2.Control {
     id: root
 
@@ -14,11 +16,6 @@ QQC2.Control {
      * @brief The display text of the message.
      */
     required property string display
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
 
     /**
      * @brief The user selected text has changed.
@@ -32,7 +29,7 @@ QQC2.Control {
 
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     topPadding: 0
     bottomPadding: 0

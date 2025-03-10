@@ -18,11 +18,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -32,24 +27,19 @@ ColumnLayout {
      */
     required property string display
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     LiveLocationsModel {
         id: liveLocationModel
         eventId: root.eventId
-        room: root.room
+        room: Message.room
     }
     MapView {
         id: mapView
         Layout.fillWidth: true
-        Layout.preferredWidth: root.maxContentWidth
-        Layout.preferredHeight: root.maxContentWidth / 16 * 9
+        Layout.preferredWidth: root.Message.maxContentWidth
+        Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
 
         map.center: QtPositioning.coordinate(liveLocationModel.boundingBox.y, liveLocationModel.boundingBox.x)
         map.zoomLevel: 15

@@ -23,16 +23,6 @@ QQC2.Control {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
-     * @brief The index of the delegate in the model.
-     */
-    required property var index
-
-    /**
      * @brief The message author.
      *
      * A Quotient::RoomMember object.
@@ -66,22 +56,7 @@ QQC2.Control {
      */
     property alias showBackground: bubbleBackground.visible
 
-    /**
-     * @brief The timeline ListView this component is being used in.
-     */
-    required property ListView timeline
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     required property bool isPending
-
-    /**
-     * @brief The reply has been clicked.
-     */
-    signal replyClicked(string eventID)
 
     /**
      * @brief The user selected text has changed.
@@ -108,6 +83,7 @@ QQC2.Control {
         ColumnLayout {
             id: contentColumn
             spacing: Kirigami.Units.smallSpacing
+
             Repeater {
                 id: contentRepeater
                 model: MessageContentFilterModel {
@@ -115,14 +91,6 @@ QQC2.Control {
                     sourceModel: root.contentModel
                 }
                 delegate: MessageComponentChooser {
-                    room: root.room
-                    index: root.index
-                    timeline: root.timeline
-                    maxContentWidth: root.maxContentWidth
-
-                    onReplyClicked: eventId => {
-                        root.replyClicked(eventId);
-                    }
                     onSelectedTextChanged: selectedText => {
                         root.selectedTextChanged(selectedText);
                     }

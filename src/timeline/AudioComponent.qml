@@ -19,11 +19,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -56,11 +51,6 @@ ColumnLayout {
         audio.play();
     }
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     MediaPlayer {
         id: audio
         onErrorOccurred: (error, errorString) => console.warn("Audio playback error:" + error + errorString)
@@ -75,7 +65,7 @@ ColumnLayout {
             PropertyChanges {
                 target: playButton
                 icon.name: "media-playback-start"
-                onClicked: root.room.downloadFile(root.eventId)
+                onClicked: Message.room.downloadFile(root.eventId)
             }
         },
         State {
@@ -89,7 +79,7 @@ ColumnLayout {
                 target: playButton
                 icon.name: "media-playback-stop"
                 onClicked: {
-                    root.room.cancelFileTransfer(root.eventId);
+                    Message.room.cancelFileTransfer(root.eventId);
                 }
             }
         },
@@ -159,7 +149,7 @@ ColumnLayout {
         }
 
         QQC2.Label {
-            visible: root.maxContentWidth > Kirigami.Units.gridUnit * 12
+            visible: root.Message.maxContentWidth > Kirigami.Units.gridUnit * 12
 
             text: Format.formatDuration(audio.position) + "/" + Format.formatDuration(audio.duration)
         }
@@ -167,7 +157,7 @@ ColumnLayout {
     QQC2.Label {
         Layout.alignment: Qt.AlignRight
         Layout.rightMargin: Kirigami.Units.smallSpacing
-        visible: audio.hasAudio && root.maxContentWidth < Kirigami.Units.gridUnit * 12
+        visible: audio.hasAudio && root.Message.maxContentWidth < Kirigami.Units.gridUnit * 12
 
         text: Format.formatDuration(audio.position) + "/" + Format.formatDuration(audio.duration)
     }

@@ -14,11 +14,6 @@ BaseMessageComponentChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.ThreadBody
-        delegate: ThreadBodyComponent {
-            room: root.room
-            index: root.index
-            timeline: root.timeline
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ThreadBodyComponent {}
     }
 }

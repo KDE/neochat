@@ -16,31 +16,6 @@ DelegateChooser {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
-     * @brief The index of the delegate in the model.
-     */
-    required property var index
-
-    /**
-     * @brief The timeline ListView this component is being used in.
-     */
-    required property ListView timeline
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
-     * @brief The reply has been clicked.
-     */
-    signal replyClicked(string eventID)
-
-    /**
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
@@ -66,15 +41,12 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Author
-        delegate: AuthorComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: AuthorComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Text
         delegate: TextComponent {
-            maxContentWidth: root.maxContentWidth
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
             onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
             onShowMessageMenu: root.showMessageMenu()
@@ -83,28 +55,17 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Image
-        delegate: ImageComponent {
-            room: root.room
-            index: root.index
-            timeline: root.timeline
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ImageComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Video
-        delegate: VideoComponent {
-            room: root.room
-            index: root.index
-            timeline: root.timeline
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: VideoComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Code
         delegate: CodeComponent {
-            maxContentWidth: root.maxContentWidth
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }
@@ -115,7 +76,6 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Quote
         delegate: QuoteComponent {
-            maxContentWidth: root.maxContentWidth
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }
@@ -125,86 +85,57 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Audio
-        delegate: AudioComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: AudioComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.File
-        delegate: FileComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: FileComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Itinerary
-        delegate: ItineraryComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ItineraryComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Pdf
-        delegate: PdfPreviewComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: PdfPreviewComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Poll
-        delegate: PollComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: PollComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Location
-        delegate: LocationComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: LocationComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.LiveLocation
-        delegate: LiveLocationComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: LiveLocationComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Encrypted
-        delegate: EncryptedComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: EncryptedComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Reply
-        delegate: ReplyComponent {
-            maxContentWidth: root.maxContentWidth
-            onReplyClicked: eventId => {
-                root.replyClicked(eventId);
-            }
-        }
+        delegate: ReplyComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Reaction
-        delegate: ReactionComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ReactionComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.LinkPreview
         delegate: LinkPreviewComponent {
-            maxContentWidth: root.maxContentWidth
             onRemove: index => root.removeLinkPreview(index)
         }
     }
@@ -213,31 +144,23 @@ DelegateChooser {
         roleValue: MessageComponentType.LinkPreviewLoad
         delegate: LinkPreviewLoadComponent {
             type: LinkPreviewLoadComponent.LinkPreview
-            maxContentWidth: root.maxContentWidth
             onRemove: index => root.removeLinkPreview(index)
         }
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.ChatBar
-        delegate: ChatBarComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ChatBarComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.ReplyButton
-        delegate: ReplyButtonComponent {
-            room: root.room
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: ReplyButtonComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.FetchButton
         delegate: FetchButtonComponent {
-            maxContentWidth: root.maxContentWidth
             onFetchMoreEvents: root.fetchMoreEvents()
         }
     }
@@ -252,16 +175,14 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Loading
-        delegate: LoadComponent {
-            maxContentWidth: root.maxContentWidth
-        }
+        delegate: LoadComponent {}
     }
 
     DelegateChoice {
         roleValue: MessageComponentType.Separator
         delegate: Kirigami.Separator {
             Layout.fillWidth: true
-            Layout.maximumWidth: root.maxContentWidth
+            Layout.maximumWidth: Message.maxContentWidth
         }
     }
 

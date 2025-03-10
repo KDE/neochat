@@ -18,22 +18,12 @@ Delegates.RoundedItemDelegate {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The thread root ID.
      */
     required property string threadRoot
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     leftInset: 0
     rightInset: 0
@@ -44,9 +34,9 @@ Delegates.RoundedItemDelegate {
     text: i18nc("@action:button", "Reply")
 
     onClicked: {
-        root.room.threadCache.replyId = "";
-        root.room.threadCache.threadId = root.threadRoot;
-        root.room.mainCache.clearRelations();
-        root.room.editCache.clearRelations();
+        Message.room.threadCache.replyId = "";
+        Message.room.threadCache.threadId = root.threadRoot;
+        Message.room.mainCache.clearRelations();
+        Message.room.editCache.clearRelations();
     }
 }

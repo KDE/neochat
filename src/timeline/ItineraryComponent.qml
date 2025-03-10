@@ -9,6 +9,8 @@ import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
  * @brief A component to show a preview of a file that can integrate with KDE itinerary.
  */
@@ -20,13 +22,8 @@ ColumnLayout {
      */
     required property var itineraryModel
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     spacing: Kirigami.Units.largeSpacing
 
     Repeater {

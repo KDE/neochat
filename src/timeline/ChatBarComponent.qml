@@ -17,24 +17,14 @@ QQC2.TextArea {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The ChatBarCache to use.
      */
     required property ChatBarCache chatBarCache
     onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
     Layout.preferredWidth: textMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     Layout.minimumHeight: chatButtons.height + topPadding + bottomPadding
 
     Component.onCompleted: _private.updateText()
@@ -124,7 +114,7 @@ QQC2.TextArea {
         height: implicitHeight
         y: -height - 5
         z: 10
-        connection: root.room.connection
+        connection: root.Message.room.connection
         chatDocumentHandler: documentHandler
         Behavior on height {
             NumberAnimation {
@@ -144,7 +134,7 @@ QQC2.TextArea {
         cursorPosition: root.cursorPosition
         selectionStart: root.selectionStart
         selectionEnd: root.selectionEnd
-        room: root.room // We don't care about saving for edits so this is OK.
+        room: root.Message.room // We don't care about saving for edits so this is OK.
         mentionColor: Kirigami.Theme.linkColor
         errorColor: Kirigami.Theme.negativeTextColor
     }

@@ -36,18 +36,13 @@ TextEdit {
     property bool spoilerRevealed: !hasSpoiler.test(display)
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief Request a context menu be show for the message.
      */
     signal showMessageMenu
 
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
 

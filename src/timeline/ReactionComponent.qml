@@ -14,11 +14,6 @@ Flow {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -28,14 +23,9 @@ Flow {
      */
     required property ReactionModel reactionModel
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     spacing: Kirigami.Units.smallSpacing
 
@@ -79,7 +69,9 @@ Flow {
                 }
             }
 
-            onClicked: root.room.toggleReaction(root.eventId, reactionDelegate.reaction)
+            onClicked: {
+                root.Message.room.toggleReaction(root.eventId, reactionDelegate.reaction)
+            }
 
             hoverEnabled: true
 
@@ -114,7 +106,7 @@ Flow {
         onClicked: {
             var dialog = emojiDialog.createObject(reactButton);
             dialog.chosen.connect(emoji => {
-                root.room.toggleReaction(root.eventId, emoji);
+                root.Message.room.toggleReaction(root.eventId, emoji);
                 if (!Kirigami.Settings.isMobile) {
                     root.focusChatBar();
                 }
@@ -133,7 +125,7 @@ Flow {
         id: emojiDialog
 
         EmojiDialog {
-            currentRoom: root.room
+            currentRoom: root.Message.room
             showQuickReaction: true
         }
     }

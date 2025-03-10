@@ -21,11 +21,6 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -65,14 +60,9 @@ ColumnLayout {
      */
     property bool autoOpenFile: false
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.Overlay.overlay);
-        dialog.selectedFile = root.room.fileNameToDownload(root.eventId);
+        dialog.selectedFile = Message.room.fileNameToDownload(root.eventId);
         dialog.open();
     }
 
@@ -81,7 +71,7 @@ ColumnLayout {
     }
 
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     spacing: Kirigami.Units.largeSpacing
 
     RowLayout {
@@ -138,7 +128,7 @@ ColumnLayout {
                     target: downloadButton
                     icon.name: "media-playback-stop"
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                    onClicked: root.room.cancelFileTransfer(root.eventId)
+                    onClicked: Message.room.cancelFileTransfer(root.eventId)
                 }
             }
         ]
@@ -171,7 +161,7 @@ ColumnLayout {
             icon.name: "document-open"
             onClicked: {
                 autoOpenFile = true;
-                root.room.downloadTempFile(root.eventId);
+                root.Message.room.downloadTempFile(root.eventId);
             }
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
@@ -201,7 +191,7 @@ ColumnLayout {
                     if (autoOpenFile) {
                         UrlHelper.copyTo(root.fileTransferInfo.localPath, selectedFile);
                     } else {
-                        root.room.download(root.eventId, selectedFile);
+                        root.Message.room.download(root.eventId, selectedFile);
                     }
                 }
             }

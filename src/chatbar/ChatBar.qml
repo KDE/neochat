@@ -349,7 +349,7 @@ QQC2.Control {
                 replyEventId: _private.chatBarCache.replyId
                 replyAuthor: _private.chatBarCache.relationAuthor
                 replyContentModel: _private.chatBarCache.relationEventContentModel
-                maxContentWidth: paneLoader.item.width
+                Message.maxContentWidth: paneLoader.item.width
             }
             QQC2.Button {
                 id: cancelButton

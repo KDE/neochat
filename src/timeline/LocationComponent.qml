@@ -49,19 +49,14 @@ ColumnLayout {
      */
     required property string asset
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     MapView {
         id: mapView
         Layout.fillWidth: true
-        Layout.preferredWidth: root.maxContentWidth
-        Layout.preferredHeight: root.maxContentWidth / 16 * 9
+        Layout.preferredWidth: root.Message.maxContentWidth
+        Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
 
         map.center: QtPositioning.coordinate(root.latitude, root.longitude)
         map.zoomLevel: 15

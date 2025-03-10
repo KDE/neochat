@@ -31,13 +31,8 @@ RowLayout {
      */
     required property string timeString
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
 

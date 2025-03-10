@@ -7,6 +7,8 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
  * @brief A component to show that part of a message is loading.
  */
@@ -15,13 +17,8 @@ RowLayout {
 
     required property string display
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     spacing: Kirigami.Units.smallSpacing
 
     QQC2.BusyIndicator {}

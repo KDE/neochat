@@ -144,12 +144,6 @@ TimelineDelegate {
     signal openExternally
 
     /**
-     * @brief The reply has been clicked.
-     */
-    signal replyClicked(string eventID)
-    onReplyClicked: eventID => ListView.view.goToEvent(eventID)
-
-    /**
      * @brief The main delegate content item to show in the bubble.
      */
     property var bubbleContent
@@ -197,6 +191,11 @@ TimelineDelegate {
      * @brief The width available to the bubble content.
      */
     property real contentMaxWidth: (root.isThreaded ? bubbleSizeHelper.parentWidth : bubbleSizeHelper.currentWidth) - bubble.leftPadding - bubble.rightPadding
+
+    Message.room: root.room
+    Message.timeline: root.ListView.view
+    Message.index: root.index
+    Message.maxContentWidth: contentMaxWidth
 
     width: parent?.width
     rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
@@ -255,7 +254,6 @@ TimelineDelegate {
                 anchors.left: avatar.right
                 anchors.leftMargin: Kirigami.Units.largeSpacing
                 anchors.rightMargin: rightPadding
-                maxContentWidth: root.contentMaxWidth
 
                 topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
                 bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
@@ -284,22 +282,16 @@ TimelineDelegate {
                     }
                 ]
 
-                room: root.room
-                index: root.index
                 author: root.author
                 showAuthor: root.showAuthor
                 isThreaded: root.isThreaded
 
                 contentModel: root.contentModel
-                timeline: root.ListView.view
 
                 showHighlight: root.showHighlight
 
                 isPending: root.isPending
 
-                onReplyClicked: eventId => {
-                    root.replyClicked(eventId);
-                }
                 onSelectedTextChanged: selectedText => {
                     root.selectedText = selectedText;
                 }

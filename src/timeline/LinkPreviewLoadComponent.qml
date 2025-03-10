@@ -7,6 +7,8 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
+
 /**
  * @brief A component to show a link preview loading from a message.
  */
@@ -29,11 +31,6 @@ QQC2.Control {
     property var defaultHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
 
     /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
      * @brief Request for this delegate to be removed.
      */
     signal remove(int index)
@@ -44,7 +41,7 @@ QQC2.Control {
     }
 
     Layout.fillWidth: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
 
     contentItem : RowLayout {
         spacing: Kirigami.Units.smallSpacing

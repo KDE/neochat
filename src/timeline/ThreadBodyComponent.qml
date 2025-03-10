@@ -17,34 +17,9 @@ ColumnLayout {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property NeoChatRoom room
-
-    /**
-     * @brief The index of the delegate in the model.
-     */
-    required property var index
-
-    /**
      * @brief The Matrix ID of the root message in the thread, if any.
      */
     required property string threadRoot
-
-    /**
-     * @brief The timeline ListView this component is being used in.
-     */
-    required property ListView timeline
-
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
-     * @brief The reply has been clicked.
-     */
-    signal replyClicked(string eventID)
 
     /**
      * @brief The user selected text has changed.
@@ -63,22 +38,14 @@ ColumnLayout {
 
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.maximumWidth: root.maxContentWidth
+    Layout.maximumWidth: Message.maxContentWidth
     spacing: Kirigami.Units.smallSpacing
 
     Repeater {
         id: threadRepeater
-        model: root.room.modelForThread(root.threadRoot);
+        model: root.Message.room.modelForThread(root.threadRoot);
 
         delegate: BaseMessageComponentChooser {
-            room: root.room
-            index: root.index
-            timeline: root.timeline
-            maxContentWidth: root.maxContentWidth
-
-            onReplyClicked: eventId => {
-                root.replyClicked(eventId);
-            }
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }

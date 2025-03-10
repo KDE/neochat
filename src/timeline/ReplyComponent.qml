@@ -43,16 +43,6 @@ RowLayout {
      */
     required property var replyContentModel
 
-    /**
-     * @brief The maximum width that the bubble's content can be.
-     */
-    property real maxContentWidth: -1
-
-    /**
-     * @brief The reply has been clicked.
-     */
-    signal replyClicked(string eventID)
-
     Layout.fillWidth: true
 
     spacing: Kirigami.Units.largeSpacing
@@ -69,13 +59,13 @@ RowLayout {
         id: contentColumn
         spacing: Kirigami.Units.smallSpacing
 
+        Message.maxContentWidth: _private.availableContentWidth
+
         Repeater {
             id: contentRepeater
             model: root.replyContentModel
             delegate: ReplyMessageComponentChooser {
-                maxContentWidth: _private.availableContentWidth
-
-                onReplyClicked: root.replyClicked(root.replyEventId)
+                onReplyClicked: root.Message.timeline.goToEvent(root.replyEventId)
             }
         }
     }
@@ -84,11 +74,11 @@ RowLayout {
     }
     TapHandler {
         acceptedButtons: Qt.LeftButton
-        onTapped: root.replyClicked(root.replyEventId)
+        onTapped: root.Message.timeline.goToEvent(root.replyEventId)
     }
     QtObject {
         id: _private
         // The space available for the component after taking away the border
-        readonly property real availableContentWidth: root.maxContentWidth - verticalBorder.implicitWidth - root.spacing
+        readonly property real availableContentWidth: root.Message.maxContentWidth - verticalBorder.implicitWidth - root.spacing
     }
 }
