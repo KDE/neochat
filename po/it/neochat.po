@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-03-01 07:47+0100\n"
+"POT-Creation-Date: 2025-03-10 00:42+0000\n"
+"PO-Revision-Date: 2025-03-06 16:43+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1074,7 +1074,7 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:250
-#: src/settings/ThreePIdCard.qml:183
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1968,7 +1968,7 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 ti ha invitato"
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:75
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1977,18 +1977,18 @@ msgstr ""
 "File troppo grande per essere scaricato.<br />Contatta l'amministratore del "
 "server Matrix per assistenza."
 
-#: src/neochatconnection.cpp:336
+#: src/neochatconnection.cpp:329
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nessun server delle identità configurato"
 
-#: src/neochatconnection.cpp:367
+#: src/neochatconnection.cpp:360
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creazione della stanza non riuscita: %1"
 
-#: src/neochatconnection.cpp:397
+#: src/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
@@ -2128,13 +2128,14 @@ msgstr "Verifica questo dispositivo"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Richiesta di verifica inviata"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
+"Per continuare, accetta la richiesta di verifica su un altro dispositivo."
 
 #: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -5913,86 +5914,86 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Seleziona il parametro da aggiungere"
 
-#: src/settings/ThreePIdCard.qml:55
+#: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide"
 msgstr "Nascondi"
 
-#: src/settings/ThreePIdCard.qml:61
+#: src/settings/ThreePIdCard.qml:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Condividi"
 
-#: src/settings/ThreePIdCard.qml:66
+#: src/settings/ThreePIdCard.qml:69
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: src/settings/ThreePIdCard.qml:85
+#: src/settings/ThreePIdCard.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Completata"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/settings/ThreePIdCard.qml:130
+#: src/settings/ThreePIdCard.qml:136
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "Prefisso internazionale per il nuovo numero di telefono"
 
-#: src/settings/ThreePIdCard.qml:146
+#: src/settings/ThreePIdCard.qml:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
 msgstr "Nuovo indirizzo di posta:"
 
-#: src/settings/ThreePIdCard.qml:146
+#: src/settings/ThreePIdCard.qml:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Nuovo numero di telefono:"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Ti abbiamo inviato un messaggio di posta elettronica"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Ti abbiamo inviato un messaggio di testo"
 
-#: src/settings/ThreePIdCard.qml:150
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Segui le istruzioni presenti e poi fai clic sul pulsante qui sotto"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
+#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "L'indirizzo di posta digitato non è valido"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
+#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Il numero di telefono digitato non è valido"
 
-#: src/settings/ThreePIdCard.qml:154
+#: src/settings/ThreePIdCard.qml:160
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "È stata digitata una password errata"
 
-#: src/settings/ThreePIdCard.qml:156
+#: src/settings/ThreePIdCard.qml:162
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -6001,7 +6002,7 @@ msgstr ""
 "L'indirizzo di posta elettronica non è stato verificato. Vai al messaggio di "
 "posta e segui le istruzioni presenti, quindi fai clic sul pulsante in basso"
 
-#: src/settings/ThreePIdCard.qml:156
+#: src/settings/ThreePIdCard.qml:162
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -6010,25 +6011,25 @@ msgstr ""
 "Il numero di telefono non è stato verificato. Vai al messaggio di testo e "
 "segui le istruzioni presenti, quindi fai clic sul pulsante in basso"
 
-#: src/settings/ThreePIdCard.qml:183
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Aggiungi"
 
-#: src/settings/ThreePIdCard.qml:191
+#: src/settings/ThreePIdCard.qml:197
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/threepidbindhelper.cpp:177
+#: src/threepidbindhelper.cpp:178
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr "%1. Segui le istruzioni presenti e poi fai clic sul pulsante qui sopra"
 
-#: src/threepidbindhelper.cpp:183
+#: src/threepidbindhelper.cpp:184
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -6037,7 +6038,7 @@ msgstr ""
 "L'indirizzo di posta elettronica non è stato verificato. Vai al messaggio di "
 "posta e segui le istruzioni presenti, quindi fai clic sul pulsante in alto"
 
-#: src/threepidbindhelper.cpp:184
+#: src/threepidbindhelper.cpp:185
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-01-28 18:09+0200\n"
+"POT-Creation-Date: 2025-03-10 00:42+0000\n"
+"PO-Revision-Date: 2025-02-14 19:43+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1066,7 +1066,7 @@ msgid "Loading…"
 msgstr "Ladataan…"
 
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:250
-#: src/settings/ThreePIdCard.qml:183
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1955,7 +1955,7 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 kutsui sinut huoneeseen"
 
-#: src/neochatconnection.cpp:77
+#: src/neochatconnection.cpp:75
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1964,18 +1964,18 @@ msgstr ""
 "Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
 "ylläpidolta."
 
-#: src/neochatconnection.cpp:336
+#: src/neochatconnection.cpp:329
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Henkilöyspalvelinta ei ole määritetty"
 
-#: src/neochatconnection.cpp:367
+#: src/neochatconnection.cpp:360
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/neochatconnection.cpp:397
+#: src/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
@@ -2013,10 +2013,9 @@ msgid "Reply"
 msgstr "Vastaa"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply…"
-msgstr "Vastaa"
+msgstr "Vastaa…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2226,13 +2225,13 @@ msgstr "Salasana"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Pyyhi tiedot"
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
-msgstr ""
+msgstr "Pyydä palvelinta poistamaan käyttäjätietojasi mahdollisimman paljon."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:43
 #, kde-format
@@ -2759,8 +2758,7 @@ msgid "Configure NeoChat…"
 msgstr "NeoChatin asetukset…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "NeoChatin asetukset…"
@@ -3056,18 +3054,16 @@ msgid "Successfully verified device **%1**"
 msgstr "Laitteen **%1** vahvistaminen onnistui"
 
 #: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
-#| msgid "The session verification timed out."
+#, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "Istunnon vahvistaminen aikakatkaistiin."
+msgstr "Jatka valitsemalla todennustapa"
 
 #: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Emoji Verification"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
-msgstr "Emojin vahvistaminen"
+msgstr "Emoji-todennus"
 
 #: src/qml/LocationChooser.qml:22
 #, kde-format
@@ -3210,10 +3206,9 @@ msgid "Search for '%1'"
 msgstr "Etsi: ”%1”"
 
 #: src/qml/MessageDelegateContextMenu.qml:128
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure Web Shortcuts…"
-msgstr "WWW-pikavalintojen asetukset…"
+msgstr "Verkkopikavalintojen asetukset…"
 
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
@@ -3493,18 +3488,16 @@ msgid "Show locations for this room"
 msgstr "Näytä sijainnit tälle huoneelle"
 
 #: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
-msgstr "Etsi viestejä…"
+msgstr "Kiinnitetyt viestit"
 
 #: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr "Suoraviestit"
+msgstr "Kiinnitetyt viestit"
 
 #: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
 #, kde-format
@@ -3604,12 +3597,10 @@ msgid "Message Source"
 msgstr "Viestin lähde"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Edennä viesti"
+msgstr "Ei kiinnitettyjä viestejä"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3889,11 +3880,10 @@ msgid "Load your encrypted messages"
 msgstr "Lataa salatut viestisi"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Salausavain"
+msgstr "Salausavaimet palautettu."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -3980,14 +3970,12 @@ msgid "Account Details"
 msgstr "Tilin tiedot"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Kutsut huoneeseen"
-msgstr[1] "Kutsut huoneeseen"
+msgstr[0] "Yksi yhteinen huone"
+msgstr[1] "%1 yhteistä huonetta"
 
 #: src/qml/UserDetailDialog.qml:136
 #, kde-format
@@ -4431,36 +4419,31 @@ msgid "Password"
 msgstr "Salasana"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
-#| msgid "Your server doesn't support changing your password"
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
-msgstr "Palvelimesi ei tue salasanan vaihtamista"
+msgstr "Palvelin ei tue salasanan vaihtamista"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
-#| msgid "Current Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Nykyinen salasana:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
-#| msgid "New Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Uusi salasana:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Vahvista uusi salasana:"
 
 #: src/settings/AccountEditorPage.qml:185
-#, fuzzy, kde-format
-#| msgid "Passwords don't match"
+#, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Salasanat eivät täsmää"
@@ -4506,23 +4489,19 @@ msgid "Deactivate Account"
 msgstr "Passivoi tili"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
 #: src/settings/AccountEditorPage.qml:275
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Invalid passphrase"
+#, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Virheellinen salasana"
 
 #: src/settings/AccountEditorPage.qml:278
-#, fuzzy, kde-format
-#| msgid "Unknown problem while trying to change password"
+#, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
 msgstr "Tuntematon ongelma yritettäessä vaihtaa salasanaa"
@@ -5222,7 +5201,7 @@ msgstr "Palvelin ei tue tätä asetusta."
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Käytä uusiin keskusteluihin salausta"
 
 #: src/settings/NeoChatSecurityPage.qml:75
 #, kde-format
@@ -5230,6 +5209,7 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"Jos käytössä, NeoChat käyttää salausta aloitettaessa uusia suoraviestejä."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
@@ -5649,28 +5629,25 @@ msgstr "Valitse uusi versio"
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
-msgstr ""
+msgstr "Mukauta profiiliasi vain tälle huoneelle."
 
 #: src/settings/RoomProfile.qml:38
-#, fuzzy, kde-format
-#| msgid "Display Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
-msgstr "Näyttönimi:"
+msgstr "Näyttönimi"
 
 #: src/settings/RoomProfile.qml:48
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Tallenna"
 
 #: src/settings/RoomProfile.qml:54
-#, fuzzy, kde-format
-#| msgid "System Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
-msgstr "Järjestelmän oletus"
+msgstr "Palauta oletukseksi"
 
 #: src/settings/RoomSecurityPage.qml:20
 #, kde-format
@@ -5832,11 +5809,10 @@ msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
 #: src/settings/RoomSettingsView.qml:84
-#, fuzzy, kde-format
-#| msgid "a file"
+#, kde-format
 msgctxt "@title"
 msgid "Profile"
-msgstr "tiedosto"
+msgstr "Profiili"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -5880,86 +5856,86 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Valitse lisättävä parametri"
 
-#: src/settings/ThreePIdCard.qml:55
+#: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide"
 msgstr "Piilota"
 
-#: src/settings/ThreePIdCard.qml:61
+#: src/settings/ThreePIdCard.qml:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Jaa"
 
-#: src/settings/ThreePIdCard.qml:66
+#: src/settings/ThreePIdCard.qml:69
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/settings/ThreePIdCard.qml:85
+#: src/settings/ThreePIdCard.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Complete"
 msgstr "Valmis"
 
-#: src/settings/ThreePIdCard.qml:90 src/timeline/ChatBarComponent.qml:110
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/settings/ThreePIdCard.qml:130
+#: src/settings/ThreePIdCard.qml:136
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Country Code for new phone number"
 msgstr "Uuden puhelinnumeron maakoodi"
 
-#: src/settings/ThreePIdCard.qml:146
+#: src/settings/ThreePIdCard.qml:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Email Address:"
 msgstr "Uusi sähköpostiosoite:"
 
-#: src/settings/ThreePIdCard.qml:146
+#: src/settings/ThreePIdCard.qml:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Uusi puhelinnumero:"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "We've sent you an email"
 msgstr "Sinulle on lähetetty sähköpostia"
 
-#: src/settings/ThreePIdCard.qml:150 src/threepidbindhelper.cpp:178
+#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
 #, kde-format
 msgid "We've sent you a text message"
 msgstr "Sinulle on lähetetty tekstiviesti"
 
-#: src/settings/ThreePIdCard.qml:150
+#: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Seuraa annettuja ohjeita ja napsauta sitten alla olevaa painiketta"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
+#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
 #, kde-format
 msgid "The entered email is not valid"
 msgstr "Annettu sähköpostiosoite ei ole kelvollinen"
 
-#: src/settings/ThreePIdCard.qml:152 src/threepidbindhelper.cpp:180
+#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
 #, kde-format
 msgid "The entered phone number is not valid"
 msgstr "Annettu puhelinnumero ei ole kelvollinen"
 
-#: src/settings/ThreePIdCard.qml:154
+#: src/settings/ThreePIdCard.qml:160
 #, kde-format
 msgid "Incorrect password entered"
 msgstr "Annettiin väärä salasana"
 
-#: src/settings/ThreePIdCard.qml:156
+#: src/settings/ThreePIdCard.qml:162
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -5968,7 +5944,7 @@ msgstr ""
 "Sähköpostiosoitetta ei ole vahvistettu. Siirry viestiin, seuraa sen ohjeita "
 "ja napsauta sitten alla olevaa painiketta"
 
-#: src/settings/ThreePIdCard.qml:156
+#: src/settings/ThreePIdCard.qml:162
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -5977,25 +5953,25 @@ msgstr ""
 "Puhelinnumeroa ei ole vahvistettu. Siirry tekstiviestiin, noudata sen "
 "ohjeita ja napsauta sitten alla olevaa painiketta"
 
-#: src/settings/ThreePIdCard.qml:183
+#: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button Add new email or phone number"
 msgid "Add"
 msgstr "Lisää"
 
-#: src/settings/ThreePIdCard.qml:191
+#: src/settings/ThreePIdCard.qml:197
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Takaisin"
 
-#: src/threepidbindhelper.cpp:177
+#: src/threepidbindhelper.cpp:178
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button above"
 msgstr "%1. Seuraa annettuja ohjeita ja napsauta sitten alla olevaa painiketta"
 
-#: src/threepidbindhelper.cpp:183
+#: src/threepidbindhelper.cpp:184
 #, kde-format
 msgid ""
 "The email has not been verified. Please go to the email and follow the "
@@ -6004,7 +5980,7 @@ msgstr ""
 "Sähköpostiosoitetta ei ole vahvistettu. Siirry viestiin, seuraa sen ohjeita "
 "ja napsauta sitten alla olevaa painiketta"
 
-#: src/threepidbindhelper.cpp:184
+#: src/threepidbindhelper.cpp:185
 #, kde-format
 msgid ""
 "The phone number has not been verified. Please go to the text message and "
@@ -6053,7 +6029,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "Nouda lisää tapahtumia"
 
 #: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
 #, kde-format
@@ -6159,8 +6135,7 @@ msgid "(Ended)"
 msgstr "(päättynyt)"
 
 #: src/timeline/ReactionComponent.qml:97
-#, fuzzy, kde-format
-#| msgid "React"
+#, kde-format
 msgctxt "@button"
 msgid "React"
 msgstr "Reagoi"
