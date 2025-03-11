@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-10 00:42+0000\n"
+"POT-Creation-Date: 2025-03-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1036,7 +1036,7 @@ msgstr "अस्मिन् सर्वरे पञ्जीकरणं न
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
 #: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290 src/timeline/LoadComponent.qml:33
+#: src/models/messagecontentmodel.cpp:290 src/timeline/LoadComponent.qml:30
 #, kde-format
 msgid "Loading"
 msgstr "लोडिंग"
@@ -1698,7 +1698,7 @@ msgstr "स्वकीय इमोजी"
 
 #: src/models/messagecontentmodel.cpp:260
 #: src/models/messagecontentmodel.cpp:288
-#: src/timeline/LinkPreviewLoadComponent.qml:66
+#: src/timeline/LinkPreviewLoadComponent.qml:63
 #, kde-format
 msgid "Loading reply"
 msgstr "उत्तरं लोडयति"
@@ -5873,7 +5873,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "पूर्णं करोतु"
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:110
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5980,55 +5980,55 @@ msgstr ""
 "दूरभाषसङ्ख्या सत्यापितं नास्ति। कृपया पाठसन्देशं गत्वा तत्रत्याः निर्देशान् अनुसृत्य ततः उपरि "
 "स्थापितं बटनं नुदन्तु"
 
-#: src/timeline/BaseMessageComponentChooser.qml:249
+#: src/timeline/BaseMessageComponentChooser.qml:172
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 इत्यनेन उपयोक्तृसत्यापनम् आरब्धम्"
 
-#: src/timeline/ChatBarComponent.qml:98
+#: src/timeline/ChatBarComponent.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "सम्पादनस्य पुष्टिं कुर्वन्तु"
 
-#: src/timeline/ChatBarComponent.qml:98
+#: src/timeline/ChatBarComponent.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "सूत्रे सन्देशं स्थापयन्तु"
 
-#: src/timeline/CodeComponent.qml:164
+#: src/timeline/CodeComponent.qml:159
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
-#: src/timeline/CodeComponent.qml:176
+#: src/timeline/CodeComponent.qml:171
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "अधिकतमं कुरुत"
 
-#: src/timeline/EncryptedComponent.qml:21
+#: src/timeline/EncryptedComponent.qml:18
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
 msgstr "एषः सन्देशः गुप्तः अस्ति तथा च प्रेषकेन अस्मिन् यन्त्रेण सह कुञ्जी न साझा कृता ।"
 
-#: src/timeline/FetchButtonComponent.qml:41
+#: src/timeline/FetchButtonComponent.qml:36
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr ""
 
-#: src/timeline/FileComponent.qml:104 src/timeline/FileComponent.qml:187
+#: src/timeline/FileComponent.qml:94 src/timeline/FileComponent.qml:177
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "अवाहरन"
 
-#: src/timeline/FileComponent.qml:120 src/timeline/FileComponent.qml:177
+#: src/timeline/FileComponent.qml:110 src/timeline/FileComponent.qml:167
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -6036,13 +6036,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/timeline/FileComponent.qml:135
+#: src/timeline/FileComponent.qml:125
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/timeline/FileComponent.qml:140
+#: src/timeline/FileComponent.qml:130
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -6071,60 +6071,60 @@ msgstr "चेक-इन समयः %1"
 msgid "Check-out time: %1"
 msgstr "चेक-आउट् समयः %1"
 
-#: src/timeline/ImageComponent.qml:140
+#: src/timeline/ImageComponent.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
 msgstr "चित्रं दर्शयतु"
 
-#: src/timeline/ItineraryComponent.qml:57
+#: src/timeline/ItineraryComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "KDE यात्रासूचीं प्रेषयन्तु"
 
-#: src/timeline/LinkPreviewComponent.qml:136
-#: src/timeline/LinkPreviewLoadComponent.qml:79
+#: src/timeline/LinkPreviewComponent.qml:131
+#: src/timeline/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "पूर्वावलोकनं निष्कासयन्तु"
 
-#: src/timeline/LinkPreviewComponent.qml:154
+#: src/timeline/LinkPreviewComponent.qml:149
 #, kde-format
 msgid "Shrink preview"
 msgstr "पूर्वावलोकनं संकोचयतु"
 
-#: src/timeline/LinkPreviewComponent.qml:154
+#: src/timeline/LinkPreviewComponent.qml:149
 #, kde-format
 msgid "Expand preview"
 msgstr "पूर्वावलोकनं विस्तारयतु"
 
-#: src/timeline/LinkPreviewLoadComponent.qml:68
+#: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
 msgstr "URL पूर्वावलोकनं लोड् भवति"
 
-#: src/timeline/LocationComponent.qml:116
+#: src/timeline/LocationComponent.qml:111
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "बाह्यरूपेण उद्घाटयतु"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:70
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "%1 उपयोक्तुः मतानाम् आधारेण"
 msgstr[1] "%1 उपयोक्तृणां मतानाम् आधारेण"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:70
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(समाप्तः)"
 
-#: src/timeline/ReactionComponent.qml:97
+#: src/timeline/ReactionComponent.qml:89
 #, fuzzy, kde-format
 #| msgid "React"
 msgctxt "@button"
@@ -6137,7 +6137,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "अन्तिमपठनं: %1"
 
-#: src/timeline/ReplyButtonComponent.qml:44
+#: src/timeline/ReplyButtonComponent.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
@@ -6156,24 +6156,24 @@ msgstr "इति चटस्य आरम्भः । अस्मात् �
 msgid "Pl. %1"
 msgstr "प्ल. %1"
 
-#: src/timeline/VideoComponent.qml:217
+#: src/timeline/VideoComponent.qml:197
 #, kde-format
 msgid "Video"
 msgstr "विडिओ"
 
-#: src/timeline/VideoComponent.qml:257
+#: src/timeline/VideoComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "विडियो दर्शयतु"
 
-#: src/timeline/VideoComponent.qml:298
+#: src/timeline/VideoComponent.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "मात्रा"
 
-#: src/timeline/VideoComponent.qml:382
+#: src/timeline/VideoComponent.qml:362
 #, kde-format
 msgid "Maximize"
 msgstr "अधिकतमं कुरुत"
