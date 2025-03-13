@@ -28,7 +28,7 @@ void MediaManager::ring(const QJsonObject &json, NeoChatRoom *room)
         return;
     }
     qWarning() << json;
-    if (!json["content"_L1]["m.mentions"_L1]["room"_L1].toBool() || json["sender"_ls].toString() == room->connection()->userId()) {
+    if (!json["content"_L1]["m.mentions"_L1]["room"_L1].toBool() || json[u"sender"_s].toString() == room->connection()->userId()) {
         bool mentioned = false;
         for (const auto &user : json["content"_L1]["m.mentions"_L1]["user_ids"_L1].toArray()) {
             if (user.toString() == room->connection()->userId()) {

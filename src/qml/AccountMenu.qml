@@ -116,8 +116,8 @@ KirigamiComponents.ConvergentContextMenu {
         connection: root.connection
     }
 
-    Component {
-        id: livekitLogViewerComponent
-        LivekitLogViewer {}
-    }
+    // Component {
+    //     id: livekitLogViewerComponent
+    //     LivekitLogViewer {}
+    // }
 }

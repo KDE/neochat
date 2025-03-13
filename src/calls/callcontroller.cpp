@@ -48,14 +48,14 @@ CallController::CallController()
 
 void CallController::init()
 {
-    qRegisterProtobufTypes();
+    // qRegisterProtobufTypes();
     livekit_ffi_initialize(callback, true, "test", "1.0");
 }
 
-static void handleLog(LogRecordRepeated &&logs)
+static void handleLog(const LogRecordRepeated &&logs)
 {
     for (const auto &log : logs) {
-        if (log.level() < 3) {
+        if (log.level() <= LogLevelGadget::LogLevel::LOG_WARN) {
             qWarning() << log.message();
         }
     }
@@ -106,7 +106,7 @@ void CallController::handleRoomEvent(livekit::proto::RoomEvent &&event)
         qWarning() << "Track subscribed";
 
         auto track = event.trackSubscribed().track();
-        if (track.info().kind() == TrackKindGadget::KIND_AUDIO) {
+        if (track.info().kind() == TrackKindGadget::TrackKind::KIND_AUDIO) {
             NewAudioStreamRequest audioStreamRequest;
             audioStreamRequest.setTrackHandle(track.handle().id_proto());
             FfiRequest request;
@@ -118,7 +118,7 @@ void CallController::handleRoomEvent(livekit::proto::RoomEvent &&event)
             livekit_ffi_request((const uint8_t *)data.data(), data.length(), &ret_data, &size);
             FfiResponse newResponse;
             newResponse.deserialize(&serializer, QByteArray::fromRawData((const char *)ret_data, size));
-        } else if (track.info().kind() == TrackKindGadget::KIND_VIDEO) {
+        } else if (track.info().kind() == TrackKindGadget::TrackKind::KIND_VIDEO) {
             NewVideoStreamRequest videoStreamRequest;
             videoStreamRequest.setTrackHandle((track.handle().id_proto()));
             FfiRequest request;
@@ -170,7 +170,7 @@ void CallController::handleRoomEvent(livekit::proto::RoomEvent &&event)
 
 void saveByteArray(const QByteArray &data, const QString &name)
 {
-    QFile file("/home/tobias/"_ls + name);
+    QFile file(u"/home/tobias/"_s + name);
     file.open(QFile::WriteOnly);
     file.write(data);
     file.close();
@@ -285,28 +285,28 @@ void CallController::handleCallMemberEvent(const Quotient::CallMemberEvent *even
     connect(job, &BaseJob::finished, this, [this, room, job, connection, event]() {
         auto nam = new QNetworkAccessManager;
         auto json = QJsonDocument(QJsonObject{
-                                      {"room"_ls, room->id()},
-                                      {"openid_token"_ls,
-                                       QJsonObject{{"access_token"_ls, job->tokenData().accessToken},
-                                                   {"token_type"_ls, job->tokenData().tokenType},
-                                                   {"matrix_server_name"_ls, job->tokenData().matrixServerName}}},
-                                      {"device_id"_ls, connection->deviceId()},
+                                      {"room"_L1, room->id()},
+                                      {"openid_token"_L1,
+                                       QJsonObject{{"access_token"_L1, job->tokenData().accessToken},
+                                                   {"token_type"_L1, job->tokenData().tokenType},
+                                                   {"matrix_server_name"_L1, job->tokenData().matrixServerName}}},
+                                      {"device_id"_L1, connection->deviceId()},
                                   })
                         .toJson();
         // This is an old event!
-        if (!event->contentJson().contains("foci_preferred"_ls)) {
+        if (!event->contentJson().contains("foci_preferred"_L1)) {
             return;
         }
-        QNetworkRequest request(QUrl((event->contentJson()["foci_preferred"_ls].toArray()[0]["livekit_service_url"_ls].toString() + "/sfu/get"_ls)));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json"_ls);
+        QNetworkRequest request(QUrl((event->contentJson()["foci_preferred"_L1].toArray()[0]["livekit_service_url"_L1].toString() + "/sfu/get"_L1)));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json"_L1);
         auto reply = nam->post(request, json);
         connect(reply, &QNetworkReply::finished, this, [reply, this, room]() {
             auto json = QJsonDocument::fromJson(reply->readAll()).object();
 
             FfiRequest message;
             ConnectRequest connectRequest;
-            connectRequest.setUrl(json["url"_ls].toString());
-            connectRequest.setToken(json["jwt"_ls].toString());
+            connectRequest.setUrl(json["url"_L1].toString());
+            connectRequest.setToken(json["jwt"_L1].toString());
             message.setConnect(connectRequest);
             QProtobufSerializer serializer;
             auto data = message.serialize(&serializer);
@@ -354,7 +354,7 @@ void CallController::setCameraVideoSink(QVideoSink *videoSink)
             resolution.setHeight(videoSink->videoSize().height());
             resolution.setWidth(videoSink->videoSize().width());
             newVideoSourceRequest.setResolution(resolution);
-            newVideoSourceRequest.setType(VideoSourceTypeGadget::VIDEO_SOURCE_NATIVE);
+            newVideoSourceRequest.setType(VideoSourceTypeGadget::VideoSourceType::VIDEO_SOURCE_NATIVE);
             FfiRequest ffiRequest;
             ffiRequest.setNewVideoSource(newVideoSourceRequest);
             auto response = request(std::move(ffiRequest));
@@ -362,7 +362,7 @@ void CallController::setCameraVideoSink(QVideoSink *videoSink)
             m_localVideoTrackHandle = handle;
 
             CreateVideoTrackRequest createVideoTrackRequest;
-            createVideoTrackRequest.setName("Camera"_ls);
+            createVideoTrackRequest.setName("Camera"_L1);
             createVideoTrackRequest.setSourceHandle(handle);
 
             FfiRequest request;
@@ -377,12 +377,12 @@ void CallController::setCameraVideoSink(QVideoSink *videoSink)
         image.convertTo(QImage::Format_RGB888);
         CaptureVideoFrameRequest request;
         VideoBufferInfo buffer;
-        buffer.setType(VideoBufferTypeGadget::RGB24);
+        buffer.setType(VideoBufferTypeGadget::VideoBufferType::RGB24);
         buffer.setWidth(image.width());
         buffer.setHeight(image.height());
         buffer.setDataPtr((QtProtobuf::uint64)image.bits());
         buffer.setStride(image.bytesPerLine());
-        VideoBufferInfo_QtProtobufNested::ComponentInfoRepeated components;
+        QList<VideoBufferInfo_QtProtobufNested::ComponentInfo> components;
         VideoBufferInfo_QtProtobufNested::ComponentInfo componentInfo;
         componentInfo.setStride(image.bytesPerLine());
         componentInfo.setDataPtr((QtProtobuf::uint64)image.bits());
@@ -392,7 +392,7 @@ void CallController::setCameraVideoSink(QVideoSink *videoSink)
         request.setBuffer(buffer);
         request.setSourceHandle(handle);
         request.setTimestampUs(QDateTime::currentMSecsSinceEpoch() * 1000);
-        request.setRotation(VideoRotationGadget::VIDEO_ROTATION_0);
+        request.setRotation(VideoRotationGadget::VideoRotation::VIDEO_ROTATION_0);
         FfiRequest ffiRequest;
         ffiRequest.setCaptureVideoFrame(request);
         auto response = ::request(std::move(ffiRequest));
@@ -437,7 +437,7 @@ void CallController::publishTrack(uint64_t id)
     publishTrackRequest.setTrackHandle(id);
     publishTrackRequest.setLocalParticipantHandle(localParticipant);
     TrackPublishOptions options;
-    options.setSource(TrackSourceGadget::SOURCE_CAMERA);
+    options.setSource(TrackSourceGadget::TrackSource::SOURCE_CAMERA);
     options.setVideoCodec(VideoCodecGadget::VideoCodec::VP8);
     publishTrackRequest.setOptions(options);
 

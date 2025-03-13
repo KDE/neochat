@@ -53,7 +53,7 @@ public:
 
     QJsonArray memberships() const
     {
-        return contentJson()["memberships"_ls].toArray();
+        return contentJson()[u"memberships"_s].toArray();
     }
 };
 }

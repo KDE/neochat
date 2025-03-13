@@ -30,10 +30,10 @@ QHash<int, QByteArray> LivekitLogModel::roleNames() const
 void LivekitLogModel::addMessages(livekit::proto::LogRecordRepeated messages)
 {
     for (const auto &message : messages) {
-        if (message.level() < 3) {
-            beginInsertRows({}, m_messages.size(), m_messages.size() + 1);
-            m_messages += message;
-            endInsertRows();
-        }
+        // if (message.level() < 3) {
+        beginInsertRows({}, m_messages.size(), m_messages.size() + 1);
+        m_messages += message;
+        endInsertRows();
+        // }
     }
 }

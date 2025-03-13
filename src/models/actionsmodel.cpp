@@ -514,7 +514,6 @@ QList<ActionsModel::Action> actions{
             }
             return QString();
         },
-        false,
         std::nullopt,
         kli18n(""),
         kli18n("Forcibly end the call in this room"),
