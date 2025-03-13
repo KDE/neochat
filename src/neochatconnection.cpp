@@ -295,14 +295,6 @@ void NeoChatConnection::deactivateAccount(const QString &password, const bool er
     // });
 }
 
-<<<<<<< HEAD
-=======
-// ThreePIdModel *NeoChatConnection::threePIdModel() const
-// {
-//     return m_threePIdModel;
-// }
-
->>>>>>> e9b804a97 (Port to QuotientNg)
 bool NeoChatConnection::hasIdentityServer() const
 {
     // if (!hasAccountData(u"m.identity_server"_s)) {

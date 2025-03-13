@@ -17,7 +17,7 @@ struct ForeignAccounts {
     QML_SINGLETON
     QML_FOREIGN(Quotient::Accounts)
     QML_NAMED_ELEMENT(Accounts)
-    static Quotient::Accounts *create(QQmlEngine *engine, QJSEngine *)
+    static Quotient::Accounts *create(QQmlEngine *, QJSEngine *)
     {
         auto &accounts = Controller::instance().accounts();
         QQmlEngine::setObjectOwnership(&accounts, QQmlEngine::CppOwnership);

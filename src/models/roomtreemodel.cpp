@@ -390,7 +390,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         return stringFromRust((*room->item)->display_name()).toHtmlEscaped();
     }
     if (role == AvatarRole) {
-        return QStringLiteral("image://roomavatar/%1").arg(stringFromRust((*room->item)->id()));
+        return u"%1?user_id=%2"_s.arg(stringFromRust((*room->item)->avatar_url()), d->connection->matrixId());
     }
     if (role == CanonicalAliasRole) {
         return stringFromRust((*room->item)->canonical_alias()).toHtmlEscaped();

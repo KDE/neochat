@@ -15,6 +15,7 @@
 #include <QtQml/QQmlExtensionPlugin>
 
 #include <QuotientNg/Connection_p>
+#include <QuotientNg/NetworkAccessManager>
 #include <QuotientNg/PendingConnection>
 
 // #include <Quotient/connection.h>
@@ -78,23 +79,23 @@ using namespace Quotient;
 
 void qml_register_types_org_kde_neochat();
 
-// class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
-// {
-//     QNetworkAccessManager *create(QObject *) override
-//     {
-//         auto nam = NetworkAccessManager::instance();
-//         nam->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
-//
-//         nam->enableStrictTransportSecurityStore(true, QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u"/hsts/"_s);
-//         nam->setStrictTransportSecurityEnabled(true);
-//
-//         auto namDiskCache = new QNetworkDiskCache(nam);
-//         namDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u"/nam/"_s);
-//         nam->setCache(namDiskCache);
-//
-//         return nam;
-//     }
-// };
+class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
+{
+    QNetworkAccessManager *create(QObject *) override
+    {
+        auto nam = NetworkAccessManager::instance();
+        nam->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+
+        nam->enableStrictTransportSecurityStore(true, QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u"/hsts/"_s);
+        nam->setStrictTransportSecurityEnabled(true);
+
+        auto namDiskCache = new QNetworkDiskCache(nam);
+        namDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u"/nam/"_s);
+        nam->setCache(namDiskCache);
+
+        return nam;
+    }
+};
 
 static QWindow *windowFromEngine(QQmlApplicationEngine *engine)
 {
@@ -283,7 +284,7 @@ int main(int argc, char *argv[])
     // #endif
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    // engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
+    engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
     if (parser.isSet("ignore-ssl-errors"_L1)) {
         // QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
