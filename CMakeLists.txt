@@ -147,12 +147,20 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-find_package(KUnifiedPush QUIET)
-set_package_properties(KUnifiedPush PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Push notification support"
-    URL "https://invent.kde.org/libraries/kunifiedpush"
-)
+option(WITH_UNIFIEDPUSH "Build with KUnifiedPush support" ON)
+
+if (ANDROID OR APPLE OR WIN32 OR HAIKU)
+    set(WITH_UNIFIEDPUSH OFF)
+endif()
+
+if (WITH_UNIFIEDPUSH)
+    find_package(KUnifiedPush)
+    set_package_properties(KUnifiedPush PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Push notification support"
+        URL "https://invent.kde.org/libraries/kunifiedpush"
+    )
+endif()
 
 if(ANDROID)
     find_package(Sqlite3)

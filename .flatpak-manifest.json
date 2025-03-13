@@ -171,6 +171,24 @@
             ]
         },
         {
+            "name": "kunifiedpush",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/kunifiedpush/kunifiedpush-1.0.0.tar.xz",
+                    "sha256": "2ddeba21306d0307114ec50a2c38159ec62359f9fc6cdd58da30a369fbd550cf",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 375055,
+                        "stable-only": true,
+                        "url-template": "https://download.kde.org/stable/kunifiedpush/kunifiedpush-$version.tar.xz"
+                    }
+                }
+            ]
+        },
+        {
             "name": "neochat",
             "buildsystem": "cmake-ninja",
             "config-opts": [
