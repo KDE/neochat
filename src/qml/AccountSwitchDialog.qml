@@ -75,7 +75,7 @@ Kirigami.Dialog {
             }
         }
         clip: true
-        model: AccountRegistry
+        model: Accounts
 
         keyNavigationEnabled: false
         Keys.onDownPressed: {

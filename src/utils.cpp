@@ -10,12 +10,8 @@
 #include <unicode/urename.h>
 #endif
 
-#include <Quotient/connection.h>
-
 #include <QJsonDocument>
 #include <QQuickWindow>
-
-using namespace Quotient;
 
 bool QmlUtils::isEmoji(const QString &text)
 {
@@ -48,10 +44,10 @@ QQuickItem *QmlUtils::focusedWindowItem()
     }
 }
 
-QString QmlUtils::nameForPowerLevelValue(const int value)
-{
-    return PowerLevel::nameForLevel(PowerLevel::levelForValue(value));
-}
+// QString QmlUtils::nameForPowerLevelValue(const int value)
+// {
+//     return PowerLevel::nameForLevel(PowerLevel::levelForValue(value));
+// }
 
 bool Utils::isEmoji(const QString &text)
 {

@@ -5,10 +5,10 @@
 
 #include <QDebug>
 
-#include <Quotient/converters.h>
-#include <Quotient/csapi/definitions/push_ruleset.h>
-#include <Quotient/csapi/pushrules.h>
-#include <Quotient/jobs/basejob.h>
+// #include <Quotient/converters.h>
+// #include <Quotient/csapi/definitions/push_ruleset.h>
+// #include <Quotient/csapi/pushrules.h>
+// #include <Quotient/jobs/basejob.h>
 
 #include "neochatconfig.h"
 
@@ -74,18 +74,18 @@ void PushRuleModel::updateNotificationRules(const QString &type)
         return;
     }
 
-    const QJsonObject ruleDataJson = m_connection->accountDataJson(u"m.push_rules"_s);
-    const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"_L1].toObject());
+    // const QJsonObject ruleDataJson = m_connection->accountDataJson(u"m.push_rules"_s);
+    // const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"_L1].toObject());
 
     beginResetModel();
     m_rules.clear();
 
     // Doing this 5 times because PushRuleset is a struct.
-    setRules(ruleData.override, PushRuleKind::Override);
-    setRules(ruleData.content, PushRuleKind::Content);
-    setRules(ruleData.room, PushRuleKind::Room);
-    setRules(ruleData.sender, PushRuleKind::Sender);
-    setRules(ruleData.underride, PushRuleKind::Underride);
+    // setRules(ruleData.override, PushRuleKind::Override);
+    // setRules(ruleData.content, PushRuleKind::Content);
+    // setRules(ruleData.room, PushRuleKind::Room);
+    // setRules(ruleData.sender, PushRuleKind::Sender);
+    // setRules(ruleData.underride, PushRuleKind::Underride);
 
     Q_EMIT globalNotificationsEnabledChanged();
     Q_EMIT globalNotificationsSetChanged();
@@ -93,28 +93,28 @@ void PushRuleModel::updateNotificationRules(const QString &type)
     endResetModel();
 }
 
-void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind)
-{
-    for (const auto &rule : rules) {
-        QString roomId;
-        if (rule.conditions.size() > 0) {
-            for (const auto &condition : std::as_const(rule.conditions)) {
-                if (condition.key == u"room_id"_s) {
-                    roomId = condition.pattern;
-                }
-            }
-        }
-
-        m_rules.append(Rule{
-            rule.ruleId,
-            kind,
-            variantToAction(rule.actions, rule.enabled),
-            getSection(rule),
-            rule.enabled,
-            roomId,
-        });
-    }
-}
+// void PushRuleModel::setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind)
+// {
+//     for (const auto &rule : rules) {
+//         QString roomId;
+//         if (rule.conditions.size() > 0) {
+//             for (const auto &condition : std::as_const(rule.conditions)) {
+//                 if (condition.key == u"room_id"_s) {
+//                     roomId = condition.pattern;
+//                 }
+//             }
+//         }
+//
+//         m_rules.append(Rule{
+//             rule.ruleId,
+//             kind,
+//             variantToAction(rule.actions, rule.enabled),
+//             getSection(rule),
+//             rule.enabled,
+//             roomId,
+//         });
+//     }
+// }
 
 int PushRuleModel::getRuleIndex(const QString &ruleId) const
 {
@@ -126,51 +126,51 @@ int PushRuleModel::getRuleIndex(const QString &ruleId) const
     return -1;
 }
 
-PushRuleSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
-{
-    auto ruleId = rule.ruleId;
-
-    if (defaultSections.contains(ruleId)) {
-        return defaultSections.value(ruleId);
-    } else {
-        if (rule.ruleId.startsWith(u'.')) {
-            return PushRuleSection::Unknown;
-        }
-        /**
-         * If the rule name resolves to a matrix id for a room that the user is part
-         * of it shouldn't appear in the global list as it's overriding the global
-         * state for that room.
-         *
-         * Rooms that the user hasn't joined shouldn't have a rule.
-         */
-        if (m_connection->room(ruleId) != nullptr) {
-            return PushRuleSection::Undefined;
-        }
-        /**
-         * If the rule name resolves to a matrix id for a user  it shouldn't appear
-         * in the global list as it's a rule to block notifications from a user and
-         * is handled elsewhere.
-         */
-        auto testUserId = ruleId;
-        // Rules for user matrix IDs often don't have the @ on the beginning so add
-        // if not there to avoid malformed ID.
-        if (!testUserId.startsWith(u'@')) {
-            testUserId.prepend(u'@');
-        }
-        if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && m_connection->user(testUserId) != nullptr) {
-            return PushRuleSection::Undefined;
-        }
-        // If the rule has push conditions and one is a room ID it is a room only keyword.
-        if (!rule.conditions.isEmpty()) {
-            for (const auto &condition : std::as_const(rule.conditions)) {
-                if (condition.key == u"room_id"_s) {
-                    return PushRuleSection::RoomKeywords;
-                }
-            }
-        }
-        return PushRuleSection::Keywords;
-    }
-}
+// PushRuleSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
+// {
+//     auto ruleId = rule.ruleId;
+//
+//     if (defaultSections.contains(ruleId)) {
+//         return defaultSections.value(ruleId);
+//     } else {
+//         if (rule.ruleId.startsWith(u'.')) {
+//             return PushRuleSection::Unknown;
+//         }
+//         /**
+//          * If the rule name resolves to a matrix id for a room that the user is part
+//          * of it shouldn't appear in the global list as it's overriding the global
+//          * state for that room.
+//          *
+//          * Rooms that the user hasn't joined shouldn't have a rule.
+//          */
+//         if (m_connection->room(ruleId) != nullptr) {
+//             return PushRuleSection::Undefined;
+//         }
+//         /**
+//          * If the rule name resolves to a matrix id for a user  it shouldn't appear
+//          * in the global list as it's a rule to block notifications from a user and
+//          * is handled elsewhere.
+//          */
+//         auto testUserId = ruleId;
+//         // Rules for user matrix IDs often don't have the @ on the beginning so add
+//         // if not there to avoid malformed ID.
+//         if (!testUserId.startsWith(u'@')) {
+//             testUserId.prepend(u'@');
+//         }
+//         if (testUserId.startsWith(u'@') && !Quotient::serverPart(testUserId).isEmpty() && m_connection->user(testUserId) != nullptr) {
+//             return PushRuleSection::Undefined;
+//         }
+//         // If the rule has push conditions and one is a room ID it is a room only keyword.
+//         if (!rule.conditions.isEmpty()) {
+//             for (const auto &condition : std::as_const(rule.conditions)) {
+//                 if (condition.key == u"room_id"_s) {
+//                     return PushRuleSection::RoomKeywords;
+//                 }
+//             }
+//         }
+//         return PushRuleSection::Keywords;
+//     }
+// }
 
 PushRuleAction::Action PushRuleModel::defaultState() const
 {
@@ -294,33 +294,33 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
 {
     PushRuleKind::Kind kind = PushRuleKind::Content;
     const QList<QVariant> actions = actionToVariant(m_defaultKeywordAction);
-    QList<Quotient::PushCondition> pushConditions;
-    if (!roomId.isEmpty()) {
-        kind = PushRuleKind::Override;
-
-        Quotient::PushCondition roomCondition;
-        roomCondition.kind = u"event_match"_s;
-        roomCondition.key = u"room_id"_s;
-        roomCondition.pattern = roomId;
-        pushConditions.append(roomCondition);
-
-        Quotient::PushCondition keywordCondition;
-        keywordCondition.kind = u"event_match"_s;
-        keywordCondition.key = u"content.body"_s;
-        keywordCondition.pattern = keyword;
-        pushConditions.append(keywordCondition);
-    }
-
-    auto job = m_connection->callApi<Quotient::SetPushRuleJob>(PushRuleKind::kindString(kind),
-                                                               keyword,
-                                                               actions,
-                                                               QString(),
-                                                               QString(),
-                                                               pushConditions,
-                                                               roomId.isEmpty() ? keyword : QString());
-    connect(job, &Quotient::BaseJob::failure, this, [job, keyword]() {
-        qWarning() << "Unable to set push rule for keyword %1: "_L1.arg(keyword) << job->errorString();
-    });
+    // QList<Quotient::PushCondition> pushConditions;
+    // if (!roomId.isEmpty()) {
+    //     kind = PushRuleKind::Override;
+    //
+    //     Quotient::PushCondition roomCondition;
+    //     roomCondition.kind = u"event_match"_s;
+    //     roomCondition.key = u"room_id"_s;
+    //     roomCondition.pattern = roomId;
+    //     pushConditions.append(roomCondition);
+    //
+    //     Quotient::PushCondition keywordCondition;
+    //     keywordCondition.kind = u"event_match"_s;
+    //     keywordCondition.key = u"content.body"_s;
+    //     keywordCondition.pattern = keyword;
+    //     pushConditions.append(keywordCondition);
+    // }
+    //
+    // auto job = m_connection->callApi<Quotient::SetPushRuleJob>(PushRuleKind::kindString(kind),
+    //                                                            keyword,
+    //                                                            actions,
+    //                                                            QString(),
+    //                                                            QString(),
+    //                                                            pushConditions,
+    //                                                            roomId.isEmpty() ? keyword : QString());
+    // connect(job, &Quotient::BaseJob::failure, this, [job, keyword]() {
+    //     qWarning() << "Unable to set push rule for keyword %1: "_L1.arg(keyword) << job->errorString();
+    // });
 }
 
 /**
@@ -336,20 +336,20 @@ void PushRuleModel::removeKeyword(const QString &keyword)
     }
 
     auto kind = PushRuleKind::kindString(m_rules[index].kind);
-    auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(kind, m_rules[index].id);
-    connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
-        qWarning() << "Unable to remove push rule for keyword %1: "_L1.arg(m_rules[index].id) << job->errorString();
-    });
+    //     auto job = m_connection->callApi<Quotient::DeletePushRuleJob>(kind, m_rules[index].id);
+    //     connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
+    //         qWarning() << "Unable to remove push rule for keyword %1: "_L1.arg(m_rules[index].id) << job->errorString();
+    //     });
 }
 
 void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled)
 {
-    auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(kind, ruleId);
-    connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, this]() {
-        if (job->enabled() != enabled) {
-            m_connection->callApi<Quotient::SetPushRuleEnabledJob>(kind, ruleId, enabled);
-        }
-    });
+    // auto job = m_connection->callApi<Quotient::IsPushRuleEnabledJob>(kind, ruleId);
+    // connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled, this]() {
+    //     if (job->enabled() != enabled) {
+    //         m_connection->callApi<Quotient::SetPushRuleEnabledJob>(kind, ruleId, enabled);
+    //     }
+    // });
 }
 
 void PushRuleModel::setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action)
@@ -361,7 +361,7 @@ void PushRuleModel::setNotificationRuleActions(const QString &kind, const QStrin
         actions = actionToVariant(action);
     }
 
-    m_connection->callApi<Quotient::SetPushRuleActionsJob>(kind, ruleId, actions);
+    // m_connection->callApi<Quotient::SetPushRuleActionsJob>(kind, ruleId, actions);
 }
 
 PushRuleAction::Action PushRuleModel::variantToAction(const QList<QVariant> &actions, bool enabled)
@@ -378,14 +378,14 @@ PushRuleAction::Action PushRuleModel::variantToAction(const QList<QVariant> &act
             continue;
         }
 
-        QJsonObject action = i.toJsonObject();
-        if (action["set_tweak"_L1].toString() == u"sound"_s) {
-            isNoisy = true;
-        } else if (action["set_tweak"_L1].toString() == u"highlight"_s) {
-            if (action["value"_L1].toString() != u"false"_s) {
-                highlightEnabled = true;
-            }
-        }
+        // QJsonObject action = i.toJsonObject();
+        // if (action["set_tweak"_L1].toString() == u"sound"_s) {
+        //     isNoisy = true;
+        // } else if (action["set_tweak"_L1].toString() == u"highlight"_s) {
+        //     if (action["value"_L1].toString() != u"false"_s) {
+        //         highlightEnabled = true;
+        //     }
+        // }
     }
 
     if (!enabled) {
@@ -424,15 +424,15 @@ QList<QVariant> PushRuleModel::actionToVariant(PushRuleAction::Action action, co
         actions.append(u"dont_notify"_s);
     }
     if (action == PushRuleAction::Noisy || action == PushRuleAction::NoisyHighlight) {
-        QJsonObject soundTweak;
-        soundTweak.insert("set_tweak"_L1, u"sound"_s);
-        soundTweak.insert("value"_L1, sound);
-        actions.append(soundTweak);
+        // QJsonObject soundTweak;
+        // soundTweak.insert("set_tweak"_L1, u"sound"_s);
+        // soundTweak.insert("value"_L1, sound);
+        // actions.append(soundTweak);
     }
     if (action == PushRuleAction::Highlight || action == PushRuleAction::NoisyHighlight) {
-        QJsonObject highlightTweak;
-        highlightTweak.insert("set_tweak"_L1, u"highlight"_s);
-        actions.append(highlightTweak);
+        // QJsonObject highlightTweak;
+        // highlightTweak.insert("set_tweak"_L1, u"highlight"_s);
+        // actions.append(highlightTweak);
     }
 
     return actions;
@@ -452,7 +452,7 @@ void PushRuleModel::setConnection(NeoChatConnection *connection)
     Q_EMIT connectionChanged();
 
     if (m_connection) {
-        connect(m_connection, &NeoChatConnection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
+        // connect(m_connection, &NeoChatConnection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
         updateNotificationRules(u"m.push_rules"_s);
     }
 }

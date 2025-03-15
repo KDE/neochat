@@ -48,8 +48,8 @@ add_library(neochat STATIC
     # models/spacetreeitem.h
     # models/userdirectorylistmodel.cpp
     # models/userdirectorylistmodel.h
-    # models/pushrulemodel.cpp
-    # models/pushrulemodel.h
+    models/pushrulemodel.cpp
+    models/pushrulemodel.h
     # models/emoticonfiltermodel.cpp
     # models/emoticonfiltermodel.h
     # notificationsmanager.cpp
@@ -119,8 +119,8 @@ add_library(neochat STATIC
     # locationhelper.h
     # events/pollevent.cpp
     # pollhandler.cpp
-    # utils.h
-    # utils.cpp
+    utils.h
+    utils.cpp
     # registration.cpp
     neochatconnection.cpp
     neochatconnection.h
@@ -140,7 +140,7 @@ add_library(neochat STATIC
     # models/notificationsmodel.h
     # models/timelinemodel.cpp
     # models/timelinemodel.h
-    # enums/pushrule.h
+    enums/pushrule.h
     # models/itinerarymodel.cpp
     # models/itinerarymodel.h
     proxycontroller.cpp
@@ -212,16 +212,16 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat
     QML_FILES
         qml/Main.qml
-        # qml/AccountMenu.qml
-        # qml/ExploreComponent.qml
+        qml/AccountMenu.qml
+        qml/ExploreComponent.qml
         # qml/ExploreComponentMobile.qml
         # qml/RoomContextMenu.qml
         # qml/CollapsedRoomDelegate.qml
         qml/RoomDelegate.qml
         qml/RoomListPage.qml
         # qml/SpaceListContextMenu.qml
-        # qml/UserInfo.qml
-        # qml/UserInfoDesktop.qml
+        qml/UserInfo.qml
+        qml/UserInfoDesktop.qml
         # qml/RoomPage.qml
         # qml/ExploreRoomsPage.qml
         # qml/ManualRoomDialog.qml
@@ -238,7 +238,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         # qml/CreateRoomDialog.qml
         # qml/OpenFileDialog.qml
         # qml/KeyVerificationDialog.qml
-        # qml/ConfirmLogoutDialog.qml
+        qml/ConfirmLogoutDialog.qml
         # qml/PowerLevelDialog.qml
         # qml/Message.qml
         # qml/EmojiItem.qml
@@ -287,7 +287,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         # qml/QrScannerPage.qml
         # qml/JoinRoomDialog.qml
         # qml/ConfirmUrlDialog.qml
-        # qml/AccountSwitchDialog.qml
+        qml/AccountSwitchDialog.qml
         # qml/ConfirmLeaveDialog.qml
         # qml/CodeMaximizeComponent.qml
         # qml/EditStateDialog.qml

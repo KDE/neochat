@@ -22,7 +22,7 @@ ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
         # DevicesPage.qml
         # EmoticonsPage.qml
         # EmoticonEditorPage.qml
-        # GlobalNotificationsPage.qml
+        GlobalNotificationsPage.qml
         NeoChatGeneralPage.qml
         NeoChatSecurityPage.qml
         NetworkProxyPage.qml
@@ -36,7 +36,7 @@ ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
         # EmoticonFormCard.qml
         # IdentityServerDelegate.qml
         # IgnoredUsersDialog.qml
-        # NotificationRuleItem.qml
+        NotificationRuleItem.qml
         # PasswordSheet.qml
         ThemeRadioButton.qml
         # ThreePIdCard.qml

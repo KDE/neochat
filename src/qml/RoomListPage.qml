@@ -41,6 +41,16 @@ Kirigami.ScrollablePage {
         }
     }
 
+    titleDelegate: Loader {
+        Layout.fillWidth: true
+        sourceComponent: Kirigami.Settings.isMobile ? userInfo : exploreComponent
+    }
+
+    footer: Loader {
+        width: parent.width
+        sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
+    }
+
     TreeView {
         id: treeView
         topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
@@ -99,6 +109,31 @@ Kirigami.ScrollablePage {
                     })
                 }
             }
+        }
+    }
+
+
+    Component {
+        id: exploreComponent
+        ExploreComponent {
+            desiredWidth: root.width - Kirigami.Units.largeSpacing
+            collapsed: root.collapsed
+            connection: root.connection
+
+            onSearch: root.search()
+
+            onTextChanged: newText => {
+                RoomManager.sortFilterRoomTreeModel.filterText = newText;
+                treeView.expandRecursively();
+            }
+        }
+    }
+
+    Component {
+        id: userInfoDesktop
+        UserInfoDesktop {
+            connection: root.connection
+            collapsed: root.collapsed
         }
     }
 }

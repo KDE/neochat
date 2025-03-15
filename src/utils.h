@@ -10,9 +10,7 @@
 #include <QQuickItem>
 #include <QRegularExpression>
 
-#include <Quotient/user.h>
-
-#include "enums/powerlevel.h"
+// #include "enums/powerlevel.h"
 
 using namespace Qt::StringLiterals;
 
@@ -43,7 +41,7 @@ public:
     /**
      * @brief Invokable version of PowerLevel::nameForLevel which also calls PowerLevel::levelForValue.
      */
-    Q_INVOKABLE QString nameForPowerLevelValue(int value);
+    // Q_INVOKABLE QString nameForPowerLevelValue(int value);
 
 private:
     QmlUtils() = default;
