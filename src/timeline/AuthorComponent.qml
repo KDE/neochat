@@ -13,6 +13,11 @@ RowLayout {
     id: root
 
     /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
      * @brief The message author.
      *
      * A Quotient::RoomMember object.
@@ -67,5 +72,17 @@ RowLayout {
         HoverHandler {
             id: timeHoverHandler
         }
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        acceptedDevices: PointerDevice.TouchScreen
+        onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
+    }
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+        gesturePolicy: TapHandler.WithinBounds
+        onTapped: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
     }
 }

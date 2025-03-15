@@ -13,6 +13,20 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
+     * @brief The message author.
+     *
+     * A Quotient::RoomMember object.
+     *
+     * @sa Quotient::RoomMember
+     */
+    required property NeochatRoomMember author
+
+    /**
      * @brief The display text of the message.
      */
     required property string display
@@ -21,11 +35,6 @@ QQC2.Control {
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
-
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
 
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -54,7 +63,7 @@ QQC2.Control {
             enabled: !quoteText.hoveredLink
             acceptedDevices: PointerDevice.TouchScreen
             acceptedButtons: Qt.LeftButton
-            onLongPressed: root.showMessageMenu()
+            onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
         }
     }
 

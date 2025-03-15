@@ -82,6 +82,38 @@ void MessageAttached::setMaxContentWidth(qreal maxContentWidth)
     Q_EMIT maxContentWidthChanged();
 }
 
+QString MessageAttached::selectedText() const
+{
+    return m_selectedText;
+}
+
+void MessageAttached::setSelectedText(const QString &selectedTest)
+{
+    m_explicitSelectedText = true;
+    if (m_selectedText == selectedTest) {
+        return;
+    }
+    m_selectedText = selectedTest;
+    propagateMessage(this);
+    Q_EMIT selectedTextChanged();
+}
+
+QString MessageAttached::hoveredLink() const
+{
+    return m_hoveredLink;
+}
+
+void MessageAttached::setHoveredLink(const QString &hoveredLink)
+{
+    m_explicitHoveredLink = true;
+    if (m_hoveredLink == hoveredLink) {
+        return;
+    }
+    m_hoveredLink = hoveredLink;
+    propagateMessage(this);
+    Q_EMIT hoveredLinkChanged();
+}
+
 void MessageAttached::propagateMessage(MessageAttached *message)
 {
     if (m_explicitRoom || m_room != message->room()) {
@@ -102,6 +134,16 @@ void MessageAttached::propagateMessage(MessageAttached *message)
     if (m_explicitMaxContentWidth || m_maxContentWidth != message->maxContentWidth()) {
         m_maxContentWidth = message->maxContentWidth();
         Q_EMIT maxContentWidthChanged();
+    }
+
+    if (m_explicitSelectedText || m_selectedText != message->selectedText()) {
+        m_selectedText = message->selectedText();
+        Q_EMIT selectedTextChanged();
+    }
+
+    if (m_explicitHoveredLink || m_hoveredLink != message->hoveredLink()) {
+        m_hoveredLink = message->hoveredLink();
+        Q_EMIT hoveredLinkChanged();
     }
 
     const auto styles = attachedChildren();

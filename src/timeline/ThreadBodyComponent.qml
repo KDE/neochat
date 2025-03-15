@@ -31,11 +31,6 @@ ColumnLayout {
      */
     signal hoveredLinkChanged(string hoveredLink)
 
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
-
     Layout.fillWidth: true
     Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -52,7 +47,6 @@ ColumnLayout {
             onHoveredLinkChanged: hoveredLink => {
                 root.hoveredLinkChanged(hoveredLink);
             }
-            onShowMessageMenu: root.showMessageMenu()
             onRemoveLinkPreview: index => threadRepeater.model.closeLinkPreview(index)
             onFetchMoreEvents: threadRepeater.model.fetchMoreEvents(5)
         }

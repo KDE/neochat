@@ -36,6 +36,16 @@ class MessageAttached : public QQuickAttachedPropertyPropagator
      */
     Q_PROPERTY(qreal maxContentWidth READ maxContentWidth WRITE setMaxContentWidth NOTIFY maxContentWidthChanged FINAL)
 
+    /**
+     * @brief The current selected message text.
+     */
+    Q_PROPERTY(QString selectedText READ selectedText WRITE setSelectedText NOTIFY selectedTextChanged FINAL)
+
+    /**
+     * @brief The text of a hovered link if any.
+     */
+    Q_PROPERTY(QString hoveredLink READ hoveredLink WRITE setHoveredLink NOTIFY hoveredLinkChanged FINAL)
+
 public:
     explicit MessageAttached(QObject *parent = nullptr);
 
@@ -53,11 +63,19 @@ public:
     qreal maxContentWidth() const;
     void setMaxContentWidth(qreal maxContentWidth);
 
+    QString selectedText() const;
+    void setSelectedText(const QString &selectedTest);
+
+    QString hoveredLink() const;
+    void setHoveredLink(const QString &hoveredLink);
+
 Q_SIGNALS:
     void roomChanged();
     void timelineChanged();
     void indexChanged();
     void maxContentWidthChanged();
+    void selectedTextChanged();
+    void hoveredLinkChanged();
 
 protected:
     void propagateMessage(MessageAttached *message);
@@ -70,9 +88,15 @@ private:
     QPointer<QQuickItem> m_timeline;
     bool m_explicitTimeline = false;
 
-    int m_index;
+    int m_index = -1;
     bool m_explicitIndex = false;
 
     qreal m_maxContentWidth = -1;
     bool m_explicitMaxContentWidth = false;
+
+    QString m_selectedText = {};
+    bool m_explicitSelectedText = false;
+
+    QString m_hoveredLink = {};
+    bool m_explicitHoveredLink = false;
 };

@@ -25,11 +25,6 @@ DelegateChooser {
      */
     signal hoveredLinkChanged(string hoveredLink)
 
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
-
     signal removeLinkPreview(int index)
 
     /**
@@ -49,7 +44,6 @@ DelegateChooser {
         delegate: TextComponent {
             onSelectedTextChanged: root.selectedTextChanged(selectedText)
             onHoveredLinkChanged: root.hoveredLinkChanged(hoveredLink)
-            onShowMessageMenu: root.showMessageMenu()
         }
     }
 
@@ -69,7 +63,6 @@ DelegateChooser {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }
-            onShowMessageMenu: root.showMessageMenu()
         }
     }
 
@@ -79,7 +72,6 @@ DelegateChooser {
             onSelectedTextChanged: selectedText => {
                 root.selectedTextChanged(selectedText);
             }
-            onShowMessageMenu: root.showMessageMenu()
         }
     }
 

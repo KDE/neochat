@@ -97,7 +97,6 @@ QQC2.Control {
                     onHoveredLinkChanged: hoveredLink => {
                         root.hoveredLinkChanged(hoveredLink);
                     }
-                    onShowMessageMenu: root.showMessageMenu()
                     onRemoveLinkPreview: index => root.contentModel.closeLinkPreview(index)
                 }
             }

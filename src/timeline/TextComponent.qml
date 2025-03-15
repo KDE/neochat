@@ -16,6 +16,20 @@ TextEdit {
     id: root
 
     /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
+     * @brief The message author.
+     *
+     * A Quotient::RoomMember object.
+     *
+     * @sa Quotient::RoomMember
+     */
+    required property NeochatRoomMember author
+
+    /**
      * @brief The display text of the message.
      */
     required property string display
@@ -34,11 +48,6 @@ TextEdit {
      * @brief Whether a spoiler should be revealed.
      */
     property bool spoilerRevealed: !hasSpoiler.test(display)
-
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
 
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -119,7 +128,6 @@ a{
     HoverHandler {
         cursorShape: (root.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
-
     TapHandler {
         enabled: !root.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
@@ -128,6 +136,12 @@ a{
         enabled: !root.hoveredLink
         acceptedButtons: Qt.LeftButton
         acceptedDevices: PointerDevice.TouchScreen
-        onLongPressed: root.showMessageMenu()
+        onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
+    }
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+        gesturePolicy: TapHandler.WithinBounds
+        onTapped: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
     }
 }

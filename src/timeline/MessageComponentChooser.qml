@@ -14,6 +14,13 @@ BaseMessageComponentChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.ThreadBody
-        delegate: ThreadBodyComponent {}
+        delegate: ThreadBodyComponent {
+            onSelectedTextChanged: selectedText => {
+                root.selectedTextChanged(selectedText);
+            }
+            onHoveredLinkChanged: hoveredLink => {
+                root.hoveredLinkChanged(hoveredLink);
+            }
+        }
     }
 }

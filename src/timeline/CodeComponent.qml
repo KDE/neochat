@@ -14,6 +14,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
      * @brief The message author.
      *
      * A Quotient::RoomMember object.
@@ -41,11 +46,6 @@ QQC2.Control {
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
-
-    /**
-     * @brief Request a context menu be show for the message.
-     */
-    signal showMessageMenu
 
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -129,7 +129,7 @@ QQC2.Control {
 
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
-                onLongPressed: root.showMessageMenu()
+                onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
             }
 
             background: null
