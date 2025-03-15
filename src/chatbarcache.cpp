@@ -213,11 +213,7 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
         return;
     }
     m_attachmentPath = attachmentPath;
-    m_relationType = None;
-    const auto oldEventId = std::exchange(m_relationId, QString());
-    delete m_relationContentModel;
     Q_EMIT attachmentPathChanged();
-    Q_EMIT relationIdChanged(oldEventId, m_relationId);
 }
 
 void ChatBarCache::clearRelations()
@@ -302,8 +298,19 @@ void ChatBarCache::postMessage()
         return;
     }
 
+    bool isReply = !replyId().isEmpty();
+    std::optional<Quotient::EventRelation> relatesTo = std::nullopt;
+
+    if (!threadId().isEmpty()) {
+        relatesTo = Quotient::EventRelation::replyInThread(threadId(), !isReply, isReply ? replyId() : threadId());
+    } else if (!editId().isEmpty()) {
+        relatesTo = Quotient::EventRelation::replace(editId());
+    } else if (isReply) {
+        relatesTo = Quotient::EventRelation::replyTo(replyId());
+    }
+
     if (!attachmentPath().isEmpty()) {
-        room->uploadFile(QUrl(attachmentPath()), sendText());
+        room->uploadFile(QUrl(attachmentPath()), sendText(), relatesTo);
         clearCache();
         return;
     }
@@ -321,22 +328,12 @@ void ChatBarCache::postMessage()
         return;
     }
 
-    bool isReply = !replyId().isEmpty();
     const auto replyIt = room->findInTimeline(replyId());
     if (replyIt == room->historyEdge()) {
         isReply = false;
     }
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
-    std::optional<Quotient::EventRelation> relatesTo = std::nullopt;
-
-    if (!threadId().isEmpty()) {
-        relatesTo = Quotient::EventRelation::replyInThread(threadId(), !isReply, isReply ? replyId() : threadId());
-    } else if (!editId().isEmpty()) {
-        relatesTo = Quotient::EventRelation::replace(editId());
-    } else if (isReply) {
-        relatesTo = Quotient::EventRelation::replyTo(replyId());
-    }
 
     room->post<Quotient::RoomMessageEvent>(text(), *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), std::move(content), relatesTo);
     clearCache();

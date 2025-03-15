@@ -636,7 +636,7 @@ private:
     void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
     QCoro::Task<void> doDeleteMessagesByUser(const QString &user, QString reason);
-    QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
+    QCoro::Task<void> doUploadFile(QUrl url, QString body = QString(), std::optional<Quotient::EventRelation> relatesTo = std::nullopt);
 
     std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
 
@@ -694,7 +694,7 @@ public Q_SLOTS:
      * @param url the location of the file to be uploaded.
      * @param body the caption that is to be given to the file.
      */
-    void uploadFile(const QUrl &url, const QString &body = QString());
+    void uploadFile(const QUrl &url, const QString &body = QString(), std::optional<Quotient::EventRelation> relatesTo = std::nullopt);
 
     /**
      * @brief Accept an invitation for the local user to join the room.

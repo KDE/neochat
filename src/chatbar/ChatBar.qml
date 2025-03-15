@@ -163,15 +163,26 @@ QQC2.Control {
             Layout.fillWidth: true
         }
         Loader {
-            id: paneLoader
+            id: replyLoader
 
             Layout.fillWidth: true
             Layout.margins: Kirigami.Units.largeSpacing
             Layout.preferredHeight: active ? item.implicitHeight : 0
 
             active: visible
-            visible: root.currentRoom.mainCache.replyId.length > 0 || root.currentRoom.mainCache.attachmentPath.length > 0
-            sourceComponent: root.currentRoom.mainCache.replyId.length > 0 ? replyPane : attachmentPane
+            visible: root.currentRoom.mainCache.replyId.length > 0
+            sourceComponent: replyPane
+        }
+        Loader {
+            id: attachLoader
+
+            Layout.fillWidth: true
+            Layout.margins: Kirigami.Units.largeSpacing
+            Layout.preferredHeight: active ? item.implicitHeight : 0
+
+            active: visible
+            visible: root.currentRoom.mainCache.attachmentPath.length > 0
+            sourceComponent: attachmentPane
         }
         RowLayout {
             QQC2.ScrollView {
@@ -349,7 +360,7 @@ QQC2.Control {
                 replyEventId: _private.chatBarCache.replyId
                 replyAuthor: _private.chatBarCache.relationAuthor
                 replyContentModel: _private.chatBarCache.relationEventContentModel
-                Message.maxContentWidth: paneLoader.item.width
+                Message.maxContentWidth: replyLoader.item.width
             }
             QQC2.Button {
                 id: cancelButton
