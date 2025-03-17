@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-16 00:41+0000\n"
-"PO-Revision-Date: 2025-02-16 16:26+0530\n"
+"PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -1943,18 +1943,16 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "தனிப்பட்ட உரையாடலுக்கு அழை"
+msgstr "உங்களை உரையாடலுக்கு அழைத்தார்"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1 உங்களை ஒர் அரங்குக்கு வரவழைத்தார்"
+msgstr "%1 உங்களை வரவழைத்தார்"
 
 #: src/neochatconnection.cpp:75
 #, kde-format
@@ -2116,13 +2114,13 @@ msgstr "இச்சாதனத்தை உறுதிப்படுத்�
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "சரிபார்ப்பு கோரிக்கை அனுப்பப்பட்டுள்ளது"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "தொடர, சரிபார்ப்பு கோரிக்கையை இன்னொரு சாதனத்தில் ஏற்றுகொள்ளவும்."
 
 #: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2453,12 +2451,10 @@ msgid "View Source"
 msgstr "மூலத்தைப் பார்"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "நீக்கு"
+msgstr "நீக்கு…"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2515,13 +2511,13 @@ msgstr "பயனரைக் காட்டு"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "தக்கவைக்கவேண்டாம்"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "தக்கவை"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2728,10 +2724,9 @@ msgid "Copy Image"
 msgstr "படத்தைக் நகலெடு"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "நீக்கு"
+msgstr "நீக்கு…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2935,17 +2930,16 @@ msgid "Mirror"
 msgstr "கிடைமட்டமாக புரட்டு"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1 உங்களை ஒர் அரங்குக்கு வரவழைத்தார்"
+msgstr "%1 உங்களை வரவழைத்தார்"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "இப்பயனர் உங்களை உரையாடலுக்கு அழைக்கிறார்"
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2955,15 +2949,13 @@ msgstr ""
 "அமைக்கலாம்."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "மறு"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
@@ -4097,11 +4089,10 @@ msgid "Copy link"
 msgstr "இணைப்பை நகலெடு"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "கணக்கை முடக்கு"
+msgstr "கணக்கை கையாள்"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4842,17 +4833,17 @@ msgstr "இக்கணக்குக்கான‍ அறிவிப்ப�
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "நியோச்சாட் இயங்காதபோதும் அறிவிப்புகள் காட்டப்படலாம்"
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "புஷ் அறிவிப்புகள் ஆதரிக்கப்படுகின்றன, ஆனால் அவற்றை இயக்க முடியவில்லை."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "நியோச்சாட் இயங்கும்போது மட்டும் அறிவிப்புகள் காட்டப்படும்."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5200,6 +5191,8 @@ msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
+"இது இயக்கப்பட்டிருந்தால், புதிய நேரடி செய்திகளை அனுப்பும்போது நியோச்சாட் மறையாக்கத்தைப் "
+"பயன்படுத்தும்."
 
 #: src/settings/NeoChatSecurityPage.qml:85
 #, kde-format
@@ -5539,18 +5532,17 @@ msgid "URL previews are disabled by default in this room"
 msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக முடக்கப்பட்டுள்ளது"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
-msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக முடக்கப்பட்டுள்ளது"
+msgstr "உங்கள் கணக்கில் முகவரி முன்னோட்டங்கள் முடக்கப்பட்டுள்ளன"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "இயக்கு"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
