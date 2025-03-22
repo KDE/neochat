@@ -240,7 +240,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
         qml/PowerLevelDialog.qml
-        qml/Message.qml
+        qml/VerificationMessage.qml
         qml/EmojiItem.qml
         qml/EmojiRow.qml
         qml/EmojiSas.qml

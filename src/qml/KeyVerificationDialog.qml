@@ -121,7 +121,7 @@ Kirigami.Page {
 
     Component {
         id: message
-        Message {
+        VerificationMessage {
             icon: {
                 switch (root.session.state) {
                 case KeyVerificationSession.WAITINGFORREADY:

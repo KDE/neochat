@@ -6,7 +6,7 @@ import QtQml
 
 import org.kde.neochat
 
-Message {
+VerificationMessage {
     id: root
 
     required property int reason
