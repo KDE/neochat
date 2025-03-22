@@ -196,6 +196,8 @@ add_library(neochat STATIC
     models/pinnedmessagemodel.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
+    models/pollanswermodel.cpp
+    models/pollanswermodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -296,6 +298,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/HoverLinkIndicator.qml
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
+        qml/NewPollDialog.qml
     SOURCES
         messageattached.cpp
         messageattached.h

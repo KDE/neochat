@@ -1438,24 +1438,37 @@ bool NeoChatRoom::canEncryptRoom() const
 
 static PollHandler *emptyPollHandler = new PollHandler;
 
-PollHandler *NeoChatRoom::poll(const QString &eventId) const
+PollHandler *NeoChatRoom::poll(const QString &eventId)
 {
-    if (auto pollHandler = m_polls[eventId]) {
-        return pollHandler;
+    const auto event = getEvent(eventId);
+    if (event.first == nullptr || event.second) {
+        return emptyPollHandler;
     }
-    return emptyPollHandler;
+
+    if (m_polls.contains(eventId)) {
+        return m_polls[eventId];
+    }
+    auto handler = new PollHandler(this, eventId);
+    m_polls.insert(eventId, handler);
+    return handler;
 }
 
-void NeoChatRoom::createPollHandler(const Quotient::PollStartEvent *event)
+void NeoChatRoom::postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers)
 {
-    if (event == nullptr) {
-        return;
+    QList<EventContent::Answer> answerStructs;
+    for (const auto &answer : answers) {
+        answerStructs += EventContent::Answer{
+            QUuid::createUuid().toString().remove(QRegularExpression(u"{|}|-"_s)),
+            answer,
+        };
     }
-    auto eventId = event->id();
-    if (!m_polls.contains(eventId)) {
-        auto handler = new PollHandler(this, event);
-        m_polls.insert(eventId, handler);
-    }
+    const auto content = EventContent::PollStartContent{
+        .kind = kind,
+        .maxSelection = 1,
+        .question = question,
+        .answers = answerStructs,
+    };
+    post<PollStartEvent>(content);
 }
 
 bool NeoChatRoom::downloadTempFile(const QString &eventId)

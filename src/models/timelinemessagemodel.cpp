@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "timelinemessagemodel.h"
+#include "events/pollevent.h"
 #include "messagemodel_logging.h"
 
 using namespace Quotient;
@@ -36,7 +37,7 @@ void TimelineMessageModel::connectNewRoom()
         });
         connect(m_room, &Room::addedMessages, this, [this](int lowest, int biggest) {
             if (m_initialized) {
-                for (int i = lowest; i == biggest; ++i) {
+                for (int i = lowest; i <= biggest; ++i) {
                     const auto event = m_room->findInTimeline(i)->event();
                     Q_EMIT newEventAdded(event);
                 }
@@ -58,14 +59,14 @@ void TimelineMessageModel::connectNewRoom()
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
             m_initialized = true;
-            Q_EMIT newEventAdded(event, true);
+            Q_EMIT newEventAdded(event);
             beginInsertRows({}, 0, 0);
             endInsertRows();
         });
 #else
         connect(m_room, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
-            Q_EMIT newEventAdded(event, true);
+            Q_EMIT newEventAdded(event);
             beginInsertRows({}, 0, 0);
         });
         connect(m_room, &Room::pendingEventAdded, this, &TimelineMessageModel::endInsertRows);
@@ -111,9 +112,6 @@ void TimelineMessageModel::connectNewRoom()
             const auto eventIt = m_room->findInTimeline(eventId);
             if (eventIt != m_room->historyEdge()) {
                 Q_EMIT newEventAdded(eventIt->event());
-                if (eventIt->event()->is<PollStartEvent>()) {
-                    m_room->createPollHandler(eventCast<const PollStartEvent>(eventIt->event()));
-                }
             }
             refreshEventRoles(eventId, {Qt::DisplayRole});
         });

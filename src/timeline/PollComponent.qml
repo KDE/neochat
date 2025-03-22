@@ -8,6 +8,9 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+
+import Quotient
+
 import org.kde.neochat
 
 /**
@@ -43,24 +46,31 @@ ColumnLayout {
     }
 
     Repeater {
-        model: root.pollHandler.options
+        model: root.pollHandler.answerModel
         delegate: FormCard.FormCheckDelegate {
+            id: answerDelegate
+
+            required property string id
+            required property string answerText
+            required property int count
+            required property bool localChoice
+
             Layout.fillWidth: true
             Layout.leftMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
             Layout.rightMargin: -Kirigami.Units.largeSpacing - Kirigami.Units.smallSpacing
 
-            checked: root.pollHandler.answers[root.Message.room.localMember.id] ? root.pollHandler.answers[root.Message.room.localMember.id].includes(modelData["id"]) : false
-            onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
+            checked: answerDelegate.localChoice
+            onClicked: root.pollHandler.sendPollAnswer(root.eventId, answerDelegate.id)
             enabled: !root.pollHandler.hasEnded
-            text: modelData["org.matrix.msc1767.text"]
+            text: answerDelegate.answerText
 
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
 
             trailing: Label {
-                visible: root.pollHandler.kind == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
+                visible: root.pollHandler.kind == PollKind.Disclosed || pollHandler.hasEnded
                 Layout.preferredWidth: contentWidth
-                text: root.pollHandler.counts[modelData["id"]] ?? "0"
+                text: answerDelegate.count
             }
         }
     }

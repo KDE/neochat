@@ -121,7 +121,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (event->get().is<EncryptedEvent>()) {
+        if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>()) {
             return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(event->get().id()));
         }
 
@@ -401,16 +401,10 @@ void MessageModel::refreshLastUserEvents(int baseTimelineRow)
     }
 }
 
-void MessageModel::createEventObjects(const Quotient::RoomEvent *event, bool isPending)
+void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
 {
     if (event == nullptr) {
         return;
-    }
-
-    // We only create the poll handler for event acknowledged by the server as we need
-    // an ID
-    if (!event->id().isEmpty() && event->is<PollStartEvent>()) {
-        m_room->createPollHandler(eventCast<const PollStartEvent>(event));
     }
 
     auto eventId = event->id();

@@ -15,6 +15,7 @@
 
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
+#include "events/pollevent.h"
 #include "models/messagecontentmodel.h"
 #include "models/threadmodel.h"
 #include "neochatroommember.h"
@@ -501,14 +502,9 @@ public:
      *
      * @sa PollHandler
      */
-    PollHandler *poll(const QString &eventId) const;
+    PollHandler *poll(const QString &eventId);
 
-    /**
-     * @brief Create a PollHandler object for the given event.
-     *
-     * @sa PollHandler
-     */
-    void createPollHandler(const Quotient::PollStartEvent *event);
+    Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 
     /**
      * @brief Get the full Json data for a given room account data event.

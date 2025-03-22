@@ -129,7 +129,7 @@ Q_SIGNALS:
      * Any model inheriting from MessageModel needs to emit this signal for every
      * new event it adds.
      */
-    void newEventAdded(const Quotient::RoomEvent *event, bool isPending = false);
+    void newEventAdded(const Quotient::RoomEvent *event);
 
 protected:
     QPointer<NeoChatRoom> m_room;
@@ -154,5 +154,5 @@ private:
 
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
 
-    void createEventObjects(const Quotient::RoomEvent *event, bool isPending = false);
+    void createEventObjects(const Quotient::RoomEvent *event);
 };

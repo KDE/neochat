@@ -41,29 +41,32 @@ void PollHandlerTest::nullObject()
     auto pollHandler = PollHandler();
 
     QCOMPARE(pollHandler.hasEnded(), false);
-    QCOMPARE(pollHandler.answerCount(), 0);
+    QCOMPARE(pollHandler.numAnswers(), 0);
     QCOMPARE(pollHandler.question(), QString());
-    QCOMPARE(pollHandler.options(), QJsonArray());
-    QCOMPARE(pollHandler.answers(), QJsonObject());
-    QCOMPARE(pollHandler.counts(), QJsonObject());
-    QCOMPARE(pollHandler.kind(), QString());
+    QCOMPARE(pollHandler.kind(), PollKind::Disclosed);
 }
 
 void PollHandlerTest::poll()
 {
     auto startEvent = eventCast<const PollStartEvent>(room->messageEvents().at(0).get());
-    auto pollHandler = PollHandler(room, startEvent);
+    auto pollHandler = PollHandler(room, startEvent->id());
 
-    auto options = QJsonArray{QJsonObject{{"id"_L1, "option1"_L1}, {"org.matrix.msc1767.text"_L1, "option1"_L1}},
-                              QJsonObject{{"id"_L1, "option2"_L1}, {"org.matrix.msc1767.text"_L1, "option2"_L1}}};
+    QList<Quotient::EventContent::Answer> options = {EventContent::Answer{"option1"_L1, "option1"_L1}, EventContent::Answer{"option2"_L1, "option2"_L1}};
 
+    const auto answer0 = pollHandler.answerAtRow(0);
+    const auto answer1 = pollHandler.answerAtRow(1);
     QCOMPARE(pollHandler.hasEnded(), false);
-    QCOMPARE(pollHandler.answerCount(), 0);
+    QCOMPARE(pollHandler.numAnswers(), 2);
     QCOMPARE(pollHandler.question(), u"test"_s);
-    QCOMPARE(pollHandler.options(), options);
-    QCOMPARE(pollHandler.answers(), QJsonObject());
-    QCOMPARE(pollHandler.counts(), QJsonObject());
-    QCOMPARE(pollHandler.kind(), u"org.matrix.msc3381.poll.disclosed"_s);
+    QCOMPARE(answer0.id, "option1"_L1);
+    QCOMPARE(answer1.id, "option2"_L1);
+    QCOMPARE(answer0.text, "option1text"_L1);
+    QCOMPARE(answer1.text, "option2text"_L1);
+    QCOMPARE(pollHandler.answerCountAtId(answer0.id), 0);
+    QCOMPARE(pollHandler.answerCountAtId(answer1.id), 0);
+    QCOMPARE(pollHandler.checkMemberSelectedId(connection->userId(), answer0.id), false);
+    QCOMPARE(pollHandler.checkMemberSelectedId(connection->userId(), answer1.id), false);
+    QCOMPARE(pollHandler.kind(), PollKind::Undisclosed);
 }
 
 QTEST_GUILESS_MAIN(PollHandlerTest)

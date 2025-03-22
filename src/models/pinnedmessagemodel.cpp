@@ -58,7 +58,7 @@ void PinnedMessageModel::fill()
         connect(job, &BaseJob::success, this, [this, job] {
             beginInsertRows({}, m_pinnedEvents.size(), m_pinnedEvents.size());
             m_pinnedEvents.push_back(std::move(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData())));
-            Q_EMIT newEventAdded(m_pinnedEvents.back().get(), false);
+            Q_EMIT newEventAdded(m_pinnedEvents.back().get());
             endInsertRows();
         });
     }

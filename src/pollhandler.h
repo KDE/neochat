@@ -12,6 +12,12 @@
 #include <Quotient/events/roomevent.h>
 
 #include "events/pollevent.h"
+#include "models/pollanswermodel.h"
+
+namespace Quotient
+{
+class PollResponseEvent;
+}
 
 class NeoChatRoom;
 
@@ -33,24 +39,14 @@ class PollHandler : public QObject
     QML_UNCREATABLE("Use NeoChatRoom::poll")
 
     /**
+     * @brief The kind of the poll.
+     */
+    Q_PROPERTY(PollKind::Kind kind READ kind CONSTANT)
+
+    /**
      * @brief The question for the poll.
      */
     Q_PROPERTY(QString question READ question NOTIFY questionChanged)
-
-    /**
-     * @brief The list of possible answers to the poll.
-     */
-    Q_PROPERTY(QJsonArray options READ options NOTIFY optionsChanged)
-
-    /**
-     * @brief The list of answer responses to the poll from users in the room.
-     */
-    Q_PROPERTY(QJsonObject answers READ answers NOTIFY answersChanged)
-
-    /**
-     * @brief The list number of votes for each answer in the poll.
-     */
-    Q_PROPERTY(QJsonObject counts READ counts NOTIFY answersChanged)
 
     /**
      * @brief Whether the poll has ended.
@@ -58,27 +54,40 @@ class PollHandler : public QObject
     Q_PROPERTY(bool hasEnded READ hasEnded NOTIFY hasEndedChanged)
 
     /**
-     * @brief The total number of answers to the poll.
+     * @brief The model to visualize the answers to this poll.
      */
-    Q_PROPERTY(int answerCount READ answerCount NOTIFY answersChanged)
-
-    /**
-     * @brief The kind of the poll.
-     */
-    Q_PROPERTY(QString kind READ kind CONSTANT)
+    Q_PROPERTY(PollAnswerModel *answerModel READ answerModel CONSTANT)
 
 public:
     PollHandler() = default;
-    PollHandler(NeoChatRoom *room, const Quotient::PollStartEvent *pollStartEvent);
+    PollHandler(NeoChatRoom *room, const QString &pollStartId);
 
-    bool hasEnded() const;
-    int answerCount() const;
+    NeoChatRoom *room() const;
 
+    PollKind::Kind kind() const;
     QString question() const;
-    QJsonArray options() const;
-    QJsonObject answers() const;
-    QJsonObject counts() const;
-    QString kind() const;
+    bool hasEnded() const;
+    PollAnswerModel *answerModel();
+
+    /**
+     * @brief The total number of answer options.
+     */
+    int numAnswers() const;
+
+    /**
+     * @brief The answer at the given row.
+     */
+    Quotient::EventContent::Answer answerAtRow(int row) const;
+
+    /**
+     * @brief The number of responders who gave the answer ID.
+     */
+    int answerCountAtId(const QString &id) const;
+
+    /**
+     * @brief Check whether the given member has selected the given ID in their response.
+     */
+    bool checkMemberSelectedId(const QString &memberId, const QString &id) const;
 
     /**
      * @brief Send an answer to the poll.
@@ -87,20 +96,27 @@ public:
 
 Q_SIGNALS:
     void questionChanged();
-    void optionsChanged();
-    void answersChanged();
     void hasEndedChanged();
 
+    void answersChanged();
+
+    /**
+     * @brief Emitted when the selected answers to the poll change.
+     */
+    void selectionsChanged();
+
 private:
-    const Quotient::PollStartEvent *m_pollStartEvent = nullptr;
+    QString m_pollStartId;
 
     void updatePoll(Quotient::RoomEventsRange events);
 
     void checkLoadRelations();
-    void handleAnswer(const QJsonObject &object, const QString &sender, QDateTime timestamp);
-    QMap<QString, QDateTime> m_answerTimestamps;
-    QJsonObject m_answers;
-    int m_maxVotes = 1;
+    void handleResponse(const Quotient::PollResponseEvent *event);
+    QHash<QString, QDateTime> m_selectionTimestamps;
+    QHash<QString, QList<QString>> m_selections;
+
     bool m_hasEnded = false;
     QDateTime m_endedTimestamp;
+
+    QPointer<PollAnswerModel> m_answerModel;
 };

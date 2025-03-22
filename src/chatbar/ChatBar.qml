@@ -114,6 +114,20 @@ QQC2.Control {
             tooltip: text
         },
         Kirigami.Action {
+            id: pollButton
+            icon.name: "amarok_playcount"
+            property bool isBusy: false
+            text: i18nc("@action:button", "Create a Poll")
+            displayHint: QQC2.AbstractButton.IconOnly
+
+            onTriggered: {
+                newPollDialog.createObject(QQC2.Overlay.overlay, {
+                    room: root.currentRoom
+                }).open();
+            }
+            tooltip: text
+        },
+        Kirigami.Action {
             id: sendAction
 
             property bool isBusy: false
@@ -490,6 +504,11 @@ QQC2.Control {
     Component {
         id: locationChooser
         LocationChooser {}
+    }
+
+    Component {
+        id: newPollDialog
+        NewPollDialog {}
     }
 
     CompletionMenu {
