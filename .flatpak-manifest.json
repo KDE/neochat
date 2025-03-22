@@ -22,7 +22,20 @@
         "--talk-name=org.freedesktop.secrets",
         "--own-name=org.kde.StatusNotifierItem-2-2"
     ],
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "RUST_BACKTRACE": "1",
+            "CARGO_NET_OFFLINE": "true",
+            "RUSTFLAGS": "--remap-path-prefix =../"
+        }
+    },
+
     "modules": [
+        "flatpak/corrosion.json",
         {
             "name": "kirigamiaddons",
             "config-opts": [
@@ -111,6 +124,7 @@
             "name": "integral",
             "buildsystem": "cmake-ninja",
             "sources": [
+                "flatpak/generated-sources.json",
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/tfella/integral.git",
