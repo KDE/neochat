@@ -19,7 +19,7 @@ Delegates.RoundedItemDelegate {
     required property int index
     required property int contextNotificationCount
     required property bool hasHighlightNotifications
-    required property NeoChatRoom currentRoom
+    required property string roomId
     required property NeoChatConnection connection
     required property url avatar
     required property string subtitleText
@@ -37,10 +37,12 @@ Delegates.RoundedItemDelegate {
 
     onClicked: {
         if (root.openOnClick) {
-            RoomManager.resolveResource(currentRoom.id);
+            root.connection.open(root.roomId)
             pageStack.currentIndex = 1;
         }
     }
+
+    onPressAndHold: createRoomListContextMenu()
 
     Keys.onSpacePressed: clicked()
     Keys.onEnterPressed: clicked()
@@ -52,19 +54,14 @@ Delegates.RoundedItemDelegate {
         onTapped: (eventPoint, button) => root.createRoomListContextMenu()
     }
 
-    TapHandler {
-        acceptedDevices: PointerDevice.TouchScreen
-        onLongPressed: root.createRoomListContextMenu()
-    }
-
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
 
         AvatarNotification {
             source: root.avatar
             name: root.displayName
-            visible: NeoChatConfig.showAvatarInRoomDrawer
-            implicitHeight: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
+            // visible: NeoChatConfig.showAvatarInRoomDrawer
+            implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2 // (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
             implicitWidth: visible ? implicitHeight : 0
 
             notificationCount: root.contextNotificationCount
@@ -101,7 +98,7 @@ Delegates.RoundedItemDelegate {
                 elide: Text.ElideRight
                 font: Kirigami.Theme.smallFont
                 opacity: root.hasNotifications ? 0.9 : 0.7
-                visible: !NeoChatConfig.compactRoomList && text.length > 0
+                // visible: !NeoChatConfig.compactRoomList && text.length > 0
                 textFormat: Text.PlainText
 
                 Layout.fillWidth: true
@@ -147,7 +144,7 @@ Delegates.RoundedItemDelegate {
 
         QQC2.Button {
             id: configButton
-            visible: root.hovered && !Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList && !root.collapsed && root.showConfigure
+            visible: root.hovered && !Kirigami.Settings.isMobile /*&& !NeoChatConfig.compactRoomList*/ && !root.collapsed && root.showConfigure
             text: i18n("Configure room")
             display: QQC2.Button.IconOnly
 

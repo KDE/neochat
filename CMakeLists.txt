@@ -49,8 +49,6 @@ if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
 endif()
 
-set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
-
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
@@ -107,13 +105,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     find_package(KF6DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(QuotientQt6 0.9)
-set_package_properties(QuotientQt6 PROPERTIES
-    TYPE REQUIRED
-    DESCRIPTION "Qt wrapper around Matrix API"
-    URL "https://github.com/quotient-im/libQuotient/"
-    PURPOSE "Talk with matrix server"
-)
+find_package(Integral 0.1 REQUIRED)
 
 find_package(cmark)
 set_package_properties(cmark PROPERTIES

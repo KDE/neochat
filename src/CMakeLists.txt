@@ -10,192 +10,192 @@ endif()
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/emojimodel.cpp
-    models/emojimodel.h
-    emojitones.cpp
-    emojitones.h
-    models/customemojimodel.cpp
-    models/customemojimodel.h
-    clipboard.cpp
-    clipboard.h
-    models/timelinemessagemodel.cpp
-    models/timelinemessagemodel.h
-    models/messagefiltermodel.cpp
-    models/messagefiltermodel.h
-    models/roomlistmodel.cpp
-    models/roomlistmodel.h
-    models/sortfilterspacelistmodel.cpp
-    models/sortfilterspacelistmodel.h
-    models/accountemoticonmodel.cpp
-    models/accountemoticonmodel.h
-    spacehierarchycache.cpp
-    spacehierarchycache.h
-    roommanager.cpp
-    roommanager.h
+    # models/emojimodel.cpp
+    # models/emojimodel.h
+    # emojitones.cpp
+    # emojitones.h
+    # models/customemojimodel.cpp
+    # models/customemojimodel.h
+    # clipboard.cpp
+    # clipboard.h
+    # models/timelinemessagemodel.cpp
+    # models/timelinemessagemodel.h
+    # models/messagefiltermodel.cpp
+    # models/messagefiltermodel.h
+    # models/roomlistmodel.cpp
+    # models/roomlistmodel.h
+    # models/sortfilterspacelistmodel.cpp
+    # models/sortfilterspacelistmodel.h
+    # models/accountemoticonmodel.cpp
+    # models/accountemoticonmodel.h
+    # spacehierarchycache.cpp
+    # spacehierarchycache.h
+    # roommanager.cpp
+    # roommanager.h
     neochatroom.cpp
     neochatroom.h
     models/userlistmodel.cpp
     models/userlistmodel.h
     models/userfiltermodel.cpp
     models/userfiltermodel.h
-    models/publicroomlistmodel.cpp
-    models/publicroomlistmodel.h
-    models/spacechildrenmodel.cpp
-    models/spacechildrenmodel.h
-    models/spacechildsortfiltermodel.cpp
-    models/spacechildsortfiltermodel.h
-    models/spacetreeitem.cpp
-    models/spacetreeitem.h
-    models/userdirectorylistmodel.cpp
-    models/userdirectorylistmodel.h
+    # models/publicroomlistmodel.cpp
+    # models/publicroomlistmodel.h
+    # models/spacechildrenmodel.cpp
+    # models/spacechildrenmodel.h
+    # models/spacechildsortfiltermodel.cpp
+    # models/spacechildsortfiltermodel.h
+    # models/spacetreeitem.cpp
+    # models/spacetreeitem.h
+    # models/userdirectorylistmodel.cpp
+    # models/userdirectorylistmodel.h
     models/pushrulemodel.cpp
     models/pushrulemodel.h
-    models/emoticonfiltermodel.cpp
-    models/emoticonfiltermodel.h
-    notificationsmanager.cpp
-    notificationsmanager.h
-    models/sortfilterroomlistmodel.cpp
-    models/sortfilterroomlistmodel.h
+    # models/emoticonfiltermodel.cpp
+    # models/emoticonfiltermodel.h
+    # notificationsmanager.cpp
+    # notificationsmanager.h
+    # models/sortfilterroomlistmodel.cpp
+    # models/sortfilterroomlistmodel.h
     models/roomtreemodel.cpp
     models/roomtreemodel.h
     chatdocumenthandler.cpp
     chatdocumenthandler.h
-    models/devicesmodel.cpp
-    models/devicesmodel.h
-    models/devicesproxymodel.cpp
-    filetype.cpp
-    filetype.h
-    login.cpp
-    login.h
-    models/webshortcutmodel.cpp
-    models/webshortcutmodel.h
+    # models/devicesmodel.cpp
+    # models/devicesmodel.h
+    # models/devicesproxymodel.cpp
+    # filetype.cpp
+    # filetype.h
+    # login.cpp
+    # login.h
+    # models/webshortcutmodel.cpp
+    # models/webshortcutmodel.h
     blurhash.cpp
     blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
-    models/mediamessagefiltermodel.cpp
-    models/mediamessagefiltermodel.h
-    urlhelper.cpp
-    urlhelper.h
+    # models/mediamessagefiltermodel.cpp
+    # models/mediamessagefiltermodel.h
+    # urlhelper.cpp
+    # urlhelper.h
     windowcontroller.cpp
     windowcontroller.h
-    linkpreviewer.cpp
-    linkpreviewer.h
+    # linkpreviewer.cpp
+    # linkpreviewer.h
     models/completionmodel.cpp
     models/completionmodel.h
-    models/completionproxymodel.cpp
-    models/completionproxymodel.h
-    models/actionsmodel.cpp
-    models/actionsmodel.h
-    models/serverlistmodel.cpp
-    models/serverlistmodel.h
-    models/statemodel.cpp
-    models/statemodel.h
-    models/statefiltermodel.cpp
-    models/statefiltermodel.h
-    filetransferpseudojob.cpp
-    filetransferpseudojob.h
-    models/searchmodel.cpp
-    models/searchmodel.h
-    texthandler.cpp
-    texthandler.h
+    # models/completionproxymodel.cpp
+    # models/completionproxymodel.h
+    # models/actionsmodel.cpp
+    # models/actionsmodel.h
+    # models/serverlistmodel.cpp
+    # models/serverlistmodel.h
+    # models/statemodel.cpp
+    # models/statemodel.h
+    # models/statefiltermodel.cpp
+    # models/statefiltermodel.h
+    # filetransferpseudojob.cpp
+    # filetransferpseudojob.h
+    # models/searchmodel.cpp
+    # models/searchmodel.h
+    # texthandler.cpp
+    # texthandler.h
     logger.cpp
     logger.h
-    models/stickermodel.cpp
-    models/stickermodel.h
-    models/imagepacksmodel.cpp
-    models/imagepacksmodel.h
-    events/imagepackevent.cpp
-    events/imagepackevent.h
-    models/reactionmodel.cpp
-    models/reactionmodel.h
+    # models/stickermodel.cpp
+    # models/stickermodel.h
+    # models/imagepacksmodel.cpp
+    # models/imagepacksmodel.h
+    # events/imagepackevent.cpp
+    # events/imagepackevent.h
+    # models/reactionmodel.cpp
+    # models/reactionmodel.h
     delegatesizehelper.cpp
     delegatesizehelper.h
-    models/livelocationsmodel.cpp
-    models/livelocationsmodel.h
-    models/locationsmodel.cpp
-    models/locationsmodel.h
-    locationhelper.cpp
-    locationhelper.h
-    events/pollevent.cpp
-    pollhandler.cpp
+    # models/livelocationsmodel.cpp
+    # models/livelocationsmodel.h
+    # models/locationsmodel.cpp
+    # models/locationsmodel.h
+    # locationhelper.cpp
+    # locationhelper.h
+    # events/pollevent.cpp
+    # pollhandler.cpp
     utils.h
     utils.cpp
-    registration.cpp
+    # registration.cpp
     neochatconnection.cpp
     neochatconnection.h
-    jobs/neochatgetcommonroomsjob.cpp
-    jobs/neochatgetcommonroomsjob.h
+    # jobs/neochatgetcommonroomsjob.cpp
+    # jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
-    eventhandler.cpp
-    enums/delegatetype.h
-    roomlastmessageprovider.cpp
-    roomlastmessageprovider.h
+    # eventhandler.cpp
+    # enums/delegatetype.h
+    # roomlastmessageprovider.cpp
+    # roomlastmessageprovider.h
     chatbarcache.cpp
     chatbarcache.h
     colorschemer.cpp
     colorschemer.h
-    models/notificationsmodel.cpp
-    models/notificationsmodel.h
-    models/timelinemodel.cpp
-    models/timelinemodel.h
+    # models/notificationsmodel.cpp
+    # models/notificationsmodel.h
+    # models/timelinemodel.cpp
+    # models/timelinemodel.h
     enums/pushrule.h
-    models/itinerarymodel.cpp
-    models/itinerarymodel.h
+    # models/itinerarymodel.cpp
+    # models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
     models/linemodel.cpp
     models/linemodel.h
-    events/locationbeaconevent.h
-    events/widgetevent.h
-    enums/messagecomponenttype.h
-    models/messagecontentmodel.cpp
-    models/messagecontentmodel.h
+    # events/locationbeaconevent.h
+    # events/widgetevent.h
+    # enums/messagecomponenttype.h
+    # models/messagecontentmodel.cpp
+    # models/messagecontentmodel.h
     enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h
     mediamanager.cpp
     mediamanager.h
-    models/statekeysmodel.cpp
-    models/statekeysmodel.h
-    sharehandler.cpp
-    sharehandler.h
+    # models/statekeysmodel.cpp
+    # models/statekeysmodel.h
+    # sharehandler.cpp
+    # sharehandler.h
     models/roomtreeitem.cpp
     models/roomtreeitem.h
     foreigntypes.h
-    models/threepidmodel.cpp
-    models/threepidmodel.h
-    threepidaddhelper.cpp
-    threepidaddhelper.h
-    identityserverhelper.cpp
-    identityserverhelper.h
-    enums/powerlevel.cpp
-    enums/powerlevel.h
-    models/permissionsmodel.cpp
-    models/permissionsmodel.h
-    threepidbindhelper.cpp
-    threepidbindhelper.h
-    models/readmarkermodel.cpp
-    models/readmarkermodel.h
-    neochatroommember.cpp
-    neochatroommember.h
-    models/threadmodel.cpp
-    models/threadmodel.h
-    enums/messagetype.h
-    messagecomponent.h
+    # models/threepidmodel.cpp
+    # models/threepidmodel.h
+    # threepidaddhelper.cpp
+    # threepidaddhelper.h
+    # identityserverhelper.cpp
+    # identityserverhelper.h
+    # enums/powerlevel.cpp
+    # enums/powerlevel.h
+    # models/permissionsmodel.cpp
+    # models/permissionsmodel.h
+    # threepidbindhelper.cpp
+    # threepidbindhelper.h
+    # models/readmarkermodel.cpp
+    # models/readmarkermodel.h
+    # neochatroommember.cpp
+    # neochatroommember.h
+    # models/threadmodel.cpp
+    # models/threadmodel.h
+    # enums/messagetype.h
+    # messagecomponent.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
-    models/roomsortparametermodel.cpp
-    models/roomsortparametermodel.h
-    models/messagemodel.cpp
-    models/messagemodel.h
-    models/messagecontentfiltermodel.cpp
-    models/messagecontentfiltermodel.h
-    models/pinnedmessagemodel.cpp
-    models/pinnedmessagemodel.h
-    models/commonroomsmodel.cpp
-    models/commonroomsmodel.h
+    # models/roomsortparametermodel.cpp
+    # models/roomsortparametermodel.h
+    # models/messagemodel.cpp
+    # models/messagemodel.h
+    # models/messagecontentfiltermodel.cpp
+    # models/messagecontentfiltermodel.h
+    # models/pinnedmessagemodel.cpp
+    # models/pinnedmessagemodel.h
+    # models/commonroomsmodel.cpp
+    # models/commonroomsmodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -297,8 +297,8 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
     SOURCES
-        messageattached.cpp
-        messageattached.h
+        # messageattached.cpp
+        # messageattached.h
     DEPENDENCIES
         QtCore
         QtQuick
@@ -398,10 +398,10 @@ endif()
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=1)
-    target_sources(neochat PRIVATE runner.cpp)
+    # target_sources(neochat PRIVATE runner.cpp)
 
     if (TARGET KUnifiedPush)
-        target_sources(neochat PRIVATE fakerunner.cpp)
+        # target_sources(neochat PRIVATE fakerunner.cpp)
     endif()
 else()
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=0)
@@ -427,7 +427,7 @@ target_link_libraries(neochat PUBLIC
     KF6::IconThemes
     KF6::ColorScheme
     KF6::ItemModels
-    QuotientQt6
+    Integral
     cmark::cmark
     QCoro::Core
     QCoro::Network

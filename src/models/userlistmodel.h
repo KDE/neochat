@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <Quotient/room.h>
+#include <Integral/Room>
 
 #include <QAbstractListModel>
 #include <QObject>
@@ -87,9 +87,9 @@ protected:
     bool event(QEvent *event) override;
 
 private Q_SLOTS:
-    void memberJoined(const Quotient::RoomMember &member);
-    void memberLeft(const Quotient::RoomMember &member);
-    void refreshMember(const Quotient::RoomMember &member, const QList<int> &roles = {});
+    // void memberJoined(const Quotient::RoomMember &member);
+    // void memberLeft(const Quotient::RoomMember &member);
+    // void refreshMember(const Quotient::RoomMember &member, const QList<int> &roles = {});
     void refreshAllMembers();
 
 private:
@@ -98,6 +98,6 @@ private:
 
     bool m_active = false;
 
-    int findUserPos(const Quotient::RoomMember &member) const;
+    // int findUserPos(const Quotient::RoomMember &member) const;
     [[nodiscard]] int findUserPos(const QString &username) const;
 };

@@ -32,7 +32,7 @@ Kirigami.Page {
      *
      * @sa TimelineModel
      */
-    property TimelineModel timelineModel: RoomManager.timelineModel
+    // property TimelineModel timelineModel: RoomManager.timelineModel
 
     /**
      * @brief The MessageFilterModel to use.
@@ -44,7 +44,7 @@ Kirigami.Page {
      *
      * @sa TimelineModel, MessageFilterModel
      */
-    property MessageFilterModel messageFilterModel: RoomManager.messageFilterModel
+    // property MessageFilterModel messageFilterModel: RoomManager.messageFilterModel
 
     /**
      * @brief The MediaMessageFilterModel to use.
@@ -57,7 +57,7 @@ Kirigami.Page {
      *
      * @sa TimelineModel, MessageFilterModel
      */
-    property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
+    // property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
 
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
 
@@ -106,58 +106,58 @@ Kirigami.Page {
         position: Kirigami.InlineMessage.Position.Header
     }
 
-    Loader {
-        id: timelineViewLoader
-        anchors.fill: parent
-        active: root.currentRoom && !root.currentRoom.isInvite && !root.loading && !root.currentRoom.isSpace
-        sourceComponent: TimelineView {
-            id: timelineView
-            currentRoom: root.currentRoom
-            page: root
-            timelineModel: root.timelineModel
-            messageFilterModel: root.messageFilterModel
-            onFocusChatBar: {
-                if (chatBarLoader.item) {
-                    chatBarLoader.item.forceActiveFocus();
-                }
-            }
-        }
-    }
+    // Loader {
+    //     id: timelineViewLoader
+    //     anchors.fill: parent
+    //     active: root.currentRoom && !root.currentRoom.isInvite && !root.loading && !root.currentRoom.isSpace
+    //     sourceComponent: TimelineView {
+    //         id: timelineView
+    //         currentRoom: root.currentRoom
+    //         page: root
+    //         timelineModel: root.timelineModel
+    //         messageFilterModel: root.messageFilterModel
+    //         onFocusChatBar: {
+    //             if (chatBarLoader.item) {
+    //                 chatBarLoader.item.forceActiveFocus();
+    //             }
+    //         }
+    //     }
+    // }
 
-    Loader {
-        id: invitationLoader
-        active: root.currentRoom && root.currentRoom.isInvite
-        anchors.centerIn: parent
-        sourceComponent: InvitationView {
-            currentRoom: root.currentRoom
-            anchors.centerIn: parent
-        }
-    }
+    // Loader {
+    //     id: invitationLoader
+    //     active: root.currentRoom && root.currentRoom.isInvite
+    //     anchors.centerIn: parent
+    //     sourceComponent: InvitationView {
+    //         currentRoom: root.currentRoom
+    //         anchors.centerIn: parent
+    //     }
+    // }
 
-    Loader {
-        id: spaceLoader
-        active: root.currentRoom && root.currentRoom.isSpace
-        anchors.fill: parent
-        sourceComponent: SpaceHomePage {}
-    }
+    // Loader {
+    //     id: spaceLoader
+    //     active: root.currentRoom && root.currentRoom.isSpace
+    //     anchors.fill: parent
+    //     sourceComponent: SpaceHomePage {}
+    // }
 
-    Loader {
-        active: !RoomManager.currentRoom
-        anchors.centerIn: parent
-        sourceComponent: Kirigami.PlaceholderMessage {
-            icon.name: "org.kde.neochat"
-            text: i18n("Welcome to NeoChat")
-            explanation: i18n("Select or join a room to get started")
-        }
-    }
+    // Loader {
+    //     active: !RoomManager.currentRoom
+    //     anchors.centerIn: parent
+    //     sourceComponent: Kirigami.PlaceholderMessage {
+    //         icon.name: "org.kde.neochat"
+    //         text: i18n("Welcome to NeoChat")
+    //         explanation: i18n("Select or join a room to get started")
+    //     }
+    // }
 
-    Loader {
-        active: root.loading && !invitationLoader.active && RoomManager.currentRoom && !spaceLoader.active
-        anchors.centerIn: parent
-        sourceComponent: Kirigami.LoadingPlaceholder {
-            anchors.centerIn: parent
-        }
-    }
+    // Loader {
+    //     active: root.loading && !invitationLoader.active && RoomManager.currentRoom && !spaceLoader.active
+    //     anchors.centerIn: parent
+    //     sourceComponent: Kirigami.LoadingPlaceholder {
+    //         anchors.centerIn: parent
+    //     }
+    // }
 
     background: Rectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -290,26 +290,26 @@ Kirigami.Page {
         }
     }
 
-    Component {
-        id: messageDelegateContextMenu
-        MessageDelegateContextMenu {
-            connection: root.connection
-        }
-    }
+    // Component {
+    //     id: messageDelegateContextMenu
+    //     MessageDelegateContextMenu {
+    //         connection: root.connection
+    //     }
+    // }
 
-    Component {
-        id: fileDelegateContextMenu
-        FileDelegateContextMenu {
-            connection: root.connection
-        }
-    }
+    // Component {
+    //     id: fileDelegateContextMenu
+    //     FileDelegateContextMenu {
+    //         connection: root.connection
+    //     }
+    // }
 
-    Component {
-        id: maximizeComponent
-        NeochatMaximizeComponent {
-            currentRoom: root.currentRoom
-            model: root.mediaMessageFilterModel
-            parent: root.QQC2.Overlay.overlay
-        }
-    }
+    // Component {
+    //     id: maximizeComponent
+    //     NeochatMaximizeComponent {
+    //         currentRoom: root.currentRoom
+    //         model: root.mediaMessageFilterModel
+    //         parent: root.QQC2.Overlay.overlay
+    //     }
+    // }
 }

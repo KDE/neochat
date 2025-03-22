@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
@@ -6,23 +7,20 @@
 #include <QAbstractItemModel>
 #include <QPointer>
 
-#include "enums/neochatroomtype.h"
 #include "roomtreeitem.h"
 
-namespace Quotient
+namespace Integral
 {
+class Connection;
 class Room;
 }
-
-class NeoChatConnection;
-class NeoChatRoom;
 
 class RoomTreeModel : public QAbstractItemModel
 {
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(NeoChatConnection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Integral::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     /**
@@ -51,9 +49,10 @@ public:
     };
     Q_ENUM(EventRoles)
     explicit RoomTreeModel(QObject *parent = nullptr);
+    ~RoomTreeModel();
 
-    void setConnection(NeoChatConnection *connection);
-    NeoChatConnection *connection() const;
+    void setConnection(Integral::Connection *connection);
+    Integral::Connection *connection() const;
 
     /**
      * @brief Get the given role value at the given index.
@@ -75,23 +74,21 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_INVOKABLE QModelIndex indexForRoom(NeoChatRoom *room) const;
+    QModelIndex indexForRoom(rust::Box<sdk::RoomListRoom> room) const;
+    std::optional<rust::Box<sdk::RoomListRoom>> roomForIndex(QModelIndex index) const;
 
 Q_SIGNALS:
     void connectionChanged();
 
 private:
-    QPointer<NeoChatConnection> m_connection;
-    std::unique_ptr<RoomTreeItem> m_rootItem;
+    class Private;
+    std::unique_ptr<Private> d;
 
     RoomTreeItem *getItem(const QModelIndex &index) const;
 
     void resetModel();
-    void connectRoomSignals(NeoChatRoom *room);
 
-    void newRoom(Quotient::Room *room);
-    void leftRoom(Quotient::Room *room);
-    void moveRoom(Quotient::Room *room);
+    // void connectRoomSignals(NeoChatRoom *room);
 
-    void refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles = {});
+    // void refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles = {});
 };

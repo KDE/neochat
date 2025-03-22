@@ -12,6 +12,8 @@ import org.kde.neochat
 LoginStep {
     id: root
 
+    property Homeserver homeserver
+
     Connections {
         target: LoginHelper
         function onConnected() {
@@ -26,7 +28,6 @@ LoginStep {
         id: passwordField
 
         label: i18n("Password:")
-        onTextChanged: LoginHelper.password = text
         enabled: !LoginHelper.isLoggingIn
         echoMode: TextInput.Password
         Accessible.name: i18n("Password")
@@ -39,10 +40,10 @@ LoginStep {
 
     nextAction: Kirigami.Action {
         text: i18nc("@action:button", "Login")
-        enabled: passwordField.text.length > 0 && !LoginHelper.isLoggingIn
+        // enabled: passwordField.text.length > 0 && !LoginHelper.isLoggingIn
         onTriggered: {
             root.clearError();
-            LoginHelper.login();
+            let pending = Accounts.loginWithPassword(root.homeserver.matrixId, passwordField.text)
         }
     }
     previousAction: Kirigami.Action {

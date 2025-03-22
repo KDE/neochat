@@ -344,13 +344,13 @@ QQC2.Control {
         Item {
             implicitWidth: replyComponent.implicitWidth
             implicitHeight: replyComponent.implicitHeight
-            ReplyComponent {
-                id: replyComponent
-                replyEventId: _private.chatBarCache.replyId
-                replyAuthor: _private.chatBarCache.relationAuthor
-                replyContentModel: _private.chatBarCache.relationEventContentModel
-                Message.maxContentWidth: paneLoader.item.width
-            }
+            // ReplyComponent {
+            //     id: replyComponent
+            //     replyEventId: _private.chatBarCache.replyId
+            //     replyAuthor: _private.chatBarCache.relationAuthor
+            //     replyContentModel: _private.chatBarCache.relationEventContentModel
+            //     Message.maxContentWidth: paneLoader.item.width
+            // }
             QQC2.Button {
                 id: cancelButton
 
@@ -498,23 +498,23 @@ QQC2.Control {
         }
     }
 
-    EmojiDialog {
-        id: emojiDialog
-
-        x: root.width - width
-        y: -implicitHeight
-
-        modal: false
-        includeCustom: true
-        closeOnChosen: false
-
-        currentRoom: root.currentRoom
-
-        onChosen: emoji => insertText(emoji)
-        onClosed: if (emojiAction.checked) {
-            emojiAction.checked = false;
-        }
-    }
+    // EmojiDialog {
+    //     id: emojiDialog
+    //
+    //     x: root.width - width
+    //     y: -implicitHeight
+    //
+    //     modal: false
+    //     includeCustom: true
+    //     closeOnChosen: false
+    //
+    //     currentRoom: root.currentRoom
+    //
+    //     onChosen: emoji => insertText(emoji)
+    //     onClosed: if (emojiAction.checked) {
+    //         emojiAction.checked = false;
+    //     }
+    // }
 
     function insertText(text) {
         let initialCursorPosition = textField.cursorPosition;

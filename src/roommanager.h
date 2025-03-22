@@ -7,9 +7,9 @@
 #include <KSharedConfig>
 #include <QObject>
 #include <QQmlEngine>
-#include <Quotient/room.h>
-#include <Quotient/roommember.h>
-#include <Quotient/uriresolver.h>
+// #include <Quotient/room.h>
+// #include <Quotient/roommember.h>
+// #include <Quotient/uriresolver.h>
 
 #include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"

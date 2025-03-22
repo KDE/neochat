@@ -7,8 +7,8 @@
 #include <QQmlEngine>
 
 #include "neochatconnection.h"
-#include "notificationsmanager.h"
-#include <Quotient/accountregistry.h>
+// #include "notificationsmanager.h"
+#include <Integral/Accounts>
 
 class TrayIcon;
 
@@ -63,21 +63,6 @@ public:
     void setActiveConnection(NeoChatConnection *connection);
     [[nodiscard]] NeoChatConnection *activeConnection() const;
 
-    /**
-     * @brief Add a new connection to the account registry.
-     */
-    void addConnection(NeoChatConnection *c);
-
-    /**
-     * @brief Drop a connection from the account registry.
-     */
-    void dropConnection(NeoChatConnection *c);
-
-    /**
-     * @brief Save an access token to the keychain for the given account.
-     */
-    void saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken);
-
     [[nodiscard]] bool supportSystemTray() const;
 
     bool isFlatpak() const;
@@ -97,11 +82,9 @@ public:
 
     Q_INVOKABLE QString loadFileContent(const QString &path) const;
 
-    Quotient::AccountRegistry &accounts();
+    Integral::Accounts &accounts();
 
     static void setTestMode(bool testMode);
-
-    Q_INVOKABLE void removeConnection(const QString &userId);
 
     bool csSupported() const;
 
@@ -122,18 +105,15 @@ private:
     QPointer<NeoChatConnection> m_connection;
     TrayIcon *m_trayIcon = nullptr;
 
-    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const QString &account);
-
-    Quotient::AccountRegistry m_accountRegistry;
+    Integral::Accounts m_accounts;
     QStringList m_accountsLoading;
     QMap<QString, QPointer<NeoChatConnection>> m_connectionsLoading;
     QString m_endpoint;
     QStringList m_shownImages;
 
-    NotificationsManager m_notificationsManager;
+    // NotificationsManager m_notificationsManager;
 
 private Q_SLOTS:
-    void invokeLogin();
     void setQuitOnLastWindowClosed();
     void updateBadgeNotificationCount(NeoChatConnection *connection, int count);
 

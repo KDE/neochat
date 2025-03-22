@@ -27,6 +27,10 @@ Kirigami.Page {
     title: i18n("Welcome")
     globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
+    Homeserver {
+        id: homeserver
+    }
+
     header: QQC2.Control {
         topPadding: 0
         bottomPadding: 0
@@ -81,7 +85,7 @@ Kirigami.Page {
             FormCard.FormHeader {
                 id: existingAccountsHeader
                 title: i18nc("@title", "Continue with an existing account")
-                visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0) && root._showExisting
+                // visible: (loadedAccounts.count > 0 || loadingAccounts.count > 0) && root._showExisting
                 maximumWidth: Kirigami.Units.gridUnit * 20
             }
 
@@ -90,15 +94,21 @@ Kirigami.Page {
                 maximumWidth: Kirigami.Units.gridUnit * 20
                 Repeater {
                     id: loadedAccounts
-                    model: AccountRegistry
+                    model: Accounts
                     delegate: FormCard.FormButtonDelegate {
                         id: delegate
 
-                        required property string userId
-                        required property NeoChatConnection connection
+                        required property string matrixId
+                        required property string displayName
+                        required property string avatarUrl
+                        required property int index
+                        required property bool ready
+                        required property Connection connection
 
-                        text: QmlUtils.escapeString(connection.localUser.displayName)
-                        description: connection.localUser.id
+                        enabled: ready
+
+                        text: QmlUtils.escapeString(delegate.displayName)
+                        description: delegate.matrixId
                         leadingPadding: Kirigami.Units.largeSpacing
 
                         onClicked: {
@@ -109,59 +119,9 @@ Kirigami.Page {
                             id: avatar
                             name: delegate.text
                             // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-                            source: delegate.connection.localUser.avatarUrl.toString().length > 0 ? delegate.connection.makeMediaUrl(delegate.connection.localUser.avatarUrl) : ""
+                            source: delegate.avatarUrl
                             implicitWidth: Kirigami.Units.iconSizes.medium
                             implicitHeight: Kirigami.Units.iconSizes.medium
-                        }
-                    }
-                }
-                Repeater {
-                    id: loadingAccounts
-                    model: Controller.accountsLoading
-                    delegate: FormCard.AbstractFormDelegate {
-                        id: loadingDelegate
-
-                        topPadding: Kirigami.Units.smallSpacing
-                        bottomPadding: Kirigami.Units.smallSpacing
-
-                        background: null
-                        contentItem: RowLayout {
-                            spacing: 0
-
-                            QQC2.Label {
-                                Layout.fillWidth: true
-                                text: i18nc("As in 'this account is still loading'", "%1 (loading)", modelData)
-                                elide: Text.ElideRight
-                                wrapMode: Text.Wrap
-                                maximumLineCount: 2
-                                color: Kirigami.Theme.disabledTextColor
-                                Accessible.ignored: true // base class sets this text on root already
-                            }
-
-                            QQC2.ToolButton {
-                                text: i18nc("@action:button", "Log out of this account")
-                                icon.name: "im-kick-user"
-                                onClicked: Controller.removeConnection(modelData)
-                                display: QQC2.Button.IconOnly
-                                QQC2.ToolTip.text: text
-                                QQC2.ToolTip.visible: hovered
-                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                                enabled: true
-                                Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                            }
-
-                            FormCard.FormArrow {
-                                Layout.leftMargin: Kirigami.Units.smallSpacing
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                direction: Qt.RightArrow
-                                visible: root.background.visible
-                            }
-                        }
-                    }
-                    onCountChanged: {
-                        if (loadingAccounts.count === 0 && loadedAccounts.count === 1 && showExisting) {
-                            Controller.activeConnection = AccountRegistry.data(AccountRegistry.index(0, 0), 257);
-                            root.connectionChosen();
                         }
                     }
                 }
@@ -188,6 +148,7 @@ Kirigami.Page {
                             root.currentStepString = nextStep;
                             headerMessage.text = "";
                             headerMessage.visible = false;
+                            module.item.homeserver = homeserver
                             if (!module.item.noControls) {
                                 module.item.forceActiveFocus();
                             } else {
@@ -211,33 +172,33 @@ Kirigami.Page {
                         }
                     }
 
-                    Connections {
-                        target: Registration
-
-                        function onNextStepChanged() {
-                            if (Registration.nextStep === "m.login.recaptcha") {
-                                stepConnections.onProcessed("Captcha");
-                            }
-                            if (Registration.nextStep === "m.login.terms") {
-                                stepConnections.onProcessed("Terms");
-                            }
-                            if (Registration.nextStep === "m.login.email.identity") {
-                                stepConnections.onProcessed("Email");
-                            }
-                            if (Registration.nextStep === "loading") {
-                                stepConnections.onProcessed("Loading");
-                            }
-                        }
-                    }
-                    Connections {
-                        target: LoginHelper
-
-                        function onLoginErrorOccured(message) {
-                            headerMessage.text = message;
-                            headerMessage.visible = message.length > 0;
-                            headerMessage.type = Kirigami.MessageType.Error;
-                        }
-                    }
+                    // Connections {
+                    //     target: Registration
+                    //
+                    //     function onNextStepChanged() {
+                    //         if (Registration.nextStep === "m.login.recaptcha") {
+                    //             stepConnections.onProcessed("Captcha");
+                    //         }
+                    //         if (Registration.nextStep === "m.login.terms") {
+                    //             stepConnections.onProcessed("Terms");
+                    //         }
+                    //         if (Registration.nextStep === "m.login.email.identity") {
+                    //             stepConnections.onProcessed("Email");
+                    //         }
+                    //         if (Registration.nextStep === "loading") {
+                    //             stepConnections.onProcessed("Loading");
+                    //         }
+                    //     }
+                    // }
+                    // Connections {
+                    //     target: LoginHelper
+                    //
+                    //     function onLoginErrorOccured(message) {
+                    //         headerMessage.text = message;
+                    //         headerMessage.visible = message.length > 0;
+                    //         headerMessage.type = Kirigami.MessageType.Error;
+                    //     }
+                    // }
                 }
 
                 FormCard.FormDelegateSeparator {
@@ -276,11 +237,11 @@ Kirigami.Page {
         }
     }
 
-    Component.onCompleted: {
-        LoginHelper.init();
-        module.item.forceActiveFocus();
-        Registration.username = "";
-        Registration.password = "";
-        Registration.email = "";
-    }
+    // Component.onCompleted: {
+    //     LoginHelper.init();
+    //     module.item.forceActiveFocus();
+    //     Registration.username = "";
+    //     Registration.password = "";
+    //     Registration.email = "";
+    // }
 }

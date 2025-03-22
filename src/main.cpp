@@ -13,7 +13,12 @@
 #include <QQuickStyle>
 #include <QQuickWindow>
 #include <QtQml/QQmlExtensionPlugin>
-#include <Quotient/connection.h>
+
+#include <Integral/Connection_p>
+#include <Integral/NetworkAccessManager>
+#include <Integral/PendingConnection>
+
+// #include <Quotient/connection.h>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -43,31 +48,35 @@
 
 #include "neochat-version.h"
 
-#include <Quotient/networkaccessmanager.h>
+// #include <Quotient/networkaccessmanager.h>
 
 #include "blurhashimageprovider.h"
 #include "colorschemer.h"
-#include "controller.h"
+// #include "controller.h"
 #include "logger.h"
-#include "roommanager.h"
-#include "sharehandler.h"
+// #include "roommanager.h"
+// #include "sharehandler.h"
+#include "neochatconnection.h"
+#include "neochatroom.h"
 #include "windowcontroller.h"
 
 #ifdef HAVE_RUNNER
-#include "runner.h"
+// #include "runner.h"
 #include <QDBusConnection>
 #include <QDBusMetaType>
 #endif
 
 #if defined(HAVE_RUNNER) && defined(HAVE_KUNIFIEDPUSH)
-#include "fakerunner.h"
+// #include "fakerunner.h"
 #endif
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
 #endif
 
-using namespace Quotient;
+using namespace Qt::Literals::StringLiterals;
+
+using namespace Integral;
 
 void qml_register_types_org_kde_neochat();
 
@@ -158,14 +167,14 @@ int main(int argc, char *argv[])
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     about.setOrganizationDomain("kde.org");
 
-    about.addComponent(u"libQuotient"_s,
-                       i18n("A Qt library to write cross-platform clients for Matrix"),
-                       i18nc("<version number> (built against <possibly different version number>)",
-                             "%1 (built against %2)",
-                             Quotient::versionString(),
-                             QStringLiteral(Quotient_VERSION_STRING)),
-                       u"https://github.com/quotient-im/libquotient"_s,
-                       KAboutLicense::LGPL_V2_1);
+    // about.addComponent(u"libQuotient"_s,
+    //                    i18n("A Qt library to write cross-platform clients for Matrix"),
+    //                    i18nc("<version number> (built against <possibly different version number>)",
+    //                          "%1 (built against %2)",
+    //                          Quotient::versionString(),
+    //                          QStringLiteral(Quotient_VERSION_STRING)),
+    //                    u"https://github.com/quotient-im/libquotient"_s,
+    //                    KAboutLicense::LGPL_V2_1);
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.neochat"_s));
@@ -174,10 +183,13 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 #endif
 
+    PendingConnection::setConnectionType<NeoChatConnection>();
+    Connection::setRoomType<NeoChatRoom>();
+
     initLogging();
 
-    Connection::setEncryptionDefault(true);
-    Connection::setDirectChatEncryptionDefault(true);
+    // Connection::setEncryptionDefault(true);
+    // Connection::setDirectChatEncryptionDefault(true);
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
@@ -185,7 +197,7 @@ int main(int argc, char *argv[])
     QFile::copy(u"/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf"_s, u"/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"_s);
 #endif
 
-    ColorSchemer colorScheme;
+    // ColorSchemer colorScheme;
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
@@ -208,7 +220,7 @@ int main(int argc, char *argv[])
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
-    Controller::setTestMode(parser.isSet("test"_L1));
+    // Controller::setTestMode(parser.isSet("test"_L1));
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {
@@ -220,10 +232,10 @@ int main(int argc, char *argv[])
         // Because KRunner may call us on the D-Bus (under the same service name org.kde.neochat) then it may
         // accidentally activate us for push notifications instead. If this happens, then immediately quit if the fake
         // runner is called.
-        QDBusConnection::sessionBus().registerObject("/RoomRunner"_L1, new FakeRunner(), QDBusConnection::ExportScriptableContents);
+        // QDBusConnection::sessionBus().registerObject("/RoomRunner"_L1, new FakeRunner(), QDBusConnection::ExportScriptableContents);
 #endif
 
-        Controller::listenForNotifications();
+        // Controller::listenForNotifications();
         return QCoreApplication::exec();
     }
 #endif
@@ -239,51 +251,51 @@ int main(int argc, char *argv[])
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_chatbarPlugin)
 
     qml_register_types_org_kde_neochat();
-    qmlRegisterUncreatableMetaObject(Quotient::staticMetaObject, "Quotient", 1, 0, "JoinRule", u"Access to JoinRule enum only"_s);
+    // qmlRegisterUncreatableMetaObject(Quotient::staticMetaObject, "Quotient", 1, 0, "JoinRule", u"Access to JoinRule enum only"_s);
 
     QQmlApplicationEngine engine;
 
-#ifdef HAVE_KDBUSADDONS
-    service.connect(&service,
-        &KDBusService::activateRequested,
-        &RoomManager::instance(),
-        [&engine](const QStringList &arguments, const QString &workingDirectory) {
-            Q_UNUSED(workingDirectory);
-
-            QWindow *window = windowFromEngine(&engine);
-            KWindowSystem::updateStartupId(window);
-
-            WindowController::instance().showAndRaiseWindow(QString());
-
-            // Open matrix uri
-            if (arguments.isEmpty()) {
-                return;
-            }
-
-            auto args = arguments;
-            args.removeFirst();
-            if (args.length() == 2 && args[0] == "--share"_L1) {
-                ShareHandler::instance().setText(args[1]);
-                return;
-            }
-
-            for (const auto &arg : args) {
-                RoomManager::instance().resolveResource(arg);
-            }
-        });
-#endif
+    // #ifdef HAVE_KDBUSADDONS
+    //     service.connect(&service,
+    //         &KDBusService::activateRequested,
+    //         &RoomManager::instance(),
+    //         [&engine](const QStringList &arguments, const QString &workingDirectory) {
+    //             Q_UNUSED(workingDirectory);
+    //
+    //             QWindow *window = windowFromEngine(&engine);
+    //             KWindowSystem::updateStartupId(window);
+    //
+    //             // WindowController::instance().showAndRaiseWindow(QString());
+    //
+    //             // Open matrix uri
+    //             if (arguments.isEmpty()) {
+    //                 return;
+    //             }
+    //
+    //             auto args = arguments;
+    //             args.removeFirst();
+    //             if (args.length() == 2 && args[0] == "--share"_L1) {
+    //                 // ShareHandler::instance().setText(args[1]);
+    //                 return;
+    //             }
+    //
+    //             for (const auto &arg : args) {
+    //                 // RoomManager::instance().resolveResource(arg);
+    //             }
+    //         });
+    // #endif
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
     if (parser.isSet("ignore-ssl-errors"_L1)) {
-        QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
-            reply->ignoreSslErrors();
-        });
+        // QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
+        //     reply->ignoreSslErrors();
+        // });
     }
 
     if (parser.isSet("share"_L1)) {
-        ShareHandler::instance().setText(parser.value(shareOption));
+        // ShareHandler::instance().setText(parser.value(shareOption));
     }
 
     engine.addImageProvider(u"blurhash"_s, new BlurhashImageProvider);
@@ -294,12 +306,12 @@ int main(int argc, char *argv[])
     }
 
     if (!parser.positionalArguments().isEmpty() && !parser.isSet("share"_L1)) {
-        RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
+        // RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
 
 #ifdef HAVE_RUNNER
-    auto runner = Runner::create(&engine, &engine);
-    QDBusConnection::sessionBus().registerObject("/RoomRunner"_L1, runner, QDBusConnection::ExportScriptableContents);
+    // auto runner = Runner::create(&engine, &engine);
+    // QDBusConnection::sessionBus().registerObject("/RoomRunner"_L1, runner, QDBusConnection::ExportScriptableContents);
 #endif
 
     QWindow *window = windowFromEngine(&engine);

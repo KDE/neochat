@@ -38,32 +38,32 @@ QQC2.ScrollView {
     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
-    ListView {
-        clip: true
-        verticalLayoutDirection: ListView.BottomToTop
-
-        model: RoomManager.mediaMessageFilterModel
-
-        delegate: DelegateChooser {
-            role: "type"
-
-            DelegateChoice {
-                roleValue: MediaMessageFilterModel.Image
-                delegate: MessageDelegate {
-                    alwaysFillWidth: true
-                    cardBackground: false
-                    room: root.currentRoom
-                }
-            }
-
-            DelegateChoice {
-                roleValue: MediaMessageFilterModel.Video
-                delegate: MessageDelegate {
-                    alwaysFillWidth: true
-                    cardBackground: false
-                    room: root.currentRoom
-                }
-            }
-        }
-    }
+    // ListView {
+    //     clip: true
+    //     verticalLayoutDirection: ListView.BottomToTop
+    //
+    //     model: RoomManager.mediaMessageFilterModel
+    //
+    //     delegate: DelegateChooser {
+    //         role: "type"
+    //
+    //         DelegateChoice {
+    //             roleValue: MediaMessageFilterModel.Image
+    //             delegate: MessageDelegate {
+    //                 alwaysFillWidth: true
+    //                 cardBackground: false
+    //                 room: root.currentRoom
+    //             }
+    //         }
+    //
+    //         DelegateChoice {
+    //             roleValue: MediaMessageFilterModel.Video
+    //             delegate: MessageDelegate {
+    //                 alwaysFillWidth: true
+    //                 cardBackground: false
+    //                 room: root.currentRoom
+    //             }
+    //         }
+    //     }
+    // }
 }

@@ -4,26 +4,26 @@
 
 #include "sortfilterroomtreemodel.h"
 
-#include "enums/roomsortparameter.h"
-#include "neochatconfig.h"
+#include "roomsortparameter.h"
+// #include "neochatconfig.h"
 #include "neochatconnection.h"
-#include "neochatroom.h"
 #include "neochatroomtype.h"
-#include "roommanager.h"
+#include <Integral/Room>
+// #include "roommanager.h"
 #include "roomtreemodel.h"
-#include "spacehierarchycache.h"
+// #include "spacehierarchycache.h"
 
-SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent)
+SortFilterRoomTreeModel::SortFilterRoomTreeModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    Q_ASSERT(sourceModel);
-    setSourceModel(sourceModel);
+    // Q_ASSERT(sourceModel);
+    // setSourceModel(sourceModel);
 
-    setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
-    connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
-        setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
-        invalidateFilter();
-    });
+    // setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
+    // connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
+    //     setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
+    //     invalidateFilter();
+    // });
 
     setRecursiveFilteringEnabled(true);
     sort(0);
@@ -34,13 +34,13 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
         connect(this->sourceModel(), &QAbstractItemModel::rowsRemoved, this, &SortFilterRoomTreeModel::invalidateFilter);
     });
 
-    connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
-    connect(NeoChatConfig::self(), &NeoChatConfig::AllRoomsInHomeChanged, this, [this]() {
-        invalidateFilter();
-        if (NeoChatConfig::self()->allRoomsInHome()) {
-            RoomManager::instance().resetState();
-        }
-    });
+    // connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
+    // connect(NeoChatConfig::self(), &NeoChatConfig::AllRoomsInHomeChanged, this, [this]() {
+    //     invalidateFilter();
+    //     if (NeoChatConfig::self()->allRoomsInHome()) {
+    //         RoomManager::instance().resetState();
+    //     }
+    // });
 }
 
 void SortFilterRoomTreeModel::setRoomSortOrder(SortFilterRoomTreeModel::RoomSortOrder sortOrder)
@@ -78,14 +78,14 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
         return false;
     }
 
-    const auto leftRoom = dynamic_cast<NeoChatRoom *>(treeModel->connection()->room(source_left.data(RoomTreeModel::RoomIdRole).toString()));
-    const auto rightRoom = dynamic_cast<NeoChatRoom *>(treeModel->connection()->room(source_right.data(RoomTreeModel::RoomIdRole).toString()));
-    if (leftRoom == nullptr || rightRoom == nullptr) {
+    const auto leftRoom = treeModel->roomForIndex(source_left);
+    const auto rightRoom = treeModel->roomForIndex(source_right);
+    if (!leftRoom.has_value() || !rightRoom.has_value()) {
         return false;
     }
 
     for (auto sortRole : RoomSortParameter::currentParameterList()) {
-        auto result = RoomSortParameter::compareParameter(sortRole, leftRoom, rightRoom);
+        auto result = RoomSortParameter::compareParameter(sortRole, leftRoom.value()->box_me(), rightRoom.value()->box_me());
 
         if (result != 0) {
             return result > 0;
@@ -141,20 +141,22 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
         return false;
     }
 
-    static auto config = NeoChatConfig::self();
-    if (config->allRoomsInHome() && RoomManager::instance().currentSpace().isEmpty()) {
-        return acceptRoom;
-    }
+    return acceptRoom;
 
-    if (m_activeSpaceId.isEmpty()) {
-        if (!SpaceHierarchyCache::instance().isChild(sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString())) {
-            return acceptRoom;
-        }
-        return false;
-    } else {
-        const auto &rooms = SpaceHierarchyCache::instance().getRoomListForSpace(m_activeSpaceId, false);
-        return std::find(rooms.begin(), rooms.end(), sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString()) != rooms.end() && acceptRoom;
-    }
+    // static auto config = NeoChatConfig::self();
+    // if (config->allRoomsInHome() && RoomManager::instance().currentSpace().isEmpty()) {
+    //     return acceptRoom;
+    // }
+    //
+    // if (m_activeSpaceId.isEmpty()) {
+    //     if (!SpaceHierarchyCache::instance().isChild(sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString())) {
+    //         return acceptRoom;
+    //     }
+    //     return false;
+    // } else {
+    //     const auto &rooms = SpaceHierarchyCache::instance().getRoomListForSpace(m_activeSpaceId, false);
+    //     return std::find(rooms.begin(), rooms.end(), sourceModel()->data(index, RoomTreeModel::RoomIdRole).toString()) != rooms.end() && acceptRoom;
+    // }
 }
 
 QString SortFilterRoomTreeModel::activeSpaceId() const
@@ -192,7 +194,7 @@ QModelIndex SortFilterRoomTreeModel::currentRoomIndex() const
         return {};
     }
 
-    return mapFromSource(roomModel->indexForRoom(RoomManager::instance().currentRoom()));
+    return {}; // mapFromSource(roomModel->indexForRoom(RoomManager::instance().currentRoom()));
 }
 
 #include "moc_sortfilterroomtreemodel.cpp"

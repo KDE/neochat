@@ -8,7 +8,9 @@
 
 #include <KLocalizedString>
 
-class NeoChatRoom;
+#include <Integral/lib.rs.h>
+
+class Room;
 
 /**
  * @class RoomSortParameter
@@ -116,27 +118,29 @@ public:
      *
      * @sa Parameter
      */
-    static int compareParameter(Parameter parameter, NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+    static int compareParameter(Parameter parameter, rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);
 
 private:
     template<Parameter parameter>
-    static int compareParameter(NeoChatRoom *, NeoChatRoom *)
+    static int compareParameter(rust::Box<sdk::RoomListRoom>, rust::Box<sdk::RoomListRoom>)
     {
         return false;
     }
 };
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalAscending>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalAscending>(rust::Box<sdk::RoomListRoom> leftRoom,
+                                                                                  rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalDescending>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalDescending>(rust::Box<sdk::RoomListRoom> leftRoom,
+                                                                                   rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::HasUnread>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::HasUnread>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::MostUnread>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::MostUnread>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::HasHighlight>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::HasHighlight>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::MostHighlights>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::MostHighlights>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::LastActive>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
+int RoomSortParameter::compareParameter<RoomSortParameter::LastActive>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom);

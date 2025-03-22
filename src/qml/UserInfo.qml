@@ -54,7 +54,7 @@ RowLayout {
             spacing: Kirigami.Units.largeSpacing
 
             KirigamiComponents.Avatar {
-                readonly property url avatarUrl: root.connection.localUser.avatarUrl
+                readonly property url avatarUrl: root.connection.avatarUrl
 
                 Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                 Layout.preferredHeight: Kirigami.Units.iconSizes.medium
@@ -62,7 +62,7 @@ RowLayout {
 
                 // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                 source: avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(avatarUrl) : ""
-                name: root.connection.localUser.displayName
+                name: root.connection.displayName
             }
 
             ColumnLayout {
@@ -73,14 +73,14 @@ RowLayout {
                 QQC2.Label {
                     id: displayNameLabel
                     Layout.fillWidth: true
-                    text: root.connection.localUser.displayName
+                    text: root.connection.displayName
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
                 }
                 QQC2.Label {
                     id: idLabel
                     Layout.fillWidth: true
-                    text: (root.connection.label.length > 0 ? (root.connection.label + " ") : "") + root.connection.localUser.id
+                    text: root.connection.matrixId
                     font.pointSize: displayNameLabel.font.pointSize * 0.8
                     opacity: 0.7
                     textFormat: Text.PlainText

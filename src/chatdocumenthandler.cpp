@@ -105,7 +105,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     , m_completionModel(new CompletionModel(this))
 {
     connect(this, &ChatDocumentHandler::roomChanged, this, [this]() {
-        m_completionModel->setRoom(m_room);
+        // m_completionModel->setRoom(m_room);
         static QPointer<NeoChatRoom> previousRoom = nullptr;
         if (previousRoom) {
             disconnect(m_chatBarCache, &ChatBarCache::textChanged, this, nullptr);
@@ -113,7 +113,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
         previousRoom = m_room;
         connect(m_chatBarCache, &ChatBarCache::textChanged, this, [this]() {
             int start = completionStartIndex();
-            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+            // m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
         });
     });
     connect(this, &ChatDocumentHandler::documentChanged, this, [this]() {
@@ -124,7 +124,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
             return;
         }
         int start = completionStartIndex();
-        m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+        // m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
     });
 }
 
@@ -217,58 +217,58 @@ void ChatDocumentHandler::complete(int index)
         qCWarning(ChatDocumentHandling) << "complete called with m_document set to nullptr.";
         return;
     }
-    if (m_completionModel->autoCompletionType() == CompletionModel::None) {
-        qCWarning(ChatDocumentHandling) << "complete called with m_completionModel->autoCompletionType() == CompletionModel::None.";
-        return;
-    }
+    // if (m_completionModel->autoCompletionType() == CompletionModel::None) {
+    //     qCWarning(ChatDocumentHandling) << "complete called with m_completionModel->autoCompletionType() == CompletionModel::None.";
+    //     return;
+    // }
 
     // Ensure we only search for the beginning of the current completion identifier
     const auto fromIndex = qMax(completionStartIndex(), 0);
 
-    if (m_completionModel->autoCompletionType() == CompletionModel::User) {
-        auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::DisplayNameRole).toString();
-        auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('@'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(name + u" "_s);
-        cursor.setPosition(at);
-        cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
-        cursor.setKeepPositionOnInsert(true);
-        pushMention({cursor, name, 0, 0, id});
-        m_highlighter->rehighlight();
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Command) {
-        auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('/'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(u"/%1 "_s.arg(command));
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
-        auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('#'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(alias + u" "_s);
-        cursor.setPosition(at);
-        cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
-        cursor.setKeepPositionOnInsert(true);
-        pushMention({cursor, alias, 0, 0, alias});
-        m_highlighter->rehighlight();
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Emoji) {
-        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char(':'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(shortcode);
-    }
+    // if (m_completionModel->autoCompletionType() == CompletionModel::User) {
+    //     auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::DisplayNameRole).toString();
+    //     auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
+    //     auto text = getText();
+    //     auto at = text.indexOf(QLatin1Char('@'), fromIndex);
+    //     QTextCursor cursor(document()->textDocument());
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
+    //     cursor.insertText(name + u" "_s);
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
+    //     cursor.setKeepPositionOnInsert(true);
+    //     pushMention({cursor, name, 0, 0, id});
+    //     m_highlighter->rehighlight();
+    // } else if (m_completionModel->autoCompletionType() == CompletionModel::Command) {
+    //     auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
+    //     auto text = getText();
+    //     auto at = text.indexOf(QLatin1Char('/'), fromIndex);
+    //     QTextCursor cursor(document()->textDocument());
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
+    //     cursor.insertText(u"/%1 "_s.arg(command));
+    // } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
+    //     auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
+    //     auto text = getText();
+    //     auto at = text.indexOf(QLatin1Char('#'), fromIndex);
+    //     QTextCursor cursor(document()->textDocument());
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
+    //     cursor.insertText(alias + u" "_s);
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
+    //     cursor.setKeepPositionOnInsert(true);
+    //     pushMention({cursor, alias, 0, 0, alias});
+    //     m_highlighter->rehighlight();
+    // } else if (m_completionModel->autoCompletionType() == CompletionModel::Emoji) {
+    //     auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
+    //     auto text = getText();
+    //     auto at = text.indexOf(QLatin1Char(':'), fromIndex);
+    //     QTextCursor cursor(document()->textDocument());
+    //     cursor.setPosition(at);
+    //     cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
+    //     cursor.insertText(shortcode);
+    // }
 }
 
 CompletionModel *ChatDocumentHandler::completionModel() const

@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
-#include <Quotient/csapi/definitions/push_rule.h>
+// #include <Quotient/csapi/definitions/push_rule.h>
 
 #include "enums/pushrule.h"
 #include "neochatconnection.h"
@@ -130,10 +130,10 @@ private:
     QList<Rule> m_rules;
     QPointer<NeoChatConnection> m_connection;
 
-    void setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind);
+    // void setRules(QList<Quotient::PushRule> rules, PushRuleKind::Kind kind);
 
     int getRuleIndex(const QString &ruleId) const;
-    PushRuleSection::Section getSection(Quotient::PushRule rule);
+    // PushRuleSection::Section getSection(Quotient::PushRule rule);
 
     void setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled);
     void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushRuleAction::Action action);

@@ -8,7 +8,7 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
-#include "models/messagecontentmodel.h"
+// #include "models/messagecontentmodel.h"
 
 class ChatDocumentHandler;
 
@@ -102,7 +102,7 @@ class ChatBarCache : public QObject
      *
      * @sa Quotient::RoomMember
      */
-    Q_PROPERTY(Quotient::RoomMember relationAuthor READ relationAuthor NOTIFY relationIdChanged)
+    // Q_PROPERTY(Quotient::RoomMember relationAuthor READ relationAuthor NOTIFY relationIdChanged)
 
     /**
      * @brief The content of the related message.
@@ -116,7 +116,7 @@ class ChatBarCache : public QObject
      *
      * Will be nullptr if no related message.
      */
-    Q_PROPERTY(MessageContentModel *relationEventContentModel READ relationEventContentModel NOTIFY relationIdChanged)
+    // Q_PROPERTY(MessageContentModel *relationEventContentModel READ relationEventContentModel NOTIFY relationIdChanged)
 
     /**
      * @brief Whether the chat bar is replying in a thread.
@@ -164,10 +164,10 @@ public:
     QString editId() const;
     void setEditId(const QString &editId);
 
-    Quotient::RoomMember relationAuthor() const;
+    // Quotient::RoomMember relationAuthor() const;
 
     QString relationMessage() const;
-    MessageContentModel *relationEventContentModel();
+    // MessageContentModel *relationEventContentModel();
 
     bool isThreaded() const;
     QString threadId() const;
@@ -225,7 +225,7 @@ private:
     QList<Mention> m_mentions;
     QString m_savedText;
 
-    QPointer<MessageContentModel> m_relationContentModel;
+    // QPointer<MessageContentModel> m_relationContentModel;
 
     void clearCache();
 };

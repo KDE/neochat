@@ -8,19 +8,16 @@
 
 #include <KLocalizedString>
 
+#include <QFile>
 #include <QGuiApplication>
 #include <QTimer>
 
 #include <signal.h>
 
-#include <Quotient/csapi/notifications.h>
-#include <Quotient/qt_connection_util.h>
-#include <Quotient/settings.h>
-
 #include "neochatconfig.h"
 #include "neochatconnection.h"
-#include "neochatroom.h"
-#include "notificationsmanager.h"
+// #include "neochatroom.h"
+// #include "notificationsmanager.h"
 #include "proxycontroller.h"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
@@ -43,12 +40,13 @@
 
 bool testMode = false;
 
-using namespace Quotient;
+using namespace Integral;
+using namespace Qt::Literals::StringLiterals;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
 {
-    Connection::setRoomType<NeoChatRoom>();
+    // Connection::setRoomType<NeoChatRoom>();
 
     ProxyController::instance().setApplicationProxy();
 
@@ -57,18 +55,18 @@ Controller::Controller(QObject *parent)
     connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, &Controller::setQuitOnLastWindowClosed);
 #endif
 
-    if (!testMode) {
-        QTimer::singleShot(0, this, [this] {
-            invokeLogin();
-        });
-    } else {
-        auto c = new NeoChatConnection(this);
-        c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
-        connect(c, &Connection::connected, this, [c, this]() {
-            m_accountRegistry.add(c);
-            c->syncLoop();
-        });
-    }
+    // if (!testMode) {
+    //     QTimer::singleShot(0, this, [this] {
+    //         invokeLogin();
+    //     });
+    // } else {
+    //     auto c = new NeoChatConnection(this);
+    //     c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
+    //     connect(c, &Connection::connected, this, [c, this]() {
+    //         m_accountRegistry.add(c);
+    //         c->syncLoop();
+    //     });
+    // }
 
     QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
         delete m_trayIcon;
@@ -99,31 +97,31 @@ Controller::Controller(QObject *parent)
 #endif
 
     static int oldAccountCount = 0;
-    connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
-        if (m_accountRegistry.size() > oldAccountCount) {
-            auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
-            connect(
-                connection,
-                &NeoChatConnection::syncDone,
-                this,
-                [this, connection] {
-                    if (!m_endpoint.isEmpty()) {
-                        connection->setupPushNotifications(m_endpoint);
-                    }
-                },
-                Qt::SingleShotConnection);
-        }
-        oldAccountCount = m_accountRegistry.size();
-    });
+    // connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
+    //     if (m_accountRegistry.size() > oldAccountCount) {
+    //         auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry.accounts()[m_accountRegistry.size() - 1]);
+    //         connect(
+    //             connection,
+    //             &NeoChatConnection::syncDone,
+    //             this,
+    //             [this, connection] {
+    //                 if (!m_endpoint.isEmpty()) {
+    //                     connection->setupPushNotifications(m_endpoint);
+    //                 }
+    //             },
+    //             Qt::SingleShotConnection);
+    //     }
+    //     oldAccountCount = m_accountRegistry.size();
+    // });
 
 #ifdef HAVE_KUNIFIEDPUSH
     auto connector = new KUnifiedPush::Connector(u"org.kde.neochat"_s);
     connect(connector, &KUnifiedPush::Connector::endpointChanged, this, [this](const QString &endpoint) {
         m_endpoint = endpoint;
-        for (auto &quotientConnection : m_accountRegistry) {
-            auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
-            connection->setupPushNotifications(endpoint);
-        }
+        // for (auto &quotientConnection : m_accountRegistry) {
+        //     auto connection = dynamic_cast<NeoChatConnection *>(quotientConnection);
+        //     connection->setupPushNotifications(endpoint);
+        // }
     });
 
     connector->registerClient(
@@ -138,147 +136,6 @@ Controller &Controller::instance()
 {
     static Controller _instance;
     return _instance;
-}
-
-void Controller::addConnection(NeoChatConnection *c)
-{
-    Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
-
-    m_accountRegistry.add(c);
-
-    c->setLazyLoading(true);
-
-    connect(c, &NeoChatConnection::syncDone, this, [c] {
-        c->sync(30000);
-        c->saveState();
-    });
-    connect(c, &NeoChatConnection::loggedOut, this, [this, c] {
-        if (accounts().count() > 1) {
-            // Only set the connection if the account being logged out is currently active
-            if (c == activeConnection()) {
-                setActiveConnection(dynamic_cast<NeoChatConnection *>(accounts().accounts()[0]));
-            }
-        } else {
-            setActiveConnection(nullptr);
-        }
-
-        dropConnection(c);
-    });
-    connect(c, &NeoChatConnection::badgeNotificationCountChanged, this, &Controller::updateBadgeNotificationCount);
-    connect(c, &NeoChatConnection::syncDone, this, [this, c]() {
-        m_notificationsManager.handleNotifications(c);
-    });
-
-    c->sync();
-
-    Q_EMIT connectionAdded(c);
-}
-
-void Controller::dropConnection(NeoChatConnection *c)
-{
-    Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
-
-    c->disconnect(this);
-    c->disconnect(&m_notificationsManager);
-    m_accountRegistry.drop(c);
-    Q_EMIT connectionDropped(c);
-}
-
-void Controller::invokeLogin()
-{
-    const auto accounts = SettingsGroup("Accounts"_L1).childGroups();
-    for (const auto &accountId : accounts) {
-        AccountSettings account{accountId};
-        m_accountsLoading += accountId;
-        Q_EMIT accountsLoadingChanged();
-        if (!account.homeserver().isEmpty()) {
-            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account.userId());
-            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, this, accessTokenLoadingJob](QKeychain::Job *) {
-                AccountSettings account{accountId};
-                QString accessToken;
-                if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
-                    accessToken = QString::fromLatin1(accessTokenLoadingJob->binaryData());
-                } else {
-                    return;
-                }
-
-                auto connection = new NeoChatConnection(account.homeserver());
-                m_connectionsLoading[accountId] = connection;
-                connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
-                    connection->loadState();
-                    if (connection->allRooms().size() == 0 || connection->allRooms()[0]->currentState().get<RoomCreateEvent>()) {
-                        addConnection(connection);
-                        m_accountsLoading.removeAll(connection->userId());
-                        m_connectionsLoading.remove(accountId);
-                        Q_EMIT accountsLoadingChanged();
-                    } else {
-                        connect(
-                            connection->allRooms()[0],
-                            &Room::baseStateLoaded,
-                            this,
-                            [this, connection, accountId]() {
-                                addConnection(connection);
-                                m_accountsLoading.removeAll(connection->userId());
-                                m_connectionsLoading.remove(accountId);
-                                Q_EMIT accountsLoadingChanged();
-                            },
-                            Qt::SingleShotConnection);
-                    }
-                });
-                connection->assumeIdentity(account.userId(), account.deviceId(), accessToken);
-            });
-        }
-    }
-}
-
-QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const QString &userId)
-{
-    qDebug() << "Reading access token from the keychain for" << userId;
-    auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
-    job->setKey(userId);
-
-    // Handling of errors
-    connect(job, &QKeychain::Job::finished, this, [this, job]() {
-        if (job->error() == QKeychain::Error::NoError) {
-            return;
-        }
-
-        switch (job->error()) {
-        case QKeychain::EntryNotFound:
-            Q_EMIT errorOccured(i18n("Access token wasn't found: Maybe it was deleted?"));
-            break;
-        case QKeychain::AccessDeniedByUser:
-        case QKeychain::AccessDenied:
-            Q_EMIT errorOccured(i18n("Access to keychain was denied: Please allow NeoChat to read the access token"));
-            break;
-        case QKeychain::NoBackendAvailable:
-            Q_EMIT errorOccured(i18n("No keychain available: Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
-            break;
-        case QKeychain::OtherError:
-            Q_EMIT errorOccured(i18n("Unable to read access token: %1", job->errorString()));
-            break;
-        default:
-            break;
-        }
-    });
-    job->start();
-
-    return job;
-}
-
-void Controller::saveAccessTokenToKeyChain(const QString &userId, const QByteArray &accessToken)
-{
-    qDebug() << "Save the access token to the keychain for " << userId;
-    auto job = new QKeychain::WritePasswordJob(qAppName());
-    job->setAutoDelete(true);
-    job->setKey(userId);
-    job->setBinaryData(accessToken);
-    connect(job, &QKeychain::WritePasswordJob::finished, this, [job]() {
-        if (job->error()) {
-            qWarning() << "Could not save access token to the keychain: " << qPrintable(job->errorString());
-        }
-    });
-    job->start();
 }
 
 bool Controller::supportSystemTray() const
@@ -322,7 +179,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
 
     if (m_connection != nullptr) {
         m_connection->disconnect(this);
-        m_connection->disconnect(&m_notificationsManager);
+        // m_connection->disconnect(&m_notificationsManager);
     }
 
     m_connection = connection;
@@ -331,7 +188,7 @@ void Controller::setActiveConnection(NeoChatConnection *connection)
         m_connection->refreshBadgeNotificationCount();
         updateBadgeNotificationCount(m_connection, m_connection->badgeNotificationCount());
 
-        connect(m_connection, &NeoChatConnection::errorOccured, this, &Controller::errorOccured);
+        // connect(m_connection, &NeoChatConnection::errorOccured, this, &Controller::errorOccured);
     }
 
     Q_EMIT activeConnectionChanged(m_connection);
@@ -346,7 +203,7 @@ void Controller::listenForNotifications()
     connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
 
     connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
-        instance().m_notificationsManager.postPushNotification(data);
+        // instance().m_notificationsManager.postPushNotification(data);
         timer->stop();
     });
 
@@ -360,7 +217,7 @@ void Controller::listenForNotifications()
 
 void Controller::clearInvitationNotification(const QString &roomId)
 {
-    m_notificationsManager.clearInvitationNotification(roomId);
+    // m_notificationsManager.clearInvitationNotification(roomId);
 }
 
 void Controller::updateBadgeNotificationCount(NeoChatConnection *connection, int count)
@@ -402,9 +259,9 @@ bool Controller::isFlatpak() const
 #endif
 }
 
-AccountRegistry &Controller::accounts()
+Accounts &Controller::accounts()
 {
-    return m_accountRegistry;
+    return m_accounts;
 }
 
 QString Controller::loadFileContent(const QString &path) const
@@ -418,20 +275,6 @@ QString Controller::loadFileContent(const QString &path) const
 void Controller::setTestMode(bool test)
 {
     testMode = test;
-}
-
-void Controller::removeConnection(const QString &userId)
-{
-    // When loadAccessTokenFromKeyChain() fails m_connectionsLoading won't have an
-    // entry for it so we need to check both separately.
-    if (m_accountsLoading.contains(userId)) {
-        m_accountsLoading.removeAll(userId);
-        Q_EMIT accountsLoadingChanged();
-    }
-    if (m_connectionsLoading.contains(userId) && m_connectionsLoading[userId]) {
-        auto connection = m_connectionsLoading[userId];
-        SettingsGroup("Accounts"_L1).remove(userId);
-    }
 }
 
 bool Controller::csSupported() const

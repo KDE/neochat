@@ -7,15 +7,16 @@
 #include <QObject>
 #include <QQmlEngine>
 
+#include <Integral/Connection>
 #include <QCoroTask>
-#include <Quotient/connection.h>
 
-#include <Quotient/keyimport.h>
+// #include <Quotient/keyimport.h>
 
-#include "enums/messagetype.h"
-#include "linkpreviewer.h"
+// #include "enums/messagetype.h"
+// #include "linkpreviewer.h"
+// #include "models/threepidmodel.h"
 
-class NeoChatConnection : public Quotient::Connection
+class NeoChatConnection : public Integral::Connection
 {
     Q_OBJECT
     QML_ELEMENT
@@ -110,8 +111,7 @@ public:
     };
     Q_ENUM(PasswordStatus)
 
-    NeoChatConnection(QObject *parent = nullptr);
-    NeoChatConnection(const QUrl &server, QObject *parent = nullptr);
+    NeoChatConnection(std::unique_ptr<Integral::Connection::Private> d);
 
     Q_INVOKABLE void logout(bool serverSideLogout);
     Q_INVOKABLE QVariantList getSupportedRoomVersions() const;
@@ -162,14 +162,14 @@ public:
     /**
      * @brief Whether a direct chat with the user exists.
      */
-    Q_INVOKABLE bool directChatExists(Quotient::User *user);
+    // Q_INVOKABLE bool directChatExists(Quotient::User *user);
 
     /**
      * @brief Get the account data with \param type as a formatted JSON string.
      */
     Q_INVOKABLE QString accountDataJsonString(const QString &type) const;
 
-    Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
+    // Q_INVOKABLE Quotient::KeyImport::Error exportMegolmSessions(const QString &passphrase, const QString &path);
 
     qsizetype directChatNotifications() const;
     bool directChatsHaveHighlightNotifications() const;
@@ -186,14 +186,14 @@ public:
 
     // note: this is intentionally a copied QString because
     // the reference could be destroyed before the task is finished
-    QCoro::Task<void> setupPushNotifications(QString endpoint);
+    // QCoro::Task<void> setupPushNotifications(QString endpoint);
 
     bool pushNotificationsAvailable() const;
     bool enablePushNotifications() const;
 
     bool isOnline() const;
 
-    LinkPreviewer *previewerForLink(const QUrl &link);
+    // LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
@@ -215,7 +215,7 @@ Q_SIGNALS:
     /**
      * @brief Request a message be shown to the user of the given type.
      */
-    void showMessage(MessageType::Type messageType, const QString &message);
+    // void showMessage(MessageType::Type messageType, const QString &message);
 
     /**
      * @brief Request a error message be shown to the user.
@@ -231,7 +231,7 @@ private:
     int m_badgeNotificationCount = 0;
     bool m_globalUrlPreviewEnabled = true;
 
-    QCache<QUrl, LinkPreviewer> m_linkPreviewers;
+    // QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
     bool m_canCheckMutualRooms = false;
     bool m_canEraseData = false;

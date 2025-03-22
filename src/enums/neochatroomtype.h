@@ -4,11 +4,11 @@
 #pragma once
 
 #include <QObject>
-
-#include "neochatroom.h"
-#include <Quotient/quotient_common.h>
+#include <QQmlEngine>
 
 #include <KLocalizedString>
+
+#include <Integral/lib.rs.h>
 
 using namespace Qt::StringLiterals;
 
@@ -22,7 +22,7 @@ public:
     /**
      * @brief Defines the room list categories a room can be assigned.
      */
-    enum Types {
+    enum Type {
         Invited, /**< The user has been invited to the room. */
         Favorite, /**< The room is set as a favourite. */
         Direct, /**< The room is a direct chat. */
@@ -32,23 +32,23 @@ public:
         AddDirect, /**< So we can show the add friend delegate. */
         TypesCount, /**< Number of different types (this should always be last). */
     };
-    Q_ENUM(Types);
+    Q_ENUM(Type);
 
-    static NeoChatRoomType::Types typeForRoom(const NeoChatRoom *room)
+    static NeoChatRoomType::Type typeForRoom(rust::Box<sdk::RoomListRoom> room)
     {
-        if (room->isSpace()) {
+        if (room->is_space()) {
             return NeoChatRoomType::Space;
         }
-        if (room->joinState() == Quotient::JoinState::Invite) {
+        if (room->state() == 2) {
             return NeoChatRoomType::Invited;
         }
-        if (room->isFavourite()) {
+        if (room->is_favourite()) {
             return NeoChatRoomType::Favorite;
         }
-        if (room->isLowPriority()) {
+        if (room->is_low_priority()) {
             return NeoChatRoomType::Deprioritized;
         }
-        if (room->isDirectChat()) {
+        if (false /*room->isDirectChat()*/) {
             return NeoChatRoomType::Direct;
         }
         return NeoChatRoomType::Normal;

@@ -3,8 +3,9 @@
 
 #pragma once
 
-#include <Quotient/events/roomevent.h>
-#include <Quotient/room.h>
+// #include <Quotient/events/roomevent.h>
+// #include <Quotient/room.h>
+#include <Integral/Room>
 
 #include <QCache>
 #include <QObject>
@@ -13,12 +14,12 @@
 #include <QCoroTask>
 #include <Quotient/roommember.h>
 
-#include "enums/messagetype.h"
 #include "enums/pushrule.h"
-#include "models/messagecontentmodel.h"
-#include "models/threadmodel.h"
-#include "neochatroommember.h"
-#include "pollhandler.h"
+// #include "enums/messagetype.h"
+// #include "models/messagecontentmodel.h"
+// #include "models/threadmodel.h"
+// #include "neochatroommember.h"
+// #include "pollhandler.h"
 
 namespace Quotient
 {
@@ -39,7 +40,7 @@ class ChatBarCache;
  *
  * @sa Quotient::Room
  */
-class NeoChatRoom : public Quotient::Room
+class NeoChatRoom : public Integral::Room
 {
     Q_OBJECT
     QML_ELEMENT
@@ -79,7 +80,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get a RoomMember object for the other person in a direct chat.
      */
-    Q_PROPERTY(NeochatRoomMember *directChatRemoteMember READ directChatRemoteMember CONSTANT)
+    // Q_PROPERTY(NeochatRoomMember *directChatRemoteMember READ directChatRemoteMember CONSTANT)
 
     /**
      * @brief The Matrix IDs of this room's parents.
@@ -183,20 +184,20 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief The cache for the main chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *mainCache READ mainCache CONSTANT)
+    // Q_PROPERTY(ChatBarCache *mainCache READ mainCache CONSTANT)
 
     /**
      * @brief The cache for the edit chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *editCache READ editCache CONSTANT)
+    // Q_PROPERTY(ChatBarCache *editCache READ editCache CONSTANT)
 
     /**
      * @brief The cache for the thread chat bar in the room.
      */
-    Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
+    // Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
 
 public:
-    explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
+    explicit NeoChatRoom(std::unique_ptr<Private> d, QObject *parent = nullptr);
 
     bool visible() const;
     void setVisible(bool visible);
@@ -212,7 +213,7 @@ public:
      * @warning This function can return an empty pointer if the room does not have
      *          any RoomMessageEvents loaded.
      */
-    [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
+    // [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
 
     /**
      * @brief Convenient way to check if the last event looks like it has spoilers.
@@ -259,7 +260,7 @@ public:
      * An event is highlighted if it contains the local user's id but was not sent by the
      * local user.
      */
-    bool isEventHighlighted(const Quotient::RoomEvent *e) const;
+    // bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
     /**
      * @brief Convenience function to find out if the room contains the given user.
@@ -312,7 +313,7 @@ public:
 
     [[nodiscard]] QUrl avatarMediaUrl() const;
 
-    NeochatRoomMember *directChatRemoteMember();
+    // NeochatRoomMember *directChatRemoteMember();
 
     /**
      * @brief Whether this room has one or more parent spaces set.
@@ -501,14 +502,14 @@ public:
      *
      * @sa PollHandler
      */
-    PollHandler *poll(const QString &eventId) const;
+    // PollHandler *poll(const QString &eventId) const;
 
     /**
      * @brief Create a PollHandler object for the given event.
      *
      * @sa PollHandler
      */
-    void createPollHandler(const Quotient::PollStartEvent *event);
+    // void createPollHandler(const Quotient::PollStartEvent *event);
 
     /**
      * @brief Get the full Json data for a given room account data event.
@@ -533,12 +534,12 @@ public:
      *
      * The result will be nullptr if not found so needs to be managed.
      */
-    std::pair<const Quotient::RoomEvent *, bool> getEvent(const QString &eventId) const;
+    // std::pair<const Quotient::RoomEvent *, bool> getEvent(const QString &eventId) const;
 
     /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.
      */
-    const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
+    // const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
 
     /**
      * If we're invited to this room, the user that invited us. Undefined in other cases.
@@ -551,7 +552,7 @@ public:
      * If we downloaded the file previously, return a struct with Completed status
      * and the local file path stored in KSharedCOnfig
      */
-    Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
+    // Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
 
     /**
      * @brief Return a NeochatRoomMember object for the given user ID.
@@ -562,7 +563,7 @@ public:
      *          responsibility of the caller to ensure that they only ask for objects
      *          for real senders.
      */
-    NeochatRoomMember *qmlSafeMember(const QString &memberId);
+    // NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
     /**
      * @brief Returns the content model for the given event ID.
@@ -576,7 +577,7 @@ public:
      *
      * @warning Do NOT use for pending events as this function has no way to differentiate.
      */
-    MessageContentModel *contentModelForEvent(const QString &evtOrTxnId);
+    // MessageContentModel *contentModelForEvent(const QString &evtOrTxnId);
 
     /**
      * @brief Returns the content model for the given event.
@@ -591,7 +592,7 @@ public:
      *
      * @note This version must be used for pending events as it can differentiate.
      */
-    MessageContentModel *contentModelForEvent(const Quotient::RoomEvent *event);
+    // MessageContentModel *contentModelForEvent(const Quotient::RoomEvent *event);
 
     /**
      * @brief Returns the thread model for the given thread root event ID.
@@ -599,7 +600,7 @@ public:
      * A model is created is one doesn't exist. Will return nullptr if threadRootId
      * is empty.
      */
-    Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
+    // Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
     /**
      * @brief Pin a message in the room.
@@ -621,7 +622,7 @@ public:
 private:
     bool m_visible = false;
 
-    QSet<const Quotient::RoomEvent *> highlights;
+    // QSet<const Quotient::RoomEvent *> highlights;
 
     bool m_hasFileUploading = false;
     int m_fileUploadingProgress = 0;
@@ -629,29 +630,29 @@ private:
     PushNotificationState::State m_currentPushNotificationState = PushNotificationState::Unknown;
     bool m_pushNotificationStateUpdating = false;
 
-    void checkForHighlights(const Quotient::TimelineItem &ti);
+    // void checkForHighlights(const Quotient::TimelineItem &ti);
 
-    void onAddNewTimelineEvents(timeline_iter_t from) override;
-    void onAddHistoricalTimelineEvents(rev_iter_t from) override;
-    void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
+    // void onAddNewTimelineEvents(timeline_iter_t from) override;
+    // void onAddHistoricalTimelineEvents(rev_iter_t from) override;
+    // void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
-    QCoro::Task<void> doDeleteMessagesByUser(const QString &user, QString reason);
+    // QCoro::Task<void> doDeleteMessagesByUser(const QString &user, QString reason);
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
 
-    std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
+    // std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
 
     ChatBarCache *m_mainCache;
     ChatBarCache *m_editCache;
     ChatBarCache *m_threadCache;
 
-    QCache<QString, PollHandler> m_polls;
-    std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
-    void cleanupExtraEventRange(Quotient::RoomEventsRange events);
+    // QCache<QString, PollHandler> m_polls;
+    // std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
+    // void cleanupExtraEventRange(Quotient::RoomEventsRange events);
     void cleanupExtraEvent(const QString &eventId);
 
-    std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
-    std::unordered_map<QString, std::unique_ptr<MessageContentModel>> m_eventContentModels;
-    std::unordered_map<QString, std::unique_ptr<ThreadModel>> m_threadModels;
+    // std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
+    // std::unordered_map<QString, std::unique_ptr<MessageContentModel>> m_eventContentModels;
+    // std::unordered_map<QString, std::unique_ptr<ThreadModel>> m_threadModels;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
@@ -681,11 +682,12 @@ Q_SIGNALS:
     void maxRoomVersionChanged();
     void extraEventLoaded(const QString &eventId);
     void extraEventNotFound(const QString &eventId);
+    void avatarChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
      */
-    void showMessage(MessageType::Type messageType, const QString &message);
+    // void showMessage(MessageType::Type messageType, const QString &message);
 
 public Q_SLOTS:
     /**

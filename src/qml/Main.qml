@@ -23,8 +23,8 @@ Kirigami.ApplicationWindow {
     title: {
         if (NeoChatConfig.windowTitleFocus) {
             return activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "");
-        } else if (RoomManager.currentRoom) {
-            return RoomManager.currentRoom.displayName;
+        // } else if (RoomManager.currentRoom) {
+        //     return RoomManager.currentRoom.displayName;
         } else {
             return Application.displayName;
         }
@@ -49,20 +49,20 @@ Kirigami.ApplicationWindow {
     }
 
     onConnectionChanged: {
-        CustomEmojiModel.connection = root.connection;
-        SpaceHierarchyCache.connection = root.connection;
+        // CustomEmojiModel.connection = root.connection;
+        // SpaceHierarchyCache.connection = root.connection;
         NeoChatSettingsView.connection = root.connection;
-        if (ShareHandler.text && root.connection) {
-            root.handleShare();
-        }
+        // if (ShareHandler.text && root.connection) {
+        //     root.handleShare();
+        // }
     }
 
-    Connections {
-        target: LoginHelper
-        function onLoaded() {
-            root.load();
-        }
-    }
+    // Connections {
+    //     target: LoginHelper
+    //     function onLoaded() {
+    //         root.load();
+    //     }
+    // }
 
     Connections {
         target: root.quitAction
@@ -83,64 +83,64 @@ Kirigami.ApplicationWindow {
         configGroupName: "MainWindow"
     }
 
-    QuickSwitcher {
-        id: quickSwitcher
-        connection: root.connection
-    }
+    // QuickSwitcher {
+    //     id: quickSwitcher
+    //     connection: root.connection
+    // }
 
-    Connections {
-        target: RoomManager
-
-        function onCurrentRoomChanged() {
-            if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
-                let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
-                    connection: root.connection
-                });
-                roomPage.backRequested.connect(event => {
-                    RoomManager.clearCurrentRoom();
-                });
-            }
-        }
-
-        function onAskJoinRoom(room) {
-            Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
-                room: room,
-                connection: root.connection
-            }).open();
-        }
-
-        function onShowUserDetail(user, room) {
-            root.showUserDetail(user, room);
-        }
-
-        function goToEvent(event) {
-            if (event.length > 0) {
-                roomItem.goToEvent(event);
-            }
-            roomItem.forceActiveFocus();
-        }
-
-        function onAskDirectChatConfirmation(user) {
-            Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
-                user: user
-            }).open();
-        }
-
-        function onExternalUrl(url) {
-            let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(this);
-            dialog.link = url;
-            dialog.open();
-        }
-    }
-
-    function pushReplaceLayer(page, args) {
-        if (pageStack.layers.depth === 2) {
-            pageStack.layers.replace(page, args);
-        } else {
-            pageStack.layers.push(page, args);
-        }
-    }
-
+    // Connections {
+    //     target: RoomManager
+    //
+    //     function onCurrentRoomChanged() {
+    //         if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
+    //             let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
+    //                 connection: root.connection
+    //             });
+    //             roomPage.backRequested.connect(event => {
+    //                 RoomManager.clearCurrentRoom();
+    //             });
+    //         }
+    //     }
+    //
+    //     function onAskJoinRoom(room) {
+    //         Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
+    //             room: room,
+    //             connection: root.connection
+    //         }).open();
+    //     }
+    //
+    //     function onShowUserDetail(user, room) {
+    //         root.showUserDetail(user, room);
+    //     }
+    //
+    //     function goToEvent(event) {
+    //         if (event.length > 0) {
+    //             roomItem.goToEvent(event);
+    //         }
+    //         roomItem.forceActiveFocus();
+    //     }
+    //
+    //     function onAskDirectChatConfirmation(user) {
+    //         Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
+    //             user: user
+    //         }).open();
+    //     }
+    //
+    //     function onExternalUrl(url) {
+    //         let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(this);
+    //         dialog.link = url;
+    //         dialog.open();
+    //     }
+    // }
+    //
+    // function pushReplaceLayer(page, args) {
+    //     if (pageStack.layers.depth === 2) {
+    //         pageStack.layers.replace(page, args);
+    //     } else {
+    //         pageStack.layers.push(page, args);
+    //     }
+    // }
+    //
     function openRoomDrawer() {
         pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage'), {
             connection: root.connection
@@ -183,15 +183,15 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        CustomEmojiModel.connection = root.connection;
-        SpaceHierarchyCache.connection = root.connection;
-        RoomSettingsView.window = root;
+        // CustomEmojiModel.connection = root.connection;
+        // SpaceHierarchyCache.connection = root.connection;
+        // RoomSettingsView.window = root;
         NeoChatSettingsView.window = root;
         NeoChatSettingsView.connection = root.connection;
         WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
-        if (ShareHandler.text && root.connection) {
-            root.handleShare()
-        }
+        // if (ShareHandler.text && root.connection) {
+        //     root.handleShare()
+        // }
         const hasSystemTray = Controller.supportSystemTray && NeoChatConfig.systemTray;
         if (Kirigami.Settings.isMobile || !(hasSystemTray && NeoChatConfig.minimizeToSystemTrayOnStartup)) {
             visible = true;
@@ -210,7 +210,7 @@ Kirigami.ApplicationWindow {
     // blur effect
     color: NeoChatConfig.blur && !NeoChatConfig.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
 
-    // we need to apply the translucency effect separately on top of the color
+    // // we need to apply the translucency effect separately on top of the color
     background: Rectangle {
         color: NeoChatConfig.blur && !NeoChatConfig.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - NeoChatConfig.transparency) : "transparent"
     }
@@ -220,7 +220,7 @@ Kirigami.ApplicationWindow {
         RoomListPage {
             id: roomList
 
-            onSearch: quickSwitcher.open()
+            // onSearch: quickSwitcher.open()
 
             connection: root.connection
 
@@ -255,9 +255,9 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
-        target: AccountRegistry
+        target: Accounts
         function onRowsRemoved() {
-            if (AccountRegistry.rowCount() === 0) {
+            if (Accounts.rowCount() === 0) {
                 pageStack.clear();
                 pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'));
             }
@@ -272,22 +272,22 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Connections {
-        target: root.connection
-
-        function onNewKeyVerificationSession(session) {
-            root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
-                session: session
-            }, {
-                title: i18nc("@title:window", "Session Verification")
-            });
-        }
-        function onUserConsentRequired(url) {
-            Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
-                url: url
-            }).open();
-        }
-    }
+    // Connections {
+    //     target: root.connection
+    //
+    //     function onNewKeyVerificationSession(session) {
+    //         root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "KeyVerificationDialog"), {
+    //             session: session
+    //         }, {
+    //             title: i18nc("@title:window", "Session Verification")
+    //         });
+    //     }
+    //     function onUserConsentRequired(url) {
+    //         Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
+    //             url: url
+    //         }).open();
+    //     }
+    // }
 
     HoverLinkIndicator {
         id: linkIndicator
@@ -303,36 +303,36 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Connections {
-        target: ShareHandler
-        function onTextChanged(): void {
-            if (root.connection && ShareHandler.text.length > 0) {
-                root.handleShare();
-            }
-        }
-    }
-    function handleShare(): void {
-        const dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
-            connection: root.connection
-        }, {
-            title: i18nc("@title", "Share"),
-            width: Kirigami.Units.gridUnit * 25
-        })
-        dialog.chosen.connect(function(targetRoomId) {
-            RoomManager.resolveResource(targetRoomId)
-            ShareHandler.room = targetRoomId
-            dialog.closeDialog()
-        })
-    }
-    function showUserDetail(user, room) {
-        const dialog = Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root, {
-            room: room,
-            user: user,
-            connection: root.connection,
-        });
-        dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
-        dialog.open();
-    }
+    // Connections {
+    //     target: ShareHandler
+    //     function onTextChanged(): void {
+    //         if (root.connection && ShareHandler.text.length > 0) {
+    //             root.handleShare();
+    //         }
+    //     }
+    // }
+    // function handleShare(): void {
+    //     const dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
+    //         connection: root.connection
+    //     }, {
+    //         title: i18nc("@title", "Share"),
+    //         width: Kirigami.Units.gridUnit * 25
+    //     })
+    //     dialog.chosen.connect(function(targetRoomId) {
+    //         RoomManager.resolveResource(targetRoomId)
+    //         ShareHandler.room = targetRoomId
+    //         dialog.closeDialog()
+    //     })
+    // }
+    // function showUserDetail(user, room) {
+    //     const dialog = Qt.createComponent("org.kde.neochat", "UserDetailDialog").createObject(root, {
+    //         room: room,
+    //         user: user,
+    //         connection: root.connection,
+    //     });
+    //     dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
+    //     dialog.open();
+    // }
 
     function load() {
         pageStack.replace(roomListComponent);

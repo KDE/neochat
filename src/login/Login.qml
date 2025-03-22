@@ -16,8 +16,15 @@ LoginStep {
     onActiveFocusChanged: if (activeFocus)
         matrixIdField.forceActiveFocus()
 
-    Component.onCompleted: {
-        LoginHelper.matrixId = "";
+    property Homeserver homeserver
+
+    Timer {
+        id: timer
+        interval: 500
+        repeat: false
+        onTriggered: if (matrixIdField.text.length > 0) {
+            root.homeserver.resolveFromMatrixId(matrixIdField.text)
+        }
     }
 
     FormCard.FormTextFieldDelegate {
@@ -26,7 +33,7 @@ LoginStep {
         placeholderText: "@user:example.org"
         Accessible.name: i18n("Matrix ID")
         onTextChanged: {
-            LoginHelper.matrixId = text;
+            timer.restart()
         }
 
         Keys.onReturnPressed: {
@@ -35,17 +42,17 @@ LoginStep {
     }
 
     nextAction: Kirigami.Action {
-        text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
+        // text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
-            if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
+            if (root.homeserver.ssoLoginSupported && root.homeserver.passwordLoginSupported) {
                 processed("LoginMethod");
-            } else if (LoginHelper.supportsSso) {
+            } else if (root.homeserver.ssoLoginSupported) {
                 processed("Sso");
             } else {
                 processed("Password");
             }
         }
-        enabled: LoginHelper.homeserverReachable
+        enabled: root.homeserver.loginFlowsLoaded
     }
     previousAction: Kirigami.Action {
         onTriggered: {

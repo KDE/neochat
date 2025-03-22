@@ -1,27 +1,28 @@
+
 // SPDX-FileCopyrightText: 2024 Carl Schwan <carl@carlschwan.eu>
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
-#include "enums/neochatroomtype.h"
+#include "neochatroomtype.h"
 
-class NeoChatRoom;
+namespace sdk
+{
+struct RoomListRoom;
+}
+
+struct RoomWrapper {
+    std::optional<rust::Box<sdk::RoomListRoom>> item;
+};
 
 /**
  * @class RoomTreeItem
  *
- * This class defines an item in the space tree hierarchy model.
- *
- * @note This is separate from Quotient::Room and NeoChatRoom because we don't have
- *       full room information for any room/space the user hasn't joined and we
- *       don't want to create one for ever possible child in a space as that would
- *       be expensive.
- *
- * @sa Quotient::Room, NeoChatRoom
+ * This class defines an item in a room tree.
  */
 class RoomTreeItem
 {
 public:
-    using TreeData = std::variant<NeoChatRoom *, NeoChatRoomType::Types>;
+    using TreeData = std::variant<RoomWrapper *, NeoChatRoomType::Type>;
 
     explicit RoomTreeItem(TreeData data, RoomTreeItem *parent = nullptr);
 
@@ -68,7 +69,7 @@ public:
      */
     TreeData data() const;
 
-    std::optional<int> rowForRoom(Quotient::Room *room) const;
+    std::optional<int> rowForRoom(rust::Box<sdk::RoomListRoom> room) const;
 
 private:
     std::vector<std::unique_ptr<RoomTreeItem>> m_children;

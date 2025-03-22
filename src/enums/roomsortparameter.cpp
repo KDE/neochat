@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
@@ -5,8 +6,8 @@
 
 #include <algorithm>
 
-#include "neochatconfig.h"
-#include "neochatroom.h"
+// #include "neochatconfig.h"
+#include <Integral/Utils>
 
 namespace
 {
@@ -56,27 +57,27 @@ QList<RoomSortParameter::Parameter> RoomSortParameter::allParameterList()
 
 QList<RoomSortParameter::Parameter> RoomSortParameter::currentParameterList()
 {
-    QList<RoomSortParameter::Parameter> configParamList;
-    switch (static_cast<NeoChatConfig::EnumSortOrder::type>(NeoChatConfig::sortOrder())) {
-    case NeoChatConfig::EnumSortOrder::Activity:
-        configParamList = activitySortPriorities;
-        break;
-    case NeoChatConfig::EnumSortOrder::Alphabetical:
-        configParamList = alphabeticalSortPriorities;
-        break;
-    case NeoChatConfig::EnumSortOrder::LastMessage:
-        configParamList = lastMessageSortPriorities;
-        break;
-    case NeoChatConfig::EnumSortOrder::Custom: {
-        const auto intList = NeoChatConfig::customSortOrder();
-        std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
-            return static_cast<Parameter>(param);
-        });
-        break;
-    }
-    default:
-        break;
-    }
+    QList<RoomSortParameter::Parameter> configParamList = activitySortPriorities;
+    // switch (static_cast<NeoChatConfig::EnumSortOrder::type>(NeoChatConfig::sortOrder())) {
+    // case NeoChatConfig::EnumSortOrder::Activity:
+    //     configParamList = activitySortPriorities;
+    //     break;
+    // case NeoChatConfig::EnumSortOrder::Alphabetical:
+    //     configParamList = alphabeticalSortPriorities;
+    //     break;
+    // case NeoChatConfig::EnumSortOrder::LastMessage:
+    //     configParamList = lastMessageSortPriorities;
+    //     break;
+    // case NeoChatConfig::EnumSortOrder::Custom: {
+    //     const auto intList = NeoChatConfig::customSortOrder();
+    //     std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
+    //         return static_cast<Parameter>(param);
+    //     });
+    //     break;
+    // }
+    // default:
+    //     break;
+    // }
 
     if (configParamList.isEmpty()) {
         return activitySortPriorities;
@@ -90,73 +91,74 @@ void RoomSortParameter::saveNewParameterList(const QList<Parameter> &newList)
     std::transform(newList.constBegin(), newList.constEnd(), std::back_inserter(intList), [](Parameter param) {
         return static_cast<int>(param);
     });
-    NeoChatConfig::setCustomSortOrder(intList);
-    NeoChatConfig::setSortOrder(NeoChatConfig::EnumSortOrder::Custom);
-    NeoChatConfig::self()->save();
+    // NeoChatConfig::setCustomSortOrder(intList);
+    // NeoChatConfig::setSortOrder(NeoChatConfig::EnumSortOrder::Custom);
+    // NeoChatConfig::self()->save();
 }
 
-int RoomSortParameter::compareParameter(Parameter parameter, NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter(Parameter parameter, rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
     switch (parameter) {
     case AlphabeticalAscending:
-        return compareParameter<AlphabeticalAscending>(leftRoom, rightRoom);
+        return compareParameter<AlphabeticalAscending>(leftRoom->box_me(), rightRoom->box_me());
     case AlphabeticalDescending:
-        return compareParameter<AlphabeticalDescending>(leftRoom, rightRoom);
+        return compareParameter<AlphabeticalDescending>(leftRoom->box_me(), rightRoom->box_me());
     case HasUnread:
-        return compareParameter<HasUnread>(leftRoom, rightRoom);
+        return compareParameter<HasUnread>(leftRoom->box_me(), rightRoom->box_me());
     case MostUnread:
-        return compareParameter<MostUnread>(leftRoom, rightRoom);
+        return compareParameter<MostUnread>(leftRoom->box_me(), rightRoom->box_me());
     case HasHighlight:
-        return compareParameter<HasHighlight>(leftRoom, rightRoom);
+        return compareParameter<HasHighlight>(leftRoom->box_me(), rightRoom->box_me());
     case MostHighlights:
-        return compareParameter<MostHighlights>(leftRoom, rightRoom);
+        return compareParameter<MostHighlights>(leftRoom->box_me(), rightRoom->box_me());
     case LastActive:
-        return compareParameter<LastActive>(leftRoom, rightRoom);
+        return compareParameter<LastActive>(leftRoom->box_me(), rightRoom->box_me());
     default:
         return 0;
     }
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalAscending>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalAscending>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return -typeCompare(leftRoom->displayName(), rightRoom->displayName());
+    return -typeCompare(stringFromRust(leftRoom->display_name()), stringFromRust(rightRoom->display_name()));
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalDescending>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::AlphabeticalDescending>(rust::Box<sdk::RoomListRoom> leftRoom,
+                                                                                   rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return typeCompare(leftRoom->displayName(), rightRoom->displayName());
+    return typeCompare(stringFromRust(leftRoom->display_name()), stringFromRust(rightRoom->display_name()));
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::HasUnread>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::HasUnread>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return typeCompare(leftRoom->contextAwareNotificationCount() > 0, rightRoom->contextAwareNotificationCount() > 0);
+    return typeCompare(leftRoom->num_unread_messages() > 0, rightRoom->num_unread_messages() > 0);
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::MostUnread>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::MostUnread>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return typeCompare(leftRoom->contextAwareNotificationCount(), rightRoom->contextAwareNotificationCount());
+    return typeCompare(leftRoom->num_unread_messages(), rightRoom->num_unread_messages());
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::HasHighlight>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::HasHighlight>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    const auto leftHighlight = leftRoom->highlightCount() > 0 && leftRoom->contextAwareNotificationCount() > 0;
-    const auto rightHighlight = rightRoom->highlightCount() > 0 && rightRoom->contextAwareNotificationCount() > 0;
+    const auto leftHighlight = leftRoom->num_unread_mentions() > 0 && leftRoom->num_unread_messages() > 0;
+    const auto rightHighlight = rightRoom->num_unread_mentions() > 0 && rightRoom->num_unread_messages() > 0;
     return typeCompare(leftHighlight, rightHighlight);
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::MostHighlights>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::MostHighlights>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return typeCompare(int(leftRoom->highlightCount()), int(rightRoom->highlightCount()));
+    return typeCompare(int(leftRoom->num_unread_mentions()), int(rightRoom->num_unread_mentions()));
 }
 
 template<>
-int RoomSortParameter::compareParameter<RoomSortParameter::LastActive>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
+int RoomSortParameter::compareParameter<RoomSortParameter::LastActive>(rust::Box<sdk::RoomListRoom> leftRoom, rust::Box<sdk::RoomListRoom> rightRoom)
 {
-    return typeCompare(leftRoom->lastActiveTime(), rightRoom->lastActiveTime());
+    return 1;
 }
