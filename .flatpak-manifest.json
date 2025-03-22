@@ -51,25 +51,6 @@
             ]
         },
         {
-            "name": "olm",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DOLM_TESTS=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.matrix.org/matrix-org/olm.git",
-                    "tag": "3.2.16",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    },
-                    "commit": "7e0c8277032e40308987257b711b38af8d77cc69"
-                }
-            ]
-        },
-        {
             "name": "libsecret",
             "buildsystem": "meson",
             "config-opts": [
@@ -117,20 +98,14 @@
             ]
         },
         {
-            "name": "libQuotient",
+            "name": "integral",
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/quotient-im/libQuotient.git",
-                    "branch": "dev",
-                    "disable-submodules": true
+                    "url": "https://invent.kde.org/tfella/integral.git",
+                    "branch": "master"
                 }
-            ],
-            "config-opts": [
-                "-DBUILD_WITH_QT6=ON",
-                "-DQuotient_ENABLE_E2EE=ON",
-                "-DBUILD_TESTING=OFF"
             ]
         },
         {
