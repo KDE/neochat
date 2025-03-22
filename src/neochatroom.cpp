@@ -221,12 +221,12 @@ void NeoChatRoom::setFileUploadingProgress(int value)
     Q_EMIT fileUploadingProgressChanged();
 }
 
-void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
+void NeoChatRoom::uploadFile(const QUrl &url, const QString &body, std::optional<EventRelation> relatesTo)
 {
-    doUploadFile(url, body);
+    doUploadFile(url, body, relatesTo);
 }
 
-QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
+QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optional<EventRelation> relatesTo)
 {
     if (url.isEmpty()) {
         co_return;
@@ -250,7 +250,12 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
+
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 2)
+    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content), relatesTo);
+#else
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content));
+#endif
     setHasFileUploading(true);
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
         if (id == txnId) {
