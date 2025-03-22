@@ -434,11 +434,6 @@ void Controller::removeConnection(const QString &userId)
     }
 }
 
-bool Controller::csSupported() const
-{
-    return true;
-}
-
 void Controller::revertToDefaultConfig()
 {
     const auto config = NeoChatConfig::self();

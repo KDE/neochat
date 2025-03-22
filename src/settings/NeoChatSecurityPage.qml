@@ -83,10 +83,8 @@ FormCard.FormCardPage {
     }
     FormCard.FormHeader {
         title: i18nc("@title:group", "Encryption")
-        visible: Controller.csSupported
     }
     FormCard.FormCard {
-        visible: Controller.csSupported
         FormCard.FormButtonDelegate {
             id: importKeysDelegate
             text: i18nc("@action:button", "Import Keys")

@@ -92,7 +92,7 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
-                visible: root.room.isDirectChat() && Controller.csSupported
+                visible: root.room.isDirectChat()
                 icon.name: "security-low-symbolic"
                 text: i18nc("@action:button", "Verify user")
 

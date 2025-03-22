@@ -99,7 +99,6 @@ KirigamiComponents.ConvergentContextMenu {
                 dialog.close();
             });
         }
-        enabled: Controller.csSupported
     }
 
     QQC2.Action {

@@ -50,8 +50,6 @@ class Controller : public QObject
 
     Q_PROPERTY(QStringList accountsLoading MEMBER m_accountsLoading NOTIFY accountsLoadingChanged)
 
-    Q_PROPERTY(bool csSupported READ csSupported CONSTANT)
-
 public:
     static Controller &instance();
     static Controller *create(QQmlEngine *engine, QJSEngine *)
@@ -102,8 +100,6 @@ public:
     static void setTestMode(bool testMode);
 
     Q_INVOKABLE void removeConnection(const QString &userId);
-
-    bool csSupported() const;
 
     /**
      * @brief Revert all configuration values to their default.
