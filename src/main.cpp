@@ -289,9 +289,6 @@ int main(int argc, char *argv[])
     engine.addImageProvider(u"blurhash"_s, new BlurhashImageProvider);
 
     engine.loadFromModule("org.kde.neochat", "Main");
-    if (engine.rootObjects().isEmpty()) {
-        return -1;
-    }
 
     if (!parser.positionalArguments().isEmpty() && !parser.isSet("share"_L1)) {
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
@@ -302,9 +299,7 @@ int main(int argc, char *argv[])
     QDBusConnection::sessionBus().registerObject("/RoomRunner"_L1, runner, QDBusConnection::ExportScriptableContents);
 #endif
 
-    QWindow *window = windowFromEngine(&engine);
-
-    WindowController::instance().setWindow(window);
+    WindowController::instance().setWindow(windowFromEngine(&engine));
 
     return app.exec();
 }
