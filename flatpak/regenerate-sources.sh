@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+# SPDX-FileCopyrightText: Jonah Brüchert <jbb@kaidan.im>
+# SPDX-License-Identifier: CC0-1.0
 set -e
 
 export GIT_CLONE_ARGS="--depth 1 --single-branch"
