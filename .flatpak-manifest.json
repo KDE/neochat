@@ -51,48 +51,6 @@
             ]
         },
         {
-            "name": "olm",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DOLM_TESTS=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.matrix.org/matrix-org/olm.git",
-                    "tag": "3.2.16",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    },
-                    "commit": "7e0c8277032e40308987257b711b38af8d77cc69"
-                }
-            ]
-        },
-        {
-            "name": "libsecret",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dmanpage=false",
-                "-Dvapi=false",
-                "-Dgtk_doc=false",
-                "-Dintrospection=false",
-                "-Dcrypto=disabled"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.6.tar.xz",
-                    "sha256": "747b8c175be108c880d3adfb9c3537ea66e520e4ad2dccf5dce58003aeeca090",
-                    "x-checker-data": {
-                        "type": "gnome",
-                        "name": "libsecret",
-                        "stable-only": true
-                    }
-                }
-            ]
-        },
-        {
             "name": "qtkeychain",
             "buildsystem": "cmake-ninja",
             "sources": [
@@ -117,20 +75,14 @@
             ]
         },
         {
-            "name": "libQuotient",
+            "name": "integral",
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/quotient-im/libQuotient.git",
-                    "branch": "dev",
-                    "disable-submodules": true
+                    "url": "https://invent.kde.org/tfella/integral.git",
+                    "branch": "master"
                 }
-            ],
-            "config-opts": [
-                "-DBUILD_WITH_QT6=ON",
-                "-DQuotient_ENABLE_E2EE=ON",
-                "-DBUILD_TESTING=OFF"
             ]
         },
         {
