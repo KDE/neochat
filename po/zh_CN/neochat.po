@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-23 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -42,27 +42,34 @@ msgstr "表情和贴纸"
 msgid "Send a Location"
 msgstr "发送位置"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:120
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create a Poll"
+msgstr "创建聊天室"
+
+#: src/chatbar/ChatBar.qml:136
 #, kde-format
 msgid "Send message"
 msgstr "发送消息"
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "发送一条加密消息..."
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "设置附件说明"
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Send a message…"
 msgstr "发送一条消息..."
 
-#: src/chatbar/ChatBar.qml:361
+#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1963,12 +1970,12 @@ msgstr "聊天室创建失败：%1"
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/neochatroom.cpp:1223
+#: src/neochatroom.cpp:1228
 #, kde-format
 msgid "Report sent successfully."
 msgstr "举报成功。"
 
-#: src/neochatroom.cpp:1563 src/neochatroom.cpp:1571
+#: src/neochatroom.cpp:1581 src/neochatroom.cpp:1589
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2106,7 +2113,7 @@ msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "退出登录"
@@ -3181,6 +3188,83 @@ msgstr ""
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "编辑状态"
+
+#: src/qml/NewPollDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "创建聊天室"
+
+#: src/qml/NewPollDialog.qml:46
+#, kde-format
+msgid "Poll type:"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:51
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgid "Open poll"
+msgstr "打开文件"
+
+#: src/qml/NewPollDialog.qml:52
+#, fuzzy, kde-format
+#| msgid "Close"
+msgid "Closed poll"
+msgstr "关闭"
+
+#: src/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Voters can see the result as soon as they have voted"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Results are revealed only after the poll has closed"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Question:"
+msgstr "描述："
+
+#: src/qml/NewPollDialog.qml:104
+#, kde-format
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Encryption"
+msgid "Enter option"
+msgstr "加密"
+
+#: src/qml/NewPollDialog.qml:126
+#, fuzzy, kde-format
+#| msgctxt "As in remove the link preview so it's no longer shown"
+#| msgid "Remove preview"
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "移除预览"
+
+#: src/qml/NewPollDialog.qml:151
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "添加表情"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -5149,43 +5233,43 @@ msgctxt "@title:group"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:97
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:116
+#: src/settings/NeoChatSecurityPage.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:120
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -5809,7 +5893,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:100
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:191
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5915,13 +5999,20 @@ msgstr ""
 msgid "%1 started a user verification"
 msgstr ""
 
-#: src/timeline/ChatBarComponent.qml:88
+#: src/timeline/ChatBarComponent.qml:165
+#, fuzzy, kde-format
+#| msgid "Attach an image or file"
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "附送图像或文件"
+
+#: src/timeline/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "确认编辑"
 
-#: src/timeline/ChatBarComponent.qml:88
+#: src/timeline/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -6041,13 +6132,13 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "在外部打开"
 
-#: src/timeline/PollComponent.qml:70
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "基于 %1 位用户的投票"
 
-#: src/timeline/PollComponent.qml:70
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"

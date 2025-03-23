@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:41+0000\n"
+"POT-Creation-Date: 2025-03-23 00:41+0000\n"
 "PO-Revision-Date: 2025-03-08 21:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -43,27 +43,34 @@ msgstr "الصور التعبيرية والملصقات"
 msgid "Send a Location"
 msgstr "أرسل موقعاً جغرافياً"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:120
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create a Poll"
+msgstr "أنشئ غرفة"
+
+#: src/chatbar/ChatBar.qml:136
 #, kde-format
 msgid "Send message"
 msgstr "أرسل رسالة"
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "أرسل رسالة مشفرة..."
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "ضع اسم للمرفق…"
 
-#: src/chatbar/ChatBar.qml:202
+#: src/chatbar/ChatBar.qml:227
 #, kde-format
 msgid "Send a message…"
 msgstr "أرسل رسالة…"
 
-#: src/chatbar/ChatBar.qml:361
+#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1990,12 +1997,12 @@ msgstr "فشل إنشاء غرفة: %1"
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/neochatroom.cpp:1223
+#: src/neochatroom.cpp:1228
 #, kde-format
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/neochatroom.cpp:1563 src/neochatroom.cpp:1571
+#: src/neochatroom.cpp:1581 src/neochatroom.cpp:1589
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2133,7 +2140,7 @@ msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "للمتابعة، اقبل طلب التحقق على جهاز آخر."
 
-#: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
+#: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "اخرج"
@@ -3212,6 +3219,84 @@ msgstr "اضبط اختصارات الوبّ…"
 msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "حرر الحالة"
+
+#: src/qml/NewPollDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "أنشئ غرفة"
+
+#: src/qml/NewPollDialog.qml:46
+#, kde-format
+msgid "Poll type:"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:51
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgid "Open poll"
+msgstr "افتح الملف"
+
+#: src/qml/NewPollDialog.qml:52
+#, fuzzy, kde-format
+#| msgid "Close"
+msgid "Closed poll"
+msgstr "أغلق"
+
+#: src/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Voters can see the result as soon as they have voted"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Results are revealed only after the poll has closed"
+msgstr ""
+
+#: src/qml/NewPollDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Question:"
+msgstr "الوصف:"
+
+#: src/qml/NewPollDialog.qml:104
+#, fuzzy, kde-format
+#| msgid "Options:"
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr "الخيارات:"
+
+#: src/qml/NewPollDialog.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Encryption"
+msgid "Enter option"
+msgstr "التعمية"
+
+#: src/qml/NewPollDialog.qml:126
+#, fuzzy, kde-format
+#| msgid "Remove parent"
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "أزل فضاء الرئيس"
+
+#: src/qml/NewPollDialog.qml:151
+#, fuzzy, kde-format
+#| msgid "Add Emoji"
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "أضف صورة تعبيرية"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -5212,43 +5297,43 @@ msgctxt "@title:group"
 msgid "Encryption"
 msgstr "التعمية"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "استورد مفاتيح"
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "استورد مفاتيح التعمية من نسخة احتياطية"
 
-#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:97
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "استورد مفاتيح"
 
-#: src/settings/NeoChatSecurityPage.qml:102
+#: src/settings/NeoChatSecurityPage.qml:100
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "استوردتُ المفاتيح بنجاح"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "صدّر المفاتيح"
 
-#: src/settings/NeoChatSecurityPage.qml:116
+#: src/settings/NeoChatSecurityPage.qml:114
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "صدّر مفاتيح التّعمية لهذا الجهاز"
 
-#: src/settings/NeoChatSecurityPage.qml:122
+#: src/settings/NeoChatSecurityPage.qml:120
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -5873,7 +5958,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "أكمل"
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:100
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:191
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5987,13 +6072,20 @@ msgstr ""
 msgid "%1 started a user verification"
 msgstr "بدأ %1 عملية تَثَبّت لمستخدم"
 
-#: src/timeline/ChatBarComponent.qml:88
+#: src/timeline/ChatBarComponent.qml:165
+#, fuzzy, kde-format
+#| msgid "Attach an image or file"
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "أرفق صورة أو ملف"
+
+#: src/timeline/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "أكد التحرير"
 
-#: src/timeline/ChatBarComponent.qml:88
+#: src/timeline/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
@@ -6113,7 +6205,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "افتحه خارجيا"
 
-#: src/timeline/PollComponent.qml:70
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -6124,7 +6216,7 @@ msgstr[3] "بالاعتماد على أصوات %1 مستخدمين"
 msgstr[4] "بالاعتماد على أصوات %1 مستخدماً"
 msgstr[5] "بالاعتماد على أصوات %1 مستخدم"
 
-#: src/timeline/PollComponent.qml:70
+#: src/timeline/PollComponent.qml:80
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -6736,9 +6828,6 @@ msgstr "أنهِ"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "أضف صورة تعبيرية"
-
-#~ msgid "Options:"
-#~ msgstr "الخيارات:"
 
 #~ msgid "Zoom in"
 #~ msgstr "قرّب"
