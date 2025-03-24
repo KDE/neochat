@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-23 00:41+0000\n"
-"PO-Revision-Date: 2025-03-06 12:48+0100\n"
+"PO-Revision-Date: 2025-03-23 23:00+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -44,11 +44,10 @@ msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
 #: src/chatbar/ChatBar.qml:120
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Een room aanmaken"
+msgstr "Een opiniepeiling aanmaken"
 
 #: src/chatbar/ChatBar.qml:136
 #, kde-format
@@ -3235,79 +3234,66 @@ msgstr "Status bewerken"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Verzenden"
 
 #: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Kamer aanmaken"
+msgstr "Opiniepeiling aanmaken"
 
 #: src/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Type opiniepeiling:"
 
 #: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "Bestand openen"
+msgstr "Opiniepeiling openen"
 
 #: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "Sluiten"
+msgstr "Gesloten opiniepeiling"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Stemmers kunnen het resultaat zien zodra ze gestemd hebben"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Resultaten worden alleen ontsloten nadat de opiniepeiling is gesloten"
 
 #: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "Beschrijving:"
+msgstr "Vraag:"
 
 #: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "Opties:"
+msgstr "Optie %1:"
 
 #: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "Versleuteling"
+msgstr "Optie invoeren"
 
 #: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Ouder verwijderen"
+msgstr "Optie verwijderen"
 
 #: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Aan woordenboek toevoegen"
+msgstr "Optie toevoegen"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -6120,8 +6106,7 @@ msgid "%1 started a user verification"
 msgstr "%1 is verificatie van een gebruiker gestart"
 
 #: src/timeline/ChatBarComponent.qml:165
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"

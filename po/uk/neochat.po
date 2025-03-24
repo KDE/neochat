@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-23 00:41+0000\n"
-"PO-Revision-Date: 2025-03-06 09:14+0200\n"
+"PO-Revision-Date: 2025-03-23 10:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -46,11 +46,10 @@ msgid "Send a Location"
 msgstr "Надіслати дані місця"
 
 #: src/chatbar/ChatBar.qml:120
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Створити кімнату"
+msgstr "Створити голосування"
 
 #: src/chatbar/ChatBar.qml:136
 #, kde-format
@@ -3245,79 +3244,66 @@ msgstr "Редагування стану"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Надіслати"
 
 #: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Створити кімнату"
+msgstr "Створення голосування"
 
 #: src/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Тип опитування:"
 
 #: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "Відкрити файл"
+msgstr "Відкрите голосування"
 
 #: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "Закрити"
+msgstr "Закрите голосування"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Ті, хто проголосував, можуть побачити результат після голосування"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Результати буде оприлюднено лише після завершення голосування"
 
 #: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "Опис:"
+msgstr "Питання:"
 
 #: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "Параметри:"
+msgstr "Варіант %1:"
 
 #: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "Шифрування"
+msgstr "Введіть варіант"
 
 #: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Вилучити батьківський"
+msgstr "Вилучити варіант"
 
 #: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Додати до словника"
+msgstr "Додати варіант"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -6144,8 +6130,7 @@ msgid "%1 started a user verification"
 msgstr "%1 розпочато перевірку користувача"
 
 #: src/timeline/ChatBarComponent.qml:165
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
