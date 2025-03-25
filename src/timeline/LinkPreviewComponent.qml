@@ -31,7 +31,7 @@ QQC2.Control {
      *  - description - the description of the URL preview.
      *  - imageSource - a source URL for the preview image.
      */
-    required property var linkPreviewer
+    required property LinkPreviewer linkPreviewer
 
     /**
      * @brief Standard height for the link preview.
@@ -77,7 +77,9 @@ QQC2.Control {
             id: previewImage
             Layout.preferredWidth: root.defaultHeight
             Layout.preferredHeight: root.defaultHeight
-            visible: root.linkPreviewer.imageSource.length > 0
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            visible: root.linkPreviewer.imageSource.toString().length > 0
             source: root.linkPreviewer.imageSource
             fillMode: Image.PreserveAspectFit
         }
@@ -85,6 +87,7 @@ QQC2.Control {
             id: column
             implicitWidth: Math.max(linkPreviewTitle.implicitWidth, linkPreviewDescription.implicitWidth)
             spacing: Kirigami.Units.smallSpacing
+            visible: root.linkPreviewer.title.length > 0 || root.linkPreviewer.description.length > 0
             Kirigami.Heading {
                 id: linkPreviewTitle
                 Layout.fillWidth: true
@@ -103,12 +106,7 @@ QQC2.Control {
                     text: root.linkPreviewer.title
                     font: linkPreviewTitle.font
                     elide: Text.ElideRight
-                    elideWidth: (linkPreviewTitle.availableWidth()) * 3
-                }
-
-                function availableWidth() {
-                    let previewImageWidth = (previewImage.visible ? previewImage.width + contentRow.spacing : 0);
-                    return root.maxContentWidth - contentRow.spacing - separator.width - previewImageWidth;
+                    elideWidth: linkPreviewTitle.width
                 }
             }
             QQC2.Label {
