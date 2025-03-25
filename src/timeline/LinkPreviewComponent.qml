@@ -128,6 +128,10 @@ QQC2.Control {
         }
     }
 
+    HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+    }
+
     QQC2.Button {
         id: closeButton
         anchors.right: parent.right
