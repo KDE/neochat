@@ -21,6 +21,7 @@ QQC2.Control {
 
     contentItem: QQC2.Label {
         text: root.text.startsWith("https://matrix.to/") ? "" : root.text
+        elide: Text.ElideRight
         Accessible.description: i18nc("@info screenreader", "The currently selected link")
     }
 

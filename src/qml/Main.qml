@@ -292,8 +292,12 @@ Kirigami.ApplicationWindow {
     HoverLinkIndicator {
         id: linkIndicator
 
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            rightMargin: Kirigami.Units.largeSpacing
+        }
     }
 
     Shortcut {
