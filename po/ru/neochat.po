@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-03-25 17:14+0300\n"
+"PO-Revision-Date: 2025-03-26 17:21+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -105,29 +105,30 @@ msgid "Receiving notifications for new messages"
 msgstr "Получение уведомлений о новых сообщениях"
 
 #: src/controller.cpp:248
-#, fuzzy, kde-format
+#, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Не найден токен доступа"
+msgstr "Не найден маркер доступа: возможно, он был удалён?"
 
 #: src/controller.cpp:252
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Разрешите приложению NeoChat прочитать токен доступа"
+msgstr ""
+"Отказ в доступе к связке ключей: разрешите NeoChat прочитать маркер доступа"
 
 #: src/controller.cpp:255
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
-"Установите приложение, предоставляющее службу связки ключей, например "
-"KWallet или Gnome Keyring."
+"Связка ключей недоступна: установите приложение, предоставляющее службу "
+"связки ключей (например, KWallet или GNOME Keyring при работе в Linux)"
 
 #: src/controller.cpp:258
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Не удалось прочитать токен доступа"
+msgstr "Не удалось прочитать маркер доступа: %1"
 
 #: src/controller.cpp:357
 #, kde-format
@@ -150,7 +151,7 @@ msgstr "Источник событий"
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
-msgstr ""
+msgstr "Показать маркер доступа"
 
 #: src/devtools/AccountData.qml:40
 #, kde-format
@@ -158,18 +159,20 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"Этой информацией нельзя ни с кем делиться, даже с другими пользователями. "
+"Данный маркер предоставляет полный доступ к вашей учётной записи."
 
 #: src/devtools/AccountData.qml:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "Доступ"
+msgstr "Маркер доступа"
 
 #: src/devtools/AccountData.qml:48
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
-msgstr "Скопировать адрес в буфер обмена"
+msgstr "Скопировать маркер доступа в буфер обмена"
 
 #: src/devtools/DebugOptions.qml:19
 #, kde-format
@@ -259,16 +262,16 @@ msgid "Choose Room"
 msgstr "Выбор комнаты"
 
 #: src/devtools/RoomData.qml:25
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "No room selected"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Комната не выбрана"
 
 #: src/devtools/RoomData.qml:26
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
-msgstr "Выбор комнаты"
+msgstr "Нажмите для выбора комнаты"
 
 #: src/devtools/RoomData.qml:32
 #, kde-format
@@ -406,88 +409,90 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/enums/roomsortparameter.h:52
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
 msgid "Alphabetical Ascending"
-msgstr "По алфавиту"
+msgstr "В алфавитном порядке по возрастанию"
 
 #: src/enums/roomsortparameter.h:54
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting alphabetically with Z first and A last"
 msgid "Alphabetical Descending"
-msgstr "По алфавиту"
+msgstr "В алфавитном порядке по убыванию"
 
 #: src/enums/roomsortparameter.h:56
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting rooms with unread message above those without"
 msgid "Has Unread Messages"
-msgstr "Зашифрованное сообщение"
+msgstr "С непрочитанными сообщениями"
 
 #: src/enums/roomsortparameter.h:58
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting rooms with the most unread messages higher"
 msgid "Most Unread Messages"
-msgstr "Перенаправление сообщения"
+msgstr "Наибольшее количество непрочитанных сообщений"
 
 #: src/enums/roomsortparameter.h:60
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "С подсвеченными сообщениями"
 
 #: src/enums/roomsortparameter.h:62
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting rooms with the most highlighted messages higher"
 msgid "Most Highlighted Messages"
-msgstr "Показывать удалённые сообщения"
+msgstr "Наибольшее количество подсвеченных сообщений"
 
 #: src/enums/roomsortparameter.h:64
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in sorting the chat room with the newest meassage first"
 msgid "Last Active"
-msgstr "%1, последняя активность: %2"
+msgstr "Последняя активность"
 
 #: src/enums/roomsortparameter.h:79
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "Чем ближе имена комнат к «A», тем выше они будут в списке"
 
 #: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "Чем ближе имена комнат к «Z», тем выше они будут в списке"
 
 #: src/enums/roomsortparameter.h:83
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr "Сообщения об обновлении комнаты"
+msgstr "Комнаты с непрочитанными сообщениями будут выше в списке"
 
 #: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
 msgstr ""
+"Комнаты с наибольшим количеством непрочитанных сообщений будут выше в списке"
 
 #: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "Комнаты с подсвеченными сообщениями будут выше в списке"
 
 #: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
 msgstr ""
+"Комнаты с наибольшим количеством подсвеченных сообщений будут выше в списке"
 
 #: src/enums/roomsortparameter.h:91
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr ""
+msgstr "Комнаты с более новыми сообщениями будут выше в списке"
 
 #: src/eventhandler.cpp:293 src/eventhandler.cpp:509
 #, kde-format
@@ -513,7 +518,7 @@ msgstr ": %1"
 #: src/eventhandler.cpp:338
 #, kde-format
 msgid "joined the room (repeated)"
-msgstr "вошёл в комнату (повторно)"
+msgstr "присоединился(лась) к комнате (повторно)"
 
 #: src/eventhandler.cpp:340
 #, kde-format
@@ -523,7 +528,7 @@ msgstr "пригласил(а) %1 в комнату"
 #: src/eventhandler.cpp:340
 #, kde-format
 msgid "joined the room"
-msgstr "вошёл в комнату"
+msgstr "присоединился(лась) к комнате"
 
 #: src/eventhandler.cpp:344
 #, kde-format
@@ -601,9 +606,9 @@ msgid "has put %1 out of the room: %2"
 msgstr "выгнал(а) %1 из комнаты: %2"
 
 #: src/eventhandler.cpp:389
-#, fuzzy, kde-format
+#, kde-format
 msgid "has put %1 out of the room"
-msgstr "выгнал(а) %1 из комнаты: %2"
+msgstr "выгнал(а) %1 из комнаты"
 
 #: src/eventhandler.cpp:393
 #, kde-format
@@ -735,39 +740,40 @@ msgid "a file"
 msgstr "файл"
 
 #: src/eventhandler.cpp:518
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 sent a message"
-msgstr "отправил(а) сообщение"
+msgstr "%1 отправил(а) сообщение"
 
 #: src/eventhandler.cpp:521
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 sent a sticker"
-msgstr "отправил(а) стикер"
+msgstr "%1 отправил(а) стикер"
 
 #: src/eventhandler.cpp:527
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 reinvited someone to the room"
-msgstr "повторно пригласил(а) кого-то в комнату"
+msgstr "%1 повторно пригласил(а) кого-то в комнату"
 
 #: src/eventhandler.cpp:533
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 joined the room (repeated)"
-msgstr "вошёл в комнату (повторно)"
+msgstr "%1 присоединился(лась) к комнате (повторно)"
 
 #: src/eventhandler.cpp:535
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 invited someone to the room"
-msgstr "пригласил(а) кого-то в комнату"
+msgstr "%1 пригласил(а) кого-то в комнату"
 
 #: src/eventhandler.cpp:536
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 joined the room"
-msgstr "вошёл в комнату"
+msgstr "%1 присоединился(лась) к комнате"
 
 #: src/eventhandler.cpp:562
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
+"%1 установил(а) отображаемое имя и установил(а) изображение пользователя"
 
 #: src/eventhandler.cpp:564
 #, kde-format
@@ -782,9 +788,9 @@ msgstr ""
 "%1 установил(а) отображаемое имя и убрал(а) своё изображение пользователя"
 
 #: src/eventhandler.cpp:568
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 set a display name for this room"
-msgstr "Изменить своё отображаемое имя в этой комнате"
+msgstr "%1 установил(а) отображаемое имя для этой комнаты"
 
 #: src/eventhandler.cpp:571
 #, kde-format
@@ -837,34 +843,34 @@ msgid "%1 changed nothing"
 msgstr "%1 ничего не поменял(а)"
 
 #: src/eventhandler.cpp:593
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 withdrew a user's invitation"
-msgstr "отозвал(а) приглашение пользователя"
+msgstr "%1 отозвал(а) приглашение пользователя"
 
 #: src/eventhandler.cpp:594
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 rejected the invitation"
-msgstr "отклонил(а) приглашение"
+msgstr "%1 отклонил(а) приглашение"
 
 #: src/eventhandler.cpp:598
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 unbanned a user"
-msgstr "разблокировал(а) пользователя"
+msgstr "%1 разблокировал(а) пользователя"
 
 #: src/eventhandler.cpp:598
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 self-unbanned"
-msgstr "разблокировал(а) себя"
+msgstr "%1 разблокировал(а) себя"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 put a user out of the room"
-msgstr "выгнал(а) пользователя из комнаты"
+msgstr "%1 выгнал(а) пользователя из комнаты"
 
 #: src/eventhandler.cpp:600
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 left the room"
-msgstr "покинул(а) комнату"
+msgstr "%1 покинул(а) комнату"
 
 #: src/eventhandler.cpp:603
 #, kde-format
@@ -872,19 +878,19 @@ msgid "%1 banned a user from the room"
 msgstr "%1 заблокировал(а) пользователя в этой комнате"
 
 #: src/eventhandler.cpp:605
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 self-banned from the room"
-msgstr "заблокировал(а) себя в этой комнате"
+msgstr "%1 заблокировал(а) себя в этой комнате"
 
 #: src/eventhandler.cpp:608
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 requested an invite"
-msgstr "запросил(а) приглашение"
+msgstr "%1 запросил(а) приглашение"
 
 #: src/eventhandler.cpp:612
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 made something unknown"
-msgstr "сделал(а) что-то неизвестное"
+msgstr "%1 сделал(а) что-то неизвестное"
 
 #: src/eventhandler.cpp:615
 #, kde-format
@@ -892,9 +898,9 @@ msgid "%1 cleared the room main alias"
 msgstr "%1 убрал(а) основной псевдоним комнаты"
 
 #: src/eventhandler.cpp:615
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 set the room main alias"
-msgstr "выбрал(а) основной псевдоним комнаты"
+msgstr "%1 выбрал(а) основной псевдоним комнаты"
 
 #: src/eventhandler.cpp:618
 #, kde-format
@@ -902,9 +908,9 @@ msgid "%1 cleared the room name"
 msgstr "%1 убрал(а) имя комнаты"
 
 #: src/eventhandler.cpp:618
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 set the room name"
-msgstr "выбрал(а) имя комнаты"
+msgstr "%1 выбрал(а) имя комнаты"
 
 #: src/eventhandler.cpp:621
 #, kde-format
@@ -912,9 +918,9 @@ msgid "%1 cleared the topic"
 msgstr "%1 убрал(а) тему"
 
 #: src/eventhandler.cpp:621
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 set the topic"
-msgstr "выбрал(а) тему"
+msgstr "%1 выбрал(а) тему"
 
 #: src/eventhandler.cpp:624
 #, kde-format
@@ -927,14 +933,14 @@ msgid "%1 activated End-to-End Encryption"
 msgstr "%1 включил(а) сквозное шифрование"
 
 #: src/eventhandler.cpp:630
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 upgraded the room version"
-msgstr "обновил(а) версию комнаты"
+msgstr "%1 обновил(а) версию комнаты"
 
 #: src/eventhandler.cpp:630
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 created the room"
-msgstr "создал(а) комнату"
+msgstr "%1 создал(а) комнату"
 
 #: src/eventhandler.cpp:633
 #, kde-format
@@ -943,15 +949,16 @@ msgid "%1 changed the power levels for this room"
 msgstr "%1 изменил(а) уровни доступа этой комнаты"
 
 #: src/eventhandler.cpp:636
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
-"отправил(а) маяк для отслеживания местоположения в режиме реального времени"
+"%1 отправил(а) маяк для отслеживания местоположения в режиме реального "
+"времени"
 
 #: src/eventhandler.cpp:639
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 changed the server access control lists for this room"
-msgstr "изменил(а) списки контроля доступа для этой комнаты на сервере"
+msgstr "%1 изменил(а) списки контроля доступа для этой комнаты на сервере"
 
 #: src/eventhandler.cpp:643
 #, kde-format
@@ -959,14 +966,14 @@ msgid "%1 added a widget"
 msgstr "%1 добавил(а) виджет"
 
 #: src/eventhandler.cpp:646
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 removed a widget"
-msgstr "удалил(а) виджет"
+msgstr "%1 удалил(а) виджет"
 
 #: src/eventhandler.cpp:648
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 configured a widget"
-msgstr "настроил(а) виджет"
+msgstr "%1 настроил(а) виджет"
 
 #: src/eventhandler.cpp:651
 #, kde-format
@@ -974,9 +981,9 @@ msgid "%1 updated the state"
 msgstr "%1 обновил(а) состояние"
 
 #: src/eventhandler.cpp:654
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 started a poll"
-msgstr "запустил(а) голосование"
+msgstr "%1 запустил(а) голосование"
 
 #: src/filetransferpseudojob.cpp:58
 #, kde-format
@@ -1028,9 +1035,9 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
-"Эл. письмо для подтверждения адреса электронной почты было отправлено. В "
-"полученном письме перейдите по ссылке подтверждения, после чего продолжите в "
-"этом окне."
+"Электронное письмо для подтверждения адреса электронной почты было "
+"отправлено. В полученном письме перейдите по ссылке подтверждения, после "
+"чего продолжите в этом окне."
 
 #: src/login/Email.qml:40
 #, kde-format
@@ -1217,15 +1224,15 @@ msgid "Go back"
 msgstr "Назад"
 
 #: src/login/WelcomePage.qml:271
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Параметры"
 
 #: src/main.cpp:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "Chat on Matrix"
-msgstr "Опубликовать ссылку в Matrix"
+msgstr "Общение в Matrix"
 
 #: src/main.cpp:147
 #, kde-format
@@ -1257,7 +1264,7 @@ msgstr "James Graham"
 #: src/main.cpp:151
 #, kde-format
 msgid "Joshua Goins"
-msgstr ""
+msgstr "Joshua Goins"
 
 #: src/main.cpp:156
 #, kde-format
@@ -1427,7 +1434,7 @@ msgstr "Пользователь %1 уже приглашён в эту комн
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "Пользователь %1 заблокирован в этой комнате"
+msgstr "Пользователь %1 заблокирован в этой комнате."
 
 #: src/models/actionsmodel.cpp:202
 #, kde-format
@@ -1438,13 +1445,13 @@ msgstr "Вы уже находитесь в этой комнате."
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Пользователь %1 уже находится в этой комнате"
+msgstr "Пользователь %1 уже находится в этой комнате."
 
 #: src/models/actionsmodel.cpp:210
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr "Пользователь %1 был приглашён в эту комнату"
+msgstr "Пользователь %1 был приглашён в эту комнату."
 
 #: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
 #: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
@@ -1459,7 +1466,7 @@ msgstr "Пригласить пользователя в эту комнату"
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Вход в комнату %1."
+msgstr "Присоединение к комнате %1."
 
 #: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
 msgid "<room alias or id>"
@@ -1726,6 +1733,8 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"Это сообщение либо не было найдено, либо у вас нет прав на его просмотр, "
+"либо оно было отправлено игнорируемым пользователем"
 
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -1837,8 +1846,8 @@ msgstr "Устанавливать родительское пространст
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
 msgstr ""
-"Это уровень возможностей, предоставляемый всем новым пользователям при входе "
-"в комнату"
+"Это уровень возможностей, предоставляемый всем новым пользователям при "
+"присоединении к комнате"
 
 #: src/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
@@ -1968,23 +1977,25 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Пригласить в частный чат"
+msgstr "Пригласил(а) вас в чат"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1 пригласил вас в комнату"
+msgstr "%1 пригласил(а) вас"
 
 #: src/neochatconnection.cpp:75
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
-msgstr "Обратитесь за помощью к администратору сервера Matrix."
+msgstr ""
+"Файл не может быть загружен из-за слишком большого размера.<br />Обратитесь "
+"за помощью к администратору сервера Matrix."
 
 #: src/neochatconnection.cpp:329
 #, kde-format
@@ -2035,9 +2046,9 @@ msgid "Reply"
 msgstr "Ответить"
 
 #: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reply…"
-msgstr "Ответить"
+msgstr "Ответить…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
@@ -2078,13 +2089,13 @@ msgid "Open NeoChat"
 msgstr "Открыть NeoChat"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr "Сканировать QR-код"
+msgstr "Показать QR-код"
 
 #: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit This Account"
 msgstr "Изменить эту учётную запись"
 
@@ -2095,7 +2106,7 @@ msgid "Account editor"
 msgstr "Редактирование учётной записи"
 
 #: src/qml/AccountMenu.qml:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notification Settings"
 msgstr "Параметры уведомлений"
 
@@ -2105,7 +2116,7 @@ msgid "Devices"
 msgstr "Устройства"
 
 #: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open Developer Tools"
 msgstr "Открыть инструменты разработчика"
 
@@ -2128,22 +2139,22 @@ msgid "Open Key Backup"
 msgstr "Открытие резервной копии ключей"
 
 #: src/qml/AccountMenu.qml:88
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
-msgstr "Верифицировать это устройство"
+msgstr "Проверить это устройство"
 
 #: src/qml/AccountMenu.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Успешная отправка запроса на проверку"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Для продолжения примите запрос на проверку на другом устройстве."
 
 #: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2482,10 +2493,10 @@ msgid "View Source"
 msgstr "Исходный код"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "Удалить"
+msgstr "Удалить…"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2716,14 +2727,14 @@ msgid "Only show spaces"
 msgstr "Показать только пространства"
 
 #: src/qml/ExploreRoomsPage.qml:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enter a Room Manually"
-msgstr "Введите адрес комнаты"
+msgstr "Войти в комнату вручную"
 
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "Если вам уже известен не показанный здесь адрес или псевдоним комнаты."
 
 #: src/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -2737,27 +2748,27 @@ msgid "No public rooms found"
 msgstr "Не найдено ни одной общедоступной комнаты"
 
 #: src/qml/FileDelegateContextMenu.qml:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Установить изображение"
+msgstr "Открыть изображение"
 
 #: src/qml/FileDelegateContextMenu.qml:51
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Установить изображение"
+msgstr "Сохранить изображение…"
 
 #: src/qml/FileDelegateContextMenu.qml:61
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
-msgstr "Установить изображение"
+msgstr "Скопировать изображение"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove…"
-msgstr "Удалить"
+msgstr "Удалить…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2781,7 +2792,7 @@ msgid "Configure NeoChat…"
 msgstr "Настроить NeoChat…"
 
 #: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Настроить NeoChat…"
@@ -2961,10 +2972,10 @@ msgid "Mirror"
 msgstr "Отразить"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1 пригласил вас в комнату"
+msgstr "%1 пригласил(а) вас присоединиться"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
@@ -2998,31 +3009,31 @@ msgid "Invite a User"
 msgstr "Приглашение пользователя"
 
 #: src/qml/InviteUserPage.qml:23
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find a user…"
 msgstr "Поиск пользователя…"
 
 #: src/qml/InviteUserPage.qml:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No users found"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Не найдено ни одного пользователя"
 
 #: src/qml/InviteUserPage.qml:31
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Пригласить этого пользователя"
 
 #: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "Пользователь либо уже является участником, либо приглашён"
 
 #: src/qml/InviteUserPage.qml:75
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Отправить приглашение"
@@ -3057,7 +3068,7 @@ msgstr "Отказаться"
 #: src/qml/KeyVerificationDialog.qml:140
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr "Ожидается принятие верификации на этом устройстве."
+msgstr "Ожидается принятие проверки на этом устройстве."
 
 #: src/qml/KeyVerificationDialog.qml:142
 #, kde-format
@@ -3075,13 +3086,13 @@ msgid "Successfully verified device **%1**"
 msgstr "Устройство **%1** успешно проверено."
 
 #: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "Истекло допустимое время проверки."
+msgstr "Выберите метод проверки, чтобы продолжить"
 
 #: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Проверка эмодзи"
@@ -3100,13 +3111,13 @@ msgstr "Отправить это местоположение"
 #, kde-format
 msgctxt "@action:intoolbar Re-center the map onto the set location"
 msgid "Re-Center"
-msgstr ""
+msgstr "Перецентрировать"
 
 #: src/qml/LocationChooser.qml:41
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
-msgstr "Локальный"
+msgstr "Определить местоположение"
 
 #: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
 #, kde-format
@@ -3147,7 +3158,7 @@ msgstr "Публикация"
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
-msgstr ""
+msgstr "Вход в комнату вручную"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
 #: src/qml/SelectParentDialog.qml:37
@@ -3207,22 +3218,22 @@ msgid "Forward Message"
 msgstr "Перенаправление сообщения"
 
 #: src/qml/MessageDelegateContextMenu.qml:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
-msgstr "Скопировать ссылку"
+msgstr "Скопировать адрес ссылки"
 
 #: src/qml/MessageDelegateContextMenu.qml:75
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
-msgstr "Копировать"
+msgstr "Скопировать текст"
 
 #: src/qml/MessageDelegateContextMenu.qml:80
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
-msgstr "Скопировать ссылку"
+msgstr "Скопировать ссылку на сообщение"
 
 #: src/qml/MessageDelegateContextMenu.qml:108
 #, kde-format
@@ -3561,7 +3572,7 @@ msgstr "Поиск"
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
-msgstr "Верифицировать пользователя"
+msgstr "Проверить пользователя"
 
 #: src/qml/RoomInformation.qml:108
 #, kde-format
@@ -3691,10 +3702,10 @@ msgid "Message Source"
 msgstr "Исходный код сообщения"
 
 #: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
-msgstr "Перенаправление сообщения"
+msgstr "Закреплённые сообщения отсутствуют"
 
 #: src/qml/RoomSearchPage.qml:26
 #, kde-format
@@ -3896,7 +3907,7 @@ msgstr[3] "%1 участник"
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
-msgstr "Добавить новую комнату"
+msgstr "Добавить комнату"
 
 #: src/qml/SpaceHierarchyDelegate.qml:122
 #: src/settings/RoomSortParameterDialog.qml:92
@@ -3984,10 +3995,10 @@ msgid "Load your encrypted messages"
 msgstr "Загрузка зашифрованных сообщений"
 
 #: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
-msgstr "Ключ шифрования файла"
+msgstr "Ключи шифрования восстановлены."
 
 #: src/qml/UnlockSSSSDialog.qml:50
 #, kde-format
@@ -4006,14 +4017,14 @@ msgstr "Разблокировка с помощью парольной фраз
 msgctxt "@info"
 msgid "If you have a backup passphrase for this account, enter it below."
 msgstr ""
-"Если для этой учётной записи имеется резервная парольная фраза, введите её "
-"ниже."
+"Если у этой учётной записи имеется парольная фраза для резервной копии, "
+"введите её ниже."
 
 #: src/qml/UnlockSSSSDialog.qml:64
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Backup Password:"
-msgstr "Резервный пароль:"
+msgstr "Пароль для резервной копии:"
 
 #: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
 #, kde-format
@@ -4062,8 +4073,8 @@ msgid ""
 "If you have previously verified this device, you can try loading the backup "
 "key from other devices by clicking the button below."
 msgstr ""
-"Если это устройство было проверено ранее, можно попробовать загрузить "
-"резервный ключ с других устройств (нажмите расположенную ниже кнопку)."
+"Если это устройство было проверено ранее, можно попробовать загрузить ключ "
+"для резервной копии с других устройств (нажмите расположенную ниже кнопку)."
 
 #: src/qml/UnlockSSSSDialog.qml:124
 #, kde-format
@@ -4078,14 +4089,14 @@ msgid "Account Details"
 msgstr "Учётная запись"
 
 #: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "One mutual room"
 msgid_plural "%1 mutual rooms"
-msgstr[0] "Приглашения в комнату"
-msgstr[1] "Приглашения в комнату"
-msgstr[2] "Приглашения в комнату"
-msgstr[3] "Приглашения в комнату"
+msgstr[0] "%1 совместная комната"
+msgstr[1] "%1 совместные комнаты"
+msgstr[2] "%1 совместных комнат"
+msgstr[3] "Одна совместная комната"
 
 #: src/qml/UserDetailDialog.qml:136
 #, kde-format
@@ -4103,10 +4114,10 @@ msgid "Kick this user"
 msgstr "Выгнать этого пользователя"
 
 #: src/qml/UserDetailDialog.qml:153 src/qml/UserDetailDialog.qml:158
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
-msgstr "Выгонять пользователей"
+msgstr "Выгон пользователя"
 
 #: src/qml/UserDetailDialog.qml:154
 #, kde-format
@@ -4159,7 +4170,7 @@ msgid "Set user power level"
 msgstr "Установить уровень возможностей пользователя"
 
 #: src/qml/UserDetailDialog.qml:250
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Удалить последние сообщения этого пользователя"
@@ -4178,7 +4189,7 @@ msgstr ""
 "Причина (почему пришлось удалить последние сообщения этого пользователя)"
 
 #: src/qml/UserDetailDialog.qml:257
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Удалить"
@@ -4206,10 +4217,10 @@ msgid "Copy link"
 msgstr "Скопировать ссылку"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "Деактивировать учётную запись"
+msgstr "Управление учётной записью"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4444,14 +4455,16 @@ msgid "Working"
 msgstr "Работает"
 
 #: src/roommanager.cpp:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "%1 — некорректный идентификатор Matrix"
+msgstr ""
+"Неверно сформированный или пустой идентификатор Matrix<br />%1 — "
+"некорректный идентификатор Matrix"
 
 #: src/roommanager.cpp:351
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed to join room<br />%1"
-msgstr "Не удалось присоединиться к комнате"
+msgstr "Не удалось присоединиться к комнате<br />%1"
 
 #: src/roommanager.cpp:375
 #, kde-format
@@ -4459,15 +4472,15 @@ msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
 #: src/roommanager.cpp:379
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed to request joining room<br />%1"
-msgstr "Не удалось отправить запрос на присоединение к комнате"
+msgstr "Не удалось отправить запрос на присоединение к комнате<br />%1"
 
 #: src/settings/AccountEditorPage.qml:20
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit Account"
-msgstr "Редактировать учётную запись"
+msgstr "Редактирование учётной записи"
 
 #: src/settings/AccountEditorPage.qml:62
 #, kde-format
@@ -4480,15 +4493,15 @@ msgid "Remove current avatar"
 msgstr "Убрать текущее изображение"
 
 #: src/settings/AccountEditorPage.qml:102
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Информация о пользователе"
 
 #: src/settings/AccountEditorPage.qml:107
-#, fuzzy, kde-format
+#, kde-format
 msgid "Display Name:"
-msgstr "<отображаемое имя>"
+msgstr "Отображаемое имя:"
 
 #: src/settings/AccountEditorPage.qml:113
 #, kde-format
@@ -4496,9 +4509,9 @@ msgid "Label:"
 msgstr "Метка:"
 
 #: src/settings/AccountEditorPage.qml:114
-#, fuzzy, kde-format
+#, kde-format
 msgid "Work"
-msgstr "Работает"
+msgstr "Работа"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
@@ -4514,28 +4527,28 @@ msgid "Password"
 msgstr "Пароль"
 
 #: src/settings/AccountEditorPage.qml:159
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Сервер не позволяет сменить пароль"
 
 #: src/settings/AccountEditorPage.qml:166
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Текущий пароль:"
 
 #: src/settings/AccountEditorPage.qml:173
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Новый пароль:"
 
 #: src/settings/AccountEditorPage.qml:180
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
-msgstr "Проверка нового пароля:"
+msgstr "Подтверждение нового пароля:"
 
 #: src/settings/AccountEditorPage.qml:185
 #, fuzzy, kde-format
@@ -4544,7 +4557,7 @@ msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
 #: src/settings/AccountEditorPage.qml:205
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Адреса электронной почты"
@@ -4584,7 +4597,7 @@ msgid "Deactivate Account"
 msgstr "Деактивировать учётную запись"
 
 #: src/settings/AccountEditorPage.qml:272
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Пароль успешно изменён"
@@ -4625,7 +4638,7 @@ msgid "Appearance"
 msgstr "Внешний вид"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "General Theme"
 msgstr "Общее оформление"
@@ -4719,7 +4732,7 @@ msgstr "Редактировать имя устройства"
 #: src/settings/DeviceDelegate.qml:105
 #, kde-format
 msgid "Verify device"
-msgstr "Верифицировать устройство"
+msgstr "Проверить устройство"
 
 #: src/settings/DeviceDelegate.qml:126
 #, kde-format
@@ -4895,16 +4908,16 @@ msgid "Stickers"
 msgstr "Стикеры"
 
 #: src/settings/ExportKeysDialog.qml:17
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Export Keys"
-msgstr "Ключ шифрования файла"
+msgstr "Экспорт ключей"
 
 #: src/settings/ExportKeysDialog.qml:33 src/settings/ImportKeysDialog.qml:51
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "Пароль:"
+msgstr "Парольная фраза:"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4912,24 +4925,26 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
+"Парольная фраза для защиты резервной копии ключей. Она должна отличаться от "
+"пароля учётной записи."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
 msgctxt "@action:button"
 msgid "Export keys"
-msgstr ""
+msgstr "Экспорт ключей"
 
 #: src/settings/ExportKeysDialog.qml:50
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Keys exported successfully"
-msgstr "Жалоба отправлена."
+msgstr "Ключи успешно экспортированы"
 
 #: src/settings/ExportKeysDialog.qml:54 src/settings/ImportKeysDialog.qml:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Unknown error"
-msgstr "Неизвестное событие"
+msgstr "Неизвестная ошибка"
 
 #: src/settings/GlobalNotificationsPage.qml:19
 #, kde-format
@@ -4951,7 +4966,7 @@ msgstr ""
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Push-уведомления доступны, но их не удалось включить."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
@@ -4959,10 +4974,10 @@ msgid "Notifications will only appear when NeoChat is running."
 msgstr "Уведомления появляются только во время работы программы NeoChat."
 
 #: src/settings/GlobalNotificationsPage.qml:49
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
-msgstr "Уведомления в комнатах"
+msgstr "Уведомления комнаты"
 
 #: src/settings/GlobalNotificationsPage.qml:66
 #, fuzzy, kde-format
@@ -4972,7 +4987,7 @@ msgstr "Упоминания (@)"
 
 #: src/settings/GlobalNotificationsPage.qml:83
 #: src/settings/PushNotification.qml:65
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ключевые слова"
@@ -4990,7 +5005,7 @@ msgid "Add keyword"
 msgstr "Добавить ключевое слово"
 
 #: src/settings/GlobalNotificationsPage.qml:147
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Приглашения"
@@ -5048,10 +5063,10 @@ msgid "Ignored Users"
 msgstr "Игнорируемые пользователи"
 
 #: src/settings/IgnoredUsersDialog.qml:25
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Управление игнорируемыми пользователями"
+msgstr "Игнорируемые пользователи отсутствуют"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
@@ -5060,34 +5075,34 @@ msgid "Unignore this user"
 msgstr "Перестать игнорировать этого пользователя"
 
 #: src/settings/ImportKeysDialog.qml:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Import Keys"
-msgstr "Ключ шифрования файла"
+msgstr "Импорт ключей"
 
 #: src/settings/ImportKeysDialog.qml:35
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "Выберите файл на компьютере"
+msgstr "Выбрать файл резервной копии"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Import keys"
-msgstr ""
+msgstr "Импорт ключей"
 
 #: src/settings/ImportKeysDialog.qml:66
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Invalid passphrase"
-msgstr "Разблокировка с помощью парольной фразы"
+msgstr "Неверная парольная фраза"
 
 #: src/settings/ImportKeysDialog.qml:70
 #, kde-format
 msgctxt "@info"
 msgid "Invalid key backup data"
-msgstr ""
+msgstr "Некорректные данные резервной копии ключей"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5096,7 +5111,7 @@ msgid "General"
 msgstr "Общие"
 
 #: src/settings/NeoChatGeneralPage.qml:23
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "General Settings"
 msgstr "Основные параметры"
@@ -5139,7 +5154,7 @@ msgstr "Активность"
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first"
-msgstr ""
+msgstr "Сначала будут показаны комнаты с непрочитанными уведомлениями"
 
 #: src/settings/NeoChatGeneralPage.qml:106
 #, kde-format
@@ -5148,16 +5163,16 @@ msgid "Alphabetical"
 msgstr "По алфавиту"
 
 #: src/settings/NeoChatGeneralPage.qml:116
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in 'sort something based on the last message'"
 msgid "Last Message Activity"
-msgstr "%1, последняя активность: %2"
+msgstr "Последнее сообщение"
 
 #: src/settings/NeoChatGeneralPage.qml:117
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest activity will be shown first"
-msgstr ""
+msgstr "Сначала будут показаны последние активные комнаты"
 
 #: src/settings/NeoChatGeneralPage.qml:128
 #, fuzzy, kde-format
@@ -5193,7 +5208,7 @@ msgstr "Показывать смену имён"
 #: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show avatar update events"
-msgstr "Показывать обновления изображений пользователей"
+msgstr "Показывать обновления изображений"
 
 #: src/settings/NeoChatGeneralPage.qml:222
 #, kde-format
@@ -5202,16 +5217,16 @@ msgid "Editor"
 msgstr "Редактор"
 
 #: src/settings/NeoChatGeneralPage.qml:226
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
-msgstr "Отправить сообщение"
+msgstr "Отправлять сообщения при нажатии клавиши «Ввод»"
 
 #: src/settings/NeoChatGeneralPage.qml:237
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
-msgstr ""
+msgstr "Отправлять сообщения при нажатии комбинации клавиш «Ctrl+Ввод»"
 
 #: src/settings/NeoChatGeneralPage.qml:253
 #, kde-format
@@ -5236,16 +5251,16 @@ msgid "Enable developer tools"
 msgstr "Включить инструменты для разработчиков"
 
 #: src/settings/NeoChatGeneralPage.qml:307
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
-msgstr "Параметры для разработчиков"
+msgstr "Параметры по умолчанию"
 
 #: src/settings/NeoChatGeneralPage.qml:312
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset All Configuration Values to Their Default"
-msgstr ""
+msgstr "Вернуть всем параметрам настройки значения по умолчанию"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, fuzzy, kde-format
@@ -5254,7 +5269,7 @@ msgid "Security & Safety"
 msgstr "Ключ безопасности:"
 
 #: src/settings/NeoChatSecurityPage.qml:32
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Игнорируемые пользователи"
@@ -5263,7 +5278,7 @@ msgstr "Игнорируемые пользователи"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
-msgstr ""
+msgstr "По умолчанию скрывать изображения и видео"
 
 #: src/settings/NeoChatSecurityPage.qml:45
 #, kde-format
@@ -5272,6 +5287,8 @@ msgid ""
 "When this option is enabled, images and videos are only shown after a button "
 "is clicked."
 msgstr ""
+"Если этот параметр включён, изображения и видео будут показаны только после "
+"нажатия кнопки."
 
 #: src/settings/NeoChatSecurityPage.qml:59
 #, kde-format
@@ -5317,46 +5334,46 @@ msgid "Encryption"
 msgstr "Шифрование"
 
 #: src/settings/NeoChatSecurityPage.qml:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
-msgstr "Ключ шифрования файла"
+msgstr "Импорт ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:91
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
-msgstr "Ключ шифрования файла"
+msgstr "Импорт ключей шифрования из резервной копии."
 
 #: src/settings/NeoChatSecurityPage.qml:97
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
-msgstr ""
+msgstr "Импорт ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:100
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
-msgstr "Жалоба отправлена."
+msgstr "Ключи успешно импортированы"
 
 #: src/settings/NeoChatSecurityPage.qml:113
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
-msgstr "Ключ шифрования файла"
+msgstr "Экспорт ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:114
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
-msgstr "Ключ шифрования файла"
+msgstr "Экспорт ключей шифрования этого устройства."
 
 #: src/settings/NeoChatSecurityPage.qml:120
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
-msgstr ""
+msgstr "Экспорт ключей"
 
 #: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
 #: src/settings/RoomSettingsView.qml:39
@@ -5542,10 +5559,10 @@ msgid "Event Type…"
 msgstr "Тип событий…"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Room notifications setting"
-msgstr "Уведомления комнаты"
+msgstr "Параметр уведомлений комнаты"
 
 #: src/settings/PushNotification.qml:31
 #, kde-format
@@ -5555,7 +5572,7 @@ msgstr "По умолчанию"
 #: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
-msgstr "Изменить изображение"
+msgstr "Обновить изображение"
 
 #: src/settings/RoomGeneralPage.qml:62
 #, kde-format
@@ -5620,7 +5637,7 @@ msgstr "#новый_псевдоним:server.org"
 #: src/settings/RoomGeneralPage.qml:238
 #, kde-format
 msgid "Add new alias"
-msgstr "Создать псевдоним"
+msgstr "Добавить псевдоним"
 
 #: src/settings/RoomGeneralPage.qml:258
 #, kde-format
@@ -5632,7 +5649,7 @@ msgstr "Предпросмотр содержимого по ссылкам"
 msgid "Enable URL previews by default for room members"
 msgstr ""
 "По умолчанию включить предпросмотр содержимого по ссылкам для участников "
-"комнат"
+"комнаты"
 
 #: src/settings/RoomGeneralPage.qml:271
 #, kde-format
@@ -5652,13 +5669,14 @@ msgstr ""
 "Для этой комнаты по умолчанию отключён предпросмотр содержимого по ссылкам"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
 msgstr ""
-"Для этой комнаты по умолчанию отключён предпросмотр содержимого по ссылкам"
+"Для вашей учётной записи в настоящее время отключён предпросмотр содержимого "
+"по ссылкам"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
@@ -5694,7 +5712,7 @@ msgstr "Для этой комнаты нет официальных родит�
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
-msgstr "Добавить новое официальное родительское пространство"
+msgstr "Добавить официальное родительское пространство"
 
 #: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
@@ -5733,22 +5751,22 @@ msgid "Customize your profile only for this room."
 msgstr "Настроить свой профиль только для этой комнаты."
 
 #: src/settings/RoomProfile.qml:38
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
-msgstr "<отображаемое имя>"
+msgstr "Отображаемое имя"
 
 #: src/settings/RoomProfile.qml:48
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Сохранить"
 
 #: src/settings/RoomProfile.qml:54
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
-msgstr "Заданный в системе"
+msgstr "Вернуть значения по умолчанию"
 
 #: src/settings/RoomSecurityPage.qml:20
 #, kde-format
@@ -5893,7 +5911,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr "Только для участников с момента присоединения"
+msgstr "Только для участников (с момента присоединения)"
 
 #: src/settings/RoomSecurityPage.qml:138
 #, kde-format
@@ -5937,25 +5955,25 @@ msgstr "Пользовательский порядок сортировки с�
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "сначала:"
 
 #: src/settings/RoomSortParameterDialog.qml:56
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "потом:"
 
 #: src/settings/RoomSortParameterDialog.qml:72
 #, kde-format
 msgctxt "@button"
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: src/settings/RoomSortParameterDialog.qml:82
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@button"
 msgid "Down"
-msgstr "Загрузить"
+msgstr "Вниз"
 
 #: src/settings/RoomSortParameterDialog.qml:105
 #, kde-format
@@ -6056,8 +6074,8 @@ msgid ""
 "The email has not been verified. Please go to the email and follow the "
 "instructions there and then click the button below"
 msgstr ""
-"Письмо не было проверено. Перейдите к письму, выполните приведённые "
-"инструкции и затем нажмите расположенную ниже кнопку"
+"Адрес электронной почты не было подтверждён. Перейдите к письму, выполните "
+"приведённые инструкции и затем нажмите расположенную ниже кнопку"
 
 #: src/settings/ThreePIdCard.qml:162
 #, kde-format
@@ -6065,7 +6083,7 @@ msgid ""
 "The phone number has not been verified. Please go to the text message and "
 "follow the instructions there and then click the button below"
 msgstr ""
-"Телефонный номер не был проверен. Перейдите к текстовому сообщению, "
+"Телефонный номер не был подтверждён. Перейдите к текстовому сообщению, "
 "выполните приведённые инструкции и затем нажмите расположенную ниже кнопку"
 
 #: src/settings/ThreePIdCard.qml:189
@@ -6124,10 +6142,10 @@ msgid "Confirm edit"
 msgstr "Подтвердить изменение"
 
 #: src/timeline/ChatBarComponent.qml:179
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
-msgstr "Не найдено ни одного сообщения"
+msgstr "Опубликовать сообщение в ветке"
 
 #: src/timeline/CodeComponent.qml:159
 #, kde-format
@@ -6153,7 +6171,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
-msgstr ""
+msgstr "Получить другие события"
 
 #: src/timeline/FileComponent.qml:94 src/timeline/FileComponent.qml:177
 #, kde-format
@@ -6206,10 +6224,10 @@ msgid "Check-out time: %1"
 msgstr "Время регистрации отъезда: %1"
 
 #: src/timeline/ImageComponent.qml:120
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "Установить изображение"
+msgstr "Показать изображение"
 
 #: src/timeline/ItineraryComponent.qml:54
 #, kde-format
@@ -6240,10 +6258,10 @@ msgid "Loading URL preview"
 msgstr "Загрузка предпросмотра содержимого по ссылке"
 
 #: src/timeline/LocationComponent.qml:111
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
-msgstr "Открывать во внешней программе"
+msgstr "Открыть во внешней программе"
 
 #: src/timeline/PollComponent.qml:80
 #, kde-format
@@ -6261,10 +6279,10 @@ msgid "(Ended)"
 msgstr "(Завершено)"
 
 #: src/timeline/ReactionComponent.qml:89
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@button"
 msgid "React"
-msgstr "Реакция"
+msgstr "Отреагировать"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
@@ -6273,7 +6291,7 @@ msgid "Last read: %1"
 msgstr "Последнее сообщение прочитано: %1"
 
 #: src/timeline/ReplyButtonComponent.qml:34
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Ответить"
@@ -6297,10 +6315,10 @@ msgid "Video"
 msgstr "Видео"
 
 #: src/timeline/VideoComponent.qml:237
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "Видео"
+msgstr "Показать видео"
 
 #: src/timeline/VideoComponent.qml:278
 #, kde-format
