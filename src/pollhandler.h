@@ -58,6 +58,11 @@ class PollHandler : public QObject
      */
     Q_PROPERTY(PollAnswerModel *answerModel READ answerModel CONSTANT)
 
+    /**
+     * @brief The total number of vote responses to the poll.
+     */
+    Q_PROPERTY(int totalCount READ totalCount NOTIFY totalCountChanged)
+
 public:
     PollHandler() = default;
     PollHandler(NeoChatRoom *room, const QString &pollStartId);
@@ -89,6 +94,13 @@ public:
      */
     bool checkMemberSelectedId(const QString &memberId, const QString &id) const;
 
+    int totalCount() const;
+
+    /**
+     * @brief The current answer IDs with the most votes.
+     */
+    QStringList winningAnswerIds() const;
+
     /**
      * @brief Send an answer to the poll.
      */
@@ -97,8 +109,8 @@ public:
 Q_SIGNALS:
     void questionChanged();
     void hasEndedChanged();
-
     void answersChanged();
+    void totalCountChanged();
 
     /**
      * @brief Emitted when the selected answers to the poll change.
@@ -113,7 +125,7 @@ private:
     void checkLoadRelations();
     void handleResponse(const Quotient::PollResponseEvent *event);
     QHash<QString, QDateTime> m_selectionTimestamps;
-    QHash<QString, QList<QString>> m_selections;
+    QHash<QString, QStringList> m_selections;
 
     bool m_hasEnded = false;
     QDateTime m_endedTimestamp;

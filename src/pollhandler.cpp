@@ -11,6 +11,7 @@
 #include <Quotient/events/roompowerlevelsevent.h>
 
 #include <algorithm>
+#include <qcontainerfwd.h>
 
 using namespace Quotient;
 
@@ -133,6 +134,7 @@ void PollHandler::handleResponse(const Quotient::PollResponseEvent *event)
         }
     }
 
+    Q_EMIT totalCountChanged();
     Q_EMIT selectionsChanged();
 }
 
@@ -215,6 +217,44 @@ PollAnswerModel *PollHandler::answerModel()
         m_answerModel = new PollAnswerModel(this);
     }
     return m_answerModel;
+}
+
+int PollHandler::totalCount() const
+{
+    int votes = 0;
+    for (const auto &selection : m_selections) {
+        votes += selection.size();
+    }
+    return votes;
+}
+
+QStringList PollHandler::winningAnswerIds() const
+{
+    auto room = dynamic_cast<NeoChatRoom *>(parent());
+    if (room == nullptr) {
+        return {};
+    }
+    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    if (pollStartEvent == nullptr) {
+        return {};
+    }
+
+    QStringList currentWinners;
+    for (const auto &answer : pollStartEvent->answers()) {
+        if (currentWinners.isEmpty()) {
+            currentWinners += answer.id;
+            continue;
+        }
+        if (answerCountAtId(currentWinners.first()) < answerCountAtId(answer.id)) {
+            currentWinners.clear();
+            currentWinners += answer.id;
+            continue;
+        }
+        if (answerCountAtId(currentWinners.first()) == answerCountAtId(answer.id)) {
+            currentWinners += answer.id;
+        }
+    }
+    return currentWinners;
 }
 
 void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId)

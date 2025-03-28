@@ -28,6 +28,7 @@ public:
         TextRole, /**< The answer text. */
         CountRole, /**< The number of people who gave this answer. */
         LocalChoiceRole, /**< Whether this option was selected by the local user */
+        IsWinnerRole, /**< Whether this option was selected by the local user */
     };
     Q_ENUM(Roles)
 

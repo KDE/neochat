@@ -12,7 +12,7 @@ PollAnswerModel::PollAnswerModel(PollHandler *parent)
     Q_ASSERT(parent != nullptr);
 
     connect(parent, &PollHandler::selectionsChanged, this, [this]() {
-        dataChanged(index(0), index(rowCount() - 1), {CountRole, LocalChoiceRole});
+        dataChanged(index(0), index(rowCount() - 1), {CountRole, LocalChoiceRole, IsWinnerRole});
     });
     connect(parent, &PollHandler::answersChanged, this, [this]() {
         dataChanged(index(0), index(rowCount() - 1), {TextRole});
@@ -50,6 +50,9 @@ QVariant PollAnswerModel::data(const QModelIndex &index, int role) const
         }
         return pollHandler->checkMemberSelectedId(room->localMember().id(), pollHandler->answerAtRow(row).id);
     }
+    if (role == IsWinnerRole) {
+        return pollHandler->winningAnswerIds().contains(pollHandler->answerAtRow(row).id) && pollHandler->hasEnded();
+    }
     return {};
 }
 
@@ -72,5 +75,6 @@ QHash<int, QByteArray> PollAnswerModel::roleNames() const
         {TextRole, "answerText"},
         {CountRole, "count"},
         {LocalChoiceRole, "localChoice"},
+        {IsWinnerRole, "isWinner"},
     };
 }
