@@ -106,6 +106,11 @@ public:
      */
     Q_INVOKABLE void sendPollAnswer(const QString &eventId, const QString &answerId);
 
+    /**
+     * @brief Send the PollEndEvent.
+     */
+    Q_INVOKABLE void endPoll() const;
+
 Q_SIGNALS:
     void questionChanged();
     void hasEndedChanged();
@@ -123,12 +128,14 @@ private:
     void updatePoll(Quotient::RoomEventsRange events);
 
     void checkLoadRelations();
+    void handleEvent(Quotient::RoomEvent *event);
     void handleResponse(const Quotient::PollResponseEvent *event);
     QHash<QString, QDateTime> m_selectionTimestamps;
     QHash<QString, QStringList> m_selections;
 
     bool m_hasEnded = false;
     QDateTime m_endedTimestamp;
+    QString endText() const;
 
     QPointer<PollAnswerModel> m_answerModel;
 };

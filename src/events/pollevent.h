@@ -225,6 +225,7 @@ class PollEndEvent : public RoomEvent
 public:
     QUO_EVENT(PollEndEvent, "org.matrix.msc3381.poll.end");
     explicit PollEndEvent(const QJsonObject &obj);
+    explicit PollEndEvent(const QString &pollStartEventId, const QString &endText);
 
     /**
      * @brief The EventRelation pointing to the PollStartEvent.

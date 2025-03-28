@@ -72,6 +72,7 @@ public:
 
         IsThreadedRole, /**< Whether the message is in a thread. */
         ThreadRootRole, /**< The Matrix ID of the thread root message, if any . */
+        IsPollRole, /**< Whether the message is a poll. */
 
         ShowSectionRole, /**< Whether the section header should be shown. */
 

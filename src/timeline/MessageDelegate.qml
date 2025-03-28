@@ -93,6 +93,11 @@ TimelineDelegate {
     required property string threadRoot
 
     /**
+     * @brief Whether the message in a poll.
+     */
+    required property bool isPoll
+
+    /**
      * @brief Whether this message has a local user mention.
      */
     required property bool isHighlighted

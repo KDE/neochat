@@ -238,6 +238,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return {};
     }
 
+    if (role == IsPollRole) {
+        return event->get().is<PollStartEvent>();
+    }
+
     if (role == ShowSectionRole) {
         for (auto r = row + 1; r < rowCount(); ++r) {
             auto i = index(r);
@@ -316,6 +320,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ProgressInfoRole] = "progressInfo";
     roles[IsThreadedRole] = "isThreaded";
     roles[ThreadRootRole] = "threadRoot";
+    roles[IsPollRole] = "isPoll";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
     roles[ShowReadMarkersRole] = "showReadMarkers";

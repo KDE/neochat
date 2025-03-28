@@ -502,7 +502,7 @@ public:
      *
      * @sa PollHandler
      */
-    PollHandler *poll(const QString &eventId);
+    Q_INVOKABLE PollHandler *poll(const QString &eventId);
 
     Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 

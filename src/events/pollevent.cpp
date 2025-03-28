@@ -58,6 +58,14 @@ PollEndEvent::PollEndEvent(const QJsonObject &obj)
 {
 }
 
+PollEndEvent::PollEndEvent(const QString &pollStartEventId, const QString &endText)
+    : RoomEvent(basicJson(TypeId,
+                          {{"org.matrix.msc1767.text"_L1, endText},
+                           {"org.matrix.msc3381.poll.end"_L1, QJsonObject{}},
+                           {"m.relates_to"_L1, QJsonObject{{"rel_type"_L1, "m.reference"_L1}, {"event_id"_L1, pollStartEventId}}}}))
+{
+}
+
 std::optional<EventRelation> PollEndEvent::relatesTo() const
 {
     return contentPart<std::optional<EventRelation>>(RelatesToKey);

@@ -136,7 +136,7 @@ QQC2.Control {
         }
 
         QQC2.Button {
-            visible: NeoChatConfig.threads && !root.currentRoom.readOnly
+            visible: NeoChatConfig.threads && !root.currentRoom.readOnly && !root.delegate?.isPoll
             text: i18n("Reply in Thread")
             icon.name: "dialog-messages"
             display: QQC2.Button.IconOnly
@@ -147,6 +147,18 @@ QQC2.Control {
                 root.currentRoom.editCache.clearRelations();
                 root.focusChatBar();
             }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
+            visible: (root.delegate?.isPoll ?? false) && !root.currentRoom.poll(root.delegate.eventId).hasEnded
+            text: i18n("End Poll")
+            icon.name: "gtk-stop"
+            display: QQC2.ToolButton.IconOnly
+            onClicked: root.currentRoom.poll(root.delegate.eventId).endPoll()
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
