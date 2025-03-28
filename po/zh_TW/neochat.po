@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-26 00:42+0000\n"
-"PO-Revision-Date: 2025-02-20 15:27+0900\n"
+"PO-Revision-Date: 2025-03-27 22:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -46,11 +46,10 @@ msgid "Send a Location"
 msgstr "傳送位置"
 
 #: src/chatbar/ChatBar.qml:120
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "建立聊天室"
+msgstr "建立投票"
 
 #: src/chatbar/ChatBar.qml:136
 #, kde-format
@@ -2108,13 +2107,13 @@ msgstr "驗證此裝置"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "已送出驗證請求"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "要繼續進行，請在另一台裝置上接受驗證請求。"
 
 #: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2445,12 +2444,10 @@ msgid "View Source"
 msgstr "檢視原始碼"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "移除"
+msgstr "移除…"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2507,13 +2504,13 @@ msgstr "顯示使用者"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "取消釘選"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "釘選"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2718,10 +2715,9 @@ msgid "Copy Image"
 msgstr "複製影像"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "移除"
+msgstr "移除…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -3201,79 +3197,66 @@ msgstr "編輯狀態"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "傳送"
 
 #: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "建立聊天室"
+msgstr "建立投票"
 
 #: src/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "投票類型："
 
 #: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "開啟檔案"
+msgstr "開放投票"
 
 #: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "關閉"
+msgstr "封閉投票"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "投票者可以在投票之後馬上看到結果"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "結果只在投票結束之後才揭露"
 
 #: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "描述："
+msgstr "問題："
 
 #: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "選項"
+msgstr "選項 %1："
 
 #: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "加密"
+msgstr "輸入選項"
 
 #: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "移除上層"
+msgstr "移除選項"
 
 #: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "新增表情符號"
+msgstr "新增選項"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -4149,11 +4132,10 @@ msgid "Copy link"
 msgstr "複製連結"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "停用帳號"
+msgstr "管理帳號"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4881,17 +4863,17 @@ msgstr "為這個帳號啟用通知"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "通知能在 NeoChat 未執行時出現。"
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "有推送通知但卻無法啟用它。"
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "通知只會在 NeoChat 執行時顯示。"
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5575,18 +5557,17 @@ msgid "URL previews are disabled by default in this room"
 msgstr "這個聊天室預設已停用網址預覽"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
-msgstr "這個聊天室預設已停用網址預覽"
+msgstr "網址預覽目前已為您的帳號關閉"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "啟用"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
@@ -6011,8 +5992,7 @@ msgid "%1 started a user verification"
 msgstr "%1 開始了使用者驗證"
 
 #: src/timeline/ChatBarComponent.qml:165
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "附加影像或檔案"
