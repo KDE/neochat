@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
+"POT-Creation-Date: 2025-03-29 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2174,6 +2174,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
+#: src/pollhandler.cpp:316
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
+
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
@@ -3023,6 +3029,11 @@ msgstr "Αντίδραση"
 #: src/qml/HoverActions.qml:140
 #, kde-format
 msgid "Reply in Thread"
+msgstr ""
+
+#: src/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
 msgstr ""
 
 #: src/qml/HoverLinkIndicator.qml:25
@@ -6526,14 +6537,21 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Άνοιγμα εξωτερικά"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:115
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Με βάση τις ψήφους %1 χρήστη"
 msgstr[1] "Με βάση τις ψήφους %1 χρηστών"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"

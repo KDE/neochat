@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
+"POT-Creation-Date: 2025-03-29 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 05:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2066,6 +2066,12 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat-ის გახსნა"
 
+#: src/pollhandler.cpp:316
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
+
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
@@ -2880,6 +2886,11 @@ msgstr "რეაქცია"
 #, kde-format
 msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
+
+#: src/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr ""
 
 #: src/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -6200,14 +6211,21 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "გარეთ გახსნა"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:115
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "ეფუძნება %1 მომხმარებლის არჩევანს"
 msgstr[1] "ეფუძნება %1 მომხმარებლის არჩევანს"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"

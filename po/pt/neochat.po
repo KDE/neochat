@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-26 00:42+0000\n"
+"POT-Creation-Date: 2025-03-29 00:42+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -2259,6 +2259,12 @@ msgstr ""
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
+#: src/pollhandler.cpp:316
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
+
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
@@ -3136,6 +3142,11 @@ msgstr "Reagir"
 #: src/qml/HoverActions.qml:140
 #, kde-format
 msgid "Reply in Thread"
+msgstr ""
+
+#: src/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
 msgstr ""
 
 #: src/qml/HoverLinkIndicator.qml:25
@@ -6718,14 +6729,21 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir Externamente"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:115
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Com base nos votos de %1 utilizador"
 msgstr[1] "Com base nos votos de %1 utilizadores"
 
-#: src/timeline/PollComponent.qml:80
+#: src/timeline/PollComponent.qml:131
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
