@@ -261,7 +261,7 @@ QQC2.Control {
             documentHandler.document;
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
                 textArea.text = chatBarCache.relationMessage;
-                root.chatBarCache.updateMentions(root.textDocument, documentHandler);
+                root.chatBarCache.updateMentions(textArea.textDocument, documentHandler);
                 textArea.forceActiveFocus();
                 textArea.cursorPosition = textArea.text.length;
             }
