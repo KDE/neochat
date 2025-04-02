@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Scarlett Moore <sgmoore@kde.org>
+# SPDX-FileCopyrightText: 2024-2025 Scarlett Moore <sgmoore@kde.org>
 #
 # SPDX-License-Identifier: CC0-1.0
 ---
@@ -41,11 +41,12 @@ parts:
   olm:
     source: https://gitlab.matrix.org/matrix-org/olm.git
     source-depth: 1
-    source-tag: '3.2.12'
+    source-tag: '3.2.16'
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
       - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     prime:
       - -usr/include
       - -usr/lib/*/pkgconfig
@@ -81,8 +82,7 @@ parts:
     plugin: cmake
     build-environment:
       - PATH: /snap/bin:${PATH}
-      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET\
-      /pkgconfig:$PKG_CONFIG_PATH"
+      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$PKG_CONFIG_PATH"
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -137,11 +137,24 @@ parts:
       - -usr/lib/*/pkgconfig
       - -usr/lib/*/cmake
 
+  kunifiedpush:
+    source: https://invent.kde.org/libraries/kunifiedpush.git
+    plugin: cmake
+    build-environment:
+      - PATH: /snap/bin:${PATH}
+      - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
+      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+
   neochat:
     after:
       - qtkeychain
       - libquotient
       - kquickimageeditor
+      - kunifiedpush
     parse-info:
       - usr/share/metainfo/org.kde.neochat.appdata.xml
     source: .
