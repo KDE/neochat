@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include <QObject>
+#include <QQuickItem>
 #include <QTest>
 
 #include "delegatesizehelper.h"
@@ -30,7 +31,7 @@ void DelegateSizeHelperTest::risingPercentage_data()
     QTest::addColumn<int>("currentPercentageWidth");
     QTest::addColumn<qreal>("currentWidth");
 
-    QTest::newRow("zero") << qreal(0) << int(0) << qreal(0);
+    QTest::newRow("zero") << qreal(0) << int(100) << qreal(0);
     QTest::newRow("one hundred") << qreal(100) << int(0) << qreal(0);
     QTest::newRow("one fifty") << qreal(150) << int(50) << qreal(75);
     QTest::newRow("two hundred") << qreal(200) << int(100) << qreal(200);
@@ -43,16 +44,18 @@ void DelegateSizeHelperTest::risingPercentage()
     QFETCH(int, currentPercentageWidth);
     QFETCH(qreal, currentWidth);
 
+    auto item = QQuickItem();
+    item.setWidth(parentWidth);
+
     DelegateSizeHelper delegateSizeHelper;
+    delegateSizeHelper.setParentItem(&item);
     delegateSizeHelper.setStartBreakpoint(100);
     delegateSizeHelper.setEndBreakpoint(200);
     delegateSizeHelper.setStartPercentWidth(0);
     delegateSizeHelper.setEndPercentWidth(100);
 
-    delegateSizeHelper.setParentWidth(parentWidth);
-
-    QCOMPARE(delegateSizeHelper.currentPercentageWidth(), currentPercentageWidth);
-    QCOMPARE(delegateSizeHelper.currentWidth(), currentWidth);
+    QCOMPARE(delegateSizeHelper.availablePercentageWidth(), currentPercentageWidth);
+    QCOMPARE(delegateSizeHelper.availableWidth(), currentWidth);
 }
 
 void DelegateSizeHelperTest::fallingPercentage_data()
@@ -74,16 +77,18 @@ void DelegateSizeHelperTest::fallingPercentage()
     QFETCH(int, currentPercentageWidth);
     QFETCH(qreal, currentWidth);
 
+    auto item = QQuickItem();
+    item.setWidth(parentWidth);
+
     DelegateSizeHelper delegateSizeHelper;
+    delegateSizeHelper.setParentItem(&item);
     delegateSizeHelper.setStartBreakpoint(100);
     delegateSizeHelper.setEndBreakpoint(200);
     delegateSizeHelper.setStartPercentWidth(100);
     delegateSizeHelper.setEndPercentWidth(0);
 
-    delegateSizeHelper.setParentWidth(parentWidth);
-
-    QCOMPARE(delegateSizeHelper.currentPercentageWidth(), currentPercentageWidth);
-    QCOMPARE(delegateSizeHelper.currentWidth(), currentWidth);
+    QCOMPARE(delegateSizeHelper.availablePercentageWidth(), currentPercentageWidth);
+    QCOMPARE(delegateSizeHelper.availableWidth(), currentWidth);
 }
 
 void DelegateSizeHelperTest::equalPercentage_data()
@@ -105,16 +110,18 @@ void DelegateSizeHelperTest::equalPercentage()
     QFETCH(int, currentPercentageWidth);
     QFETCH(qreal, currentWidth);
 
+    auto item = QQuickItem();
+    item.setWidth(parentWidth);
+
     DelegateSizeHelper delegateSizeHelper;
+    delegateSizeHelper.setParentItem(&item);
     delegateSizeHelper.setStartBreakpoint(100);
     delegateSizeHelper.setEndBreakpoint(200);
     delegateSizeHelper.setStartPercentWidth(50);
     delegateSizeHelper.setEndPercentWidth(50);
 
-    delegateSizeHelper.setParentWidth(parentWidth);
-
-    QCOMPARE(delegateSizeHelper.currentPercentageWidth(), currentPercentageWidth);
-    QCOMPARE(delegateSizeHelper.currentWidth(), currentWidth);
+    QCOMPARE(delegateSizeHelper.availablePercentageWidth(), currentPercentageWidth);
+    QCOMPARE(delegateSizeHelper.availableWidth(), currentWidth);
 }
 
 void DelegateSizeHelperTest::equalBreakpoint_data()
@@ -124,9 +131,9 @@ void DelegateSizeHelperTest::equalBreakpoint_data()
     QTest::addColumn<int>("currentPercentageWidth");
     QTest::addColumn<qreal>("currentWidth");
 
-    QTest::newRow("start higher") << int(100) << int(0) << int(-1) << qreal(0);
+    QTest::newRow("start higher") << int(100) << int(0) << int(100) << qreal(1000);
     QTest::newRow("equal") << int(50) << int(50) << int(50) << qreal(500);
-    QTest::newRow("end higher") << int(0) << int(100) << int(-1) << qreal(0);
+    QTest::newRow("end higher") << int(0) << int(100) << int(100) << qreal(1000);
 }
 
 /**
@@ -140,16 +147,18 @@ void DelegateSizeHelperTest::equalBreakpoint()
     QFETCH(int, currentPercentageWidth);
     QFETCH(qreal, currentWidth);
 
+    auto item = QQuickItem();
+    item.setWidth(1000);
+
     DelegateSizeHelper delegateSizeHelper;
+    delegateSizeHelper.setParentItem(&item);
     delegateSizeHelper.setStartBreakpoint(100);
     delegateSizeHelper.setEndBreakpoint(100);
     delegateSizeHelper.setStartPercentWidth(startPercentageWidth);
     delegateSizeHelper.setEndPercentWidth(endPercentageWidth);
 
-    delegateSizeHelper.setParentWidth(1000);
-
-    QCOMPARE(delegateSizeHelper.currentPercentageWidth(), currentPercentageWidth);
-    QCOMPARE(delegateSizeHelper.currentWidth(), currentWidth);
+    QCOMPARE(delegateSizeHelper.availablePercentageWidth(), currentPercentageWidth);
+    QCOMPARE(delegateSizeHelper.availableWidth(), currentWidth);
 }
 
 QTEST_GUILESS_MAIN(DelegateSizeHelperTest)

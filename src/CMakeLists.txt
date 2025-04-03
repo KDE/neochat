@@ -7,6 +7,8 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT NEOCHAT_FLATPAK AND NOT NEOC
     add_subdirectory(purpose)
 endif()
 
+add_subdirectory(libneochat)
+
 add_library(neochat STATIC
     controller.cpp
     controller.h
@@ -109,8 +111,6 @@ add_library(neochat STATIC
     events/imagepackevent.h
     models/reactionmodel.cpp
     models/reactionmodel.h
-    delegatesizehelper.cpp
-    delegatesizehelper.h
     models/livelocationsmodel.cpp
     models/livelocationsmodel.h
     models/locationsmodel.cpp
@@ -413,6 +413,7 @@ endif()
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
 target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
+    LibNeoChat
     Qt::Core
     Qt::Quick
     Qt::Qml

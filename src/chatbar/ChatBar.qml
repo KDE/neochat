@@ -8,7 +8,9 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 
 /**
  * @brief A component for typing and sending chat messages.
@@ -165,7 +167,7 @@ QQC2.Control {
     }
 
     leftPadding: rightPadding
-    rightPadding: (root.width - chatBarSizeHelper.currentWidth) / 2
+    rightPadding: (root.width - chatBarSizeHelper.availableWidth) / 2
     topPadding: 0
     bottomPadding: 0
 
@@ -353,15 +355,14 @@ QQC2.Control {
             }
         }
     }
-    DelegateSizeHelper {
+    LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
+        parentItem: root
         startBreakpoint: Kirigami.Units.gridUnit * 46
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
         endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
         maxWidth: NeoChatConfig.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
-
-        parentWidth: root.width
     }
 
     Component {

@@ -10,6 +10,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 
 /**
  * @brief The base delegate for all messages in the timeline.
@@ -185,7 +186,7 @@ TimelineDelegate {
     /**
      * @brief The width available to the bubble content.
      */
-    property real contentMaxWidth: (root.isThreaded ? bubbleSizeHelper.parentWidth : bubbleSizeHelper.currentWidth) - bubble.leftPadding - bubble.rightPadding
+    property real contentMaxWidth: (root.isThreaded ? bubbleSizeHelper.parentWidth : bubbleSizeHelper.availableWidth) - bubble.leftPadding - bubble.rightPadding
 
     Message.room: root.room
     Message.timeline: root.ListView.view
@@ -321,14 +322,14 @@ TimelineDelegate {
             model: root.readMarkers
         }
 
-        DelegateSizeHelper {
+        LibNeoChat.DelegateSizeHelper {
             id: bubbleSizeHelper
+            parentItem: mainContainer
+            leftPadding: avatar.anchors.leftMargin + (NeoChatConfig.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
             startBreakpoint: Kirigami.Units.gridUnit * 25
             endBreakpoint: Kirigami.Units.gridUnit * 40
             startPercentWidth: root.alwaysFillWidth ? 100 : 90
             endPercentWidth: root.alwaysFillWidth ? 100 : 60
-
-            parentWidth: mainContainer.availableWidth - (NeoChatConfig.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
         }
     }
 

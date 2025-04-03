@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.settings
 
 ColumnLayout {
@@ -93,15 +94,14 @@ ColumnLayout {
                 onTextChanged: spaceChildSortFilterModel.filterText = text
             }
         }
-        DelegateSizeHelper {
+        LibNeoChat.DelegateSizeHelper {
             id: sizeHelper
+            parentItem: root
             startBreakpoint: Kirigami.Units.gridUnit * 46
             endBreakpoint: Kirigami.Units.gridUnit * 66
             startPercentWidth: 100
             endPercentWidth: 85
             maxWidth: Kirigami.Units.gridUnit * 60
-
-            parentWidth: root.width
         }
     }
     Kirigami.Separator {

@@ -8,6 +8,8 @@
 
 #include <Kirigami/Platform/Units>
 
+#include "delegatesizehelper.h"
+
 /**
  * @brief The base Item for all delegates in the timeline.
  *
@@ -77,17 +79,8 @@ private:
     Kirigami::Platform::Units *m_units = nullptr;
     void setCurveValues();
 
-    qreal m_leftPadding;
-    qreal m_rightPadding;
+    DelegateSizeHelper m_sizeHelper;
 
-    qreal m_startBreakpoint;
-    qreal m_endBreakpoint;
-    int m_startPercentWidth = 100;
-    int m_endPercentWidth = 85;
-    qreal m_maxWidth;
-    int availablePercentageWidth() const;
-    qreal maxAvailableWidth() const;
-    qreal availableWidth() const;
     bool m_alwaysFillWidth = false;
 
     void resizeContent();

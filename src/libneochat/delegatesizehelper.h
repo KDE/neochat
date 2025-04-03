@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <QQuickItem>
 
 /**
  * @class DelegateSizeHelper
@@ -27,9 +28,25 @@ class DelegateSizeHelper : public QObject
     QML_ELEMENT
 
     /**
-     * @brief The width of the component's parent.
+     * @brief The parent item that defines the available content area.
      */
-    Q_PROPERTY(qreal parentWidth READ parentWidth WRITE setParentWidth NOTIFY parentWidthChanged)
+    Q_PROPERTY(QQuickItem *parentItem READ parentItem WRITE setParentItem NOTIFY parentItemChanged)
+
+    /**
+     * @brief The amount of padding to be removed from the left of the available content area.
+     *
+     * The padding is removed before calculating the available width, i.e. max available width
+     * at 100% is equal to parent width minus padding.
+     */
+    Q_PROPERTY(qreal leftPadding READ leftPadding WRITE setLeftPadding NOTIFY leftPaddingChanged)
+
+    /**
+     * @brief The amount of padding to be removed from the right of the available content area.
+     *
+     * The padding is removed before calculating the available width, i.e. max available width
+     * at 100% is equal to parent width minus padding.
+     */
+    Q_PROPERTY(qreal rightPadding READ rightPadding WRITE setRightPadding NOTIFY rightPaddingChanged)
 
     /**
      * @brief The width (in px) when the width percentage should start to transition.
@@ -67,7 +84,7 @@ class DelegateSizeHelper : public QObject
      *
      * @sa parentWidth, startBreakpoint, endBreakpoint
      */
-    Q_PROPERTY(int currentPercentageWidth READ currentPercentageWidth NOTIFY currentPercentageWidthChanged)
+    Q_PROPERTY(int availablePercentageWidth READ availablePercentageWidth NOTIFY availablePercentageWidthChanged)
 
     /**
      * @brief The width (in px) of the component at the current parentWidth.
@@ -76,50 +93,60 @@ class DelegateSizeHelper : public QObject
      *
      * @sa parentWidth
      */
-    Q_PROPERTY(qreal currentWidth READ currentWidth NOTIFY currentWidthChanged)
+    Q_PROPERTY(qreal availableWidth READ availableWidth NOTIFY availableWidthChanged)
 
 public:
     explicit DelegateSizeHelper(QObject *parent = nullptr);
 
-    qreal parentWidth() const;
-    void setParentWidth(qreal parentWidth);
+    QQuickItem *parentItem() const;
+    void setParentItem(QQuickItem *parentItem);
+
+    qreal leftPadding() const;
+    void setLeftPadding(qreal leftPadding);
+    qreal rightPadding() const;
+    void setRightPadding(qreal rightPadding);
 
     qreal startBreakpoint() const;
     void setStartBreakpoint(qreal startBreakpoint);
-
     qreal endBreakpoint() const;
     void setEndBreakpoint(qreal endBreakpoint);
 
     int startPercentWidth() const;
     void setStartPercentWidth(int startPercentWidth);
-
     int endPercentWidth() const;
     void setEndPercentWidth(int endPercentWidth);
 
     qreal maxWidth() const;
     void setMaxWidth(qreal maxWidth);
 
-    int currentPercentageWidth() const;
+    qreal maxAvailableWidth() const;
 
-    qreal currentWidth() const;
+    int availablePercentageWidth() const;
+    qreal availableWidth() const;
 
 Q_SIGNALS:
-    void parentWidthChanged();
+    void parentItemChanged();
+    void leftPaddingChanged();
+    void rightPaddingChanged();
     void startBreakpointChanged();
     void endBreakpointChanged();
     void startPercentWidthChanged();
     void endPercentWidthChanged();
     void maxWidthChanged();
-    void currentPercentageWidthChanged();
-    void currentWidthChanged();
+    void availablePercentageWidthChanged();
+    void availableWidthChanged();
 
 private:
-    qreal m_parentWidth = -1.0;
-    qreal m_startBreakpoint;
-    qreal m_endBreakpoint;
-    int m_startPercentWidth;
-    int m_endPercentWidth;
-    qreal m_maxWidth = -1.0;
+    QPointer<QQuickItem> m_parentItem;
 
-    int calculateCurrentPercentageWidth() const;
+    qreal m_leftPadding = 0.0;
+    qreal m_rightPadding = 0.0;
+
+    qreal m_startBreakpoint = 0.0;
+    qreal m_endBreakpoint = 0.0;
+    int m_startPercentWidth = 100;
+    int m_endPercentWidth = 85;
+    std::optional<qreal> m_maxWidth = std::nullopt;
+
+    int calculateAvailablePercentageWidth() const;
 };

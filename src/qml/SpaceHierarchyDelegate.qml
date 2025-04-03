@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 
 Item {
     id: root
@@ -44,7 +45,7 @@ Item {
 
         anchors.horizontalCenter: root.horizontalCenter
         anchors.verticalCenter: root.verticalCenter
-        width: sizeHelper.currentWidth
+        width: sizeHelper.availableWidth
 
         highlighted: dropArea.containsDrag
 
@@ -201,15 +202,14 @@ Item {
         }
     }
 
-    DelegateSizeHelper {
+    LibNeoChat.DelegateSizeHelper {
         id: sizeHelper
+        parentItem: root
         startBreakpoint: Kirigami.Units.gridUnit * 46
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
         endPercentWidth: 85
         maxWidth: Kirigami.Units.gridUnit * 60
-
-        parentWidth: root.treeView ? root.treeView.width : 0
     }
 
     Component {

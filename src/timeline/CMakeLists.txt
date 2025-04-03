@@ -90,4 +90,5 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
 target_link_libraries(timeline PRIVATE
     Qt::Quick
     KF6::Kirigami
+    LibNeoChat
 )

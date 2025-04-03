@@ -12,20 +12,60 @@ DelegateSizeHelper::DelegateSizeHelper(QObject *parent)
 {
 }
 
-qreal DelegateSizeHelper::parentWidth() const
+QQuickItem *DelegateSizeHelper::parentItem() const
 {
-    return m_parentWidth;
+    return m_parentItem;
 }
 
-void DelegateSizeHelper::setParentWidth(qreal parentWidth)
+void DelegateSizeHelper::setParentItem(QQuickItem *parentItem)
 {
-    if (parentWidth == m_parentWidth) {
+    if (parentItem == m_parentItem) {
         return;
     }
-    m_parentWidth = parentWidth;
-    Q_EMIT parentWidthChanged();
-    Q_EMIT currentPercentageWidthChanged();
-    Q_EMIT currentWidthChanged();
+    m_parentItem = parentItem;
+
+    if (m_parentItem) {
+        connect(m_parentItem, &QQuickItem::widthChanged, this, [this]() {
+            Q_EMIT availablePercentageWidthChanged();
+            Q_EMIT availableWidthChanged();
+        });
+    }
+
+    Q_EMIT parentItemChanged();
+    Q_EMIT availablePercentageWidthChanged();
+    Q_EMIT availableWidthChanged();
+}
+
+qreal DelegateSizeHelper::leftPadding() const
+{
+    return m_leftPadding;
+}
+
+void DelegateSizeHelper::setLeftPadding(qreal leftPadding)
+{
+    if (qFuzzyCompare(leftPadding, m_leftPadding)) {
+        return;
+    }
+    m_leftPadding = leftPadding;
+    Q_EMIT leftPaddingChanged();
+    Q_EMIT availablePercentageWidthChanged();
+    Q_EMIT availableWidthChanged();
+}
+
+qreal DelegateSizeHelper::rightPadding() const
+{
+    return m_rightPadding;
+}
+
+void DelegateSizeHelper::setRightPadding(qreal rightPadding)
+{
+    if (qFuzzyCompare(rightPadding, m_rightPadding)) {
+        return;
+    }
+    m_rightPadding = rightPadding;
+    Q_EMIT rightPaddingChanged();
+    Q_EMIT availablePercentageWidthChanged();
+    Q_EMIT availableWidthChanged();
 }
 
 qreal DelegateSizeHelper::startBreakpoint() const
@@ -86,7 +126,14 @@ void DelegateSizeHelper::setEndPercentWidth(int endPercentWidth)
 
 qreal DelegateSizeHelper::maxWidth() const
 {
-    return m_maxWidth;
+    if (m_maxWidth == std::nullopt) {
+        if (m_parentItem) {
+            return m_parentItem->width();
+        }
+        return 0.0;
+    }
+
+    return *m_maxWidth;
 }
 
 void DelegateSizeHelper::setMaxWidth(qreal maxWidth)
@@ -98,21 +145,23 @@ void DelegateSizeHelper::setMaxWidth(qreal maxWidth)
     Q_EMIT maxWidthChanged();
 }
 
-int DelegateSizeHelper::calculateCurrentPercentageWidth() const
+qreal DelegateSizeHelper::maxAvailableWidth() const
 {
-    // Don't do anything if m_parentWidth hasn't been set yet.
-    if (m_parentWidth < 0) {
-        return -1;
+    if (!m_parentItem || qFuzzyCompare(m_parentItem->width(), 0)) {
+        return 0;
     }
+    return std::max(m_parentItem->width() - m_leftPadding - m_rightPadding, 0.0);
+}
+
+int DelegateSizeHelper::calculateAvailablePercentageWidth() const
+{
     // Don't bother with calculations for a horizontal line.
     if (m_startPercentWidth == m_endPercentWidth) {
         return m_startPercentWidth;
     }
     // Dividing by zero is a bad idea.
-    if (m_startBreakpoint == m_endBreakpoint) {
-        qWarning() << "DelegateSizeHelper::calculateCurrentPercentageWidth() - m_startBreakpoint is equal to m_endBreakpoint this would lead to divide by "
-                      "zero, aborting";
-        return -1;
+    if (m_startBreakpoint == m_endBreakpoint || qFuzzyCompare(maxAvailableWidth(), 0)) {
+        return 100;
     }
 
     // Fit to y = mx + c
@@ -124,32 +173,19 @@ int DelegateSizeHelper::calculateCurrentPercentageWidth() const
     int maxPercentWidth = endPercentBigger ? m_endPercentWidth : m_startPercentWidth;
     int minPercentWidth = endPercentBigger ? m_startPercentWidth : m_endPercentWidth;
 
-    int calcPercentWidth = std::round(m * m_parentWidth + c);
+    int calcPercentWidth = std::round(m * maxAvailableWidth() + c);
     return std::clamp(calcPercentWidth, minPercentWidth, maxPercentWidth);
 }
 
-int DelegateSizeHelper::currentPercentageWidth() const
+int DelegateSizeHelper::availablePercentageWidth() const
 {
-    return calculateCurrentPercentageWidth();
+    return calculateAvailablePercentageWidth();
 }
 
-qreal DelegateSizeHelper::currentWidth() const
+qreal DelegateSizeHelper::availableWidth() const
 {
-    if (m_parentWidth < 0) {
-        return 0.0;
-    }
-    int percentWidth = calculateCurrentPercentageWidth();
-    // - 1 means bad input values so don't try to calculate.
-    if (percentWidth == -1) {
-        return 0.0;
-    }
-
-    qreal absoluteWidth = m_parentWidth * percentWidth * 0.01;
-    if (m_maxWidth < 0.0) {
-        return std::round(absoluteWidth);
-    } else {
-        return std::round(std::min(absoluteWidth, m_maxWidth));
-    }
+    qreal absoluteWidth = maxAvailableWidth() * availablePercentageWidth() * 0.01;
+    return std::round(std::min(absoluteWidth, maxWidth()));
 }
 
 #include "moc_delegatesizehelper.cpp"

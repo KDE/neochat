@@ -6,6 +6,17 @@
 TimelineDelegate::TimelineDelegate(QQuickItem *parent)
     : QQuickItem(parent)
 {
+    m_sizeHelper.setParentItem(this);
+    connect(&m_sizeHelper, &DelegateSizeHelper::leftPaddingChanged, this, [this]() {
+        Q_EMIT leftPaddingChanged();
+        resizeContent();
+        updatePolish();
+    });
+    connect(&m_sizeHelper, &DelegateSizeHelper::rightPaddingChanged, this, [this]() {
+        Q_EMIT rightPaddingChanged();
+        resizeContent();
+        updatePolish();
+    });
 }
 
 QQuickItem *TimelineDelegate::contentItem()
@@ -56,38 +67,22 @@ void TimelineDelegate::setAlwaysFillWidth(bool alwaysFillWidth)
 
 qreal TimelineDelegate::leftPadding()
 {
-    return m_leftPadding;
+    return m_sizeHelper.leftPadding();
 }
 
 void TimelineDelegate::setLeftPadding(qreal leftPadding)
 {
-    if (qFuzzyCompare(leftPadding, m_leftPadding)) {
-        return;
-    }
-
-    m_leftPadding = leftPadding;
-    Q_EMIT leftPaddingChanged();
-
-    resizeContent();
-    updatePolish();
+    m_sizeHelper.setLeftPadding(leftPadding);
 }
 
 qreal TimelineDelegate::rightPadding()
 {
-    return m_rightPadding;
+    return m_sizeHelper.rightPadding();
 }
 
 void TimelineDelegate::setRightPadding(qreal rightPadding)
 {
-    if (qFuzzyCompare(rightPadding, m_rightPadding)) {
-        return;
-    }
-
-    m_rightPadding = rightPadding;
-    Q_EMIT rightPaddingChanged();
-
-    resizeContent();
-    updatePolish();
+    m_sizeHelper.setRightPadding(rightPadding);
 }
 
 void TimelineDelegate::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
@@ -114,57 +109,14 @@ void TimelineDelegate::componentComplete()
 
 void TimelineDelegate::setCurveValues()
 {
-    m_leftPadding = qreal(m_units->largeSpacing());
-    m_rightPadding = qreal(m_units->largeSpacing());
+    m_sizeHelper.setLeftPadding(qreal(m_units->largeSpacing()));
+    m_sizeHelper.setRightPadding(qreal(m_units->largeSpacing()));
 
-    m_startBreakpoint = qreal(m_units->gridUnit() * 46);
-    m_endBreakpoint = qreal(m_units->gridUnit() * 66);
-    m_maxWidth = qreal(m_units->gridUnit() * 60);
+    m_sizeHelper.setStartBreakpoint(qreal(m_units->gridUnit() * 46));
+    m_sizeHelper.setEndBreakpoint(qreal(m_units->gridUnit() * 66));
+    m_sizeHelper.setMaxWidth(qreal(m_units->gridUnit() * 60));
 
     resizeContent();
-}
-
-int TimelineDelegate::availablePercentageWidth() const
-{
-    // Don't bother with calculations for a horizontal line.
-    if (m_startPercentWidth == m_endPercentWidth) {
-        return m_startPercentWidth;
-    }
-    // Dividing by zero is a bad idea.
-    if (m_startBreakpoint == m_endBreakpoint || qFuzzyCompare(width(), 0)) {
-        return 100;
-    }
-
-    // Fit to y = mx + c
-    qreal m = (m_endPercentWidth - m_startPercentWidth) / (m_endBreakpoint - m_startBreakpoint);
-    qreal c = m_startPercentWidth - m * m_startBreakpoint;
-
-    // This allows us to clamp correctly if the start or end width is bigger.
-    bool endPercentBigger = m_endPercentWidth > m_startPercentWidth;
-    int maxPercentWidth = endPercentBigger ? m_endPercentWidth : m_startPercentWidth;
-    int minPercentWidth = endPercentBigger ? m_startPercentWidth : m_endPercentWidth;
-
-    int calcPercentWidth = std::round(m * maxAvailableWidth() + c);
-    return std::clamp(calcPercentWidth, minPercentWidth, maxPercentWidth);
-}
-
-qreal TimelineDelegate::maxAvailableWidth() const
-{
-    if (qFuzzyCompare(width(), 0)) {
-        return 0;
-    }
-
-    return std::max(width() - m_leftPadding - m_rightPadding, 0.0);
-}
-
-qreal TimelineDelegate::availableWidth() const
-{
-    if (m_alwaysFillWidth) {
-        return maxAvailableWidth();
-    }
-
-    qreal absoluteWidth = maxAvailableWidth() * availablePercentageWidth() * 0.01;
-    return std::round(std::min(absoluteWidth, m_maxWidth));
 }
 
 void TimelineDelegate::resizeContent()
@@ -173,9 +125,11 @@ void TimelineDelegate::resizeContent()
         return;
     }
 
-    const auto leftPadding = m_leftPadding + (maxAvailableWidth() - availableWidth()) / 2;
+    auto availableWidth = m_alwaysFillWidth ? m_sizeHelper.maxAvailableWidth() : m_sizeHelper.availableWidth();
+
+    const auto leftPadding = m_sizeHelper.leftPadding() + (m_sizeHelper.maxAvailableWidth() - availableWidth) / 2;
     m_contentItem->setPosition(QPointF(leftPadding, 0));
-    m_contentItem->setSize(QSizeF(availableWidth(), m_contentItem->implicitHeight()));
+    m_contentItem->setSize(QSizeF(availableWidth, m_contentItem->implicitHeight()));
 }
 
 void TimelineDelegate::updateImplicitHeight()
