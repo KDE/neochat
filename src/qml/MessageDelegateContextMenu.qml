@@ -4,8 +4,13 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtTextToSpeech
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.formcard as FormCard
+import org.kde.neochat
+
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -81,6 +86,13 @@ DelegateContextMenu {
         icon.name: "link-symbolic"
         onTriggered: {
             Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
+        }
+    }
+    QQC2.Action {
+        text: i18nc("@action:inmenu", "Read Text Aloud")
+        icon.name: "audio-speakers-symbolic"
+        onTriggered: {
+            TextToSpeechWrapper.say(i18nc("@info text-to-speech %1 is author %2 is message text", "%1 said %2", root.author.displayName, root.plainText))
         }
     }
     Kirigami.Action {

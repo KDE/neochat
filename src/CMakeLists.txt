@@ -200,6 +200,10 @@ add_library(neochat STATIC
     models/pollanswermodel.h
 )
 
+set_source_files_properties(qml/TextToSpeechWrapper.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+)
+
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
 )
@@ -260,6 +264,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AvatarTabButton.qml
         qml/SpaceDrawer.qml
         qml/OsmLocationPlugin.qml
+        qml/TextToSpeechWrapper.qml
         qml/FullScreenMap.qml
         qml/LocationsPage.qml
         qml/LocationMapItem.qml
