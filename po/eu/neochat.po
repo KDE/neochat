@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-10 18:39+0100\n"
+"PO-Revision-Date: 2025-04-02 14:17+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -968,7 +968,7 @@ msgstr "%1(e)k egoera eguneratu du"
 #: src/eventhandler.cpp:654
 #, kde-format
 msgid "%1 started a poll"
-msgstr "%1(e)k inkesta bat abiatu du"
+msgstr "%1(e)k galdeketa bat abiatu du"
 
 #: src/filetransferpseudojob.cpp:58
 #, kde-format
@@ -1950,18 +1950,16 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Gonbidatu berriketa pribatura"
+msgstr "Berriketara gonbidatu zaitu"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1(e)k gela batera gonbidatu zaitu"
+msgstr "%1(e)k gonbidatu zaitu"
 
 #: src/neochatconnection.cpp:77
 #, kde-format
@@ -2123,13 +2121,13 @@ msgstr "Gailu hau egiaztatu"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Egiaztapen-eskaera bidali da"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Jarraitzeko, egiaztapen-eskaera beste gailu batean onartu."
 
 #: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2463,12 +2461,10 @@ msgid "View Source"
 msgstr "Ikusi sorburua"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "Kendu"
+msgstr "Kendu..."
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2525,13 +2521,13 @@ msgstr "Erakutsi erabiltzailea"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "Iltzagetu"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "Iltzatu"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2739,10 +2735,9 @@ msgid "Copy Image"
 msgstr "Kopiatu irudia"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "Kendu"
+msgstr "Kendu..."
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2946,17 +2941,16 @@ msgid "Mirror"
 msgstr "Islatu"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1(e)k gela batera gonbidatu zaitu"
+msgstr "%1(e)k batzera gonbidatu zaitu"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "Erabiltzaile hau berriketara gonbidatzen zaizu."
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2966,15 +2960,13 @@ msgstr ""
 "ditzakezu."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "Errefusatu"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "Onartu"
@@ -4110,11 +4102,10 @@ msgid "Copy link"
 msgstr "Kopiatu esteka"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "Desaktibatu kontua"
+msgstr "Kudeatu kontua"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4874,17 +4865,17 @@ msgstr "Gaitu kontu honetarako jakinarazpenak"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "Jakinarazpenak ager daitezke NeoChat martxan ez dagoenean ere."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Bultzada jakinarazpenak erabilgarri daude, baina ezin izan dira gaitu."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Jakinarazpenak NeoChat martxan dagoenean bakarrik agertu dira."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5576,18 +5567,17 @@ msgid "URL previews are disabled by default in this room"
 msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
-msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
+msgstr "URL aurreikuspegiak, egun, zure konturako ezgaituta daude"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Gaitu"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
