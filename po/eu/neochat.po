@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:42+0000\n"
-"PO-Revision-Date: 2025-02-10 18:39+0100\n"
+"PO-Revision-Date: 2025-04-02 14:19+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -46,11 +46,10 @@ msgid "Send a Location"
 msgstr "Bidali kokaleku bat"
 
 #: src/chatbar/ChatBar.qml:120
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Sortu gela bat"
+msgstr "Sortu galdeketa bat"
 
 #: src/chatbar/ChatBar.qml:136
 #, kde-format
@@ -975,7 +974,7 @@ msgstr "%1(e)k egoera eguneratu du"
 #: src/eventhandler.cpp:654
 #, kde-format
 msgid "%1 started a poll"
-msgstr "%1(e)k inkesta bat abiatu du"
+msgstr "%1(e)k galdeketa bat abiatu du"
 
 #: src/filetransferpseudojob.cpp:58
 #, kde-format
@@ -1957,18 +1956,16 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Gonbidatu berriketa pribatura"
+msgstr "Berriketara gonbidatu zaitu"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1(e)k gela batera gonbidatu zaitu"
+msgstr "%1(e)k gonbidatu zaitu"
 
 #: src/neochatconnection.cpp:75
 #, kde-format
@@ -2074,7 +2071,7 @@ msgstr "Ireki NeoChat"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "Galdeketa bukatu da. Erantzun nagusia: %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -2136,13 +2133,13 @@ msgstr "Gailu hau egiaztatu"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Egiaztapen-eskaera bidali da"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Jarraitzeko, egiaztapen-eskaera beste gailu batean onartu."
 
 #: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2476,12 +2473,10 @@ msgid "View Source"
 msgstr "Ikusi sorburua"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "Kendu"
+msgstr "Kendu..."
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2538,13 +2533,13 @@ msgstr "Erakutsi erabiltzailea"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "Iltzagetu"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "Iltzatu"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2752,10 +2747,9 @@ msgid "Copy Image"
 msgstr "Kopiatu irudia"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "Kendu"
+msgstr "Kendu..."
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2899,7 +2893,7 @@ msgstr "Erantzun harian"
 #: src/qml/HoverActions.qml:158
 #, kde-format
 msgid "End Poll"
-msgstr ""
+msgstr "Bukatu galdeketa"
 
 #: src/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -2964,17 +2958,16 @@ msgid "Mirror"
 msgstr "Islatu"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1(e)k gela batera gonbidatu zaitu"
+msgstr "%1(e)k batzera gonbidatu zaitu"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "Erabiltzaile hau berriketara gonbidatzen zaizu."
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2984,15 +2977,13 @@ msgstr ""
 "ditzakezu."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "Errefusatu"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "Onartu"
@@ -3247,79 +3238,66 @@ msgstr "Editatu egoera"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Bidali"
 
 #: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Sortu gela"
+msgstr "Sortu galdeketa"
 
 #: src/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Galdeketa mota:"
 
 #: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "Ireki fitxategia"
+msgstr "Ireki galdetegia"
 
 #: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "Itxi"
+msgstr "Itxitako galdetegia"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Hautesleek, emaitza, bozkatu bezain laster ikusi ahal izango dute"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Emaitzak galdeketa amaitu ondoren bakarrik jakinarazten dira"
 
 #: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "Deskribapena:"
+msgstr "Galdera:"
 
 #: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "Aukerak:"
+msgstr "%1 aukera:"
 
 #: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "Zifratzea"
+msgstr "Sartu aukera"
 
 #: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Kendu gurasoa"
+msgstr "Kendu aukera"
 
 #: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Gehitu hiztegira"
+msgstr "Gehitu aukera"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -4206,11 +4184,10 @@ msgid "Copy link"
 msgstr "Kopiatu esteka"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "Desaktibatu kontua"
+msgstr "Kudeatu kontua"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4970,17 +4947,17 @@ msgstr "Gaitu kontu honetarako jakinarazpenak"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "Jakinarazpenak ager daitezke NeoChat martxan ez dagoenean ere."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Bultzada jakinarazpenak erabilgarri daude, baina ezin izan dira gaitu."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Jakinarazpenak NeoChat martxan dagoenean bakarrik agertu dira."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5672,18 +5649,17 @@ msgid "URL previews are disabled by default in this room"
 msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
-msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
+msgstr "URL aurreikuspegiak, egun, zure konturako ezgaituta daude"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Gaitu"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
@@ -6124,11 +6100,10 @@ msgid "%1 started a user verification"
 msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
 
 #: src/timeline/ChatBarComponent.qml:165
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
-msgstr "Erantsi irudi edo fitxategi bat"
+msgstr "Erantsi irudi bat edo fitxategi bat"
 
 #: src/timeline/ChatBarComponent.qml:179
 #, kde-format
@@ -6261,8 +6236,8 @@ msgstr "Ireki kanpotik"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Bozka %1"
+msgstr[1] "%1 bozka"
 
 #: src/timeline/PollComponent.qml:131
 #, kde-format
