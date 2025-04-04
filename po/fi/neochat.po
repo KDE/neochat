@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-02-14 19:43+0200\n"
+"PO-Revision-Date: 2025-03-23 14:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1942,18 +1942,16 @@ msgid ", "
 msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr "Kutsu yksityiskeskusteluun"
+msgstr "Kutsui sinua keskusteluun"
 
 #: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr "%1 kutsui sinut huoneeseen"
+msgstr "%1 kutsui sinua"
 
 #: src/neochatconnection.cpp:77
 #, kde-format
@@ -2115,13 +2113,13 @@ msgstr "Vahvista tämä laite"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Vahvistuspyyntö lähetetty"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Jatka hyväksymällä vahvistuspyyntö toisella laitteella."
 
 #: src/qml/AccountMenu.qml:106 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2456,12 +2454,10 @@ msgid "View Source"
 msgstr "Näytä lähde"
 
 #: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
-msgstr "Poista"
+msgstr "Poista…"
 
 #: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
 #: src/qml/FileDelegateContextMenu.qml:79
@@ -2518,13 +2514,13 @@ msgstr "Vaihda käyttäjä"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "Irrota"
 
 #: src/qml/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "Kiinnitä"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2731,10 +2727,9 @@ msgid "Copy Image"
 msgstr "Kopioi kuva"
 
 #: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove…"
-msgstr "Poista"
+msgstr "Poista…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2938,17 +2933,16 @@ msgid "Mirror"
 msgstr "Käännä vaakasuunnassa"
 
 #: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "@info:label"
 msgid "%1 has invited you to join"
-msgstr "%1 kutsui sinut huoneeseen"
+msgstr "%1 kutsui sinua liittymään"
 
 #: src/qml/InvitationView.qml:70
 #, kde-format
 msgctxt "@info:label"
 msgid "This user is inviting you to chat."
-msgstr ""
+msgstr "Käyttäjä kutsuu sinua keskusteluun."
 
 #: src/qml/InvitationView.qml:79
 #, kde-format
@@ -2957,15 +2951,13 @@ msgstr ""
 "Tuntemattomilta käyttäjiltä tulevat kutsut voi hylätä tietoturva-asetuksissa."
 
 #: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reject"
 msgstr "Hylkää"
 
 #: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button"
 msgid "Accept"
 msgstr "Hyväksy"
@@ -4096,11 +4088,10 @@ msgid "Copy link"
 msgstr "Kopioi linkki"
 
 #: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
-msgstr "Passivoi tili"
+msgstr "Tilin hallinta"
 
 #: src/qml/UserInfo.qml:108
 #, kde-format
@@ -4849,17 +4840,17 @@ msgstr "Ota ilmoitukset käyttöön tälle tilille"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr ""
+msgstr "Ilmoitukset voivat näkyä, vaikka NeoChat ei ole käynnissä."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Push-ilmoitukset ovat saatavilla, mutta niitä ei voitu ottaa käyttöön."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Ilmoitukset näkyvät vain kun NeoChat on käynnissä."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5550,19 +5541,18 @@ msgstr ""
 "Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
 
 #: src/settings/RoomGeneralPage.qml:285
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "URL previews are currently disabled for your account"
 msgstr ""
-"Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
+"Verkko-osoitteiden esikatselu ei oletusarvoisesti ole tililläsi käytössä"
 
 #: src/settings/RoomGeneralPage.qml:289
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Käytä"
 
 #: src/settings/RoomGeneralPage.qml:294
 #, kde-format
