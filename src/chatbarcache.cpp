@@ -162,24 +162,6 @@ QString ChatBarCache::relationMessage() const
     return {};
 }
 
-MessageContentModel *ChatBarCache::relationEventContentModel()
-{
-    if (parent() == nullptr) {
-        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
-        return nullptr;
-    }
-    if (m_relationId.isEmpty()) {
-        return nullptr;
-    }
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
-        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
-        return nullptr;
-    }
-
-    return ContentProvider::self().contentModelForEvent(room, m_relationId);
-}
-
 bool ChatBarCache::isThreaded() const
 {
     return !m_threadId.isEmpty();

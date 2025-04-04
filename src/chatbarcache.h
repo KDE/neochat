@@ -112,13 +112,6 @@ class ChatBarCache : public QObject
     Q_PROPERTY(QString relationMessage READ relationMessage NOTIFY relationIdChanged)
 
     /**
-     * @brief The MessageContentModel for the related message.
-     *
-     * Will be nullptr if no related message.
-     */
-    Q_PROPERTY(MessageContentModel *relationEventContentModel READ relationEventContentModel NOTIFY relationIdChanged)
-
-    /**
      * @brief Whether the chat bar is replying in a thread.
      */
     Q_PROPERTY(bool isThreaded READ isThreaded NOTIFY threadIdChanged)
@@ -167,7 +160,6 @@ public:
     Quotient::RoomMember relationAuthor() const;
 
     QString relationMessage() const;
-    MessageContentModel *relationEventContentModel();
 
     bool isThreaded() const;
     QString threadId() const;

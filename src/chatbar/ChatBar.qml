@@ -374,7 +374,7 @@ QQC2.Control {
                 id: replyComponent
                 replyEventId: _private.chatBarCache.replyId
                 replyAuthor: _private.chatBarCache.relationAuthor
-                replyContentModel: _private.chatBarCache.relationEventContentModel
+                replyContentModel: ContentProvider.contentModelForEvent(root.currentRoom, _private.chatBarCache.replyId, true)
                 Message.maxContentWidth: replyLoader.item.width
             }
             QQC2.Button {

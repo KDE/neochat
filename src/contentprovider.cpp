@@ -3,7 +3,8 @@
 
 #include "contentprovider.h"
 
-ContentProvider::ContentProvider()
+ContentProvider::ContentProvider(QObject *parent)
+    : QObject(parent)
 {
 }
 

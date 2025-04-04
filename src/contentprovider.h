@@ -4,6 +4,8 @@
 #pragma once
 
 #include <QCache>
+#include <QObject>
+#include <QQmlEngine>
 
 #include "models/messagecontentmodel.h"
 #include "models/threadmodel.h"
@@ -14,13 +16,22 @@
  *
  * Store and retrieve models for message content.
  */
-class ContentProvider
+class ContentProvider : public QObject
 {
+    Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
+
 public:
     /**
      * Get the global instance of ContentProvider.
      */
     static ContentProvider &self();
+    static ContentProvider *create(QQmlEngine *engine, QJSEngine *)
+    {
+        engine->setObjectOwnership(&self(), QQmlEngine::CppOwnership);
+        return &self();
+    }
 
     /**
      * @brief Returns the content model for the given event ID.
@@ -34,7 +45,7 @@ public:
      *
      * @warning Do NOT use for pending events as this function has no way to differentiate.
      */
-    MessageContentModel *contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply = false);
+    Q_INVOKABLE MessageContentModel *contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply = false);
 
     /**
      * @brief Returns the content model for the given event.
@@ -60,7 +71,7 @@ public:
     ThreadModel *modelForThread(NeoChatRoom *room, const QString &threadRootId);
 
 private:
-    ContentProvider();
+    explicit ContentProvider(QObject *parent = nullptr);
 
     QCache<QString, MessageContentModel> m_eventContentModels;
     QCache<QString, ThreadModel> m_threadModels;
