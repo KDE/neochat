@@ -50,6 +50,22 @@ void MessageAttached::setTimeline(QQuickItem *timeline)
     Q_EMIT timelineChanged();
 }
 
+MessageContentModel *MessageAttached::contentModel() const
+{
+    return m_contentModel;
+}
+
+void MessageAttached::setContentModel(MessageContentModel *contentModel)
+{
+    m_explicitContentModel = true;
+    if (m_contentModel == contentModel) {
+        return;
+    }
+    m_contentModel = contentModel;
+    propagateMessage(this);
+    Q_EMIT contentModelChanged();
+}
+
 int MessageAttached::index() const
 {
     return m_index;
@@ -124,6 +140,11 @@ void MessageAttached::propagateMessage(MessageAttached *message)
     if (m_explicitTimeline || m_timeline != message->timeline()) {
         m_timeline = message->timeline();
         Q_EMIT timelineChanged();
+    }
+
+    if (!m_explicitContentModel && m_contentModel != message->contentModel()) {
+        m_contentModel = message->contentModel();
+        Q_EMIT contentModelChanged();
     }
 
     if (m_explicitIndex || m_index != message->index()) {

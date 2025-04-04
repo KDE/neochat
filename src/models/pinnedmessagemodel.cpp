@@ -5,7 +5,6 @@
 
 #include "enums/delegatetype.h"
 #include "eventhandler.h"
-#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 #include <QGuiApplication>

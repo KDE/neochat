@@ -7,6 +7,7 @@
 #include <QQuickAttachedPropertyPropagator>
 #include <QQuickItem>
 
+#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 class MessageAttached : public QQuickAttachedPropertyPropagator
@@ -25,6 +26,11 @@ class MessageAttached : public QQuickAttachedPropertyPropagator
      * @brief The timeline for the current message.
      */
     Q_PROPERTY(QQuickItem *timeline READ timeline WRITE setTimeline NOTIFY timelineChanged FINAL)
+
+    /**
+     * @brief The content model for the current message.
+     */
+    Q_PROPERTY(MessageContentModel *contentModel READ contentModel WRITE setContentModel NOTIFY contentModelChanged FINAL)
 
     /**
      * @brief The index of the message in the timeline
@@ -57,6 +63,9 @@ public:
     QQuickItem *timeline() const;
     void setTimeline(QQuickItem *timeline);
 
+    MessageContentModel *contentModel() const;
+    void setContentModel(MessageContentModel *contentModel);
+
     int index() const;
     void setIndex(int index);
 
@@ -72,6 +81,7 @@ public:
 Q_SIGNALS:
     void roomChanged();
     void timelineChanged();
+    void contentModelChanged();
     void indexChanged();
     void maxContentWidthChanged();
     void selectedTextChanged();
@@ -87,6 +97,9 @@ private:
 
     QPointer<QQuickItem> m_timeline;
     bool m_explicitTimeline = false;
+
+    QPointer<MessageContentModel> m_contentModel;
+    bool m_explicitContentModel = false;
 
     int m_index = -1;
     bool m_explicitIndex = false;

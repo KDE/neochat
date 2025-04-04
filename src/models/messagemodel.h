@@ -113,11 +113,6 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
-    /**
-     * @brief Get a ThreadModel for the give thread root Matrix ID.
-     */
-    Q_INVOKABLE ThreadModel *threadModelForRootId(const QString &threadRootId) const;
-
 Q_SIGNALS:
     /**
      * @brief Emitted when the room is changed.

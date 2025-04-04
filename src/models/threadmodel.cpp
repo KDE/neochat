@@ -9,6 +9,7 @@
 #include <memory>
 
 #include "chatbarcache.h"
+#include "contentprovider.h"
 #include "eventhandler.h"
 #include "messagecomponenttype.h"
 #include "messagecontentmodel.h"
@@ -136,9 +137,9 @@ void ThreadModel::addModels()
     }
     addSourceModel(m_threadFetchModel);
     for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
-        const auto contentModel = room->contentModelForEvent(*it);
+        const auto contentModel = ContentProvider::self().contentModelForEvent(room, *it);
         if (contentModel != nullptr) {
-            addSourceModel(room->contentModelForEvent(*it));
+            addSourceModel(ContentProvider::self().contentModelForEvent(room, *it));
         }
     }
     addSourceModel(m_threadChatBarModel);
@@ -155,7 +156,7 @@ void ThreadModel::clearModels()
     }
     removeSourceModel(m_threadFetchModel);
     for (const auto &model : m_events) {
-        const auto contentModel = room->contentModelForEvent(model);
+        const auto contentModel = ContentProvider::self().contentModelForEvent(room, model);
         if (sourceModels().contains(contentModel)) {
             removeSourceModel(contentModel);
         }

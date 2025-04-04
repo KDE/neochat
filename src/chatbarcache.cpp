@@ -6,6 +6,7 @@
 #include <Quotient/roommember.h>
 
 #include "chatdocumenthandler.h"
+#include "contentprovider.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
 #include "neochatroom.h"
@@ -170,17 +171,13 @@ MessageContentModel *ChatBarCache::relationEventContentModel()
     if (m_relationId.isEmpty()) {
         return nullptr;
     }
-    if (m_relationContentModel != nullptr) {
-        return m_relationContentModel;
-    }
-
     auto room = dynamic_cast<NeoChatRoom *>(parent());
     if (room == nullptr) {
         qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
         return nullptr;
     }
-    m_relationContentModel = new MessageContentModel(room, m_relationId, true);
-    return m_relationContentModel;
+
+    return ContentProvider::self().contentModelForEvent(room, m_relationId);
 }
 
 bool ChatBarCache::isThreaded() const

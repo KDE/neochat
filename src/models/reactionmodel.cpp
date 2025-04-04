@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 
+#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 using namespace Qt::StringLiterals;

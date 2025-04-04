@@ -9,6 +9,7 @@
 
 #include <Quotient/events/roommessageevent.h>
 
+#include "models/messagecontentmodel.h"
 #include "testutils.h"
 
 using namespace Quotient;

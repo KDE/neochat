@@ -38,7 +38,7 @@ ColumnLayout {
 
     Repeater {
         id: threadRepeater
-        model: root.Message.room.modelForThread(root.threadRoot);
+        model: root.Message.contentModel.modelForThread(root.threadRoot);
 
         delegate: BaseMessageComponentChooser {
             onSelectedTextChanged: selectedText => {

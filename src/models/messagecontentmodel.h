@@ -14,6 +14,8 @@
 #include "models/reactionmodel.h"
 #include "neochatroommember.h"
 
+class ThreadModel;
+
 /**
  * @class MessageContentModel
  *
@@ -101,6 +103,14 @@ public:
      * If the given index is not a link preview component, nothing happens.
      */
     Q_INVOKABLE void closeLinkPreview(int row);
+
+    /**
+     * @brief Returns the thread model for the given thread root event ID.
+     *
+     * A model is created is one doesn't exist. Will return nullptr if threadRootId
+     * is empty.
+     */
+    Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
 Q_SIGNALS:
     void showAuthorChanged();

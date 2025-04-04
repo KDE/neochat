@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "messagecontentmodel.h"
+#include "contentprovider.h"
 #include "eventhandler.h"
 #include "messagecomponenttype.h"
 #include "neochatconfig.h"
@@ -26,6 +27,7 @@
 #endif
 
 #include "chatbarcache.h"
+#include "contentprovider.h"
 #include "filetype.h"
 #include "linkpreviewer.h"
 #include "models/reactionmodel.h"
@@ -765,6 +767,11 @@ void MessageContentModel::updateReactionModel()
     }
 
     resetContent();
+}
+
+ThreadModel *MessageContentModel::modelForThread(const QString &threadRootId)
+{
+    return ContentProvider::self().modelForThread(m_room, threadRootId);
 }
 
 #include "moc_messagecontentmodel.cpp"

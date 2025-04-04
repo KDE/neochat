@@ -173,8 +173,6 @@ void NeoChatRoom::setVisible(bool visible)
 
     if (!visible) {
         m_memberObjects.clear();
-        m_eventContentModels.clear();
-        m_threadModels.clear();
     }
 }
 
@@ -1704,77 +1702,6 @@ NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
     }
 
     return m_memberObjects[memberId].get();
-}
-
-MessageContentModel *NeoChatRoom::contentModelForEvent(const QString &eventId)
-{
-    if (eventId.isEmpty()) {
-        return nullptr;
-    }
-
-    if (!m_eventContentModels.contains(eventId)) {
-        return m_eventContentModels.emplace(eventId, std::make_unique<MessageContentModel>(this, eventId)).first->second.get();
-    }
-
-    return m_eventContentModels[eventId].get();
-}
-
-MessageContentModel *NeoChatRoom::contentModelForEvent(const Quotient::RoomEvent *event)
-{
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
-    if (roomMessageEvent == nullptr) {
-        // If for some reason a model is there remove.
-        if (m_eventContentModels.contains(event->id())) {
-            m_eventContentModels.erase(event->id());
-        }
-        if (m_eventContentModels.contains(event->transactionId())) {
-            m_eventContentModels.erase(event->transactionId());
-        }
-        return nullptr;
-    }
-
-    if (event->isStateEvent() || event->matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
-        return nullptr;
-    }
-
-    auto eventId = event->id();
-    const auto txnId = event->transactionId();
-    if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
-        return m_eventContentModels
-            .emplace(eventId.isEmpty() ? txnId : eventId,
-                     std::make_unique<MessageContentModel>(this, eventId.isEmpty() ? txnId : eventId, false, eventId.isEmpty()))
-            .first->second.get();
-    }
-
-    if (!eventId.isEmpty() && m_eventContentModels.contains(eventId)) {
-        return m_eventContentModels[eventId].get();
-    }
-
-    if (!txnId.isEmpty() && m_eventContentModels.contains(txnId)) {
-        if (eventId.isEmpty()) {
-            return m_eventContentModels[txnId].get();
-        }
-
-        // If we now have an event ID use that as the map key instead of transaction ID.
-        auto txnModel = std::move(m_eventContentModels[txnId]);
-        m_eventContentModels.erase(txnId);
-        return m_eventContentModels.emplace(eventId, std::move(txnModel)).first->second.get();
-    }
-
-    return nullptr;
-}
-
-ThreadModel *NeoChatRoom::modelForThread(const QString &threadRootId)
-{
-    if (threadRootId.isEmpty()) {
-        return nullptr;
-    }
-
-    if (!m_threadModels.contains(threadRootId)) {
-        return m_threadModels.emplace(threadRootId, std::make_unique<ThreadModel>(threadRootId, this)).first->second.get();
-    }
-
-    return m_threadModels[threadRootId].get();
 }
 
 void NeoChatRoom::pinEvent(const QString &eventId)

@@ -7,7 +7,6 @@
 #include <QVariant>
 
 #include "enums/delegatetype.h"
-#include "messagecontentmodel.h"
 #include "neochatconfig.h"
 #include "timelinemessagemodel.h"
 

@@ -4,6 +4,7 @@
 #include "messagemodel.h"
 
 #include "neochatconfig.h"
+#include "threadmodel.h"
 
 #include <Quotient/events/encryptedevent.h>
 #include <Quotient/events/roommessageevent.h>
@@ -14,6 +15,7 @@
 
 #include <KFormat>
 
+#include "contentprovider.h"
 #include "enums/delegatetype.h"
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
@@ -122,14 +124,14 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
     if (role == ContentModelRole) {
         if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>()) {
-            return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(event->get().id()));
+            return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, event->get().id()));
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
         if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()) {
-            return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(roomMessageEvent->threadRootEventId()));
+            return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, roomMessageEvent->threadRootEventId()));
         }
-        return QVariant::fromValue<MessageContentModel *>(m_room->contentModelForEvent(&event->get()));
+        return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, &event->get()));
     }
 
     if (role == GenericDisplayRole) {
@@ -481,11 +483,6 @@ bool MessageModel::event(QEvent *event)
         Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
     }
     return QObject::event(event);
-}
-
-ThreadModel *MessageModel::threadModelForRootId(const QString &threadRootId) const
-{
-    return m_room->modelForThread(threadRootId);
 }
 
 #include "moc_messagemodel.cpp"

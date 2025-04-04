@@ -190,6 +190,7 @@ TimelineDelegate {
 
     Message.room: root.room
     Message.timeline: root.ListView.view
+    Message.contentModel: root.contentModel
     Message.index: root.index
     Message.maxContentWidth: contentMaxWidth
 

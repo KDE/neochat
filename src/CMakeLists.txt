@@ -198,6 +198,8 @@ add_library(neochat STATIC
     models/commonroomsmodel.h
     models/pollanswermodel.cpp
     models/pollanswermodel.h
+    contentprovider.cpp
+    contentprovider.h
 )
 
 set_source_files_properties(qml/TextToSpeechWrapper.qml PROPERTIES

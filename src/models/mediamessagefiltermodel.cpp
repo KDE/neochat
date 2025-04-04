@@ -6,7 +6,6 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/room.h>
 
-#include "messagecontentmodel.h"
 #include "messagefiltermodel.h"
 #include "timelinemessagemodel.h"
 
