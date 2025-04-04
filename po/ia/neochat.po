@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
-"PO-Revision-Date: 2025-03-25 12:31+0100\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
+"PO-Revision-Date: 2025-04-03 16:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -28,48 +28,48 @@ msgstr "Selige file local"
 msgid "Clipboard image"
 msgstr "Image de Area de transferentia"
 
-#: src/chatbar/ChatBar.qml:71
+#: src/chatbar/ChatBar.qml:73
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Attacha un image o un file"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Etiquettas Gummate (Stickers)"
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "Invia un location"
 
-#: src/chatbar/ChatBar.qml:120
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Crea un Sondage"
 
-#: src/chatbar/ChatBar.qml:136
+#: src/chatbar/ChatBar.qml:138
 #, kde-format
 msgid "Send message"
 msgstr "Invia message"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Invia un message cryptate ..."
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Assigna un caption de attachamento..."
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send a message…"
 msgstr "Invia un message…"
 
-#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2071,7 +2071,7 @@ msgstr "Aperi Neochat"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "Un inquesta  ha terminate. Responsa al culmine:  %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -2194,7 +2194,7 @@ msgid "Attachment:"
 msgstr "Attachamento:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Modifica"
@@ -2438,7 +2438,7 @@ msgid "Explore Rooms"
 msgstr "Explora salas"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Unite"
@@ -2896,7 +2896,7 @@ msgstr "Responde in Topico"
 #: src/qml/HoverActions.qml:158
 #, kde-format
 msgid "End Poll"
-msgstr ""
+msgstr "Termina Inquesta"
 
 #: src/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3131,13 +3131,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Claude Designator de Information de sala"
 
-#: src/qml/Main.qml:282
+#: src/qml/Main.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
-#: src/qml/Main.qml:322 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3191,42 +3191,54 @@ msgstr "IDs de usator Debe initiar con @"
 msgid "The input is not a valid user ID"
 msgstr "Le texto insertate non es un ID de usator valide"
 
-#: src/qml/MessageDelegateContextMenu.qml:49
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Avante…"
 
-#: src/qml/MessageDelegateContextMenu.qml:55
+#: src/qml/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Expedi message"
 
-#: src/qml/MessageDelegateContextMenu.qml:69
+#: src/qml/MessageDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Copia adresse de ligamine"
 
-#: src/qml/MessageDelegateContextMenu.qml:75
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Copia texto"
 
-#: src/qml/MessageDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Copia Ligamine de Message"
 
-#: src/qml/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Cerca '%1'"
 
-#: src/qml/MessageDelegateContextMenu.qml:128
+#: src/qml/MessageDelegateContextMenu.qml:140
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Configura vias breve de Web..."
@@ -3587,7 +3599,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Messages appunctate"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3604,7 +3616,7 @@ msgstr "Lassa iste sala"
 msgid "Members"
 msgstr "Membros"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3860,12 +3872,12 @@ msgstr "Uni a %1"
 msgid "Create a space"
 msgstr "Crea un spatio"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
 msgstr "Suggerite"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -3873,7 +3885,7 @@ msgid_plural "%1 members - "
 msgstr[0] "%1 Membro - "
 msgstr[1] "%1 membros - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -3881,38 +3893,38 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Member"
 msgstr[1] "%1 Membros"
 
-#: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
+#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "Adde nove sala "
 
-#: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/qml/SpaceHierarchyDelegate.qml:123
 #: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Remove"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Non facer suggerite"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Facer suggerite"
 
-#: src/qml/SpaceHomePage.qml:50
+#: src/qml/SpaceHomePage.qml:51
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Invita  usator a spatio"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -6253,8 +6265,8 @@ msgstr "Aperi externemente"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Voto"
+msgstr[1] "%1 Votos"
 
 #: src/timeline/PollComponent.qml:131
 #, kde-format

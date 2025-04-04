@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,49 +27,49 @@ msgstr "로컬 파일 선택"
 msgid "Clipboard image"
 msgstr "클립보드의 그림"
 
-#: src/chatbar/ChatBar.qml:71
+#: src/chatbar/ChatBar.qml:73
 #, kde-format
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "이모지와 스티커"
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "위치 보내기"
 
-#: src/chatbar/ChatBar.qml:120
+#: src/chatbar/ChatBar.qml:122
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "대화방 만들기"
 
-#: src/chatbar/ChatBar.qml:136
+#: src/chatbar/ChatBar.qml:138
 #, kde-format
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "첨부 파일 캡션 설정…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2337,7 +2337,7 @@ msgid "Attachment:"
 msgstr "첨부:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "편집"
@@ -2600,7 +2600,7 @@ msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "입장함"
@@ -3327,13 +3327,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "새 대화방 정보"
 
-#: src/qml/Main.qml:282
+#: src/qml/Main.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/qml/Main.qml:322 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -3388,7 +3388,7 @@ msgstr "사용자 ID는 @으로 시작해야 함"
 msgid "The input is not a valid user ID"
 msgstr "입력한 텍스트가 올바른 사용자 ID가 아님"
 
-#: src/qml/MessageDelegateContextMenu.qml:49
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu As in 'Forward this message'"
 #| msgid "Forward"
@@ -3396,39 +3396,51 @@ msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "전달"
 
-#: src/qml/MessageDelegateContextMenu.qml:55
+#: src/qml/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "메시지 전달"
 
-#: src/qml/MessageDelegateContextMenu.qml:69
+#: src/qml/MessageDelegateContextMenu.qml:74
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "링크 복사"
 
-#: src/qml/MessageDelegateContextMenu.qml:75
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "복사"
 
-#: src/qml/MessageDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "링크 복사"
 
-#: src/qml/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' 검색"
 
-#: src/qml/MessageDelegateContextMenu.qml:128
+#: src/qml/MessageDelegateContextMenu.qml:140
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure Web Shortcuts…"
@@ -3816,7 +3828,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "개인 메시지"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Leave the space"
@@ -3836,7 +3848,7 @@ msgstr "이 대화방을 떠납니다."
 msgid "Members"
 msgstr "구성원"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4093,12 +4105,12 @@ msgstr "%1 입장"
 msgid "Create a space"
 msgstr "스페이스 만들기"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
 msgstr "제안됨"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, fuzzy, kde-format
 #| msgctxt "number of room members"
 #| msgid " members - "
@@ -4107,7 +4119,7 @@ msgid "%1 member - "
 msgid_plural "%1 members - "
 msgstr[0] "명 - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4116,7 +4128,7 @@ msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
+#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add new server"
@@ -4124,32 +4136,32 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "새 서버 추가"
 
-#: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/qml/SpaceHierarchyDelegate.qml:123
 #: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "추천한 것으로 표시하지 않음"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "추천한 것으로 표시"
 
-#: src/qml/SpaceHomePage.qml:50
+#: src/qml/SpaceHomePage.qml:51
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "스페이스에 사용자 초대"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"

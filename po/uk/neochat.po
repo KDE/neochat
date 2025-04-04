@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
 "PO-Revision-Date: 2025-03-29 12:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -30,48 +30,48 @@ msgstr "Виберіть локальний файл"
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
 
-#: src/chatbar/ChatBar.qml:71
+#: src/chatbar/ChatBar.qml:73
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Емоційки і наліпки"
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "Надіслати дані місця"
 
-#: src/chatbar/ChatBar.qml:120
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Створити голосування"
 
-#: src/chatbar/ChatBar.qml:136
+#: src/chatbar/ChatBar.qml:138
 #, kde-format
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Надіслати шифроване повідомлення…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Встановити підпис до долучення…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2203,7 +2203,7 @@ msgid "Attachment:"
 msgstr "Долучення:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -2449,7 +2449,7 @@ msgid "Explore Rooms"
 msgstr "Ознайомитися з кімнатами"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Долучення виконано"
@@ -3145,13 +3145,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Закрити панель відомостей щодо кімнати"
 
-#: src/qml/Main.qml:282
+#: src/qml/Main.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/Main.qml:322 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3205,42 +3205,54 @@ msgstr "Ідентифікатори користувачів мають поч�
 msgid "The input is not a valid user ID"
 msgstr "Введений рядок не є коректним ідентифікатором користувача"
 
-#: src/qml/MessageDelegateContextMenu.qml:49
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Спрямувати…"
 
-#: src/qml/MessageDelegateContextMenu.qml:55
+#: src/qml/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Спрямувати повідомлення"
 
-#: src/qml/MessageDelegateContextMenu.qml:69
+#: src/qml/MessageDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Скопіювати адресу посилання"
 
-#: src/qml/MessageDelegateContextMenu.qml:75
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Копіювати текст"
 
-#: src/qml/MessageDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Копіювати посилання на повідомлення"
 
-#: src/qml/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Пошук «%1»"
 
-#: src/qml/MessageDelegateContextMenu.qml:128
+#: src/qml/MessageDelegateContextMenu.qml:140
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Налаштувати вебскорочення…"
@@ -3600,7 +3612,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Пришпилені повідомлення"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3617,7 +3629,7 @@ msgstr "Полишити цю кімнату"
 msgid "Members"
 msgstr "Учасники"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3877,12 +3889,12 @@ msgstr "Долучити до %1"
 msgid "Create a space"
 msgstr "Створити простір"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
 msgstr "Пропозиція"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -3892,7 +3904,7 @@ msgstr[1] "%1 учасники — "
 msgstr[2] "%1 учасників — "
 msgstr[3] "%1 учасник — "
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -3902,38 +3914,38 @@ msgstr[1] "%1 учасники"
 msgstr[2] "%1 учасників"
 msgstr[3] "%1 учасник"
 
-#: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
+#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "Додати нову кімнату"
 
-#: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/qml/SpaceHierarchyDelegate.qml:123
 #: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Не пропонувати"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Зробити пропонованим"
 
-#: src/qml/SpaceHomePage.qml:50
+#: src/qml/SpaceHomePage.qml:51
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Запросити користувача до простору"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"

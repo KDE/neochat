@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
-"PO-Revision-Date: 2025-04-01 08:39+0300\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
+"PO-Revision-Date: 2025-04-03 21:31+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -28,48 +28,48 @@ msgstr "בחירת קובץ מקומי"
 msgid "Clipboard image"
 msgstr "תמונה מלוח הגזירים"
 
-#: src/chatbar/ChatBar.qml:71
+#: src/chatbar/ChatBar.qml:73
 #, kde-format
 msgid "Attach an image or file"
 msgstr "צירוף תמונה או קובץ"
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "אמוג׳ים ומדבקות"
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "שליחת מקום"
 
-#: src/chatbar/ChatBar.qml:120
+#: src/chatbar/ChatBar.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "יצירת סקר"
 
-#: src/chatbar/ChatBar.qml:136
+#: src/chatbar/ChatBar.qml:138
 #, kde-format
 msgid "Send message"
 msgstr "שליחת הודעה"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "שליחת הודעה מוצפנת…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "הגדרת כותרת לצרופה…"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Send a message…"
 msgstr "שליחת הודעה…"
 
-#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -302,10 +302,10 @@ msgstr "מצב חדר"
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
 msgid_plural "%1 events of this type"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "אירוע מהסוג הזה"
+msgstr[1] "שני אירועים מהסוג הזה"
+msgstr[2] "%1 אירועים מהסוג הזה"
+msgstr[3] "%1 אירועים מהסוג הזה"
 
 #: src/devtools/RoomData.qml:88
 #, kde-format
@@ -717,12 +717,12 @@ msgstr ""
 #: src/eventhandler.cpp:451
 #, kde-format
 msgid "updated %1 state"
-msgstr ""
+msgstr "עדכן/נה את המצב של %1"
 
 #: src/eventhandler.cpp:452
 #, kde-format
 msgid "updated %1 state for %2"
-msgstr ""
+msgstr "עדכן/נה את המצב של %1 עבור %2"
 
 #: src/eventhandler.cpp:457 src/eventhandler.cpp:656
 #, kde-format
@@ -949,27 +949,27 @@ msgstr ""
 #: src/eventhandler.cpp:643
 #, kde-format
 msgid "%1 added a widget"
-msgstr ""
+msgstr "נוסף וידג׳ט על ידי %1"
 
 #: src/eventhandler.cpp:646
 #, kde-format
 msgid "%1 removed a widget"
-msgstr ""
+msgstr "הוסר וידג׳ט על ידי %1"
 
 #: src/eventhandler.cpp:648
 #, kde-format
 msgid "%1 configured a widget"
-msgstr ""
+msgstr "הוגדר וידג׳ט על ידי %1"
 
 #: src/eventhandler.cpp:651
 #, kde-format
 msgid "%1 updated the state"
-msgstr ""
+msgstr "המצב עודכן על ידי %1"
 
 #: src/eventhandler.cpp:654
 #, kde-format
 msgid "%1 started a poll"
-msgstr ""
+msgstr "נפתח סקר על ידי %1"
 
 #: src/filetransferpseudojob.cpp:58
 #, kde-format
@@ -998,22 +998,22 @@ msgstr ""
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
 msgid "Network Error: %1"
-msgstr ""
+msgstr "שגיאת רשת: %1"
 
 #: src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
-msgstr ""
+msgstr "הכניסה נכשלה: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr ""
+msgstr "הוספת כתובת דוא״ל:"
 
 #: src/login/Email.qml:33
 #, kde-format
 msgid "Confirm e-mail address"
-msgstr ""
+msgstr "אישור כתובת דוא״ל"
 
 #: src/login/Email.qml:35
 #, kde-format
@@ -1530,11 +1530,11 @@ msgstr ""
 
 #: src/models/actionsmodel.cpp:394
 msgid "<reaction text>"
-msgstr ""
+msgstr "<טקסט תגובה>"
 
 #: src/models/actionsmodel.cpp:395
 msgid "React to the message with the given text"
-msgstr ""
+msgstr "להגיב להודעה עם הטקסט הנבחר"
 
 #: src/models/actionsmodel.cpp:410
 #, kde-format
@@ -1586,124 +1586,124 @@ msgstr ""
 
 #: src/models/actionsmodel.cpp:464
 msgid "Removes the ban of the given user"
-msgstr ""
+msgstr "הסרת חסימה על משתמש/ת מסוימים"
 
 #: src/models/actionsmodel.cpp:478
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "אין לך איך לבעוט את עצמך מהחדר."
 
 #: src/models/actionsmodel.cpp:482
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr ""
+msgstr "%1 לא בחדר."
 
 #: src/models/actionsmodel.cpp:491
 #, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr ""
+msgstr "אסור לך לבעוט משתמשים אל מחוץ לחדר הזה."
 
 #: src/models/actionsmodel.cpp:497
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr ""
+msgstr "אסור לך לבעוט את %1 אל מחוץ לחדר הזה."
 
 #: src/models/actionsmodel.cpp:501
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr ""
+msgstr "%1 נבעט/ה מהחדר הזה."
 
 #: src/models/actionsmodel.cpp:506
 msgid "Removes the user from the room"
-msgstr ""
+msgstr "הסרת המשתמש/ת מהחדר"
 
 #: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "היסטוריה"
 
 #: src/models/emojimodel.cpp:162
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
+msgstr "חייכנים"
 
 #: src/models/emojimodel.cpp:167
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
-msgstr ""
+msgstr "אנשים"
 
 #: src/models/emojimodel.cpp:172
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
-msgstr ""
+msgstr "טבע"
 
 #: src/models/emojimodel.cpp:177
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
-msgstr ""
+msgstr "מזון"
 
 #: src/models/emojimodel.cpp:182
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
-msgstr ""
+msgstr "פעילויות"
 
 #: src/models/emojimodel.cpp:187
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
-msgstr ""
+msgstr "נסיעות"
 
 #: src/models/emojimodel.cpp:192
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
-msgstr ""
+msgstr "פריטים"
 
 #: src/models/emojimodel.cpp:197
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
-msgstr ""
+msgstr "סמלים"
 
 #: src/models/emojimodel.cpp:202
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "דגלים"
 
 #: src/models/emojimodel.cpp:221
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr ""
+msgstr "מותאם אישית"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr ""
+msgstr "מדבקות שלי"
 
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr ""
+msgstr "אמוג׳ים שלי"
 
 #: src/models/messagecontentmodel.cpp:260
 #: src/models/messagecontentmodel.cpp:288
 #: src/timeline/LinkPreviewLoadComponent.qml:63
 #, kde-format
 msgid "Loading reply"
-msgstr ""
+msgstr "התגובה נטענת"
 
 #: src/models/messagecontentmodel.cpp:283
 #, kde-format
@@ -1712,66 +1712,67 @@ msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
 msgstr ""
+"ההודעה הזאת לא נמצאה, אין לך הרשאה לצפות בה או שנשלחה על ידי משתמש בהתעלמות"
 
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
-msgstr ""
+msgstr "רמת העוצמה של משתמש כברירת מחדל"
 
 #: src/models/permissionsmodel.cpp:58
 msgctxt "Room permission type"
 msgid "Default power level to set the room state"
-msgstr ""
+msgstr "רמת עוצמת ברירת מחדל להגדרת מצב החדר"
 
 #: src/models/permissionsmodel.cpp:59
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "רמת עוצמת ברירת מחדל לשליחת הודעות"
 
 #: src/models/permissionsmodel.cpp:60
 msgctxt "Room permission type"
 msgid "Invite users"
-msgstr ""
+msgstr "הזמנת משתמשים"
 
 #: src/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
 msgid "Kick users"
-msgstr ""
+msgstr "בעיטת משתמשים"
 
 #: src/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
 msgid "Ban users"
-msgstr ""
+msgstr "חסימת משתמשים"
 
 #: src/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
-msgstr ""
+msgstr "הסרת הודעות שנשלחו על ידי משתמשים אחרים"
 
 #: src/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Send reactions"
-msgstr ""
+msgstr "לשלוח רגשוני תגובה"
 
 #: src/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr ""
+msgstr "להסיר את ההודעות של עצמם"
 
 #: src/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Change user permissions"
-msgstr ""
+msgstr "לשנות את הרשאות המשתמש שלהם"
 
 #: src/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Change the room name"
-msgstr ""
+msgstr "לשנות את שם החדר"
 
 #: src/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Change the room avatar"
-msgstr ""
+msgstr "לשנות את התמונה הייצוגית של החדר"
 
 #: src/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
@@ -1781,42 +1782,42 @@ msgstr ""
 #: src/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change the room topic"
-msgstr ""
+msgstr "לשנות את נושא החדר"
 
 #: src/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
-msgstr ""
+msgstr "הפעלת הצפנה לחדר"
 
 #: src/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
-msgstr ""
+msgstr "לקבוע הסתרת/חשיפת היסטוריית החדר"
 
 #: src/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Set pinned events"
-msgstr ""
+msgstr "להגדיר אירועים נעוצים"
 
 #: src/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Upgrade the room"
-msgstr ""
+msgstr "לשדרג את החדר"
 
 #: src/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
-msgstr ""
+msgstr "להגדיר את רשימת בקרת הגישה (ACL) בשרת של החדר"
 
 #: src/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Set the children of this space"
-msgstr ""
+msgstr "להגדיר את צאצאי המרחב הזה"
 
 #: src/models/permissionsmodel.cpp:77
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
-msgstr ""
+msgstr "להגדיר את מרחב ההורה של החדר הזה"
 
 #: src/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
@@ -1826,68 +1827,68 @@ msgstr ""
 #: src/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
 msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgstr "משמש לכל אירועי המצבים שאין להם רשומה משלהם כאן"
 
 #: src/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message events that do not have their own entry here"
-msgstr ""
+msgstr "משמש לכל אירועי ההודעות שאין להם רשומה משלהם כאן"
 
 #: src/models/pushrulemodel.cpp:19
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
-msgstr ""
+msgstr "הפעלות התראות לחשבון הזה"
 
 #: src/models/pushrulemodel.cpp:20
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "הודעות בשיחות ישירות"
 
 #: src/models/pushrulemodel.cpp:21
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "הודעות מוצפנות בשיחות ישירות"
 
 #: src/models/pushrulemodel.cpp:22
 msgctxt "Notification type"
 msgid "Messages in group chats"
-msgstr ""
+msgstr "הודעות בשיחות קבוצתיות"
 
 #: src/models/pushrulemodel.cpp:23
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "הודעות בשיחות קבוצתיות מוצפנות"
 
 #: src/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Room upgrade messages"
-msgstr ""
+msgstr "הודעות שדרוג חדר"
 
 #: src/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages containing my display name"
-msgstr ""
+msgstr "הודעות שמכילות את שם התצוגה שלי"
 
 #: src/models/pushrulemodel.cpp:26
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
-msgstr ""
+msgstr "הודעות שמזכירות את מזהה המשתמש שלי ב־Matrix"
 
 #: src/models/pushrulemodel.cpp:27
 msgctxt "Notification type"
 msgid "Messages which mention a room"
-msgstr ""
+msgstr "הודעות שמזכירות חדר"
 
 #: src/models/pushrulemodel.cpp:28
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
-msgstr ""
+msgstr "הודעות שמכילות את החלק המקומי של מזהה ה־Matrix שלי"
 
 #: src/models/pushrulemodel.cpp:29
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
-msgstr ""
+msgstr "התראות לכלל החדר (‎@room)"
 
 #: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
@@ -1897,23 +1898,23 @@ msgstr ""
 #: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
 msgid "Call invitation"
-msgstr ""
+msgstr "הזמנה לשיחה קולית"
 
 #: src/models/reactionmodel.cpp:68
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
-msgstr ""
+msgstr " וגם "
 
 #: src/models/reactionmodel.cpp:75
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] " ועוד אחד/ת"
+msgstr[1] " ועוד שניים או שתיים"
+msgstr[2] " ועוד %1"
+msgstr[3] " ועוד %1"
 
 #: src/models/reactionmodel.cpp:79
 #, kde-format
@@ -1929,34 +1930,34 @@ msgstr[3] ""
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "משתמש/ת: "
+msgstr[1] "%1 משתמשים/ות:"
+msgstr[2] "%1 משתמשים/ות:"
+msgstr[3] "%1 משתמשים/ות:"
 
 #: src/models/readmarkermodel.cpp:117
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
-msgstr ""
+msgstr "חבר/ה לא ידועים"
 
 #: src/models/readmarkermodel.cpp:119
 #, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/models/roomtreemodel.cpp:353
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
-msgstr ""
+msgstr "הוזמנת לשיחה על ידיהם"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
-msgstr ""
+msgstr "הוזמנת על ידי %1"
 
 #: src/neochatconnection.cpp:75
 #, kde-format
@@ -1964,69 +1965,71 @@ msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
+"הקובץ גדול מכדי להוריד אותו.<br />נא ליצור קשר עם הנהלת שרת ה־matrix שלך "
+"לקבלת תמיכה."
 
 #: src/neochatconnection.cpp:329
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr ""
+msgstr "לא הוגדר שרת זהות"
 
 #: src/neochatconnection.cpp:360
 #, kde-format
 msgid "Room creation failed: %1"
-msgstr ""
+msgstr "יצירת החדר נכשלה: %1"
 
 #: src/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
-msgstr ""
+msgstr "יצירת המרחב נכשלה: %1"
 
 #: src/neochatroom.cpp:1228
 #, kde-format
 msgid "Report sent successfully."
-msgstr ""
+msgstr "הדוח נשלח בהצלחה."
 
 #: src/neochatroom.cpp:1581 src/neochatroom.cpp:1589
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "רוחב: %1, אורך: %2"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
-msgstr ""
+msgstr "הודעה מוצפנת"
 
 #: src/notificationsmanager.cpp:226
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: src/notificationsmanager.cpp:232
 #, kde-format
 msgid "Open NeoChat in this room"
-msgstr ""
+msgstr "פתיחת NeoChat בחדר הזה"
 
 #: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
 #: src/qml/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
-msgstr ""
+msgstr "תגובה"
 
 #: src/notificationsmanager.cpp:246
 #, kde-format
 msgid "Reply…"
-msgstr ""
+msgstr "תגובה…"
 
 #: src/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
-msgstr ""
+msgstr "הוזמנת על ידי %1 לחדר"
 
 #: src/notificationsmanager.cpp:308
 #, kde-format
 msgid "Open this invitation in NeoChat"
-msgstr ""
+msgstr "לפתוח את ההזמנה הזאת ב־NeoChat"
 
 #: src/notificationsmanager.cpp:318
 #, kde-format
@@ -2044,91 +2047,91 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
-msgstr ""
+msgstr "דחייה והתעלמות ממשתמש"
 
 #: src/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
-msgstr ""
+msgstr "פתיחת NeoChat"
 
 #: src/pollhandler.cpp:316
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "הסקר הסתיים. התשובה המובילה: %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
-msgstr ""
+msgstr "הצגת קוד QR"
 
 #: src/qml/AccountMenu.qml:40
 #, kde-format
 msgid "Edit This Account"
-msgstr ""
+msgstr "עריכת החשבון הזה"
 
 #: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
 #, kde-format
 msgid "Account editor"
-msgstr ""
+msgstr "עורך חשבונות"
 
 #: src/qml/AccountMenu.qml:50
 #, kde-format
 msgid "Notification Settings"
-msgstr ""
+msgstr "הגדרות התראה"
 
 #: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "מכשירים"
 
 #: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
-msgstr ""
+msgstr "פתיחת כלי מפתחים"
 
 #: src/qml/AccountMenu.qml:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
-msgstr ""
+msgstr "כלי מפתחים"
 
 #: src/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
-msgstr ""
+msgstr "פתיחת גיבוי סודי"
 
 #: src/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
-msgstr ""
+msgstr "פתיחת גיבוי מפתחות"
 
 #: src/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
-msgstr ""
+msgstr "אימות המכשיר הזה"
 
 #: src/qml/AccountMenu.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "נשלחה בקשת אימות"
 
 #: src/qml/AccountMenu.qml:94
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "כדי להמשיך, יש לקבל את בקשת האימות במכשיר השני."
 
 #: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -2181,7 +2184,7 @@ msgid "Attachment:"
 msgstr "קובץ מצורף:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "עריכה"
@@ -2256,7 +2259,7 @@ msgstr ""
 #: src/qml/ConfirmEncryptionDialog.qml:28
 #, kde-format
 msgid "Activate Encryption"
-msgstr ""
+msgstr "הפעלת הצפנה"
 
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -2318,6 +2321,8 @@ msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
+"שרת הבית שלך דורש ממך להסכים לתנאים וההגבלות שלו לפני שיתאפשר לך להשתמש בו. "
+"נא ללחוץ על הכפתור להלן כדי לקרוא אותם."
 
 #: src/qml/ConsentDialog.qml:31
 #, kde-format
@@ -2417,7 +2422,7 @@ msgid "Explore Rooms"
 msgstr "עיון בין החדרים"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr ""
@@ -2692,7 +2697,7 @@ msgstr "נא למלא חדר ידנית"
 #: src/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
+msgstr "אם הכתובת או הכינוי של החדר כבר ידועים לך ואינם מופיעים כאן."
 
 #: src/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -2896,6 +2901,8 @@ msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
 "cache directory."
 msgstr ""
+"לא ניתן לשמור את הקובץ. נא לבדוק אם יש לך את ההרשאות המתאימות לערוך את "
+"תיקיית המטמון."
 
 #: src/qml/ImageEditorPage.qml:123
 #, kde-format
@@ -3101,13 +3108,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "סגירת מגירת פרטי החדר"
 
-#: src/qml/Main.qml:282
+#: src/qml/Main.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "אימות פגישה"
 
-#: src/qml/Main.qml:322 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3161,42 +3168,54 @@ msgstr "מזהי משתמשים חייבים להתחיל ב־@"
 msgid "The input is not a valid user ID"
 msgstr "הקלט אינו מזהה משתמש תקף."
 
-#: src/qml/MessageDelegateContextMenu.qml:49
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "העברה…"
 
-#: src/qml/MessageDelegateContextMenu.qml:55
+#: src/qml/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "העברת הודעה"
 
-#: src/qml/MessageDelegateContextMenu.qml:69
+#: src/qml/MessageDelegateContextMenu.qml:74
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "העתקת כתובת קישור"
 
-#: src/qml/MessageDelegateContextMenu.qml:75
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "העתקת טקסט"
 
-#: src/qml/MessageDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "העתקת קישור להודעה"
 
-#: src/qml/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
 msgid "Search for '%1'"
 msgstr "חיפוש אחר ‚%1’"
 
-#: src/qml/MessageDelegateContextMenu.qml:128
+#: src/qml/MessageDelegateContextMenu.qml:140
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "הגדרת קיצורי אינטרנט…"
@@ -3297,7 +3316,7 @@ msgstr "עריכת רמת העוצמה של משתמש"
 #: src/qml/PowerLevelDialog.qml:35
 #, kde-format
 msgid "New power level"
-msgstr "רצת עוצמה חדשה"
+msgstr "רמת עוצמה חדשה"
 
 #: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
 #, kde-format
@@ -3555,7 +3574,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "הודעות נעוצות"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3572,7 +3591,7 @@ msgstr "עזיבת החדר הזה"
 msgid "Members"
 msgstr "חברים"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3827,12 +3846,12 @@ msgstr "הצטרפות אל %1"
 msgid "Create a space"
 msgstr "יצירת מרחב"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
 msgstr "מוצע"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -3842,7 +3861,7 @@ msgstr[1] "שני חברים - "
 msgstr[2] "%1 חברים - "
 msgstr[3] "%1 חברים - "
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -3852,38 +3871,38 @@ msgstr[1] "%1 חברים"
 msgstr[2] "%1 חברים"
 msgstr[3] "%1 חברים"
 
-#: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
+#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "הוספת חדר חדש"
 
-#: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/qml/SpaceHierarchyDelegate.qml:123
 #: src/settings/RoomSortParameterDialog.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "הסרה"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:50
+#: src/qml/SpaceHomePage.qml:51
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "הזמנת משתמש למרחב"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -6167,10 +6186,10 @@ msgstr "פתיחה חיצונית"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "קול"
+msgstr[1] "שני קולות"
+msgstr[2] "%1 קולות"
+msgstr[3] "%1 קולות"
 
 #: src/timeline/PollComponent.qml:131
 #, kde-format

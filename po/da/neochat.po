@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:42+0000\n"
+"POT-Creation-Date: 2025-04-04 00:41+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -27,52 +27,52 @@ msgstr ""
 msgid "Clipboard image"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:71
+#: src/chatbar/ChatBar.qml:73
 #, kde-format
 msgid "Attach an image or file"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:89
+#: src/chatbar/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBar.qml:108
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Send a Location"
 msgstr "Indstillinger"
 
-#: src/chatbar/ChatBar.qml:120
+#: src/chatbar/ChatBar.qml:122
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Lydløs"
 
-#: src/chatbar/ChatBar.qml:136
+#: src/chatbar/ChatBar.qml:138
 #, kde-format
 msgid "Send message"
 msgstr "Send besked"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send an encrypted message…"
 msgstr "Send besked"
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:227
+#: src/chatbar/ChatBar.qml:229
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send a message…"
 msgstr "Send besked"
 
-#: src/chatbar/ChatBar.qml:386 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -2280,7 +2280,7 @@ msgid "Attachment:"
 msgstr ""
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:36
+#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Redigér"
@@ -2532,7 +2532,7 @@ msgid "Explore Rooms"
 msgstr "Værelsesnavn:"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Gik med"
@@ -3263,13 +3263,13 @@ msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Indstillinger"
 
-#: src/qml/Main.qml:282
+#: src/qml/Main.qml:283
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/Main.qml:322 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -3325,46 +3325,58 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:49
+#: src/qml/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:55
+#: src/qml/MessageDelegateContextMenu.qml:60
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Send besked"
 
-#: src/qml/MessageDelegateContextMenu.qml:69
+#: src/qml/MessageDelegateContextMenu.qml:74
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiér"
 
-#: src/qml/MessageDelegateContextMenu.qml:75
+#: src/qml/MessageDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiér"
 
-#: src/qml/MessageDelegateContextMenu.qml:80
+#: src/qml/MessageDelegateContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiér"
 
-#: src/qml/MessageDelegateContextMenu.qml:108
+#: src/qml/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
 msgid "Search for '%1'"
 msgstr ""
 
-#: src/qml/MessageDelegateContextMenu.qml:128
+#: src/qml/MessageDelegateContextMenu.qml:140
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgid "Configure Web Shortcuts…"
@@ -3753,7 +3765,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Send besked"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:65
+#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgctxt "@action:button"
@@ -3772,7 +3784,7 @@ msgstr "Lydløs"
 msgid "Members"
 msgstr "Medlemmer"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:55
+#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
 #, fuzzy, kde-format
 #| msgid "Invite"
 msgctxt "@title"
@@ -4039,12 +4051,12 @@ msgstr "Gå med"
 msgid "Create a space"
 msgstr "Lydløs"
 
-#: src/qml/SpaceHierarchyDelegate.qml:93
+#: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, fuzzy, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -4052,7 +4064,7 @@ msgid_plural "%1 members - "
 msgstr[0] "Medlem"
 msgstr[1] "Medlem"
 
-#: src/qml/SpaceHierarchyDelegate.qml:102
+#: src/qml/SpaceHierarchyDelegate.qml:103
 #, fuzzy, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -4060,13 +4072,13 @@ msgid_plural "%1 members"
 msgstr[0] "Medlem"
 msgstr[1] "Medlemmer"
 
-#: src/qml/SpaceHierarchyDelegate.qml:111 src/qml/SpaceHomePage.qml:60
+#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:122
+#: src/qml/SpaceHierarchyDelegate.qml:123
 #: src/settings/RoomSortParameterDialog.qml:92
 #, fuzzy, kde-format
 #| msgid "Remove"
@@ -4074,26 +4086,26 @@ msgctxt "@button"
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHierarchyDelegate.qml:142
+#: src/qml/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/qml/SpaceHomePage.qml:50
+#: src/qml/SpaceHomePage.qml:51
 #, fuzzy, kde-format
 #| msgid "Invite"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Invitér"
 
-#: src/qml/SpaceHomePage.qml:76 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
