@@ -3,9 +3,11 @@
 
 #include "roomtreemodel.h"
 
+#include <Quotient/events/roommemberevent.h>
 #include <Quotient/room.h>
 
 #include "eventhandler.h"
+#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroomtype.h"
 #include "spacehierarchycache.h"
@@ -354,10 +356,26 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
             }
             return i18nc("@info:label", "%1 invited you", room->member(room->invitingUserId()).displayName());
         }
-        if (room->lastEvent() == nullptr || room->lastEventIsSpoiler()) {
+        const auto lastEvent = room->lastEvent([](const RoomEvent *event) -> bool {
+            if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
+                return true;
+            }
+            if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+                if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
+                    return true;
+                } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
+                    return true;
+                } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
+                           && !NeoChatConfig::showAvatarUpdate()) {
+                    return true;
+                }
+            }
+            return false;
+        });
+        if (lastEvent == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
-        return EventHandler::subtitleText(room, room->lastEvent());
+        return EventHandler::subtitleText(room, lastEvent);
     }
     if (role == AvatarImageRole) {
         return room->avatar(128);

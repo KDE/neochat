@@ -211,7 +211,7 @@ public:
      * @warning This function can return an empty pointer if the room does not have
      *          any RoomMessageEvents loaded.
      */
-    [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
+    [[nodiscard]] const Quotient::RoomEvent *lastEvent(std::function<bool(const Quotient::RoomEvent *)> filter = {}) const;
 
     /**
      * @brief Convenient way to check if the last event looks like it has spoilers.

@@ -42,7 +42,6 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroommember.h"
 #include "roomlastmessageprovider.h"
@@ -314,10 +313,16 @@ void NeoChatRoom::sendTypingNotification(bool isTyping)
     connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
 }
 
-const RoomEvent *NeoChatRoom::lastEvent() const
+const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> filter) const
 {
     for (auto timelineItem = messageEvents().rbegin(); timelineItem < messageEvents().rend(); timelineItem++) {
         const RoomEvent *event = timelineItem->get();
+
+        if (filter) {
+            if (filter(event)) {
+                continue;
+            }
+        }
 
         if (is<RedactionEvent>(*event) || is<ReactionEvent>(*event)) {
             continue;
@@ -326,19 +331,6 @@ const RoomEvent *NeoChatRoom::lastEvent() const
             continue;
         }
 
-        if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
-            continue;
-        }
-
-        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
-                continue;
-            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
-                continue;
-            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
-                continue;
-            }
-        }
         if (event->isStateEvent() && static_cast<const StateEvent &>(*event).repeatsState()) {
             continue;
         }
