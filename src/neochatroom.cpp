@@ -39,14 +39,11 @@
 
 #include "chatbarcache.h"
 #include "clipboard.h"
-#include "eventhandler.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
 #include "neochatconnection.h"
-#include "neochatroommember.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
-#include "texthandler.h"
 #include "urlhelper.h"
 
 #ifndef Q_OS_ANDROID
