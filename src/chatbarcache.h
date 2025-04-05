@@ -10,8 +10,6 @@
 
 #include "models/messagecontentmodel.h"
 
-class ChatDocumentHandler;
-
 namespace Quotient
 {
 class RoomMember;
@@ -179,11 +177,6 @@ public:
      * @brief Retrieve the mentions for the current chat bar text.
      */
     QList<Mention> *mentions();
-
-    /**
-     * @brief Update the mentions in @p document when editing a message.
-     */
-    Q_INVOKABLE void updateMentions(QQuickTextDocument *document, ChatDocumentHandler *documentHandler);
 
     /**
      * @brief Get the saved chat bar text.

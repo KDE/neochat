@@ -15,6 +15,7 @@
 #include <Sonnet/Settings>
 
 #include "chatdocumenthandler_logging.h"
+#include "eventhandler.h"
 
 using namespace Qt::StringLiterals;
 
@@ -354,6 +355,45 @@ void ChatDocumentHandler::setErrorColor(const QColor &color)
     m_highlighter->errorFormat.setForeground(m_errorColor);
     m_highlighter->rehighlight();
     Q_EMIT errorColorChanged();
+}
+
+void ChatDocumentHandler::updateMentions(QQuickTextDocument *document, const QString &editId)
+{
+    setDocument(document);
+
+    if (editId.isEmpty() || !m_chatBarCache || !m_room) {
+        return;
+    }
+
+    if (auto event = m_room->findInTimeline(editId); event != m_room->historyEdge()) {
+        if (const auto &roomMessageEvent = &*event->viewAs<Quotient::RoomMessageEvent>()) {
+            // Replaces the mentions that are baked into the HTML but plaintext in the original markdown
+            const QRegularExpression re(uR"lit(<a\shref="https:\/\/matrix.to\/#\/([\S]*)"\s?>([\S]*)<\/a>)lit"_s);
+
+            m_chatBarCache->mentions()->clear();
+
+            int linkSize = 0;
+            auto matches = re.globalMatch(EventHandler::rawMessageBody(*roomMessageEvent));
+            while (matches.hasNext()) {
+                const QRegularExpressionMatch match = matches.next();
+                if (match.hasMatch()) {
+                    const QString id = match.captured(1);
+                    const QString name = match.captured(2);
+
+                    const int position = match.capturedStart(0) - linkSize;
+                    const int end = position + name.length();
+                    linkSize += match.capturedLength(0) - name.length();
+
+                    QTextCursor cursor(this->document()->textDocument());
+                    cursor.setPosition(position);
+                    cursor.setPosition(end, QTextCursor::KeepAnchor);
+                    cursor.setKeepPositionOnInsert(true);
+
+                    pushMention(Mention{.cursor = cursor, .text = name, .start = position, .position = end, .id = id});
+                }
+            }
+        }
+    }
 }
 
 #include "moc_chatdocumenthandler.cpp"

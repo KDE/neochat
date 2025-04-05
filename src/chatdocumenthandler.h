@@ -141,6 +141,11 @@ public:
     [[nodiscard]] QColor errorColor() const;
     void setErrorColor(const QColor &color);
 
+    /**
+     * @brief Update the mentions in @p document when editing a message.
+     */
+    Q_INVOKABLE void updateMentions(QQuickTextDocument *document, const QString &editId);
+
 Q_SIGNALS:
     void documentChanged();
     void cursorPositionChanged();
