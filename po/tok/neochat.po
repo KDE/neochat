@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-04 00:41+0000\n"
+"POT-Creation-Date: 2025-04-05 00:41+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1088,8 +1088,8 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290 src/timeline/LoadComponent.qml:30
+#: src/models/messagecontentmodel.cpp:264
+#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1779,15 +1779,15 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "sitelen Emosi sina"
 
-#: src/models/messagecontentmodel.cpp:260
-#: src/models/messagecontentmodel.cpp:288
+#: src/models/messagecontentmodel.cpp:262
+#: src/models/messagecontentmodel.cpp:290
 #: src/timeline/LinkPreviewLoadComponent.qml:63
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
 msgstr "mi pali…"
 
-#: src/models/messagecontentmodel.cpp:283
+#: src/models/messagecontentmodel.cpp:285
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -2001,13 +2001,13 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr ""
 
-#: src/models/reactionmodel.cpp:68
+#: src/models/reactionmodel.cpp:69
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " en "
 
-#: src/models/reactionmodel.cpp:75
+#: src/models/reactionmodel.cpp:76
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -2017,7 +2017,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/models/reactionmodel.cpp:79
+#: src/models/reactionmodel.cpp:80
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -2048,14 +2048,14 @@ msgctxt "list separator"
 msgid ", "
 msgstr ""
 
-#: src/models/roomtreemodel.cpp:353
+#: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "o open e tomo toki pi sina tu taso"
 
-#: src/models/roomtreemodel.cpp:355
+#: src/models/roomtreemodel.cpp:357
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -2085,12 +2085,12 @@ msgstr ""
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:1228
+#: src/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/neochatroom.cpp:1581 src/neochatroom.cpp:1589
+#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1576
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
