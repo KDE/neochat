@@ -334,7 +334,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return EventHandler::locationAssetType(event.first);
     }
     if (role == PollHandlerRole) {
-        return QVariant::fromValue<PollHandler *>(m_room->poll(m_eventId));
+        return QVariant::fromValue<PollHandler *>(ContentProvider::self().handlerForPoll(m_room, m_eventId));
     }
     if (role == ReplyEventIdRole) {
         if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first)) {

@@ -14,8 +14,8 @@
 
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
+#include "events/pollevent.h"
 #include "neochatroommember.h"
-#include "pollhandler.h"
 
 namespace Quotient
 {
@@ -488,18 +488,6 @@ public:
      */
     Q_INVOKABLE void editLastMessage();
 
-    /**
-     * @brief Get a PollHandler object for the given event Id.
-     *
-     * Will return an existing PollHandler if one already exists for the event ID.
-     * A new PollHandler will be created if one doesn't exist.
-     *
-     * @note Requires libQuotient 0.7.
-     *
-     * @sa PollHandler
-     */
-    Q_INVOKABLE PollHandler *poll(const QString &eventId);
-
     Q_INVOKABLE void postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers);
 
     /**
@@ -599,7 +587,6 @@ private:
     ChatBarCache *m_editCache;
     ChatBarCache *m_threadCache;
 
-    QCache<QString, PollHandler> m_polls;
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     void cleanupExtraEventRange(Quotient::RoomEventsRange events);
     void cleanupExtraEvent(const QString &eventId);

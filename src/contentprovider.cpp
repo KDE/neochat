@@ -85,3 +85,25 @@ ThreadModel *ContentProvider::modelForThread(NeoChatRoom *room, const QString &t
 
     return m_threadModels.object(threadRootId);
 }
+
+static PollHandler *emptyPollHandler = new PollHandler;
+
+PollHandler *ContentProvider::handlerForPoll(NeoChatRoom *room, const QString &eventId)
+{
+    if (!room || eventId.isEmpty()) {
+        return nullptr;
+    }
+
+    const auto event = room->getEvent(eventId);
+    if (event.first == nullptr || event.second) {
+        return emptyPollHandler;
+    }
+
+    if (!m_pollHandlers.contains(eventId)) {
+        m_pollHandlers.insert(eventId, new PollHandler(room, eventId));
+    }
+
+    return m_pollHandlers.object(eventId);
+}
+
+#include "moc_contentprovider.cpp"

@@ -1423,23 +1423,6 @@ bool NeoChatRoom::canEncryptRoom() const
     return !usesEncryption() && canSendState("m.room.encryption"_L1);
 }
 
-static PollHandler *emptyPollHandler = new PollHandler;
-
-PollHandler *NeoChatRoom::poll(const QString &eventId)
-{
-    const auto event = getEvent(eventId);
-    if (event.first == nullptr || event.second) {
-        return emptyPollHandler;
-    }
-
-    if (m_polls.contains(eventId)) {
-        return m_polls[eventId];
-    }
-    auto handler = new PollHandler(this, eventId);
-    m_polls.insert(eventId, handler);
-    return handler;
-}
-
 void NeoChatRoom::postPoll(PollKind::Kind kind, const QString &question, const QList<QString> &answers)
 {
     QList<EventContent::Answer> answerStructs;

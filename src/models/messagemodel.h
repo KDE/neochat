@@ -8,7 +8,6 @@
 #include <functional>
 
 #include "neochatroom.h"
-#include "pollhandler.h"
 #include "readmarkermodel.h"
 #include "threadmodel.h"
 
