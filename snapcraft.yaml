@@ -24,6 +24,9 @@ apps:
       - network-manager-observe
       - password-manager-service
       - accounts-service
+    environment:
+      QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/plugins/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins"
+      QML_IMPORT_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml:/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml"
 
 compression: lzo
 
