@@ -267,7 +267,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormCheckDelegate {
-            enabled: root.connection.globalUrlPreviewEnabled
+            enabled: NeoChatConfig.showLinkPreview
             text: i18n("Enable URL previews")
             // Most users won't see the above setting so tell them the default.
             description: room.defaultUrlPreviewState ? i18n("URL previews are enabled by default in this room") : i18n("URL previews are disabled by default in this room")
@@ -284,10 +284,13 @@ FormCard.FormCardPage {
         Layout.alignment: Qt.AlignHCenter
         text: i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "URL previews are currently disabled for your account")
         type: Kirigami.MessageType.Information
-        visible: !root.connection.globalUrlPreviewEnabled
+        visible: !NeoChatConfig.showLinkPreview
         actions: Kirigami.Action {
             text: i18n("Enable")
-            onTriggered: root.connection.globalUrlPreviewEnabled = true
+            onTriggered: {
+                NeoChatConfig.showLinkPreview = true;
+                NeoChatConfig.save();
+            }
         }
     }
     FormCard.FormHeader {

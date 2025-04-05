@@ -4,6 +4,7 @@
 
 #include "controller.h"
 
+#include <Quotient/connection.h>
 #include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
@@ -49,6 +50,17 @@ Controller::Controller(QObject *parent)
     : QObject(parent)
 {
     Connection::setRoomType<NeoChatRoom>();
+
+    Connection::setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
+        Connection::setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
+    });
+
+    NeoChatConnection::setGlobalUrlPreviewDefault(NeoChatConfig::showLinkPreview());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this] {
+        NeoChatConnection::setGlobalUrlPreviewDefault(NeoChatConfig::showLinkPreview());
+        Q_EMIT globalUrlPreviewDefaultChanged();
+    });
 
     ProxyController::instance().setApplicationProxy();
 
@@ -168,6 +180,7 @@ void Controller::addConnection(NeoChatConnection *c)
     connect(c, &NeoChatConnection::syncDone, this, [this, c]() {
         m_notificationsManager.handleNotifications(c);
     });
+    connect(this, &Controller::globalUrlPreviewDefaultChanged, c, &NeoChatConnection::globalUrlPreviewEnabledChanged);
 
     c->sync();
 

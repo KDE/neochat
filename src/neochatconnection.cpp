@@ -6,7 +6,6 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
-#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
@@ -34,6 +33,8 @@
 
 using namespace Quotient;
 using namespace Qt::StringLiterals;
+
+bool NeoChatConnection::m_globalUrlPreviewDefault = true;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
@@ -123,6 +124,12 @@ void NeoChatConnection::connectSignals()
         Q_EMIT homeHaveHighlightNotificationsChanged();
     });
 
+    connect(this, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, [this]() {
+        if (!m_globalUrlPreviewDefault) {
+            m_linkPreviewers.clear();
+        }
+    });
+
     // Fetch unstable features
     // TODO: Expose unstableFeatures() in libQuotient
     connect(
@@ -139,14 +146,6 @@ void NeoChatConnection::connectSignals()
             });
         },
         Qt::SingleShotConnection);
-    setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
-    connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
-        setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
-    });
-    setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this]() {
-        setGlobalUrlPreviewEnabled(NeoChatConfig::showLinkPreview());
-    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const
@@ -171,21 +170,12 @@ void NeoChatConnection::refreshBadgeNotificationCount()
 
 bool NeoChatConnection::globalUrlPreviewEnabled()
 {
-    return m_globalUrlPreviewEnabled;
+    return m_globalUrlPreviewDefault;
 }
 
-void NeoChatConnection::setGlobalUrlPreviewEnabled(bool newState)
+void NeoChatConnection::setGlobalUrlPreviewDefault(bool useByDefault)
 {
-    if (m_globalUrlPreviewEnabled == newState) {
-        return;
-    }
-
-    m_globalUrlPreviewEnabled = newState;
-    if (!m_globalUrlPreviewEnabled) {
-        m_linkPreviewers.clear();
-    }
-    NeoChatConfig::setShowLinkPreview(m_globalUrlPreviewEnabled);
-    Q_EMIT globalUrlPreviewEnabledChanged();
+    NeoChatConnection::m_globalUrlPreviewDefault = useByDefault;
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)
@@ -521,7 +511,7 @@ QString NeoChatConnection::accountDataJsonString(const QString &type) const
 
 LinkPreviewer *NeoChatConnection::previewerForLink(const QUrl &link)
 {
-    if (!m_globalUrlPreviewEnabled) {
+    if (!m_globalUrlPreviewDefault) {
         return nullptr;
     }
 

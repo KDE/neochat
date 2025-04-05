@@ -142,4 +142,6 @@ Q_SIGNALS:
     void connectionDropped(NeoChatConnection *connection);
     void activeConnectionChanged(NeoChatConnection *connection);
     void accountsLoadingChanged();
+
+    void globalUrlPreviewDefaultChanged();
 };

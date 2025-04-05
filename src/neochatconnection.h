@@ -32,11 +32,6 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(QString label READ label WRITE setLabel NOTIFY labelChanged)
 
     /**
-     * @brief Whether URL previews are enabled globally.
-     */
-    Q_PROPERTY(bool globalUrlPreviewEnabled READ globalUrlPreviewEnabled WRITE setGlobalUrlPreviewEnabled NOTIFY globalUrlPreviewEnabledChanged)
-
-    /**
      * @brief Whether an identity server is configured.
      */
     Q_PROPERTY(bool hasIdentityServer READ hasIdentityServer NOTIFY identityServerChanged)
@@ -180,7 +175,11 @@ public:
     void refreshBadgeNotificationCount();
 
     bool globalUrlPreviewEnabled();
-    void setGlobalUrlPreviewEnabled(bool newState);
+
+    /**
+     * @brief Whether URL previews are enabled globally by default for all connections.
+     */
+    static void setGlobalUrlPreviewDefault(bool useByDefault);
 
     bool directChatInvites() const;
 
@@ -223,13 +222,14 @@ Q_SIGNALS:
     void errorOccured(const QString &error);
 
 private:
+    static bool m_globalUrlPreviewDefault;
+
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
 
     void connectSignals();
 
     int m_badgeNotificationCount = 0;
-    bool m_globalUrlPreviewEnabled = true;
 
     QCache<QUrl, LinkPreviewer> m_linkPreviewers;
 
