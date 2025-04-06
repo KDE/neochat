@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "इमोजीज"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/controller.cpp:131
+#: src/controller.cpp:143
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,19 +105,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नूतनसन्देशानां सूचनां प्राप्य"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:261
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "अभिगम टोकन न प्राप्तम्: कदाचित् तत् विलोपितम्?"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:265
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "कीचेन्-प्रवेशः अङ्गीकृतः आसीत्: कृपया NeoChat-इत्यस्मै अभिगमन-टोकनं पठितुं अनुमतिं ददातु"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:268
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -126,12 +126,12 @@ msgstr ""
 "कोऽपि कीचेन् उपलब्धः नास्ति: कृपया कीचेन् संस्थापयन्तु, उदा. Linux इत्यत्र KWallet अथवा "
 "GNOME कीरिंग्"
 
-#: src/controller.cpp:258
+#: src/controller.cpp:271
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "अभिगमनचिह्नं पठितुं असमर्थः: %1"
 
-#: src/controller.cpp:357
+#: src/controller.cpp:370
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश सूचनाः प्राप्य"
@@ -1960,7 +1960,7 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 भवन्तं कक्षे आमन्त्रितवान्"
 
-#: src/neochatconnection.cpp:75
+#: src/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1969,18 +1969,18 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/neochatconnection.cpp:329
+#: src/neochatconnection.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/neochatconnection.cpp:360
+#: src/neochatconnection.cpp:350
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/neochatconnection.cpp:390
+#: src/neochatconnection.cpp:380
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
@@ -1990,7 +1990,7 @@ msgstr "अन्तरिक्षनिर्माणं विफलम्: 
 msgid "Report sent successfully."
 msgstr "प्रतिवेदनं सफलतया प्रेषितम्।"
 
-#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1576
+#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3346,7 +3346,7 @@ msgstr "उपयोक्तृशक्तिस्तरं सम्पा�
 msgid "New power level"
 msgstr "नवीन शक्ति स्तर"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
 #, kde-format
 msgid "Confirm"
 msgstr "दृढी करोतु"
@@ -5660,63 +5660,63 @@ msgstr "अस्मिन् कक्षे पूर्वावलोकन�
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:294
+#: src/settings/RoomGeneralPage.qml:297
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "आधिकारिक अभिभावक स्थान"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:330
 #, kde-format
 msgid "Canonical"
 msgstr "कैनोनिकल"
 
-#: src/settings/RoomGeneralPage.qml:334
+#: src/settings/RoomGeneralPage.qml:337
 #, kde-format
 msgid "Make canonical parent"
 msgstr "कैननिकल मातापितरं कुरुत"
 
-#: src/settings/RoomGeneralPage.qml:346
+#: src/settings/RoomGeneralPage.qml:349
 #, kde-format
 msgid "Remove parent"
 msgstr "मातापितरं निष्कासयन्तु"
 
-#: src/settings/RoomGeneralPage.qml:359
+#: src/settings/RoomGeneralPage.qml:362
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "अस्मिन् कक्षे आधिकारिकाः मातापितृस्थानानि नास्ति ।"
 
-#: src/settings/RoomGeneralPage.qml:363
+#: src/settings/RoomGeneralPage.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "नूतनं आधिकारिकं मातापितरं योजयन्तु"
 
-#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:383 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "अयं कक्षः अन्यं वार्तालापं निरन्तरं करोति।"
 
-#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:387 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "प्राचीनसन्देशान् पश्यन्तु..."
 
-#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:399 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "अयं कक्षः प्रतिस्थापितः अस्ति।"
 
-#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:403 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "नूतनं कक्षं पश्यन्तु..."
 
-#: src/settings/RoomGeneralPage.qml:423
+#: src/settings/RoomGeneralPage.qml:426
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "कक्षस्य उन्नयनं कुर्वन्तु"
 
-#: src/settings/RoomGeneralPage.qml:427
+#: src/settings/RoomGeneralPage.qml:430
 #, kde-format
 msgid "Select new version"
 msgstr "नूतनं संस्करणं चिनोतु"

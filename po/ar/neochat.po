@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
-"PO-Revision-Date: 2025-03-08 21:40+0400\n"
+"POT-Creation-Date: 2025-04-06 00:42+0000\n"
+"PO-Revision-Date: 2025-04-05 14:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -44,11 +44,10 @@ msgid "Send a Location"
 msgstr "أرسل موقعاً جغرافياً"
 
 #: src/chatbar/ChatBar.qml:122
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "أنشئ غرفة"
+msgstr "أنشئ استفتاء"
 
 #: src/chatbar/ChatBar.qml:138
 #, kde-format
@@ -96,7 +95,7 @@ msgstr "الصورة التعبيرية"
 msgid "Stickers"
 msgstr "الملصقات"
 
-#: src/controller.cpp:131
+#: src/controller.cpp:143
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -104,19 +103,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "تلقي إخطارات بالرسائل الجديدة"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:261
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "رمز النفاذ غير موجود: ربما حذفت؟"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:265
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "منع النفاذ إلى حَمَّالَة المَفَاتِيح: الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:268
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +124,12 @@ msgstr ""
 "لا يوجد حَمَّالَة المَفَاتِيح. الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كِيدِي أو غنوم "
 "Keyring على لينكس"
 
-#: src/controller.cpp:258
+#: src/controller.cpp:271
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "غير قادر على قراءة رقم النفاذ: %1"
 
-#: src/controller.cpp:357
+#: src/controller.cpp:370
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "تلقي إخطارات"
@@ -1973,7 +1972,7 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "‏%1 دعاك"
 
-#: src/neochatconnection.cpp:75
+#: src/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1981,18 +1980,18 @@ msgid ""
 msgstr ""
 "الملف كبير للغاية بحيث لا يمكن تحميله.<br />راسل مدير خادوم ماتركس للدعم."
 
-#: src/neochatconnection.cpp:329
+#: src/neochatconnection.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "لم يُضبط خادوم هوية بعد"
 
-#: src/neochatconnection.cpp:360
+#: src/neochatconnection.cpp:350
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "فشل إنشاء غرفة: %1"
 
-#: src/neochatconnection.cpp:390
+#: src/neochatconnection.cpp:380
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
@@ -2002,7 +2001,7 @@ msgstr "فشل إنشاء فضاء: %1"
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1576
+#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -2076,7 +2075,7 @@ msgstr "افتح نيوتشات"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "انتهى الاستفتاء. أعلى إجابة: %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -2892,7 +2891,7 @@ msgstr "رد في الموضوع"
 #: src/qml/HoverActions.qml:158
 #, kde-format
 msgid "End Poll"
-msgstr ""
+msgstr "أنهِ الاستفتاء"
 
 #: src/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3219,13 +3218,13 @@ msgstr "انسخ رابط الرِّسالة"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "اقرأ النص"
 
 #: src/qml/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 قال %2"
 
 #: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
@@ -3247,79 +3246,66 @@ msgstr "حرر الحالة"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "أرسل"
 
 #: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "أنشئ غرفة"
+msgstr "أنشئ استفتاء"
 
 #: src/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "نوع الاستفتاء:"
 
 #: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "افتح الملف"
+msgstr "افتح استفتاء"
 
 #: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "أغلق"
+msgstr "استفتاء مغلق"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "يمكن للمصوتين رؤية النتيجة بمجرد التصويت"
 
 #: src/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "لا تظهر النتائج إلا بعد إغلاق الاستفتاء"
 
 #: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "الوصف:"
+msgstr "السؤال:"
 
 #: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "الخيارات:"
+msgstr "الخيار %1:"
 
 #: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "التعمية"
+msgstr "أدخل خيارًا"
 
 #: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "أزل فضاء الرئيس"
+msgstr "أزل الخيار"
 
 #: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "أضف صورة تعبيرية"
+msgstr "أضف خيارًا"
 
 #: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
 #, kde-format
@@ -3348,7 +3334,7 @@ msgstr "تحرير مستوى قدرة المستخدم"
 msgid "New power level"
 msgstr "مستوى قدرة جديد"
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
 #, kde-format
 msgid "Confirm"
 msgstr "أكد"
@@ -5664,63 +5650,63 @@ msgstr "معاينة الروابط مُعطلة لحسابك"
 msgid "Enable"
 msgstr "مكّن"
 
-#: src/settings/RoomGeneralPage.qml:294
+#: src/settings/RoomGeneralPage.qml:297
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "الفضاءات الرئيسة الرسمية"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:330
 #, kde-format
 msgid "Canonical"
 msgstr "عالمي"
 
-#: src/settings/RoomGeneralPage.qml:334
+#: src/settings/RoomGeneralPage.qml:337
 #, kde-format
 msgid "Make canonical parent"
 msgstr "اجعله فضاء رئيس عالمي"
 
-#: src/settings/RoomGeneralPage.qml:346
+#: src/settings/RoomGeneralPage.qml:349
 #, kde-format
 msgid "Remove parent"
 msgstr "أزل فضاء الرئيس"
 
-#: src/settings/RoomGeneralPage.qml:359
+#: src/settings/RoomGeneralPage.qml:362
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "لم تملك هذه الغرفة أي فضاء رئيس رسمي"
 
-#: src/settings/RoomGeneralPage.qml:363
+#: src/settings/RoomGeneralPage.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "أضف فضاء رئيس جديد"
 
-#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:383 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "هذه الغرفة تواصل محادثة أخرى."
 
-#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:387 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "شاهد الرسائل القديمة..."
 
-#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:399 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "بدلت هذه الغرفة."
 
-#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:403 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "شاهد الغرفة الجديد…"
 
-#: src/settings/RoomGeneralPage.qml:423
+#: src/settings/RoomGeneralPage.qml:426
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "رقّ الغرفة"
 
-#: src/settings/RoomGeneralPage.qml:427
+#: src/settings/RoomGeneralPage.qml:430
 #, kde-format
 msgid "Select new version"
 msgstr "حدد الإصدارة الأحدث"
@@ -6096,8 +6082,7 @@ msgid "%1 started a user verification"
 msgstr "بدأ %1 عملية تَثَبّت لمستخدم"
 
 #: src/timeline/ChatBarComponent.qml:165
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "أرفق صورة أو ملف"
@@ -6232,12 +6217,12 @@ msgstr "افتحه خارجيا"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لا يوجد أصوات"
+msgstr[1] "صوت واحد"
+msgstr[2] "صوتين"
+msgstr[3] "%1 أصوات"
+msgstr[4] "%1 صوتًا"
+msgstr[5] "%1 صوت"
 
 #: src/timeline/PollComponent.qml:131
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:42+0000\n"
 "PO-Revision-Date: 2025-04-03 16:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -95,7 +95,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Etiquettas Gummate (Stickers)"
 
-#: src/controller.cpp:131
+#: src/controller.cpp:143
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -103,12 +103,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Recipente notificationes de nove messages"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:261
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Indicio de accesso non esseva trovate: forsan il esseva delite?"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:265
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -116,7 +116,7 @@ msgstr ""
 "Accesso a portaclave esseva refusate: Pro favor tu permitte que NeoChat pote "
 "leger le indicio de accesso"
 
-#: src/controller.cpp:255
+#: src/controller.cpp:268
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +125,12 @@ msgstr ""
 "Necun portaclave disponibile: Pro favor tu installa un portaclave, p.ex. "
 "KWallet o GNOMe keyring sur Linux"
 
-#: src/controller.cpp:258
+#: src/controller.cpp:271
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Incapace a leger indicio de accesso: %1"
 
-#: src/controller.cpp:357
+#: src/controller.cpp:370
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Recipente notificationes de push"
@@ -1967,7 +1967,7 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 invitava te "
 
-#: src/neochatconnection.cpp:75
+#: src/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1976,18 +1976,18 @@ msgstr ""
 "File troppo grande a discargar.<br />Continge tu administrator de servitor "
 "de matrix per supporto."
 
-#: src/neochatconnection.cpp:329
+#: src/neochatconnection.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nulle servitor de identitate configurate"
 
-#: src/neochatconnection.cpp:360
+#: src/neochatconnection.cpp:350
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/neochatconnection.cpp:390
+#: src/neochatconnection.cpp:380
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
@@ -1997,7 +1997,7 @@ msgstr "Creation de spatio falleva: \"%1\""
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
 
-#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1576
+#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3341,7 +3341,7 @@ msgstr "Modifica le nivello de fortia de usator"
 msgid "New power level"
 msgstr "Assigna le nivello de fortia "
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
 #, kde-format
 msgid "Confirm"
 msgstr "Confirma"
@@ -5683,63 +5683,63 @@ msgstr "Vistas preliminar de URL es dishabilitate currentemente per iste conto"
 msgid "Enable"
 msgstr "Habilita"
 
-#: src/settings/RoomGeneralPage.qml:294
+#: src/settings/RoomGeneralPage.qml:297
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Spatio Official de Genitor"
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:330
 #, kde-format
 msgid "Canonical"
 msgstr "Canonic"
 
-#: src/settings/RoomGeneralPage.qml:334
+#: src/settings/RoomGeneralPage.qml:337
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Face genitor canonic"
 
-#: src/settings/RoomGeneralPage.qml:346
+#: src/settings/RoomGeneralPage.qml:349
 #, kde-format
 msgid "Remove parent"
 msgstr "Remove  genitor"
 
-#: src/settings/RoomGeneralPage.qml:359
+#: src/settings/RoomGeneralPage.qml:362
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Iste sala ha nulle spatios official de parente."
 
-#: src/settings/RoomGeneralPage.qml:363
+#: src/settings/RoomGeneralPage.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Adde nove genitor official"
 
-#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:383 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Iste sala continua un altere conversation."
 
-#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:387 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Vide messages plus vetere..."
 
-#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:399 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Iste sala ha essite reimplaciate."
 
-#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:403 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Vide nove sala..."
 
-#: src/settings/RoomGeneralPage.qml:423
+#: src/settings/RoomGeneralPage.qml:426
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Actualisa le sala"
 
-#: src/settings/RoomGeneralPage.qml:427
+#: src/settings/RoomGeneralPage.qml:430
 #, kde-format
 msgid "Select new version"
 msgstr "Selige nove version"

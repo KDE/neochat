@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-05 00:41+0000\n"
+"POT-Creation-Date: 2025-04-06 00:42+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -99,7 +99,7 @@ msgstr "Converter smileys a emojis"
 msgid "Stickers"
 msgstr ""
 
-#: src/controller.cpp:131
+#: src/controller.cpp:143
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgctxt ""
@@ -108,30 +108,30 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/controller.cpp:248
+#: src/controller.cpp:261
 #, fuzzy, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Li plugin necessi por accesse al files MP3 ne esset trovat"
 
-#: src/controller.cpp:252
+#: src/controller.cpp:265
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:255
+#: src/controller.cpp:268
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:258
+#: src/controller.cpp:271
 #, fuzzy, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ne posset acessar «%s»"
 
-#: src/controller.cpp:357
+#: src/controller.cpp:370
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Receiving push notifications"
@@ -2097,25 +2097,25 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%s invitat vos a(l) %s"
 
-#: src/neochatconnection.cpp:75
+#: src/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/neochatconnection.cpp:329
+#: src/neochatconnection.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/neochatconnection.cpp:360
+#: src/neochatconnection.cpp:350
 #, fuzzy, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/neochatconnection.cpp:390
+#: src/neochatconnection.cpp:380
 #, fuzzy, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
@@ -2125,7 +2125,7 @@ msgstr "Ne successat crear un contextu OpenGL"
 msgid "Report sent successfully."
 msgstr "Raport sta inviat successosimen."
 
-#: src/neochatroom.cpp:1568 src/neochatroom.cpp:1576
+#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3539,7 +3539,7 @@ msgstr ""
 msgid "New power level"
 msgstr ""
 
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:435
+#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
 #, kde-format
 msgid "Confirm"
 msgstr "Confirmar"
@@ -5978,65 +5978,65 @@ msgstr "%1 ja es in ti chambre."
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:294
+#: src/settings/RoomGeneralPage.qml:297
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:327
+#: src/settings/RoomGeneralPage.qml:330
 #, fuzzy, kde-format
 msgid "Canonical"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:334
+#: src/settings/RoomGeneralPage.qml:337
 #, fuzzy, kde-format
 msgid "Make canonical parent"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:346
+#: src/settings/RoomGeneralPage.qml:349
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Remove parent"
 msgstr "Raportar li missage"
 
-#: src/settings/RoomGeneralPage.qml:359
+#: src/settings/RoomGeneralPage.qml:362
 #, fuzzy, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Missage esset respondet"
 
-#: src/settings/RoomGeneralPage.qml:363
+#: src/settings/RoomGeneralPage.qml:366
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Pseudonim"
 
-#: src/settings/RoomGeneralPage.qml:380 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:383 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:384 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:387 src/timeline/PredecessorDelegate.qml:29
 #, fuzzy, kde-format
 msgid "See older messages…"
 msgstr "(o plu old)"
 
-#: src/settings/RoomGeneralPage.qml:396 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:399 src/timeline/SuccessorDelegate.qml:26
 #, fuzzy, kde-format
 msgid "This room has been replaced."
 msgstr "Missage esset respondet"
 
-#: src/settings/RoomGeneralPage.qml:400 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:403 src/timeline/SuccessorDelegate.qml:29
 #, fuzzy, kde-format
 msgid "See new room…"
 msgstr "Vu have un nov invitation a un chambre"
 
-#: src/settings/RoomGeneralPage.qml:423
+#: src/settings/RoomGeneralPage.qml:426
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the Room"
 msgstr "forlassat li chambre"
 
-#: src/settings/RoomGeneralPage.qml:427
+#: src/settings/RoomGeneralPage.qml:430
 #, fuzzy, kde-format
 msgid "Select new version"
 msgstr "Vu have un nov invitation a un chambre"
