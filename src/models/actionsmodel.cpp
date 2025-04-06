@@ -5,10 +5,8 @@
 
 #include "chatbarcache.h"
 #include "enums/messagetype.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "roommanager.h"
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roompowerlevelsevent.h>
@@ -19,6 +17,8 @@
 using Action = ActionsModel::Action;
 using namespace Quotient;
 using namespace Qt::StringLiterals;
+
+bool ActionsModel::m_allowQuickEdit = false;
 
 QStringList rainbowColors{"#ff2b00"_L1, "#ff5500"_L1, "#ff8000"_L1, "#ffaa00"_L1, "#ffd500"_L1, "#ffff00"_L1, "#d4ff00"_L1, "#aaff00"_L1, "#80ff00"_L1,
                           "#55ff00"_L1, "#2bff00"_L1, "#00ff00"_L1, "#00ff2b"_L1, "#00ff55"_L1, "#00ff80"_L1, "#00ffaa"_L1, "#00ffd5"_L1, "#00ffff"_L1,
@@ -226,11 +226,11 @@ QList<ActionsModel::Action> actions{
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
-                RoomManager::instance().resolveResource(targetRoom->id());
+                ActionsModel::instance().resolveResource(targetRoom->id());
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().resolveResource(text, "join"_L1);
+            ActionsModel::instance().resolveResource(text, "join"_L1);
             return QString();
         },
         std::nullopt,
@@ -251,16 +251,16 @@ QList<ActionsModel::Action> actions{
             }
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
-                RoomManager::instance().resolveResource(targetRoom->id());
+                ActionsModel::instance().resolveResource(targetRoom->id());
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
             auto connection = dynamic_cast<NeoChatConnection *>(room->connection());
             const auto knownServer = roomName.mid(roomName.indexOf(":"_L1) + 1);
             if (parts.length() >= 2) {
-                RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
+                ActionsModel::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
             } else {
-                RoomManager::instance().knockRoom(connection, roomName, QString(), QStringList{knownServer});
+                ActionsModel::instance().knockRoom(connection, roomName, QString(), QStringList{knownServer});
             }
             return QString();
         },
@@ -283,7 +283,7 @@ QList<ActionsModel::Action> actions{
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Joining room <roomname>.", "Joining room %1.", text));
-            RoomManager::instance().resolveResource(text, "join"_L1);
+            ActionsModel::instance().resolveResource(text, "join"_L1);
             return QString();
         },
         std::nullopt,
@@ -553,7 +553,7 @@ bool ActionsModel::handleQuickEditAction(NeoChatRoom *room, const QString &messa
         return false;
     }
 
-    if (NeoChatConfig::allowQuickEdit()) {
+    if (m_allowQuickEdit) {
         QRegularExpression sed(u"^s/([^/]*)/([^/]*)(/g)?$"_s);
         auto match = sed.match(messageText);
         if (match.hasMatch()) {
@@ -617,4 +617,9 @@ std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgT
     }
 
     return std::make_pair(messageType.has_value() ? std::make_optional(sendText) : std::nullopt, messageType);
+}
+
+void ActionsModel::setAllowQuickEdit(bool allow)
+{
+    m_allowQuickEdit = allow;
 }

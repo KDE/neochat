@@ -7,6 +7,7 @@
 #include "chatbarcache.h"
 #include "controller.h"
 #include "eventhandler.h"
+#include "models/actionsmodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -67,6 +68,10 @@ RoomManager::RoomManager(QObject *parent)
         m_roomTreeModel->setConnection(m_connection);
     });
     connect(m_sortFilterSpaceListModel, &SortFilterSpaceListModel::layoutChanged, m_sortFilterRoomTreeModel, &SortFilterRoomTreeModel::invalidate);
+    connect(&ActionsModel::instance(), &ActionsModel::resolveResource, this, [this](const QString &idOrUri, const QString &action) {
+        resolveResource(idOrUri, action);
+    });
+    connect(&ActionsModel::instance(), &ActionsModel::knockRoom, this, &RoomManager::knockRoom);
 }
 
 RoomManager::~RoomManager()

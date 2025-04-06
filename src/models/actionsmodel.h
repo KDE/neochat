@@ -8,6 +8,7 @@
 #include <Quotient/events/roommessageevent.h>
 
 class ChatBarCache;
+class NeoChatConnection;
 class NeoChatRoom;
 
 /**
@@ -20,6 +21,8 @@ class NeoChatRoom;
  */
 class ActionsModel : public QAbstractListModel
 {
+    Q_OBJECT
+
 public:
     /**
      * @brief Definition of an action.
@@ -97,6 +100,21 @@ public:
      */
     static std::pair<std::optional<QString>, std::optional<Quotient::RoomMessageEvent::MsgType>> handleAction(NeoChatRoom *room, ChatBarCache *chatBarCache);
 
+    static void setAllowQuickEdit(bool allow);
+
+Q_SIGNALS:
+    /**
+     * @brief Request a resource is resolved.
+     */
+    void resolveResource(const QString &idOrUri, const QString &action = {});
+
+    /**
+     * @brief Request a room Knock.
+     */
+    void knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
+
 private:
     ActionsModel() = default;
+
+    static bool m_allowQuickEdit;
 };

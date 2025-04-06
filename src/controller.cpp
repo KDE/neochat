@@ -18,6 +18,7 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
+#include "models/actionsmodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -60,6 +61,11 @@ Controller::Controller(QObject *parent)
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this] {
         NeoChatConnection::setGlobalUrlPreviewDefault(NeoChatConfig::showLinkPreview());
         Q_EMIT globalUrlPreviewDefaultChanged();
+    });
+
+    ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());
+    connect(NeoChatConfig::self(), &NeoChatConfig::AllowQuickEditChanged, this, []() {
+        ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());
     });
 
     ProxyController::instance().setApplicationProxy();
