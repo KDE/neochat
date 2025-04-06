@@ -79,7 +79,7 @@ public:
      *
      * @sa PollHandler
      */
-    PollHandler *handlerForPoll(NeoChatRoom *room, const QString &eventId);
+    Q_INVOKABLE PollHandler *handlerForPoll(NeoChatRoom *room, const QString &eventId);
 
 private:
     explicit ContentProvider(QObject *parent = nullptr);

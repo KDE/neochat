@@ -154,7 +154,7 @@ QQC2.Control {
         }
 
         QQC2.Button {
-            visible: (root.delegate?.isPoll ?? false) && !root.currentRoom.poll(root.delegate.eventId).hasEnded
+            visible: (root.delegate?.isPoll ?? false) && !ContentProvider.handlerForPoll(root.currentRoom, root.delegate.eventId).hasEnded
             text: i18n("End Poll")
             icon.name: "gtk-stop"
             display: QQC2.ToolButton.IconOnly
