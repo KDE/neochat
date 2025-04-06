@@ -114,7 +114,7 @@ public:
      * user has hidden all state events or if the sender has been ignored by the local
      * user.
      */
-    static bool isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event);
+    static bool isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event, std::function<bool(const Quotient::RoomEvent *)> filter = {});
 
     /**
      * @brief The input format of the body in the message.

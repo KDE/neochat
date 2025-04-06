@@ -27,7 +27,6 @@
 #include "events/locationbeaconevent.h"
 #include "events/pollevent.h"
 #include "events/widgetevent.h"
-#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "texthandler.h"
 #include "utils.h"
@@ -149,7 +148,7 @@ bool EventHandler::isHighlighted(const NeoChatRoom *room, const Quotient::RoomEv
     return !room->isDirectChat() && room->isEventHighlighted(event);
 }
 
-bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event)
+bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *event, std::function<bool(const Quotient::RoomEvent *)> filter)
 {
     if (room == nullptr) {
         qCWarning(EventHandling) << "isHidden called with room set to nullptr.";
@@ -160,20 +159,8 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
         return false;
     }
 
-    if (event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
+    if (filter && filter(event)) {
         return true;
-    }
-
-    if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-        if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
-            return true;
-        } else if (roomMemberEvent->isRename() && roomMemberEvent->prevContent() && roomMemberEvent->prevContent()->membership == roomMemberEvent->membership()
-                   && !NeoChatConfig::self()->showRename()) {
-            return true;
-        } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                   && !NeoChatConfig::self()->showAvatarUpdate()) {
-            return true;
-        }
     }
 
     if (event->isStateEvent() && eventCast<const StateEvent>(event)->repeatsState()) {

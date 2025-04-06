@@ -7,6 +7,7 @@
 #include "threadmodel.h"
 
 #include <Quotient/events/encryptedevent.h>
+#include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -175,7 +176,22 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             return pendingIt->deliveryStatus();
         }
 
-        if (EventHandler::isHidden(m_room, &event.value().get())) {
+        if (EventHandler::isHidden(m_room, &event.value().get(), [](const RoomEvent *event) -> bool {
+                if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
+                    return true;
+                }
+                if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+                    if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
+                        return true;
+                    } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
+                        return true;
+                    } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
+                               && !NeoChatConfig::showAvatarUpdate()) {
+                        return true;
+                    }
+                }
+                return false;
+            })) {
             return EventStatus::Hidden;
         }
 
