@@ -87,8 +87,6 @@ add_library(neochat STATIC
     jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
-    colorschemer.cpp
-    colorschemer.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     proxycontroller.cpp
@@ -319,10 +317,11 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE settingsplugin Timelineplugin devtoolsplugin loginplugin chatbarplugin)
+target_link_libraries(neochat PRIVATE Settingsplugin Timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
+    Settings
     Qt::Core
     Qt::Quick
     Qt::Qml
@@ -338,7 +337,6 @@ target_link_libraries(neochat PUBLIC
     KF6::CoreAddons
     KF6::SonnetCore
     KF6::IconThemes
-    KF6::ColorScheme
     KF6::ItemModels
     QuotientQt6
 )

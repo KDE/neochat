@@ -9,6 +9,7 @@
 ColorSchemer::ColorSchemer(QObject *parent)
     : QObject(parent)
 {
+    KColorSchemeManager::instance();
 }
 
 ColorSchemer::~ColorSchemer()

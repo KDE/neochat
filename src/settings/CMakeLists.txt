@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 # SPDX-License-Identifier: BSD-2-Clause
 
-qt_add_library(settings STATIC)
+qt_add_library(Settings STATIC)
 
 set_source_files_properties(
     RoomSettingsView.qml
@@ -10,7 +10,7 @@ set_source_files_properties(
         QT_QML_SINGLETON_TYPE TRUE
 )
 
-ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
+ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.settings
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/settings
     QML_FILES
@@ -44,4 +44,10 @@ ecm_add_qml_module(settings GENERATE_PLUGIN_SOURCE
         ExportKeysDialog.qml
         RoomSortParameterDialog.qml
         RoomProfile.qml
+    SOURCES
+        colorschemer.cpp
+)
+
+target_link_libraries(Settings PRIVATE
+    KF6::ColorScheme
 )
