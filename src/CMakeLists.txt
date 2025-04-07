@@ -12,14 +12,6 @@ add_subdirectory(libneochat)
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/emojimodel.cpp
-    models/emojimodel.h
-    emojitones.cpp
-    emojitones.h
-    models/customemojimodel.cpp
-    models/customemojimodel.h
-    clipboard.cpp
-    clipboard.h
     models/timelinemessagemodel.cpp
     models/timelinemessagemodel.h
     models/messagefiltermodel.cpp
@@ -30,12 +22,8 @@ add_library(neochat STATIC
     models/sortfilterspacelistmodel.h
     models/accountemoticonmodel.cpp
     models/accountemoticonmodel.h
-    spacehierarchycache.cpp
-    spacehierarchycache.h
     roommanager.cpp
     roommanager.h
-    neochatroom.cpp
-    neochatroom.h
     models/userlistmodel.cpp
     models/userlistmodel.h
     models/userfiltermodel.cpp
@@ -77,38 +65,26 @@ add_library(neochat STATIC
     blurhashimageprovider.h
     models/mediamessagefiltermodel.cpp
     models/mediamessagefiltermodel.h
-    urlhelper.cpp
-    urlhelper.h
     windowcontroller.cpp
     windowcontroller.h
-    linkpreviewer.cpp
-    linkpreviewer.h
     models/completionmodel.cpp
     models/completionmodel.h
     models/completionproxymodel.cpp
     models/completionproxymodel.h
-    models/actionsmodel.cpp
-    models/actionsmodel.h
     models/serverlistmodel.cpp
     models/serverlistmodel.h
     models/statemodel.cpp
     models/statemodel.h
     models/statefiltermodel.cpp
     models/statefiltermodel.h
-    filetransferpseudojob.cpp
-    filetransferpseudojob.h
     models/searchmodel.cpp
     models/searchmodel.h
-    texthandler.cpp
-    texthandler.h
     logger.cpp
     logger.h
     models/stickermodel.cpp
     models/stickermodel.h
     models/imagepacksmodel.cpp
     models/imagepacksmodel.h
-    events/imagepackevent.cpp
-    events/imagepackevent.h
     models/reactionmodel.cpp
     models/reactionmodel.h
     models/livelocationsmodel.cpp
@@ -117,39 +93,25 @@ add_library(neochat STATIC
     models/locationsmodel.h
     locationhelper.cpp
     locationhelper.h
-    events/pollevent.cpp
     pollhandler.cpp
-    utils.h
-    utils.cpp
     registration.cpp
-    neochatconnection.cpp
-    neochatconnection.h
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
-    eventhandler.cpp
     enums/delegatetype.h
-    roomlastmessageprovider.cpp
-    roomlastmessageprovider.h
-    chatbarcache.cpp
-    chatbarcache.h
     colorschemer.cpp
     colorschemer.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     models/timelinemodel.cpp
     models/timelinemodel.h
-    enums/pushrule.h
     models/itinerarymodel.cpp
     models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
     models/linemodel.cpp
     models/linemodel.h
-    events/locationbeaconevent.h
-    events/widgetevent.h
-    enums/messagecomponenttype.h
     models/messagecontentmodel.cpp
     models/messagecontentmodel.h
     enums/neochatroomtype.h
@@ -170,20 +132,14 @@ add_library(neochat STATIC
     threepidaddhelper.h
     identityserverhelper.cpp
     identityserverhelper.h
-    enums/powerlevel.cpp
-    enums/powerlevel.h
     models/permissionsmodel.cpp
     models/permissionsmodel.h
     threepidbindhelper.cpp
     threepidbindhelper.h
     models/readmarkermodel.cpp
     models/readmarkermodel.h
-    neochatroommember.cpp
-    neochatroommember.h
     models/threadmodel.cpp
     models/threadmodel.h
-    enums/messagetype.h
-    messagecomponent.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
@@ -313,6 +269,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         QtCore
         QtQuick
     IMPORTS
+        org.kde.neochat.libneochat
         org.kde.neochat.timeline
         org.kde.neochat.settings
         org.kde.neochat.devtools
@@ -361,13 +318,6 @@ ecm_qt_declare_logging_category(neochat
 )
 
 ecm_qt_declare_logging_category(neochat
-    HEADER "eventhandler_logging.h"
-    IDENTIFIER "EventHandling"
-    CATEGORY_NAME "org.kde.neochat.eventhandler"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(neochat
     HEADER "chatdocumenthandler_logging.h"
     IDENTIFIER "ChatDocumentHandling"
     CATEGORY_NAME "org.kde.neochat.chatdocumenthandler"
@@ -400,9 +350,8 @@ if(NOT ANDROID)
     else()
         target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
     endif()
-    target_link_libraries(neochat PUBLIC KF6::WindowSystem ICU::uc)
+    target_link_libraries(neochat PUBLIC KF6::WindowSystem)
     target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
-    target_compile_definitions(neochat PUBLIC -DHAVE_ICU)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT HAIKU)
@@ -439,9 +388,6 @@ target_link_libraries(neochat PUBLIC
     KF6::ColorScheme
     KF6::ItemModels
     QuotientQt6
-    cmark::cmark
-    QCoro::Core
-    QCoro::Network
 )
 
 if (TARGET KF6::Crash)

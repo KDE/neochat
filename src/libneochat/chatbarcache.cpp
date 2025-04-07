@@ -5,7 +5,6 @@
 
 #include <Quotient/roommember.h>
 
-#include "contentprovider.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
 #include "neochatroom.h"
@@ -88,7 +87,6 @@ void ChatBarCache::setReplyId(const QString &replyId)
         m_relationType = Reply;
     }
     m_attachmentPath = QString();
-    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
@@ -118,7 +116,6 @@ void ChatBarCache::setEditId(const QString &editId)
         m_relationType = Edit;
     }
     m_attachmentPath = QString();
-    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT attachmentPathChanged();
 }
@@ -196,7 +193,6 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
 #if (Quotient_VERSION_MINOR < 10 && Quotient_VERSION_PATCH < 3) || Quotient_VERSION_MINOR < 9
     m_relationType = None;
     const auto oldEventId = std::exchange(m_relationId, QString());
-    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
 #endif
 }
@@ -206,7 +202,6 @@ void ChatBarCache::clearRelations()
     const auto oldEventId = std::exchange(m_relationId, QString());
     const auto oldThreadId = std::exchange(m_threadId, QString());
     m_attachmentPath = QString();
-    delete m_relationContentModel;
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
     Q_EMIT threadIdChanged(oldThreadId, m_threadId);
     Q_EMIT attachmentPathChanged();

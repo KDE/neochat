@@ -7,7 +7,7 @@
 
 #include <KLazyLocalizedString>
 
-#include "powerlevel.h"
+#include "enums/powerlevel.h"
 
 using namespace Qt::Literals::StringLiterals;
 

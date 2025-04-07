@@ -8,13 +8,10 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
-#include "models/messagecontentmodel.h"
-
 namespace Quotient
 {
 class RoomMember;
 }
-
 
 /**
  * @brief Defines a user mention in the current chat or edit text.
@@ -209,8 +206,6 @@ private:
     QString m_attachmentPath = QString();
     QList<Mention> m_mentions;
     QString m_savedText;
-
-    QPointer<MessageContentModel> m_relationContentModel;
 
     void clearCache();
 };

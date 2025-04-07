@@ -10,8 +10,8 @@
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
+#include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
-#include "messagecomponenttype.h"
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
 

@@ -3,8 +3,8 @@
 
 #include "messagecontentmodel.h"
 #include "contentprovider.h"
+#include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
-#include "messagecomponenttype.h"
 #include "neochatconfig.h"
 
 #include <QImageReader>

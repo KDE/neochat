@@ -12,6 +12,7 @@
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/eventrelation.h>
 #include <Quotient/events/roommessageevent.h>
+#include <Quotient/events/stickerevent.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qcoro/qcorosignal.h>

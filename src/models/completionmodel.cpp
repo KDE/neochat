@@ -4,10 +4,10 @@
 #include "completionmodel.h"
 #include <QDebug>
 
-#include "actionsmodel.h"
 #include "completionproxymodel.h"
-#include "customemojimodel.h"
-#include "emojimodel.h"
+#include "models/actionsmodel.h"
+#include "models/customemojimodel.h"
+#include "models/emojimodel.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "userlistmodel.h"
