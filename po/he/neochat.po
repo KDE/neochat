@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-04-03 21:31+0300\n"
+"PO-Revision-Date: 2025-04-07 08:43+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -852,7 +852,7 @@ msgstr ""
 #: src/eventhandler.cpp:600
 #, kde-format
 msgid "%1 left the room"
-msgstr ""
+msgstr "%1 עזב/ה את החדר"
 
 #: src/eventhandler.cpp:603
 #, kde-format
@@ -862,47 +862,47 @@ msgstr ""
 #: src/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
-msgstr ""
+msgstr "הופעלה חסימה עצמית מצד %1"
 
 #: src/eventhandler.cpp:608
 #, kde-format
 msgid "%1 requested an invite"
-msgstr ""
+msgstr "התקבלה בקשה להזמנה מאת %1"
 
 #: src/eventhandler.cpp:612
 #, kde-format
 msgid "%1 made something unknown"
-msgstr ""
+msgstr "בוצע משהו לא ידוע על ידי %1"
 
 #: src/eventhandler.cpp:615
 #, kde-format
 msgid "%1 cleared the room main alias"
-msgstr ""
+msgstr "הכינוי הראשי של החדר נמחק על ידי %1"
 
 #: src/eventhandler.cpp:615
 #, kde-format
 msgid "%1 set the room main alias"
-msgstr ""
+msgstr "הכינוי הראשי של החדר הוגדר על ידי %1"
 
 #: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room name"
-msgstr ""
+msgstr "שם החדר נמחק על ידי %1"
 
 #: src/eventhandler.cpp:618
 #, kde-format
 msgid "%1 set the room name"
-msgstr ""
+msgstr "שם החדר הוגדר על ידי %1"
 
 #: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the topic"
-msgstr ""
+msgstr "הנושא נמחק על ידי %1"
 
 #: src/eventhandler.cpp:621
 #, kde-format
 msgid "%1 set the topic"
-msgstr ""
+msgstr "הנושא הוגדר על ידי %1"
 
 #: src/eventhandler.cpp:624
 #, kde-format
@@ -969,25 +969,25 @@ msgstr "נפתח סקר על ידי %1"
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr ""
+msgstr "הורדה"
 
 #: src/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr ""
+msgstr "העלאה"
 
 #: src/filetransferpseudojob.cpp:59
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr ""
+msgstr "מקור"
 
 #: src/filetransferpseudojob.cpp:60
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr ""
+msgstr "יעד"
 
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
@@ -1015,12 +1015,14 @@ msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
 msgstr ""
+"נשלחה הודעת אימות לכתובת הדוא״ל שלך. נא להמשיך כאן <b>לאחר</b> לחיצה על "
+"קישור האימות בהודעה"
 
 #: src/login/Email.qml:40
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
-msgstr ""
+msgstr "שליחת הודעות אישור בדוא״ל מחדש"
 
 #: src/login/Homeserver.qml:21
 #, kde-format
@@ -1030,7 +1032,7 @@ msgstr "כתובת שרת:"
 #: src/login/Homeserver.qml:26
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "הרישום לשרת הזה מושבת."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
 #: src/models/messagecontentmodel.cpp:262
@@ -1044,7 +1046,7 @@ msgstr "בטעינה"
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
-msgstr ""
+msgstr "נא להמתין בזמן שההודעות שלך נטענות מהשרת. זה עלול לארוך זמן מה."
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1212,7 +1214,7 @@ msgstr "שיחה ב־Matrix"
 #: src/main.cpp:147
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgstr ""
+msgstr "© 2018‏-2020 כובע שחור, 2020‏-2024 קהילת KDE"
 
 #: src/main.cpp:148
 #, kde-format
@@ -1274,7 +1276,7 @@ msgstr "kde-l10n-he@kde.org"
 #: src/main.cpp:162
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr ""
+msgstr "ספריית Qt ליצירת לקוחות חוצי פלטפורמות ל־Matrix"
 
 #: src/main.cpp:164
 #, kde-format
@@ -1285,7 +1287,7 @@ msgstr "%1 (נבנה כנגד %2)"
 #: src/main.cpp:191
 #, kde-format
 msgid "Client for the matrix communication protocol"
-msgstr ""
+msgstr "לקוח לפרוטוקול התקשורת matrix"
 
 #: src/main.cpp:192
 #, kde-format
@@ -1315,20 +1317,20 @@ msgstr "שיתוף כתובת ל־Matrix"
 #: src/models/actionsmodel.cpp:30
 #, kde-format
 msgid "Leaving this room."
-msgstr ""
+msgstr "עזיבת החדר הזה."
 
 #: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:224
 #: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:278
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "‚%1’ לא נראה כמו מזהה או כינוי של חדר."
 
 #: src/models/actionsmodel.cpp:45
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr ""
+msgstr "עזיבת החדר %1."
 
 #: src/models/actionsmodel.cpp:48
 #, kde-format
@@ -1351,11 +1353,11 @@ msgstr "<הודעה>"
 
 #: src/models/actionsmodel.cpp:71
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr ""
+msgstr "הוספת ‎¯\\_(ツ)_/¯‎ לתחילת הודעת טקסט פשוטה"
 
 #: src/models/actionsmodel.cpp:80
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr ""
+msgstr "הוספת ‭( ͡° ͜ʖ ͡°)‬ לתחילת הודעת טקסט פשוטה"
 
 #: src/models/actionsmodel.cpp:89
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
@@ -1433,7 +1435,7 @@ msgstr "<מזהה משתמש>"
 
 #: src/models/actionsmodel.cpp:215
 msgid "Invites the user to this room"
-msgstr ""
+msgstr "הזמנת המשתמש לחדר הזה"
 
 #: src/models/actionsmodel.cpp:232 src/models/actionsmodel.cpp:285
 #, kde-format
@@ -1443,7 +1445,7 @@ msgstr ""
 
 #: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<כינוי או מזהה חדר>"
 
 #: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
 msgid "Joins the given room"
@@ -1453,11 +1455,11 @@ msgstr ""
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr ""
+msgstr "נקישה על החדר %1."
 
 #: src/models/actionsmodel.cpp:268
 msgid "<room alias or id> [<reason>]"
-msgstr ""
+msgstr "<כינוי או מזהה חדר> [<סיבה>]"
 
 #: src/models/actionsmodel.cpp:269
 msgid "Requests to join the given room"
@@ -1467,11 +1469,11 @@ msgstr ""
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "כבר הצטרפת לחדר %1."
 
 #: src/models/actionsmodel.cpp:297 src/models/actionsmodel.cpp:304
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<כינוי או מזהה חדר>]"
 
 #: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
 msgid "Leaves the given room or this room, if there is none given"
@@ -1484,11 +1486,11 @@ msgstr "<שם תצוגה>"
 
 #: src/models/actionsmodel.cpp:319
 msgid "Changes your global display name"
-msgstr ""
+msgstr "החלפת שם התצוגה הכולל שלך."
 
 #: src/models/actionsmodel.cpp:326 src/models/actionsmodel.cpp:333
 msgid "Changes your display name in this room"
-msgstr ""
+msgstr "החלפת שם התצוגה שלך בחדר הזה"
 
 #: src/models/actionsmodel.cpp:345
 #, kde-format
@@ -1504,23 +1506,23 @@ msgstr ""
 
 #: src/models/actionsmodel.cpp:355
 msgid "Ignores the given user"
-msgstr ""
+msgstr "התעלמות ממשתמש מסוים"
 
 #: src/models/actionsmodel.cpp:367
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "לא הופעלה התעלמות כנגד %1."
 
 #: src/models/actionsmodel.cpp:371
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "לא מופעלת יותר התעלמות כנגד %1."
 
 #: src/models/actionsmodel.cpp:376
 msgid "Unignores the given user"
-msgstr ""
+msgstr "ביטול התעלמות ממשתמש מסוים"
 
 #: src/models/actionsmodel.cpp:394
 msgid "<reaction text>"
@@ -1534,18 +1536,18 @@ msgstr "להגיב להודעה עם הטקסט הנבחר"
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr ""
+msgstr "כבר הופעלה חסימה נגד %1 בחדר הזה."
 
 #: src/models/actionsmodel.cpp:418
 #, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr ""
+msgstr "אסור לך לחסום גישה של משתמשים לחדר הזה."
 
 #: src/models/actionsmodel.cpp:424
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr ""
+msgstr "אסור לך לחסום את הגישה של %1 לחדר הזה."
 
 #: src/models/actionsmodel.cpp:428
 #, kde-format
@@ -1555,22 +1557,22 @@ msgstr ""
 
 #: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
 msgid "<user id> [<reason>]"
-msgstr ""
+msgstr "<מזהה משתמש> [<סיבה>]"
 
 #: src/models/actionsmodel.cpp:433
 msgid "Bans the given user"
-msgstr ""
+msgstr "חסימת משתמש מסוים"
 
 #: src/models/actionsmodel.cpp:449
 #, kde-format
 msgid "You are not allowed to unban users from this room."
-msgstr ""
+msgstr "אסור לך לבטל חסימה כנגד משתמשים מהחדר הזה."
 
 #: src/models/actionsmodel.cpp:454
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr ""
+msgstr "אין חסימה כנגד %1 מהחדר הזה."
 
 #: src/models/actionsmodel.cpp:458
 #, kde-format
@@ -2029,13 +2031,13 @@ msgstr "לפתוח את ההזמנה הזאת ב־NeoChat"
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
-msgstr ""
+msgstr "קבלה"
 
 #: src/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
-msgstr ""
+msgstr "דחייה"
 
 #: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
 #, kde-format
@@ -2208,6 +2210,10 @@ msgid ""
 "Your Matrix ID will not be available for new accounts.\n"
 "Your messages will stay available."
 msgstr ""
+"החשבון שלך יושבת לחלוטין.\n"
+"זאת פעולה בלתי הפיכה.\n"
+"מזהה ה־Matrix שלך לא יהיה זמין לחשבונות חדשים.\n"
+"ההודעות שלך יישארו זמינים."
 
 #: src/qml/ConfirmDeactivateAccountDialog.qml:25
 #, kde-format
@@ -2242,7 +2248,7 @@ msgstr "הפעלת הצפנה"
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
+msgstr "לא ניתן להשבית את ההצפנה לאחר הפעלתה."
 
 #: src/qml/ConfirmEncryptionDialog.qml:28
 #, kde-format
@@ -3794,13 +3800,13 @@ msgstr "הסרה"
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
-msgstr ""
+msgstr "לא להפוך למוצע"
 
 #: src/qml/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
-msgstr ""
+msgstr "להפוך למוצע"
 
 #: src/qml/SpaceHomePage.qml:50
 #, kde-format
