@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-06 00:42+0000\n"
+"POT-Creation-Date: 2025-04-08 00:41+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -101,7 +101,7 @@ msgstr "Vlastné"
 msgid "Stickers"
 msgstr ""
 
-#: src/controller.cpp:143
+#: src/controller.cpp:149
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt ""
@@ -110,33 +110,33 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Zobraziť upozornenia"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:267
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:265
+#: src/controller.cpp:271
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Prosím, povoľte NeoChatu čítať prístupový token"
 
-#: src/controller.cpp:268
+#: src/controller.cpp:274
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:271
+#: src/controller.cpp:277
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Nepodarilo sa prečítať prístupový token"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:376
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
@@ -396,41 +396,6 @@ msgstr "Nízka priorita"
 msgid "Spaces"
 msgstr "Medzery"
 
-#: src/enums/powerlevel.cpp:10
-#, kde-format
-msgid "Member"
-msgstr "Člen"
-
-#: src/enums/powerlevel.cpp:12
-#, kde-format
-msgid "Moderator"
-msgstr ""
-
-#: src/enums/powerlevel.cpp:14
-#, kde-format
-msgid "Admin"
-msgstr "Administrátor"
-
-#: src/enums/powerlevel.cpp:16
-#, kde-format
-msgid "Mute"
-msgstr "Stlmiť"
-
-#: src/enums/powerlevel.cpp:18
-#, kde-format
-msgid "Custom"
-msgstr "Vlastné"
-
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
-msgctxt ""
-"%1 is the name of the power level, e.g. admin and %2 is the value that "
-"represents."
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
 #: src/enums/roomsortparameter.h:52
 #, fuzzy, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -520,374 +485,409 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
-#: src/eventhandler.cpp:293 src/eventhandler.cpp:509
+#: src/libneochat/enums/powerlevel.cpp:10
+#, kde-format
+msgid "Member"
+msgstr "Člen"
+
+#: src/libneochat/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr ""
+
+#: src/libneochat/enums/powerlevel.cpp:14
+#, kde-format
+msgid "Admin"
+msgstr "Administrátor"
+
+#: src/libneochat/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr "Stlmiť"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Vlastné"
+
+#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
+#: src/models/userlistmodel.cpp:113
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Táto správa bola odstránená]</i>"
 
-#: src/eventhandler.cpp:293
+#: src/libneochat/eventhandler.cpp:280
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Táto správa bola odstránená: %1]</i>"
 
-#: src/eventhandler.cpp:327
+#: src/libneochat/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "znovu pozval %1 do miestnosti"
 
-#: src/eventhandler.cpp:329
+#: src/libneochat/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:338
+#: src/libneochat/eventhandler.cpp:325
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "vstúpil(a) do miestnosti (opakovane)"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "pozval(a) %1 do miestnosti"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "joined the room"
 msgstr "vstúpil(a) do miestnosti"
 
-#: src/eventhandler.cpp:344
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:338
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/eventhandler.cpp:354
+#: src/libneochat/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/eventhandler.cpp:360
+#: src/libneochat/eventhandler.cpp:347
 #, kde-format
 msgid " and "
 msgstr " a "
 
-#: src/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:350
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "vymazali svojho avatara"
 
-#: src/eventhandler.cpp:365
+#: src/libneochat/eventhandler.cpp:352
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavil(a) avatar"
 
-#: src/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "aktualizovali avatara"
 
-#: src/eventhandler.cpp:371
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nič nezmenil(a)"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "stiahol(a) pozvanie %1"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "rejected the invitation"
 msgstr "odmietol(a) pozvanie"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "zrušený zákaz prístupu %1"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "self-unbanned"
 msgstr ""
 
-#: src/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:371
 #, kde-format
 msgid "left the room"
 msgstr "opustil(a) miestnosť"
 
-#: src/eventhandler.cpp:387
+#: src/libneochat/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "odstránil(a) %1 z miestnosti: %2"
 
-#: src/eventhandler.cpp:389
+#: src/libneochat/eventhandler.cpp:376
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "has put %1 out of the room"
 msgstr "odstránil(a) %1 z miestnosti: %2"
 
-#: src/eventhandler.cpp:393
+#: src/libneochat/eventhandler.cpp:380
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "banned %1 from the room"
 msgstr "vykázal(a) %1 z miestnosti: %2"
 
-#: src/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "vykázal(a) %1 z miestnosti: %2"
 
-#: src/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "requested an invite"
 msgstr "odmietol(a) pozvanie"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "requested an invite with reason: %1"
 msgstr "odmietol(a) pozvanie"
 
-#: src/eventhandler.cpp:406
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "made something unknown"
 msgstr "urobil(a) niečo neznáme"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "vyčistil hlavný alias miestnosti"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastaviť hlavný alias miestnosti na: %1"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "cleared the room name"
 msgstr "vyčistil názov miestnosti"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "nastavil názov miestnosti na: %1"
 
-#: src/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:402
 #, kde-format
 msgid "cleared the topic"
 msgstr "vyčistil(a) tému"
 
-#: src/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "nastavil(a) tému na: %1"
 
-#: src/eventhandler.cpp:422
+#: src/libneochat/eventhandler.cpp:409
 #, kde-format
 msgid "changed the room avatar"
 msgstr "zmenil(a) avatara miestnosti"
 
-#: src/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:412
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktivoval(a) End-to-End šifrovanie"
 
-#: src/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "Aktualizoval(a) miestnosť na verziu %1"
 
-#: src/eventhandler.cpp:430
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "vytvoril(a) miestnosť, verzia %1"
 
-#: src/eventhandler.cpp:433
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:426
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:443
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/eventhandler.cpp:446
+#: src/libneochat/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/eventhandler.cpp:451
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "aktualizoval(a) %1 stav"
 
-#: src/eventhandler.cpp:452
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "aktualizoval(a) %1 stav pre %2"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:656
+#: src/libneochat/eventhandler.cpp:444 src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznáma udalosť"
 
-#: src/eventhandler.cpp:472
+#: src/libneochat/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "súbor"
 
-#: src/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:505
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "%1 sent a message"
 msgstr "Odoslať správu"
 
-#: src/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:508
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgid "%1 sent a sticker"
 msgstr "Odoslať nálepku"
 
-#: src/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:514
 #, fuzzy, kde-format
 #| msgid "reinvited someone to the room"
 msgid "%1 reinvited someone to the room"
 msgstr "znovu pozval(a) niekoho do miestnosti"
 
-#: src/eventhandler.cpp:533
+#: src/libneochat/eventhandler.cpp:520
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgid "%1 joined the room (repeated)"
 msgstr "vstúpil(a) do miestnosti (opakovane)"
 
-#: src/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:522
 #, fuzzy, kde-format
 #| msgid "invited someone to the room"
 msgid "%1 invited someone to the room"
 msgstr "pozval(a) niekoho do miestnosti"
 
-#: src/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:523
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgid "%1 joined the room"
 msgstr "vstúpil(a) do miestnosti"
 
-#: src/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:549
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:551
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "aktualizovali avatara"
 
-#: src/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:553
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "vymazali svojho avatara"
 
-#: src/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:555
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 set a display name for this room"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:558
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and set an avatar"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:560
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:562
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:564
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name"
 msgid "%1 changed their display name"
 msgstr "zmenili svoje zobrazované meno"
 
-#: src/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:567
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:569
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:571
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:573
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:576
 #, fuzzy, kde-format
 #| msgctxt "<user> changed nothing"
 #| msgid "changed nothing"
@@ -895,172 +895,172 @@ msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "nič nezmenil(a)"
 
-#: src/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:580
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 withdrew a user's invitation"
 msgstr "stiahol pozvanie %1"
 
-#: src/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:581
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "%1 rejected the invitation"
 msgstr "odmietol(a) pozvanie"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "%1 unbanned a user"
 msgstr "zrušený zákaz prístupu %1"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr ""
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, fuzzy, kde-format
 #| msgid "put a user out of the room"
 msgid "%1 put a user out of the room"
 msgstr "odstránil(a) používateľa z miestnosti"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 left the room"
 msgstr "opustil(a) miestnosť"
 
-#: src/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:590
 #, fuzzy, kde-format
 #| msgid "banned a user from the room"
 msgid "%1 banned a user from the room"
 msgstr "vykázala používateľa z miesnosti"
 
-#: src/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:592
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "%1 self-banned from the room"
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/eventhandler.cpp:608
+#: src/libneochat/eventhandler.cpp:595
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "%1 requested an invite"
 msgstr "odmietol(a) pozvanie"
 
-#: src/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:599
 #, fuzzy, kde-format
 #| msgid "made something unknown"
 msgid "%1 made something unknown"
 msgstr "urobil(a) niečo neznáme"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, fuzzy, kde-format
 #| msgid "cleared the room main alias"
 msgid "%1 cleared the room main alias"
 msgstr "vyčistil hlavný alias miestnosti"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, fuzzy, kde-format
 #| msgid "set the room main alias to: %1"
 msgid "%1 set the room main alias"
 msgstr "nastaviť hlavný alias miestnosti na: %1"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "%1 cleared the room name"
 msgstr "vyčistil názov miestnosti"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, fuzzy, kde-format
 #| msgid "set the room name"
 msgid "%1 set the room name"
 msgstr "nastaviť názov miestnosti"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, fuzzy, kde-format
 #| msgid "cleared the topic"
 msgid "%1 cleared the topic"
 msgstr "vyčistil(a) tému"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, fuzzy, kde-format
 #| msgid "set the topic"
 msgid "%1 set the topic"
 msgstr "nastaviť tému"
 
-#: src/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:611
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "%1 changed the room avatar"
 msgstr "zmenil(a) avatara miestnosti"
 
-#: src/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:614
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgid "%1 activated End-to-End Encryption"
 msgstr "aktivoval(a) End-to-End šifrovanie"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, fuzzy, kde-format
 #| msgid "upgraded the room to version %1"
 msgid "%1 upgraded the room version"
 msgstr "Aktualizoval miestnosť na verziu %1"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, fuzzy, kde-format
 #| msgid "created the room"
 msgid "%1 created the room"
 msgstr "vytvoril(a) miestnosť"
 
-#: src/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:620
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
 
-#: src/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 
-#: src/eventhandler.cpp:643
+#: src/libneochat/eventhandler.cpp:630
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 added a widget"
 msgstr "Upraviť správu"
 
-#: src/eventhandler.cpp:646
+#: src/libneochat/eventhandler.cpp:633
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 removed a widget"
 msgstr "Upraviť správu"
 
-#: src/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:635
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 configured a widget"
 msgstr "Upraviť správu"
 
-#: src/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:638
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "%1 updated the state"
 msgstr "aktualizoval %1 stav"
 
-#: src/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 started a poll"
 msgstr ""
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to download its file"
@@ -1069,25 +1069,520 @@ msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
 msgstr "Sťahovanie"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
 msgstr "Odosielam %1..."
 
-#: src/filetransferpseudojob.cpp:59
+#: src/libneochat/filetransferpseudojob.cpp:59
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
 msgstr "Zdroj"
 
-#: src/filetransferpseudojob.cpp:60
+#: src/libneochat/filetransferpseudojob.cpp:60
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Cieľ"
+
+#: src/libneochat/models/actionsmodel.cpp:30
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "Leaving this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:224
+#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:278
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:45
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "Opúšťam miestnosť %1."
+
+#: src/libneochat/models/actionsmodel.cpp:48
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "Miestnosť %1 sa nenašla."
+
+#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:311
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:70
+#: src/libneochat/models/actionsmodel.cpp:79
+#: src/libneochat/models/actionsmodel.cpp:88
+#: src/libneochat/models/actionsmodel.cpp:97
+#: src/libneochat/models/actionsmodel.cpp:115
+#: src/libneochat/models/actionsmodel.cpp:133
+#: src/libneochat/models/actionsmodel.cpp:147
+#: src/libneochat/models/actionsmodel.cpp:161
+#: src/libneochat/models/actionsmodel.cpp:170
+#: src/libneochat/models/actionsmodel.cpp:179
+#, fuzzy
+#| msgid "Send message"
+msgid "<message>"
+msgstr "Odoslať správu"
+
+#: src/libneochat/models/actionsmodel.cpp:71
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "Pridá ¯\\_(ツ)_/¯ na začiatok textovej správy"
+
+#: src/libneochat/models/actionsmodel.cpp:80
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
+
+#: src/libneochat/models/actionsmodel.cpp:89
+#, fuzzy
+#| msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
+
+#: src/libneochat/models/actionsmodel.cpp:98
+#, fuzzy
+#| msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
+
+#: src/libneochat/models/actionsmodel.cpp:116
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given message colored as a rainbow"
+msgstr "Odošle danú správu zafarebnú ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:134
+#, fuzzy
+#| msgid "Sends the given emote coloured as a rainbow"
+msgid "Sends the given emote colored as a rainbow"
+msgstr "Odošle daný emotikon zafarbený ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:148
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given message as plain text"
+msgstr "Odošle danú správu zafarebnú ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:162
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given message as a spoiler"
+msgstr "Odošle danú správu zafarebnú ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:171
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given emote"
+msgstr "Odošle danú správu zafarebnú ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:180
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given message as a notice"
+msgstr "Odošle danú správu zafarebnú ako dúha"
+
+#: src/libneochat/models/actionsmodel.cpp:188
+#: src/libneochat/models/actionsmodel.cpp:341
+#: src/libneochat/models/actionsmodel.cpp:363
+#: src/libneochat/models/actionsmodel.cpp:404
+#: src/libneochat/models/actionsmodel.cpp:441
+#: src/libneochat/models/actionsmodel.cpp:474
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:194
+#, fuzzy, kde-format
+#| msgid "reinvited %1 to the room"
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "znovu pozval %1 do miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:198
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:202
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "You are already in this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:206
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:210
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
+msgstr "pozval %1 do miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:214
+#: src/libneochat/models/actionsmodel.cpp:354
+#: src/libneochat/models/actionsmodel.cpp:375
+#: src/libneochat/models/actionsmodel.cpp:463
+#, fuzzy
+#| msgctxt "@label Parameter of a command"
+#| msgid "<user-id>"
+msgid "<user id>"
+msgstr "<user-id>"
+
+#: src/libneochat/models/actionsmodel.cpp:215
+#, fuzzy
+#| msgid "invited %1 to the room"
+msgid "Invites the user to this room"
+msgstr "pozval %1 do miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:232
+#: src/libneochat/models/actionsmodel.cpp:285
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "Vstupujem do miestnosti %1."
+
+#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:290
+msgid "<room alias or id>"
+msgstr "<alias miestnosti alebo jej id>"
+
+#: src/libneochat/models/actionsmodel.cpp:238
+#: src/libneochat/models/actionsmodel.cpp:291
+msgid "Joins the given room"
+msgstr "Vstúpi do danej miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:257
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "Nastaviť miestnosť"
+
+#: src/libneochat/models/actionsmodel.cpp:268
+#, fuzzy
+#| msgctxt "@label Parameter of a command"
+#| msgid "<user-id>"
+msgid "<room alias or id> [<reason>]"
+msgstr "<user-id>"
+
+#: src/libneochat/models/actionsmodel.cpp:269
+#, fuzzy
+#| msgid "joined the room"
+msgid "Requests to join the given room"
+msgstr "sa pripojil k miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:282
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:297
+#: src/libneochat/models/actionsmodel.cpp:304
+msgid "[<room alias or id>]"
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:298
+#: src/libneochat/models/actionsmodel.cpp:305
+msgid "Leaves the given room or this room, if there is none given"
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:325
+#: src/libneochat/models/actionsmodel.cpp:332
+msgid "<display name>"
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:319
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "zmenili svoje zobrazované meno na %1"
+
+#: src/libneochat/models/actionsmodel.cpp:326
+#: src/libneochat/models/actionsmodel.cpp:333
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "zmenili svoje zobrazované meno na %1"
+
+#: src/libneochat/models/actionsmodel.cpp:345
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:349
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:355
+#, fuzzy
+#| msgid "Ignore this user"
+msgid "Ignores the given user"
+msgstr "Ignorovať tohto používateľa"
+
+#: src/libneochat/models/actionsmodel.cpp:367
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:371
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:376
+#, fuzzy
+#| msgid "Unignore this user"
+msgid "Unignores the given user"
+msgstr "Prestať ignorovať tohto požívateľa"
+
+#: src/libneochat/models/actionsmodel.cpp:394
+msgid "<reaction text>"
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:395
+#, fuzzy
+#| msgid "React to this message with a text"
+msgid "React to the message with the given text"
+msgstr "Reagovať na túto správu textom"
+
+#: src/libneochat/models/actionsmodel.cpp:410
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:418
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "You are not allowed to ban users from this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:424
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:428
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:432
+#: src/libneochat/models/actionsmodel.cpp:505
+#, fuzzy
+#| msgctxt "@label Parameter of a command"
+#| msgid "<user-id>"
+msgid "<user id> [<reason>]"
+msgstr "<user-id>"
+
+#: src/libneochat/models/actionsmodel.cpp:433
+#, fuzzy
+#| msgid "Ignore this user"
+msgid "Bans the given user"
+msgstr "Ignorovať tohto používateľa"
+
+#: src/libneochat/models/actionsmodel.cpp:449
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "You are not allowed to unban users from this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:454
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:458
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:464
+#, fuzzy
+#| msgid "Ignore this user"
+msgid "Removes the ban of the given user"
+msgstr "Ignorovať tohto používateľa"
+
+#: src/libneochat/models/actionsmodel.cpp:478
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr ""
+
+#: src/libneochat/models/actionsmodel.cpp:482
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:491
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "You are not allowed to kick users from this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:497
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/libneochat/models/actionsmodel.cpp:501
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "zakázal %1 z miestnosti: %2"
+
+#: src/libneochat/models/actionsmodel.cpp:506
+#, fuzzy
+#| msgid "invited %1 to the room"
+msgid "Removes the user from the room"
+msgstr "pozval %1 do miestnosti"
+
+#: src/libneochat/models/emojimodel.cpp:157
+#: src/libneochat/models/emojimodel.cpp:215
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "História"
+
+#: src/libneochat/models/emojimodel.cpp:162
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr ""
+
+#: src/libneochat/models/emojimodel.cpp:167
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "Ľudia"
+
+#: src/libneochat/models/emojimodel.cpp:172
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "Príroda"
+
+#: src/libneochat/models/emojimodel.cpp:177
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "Jedlo"
+
+#: src/libneochat/models/emojimodel.cpp:182
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "Aktivity"
+
+#: src/libneochat/models/emojimodel.cpp:187
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "Cestovanie"
+
+#: src/libneochat/models/emojimodel.cpp:192
+#, kde-format
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Objekty"
+
+#: src/libneochat/models/emojimodel.cpp:197
+#, fuzzy, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "Symboly"
+
+#: src/libneochat/models/emojimodel.cpp:202
+#, fuzzy, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr "Vlajky"
+
+#: src/libneochat/models/emojimodel.cpp:221
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Vlastné"
+
+#: src/libneochat/neochatconnection.cpp:76
+#, kde-format
+msgid ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
+msgstr ""
+
+#: src/libneochat/neochatconnection.cpp:319
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr ""
+
+#: src/libneochat/neochatconnection.cpp:350
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Room creation failed: %1"
+msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
+
+#: src/libneochat/neochatconnection.cpp:380
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Space creation failed: %1"
+msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
+
+#: src/libneochat/neochatroom.cpp:1216
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgid "Report sent successfully."
+msgstr "Heslo úspešne zmenené"
+
+#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#, kde-format
+msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+msgid "Lat: %1, Lon: %2"
+msgstr ""
 
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
@@ -1429,442 +1924,6 @@ msgstr ""
 msgid "Share a URL to Matrix"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:30
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "Leaving this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:224
-#: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:45
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "Opúšťam miestnosť %1."
-
-#: src/models/actionsmodel.cpp:48
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "Miestnosť %1 sa nenašla."
-
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:311
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
-#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
-#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:161
-#: src/models/actionsmodel.cpp:170 src/models/actionsmodel.cpp:179
-#, fuzzy
-#| msgid "Send message"
-msgid "<message>"
-msgstr "Odoslať správu"
-
-#: src/models/actionsmodel.cpp:71
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Pridá ¯\\_(ツ)_/¯ na začiatok textovej správy"
-
-#: src/models/actionsmodel.cpp:80
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
-
-#: src/models/actionsmodel.cpp:89
-#, fuzzy
-#| msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
-
-#: src/models/actionsmodel.cpp:98
-#, fuzzy
-#| msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Pridá ( ͡° ͜ʖ ͡°) na začiatok textovej správy"
-
-#: src/models/actionsmodel.cpp:116
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
-msgid "Sends the given message colored as a rainbow"
-msgstr "Odošle danú správu zafarebnú ako dúha"
-
-#: src/models/actionsmodel.cpp:134
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
-msgid "Sends the given emote colored as a rainbow"
-msgstr "Odošle daný emotikon zafarbený ako dúha"
-
-#: src/models/actionsmodel.cpp:148
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
-msgid "Sends the given message as plain text"
-msgstr "Odošle danú správu zafarebnú ako dúha"
-
-#: src/models/actionsmodel.cpp:162
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
-msgid "Sends the given message as a spoiler"
-msgstr "Odošle danú správu zafarebnú ako dúha"
-
-#: src/models/actionsmodel.cpp:171
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
-msgid "Sends the given emote"
-msgstr "Odošle danú správu zafarebnú ako dúha"
-
-#: src/models/actionsmodel.cpp:180
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
-msgid "Sends the given message as a notice"
-msgstr "Odošle danú správu zafarebnú ako dúha"
-
-#: src/models/actionsmodel.cpp:188 src/models/actionsmodel.cpp:341
-#: src/models/actionsmodel.cpp:363 src/models/actionsmodel.cpp:404
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:474
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:194
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "znovu pozval %1 do miestnosti"
-
-#: src/models/actionsmodel.cpp:198
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:202
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "You are already in this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:206
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:210
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
-msgctxt "<username> was invited into this room."
-msgid "%1 was invited into this room."
-msgstr "pozval %1 do miestnosti"
-
-#: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
-msgid "<user id>"
-msgstr "<user-id>"
-
-#: src/models/actionsmodel.cpp:215
-#, fuzzy
-#| msgid "invited %1 to the room"
-msgid "Invites the user to this room"
-msgstr "pozval %1 do miestnosti"
-
-#: src/models/actionsmodel.cpp:232 src/models/actionsmodel.cpp:285
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "Vstupujem do miestnosti %1."
-
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
-msgid "<room alias or id>"
-msgstr "<alias miestnosti alebo jej id>"
-
-#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
-msgid "Joins the given room"
-msgstr "Vstúpi do danej miestnosti"
-
-#: src/models/actionsmodel.cpp:257
-#, fuzzy, kde-format
-#| msgid "Configure room"
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr "Nastaviť miestnosť"
-
-#: src/models/actionsmodel.cpp:268
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
-msgid "<room alias or id> [<reason>]"
-msgstr "<user-id>"
-
-#: src/models/actionsmodel.cpp:269
-#, fuzzy
-#| msgid "joined the room"
-msgid "Requests to join the given room"
-msgstr "sa pripojil k miestnosti"
-
-#: src/models/actionsmodel.cpp:282
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:297 src/models/actionsmodel.cpp:304
-msgid "[<room alias or id>]"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
-msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:318 src/models/actionsmodel.cpp:325
-#: src/models/actionsmodel.cpp:332
-msgid "<display name>"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:319
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
-msgid "Changes your global display name"
-msgstr "zmenili svoje zobrazované meno na %1"
-
-#: src/models/actionsmodel.cpp:326 src/models/actionsmodel.cpp:333
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
-msgid "Changes your display name in this room"
-msgstr "zmenili svoje zobrazované meno na %1"
-
-#: src/models/actionsmodel.cpp:345
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:349
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:355
-#, fuzzy
-#| msgid "Ignore this user"
-msgid "Ignores the given user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/models/actionsmodel.cpp:367
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:371
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:376
-#, fuzzy
-#| msgid "Unignore this user"
-msgid "Unignores the given user"
-msgstr "Prestať ignorovať tohto požívateľa"
-
-#: src/models/actionsmodel.cpp:394
-msgid "<reaction text>"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:395
-#, fuzzy
-#| msgid "React to this message with a text"
-msgid "React to the message with the given text"
-msgstr "Reagovať na túto správu textom"
-
-#: src/models/actionsmodel.cpp:410
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:418
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "You are not allowed to ban users from this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:424
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:428
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
-msgid "<user id> [<reason>]"
-msgstr "<user-id>"
-
-#: src/models/actionsmodel.cpp:433
-#, fuzzy
-#| msgid "Ignore this user"
-msgid "Bans the given user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/models/actionsmodel.cpp:449
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "You are not allowed to unban users from this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:454
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:458
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:464
-#, fuzzy
-#| msgid "Ignore this user"
-msgid "Removes the ban of the given user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/models/actionsmodel.cpp:478
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:482
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:491
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "You are not allowed to kick users from this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:497
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/models/actionsmodel.cpp:501
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "zakázal %1 z miestnosti: %2"
-
-#: src/models/actionsmodel.cpp:506
-#, fuzzy
-#| msgid "invited %1 to the room"
-msgid "Removes the user from the room"
-msgstr "pozval %1 do miestnosti"
-
-#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "História"
-
-#: src/models/emojimodel.cpp:162
-#, kde-format
-msgctxt "'Smileys' is a category of emoji"
-msgid "Smileys"
-msgstr ""
-
-#: src/models/emojimodel.cpp:167
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr "Ľudia"
-
-#: src/models/emojimodel.cpp:172
-#, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr "Príroda"
-
-#: src/models/emojimodel.cpp:177
-#, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr "Jedlo"
-
-#: src/models/emojimodel.cpp:182
-#, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr "Aktivity"
-
-#: src/models/emojimodel.cpp:187
-#, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr "Cestovanie"
-
-#: src/models/emojimodel.cpp:192
-#, kde-format
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "Objekty"
-
-#: src/models/emojimodel.cpp:197
-#, fuzzy, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr "Symboly"
-
-#: src/models/emojimodel.cpp:202
-#, fuzzy, kde-format
-msgctxt "'Flags' is a category of emoji"
-msgid "Flags"
-msgstr "Vlajky"
-
-#: src/models/emojimodel.cpp:221
-#, fuzzy, kde-format
-#| msgid "Custom"
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Vlastné"
-
 #: src/models/imagepacksmodel.cpp:92
 #, fuzzy, kde-format
 #| msgid "Edit device"
@@ -2189,43 +2248,6 @@ msgstr "Otvoriť súkromný chat"
 msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "pozval %1 do miestnosti"
-
-#: src/neochatconnection.cpp:76
-#, kde-format
-msgid ""
-"File too large to download.<br />Contact your matrix server administrator "
-"for support."
-msgstr ""
-
-#: src/neochatconnection.cpp:319
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr ""
-
-#: src/neochatconnection.cpp:350
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
-msgid "Room creation failed: %1"
-msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
-
-#: src/neochatconnection.cpp:380
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
-msgid "Space creation failed: %1"
-msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
-
-#: src/neochatroom.cpp:1215
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
-msgid "Report sent successfully."
-msgstr "Heslo úspešne zmenené"
-
-#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
-#, kde-format
-msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-msgid "Lat: %1, Lon: %2"
-msgstr ""
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -4814,24 +4836,24 @@ msgstr "Pokračovať"
 msgid "Working"
 msgstr "Pracovný"
 
-#: src/roommanager.cpp:145
+#: src/roommanager.cpp:150
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 nie je správny Matrix identifikátor"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:356
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to join room<br />%1"
 msgstr "pozval %1 do miestnosti"
 
-#: src/roommanager.cpp:375
+#: src/roommanager.cpp:380
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:379
+#: src/roommanager.cpp:384
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to request joining room<br />%1"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-06 00:42+0000\n"
+"POT-Creation-Date: 2025-04-08 00:41+0000\n"
 "PO-Revision-Date: 2025-04-04 09:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -97,7 +97,7 @@ msgstr "Емоційки"
 msgid "Stickers"
 msgstr "Наліпки"
 
-#: src/controller.cpp:143
+#: src/controller.cpp:149
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,12 +105,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Отримання сповіщень щодо нових повідомлень"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:267
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Не знайдено жетона доступу: можливо, його вилучено?"
 
-#: src/controller.cpp:265
+#: src/controller.cpp:271
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -118,7 +118,7 @@ msgstr ""
 "У доступі до ланцюжка ключів відмовлено: будь ласка, дозвольте NeoChat "
 "читання жетона доступу"
 
-#: src/controller.cpp:268
+#: src/controller.cpp:274
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -127,12 +127,12 @@ msgstr ""
 "Немає доступного ланцюжка ключів: будь ласка, встановіть засіб керування "
 "ключами, наприклад KWallet або GNOME keyring у Linux"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:277
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Не вдалося прочитати жетон доступу: %1"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:376
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Отримання імпульсних сповіщень"
@@ -377,40 +377,6 @@ msgstr "Низький пріоритет"
 msgid "Spaces"
 msgstr "Простори"
 
-#: src/enums/powerlevel.cpp:10
-#, kde-format
-msgid "Member"
-msgstr "Учасник"
-
-#: src/enums/powerlevel.cpp:12
-#, kde-format
-msgid "Moderator"
-msgstr "Модератор"
-
-#: src/enums/powerlevel.cpp:14
-#, kde-format
-msgid "Admin"
-msgstr "Адміністратор"
-
-#: src/enums/powerlevel.cpp:16
-#, kde-format
-msgid "Mute"
-msgstr "Вимкнути"
-
-#: src/enums/powerlevel.cpp:18
-#, kde-format
-msgid "Custom"
-msgstr "Нетипова"
-
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
-#, kde-format
-msgctxt ""
-"%1 is the name of the power level, e.g. admin and %2 is the value that "
-"represents."
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -495,511 +461,971 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Кімнати із новішими повідомленнями будуть вище"
 
-#: src/eventhandler.cpp:293 src/eventhandler.cpp:509
+#: src/libneochat/enums/powerlevel.cpp:10
+#, kde-format
+msgid "Member"
+msgstr "Учасник"
+
+#: src/libneochat/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr "Модератор"
+
+#: src/libneochat/enums/powerlevel.cpp:14
+#, kde-format
+msgid "Admin"
+msgstr "Адміністратор"
+
+#: src/libneochat/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr "Вимкнути"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
+#: src/models/userlistmodel.cpp:113
+#, kde-format
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/eventhandler.cpp:293
+#: src/libneochat/eventhandler.cpp:280
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
 
-#: src/eventhandler.cpp:327
+#: src/libneochat/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "повторно запрошено %1 до кімнати"
 
-#: src/eventhandler.cpp:329
+#: src/libneochat/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:338
+#: src/libneochat/eventhandler.cpp:325
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "долучається до кімнати (повторно)"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "запрошено %1 до кімнати"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "joined the room"
 msgstr "долучається до кімнати"
 
-#: src/eventhandler.cpp:344
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:338
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "вилучено своє показане ім'я"
 
-#: src/eventhandler.cpp:354
+#: src/libneochat/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "змінено своє показане ім'я на %1"
 
-#: src/eventhandler.cpp:360
+#: src/libneochat/eventhandler.cpp:347
 #, kde-format
 msgid " and "
 msgstr " і "
 
-#: src/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:350
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "вилучено свій аватар"
 
-#: src/eventhandler.cpp:365
+#: src/libneochat/eventhandler.cpp:352
 #, kde-format
 msgid "set an avatar"
 msgstr "встановлено аватар"
 
-#: src/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "оновлено свій аватар"
 
-#: src/eventhandler.cpp:371
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "нічого не змінено"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "відкликано запрошення %1"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "rejected the invitation"
 msgstr "відкинуто запрошення"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "розблоковано %1"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "self-unbanned"
 msgstr "саморозблоковується"
 
-#: src/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:371
 #, kde-format
 msgid "left the room"
 msgstr "полишає кімнату"
 
-#: src/eventhandler.cpp:387
+#: src/libneochat/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "викинуто %1 з кімнати: %2"
 
-#: src/eventhandler.cpp:389
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "викинуто %1 з кімнати"
 
-#: src/eventhandler.cpp:393
+#: src/libneochat/eventhandler.cpp:380
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "заблоковано %1 у кімнаті"
 
-#: src/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "заблоковано %1 у кімнаті: %2"
 
-#: src/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "self-banned from the room"
 msgstr "самозаблоковується у кімнаті"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite"
 msgstr "надіслано запит щодо запрошення"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "надіслано запит щодо запрошення з поясненням причини: %1"
 
-#: src/eventhandler.cpp:406
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "made something unknown"
 msgstr "виконано щось невідоме"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "вилучено основний варіант назви кімнати"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "встановлено основний варіант назви кімнати: %1"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "cleared the room name"
 msgstr "вилучено назву кімнати"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "встановлено назву кімнати: %1"
 
-#: src/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:402
 #, kde-format
 msgid "cleared the topic"
 msgstr "вилучено тему"
 
-#: src/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "встановлено тему: %1"
 
-#: src/eventhandler.cpp:422
+#: src/libneochat/eventhandler.cpp:409
 #, kde-format
 msgid "changed the room avatar"
 msgstr "змінено аватар кімнати"
 
-#: src/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:412
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "активовано наскрізне шифрування"
 
-#: src/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "оновлено версію кімнати до %1"
 
-#: src/eventhandler.cpp:430
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "створено кімнату, версія %1"
 
-#: src/eventhandler.cpp:433
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "змінено рівні прав доступу для цієї кімнати"
 
-#: src/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:426
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "Для цієї кімнати змінено списки керування доступом на сервері"
 
-#: src/eventhandler.cpp:443
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "додано віджет %1"
 
-#: src/eventhandler.cpp:446
+#: src/libneochat/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "вилучено віджет %1"
 
-#: src/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "налаштовано віджет %1"
 
-#: src/eventhandler.cpp:451
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "оновлено стан %1"
 
-#: src/eventhandler.cpp:452
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "оновлено стан %1 для %2"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:656
+#: src/libneochat/eventhandler.cpp:444 src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "Unknown event"
 msgstr "Невідома подія"
 
-#: src/eventhandler.cpp:472
+#: src/libneochat/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "файл"
 
-#: src/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:505
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 надіслано повідомлення"
 
-#: src/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:508
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 надіслано наліпку"
 
-#: src/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:514
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 повторно запрошено когось до кімнати"
 
-#: src/eventhandler.cpp:533
+#: src/libneochat/eventhandler.cpp:520
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 долучається до кімнати (повторно)"
 
-#: src/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:522
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 запрошено когось до кімнати"
 
-#: src/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:523
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 долучається до кімнати"
 
-#: src/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:549
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 встановлено показане ім'я та встановлено аватар"
 
-#: src/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:551
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 встановлено показане ім'я та оновлено аватар"
 
-#: src/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:553
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 встановлено показане ім'я та вилучено аватар"
 
-#: src/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:555
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 встановлено показане ім'я у цій кімнаті"
 
-#: src/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:558
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 змінено показане ім'я та встановлено аватар"
 
-#: src/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:560
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 змінено показане ім'я та оновлено аватар"
 
-#: src/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 змінено показане ім'я та вилучено аватар"
 
-#: src/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:564
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 змінено власне показане ім'я"
 
-#: src/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:567
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 вилучено показане ім'я та встановлено аватар"
 
-#: src/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:569
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 вилучено показане ім'я та оновлено аватар"
 
-#: src/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 вилучено показане ім'я та вилучено аватар"
 
-#: src/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 вилучено своє показане ім'я"
 
-#: src/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:576
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 нічого не змінено"
 
-#: src/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 відкликано запрошення користувача"
 
-#: src/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:581
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 відкинуто запрошення"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 розблоковано користувача"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 саморозблоковується"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 викинуто користувача з кімнати"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 полишає кімнату"
 
-#: src/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:590
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 заблоковано користувача у кімнаті"
 
-#: src/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 самозаблоковується у кімнаті"
 
-#: src/eventhandler.cpp:608
+#: src/libneochat/eventhandler.cpp:595
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 надіслано запит щодо запрошення"
 
-#: src/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:599
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 виконано щось невідоме"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 вилучено основний варіант назви кімнати"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 встановлено основний варіант назви кімнати"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 вилучено назву кімнати"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 встановлено назву кімнати"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 вилучено тему"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 встановлено тему"
 
-#: src/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:611
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 змінено аватар кімнати"
 
-#: src/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 активовано наскрізне шифрування"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 оновлено версію кімнати"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 створено кімнату"
 
-#: src/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:620
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 змінено рівні прав доступу для цієї кімнати"
 
-#: src/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 надіслано маяк інтерактивного місця перебування"
 
-#: src/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 змінено списки керування доступом на сервері для цієї кімнати"
 
-#: src/eventhandler.cpp:643
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 додано віджет"
 
-#: src/eventhandler.cpp:646
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 вилучено віджет"
 
-#: src/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:635
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 налаштовано віджет"
 
-#: src/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 оновлено стан"
 
-#: src/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 розпочато голосування"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
 msgstr "Отримання"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
 msgstr "Вивантаження"
 
-#: src/filetransferpseudojob.cpp:59
+#: src/libneochat/filetransferpseudojob.cpp:59
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
 msgstr "Джерело"
 
-#: src/filetransferpseudojob.cpp:60
+#: src/libneochat/filetransferpseudojob.cpp:60
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Призначення"
+
+#: src/libneochat/models/actionsmodel.cpp:30
+#, kde-format
+msgid "Leaving this room."
+msgstr "Полишаємо цю кімнату."
+
+#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:224
+#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:278
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:45
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "Полишаємо кімнату %1."
+
+#: src/libneochat/models/actionsmodel.cpp:48
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "Кімнати %1 не знайдено."
+
+#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:311
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr "Не вказано нового псевдоніма, ніяких змін внесено не буде."
+
+#: src/libneochat/models/actionsmodel.cpp:70
+#: src/libneochat/models/actionsmodel.cpp:79
+#: src/libneochat/models/actionsmodel.cpp:88
+#: src/libneochat/models/actionsmodel.cpp:97
+#: src/libneochat/models/actionsmodel.cpp:115
+#: src/libneochat/models/actionsmodel.cpp:133
+#: src/libneochat/models/actionsmodel.cpp:147
+#: src/libneochat/models/actionsmodel.cpp:161
+#: src/libneochat/models/actionsmodel.cpp:170
+#: src/libneochat/models/actionsmodel.cpp:179
+msgid "<message>"
+msgstr "<повідомлення>"
+
+#: src/libneochat/models/actionsmodel.cpp:71
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "Дописати ¯\\_(ツ)_/¯ перед звичайним текстовим повідомленням"
+
+#: src/libneochat/models/actionsmodel.cpp:80
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "Дописати ( ͡° ͜ʖ ͡°) перед звичайним текстовим повідомленням"
+
+#: src/libneochat/models/actionsmodel.cpp:89
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "Дописати (╯°□°）╯︵ ┻━┻ перед звичайним текстовим повідомленням"
+
+#: src/libneochat/models/actionsmodel.cpp:98
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
+
+#: src/libneochat/models/actionsmodel.cpp:116
+msgid "Sends the given message colored as a rainbow"
+msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
+
+#: src/libneochat/models/actionsmodel.cpp:134
+msgid "Sends the given emote colored as a rainbow"
+msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
+
+#: src/libneochat/models/actionsmodel.cpp:148
+msgid "Sends the given message as plain text"
+msgstr "Надіслати вказане повідомлення як звичайний текст"
+
+#: src/libneochat/models/actionsmodel.cpp:162
+msgid "Sends the given message as a spoiler"
+msgstr "Надіслати вказане повідомлення як спойлер"
+
+#: src/libneochat/models/actionsmodel.cpp:171
+msgid "Sends the given emote"
+msgstr "Надіслати вказану емоцію"
+
+#: src/libneochat/models/actionsmodel.cpp:180
+msgid "Sends the given message as a notice"
+msgstr "Надіслати вказане повідомлення як зауваження"
+
+#: src/libneochat/models/actionsmodel.cpp:188
+#: src/libneochat/models/actionsmodel.cpp:341
+#: src/libneochat/models/actionsmodel.cpp:363
+#: src/libneochat/models/actionsmodel.cpp:404
+#: src/libneochat/models/actionsmodel.cpp:441
+#: src/libneochat/models/actionsmodel.cpp:474
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr "Здається, «%1» не є ідентифікатором matrix."
+
+#: src/libneochat/models/actionsmodel.cpp:194
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "%1 вже запрошено до цієї кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:198
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:202
+#, kde-format
+msgid "You are already in this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:206
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "%1 вже перебуває у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:210
+#, kde-format
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
+msgstr "%1 було запрошено до цієї кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:214
+#: src/libneochat/models/actionsmodel.cpp:354
+#: src/libneochat/models/actionsmodel.cpp:375
+#: src/libneochat/models/actionsmodel.cpp:463
+msgid "<user id>"
+msgstr "<ідентифікатор користувача>"
+
+#: src/libneochat/models/actionsmodel.cpp:215
+msgid "Invites the user to this room"
+msgstr "Запрошує користувача до цієї кімнати"
+
+#: src/libneochat/models/actionsmodel.cpp:232
+#: src/libneochat/models/actionsmodel.cpp:285
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "Долучається до кімнати %1."
+
+#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:290
+msgid "<room alias or id>"
+msgstr "<альтернативна назва або ідентифікатор кімнати>"
+
+#: src/libneochat/models/actionsmodel.cpp:238
+#: src/libneochat/models/actionsmodel.cpp:291
+msgid "Joins the given room"
+msgstr "Долучається до вказаної кімнати"
+
+#: src/libneochat/models/actionsmodel.cpp:257
+#, kde-format
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "Стукаємося до кімнати %1."
+
+#: src/libneochat/models/actionsmodel.cpp:268
+msgid "<room alias or id> [<reason>]"
+msgstr "<альтернативна назва або ідентифікатор кімнати> [<причина>]"
+
+#: src/libneochat/models/actionsmodel.cpp:269
+msgid "Requests to join the given room"
+msgstr "Надсилає запит щодо долучення до вказаної кімнати"
+
+#: src/libneochat/models/actionsmodel.cpp:282
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr "Ви вже перебуваєте у кімнаті %1."
+
+#: src/libneochat/models/actionsmodel.cpp:297
+#: src/libneochat/models/actionsmodel.cpp:304
+msgid "[<room alias or id>]"
+msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
+
+#: src/libneochat/models/actionsmodel.cpp:298
+#: src/libneochat/models/actionsmodel.cpp:305
+msgid "Leaves the given room or this room, if there is none given"
+msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
+
+#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:325
+#: src/libneochat/models/actionsmodel.cpp:332
+msgid "<display name>"
+msgstr "<показане ім'я>"
+
+#: src/libneochat/models/actionsmodel.cpp:319
+msgid "Changes your global display name"
+msgstr "Змінює ваше загальне показане ім'я"
+
+#: src/libneochat/models/actionsmodel.cpp:326
+#: src/libneochat/models/actionsmodel.cpp:333
+msgid "Changes your display name in this room"
+msgstr "Змінює ваше показане ім'я у цій кімнаті"
+
+#: src/libneochat/models/actionsmodel.cpp:345
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr "%1 вже додано до ігнорованих."
+
+#: src/libneochat/models/actionsmodel.cpp:349
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr "%1 тепер є ігнорованим."
+
+#: src/libneochat/models/actionsmodel.cpp:355
+msgid "Ignores the given user"
+msgstr "Ігнорує вказаного користувача"
+
+#: src/libneochat/models/actionsmodel.cpp:367
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr "%1 не включено до ігнорованих."
+
+#: src/libneochat/models/actionsmodel.cpp:371
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr "%1 Ігнорується."
+
+#: src/libneochat/models/actionsmodel.cpp:376
+msgid "Unignores the given user"
+msgstr "Скасовує ігнорування вказаного користувача"
+
+#: src/libneochat/models/actionsmodel.cpp:394
+msgid "<reaction text>"
+msgstr "<текст реакції>"
+
+#: src/libneochat/models/actionsmodel.cpp:395
+msgid "React to the message with the given text"
+msgstr "Зреагувати на це повідомлення вказаним текстом"
+
+#: src/libneochat/models/actionsmodel.cpp:410
+#, kde-format
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 вже заблоковано у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:418
+#, kde-format
+msgid "You are not allowed to ban users from this room."
+msgstr "Ви не можете блокувати користувачів у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:424
+#, kde-format
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "Ви не можете заблокувати %1 у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:428
+#, kde-format
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 було заблоковано у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:432
+#: src/libneochat/models/actionsmodel.cpp:505
+msgid "<user id> [<reason>]"
+msgstr "<ідентифікатор користувача> [<причина>]"
+
+#: src/libneochat/models/actionsmodel.cpp:433
+msgid "Bans the given user"
+msgstr "Блокує вказаного користувача"
+
+#: src/libneochat/models/actionsmodel.cpp:449
+#, kde-format
+msgid "You are not allowed to unban users from this room."
+msgstr "Ви не можете розблоковувати користувачів у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:454
+#, kde-format
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "%1 не заблоковано у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:458
+#, kde-format
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "%1 було розблоковано у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:464
+msgid "Removes the ban of the given user"
+msgstr "Вилучає блокування зі вказаного користувача"
+
+#: src/libneochat/models/actionsmodel.cpp:478
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr "Ви не можете викинути себе з кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:482
+#, kde-format
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 не перебуває у цій кімнаті."
+
+#: src/libneochat/models/actionsmodel.cpp:491
+#, kde-format
+msgid "You are not allowed to kick users from this room."
+msgstr "Ви не можете викидати користувачів з цієї кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:497
+#, kde-format
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "Ви не можете викидати %1 з цієї кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:501
+#, kde-format
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 було викинуто з цієї кімнати."
+
+#: src/libneochat/models/actionsmodel.cpp:506
+msgid "Removes the user from the room"
+msgstr "Вилучає користувача з кімнати"
+
+#: src/libneochat/models/emojimodel.cpp:157
+#: src/libneochat/models/emojimodel.cpp:215
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Журнал"
+
+#: src/libneochat/models/emojimodel.cpp:162
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr "Смайл"
+
+#: src/libneochat/models/emojimodel.cpp:167
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "Люди"
+
+#: src/libneochat/models/emojimodel.cpp:172
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "Природа"
+
+#: src/libneochat/models/emojimodel.cpp:177
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "Їжа"
+
+#: src/libneochat/models/emojimodel.cpp:182
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "Діяльність"
+
+#: src/libneochat/models/emojimodel.cpp:187
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "Подорожі"
+
+#: src/libneochat/models/emojimodel.cpp:192
+#, kde-format
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Об'єкти"
+
+#: src/libneochat/models/emojimodel.cpp:197
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "Символи"
+
+#: src/libneochat/models/emojimodel.cpp:202
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr "Прапорці"
+
+#: src/libneochat/models/emojimodel.cpp:221
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Нетипова"
+
+#: src/libneochat/neochatconnection.cpp:76
+#, kde-format
+msgid ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
+msgstr ""
+"Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
+"вашого сервера matrix, щоб отримати допомогу."
+
+#: src/libneochat/neochatconnection.cpp:319
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr "Не налаштовано жодного сервера профілів"
+
+#: src/libneochat/neochatconnection.cpp:350
+#, kde-format
+msgid "Room creation failed: %1"
+msgstr "Не вдалося створити кімнату: %1"
+
+#: src/libneochat/neochatconnection.cpp:380
+#, kde-format
+msgid "Space creation failed: %1"
+msgstr "Не вдалося створити простір: %1"
+
+#: src/libneochat/neochatroom.cpp:1216
+#, kde-format
+msgid "Report sent successfully."
+msgstr "Скаргу успішно надіслано."
+
+#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#, kde-format
+msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+msgid "Lat: %1, Lon: %2"
+msgstr "Шир: %1, Довг: %2"
 
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
@@ -1330,374 +1756,6 @@ msgstr "Лише для внутрішнього використання."
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
 
-#: src/models/actionsmodel.cpp:30
-#, kde-format
-msgid "Leaving this room."
-msgstr "Полишаємо цю кімнату."
-
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:224
-#: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
-
-#: src/models/actionsmodel.cpp:45
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "Полишаємо кімнату %1."
-
-#: src/models/actionsmodel.cpp:48
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "Кімнати %1 не знайдено."
-
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:311
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr "Не вказано нового псевдоніма, ніяких змін внесено не буде."
-
-#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
-#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
-#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:161
-#: src/models/actionsmodel.cpp:170 src/models/actionsmodel.cpp:179
-msgid "<message>"
-msgstr "<повідомлення>"
-
-#: src/models/actionsmodel.cpp:71
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Дописати ¯\\_(ツ)_/¯ перед звичайним текстовим повідомленням"
-
-#: src/models/actionsmodel.cpp:80
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Дописати ( ͡° ͜ʖ ͡°) перед звичайним текстовим повідомленням"
-
-#: src/models/actionsmodel.cpp:89
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "Дописати (╯°□°）╯︵ ┻━┻ перед звичайним текстовим повідомленням"
-
-#: src/models/actionsmodel.cpp:98
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
-
-#: src/models/actionsmodel.cpp:116
-msgid "Sends the given message colored as a rainbow"
-msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
-
-#: src/models/actionsmodel.cpp:134
-msgid "Sends the given emote colored as a rainbow"
-msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
-
-#: src/models/actionsmodel.cpp:148
-msgid "Sends the given message as plain text"
-msgstr "Надіслати вказане повідомлення як звичайний текст"
-
-#: src/models/actionsmodel.cpp:162
-msgid "Sends the given message as a spoiler"
-msgstr "Надіслати вказане повідомлення як спойлер"
-
-#: src/models/actionsmodel.cpp:171
-msgid "Sends the given emote"
-msgstr "Надіслати вказану емоцію"
-
-#: src/models/actionsmodel.cpp:180
-msgid "Sends the given message as a notice"
-msgstr "Надіслати вказане повідомлення як зауваження"
-
-#: src/models/actionsmodel.cpp:188 src/models/actionsmodel.cpp:341
-#: src/models/actionsmodel.cpp:363 src/models/actionsmodel.cpp:404
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:474
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr "Здається, «%1» не є ідентифікатором matrix."
-
-#: src/models/actionsmodel.cpp:194
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "%1 вже запрошено до цієї кімнати."
-
-#: src/models/actionsmodel.cpp:198
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "%1 заблоковано у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:202
-#, kde-format
-msgid "You are already in this room."
-msgstr "Ви вже перебуваєте у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "%1 вже перебуває у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:210
-#, kde-format
-msgctxt "<username> was invited into this room."
-msgid "%1 was invited into this room."
-msgstr "%1 було запрошено до цієї кімнати."
-
-#: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
-msgid "<user id>"
-msgstr "<ідентифікатор користувача>"
-
-#: src/models/actionsmodel.cpp:215
-msgid "Invites the user to this room"
-msgstr "Запрошує користувача до цієї кімнати"
-
-#: src/models/actionsmodel.cpp:232 src/models/actionsmodel.cpp:285
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "Долучається до кімнати %1."
-
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
-msgid "<room alias or id>"
-msgstr "<альтернативна назва або ідентифікатор кімнати>"
-
-#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
-msgid "Joins the given room"
-msgstr "Долучається до вказаної кімнати"
-
-#: src/models/actionsmodel.cpp:257
-#, kde-format
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr "Стукаємося до кімнати %1."
-
-#: src/models/actionsmodel.cpp:268
-msgid "<room alias or id> [<reason>]"
-msgstr "<альтернативна назва або ідентифікатор кімнати> [<причина>]"
-
-#: src/models/actionsmodel.cpp:269
-msgid "Requests to join the given room"
-msgstr "Надсилає запит щодо долучення до вказаної кімнати"
-
-#: src/models/actionsmodel.cpp:282
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr "Ви вже перебуваєте у кімнаті %1."
-
-#: src/models/actionsmodel.cpp:297 src/models/actionsmodel.cpp:304
-msgid "[<room alias or id>]"
-msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
-
-#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
-msgid "Leaves the given room or this room, if there is none given"
-msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
-
-#: src/models/actionsmodel.cpp:318 src/models/actionsmodel.cpp:325
-#: src/models/actionsmodel.cpp:332
-msgid "<display name>"
-msgstr "<показане ім'я>"
-
-#: src/models/actionsmodel.cpp:319
-msgid "Changes your global display name"
-msgstr "Змінює ваше загальне показане ім'я"
-
-#: src/models/actionsmodel.cpp:326 src/models/actionsmodel.cpp:333
-msgid "Changes your display name in this room"
-msgstr "Змінює ваше показане ім'я у цій кімнаті"
-
-#: src/models/actionsmodel.cpp:345
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr "%1 вже додано до ігнорованих."
-
-#: src/models/actionsmodel.cpp:349
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr "%1 тепер є ігнорованим."
-
-#: src/models/actionsmodel.cpp:355
-msgid "Ignores the given user"
-msgstr "Ігнорує вказаного користувача"
-
-#: src/models/actionsmodel.cpp:367
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr "%1 не включено до ігнорованих."
-
-#: src/models/actionsmodel.cpp:371
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr "%1 Ігнорується."
-
-#: src/models/actionsmodel.cpp:376
-msgid "Unignores the given user"
-msgstr "Скасовує ігнорування вказаного користувача"
-
-#: src/models/actionsmodel.cpp:394
-msgid "<reaction text>"
-msgstr "<текст реакції>"
-
-#: src/models/actionsmodel.cpp:395
-msgid "React to the message with the given text"
-msgstr "Зреагувати на це повідомлення вказаним текстом"
-
-#: src/models/actionsmodel.cpp:410
-#, kde-format
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "%1 вже заблоковано у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:418
-#, kde-format
-msgid "You are not allowed to ban users from this room."
-msgstr "Ви не можете блокувати користувачів у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:424
-#, kde-format
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "Ви не можете заблокувати %1 у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:428
-#, kde-format
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "%1 було заблоковано у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
-msgid "<user id> [<reason>]"
-msgstr "<ідентифікатор користувача> [<причина>]"
-
-#: src/models/actionsmodel.cpp:433
-msgid "Bans the given user"
-msgstr "Блокує вказаного користувача"
-
-#: src/models/actionsmodel.cpp:449
-#, kde-format
-msgid "You are not allowed to unban users from this room."
-msgstr "Ви не можете розблоковувати користувачів у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:454
-#, kde-format
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "%1 не заблоковано у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:458
-#, kde-format
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "%1 було розблоковано у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:464
-msgid "Removes the ban of the given user"
-msgstr "Вилучає блокування зі вказаного користувача"
-
-#: src/models/actionsmodel.cpp:478
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr "Ви не можете викинути себе з кімнати."
-
-#: src/models/actionsmodel.cpp:482
-#, kde-format
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "%1 не перебуває у цій кімнаті."
-
-#: src/models/actionsmodel.cpp:491
-#, kde-format
-msgid "You are not allowed to kick users from this room."
-msgstr "Ви не можете викидати користувачів з цієї кімнати."
-
-#: src/models/actionsmodel.cpp:497
-#, kde-format
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "Ви не можете викидати %1 з цієї кімнати."
-
-#: src/models/actionsmodel.cpp:501
-#, kde-format
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "%1 було викинуто з цієї кімнати."
-
-#: src/models/actionsmodel.cpp:506
-msgid "Removes the user from the room"
-msgstr "Вилучає користувача з кімнати"
-
-#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "Журнал"
-
-#: src/models/emojimodel.cpp:162
-#, kde-format
-msgctxt "'Smileys' is a category of emoji"
-msgid "Smileys"
-msgstr "Смайл"
-
-#: src/models/emojimodel.cpp:167
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr "Люди"
-
-#: src/models/emojimodel.cpp:172
-#, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr "Природа"
-
-#: src/models/emojimodel.cpp:177
-#, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr "Їжа"
-
-#: src/models/emojimodel.cpp:182
-#, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr "Діяльність"
-
-#: src/models/emojimodel.cpp:187
-#, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr "Подорожі"
-
-#: src/models/emojimodel.cpp:192
-#, kde-format
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "Об'єкти"
-
-#: src/models/emojimodel.cpp:197
-#, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr "Символи"
-
-#: src/models/emojimodel.cpp:202
-#, kde-format
-msgctxt "'Flags' is a category of emoji"
-msgid "Flags"
-msgstr "Прапорці"
-
-#: src/models/emojimodel.cpp:221
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Нетипова"
-
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
@@ -1977,42 +2035,6 @@ msgstr "Вас запрошено до спілкування"
 msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "Вас запрошено %1"
-
-#: src/neochatconnection.cpp:76
-#, kde-format
-msgid ""
-"File too large to download.<br />Contact your matrix server administrator "
-"for support."
-msgstr ""
-"Файл є надто великим для отримання.<br />Зв'яжіться із адміністратором "
-"вашого сервера matrix, щоб отримати допомогу."
-
-#: src/neochatconnection.cpp:319
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr "Не налаштовано жодного сервера профілів"
-
-#: src/neochatconnection.cpp:350
-#, kde-format
-msgid "Room creation failed: %1"
-msgstr "Не вдалося створити кімнату: %1"
-
-#: src/neochatconnection.cpp:380
-#, kde-format
-msgid "Space creation failed: %1"
-msgstr "Не вдалося створити простір: %1"
-
-#: src/neochatroom.cpp:1215
-#, kde-format
-msgid "Report sent successfully."
-msgstr "Скаргу успішно надіслано."
-
-#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
-#, kde-format
-msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-msgid "Lat: %1, Lon: %2"
-msgstr "Шир: %1, Довг: %2"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -4482,24 +4504,24 @@ msgstr "Продовжити"
 msgid "Working"
 msgstr "Працюємо"
 
-#: src/roommanager.cpp:145
+#: src/roommanager.cpp:150
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Помилково форматований або порожній ідентифікатор Matrix<br />%1 не є "
 "правильним ідентифікатором Matrix"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:356
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Не вдалося приєднатися до кімнати<br />%1"
 
-#: src/roommanager.cpp:375
+#: src/roommanager.cpp:380
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/roommanager.cpp:379
+#: src/roommanager.cpp:384
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати<br />%1"

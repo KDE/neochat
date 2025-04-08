@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-06 00:42+0000\n"
-"PO-Revision-Date: 2025-03-27 22:08+0900\n"
+"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"PO-Revision-Date: 2025-04-07 14:19+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -97,7 +97,7 @@ msgstr "表情符號"
 msgid "Stickers"
 msgstr "貼圖"
 
-#: src/controller.cpp:143
+#: src/controller.cpp:149
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,18 +105,18 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "正在接收新訊息的通知"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:267
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "找不到存取權杖：或許它已被刪除？"
 
-#: src/controller.cpp:265
+#: src/controller.cpp:271
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "鑰匙圈存取被拒絕：請允許 NeoChat 讀取存取權杖"
 
-#: src/controller.cpp:268
+#: src/controller.cpp:274
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -124,12 +124,12 @@ msgid ""
 msgstr ""
 "沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:277
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "無法讀取存取權杖：%1"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:376
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -369,40 +369,6 @@ msgstr "低優先權"
 msgid "Spaces"
 msgstr "聊天空間"
 
-#: src/enums/powerlevel.cpp:10
-#, kde-format
-msgid "Member"
-msgstr "成員"
-
-#: src/enums/powerlevel.cpp:12
-#, kde-format
-msgid "Moderator"
-msgstr "Mod"
-
-#: src/enums/powerlevel.cpp:14
-#, kde-format
-msgid "Admin"
-msgstr "管理員"
-
-#: src/enums/powerlevel.cpp:16
-#, kde-format
-msgid "Mute"
-msgstr "靜音"
-
-#: src/enums/powerlevel.cpp:18
-#, kde-format
-msgid "Custom"
-msgstr "自訂"
-
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
-#, kde-format
-msgctxt ""
-"%1 is the name of the power level, e.g. admin and %2 is the value that "
-"represents."
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -487,511 +453,969 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "有較新訊息的聊天室會排在上面"
 
-#: src/eventhandler.cpp:293 src/eventhandler.cpp:509
+#: src/libneochat/enums/powerlevel.cpp:10
+#, kde-format
+msgid "Member"
+msgstr "成員"
+
+#: src/libneochat/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr "Mod"
+
+#: src/libneochat/enums/powerlevel.cpp:14
+#, kde-format
+msgid "Admin"
+msgstr "管理員"
+
+#: src/libneochat/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr "靜音"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "自訂"
+
+#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
+#: src/models/userlistmodel.cpp:113
+#, kde-format
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
 
-#: src/eventhandler.cpp:293
+#: src/libneochat/eventhandler.cpp:280
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[此訊息已被刪除：%1]</i>"
 
-#: src/eventhandler.cpp:327
+#: src/libneochat/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "已重新邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:329
+#: src/libneochat/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:338
+#: src/libneochat/eventhandler.cpp:325
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "已加入聊天室（重複）"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "已邀請 %1 到聊天室裡"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "joined the room"
 msgstr "已加入聊天室"
 
-#: src/eventhandler.cpp:344
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr "：%1"
 
-#: src/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:338
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "將其顯示名稱清除了"
 
-#: src/eventhandler.cpp:354
+#: src/libneochat/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "將其顯示名稱變更為 %1"
 
-#: src/eventhandler.cpp:360
+#: src/libneochat/eventhandler.cpp:347
 #, kde-format
 msgid " and "
 msgstr " 和 "
 
-#: src/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:350
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "將其頭貼清除了"
 
-#: src/eventhandler.cpp:365
+#: src/libneochat/eventhandler.cpp:352
 #, kde-format
 msgid "set an avatar"
 msgstr "設定了頭貼"
 
-#: src/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "更新了他的頭貼"
 
-#: src/eventhandler.cpp:371
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "什麼都沒改"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "撤回了 %1 的邀請"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "rejected the invitation"
 msgstr "拒絕了邀請"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "解除了 %1 的封鎖"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "self-unbanned"
 msgstr "已自我解除封鎖"
 
-#: src/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:371
 #, kde-format
 msgid "left the room"
 msgstr "已離開聊天室"
 
-#: src/eventhandler.cpp:387
+#: src/libneochat/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "已將 %1 移出聊天室：%2"
 
-#: src/eventhandler.cpp:389
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "已將 %1 移出聊天室"
 
-#: src/eventhandler.cpp:393
+#: src/libneochat/eventhandler.cpp:380
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "已從聊天室封鎖 %1"
 
-#: src/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "已從聊天室封鎖 %1：%2"
 
-#: src/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "self-banned from the room"
 msgstr "已從聊天室自行封鎖"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite"
 msgstr "請求了邀請"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "請求了邀請，理由：%1"
 
-#: src/eventhandler.cpp:406
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "made something unknown"
 msgstr "做了不明的東西"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "清除了聊天室的主別名"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "設定聊天室的主別名為：%1"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "cleared the room name"
 msgstr "清除了聊天室名稱"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "設定聊天室名稱為：%1"
 
-#: src/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:402
 #, kde-format
 msgid "cleared the topic"
 msgstr "清除了主題"
 
-#: src/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "設定主題為：%1"
 
-#: src/eventhandler.cpp:422
+#: src/libneochat/eventhandler.cpp:409
 #, kde-format
 msgid "changed the room avatar"
 msgstr "變更了聊天室頭貼"
 
-#: src/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:412
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "啟用了端對端加密"
 
-#: src/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "更新了聊天室到版本 %1"
 
-#: src/eventhandler.cpp:430
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "建立了聊天室，版本 %1"
 
-#: src/eventhandler.cpp:433
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "變更了這個聊天室的能力等級"
 
-#: src/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:426
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
-#: src/eventhandler.cpp:443
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "新增了 %1 元件"
 
-#: src/eventhandler.cpp:446
+#: src/libneochat/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "移除了 %1 元件"
 
-#: src/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "設定了 %1 元件"
 
-#: src/eventhandler.cpp:451
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "更新了 %1 狀態"
 
-#: src/eventhandler.cpp:452
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "為 %2 更新了 %1 狀態"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:656
+#: src/libneochat/eventhandler.cpp:444 src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "Unknown event"
 msgstr "未知事件"
 
-#: src/eventhandler.cpp:472
+#: src/libneochat/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "一個檔案"
 
-#: src/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:505
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 傳送了訊息"
 
-#: src/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:508
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 傳送了貼圖"
 
-#: src/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:514
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 重新邀請了某人到聊天室裡"
 
-#: src/eventhandler.cpp:533
+#: src/libneochat/eventhandler.cpp:520
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 已加入聊天室（重複）"
 
-#: src/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:522
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 已邀請某人到聊天室裡"
 
-#: src/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:523
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 已加入聊天室"
 
-#: src/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:549
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 設定了顯示名稱和頭貼"
 
-#: src/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:551
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 設定了顯示名稱並更新了他的頭貼"
 
-#: src/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:553
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 設定了顯示名稱並將其頭貼清除了"
 
-#: src/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:555
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 設定了這個聊天室的顯示名稱"
 
-#: src/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:558
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 變更了他的顯示名稱並設定了頭貼"
 
-#: src/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:560
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 變更了他的顯示名稱並更新了頭貼"
 
-#: src/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 變更了他的顯示名稱並清除了頭貼"
 
-#: src/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:564
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 變更了他的顯示名稱"
 
-#: src/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:567
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 清除了他的顯示名稱並設定了頭貼"
 
-#: src/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:569
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 清除了他的顯示名稱並更新了頭貼"
 
-#: src/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 清除了他的顯示名稱與頭貼"
 
-#: src/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 將其顯示名稱清除了"
 
-#: src/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:576
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 什麼都沒改"
 
-#: src/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 撤回了一個使用者的邀請"
 
-#: src/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:581
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 拒絕了邀請"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 已解除封鎖一個使用者"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 已自我解除封鎖"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 已將一個使用者移出聊天室"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 已離開聊天室"
 
-#: src/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:590
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 已從聊天室封鎖一個使用者"
 
-#: src/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 已從聊天室自行封鎖"
 
-#: src/eventhandler.cpp:608
+#: src/libneochat/eventhandler.cpp:595
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 請求了邀請"
 
-#: src/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:599
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 做了不明的東西"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 清除了聊天室的主別名"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 設定了聊天室的主別名"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 清除了聊天室名稱"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 設定了聊天室名稱"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 清除了主題"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 設定了主題"
 
-#: src/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:611
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 變更了聊天室頭貼"
 
-#: src/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 啟用了端對端加密"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 更新了聊天室版本"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 建立了聊天室"
 
-#: src/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:620
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 變更了這個聊天室的能力等級"
 
-#: src/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 傳送即時位置信標"
 
-#: src/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
-#: src/eventhandler.cpp:643
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 新增了一個元件"
 
-#: src/eventhandler.cpp:646
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 移除了一個元件"
 
-#: src/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:635
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 設定了一個元件"
 
-#: src/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 更新了狀態"
 
-#: src/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 開始了投票"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
 msgstr "下載中"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
 msgstr "上傳中"
 
-#: src/filetransferpseudojob.cpp:59
+#: src/libneochat/filetransferpseudojob.cpp:59
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
 msgstr "來源"
 
-#: src/filetransferpseudojob.cpp:60
+#: src/libneochat/filetransferpseudojob.cpp:60
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "目的地"
+
+#: src/libneochat/models/actionsmodel.cpp:30
+#, kde-format
+msgid "Leaving this room."
+msgstr "正在離開這個聊天室。"
+
+#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:224
+#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:278
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr "'%1' 看起來不像是聊天室 ID 或別名。"
+
+#: src/libneochat/models/actionsmodel.cpp:45
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "正在離開聊天室 %1。"
+
+#: src/libneochat/models/actionsmodel.cpp:48
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "找不到聊天室 %1。"
+
+#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:311
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr "未提供新的綽號，不會進行任何變更。"
+
+#: src/libneochat/models/actionsmodel.cpp:70
+#: src/libneochat/models/actionsmodel.cpp:79
+#: src/libneochat/models/actionsmodel.cpp:88
+#: src/libneochat/models/actionsmodel.cpp:97
+#: src/libneochat/models/actionsmodel.cpp:115
+#: src/libneochat/models/actionsmodel.cpp:133
+#: src/libneochat/models/actionsmodel.cpp:147
+#: src/libneochat/models/actionsmodel.cpp:161
+#: src/libneochat/models/actionsmodel.cpp:170
+#: src/libneochat/models/actionsmodel.cpp:179
+msgid "<message>"
+msgstr "<訊息>"
+
+#: src/libneochat/models/actionsmodel.cpp:71
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "在純文字訊息前加上 ¯\\_(ツ)_/¯"
+
+#: src/libneochat/models/actionsmodel.cpp:80
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "在純文字訊息前加上 ( ͡° ͜ʖ ͡°)"
+
+#: src/libneochat/models/actionsmodel.cpp:89
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "在純文字訊息前加上 (╯°□°）╯︵ ┻━┻"
+
+#: src/libneochat/models/actionsmodel.cpp:98
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "在純文字訊息前加上 ┬──┬ ノ( ゜-゜ノ)"
+
+#: src/libneochat/models/actionsmodel.cpp:116
+msgid "Sends the given message colored as a rainbow"
+msgstr "將指定訊息以彩虹著色後傳送"
+
+#: src/libneochat/models/actionsmodel.cpp:134
+msgid "Sends the given emote colored as a rainbow"
+msgstr "將指定繪文字以彩虹著色後傳送"
+
+#: src/libneochat/models/actionsmodel.cpp:148
+msgid "Sends the given message as plain text"
+msgstr "將指定訊息以純文字傳送"
+
+#: src/libneochat/models/actionsmodel.cpp:162
+msgid "Sends the given message as a spoiler"
+msgstr "將指定訊息以暴雷模式傳送"
+
+#: src/libneochat/models/actionsmodel.cpp:171
+msgid "Sends the given emote"
+msgstr "傳送指定繪文字"
+
+#: src/libneochat/models/actionsmodel.cpp:180
+msgid "Sends the given message as a notice"
+msgstr "將指定訊息作為公告傳送"
+
+#: src/libneochat/models/actionsmodel.cpp:188
+#: src/libneochat/models/actionsmodel.cpp:341
+#: src/libneochat/models/actionsmodel.cpp:363
+#: src/libneochat/models/actionsmodel.cpp:404
+#: src/libneochat/models/actionsmodel.cpp:441
+#: src/libneochat/models/actionsmodel.cpp:474
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr "'%1' 看起來不像是 Matrix ID。"
+
+#: src/libneochat/models/actionsmodel.cpp:194
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "%1 已經邀請到這個聊天室裡。"
+
+#: src/libneochat/models/actionsmodel.cpp:198
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "%1 已被這個聊天室封鎖。"
+
+#: src/libneochat/models/actionsmodel.cpp:202
+#, kde-format
+msgid "You are already in this room."
+msgstr "您已經在這個聊天室裡了。"
+
+#: src/libneochat/models/actionsmodel.cpp:206
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "%1 已經在這個聊天室裡了。"
+
+#: src/libneochat/models/actionsmodel.cpp:210
+#, kde-format
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
+msgstr "%1 已被邀請到這個聊天室裡。"
+
+#: src/libneochat/models/actionsmodel.cpp:214
+#: src/libneochat/models/actionsmodel.cpp:354
+#: src/libneochat/models/actionsmodel.cpp:375
+#: src/libneochat/models/actionsmodel.cpp:463
+msgid "<user id>"
+msgstr "<使用者 id>"
+
+#: src/libneochat/models/actionsmodel.cpp:215
+msgid "Invites the user to this room"
+msgstr "邀請使用者到這個聊天室"
+
+#: src/libneochat/models/actionsmodel.cpp:232
+#: src/libneochat/models/actionsmodel.cpp:285
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "正在加入聊天室 %1。"
+
+#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:290
+msgid "<room alias or id>"
+msgstr "<聊天室別名或 id>"
+
+#: src/libneochat/models/actionsmodel.cpp:238
+#: src/libneochat/models/actionsmodel.cpp:291
+msgid "Joins the given room"
+msgstr "加入指定聊天室"
+
+#: src/libneochat/models/actionsmodel.cpp:257
+#, kde-format
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "正在敲聊天室 %1 的門。"
+
+#: src/libneochat/models/actionsmodel.cpp:268
+msgid "<room alias or id> [<reason>]"
+msgstr "<聊天室別名或 ID> [<原因>]"
+
+#: src/libneochat/models/actionsmodel.cpp:269
+msgid "Requests to join the given room"
+msgstr "請求加入指定聊天室"
+
+#: src/libneochat/models/actionsmodel.cpp:282
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr "您已經在聊天室 %1 裡了。"
+
+#: src/libneochat/models/actionsmodel.cpp:297
+#: src/libneochat/models/actionsmodel.cpp:304
+msgid "[<room alias or id>]"
+msgstr "[<聊天室別名或 id>]"
+
+#: src/libneochat/models/actionsmodel.cpp:298
+#: src/libneochat/models/actionsmodel.cpp:305
+msgid "Leaves the given room or this room, if there is none given"
+msgstr "離開指定的聊天室，若未指定聊天室則離開目前聊天室"
+
+#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:325
+#: src/libneochat/models/actionsmodel.cpp:332
+msgid "<display name>"
+msgstr "<顯示名稱>"
+
+#: src/libneochat/models/actionsmodel.cpp:319
+msgid "Changes your global display name"
+msgstr "變更您的全域顯示名稱"
+
+#: src/libneochat/models/actionsmodel.cpp:326
+#: src/libneochat/models/actionsmodel.cpp:333
+msgid "Changes your display name in this room"
+msgstr "變更您在這個聊天室裡的顯示名稱"
+
+#: src/libneochat/models/actionsmodel.cpp:345
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr "%1 已經被忽略。"
+
+#: src/libneochat/models/actionsmodel.cpp:349
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr "%1 已被忽略。"
+
+#: src/libneochat/models/actionsmodel.cpp:355
+msgid "Ignores the given user"
+msgstr "忽略指定的使用者"
+
+#: src/libneochat/models/actionsmodel.cpp:367
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr "%1 並未被忽略。"
+
+#: src/libneochat/models/actionsmodel.cpp:371
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr "%1 已不再被忽略。"
+
+#: src/libneochat/models/actionsmodel.cpp:376
+msgid "Unignores the given user"
+msgstr "取消忽略指定的使用者"
+
+#: src/libneochat/models/actionsmodel.cpp:394
+msgid "<reaction text>"
+msgstr "<反應文字>"
+
+#: src/libneochat/models/actionsmodel.cpp:395
+msgid "React to the message with the given text"
+msgstr "用指定文字對訊息進行反應"
+
+#: src/libneochat/models/actionsmodel.cpp:410
+#, kde-format
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 本來就已被這個聊天室封鎖。"
+
+#: src/libneochat/models/actionsmodel.cpp:418
+#, kde-format
+msgid "You are not allowed to ban users from this room."
+msgstr "您不被允許從這個聊天室封鎖使用者。"
+
+#: src/libneochat/models/actionsmodel.cpp:424
+#, kde-format
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "您不被允許從這個聊天室封鎖 %1。"
+
+#: src/libneochat/models/actionsmodel.cpp:428
+#, kde-format
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 已被這個聊天室封鎖。"
+
+#: src/libneochat/models/actionsmodel.cpp:432
+#: src/libneochat/models/actionsmodel.cpp:505
+msgid "<user id> [<reason>]"
+msgstr "<使用者 id> [<原因>]"
+
+#: src/libneochat/models/actionsmodel.cpp:433
+msgid "Bans the given user"
+msgstr "封鎖指定的使用者"
+
+#: src/libneochat/models/actionsmodel.cpp:449
+#, kde-format
+msgid "You are not allowed to unban users from this room."
+msgstr "您不被允許從這個聊天室解除封鎖使用者。"
+
+#: src/libneochat/models/actionsmodel.cpp:454
+#, kde-format
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "%1 未被從這個聊天室封鎖。"
+
+#: src/libneochat/models/actionsmodel.cpp:458
+#, kde-format
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "%1 已被這個聊天室解除封鎖。"
+
+#: src/libneochat/models/actionsmodel.cpp:464
+msgid "Removes the ban of the given user"
+msgstr "解除指定使用者的封鎖"
+
+#: src/libneochat/models/actionsmodel.cpp:478
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr "您無法從聊天室踢出自己。"
+
+#: src/libneochat/models/actionsmodel.cpp:482
+#, kde-format
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 不在這個聊天室裡。"
+
+#: src/libneochat/models/actionsmodel.cpp:491
+#, kde-format
+msgid "You are not allowed to kick users from this room."
+msgstr "您不被允許從這個聊天室踢出使用者。"
+
+#: src/libneochat/models/actionsmodel.cpp:497
+#, kde-format
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "您不被允許從這個聊天室踢出 %1。"
+
+#: src/libneochat/models/actionsmodel.cpp:501
+#, kde-format
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 已被踢出這個聊天室。"
+
+#: src/libneochat/models/actionsmodel.cpp:506
+msgid "Removes the user from the room"
+msgstr "從聊天室移除使用者"
+
+#: src/libneochat/models/emojimodel.cpp:157
+#: src/libneochat/models/emojimodel.cpp:215
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "歷史"
+
+#: src/libneochat/models/emojimodel.cpp:162
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr "微笑"
+
+#: src/libneochat/models/emojimodel.cpp:167
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "人們"
+
+#: src/libneochat/models/emojimodel.cpp:172
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "自然"
+
+#: src/libneochat/models/emojimodel.cpp:177
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "食物"
+
+#: src/libneochat/models/emojimodel.cpp:182
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "活動"
+
+#: src/libneochat/models/emojimodel.cpp:187
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "旅行"
+
+#: src/libneochat/models/emojimodel.cpp:192
+#, kde-format
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "物體"
+
+#: src/libneochat/models/emojimodel.cpp:197
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "符號"
+
+#: src/libneochat/models/emojimodel.cpp:202
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr "旗幟"
+
+#: src/libneochat/models/emojimodel.cpp:221
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "自訂"
+
+#: src/libneochat/neochatconnection.cpp:76
+#, kde-format
+msgid ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
+msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
+
+#: src/libneochat/neochatconnection.cpp:319
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr "未設定身份伺服器"
+
+#: src/libneochat/neochatconnection.cpp:350
+#, kde-format
+msgid "Room creation failed: %1"
+msgstr "聊天室建立失敗：%1"
+
+#: src/libneochat/neochatconnection.cpp:380
+#, kde-format
+msgid "Space creation failed: %1"
+msgstr "聊天空間建立失敗：%1"
+
+#: src/libneochat/neochatroom.cpp:1216
+#, kde-format
+msgid "Report sent successfully."
+msgstr "已成功傳送檢舉"
+
+#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#, kde-format
+msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+msgid "Lat: %1, Lon: %2"
+msgstr "緯度：%2，經度：%1"
 
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
@@ -1317,374 +1741,6 @@ msgstr "僅內部用。"
 msgid "Share a URL to Matrix"
 msgstr "將網址分享到 Matrix"
 
-#: src/models/actionsmodel.cpp:30
-#, kde-format
-msgid "Leaving this room."
-msgstr "正在離開這個聊天室。"
-
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:224
-#: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "'%1' 看起來不像是聊天室 ID 或別名。"
-
-#: src/models/actionsmodel.cpp:45
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "正在離開聊天室 %1。"
-
-#: src/models/actionsmodel.cpp:48
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "找不到聊天室 %1。"
-
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:311
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr "未提供新的綽號，不會進行任何變更。"
-
-#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
-#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
-#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:161
-#: src/models/actionsmodel.cpp:170 src/models/actionsmodel.cpp:179
-msgid "<message>"
-msgstr "<訊息>"
-
-#: src/models/actionsmodel.cpp:71
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "在純文字訊息前加上 ¯\\_(ツ)_/¯"
-
-#: src/models/actionsmodel.cpp:80
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "在純文字訊息前加上 ( ͡° ͜ʖ ͡°)"
-
-#: src/models/actionsmodel.cpp:89
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "在純文字訊息前加上 (╯°□°）╯︵ ┻━┻"
-
-#: src/models/actionsmodel.cpp:98
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "在純文字訊息前加上 ┬──┬ ノ( ゜-゜ノ)"
-
-#: src/models/actionsmodel.cpp:116
-msgid "Sends the given message colored as a rainbow"
-msgstr "將指定訊息以彩虹著色後傳送"
-
-#: src/models/actionsmodel.cpp:134
-msgid "Sends the given emote colored as a rainbow"
-msgstr "將指定繪文字以彩虹著色後傳送"
-
-#: src/models/actionsmodel.cpp:148
-msgid "Sends the given message as plain text"
-msgstr "將指定訊息以純文字傳送"
-
-#: src/models/actionsmodel.cpp:162
-msgid "Sends the given message as a spoiler"
-msgstr "將指定訊息以暴雷模式傳送"
-
-#: src/models/actionsmodel.cpp:171
-msgid "Sends the given emote"
-msgstr "傳送指定繪文字"
-
-#: src/models/actionsmodel.cpp:180
-msgid "Sends the given message as a notice"
-msgstr "將指定訊息作為公告傳送"
-
-#: src/models/actionsmodel.cpp:188 src/models/actionsmodel.cpp:341
-#: src/models/actionsmodel.cpp:363 src/models/actionsmodel.cpp:404
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:474
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr "'%1' 看起來不像是 Matrix ID。"
-
-#: src/models/actionsmodel.cpp:194
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "%1 已經邀請到這個聊天室裡。"
-
-#: src/models/actionsmodel.cpp:198
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "%1 已被這個聊天室封鎖。"
-
-#: src/models/actionsmodel.cpp:202
-#, kde-format
-msgid "You are already in this room."
-msgstr "您已經在這個聊天室裡了。"
-
-#: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "%1 已經在這個聊天室裡了。"
-
-#: src/models/actionsmodel.cpp:210
-#, kde-format
-msgctxt "<username> was invited into this room."
-msgid "%1 was invited into this room."
-msgstr "%1 已被邀請到這個聊天室裡。"
-
-#: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
-msgid "<user id>"
-msgstr "<使用者 id>"
-
-#: src/models/actionsmodel.cpp:215
-msgid "Invites the user to this room"
-msgstr "邀請使用者到這個聊天室"
-
-#: src/models/actionsmodel.cpp:232 src/models/actionsmodel.cpp:285
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "正在加入聊天室 %1。"
-
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
-msgid "<room alias or id>"
-msgstr "<聊天室別名或 id>"
-
-#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
-msgid "Joins the given room"
-msgstr "加入指定聊天室"
-
-#: src/models/actionsmodel.cpp:257
-#, kde-format
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr "正在敲聊天室 %1 的門。"
-
-#: src/models/actionsmodel.cpp:268
-msgid "<room alias or id> [<reason>]"
-msgstr "<聊天室別名或 ID> [<原因>]"
-
-#: src/models/actionsmodel.cpp:269
-msgid "Requests to join the given room"
-msgstr "請求加入指定聊天室"
-
-#: src/models/actionsmodel.cpp:282
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr "您已經在聊天室 %1 裡了。"
-
-#: src/models/actionsmodel.cpp:297 src/models/actionsmodel.cpp:304
-msgid "[<room alias or id>]"
-msgstr "[<聊天室別名或 id>]"
-
-#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
-msgid "Leaves the given room or this room, if there is none given"
-msgstr "離開指定的聊天室，若未指定聊天室則離開目前聊天室"
-
-#: src/models/actionsmodel.cpp:318 src/models/actionsmodel.cpp:325
-#: src/models/actionsmodel.cpp:332
-msgid "<display name>"
-msgstr "<顯示名稱>"
-
-#: src/models/actionsmodel.cpp:319
-msgid "Changes your global display name"
-msgstr "變更您的全域顯示名稱"
-
-#: src/models/actionsmodel.cpp:326 src/models/actionsmodel.cpp:333
-msgid "Changes your display name in this room"
-msgstr "變更您在這個聊天室裡的顯示名稱"
-
-#: src/models/actionsmodel.cpp:345
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr "%1 已經被忽略。"
-
-#: src/models/actionsmodel.cpp:349
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr "%1 已被忽略。"
-
-#: src/models/actionsmodel.cpp:355
-msgid "Ignores the given user"
-msgstr "忽略指定的使用者"
-
-#: src/models/actionsmodel.cpp:367
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr "%1 並未被忽略。"
-
-#: src/models/actionsmodel.cpp:371
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr "%1 已不再被忽略。"
-
-#: src/models/actionsmodel.cpp:376
-msgid "Unignores the given user"
-msgstr "取消忽略指定的使用者"
-
-#: src/models/actionsmodel.cpp:394
-msgid "<reaction text>"
-msgstr "<反應文字>"
-
-#: src/models/actionsmodel.cpp:395
-msgid "React to the message with the given text"
-msgstr "用指定文字對訊息進行反應"
-
-#: src/models/actionsmodel.cpp:410
-#, kde-format
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "%1 本來就已被這個聊天室封鎖。"
-
-#: src/models/actionsmodel.cpp:418
-#, kde-format
-msgid "You are not allowed to ban users from this room."
-msgstr "您不被允許從這個聊天室封鎖使用者。"
-
-#: src/models/actionsmodel.cpp:424
-#, kde-format
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "您不被允許從這個聊天室封鎖 %1。"
-
-#: src/models/actionsmodel.cpp:428
-#, kde-format
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "%1 已被這個聊天室封鎖。"
-
-#: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
-msgid "<user id> [<reason>]"
-msgstr "<使用者 id> [<原因>]"
-
-#: src/models/actionsmodel.cpp:433
-msgid "Bans the given user"
-msgstr "封鎖指定的使用者"
-
-#: src/models/actionsmodel.cpp:449
-#, kde-format
-msgid "You are not allowed to unban users from this room."
-msgstr "您不被允許從這個聊天室解除封鎖使用者。"
-
-#: src/models/actionsmodel.cpp:454
-#, kde-format
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "%1 未被從這個聊天室封鎖。"
-
-#: src/models/actionsmodel.cpp:458
-#, kde-format
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "%1 已被這個聊天室解除封鎖。"
-
-#: src/models/actionsmodel.cpp:464
-msgid "Removes the ban of the given user"
-msgstr "解除指定使用者的封鎖"
-
-#: src/models/actionsmodel.cpp:478
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr "您無法從聊天室踢出自己。"
-
-#: src/models/actionsmodel.cpp:482
-#, kde-format
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "%1 不在這個聊天室裡。"
-
-#: src/models/actionsmodel.cpp:491
-#, kde-format
-msgid "You are not allowed to kick users from this room."
-msgstr "您不被允許從這個聊天室踢出使用者。"
-
-#: src/models/actionsmodel.cpp:497
-#, kde-format
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "您不被允許從這個聊天室踢出 %1。"
-
-#: src/models/actionsmodel.cpp:501
-#, kde-format
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "%1 已被踢出這個聊天室。"
-
-#: src/models/actionsmodel.cpp:506
-msgid "Removes the user from the room"
-msgstr "從聊天室移除使用者"
-
-#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "歷史"
-
-#: src/models/emojimodel.cpp:162
-#, kde-format
-msgctxt "'Smileys' is a category of emoji"
-msgid "Smileys"
-msgstr "微笑"
-
-#: src/models/emojimodel.cpp:167
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr "人們"
-
-#: src/models/emojimodel.cpp:172
-#, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr "自然"
-
-#: src/models/emojimodel.cpp:177
-#, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr "食物"
-
-#: src/models/emojimodel.cpp:182
-#, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr "活動"
-
-#: src/models/emojimodel.cpp:187
-#, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr "旅行"
-
-#: src/models/emojimodel.cpp:192
-#, kde-format
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "物體"
-
-#: src/models/emojimodel.cpp:197
-#, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr "符號"
-
-#: src/models/emojimodel.cpp:202
-#, kde-format
-msgctxt "'Flags' is a category of emoji"
-msgid "Flags"
-msgstr "旗幟"
-
-#: src/models/emojimodel.cpp:221
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "自訂"
-
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
@@ -1949,40 +2005,6 @@ msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 邀請了您"
 
-#: src/neochatconnection.cpp:76
-#, kde-format
-msgid ""
-"File too large to download.<br />Contact your matrix server administrator "
-"for support."
-msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
-
-#: src/neochatconnection.cpp:319
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr "未設定身份伺服器"
-
-#: src/neochatconnection.cpp:350
-#, kde-format
-msgid "Room creation failed: %1"
-msgstr "聊天室建立失敗：%1"
-
-#: src/neochatconnection.cpp:380
-#, kde-format
-msgid "Space creation failed: %1"
-msgstr "聊天空間建立失敗：%1"
-
-#: src/neochatroom.cpp:1215
-#, kde-format
-msgid "Report sent successfully."
-msgstr "已成功傳送檢舉"
-
-#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
-#, kde-format
-msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-msgid "Lat: %1, Lon: %2"
-msgstr "緯度：%2，經度：%1"
-
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
@@ -2051,7 +2073,7 @@ msgstr "開啟 NeoChat"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "投票已結束。最高票的答案：%1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -2867,7 +2889,7 @@ msgstr "在對話串中回覆"
 #: src/qml/HoverActions.qml:158
 #, kde-format
 msgid "End Poll"
-msgstr ""
+msgstr "結束投票"
 
 #: src/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3192,13 +3214,13 @@ msgstr "複製訊息連結"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "唸出文字"
 
 #: src/qml/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 說道 %2"
 
 #: src/qml/MessageDelegateContextMenu.qml:120
 #, kde-format
@@ -4386,22 +4408,22 @@ msgstr "繼續"
 msgid "Working"
 msgstr "處理中"
 
-#: src/roommanager.cpp:145
+#: src/roommanager.cpp:150
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:356
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "加入聊天室失敗<br />%1"
 
-#: src/roommanager.cpp:375
+#: src/roommanager.cpp:380
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/roommanager.cpp:379
+#: src/roommanager.cpp:384
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "請求加入聊天室失敗<br />%1"
@@ -6150,7 +6172,7 @@ msgstr "在外部開啟"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
+msgstr[0] "%1 張票"
 
 #: src/timeline/PollComponent.qml:131
 #, kde-format

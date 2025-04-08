@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-06 00:42+0000\n"
+"POT-Creation-Date: 2025-04-08 00:41+0000\n"
 "PO-Revision-Date: 2025-03-23 14:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -96,7 +96,7 @@ msgstr "Emojit"
 msgid "Stickers"
 msgstr "Tarrat"
 
-#: src/controller.cpp:143
+#: src/controller.cpp:149
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -104,19 +104,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
 
-#: src/controller.cpp:261
+#: src/controller.cpp:267
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Saantimerkkiä ei löytynyt: se on ehkä poistettu?"
 
-#: src/controller.cpp:265
+#: src/controller.cpp:271
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "Pääsy avainrenkaaseen estettiin: anna NeoChatille lupa lukea saantimerkki"
 
-#: src/controller.cpp:268
+#: src/controller.cpp:274
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +125,12 @@ msgstr ""
 "Avainrengas ei ole käytettävissä: asenna sellainen, esim. Linuxissa KWallet "
 "tai Gnomen avainrengas"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:277
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Saantimerkkiä ei voida lukea: %1"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:376
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
@@ -371,40 +371,6 @@ msgstr "Vähäinen etusijaisuus"
 msgid "Spaces"
 msgstr "Välilyönnit"
 
-#: src/enums/powerlevel.cpp:10
-#, kde-format
-msgid "Member"
-msgstr "Jäsen"
-
-#: src/enums/powerlevel.cpp:12
-#, kde-format
-msgid "Moderator"
-msgstr "Moderaattori"
-
-#: src/enums/powerlevel.cpp:14
-#, kde-format
-msgid "Admin"
-msgstr "Ylläpitäjä"
-
-#: src/enums/powerlevel.cpp:16
-#, kde-format
-msgid "Mute"
-msgstr "Vaimenna"
-
-#: src/enums/powerlevel.cpp:18
-#, kde-format
-msgid "Custom"
-msgstr "Mukautettu"
-
-#: src/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
-#, kde-format
-msgctxt ""
-"%1 is the name of the power level, e.g. admin and %2 is the value that "
-"represents."
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -489,512 +455,972 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Huoneet, joissa on uusimpia viestejä, tulevat ylemmäs"
 
-#: src/eventhandler.cpp:293 src/eventhandler.cpp:509
+#: src/libneochat/enums/powerlevel.cpp:10
+#, kde-format
+msgid "Member"
+msgstr "Jäsen"
+
+#: src/libneochat/enums/powerlevel.cpp:12
+#, kde-format
+msgid "Moderator"
+msgstr "Moderaattori"
+
+#: src/libneochat/enums/powerlevel.cpp:14
+#, kde-format
+msgid "Admin"
+msgstr "Ylläpitäjä"
+
+#: src/libneochat/enums/powerlevel.cpp:16
+#, kde-format
+msgid "Mute"
+msgstr "Vaimenna"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, kde-format
+msgid "Custom"
+msgstr "Mukautettu"
+
+#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
+#: src/models/userlistmodel.cpp:113
+#, kde-format
+msgctxt ""
+"%1 is the name of the power level, e.g. admin and %2 is the value that "
+"represents."
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tämä viesti on poistettu]</i>"
 
-#: src/eventhandler.cpp:293
+#: src/libneochat/eventhandler.cpp:280
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Tämä viesti on poistettu: %1]</i>"
 
-#: src/eventhandler.cpp:327
+#: src/libneochat/eventhandler.cpp:314
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "kutsui henkilön %1 uudelleen huoneeseen"
 
-#: src/eventhandler.cpp:329
+#: src/libneochat/eventhandler.cpp:316
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:338
+#: src/libneochat/eventhandler.cpp:325
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "liittyi huoneeseen (toisto)"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "kutsui huoneeseen henkilön %1"
 
-#: src/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:327
 #, kde-format
 msgid "joined the room"
 msgstr "liittyi huoneeseen"
 
-#: src/eventhandler.cpp:344
+#: src/libneochat/eventhandler.cpp:331
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/eventhandler.cpp:351
+#: src/libneochat/eventhandler.cpp:338
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "tyhjensi näyttönimensä"
 
-#: src/eventhandler.cpp:354
+#: src/libneochat/eventhandler.cpp:341
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "vaihtoi näyttönimekseen %1"
 
-#: src/eventhandler.cpp:360
+#: src/libneochat/eventhandler.cpp:347
 #, kde-format
 msgid " and "
 msgstr " ja "
 
-#: src/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:350
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "tyhjensi avatarinsa"
 
-#: src/eventhandler.cpp:365
+#: src/libneochat/eventhandler.cpp:352
 #, kde-format
 msgid "set an avatar"
 msgstr "asetti avatarin"
 
-#: src/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "päivitti avatarinsa"
 
-#: src/eventhandler.cpp:371
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ei muuttanut mitään"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "peruutti henkilön %1 kutsun"
 
-#: src/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:364
 #, kde-format
 msgid "rejected the invitation"
 msgstr "hylkäsi kutsun"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "unbanned %1"
 msgstr "perui käyttäjän %1 eston"
 
-#: src/eventhandler.cpp:381
+#: src/libneochat/eventhandler.cpp:368
 #, kde-format
 msgid "self-unbanned"
 msgstr "perui itsensä eston"
 
-#: src/eventhandler.cpp:384
+#: src/libneochat/eventhandler.cpp:371
 #, kde-format
 msgid "left the room"
 msgstr "poistui huoneesta"
 
-#: src/eventhandler.cpp:387
+#: src/libneochat/eventhandler.cpp:374
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "poisti henkilön %1 huoneesta %2"
 
-#: src/eventhandler.cpp:389
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "has put %1 out of the room"
 msgstr "poisti henkilön %1 huoneesta"
 
-#: src/eventhandler.cpp:393
+#: src/libneochat/eventhandler.cpp:380
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "torjui käyttäjän %1 huoneesta"
 
-#: src/eventhandler.cpp:395
+#: src/libneochat/eventhandler.cpp:382
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "esti henkilön %1 pääsemästä huoneeseen %2"
 
-#: src/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:385
 #, kde-format
 msgid "self-banned from the room"
 msgstr "esti itsensä pääsemästä huoneeseen"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite"
 msgstr "pyysi kutsua"
 
-#: src/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:389
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "pyysi kutsua, koska: %1"
 
-#: src/eventhandler.cpp:406
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "made something unknown"
 msgstr "teki jotakin tuntematonta"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "tyhjensi huoneen pääaliaksen"
 
-#: src/eventhandler.cpp:409
+#: src/libneochat/eventhandler.cpp:396
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "asetti huoneen pääaliakseksi %1"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "cleared the room name"
 msgstr "tyhjensi huoneen nimen"
 
-#: src/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:399
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "asetti huoneen nimeksi %1"
 
-#: src/eventhandler.cpp:415
+#: src/libneochat/eventhandler.cpp:402
 #, kde-format
 msgid "cleared the topic"
 msgstr "tyhjensi aiheen"
 
-#: src/eventhandler.cpp:416
+#: src/libneochat/eventhandler.cpp:403
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "asetti aiheeksi %1"
 
-#: src/eventhandler.cpp:422
+#: src/libneochat/eventhandler.cpp:409
 #, kde-format
 msgid "changed the room avatar"
 msgstr "vaihtoi huoneen avatarin"
 
-#: src/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:412
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktivoi alusta loppuun -salauksen"
 
-#: src/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:416
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "päivitti huoneen versioon %1"
 
-#: src/eventhandler.cpp:430
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "created the room, version %1"
 msgstr "loi huoneen, versio %1"
 
-#: src/eventhandler.cpp:433
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "muutti tämän huoneen käyttöoikeustasoja"
 
-#: src/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:426
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "muutti tämän huoneen palvelimen ACL-luetteloita"
 
-#: src/eventhandler.cpp:443
+#: src/libneochat/eventhandler.cpp:430
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "lisäsi %1-sovelman"
 
-#: src/eventhandler.cpp:446
+#: src/libneochat/eventhandler.cpp:433
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "poisti %1-sovelman"
 
-#: src/eventhandler.cpp:448
+#: src/libneochat/eventhandler.cpp:435
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "muutti %1-sovelman asetuksia"
 
-#: src/eventhandler.cpp:451
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgid "updated %1 state"
 msgstr "päivitti %1-tilansa"
 
-#: src/eventhandler.cpp:452
+#: src/libneochat/eventhandler.cpp:439
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "päivitti käyttäjän %2 %1-tilan"
 
-#: src/eventhandler.cpp:457 src/eventhandler.cpp:656
+#: src/libneochat/eventhandler.cpp:444 src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "Unknown event"
 msgstr "Tuntematon tapahtuma"
 
-#: src/eventhandler.cpp:472
+#: src/libneochat/eventhandler.cpp:459
 #, kde-format
 msgid "a file"
 msgstr "tiedosto"
 
-#: src/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:505
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 lähetti viestin"
 
-#: src/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:508
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 lähetti tarran"
 
-#: src/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:514
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 kutsui jonkun uudestaan huoneeseen"
 
-#: src/eventhandler.cpp:533
+#: src/libneochat/eventhandler.cpp:520
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 liittyi huoneeseen (toisto)"
 
-#: src/eventhandler.cpp:535
+#: src/libneochat/eventhandler.cpp:522
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 kutsui jonkun huoneeseen"
 
-#: src/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:523
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 liittyi huoneeseen"
 
-#: src/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:549
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 asetti näyttönimen ja avatarin"
 
-#: src/eventhandler.cpp:564
+#: src/libneochat/eventhandler.cpp:551
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 asetti näyttönimen ja päivitti avatarinsa"
 
-#: src/eventhandler.cpp:566
+#: src/libneochat/eventhandler.cpp:553
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 asetti näyttönimen ja tyhjensi avatarinsa"
 
-#: src/eventhandler.cpp:568
+#: src/libneochat/eventhandler.cpp:555
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 asetti huoneen näyttönimen"
 
-#: src/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:558
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 vaihtoi näyttönimensä ja asetti avatarin"
 
-#: src/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:560
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 vaihto näyttönimensä ja päivitti avatarinsa"
 
-#: src/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 vaihto näyttönimensä ja tyhjensi avatarinsa"
 
-#: src/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:564
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 vaihtoi näyttönimensä"
 
-#: src/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:567
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 tyhjensi näyttönimensä ja asetti avatarin"
 
-#: src/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:569
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 tyhjensi näyttönimensä ja päivitti avatarinsa"
 
-#: src/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 tyhjensi näyttönimensä ja avatarinsa"
 
-#: src/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 tyhjensi näyttönimensä"
 
-#: src/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:576
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 ei muuttanut mitään"
 
-#: src/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 perui käyttäjän kutsun"
 
-#: src/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:581
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 hylkäsi kutsun"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 perui käyttäjän eston"
 
-#: src/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 perui itsensä eston"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 poisti henkilön huoneesta"
 
-#: src/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 poistui huoneesta"
 
-#: src/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:590
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 esti käyttäjän huoneesta"
 
-#: src/eventhandler.cpp:605
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 esti itsensä huoneesta"
 
-#: src/eventhandler.cpp:608
+#: src/libneochat/eventhandler.cpp:595
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 pyysi kutsua"
 
-#: src/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:599
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 teki jotakin tuntematonta"
 
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 tyhjensi huoneen pääaliaksen"
 
 # Nämä set…-alkuiset oletan imperfekteiksi imperatiivien sijaan, koska ympärillä on muita (banned, upgraded jne.)
-#: src/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:602
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 asetti huoneen pääaliaksen"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 tyhjensi huoneen nimen"
 
-#: src/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 asetti huoneen nimen"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 tyhjensi aiheen"
 
-#: src/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 asetti aiheen"
 
-#: src/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:611
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: src/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 aktivoi päästä päähän -salauksen"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 päivitti huoneen version"
 
-#: src/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:617
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 loi huoneen"
 
-#: src/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:620
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 muutti huoneen voimatasoja"
 
-#: src/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:623
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 lähetti elävän sijaintimerkin"
 
-#: src/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 muutti tämän huoneen palvelimen ACL-luetteloita"
 
-#: src/eventhandler.cpp:643
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 lisäsi sovelman"
 
-#: src/eventhandler.cpp:646
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 poisti sovelman"
 
-#: src/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:635
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 määritti sovelman"
 
-#: src/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:638
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 päivitti tilan"
 
-#: src/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:641
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 aloitti kyselyn"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
 msgstr "Ladataan"
 
-#: src/filetransferpseudojob.cpp:58
+#: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
 msgstr "Lähetetään"
 
-#: src/filetransferpseudojob.cpp:59
+#: src/libneochat/filetransferpseudojob.cpp:59
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
 msgstr "Lähde"
 
-#: src/filetransferpseudojob.cpp:60
+#: src/libneochat/filetransferpseudojob.cpp:60
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Kohde"
+
+#: src/libneochat/models/actionsmodel.cpp:30
+#, kde-format
+msgid "Leaving this room."
+msgstr "Poistutaan tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:224
+#: src/libneochat/models/actionsmodel.cpp:249
+#: src/libneochat/models/actionsmodel.cpp:278
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr "”%1” ei vaikuta huoneen tunnisteelta tai aliakselta."
+
+#: src/libneochat/models/actionsmodel.cpp:45
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "Poistutaan huoneesta %1."
+
+#: src/libneochat/models/actionsmodel.cpp:48
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "Huonetta %1 ei löytynyt."
+
+#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:311
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr "Uutta lempinimeä ei annettu: ei tehdä muutoksia."
+
+#: src/libneochat/models/actionsmodel.cpp:70
+#: src/libneochat/models/actionsmodel.cpp:79
+#: src/libneochat/models/actionsmodel.cpp:88
+#: src/libneochat/models/actionsmodel.cpp:97
+#: src/libneochat/models/actionsmodel.cpp:115
+#: src/libneochat/models/actionsmodel.cpp:133
+#: src/libneochat/models/actionsmodel.cpp:147
+#: src/libneochat/models/actionsmodel.cpp:161
+#: src/libneochat/models/actionsmodel.cpp:170
+#: src/libneochat/models/actionsmodel.cpp:179
+msgid "<message>"
+msgstr "<viesti>"
+
+#: src/libneochat/models/actionsmodel.cpp:71
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "Lisää raakatekstiviestiin ¯\\_(ツ)_/¯"
+
+#: src/libneochat/models/actionsmodel.cpp:80
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "Lisää raakatekstiviestiin ( ͡° ͜ʖ ͡°)"
+
+#: src/libneochat/models/actionsmodel.cpp:89
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "Lisää raakatekstiviestiin (╯°□°）╯︵ ┻━┻"
+
+#: src/libneochat/models/actionsmodel.cpp:98
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "Lisää raakatekstiviestiin ┬──┬ ノ( ゜-゜ノ)"
+
+#: src/libneochat/models/actionsmodel.cpp:116
+msgid "Sends the given message colored as a rainbow"
+msgstr "Lähettää annetun viestin sateenkaareksi väritettynä"
+
+#: src/libneochat/models/actionsmodel.cpp:134
+msgid "Sends the given emote colored as a rainbow"
+msgstr "Lähettää annetun hymiön sateenkaareksi väritettynä"
+
+#: src/libneochat/models/actionsmodel.cpp:148
+msgid "Sends the given message as plain text"
+msgstr "Lähettää annetun viestin raakatekstinä"
+
+#: src/libneochat/models/actionsmodel.cpp:162
+msgid "Sends the given message as a spoiler"
+msgstr "Lähetä valittu viesti spoilerina"
+
+#: src/libneochat/models/actionsmodel.cpp:171
+msgid "Sends the given emote"
+msgstr "Lähetä annetun hymiön"
+
+#: src/libneochat/models/actionsmodel.cpp:180
+msgid "Sends the given message as a notice"
+msgstr "Lähetä annetun viesti ilmoituksena"
+
+#: src/libneochat/models/actionsmodel.cpp:188
+#: src/libneochat/models/actionsmodel.cpp:341
+#: src/libneochat/models/actionsmodel.cpp:363
+#: src/libneochat/models/actionsmodel.cpp:404
+#: src/libneochat/models/actionsmodel.cpp:441
+#: src/libneochat/models/actionsmodel.cpp:474
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr "”%1” ei vaikuta Matrix-tunnisteelta."
+
+#: src/libneochat/models/actionsmodel.cpp:194
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "%1 on jo kutsuttu tähän huoneeseen."
+
+#: src/libneochat/models/actionsmodel.cpp:198
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "%1 on häädetty tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:202
+#, kde-format
+msgid "You are already in this room."
+msgstr "Olet jo tässä huoneessa."
+
+#: src/libneochat/models/actionsmodel.cpp:206
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "%1 on jo tässä huoneessa."
+
+#: src/libneochat/models/actionsmodel.cpp:210
+#, kde-format
+msgctxt "<username> was invited into this room."
+msgid "%1 was invited into this room."
+msgstr "%1 kutsuttiin tähän huoneeseen."
+
+#: src/libneochat/models/actionsmodel.cpp:214
+#: src/libneochat/models/actionsmodel.cpp:354
+#: src/libneochat/models/actionsmodel.cpp:375
+#: src/libneochat/models/actionsmodel.cpp:463
+msgid "<user id>"
+msgstr "<käyttäjätunniste>"
+
+#: src/libneochat/models/actionsmodel.cpp:215
+msgid "Invites the user to this room"
+msgstr "Kutsuu käyttäjän tähän huoneeseen"
+
+#: src/libneochat/models/actionsmodel.cpp:232
+#: src/libneochat/models/actionsmodel.cpp:285
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "Liitytään huoneeseen %1."
+
+#: src/libneochat/models/actionsmodel.cpp:237
+#: src/libneochat/models/actionsmodel.cpp:290
+msgid "<room alias or id>"
+msgstr "<huoneen alias tai tunniste>"
+
+#: src/libneochat/models/actionsmodel.cpp:238
+#: src/libneochat/models/actionsmodel.cpp:291
+msgid "Joins the given room"
+msgstr "Liittyy annettuun huoneeseen"
+
+#: src/libneochat/models/actionsmodel.cpp:257
+#, kde-format
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "Koputetaan huonetta %1."
+
+#: src/libneochat/models/actionsmodel.cpp:268
+msgid "<room alias or id> [<reason>]"
+msgstr "<huoneen alias tai tunniste> [<syy>]"
+
+#: src/libneochat/models/actionsmodel.cpp:269
+msgid "Requests to join the given room"
+msgstr "Pyytää liittyä annettuun huoneeseen"
+
+#: src/libneochat/models/actionsmodel.cpp:282
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr "Olet jo huoneessa %1."
+
+#: src/libneochat/models/actionsmodel.cpp:297
+#: src/libneochat/models/actionsmodel.cpp:304
+msgid "[<room alias or id>]"
+msgstr "[<huoneen alias tai tunniste>]"
+
+#: src/libneochat/models/actionsmodel.cpp:298
+#: src/libneochat/models/actionsmodel.cpp:305
+msgid "Leaves the given room or this room, if there is none given"
+msgstr "Jättää annetun tai tämän huoneen (ellei huonetta ole annettu)"
+
+#: src/libneochat/models/actionsmodel.cpp:318
+#: src/libneochat/models/actionsmodel.cpp:325
+#: src/libneochat/models/actionsmodel.cpp:332
+msgid "<display name>"
+msgstr "<näyttönimi>"
+
+#: src/libneochat/models/actionsmodel.cpp:319
+msgid "Changes your global display name"
+msgstr "Vaihtaa yleisen näyttönimesi"
+
+#: src/libneochat/models/actionsmodel.cpp:326
+#: src/libneochat/models/actionsmodel.cpp:333
+msgid "Changes your display name in this room"
+msgstr "Vaihtaa tämän huoneen näyttönimesi"
+
+#: src/libneochat/models/actionsmodel.cpp:345
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr "%1 sivuutetaan jo."
+
+#: src/libneochat/models/actionsmodel.cpp:349
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr "Nyt %1 sivuutetaan."
+
+#: src/libneochat/models/actionsmodel.cpp:355
+msgid "Ignores the given user"
+msgstr "Sivuuta annettu käyttäjä"
+
+#: src/libneochat/models/actionsmodel.cpp:367
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr "Käyttäjää %1 ei sivuuteta."
+
+#: src/libneochat/models/actionsmodel.cpp:371
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr "Käyttäjää %1 ei enää sivuuteta."
+
+#: src/libneochat/models/actionsmodel.cpp:376
+msgid "Unignores the given user"
+msgstr "Peruu tämän käyttäjän sivuuttamisen"
+
+#: src/libneochat/models/actionsmodel.cpp:394
+msgid "<reaction text>"
+msgstr "<reaktioteksti>"
+
+#: src/libneochat/models/actionsmodel.cpp:395
+msgid "React to the message with the given text"
+msgstr "Reagoi viestiin annetulla tekstillä."
+
+#: src/libneochat/models/actionsmodel.cpp:410
+#, kde-format
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 on jo torjuttu tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:418
+#, kde-format
+msgid "You are not allowed to ban users from this room."
+msgstr "Sinulla ei ole lupaa torjua käyttäjiä tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:424
+#, kde-format
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "Sinulla ei ole lupaa torjua käyttäjää %1 tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:428
+#, kde-format
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 torjuttiin tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:432
+#: src/libneochat/models/actionsmodel.cpp:505
+msgid "<user id> [<reason>]"
+msgstr "<käyttäjätunniste> [<syy>]"
+
+#: src/libneochat/models/actionsmodel.cpp:433
+msgid "Bans the given user"
+msgstr "Torjuu annetun käyttäjän"
+
+#: src/libneochat/models/actionsmodel.cpp:449
+#, kde-format
+msgid "You are not allowed to unban users from this room."
+msgstr "Sinulla ei ole lupaa kumota käyttäjien torjumista tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:454
+#, kde-format
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "Käyttäjää %1 ei ole torjuttu tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:458
+#, kde-format
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "Käyttäjän %1 torjunta tästä huoneesta kumottiin."
+
+#: src/libneochat/models/actionsmodel.cpp:464
+msgid "Removes the ban of the given user"
+msgstr "Kumoaa annetun käyttäjän eston"
+
+#: src/libneochat/models/actionsmodel.cpp:478
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr "Et voi potkia itseäsi huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:482
+#, kde-format
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 ei ole tässä huoneessa."
+
+#: src/libneochat/models/actionsmodel.cpp:491
+#, kde-format
+msgid "You are not allowed to kick users from this room."
+msgstr "Sinulla ei ole lupaa potkaista käyttäjiä tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:497
+#, kde-format
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "Sinulla ei ole lupaa potkaista käyttäjää %1 tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:501
+#, kde-format
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 potkaistiin tästä huoneesta."
+
+#: src/libneochat/models/actionsmodel.cpp:506
+msgid "Removes the user from the room"
+msgstr "Poistaa käyttäjän huoneesta"
+
+#: src/libneochat/models/emojimodel.cpp:157
+#: src/libneochat/models/emojimodel.cpp:215
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Historia"
+
+#: src/libneochat/models/emojimodel.cpp:162
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr "Hymiöt"
+
+#: src/libneochat/models/emojimodel.cpp:167
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "Ihmiset"
+
+#: src/libneochat/models/emojimodel.cpp:172
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "Luonto"
+
+#: src/libneochat/models/emojimodel.cpp:177
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "Ruoka"
+
+#: src/libneochat/models/emojimodel.cpp:182
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "Aktiviteetit"
+
+#: src/libneochat/models/emojimodel.cpp:187
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "Matkailu"
+
+#: src/libneochat/models/emojimodel.cpp:192
+#, kde-format
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Oliot"
+
+#: src/libneochat/models/emojimodel.cpp:197
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "Symbolit"
+
+#: src/libneochat/models/emojimodel.cpp:202
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr "Liput"
+
+#: src/libneochat/models/emojimodel.cpp:221
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Mukautettu"
+
+#: src/libneochat/neochatconnection.cpp:76
+#, kde-format
+msgid ""
+"File too large to download.<br />Contact your matrix server administrator "
+"for support."
+msgstr ""
+"Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
+"ylläpidolta."
+
+#: src/libneochat/neochatconnection.cpp:319
+#, kde-format
+msgctxt "@info"
+msgid "No identity server configured"
+msgstr "Henkilöyspalvelinta ei ole määritetty"
+
+#: src/libneochat/neochatconnection.cpp:350
+#, kde-format
+msgid "Room creation failed: %1"
+msgstr "Huoneen luominen epäonnistui: %1"
+
+#: src/libneochat/neochatconnection.cpp:380
+#, kde-format
+msgid "Space creation failed: %1"
+msgstr "Tilan luominen epäonnistui: %1"
+
+#: src/libneochat/neochatroom.cpp:1216
+#, kde-format
+msgid "Report sent successfully."
+msgstr "Ilmoituksen lähettäminen onnistui."
+
+#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#, kde-format
+msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+msgid "Lat: %1, Lon: %2"
+msgstr "Lev: %1, pit: %2"
 
 #: src/login.cpp:87 src/login.cpp:102
 #, kde-format
@@ -1321,374 +1747,6 @@ msgstr "Vain sisäiseen käyttöön."
 msgid "Share a URL to Matrix"
 msgstr "Jaa verkko-osoite Matrixiin"
 
-#: src/models/actionsmodel.cpp:30
-#, kde-format
-msgid "Leaving this room."
-msgstr "Poistutaan tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:37 src/models/actionsmodel.cpp:224
-#: src/models/actionsmodel.cpp:249 src/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "”%1” ei vaikuta huoneen tunnisteelta tai aliakselta."
-
-#: src/models/actionsmodel.cpp:45
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "Poistutaan huoneesta %1."
-
-#: src/models/actionsmodel.cpp:48
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "Huonetta %1 ei löytynyt."
-
-#: src/models/actionsmodel.cpp:56 src/models/actionsmodel.cpp:311
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr "Uutta lempinimeä ei annettu: ei tehdä muutoksia."
-
-#: src/models/actionsmodel.cpp:70 src/models/actionsmodel.cpp:79
-#: src/models/actionsmodel.cpp:88 src/models/actionsmodel.cpp:97
-#: src/models/actionsmodel.cpp:115 src/models/actionsmodel.cpp:133
-#: src/models/actionsmodel.cpp:147 src/models/actionsmodel.cpp:161
-#: src/models/actionsmodel.cpp:170 src/models/actionsmodel.cpp:179
-msgid "<message>"
-msgstr "<viesti>"
-
-#: src/models/actionsmodel.cpp:71
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Lisää raakatekstiviestiin ¯\\_(ツ)_/¯"
-
-#: src/models/actionsmodel.cpp:80
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Lisää raakatekstiviestiin ( ͡° ͜ʖ ͡°)"
-
-#: src/models/actionsmodel.cpp:89
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "Lisää raakatekstiviestiin (╯°□°）╯︵ ┻━┻"
-
-#: src/models/actionsmodel.cpp:98
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Lisää raakatekstiviestiin ┬──┬ ノ( ゜-゜ノ)"
-
-#: src/models/actionsmodel.cpp:116
-msgid "Sends the given message colored as a rainbow"
-msgstr "Lähettää annetun viestin sateenkaareksi väritettynä"
-
-#: src/models/actionsmodel.cpp:134
-msgid "Sends the given emote colored as a rainbow"
-msgstr "Lähettää annetun hymiön sateenkaareksi väritettynä"
-
-#: src/models/actionsmodel.cpp:148
-msgid "Sends the given message as plain text"
-msgstr "Lähettää annetun viestin raakatekstinä"
-
-#: src/models/actionsmodel.cpp:162
-msgid "Sends the given message as a spoiler"
-msgstr "Lähetä valittu viesti spoilerina"
-
-#: src/models/actionsmodel.cpp:171
-msgid "Sends the given emote"
-msgstr "Lähetä annetun hymiön"
-
-#: src/models/actionsmodel.cpp:180
-msgid "Sends the given message as a notice"
-msgstr "Lähetä annetun viesti ilmoituksena"
-
-#: src/models/actionsmodel.cpp:188 src/models/actionsmodel.cpp:341
-#: src/models/actionsmodel.cpp:363 src/models/actionsmodel.cpp:404
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:474
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr "”%1” ei vaikuta Matrix-tunnisteelta."
-
-#: src/models/actionsmodel.cpp:194
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "%1 on jo kutsuttu tähän huoneeseen."
-
-#: src/models/actionsmodel.cpp:198
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "%1 on häädetty tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:202
-#, kde-format
-msgid "You are already in this room."
-msgstr "Olet jo tässä huoneessa."
-
-#: src/models/actionsmodel.cpp:206
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "%1 on jo tässä huoneessa."
-
-#: src/models/actionsmodel.cpp:210
-#, kde-format
-msgctxt "<username> was invited into this room."
-msgid "%1 was invited into this room."
-msgstr "%1 kutsuttiin tähän huoneeseen."
-
-#: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
-msgid "<user id>"
-msgstr "<käyttäjätunniste>"
-
-#: src/models/actionsmodel.cpp:215
-msgid "Invites the user to this room"
-msgstr "Kutsuu käyttäjän tähän huoneeseen"
-
-#: src/models/actionsmodel.cpp:232 src/models/actionsmodel.cpp:285
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "Liitytään huoneeseen %1."
-
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
-msgid "<room alias or id>"
-msgstr "<huoneen alias tai tunniste>"
-
-#: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
-msgid "Joins the given room"
-msgstr "Liittyy annettuun huoneeseen"
-
-#: src/models/actionsmodel.cpp:257
-#, kde-format
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr "Koputetaan huonetta %1."
-
-#: src/models/actionsmodel.cpp:268
-msgid "<room alias or id> [<reason>]"
-msgstr "<huoneen alias tai tunniste> [<syy>]"
-
-#: src/models/actionsmodel.cpp:269
-msgid "Requests to join the given room"
-msgstr "Pyytää liittyä annettuun huoneeseen"
-
-#: src/models/actionsmodel.cpp:282
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr "Olet jo huoneessa %1."
-
-#: src/models/actionsmodel.cpp:297 src/models/actionsmodel.cpp:304
-msgid "[<room alias or id>]"
-msgstr "[<huoneen alias tai tunniste>]"
-
-#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
-msgid "Leaves the given room or this room, if there is none given"
-msgstr "Jättää annetun tai tämän huoneen (ellei huonetta ole annettu)"
-
-#: src/models/actionsmodel.cpp:318 src/models/actionsmodel.cpp:325
-#: src/models/actionsmodel.cpp:332
-msgid "<display name>"
-msgstr "<näyttönimi>"
-
-#: src/models/actionsmodel.cpp:319
-msgid "Changes your global display name"
-msgstr "Vaihtaa yleisen näyttönimesi"
-
-#: src/models/actionsmodel.cpp:326 src/models/actionsmodel.cpp:333
-msgid "Changes your display name in this room"
-msgstr "Vaihtaa tämän huoneen näyttönimesi"
-
-#: src/models/actionsmodel.cpp:345
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr "%1 sivuutetaan jo."
-
-#: src/models/actionsmodel.cpp:349
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr "Nyt %1 sivuutetaan."
-
-#: src/models/actionsmodel.cpp:355
-msgid "Ignores the given user"
-msgstr "Sivuuta annettu käyttäjä"
-
-#: src/models/actionsmodel.cpp:367
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr "Käyttäjää %1 ei sivuuteta."
-
-#: src/models/actionsmodel.cpp:371
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr "Käyttäjää %1 ei enää sivuuteta."
-
-#: src/models/actionsmodel.cpp:376
-msgid "Unignores the given user"
-msgstr "Peruu tämän käyttäjän sivuuttamisen"
-
-#: src/models/actionsmodel.cpp:394
-msgid "<reaction text>"
-msgstr "<reaktioteksti>"
-
-#: src/models/actionsmodel.cpp:395
-msgid "React to the message with the given text"
-msgstr "Reagoi viestiin annetulla tekstillä."
-
-#: src/models/actionsmodel.cpp:410
-#, kde-format
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "%1 on jo torjuttu tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:418
-#, kde-format
-msgid "You are not allowed to ban users from this room."
-msgstr "Sinulla ei ole lupaa torjua käyttäjiä tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:424
-#, kde-format
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "Sinulla ei ole lupaa torjua käyttäjää %1 tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:428
-#, kde-format
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "%1 torjuttiin tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
-msgid "<user id> [<reason>]"
-msgstr "<käyttäjätunniste> [<syy>]"
-
-#: src/models/actionsmodel.cpp:433
-msgid "Bans the given user"
-msgstr "Torjuu annetun käyttäjän"
-
-#: src/models/actionsmodel.cpp:449
-#, kde-format
-msgid "You are not allowed to unban users from this room."
-msgstr "Sinulla ei ole lupaa kumota käyttäjien torjumista tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:454
-#, kde-format
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "Käyttäjää %1 ei ole torjuttu tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:458
-#, kde-format
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "Käyttäjän %1 torjunta tästä huoneesta kumottiin."
-
-#: src/models/actionsmodel.cpp:464
-msgid "Removes the ban of the given user"
-msgstr "Kumoaa annetun käyttäjän eston"
-
-#: src/models/actionsmodel.cpp:478
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr "Et voi potkia itseäsi huoneesta."
-
-#: src/models/actionsmodel.cpp:482
-#, kde-format
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "%1 ei ole tässä huoneessa."
-
-#: src/models/actionsmodel.cpp:491
-#, kde-format
-msgid "You are not allowed to kick users from this room."
-msgstr "Sinulla ei ole lupaa potkaista käyttäjiä tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:497
-#, kde-format
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "Sinulla ei ole lupaa potkaista käyttäjää %1 tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:501
-#, kde-format
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "%1 potkaistiin tästä huoneesta."
-
-#: src/models/actionsmodel.cpp:506
-msgid "Removes the user from the room"
-msgstr "Poistaa käyttäjän huoneesta"
-
-#: src/models/emojimodel.cpp:157 src/models/emojimodel.cpp:215
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "Historia"
-
-#: src/models/emojimodel.cpp:162
-#, kde-format
-msgctxt "'Smileys' is a category of emoji"
-msgid "Smileys"
-msgstr "Hymiöt"
-
-#: src/models/emojimodel.cpp:167
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr "Ihmiset"
-
-#: src/models/emojimodel.cpp:172
-#, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr "Luonto"
-
-#: src/models/emojimodel.cpp:177
-#, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr "Ruoka"
-
-#: src/models/emojimodel.cpp:182
-#, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr "Aktiviteetit"
-
-#: src/models/emojimodel.cpp:187
-#, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr "Matkailu"
-
-#: src/models/emojimodel.cpp:192
-#, kde-format
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "Oliot"
-
-#: src/models/emojimodel.cpp:197
-#, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr "Symbolit"
-
-#: src/models/emojimodel.cpp:202
-#, kde-format
-msgctxt "'Flags' is a category of emoji"
-msgid "Flags"
-msgstr "Liput"
-
-#: src/models/emojimodel.cpp:221
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Mukautettu"
-
 #: src/models/imagepacksmodel.cpp:92
 #, kde-format
 msgctxt "As in 'The user's own Stickers'"
@@ -1959,42 +2017,6 @@ msgstr "Kutsui sinua keskusteluun"
 msgctxt "@info:label"
 msgid "%1 invited you"
 msgstr "%1 kutsui sinua"
-
-#: src/neochatconnection.cpp:76
-#, kde-format
-msgid ""
-"File too large to download.<br />Contact your matrix server administrator "
-"for support."
-msgstr ""
-"Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
-"ylläpidolta."
-
-#: src/neochatconnection.cpp:319
-#, kde-format
-msgctxt "@info"
-msgid "No identity server configured"
-msgstr "Henkilöyspalvelinta ei ole määritetty"
-
-#: src/neochatconnection.cpp:350
-#, kde-format
-msgid "Room creation failed: %1"
-msgstr "Huoneen luominen epäonnistui: %1"
-
-#: src/neochatconnection.cpp:380
-#, kde-format
-msgid "Space creation failed: %1"
-msgstr "Tilan luominen epäonnistui: %1"
-
-#: src/neochatroom.cpp:1215
-#, kde-format
-msgid "Report sent successfully."
-msgstr "Ilmoituksen lähettäminen onnistui."
-
-#: src/neochatroom.cpp:1551 src/neochatroom.cpp:1559
-#, kde-format
-msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
-msgid "Lat: %1, Lon: %2"
-msgstr "Lev: %1, pit: %2"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -4445,24 +4467,24 @@ msgstr "Jatka"
 msgid "Working"
 msgstr "Työskennellään"
 
-#: src/roommanager.cpp:145
+#: src/roommanager.cpp:150
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Virheellinen tai tyhjä Matrix-tunniste<br />%1 ei ole kelvollinen Matrix-"
 "tunniste"
 
-#: src/roommanager.cpp:351
+#: src/roommanager.cpp:356
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Huoneeseen liittyminen epäonnistui<br />%1"
 
-#: src/roommanager.cpp:375
+#: src/roommanager.cpp:380
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pyysit liittyä huoneeseen ”%1”"
 
-#: src/roommanager.cpp:379
+#: src/roommanager.cpp:384
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Pyyntö liittyä huoneeseen epäonnistui<br />%1"
