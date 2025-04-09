@@ -530,6 +530,9 @@ void TextHandlerTest::componentOutput_data()
     QTest::newRow("quote") << u"<p>Text</p>\n<blockquote>\n<p>blockquote</p>\n</blockquote>"_s
                            << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
                                                       MessageComponent{MessageComponentType::Quote, u"“blockquote”"_s, {}}};
+    QTest::newRow("multiple paragraph quote") << u"<blockquote>\n<p>blockquote</p>\n<p>next paragraph</p>\n</blockquote>"_s
+                                              << QList<MessageComponent>{
+                                                     MessageComponent{MessageComponentType::Quote, u"<p>“blockquote</p>\n<p>next paragraph”</p>"_s, {}}};
     QTest::newRow("no tag first paragraph") << u"Text\n<p>Text</p>"_s
                                             << QList<MessageComponent>{MessageComponent{MessageComponentType::Text, u"Text"_s, {}},
                                                                        MessageComponent{MessageComponentType::Text, u"Text"_s, {}}};
