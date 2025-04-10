@@ -7,7 +7,6 @@
 
 #include "events/pollevent.h"
 #include "neochatroom.h"
-#include "pollanswermodel.h"
 
 #include <Quotient/csapi/relations.h>
 #include <Quotient/events/roompowerlevelsevent.h>

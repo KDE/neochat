@@ -58,7 +58,13 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    static void setShowAllEvents(bool enabled);
+    static void setShowDeletedMessages(bool enabled);
+
 private:
+    static bool m_showAllEvents;
+    static bool m_showDeletedMessages;
+
     bool eventIsVisible(int sourceRow, const QModelIndex &sourceParent) const;
 
     bool showAuthor(QModelIndex index) const;

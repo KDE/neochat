@@ -5,7 +5,7 @@
 
 #include <Quotient/qt_connection_util.h>
 
-#include "delegatetype.h"
+#include "enums/delegatetype.h"
 
 TimelineModel::TimelineModel(QObject *parent)
     : QConcatenateTablesProxyModel(parent)
@@ -16,6 +16,8 @@ TimelineModel::TimelineModel(QObject *parent)
     addSourceModel(m_timelineMessageModel);
     m_timelineEndModel = new TimelineEndModel(this);
     addSourceModel(m_timelineEndModel);
+
+    connect(this, &TimelineModel::threadsEnabledChanged, m_timelineMessageModel, &TimelineMessageModel::threadsEnabledChanged);
 }
 
 NeoChatRoom *TimelineModel::room() const

@@ -3,11 +3,9 @@
 
 #include "messagemodel.h"
 
-#include "neochatconfig.h"
-#include "threadmodel.h"
+#include <QEvent>
 
 #include <Quotient/events/encryptedevent.h>
-#include <Quotient/events/roommemberevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -26,6 +24,11 @@
 
 using namespace Quotient;
 
+std::function<bool(const Quotient::RoomEvent *)> MessageModel::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
+    return false;
+};
+bool MessageModel::m_threadsEnabled = false;
+
 MessageModel::MessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -38,7 +41,7 @@ MessageModel::MessageModel(QObject *parent)
         resetting = false;
     });
 
-    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this]() {
+    connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
         beginResetModel();
         endResetModel();
     });
@@ -129,7 +132,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (NeoChatConfig::self()->threads() && roomMessageEvent && roomMessageEvent->isThreaded()) {
+        if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded()) {
             return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, roomMessageEvent->threadRootEventId()));
         }
         return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, &event->get()));
@@ -176,22 +179,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             return pendingIt->deliveryStatus();
         }
 
-        if (EventHandler::isHidden(m_room, &event.value().get(), [](const RoomEvent *event) -> bool {
-                if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
-                    return true;
-                }
-                if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-                    if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
-                        return true;
-                    } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
-                        return true;
-                    } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                               && !NeoChatConfig::showAvatarUpdate()) {
-                        return true;
-                    }
-                }
-                return false;
-            })) {
+        if (EventHandler::isHidden(m_room, &event.value().get(), m_hiddenFilter)) {
             return EventStatus::Hidden;
         }
 
@@ -204,8 +192,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             }
         }
 #else
-        if (roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() != event.value().get().id()
-            && NeoChatConfig::threads()) {
+        if (roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() != event.value().get().id() && m_threadsEnabled) {
             return EventStatus::Hidden;
         }
 #endif
@@ -239,7 +226,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsThreadedRole) {
-        if (!NeoChatConfig::self()->threads()) {
+        if (!m_threadsEnabled) {
             return false;
         }
         if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get())) {
@@ -499,6 +486,16 @@ bool MessageModel::event(QEvent *event)
         Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
     }
     return QObject::event(event);
+}
+
+void MessageModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
+{
+    MessageModel::m_hiddenFilter = hiddenFilter;
+}
+
+void MessageModel::setThreadsEnabled(bool enableThreads)
+{
+    MessageModel::m_threadsEnabled = enableThreads;
 }
 
 #include "moc_messagemodel.cpp"

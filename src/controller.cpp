@@ -15,10 +15,12 @@
 #include <signal.h>
 
 #include <Quotient/csapi/notifications.h>
+#include <Quotient/events/roommemberevent.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
 #include "models/actionsmodel.h"
+#include "models/messagemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -66,6 +68,22 @@ Controller::Controller(QObject *parent)
     ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());
     connect(NeoChatConfig::self(), &NeoChatConfig::AllowQuickEditChanged, this, []() {
         ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());
+    });
+
+    MessageModel::setHiddenFilter([](const RoomEvent *event) -> bool {
+        if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
+            return true;
+        }
+        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
+                return true;
+            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
+                return true;
+            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
+                return true;
+            }
+        }
+        return false;
     });
 
     ProxyController::instance().setApplicationProxy();

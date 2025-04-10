@@ -13,6 +13,7 @@ target_sources(LibNeoChat PRIVATE
     emojitones.cpp
     eventhandler.cpp
     filetransferpseudojob.cpp
+    filetype.cpp
     linkpreviewer.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp

@@ -56,7 +56,11 @@ public:
      */
     Q_INVOKABLE QMimeType mimeTypeForName(const QString &nameOrAlias) const;
 
-    enum MatchMode { MatchDefault, MatchExtension, MatchContent };
+    enum MatchMode {
+        MatchDefault,
+        MatchExtension,
+        MatchContent,
+    };
     Q_ENUM(MatchMode)
 
     /**

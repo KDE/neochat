@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 # SPDX-License-Identifier: BSD-2-Clause
 
-qt_add_library(timeline STATIC)
-ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
+qt_add_library(Timeline STATIC)
+ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.timeline
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/timeline
     QML_FILES
@@ -55,8 +55,25 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         ThreadBodyComponent.qml
         VideoComponent.qml
     SOURCES
+        contentprovider.cpp
+        messageattached.cpp
+        pollhandler.cpp
         timelinedelegate.cpp
-        timelinedelegate.h
+        enums/delegatetype.h
+        models/itinerarymodel.cpp
+        models/mediamessagefiltermodel.cpp
+        models/messagecontentmodel.cpp
+        models/messagecontentfiltermodel.cpp
+        models/messagefiltermodel.cpp
+        models/messagemodel.cpp
+        models/pinnedmessagemodel.cpp
+        models/pollanswermodel.cpp
+        models/reactionmodel.cpp
+        models/readmarkermodel.cpp
+        models/searchmodel.cpp
+        models/timelinemessagemodel.cpp
+        models/timelinemodel.cpp
+        models/threadmodel.cpp
     RESOURCES
         images/bike.svg
         images/bus.svg
@@ -87,8 +104,26 @@ ecm_add_qml_module(timeline GENERATE_PLUGIN_SOURCE
         QtQuick
 )
 
-target_link_libraries(timeline PRIVATE
-    Qt::Quick
-    KF6::Kirigami
-    LibNeoChat
+configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
+
+ecm_qt_declare_logging_category(Timeline
+    HEADER "messagemodel_logging.h"
+    IDENTIFIER "Message"
+    CATEGORY_NAME "org.kde.neochat.messagemodel"
+    DESCRIPTION "Neochat: messagemodel"
+    DEFAULT_SEVERITY Info
+    EXPORT NEOCHAT
 )
+
+target_include_directories(Timeline PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/enums ${CMAKE_CURRENT_SOURCE_DIR}/models)
+target_link_libraries(Timeline PRIVATE
+    LibNeoChat
+    Qt::Core
+    Qt::Quick
+    Qt::QuickControls2
+    KF6::Kirigami
+)
+
+if(NOT ANDROID)
+    target_link_libraries(Timeline PUBLIC KF6::SyntaxHighlighting)
+endif()

@@ -5,9 +5,11 @@
 #include "roommanager.h"
 
 #include "chatbarcache.h"
+#include "contentprovider.h"
 #include "controller.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
+#include "models/messagefiltermodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -72,6 +74,49 @@ RoomManager::RoomManager(QObject *parent)
         resolveResource(idOrUri, action);
     });
     connect(&ActionsModel::instance(), &ActionsModel::knockRoom, this, &RoomManager::knockRoom);
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowStateEventChanged, this, [this] {
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLeaveJoinEventChanged, this, [this] {
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowRenameChanged, this, [this] {
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowAvatarUpdateChanged, this, [this] {
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    MessageFilterModel::setShowAllEvents(NeoChatConfig::self()->showAllEvents());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowAllEventsChanged, this, [this] {
+        MessageFilterModel::setShowAllEvents(NeoChatConfig::self()->showAllEvents());
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    MessageFilterModel::setShowDeletedMessages(NeoChatConfig::self()->showDeletedMessages());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowDeletedMessagesChanged, this, [this] {
+        MessageFilterModel::setShowDeletedMessages(NeoChatConfig::self()->showDeletedMessages());
+        if (m_messageFilterModel) {
+            m_messageFilterModel->invalidate();
+        }
+    });
+    ContentProvider::self().setThreadsEnabled(NeoChatConfig::threads());
+    MessageModel::setThreadsEnabled(NeoChatConfig::threads());
+    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this] {
+        ContentProvider::self().setThreadsEnabled(NeoChatConfig::threads());
+        MessageModel::setThreadsEnabled(NeoChatConfig::threads());
+        if (m_timelineModel) {
+            Q_EMIT m_timelineModel->threadsEnabledChanged();
+        }
+    });
 }
 
 RoomManager::~RoomManager()

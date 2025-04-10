@@ -7,37 +7,23 @@
 #include <QVariant>
 
 #include "enums/delegatetype.h"
-#include "neochatconfig.h"
 #include "timelinemessagemodel.h"
 
 using namespace Quotient;
+
+bool MessageFilterModel::m_showAllEvents = false;
+bool MessageFilterModel::m_showDeletedMessages = false;
 
 MessageFilterModel::MessageFilterModel(QObject *parent, QAbstractItemModel *sourceModel)
     : QSortFilterProxyModel(parent)
 {
     Q_ASSERT(sourceModel);
     setSourceModel(sourceModel);
-
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowStateEventChanged, this, [this] {
-        invalidateFilter();
-    });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLeaveJoinEventChanged, this, [this] {
-        invalidateFilter();
-    });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowRenameChanged, this, [this] {
-        invalidateFilter();
-    });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowAvatarUpdateChanged, this, [this] {
-        invalidateFilter();
-    });
-    connect(NeoChatConfig::self(), &NeoChatConfig::ShowDeletedMessagesChanged, this, [this] {
-        invalidateFilter();
-    });
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    if (NeoChatConfig::self()->showAllEvents()) {
+    if (m_showAllEvents) {
         return true;
     }
     return eventIsVisible(sourceRow, sourceParent);
@@ -48,7 +34,7 @@ bool MessageFilterModel::eventIsVisible(int sourceRow, const QModelIndex &source
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
     // Don't show redacted (i.e. deleted) messages.
-    if (index.data(TimelineMessageModel::IsRedactedRole).toBool() && !NeoChatConfig::self()->showDeletedMessages()) {
+    if (index.data(TimelineMessageModel::IsRedactedRole).toBool() && !m_showDeletedMessages) {
         return false;
     }
 
@@ -79,7 +65,7 @@ bool MessageFilterModel::eventIsVisible(int sourceRow, const QModelIndex &source
 
 QVariant MessageFilterModel::data(const QModelIndex &index, int role) const
 {
-    if (role == TimelineMessageModel::DelegateTypeRole && NeoChatConfig::self()->showAllEvents()) {
+    if (role == TimelineMessageModel::DelegateTypeRole && m_showAllEvents) {
         if (!eventIsVisible(index.row(), index.parent())) {
             return DelegateType::Other;
         }
@@ -218,6 +204,16 @@ QString MessageFilterModel::excessAuthors(int row) const
     } else {
         return u"+ %1"_s.arg(excessAuthors);
     }
+}
+
+void MessageFilterModel::setShowAllEvents(bool enabled)
+{
+    MessageFilterModel::m_showAllEvents = enabled;
+}
+
+void MessageFilterModel::setShowDeletedMessages(bool enabled)
+{
+    MessageFilterModel::m_showDeletedMessages = enabled;
 }
 
 #include "moc_messagefiltermodel.cpp"

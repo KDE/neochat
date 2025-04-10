@@ -7,16 +7,19 @@ qt_add_executable(timeline-memtest
     main.cpp
 )
 
-target_link_libraries(timeline-memtest PRIVATE neochatplugin timelineplugin)
+target_link_libraries(timeline-memtest PRIVATE neochatplugin Timelineplugin)
 target_link_libraries(timeline-memtest PUBLIC
     Qt::Core
     Qt::Quick
     Qt::Qml
     Qt::Gui
     Qt::QuickControls2
+    Qt::Widgets
+    KF6::I18n
     KF6::Kirigami
     QuotientQt6
-    neochat
+    LibNeoChat
+    Timeline
 )
 
 ecm_add_qml_module(timeline-memtest URI org.kde.neochat.timeline-memtest GENERATE_PLUGIN_SOURCE
@@ -30,5 +33,5 @@ ecm_add_qml_module(timeline-memtest URI org.kde.neochat.timeline-memtest GENERAT
         QtCore
         QtQuick
     IMPORTS
-        org.kde.neochat
+        org.kde.neochat.timeline
 )

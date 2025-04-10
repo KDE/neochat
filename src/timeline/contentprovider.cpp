@@ -106,4 +106,13 @@ PollHandler *ContentProvider::handlerForPoll(NeoChatRoom *room, const QString &e
     return m_pollHandlers.object(eventId);
 }
 
+void ContentProvider::setThreadsEnabled(bool enableThreads)
+{
+    MessageContentModel::setThreadsEnabled(enableThreads);
+
+    for (const auto &key : m_eventContentModels.keys()) {
+        m_eventContentModels.object(key)->threadsEnabledChanged();
+    }
+}
+
 #include "moc_contentprovider.cpp"

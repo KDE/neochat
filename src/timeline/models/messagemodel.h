@@ -112,6 +112,10 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
+    static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
+
+    static void setThreadsEnabled(bool enableThreads);
+
 Q_SIGNALS:
     /**
      * @brief Emitted when the room is changed.
@@ -125,6 +129,8 @@ Q_SIGNALS:
      * new event it adds.
      */
     void newEventAdded(const Quotient::RoomEvent *event);
+
+    void threadsEnabledChanged();
 
 protected:
     QPointer<NeoChatRoom> m_room;
@@ -150,4 +156,7 @@ private:
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
 
     void createEventObjects(const Quotient::RoomEvent *event);
+
+    static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
+    static bool m_threadsEnabled;
 };

@@ -8,14 +8,11 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT NEOCHAT_FLATPAK AND NOT NEOC
 endif()
 
 add_subdirectory(libneochat)
+add_subdirectory(timeline)
 
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/timelinemessagemodel.cpp
-    models/timelinemessagemodel.h
-    models/messagefiltermodel.cpp
-    models/messagefiltermodel.h
     models/roomlistmodel.cpp
     models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
@@ -53,8 +50,6 @@ add_library(neochat STATIC
     models/devicesmodel.cpp
     models/devicesmodel.h
     models/devicesproxymodel.cpp
-    filetype.cpp
-    filetype.h
     login.cpp
     login.h
     models/webshortcutmodel.cpp
@@ -63,8 +58,6 @@ add_library(neochat STATIC
     blurhash.h
     blurhashimageprovider.cpp
     blurhashimageprovider.h
-    models/mediamessagefiltermodel.cpp
-    models/mediamessagefiltermodel.h
     windowcontroller.cpp
     windowcontroller.h
     models/completionmodel.cpp
@@ -77,43 +70,31 @@ add_library(neochat STATIC
     models/statemodel.h
     models/statefiltermodel.cpp
     models/statefiltermodel.h
-    models/searchmodel.cpp
-    models/searchmodel.h
     logger.cpp
     logger.h
     models/stickermodel.cpp
     models/stickermodel.h
     models/imagepacksmodel.cpp
     models/imagepacksmodel.h
-    models/reactionmodel.cpp
-    models/reactionmodel.h
     models/livelocationsmodel.cpp
     models/livelocationsmodel.h
     models/locationsmodel.cpp
     models/locationsmodel.h
     locationhelper.cpp
     locationhelper.h
-    pollhandler.cpp
     registration.cpp
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     mediasizehelper.cpp
     mediasizehelper.h
-    enums/delegatetype.h
     colorschemer.cpp
     colorschemer.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
-    models/timelinemodel.cpp
-    models/timelinemodel.h
-    models/itinerarymodel.cpp
-    models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
     models/linemodel.cpp
     models/linemodel.h
-    models/messagecontentmodel.cpp
-    models/messagecontentmodel.h
     enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h
@@ -136,26 +117,12 @@ add_library(neochat STATIC
     models/permissionsmodel.h
     threepidbindhelper.cpp
     threepidbindhelper.h
-    models/readmarkermodel.cpp
-    models/readmarkermodel.h
-    models/threadmodel.cpp
-    models/threadmodel.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
     models/roomsortparametermodel.h
-    models/messagemodel.cpp
-    models/messagemodel.h
-    models/messagecontentfiltermodel.cpp
-    models/messagecontentfiltermodel.h
-    models/pinnedmessagemodel.cpp
-    models/pinnedmessagemodel.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
-    models/pollanswermodel.cpp
-    models/pollanswermodel.h
-    contentprovider.cpp
-    contentprovider.h
 )
 
 set_source_files_properties(qml/TextToSpeechWrapper.qml PROPERTIES
@@ -262,9 +229,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
         qml/NewPollDialog.qml
-    SOURCES
-        messageattached.cpp
-        messageattached.h
     DEPENDENCIES
         QtCore
         QtQuick
@@ -278,7 +242,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
 )
 
 add_subdirectory(settings)
-add_subdirectory(timeline)
 add_subdirectory(devtools)
 add_subdirectory(login)
 add_subdirectory(chatbar)
@@ -293,20 +256,9 @@ else()
     qt_target_qml_sources(neochat QML_FILES qml/ShareActionStub.qml)
 endif()
 
-configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
-
 if(WIN32)
     set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
 endif()
-
-ecm_qt_declare_logging_category(neochat
-    HEADER "messagemodel_logging.h"
-    IDENTIFIER "Message"
-    CATEGORY_NAME "org.kde.neochat.messagemodel"
-    DESCRIPTION "Neochat: messagemodel"
-    DEFAULT_SEVERITY Info
-    EXPORT NEOCHAT
-)
 
 ecm_qt_declare_logging_category(neochat
     HEADER "publicroomlist_logging.h"
@@ -367,9 +319,10 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE settingsplugin timelineplugin devtoolsplugin loginplugin chatbarplugin)
+target_link_libraries(neochat PRIVATE settingsplugin Timelineplugin devtoolsplugin loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
+    Timeline
     Qt::Core
     Qt::Quick
     Qt::Qml
@@ -506,7 +459,7 @@ if(ANDROID)
     )
     ecm_add_android_apk(neochat-app ANDROID_DIR ${CMAKE_SOURCE_DIR}/android)
 else()
-    target_link_libraries(neochat PUBLIC Qt::Widgets KF6::KIOWidgets KF6::SyntaxHighlighting)
+    target_link_libraries(neochat PUBLIC Qt::Widgets KF6::KIOWidgets)
     install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 

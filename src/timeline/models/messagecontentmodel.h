@@ -112,9 +112,13 @@ public:
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
+    static void setThreadsEnabled(bool enableThreads);
+
 Q_SIGNALS:
     void showAuthorChanged();
     void eventUpdated();
+
+    void threadsEnabledChanged();
 
 private:
     QPointer<NeoChatRoom> m_room;
@@ -150,4 +154,6 @@ private:
     bool m_emptyItinerary = false;
 
     void updateReactionModel();
+
+    static bool m_threadsEnabled;
 };
