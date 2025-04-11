@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-04 07:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -98,7 +98,7 @@ msgstr "Čustvenčki"
 msgid "Stickers"
 msgstr "Nalepke"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -106,12 +106,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje obvestil za nova sporočila"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Žetona za dostop ni bilo mogoče najti: morda je bil izbrisan?"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -119,7 +119,7 @@ msgstr ""
 "Dostop do obeska ključev je bil zavrnjen: dovolite NeoChatu, da prebere "
 "žeton za dostop"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -128,12 +128,12 @@ msgstr ""
 "Obesek za ključe ni na voljo: namestite obesek za ključe, npr. KWallet ali "
 "GNOME kot obesek za ključe na Linuxu"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ni mogoče prebrati žetona za dostop: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -1474,8 +1474,9 @@ msgid "Registration is disabled on this server."
 msgstr "Registracija je onemogočena na tem strežniku."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Nalaganje"
@@ -1767,23 +1768,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Lastni čustvenčki"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, kde-format
-msgid "Loading reply"
-msgstr "Nalaganje odgovora"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Tega sporočila ni bilo mogoče najti, nimate dovoljenja za ogled ali pa ga je "
-"poslal prezrt uporabnik"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -1971,53 +1955,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Povabilo za klic"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " in "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " in %1 drugih"
-msgstr[1] " in %1 drug"
-msgstr[2] " in %1 druga"
-msgstr[3] " in %1 drugi"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 se jih je odzvalo z %3"
-msgstr[1] "%2 se je odzval z %3"
-msgstr[2] "%2 sta se odzvala z %3"
-msgstr[3] "%2 so se odzvali z %3"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "%1 uporabnikov: "
-msgstr[1] "%1 uporabnik: "
-msgstr[2] "%1 uporabnika: "
-msgstr[3] "%1 uporabniki: "
-
-#: src/models/readmarkermodel.cpp:117
-#, kde-format
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "neznan član"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
 msgctxt "@info:label"
@@ -2093,12 +2030,6 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Odpri NeoChat"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr "Anketa je končana. Najpogostejši odgovor: %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4481,24 +4412,24 @@ msgstr "Nadaljuj"
 msgid "Working"
 msgstr "V delovanju"
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
 "Matrix"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Neuspela pridružitev v sobo<br />%1"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev v »%1«"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
@@ -6260,6 +6191,13 @@ msgstr "Skrči predogled"
 msgid "Expand preview"
 msgstr "Razširi predogled"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Nalaganje odgovora"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6270,6 +6208,63 @@ msgstr "Nalaganje predogleda URL"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Odpri od zunaj"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Tega sporočila ni bilo mogoče najti, nimate dovoljenja za ogled ali pa ga je "
+"poslal prezrt uporabnik"
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " in "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " in %1 drugih"
+msgstr[1] " in %1 drug"
+msgstr[2] " in %1 druga"
+msgstr[3] " in %1 drugi"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 se jih je odzvalo z %3"
+msgstr[1] "%2 se je odzval z %3"
+msgstr[2] "%2 sta se odzvala z %3"
+msgstr[3] "%2 so se odzvali z %3"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "%1 uporabnikov: "
+msgstr[1] "%1 uporabnik: "
+msgstr[2] "%1 uporabnika: "
+msgstr[3] "%1 uporabniki: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "neznan član"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6294,6 +6289,12 @@ msgstr[3] "Glede na glasove %1 uporabnikov"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Končano)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr "Anketa je končana. Najpogostejši odgovor: %1"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format

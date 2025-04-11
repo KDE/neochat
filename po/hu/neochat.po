@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "Emodzsik"
 msgid "Stickers"
 msgstr "Matricák"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,12 +105,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Új üzenetek értesítéseinek fogadása"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "A hozzáférési token nem található: talán törölték?"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -118,7 +118,7 @@ msgstr ""
 "Hozzáférés a kulcstároló megtagadva: Kérjük, engedélyezze a NeoChatnek a "
 "hozzáférési token olvasását"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -127,12 +127,12 @@ msgstr ""
 "Nem található kulcstartó: Kérjük, telepítsen egy kulcstartót, Linuxon "
 "például a KWalletet vagy a GNOME kulcstartót"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Nem lehet olvasni a hozzáférési tokent: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Leküldéses értesítések fogadása"
@@ -1499,8 +1499,9 @@ msgid "Registration is disabled on this server."
 msgstr "A regisztráció le van tiltva ezen a kiszolgálón."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Betöltés"
@@ -1795,23 +1796,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Saját emodzsik"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, kde-format
-msgid "Loading reply"
-msgstr "Válasz betöltése"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Ez az üzenet vagy nem található, vagy nincs jogosultsága a megtekintéséhez, "
-"vagy egy mellőzött felhasználó küldte"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -2002,47 +1986,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Hívás meghívó"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " és "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " és %1 további"
-msgstr[1] " és %1 további"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 reakciója: %3"
-msgstr[1] "%2 reakciója: %3"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "1 felhasználó: "
-msgstr[1] "%1 felhasználó: "
-
-#: src/models/readmarkermodel.cpp:117
-#, kde-format
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "ismeretlen tag"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
 #| msgid "Invite to private chat"
@@ -2121,12 +2064,6 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat megnyitása"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr ""
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4555,24 +4492,24 @@ msgstr "Tovább"
 msgid "Working"
 msgstr "Dolgozunk"
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Helytelenül formázott vagy üres Matrix azonosító<br />A(z) %1 nem helyes "
 "Matrix azonosító"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Nem sikerült csatlakozni a szobához<br />%1"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Csatlakozni kérést küldött ide: „%1”"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Nem sikerült csatlakozási kérést küldeni a szobához<br />%1"
@@ -6420,6 +6357,13 @@ msgstr "Előnézet kicsinyítése"
 msgid "Expand preview"
 msgstr "Előnézet nagyítása"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Válasz betöltése"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6430,6 +6374,57 @@ msgstr "URL előnézetének betöltése"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Ez az üzenet vagy nem található, vagy nincs jogosultsága a megtekintéséhez, "
+"vagy egy mellőzött felhasználó küldte"
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " és "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " és %1 további"
+msgstr[1] " és %1 további"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 reakciója: %3"
+msgstr[1] "%2 reakciója: %3"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "1 felhasználó: "
+msgstr[1] "%1 felhasználó: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "ismeretlen tag"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6450,6 +6445,12 @@ msgstr[1] "%1 felhasználó szavazata alapján"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Befejeződött)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
 
 #: src/timeline/ReactionComponent.qml:89
 #, fuzzy, kde-format

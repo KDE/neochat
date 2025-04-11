@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -95,7 +95,7 @@ msgstr "முகவடிகள்"
 msgid "Stickers"
 msgstr "ஒட்டிகள்"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -103,12 +103,12 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "புதிய செய்திகளுக்கான அறிவிப்புகளைப் பெறுவதற்கு"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை: அது நீக்கப்பட்டுள்ளதா?"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -116,7 +116,7 @@ msgstr ""
 "சாவிக்கொத்தைப் அணுகும் அனுமதி மறுக்கப்பட்டது: அணுகல் டோக்கனை படிக்க நியோச்சாட்டை "
 "அனுமதிக்கவும்"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +125,12 @@ msgstr ""
 "சாவிக்கொத்து நிரல் கிடைக்கவில்லை: ஓர் சாவிக்கொத்து நிரலை நிறுவவும், எ.கா. (லினக்சில்) "
 "KWallet அல்லது GNOME keyring."
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "புஷ் அறிவிப்புகளைப் பெறுவது"
@@ -1468,8 +1468,9 @@ msgid "Registration is disabled on this server."
 msgstr "இச்சேவையகத்தில் கணக்குருவாக்கம் முடக்கப்பட்டுள்ளது."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "ஏற்றப்படுகிறது…"
@@ -1761,23 +1762,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "சொந்த முகவடிகள்"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, kde-format
-msgid "Loading reply"
-msgstr "பதில் ஏற்றப்படுகிறது…"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"தகவல் கண்டுபிடிக்கப்படவில்லை, அல்லது அதைப் பார்க்கும் அனுமதி உங்களுக்கு இல்லை, அல்லது "
-"பொருட்படுத்தப்படா பயனரால் அனுப்பப்பட்டது"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -1966,47 +1950,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "குரல்வழி உரையாடலுக்கான அழைப்பு"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " மற்றும் "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " மற்றும் %1 பயனர்"
-msgstr[1] " மற்றும் %1 பயனர்கள்"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 %3 என்று எதிர்வினையிட்டார்"
-msgstr[1] "%2 %3 என்று எதிர்வினையிட்டனர்"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "1 பயனர்: "
-msgstr[1] "%1 பயனர்கள்: "
-
-#: src/models/readmarkermodel.cpp:117
-#, kde-format
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "தெரியாத உறுப்பினர்"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
 msgctxt "@info:label"
@@ -2082,12 +2025,6 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr ""
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4459,24 +4396,24 @@ msgstr "தொடர்"
 msgid "Working"
 msgstr "வேலை செய்கிறது"
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது<br />%1"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -6231,6 +6168,13 @@ msgstr "முன்னோட்டத்தை சிறிதாக்கு"
 msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "பதில் ஏற்றப்படுகிறது…"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6241,6 +6185,57 @@ msgstr "முகவரியின் முன்னோட்டம் ஏற�
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "வெளியமைவாகத் திற"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"தகவல் கண்டுபிடிக்கப்படவில்லை, அல்லது அதைப் பார்க்கும் அனுமதி உங்களுக்கு இல்லை, அல்லது "
+"பொருட்படுத்தப்படா பயனரால் அனுப்பப்பட்டது"
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " மற்றும் "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " மற்றும் %1 பயனர்"
+msgstr[1] " மற்றும் %1 பயனர்கள்"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 %3 என்று எதிர்வினையிட்டார்"
+msgstr[1] "%2 %3 என்று எதிர்வினையிட்டனர்"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "1 பயனர்: "
+msgstr[1] "%1 பயனர்கள்: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "தெரியாத உறுப்பினர்"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6261,6 +6256,12 @@ msgstr[1] "%1 பயனர்களின் வாக்குகளின் �
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(முடிந்துள்ளது)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format

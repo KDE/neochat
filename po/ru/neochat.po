@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2025-03-27 10:50+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -96,7 +96,7 @@ msgstr "Эмодзи"
 msgid "Stickers"
 msgstr "Стикеры"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -104,19 +104,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Получение уведомлений о новых сообщениях"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Не найден маркер доступа: возможно, он был удалён?"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "Отказ в доступе к связке ключей: разрешите NeoChat прочитать маркер доступа"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -125,12 +125,12 @@ msgstr ""
 "Связка ключей недоступна: установите приложение, предоставляющее службу "
 "связки ключей (например, KWallet или GNOME Keyring при работе в Linux)"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Не удалось прочитать маркер доступа: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Получение push-уведомлений"
@@ -1482,8 +1482,9 @@ msgid "Registration is disabled on this server."
 msgstr "Регистрация пользователей отключена на этом сервере."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Загрузка"
@@ -1777,23 +1778,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Свои эмодзи"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, kde-format
-msgid "Loading reply"
-msgstr "Загрузка ответа"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Это сообщение либо не было найдено, либо у вас нет прав на его просмотр, "
-"либо оно было отправлено игнорируемым пользователем"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -1987,53 +1971,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Приглашение на вызов"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " и "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " и ещё %1"
-msgstr[1] " и ещё %1"
-msgstr[2] " и ещё %1"
-msgstr[3] " и ещё %1"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 пользователь использовали %3"
-msgstr[1] "%2 пользователя использовали %3"
-msgstr[2] "%2 пользователей использовали %3"
-msgstr[3] "%2 пользователь использовал %3"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "%1 пользователь: "
-msgstr[1] "%1 пользователя: "
-msgstr[2] "%1 пользователей: "
-msgstr[3] "1 пользователь: "
-
-#: src/models/readmarkermodel.cpp:117
-#, kde-format
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "неизвестный участник"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
 msgctxt "@info:label"
@@ -2109,12 +2046,6 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Открыть NeoChat"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr ""
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4499,24 +4430,24 @@ msgstr "Продолжить"
 msgid "Working"
 msgstr "Работает"
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Неверно сформированный или пустой идентификатор Matrix<br />%1 — "
 "некорректный идентификатор Matrix"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Не удалось присоединиться к комнате<br />%1"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не удалось отправить запрос на присоединение к комнате<br />%1"
@@ -6297,6 +6228,13 @@ msgstr "Уменьшить область предварительного пр�
 msgid "Expand preview"
 msgstr "Увеличить область предварительного просмотра"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Загрузка ответа"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6307,6 +6245,63 @@ msgstr "Загрузка предпросмотра содержимого по 
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Открыть во внешней программе"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Это сообщение либо не было найдено, либо у вас нет прав на его просмотр, "
+"либо оно было отправлено игнорируемым пользователем"
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " и "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " и ещё %1"
+msgstr[1] " и ещё %1"
+msgstr[2] " и ещё %1"
+msgstr[3] " и ещё %1"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 пользователь использовали %3"
+msgstr[1] "%2 пользователя использовали %3"
+msgstr[2] "%2 пользователей использовали %3"
+msgstr[3] "%2 пользователь использовал %3"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "%1 пользователь: "
+msgstr[1] "%1 пользователя: "
+msgstr[2] "%1 пользователей: "
+msgstr[3] "1 пользователь: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "неизвестный участник"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6331,6 +6326,12 @@ msgstr[3] "Основано на голосе %1 пользователя"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Завершено)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format

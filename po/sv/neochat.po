@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2025-04-05 14:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -94,7 +94,7 @@ msgstr "Emoji"
 msgid "Stickers"
 msgstr "Klistermärken"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -102,19 +102,19 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Skicka skrivunderrättelser för nya meddelanden"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Åtkomstsymbol hittades inte. Kanske den har tagits bort?"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "Åtkomst till nyckelkedja nekades. Tillåt NeoChat att läsa åtkomstsymbolen."
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -123,12 +123,12 @@ msgstr ""
 "Ingen nyckelkedja tillgänglig. Installera en nyckelkedja, t.ex. plånboken "
 "eller GNOME-nyckelring på Linux"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Kan inte läsa åtkomstsymbol: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Tar emot utskickade underrättelser"
@@ -1467,8 +1467,9 @@ msgid "Registration is disabled on this server."
 msgstr "Registrering är inaktiverad på servern."
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Läser in"
@@ -1762,23 +1763,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Egna emoji"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, kde-format
-msgid "Loading reply"
-msgstr "Läser in svar"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Antingen hittades meddelandet inte, eller så har du inte behörighet att visa "
-"det, eller så skickades det av en ignorerad användare"
-
 #: src/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
 msgid "Default user power level"
@@ -1968,47 +1952,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Samtalsinbjudan"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " och "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " och %1 annan"
-msgstr[1] " och %1 andra"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 reagerade med %3"
-msgstr[1] "%2 reagerade med %3"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "1 användare: "
-msgstr[1] "%1 användare: "
-
-#: src/models/readmarkermodel.cpp:117
-#, kde-format
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "okänd medlem"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
 msgctxt "@info:label"
@@ -2084,12 +2027,6 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Öppna NeoChat"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr "Omröstningen har avslutats. Vinnande svar: %1"
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4468,24 +4405,24 @@ msgstr "Fortsätt"
 msgid "Working"
 msgstr "Arbetar"
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Felaktig eller tom Matris-identifierare<br />%1 är inte en korrekt Matrix-"
 "identifierare"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Misslyckades gå med i rum<br />%1"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Misslyckades fråga om att gå med i rum<br />%1"
@@ -6249,6 +6186,13 @@ msgstr "Krymp förhandsgranskning"
 msgid "Expand preview"
 msgstr "Expandera förhandsgranskning"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Läser in svar"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6259,6 +6203,57 @@ msgstr "Läser in webbadressförhandsgranskning"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Öppna externt"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Antingen hittades meddelandet inte, eller så har du inte behörighet att visa "
+"det, eller så skickades det av en ignorerad användare"
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " och "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " och %1 annan"
+msgstr[1] " och %1 andra"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 reagerade med %3"
+msgstr[1] "%2 reagerade med %3"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "1 användare: "
+msgstr[1] "%1 användare: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, kde-format
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "okänd medlem"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6279,6 +6274,12 @@ msgstr[1] "Baserat på röster av %1 användare"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Avslutad)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr "Omröstningen har avslutats. Vinnande svar: %1"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format

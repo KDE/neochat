@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-08 00:41+0000\n"
+"POT-Creation-Date: 2025-04-11 00:42+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -98,7 +98,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Autocolantes"
 
-#: src/controller.cpp:149
+#: src/controller.cpp:167
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -107,20 +107,20 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Enviar as notificações de escrita"
 
-#: src/controller.cpp:267
+#: src/controller.cpp:285
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "O código de acesso não foi encontrado"
 
-#: src/controller.cpp:271
+#: src/controller.cpp:289
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Por favor permita ao NeoChat ler o código de acesso"
 
-#: src/controller.cpp:274
+#: src/controller.cpp:292
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -130,13 +130,13 @@ msgstr ""
 "Instale por favor um sistema de chaves, p.ex. o KWallet ou o Gnome Keyring "
 "no Linux"
 
-#: src/controller.cpp:277
+#: src/controller.cpp:295
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
 msgstr "Não é possível ler o código de acesso"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:394
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1564,8 +1564,9 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:41 src/login/Username.qml:38
-#: src/models/messagecontentmodel.cpp:264
-#: src/models/messagecontentmodel.cpp:292 src/timeline/LoadComponent.qml:30
+#: src/timeline/LoadComponent.qml:30
+#: src/timeline/models/messagecontentmodel.cpp:265
+#: src/timeline/models/messagecontentmodel.cpp:293
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -1878,22 +1879,6 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Próprios Emojis"
 
-#: src/models/messagecontentmodel.cpp:262
-#: src/models/messagecontentmodel.cpp:290
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading reply"
-msgstr "A carregar…"
-
-#: src/models/messagecontentmodel.cpp:285
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-
 #: src/models/permissionsmodel.cpp:57
 #, fuzzy
 #| msgid "Default user power level"
@@ -2157,48 +2142,6 @@ msgctxt "Notification type"
 msgid "Call invitation"
 msgstr "Convite para chamada"
 
-#: src/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " e "
-
-#: src/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] "e mais %1"
-msgstr[1] "e mais %1"
-
-#: src/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 reagiu com %3"
-msgstr[1] "%2 reagiram com %3"
-
-#: src/models/readmarkermodel.cpp:112
-#, kde-format
-msgid "1 user: "
-msgid_plural "%1 users: "
-msgstr[0] "1 utilizador: "
-msgstr[1] "%1 utilizadores: "
-
-#: src/models/readmarkermodel.cpp:117
-#, fuzzy, kde-format
-#| msgid "Unknown event"
-msgctxt "A member who is not in the room has been requested."
-msgid "unknown member"
-msgstr "Evento desconhecido"
-
-#: src/models/readmarkermodel.cpp:119
-#, kde-format
-msgctxt "list separator"
-msgid ", "
-msgstr ", "
-
 #: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
@@ -2280,12 +2223,6 @@ msgstr ""
 #| msgid "NeoChat"
 msgid "Open NeoChat"
 msgstr "NeoChat"
-
-#: src/pollhandler.cpp:316
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr ""
 
 #: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
 #, kde-format
@@ -4858,24 +4795,24 @@ msgstr "Continuar"
 msgid "Working"
 msgstr ""
 
-#: src/roommanager.cpp:150
+#: src/roommanager.cpp:195
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "O %1 não é um identificador correcto do Matrix"
 
-#: src/roommanager.cpp:356
+#: src/roommanager.cpp:401
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgid "Failed to join room<br />%1"
 msgstr "Não foi possível juntar-se à sala"
 
-#: src/roommanager.cpp:380
+#: src/roommanager.cpp:425
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pediu para se ligar ao '%1'"
 
-#: src/roommanager.cpp:384
+#: src/roommanager.cpp:429
 #, fuzzy, kde-format
 #| msgid "Failed to request joining room"
 msgid "Failed to request joining room<br />%1"
@@ -6751,6 +6688,14 @@ msgstr "Fechar a antevisão"
 msgid "Expand preview"
 msgstr "Expandir a antevisão"
 
+#: src/timeline/LinkPreviewLoadComponent.qml:63
+#: src/timeline/models/messagecontentmodel.cpp:263
+#: src/timeline/models/messagecontentmodel.cpp:291
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading reply"
+msgstr "A carregar…"
+
 #: src/timeline/LinkPreviewLoadComponent.qml:65
 #, kde-format
 msgid "Loading URL preview"
@@ -6762,6 +6707,56 @@ msgstr "A carregar a antevisão do URL"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir Externamente"
+
+#: src/timeline/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+
+#: src/timeline/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " e "
+
+#: src/timeline/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] "e mais %1"
+msgstr[1] "e mais %1"
+
+#: src/timeline/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 reagiu com %3"
+msgstr[1] "%2 reagiram com %3"
+
+#: src/timeline/models/readmarkermodel.cpp:112
+#, kde-format
+msgid "1 user: "
+msgid_plural "%1 users: "
+msgstr[0] "1 utilizador: "
+msgstr[1] "%1 utilizadores: "
+
+#: src/timeline/models/readmarkermodel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Unknown event"
+msgctxt "A member who is not in the room has been requested."
+msgid "unknown member"
+msgstr "Evento desconhecido"
+
+#: src/timeline/models/readmarkermodel.cpp:119
+#, kde-format
+msgctxt "list separator"
+msgid ", "
+msgstr ", "
 
 #: src/timeline/PollComponent.qml:115
 #, kde-format
@@ -6782,6 +6777,12 @@ msgstr[1] "Com base nos votos de %1 utilizadores"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Terminada)"
+
+#: src/timeline/pollhandler.cpp:315
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
 
 #: src/timeline/ReactionComponent.qml:89
 #, fuzzy, kde-format
