@@ -46,18 +46,22 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         RoomProfile.qml
     SOURCES
         colorschemer.cpp
+        threepidaddhelper.cpp
+        threepidbindhelper.cpp
         models/accountemoticonmodel.cpp
         models/devicesmodel.cpp
         models/devicesproxymodel.cpp
         models/emoticonfiltermodel.cpp
         models/permissionsmodel.cpp
         models/pushrulemodel.cpp
+        models/threepidmodel.cpp
 )
 
 
 target_include_directories(Settings PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
 target_link_libraries(Settings PRIVATE
     KF6::ColorScheme
+    KF6::I18n
     QuotientQt6
     LibNeoChat
 )

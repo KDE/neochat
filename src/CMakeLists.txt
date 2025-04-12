@@ -92,14 +92,8 @@ add_library(neochat STATIC
     models/roomtreeitem.cpp
     models/roomtreeitem.h
     foreigntypes.h
-    models/threepidmodel.cpp
-    models/threepidmodel.h
-    threepidaddhelper.cpp
-    threepidaddhelper.h
     identityserverhelper.cpp
     identityserverhelper.h
-    threepidbindhelper.cpp
-    threepidbindhelper.h
     enums/roomsortparameter.cpp
     enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
