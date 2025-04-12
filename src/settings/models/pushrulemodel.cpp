@@ -10,7 +10,7 @@
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/jobs/basejob.h>
 
-#include "neochatconfig.h"
+#include "enums/pushrule.h"
 
 #include <KLazyLocalizedString>
 
@@ -65,7 +65,6 @@ static const QStringList noHighlight = {
 PushRuleModel::PushRuleModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    m_defaultKeywordAction = static_cast<PushRuleAction::Action>(NeoChatConfig::self()->keywordPushRuleDefault());
 }
 
 void PushRuleModel::updateNotificationRules(const QString &type)
@@ -170,21 +169,6 @@ PushRuleSection::Section PushRuleModel::getSection(Quotient::PushRule rule)
         }
         return PushRuleSection::Keywords;
     }
-}
-
-PushRuleAction::Action PushRuleModel::defaultState() const
-{
-    return m_defaultKeywordAction;
-}
-
-void PushRuleModel::setDefaultState(PushRuleAction::Action defaultState)
-{
-    if (defaultState == m_defaultKeywordAction) {
-        return;
-    }
-    m_defaultKeywordAction = defaultState;
-    NeoChatConfig::setKeywordPushRuleDefault(m_defaultKeywordAction);
-    Q_EMIT defaultStateChanged();
 }
 
 bool PushRuleModel::globalNotificationsEnabled() const
@@ -292,8 +276,12 @@ void PushRuleModel::setPushRuleAction(const QString &id, PushRuleAction::Action 
 
 void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
 {
+    if (!m_connection) {
+        return;
+    }
+
     PushRuleKind::Kind kind = PushRuleKind::Content;
-    const QList<QVariant> actions = actionToVariant(m_defaultKeywordAction);
+    const QList<QVariant> actions = actionToVariant(m_connection->keywordPushRuleDefault());
     QList<Quotient::PushCondition> pushConditions;
     if (!roomId.isEmpty()) {
         kind = PushRuleKind::Override;

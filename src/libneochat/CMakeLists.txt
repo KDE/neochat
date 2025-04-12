@@ -29,6 +29,8 @@ target_sources(LibNeoChat PRIVATE
     models/actionsmodel.cpp
     models/customemojimodel.cpp
     models/emojimodel.cpp
+    models/imagepacksmodel.cpp
+    models/stickermodel.cpp
 )
 
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE

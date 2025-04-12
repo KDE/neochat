@@ -4,7 +4,7 @@
 #include "emoticonfiltermodel.h"
 
 #include "accountemoticonmodel.h"
-#include "stickermodel.h"
+#include "models/stickermodel.h"
 
 EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)

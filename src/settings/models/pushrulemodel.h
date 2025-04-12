@@ -24,11 +24,6 @@ class PushRuleModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
-     * @brief The default state for any newly created keyword rule.
-     */
-    Q_PROPERTY(PushRuleAction::Action defaultState READ defaultState WRITE setDefaultState NOTIFY defaultStateChanged)
-
-    /**
      * @brief The global notification state.
      *
      * If this rule is set to off all push notifications are disabled regardless
@@ -72,9 +67,6 @@ public:
 
     explicit PushRuleModel(QObject *parent = nullptr);
 
-    [[nodiscard]] PushRuleAction::Action defaultState() const;
-    void setDefaultState(PushRuleAction::Action defaultState);
-
     [[nodiscard]] bool globalNotificationsEnabled() const;
     void setGlobalNotificationsEnabled(bool enabled);
 
@@ -117,7 +109,6 @@ public:
     NeoChatConnection *connection() const;
 
 Q_SIGNALS:
-    void defaultStateChanged();
     void globalNotificationsEnabledChanged();
     void globalNotificationsSetChanged();
     void connectionChanged();
@@ -126,7 +117,6 @@ private Q_SLOTS:
     void updateNotificationRules(const QString &type);
 
 private:
-    PushRuleAction::Action m_defaultKeywordAction;
     QList<Rule> m_rules;
     QPointer<NeoChatConnection> m_connection;
 

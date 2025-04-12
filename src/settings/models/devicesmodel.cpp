@@ -136,7 +136,8 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
 void DevicesModel::setName(const QString &deviceId, const QString &name)
 {
     int index;
-    for (index = 0; m_devices[index].deviceId != deviceId; index++);
+    for (index = 0; m_devices[index].deviceId != deviceId; index++)
+        ;
 
     auto job = m_connection->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
     QString oldName = m_devices[index].displayName;

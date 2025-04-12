@@ -17,8 +17,6 @@ add_library(neochat STATIC
     models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
     models/sortfilterspacelistmodel.h
-    models/accountemoticonmodel.cpp
-    models/accountemoticonmodel.h
     roommanager.cpp
     roommanager.h
     models/userlistmodel.cpp
@@ -35,10 +33,6 @@ add_library(neochat STATIC
     models/spacetreeitem.h
     models/userdirectorylistmodel.cpp
     models/userdirectorylistmodel.h
-    models/pushrulemodel.cpp
-    models/pushrulemodel.h
-    models/emoticonfiltermodel.cpp
-    models/emoticonfiltermodel.h
     notificationsmanager.cpp
     notificationsmanager.h
     models/sortfilterroomlistmodel.cpp
@@ -47,9 +41,6 @@ add_library(neochat STATIC
     models/roomtreemodel.h
     chatdocumenthandler.cpp
     chatdocumenthandler.h
-    models/devicesmodel.cpp
-    models/devicesmodel.h
-    models/devicesproxymodel.cpp
     login.cpp
     login.h
     models/webshortcutmodel.cpp
@@ -72,10 +63,6 @@ add_library(neochat STATIC
     models/statefiltermodel.h
     logger.cpp
     logger.h
-    models/stickermodel.cpp
-    models/stickermodel.h
-    models/imagepacksmodel.cpp
-    models/imagepacksmodel.h
     models/livelocationsmodel.cpp
     models/livelocationsmodel.h
     models/locationsmodel.cpp
@@ -111,8 +98,6 @@ add_library(neochat STATIC
     threepidaddhelper.h
     identityserverhelper.cpp
     identityserverhelper.h
-    models/permissionsmodel.cpp
-    models/permissionsmodel.h
     threepidbindhelper.cpp
     threepidbindhelper.h
     enums/roomsortparameter.cpp

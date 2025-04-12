@@ -21,6 +21,7 @@
 
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
+#include "models/pushrulemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -63,6 +64,11 @@ Controller::Controller(QObject *parent)
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, [this] {
         NeoChatConnection::setGlobalUrlPreviewDefault(NeoChatConfig::showLinkPreview());
         Q_EMIT globalUrlPreviewDefaultChanged();
+    });
+
+    NeoChatConnection::setKeywordPushRuleDefault(static_cast<PushRuleAction::Action>(NeoChatConfig::keywordPushRuleDefault()));
+    connect(NeoChatConfig::self(), &NeoChatConfig::KeywordPushRuleDefaultChanged, this, [] {
+        NeoChatConnection::setKeywordPushRuleDefault(static_cast<PushRuleAction::Action>(NeoChatConfig::keywordPushRuleDefault()));
     });
 
     ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());

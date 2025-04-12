@@ -35,6 +35,7 @@ using namespace Quotient;
 using namespace Qt::StringLiterals;
 
 bool NeoChatConnection::m_globalUrlPreviewDefault = true;
+PushRuleAction::Action NeoChatConnection::m_defaultAction = PushRuleAction::Unknown;
 
 NeoChatConnection::NeoChatConnection(QObject *parent)
     : Connection(parent)
@@ -176,6 +177,16 @@ bool NeoChatConnection::globalUrlPreviewEnabled()
 void NeoChatConnection::setGlobalUrlPreviewDefault(bool useByDefault)
 {
     NeoChatConnection::m_globalUrlPreviewDefault = useByDefault;
+}
+
+PushRuleAction::Action NeoChatConnection::keywordPushRuleDefault() const
+{
+    return m_defaultAction;
+}
+
+void NeoChatConnection::setKeywordPushRuleDefault(PushRuleAction::Action defaultAction)
+{
+    NeoChatConnection::m_defaultAction = defaultAction;
 }
 
 void NeoChatConnection::logout(bool serverSideLogout)

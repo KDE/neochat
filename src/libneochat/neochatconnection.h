@@ -13,6 +13,7 @@
 #include <Quotient/keyimport.h>
 
 #include "enums/messagetype.h"
+#include "enums/pushrule.h"
 #include "linkpreviewer.h"
 
 class NeoChatConnection : public Quotient::Connection
@@ -181,6 +182,16 @@ public:
      */
     static void setGlobalUrlPreviewDefault(bool useByDefault);
 
+    /**
+     * @brief The current default PushRuleAction for keyword rules.
+     */
+    PushRuleAction::Action keywordPushRuleDefault() const;
+
+    /**
+     * @brief Set the current default PushRuleAction for keyword rules.
+     */
+    static void setKeywordPushRuleDefault(PushRuleAction::Action defaultAction);
+
     bool directChatInvites() const;
 
     // note: this is intentionally a copied QString because
@@ -223,6 +234,7 @@ Q_SIGNALS:
 
 private:
     static bool m_globalUrlPreviewDefault;
+    static PushRuleAction::Action m_defaultAction;
 
     bool m_isOnline = true;
     void setIsOnline(bool isOnline);
