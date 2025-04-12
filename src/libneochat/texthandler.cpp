@@ -599,7 +599,7 @@ TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const Ne
         }
     }
 
-    if (isEdited && components.last().type != MessageComponentType::Text) {
+    if (isEdited && components.last().type != MessageComponentType::Text && components.last().type != MessageComponentType::Quote) {
         components += MessageComponent{MessageComponentType::Text, editString(), {}};
     }
 
