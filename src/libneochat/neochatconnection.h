@@ -217,7 +217,7 @@ Q_SIGNALS:
     void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
-    void badgeNotificationCountChanged(NeoChatConnection *connection, int count);
+    void badgeNotificationCountChanged(int count);
     void canCheckMutualRoomsChanged();
     void canEraseDataChanged();
     void enablePushNotificationsChanged();

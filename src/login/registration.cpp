@@ -10,9 +10,6 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
-#include "controller.h"
-#include "login.h"
-
 #include <KLocalizedString>
 
 using namespace Quotient;
@@ -34,6 +31,11 @@ Registration::Registration()
 
     connect(this, &Registration::homeserverChanged, this, &Registration::testHomeserver);
     connect(this, &Registration::usernameChanged, this, &Registration::testUsername);
+}
+
+void Registration::setAccountManager(AccountManager *manager)
+{
+    m_accountManager = manager;
 }
 
 void Registration::setRecaptchaResponse(const QString &recaptchaResponse)
@@ -102,16 +104,15 @@ void Registration::registerAccount()
                 account.setHomeserver(connection->homeserver());
                 account.setDeviceId(connection->deviceId());
                 account.setDeviceName(displayName);
-                Controller::instance().saveAccessTokenToKeyChain(account.userId(), connection->accessToken());
                 account.sync();
-                Controller::instance().addConnection(connection);
-                Controller::instance().setActiveConnection(connection);
+                m_accountManager->addConnection(connection);
+                m_accountManager->setActiveConnection(connection);
                 connect(
                     connection,
                     &Connection::syncDone,
                     this,
-                    []() {
-                        Q_EMIT LoginHelper::instance().loaded();
+                    [this]() {
+                        Q_EMIT loaded();
                     },
                     Qt::SingleShotConnection);
                 m_connection = nullptr;

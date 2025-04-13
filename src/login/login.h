@@ -7,6 +7,8 @@
 #include <QQmlEngine>
 #include <QUrl>
 
+#include "accountmanager.h"
+
 class NeoChatConnection;
 
 /**
@@ -91,6 +93,8 @@ public:
         return &instance();
     }
 
+    void setAccountManager(AccountManager *manager);
+
     Q_INVOKABLE void init();
 
     bool homeserverReachable() const;
@@ -138,6 +142,8 @@ Q_SIGNALS:
     void loaded();
 
 private:
+    QPointer<AccountManager> m_accountManager;
+
     void setHomeserverReachable(bool reachable);
 
     bool m_homeserverReachable;

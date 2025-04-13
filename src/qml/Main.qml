@@ -65,6 +65,13 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
+        target: Registration
+        function onLoaded() {
+            root.load();
+        }
+    }
+
+    Connections {
         target: root.quitAction
         function onTriggered() {
             Qt.quit();

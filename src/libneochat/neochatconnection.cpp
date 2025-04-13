@@ -165,7 +165,7 @@ void NeoChatConnection::refreshBadgeNotificationCount()
 
     if (count != m_badgeNotificationCount) {
         m_badgeNotificationCount = count;
-        Q_EMIT badgeNotificationCountChanged(this, m_badgeNotificationCount);
+        Q_EMIT badgeNotificationCountChanged(m_badgeNotificationCount);
     }
 }
 

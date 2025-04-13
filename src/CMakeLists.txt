@@ -8,6 +8,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE AND NOT NEOCHAT_FLATPAK AND NOT NEOC
 endif()
 
 add_subdirectory(libneochat)
+add_subdirectory(login)
 add_subdirectory(timeline)
 
 add_library(neochat STATIC
@@ -41,8 +42,6 @@ add_library(neochat STATIC
     models/roomtreemodel.h
     chatdocumenthandler.cpp
     chatdocumenthandler.h
-    login.cpp
-    login.h
     models/webshortcutmodel.cpp
     models/webshortcutmodel.h
     blurhash.cpp
@@ -67,7 +66,6 @@ add_library(neochat STATIC
     models/livelocationsmodel.h
     models/locationsmodel.cpp
     models/locationsmodel.h
-    registration.cpp
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     models/notificationsmodel.cpp
@@ -214,7 +212,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
 
 add_subdirectory(settings)
 add_subdirectory(devtools)
-add_subdirectory(login)
 add_subdirectory(chatbar)
 
 if(NOT ANDROID AND NOT WIN32)
@@ -290,7 +287,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE Settingsplugin Timelineplugin devtoolsplugin loginplugin chatbarplugin)
+target_link_libraries(neochat PRIVATE Settingsplugin Timelineplugin devtoolsplugin Loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
@@ -312,6 +309,7 @@ target_link_libraries(neochat PUBLIC
     KF6::IconThemes
     KF6::ItemModels
     QuotientQt6
+    Login
 )
 
 if (TARGET KF6::Crash)

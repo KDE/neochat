@@ -7,9 +7,9 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
-#include "controller.h"
-
 #include <KLocalizedString>
+
+#include "neochatconnection.h"
 
 using namespace Quotient;
 
@@ -17,6 +17,11 @@ LoginHelper::LoginHelper(QObject *parent)
     : QObject(parent)
 {
     init();
+}
+
+void LoginHelper::setAccountManager(AccountManager *manager)
+{
+    m_accountManager = manager;
 }
 
 void LoginHelper::init()
@@ -41,7 +46,7 @@ void LoginHelper::init()
             return;
         }
 
-        m_isLoggedIn = Controller::instance().accounts().isLoggedIn(m_matrixId);
+        m_isLoggedIn = m_accountManager->accounts()->isLoggedIn(m_matrixId);
         Q_EMIT isLoggedInChanged();
         if (m_isLoggedIn) {
             return;
@@ -77,18 +82,17 @@ void LoginHelper::init()
         account.setHomeserver(m_connection->homeserver());
         account.setDeviceId(m_connection->deviceId());
         account.setDeviceName(m_deviceName);
-        Controller::instance().saveAccessTokenToKeyChain(account.userId(), m_connection->accessToken());
         account.sync();
-        Controller::instance().addConnection(m_connection);
-        Controller::instance().setActiveConnection(m_connection);
+        m_accountManager->addConnection(m_connection);
+        m_accountManager->setActiveConnection(m_connection);
         m_connection = nullptr;
     });
-    connect(m_connection, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
+    connect(m_connection, &NeoChatConnection::networkError, this, [this](QString error, const QString &, int, int) {
         Q_EMIT m_connection->errorOccured(i18n("Network Error: %1", std::move(error)));
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
-    connect(m_connection, &Connection::loginError, this, [this](QString error, const QString &) {
+    connect(m_connection, &NeoChatConnection::loginError, this, [this](QString error, const QString &) {
         if (error == u"Invalid username or password"_s) {
             setInvalidPassword(true);
         } else {
@@ -98,13 +102,13 @@ void LoginHelper::init()
         Q_EMIT isLoggingInChanged();
     });
 
-    connect(m_connection, &Connection::resolveError, this, [this](QString error) {
+    connect(m_connection, &NeoChatConnection::resolveError, this, [this](QString error) {
         Q_EMIT m_connection->errorOccured(i18n("Network Error: %1", std::move(error)));
     });
 
     connect(
         m_connection.get(),
-        &Connection::syncDone,
+        &NeoChatConnection::syncDone,
         this,
         [this]() {
             Q_EMIT loaded();

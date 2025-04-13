@@ -235,7 +235,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         if (!room) {
             return;
         }
-        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts().get(room->localMember().id()));
+        auto connection = dynamic_cast<NeoChatConnection *>(Controller::instance().accounts()->get(room->localMember().id()));
         Controller::instance().setActiveConnection(connection);
         RoomManager::instance().setConnection(connection);
         RoomManager::instance().resolveResource(room->id());

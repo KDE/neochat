@@ -16,6 +16,8 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/util.h>
 
+#include "accountmanager.h"
+
 using namespace Qt::StringLiterals;
 
 namespace Quotient
@@ -98,6 +100,8 @@ public:
         return &instance();
     }
 
+    void setAccountManager(AccountManager *manager);
+
     Q_INVOKABLE void registerAccount();
     Q_INVOKABLE void registerEmail();
 
@@ -142,8 +146,11 @@ Q_SIGNALS:
     void emailChanged();
     void nextStepChanged();
     void statusChanged();
+    void loaded();
 
 private:
+    QPointer<AccountManager> m_accountManager;
+
     QString m_recaptchaSiteKey;
     QString m_recaptchaResponse;
     QString m_homeserver;

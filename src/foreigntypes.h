@@ -22,8 +22,8 @@ struct ForeignAccountRegistry {
 public:
     static Quotient::AccountRegistry *create(QQmlEngine *, QJSEngine *)
     {
-        QQmlEngine::setObjectOwnership(&Controller::instance().accounts(), QQmlEngine::CppOwnership);
-        return &Controller::instance().accounts();
+        QQmlEngine::setObjectOwnership(Controller::instance().accounts(), QQmlEngine::CppOwnership);
+        return Controller::instance().accounts();
     }
 };
 

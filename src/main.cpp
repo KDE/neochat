@@ -45,10 +45,13 @@
 
 #include <Quotient/networkaccessmanager.h>
 
+#include "accountmanager.h"
 #include "blurhashimageprovider.h"
 #include "colorschemer.h"
 #include "controller.h"
 #include "logger.h"
+#include "login.h"
+#include "registration.h"
 #include "roommanager.h"
 #include "sharehandler.h"
 #include "windowcontroller.h"
@@ -208,7 +211,6 @@ int main(int argc, char *argv[])
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
-    Controller::setTestMode(parser.isSet("test"_L1));
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {
@@ -231,6 +233,11 @@ int main(int argc, char *argv[])
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
 #endif
+
+    const auto accountManager = std::make_unique<AccountManager>(parser.isSet("test"_L1));
+    Controller::instance().setAccountManager(accountManager.get());
+    LoginHelper::instance().setAccountManager(accountManager.get());
+    Registration::instance().setAccountManager(accountManager.get());
 
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_settingsPlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
