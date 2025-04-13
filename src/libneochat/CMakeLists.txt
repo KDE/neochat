@@ -31,6 +31,8 @@ target_sources(LibNeoChat PRIVATE
     models/customemojimodel.cpp
     models/emojimodel.cpp
     models/imagepacksmodel.cpp
+    models/livelocationsmodel.cpp
+    models/locationsmodel.cpp
     models/stickermodel.cpp
 )
 

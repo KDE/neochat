@@ -62,10 +62,6 @@ add_library(neochat STATIC
     models/statefiltermodel.h
     logger.cpp
     logger.h
-    models/livelocationsmodel.cpp
-    models/livelocationsmodel.h
-    models/locationsmodel.cpp
-    models/locationsmodel.h
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
     models/notificationsmodel.cpp
