@@ -25,6 +25,7 @@ private Q_SLOTS:
 void MediaSizeHelperTest::uninitialized()
 {
     MediaSizeHelper mediasizehelper;
+    mediasizehelper.setMaxSize(540, 540);
     QCOMPARE(mediasizehelper.currentSize(), QSize(540, qRound(qreal(NeoChatConfig::self()->mediaMaxWidth()) / qreal(16.0) * qreal(9.0))));
 }
 
@@ -60,6 +61,7 @@ void MediaSizeHelperTest::limits()
     QFETCH(QSize, currentSize);
 
     MediaSizeHelper mediasizehelper;
+    mediasizehelper.setMaxSize(540, 540);
     mediasizehelper.setMediaWidth(mediaWidth);
     mediasizehelper.setMediaHeight(mediaHeight);
     mediasizehelper.setContentMaxWidth(contentMaxWidth);

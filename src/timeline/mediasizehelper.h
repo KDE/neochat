@@ -83,6 +83,8 @@ public:
 
     QSize currentSize() const;
 
+    static void setMaxSize(int width, int height);
+
 Q_SIGNALS:
     void contentMaxWidthChanged();
     void contentMaxHeightChanged();
@@ -102,4 +104,7 @@ private:
     bool limitWidth() const;
     qreal widthLimit() const;
     qreal heightLimit() const;
+
+    static int m_mediaMaxWidth;
+    static int m_mediaMaxHeight;
 };

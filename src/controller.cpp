@@ -19,6 +19,7 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
+#include "mediasizehelper.h"
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
 #include "models/pushrulemodel.h"
@@ -90,6 +91,14 @@ Controller::Controller(QObject *parent)
             }
         }
         return false;
+    });
+
+    MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
+    connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxWidthChanged, this, []() {
+        MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxHeightChanged, this, []() {
+        MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
     });
 
     ProxyController::instance().setApplicationProxy();

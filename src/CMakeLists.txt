@@ -67,19 +67,13 @@ add_library(neochat STATIC
     models/livelocationsmodel.h
     models/locationsmodel.cpp
     models/locationsmodel.h
-    locationhelper.cpp
-    locationhelper.h
     registration.cpp
     jobs/neochatgetcommonroomsjob.cpp
     jobs/neochatgetcommonroomsjob.h
-    mediasizehelper.cpp
-    mediasizehelper.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     proxycontroller.cpp
     proxycontroller.h
-    models/linemodel.cpp
-    models/linemodel.h
     enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h

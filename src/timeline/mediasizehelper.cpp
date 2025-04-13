@@ -3,7 +3,8 @@
 
 #include "mediasizehelper.h"
 
-#include "neochatconfig.h"
+int MediaSizeHelper::m_mediaMaxWidth = 0;
+int MediaSizeHelper::m_mediaMaxHeight = 0;
 
 MediaSizeHelper::MediaSizeHelper(QObject *parent)
     : QObject(parent)
@@ -128,17 +129,17 @@ bool MediaSizeHelper::limitWidth() const
 qreal MediaSizeHelper::widthLimit() const
 {
     if (m_contentMaxWidth < 0.0) {
-        return NeoChatConfig::self()->mediaMaxWidth();
+        return m_mediaMaxWidth;
     }
-    return std::min(m_contentMaxWidth, qreal(NeoChatConfig::self()->mediaMaxWidth()));
+    return std::min(m_contentMaxWidth, qreal(m_mediaMaxWidth));
 }
 
 qreal MediaSizeHelper::heightLimit() const
 {
     if (m_contentMaxHeight < 0.0) {
-        return NeoChatConfig::self()->mediaMaxHeight();
+        return m_mediaMaxHeight;
     }
-    return std::min(m_contentMaxHeight, qreal(NeoChatConfig::self()->mediaMaxHeight()));
+    return std::min(m_contentMaxHeight, qreal(m_mediaMaxHeight));
 }
 
 QSize MediaSizeHelper::currentSize() const
@@ -158,6 +159,12 @@ QSize MediaSizeHelper::currentSize() const
         }
         return QSize(qRound(width), qRound(height));
     }
+}
+
+void MediaSizeHelper::setMaxSize(int width, int height)
+{
+    MediaSizeHelper::m_mediaMaxWidth = width;
+    MediaSizeHelper::m_mediaMaxHeight = height;
 }
 
 #include "moc_mediasizehelper.cpp"

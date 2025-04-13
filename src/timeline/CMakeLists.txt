@@ -56,11 +56,14 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         VideoComponent.qml
     SOURCES
         contentprovider.cpp
+        locationhelper.cpp
+        mediasizehelper.cpp
         messageattached.cpp
         pollhandler.cpp
         timelinedelegate.cpp
         enums/delegatetype.h
         models/itinerarymodel.cpp
+        models/linemodel.cpp
         models/mediamessagefiltermodel.cpp
         models/messagecontentmodel.cpp
         models/messagecontentfiltermodel.cpp
