@@ -27,6 +27,7 @@ QQC2.Popup {
 
     Component.onCompleted: {
         chatDocumentHandler.completionModel.roomListModel = RoomManager.roomListModel;
+        chatDocumentHandler.completionModel.userListModel = RoomManager.userListModel;
     }
 
     function incrementIndex() {

@@ -6,10 +6,10 @@
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/room.h>
 
+#include "enums/neochatroomtype.h"
 #include "eventhandler.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
-#include "neochatroomtype.h"
 #include "spacehierarchycache.h"
 
 using namespace Quotient;

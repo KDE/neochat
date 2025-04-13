@@ -19,11 +19,12 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
-#include "mediasizehelper.h"
 #include "accountmanager.h"
+#include "mediasizehelper.h"
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
 #include "models/pushrulemodel.h"
+#include "models/roomlistmodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -49,6 +50,22 @@
 #endif
 
 using namespace Quotient;
+
+static std::function<bool(const Quotient::RoomEvent *)> hiddenEventFilter = [](const RoomEvent *event) -> bool {
+    if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
+        return true;
+    }
+    if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+        if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
+            return true;
+        } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
+            return true;
+        } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
+            return true;
+        }
+    }
+    return false;
+};
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
@@ -76,21 +93,8 @@ Controller::Controller(QObject *parent)
         ActionsModel::setAllowQuickEdit(NeoChatConfig::allowQuickEdit());
     });
 
-    MessageModel::setHiddenFilter([](const RoomEvent *event) -> bool {
-        if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
-            return true;
-        }
-        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
-                return true;
-            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
-                return true;
-            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
-                return true;
-            }
-        }
-        return false;
-    });
+    MessageModel::setHiddenFilter(hiddenEventFilter);
+    RoomListModel::setHiddenFilter(hiddenEventFilter);
 
     MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
     connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxWidthChanged, this, []() {

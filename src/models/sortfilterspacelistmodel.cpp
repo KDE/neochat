@@ -3,7 +3,7 @@
 
 #include "sortfilterspacelistmodel.h"
 
-#include "roomlistmodel.h"
+#include "models/roomlistmodel.h"
 
 using namespace Qt::StringLiterals;
 

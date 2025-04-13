@@ -3,7 +3,7 @@
 
 #include "userfiltermodel.h"
 
-#include "userlistmodel.h"
+#include "models/userlistmodel.h"
 
 bool UserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {

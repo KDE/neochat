@@ -4,11 +4,11 @@
 
 #include "sortfilterroomtreemodel.h"
 
+#include "enums/neochatroomtype.h"
 #include "enums/roomsortparameter.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "neochatroomtype.h"
 #include "roommanager.h"
 #include "roomtreemodel.h"
 #include "spacehierarchycache.h"

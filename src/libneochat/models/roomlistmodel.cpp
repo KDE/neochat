@@ -5,11 +5,10 @@
 
 #include <Quotient/events/roommemberevent.h>
 
+#include "enums/neochatroomtype.h"
 #include "eventhandler.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "roommanager.h"
 #include "spacehierarchycache.h"
 
 #include <KLocalizedString>
@@ -17,6 +16,10 @@
 using namespace Quotient;
 
 Q_DECLARE_METATYPE(Quotient::JoinState)
+
+std::function<bool(const Quotient::RoomEvent *)> RoomListModel::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
+    return false;
+};
 
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -242,22 +245,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(room);
     }
     if (role == SubtitleTextRole) {
-        const auto lastEvent = room->lastEvent([](const RoomEvent *event) -> bool {
-            if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
-                return true;
-            }
-            if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-                if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
-                    return true;
-                } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
-                    return true;
-                } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                           && !NeoChatConfig::showAvatarUpdate()) {
-                    return true;
-                }
-            }
-            return false;
-        });
+        const auto lastEvent = room->lastEvent(m_hiddenFilter);
         if (lastEvent == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
@@ -330,6 +318,11 @@ NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
 int RoomListModel::rowForRoom(NeoChatRoom *room) const
 {
     return m_rooms.indexOf(room);
+}
+
+void RoomListModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
+{
+    RoomListModel::m_hiddenFilter = hiddenFilter;
 }
 
 #include "moc_roomlistmodel.cpp"

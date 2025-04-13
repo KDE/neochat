@@ -49,6 +49,11 @@ class CompletionModel : public QAbstractListModel
      */
     Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
 
+    /**
+     * @brief The UserListModel to be used for room completions.
+     */
+    Q_PROPERTY(UserListModel *userListModel READ userListModel WRITE setUserListModel NOTIFY userListModelChanged)
+
 public:
     /**
      * @brief Defines the different types of completion available.
@@ -105,6 +110,9 @@ public:
     RoomListModel *roomListModel() const;
     void setRoomListModel(RoomListModel *roomListModel);
 
+    UserListModel *userListModel() const;
+    void setUserListModel(UserListModel *userListModel);
+
     AutoCompletionType autoCompletionType() const;
     void setAutoCompletionType(AutoCompletionType autoCompletionType);
 
@@ -113,6 +121,7 @@ Q_SIGNALS:
     void roomChanged();
     void autoCompletionTypeChanged();
     void roomListModelChanged();
+    void userListModelChanged();
 
 private:
     QString m_text;

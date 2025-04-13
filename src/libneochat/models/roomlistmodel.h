@@ -11,6 +11,7 @@ class NeoChatRoom;
 namespace Quotient
 {
 class Room;
+class RoomEvent;
 }
 
 class NeoChatConnection;
@@ -99,6 +100,8 @@ public:
      */
     Q_INVOKABLE NeoChatRoom *roomByAliasOrId(const QString &aliasOrId);
 
+    static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
+
 private Q_SLOTS:
     void doResetModel();
     void doAddRoom(Quotient::Room *room);
@@ -113,6 +116,8 @@ private:
     QString m_activeSpaceId;
 
     void connectRoomSignals(NeoChatRoom *room);
+
+    static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
 
 Q_SIGNALS:
     void connectionChanged();

@@ -14,14 +14,10 @@ add_subdirectory(timeline)
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/roomlistmodel.cpp
-    models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
     models/sortfilterspacelistmodel.h
     roommanager.cpp
     roommanager.h
-    models/userlistmodel.cpp
-    models/userlistmodel.h
     models/userfiltermodel.cpp
     models/userfiltermodel.h
     models/publicroomlistmodel.cpp
@@ -40,8 +36,6 @@ add_library(neochat STATIC
     models/sortfilterroomlistmodel.h
     models/roomtreemodel.cpp
     models/roomtreemodel.h
-    chatdocumenthandler.cpp
-    chatdocumenthandler.h
     models/webshortcutmodel.cpp
     models/webshortcutmodel.h
     blurhash.cpp
@@ -50,10 +44,6 @@ add_library(neochat STATIC
     blurhashimageprovider.h
     windowcontroller.cpp
     windowcontroller.h
-    models/completionmodel.cpp
-    models/completionmodel.h
-    models/completionproxymodel.cpp
-    models/completionproxymodel.h
     models/serverlistmodel.cpp
     models/serverlistmodel.h
     models/statemodel.cpp
@@ -68,7 +58,6 @@ add_library(neochat STATIC
     models/notificationsmodel.h
     proxycontroller.cpp
     proxycontroller.h
-    enums/neochatroomtype.h
     models/sortfilterroomtreemodel.cpp
     models/sortfilterroomtreemodel.h
     mediamanager.cpp
@@ -231,13 +220,6 @@ ecm_qt_declare_logging_category(neochat
     DESCRIPTION "Neochat: publicroomlistmodel"
     DEFAULT_SEVERITY Info
     EXPORT NEOCHAT
-)
-
-ecm_qt_declare_logging_category(neochat
-    HEADER "chatdocumenthandler_logging.h"
-    IDENTIFIER "ChatDocumentHandling"
-    CATEGORY_NAME "org.kde.neochat.chatdocumenthandler"
-    DEFAULT_SEVERITY Info
 )
 
 add_executable(neochat-app

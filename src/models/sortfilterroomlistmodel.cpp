@@ -3,7 +3,7 @@
 
 #include "sortfilterroomlistmodel.h"
 
-#include "roomlistmodel.h"
+#include "models/roomlistmodel.h"
 
 #include "neochatconnection.h"
 

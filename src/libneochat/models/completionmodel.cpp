@@ -9,13 +9,11 @@
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
 #include "neochatroom.h"
-#include "roommanager.h"
 #include "userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_filterModel(new CompletionProxyModel())
-    , m_userListModel(RoomManager::instance().userListModel())
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     connect(this, &CompletionModel::textChanged, this, &CompletionModel::updateCompletion);
@@ -190,6 +188,21 @@ void CompletionModel::setRoomListModel(RoomListModel *roomListModel)
 {
     m_roomListModel = roomListModel;
     Q_EMIT roomListModelChanged();
+}
+
+UserListModel *CompletionModel::userListModel() const
+{
+    return m_userListModel;
+}
+
+void CompletionModel::setUserListModel(UserListModel *userListModel)
+{
+    if (userListModel == m_userListModel) {
+        return;
+    }
+
+    m_userListModel = userListModel;
+    Q_EMIT userListModelChanged();
 }
 
 #include "moc_completionmodel.cpp"

@@ -6,7 +6,7 @@
 #include <QDBusMetaType>
 
 #include "controller.h"
-#include "roomlistmodel.h"
+#include "models/roomlistmodel.h"
 #include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
 #include "windowcontroller.h"
