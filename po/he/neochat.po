@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-04-07 08:43+0300\n"
+"PO-Revision-Date: 2025-04-12 11:17+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -338,12 +338,12 @@ msgstr "State Keys"
 #: src/enums/neochatroomtype.h:61
 #, kde-format
 msgid "Invited"
-msgstr ""
+msgstr "הוזמנת"
 
 #: src/enums/neochatroomtype.h:63
 #, kde-format
 msgid "Favorite"
-msgstr ""
+msgstr "מועדף"
 
 #: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
 #, kde-format
@@ -445,43 +445,43 @@ msgstr "פעילות אחרונה"
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to A alphabetically are higher"
-msgstr ""
+msgstr "שמות חדרים שקרובים ל־A/א מבחינת האלפבית יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:81
 #, kde-format
 msgctxt "@info"
 msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
+msgstr "שמות חדרים שקרובים ל־Z/ת מבחינת האלפבית יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:83
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with unread messages are higher"
-msgstr ""
+msgstr "חדרים עם הודעות שלא נקראו יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:85
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most unread message are higher"
-msgstr ""
+msgstr "החדרים עם הכי הרבה הודעות שלא נקראו יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:87
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with highlighted messages are higher"
-msgstr ""
+msgstr "חדרים עם הודעות מודגשות יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:89
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the most highlighted messages are higher"
-msgstr ""
+msgstr "חדרים עם הכי הרבה הודעות מודגשות יופיעו גבוה יותר"
 
 #: src/enums/roomsortparameter.h:91
 #, kde-format
 msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
-msgstr ""
+msgstr "חדרים עם ההודעות החדשות יותר שלא נקראו יופיעו גבוה יותר"
 
 #: src/eventhandler.cpp:293 src/eventhandler.cpp:509
 #, kde-format
@@ -507,7 +507,7 @@ msgstr ""
 #: src/eventhandler.cpp:338
 #, kde-format
 msgid "joined the room (repeated)"
-msgstr ""
+msgstr "הצטרפות לחדר (שוב ושוב)"
 
 #: src/eventhandler.cpp:340
 #, kde-format
@@ -517,12 +517,12 @@ msgstr ""
 #: src/eventhandler.cpp:340
 #, kde-format
 msgid "joined the room"
-msgstr ""
+msgstr "הצטרפות לחדר"
 
 #: src/eventhandler.cpp:344
 #, kde-format
 msgid ": %1"
-msgstr ""
+msgstr ": %1"
 
 #: src/eventhandler.cpp:351
 #, kde-format
@@ -667,17 +667,17 @@ msgstr ""
 #: src/eventhandler.cpp:425
 #, kde-format
 msgid "activated End-to-End Encryption"
-msgstr ""
+msgstr "הופעלה הצפנה מקצה לקצה"
 
 #: src/eventhandler.cpp:429
 #, kde-format
 msgid "upgraded the room to version %1"
-msgstr ""
+msgstr "גרסת החדר שודרגה לגרסה %1"
 
 #: src/eventhandler.cpp:430
 #, kde-format
 msgid "created the room, version %1"
-msgstr ""
+msgstr "החדר נוצר, גרסה %1"
 
 #: src/eventhandler.cpp:433
 #, kde-format
@@ -694,19 +694,19 @@ msgstr ""
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr ""
+msgstr "נוסף וידג׳ט %1"
 
 #: src/eventhandler.cpp:446
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr ""
+msgstr "הוסר וידג׳ט %1"
 
 #: src/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr ""
+msgstr "הוגדר הווידג׳ט %1"
 
 #: src/eventhandler.cpp:451
 #, kde-format
@@ -1496,13 +1496,13 @@ msgstr "החלפת שם התצוגה שלך בחדר הזה"
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "%1 כבר ברשימת ההתעלמות."
 
 #: src/models/actionsmodel.cpp:349
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "%1 מעתה ברשימת ההתעלמות."
 
 #: src/models/actionsmodel.cpp:355
 msgid "Ignores the given user"
@@ -1553,7 +1553,7 @@ msgstr "אסור לך לחסום את הגישה של %1 לחדר הזה."
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr ""
+msgstr "הופעלה חסימה כנגד %1 בחדר הזה."
 
 #: src/models/actionsmodel.cpp:432 src/models/actionsmodel.cpp:505
 msgid "<user id> [<reason>]"
@@ -1578,7 +1578,7 @@ msgstr "אין חסימה כנגד %1 מהחדר הזה."
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr ""
+msgstr "הוסרה החסימה כנגד %1 בחדר הזה."
 
 #: src/models/actionsmodel.cpp:464
 msgid "Removes the ban of the given user"
@@ -1917,10 +1917,10 @@ msgstr[3] " ועוד %1"
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
 msgid_plural "%2 reacted with %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%2 הגיב/ה עם %3"
+msgstr[1] "%2 הגיבו עם %3"
+msgstr[2] "%2 הגיבו עם %3"
+msgstr[3] "%2 הגיבו עם %3"
 
 #: src/models/readmarkermodel.cpp:112
 #, kde-format
