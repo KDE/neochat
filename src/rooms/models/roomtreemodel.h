@@ -6,7 +6,6 @@
 #include <QAbstractItemModel>
 #include <QPointer>
 
-#include "enums/neochatroomtype.h"
 #include "roomtreeitem.h"
 
 namespace Quotient
@@ -77,6 +76,8 @@ public:
 
     Q_INVOKABLE QModelIndex indexForRoom(NeoChatRoom *room) const;
 
+    static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
+
 Q_SIGNALS:
     void connectionChanged();
 
@@ -94,4 +95,6 @@ private:
     void moveRoom(Quotient::Room *room);
 
     void refreshRoomRoles(NeoChatRoom *room, const QList<int> &roles = {});
+
+    static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
 };

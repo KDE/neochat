@@ -240,6 +240,7 @@ int main(int argc, char *argv[])
     Registration::instance().setAccountManager(accountManager.get());
 
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_settingsPlugin)
+    Q_IMPORT_QML_PLUGIN(org_kde_neochat_roomsPlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_devtoolsPlugin)
     Q_IMPORT_QML_PLUGIN(org_kde_neochat_loginPlugin)

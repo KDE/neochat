@@ -26,6 +26,8 @@ target_sources(LibNeoChat PRIVATE
     enums/messagetype.h
     enums/powerlevel.cpp
     enums/pushrule.h
+    enums/roomsortparameter.cpp
+    enums/roomsortorder.h
     events/imagepackevent.cpp
     events/pollevent.cpp
     models/actionsmodel.cpp

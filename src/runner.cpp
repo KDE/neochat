@@ -7,8 +7,8 @@
 
 #include "controller.h"
 #include "models/roomlistmodel.h"
+#include "models/sortfilterroomlistmodel.h"
 #include "roommanager.h"
-#include "sortfilterroomlistmodel.h"
 #include "windowcontroller.h"
 
 RemoteImage Runner::serializeImage(const QImage &image)

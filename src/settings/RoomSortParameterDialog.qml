@@ -25,7 +25,11 @@ Kirigami.Dialog {
         footer.background.children[0].visible = true
     }
 
-    onAccepted: roomSortParameterModel.saveParameterList()
+    onAccepted: {
+        NeoChatConfig.customSortOrder = roomSortParameterModel.currentParameterList;
+        NeoChatConfig.sortOrder = RoomSortOrder.Custom;
+        NeoChatConfig.save()
+    }
 
     contentItem: QQC2.ScrollView {
         clip: true

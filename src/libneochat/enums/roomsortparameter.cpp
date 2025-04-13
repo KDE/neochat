@@ -5,7 +5,7 @@
 
 #include <algorithm>
 
-#include "neochatconfig.h"
+#include "enums/roomsortorder.h"
 #include "neochatroom.h"
 
 namespace
@@ -49,6 +49,9 @@ static const QList<RoomSortParameter::Parameter> lastMessageSortPriorities = {
 };
 }
 
+RoomSortOrder::Order RoomSortParameter::m_sortOrder = RoomSortOrder::Activity;
+QList<RoomSortParameter::Parameter> RoomSortParameter::m_customSortOrder = activitySortPriorities;
+
 QList<RoomSortParameter::Parameter> RoomSortParameter::allParameterList()
 {
     return allSortPriorities;
@@ -57,21 +60,18 @@ QList<RoomSortParameter::Parameter> RoomSortParameter::allParameterList()
 QList<RoomSortParameter::Parameter> RoomSortParameter::currentParameterList()
 {
     QList<RoomSortParameter::Parameter> configParamList;
-    switch (static_cast<NeoChatConfig::EnumSortOrder::type>(NeoChatConfig::sortOrder())) {
-    case NeoChatConfig::EnumSortOrder::Activity:
+    switch (m_sortOrder) {
+    case RoomSortOrder::Activity:
         configParamList = activitySortPriorities;
         break;
-    case NeoChatConfig::EnumSortOrder::Alphabetical:
+    case RoomSortOrder::Alphabetical:
         configParamList = alphabeticalSortPriorities;
         break;
-    case NeoChatConfig::EnumSortOrder::LastMessage:
+    case RoomSortOrder::LastMessage:
         configParamList = lastMessageSortPriorities;
         break;
-    case NeoChatConfig::EnumSortOrder::Custom: {
-        const auto intList = NeoChatConfig::customSortOrder();
-        std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
-            return static_cast<Parameter>(param);
-        });
+    case RoomSortOrder::Custom: {
+        configParamList = m_customSortOrder;
         break;
     }
     default:
@@ -82,17 +82,6 @@ QList<RoomSortParameter::Parameter> RoomSortParameter::currentParameterList()
         return activitySortPriorities;
     }
     return configParamList;
-}
-
-void RoomSortParameter::saveNewParameterList(const QList<Parameter> &newList)
-{
-    QList<int> intList;
-    std::transform(newList.constBegin(), newList.constEnd(), std::back_inserter(intList), [](Parameter param) {
-        return static_cast<int>(param);
-    });
-    NeoChatConfig::setCustomSortOrder(intList);
-    NeoChatConfig::setSortOrder(NeoChatConfig::EnumSortOrder::Custom);
-    NeoChatConfig::self()->save();
 }
 
 int RoomSortParameter::compareParameter(Parameter parameter, NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
@@ -159,4 +148,14 @@ template<>
 int RoomSortParameter::compareParameter<RoomSortParameter::LastActive>(NeoChatRoom *leftRoom, NeoChatRoom *rightRoom)
 {
     return typeCompare(leftRoom->lastActiveTime(), rightRoom->lastActiveTime());
+}
+
+void RoomSortParameter::setSortOrder(RoomSortOrder::Order order)
+{
+    RoomSortParameter::m_sortOrder = order;
+}
+
+void RoomSortParameter::setCustomSortOrder(QList<Parameter> order)
+{
+    RoomSortParameter::m_customSortOrder = order;
 }

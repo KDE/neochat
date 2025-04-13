@@ -13,6 +13,7 @@
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "rooms/models/sortfilterroomtreemodel.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 
@@ -59,6 +60,7 @@ RoomManager::RoomManager(QObject *parent)
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_timelineModel->setRoom(m_currentRoom);
+        m_sortFilterRoomTreeModel->setCurrentRoom(m_currentRoom);
         m_userListModel->setRoom(m_currentRoom);
     });
 
@@ -115,6 +117,20 @@ RoomManager::RoomManager(QObject *parent)
         MessageModel::setThreadsEnabled(NeoChatConfig::threads());
         if (m_timelineModel) {
             Q_EMIT m_timelineModel->threadsEnabledChanged();
+        }
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
+        m_sortFilterRoomTreeModel->invalidate();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, [this]() {
+        m_sortFilterRoomTreeModel->invalidate();
+    });
+    SortFilterRoomTreeModel::setShowAllRoomsInHome(NeoChatConfig::allRoomsInHome());
+    connect(NeoChatConfig::self(), &NeoChatConfig::AllRoomsInHomeChanged, this, [this]() {
+        SortFilterRoomTreeModel::setShowAllRoomsInHome(NeoChatConfig::allRoomsInHome());
+        m_sortFilterRoomTreeModel->invalidate();
+        if (NeoChatConfig::allRoomsInHome()) {
+            resetState();
         }
     });
 }

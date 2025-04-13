@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "roomsortorder.h"
 #include <QObject>
 #include <QQmlEngine>
 
@@ -105,11 +106,6 @@ public:
     static QList<Parameter> currentParameterList();
 
     /**
-     * @brief Save the give Parameter sort order list as the custom sort order.
-     */
-    static void saveNewParameterList(const QList<Parameter> &newList);
-
-    /**
      * @brief Compare the given parameter of the two given rooms.
      *
      * @return 0 if they are equal, 1 if the left is greater and -1 if the right is greater.
@@ -118,7 +114,13 @@ public:
      */
     static int compareParameter(Parameter parameter, NeoChatRoom *leftRoom, NeoChatRoom *rightRoom);
 
+    static void setSortOrder(RoomSortOrder::Order order);
+    static void setCustomSortOrder(QList<Parameter> order);
+
 private:
+    static RoomSortOrder::Order m_sortOrder;
+    static QList<Parameter> m_customSortOrder;
+
     template<Parameter parameter>
     static int compareParameter(NeoChatRoom *, NeoChatRoom *)
     {

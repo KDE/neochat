@@ -3,7 +3,7 @@
 
 #include "roomsortparametermodel.h"
 
-#include "roomsortparameter.h"
+#include "enums/roomsortparameter.h"
 
 using namespace Qt::StringLiterals;
 
@@ -17,6 +17,15 @@ RoomSortParameterModel::RoomSortParameterModel(QList<RoomSortParameter::Paramete
     : QAbstractListModel(parent)
 {
     m_currentParameters = parameters;
+}
+
+QList<int> RoomSortParameterModel::currentParameterList() const
+{
+    QList<int> intList;
+    std::transform(m_currentParameters.constBegin(), m_currentParameters.constEnd(), std::back_inserter(intList), [](RoomSortParameter::Parameter param) {
+        return static_cast<int>(param);
+    });
+    return intList;
 }
 
 QVariant RoomSortParameterModel::data(const QModelIndex &index, int role) const
@@ -91,11 +100,6 @@ void RoomSortParameterModel::moveRowDown(int row)
     beginMoveRows({}, row, row, {}, row + 2);
     m_currentParameters.move(row, row + 1);
     endMoveRows();
-}
-
-void RoomSortParameterModel::saveParameterList()
-{
-    RoomSortParameter::saveNewParameterList(m_currentParameters);
 }
 
 RoomSortParameterModel *RoomSortParameterModel::allParameterModel() const

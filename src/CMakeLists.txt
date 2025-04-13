@@ -9,19 +9,16 @@ endif()
 
 add_subdirectory(libneochat)
 add_subdirectory(login)
+add_subdirectory(rooms)
 add_subdirectory(timeline)
 
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/sortfilterspacelistmodel.cpp
-    models/sortfilterspacelistmodel.h
     roommanager.cpp
     roommanager.h
     models/userfiltermodel.cpp
     models/userfiltermodel.h
-    models/publicroomlistmodel.cpp
-    models/publicroomlistmodel.h
     models/spacechildrenmodel.cpp
     models/spacechildrenmodel.h
     models/spacechildsortfiltermodel.cpp
@@ -32,10 +29,6 @@ add_library(neochat STATIC
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
     notificationsmanager.h
-    models/sortfilterroomlistmodel.cpp
-    models/sortfilterroomlistmodel.h
-    models/roomtreemodel.cpp
-    models/roomtreemodel.h
     models/webshortcutmodel.cpp
     models/webshortcutmodel.h
     blurhash.cpp
@@ -58,21 +51,15 @@ add_library(neochat STATIC
     models/notificationsmodel.h
     proxycontroller.cpp
     proxycontroller.h
-    models/sortfilterroomtreemodel.cpp
-    models/sortfilterroomtreemodel.h
     mediamanager.cpp
     mediamanager.h
     models/statekeysmodel.cpp
     models/statekeysmodel.h
     sharehandler.cpp
     sharehandler.h
-    models/roomtreeitem.cpp
-    models/roomtreeitem.h
     foreigntypes.h
     identityserverhelper.cpp
     identityserverhelper.h
-    enums/roomsortparameter.cpp
-    enums/roomsortparameter.h
     models/roomsortparametermodel.cpp
     models/roomsortparametermodel.h
     models/commonroomsmodel.cpp
@@ -98,15 +85,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
     QML_FILES
         qml/Main.qml
         qml/AccountMenu.qml
-        qml/ExploreComponent.qml
-        qml/ExploreComponentMobile.qml
-        qml/RoomContextMenu.qml
         qml/CollapsedRoomDelegate.qml
-        qml/RoomDelegate.qml
-        qml/RoomListPage.qml
-        qml/SpaceListContextMenu.qml
-        qml/UserInfo.qml
-        qml/UserInfoDesktop.qml
         qml/RoomPage.qml
         qml/ExploreRoomsPage.qml
         qml/ManualRoomDialog.qml
@@ -141,7 +120,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/TimelineView.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
-        qml/SpaceDrawer.qml
         qml/OsmLocationPlugin.qml
         qml/TextToSpeechWrapper.qml
         qml/FullScreenMap.qml
@@ -166,7 +144,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
         qml/RecommendedSpaceDialog.qml
-        qml/RoomTreeSection.qml
         qml/DelegateContextMenu.qml
         qml/ShareDialog.qml
         qml/UnlockSSSSDialog.qml
@@ -188,6 +165,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         QtQuick
     IMPORTS
         org.kde.neochat.libneochat
+        org.kde.neochat.rooms
         org.kde.neochat.timeline
         org.kde.neochat.settings
         org.kde.neochat.devtools
@@ -212,15 +190,6 @@ endif()
 if(WIN32)
     set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
 endif()
-
-ecm_qt_declare_logging_category(neochat
-    HEADER "publicroomlist_logging.h"
-    IDENTIFIER "PublicRoomList"
-    CATEGORY_NAME "org.kde.neochat.publicroomlistmodel"
-    DESCRIPTION "Neochat: publicroomlistmodel"
-    DEFAULT_SEVERITY Info
-    EXPORT NEOCHAT
-)
 
 add_executable(neochat-app
     main.cpp
@@ -264,8 +233,8 @@ else()
     target_compile_definitions(neochat PUBLIC -DHAVE_X11=0)
 endif()
 
-target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models ${CMAKE_CURRENT_SOURCE_DIR}/enums)
-target_link_libraries(neochat PRIVATE Settingsplugin Timelineplugin devtoolsplugin Loginplugin chatbarplugin)
+target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
+target_link_libraries(neochat PRIVATE Settingsplugin Roomsplugin Timelineplugin devtoolsplugin Loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
@@ -288,6 +257,7 @@ target_link_libraries(neochat PUBLIC
     KF6::ItemModels
     QuotientQt6
     Login
+    Rooms
 )
 
 if (TARGET KF6::Crash)

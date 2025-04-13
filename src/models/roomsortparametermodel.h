@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 
 #include <KLazyLocalizedString>
+#include <qlist.h>
 #include <qtmetamacros.h>
 
 #include "enums/roomsortparameter.h"
@@ -21,6 +22,11 @@ class RoomSortParameterModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
+    /**
+     * @brief The current list of sorting paramters as an int list.
+     */
+    Q_PROPERTY(QList<int> currentParameterList READ currentParameterList NOTIFY currentParameterListChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -33,6 +39,8 @@ public:
 
     explicit RoomSortParameterModel(QObject *parent = nullptr);
     explicit RoomSortParameterModel(QList<RoomSortParameter::Parameter> parameters, QObject *parent = nullptr);
+
+    QList<int> currentParameterList() const;
 
     /**
      * @brief Get the given role value at the given index.
@@ -78,14 +86,12 @@ public:
     Q_INVOKABLE void moveRowDown(int row);
 
     /**
-     * @brief Save the current model parameters as a custom sort order.
-     */
-    Q_INVOKABLE void saveParameterList();
-
-    /**
      * @brief Return a RoomSortParameterModel with all available parameters.
      */
     Q_INVOKABLE RoomSortParameterModel *allParameterModel() const;
+
+Q_SIGNALS:
+    void currentParameterListChanged();
 
 private:
     QList<RoomSortParameter::Parameter> m_currentParameters;

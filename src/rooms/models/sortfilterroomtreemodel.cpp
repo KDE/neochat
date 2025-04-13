@@ -6,24 +6,18 @@
 
 #include "enums/neochatroomtype.h"
 #include "enums/roomsortparameter.h"
-#include "neochatconfig.h"
+#include "models/roomtreemodel.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "roommanager.h"
-#include "roomtreemodel.h"
 #include "spacehierarchycache.h"
+
+bool SortFilterRoomTreeModel::m_showAllRoomsInHome = false;
 
 SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     Q_ASSERT(sourceModel);
     setSourceModel(sourceModel);
-
-    setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
-    connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
-        setRoomSortOrder(static_cast<RoomSortOrder>(NeoChatConfig::sortOrder()));
-        invalidateFilter();
-    });
 
     setRecursiveFilteringEnabled(true);
     sort(0);
@@ -33,38 +27,7 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
         connect(this->sourceModel(), &QAbstractItemModel::rowsInserted, this, &SortFilterRoomTreeModel::invalidateFilter);
         connect(this->sourceModel(), &QAbstractItemModel::rowsRemoved, this, &SortFilterRoomTreeModel::invalidateFilter);
     });
-
-    connect(NeoChatConfig::self(), &NeoChatConfig::CollapsedChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
-    connect(NeoChatConfig::self(), &NeoChatConfig::AllRoomsInHomeChanged, this, [this]() {
-        invalidateFilter();
-        if (NeoChatConfig::self()->allRoomsInHome()) {
-            RoomManager::instance().resetState();
-        }
-    });
 }
-
-void SortFilterRoomTreeModel::setRoomSortOrder(SortFilterRoomTreeModel::RoomSortOrder sortOrder)
-{
-    m_sortOrder = sortOrder;
-    invalidate();
-}
-
-static const QVector<RoomSortParameter::Parameter> alphabeticalSortPriorities{
-    // Does exactly what it says on the tin.
-    RoomSortParameter::AlphabeticalAscending,
-};
-
-static const QVector<RoomSortParameter::Parameter> activitySortPriorities{
-    RoomSortParameter::HasHighlight,
-    RoomSortParameter::MostHighlights,
-    RoomSortParameter::HasUnread,
-    RoomSortParameter::MostUnread,
-    RoomSortParameter::LastActive,
-};
-
-static const QVector<RoomSortParameter::Parameter> lastMessageSortPriorities{
-    RoomSortParameter::LastActive,
-};
 
 bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
@@ -141,8 +104,7 @@ bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex
         return false;
     }
 
-    static auto config = NeoChatConfig::self();
-    if (config->allRoomsInHome() && RoomManager::instance().currentSpace().isEmpty()) {
+    if (m_showAllRoomsInHome && m_activeSpaceId.isEmpty()) {
         return acceptRoom;
     }
 
@@ -169,6 +131,11 @@ void SortFilterRoomTreeModel::setActiveSpaceId(const QString &spaceId)
     invalidate();
 }
 
+void SortFilterRoomTreeModel::setCurrentRoom(NeoChatRoom *room)
+{
+    m_currentRoom = room;
+}
+
 SortFilterRoomTreeModel::Mode SortFilterRoomTreeModel::mode() const
 {
     return m_mode;
@@ -192,7 +159,12 @@ QModelIndex SortFilterRoomTreeModel::currentRoomIndex() const
         return {};
     }
 
-    return mapFromSource(roomModel->indexForRoom(RoomManager::instance().currentRoom()));
+    return mapFromSource(roomModel->indexForRoom(m_currentRoom));
+}
+
+void SortFilterRoomTreeModel::setShowAllRoomsInHome(bool enabled)
+{
+    SortFilterRoomTreeModel::m_showAllRoomsInHome = enabled;
 }
 
 #include "moc_sortfilterroomtreemodel.cpp"

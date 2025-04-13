@@ -8,11 +8,14 @@
 
 #include "enums/neochatroomtype.h"
 #include "eventhandler.h"
-#include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "spacehierarchycache.h"
 
 using namespace Quotient;
+
+std::function<bool(const Quotient::RoomEvent *)> RoomTreeModel::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
+    return false;
+};
 
 RoomTreeModel::RoomTreeModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -356,22 +359,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
             }
             return i18nc("@info:label", "%1 invited you", room->member(room->invitingUserId()).displayName());
         }
-        const auto lastEvent = room->lastEvent([](const RoomEvent *event) -> bool {
-            if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
-                return true;
-            }
-            if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-                if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
-                    return true;
-                } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
-                    return true;
-                } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                           && !NeoChatConfig::showAvatarUpdate()) {
-                    return true;
-                }
-            }
-            return false;
-        });
+        const auto lastEvent = room->lastEvent(m_hiddenFilter);
         if (lastEvent == nullptr || room->lastEventIsSpoiler()) {
             return QString();
         }
@@ -430,6 +418,11 @@ QModelIndex RoomTreeModel::indexForRoom(NeoChatRoom *room) const
     }
 
     return {};
+}
+
+void RoomTreeModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
+{
+    RoomTreeModel::m_hiddenFilter = hiddenFilter;
 }
 
 #include "moc_roomtreemodel.cpp"

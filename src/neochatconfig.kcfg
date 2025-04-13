@@ -134,21 +134,8 @@
     </entry>
     <entry name="SortOrder" type="Enum">
       <label>The sort order for the rooms in the list.</label>
-      <choices>
-        <choice name="Alphabetical">
-          <label>Alphabetical</label>
-        </choice>
-        <choice name="Activity">
-          <label>Activity</label>
-        </choice>
-        <choice name="LastMessage">
-          <label>Last Message</label>
-        </choice>
-        <choice name="Custom">
-          <label>Custom</label>
-        </choice>
+      <choices name="::RoomSortOrder::Order">
       </choices>
-      <default>Activity</default>
     </entry>
     <entry name="CustomSortOrder" type="IntList">
       <label>The list of parameter in order to use for custom sorting</label>

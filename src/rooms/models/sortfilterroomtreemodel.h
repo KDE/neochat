@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "neochatroom.h"
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
@@ -66,18 +67,23 @@ public:
 
     explicit SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent = nullptr);
 
-    void setRoomSortOrder(RoomSortOrder sortOrder);
-
     void setFilterText(const QString &text);
     [[nodiscard]] QString filterText() const;
 
     QString activeSpaceId() const;
     void setActiveSpaceId(const QString &spaceId);
 
+    /**
+     * @brief Set the current active room.
+     */
+    void setCurrentRoom(NeoChatRoom *room);
+
     Mode mode() const;
     void setMode(Mode mode);
 
     Q_INVOKABLE QModelIndex currentRoomIndex() const;
+
+    static void setShowAllRoomsInHome(bool enabled);
 
 protected:
     /**
@@ -100,8 +106,11 @@ Q_SIGNALS:
     void modeChanged();
 
 private:
-    RoomSortOrder m_sortOrder = Activity;
     Mode m_mode = All;
     QString m_filterText;
     QString m_activeSpaceId;
+
+    QPointer<NeoChatRoom> m_currentRoom;
+
+    static bool m_showAllRoomsInHome;
 };

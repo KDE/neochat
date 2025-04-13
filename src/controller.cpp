@@ -20,11 +20,13 @@
 #include <Quotient/settings.h>
 
 #include "accountmanager.h"
+#include "enums/roomsortparameter.h"
 #include "mediasizehelper.h"
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
 #include "models/pushrulemodel.h"
 #include "models/roomlistmodel.h"
+#include "models/roomtreemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -95,6 +97,7 @@ Controller::Controller(QObject *parent)
 
     MessageModel::setHiddenFilter(hiddenEventFilter);
     RoomListModel::setHiddenFilter(hiddenEventFilter);
+    RoomTreeModel::setHiddenFilter(hiddenEventFilter);
 
     MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
     connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxWidthChanged, this, []() {
@@ -102,6 +105,26 @@ Controller::Controller(QObject *parent)
     });
     connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxHeightChanged, this, []() {
         MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
+    });
+
+    RoomSortParameter::setSortOrder(static_cast<RoomSortOrder::Order>(NeoChatConfig::sortOrder()));
+    connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, []() {
+        RoomSortParameter::setSortOrder(static_cast<RoomSortOrder::Order>(NeoChatConfig::sortOrder()));
+    });
+
+    QList<RoomSortParameter::Parameter> configParamList;
+    const auto intList = NeoChatConfig::customSortOrder();
+    std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
+        return static_cast<RoomSortParameter::Parameter>(param);
+    });
+    RoomSortParameter::setCustomSortOrder(configParamList);
+    connect(NeoChatConfig::self(), &NeoChatConfig::CustomSortOrderChanged, this, []() {
+        QList<RoomSortParameter::Parameter> configParamList;
+        const auto intList = NeoChatConfig::customSortOrder();
+        std::transform(intList.constBegin(), intList.constEnd(), std::back_inserter(configParamList), [](int param) {
+            return static_cast<RoomSortParameter::Parameter>(param);
+        });
+        RoomSortParameter::setCustomSortOrder(configParamList);
     });
 
     ProxyController::instance().setApplicationProxy();
