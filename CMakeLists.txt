@@ -14,7 +14,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(NeoChat VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF_MIN_VERSION "6.6")
+set(KF_MIN_VERSION "6.12")
 set(QT_MIN_VERSION "6.5")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
@@ -164,7 +164,6 @@ endif()
 
 if(ANDROID)
     find_package(Sqlite3)
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 endif()
 
 ki18n_install(po)
