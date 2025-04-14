@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 00:42+0000\n"
-"PO-Revision-Date: 2025-04-12 11:17+0300\n"
+"PO-Revision-Date: 2025-04-13 20:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -512,7 +512,7 @@ msgstr "הצטרפות לחדר (שוב ושוב)"
 #: src/eventhandler.cpp:340
 #, kde-format
 msgid "invited %1 to the room"
-msgstr ""
+msgstr "הזמנה של %1 לחדר"
 
 #: src/eventhandler.cpp:340
 #, kde-format
@@ -528,13 +528,13 @@ msgstr ": %1"
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
-msgstr ""
+msgstr "שם התצוגה נמחק"
 
 #: src/eventhandler.cpp:354
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
-msgstr ""
+msgstr "שם התצוגה השתנה לשם %1"
 
 #: src/eventhandler.cpp:360
 #, kde-format
@@ -545,7 +545,7 @@ msgstr ""
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
-msgstr ""
+msgstr "התמונה הייצוגית נמחקה"
 
 #: src/eventhandler.cpp:365
 #, kde-format
@@ -556,13 +556,13 @@ msgstr ""
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
-msgstr ""
+msgstr "התמונה הייצוגית עודכנה"
 
 #: src/eventhandler.cpp:371
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
-msgstr ""
+msgstr "דבר לא השתנה"
 
 #: src/eventhandler.cpp:377
 #, kde-format
@@ -632,37 +632,37 @@ msgstr ""
 #: src/eventhandler.cpp:409
 #, kde-format
 msgid "cleared the room main alias"
-msgstr ""
+msgstr "הכינוי הראשי של החדר נמחק"
 
 #: src/eventhandler.cpp:409
 #, kde-format
 msgid "set the room main alias to: %1"
-msgstr ""
+msgstr "הכינוי הראשי של החדר הוגדר לשם: %1"
 
 #: src/eventhandler.cpp:412
 #, kde-format
 msgid "cleared the room name"
-msgstr ""
+msgstr "שם החדר נמחק"
 
 #: src/eventhandler.cpp:412
 #, kde-format
 msgid "set the room name to: %1"
-msgstr ""
+msgstr "שם החדר הוגדר לשם: %1"
 
 #: src/eventhandler.cpp:415
 #, kde-format
 msgid "cleared the topic"
-msgstr ""
+msgstr "הנושא נמחק"
 
 #: src/eventhandler.cpp:416
 #, kde-format
 msgid "set the topic to: %1"
-msgstr ""
+msgstr "הנושא הוגדר לכדי: %1"
 
 #: src/eventhandler.cpp:422
 #, kde-format
 msgid "changed the room avatar"
-msgstr ""
+msgstr "התמונה הייצוגית של החדר השתנתה"
 
 #: src/eventhandler.cpp:425
 #, kde-format
@@ -1403,30 +1403,30 @@ msgstr "‚%1’ לא נראה כמו מזהה matrix"
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr ""
+msgstr "כבר נשלחה הזמנה אל %1 להצטרף לחדר הזה."
 
 #: src/models/actionsmodel.cpp:198
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr ""
+msgstr "הופעלה חסימה כנגד %1 מהחדר הזה."
 
 #: src/models/actionsmodel.cpp:202
 #, kde-format
 msgid "You are already in this room."
-msgstr ""
+msgstr "כבר הצטרפות לחדר הזה."
 
 #: src/models/actionsmodel.cpp:206
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr ""
+msgstr "%1 כבר בחדר הזה."
 
 #: src/models/actionsmodel.cpp:210
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
-msgstr ""
+msgstr "נשלחה הזמנה אל %1 להצטרף לחדר הזה."
 
 #: src/models/actionsmodel.cpp:214 src/models/actionsmodel.cpp:354
 #: src/models/actionsmodel.cpp:375 src/models/actionsmodel.cpp:463
@@ -1441,7 +1441,7 @@ msgstr "הזמנת המשתמש לחדר הזה"
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr ""
+msgstr "הצטרפות לחדר %1."
 
 #: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:290
 msgid "<room alias or id>"
@@ -1449,7 +1449,7 @@ msgstr "<כינוי או מזהה חדר>"
 
 #: src/models/actionsmodel.cpp:238 src/models/actionsmodel.cpp:291
 msgid "Joins the given room"
-msgstr ""
+msgstr "הצטרפות לחדר שצוין"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -1477,7 +1477,7 @@ msgstr "[<כינוי או מזהה חדר>]"
 
 #: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:305
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "עזיבת החדר הנתון או החדר הזה, אם לא צוין חדר"
 
 #: src/models/actionsmodel.cpp:318 src/models/actionsmodel.cpp:325
 #: src/models/actionsmodel.cpp:332
@@ -1818,7 +1818,7 @@ msgstr "להגדיר את מרחב ההורה של החדר הזה"
 #: src/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgstr "זאת רמת העוצמה לכל המשתמשים החדשים שמצטרפים לחדר"
 
 #: src/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
@@ -1889,7 +1889,7 @@ msgstr "התראות לכלל החדר (‎@room)"
 #: src/models/pushrulemodel.cpp:30
 msgctxt "Notification type"
 msgid "Invites to a room"
-msgstr ""
+msgstr "הזמנה לחדר"
 
 #: src/models/pushrulemodel.cpp:31
 msgctxt "Notification type"
@@ -2419,7 +2419,7 @@ msgstr "עיון בין החדרים"
 #: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Joined"
-msgstr ""
+msgstr "הצטרפות"
 
 #: src/qml/CreateRoomDialog.qml:236
 #, kde-format
@@ -2985,7 +2985,7 @@ msgstr "הזמנת המשתמש הזה"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "החבר או החברה כבר חברים או שהוזמנו"
 
 #: src/qml/InviteUserPage.qml:75
 #, kde-format
