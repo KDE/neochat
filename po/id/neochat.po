@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "Emoji"
 msgid "Stickers"
 msgstr "Stiker"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -106,35 +106,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Kirim notifikasi pengetikan"
 
-#: src/controller.cpp:285
-#, fuzzy, kde-format
-#| msgid "Access token wasn't found"
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Token pengaksesan tidak ditemukan"
-
-#: src/controller.cpp:289
-#, fuzzy, kde-format
-#| msgid "Please allow NeoChat to read the access token"
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Mohon izinkan NeoChat untuk membaca token pengaksesan"
-
-#: src/controller.cpp:292
-#, fuzzy, kde-format
-#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"Mohon instal sebuah rantai kunci, seperti KWallet atau GNOME Keyring di Linux"
-
-#: src/controller.cpp:295
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
-msgid "Unable to read access token: %1"
-msgstr "Tidak dapat membaca token pengaksesan"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -364,36 +336,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr ""
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "Diundang"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "Favorit"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr ""
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "Normal"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "Prioritas rendah"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "Space"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -483,6 +425,64 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
+#: src/libneochat/accountmanager.cpp:126
+#, fuzzy, kde-format
+#| msgid "Access token wasn't found"
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "Token pengaksesan tidak ditemukan"
+
+#: src/libneochat/accountmanager.cpp:130
+#, fuzzy, kde-format
+#| msgid "Please allow NeoChat to read the access token"
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr "Mohon izinkan NeoChat untuk membaca token pengaksesan"
+
+#: src/libneochat/accountmanager.cpp:133
+#, fuzzy, kde-format
+#| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"Mohon instal sebuah rantai kunci, seperti KWallet atau GNOME Keyring di Linux"
+
+#: src/libneochat/accountmanager.cpp:136
+#, fuzzy, kde-format
+#| msgid "Unable to read access token"
+msgid "Unable to read access token: %1"
+msgstr "Tidak dapat membaca token pengaksesan"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "Diundang"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "Favorit"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr ""
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "Prioritas rendah"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "Space"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, fuzzy, kde-format
 #| msgid "Members"
@@ -512,8 +512,9 @@ msgstr "Dibisukan"
 msgid "Custom"
 msgstr "Kustom"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -1481,7 +1482,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Kustom"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "Stiker Sendiri"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Emoji Sendiri"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -1489,18 +1502,18 @@ msgid ""
 "for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Pembuatan ruangan gagal: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
@@ -1515,16 +1528,6 @@ msgstr "Laporan berhasil dikirim."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lintang: %1, Bujur: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Kesalahan Jaringan: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Pemasukan Gagal: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1577,6 +1580,16 @@ msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
 msgstr "Mohon tunggu. Ini mungkin membutuhkan beberapa waktu."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Kesalahan Jaringan: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Pemasukan Gagal: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1664,6 +1677,58 @@ msgstr "Konfirmasi Kata Sandi baru:"
 msgid "The passwords do not match."
 msgstr "Kata sandi tidak cocok"
 
+#: src/login/registration.cpp:306
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add server"
+msgid "No server."
+msgstr "Tambahkan server"
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr ""
+
+#: src/login/registration.cpp:310
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "This is not a valid server."
+msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr ""
+
+#: src/login/registration.cpp:314
+#, fuzzy, kde-format
+#| msgid "No name"
+msgid "No username."
+msgstr "Tidak ada nama"
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr ""
+
+#: src/login/registration.cpp:318
+#, fuzzy, kde-format
+#| msgid "No users available"
+msgid "This username is not available."
+msgstr "Tidak ada pengguna yang tersedia"
+
+#: src/login/registration.cpp:320
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Continue"
+msgid "Continue"
+msgstr "Lanjut"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr ""
+
 #: src/login/Sso.qml:30
 #, fuzzy, kde-format
 #| msgid "Complete the authentication steps in your browser"
@@ -1705,7 +1770,7 @@ msgstr "Tidak ada pengguna yang tersedia"
 msgid "Welcome"
 msgstr "Selamat datang"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1752,392 +1817,117 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Pengaturan Rsuangan"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, fuzzy, kde-format
 #| msgid "About NeoChat"
 msgid "Chat on Matrix"
 msgstr "Tentang NeoChat"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 Komunitas KDE"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "Pemelihara"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Penulis asli Spectral"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, fuzzy, kde-format
 #| msgid "Maintainer of Quotient"
 msgid "Maintainer of libQuotient"
 msgstr "Pemelihara Quotient"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Linerly"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "linerly@protonmail.com"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, fuzzy, kde-format
 #| msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Sebuah pustaka Qt5 untuk membuat klien lintas platform untuk Matrix"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (dibangun pada %2)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klien untuk protokol komunikasi Matrix"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Mendukung skema URL matrix:"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "Stiker Sendiri"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "Emoji Sendiri"
-
-#: src/models/permissionsmodel.cpp:57
-#, fuzzy
-#| msgid "Default user power level"
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "Tingkat daya pengguna bawaan"
-
-#: src/models/permissionsmodel.cpp:58
-#, fuzzy
-#| msgid "Default power level to set the room state"
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
-
-#: src/models/permissionsmodel.cpp:59
-#, fuzzy
-#| msgid "Default power level to send messages"
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "Tingkat daya bawaan untuk mengirim pesan"
-
-#: src/models/permissionsmodel.cpp:60
-#, fuzzy
-#| msgid "Invite users"
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "Undang pengguna"
-
-#: src/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgid "Kick users"
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "Keluarkan pengguna"
-
-#: src/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgid "Ban users"
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "Cekal pengguna"
-
-#: src/models/permissionsmodel.cpp:63
-#, fuzzy
-#| msgid "Remove message sent by other users"
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "Hapus pesan dari pengguna lain"
-
-#: src/models/permissionsmodel.cpp:64
-#, fuzzy
-#| msgid "Send a Location"
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "Kirim Lokasi"
-
-#: src/models/permissionsmodel.cpp:65
-#, fuzzy
-#| msgid "Remove Messages"
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "Hapus Pesan"
-
-#: src/models/permissionsmodel.cpp:66
-#, fuzzy
-#| msgid "Change user permissions"
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "Ubah perizinan pengguna"
-
-#: src/models/permissionsmodel.cpp:67
-#, fuzzy
-#| msgid "Change the room name"
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "Ubah nama ruangan"
-
-#: src/models/permissionsmodel.cpp:68
-#, fuzzy
-#| msgid "Change the room avatar"
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "Ubah avatar ruangan"
-
-#: src/models/permissionsmodel.cpp:69
-#, fuzzy
-#| msgid "Change the room canonical alias"
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "Ubah alias kanonik ruangan"
-
-#: src/models/permissionsmodel.cpp:70
-#, fuzzy
-#| msgid "Change the room topic"
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "Ubah topik ruangan"
-
-#: src/models/permissionsmodel.cpp:71
-#, fuzzy
-#| msgid "Enable encryption for the room"
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "Aktifkan enkripsi untuk ruangan"
-
-#: src/models/permissionsmodel.cpp:72
-#, fuzzy
-#| msgid "Change the room history visibility"
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "Ubah keterlihatan riwayat ruangan"
-
-#: src/models/permissionsmodel.cpp:73
-#, fuzzy
-#| msgid "Set pinned events"
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Tetapkan peristiwa yang disematkan"
-
-#: src/models/permissionsmodel.cpp:74
-#, fuzzy
-#| msgid "Upgrade the room"
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "Tingkatkan ruangan"
-
-#: src/models/permissionsmodel.cpp:75
-#, fuzzy
-#| msgid "Set the room server access control list (ACL)"
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
-
-#: src/models/permissionsmodel.cpp:76
-#, fuzzy
-#| msgid "Set the children of this space"
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "Tetapkan anak dari space ini"
-
-#: src/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgid "Set the parent space of this room"
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "Tetapkan space induk dari ruangan ini"
-
-#: src/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "This is power level for all new users when joining the room"
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
-"Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
-
-#: src/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
-"sendiri di sini"
-
-#: src/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
-"sini"
-
-#: src/models/pushrulemodel.cpp:19
-#, fuzzy
-#| msgid "Enable notifications for this account"
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "Aktifkan notifikasi untuk akun ini"
-
-#: src/models/pushrulemodel.cpp:20
-#, fuzzy
-#| msgid "Messages in one-to-one chats"
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "Pesan dalam obrolan satu ke satu"
-
-#: src/models/pushrulemodel.cpp:21
-#, fuzzy
-#| msgid "Encrypted messages in one-to-one chats"
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Pesan terenkripsi dalam obrolan satu ke satu"
-
-#: src/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Messages in group chats"
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "Pesan dalam obrolan grup"
-
-#: src/models/pushrulemodel.cpp:23
-#, fuzzy
-#| msgid "Messages in encrypted group chats"
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "Pesan dalam obrolan grup terenkripsi"
-
-#: src/models/pushrulemodel.cpp:24
-#, fuzzy
-#| msgid "Room upgrade messages"
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "Pesan peningkatan ruangan"
-
-#: src/models/pushrulemodel.cpp:25
-#, fuzzy
-#| msgid "Messages containing my display name"
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "Pesan berisi nama tampilan saya"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr ""
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr ""
-
-#: src/models/pushrulemodel.cpp:28
-#, fuzzy
-#| msgid "Messages containing my display name"
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "Pesan berisi nama tampilan saya"
-
-#: src/models/pushrulemodel.cpp:29
-#, fuzzy
-#| msgid "Whole room (@room) notifications"
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "Notifikasi seluruh ruangan (@room)"
-
-#: src/models/pushrulemodel.cpp:30
-#, fuzzy
-#| msgid "Invites to a room"
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "Mengundang ke ruangan"
-
-#: src/models/pushrulemodel.cpp:31
-#, fuzzy
-#| msgid "Call invitation"
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "Undangan panggilan"
 
 #: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
@@ -3343,27 +3133,27 @@ msgstr "Notifikasi"
 msgid "There are no locations shared in this room."
 msgstr "Anda sudah ada di ruangan ini."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informasi Ruangan"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, fuzzy, kde-format
 #| msgid "Room Information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Informasi Ruangan"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -4731,58 +4521,6 @@ msgstr "Pihak jarak jauh membatalkan verifikasi sesi karena kunci tidak cocok."
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."
 
-#: src/registration.cpp:305
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add server"
-msgid "No server."
-msgstr "Tambahkan server"
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr ""
-
-#: src/registration.cpp:309
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
-msgid "This is not a valid server."
-msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr ""
-
-#: src/registration.cpp:313
-#, fuzzy, kde-format
-#| msgid "No name"
-msgid "No username."
-msgstr "Tidak ada nama"
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr ""
-
-#: src/registration.cpp:317
-#, fuzzy, kde-format
-#| msgid "No users available"
-msgid "This username is not available."
-msgstr "Tidak ada pengguna yang tersedia"
-
-#: src/registration.cpp:319
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue"
-msgid "Continue"
-msgstr "Lanjut"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr ""
-
 #: src/roommanager.cpp:195
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
@@ -5488,6 +5226,269 @@ msgstr ""
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:57
+#, fuzzy
+#| msgid "Default user power level"
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Tingkat daya pengguna bawaan"
+
+#: src/settings/models/permissionsmodel.cpp:58
+#, fuzzy
+#| msgid "Default power level to set the room state"
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:59
+#, fuzzy
+#| msgid "Default power level to send messages"
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Tingkat daya bawaan untuk mengirim pesan"
+
+#: src/settings/models/permissionsmodel.cpp:60
+#, fuzzy
+#| msgid "Invite users"
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Undang pengguna"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgid "Kick users"
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Keluarkan pengguna"
+
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgid "Ban users"
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Cekal pengguna"
+
+#: src/settings/models/permissionsmodel.cpp:63
+#, fuzzy
+#| msgid "Remove message sent by other users"
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Hapus pesan dari pengguna lain"
+
+#: src/settings/models/permissionsmodel.cpp:64
+#, fuzzy
+#| msgid "Send a Location"
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Kirim Lokasi"
+
+#: src/settings/models/permissionsmodel.cpp:65
+#, fuzzy
+#| msgid "Remove Messages"
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Hapus Pesan"
+
+#: src/settings/models/permissionsmodel.cpp:66
+#, fuzzy
+#| msgid "Change user permissions"
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Ubah perizinan pengguna"
+
+#: src/settings/models/permissionsmodel.cpp:67
+#, fuzzy
+#| msgid "Change the room name"
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Ubah nama ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:68
+#, fuzzy
+#| msgid "Change the room avatar"
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Ubah avatar ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:69
+#, fuzzy
+#| msgid "Change the room canonical alias"
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Ubah alias kanonik ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:70
+#, fuzzy
+#| msgid "Change the room topic"
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Ubah topik ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:71
+#, fuzzy
+#| msgid "Enable encryption for the room"
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Aktifkan enkripsi untuk ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:72
+#, fuzzy
+#| msgid "Change the room history visibility"
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Ubah keterlihatan riwayat ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:73
+#, fuzzy
+#| msgid "Set pinned events"
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Tetapkan peristiwa yang disematkan"
+
+#: src/settings/models/permissionsmodel.cpp:74
+#, fuzzy
+#| msgid "Upgrade the room"
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Tingkatkan ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:75
+#, fuzzy
+#| msgid "Set the room server access control list (ACL)"
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
+
+#: src/settings/models/permissionsmodel.cpp:76
+#, fuzzy
+#| msgid "Set the children of this space"
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Tetapkan anak dari space ini"
+
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgid "Set the parent space of this room"
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Tetapkan space induk dari ruangan ini"
+
+#: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "This is power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
+
+#: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
+"sendiri di sini"
+
+#: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
+"sini"
+
+#: src/settings/models/pushrulemodel.cpp:19
+#, fuzzy
+#| msgid "Enable notifications for this account"
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Aktifkan notifikasi untuk akun ini"
+
+#: src/settings/models/pushrulemodel.cpp:20
+#, fuzzy
+#| msgid "Messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Pesan dalam obrolan satu ke satu"
+
+#: src/settings/models/pushrulemodel.cpp:21
+#, fuzzy
+#| msgid "Encrypted messages in one-to-one chats"
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Pesan terenkripsi dalam obrolan satu ke satu"
+
+#: src/settings/models/pushrulemodel.cpp:22
+#, fuzzy
+#| msgid "Messages in group chats"
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Pesan dalam obrolan grup"
+
+#: src/settings/models/pushrulemodel.cpp:23
+#, fuzzy
+#| msgid "Messages in encrypted group chats"
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Pesan dalam obrolan grup terenkripsi"
+
+#: src/settings/models/pushrulemodel.cpp:24
+#, fuzzy
+#| msgid "Room upgrade messages"
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Pesan peningkatan ruangan"
+
+#: src/settings/models/pushrulemodel.cpp:25
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Pesan berisi nama tampilan saya"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr ""
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr ""
+
+#: src/settings/models/pushrulemodel.cpp:28
+#, fuzzy
+#| msgid "Messages containing my display name"
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Pesan berisi nama tampilan saya"
+
+#: src/settings/models/pushrulemodel.cpp:29
+#, fuzzy
+#| msgid "Whole room (@room) notifications"
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Notifikasi seluruh ruangan (@room)"
+
+#: src/settings/models/pushrulemodel.cpp:30
+#, fuzzy
+#| msgid "Invites to a room"
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Mengundang ke ruangan"
+
+#: src/settings/models/pushrulemodel.cpp:31
+#, fuzzy
+#| msgid "Call invitation"
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Undangan panggilan"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -6405,6 +6406,49 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgid "We've sent you a text message"
+msgstr "mengirim pesan"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered email is not valid"
+msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgid "The entered phone number is not valid"
+msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -6459,34 +6503,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Anggota"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr ""
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, fuzzy, kde-format
-#| msgid "sent a message"
-msgid "We've sent you a text message"
-msgstr "mengirim pesan"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr ""
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
-msgid "The entered email is not valid"
-msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
-msgid "The entered phone number is not valid"
-msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
 
 #: src/settings/ThreePIdCard.qml:160
 #, fuzzy, kde-format
@@ -6522,26 +6543,6 @@ msgstr "Tambahkan"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Kembali"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr ""
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, fuzzy, kde-format

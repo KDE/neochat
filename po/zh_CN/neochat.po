@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -94,7 +94,7 @@ msgstr "表情"
 msgid "Stickers"
 msgstr "贴纸"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -102,30 +102,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "接收新消息通知"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr ""
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr ""
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
@@ -333,36 +310,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr ""
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "已邀请"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "收藏夹"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "好友"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "普通"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "低优先级"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "空间"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -447,6 +394,59 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr ""
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr ""
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr ""
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "已邀请"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "收藏夹"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "好友"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "普通"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "低优先级"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "空间"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -472,8 +472,9 @@ msgstr ""
 msgid "Custom"
 msgstr "自定义"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1377,25 +1378,37 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "自定义"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "自己的贴纸"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "自己的表情"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室创建失败：%1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
@@ -1410,16 +1423,6 @@ msgstr "举报成功。"
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "纬度：%1，经度：%2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "网络错误：%1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "登录失败：%1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1469,6 +1472,16 @@ msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
 msgstr ""
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "网络错误：%1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "登录失败：%1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1549,6 +1562,51 @@ msgstr "确认密码："
 msgid "The passwords do not match."
 msgstr "两次输入的密码不一致"
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "无服务器。"
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "正在检查服务器状态"
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "此服务器无效。"
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "此服务器已禁止注册。"
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "无用户名。"
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "正在检查用户名是否可用。"
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "该用户名不可用。"
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "继续"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "正在处理"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1587,7 +1645,7 @@ msgstr "用户名不可用"
 msgid "Welcome"
 msgstr "欢迎使用"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1628,62 +1686,62 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "设置"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "在 Matrix 上聊天"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "维护人员"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原作者"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient 的维护者"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -1691,7 +1749,7 @@ msgstr ""
 "KDE China (中国), Guo Yunhe (郭云鹤), Yang Boyuan (杨博远), Coelacanthus, "
 "Tyson Tan (钛山), Gary Wang, Zhangzhi Hu"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1699,244 +1757,46 @@ msgstr ""
 "kde-china@kde.org, i@guoyunhe.me, 073plan@gmail.com, coelacanthus@kde.org, "
 "tds00@qq.com, git@blumia.net, integral@member.fsf.org"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "一个用于编写跨平台 Matrix 客户端的 Qt 库"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (使用 %2 构建)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通信协议客户端"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支持 matrix：URL 协议"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "忽略所有 SSL 错误，例如未签名证书。"
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "仅用于自动测试"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "仅内部使用。"
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "分享 URL 到 Matrix"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "自己的贴纸"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "自己的表情"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "默认用户权力等级"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "可调整聊天室状态的默认权力等级"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "可发送消息的默认权力等级"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "邀请用户"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "移除用户"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "封禁用户"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr ""
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr ""
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr ""
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "更改用户权限"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "更改聊天室名称"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "更改聊天室头像"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "更改聊天室主别名"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "更改聊天室话题"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "为此聊天室启用加密"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "更改聊天室历史可见性"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "设置置顶事件"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "升级聊天室版本"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "设置聊天室服务器访问控制列表 (ACL)"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "设置为此空间的子聊天室"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "设置此聊天室的父空间"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "为此账户启用通知"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "私聊中的消息"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "私聊中的加密消息"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "群聊中的消息"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "加密群聊中的消息"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "聊天室升级消息"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "包含我显示名称的消息"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "提及我的 Matrix 用户 ID 的消息"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "提及聊天室的消息"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr ""
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "整个聊天室 (@room) 的通知"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "邀请加入聊天室"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "通话邀请"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
@@ -3045,25 +2905,25 @@ msgstr "位置"
 msgid "There are no locations shared in this room."
 msgstr "此聊天室中没有共享位置。"
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "显示房间信息"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "关闭房间信息面板"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "会话验证"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4300,51 +4160,6 @@ msgstr "由于密钥不匹配，另一端取消了会话验证。"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "由于未知错误，会话验证被取消。"
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "无服务器。"
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "正在检查服务器状态"
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "此服务器无效。"
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "此服务器已禁止注册。"
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "无用户名。"
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "正在检查用户名是否可用。"
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "该用户名不可用。"
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "继续"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "正在处理"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -4987,6 +4802,192 @@ msgstr ""
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "默认用户权力等级"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "可调整聊天室状态的默认权力等级"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "可发送消息的默认权力等级"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "邀请用户"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "移除用户"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "封禁用户"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "更改用户权限"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "更改聊天室名称"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "更改聊天室头像"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "更改聊天室主别名"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "更改聊天室话题"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "为此聊天室启用加密"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "更改聊天室历史可见性"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "设置置顶事件"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "升级聊天室版本"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "设置聊天室服务器访问控制列表 (ACL)"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "设置为此空间的子聊天室"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "设置此聊天室的父空间"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "为此账户启用通知"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "私聊中的消息"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "私聊中的加密消息"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "群聊中的消息"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "加密群聊中的消息"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "聊天室升级消息"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "包含我显示名称的消息"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "提及我的 Matrix 用户 ID 的消息"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "提及聊天室的消息"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr ""
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "整个聊天室 (@room) 的通知"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "邀请加入聊天室"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "通话邀请"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5843,6 +5844,46 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5891,30 +5932,10 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr ""
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr ""
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
-msgstr ""
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr ""
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
 msgstr ""
 
 #: src/settings/ThreePIdCard.qml:160
@@ -5946,26 +5967,6 @@ msgstr "添加"
 #, kde-format
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
-msgstr ""
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr ""
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
 msgstr ""
 
 #: src/timeline/BaseMessageComponentChooser.qml:164

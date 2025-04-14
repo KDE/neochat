@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2025-04-04 04:08+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -95,7 +95,7 @@ msgstr "ემოჯიები"
 msgid "Stickers"
 msgstr "სტიკერები"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -103,33 +103,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "გაფრთხილებების მიღება ახალი შეტყობინებებისთვის"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "წვდომის კოდი ვერ ვიპოვე. შეიძლება, წაგეშალათ?"
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
-"ბრელოკთან წვდომა აკრძალულია. მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"ბრელოკი ხელმისაწვდომი არაა. დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან "
-"GNOME Keyring"
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr "წვდომის კოდის წაკითხვის შეცდომა: %1"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "პუშ გაფრთხილებების მიღება"
@@ -341,36 +315,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "მდგომარეობის გასაღებები"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "მოწვეულია"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "რჩეული"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "მეგობრები"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "ნორმალური"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "დაბალი პრიორიტეტი"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "სივრცეები"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -457,6 +401,62 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "უახლესი შეტყობინებების მქონე ოთახები უფრო მაღლაა"
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "წვდომის კოდი ვერ ვიპოვე. შეიძლება, წაგეშალათ?"
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr ""
+"ბრელოკთან წვდომა აკრძალულია. მიეცით უფლება NeoChat-ს, წვდომის კოდი წაიკითხოს"
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"ბრელოკი ხელმისაწვდომი არაა. დააყენეთ ბრელოკი, მაგალითად, ლინუქსზე KWallet ან "
+"GNOME Keyring"
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr "წვდომის კოდის წაკითხვის შეცდომა: %1"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "მოწვეულია"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "რჩეული"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "მეგობრები"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "ნორმალური"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "დაბალი პრიორიტეტი"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "სივრცეები"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -482,8 +482,9 @@ msgstr "ხმა გამორთული"
 msgid "Custom"
 msgstr "ხელით მითითებული"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1387,7 +1388,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "მორგებული"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "საკუთარი სტიკერები"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "საკუთარი ემოჯიები"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1396,18 +1409,18 @@ msgstr ""
 "გადმოსაწერად ფაილი მეტისმეტად დიდია.<br />მხარდაჭერისთვის დაუკავშირდით "
 "თქვენი Matrix-ის სერვერის ადმინისტრატორს."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "იდენტიფიკატორების სერვერი მორგებული არაა"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -1422,16 +1435,6 @@ msgstr "ანგარიში წარმატებით გაიგზ�
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "გან: %1, გრძ: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "ქსელის შეცდომა: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "შესვლის შეცდომა: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1484,6 +1487,16 @@ msgid ""
 msgstr ""
 "მოითმინეთ, სანამ სერვერიდან თქვენი შეტყობინებები იტვირთება. ამას საკმაო დრო "
 "შეიძლება დასჭირდეს."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "ქსელის შეცდომა: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "შესვლის შეცდომა: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1564,6 +1577,51 @@ msgstr "გაიმეორეთ პაროლი:"
 msgid "The passwords do not match."
 msgstr "პაროლები არ ემთხვევა."
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "სერვერის გარეშე."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "სერვერის წვდომადობის შემოწმება."
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "ეს სწორი სერვერი არაა."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "ამ სერვერისთვის რეგისტრაცია გამორთულია."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "მომხმარებლის სახელის გარეშე."
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "მომხმარებლის სახელის წვდომადობის შემოწმება."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "ეს მომხმარებლის სახელი ხელმისაწვდომი არაა."
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "გაგრძელება"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "მუშაობს"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1604,7 +1662,7 @@ msgstr "მომხმარებელი ხელმისაწვდო�
 msgid "Welcome"
 msgstr "კეთილი იყოს თქვენი მობრძანება"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1645,315 +1703,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "მორგება"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "ჩატი Matrix-ზე"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 KDE -ის საზოგადოება"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "წამყვანი პროგრამისტი"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "ჯეიმს გრეჰემი"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr "ჯოშუა გოინსი"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral- ის ორიგინალური ავტორი"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "ალექსეი რუსაკოვი"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "წამყვანი პროგრამისტი პროექტისთვის libQuotient"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Qt-ის ბიბლიოთეკა Matrix-თვის პლატფორმათაშორისი კლიენტების დასაწერად"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (აგებულია %2-ით)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "კლიენტი Matrix-ის კომუნიკაციის პროტოკოლისთვის"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Matrix-ის მხარდჭერა: ბმული სქემა"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "ყველა SSL შეცდომის იგნორი. მაგ: ხელმოუწერელი სერტიფიკატები."
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "გამოიყენება მხოლოდ ავტოტესტებისთვის"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "მხოლოდ შიდა გამოყენებისთვის."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "ბმულის გაზიარება Matrix-ზე"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "საკუთარი სტიკერები"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "საკუთარი ემოჯიები"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "ნაგულისხმევი წვდომის დონე შეტყობინებების გასაგზავნად"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "მომხმარებლების მოწვევა"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "მომხმარებლების გაყრა"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "მომხმარებლების ბანი"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "რეაქციების გაგზავნა"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "შეტყობინებების წაშლა"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "მომხმარებლის წვდომების შეცვლა"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "ოთახის სახელის შეცვლა"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "ოთახის ავატარის შეცვლა"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "ოთახის კანონიკური მეტსახელის შეცვლა"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "ოთხის თემის შეცვლა"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "ოთახისთვის დაშიფვრის ჩართვა"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "მიჭიკარტებული მოვლენების დაყენება"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "ოთახის გაუმჯობესება"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "ამ სივრცის შვილების დაყენება"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"გამოიყენება ყველა შეტყობინების მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "ამ ანგარიშისთვის გაფრთხილებების ჩართვა"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "შეტყობინებები ერთი-ერთზე საუბრებში"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "დაშიფრული შეტყობინებები ერთი-ერთზე საუბრებში"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "შეტყობინებები ჯგუფურ საუბრებში"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "შეტყობინებები დაშიფრულ ჯგუფურ საუბრებში"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "ოთახის დონის აწევის შეტყობინებები"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "ჩემი საჩვენებელი სახელის შემცველი შეტყობინებები"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "შეტყობინებები, სადაც ჩემს Matrix-ის მომხმარებლის ID-ს ახსენებენ"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "შეტყობინებები, სადაც ოთახს ახსენებენ"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "ჩემი Matrix ID-ის ლოკალური ნაწილის შემცველი შეტყობინებები"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "მთლიანი ოთახის (@ოთახი) გაფრთხილებები"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "მოიწვევს ოთახში"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "ზარის მოსაწვევი"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
@@ -3072,25 +2928,25 @@ msgstr "მდებარეობები"
 msgid "There are no locations shared in this room."
 msgstr "ამ ოთახში მდებარეობები გაზიარებული არაა."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "ოთახის ინფორმაციის ჩვენება"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "ნავიგაციის უჯრის დახურვა"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4347,51 +4203,6 @@ msgstr "დაშორებულმა სესიის გადამო�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "სესიის გადამოწმება უცნობი შეცდომის გამო გაუქმდა."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "სერვერის გარეშე."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "სერვერის წვდომადობის შემოწმება."
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "ეს სწორი სერვერი არაა."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "ამ სერვერისთვის რეგისტრაცია გამორთულია."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "მომხმარებლის სახელის გარეშე."
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "მომხმარებლის სახელის წვდომადობის შემოწმება."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "ეს მომხმარებლის სახელი ხელმისაწვდომი არაა."
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "გაგრძელება"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "მუშაობს"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5039,6 +4850,196 @@ msgstr "არასწორი საკვანძო ფრაზა"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "არასწორი გასაღების მარქაფის მონაცემები"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "ნაგულისხმევი წვდომის დონე შეტყობინებების გასაგზავნად"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "მომხმარებლების მოწვევა"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "მომხმარებლების გაყრა"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "მომხმარებლების ბანი"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "რეაქციების გაგზავნა"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "შეტყობინებების წაშლა"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "მომხმარებლის წვდომების შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "ოთახის სახელის შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "ოთახის ავატარის შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "ოთახის კანონიკური მეტსახელის შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "ოთხის თემის შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "ოთახისთვის დაშიფვრის ჩართვა"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "მიჭიკარტებული მოვლენების დაყენება"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "ოთახის გაუმჯობესება"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "ამ სივრცის შვილების დაყენება"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
+"არ გააჩნია"
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"გამოიყენება ყველა შეტყობინების მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
+"არ გააჩნია"
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "ამ ანგარიშისთვის გაფრთხილებების ჩართვა"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "შეტყობინებები ერთი-ერთზე საუბრებში"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "დაშიფრული შეტყობინებები ერთი-ერთზე საუბრებში"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "შეტყობინებები ჯგუფურ საუბრებში"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "შეტყობინებები დაშიფრულ ჯგუფურ საუბრებში"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "ოთახის დონის აწევის შეტყობინებები"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "ჩემი საჩვენებელი სახელის შემცველი შეტყობინებები"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "შეტყობინებები, სადაც ჩემს Matrix-ის მომხმარებლის ID-ს ახსენებენ"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "შეტყობინებები, სადაც ოთახს ახსენებენ"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "ჩემი Matrix ID-ის ლოკალური ნაწილის შემცველი შეტყობინებები"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "მთლიანი ოთახის (@ოთახი) გაფრთხილებები"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "მოიწვევს ოთახში"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "ზარის მოსაწვევი"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5908,6 +5909,51 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "აირჩიეთ დასამატებელი პარამეტრი"
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1, მიჰყევით ინსტრუქციებს და დააწკაპუნეთ ღილაკზე ზემოთ"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "ჩვენ ელფოსტა გამოგიგზავნეთ"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr "ჩვენ ტექსტური შეტყობინება გამოგიგზავნეთ"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "შეყვანილი ელფოსტა არასწორია"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "შეყვანილი ტელეფონის ნომერი არასწორია"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"ელფოსტა არ გადამოწმებულა. გადადით ელფოსტაზე და მიჰყავთ ინსტრუქციებს, "
+"რომლებიც გამოგიგზავნეთ, შემდეგ კი ზემოთ ღილაკზე დააწკაპუნეთ"
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"ტელეფონის ნომერი გადამოწმებული არაა. გადადით ტექსტურ შეტყობინებაზე და "
+"მიჰყევით ინსტრუქციებს, რომელიც დაგხვდებათ. შემდეგ კი ზემოთ ღილაკზე "
+"დააწკაპუნეთ"
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5956,31 +6002,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "ახალი ტელეფონის ნომერი:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "ჩვენ ელფოსტა გამოგიგზავნეთ"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr "ჩვენ ტექსტური შეტყობინება გამოგიგზავნეთ"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1, მიჰყევით ინსტრუქციებს და დააწკაპუნეთ ღილაკზე ქვემოთ"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "შეყვანილი ელფოსტა არასწორია"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "შეყვანილი ტელეფონის ნომერი არასწორია"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6017,31 +6043,6 @@ msgstr "დამატება"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "უკან"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr "%1, მიჰყევით ინსტრუქციებს და დააწკაპუნეთ ღილაკზე ზემოთ"
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"ელფოსტა არ გადამოწმებულა. გადადით ელფოსტაზე და მიჰყავთ ინსტრუქციებს, "
-"რომლებიც გამოგიგზავნეთ, შემდეგ კი ზემოთ ღილაკზე დააწკაპუნეთ"
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"ტელეფონის ნომერი გადამოწმებული არაა. გადადით ტექსტურ შეტყობინებაზე და "
-"მიჰყევით ინსტრუქციებს, რომელიც დაგხვდებათ. შემდეგ კი ზემოთ ღილაკზე "
-"დააწკაპუნეთ"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format

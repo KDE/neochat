@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2025-03-06 18:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "Emocijzīmes"
 msgid "Stickers"
 msgstr "Uzlīmes"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,34 +105,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Saņem jaunu ziņu paziņojumus"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Piekļuves pilnvara nav atrasta: varbūt tā ir izdzēsta?"
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
-"Piekļuve atslēgas saišķim ir liegta: ļaujiet „NeoChat“ nolasīt piekļuves "
-"pilnvaru"
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"Nav pieejams atslēgu saišķis: „Linux“ sistēmā ieinstalējiet atslēgu saišķi, "
-"piemēram, „KWallet“ vai GNOME atslēgu saišķi"
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr "Neizdodas nolasīt piekļuves pilnvaru: %1"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Saņem pašpiegādes ziņojumus"
@@ -346,36 +319,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "State Keys"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "Uzaicināts"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "Iecienīts"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Draugi"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "Normāls"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "Zemas prioritātes"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "Telpas"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -460,6 +403,63 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Augstāk būs istabas ar jaunākām ziņām"
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "Piekļuves pilnvara nav atrasta: varbūt tā ir izdzēsta?"
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr ""
+"Piekļuve atslēgas saišķim ir liegta: ļaujiet „NeoChat“ nolasīt piekļuves "
+"pilnvaru"
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"Nav pieejams atslēgu saišķis: „Linux“ sistēmā ieinstalējiet atslēgu saišķi, "
+"piemēram, „KWallet“ vai GNOME atslēgu saišķi"
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr "Neizdodas nolasīt piekļuves pilnvaru: %1"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "Uzaicināts"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "Iecienīts"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "Draugi"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "Normāls"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "Zemas prioritātes"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "Telpas"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -485,8 +485,9 @@ msgstr "Apklusināt"
 msgid "Custom"
 msgstr "Pielāgots"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1390,7 +1391,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Dažādi"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "Savas uzlīmes"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Savas emocijzīmes"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1399,18 +1412,18 @@ msgstr ""
 "Datne ir pārāk liela lejupielādei.<br />Atbalstam sazinieties ar sava "
 "„Matrix“ servera administratoru."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Identitātes serveris nav konfigurēts"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Istabas izveide neizdevās: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
@@ -1425,16 +1438,6 @@ msgstr "Ziņojums ir veiksmīgi nosūtīts."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Plat.: %1, gar.: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Tīkla kļūda: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Ierakstīšanās neizdevās: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1486,6 +1489,16 @@ msgid ""
 "a little while."
 msgstr ""
 "Uzgaidiet brīdi, kamēr ziņa ielādējās no servera. Tas var aizņemt kādu brīdi."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Tīkla kļūda: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Ierakstīšanās neizdevās: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1566,6 +1579,51 @@ msgstr "Apstiprināt paroli:"
 msgid "The passwords do not match."
 msgstr "Paroles neatbilst"
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "Nav servera."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "Pārbauda servera pieejamību."
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "Šis nav derīgs serveris."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "Reģistrācija šajā serverī ir izslēgta."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "Nav lietotājvārda"
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "Pārbauda lietotājvārda pieejamību."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "Šis lietotājvārds nav pieejams."
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "Turpināt"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "Darbojas"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1604,7 +1662,7 @@ msgstr "Lietotājvārds nav pieejams"
 msgid "Welcome"
 msgstr "Laipni lūgti!"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1645,313 +1703,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Iestatījumi"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Tērzējiet „Matrix“ tīklā"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018—2020 Black Hat, 2020—2024 KDE kopiena"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "Uzturētājs"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Sākotnējais „Spectral“ autors"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "„libQuotient“ uzturētājs"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Toms Trasūns"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "toms.trasuns@posteo.net"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "„Qt“ bibliotēka starpplatormu „Matrix“ klientiem"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (būvēts pret %2)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "„Matrix“ komunikācijas protokola klients"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Atbalsta „matrix:“ adrešu shēmu"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorēt visas SSL kļūdas, piemēram, neparakstītus sertifikātus."
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Izmantots tikai automātiskajiem testiem"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "Tikai iekšējai lietošanai."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dalīties ar URL „Matrix“ klientā"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "Savas uzlīmes"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "Savas emocijzīmes"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "Noklusējuma lietotāja svarīguma līmenis"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "Noklusējuma svarīguma līmenis, lai mainītu istabas statusu"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "Noklusējuma svarīguma līmenis, lai sūtītu ziņas"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "Uzaicināt lietotājus"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "Izmest lietotājus"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "Aizliegt lietotājus"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "Noņemt citu lietotāju sūtītas ziņas"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "Sūtīt reakcijas"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "Noņemt viņu pašu ziņas"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "Mainīt lietotāja atļaujas"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "Mainīt istabas nosaukumu"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "Mainīt istabas attēlu"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "Mainīt istabas kanonisko aizstājējvārdu"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "Mainīt istabas tēmu"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "Ieslēgt šifrēšanu istabai"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "Mainīt istabas vēstures redzamību"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Iestatīt piespraustos notikumus"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "Atjaunināt istabu"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "Iestatīt istabas servera piekļuves kontrole sarakstu (ACL)"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "Šīs telpas bērnobjekti"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "Iestatīt istabai vecākobjekta telpu"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
-"Šis ir svarīguma līmenis visiem jaunajiem lietotājiem, pievienojoties istabai"
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Šo vērtību lieto visiem statusa notikumiem, kuriem te nav sava ieraksta"
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr "Šo vērtību lieto visiem ziņu notikumiem, kuriem te nav sava ieraksta"
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "Ieslēgt paziņojumus šim kontam"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "Ziņas personīgā tērzēšanā"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Šifrētas ziņas personīgā tērzēšanā"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "Ziņas grupu tērzēšanā"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "Ziņas šifrētā grupu tērzēšanā"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "Istabas atjauninājumu ziņas"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "Ziņas, kas satur parādāmo vārdu"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "Ziņas, kas piemin manu „Matrix“ lietotāja ID"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "Ziņas, kas piemin istabu"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "Ziņas, kas satur mana „Matrix“ ID lokālo daļu"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "Visas istabas (@istaba) paziņojumi"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "Uzaicinājumi uz istabu"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "Zvana uzaicinājumi"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
@@ -3071,25 +2929,25 @@ msgstr "Atrašanās vietas"
 msgid "There are no locations shared in this room."
 msgstr "Šajā istabā nav kopīgotas atrašanās vietas."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Rādīt istabas informāciju"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Aizvērt istabas informācijas atvilktni"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4364,51 +4222,6 @@ msgstr "Attālā puse atcēla sesijas verifikāciju, jo neatbilst atslēgas"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "Nav servera."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "Pārbauda servera pieejamību."
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "Šis nav derīgs serveris."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "Reģistrācija šajā serverī ir izslēgta."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "Nav lietotājvārda"
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "Pārbauda lietotājvārda pieejamību."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "Šis lietotājvārds nav pieejams."
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "Turpināt"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "Darbojas"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5054,6 +4867,194 @@ msgstr "Nederīga parole"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Nederīgi atslēgas dublējuma dati"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Noklusējuma lietotāja svarīguma līmenis"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Noklusējuma svarīguma līmenis, lai mainītu istabas statusu"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Noklusējuma svarīguma līmenis, lai sūtītu ziņas"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Uzaicināt lietotājus"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Izmest lietotājus"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Aizliegt lietotājus"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Noņemt citu lietotāju sūtītas ziņas"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Sūtīt reakcijas"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Noņemt viņu pašu ziņas"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Mainīt lietotāja atļaujas"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Mainīt istabas nosaukumu"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Mainīt istabas attēlu"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Mainīt istabas kanonisko aizstājējvārdu"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Mainīt istabas tēmu"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Ieslēgt šifrēšanu istabai"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Mainīt istabas vēstures redzamību"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Iestatīt piespraustos notikumus"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Atjaunināt istabu"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Iestatīt istabas servera piekļuves kontrole sarakstu (ACL)"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Šīs telpas bērnobjekti"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Iestatīt istabai vecākobjekta telpu"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Šis ir svarīguma līmenis visiem jaunajiem lietotājiem, pievienojoties istabai"
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Šo vērtību lieto visiem statusa notikumiem, kuriem te nav sava ieraksta"
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr "Šo vērtību lieto visiem ziņu notikumiem, kuriem te nav sava ieraksta"
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Ieslēgt paziņojumus šim kontam"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Ziņas personīgā tērzēšanā"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Šifrētas ziņas personīgā tērzēšanā"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Ziņas grupu tērzēšanā"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Ziņas šifrētā grupu tērzēšanā"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Istabas atjauninājumu ziņas"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Ziņas, kas satur parādāmo vārdu"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "Ziņas, kas piemin manu „Matrix“ lietotāja ID"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "Ziņas, kas piemin istabu"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Ziņas, kas satur mana „Matrix“ ID lokālo daļu"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Visas istabas (@istaba) paziņojumi"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Uzaicinājumi uz istabu"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Zvana uzaicinājumi"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5922,6 +5923,50 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Atlasiet pievienojamu parametru"
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. Sekojiet tajā esošajiem norādījumiem un spiediet pogu augstāk"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "Mēs jums nosūtījām e-pasta vēstuli"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr "Mēs jums nosūtījām īsziņu"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "Ievadītā e-pasta adrese nav derīga"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "Ievadītais tālruņa numurs nav derīgs"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"E-pasta adrese nav verificēta. Atveriet e-pasta vēstuli, sekojiet tajā "
+"esošajiem norādījumiem un klikšķiniet uz pogas augstāk"
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"Tālruņa numurs nav verificēts. Atveriet īsziņu, sekojiet tajā esošajiem "
+"norādījumiem un klikšķiniet uz pogas augstāk"
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5970,31 +6015,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Jauns tālruņa numurs:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "Mēs jums nosūtījām e-pasta vēstuli"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr "Mēs jums nosūtījām īsziņu"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Sekojiet tajā esošajiem norādījumiem un spiediet pogu zemāk"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "Ievadītā e-pasta adrese nav derīga"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "Ievadītais tālruņa numurs nav derīgs"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6030,30 +6055,6 @@ msgstr "Pievienot"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Atpakaļ"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr "%1. Sekojiet tajā esošajiem norādījumiem un spiediet pogu augstāk"
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"E-pasta adrese nav verificēta. Atveriet e-pasta vēstuli, sekojiet tajā "
-"esošajiem norādījumiem un klikšķiniet uz pogas augstāk"
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"Tālruņa numurs nav verificēts. Atveriet īsziņu, sekojiet tajā esošajiem "
-"norādījumiem un klikšķiniet uz pogas augstāk"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format

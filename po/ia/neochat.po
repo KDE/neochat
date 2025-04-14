@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2025-04-08 12:48+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -95,7 +95,7 @@ msgstr "Emojis"
 msgid "Stickers"
 msgstr "Etiquettas Gummate (Stickers)"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -103,34 +103,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Recipente notificationes de nove messages"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Indicio de accesso non esseva trovate: forsan il esseva delite?"
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
-"Accesso a portaclave esseva refusate: Pro favor tu permitte que NeoChat pote "
-"leger le indicio de accesso"
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"Necun portaclave disponibile: Pro favor tu installa un portaclave, p.ex. "
-"KWallet o GNOMe keyring sur Linux"
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr "Incapace a leger indicio de accesso: %1"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Recipente notificationes de push"
@@ -343,36 +316,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Claves de Stato"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "Invitate"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "Favorito"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Amicos"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "Normal"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "Basse prioritate"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "Spatios"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -457,6 +400,63 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Salas con le messages plus nove es plus in alto"
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "Indicio de accesso non esseva trovate: forsan il esseva delite?"
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr ""
+"Accesso a portaclave esseva refusate: Pro favor tu permitte que NeoChat pote "
+"leger le indicio de accesso"
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"Necun portaclave disponibile: Pro favor tu installa un portaclave, p.ex. "
+"KWallet o GNOMe keyring sur Linux"
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr "Incapace a leger indicio de accesso: %1"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "Invitate"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "Favorito"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "Amicos"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "Basse prioritate"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "Spatios"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -482,8 +482,9 @@ msgstr "Surdina"
 msgid "Custom"
 msgstr "Personalisate"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1387,7 +1388,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalisate"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "Proprie Etiquettas Gummate"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Proprie Emojis"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1396,18 +1409,18 @@ msgstr ""
 "File troppo grande a discargar.<br />Continge tu administrator de servitor "
 "de matrix per supporto."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nulle servitor de identitate configurate"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Creation de sala falleva: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Creation de spatio falleva: \"%1\""
@@ -1422,16 +1435,6 @@ msgstr "Reporto inviate con successo."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Error de rete: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Accesso falleva: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1485,6 +1488,16 @@ msgid ""
 msgstr ""
 "Pro favor, tu expecta durante que tu message es cargate ex le servitor.  "
 "Isto poterea prender un pauc de tempore."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Error de rete: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Accesso falleva: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1565,6 +1578,51 @@ msgstr "Confirma contrasigno:"
 msgid "The passwords do not match."
 msgstr "Le contrasigno non es correspondente."
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "Nulle servitor."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "Verificante disponibilitate de Servitor."
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "Isto non es un valide servitor."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "Registration per iste servitor es dishabilitate."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "Necun nomine de usator."
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "Verificante disponibilitate de nomine de usator."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "Iste nomine de usator non es disponibile."
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "Continua"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "travaliante"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1605,7 +1663,7 @@ msgstr "Nomine de usator non disponibile"
 msgid "Welcome"
 msgstr "Benvenite"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
@@ -1646,315 +1704,115 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Preferentias"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Conversation en ditecto sur Matrix"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020 -2024 Communitate de KDE"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenitor"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Autor original de Spectral"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mantenitor de libQuotient"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Giovanni Sora"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Un bibliotheca de Qt per scriber clientes de cross-platform (platteformas "
 "cruciate) per Matrix"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (construite contra %2)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente per le protocollo de cmmmunication de matrix"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Supporta matrix: url schema"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignora omne errores de SSL, p.ex. certificatos non signate."
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Solmente usate per autotests"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "Solmente per uso interne."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Comparti un URL a Matrix"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "Proprie Etiquettas Gummate"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "Proprie Emojis"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "Nivellko de fortia de usator predefinite"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "Nivello de potentia predefinite a fixar le stato de sala"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "Nivello de fortia predefinite per inviar message"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "Invita Usatores"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "Calca usatores"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "Prohibi usatores"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "Remove messages inviate per altere usatores"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "Invia reactiones"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "Remove lor proprie messages"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "Cambia permissiones de usator"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "Cambiale nomine de sala"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "Cambia le avatar de sala"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "Cambia le alias canonic de sala"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "Cambia le argumento de sala"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "Habilita cryptation per le sala"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "Cambia la visibilitate de chronolgia de sala"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Fixa eventos appunctate"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "Actualisa le sala"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "Assigna le filios de iste spatio"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "Fixa le spatio genitor de iste sala"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "Iste es le nivello de fortia per omne nove usatores quando uni al sala"
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Isto es usate per omne eventos de message que non ha su proprie entrata hic"
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "Habilita notificatione per iste conto"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "Messages in conversationes un a un"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Messages cryptate in conversationes un a un"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "Messages in conversationes de gruppo"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "Messges in convesationes de gruppo cryptate"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "Messages de sala actualisate"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "Messages continente mi nomine de monstrar"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "Messages que mention mi ID de usator de Matrix"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "Messages que mention un sala"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "Messages continente le parte local de mi ID de Matrix"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "Complete notificationes de sala (@room)"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "Invita a un sala"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "Appella invitation"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
@@ -3078,25 +2936,25 @@ msgstr "Locationes"
 msgid "There are no locations shared in this room."
 msgstr "Il non ha locationes compartite in iste sala."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Monstra Information de sala"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Claude Designator de Information de sala"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4378,51 +4236,6 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Le verification de session esseva cancellate debite a un error incognite."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "Nulle servitor."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "Verificante disponibilitate de Servitor."
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "Isto non es un valide servitor."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "Registration per iste servitor es dishabilitate."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "Necun nomine de usator."
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "Verificante disponibilitate de nomine de usator."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "Iste nomine de usator non es disponibile."
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "Continua"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "travaliante"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5071,6 +4884,194 @@ msgstr "Phrase de contrasigno invalide"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Datos de retrocopia de clave invalide"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Nivellko de fortia de usator predefinite"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Nivello de potentia predefinite a fixar le stato de sala"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Nivello de fortia predefinite per inviar message"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Invita Usatores"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Calca usatores"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Prohibi usatores"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Remove messages inviate per altere usatores"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Invia reactiones"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Remove lor proprie messages"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Cambia permissiones de usator"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Cambiale nomine de sala"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Cambia le avatar de sala"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Cambia le alias canonic de sala"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Cambia le argumento de sala"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Habilita cryptation per le sala"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Cambia la visibilitate de chronolgia de sala"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Fixa eventos appunctate"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Actualisa le sala"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Assigna le filios de iste spatio"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Fixa le spatio genitor de iste sala"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr "Iste es le nivello de fortia per omne nove usatores quando uni al sala"
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Isto es usate per omne eventos de stato que non ha su proprie entrata hic"
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Isto es usate per omne eventos de message que non ha su proprie entrata hic"
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Habilita notificatione per iste conto"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Messages in conversationes un a un"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Messages cryptate in conversationes un a un"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Messages in conversationes de gruppo"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Messges in convesationes de gruppo cryptate"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Messages de sala actualisate"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Messages continente mi nomine de monstrar"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "Messages que mention mi ID de usator de Matrix"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "Messages que mention un sala"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Messages continente le parte local de mi ID de Matrix"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Complete notificationes de sala (@room)"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Invita a un sala"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Appella invitation"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5944,6 +5945,52 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Seliger parametro a adder"
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr ""
+"%1, pro favor tu seque le instructiones illac e postea clicca sur le button "
+"in alto"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "Nos te inviava un message de e-posta"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr " Nos te ha inviate un message de texto"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "Le eposta insertate non es valide"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "Le numero de telephono  insertate non es valide"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"Le message de e-posta non ha essite verificate. Pro favor vade al message de "
+"e-posta e seque le instructiones illac e postea clicca le button in alto"
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"Le numero de telephono non ha essite verificate. Pro favor vade al message "
+"de texto e seque le instructiones illac e postea clicca le button in alto"
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5992,16 +6039,6 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Nove numero de telephono:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "Nos te inviava un message de e-posta"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr " Nos te ha inviate un message de texto"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
@@ -6009,16 +6046,6 @@ msgid ""
 msgstr ""
 "%1, pro favor tu seque le instructiones illac e postea clicca sur le button "
 "a basso"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "Le eposta insertate non es valide"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "Le numero de telephono  insertate non es valide"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6054,32 +6081,6 @@ msgstr "Adde"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Retro"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr ""
-"%1, pro favor tu seque le instructiones illac e postea clicca sur le button "
-"in alto"
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"Le message de e-posta non ha essite verificate. Pro favor vade al message de "
-"e-posta e seque le instructiones illac e postea clicca le button in alto"
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"Le numero de telephono non ha essite verificate. Pro favor vade al message "
-"de texto e seque le instructiones illac e postea clicca le button in alto"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format

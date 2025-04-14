@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -97,7 +97,7 @@ msgstr "Emojiar"
 msgid "Stickers"
 msgstr "Klistremerke"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,30 +105,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Varsling av nye meldingar"
 
-#: src/controller.cpp:285
-#, fuzzy, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Fann ikkje tilgangspollett"
-
-#: src/controller.cpp:289
-#, fuzzy, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
-
-#: src/controller.cpp:292
-#, fuzzy, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
-
-#: src/controller.cpp:295
-#, fuzzy, kde-format
-msgid "Unable to read access token: %1"
-msgstr "Klarte ikkje lesa tilgangspollett"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Varsling av push-varslingar"
@@ -338,39 +315,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Tilstandsnøklar"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "Invitert"
-
-# Favorittrom.
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "Favorittar"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Vennar"
-
-# Vanlege rom, og bør derfor vera i fleirtal.
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "Vanlege"
-
-# Lågt prioriterte rom
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "Lågt prioriterte"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "Område"
-
 #: src/enums/roomsortparameter.h:52
 #, fuzzy, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -455,6 +399,62 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
+#: src/libneochat/accountmanager.cpp:126
+#, fuzzy, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "Fann ikkje tilgangspollett"
+
+#: src/libneochat/accountmanager.cpp:130
+#, fuzzy, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr "Gje NeoChat løyve til å lesa tilgangspolletten"
+
+#: src/libneochat/accountmanager.cpp:133
+#, fuzzy, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr "Installer ein nøkkelring, for eksempel KWallet eller GNOME Keyring"
+
+#: src/libneochat/accountmanager.cpp:136
+#, fuzzy, kde-format
+msgid "Unable to read access token: %1"
+msgstr "Klarte ikkje lesa tilgangspollett"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "Invitert"
+
+# Favorittrom.
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "Favorittar"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "Vennar"
+
+# Vanlege rom, og bør derfor vera i fleirtal.
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "Vanlege"
+
+# Lågt prioriterte rom
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "Lågt prioriterte"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "Område"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -480,8 +480,9 @@ msgstr "Demp"
 msgid "Custom"
 msgstr "Tilpassa"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1388,25 +1389,37 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Tilpassa"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "Eigne klistremerke"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Eigne emojiar"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, fuzzy, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetstenar sett opp"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
@@ -1421,16 +1434,6 @@ msgstr "Rapporten er no send."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Breiddegr.: %1 – lengdegr.: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Nettverksfeil: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Feil ved innlogging: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1482,6 +1485,16 @@ msgid ""
 "a little while."
 msgstr ""
 "Vent litt mens meldingane dine vert henta frå tenaren. Dette kan ta ei stund."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Nettverksfeil: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Feil ved innlogging: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1562,6 +1575,51 @@ msgstr "Stadfest passord:"
 msgid "The passwords do not match."
 msgstr "Passorda er ikkje like."
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "Ingen tenar."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "Kontrollerer tilgang til tenar."
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "Dette er ikkje ein gyldig tenar."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "Denne tenaren er stengd for nye registreringar."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "Manglar brukarnamn."
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "Ser om brukarnamnet er tilgjengeleg."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "Brukarnamnet er ikkje tilgjengeleg."
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "Hald fram"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "Arbeider"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1600,7 +1658,7 @@ msgstr "Utilgjengeleg brukarnamn"
 msgid "Welcome"
 msgstr "Velkommen"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1641,319 +1699,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Romval"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, fuzzy, kde-format
 msgid "Chat on Matrix"
 msgstr "Del ei adresse på Matrix"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018–2020 Black Hat, © 2020–2024 KDE-fellesskapet"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "Vedlikehaldar"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Opphavleg utviklar av Spectral"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Vedlikehaldar av libQuotient"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Karl Ove Hufthammer"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Eit Qt-bibliotek for utvikling av kryssplattform-klientar for Matrix"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (bygd mot %2)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Lynmeldings­klient for Matrix-protokollen"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Støttar «matrix:»-adresser"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorer alle SSL-feil, for eksempel usignerte sertifikat."
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Berre brukt for automatiske testar"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "Berre intern bruk."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Del ei adresse på Matrix"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "Eigne klistremerke"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "Eigne emojiar"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "Standard maktnivå for brukarar"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "Standard maktnivå for å endra romtilstand"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "Standard maktnivå for å senda meldingar"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "Invitera brukarar"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "Kasta ut brukarar"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "Utestengja brukarar"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "Fjerna meldingar sende av andre brukarar"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "Senda reaksjonar"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "Fjerna eigne meldingar"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "Endra brukarløyve"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "Byta namn på rommet"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "Byta avatar for rommet"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "Byta kanonisk alias for rommet"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "Byta emnet for rommet"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "Slå på kryptering for rommet"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "Endra om prateloggen skal vera synleg"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Festa hendingar"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "Oppgradera rommet"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "Endra tenartilgangskontroll-lista (ACL) for rommet"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "Definera underrom til området"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "Definera forelderområdet til rommet"
-
-# Forklaringstekst i innstillingar bør ha avsluttande punktum.
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
-"Dette er maktnivået vert brukt for alle brukarar når dei kjem inn i rommet."
-
-# Forklaringstekst i innstillingar bør ha avsluttande punktum.
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Dette maktnivået gjeld alle tilstands­endringar som ikkje har ei eiga "
-"oppføring her."
-
-# Forklaringstekst i innstillingar bør ha avsluttande punktum.
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Dette maktnivået gjeld alle meldings­hendingar som ikkje har ei eiga "
-"oppføring her."
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "Slå på varslingar for kontoen"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "Meldingar i éin-til-éin-pratar"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Krypterte meldingar i éin-til-éin-pratar"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "Meldingar i gruppepratar"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "Meldingar i krypterte gruppepratar"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "Meldingar om romoppgradering"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "Meldingar som inneheld visingsnamnet mitt"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "Meldingar som nemner Matrix-ID-en min"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "Meldingar som nemner eit rom"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "Meldingar som inneheld den lokale delen av Matrix-ID-en min"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "Varslingar som går til heile rommet (@romnamn)"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "Rominvitasjonar"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "Samtaleinvitasjon"
 
 #: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
@@ -3072,25 +2924,25 @@ msgstr "Posisjonar"
 msgid "There are no locations shared in this room."
 msgstr "Ingen posisjonar er delte i rommet."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Vis rominformasjon"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Lukk skuffa med rominformasjon"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4352,51 +4204,6 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Stadfestinga av økta vart av ukjend grunn avbroten."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "Ingen tenar."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "Kontrollerer tilgang til tenar."
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "Dette er ikkje ein gyldig tenar."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "Denne tenaren er stengd for nye registreringar."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "Manglar brukarnamn."
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "Ser om brukarnamnet er tilgjengeleg."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "Brukarnamnet er ikkje tilgjengeleg."
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "Hald fram"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "Arbeider"
-
 #: src/roommanager.cpp:195
 #, fuzzy, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5041,6 +4848,200 @@ msgstr "Ugyldig passfrase"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Ugyldige data for reservekopi av nøklar"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Standard maktnivå for brukarar"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Standard maktnivå for å endra romtilstand"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "Standard maktnivå for å senda meldingar"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Invitera brukarar"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Kasta ut brukarar"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Utestengja brukarar"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Fjerna meldingar sende av andre brukarar"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Senda reaksjonar"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Fjerna eigne meldingar"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Endra brukarløyve"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Byta namn på rommet"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Byta avatar for rommet"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Byta kanonisk alias for rommet"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Byta emnet for rommet"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Slå på kryptering for rommet"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Endra om prateloggen skal vera synleg"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Festa hendingar"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Oppgradera rommet"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Endra tenartilgangskontroll-lista (ACL) for rommet"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Definera underrom til området"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Definera forelderområdet til rommet"
+
+# Forklaringstekst i innstillingar bør ha avsluttande punktum.
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr ""
+"Dette er maktnivået vert brukt for alle brukarar når dei kjem inn i rommet."
+
+# Forklaringstekst i innstillingar bør ha avsluttande punktum.
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Dette maktnivået gjeld alle tilstands­endringar som ikkje har ei eiga "
+"oppføring her."
+
+# Forklaringstekst i innstillingar bør ha avsluttande punktum.
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Dette maktnivået gjeld alle meldings­hendingar som ikkje har ei eiga "
+"oppføring her."
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Slå på varslingar for kontoen"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Meldingar i éin-til-éin-pratar"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Krypterte meldingar i éin-til-éin-pratar"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Meldingar i gruppepratar"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Meldingar i krypterte gruppepratar"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Meldingar om romoppgradering"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Meldingar som inneheld visingsnamnet mitt"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "Meldingar som nemner Matrix-ID-en min"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "Meldingar som nemner eit rom"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Meldingar som inneheld den lokale delen av Matrix-ID-en min"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Varslingar som går til heile rommet (@romnamn)"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Rominvitasjonar"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Samtaleinvitasjon"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5913,6 +5914,50 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. Følg instruksjonane der, og trykk så på knappen ovanfor."
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "Me har sendt deg ein e-post"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr "Me har sendt deg ei tekstmelding"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "E-postadressa du skreiv inn, er ikkje gyldig"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "Telefonnummeret du skreiv inn, er ikkje gyldig"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"E-postadressa er ikkje stadfesta. Sjekk e-posten din, følg instruksjonane "
+"der, og trykk så på knappen ovanfor."
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"Telefonnummeret er ikkje stadfesta. Sjekk tekstmeldingane dine, følg "
+"instruksjonane der, og trykk så på knappen ovanfor."
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5961,31 +6006,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Nytt telefonnummer:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "Me har sendt deg ein e-post"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr "Me har sendt deg ei tekstmelding"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Følg instruksjonane der, og trykk så på knappen nedanfor."
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "E-postadressa du skreiv inn, er ikkje gyldig"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "Telefonnummeret du skreiv inn, er ikkje gyldig"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6021,30 +6046,6 @@ msgstr "Legg til"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Tilbake"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr "%1. Følg instruksjonane der, og trykk så på knappen ovanfor."
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"E-postadressa er ikkje stadfesta. Sjekk e-posten din, følg instruksjonane "
-"der, og trykk så på knappen ovanfor."
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"Telefonnummeret er ikkje stadfesta. Sjekk tekstmeldingane dine, følg "
-"instruksjonane der, og trykk så på knappen ovanfor."
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format

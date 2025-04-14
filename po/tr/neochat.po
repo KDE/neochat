@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2025-04-04 18:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -96,7 +96,7 @@ msgstr "Emojiler"
 msgid "Stickers"
 msgstr "Çıkartmalar"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -104,34 +104,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Yeni iletiler için bildirimler alınıyor"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "Erişim jetonu bulunamadı: Silinmiş olabilir mi?"
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr ""
-"Anahtar zincirine erişim reddedildi: Lütfen NeoChat’in erişim jetonunu "
-"okumasına izin verin"
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"Kullanılabilir anahtar zinciri yok: Lütfen bir anahtar zinciri kurun; örn. K "
-"Cüzdan veya GNOME keyring"
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr "Erişim jetonu okunamıyor: %1"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Anında bildirimler alınıyor"
@@ -344,36 +317,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Durum Anahtarları"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "Davet Edilen"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "Sık Kullanılanlar"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Arkadaşlar"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "Normal Odalar"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "Düşük öncelik"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "Alanlar"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -458,6 +401,63 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Daha yeni iletileri olan odalar daha yüksektedir"
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "Erişim jetonu bulunamadı: Silinmiş olabilir mi?"
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr ""
+"Anahtar zincirine erişim reddedildi: Lütfen NeoChat’in erişim jetonunu "
+"okumasına izin verin"
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"Kullanılabilir anahtar zinciri yok: Lütfen bir anahtar zinciri kurun; örn. K "
+"Cüzdan veya GNOME keyring"
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr "Erişim jetonu okunamıyor: %1"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "Davet Edilen"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "Sık Kullanılanlar"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "Arkadaşlar"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "Normal Odalar"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "Düşük öncelik"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "Alanlar"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -483,8 +483,9 @@ msgstr "Sessize Al"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1388,7 +1389,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "Kendi Çıkartmalarınız"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Kendi Emojileriniz"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1397,18 +1410,18 @@ msgstr ""
 "Dosya indirmek için pek büyük.<br />Destek için Matrix sunucusu yöneticisine "
 "ulaşın."
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
@@ -1423,16 +1436,6 @@ msgstr "Rapor başarıyla gönderildi."
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Enlem: %1, Boylam: %2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "Ağ hatası: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "Oturum açma başarısız: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1484,6 +1487,16 @@ msgid ""
 "a little while."
 msgstr ""
 "Lütfen iletileriniz sunucudan yüklenirken bekleyin. Bu, biraz sürebilir."
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "Ağ hatası: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "Oturum açma başarısız: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1564,6 +1577,51 @@ msgstr "Parolayı onayla:"
 msgid "The passwords do not match."
 msgstr "Parolalar uyuşmuyor."
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "Sunucu yok."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "Sunucu kullanılabilirliği denetleniyor."
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "Bu, geçerli bir sunucu değil."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "Bu sunucu için kayıt işlemi devre dışı."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "Kullanıcı adı yok."
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "Kullanıcı adı kullanılabilirliği denetleniyor."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "Bu kullanıcı adı kullanılamıyor."
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "Sürdür"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "Çalışıyor"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1603,7 +1661,7 @@ msgstr "Kullanıcı adı kullanılabilir değil"
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -1644,313 +1702,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Matrix Üzerinde Sohbet Et"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018–2020 Black Hat, 2020–2024 KDE Topluluğu"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "Bakımcı"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral’in özgün yazarı"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Aleksey Rusakov"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient bakımcısı"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Emir SARI"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "emir_sari@icloud.com"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Matrix için çapraz platform istemciler yazmak için bir Qt kitaplığı"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 üzerine yapılı)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix iletişim protokolü için istemci"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: URL şemasını destekler"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Tüm SSL hatalarını yok say; örn. imzalanmamış sertifikalar."
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Yalnızca kendiliğinden sınamalar için kullanılır"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "Yalnızca içsel kullanım."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix’e URL Paylaş"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "Kendi Çıkartmalarınız"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "Kendi Emojileriniz"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "Öntanımlı kullanıcı güç düzeyi"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "Oda durumunu ayarlamak için öntanımlı güç düzeyi"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "İleti göndermek için öntanımlı güç düzeyi"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "Kullanıcılar davet et"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "Kullanıcıları kov"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "Kullanıcıları yasakla"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "Diğer kullanıcılar tarafından gönderilen iletileri kaldır"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "Tepkiler gönder"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "Kendi iletilerini kaldır"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "Kullanıcı izinlerini değiştir"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "Oda adını değiştir"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "Oda avatarını değiştir"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "Odanın resmi armasını değiştir"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "Oda konusunu değiştir"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "Oda için şifrelemeyi etkinleştir"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "Oda geçmişi görünürlüğünü değiştir"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Sabitlenmiş olayları ayarla"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "Odayı yükselt"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "Oda sunucu erişim denetim listesini (ACL) ayarla"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "Bu alanın alt ögelerini ayarla"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "Odanın üst alanını ayarla"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "Bu, odaya katılan tüm yeni kullanıcıların güç düzeyidir"
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"Bu, burada kendi özel girdisi olmayan tüm durum olayları için kullanılır"
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"Bu, burada kendi özel girdisi olmayan tüm ileti olayları için kullanılır"
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "Bu hesap için bildirimleri etkinleştir"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "Birebir sohbetlerdeki iletiler"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Birebir sohbetlerdeki şifreli iletiler"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "Grup sohbetlerdeki iletiler"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "Şifreli grup sohbetlerindeki iletiler"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "Oda yükseltme iletileri"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "Görüntü adımı içeren iletiler"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "Matrik kullanıcı kimliğimi belirten iletiler"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "Bir odayı belirten iletiler"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "Matrix kimliğimin yerel kısmını içeren iletiler"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "Tüm oda (@oda) bildirimleri"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "Bir odaya olan davetler"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "Çağrı daveti"
 
 #: src/models/roomtreemodel.cpp:355
 #, kde-format
@@ -3072,25 +2930,25 @@ msgstr "Konumlar"
 msgid "There are no locations shared in this room."
 msgstr "Bu odada paylaşılmış bir konum yok."
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Oda bilgisini göster"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Oda Bilgisi Çekmecesini Kapat"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4358,51 +4216,6 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Oturum doğrulaması, bilinmeyen bir hata yüzünden iptal edildi."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "Sunucu yok."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "Sunucu kullanılabilirliği denetleniyor."
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "Bu, geçerli bir sunucu değil."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "Bu sunucu için kayıt işlemi devre dışı."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "Kullanıcı adı yok."
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "Kullanıcı adı kullanılabilirliği denetleniyor."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "Bu kullanıcı adı kullanılamıyor."
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "Sürdür"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "Çalışıyor"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5049,6 +4862,194 @@ msgstr "Geçersiz parola"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Geçersiz anahtar yedeği verisi"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "Öntanımlı kullanıcı güç düzeyi"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "Oda durumunu ayarlamak için öntanımlı güç düzeyi"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "İleti göndermek için öntanımlı güç düzeyi"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "Kullanıcılar davet et"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "Kullanıcıları kov"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "Kullanıcıları yasakla"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "Diğer kullanıcılar tarafından gönderilen iletileri kaldır"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "Tepkiler gönder"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "Kendi iletilerini kaldır"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "Kullanıcı izinlerini değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "Oda adını değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "Oda avatarını değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "Odanın resmi armasını değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "Oda konusunu değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "Oda için şifrelemeyi etkinleştir"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "Oda geçmişi görünürlüğünü değiştir"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "Sabitlenmiş olayları ayarla"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "Odayı yükselt"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "Oda sunucu erişim denetim listesini (ACL) ayarla"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "Bu alanın alt ögelerini ayarla"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "Odanın üst alanını ayarla"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr "Bu, odaya katılan tüm yeni kullanıcıların güç düzeyidir"
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"Bu, burada kendi özel girdisi olmayan tüm durum olayları için kullanılır"
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"Bu, burada kendi özel girdisi olmayan tüm ileti olayları için kullanılır"
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "Bu hesap için bildirimleri etkinleştir"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "Birebir sohbetlerdeki iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "Birebir sohbetlerdeki şifreli iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "Grup sohbetlerdeki iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "Şifreli grup sohbetlerindeki iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "Oda yükseltme iletileri"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "Görüntü adımı içeren iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "Matrik kullanıcı kimliğimi belirten iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "Bir odayı belirten iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "Matrix kimliğimin yerel kısmını içeren iletiler"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "Tüm oda (@oda) bildirimleri"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "Bir odaya olan davetler"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "Çağrı daveti"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5920,6 +5921,50 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Eklenecek Parametre Seç"
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. Oradaki yönergeleri izleyin ve yukarıdaki düğmeye tıklayın"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "Size bir e-posta gönderdik"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr "Size bir SMS gönderdik"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "Girilen e-posta geçerli değil"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "Girilen telefon numarası geçerli değil"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"E-posta doğrulanmadı. Postanızı açıp oradaki yönergeleri izleyin ve "
+"sonrasında yukarıdaki düğmeye tıklayın"
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"Telefon numarası doğrulanmadı. Gelen SMS’e gidin ve oradaki yönergeleri "
+"izleyip yukarıdaki düğmeye tıklayın"
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5968,31 +6013,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "Yeni telefon numarası:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "Size bir e-posta gönderdik"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr "Size bir SMS gönderdik"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. Oradaki yönergeleri izleyin ve aşağıdaki düğmeye tıklayın"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "Girilen e-posta geçerli değil"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "Girilen telefon numarası geçerli değil"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6028,30 +6053,6 @@ msgstr "Ekle"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Geri"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr "%1. Oradaki yönergeleri izleyin ve yukarıdaki düğmeye tıklayın"
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"E-posta doğrulanmadı. Postanızı açıp oradaki yönergeleri izleyin ve "
-"sonrasında yukarıdaki düğmeye tıklayın"
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"Telefon numarası doğrulanmadı. Gelen SMS’e gidin ve oradaki yönergeleri "
-"izleyip yukarıdaki düğmeye tıklayın"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format

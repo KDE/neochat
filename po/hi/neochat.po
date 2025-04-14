@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:42+0000\n"
+"POT-Creation-Date: 2025-04-14 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "emojis"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/controller.cpp:167
+#: src/controller.cpp:158
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,32 +105,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नए संदेशों के लिए सूचनाएं प्राप्त करना"
 
-#: src/controller.cpp:285
-#, kde-format
-msgid "Access token wasn't found: Maybe it was deleted?"
-msgstr "एक्सेस टोकन नहीं मिला: शायद इसे हटा दिया गया?"
-
-#: src/controller.cpp:289
-#, kde-format
-msgid ""
-"Access to keychain was denied: Please allow NeoChat to read the access token"
-msgstr "कीचेन तक पहुंच अस्वीकृत कर दी गई: कृपया नियोचैट को एक्सेस टोकन पढ़ने की अनुमति दें"
-
-#: src/controller.cpp:292
-#, kde-format
-msgid ""
-"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
-"keyring on Linux"
-msgstr ""
-"कोई कीचेन उपलब्ध नहीं है: कृपया एक कीचेन स्थापित करें, जैसे कि KWallet या Linux पर "
-"GNOME कीरिंग"
-
-#: src/controller.cpp:295
-#, kde-format
-msgid "Unable to read access token: %1"
-msgstr "पहुँच टोकन पढ़ने में असमर्थ: %1"
-
-#: src/controller.cpp:394
+#: src/controller.cpp:303
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश नोटिफिकेशन प्राप्त करना"
@@ -341,36 +316,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "राज्य कुंजियाँ"
 
-#: src/enums/neochatroomtype.h:61
-#, kde-format
-msgid "Invited"
-msgstr "आमंत्रित"
-
-#: src/enums/neochatroomtype.h:63
-#, kde-format
-msgid "Favorite"
-msgstr "पसंदीदा"
-
-#: src/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "दोस्त"
-
-#: src/enums/neochatroomtype.h:67
-#, kde-format
-msgid "Normal"
-msgstr "सामान्य"
-
-#: src/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Low priority"
-msgstr "कम प्राथमिकता"
-
-#: src/enums/neochatroomtype.h:71
-#, kde-format
-msgid "Spaces"
-msgstr "खाली स्थान"
-
 #: src/enums/roomsortparameter.h:52
 #, kde-format
 msgctxt "As in sorting alphabetically with A first and Z last"
@@ -455,6 +400,61 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "नए संदेशों वाले कमरे अधिक ऊंचे हैं"
 
+#: src/libneochat/accountmanager.cpp:126
+#, kde-format
+msgid "Access token wasn't found: Maybe it was deleted?"
+msgstr "एक्सेस टोकन नहीं मिला: शायद इसे हटा दिया गया?"
+
+#: src/libneochat/accountmanager.cpp:130
+#, kde-format
+msgid ""
+"Access to keychain was denied: Please allow NeoChat to read the access token"
+msgstr "कीचेन तक पहुंच अस्वीकृत कर दी गई: कृपया नियोचैट को एक्सेस टोकन पढ़ने की अनुमति दें"
+
+#: src/libneochat/accountmanager.cpp:133
+#, kde-format
+msgid ""
+"No keychain available: Please install a keychain, e.g. KWallet or GNOME "
+"keyring on Linux"
+msgstr ""
+"कोई कीचेन उपलब्ध नहीं है: कृपया एक कीचेन स्थापित करें, जैसे कि KWallet या Linux पर "
+"GNOME कीरिंग"
+
+#: src/libneochat/accountmanager.cpp:136
+#, kde-format
+msgid "Unable to read access token: %1"
+msgstr "पहुँच टोकन पढ़ने में असमर्थ: %1"
+
+#: src/libneochat/enums/neochatroomtype.h:61
+#, kde-format
+msgid "Invited"
+msgstr "आमंत्रित"
+
+#: src/libneochat/enums/neochatroomtype.h:63
+#, kde-format
+msgid "Favorite"
+msgstr "पसंदीदा"
+
+#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
+#, kde-format
+msgid "Friends"
+msgstr "दोस्त"
+
+#: src/libneochat/enums/neochatroomtype.h:67
+#, kde-format
+msgid "Normal"
+msgstr "सामान्य"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Low priority"
+msgstr "कम प्राथमिकता"
+
+#: src/libneochat/enums/neochatroomtype.h:71
+#, kde-format
+msgid "Spaces"
+msgstr "खाली स्थान"
+
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
 msgid "Member"
@@ -480,8 +480,9 @@ msgstr "आवाज़ बंद करना"
 msgid "Custom"
 msgstr "रिवाज़"
 
-#: src/libneochat/enums/powerlevel.cpp:88 src/models/permissionsmodel.cpp:185
-#: src/models/userlistmodel.cpp:113
+#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/models/userlistmodel.cpp:113
+#: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -1388,7 +1389,19 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "रिवाज़"
 
-#: src/libneochat/neochatconnection.cpp:76
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own Stickers'"
+msgid "Own Stickers"
+msgstr "स्वयं के स्टिकर"
+
+#: src/libneochat/models/imagepacksmodel.cpp:92
+#, kde-format
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "अपना खुद का इमोजी बनाएं"
+
+#: src/libneochat/neochatconnection.cpp:77
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -1397,18 +1410,18 @@ msgstr ""
 "फ़ाइल डाउनलोड करने के लिए बहुत बड़ी है.<br /> सहायता के लिए अपने मैट्रिक्स सर्वर "
 "व्यवस्थापक से संपर्क करें।"
 
-#: src/libneochat/neochatconnection.cpp:319
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोई पहचान सर्वर कॉन्फ़िगर नहीं किया गया"
 
-#: src/libneochat/neochatconnection.cpp:350
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्ष निर्माण विफल: %1"
 
-#: src/libneochat/neochatconnection.cpp:380
+#: src/libneochat/neochatconnection.cpp:391
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "स्थान निर्माण विफल: %1"
@@ -1423,16 +1436,6 @@ msgstr "रिपोर्ट सफलतापूर्वक भेजी ग
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "अक्षांश:%1, देशांतर:%2"
-
-#: src/login.cpp:87 src/login.cpp:102
-#, kde-format
-msgid "Network Error: %1"
-msgstr "नेटवर्क त्रुटि: %1"
-
-#: src/login.cpp:95
-#, kde-format
-msgid "Login Failed: %1"
-msgstr "लॉगिन विफल: %1"
 
 #: src/login/Email.qml:21
 #, kde-format
@@ -1483,6 +1486,16 @@ msgid ""
 "Please wait while your messages are loaded from the server. This might take "
 "a little while."
 msgstr "कृपया सर्वर से आपके संदेश लोड होने तक प्रतीक्षा करें। इसमें थोड़ा समय लग सकता है।"
+
+#: src/login/login.cpp:91 src/login/login.cpp:106
+#, kde-format
+msgid "Network Error: %1"
+msgstr "नेटवर्क त्रुटि: %1"
+
+#: src/login/login.cpp:99
+#, kde-format
+msgid "Login Failed: %1"
+msgstr "लॉगिन विफल: %1"
 
 #: src/login/Login.qml:25
 #, kde-format
@@ -1563,6 +1576,51 @@ msgstr "पासवर्ड की पुष्टि कीजिये:"
 msgid "The passwords do not match."
 msgstr "पासवर्ड मेल नहीं खाया।"
 
+#: src/login/registration.cpp:306
+#, kde-format
+msgid "No server."
+msgstr "कोई सर्वर नहीं."
+
+#: src/login/registration.cpp:308
+#, kde-format
+msgid "Checking Server availability."
+msgstr "सर्वर उपलब्धता की जाँच की जा रही है।"
+
+#: src/login/registration.cpp:310
+#, kde-format
+msgid "This is not a valid server."
+msgstr "यह वैध सर्वर नहीं है."
+
+#: src/login/registration.cpp:312
+#, kde-format
+msgid "Registration for this server is disabled."
+msgstr "इस सर्वर के लिए पंजीकरण अक्षम है."
+
+#: src/login/registration.cpp:314
+#, kde-format
+msgid "No username."
+msgstr "कोई उपयोगकर्ता नाम नहीं."
+
+#: src/login/registration.cpp:316
+#, kde-format
+msgid "Checking username availability."
+msgstr "उपयोगकर्ता नाम की उपलब्धता की जाँच की जा रही है."
+
+#: src/login/registration.cpp:318
+#, kde-format
+msgid "This username is not available."
+msgstr "यह उपयोगकर्ता नाम उपलब्ध नहीं है।"
+
+#: src/login/registration.cpp:320
+#, kde-format
+msgid "Continue"
+msgstr "जारी रखना"
+
+#: src/login/registration.cpp:322
+#, kde-format
+msgid "Working"
+msgstr "कार्यरत"
+
 #: src/login/Sso.qml:30
 #, kde-format
 msgid "Continue the login process in your browser."
@@ -1601,7 +1659,7 @@ msgstr "उपयोगकर्ता नाम उपलब्ध नहीं
 msgid "Welcome"
 msgstr "स्वागत"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:143
+#: src/login/WelcomePage.qml:75 src/main.cpp:146
 #, kde-format
 msgid "NeoChat"
 msgstr "नियोचैट"
@@ -1642,314 +1700,113 @@ msgctxt "@action:button"
 msgid "Settings"
 msgstr "सेटिंग्स"
 
-#: src/main.cpp:145
+#: src/main.cpp:148
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "मैट्रिक्स पर चैट करें"
 
-#: src/main.cpp:147
+#: src/main.cpp:150
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
 msgstr "© 2018-2020 ब्लैक हैट, 2020-2024 केडीई समुदाय"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "Carl Schwan"
 msgstr "कार्ल स्वान"
 
-#: src/main.cpp:148 src/main.cpp:149 src/main.cpp:150 src/main.cpp:152
+#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Tobias Fella"
 msgstr "टोबियास फेला"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "James Graham"
 msgstr "जेम्स ग्राहम"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Joshua Goins"
 msgstr ""
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Black Hat"
 msgstr "बुरा व्यक्ति"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "स्पेक्ट्रल के मूल लेखक"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "एलेक्सी रुसाकोव"
 
-#: src/main.cpp:157
+#: src/main.cpp:160
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient का अनुरक्षक"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "तुम्हारे नाम"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "आपके ईमेल"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "मैट्रिक्स के लिए क्रॉस-प्लेटफ़ॉर्म क्लाइंट लिखने के लिए एक Qt लाइब्रेरी"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 के विरुद्ध निर्मित)"
 
-#: src/main.cpp:191
+#: src/main.cpp:194
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "मैट्रिक्स संचार प्रोटोकॉल के लिए क्लाइंट"
 
-#: src/main.cpp:192
+#: src/main.cpp:195
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "मैट्रिक्स का समर्थन करता है: यूआरएल योजना"
 
-#: src/main.cpp:193
+#: src/main.cpp:196
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "सभी SSL त्रुटियों को अनदेखा करें, जैसे कि, अहस्ताक्षरित प्रमाणपत्र।"
 
-#: src/main.cpp:195
+#: src/main.cpp:198
 #, kde-format
 msgid "Only used for autotests"
 msgstr "केवल ऑटोटेस्ट के लिए उपयोग किया जाता है"
 
-#: src/main.cpp:200
+#: src/main.cpp:203
 #, kde-format
 msgid "Internal usage only."
 msgstr "केवल आंतरिक उपयोग."
 
-#: src/main.cpp:205
+#: src/main.cpp:208
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "मैट्रिक्स के लिए URL साझा करें"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own Stickers'"
-msgid "Own Stickers"
-msgstr "स्वयं के स्टिकर"
-
-#: src/models/imagepacksmodel.cpp:92
-#, kde-format
-msgctxt "As in 'The user's own emojis"
-msgid "Own Emojis"
-msgstr "अपना खुद का इमोजी बनाएं"
-
-#: src/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr "डिफ़ॉल्ट उपयोगकर्ता पावर स्तर"
-
-#: src/models/permissionsmodel.cpp:58
-msgctxt "Room permission type"
-msgid "Default power level to set the room state"
-msgstr "कमरे की स्थिति निर्धारित करने के लिए डिफ़ॉल्ट पावर स्तर"
-
-#: src/models/permissionsmodel.cpp:59
-msgctxt "Room permission type"
-msgid "Default power level to send messages"
-msgstr "संदेश भेजने के लिए डिफ़ॉल्ट पावर स्तर"
-
-#: src/models/permissionsmodel.cpp:60
-msgctxt "Room permission type"
-msgid "Invite users"
-msgstr "उपयोगकर्ताओं को आमंत्रित करें"
-
-#: src/models/permissionsmodel.cpp:61
-msgctxt "Room permission type"
-msgid "Kick users"
-msgstr "किक उपयोगकर्ता"
-
-#: src/models/permissionsmodel.cpp:62
-msgctxt "Room permission type"
-msgid "Ban users"
-msgstr "उपयोगकर्ताओं पर प्रतिबंध लगाएँ"
-
-#: src/models/permissionsmodel.cpp:63
-msgctxt "Room permission type"
-msgid "Remove messages sent by other users"
-msgstr "अन्य उपयोगकर्ताओं द्वारा भेजे गए संदेश हटाएं"
-
-#: src/models/permissionsmodel.cpp:64
-msgctxt "Room permission type"
-msgid "Send reactions"
-msgstr "प्रतिक्रियाएँ भेजें"
-
-#: src/models/permissionsmodel.cpp:65
-msgctxt "Room permission type"
-msgid "Remove their own messages"
-msgstr "अपने स्वयं के संदेश हटाएँ"
-
-#: src/models/permissionsmodel.cpp:66
-msgctxt "Room permission type"
-msgid "Change user permissions"
-msgstr "उपयोगकर्ता अनुमतियाँ बदलें"
-
-#: src/models/permissionsmodel.cpp:67
-msgctxt "Room permission type"
-msgid "Change the room name"
-msgstr "कमरे का नाम बदलें"
-
-#: src/models/permissionsmodel.cpp:68
-msgctxt "Room permission type"
-msgid "Change the room avatar"
-msgstr "कमरे का अवतार बदलें"
-
-#: src/models/permissionsmodel.cpp:69
-msgctxt "Room permission type"
-msgid "Change the room canonical alias"
-msgstr "कमरे का विहित उपनाम बदलें"
-
-#: src/models/permissionsmodel.cpp:70
-msgctxt "Room permission type"
-msgid "Change the room topic"
-msgstr "कमरे का विषय बदलें"
-
-#: src/models/permissionsmodel.cpp:71
-msgctxt "Room permission type"
-msgid "Enable encryption for the room"
-msgstr "कमरे के लिए एन्क्रिप्शन सक्षम करें"
-
-#: src/models/permissionsmodel.cpp:72
-msgctxt "Room permission type"
-msgid "Change the room history visibility"
-msgstr "कमरे के इतिहास की दृश्यता बदलें"
-
-#: src/models/permissionsmodel.cpp:73
-msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "पिन किए गए ईवेंट सेट करें"
-
-#: src/models/permissionsmodel.cpp:74
-msgctxt "Room permission type"
-msgid "Upgrade the room"
-msgstr "कमरे को अपग्रेड करें"
-
-#: src/models/permissionsmodel.cpp:75
-msgctxt "Room permission type"
-msgid "Set the room server access control list (ACL)"
-msgstr "रूम सर्वर एक्सेस नियंत्रण सूची (ACL) सेट करें"
-
-#: src/models/permissionsmodel.cpp:76
-msgctxt "Room permission type"
-msgid "Set the children of this space"
-msgstr "इस स्थान के बच्चों को सेट करें"
-
-#: src/models/permissionsmodel.cpp:77
-msgctxt "Room permission type"
-msgid "Set the parent space of this room"
-msgstr "इस कमरे का मूल स्थान सेट करें"
-
-#: src/models/permissionsmodel.cpp:82
-msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "यह रूम में शामिल होने वाले सभी नए उपयोगकर्ताओं के लिए पावर लेवल है"
-
-#: src/models/permissionsmodel.cpp:83
-msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
-"इसका उपयोग उन सभी राज्य कार्यक्रमों के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं "
-"है"
-
-#: src/models/permissionsmodel.cpp:84
-msgctxt "Room permission type"
-msgid ""
-"This is used for all message events that do not have their own entry here"
-msgstr ""
-"इसका उपयोग उन सभी संदेश घटनाओं के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं है"
-
-#: src/models/pushrulemodel.cpp:19
-msgctxt "Notification type"
-msgid "Enable notifications for this account"
-msgstr "इस खाते के लिए सूचनाएं सक्षम करें"
-
-#: src/models/pushrulemodel.cpp:20
-msgctxt "Notification type"
-msgid "Messages in one-to-one chats"
-msgstr "एक-से-एक चैट में संदेश"
-
-#: src/models/pushrulemodel.cpp:21
-msgctxt "Notification type"
-msgid "Encrypted messages in one-to-one chats"
-msgstr "एक-से-एक चैट में एन्क्रिप्टेड संदेश"
-
-#: src/models/pushrulemodel.cpp:22
-msgctxt "Notification type"
-msgid "Messages in group chats"
-msgstr "समूह चैट में संदेश"
-
-#: src/models/pushrulemodel.cpp:23
-msgctxt "Notification type"
-msgid "Messages in encrypted group chats"
-msgstr "एन्क्रिप्टेड समूह चैट में संदेश"
-
-#: src/models/pushrulemodel.cpp:24
-msgctxt "Notification type"
-msgid "Room upgrade messages"
-msgstr "कमरा अपग्रेड संदेश"
-
-#: src/models/pushrulemodel.cpp:25
-msgctxt "Notification type"
-msgid "Messages containing my display name"
-msgstr "मेरे प्रदर्शन नाम वाले संदेश"
-
-#: src/models/pushrulemodel.cpp:26
-msgctxt "Notification type"
-msgid "Messages which mention my Matrix user ID"
-msgstr "संदेश जिसमें मेरी मैट्रिक्स उपयोगकर्ता आईडी का उल्लेख हो"
-
-#: src/models/pushrulemodel.cpp:27
-msgctxt "Notification type"
-msgid "Messages which mention a room"
-msgstr "संदेश जिसमें कमरे का उल्लेख हो"
-
-#: src/models/pushrulemodel.cpp:28
-msgctxt "Notification type"
-msgid "Messages containing the local part of my Matrix ID"
-msgstr "मेरे मैट्रिक्स आईडी का स्थानीय भाग युक्त संदेश"
-
-#: src/models/pushrulemodel.cpp:29
-msgctxt "Notification type"
-msgid "Whole room (@room) notifications"
-msgstr "संपूर्ण कक्ष (@room) सूचनाएं"
-
-#: src/models/pushrulemodel.cpp:30
-msgctxt "Notification type"
-msgid "Invites to a room"
-msgstr "किसी कमरे में आमंत्रित करना"
-
-#: src/models/pushrulemodel.cpp:31
-msgctxt "Notification type"
-msgid "Call invitation"
-msgstr "कॉल आमंत्रण"
 
 #: src/models/roomtreemodel.cpp:355
 #, fuzzy, kde-format
@@ -3076,25 +2933,25 @@ msgstr "स्थानों"
 msgid "There are no locations shared in this room."
 msgstr "इस कमरे में कोई स्थान साझा नहीं किया गया है।"
 
-#: src/qml/Main.qml:160
+#: src/qml/Main.qml:167
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "शो रूम की जानकारी"
 
-#: src/qml/Main.qml:163
+#: src/qml/Main.qml:170
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "कमरे की जानकारी वाला दराज बंद करें"
 
-#: src/qml/Main.qml:283
+#: src/qml/Main.qml:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "सत्र सत्यापन"
 
-#: src/qml/Main.qml:323 src/qml/ShareAction.qml:68
+#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -4367,51 +4224,6 @@ msgstr "दूरस्थ पार्टी ने सत्र सत्य�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "अज्ञात त्रुटि के कारण सत्र सत्यापन रद्द कर दिया गया."
 
-#: src/registration.cpp:305
-#, kde-format
-msgid "No server."
-msgstr "कोई सर्वर नहीं."
-
-#: src/registration.cpp:307
-#, kde-format
-msgid "Checking Server availability."
-msgstr "सर्वर उपलब्धता की जाँच की जा रही है।"
-
-#: src/registration.cpp:309
-#, kde-format
-msgid "This is not a valid server."
-msgstr "यह वैध सर्वर नहीं है."
-
-#: src/registration.cpp:311
-#, kde-format
-msgid "Registration for this server is disabled."
-msgstr "इस सर्वर के लिए पंजीकरण अक्षम है."
-
-#: src/registration.cpp:313
-#, kde-format
-msgid "No username."
-msgstr "कोई उपयोगकर्ता नाम नहीं."
-
-#: src/registration.cpp:315
-#, kde-format
-msgid "Checking username availability."
-msgstr "उपयोगकर्ता नाम की उपलब्धता की जाँच की जा रही है."
-
-#: src/registration.cpp:317
-#, kde-format
-msgid "This username is not available."
-msgstr "यह उपयोगकर्ता नाम उपलब्ध नहीं है।"
-
-#: src/registration.cpp:319
-#, kde-format
-msgid "Continue"
-msgstr "जारी रखना"
-
-#: src/registration.cpp:321
-#, kde-format
-msgid "Working"
-msgstr "कार्यरत"
-
 #: src/roommanager.cpp:195
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -5065,6 +4877,195 @@ msgstr "अमान्य पासफ़्रेज़"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "अमान्य कुंजी बैकअप डेटा"
+
+#: src/settings/models/permissionsmodel.cpp:57
+msgctxt "Room permission type"
+msgid "Default user power level"
+msgstr "डिफ़ॉल्ट उपयोगकर्ता पावर स्तर"
+
+#: src/settings/models/permissionsmodel.cpp:58
+msgctxt "Room permission type"
+msgid "Default power level to set the room state"
+msgstr "कमरे की स्थिति निर्धारित करने के लिए डिफ़ॉल्ट पावर स्तर"
+
+#: src/settings/models/permissionsmodel.cpp:59
+msgctxt "Room permission type"
+msgid "Default power level to send messages"
+msgstr "संदेश भेजने के लिए डिफ़ॉल्ट पावर स्तर"
+
+#: src/settings/models/permissionsmodel.cpp:60
+msgctxt "Room permission type"
+msgid "Invite users"
+msgstr "उपयोगकर्ताओं को आमंत्रित करें"
+
+#: src/settings/models/permissionsmodel.cpp:61
+msgctxt "Room permission type"
+msgid "Kick users"
+msgstr "किक उपयोगकर्ता"
+
+#: src/settings/models/permissionsmodel.cpp:62
+msgctxt "Room permission type"
+msgid "Ban users"
+msgstr "उपयोगकर्ताओं पर प्रतिबंध लगाएँ"
+
+#: src/settings/models/permissionsmodel.cpp:63
+msgctxt "Room permission type"
+msgid "Remove messages sent by other users"
+msgstr "अन्य उपयोगकर्ताओं द्वारा भेजे गए संदेश हटाएं"
+
+#: src/settings/models/permissionsmodel.cpp:64
+msgctxt "Room permission type"
+msgid "Send reactions"
+msgstr "प्रतिक्रियाएँ भेजें"
+
+#: src/settings/models/permissionsmodel.cpp:65
+msgctxt "Room permission type"
+msgid "Remove their own messages"
+msgstr "अपने स्वयं के संदेश हटाएँ"
+
+#: src/settings/models/permissionsmodel.cpp:66
+msgctxt "Room permission type"
+msgid "Change user permissions"
+msgstr "उपयोगकर्ता अनुमतियाँ बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:67
+msgctxt "Room permission type"
+msgid "Change the room name"
+msgstr "कमरे का नाम बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:68
+msgctxt "Room permission type"
+msgid "Change the room avatar"
+msgstr "कमरे का अवतार बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:69
+msgctxt "Room permission type"
+msgid "Change the room canonical alias"
+msgstr "कमरे का विहित उपनाम बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:70
+msgctxt "Room permission type"
+msgid "Change the room topic"
+msgstr "कमरे का विषय बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:71
+msgctxt "Room permission type"
+msgid "Enable encryption for the room"
+msgstr "कमरे के लिए एन्क्रिप्शन सक्षम करें"
+
+#: src/settings/models/permissionsmodel.cpp:72
+msgctxt "Room permission type"
+msgid "Change the room history visibility"
+msgstr "कमरे के इतिहास की दृश्यता बदलें"
+
+#: src/settings/models/permissionsmodel.cpp:73
+msgctxt "Room permission type"
+msgid "Set pinned events"
+msgstr "पिन किए गए ईवेंट सेट करें"
+
+#: src/settings/models/permissionsmodel.cpp:74
+msgctxt "Room permission type"
+msgid "Upgrade the room"
+msgstr "कमरे को अपग्रेड करें"
+
+#: src/settings/models/permissionsmodel.cpp:75
+msgctxt "Room permission type"
+msgid "Set the room server access control list (ACL)"
+msgstr "रूम सर्वर एक्सेस नियंत्रण सूची (ACL) सेट करें"
+
+#: src/settings/models/permissionsmodel.cpp:76
+msgctxt "Room permission type"
+msgid "Set the children of this space"
+msgstr "इस स्थान के बच्चों को सेट करें"
+
+#: src/settings/models/permissionsmodel.cpp:77
+msgctxt "Room permission type"
+msgid "Set the parent space of this room"
+msgstr "इस कमरे का मूल स्थान सेट करें"
+
+#: src/settings/models/permissionsmodel.cpp:82
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room"
+msgstr "यह रूम में शामिल होने वाले सभी नए उपयोगकर्ताओं के लिए पावर लेवल है"
+
+#: src/settings/models/permissionsmodel.cpp:83
+msgctxt "Room permission type"
+msgid "This is used for all state events that do not have their own entry here"
+msgstr ""
+"इसका उपयोग उन सभी राज्य कार्यक्रमों के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं "
+"है"
+
+#: src/settings/models/permissionsmodel.cpp:84
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message events that do not have their own entry here"
+msgstr ""
+"इसका उपयोग उन सभी संदेश घटनाओं के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं है"
+
+#: src/settings/models/pushrulemodel.cpp:19
+msgctxt "Notification type"
+msgid "Enable notifications for this account"
+msgstr "इस खाते के लिए सूचनाएं सक्षम करें"
+
+#: src/settings/models/pushrulemodel.cpp:20
+msgctxt "Notification type"
+msgid "Messages in one-to-one chats"
+msgstr "एक-से-एक चैट में संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:21
+msgctxt "Notification type"
+msgid "Encrypted messages in one-to-one chats"
+msgstr "एक-से-एक चैट में एन्क्रिप्टेड संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:22
+msgctxt "Notification type"
+msgid "Messages in group chats"
+msgstr "समूह चैट में संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:23
+msgctxt "Notification type"
+msgid "Messages in encrypted group chats"
+msgstr "एन्क्रिप्टेड समूह चैट में संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:24
+msgctxt "Notification type"
+msgid "Room upgrade messages"
+msgstr "कमरा अपग्रेड संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:25
+msgctxt "Notification type"
+msgid "Messages containing my display name"
+msgstr "मेरे प्रदर्शन नाम वाले संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:26
+msgctxt "Notification type"
+msgid "Messages which mention my Matrix user ID"
+msgstr "संदेश जिसमें मेरी मैट्रिक्स उपयोगकर्ता आईडी का उल्लेख हो"
+
+#: src/settings/models/pushrulemodel.cpp:27
+msgctxt "Notification type"
+msgid "Messages which mention a room"
+msgstr "संदेश जिसमें कमरे का उल्लेख हो"
+
+#: src/settings/models/pushrulemodel.cpp:28
+msgctxt "Notification type"
+msgid "Messages containing the local part of my Matrix ID"
+msgstr "मेरे मैट्रिक्स आईडी का स्थानीय भाग युक्त संदेश"
+
+#: src/settings/models/pushrulemodel.cpp:29
+msgctxt "Notification type"
+msgid "Whole room (@room) notifications"
+msgstr "संपूर्ण कक्ष (@room) सूचनाएं"
+
+#: src/settings/models/pushrulemodel.cpp:30
+msgctxt "Notification type"
+msgid "Invites to a room"
+msgstr "किसी कमरे में आमंत्रित करना"
+
+#: src/settings/models/pushrulemodel.cpp:31
+msgctxt "Notification type"
+msgid "Call invitation"
+msgstr "कॉल आमंत्रण"
 
 #: src/settings/NeoChatGeneralPage.qml:20
 #, kde-format
@@ -5939,6 +5940,50 @@ msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
 
+#: src/settings/threepidbindhelper.cpp:178
+#, kde-format
+msgid ""
+"%1. Please follow the instructions there and then click the button above"
+msgstr "%1. कृपया वहां दिए गए निर्देशों का पालन करें और फिर ऊपर दिए गए बटन पर क्लिक करें"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you an email"
+msgstr "हमने आपको एक ईमेल भेजा है"
+
+#: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
+#, kde-format
+msgid "We've sent you a text message"
+msgstr "हमने आपको एक टेक्स्ट संदेश भेजा है"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered email is not valid"
+msgstr "दर्ज किया गया ईमेल मान्य नहीं है"
+
+#: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
+#, kde-format
+msgid "The entered phone number is not valid"
+msgstr "दर्ज किया गया फ़ोन नंबर मान्य नहीं है"
+
+#: src/settings/threepidbindhelper.cpp:184
+#, kde-format
+msgid ""
+"The email has not been verified. Please go to the email and follow the "
+"instructions there and then click the button above"
+msgstr ""
+"ईमेल सत्यापित नहीं किया गया है। कृपया ईमेल पर जाएँ और वहाँ दिए गए निर्देशों का पालन करें "
+"और फिर ऊपर दिए गए बटन पर क्लिक करें"
+
+#: src/settings/threepidbindhelper.cpp:185
+#, kde-format
+msgid ""
+"The phone number has not been verified. Please go to the text message and "
+"follow the instructions there and then click the button above"
+msgstr ""
+"फ़ोन नंबर सत्यापित नहीं किया गया है। कृपया टेक्स्ट संदेश पर जाएँ और वहाँ दिए गए निर्देशों का "
+"पालन करें और फिर ऊपर दिए गए बटन पर क्लिक करें"
+
 #: src/settings/ThreePIdCard.qml:58
 #, kde-format
 msgctxt "@action:button"
@@ -5987,31 +6032,11 @@ msgctxt "@label:textbox"
 msgid "New Phone Number:"
 msgstr "नया फ़ोन नंबर:"
 
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you an email"
-msgstr "हमने आपको एक ईमेल भेजा है"
-
-#: src/settings/ThreePIdCard.qml:156 src/threepidbindhelper.cpp:179
-#, kde-format
-msgid "We've sent you a text message"
-msgstr "हमने आपको एक टेक्स्ट संदेश भेजा है"
-
 #: src/settings/ThreePIdCard.qml:156
 #, kde-format
 msgid ""
 "%1. Please follow the instructions there and then click the button below"
 msgstr "%1. कृपया वहां दिए गए निर्देशों का पालन करें और फिर नीचे दिए गए बटन पर क्लिक करें"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered email is not valid"
-msgstr "दर्ज किया गया ईमेल मान्य नहीं है"
-
-#: src/settings/ThreePIdCard.qml:158 src/threepidbindhelper.cpp:181
-#, kde-format
-msgid "The entered phone number is not valid"
-msgstr "दर्ज किया गया फ़ोन नंबर मान्य नहीं है"
 
 #: src/settings/ThreePIdCard.qml:160
 #, kde-format
@@ -6047,30 +6072,6 @@ msgstr "जोड़ना"
 msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "पीछे"
-
-#: src/threepidbindhelper.cpp:178
-#, kde-format
-msgid ""
-"%1. Please follow the instructions there and then click the button above"
-msgstr "%1. कृपया वहां दिए गए निर्देशों का पालन करें और फिर ऊपर दिए गए बटन पर क्लिक करें"
-
-#: src/threepidbindhelper.cpp:184
-#, kde-format
-msgid ""
-"The email has not been verified. Please go to the email and follow the "
-"instructions there and then click the button above"
-msgstr ""
-"ईमेल सत्यापित नहीं किया गया है। कृपया ईमेल पर जाएँ और वहाँ दिए गए निर्देशों का पालन करें "
-"और फिर ऊपर दिए गए बटन पर क्लिक करें"
-
-#: src/threepidbindhelper.cpp:185
-#, kde-format
-msgid ""
-"The phone number has not been verified. Please go to the text message and "
-"follow the instructions there and then click the button above"
-msgstr ""
-"फ़ोन नंबर सत्यापित नहीं किया गया है। कृपया टेक्स्ट संदेश पर जाएँ और वहाँ दिए गए निर्देशों का "
-"पालन करें और फिर ऊपर दिए गए बटन पर क्लिक करें"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
