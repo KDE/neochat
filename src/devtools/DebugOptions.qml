@@ -9,34 +9,32 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-FormCard.FormCardPage {
+FormCard.FormCard {
     id: root
 
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.largeSpacing
+    Layout.topMargin: Kirigami.Units.largeSpacing
 
-        FormCard.FormCheckDelegate {
-            text: i18nc("@option:check", "Show hidden events in the timeline")
-            checked: NeoChatConfig.showAllEvents
+    FormCard.FormCheckDelegate {
+        text: i18nc("@option:check", "Show hidden events in the timeline")
+        checked: NeoChatConfig.showAllEvents
 
-            onToggled: NeoChatConfig.showAllEvents = checked
-        }
-        FormCard.FormCheckDelegate {
-            id: roomAccountDataVisibleCheck
-            text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
-            description: i18n("Allow the user to start a verification session with devices that were already verified")
-            checked: NeoChatConfig.alwaysVerifyDevice
+        onToggled: NeoChatConfig.showAllEvents = checked
+    }
+    FormCard.FormCheckDelegate {
+        id: roomAccountDataVisibleCheck
+        text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
+        description: i18n("Allow the user to start a verification session with devices that were already verified")
+        checked: NeoChatConfig.alwaysVerifyDevice
 
-            onToggled: NeoChatConfig.alwaysVerifyDevice = checked
-        }
-        FormCard.FormCheckDelegate {
-            text: i18nc("@option:check", "Show focus in window header")
-            checked: NeoChatConfig.windowTitleFocus
+        onToggled: NeoChatConfig.alwaysVerifyDevice = checked
+    }
+    FormCard.FormCheckDelegate {
+        text: i18nc("@option:check", "Show focus in window header")
+        checked: NeoChatConfig.windowTitleFocus
 
-            onToggled: {
-                NeoChatConfig.windowTitleFocus = checked;
-                NeoChatConfig.save();
-            }
+        onToggled: {
+            NeoChatConfig.windowTitleFocus = checked;
+            NeoChatConfig.save();
         }
     }
 }
