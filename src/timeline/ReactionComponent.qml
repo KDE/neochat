@@ -105,6 +105,7 @@ Flow {
 
         onClicked: {
             var dialog = emojiDialog.createObject(reactButton);
+            dialog.showStickers = false;
             dialog.chosen.connect(emoji => {
                 root.Message.room.toggleReaction(root.eventId, emoji);
                 if (!Kirigami.Settings.isMobile) {

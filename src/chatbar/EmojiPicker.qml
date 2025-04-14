@@ -17,6 +17,7 @@ ColumnLayout {
 
     property bool includeCustom: false
     property bool showQuickReaction: false
+    property bool showStickers: true
 
     readonly property var currentEmojiModel: {
         if (includeCustom) {
@@ -43,6 +44,7 @@ ColumnLayout {
         id: types
         Layout.fillWidth: true
         Kirigami.Theme.colorSet: Kirigami.Theme.View
+        visible: root.showStickers
 
         background: null
         actions: [

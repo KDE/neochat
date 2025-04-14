@@ -19,6 +19,7 @@ QQC2.Popup {
     property bool includeCustom: false
     property bool closeOnChosen: true
     property bool showQuickReaction: false
+    property bool showStickers: true
 
     signal chosen(string emoji)
 
@@ -71,6 +72,7 @@ QQC2.Popup {
         currentRoom: root.currentRoom
         includeCustom: root.includeCustom
         showQuickReaction: root.showQuickReaction
+        showStickers: root.showStickers
         onChosen: emoji => {
             root.chosen(emoji);
             if (root.closeOnChosen) {

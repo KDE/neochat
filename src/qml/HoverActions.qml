@@ -169,6 +169,7 @@ QQC2.Control {
             id: emojiDialog
             currentRoom: root.currentRoom
             showQuickReaction: true
+            showStickers: false
             onChosen: emoji => {
                 root.currentRoom.toggleReaction(root.delegate.eventId, emoji);
                 if (!Kirigami.Settings.isMobile) {
