@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(NEOCHAT_VERSION_STRING),
                      i18n("Chat on Matrix"),
                      KAboutLicense::GPL_V3,
-                     i18n("© 2018-2020 Black Hat, 2020-2024 KDE Community"));
+                     i18n("© 2018-2020 Black Hat, 2020-2025 KDE Community"));
     about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), u"carl@carlschwan.eu"_s, u"https://carlschwan.eu"_s, QUrl(u"https://carlschwan.eu/avatar.png"_s));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), u"tobias.fella@kde.org"_s, u"https://tobiasfella.de"_s);
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), u"james.h.graham@protonmail.com"_s);
