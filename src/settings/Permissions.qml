@@ -30,9 +30,12 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18n("Privileged Users")
+        visible: permissions.count > 0
     }
     FormCard.FormCard {
+        visible: permissions.count > 0
         Repeater {
+            id: permissions
             model: KSortFilterProxyModel {
                 sourceModel: RoomManager.userListModel
                 sortRoleName: "powerLevel"
@@ -400,6 +403,16 @@ FormCard.FormCardPage {
                     }
                 }
             }
+        }
+    }
+
+    Item {
+        visible: permissions.count === 0
+        Layout.fillWidth: true
+        implicitHeight: root.height * 0.9
+        Kirigami.LoadingPlaceholder {
+            anchors.centerIn: parent
+            text: i18nc("@placeholder", "Loading…")
         }
     }
 }
