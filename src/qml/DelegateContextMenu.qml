@@ -105,7 +105,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     component ReplyThreadMessageAction: QQC2.Action {
-        text: i18n("Reply in Thread")
+        text: i18nc("@action:button", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
             currentRoom.threadCache.replyId = "";
