@@ -12,6 +12,7 @@ add_subdirectory(login)
 add_subdirectory(rooms)
 add_subdirectory(timeline)
 add_subdirectory(spaces)
+add_subdirectory(devtools)
 
 add_library(neochat STATIC
     controller.cpp
@@ -34,10 +35,6 @@ add_library(neochat STATIC
     windowcontroller.h
     models/serverlistmodel.cpp
     models/serverlistmodel.h
-    models/statemodel.cpp
-    models/statemodel.h
-    models/statefiltermodel.cpp
-    models/statefiltermodel.h
     logger.cpp
     logger.h
     jobs/neochatgetcommonroomsjob.cpp
@@ -48,8 +45,6 @@ add_library(neochat STATIC
     proxycontroller.h
     mediamanager.cpp
     mediamanager.h
-    models/statekeysmodel.cpp
-    models/statekeysmodel.h
     sharehandler.cpp
     sharehandler.h
     foreigntypes.h
@@ -168,7 +163,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
 )
 
 add_subdirectory(settings)
-add_subdirectory(devtools)
 add_subdirectory(chatbar)
 
 if(NOT ANDROID AND NOT WIN32)
@@ -228,7 +222,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
-target_link_libraries(neochat PRIVATE Settingsplugin Roomsplugin Timelineplugin Spacesplugin devtoolsplugin Loginplugin chatbarplugin)
+target_link_libraries(neochat PRIVATE Settingsplugin Roomsplugin Timelineplugin Spacesplugin Devtoolsplugin Loginplugin chatbarplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
