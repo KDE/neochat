@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-04-05 17:49+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -94,7 +94,7 @@ msgstr "Emoji"
 msgid "Stickers"
 msgstr "Adesivi"
 
-#: src/controller.cpp:158
+#: src/controller.cpp:181
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -102,7 +102,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Ricezione delle notifiche per i nuovi messaggi"
 
-#: src/controller.cpp:303
+#: src/controller.cpp:326
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricezione delle notifiche push"
@@ -315,94 +315,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "State Keys"
 
-#: src/enums/roomsortparameter.h:52
-#, kde-format
-msgctxt "As in sorting alphabetically with A first and Z last"
-msgid "Alphabetical Ascending"
-msgstr "Alfabetico crescente"
-
-#: src/enums/roomsortparameter.h:54
-#, kde-format
-msgctxt "As in sorting alphabetically with Z first and A last"
-msgid "Alphabetical Descending"
-msgstr "Alfabetico decrescente"
-
-#: src/enums/roomsortparameter.h:56
-#, kde-format
-msgctxt "As in sorting rooms with unread message above those without"
-msgid "Has Unread Messages"
-msgstr "Ha messaggi non letti"
-
-#: src/enums/roomsortparameter.h:58
-#, kde-format
-msgctxt "As in sorting rooms with the most unread messages higher"
-msgid "Most Unread Messages"
-msgstr "Più messaggi non letti"
-
-#: src/enums/roomsortparameter.h:60
-#, kde-format
-msgctxt "As in sorting rooms with highlighted message above those without"
-msgid "Has Highlighted Messages"
-msgstr "Ha evidenziato i messaggi"
-
-#: src/enums/roomsortparameter.h:62
-#, kde-format
-msgctxt "As in sorting rooms with the most highlighted messages higher"
-msgid "Most Highlighted Messages"
-msgstr "Più messaggi evidenziati"
-
-#: src/enums/roomsortparameter.h:64
-#, kde-format
-msgctxt "As in sorting the chat room with the newest meassage first"
-msgid "Last Active"
-msgstr "Ultima volta attivo"
-
-#: src/enums/roomsortparameter.h:79
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to A alphabetically are higher"
-msgstr ""
-"I nomi delle stanze più vicini alla lettera A in ordine alfabetico sono più "
-"alti"
-
-#: src/enums/roomsortparameter.h:81
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to Z alphabetically are higher"
-msgstr ""
-"I nomi delle stanze più vicini alla lettera Z in ordine alfabetico sono più "
-"alti"
-
-#: src/enums/roomsortparameter.h:83
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with unread messages are higher"
-msgstr "Le stanze con messaggi non letti sono più alte"
-
-#: src/enums/roomsortparameter.h:85
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most unread message are higher"
-msgstr "Le stanze con il maggior numero di messaggi non letti sono più alte"
-
-#: src/enums/roomsortparameter.h:87
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with highlighted messages are higher"
-msgstr "Le stanze con messaggi evidenziati sono più alte"
-
-#: src/enums/roomsortparameter.h:89
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most highlighted messages are higher"
-msgstr "Le stanze con i messaggi più evidenziati sono più in alto"
-
-#: src/enums/roomsortparameter.h:91
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
-msgstr "Le stanze con i messaggi più recenti sono più in alto"
-
 #: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
@@ -494,6 +406,94 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/libneochat/enums/roomsortparameter.h:53
+#, kde-format
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "Alfabetico crescente"
+
+#: src/libneochat/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "Alfabetico decrescente"
+
+#: src/libneochat/enums/roomsortparameter.h:57
+#, kde-format
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "Ha messaggi non letti"
+
+#: src/libneochat/enums/roomsortparameter.h:59
+#, kde-format
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "Più messaggi non letti"
+
+#: src/libneochat/enums/roomsortparameter.h:61
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr "Ha evidenziato i messaggi"
+
+#: src/libneochat/enums/roomsortparameter.h:63
+#, kde-format
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "Più messaggi evidenziati"
+
+#: src/libneochat/enums/roomsortparameter.h:65
+#, kde-format
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "Ultima volta attivo"
+
+#: src/libneochat/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr ""
+"I nomi delle stanze più vicini alla lettera A in ordine alfabetico sono più "
+"alti"
+
+#: src/libneochat/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr ""
+"I nomi delle stanze più vicini alla lettera Z in ordine alfabetico sono più "
+"alti"
+
+#: src/libneochat/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "Le stanze con messaggi non letti sono più alte"
+
+#: src/libneochat/enums/roomsortparameter.h:86
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr "Le stanze con il maggior numero di messaggi non letti sono più alte"
+
+#: src/libneochat/enums/roomsortparameter.h:88
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr "Le stanze con messaggi evidenziati sono più alte"
+
+#: src/libneochat/enums/roomsortparameter.h:90
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr "Le stanze con i messaggi più evidenziati sono più in alto"
+
+#: src/libneochat/enums/roomsortparameter.h:92
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "Le stanze con i messaggi più recenti sono più in alto"
 
 #: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
@@ -1715,8 +1715,9 @@ msgid "Chat on Matrix"
 msgstr "Conversa su Matrix"
 
 #: src/main.cpp:150
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2024 La comunità KDE"
 
 #: src/main.cpp:151
@@ -1816,18 +1817,6 @@ msgstr "Solo per uso interno."
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Condividi un URL su Matrix"
-
-#: src/models/roomtreemodel.cpp:355
-#, kde-format
-msgctxt "@info:label"
-msgid "Invited you to chat"
-msgstr "Ti ha invitato in chat"
-
-#: src/models/roomtreemodel.cpp:357
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 invited you"
-msgstr "%1 ti ha invitato"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -2164,21 +2153,21 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Apri"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:113
-#: src/qml/ExploreComponent.qml:115 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
-#: src/qml/SpaceDrawer.qml:275
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Crea uno spazio"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:100
-#: src/qml/ExploreComponentMobile.qml:149
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Crea una stanza"
+
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:275
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Crea uno spazio"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
@@ -2247,9 +2236,9 @@ msgid "Pick room"
 msgstr "Scegli la stanza"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponentMobile.qml:54 src/qml/GlobalMenu.qml:64
-#: src/qml/QuickSwitcher.qml:39 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142 src/qml/SpaceDrawer.qml:296
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
+#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
+#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -2442,75 +2431,6 @@ msgstr "Corrispondono"
 msgid "They don't match"
 msgstr "Non corrispondono"
 
-#: src/qml/ExploreComponent.qml:34
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Stanze"
-
-#: src/qml/ExploreComponent.qml:46
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Cerca stanze"
-
-#: src/qml/ExploreComponent.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Mostra il menu"
-
-#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:63
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "Trova i tuoi amici"
-
-#: src/qml/ExploreComponent.qml:87 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
-#: src/qml/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Trova i tuoi amici"
-
-#: src/qml/ExploreComponent.qml:92 src/qml/ExploreComponentMobile.qml:143
-#, kde-format
-msgid "Create a Room"
-msgstr "Crea una stanza"
-
-#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "Crea uno spazio"
-
-#: src/qml/ExploreComponent.qml:121
-#, kde-format
-msgid "Scan a QR Code"
-msgstr "Scansione di un codice QR"
-
-#: src/qml/ExploreComponent.qml:126 src/qml/QrScannerPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "Scansione di un codice QR"
-
-#: src/qml/ExploreComponentMobile.qml:31
-#, kde-format
-msgid "Search"
-msgstr "Cerca"
-
-#: src/qml/ExploreComponentMobile.qml:47 src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Explore rooms"
-msgstr "Esplora le stanze"
-
-#: src/qml/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Crea nuovo"
-
 #: src/qml/ExplorerDelegate.qml:72
 #, kde-format
 msgctxt "@info:label A matrix space"
@@ -2617,6 +2537,21 @@ msgstr "File"
 #: src/qml/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
+msgid "Find your friends"
+msgstr "Trova i tuoi amici"
+
+#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "Trova i tuoi amici"
+
+#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
 msgid "Find your friends"
 msgstr "Trova i tuoi amici"
 
@@ -3135,7 +3070,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Aggiungi opzione"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
+#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3166,6 +3101,12 @@ msgstr "Imposta il livello di potere"
 #, kde-format
 msgid "Confirm"
 msgstr "Conferma"
+
+#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "Scansione di un codice QR"
 
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
@@ -3203,7 +3144,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nessuna stanza trovata"
 
-#: src/qml/QuickSwitcher.qml:32 src/qml/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3252,95 +3193,6 @@ msgid ""
 msgstr ""
 "Lo spazio attuale è il genitore ufficiale di questa stanza, dovrebbe essere "
 "cancellato?"
-
-#: src/qml/RoomContextMenu.qml:46
-#, kde-format
-msgid "Mark as Read"
-msgstr "Marca come letto"
-
-#: src/qml/RoomContextMenu.qml:57
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Notifiche"
-
-#: src/qml/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Segui le impostazioni globali"
-
-#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Tutto"
-
-#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@menzioni e parole chiave"
-
-#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Spento"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "Rimuovi dai preferiti"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Add to Favorites"
-msgstr "Aggiungi ai preferiti"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Reprioritize"
-msgstr "Modifica la priorità"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Deprioritize"
-msgstr "Riduci priorità"
-
-#: src/qml/RoomContextMenu.qml:126
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copia l'ID Matrix dell'utente negli appunti"
-
-#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Copia indirizzo negli appunti"
-
-#: src/qml/RoomContextMenu.qml:138
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Impostazioni della stanza"
-
-#: src/qml/RoomContextMenu.qml:150
-#, kde-format
-msgid "Leave Room"
-msgstr "Lascia la stanza"
-
-#: src/qml/RoomDelegate.qml:118
-#, kde-format
-msgid "Muted room"
-msgstr "Stanza silenziata"
-
-#: src/qml/RoomDelegate.qml:151
-#, kde-format
-msgid "Configure room"
-msgstr "Configura la stanza"
 
 #: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
 #, kde-format
@@ -3460,39 +3312,6 @@ msgstr[1] "%1 membri"
 msgid "No member count"
 msgstr "Nessun conteggio dei membri"
 
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No friends found"
-msgstr "Nessun amico trovato"
-
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No rooms found"
-msgstr "Nessuna stanza trovata"
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid ""
-"You haven't added any of your friends yet, click below to search for them."
-msgstr ""
-"Non hai ancora aggiunto nessuno dei tuoi amici, fai clic qui sotto per "
-"cercarli."
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "Entra in qualche stanza per iniziare"
-
-#: src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Search in room directory"
-msgstr "Cerca nella cartella delle stanze"
-
-#: src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Search in friend directory"
-msgstr "Cerca nella cartella degli amici"
-
 #: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
@@ -3545,18 +3364,6 @@ msgstr "Digita del testo per iniziare la ricerca"
 #, kde-format
 msgid "No messages found"
 msgstr "Nessun messaggio trovato"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr "Contrai %1"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "Espandi %1"
 
 #: src/qml/SearchPage.qml:147
 #, kde-format
@@ -3667,33 +3474,6 @@ msgstr "Condivisione non riuscita"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL condiviso per l'immagine è <a href='%1'>%1</a>"
 
-#: src/qml/SpaceDrawer.qml:58
-#, kde-format
-msgid "View notifications"
-msgstr "Visualizza le notifiche"
-
-#: src/qml/SpaceDrawer.qml:87
-#, kde-format
-msgid "Home"
-msgstr "Home"
-
-#: src/qml/SpaceDrawer.qml:133
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Amici"
-
-#: src/qml/SpaceDrawer.qml:221
-#, kde-format
-msgctxt "Join <name of a space>"
-msgid "Join %1"
-msgstr "Entra in %1"
-
-#: src/qml/SpaceDrawer.qml:263
-#, kde-format
-msgid "Create a space"
-msgstr "Crea uno spazio"
-
 #: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
@@ -3722,7 +3502,7 @@ msgid "Add new room"
 msgstr "Aggiungi una nuova stanza"
 
 #: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:92
+#: src/settings/RoomSortParameterDialog.qml:96
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -3746,7 +3526,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Invita utente allo spazio"
 
-#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3757,18 +3537,6 @@ msgstr "Impostazioni degli spazi"
 msgctxt "@title"
 msgid "Create a Child"
 msgstr "Crea un figlio"
-
-#: src/qml/SpaceListContextMenu.qml:45
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "Visualizza spazio"
-
-#: src/qml/SpaceListContextMenu.qml:73
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr "Abbandona spazio"
 
 #: src/qml/TimelineView.qml:191
 #, kde-format
@@ -4023,22 +3791,6 @@ msgstr "Invita in chat privata"
 msgid "Copy link"
 msgstr "Copia collegamento"
 
-#: src/qml/UserInfo.qml:50
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Manage Account"
-msgstr "Gestisci account"
-
-#: src/qml/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Cambia utente"
-
-#: src/qml/UserInfo.qml:116
-#, kde-format
-msgid "Open Settings"
-msgstr "Apri le impostazioni"
-
 #: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -4243,26 +3995,275 @@ msgstr ""
 "La verifica della sessione è stata annullata a causa di un errore "
 "sconosciuto."
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:211
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "ID Matrix non valido o vuoto<br />%1 non è un identificatore Matrix corretto"
 
-#: src/roommanager.cpp:401
+#: src/roommanager.cpp:417
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Accesso alla stanza non riuscito<br />%1"
 
-#: src/roommanager.cpp:425
+#: src/roommanager.cpp:441
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Hai chiesto di unirti a «%1»"
 
-#: src/roommanager.cpp:429
+#: src/roommanager.cpp:445
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Impossibile richiedere l'accesso alla stanza<br />%1"
+
+#: src/rooms/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Stanze"
+
+#: src/rooms/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Cerca stanze"
+
+#: src/rooms/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Mostra il menu"
+
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:143
+#, kde-format
+msgid "Create a Room"
+msgstr "Crea una stanza"
+
+#: src/rooms/ExploreComponent.qml:107 src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "Crea uno spazio"
+
+#: src/rooms/ExploreComponent.qml:121
+#, kde-format
+msgid "Scan a QR Code"
+msgstr "Scansione di un codice QR"
+
+#: src/rooms/ExploreComponentMobile.qml:31
+#, kde-format
+msgid "Search"
+msgstr "Cerca"
+
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Explore rooms"
+msgstr "Esplora le stanze"
+
+#: src/rooms/ExploreComponentMobile.qml:76
+#, kde-format
+msgid "Create New"
+msgstr "Crea nuovo"
+
+#: src/rooms/models/roomtreemodel.cpp:358
+#, kde-format
+msgctxt "@info:label"
+msgid "Invited you to chat"
+msgstr "Ti ha invitato in chat"
+
+#: src/rooms/models/roomtreemodel.cpp:360
+#, kde-format
+msgctxt "@info:label"
+msgid "%1 invited you"
+msgstr "%1 ti ha invitato"
+
+#: src/rooms/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Marca come letto"
+
+#: src/rooms/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: src/rooms/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "Segui le impostazioni globali"
+
+#: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Tutto"
+
+#: src/rooms/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@menzioni e parole chiave"
+
+#: src/rooms/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Spento"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "Rimuovi dai preferiti"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "Aggiungi ai preferiti"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "Modifica la priorità"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "Riduci priorità"
+
+#: src/rooms/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Copia l'ID Matrix dell'utente negli appunti"
+
+#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Copia indirizzo negli appunti"
+
+#: src/rooms/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Impostazioni della stanza"
+
+#: src/rooms/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Lascia la stanza"
+
+#: src/rooms/RoomDelegate.qml:118
+#, kde-format
+msgid "Muted room"
+msgstr "Stanza silenziata"
+
+#: src/rooms/RoomDelegate.qml:151
+#, kde-format
+msgid "Configure room"
+msgstr "Configura la stanza"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No friends found"
+msgstr "Nessun amico trovato"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No rooms found"
+msgstr "Nessuna stanza trovata"
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+"Non hai ancora aggiunto nessuno dei tuoi amici, fai clic qui sotto per "
+"cercarli."
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "Entra in qualche stanza per iniziare"
+
+#: src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Search in room directory"
+msgstr "Cerca nella cartella delle stanze"
+
+#: src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Search in friend directory"
+msgstr "Cerca nella cartella degli amici"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr "Contrai %1"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Espandi %1"
+
+#: src/rooms/SpaceDrawer.qml:58
+#, kde-format
+msgid "View notifications"
+msgstr "Visualizza le notifiche"
+
+#: src/rooms/SpaceDrawer.qml:87
+#, kde-format
+msgid "Home"
+msgstr "Home"
+
+#: src/rooms/SpaceDrawer.qml:133
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr "Amici"
+
+#: src/rooms/SpaceDrawer.qml:221
+#, kde-format
+msgctxt "Join <name of a space>"
+msgid "Join %1"
+msgstr "Entra in %1"
+
+#: src/rooms/SpaceDrawer.qml:263
+#, kde-format
+msgid "Create a space"
+msgstr "Crea uno spazio"
+
+#: src/rooms/SpaceListContextMenu.qml:45
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "Visualizza spazio"
+
+#: src/rooms/SpaceListContextMenu.qml:73
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr "Abbandona spazio"
+
+#: src/rooms/UserInfo.qml:50
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Manage Account"
+msgstr "Gestisci account"
+
+#: src/rooms/UserInfo.qml:108
+#, kde-format
+msgid "Switch User"
+msgstr "Cambia utente"
+
+#: src/rooms/UserInfo.qml:116
+#, kde-format
+msgid "Open Settings"
+msgstr "Apri le impostazioni"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5932,37 +5933,37 @@ msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "Ordinamento personalizzato delle stanze"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
 msgstr "prima:"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
 msgstr "poi:"
 
-#: src/settings/RoomSortParameterDialog.qml:72
+#: src/settings/RoomSortParameterDialog.qml:76
 #, kde-format
 msgctxt "@button"
 msgid "Up"
 msgstr "Su"
 
-#: src/settings/RoomSortParameterDialog.qml:82
+#: src/settings/RoomSortParameterDialog.qml:86
 #, kde-format
 msgctxt "@button"
 msgid "Down"
 msgstr "Giù"
 
-#: src/settings/RoomSortParameterDialog.qml:105
+#: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "Aggiungi parametro"
 
-#: src/settings/RoomSortParameterDialog.qml:118
+#: src/settings/RoomSortParameterDialog.qml:122
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"

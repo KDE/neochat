@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -97,7 +97,7 @@ msgstr "इमोजीज"
 msgid "Stickers"
 msgstr "स्टिकर"
 
-#: src/controller.cpp:158
+#: src/controller.cpp:181
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -105,7 +105,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नूतनसन्देशानां सूचनां प्राप्य"
 
-#: src/controller.cpp:303
+#: src/controller.cpp:326
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश सूचनाः प्राप्य"
@@ -316,90 +316,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "राज्य कीज"
 
-#: src/enums/roomsortparameter.h:52
-#, kde-format
-msgctxt "As in sorting alphabetically with A first and Z last"
-msgid "Alphabetical Ascending"
-msgstr "वर्णमाला आरोही"
-
-#: src/enums/roomsortparameter.h:54
-#, kde-format
-msgctxt "As in sorting alphabetically with Z first and A last"
-msgid "Alphabetical Descending"
-msgstr "वर्णमाला अवरोही"
-
-#: src/enums/roomsortparameter.h:56
-#, kde-format
-msgctxt "As in sorting rooms with unread message above those without"
-msgid "Has Unread Messages"
-msgstr "अपठितसन्देशाः सन्ति"
-
-#: src/enums/roomsortparameter.h:58
-#, kde-format
-msgctxt "As in sorting rooms with the most unread messages higher"
-msgid "Most Unread Messages"
-msgstr "अधिकांशः अपठितः सन्देशः"
-
-#: src/enums/roomsortparameter.h:60
-#, kde-format
-msgctxt "As in sorting rooms with highlighted message above those without"
-msgid "Has Highlighted Messages"
-msgstr "सन्देशान् प्रकाशितवान् अस्ति"
-
-#: src/enums/roomsortparameter.h:62
-#, kde-format
-msgctxt "As in sorting rooms with the most highlighted messages higher"
-msgid "Most Highlighted Messages"
-msgstr "अधिकांशतः प्रकाशितसन्देशाः"
-
-#: src/enums/roomsortparameter.h:64
-#, kde-format
-msgctxt "As in sorting the chat room with the newest meassage first"
-msgid "Last Active"
-msgstr "अन्तिमः सक्रियः"
-
-#: src/enums/roomsortparameter.h:79
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to A alphabetically are higher"
-msgstr "वर्णमालानुसारं A इत्यस्य समीपस्थानि कक्षनामानि उच्चतराणि सन्ति"
-
-#: src/enums/roomsortparameter.h:81
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to Z alphabetically are higher"
-msgstr "वर्णमालानुसारं Z इत्यस्य समीपस्थानि कक्षनामानि अधिकानि सन्ति"
-
-#: src/enums/roomsortparameter.h:83
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with unread messages are higher"
-msgstr "अपठितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
-
-#: src/enums/roomsortparameter.h:85
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most unread message are higher"
-msgstr "अत्यन्तं अपठितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
-
-#: src/enums/roomsortparameter.h:87
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with highlighted messages are higher"
-msgstr "प्रकाशितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
-
-#: src/enums/roomsortparameter.h:89
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most highlighted messages are higher"
-msgstr "सर्वाधिकं प्रकाशितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
-
-#: src/enums/roomsortparameter.h:91
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
-msgstr "नवीनतरसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
-
 #: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
@@ -490,6 +406,90 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/libneochat/enums/roomsortparameter.h:53
+#, kde-format
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "वर्णमाला आरोही"
+
+#: src/libneochat/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "वर्णमाला अवरोही"
+
+#: src/libneochat/enums/roomsortparameter.h:57
+#, kde-format
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "अपठितसन्देशाः सन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:59
+#, kde-format
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "अधिकांशः अपठितः सन्देशः"
+
+#: src/libneochat/enums/roomsortparameter.h:61
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr "सन्देशान् प्रकाशितवान् अस्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:63
+#, kde-format
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "अधिकांशतः प्रकाशितसन्देशाः"
+
+#: src/libneochat/enums/roomsortparameter.h:65
+#, kde-format
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "अन्तिमः सक्रियः"
+
+#: src/libneochat/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr "वर्णमालानुसारं A इत्यस्य समीपस्थानि कक्षनामानि उच्चतराणि सन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr "वर्णमालानुसारं Z इत्यस्य समीपस्थानि कक्षनामानि अधिकानि सन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "अपठितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:86
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr "अत्यन्तं अपठितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:88
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr "प्रकाशितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:90
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr "सर्वाधिकं प्रकाशितसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
+
+#: src/libneochat/enums/roomsortparameter.h:92
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "नवीनतरसन्देशयुक्ताः कक्ष्याः उच्चतराः भवन्ति"
 
 #: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
@@ -1706,8 +1706,9 @@ msgid "Chat on Matrix"
 msgstr "Matrix इत्यत्र गपशपं कुर्वन्तु"
 
 #: src/main.cpp:150
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 ब्लैक हैट, 2020-2024 केडीई समुदाय"
 
 #: src/main.cpp:151
@@ -1807,20 +1808,6 @@ msgstr "आन्तरिकप्रयोगमात्रम् ।"
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix कृते URL साझां कुर्वन्तु"
-
-#: src/models/roomtreemodel.cpp:355
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
-msgctxt "@info:label"
-msgid "Invited you to chat"
-msgstr "निजी गपशपं आमन्त्रयन्तु"
-
-#: src/models/roomtreemodel.cpp:357
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgctxt "@info:label"
-msgid "%1 invited you"
-msgstr "%1 भवन्तं कक्षे आमन्त्रितवान्"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -2156,21 +2143,21 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "उद्घाटित"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:113
-#: src/qml/ExploreComponent.qml:115 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
-#: src/qml/SpaceDrawer.qml:275
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "एकं Space रचयन्तु"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:100
-#: src/qml/ExploreComponentMobile.qml:149
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
+
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:275
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "एकं Space रचयन्तु"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
@@ -2239,9 +2226,9 @@ msgid "Pick room"
 msgstr "कक्षं चिनुत"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponentMobile.qml:54 src/qml/GlobalMenu.qml:64
-#: src/qml/QuickSwitcher.qml:39 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142 src/qml/SpaceDrawer.qml:296
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
+#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
+#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -2430,75 +2417,6 @@ msgstr "ते मेलनं कुर्वन्ति"
 msgid "They don't match"
 msgstr "ते न मेलन्ति"
 
-#: src/qml/ExploreComponent.qml:34
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "कक्ष्याः"
-
-#: src/qml/ExploreComponent.qml:46
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
-
-#: src/qml/ExploreComponent.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "मेनू दर्शयतु"
-
-#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:63
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
-
-#: src/qml/ExploreComponent.qml:87 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
-#: src/qml/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
-
-#: src/qml/ExploreComponent.qml:92 src/qml/ExploreComponentMobile.qml:143
-#, kde-format
-msgid "Create a Room"
-msgstr "एकं कक्षं रचयन्तु"
-
-#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "एकं Space रचयन्तु"
-
-#: src/qml/ExploreComponent.qml:121
-#, kde-format
-msgid "Scan a QR Code"
-msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
-
-#: src/qml/ExploreComponent.qml:126 src/qml/QrScannerPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
-
-#: src/qml/ExploreComponentMobile.qml:31
-#, kde-format
-msgid "Search"
-msgstr "अन्वेषण"
-
-#: src/qml/ExploreComponentMobile.qml:47 src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Explore rooms"
-msgstr "कक्ष्याः अन्वेषणं कुर्वन्तु"
-
-#: src/qml/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "New रचयतु"
-
 #: src/qml/ExplorerDelegate.qml:72
 #, kde-format
 msgctxt "@info:label A matrix space"
@@ -2605,6 +2523,21 @@ msgstr "सञ्चिका"
 #: src/qml/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
+msgid "Find your friends"
+msgstr "मित्राणि अन्वेष्यताम्"
+
+#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "मित्राणि अन्वेष्यताम्"
+
+#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
 msgid "Find your friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
@@ -3139,7 +3072,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "इमोजी योजयतु"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
+#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3170,6 +3103,12 @@ msgstr "नवीन शक्ति स्तर"
 #, kde-format
 msgid "Confirm"
 msgstr "दृढी करोतु"
+
+#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
 
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
@@ -3207,7 +3146,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
-#: src/qml/QuickSwitcher.qml:32 src/qml/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -3255,95 +3194,6 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "वर्तमानं स्थानं अस्य कक्षस्य आधिकारिकः मातापिता अस्ति, एतत् स्वच्छं कर्तव्यम् वा?"
-
-#: src/qml/RoomContextMenu.qml:46
-#, kde-format
-msgid "Mark as Read"
-msgstr "Read इति चिह्नं कुर्वन्तु"
-
-#: src/qml/RoomContextMenu.qml:57
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "अधिसूचना"
-
-#: src/qml/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "वैश्विकसेटिंग् अनुसरणं कुर्वन्तु"
-
-#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "सर्वे"
-
-#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@उल्लेख तथा कीवर्ड"
-
-#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "दूरे"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "प्रियतः निष्कासयन्तु"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Add to Favorites"
-msgstr "प्रियं योजयतु"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Reprioritize"
-msgstr "पुनः प्राधान्यं ददातु"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Deprioritize"
-msgstr "प्राथमिकता वंचित करें"
-
-#: src/qml/RoomContextMenu.qml:126
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "उपयोक्तुः Matrix ID Clipboard मध्ये प्रतिलिख्यताम्"
-
-#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Address इत्यस्य प्रतिलिपिं Clipboard इत्यत्र कुर्वन्तु"
-
-#: src/qml/RoomContextMenu.qml:138
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "कक्षस्य सेटिंग्स्"
-
-#: src/qml/RoomContextMenu.qml:150
-#, kde-format
-msgid "Leave Room"
-msgstr "कक्षं त्यजतु"
-
-#: src/qml/RoomDelegate.qml:118
-#, kde-format
-msgid "Muted room"
-msgstr "निःशब्दः कक्षः"
-
-#: src/qml/RoomDelegate.qml:151
-#, kde-format
-msgid "Configure room"
-msgstr "कक्षं विन्यस्यताम्"
 
 #: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
 #, kde-format
@@ -3465,37 +3315,6 @@ msgstr[1] "%1 सदस्याः"
 msgid "No member count"
 msgstr "सदस्यगणना नास्ति"
 
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No friends found"
-msgstr "न मित्राणि प्राप्तानि"
-
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No rooms found"
-msgstr "न कक्ष्याः प्राप्ताः"
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid ""
-"You haven't added any of your friends yet, click below to search for them."
-msgstr "भवता अद्यापि भवतः कश्चन मित्रः न योजितः, तान् अन्वेष्टुं अधः क्लिक् कुर्वन्तु।"
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "आरम्भार्थं केषुचित् कक्षेषु सम्मिलिताः भवन्तु"
-
-#: src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Search in room directory"
-msgstr "कक्षनिर्देशिकायां अन्वेषणं कुर्वन्तु"
-
-#: src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Search in friend directory"
-msgstr "मित्रनिर्देशिकायां अन्वेषणं कुर्वन्तु"
-
 #: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
@@ -3550,18 +3369,6 @@ msgstr "अन्वेषणं आरभ्य पाठं प्रविश
 #, kde-format
 msgid "No messages found"
 msgstr "न सन्देशाः प्राप्ताः"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr "पतनम् %1"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "%1 विस्तारयन्तु"
 
 #: src/qml/SearchPage.qml:147
 #, kde-format
@@ -3670,33 +3477,6 @@ msgstr "साझेदारी असफलम् अभवत्"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "चित्रस्य कृते साझाकृतं url <a href='%1'>%1</a> अस्ति"
 
-#: src/qml/SpaceDrawer.qml:58
-#, kde-format
-msgid "View notifications"
-msgstr "सूचनाः पश्यन्तु"
-
-#: src/qml/SpaceDrawer.qml:87
-#, kde-format
-msgid "Home"
-msgstr "गृहम्‌"
-
-#: src/qml/SpaceDrawer.qml:133
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "मित्राः"
-
-#: src/qml/SpaceDrawer.qml:221
-#, kde-format
-msgctxt "Join <name of a space>"
-msgid "Join %1"
-msgstr "%1 सह सम्मिलितं कुर्वन्तु"
-
-#: src/qml/SpaceDrawer.qml:263
-#, kde-format
-msgid "Create a space"
-msgstr "एकं रिक्तस्थानं रचयन्तु"
-
 #: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
@@ -3725,7 +3505,7 @@ msgid "Add new room"
 msgstr "नूतनं कक्षं योजयन्तु"
 
 #: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:92
+#: src/settings/RoomSortParameterDialog.qml:96
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -3749,7 +3529,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "उपयोक्तारं अन्तरिक्षं प्रति आमन्त्रयन्तु"
 
-#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3760,18 +3540,6 @@ msgstr "स्पेस सेटिंग्स्"
 msgctxt "@title"
 msgid "Create a Child"
 msgstr "बालकं सृजतु"
-
-#: src/qml/SpaceListContextMenu.qml:45
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "अन्तरिक्षं पश्यन्तु"
-
-#: src/qml/SpaceListContextMenu.qml:73
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr "अवकाशं त्यजतु"
 
 #: src/qml/TimelineView.qml:191
 #, kde-format
@@ -4026,23 +3794,6 @@ msgstr "निजी गपशपं आमन्त्रयन्तु"
 msgid "Copy link"
 msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन्तु"
 
-#: src/qml/UserInfo.qml:50
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
-msgctxt "@info:tooltip"
-msgid "Manage Account"
-msgstr "खातं निष्क्रियं कुर्वन्तु"
-
-#: src/qml/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "उपयोक्तारं स्विच कुर्वन्तु"
-
-#: src/qml/UserInfo.qml:116
-#, kde-format
-msgid "Open Settings"
-msgstr "सेटिंग्स् उद्घाटयन्तु"
-
 #: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -4215,25 +3966,275 @@ msgstr "दूरस्थपक्षः सत्रसत्यापनं �
 msgid "The session verification was canceled due to an unknown error."
 msgstr "अज्ञातदोषस्य कारणेन सत्रसत्यापनं रद्दं कृतम् ।"
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:211
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत अथवा रिक्त Matrix id<br /> %1 सम्यक् Matrix-परिचयः नास्ति"
 
-#: src/roommanager.cpp:401
+#: src/roommanager.cpp:417
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "कक्षं सम्मिलितुं असफलः अभवत्<br /> %1"
 
-#: src/roommanager.cpp:425
+#: src/roommanager.cpp:441
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "भवान् '%1' इत्यत्र सम्मिलितुं प्रार्थितवान्।"
 
-#: src/roommanager.cpp:429
+#: src/roommanager.cpp:445
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "सम्मिलितकक्षस्य अनुरोधं कर्तुं असफलः<br /> %1"
+
+#: src/rooms/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "कक्ष्याः"
+
+#: src/rooms/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
+
+#: src/rooms/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "मेनू दर्शयतु"
+
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:143
+#, kde-format
+msgid "Create a Room"
+msgstr "एकं कक्षं रचयन्तु"
+
+#: src/rooms/ExploreComponent.qml:107 src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "एकं Space रचयन्तु"
+
+#: src/rooms/ExploreComponent.qml:121
+#, kde-format
+msgid "Scan a QR Code"
+msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
+
+#: src/rooms/ExploreComponentMobile.qml:31
+#, kde-format
+msgid "Search"
+msgstr "अन्वेषण"
+
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Explore rooms"
+msgstr "कक्ष्याः अन्वेषणं कुर्वन्तु"
+
+#: src/rooms/ExploreComponentMobile.qml:76
+#, kde-format
+msgid "Create New"
+msgstr "New रचयतु"
+
+#: src/rooms/models/roomtreemodel.cpp:358
+#, fuzzy, kde-format
+#| msgid "Invite to private chat"
+msgctxt "@info:label"
+msgid "Invited you to chat"
+msgstr "निजी गपशपं आमन्त्रयन्तु"
+
+#: src/rooms/models/roomtreemodel.cpp:360
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgctxt "@info:label"
+msgid "%1 invited you"
+msgstr "%1 भवन्तं कक्षे आमन्त्रितवान्"
+
+#: src/rooms/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Read इति चिह्नं कुर्वन्तु"
+
+#: src/rooms/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "अधिसूचना"
+
+#: src/rooms/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "वैश्विकसेटिंग् अनुसरणं कुर्वन्तु"
+
+#: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "सर्वे"
+
+#: src/rooms/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@उल्लेख तथा कीवर्ड"
+
+#: src/rooms/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "दूरे"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "प्रियतः निष्कासयन्तु"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "प्रियं योजयतु"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "पुनः प्राधान्यं ददातु"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "प्राथमिकता वंचित करें"
+
+#: src/rooms/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "उपयोक्तुः Matrix ID Clipboard मध्ये प्रतिलिख्यताम्"
+
+#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Address इत्यस्य प्रतिलिपिं Clipboard इत्यत्र कुर्वन्तु"
+
+#: src/rooms/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "कक्षस्य सेटिंग्स्"
+
+#: src/rooms/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "कक्षं त्यजतु"
+
+#: src/rooms/RoomDelegate.qml:118
+#, kde-format
+msgid "Muted room"
+msgstr "निःशब्दः कक्षः"
+
+#: src/rooms/RoomDelegate.qml:151
+#, kde-format
+msgid "Configure room"
+msgstr "कक्षं विन्यस्यताम्"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No friends found"
+msgstr "न मित्राणि प्राप्तानि"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No rooms found"
+msgstr "न कक्ष्याः प्राप्ताः"
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr "भवता अद्यापि भवतः कश्चन मित्रः न योजितः, तान् अन्वेष्टुं अधः क्लिक् कुर्वन्तु।"
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "आरम्भार्थं केषुचित् कक्षेषु सम्मिलिताः भवन्तु"
+
+#: src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Search in room directory"
+msgstr "कक्षनिर्देशिकायां अन्वेषणं कुर्वन्तु"
+
+#: src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Search in friend directory"
+msgstr "मित्रनिर्देशिकायां अन्वेषणं कुर्वन्तु"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr "पतनम् %1"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "%1 विस्तारयन्तु"
+
+#: src/rooms/SpaceDrawer.qml:58
+#, kde-format
+msgid "View notifications"
+msgstr "सूचनाः पश्यन्तु"
+
+#: src/rooms/SpaceDrawer.qml:87
+#, kde-format
+msgid "Home"
+msgstr "गृहम्‌"
+
+#: src/rooms/SpaceDrawer.qml:133
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr "मित्राः"
+
+#: src/rooms/SpaceDrawer.qml:221
+#, kde-format
+msgctxt "Join <name of a space>"
+msgid "Join %1"
+msgstr "%1 सह सम्मिलितं कुर्वन्तु"
+
+#: src/rooms/SpaceDrawer.qml:263
+#, kde-format
+msgid "Create a space"
+msgstr "एकं रिक्तस्थानं रचयन्तु"
+
+#: src/rooms/SpaceListContextMenu.qml:45
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "अन्तरिक्षं पश्यन्तु"
+
+#: src/rooms/SpaceListContextMenu.qml:73
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr "अवकाशं त्यजतु"
+
+#: src/rooms/UserInfo.qml:50
+#, fuzzy, kde-format
+#| msgid "Deactivate Account"
+msgctxt "@info:tooltip"
+msgid "Manage Account"
+msgstr "खातं निष्क्रियं कुर्वन्तु"
+
+#: src/rooms/UserInfo.qml:108
+#, kde-format
+msgid "Switch User"
+msgstr "उपयोक्तारं स्विच कुर्वन्तु"
+
+#: src/rooms/UserInfo.qml:116
+#, kde-format
+msgid "Open Settings"
+msgstr "सेटिंग्स् उद्घाटयन्तु"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5881,37 +5882,37 @@ msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "स्वच्छन्दकक्ष्या-वर्गायोजनः"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
 msgstr "प्रथमः:"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
 msgstr "ततः:"
 
-#: src/settings/RoomSortParameterDialog.qml:72
+#: src/settings/RoomSortParameterDialog.qml:76
 #, kde-format
 msgctxt "@button"
 msgid "Up"
 msgstr "उपरि"
 
-#: src/settings/RoomSortParameterDialog.qml:82
+#: src/settings/RoomSortParameterDialog.qml:86
 #, kde-format
 msgctxt "@button"
 msgid "Down"
 msgstr "अधः"
 
-#: src/settings/RoomSortParameterDialog.qml:105
+#: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "परिमाणं जोडयतु।"
 
-#: src/settings/RoomSortParameterDialog.qml:118
+#: src/settings/RoomSortParameterDialog.qml:122
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"

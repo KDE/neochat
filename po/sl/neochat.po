@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:41+0000\n"
+"POT-Creation-Date: 2025-04-15 00:41+0000\n"
 "PO-Revision-Date: 2025-04-04 07:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -98,7 +98,7 @@ msgstr "Čustvenčki"
 msgid "Stickers"
 msgstr "Nalepke"
 
-#: src/controller.cpp:158
+#: src/controller.cpp:181
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -106,7 +106,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje obvestil za nova sporočila"
 
-#: src/controller.cpp:303
+#: src/controller.cpp:326
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -321,90 +321,6 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Ključi stanja"
 
-#: src/enums/roomsortparameter.h:52
-#, kde-format
-msgctxt "As in sorting alphabetically with A first and Z last"
-msgid "Alphabetical Ascending"
-msgstr "Abecedni naraščajoče"
-
-#: src/enums/roomsortparameter.h:54
-#, kde-format
-msgctxt "As in sorting alphabetically with Z first and A last"
-msgid "Alphabetical Descending"
-msgstr "Abecedni padajoče"
-
-#: src/enums/roomsortparameter.h:56
-#, kde-format
-msgctxt "As in sorting rooms with unread message above those without"
-msgid "Has Unread Messages"
-msgstr "Ima neprebrana sporočila"
-
-#: src/enums/roomsortparameter.h:58
-#, kde-format
-msgctxt "As in sorting rooms with the most unread messages higher"
-msgid "Most Unread Messages"
-msgstr "Največ neprebranih sporočil"
-
-#: src/enums/roomsortparameter.h:60
-#, kde-format
-msgctxt "As in sorting rooms with highlighted message above those without"
-msgid "Has Highlighted Messages"
-msgstr "Ima označena sporočila"
-
-#: src/enums/roomsortparameter.h:62
-#, kde-format
-msgctxt "As in sorting rooms with the most highlighted messages higher"
-msgid "Most Highlighted Messages"
-msgstr "Največ označenih sporočil"
-
-#: src/enums/roomsortparameter.h:64
-#, kde-format
-msgctxt "As in sorting the chat room with the newest meassage first"
-msgid "Last Active"
-msgstr "Zadnje dejavno"
-
-#: src/enums/roomsortparameter.h:79
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to A alphabetically are higher"
-msgstr "Imena sob abecedno bližje A so višje"
-
-#: src/enums/roomsortparameter.h:81
-#, kde-format
-msgctxt "@info"
-msgid "Room names closer to Z alphabetically are higher"
-msgstr "Imena sob abecedno bližje Z so višje"
-
-#: src/enums/roomsortparameter.h:83
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with unread messages are higher"
-msgstr "Sobe z neprebranimi sporočili so višje"
-
-#: src/enums/roomsortparameter.h:85
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most unread message are higher"
-msgstr "Sobe z največ neprebranimi sporočili so višje"
-
-#: src/enums/roomsortparameter.h:87
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with highlighted messages are higher"
-msgstr "Sobe z označenimi sporočili so višje"
-
-#: src/enums/roomsortparameter.h:89
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the most highlighted messages are higher"
-msgstr "Sobe z največ označenimi sporočili so višje"
-
-#: src/enums/roomsortparameter.h:91
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
-msgstr "Sobe z novejšimi sporočili so višje"
-
 #: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
@@ -496,6 +412,90 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/libneochat/enums/roomsortparameter.h:53
+#, kde-format
+msgctxt "As in sorting alphabetically with A first and Z last"
+msgid "Alphabetical Ascending"
+msgstr "Abecedni naraščajoče"
+
+#: src/libneochat/enums/roomsortparameter.h:55
+#, kde-format
+msgctxt "As in sorting alphabetically with Z first and A last"
+msgid "Alphabetical Descending"
+msgstr "Abecedni padajoče"
+
+#: src/libneochat/enums/roomsortparameter.h:57
+#, kde-format
+msgctxt "As in sorting rooms with unread message above those without"
+msgid "Has Unread Messages"
+msgstr "Ima neprebrana sporočila"
+
+#: src/libneochat/enums/roomsortparameter.h:59
+#, kde-format
+msgctxt "As in sorting rooms with the most unread messages higher"
+msgid "Most Unread Messages"
+msgstr "Največ neprebranih sporočil"
+
+#: src/libneochat/enums/roomsortparameter.h:61
+#, kde-format
+msgctxt "As in sorting rooms with highlighted message above those without"
+msgid "Has Highlighted Messages"
+msgstr "Ima označena sporočila"
+
+#: src/libneochat/enums/roomsortparameter.h:63
+#, kde-format
+msgctxt "As in sorting rooms with the most highlighted messages higher"
+msgid "Most Highlighted Messages"
+msgstr "Največ označenih sporočil"
+
+#: src/libneochat/enums/roomsortparameter.h:65
+#, kde-format
+msgctxt "As in sorting the chat room with the newest meassage first"
+msgid "Last Active"
+msgstr "Zadnje dejavno"
+
+#: src/libneochat/enums/roomsortparameter.h:80
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to A alphabetically are higher"
+msgstr "Imena sob abecedno bližje A so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:82
+#, kde-format
+msgctxt "@info"
+msgid "Room names closer to Z alphabetically are higher"
+msgstr "Imena sob abecedno bližje Z so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:84
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread messages are higher"
+msgstr "Sobe z neprebranimi sporočili so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:86
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most unread message are higher"
+msgstr "Sobe z največ neprebranimi sporočili so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:88
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with highlighted messages are higher"
+msgstr "Sobe z označenimi sporočili so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:90
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the most highlighted messages are higher"
+msgstr "Sobe z največ označenimi sporočili so višje"
+
+#: src/libneochat/enums/roomsortparameter.h:92
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with the newer messages are higher"
+msgstr "Sobe z novejšimi sporočili so višje"
 
 #: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:496
 #, kde-format
@@ -1712,8 +1712,9 @@ msgid "Chat on Matrix"
 msgstr "Klepet na Matrixu"
 
 #: src/main.cpp:150
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018–2020 Black Hat, 2020–2024 skupnost KDE"
 
 #: src/main.cpp:151
@@ -1813,18 +1814,6 @@ msgstr "Samo za interno rabo."
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Deli URL z Matrixom"
-
-#: src/models/roomtreemodel.cpp:355
-#, kde-format
-msgctxt "@info:label"
-msgid "Invited you to chat"
-msgstr "Vas je povabil na klepet"
-
-#: src/models/roomtreemodel.cpp:357
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 invited you"
-msgstr "%1 vas je povabil"
 
 #: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
 #, kde-format
@@ -2159,21 +2148,21 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Odpri"
 
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:113
-#: src/qml/ExploreComponent.qml:115 src/qml/ExploreComponentMobile.qml:165
-#: src/qml/ExploreComponentMobile.qml:167 src/qml/SpaceDrawer.qml:273
-#: src/qml/SpaceDrawer.qml:275
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Ustvari prostor"
-
-#: src/qml/CreateRoomDialog.qml:30 src/qml/ExploreComponent.qml:100
-#: src/qml/ExploreComponentMobile.qml:149
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Ustvari sobo"
+
+#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:275
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Ustvari prostor"
 
 #: src/qml/CreateRoomDialog.qml:35
 #, kde-format
@@ -2242,9 +2231,9 @@ msgid "Pick room"
 msgstr "Poberite sobo"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/ExploreComponentMobile.qml:54 src/qml/GlobalMenu.qml:64
-#: src/qml/QuickSwitcher.qml:39 src/qml/RoomListPage.qml:210
-#: src/qml/SelectParentDialog.qml:142 src/qml/SpaceDrawer.qml:296
+#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
+#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
+#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
@@ -2433,75 +2422,6 @@ msgstr "Se ujemajo"
 msgid "They don't match"
 msgstr "Se ne ujemajo"
 
-#: src/qml/ExploreComponent.qml:34
-#, kde-format
-msgctxt "@title"
-msgid "Rooms"
-msgstr "Sobe"
-
-#: src/qml/ExploreComponent.qml:46
-#, kde-format
-msgctxt "@action"
-msgid "Search Rooms"
-msgstr "Išči sobe"
-
-#: src/qml/ExploreComponent.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Prikaži meni"
-
-#: src/qml/ExploreComponent.qml:82 src/qml/ExploreComponentMobile.qml:63
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/qml/RoomListPage.qml:172 src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
-
-#: src/qml/ExploreComponent.qml:87 src/qml/ExploreComponentMobile.qml:70
-#: src/qml/GlobalMenu.qml:46 src/qml/RoomListPage.qml:180
-#: src/qml/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
-
-#: src/qml/ExploreComponent.qml:92 src/qml/ExploreComponentMobile.qml:143
-#, kde-format
-msgid "Create a Room"
-msgstr "Ustvari sobo"
-
-#: src/qml/ExploreComponent.qml:107 src/qml/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "Ustvari prostor"
-
-#: src/qml/ExploreComponent.qml:121
-#, kde-format
-msgid "Scan a QR Code"
-msgstr "Skeniraj kodo QR"
-
-#: src/qml/ExploreComponent.qml:126 src/qml/QrScannerPage.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "Skeniraj kodo QR"
-
-#: src/qml/ExploreComponentMobile.qml:31
-#, kde-format
-msgid "Search"
-msgstr "Išči"
-
-#: src/qml/ExploreComponentMobile.qml:47 src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Explore rooms"
-msgstr "Razišči sobe"
-
-#: src/qml/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Ustvari nov"
-
 #: src/qml/ExplorerDelegate.qml:72
 #, kde-format
 msgctxt "@info:label A matrix space"
@@ -2608,6 +2528,21 @@ msgstr "Datoteka"
 msgctxt "menu"
 msgid "Find your friends"
 msgstr "Najdi vaše prijatelje"
+
+#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
+
+#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
 
 #: src/qml/GlobalMenu.qml:50
 #, kde-format
@@ -3123,7 +3058,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Dodaj možnost"
 
-#: src/qml/NotificationsView.qml:19 src/qml/SpaceDrawer.qml:68
+#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -3154,6 +3089,12 @@ msgstr "Nova raven moči"
 #, kde-format
 msgid "Confirm"
 msgstr "Potrdi"
+
+#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "Skeniraj kodo QR"
 
 #: src/qml/QuickFormatBar.qml:23
 #, kde-format
@@ -3191,7 +3132,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/QuickSwitcher.qml:32 src/qml/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3238,95 +3179,6 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
-
-#: src/qml/RoomContextMenu.qml:46
-#, kde-format
-msgid "Mark as Read"
-msgstr "Označi kot prebrano"
-
-#: src/qml/RoomContextMenu.qml:57
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Notifications"
-msgstr "Obvestila"
-
-#: src/qml/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Sledi globalni nastavitvi"
-
-#: src/qml/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Vse"
-
-#: src/qml/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@Omembe in ključne besede"
-
-#: src/qml/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Izklopljeno"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Remove from Favorites"
-msgstr "Odstrani iz priljubljenih"
-
-#: src/qml/RoomContextMenu.qml:110
-#, kde-format
-msgid "Add to Favorites"
-msgstr "Dodaj med priljubljene"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Reprioritize"
-msgstr "Ponovno določi prednost"
-
-#: src/qml/RoomContextMenu.qml:116
-#, kde-format
-msgid "Deprioritize"
-msgstr "Odtegni prednost"
-
-#: src/qml/RoomContextMenu.qml:126
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Kopiraj uporabnikovo Matrixovo določilo na odložišče"
-
-#: src/qml/RoomContextMenu.qml:126 src/qml/SpaceListContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Kopiraj naslov na odložišče"
-
-#: src/qml/RoomContextMenu.qml:138
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Room Settings"
-msgstr "Nastavitve sobe"
-
-#: src/qml/RoomContextMenu.qml:150
-#, kde-format
-msgid "Leave Room"
-msgstr "Zapusti sobo"
-
-#: src/qml/RoomDelegate.qml:118
-#, kde-format
-msgid "Muted room"
-msgstr "Utišana soba"
-
-#: src/qml/RoomDelegate.qml:151
-#, kde-format
-msgid "Configure room"
-msgstr "Nastavi sobo"
 
 #: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
 #, kde-format
@@ -3448,39 +3300,6 @@ msgstr[3] "%1 člani"
 msgid "No member count"
 msgstr "Ni števila članov"
 
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No friends found"
-msgstr "Ni najti nobenega prijatelja"
-
-#: src/qml/RoomListPage.qml:195
-#, kde-format
-msgid "No rooms found"
-msgstr "Nobene sobe ni mogoče najti"
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid ""
-"You haven't added any of your friends yet, click below to search for them."
-msgstr ""
-"Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
-"poiščete."
-
-#: src/qml/RoomListPage.qml:197
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "Pridruži se nekaj sobam za začetek"
-
-#: src/qml/RoomListPage.qml:204
-#, kde-format
-msgid "Search in room directory"
-msgstr "Poišči v imeniku sob"
-
-#: src/qml/RoomListPage.qml:221
-#, kde-format
-msgid "Search in friend directory"
-msgstr "Poišči v imeniku prijateljev"
-
 #: src/qml/RoomMedia.qml:29
 #, kde-format
 msgctxt "@action:title"
@@ -3533,18 +3352,6 @@ msgstr "Vnesite besedilo za začetek iskanja"
 #, kde-format
 msgid "No messages found"
 msgstr "Ni najdenih sporočil"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Collapse <section name>"
-msgid "Collapse %1"
-msgstr "Strni %1"
-
-#: src/qml/RoomTreeSection.qml:71
-#, kde-format
-msgctxt "Expand <section name"
-msgid "Expand %1"
-msgstr "Razširi %1"
 
 #: src/qml/SearchPage.qml:147
 #, kde-format
@@ -3655,33 +3462,6 @@ msgstr "Deljenje ni uspelo"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
 
-#: src/qml/SpaceDrawer.qml:58
-#, kde-format
-msgid "View notifications"
-msgstr "Prikaži obvestila"
-
-#: src/qml/SpaceDrawer.qml:87
-#, kde-format
-msgid "Home"
-msgstr "Domov"
-
-#: src/qml/SpaceDrawer.qml:133
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Prijatelji"
-
-#: src/qml/SpaceDrawer.qml:221
-#, kde-format
-msgctxt "Join <name of a space>"
-msgid "Join %1"
-msgstr "Pridruži se %1"
-
-#: src/qml/SpaceDrawer.qml:263
-#, kde-format
-msgid "Create a space"
-msgstr "Ustvari prostor"
-
 #: src/qml/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Suggested"
@@ -3714,7 +3494,7 @@ msgid "Add new room"
 msgstr "Dodaj novo sobo"
 
 #: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:92
+#: src/settings/RoomSortParameterDialog.qml:96
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -3738,7 +3518,7 @@ msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Povabite uporabnika v prostor"
 
-#: src/qml/SpaceHomePage.qml:77 src/qml/SpaceListContextMenu.qml:61
+#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -3749,18 +3529,6 @@ msgstr "Nastavitve prostora"
 msgctxt "@title"
 msgid "Create a Child"
 msgstr "Ustvari odvisnega"
-
-#: src/qml/SpaceListContextMenu.qml:45
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "Prikaži prostor"
-
-#: src/qml/SpaceListContextMenu.qml:73
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr "Zapusti prostor"
 
 #: src/qml/TimelineView.qml:191
 #, kde-format
@@ -4018,22 +3786,6 @@ msgstr "Povabi na zasebni klepet"
 msgid "Copy link"
 msgstr "Kopiraj povezavo"
 
-#: src/qml/UserInfo.qml:50
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Manage Account"
-msgstr "Upravljaj račun"
-
-#: src/qml/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Preklopi uporabnika"
-
-#: src/qml/UserInfo.qml:116
-#, kde-format
-msgid "Open Settings"
-msgstr "Odpri nastavitve"
-
 #: src/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -4226,27 +3978,276 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:211
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
 "Matrix"
 
-#: src/roommanager.cpp:401
+#: src/roommanager.cpp:417
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Neuspela pridružitev v sobo<br />%1"
 
-#: src/roommanager.cpp:425
+#: src/roommanager.cpp:441
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev v »%1«"
 
-#: src/roommanager.cpp:429
+#: src/roommanager.cpp:445
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
+
+#: src/rooms/ExploreComponent.qml:34
+#, kde-format
+msgctxt "@title"
+msgid "Rooms"
+msgstr "Sobe"
+
+#: src/rooms/ExploreComponent.qml:46
+#, kde-format
+msgctxt "@action"
+msgid "Search Rooms"
+msgstr "Išči sobe"
+
+#: src/rooms/ExploreComponent.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Menu"
+msgstr "Prikaži meni"
+
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:143
+#, kde-format
+msgid "Create a Room"
+msgstr "Ustvari sobo"
+
+#: src/rooms/ExploreComponent.qml:107 src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "Ustvari prostor"
+
+#: src/rooms/ExploreComponent.qml:121
+#, kde-format
+msgid "Scan a QR Code"
+msgstr "Skeniraj kodo QR"
+
+#: src/rooms/ExploreComponentMobile.qml:31
+#, kde-format
+msgid "Search"
+msgstr "Išči"
+
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Explore rooms"
+msgstr "Razišči sobe"
+
+#: src/rooms/ExploreComponentMobile.qml:76
+#, kde-format
+msgid "Create New"
+msgstr "Ustvari nov"
+
+#: src/rooms/models/roomtreemodel.cpp:358
+#, kde-format
+msgctxt "@info:label"
+msgid "Invited you to chat"
+msgstr "Vas je povabil na klepet"
+
+#: src/rooms/models/roomtreemodel.cpp:360
+#, kde-format
+msgctxt "@info:label"
+msgid "%1 invited you"
+msgstr "%1 vas je povabil"
+
+#: src/rooms/RoomContextMenu.qml:46
+#, kde-format
+msgid "Mark as Read"
+msgstr "Označi kot prebrano"
+
+#: src/rooms/RoomContextMenu.qml:57
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Notifications"
+msgstr "Obvestila"
+
+#: src/rooms/RoomContextMenu.qml:61
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "Sledi globalni nastavitvi"
+
+#: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Vse"
+
+#: src/rooms/RoomContextMenu.qml:85 src/settings/PushNotification.qml:47
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@Omembe in ključne besede"
+
+#: src/rooms/RoomContextMenu.qml:97 src/settings/PushNotification.qml:55
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Izklopljeno"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Remove from Favorites"
+msgstr "Odstrani iz priljubljenih"
+
+#: src/rooms/RoomContextMenu.qml:110
+#, kde-format
+msgid "Add to Favorites"
+msgstr "Dodaj med priljubljene"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Reprioritize"
+msgstr "Ponovno določi prednost"
+
+#: src/rooms/RoomContextMenu.qml:116
+#, kde-format
+msgid "Deprioritize"
+msgstr "Odtegni prednost"
+
+#: src/rooms/RoomContextMenu.qml:126
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Kopiraj uporabnikovo Matrixovo določilo na odložišče"
+
+#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Kopiraj naslov na odložišče"
+
+#: src/rooms/RoomContextMenu.qml:138
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Room Settings"
+msgstr "Nastavitve sobe"
+
+#: src/rooms/RoomContextMenu.qml:150
+#, kde-format
+msgid "Leave Room"
+msgstr "Zapusti sobo"
+
+#: src/rooms/RoomDelegate.qml:118
+#, kde-format
+msgid "Muted room"
+msgstr "Utišana soba"
+
+#: src/rooms/RoomDelegate.qml:151
+#, kde-format
+msgid "Configure room"
+msgstr "Nastavi sobo"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No friends found"
+msgstr "Ni najti nobenega prijatelja"
+
+#: src/rooms/RoomListPage.qml:195
+#, kde-format
+msgid "No rooms found"
+msgstr "Nobene sobe ni mogoče najti"
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid ""
+"You haven't added any of your friends yet, click below to search for them."
+msgstr ""
+"Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
+"poiščete."
+
+#: src/rooms/RoomListPage.qml:197
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "Pridruži se nekaj sobam za začetek"
+
+#: src/rooms/RoomListPage.qml:204
+#, kde-format
+msgid "Search in room directory"
+msgstr "Poišči v imeniku sob"
+
+#: src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Search in friend directory"
+msgstr "Poišči v imeniku prijateljev"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr "Strni %1"
+
+#: src/rooms/RoomTreeSection.qml:71
+#, kde-format
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Razširi %1"
+
+#: src/rooms/SpaceDrawer.qml:58
+#, kde-format
+msgid "View notifications"
+msgstr "Prikaži obvestila"
+
+#: src/rooms/SpaceDrawer.qml:87
+#, kde-format
+msgid "Home"
+msgstr "Domov"
+
+#: src/rooms/SpaceDrawer.qml:133
+#, kde-format
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends"
+msgstr "Prijatelji"
+
+#: src/rooms/SpaceDrawer.qml:221
+#, kde-format
+msgctxt "Join <name of a space>"
+msgid "Join %1"
+msgstr "Pridruži se %1"
+
+#: src/rooms/SpaceDrawer.qml:263
+#, kde-format
+msgid "Create a space"
+msgstr "Ustvari prostor"
+
+#: src/rooms/SpaceListContextMenu.qml:45
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "Prikaži prostor"
+
+#: src/rooms/SpaceListContextMenu.qml:73
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr "Zapusti prostor"
+
+#: src/rooms/UserInfo.qml:50
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Manage Account"
+msgstr "Upravljaj račun"
+
+#: src/rooms/UserInfo.qml:108
+#, kde-format
+msgid "Switch User"
+msgstr "Preklopi uporabnika"
+
+#: src/rooms/UserInfo.qml:116
+#, kde-format
+msgid "Open Settings"
+msgstr "Odpri nastavitve"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5896,37 +5897,37 @@ msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "Vrstni red seznama sob po meri"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
 msgstr "prva:"
 
-#: src/settings/RoomSortParameterDialog.qml:56
+#: src/settings/RoomSortParameterDialog.qml:60
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
 msgstr "potem:"
 
-#: src/settings/RoomSortParameterDialog.qml:72
+#: src/settings/RoomSortParameterDialog.qml:76
 #, kde-format
 msgctxt "@button"
 msgid "Up"
 msgstr "Gor"
 
-#: src/settings/RoomSortParameterDialog.qml:82
+#: src/settings/RoomSortParameterDialog.qml:86
 #, kde-format
 msgctxt "@button"
 msgid "Down"
 msgstr "Dol"
 
-#: src/settings/RoomSortParameterDialog.qml:105
+#: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "Dodaj parameter"
 
-#: src/settings/RoomSortParameterDialog.qml:118
+#: src/settings/RoomSortParameterDialog.qml:122
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
