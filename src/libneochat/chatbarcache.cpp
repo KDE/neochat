@@ -194,6 +194,11 @@ void ChatBarCache::setAttachmentPath(const QString &attachmentPath)
     m_relationType = None;
     const auto oldEventId = std::exchange(m_relationId, QString());
     Q_EMIT relationIdChanged(oldEventId, m_relationId);
+#else
+    if (m_relationType == Edit) {
+        const auto oldEventId = std::exchange(m_relationId, QString());
+        Q_EMIT relationIdChanged(oldEventId, m_relationId);
+    }
 #endif
 }
 
