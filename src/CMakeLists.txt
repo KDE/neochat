@@ -12,6 +12,7 @@ add_subdirectory(login)
 add_subdirectory(rooms)
 add_subdirectory(timeline)
 add_subdirectory(spaces)
+add_subdirectory(settings)
 add_subdirectory(devtools)
 
 add_library(neochat STATIC
@@ -50,8 +51,6 @@ add_library(neochat STATIC
     foreigntypes.h
     identityserverhelper.cpp
     identityserverhelper.h
-    models/roomsortparametermodel.cpp
-    models/roomsortparametermodel.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
 )
@@ -93,15 +92,12 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
-        qml/PowerLevelDialog.qml
         qml/VerificationMessage.qml
         qml/EmojiItem.qml
         qml/EmojiRow.qml
         qml/EmojiSas.qml
-        qml/ConfirmDeactivateAccountDialog.qml
         qml/VerificationCanceled.qml
         qml/MessageSourceSheet.qml
-        qml/ConfirmEncryptionDialog.qml
         qml/RoomSearchPage.qml
         qml/RoomPinnedMessagesPage.qml
         qml/LocationChooser.qml
@@ -120,9 +116,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/RoomMedia.qml
         qml/ChooseRoomDialog.qml
         qml/RemoveChildDialog.qml
-        qml/SelectParentDialog.qml
         qml/QrCodeMaximizeComponent.qml
-        qml/SelectSpacesDialog.qml
         qml/NotificationsView.qml
         qml/SearchPage.qml
         qml/ServerComboBox.qml
@@ -158,7 +152,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.neochat.chatbar
 )
 
-add_subdirectory(settings)
 add_subdirectory(chatbar)
 
 if(NOT ANDROID AND NOT WIN32)

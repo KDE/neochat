@@ -31,6 +31,8 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         RoomGeneralPage.qml
         RoomSecurityPage.qml
         ColorScheme.qml
+        ConfirmDeactivateAccountDialog.qml
+        ConfirmEncryptionDialog.qml
         DevicesCard.qml
         DeviceDelegate.qml
         EmoticonFormCard.qml
@@ -38,6 +40,9 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         IgnoredUsersDialog.qml
         NotificationRuleItem.qml
         PasswordSheet.qml
+        PowerLevelDialog.qml
+        SelectParentDialog.qml
+        SelectSpacesDialog.qml
         ThemeRadioButton.qml
         ThreePIdCard.qml
         ImportKeysDialog.qml
@@ -54,6 +59,7 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         models/emoticonfiltermodel.cpp
         models/permissionsmodel.cpp
         models/pushrulemodel.cpp
+        models/roomsortparametermodel.cpp
         models/threepidmodel.cpp
 )
 
