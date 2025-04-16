@@ -6,6 +6,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.timeline
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/timeline
     QML_FILES
+        TimelineView.qml
         EventDelegate.qml
         HiddenDelegate.qml
         MessageDelegate.qml
@@ -54,6 +55,9 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         TextComponent.qml
         ThreadBodyComponent.qml
         VideoComponent.qml
+        DelegateContextMenu.qml
+        FileDelegateContextMenu.qml
+        MessageDelegateContextMenu.qml
     SOURCES
         contentprovider.cpp
         locationhelper.cpp

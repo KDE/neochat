@@ -100,14 +100,11 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/EmojiSas.qml
         qml/ConfirmDeactivateAccountDialog.qml
         qml/VerificationCanceled.qml
-        qml/MessageDelegateContextMenu.qml
-        qml/FileDelegateContextMenu.qml
         qml/MessageSourceSheet.qml
         qml/ConfirmEncryptionDialog.qml
         qml/RoomSearchPage.qml
         qml/RoomPinnedMessagesPage.qml
         qml/LocationChooser.qml
-        qml/TimelineView.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
         qml/OsmLocationPlugin.qml
@@ -132,7 +129,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
         qml/RecommendedSpaceDialog.qml
-        qml/DelegateContextMenu.qml
         qml/ShareDialog.qml
         qml/UnlockSSSSDialog.qml
         qml/QrScannerPage.qml
