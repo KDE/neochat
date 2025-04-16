@@ -87,6 +87,6 @@ static const QRegularExpression url(uR"(\b((www\.(?!\.)(?!(\w|\.|-)+@)|https?:(/
                                     QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 static const QRegularExpression emailAddress(uR"(<a.*?<\/a>(*SKIP)(*F)|\b(mailto:)?((\w|\.|-)+@(\w|\.|-)+\.\w+\b))"_s,
                                              QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
-static const QRegularExpression mxId(uR"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s,
+static const QRegularExpression mxId(uR"((?<=^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\w+(?::\d{1,5})?))"_s,
                                      QRegularExpression::CaseInsensitiveOption | QRegularExpression::UseUnicodePropertiesOption);
 }
