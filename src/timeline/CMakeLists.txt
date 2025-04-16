@@ -81,6 +81,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         models/timelinemessagemodel.cpp
         models/timelinemodel.cpp
         models/threadmodel.cpp
+        models/webshortcutmodel.cpp
     RESOURCES
         images/bike.svg
         images/bus.svg

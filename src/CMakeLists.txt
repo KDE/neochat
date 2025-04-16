@@ -26,8 +26,6 @@ add_library(neochat STATIC
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
     notificationsmanager.h
-    models/webshortcutmodel.cpp
-    models/webshortcutmodel.h
     blurhash.cpp
     blurhash.h
     blurhashimageprovider.cpp
