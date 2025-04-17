@@ -125,12 +125,20 @@ QQC2.Control {
                 AvatarTabButton {
                     id: directChatButton
 
+                    readonly property bool hasCountableNotifications: root.connection.directChatNotifications > 0 || root.connection.directChatInvites > 0
+
                     Layout.fillWidth: true
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                    text: i18nc("@button View all one-on-one chats with your friends.", "Friends")
+                    text: {
+                        if (directChatButton.hasCountableNotifications) {
+                            return i18ncp("@button View all one-on-one chats with your friends.", "Friends (%1 notification)", "Friends (%1 notifications)", root.connection.directChatNotifications + root.connection.directChatInvites);
+                        }
+
+                        return i18nc("@button View all one-on-one chats with your friends.", "Friends");
+                    }
                     contentItem: Kirigami.Icon {
                         source: "system-users-symbolic"
 
@@ -144,8 +152,8 @@ QQC2.Control {
                             width: Math.max(directChatNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
                             height: Kirigami.Units.iconSizes.smallMedium
 
-                            text: root.connection.directChatNotifications > 0 ? root.connection.directChatNotifications : ""
-                            visible: (root.connection.directChatNotifications > 0 || root.connection.directChatInvites) && RoomManager.currentSpace !== "DM"
+                            text: visible ? root.connection.directChatNotifications + root.connection.directChatInvites : ""
+                            visible: directChatButton.hasCountableNotifications && RoomManager.currentSpace !== "DM"
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
@@ -159,13 +167,6 @@ QQC2.Control {
                             TextMetrics {
                                 id: directChatNotificationCountTextMetrics
                                 text: directChatNotificationCountLabel.text
-                            }
-
-                            Kirigami.Icon {
-                                anchors.fill: parent
-
-                                source: "list-add-symbolic"
-                                visible: root.connection.directChatInvites && root.connection.directChatNotifications === 0
                             }
                         }
                     }
