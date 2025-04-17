@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:41+0000\n"
 "PO-Revision-Date: 2025-03-06 18:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1827,8 +1827,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Atvērt „NeoChat“ šajā istabā"
 
-#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
-#: src/qml/HoverActions.qml:123
+#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
 #, kde-format
 msgid "Reply"
 msgstr "Atbildēt"
@@ -1995,7 +1995,8 @@ msgid "Attachment:"
 msgstr "Pielikums:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
+#: src/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Rediģēt"
@@ -2237,7 +2238,7 @@ msgid "Explore Rooms"
 msgstr "Izpētīt istabas"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
+#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Pievienojās"
@@ -2270,80 +2271,6 @@ msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Labi"
-
-#: src/qml/DelegateContextMenu.qml:71
-#, kde-format
-msgid "View Source"
-msgstr "Skatīt avotu"
-
-#: src/qml/DelegateContextMenu.qml:78
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove…"
-msgstr "Noņemt…"
-
-#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
-#: src/qml/FileDelegateContextMenu.qml:79
-#: src/qml/FileDelegateContextMenu.qml:84
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Message"
-msgstr "Noņemt ziņu"
-
-#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
-msgstr "Iemesls šīs ziņas noņemšanai"
-
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Noņemt"
-
-#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Ziņot"
-
-#: src/qml/DelegateContextMenu.qml:113
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Report Message"
-msgstr "Ziņot par ziņu"
-
-#: src/qml/DelegateContextMenu.qml:114
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
-msgstr "Iemesls ziņošanai par šo ziņu"
-
-#: src/qml/DelegateContextMenu.qml:118
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Ziņot par ziņu"
-
-#: src/qml/DelegateContextMenu.qml:128
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Rādīt lietotāju"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-msgid "Unpin"
-msgstr "Atspraust"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
-msgid "Pin"
-msgstr "Piespraust"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2461,29 +2388,6 @@ msgstr "Atrast istabu..."
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nav atrastas publiskas istabas"
-
-#: src/qml/FileDelegateContextMenu.qml:43
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Image"
-msgstr "Atvērt attēlu"
-
-#: src/qml/FileDelegateContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save Image…"
-msgstr "Saglabāt attēlu…"
-
-#: src/qml/FileDelegateContextMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Image"
-msgstr "Kopēt attēlu"
-
-#: src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgid "Remove…"
-msgstr "Noņemt…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2936,58 +2840,6 @@ msgstr "Lietotāja ID ir jāsākas ar @"
 msgid "The input is not a valid user ID"
 msgstr "Ievadītais nav derīgs lietotāja ID"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
-#, kde-format
-msgctxt "@action:inmenu As in 'Forward this message'"
-msgid "Forward…"
-msgstr "Pārsūtīt…"
-
-#: src/qml/MessageDelegateContextMenu.qml:60
-#, kde-format
-msgctxt "@title"
-msgid "Forward Message"
-msgstr "Pārsūtīt ziņu"
-
-#: src/qml/MessageDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Link Address"
-msgstr "Kopēt saites adresi"
-
-#: src/qml/MessageDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Text"
-msgstr "Kopēt tekstu"
-
-#: src/qml/MessageDelegateContextMenu.qml:85
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Message Link"
-msgstr "Kopēt ziņojuma saiti"
-
-#: src/qml/MessageDelegateContextMenu.qml:92
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Read Text Aloud"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:95
-#, kde-format
-msgctxt "@info text-to-speech %1 is author %2 is message text"
-msgid "%1 said %2"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:120
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Meklēt „%1“"
-
-#: src/qml/MessageDelegateContextMenu.qml:140
-#, kde-format
-msgid "Configure Web Shortcuts…"
-msgstr "Konfigurēt tīmekļa saīsnes…"
-
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
 msgctxt "@action As in 'edit the state of this room'"
@@ -3273,7 +3125,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Piespraustās ziņas"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
+#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3290,7 +3142,7 @@ msgstr "Pamest šo istabu"
 msgid "Members"
 msgstr "Dalībnieki"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3475,101 +3327,6 @@ msgstr "Kopīgošana neizdevās"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Kopīgotā URL attēlam ir <a href='%1'>%1</a>"
-
-#: src/qml/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Suggested"
-msgstr "Ieteiktās"
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member - "
-msgid_plural "%1 members - "
-msgstr[0] "%1 dalībnieks — "
-msgstr[1] "%1 dalībnieki — "
-msgstr[2] "%1 dalībnieku — "
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 dalībnieks"
-msgstr[1] "%1 dalībnieki"
-msgstr[2] "%1 dalībnieku"
-
-#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
-#, kde-format
-msgctxt "@button"
-msgid "Add new room"
-msgstr "Pievienot jaunu istabu"
-
-#: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:96
-#, kde-format
-msgctxt "@button"
-msgid "Remove"
-msgstr "Noņemt"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Don't Make Suggested"
-msgstr "Nepadarīt par ieteikto"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Make Suggested"
-msgstr "Padarīt par ieteikto"
-
-#: src/qml/SpaceHomePage.qml:51
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Uzaicināt lietotājus uz telpu"
-
-#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Telpas iestatījumi"
-
-#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Izveidot bērnobjektu"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Iet uz pirmo nelasīto ziņu"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to oldest loaded message"
-msgstr "Iet uz vecāko ielādēto ziņu"
-
-#: src/qml/TimelineView.qml:235
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Iet uz pēdējo ziņu"
-
-#: src/qml/TimelineView.qml:260
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Velciet vienumus te, lai tos kopīgotu"
-
-#: src/qml/TimelineView.qml:267
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 raksta"
-msgstr[1] "%2 raksta"
-msgstr[2] "%2 raksta"
 
 #: src/qml/UnlockSSSSDialog.qml:16
 #, kde-format
@@ -4223,6 +3980,12 @@ msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Skatīt telpu"
 
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Telpas iestatījumi"
+
 #: src/rooms/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
@@ -4764,7 +4527,7 @@ msgid "Keyword…"
 msgstr "Atslēgas vārds..."
 
 #: src/settings/GlobalNotificationsPage.qml:126
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Pievienot atslēgas vārdu"
@@ -5486,25 +5249,32 @@ msgstr "Parole:"
 msgid "Privileged Users"
 msgstr "Priviliģētie lietotāji"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:236
 #, kde-format
 msgid "Default permissions"
 msgstr "Noklusējuma atļaujas"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgid "Basic permissions"
 msgstr "Pamata atļaujas"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:316
 #, kde-format
 msgid "Event permissions"
 msgstr "Notikuma atļaujas"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:363
 #, kde-format
 msgid "Event Type…"
 msgstr "Notikuma tips…"
+
+#: src/settings/Permissions.qml:415
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Ielādē..."
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5912,6 +5682,13 @@ msgctxt "@button"
 msgid "Down"
 msgstr "Lejup"
 
+#: src/settings/RoomSortParameterDialog.qml:96
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove"
+msgstr "Noņemt"
+
 #: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
@@ -6057,6 +5834,59 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Atpakaļ"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Suggested"
+msgstr "Ieteiktās"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "%1 dalībnieks — "
+msgstr[1] "%1 dalībnieki — "
+msgstr[2] "%1 dalībnieku — "
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 dalībnieks"
+msgstr[1] "%1 dalībnieki"
+msgstr[2] "%1 dalībnieku"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#, kde-format
+msgctxt "@button"
+msgid "Add new room"
+msgstr "Pievienot jaunu istabu"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr "Nepadarīt par ieteikto"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr "Padarīt par ieteikto"
+
+#: src/spaces/SpaceHomePage.qml:51
+#, kde-format
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Uzaicināt lietotājus uz telpu"
+
+#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
+#, kde-format
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Izveidot bērnobjektu"
+
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
 msgid "%1 started a user verification"
@@ -6091,6 +5921,84 @@ msgstr "Kopēt starpliktuvē"
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maksimizēt"
+
+#: src/timeline/DelegateContextMenu.qml:71
+#, kde-format
+msgid "View Source"
+msgstr "Skatīt avotu"
+
+#: src/timeline/DelegateContextMenu.qml:78
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove…"
+msgstr "Noņemt…"
+
+#: src/timeline/DelegateContextMenu.qml:83
+#: src/timeline/DelegateContextMenu.qml:88
+#: src/timeline/FileDelegateContextMenu.qml:79
+#: src/timeline/FileDelegateContextMenu.qml:84
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Message"
+msgstr "Noņemt ziņu"
+
+#: src/timeline/DelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Iemesls šīs ziņas noņemšanai"
+
+#: src/timeline/DelegateContextMenu.qml:85
+#: src/timeline/FileDelegateContextMenu.qml:81
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Noņemt"
+
+#: src/timeline/DelegateContextMenu.qml:108
+#: src/timeline/DelegateContextMenu.qml:116
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Ziņot"
+
+#: src/timeline/DelegateContextMenu.qml:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Ziņot par ziņu"
+
+#: src/timeline/DelegateContextMenu.qml:114
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Iemesls ziņošanai par šo ziņu"
+
+#: src/timeline/DelegateContextMenu.qml:118
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Ziņot par ziņu"
+
+#: src/timeline/DelegateContextMenu.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Rādīt lietotāju"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
+msgid "Unpin"
+msgstr "Atspraust"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
+msgid "Pin"
+msgstr "Piespraust"
 
 #: src/timeline/EncryptedComponent.qml:18
 #, kde-format
@@ -6132,6 +6040,29 @@ msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Apturēt lejupielādi"
+
+#: src/timeline/FileDelegateContextMenu.qml:43
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Image"
+msgstr "Atvērt attēlu"
+
+#: src/timeline/FileDelegateContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save Image…"
+msgstr "Saglabāt attēlu…"
+
+#: src/timeline/FileDelegateContextMenu.qml:61
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Image"
+msgstr "Kopēt attēlu"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, kde-format
+msgid "Remove…"
+msgstr "Noņemt…"
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -6201,6 +6132,58 @@ msgstr "Ielādē URL priekšskatījumu"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Atvērt ārēji"
+
+#: src/timeline/MessageDelegateContextMenu.qml:54
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward…"
+msgstr "Pārsūtīt…"
+
+#: src/timeline/MessageDelegateContextMenu.qml:60
+#, kde-format
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Pārsūtīt ziņu"
+
+#: src/timeline/MessageDelegateContextMenu.qml:74
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Link Address"
+msgstr "Kopēt saites adresi"
+
+#: src/timeline/MessageDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Text"
+msgstr "Kopēt tekstu"
+
+#: src/timeline/MessageDelegateContextMenu.qml:85
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Message Link"
+msgstr "Kopēt ziņojuma saiti"
+
+#: src/timeline/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:120
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Meklēt „%1“"
+
+#: src/timeline/MessageDelegateContextMenu.qml:140
+#, kde-format
+msgid "Configure Web Shortcuts…"
+msgstr "Konfigurēt tīmekļa saīsnes…"
 
 #: src/timeline/models/messagecontentmodel.cpp:286
 #, kde-format
@@ -6308,6 +6291,35 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr "Šis ir tērzēšanas sākums. Agrāk par šo vietu vēsturē ziņu nav."
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Iet uz pirmo nelasīto ziņu"
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to oldest loaded message"
+msgstr "Iet uz vecāko ielādēto ziņu"
+
+#: src/timeline/TimelineView.qml:235
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Iet uz pēdējo ziņu"
+
+#: src/timeline/TimelineView.qml:260
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Velciet vienumus te, lai tos kopīgotu"
+
+#: src/timeline/TimelineView.qml:267
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 raksta"
+msgstr[1] "%2 raksta"
+msgstr[2] "%2 raksta"
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191

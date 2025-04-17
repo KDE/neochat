@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:41+0000\n"
 "PO-Revision-Date: 2025-03-27 10:50+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1840,8 +1840,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
-#: src/qml/HoverActions.qml:123
+#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -2008,7 +2008,8 @@ msgid "Attachment:"
 msgstr "Вложение:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
+#: src/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
@@ -2254,7 +2255,7 @@ msgid "Explore Rooms"
 msgstr "Обзор комнат"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
+#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Присоединился(лась)"
@@ -2287,80 +2288,6 @@ msgstr "Назначить это пространство каноническ�
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "ОК"
-
-#: src/qml/DelegateContextMenu.qml:71
-#, kde-format
-msgid "View Source"
-msgstr "Исходный код"
-
-#: src/qml/DelegateContextMenu.qml:78
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove…"
-msgstr "Удалить…"
-
-#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
-#: src/qml/FileDelegateContextMenu.qml:79
-#: src/qml/FileDelegateContextMenu.qml:84
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Message"
-msgstr "Удаление сообщения"
-
-#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
-msgstr "Причина удаления этого сообщения"
-
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Удалить"
-
-#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Пожаловаться"
-
-#: src/qml/DelegateContextMenu.qml:113
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Report Message"
-msgstr "Жалоба на сообщение"
-
-#: src/qml/DelegateContextMenu.qml:114
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
-msgstr "Причина жалобы на это сообщение"
-
-#: src/qml/DelegateContextMenu.qml:118
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Жалоба на сообщение"
-
-#: src/qml/DelegateContextMenu.qml:128
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Показать пользователя"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-msgid "Unpin"
-msgstr "Открепить"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
-msgid "Pin"
-msgstr "Закрепить"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2478,29 +2405,6 @@ msgstr "Поиск комнаты…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Не найдено ни одной общедоступной комнаты"
-
-#: src/qml/FileDelegateContextMenu.qml:43
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Image"
-msgstr "Открыть изображение"
-
-#: src/qml/FileDelegateContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save Image…"
-msgstr "Сохранить изображение…"
-
-#: src/qml/FileDelegateContextMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Image"
-msgstr "Скопировать изображение"
-
-#: src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgid "Remove…"
-msgstr "Удалить…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2957,58 +2861,6 @@ msgstr "Идентификатор пользователя должен нач�
 msgid "The input is not a valid user ID"
 msgstr "Введённый текст не является допустимым идентификатором пользователя"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
-#, kde-format
-msgctxt "@action:inmenu As in 'Forward this message'"
-msgid "Forward…"
-msgstr "Перенаправить…"
-
-#: src/qml/MessageDelegateContextMenu.qml:60
-#, kde-format
-msgctxt "@title"
-msgid "Forward Message"
-msgstr "Перенаправление сообщения"
-
-#: src/qml/MessageDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Link Address"
-msgstr "Скопировать адрес ссылки"
-
-#: src/qml/MessageDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Text"
-msgstr "Скопировать текст"
-
-#: src/qml/MessageDelegateContextMenu.qml:85
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Message Link"
-msgstr "Скопировать ссылку на сообщение"
-
-#: src/qml/MessageDelegateContextMenu.qml:92
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Read Text Aloud"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:95
-#, kde-format
-msgctxt "@info text-to-speech %1 is author %2 is message text"
-msgid "%1 said %2"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:120
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Поиск «%1»"
-
-#: src/qml/MessageDelegateContextMenu.qml:140
-#, kde-format
-msgid "Configure Web Shortcuts…"
-msgstr "Настроить веб-сокращения…"
-
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
 msgctxt "@action As in 'edit the state of this room'"
@@ -3282,7 +3134,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
+#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3299,7 +3151,7 @@ msgstr "Покинуть комнату"
 msgid "Members"
 msgstr "Участники"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3488,104 +3340,6 @@ msgstr "Ошибка публикации"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
-
-#: src/qml/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Suggested"
-msgstr "В списке предлагаемых"
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member - "
-msgid_plural "%1 members - "
-msgstr[0] "%1 участник — "
-msgstr[1] "%1 участника — "
-msgstr[2] "%1 участников — "
-msgstr[3] "%1 участник — "
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 участник"
-msgstr[1] "%1 участника"
-msgstr[2] "%1 участников"
-msgstr[3] "%1 участник"
-
-#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
-#, kde-format
-msgctxt "@button"
-msgid "Add new room"
-msgstr "Добавить комнату"
-
-#: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:96
-#, kde-format
-msgctxt "@button"
-msgid "Remove"
-msgstr "Удалить"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Don't Make Suggested"
-msgstr "Не вносить в список предлагаемых"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Make Suggested"
-msgstr "Внести в список предлагаемых"
-
-#: src/qml/SpaceHomePage.qml:51
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Пригласить пользователя в пространство"
-
-#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Параметры пространств"
-
-#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Создание дочернего элемента"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Перейти к первому непрочитанному сообщению"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to oldest loaded message"
-msgstr "Перейти к самому старому загруженному сообщению"
-
-#: src/qml/TimelineView.qml:235
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Перейти к последнему сообщению"
-
-#: src/qml/TimelineView.qml:260
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Чтобы опубликовать файлы, перетащите их сюда"
-
-#: src/qml/TimelineView.qml:267
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 набирают сообщение"
-msgstr[1] "%2 набирают сообщение"
-msgstr[2] "%2 набирают сообщение"
-msgstr[3] "%2 набирает сообщение"
 
 #: src/qml/UnlockSSSSDialog.qml:16
 #, kde-format
@@ -4239,6 +3993,12 @@ msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Просмотреть пространство"
 
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Параметры пространств"
+
 #: src/rooms/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
@@ -4784,7 +4544,7 @@ msgid "Keyword…"
 msgstr "Ключевое слово…"
 
 #: src/settings/GlobalNotificationsPage.qml:126
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Добавить ключевое слово"
@@ -5516,25 +5276,32 @@ msgstr "Пароль:"
 msgid "Privileged Users"
 msgstr "Привилегированные пользователи"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:236
 #, kde-format
 msgid "Default permissions"
 msgstr "Стандартные разрешения"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgid "Basic permissions"
 msgstr "Базовые разрешения"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:316
 #, kde-format
 msgid "Event permissions"
 msgstr "Разрешения событий"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:363
 #, kde-format
 msgid "Event Type…"
 msgstr "Тип событий…"
+
+#: src/settings/Permissions.qml:415
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Загрузка..."
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5953,6 +5720,13 @@ msgctxt "@button"
 msgid "Down"
 msgstr "Вниз"
 
+#: src/settings/RoomSortParameterDialog.qml:96
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove"
+msgstr "Удалить"
+
 #: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
@@ -6102,6 +5876,61 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Назад"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Suggested"
+msgstr "В списке предлагаемых"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "%1 участник — "
+msgstr[1] "%1 участника — "
+msgstr[2] "%1 участников — "
+msgstr[3] "%1 участник — "
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 участник"
+msgstr[1] "%1 участника"
+msgstr[2] "%1 участников"
+msgstr[3] "%1 участник"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#, kde-format
+msgctxt "@button"
+msgid "Add new room"
+msgstr "Добавить комнату"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr "Не вносить в список предлагаемых"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr "Внести в список предлагаемых"
+
+#: src/spaces/SpaceHomePage.qml:51
+#, kde-format
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Пригласить пользователя в пространство"
+
+#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
+#, kde-format
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Создание дочернего элемента"
+
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
 msgid "%1 started a user verification"
@@ -6135,6 +5964,84 @@ msgstr "Скопировать в буфер обмена"
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Развернуть"
+
+#: src/timeline/DelegateContextMenu.qml:71
+#, kde-format
+msgid "View Source"
+msgstr "Исходный код"
+
+#: src/timeline/DelegateContextMenu.qml:78
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove…"
+msgstr "Удалить…"
+
+#: src/timeline/DelegateContextMenu.qml:83
+#: src/timeline/DelegateContextMenu.qml:88
+#: src/timeline/FileDelegateContextMenu.qml:79
+#: src/timeline/FileDelegateContextMenu.qml:84
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Message"
+msgstr "Удаление сообщения"
+
+#: src/timeline/DelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Причина удаления этого сообщения"
+
+#: src/timeline/DelegateContextMenu.qml:85
+#: src/timeline/FileDelegateContextMenu.qml:81
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Удалить"
+
+#: src/timeline/DelegateContextMenu.qml:108
+#: src/timeline/DelegateContextMenu.qml:116
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Пожаловаться"
+
+#: src/timeline/DelegateContextMenu.qml:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Жалоба на сообщение"
+
+#: src/timeline/DelegateContextMenu.qml:114
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Причина жалобы на это сообщение"
+
+#: src/timeline/DelegateContextMenu.qml:118
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Жалоба на сообщение"
+
+#: src/timeline/DelegateContextMenu.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Показать пользователя"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
+msgid "Unpin"
+msgstr "Открепить"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
+msgid "Pin"
+msgstr "Закрепить"
 
 #: src/timeline/EncryptedComponent.qml:18
 #, kde-format
@@ -6178,6 +6085,29 @@ msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Остановить загрузку"
+
+#: src/timeline/FileDelegateContextMenu.qml:43
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Image"
+msgstr "Открыть изображение"
+
+#: src/timeline/FileDelegateContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save Image…"
+msgstr "Сохранить изображение…"
+
+#: src/timeline/FileDelegateContextMenu.qml:61
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Image"
+msgstr "Скопировать изображение"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, kde-format
+msgid "Remove…"
+msgstr "Удалить…"
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -6247,6 +6177,58 @@ msgstr "Загрузка предпросмотра содержимого по 
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Открыть во внешней программе"
+
+#: src/timeline/MessageDelegateContextMenu.qml:54
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward…"
+msgstr "Перенаправить…"
+
+#: src/timeline/MessageDelegateContextMenu.qml:60
+#, kde-format
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Перенаправление сообщения"
+
+#: src/timeline/MessageDelegateContextMenu.qml:74
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Link Address"
+msgstr "Скопировать адрес ссылки"
+
+#: src/timeline/MessageDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Text"
+msgstr "Скопировать текст"
+
+#: src/timeline/MessageDelegateContextMenu.qml:85
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Message Link"
+msgstr "Скопировать ссылку на сообщение"
+
+#: src/timeline/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:120
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Поиск «%1»"
+
+#: src/timeline/MessageDelegateContextMenu.qml:140
+#, kde-format
+msgid "Configure Web Shortcuts…"
+msgstr "Настроить веб-сокращения…"
 
 #: src/timeline/models/messagecontentmodel.cpp:286
 #, kde-format
@@ -6359,6 +6341,36 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr "Это начало чата. Более ранних сообщений нет."
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Перейти к первому непрочитанному сообщению"
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to oldest loaded message"
+msgstr "Перейти к самому старому загруженному сообщению"
+
+#: src/timeline/TimelineView.qml:235
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Перейти к последнему сообщению"
+
+#: src/timeline/TimelineView.qml:260
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Чтобы опубликовать файлы, перетащите их сюда"
+
+#: src/timeline/TimelineView.qml:267
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 набирают сообщение"
+msgstr[1] "%2 набирают сообщение"
+msgstr[2] "%2 набирают сообщение"
+msgstr[3] "%2 набирает сообщение"
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191

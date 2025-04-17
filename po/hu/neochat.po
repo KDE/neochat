@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:41+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1858,8 +1858,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
-#: src/qml/HoverActions.qml:123
+#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
@@ -2032,7 +2032,8 @@ msgid "Attachment:"
 msgstr "Melléklet"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
+#: src/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Szerkesztés"
@@ -2274,7 +2275,7 @@ msgid "Explore Rooms"
 msgstr "Szobák felfedezése"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
+#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Tagja"
@@ -2307,82 +2308,6 @@ msgstr "Legyen ez a tér a kanonikus szülő"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
-
-#: src/qml/DelegateContextMenu.qml:71
-#, kde-format
-msgid "View Source"
-msgstr "Forrás megtekintése"
-
-#: src/qml/DelegateContextMenu.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove"
-msgctxt "@action:button"
-msgid "Remove…"
-msgstr "Eltávolítás"
-
-#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
-#: src/qml/FileDelegateContextMenu.qml:79
-#: src/qml/FileDelegateContextMenu.qml:84
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Message"
-msgstr "Üzenet eltávolítása"
-
-#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
-msgstr "Az üzenet eltávolításának oka"
-
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Jelentés"
-
-#: src/qml/DelegateContextMenu.qml:113
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Report Message"
-msgstr "Üzenet jelentése"
-
-#: src/qml/DelegateContextMenu.qml:114
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
-msgstr "Az üzenet jelentésének oka"
-
-#: src/qml/DelegateContextMenu.qml:118
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Üzenet jelentése"
-
-#: src/qml/DelegateContextMenu.qml:128
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Felhasználó megjelenítése"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-msgid "Unpin"
-msgstr ""
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
-msgid "Pin"
-msgstr ""
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2500,34 +2425,6 @@ msgstr "Szoba keresése…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nem találhatók nyilvános szobák"
-
-#: src/qml/FileDelegateContextMenu.qml:43
-#, fuzzy, kde-format
-#| msgid "Set Image"
-msgctxt "@action:inmenu"
-msgid "Open Image"
-msgstr "Kép beállítása"
-
-#: src/qml/FileDelegateContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgid "Set Image"
-msgctxt "@action:inmenu"
-msgid "Save Image…"
-msgstr "Kép beállítása"
-
-#: src/qml/FileDelegateContextMenu.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Image"
-msgctxt "@action:inmenu"
-msgid "Copy Image"
-msgstr "Kép megjelenítése"
-
-#: src/qml/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Remove"
-msgid "Remove…"
-msgstr "Eltávolítás"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2989,64 +2886,6 @@ msgstr "A felhasználóazonosítóknak @-cal kell kezdődniük"
 msgid "The input is not a valid user ID"
 msgstr "A bemenet nem érvényes felhasználóazonosító"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu As in 'Forward this message'"
-#| msgid "Forward"
-msgctxt "@action:inmenu As in 'Forward this message'"
-msgid "Forward…"
-msgstr "Továbbítás"
-
-#: src/qml/MessageDelegateContextMenu.qml:60
-#, kde-format
-msgctxt "@title"
-msgid "Forward Message"
-msgstr "Üzenet továbbítása"
-
-#: src/qml/MessageDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Copy link"
-msgctxt "@action:inmenu"
-msgid "Copy Link Address"
-msgstr "Hivatkozás másolása"
-
-#: src/qml/MessageDelegateContextMenu.qml:80
-#, fuzzy, kde-format
-#| msgid "Copy"
-msgctxt "@action:inmenu"
-msgid "Copy Text"
-msgstr "Másolás"
-
-#: src/qml/MessageDelegateContextMenu.qml:85
-#, fuzzy, kde-format
-#| msgid "Copy Link"
-msgctxt "@action:inmenu"
-msgid "Copy Message Link"
-msgstr "Hivatkozás másolása"
-
-#: src/qml/MessageDelegateContextMenu.qml:92
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Read Text Aloud"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:95
-#, kde-format
-msgctxt "@info text-to-speech %1 is author %2 is message text"
-msgid "%1 said %2"
-msgstr ""
-
-#: src/qml/MessageDelegateContextMenu.qml:120
-#, kde-format
-msgid "Search for '%1'"
-msgstr "„%1” keresése"
-
-#: src/qml/MessageDelegateContextMenu.qml:140
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
-msgid "Configure Web Shortcuts…"
-msgstr "Keresőazonosítók beállítása…"
-
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
 msgctxt "@action As in 'edit the state of this room'"
@@ -3335,7 +3174,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Közvetlen üzenet"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
+#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Leave the space"
@@ -3354,7 +3193,7 @@ msgstr "Szoba elhagyása"
 msgid "Members"
 msgstr "Tagok"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3542,98 +3381,6 @@ msgstr "Sikertelen megosztás"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "A kép megosztott URL-je: <a href='%1'>%1</a>"
-
-#: src/qml/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Suggested"
-msgstr "Javasolt"
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member - "
-msgid_plural "%1 members - "
-msgstr[0] "%1 tag - "
-msgstr[1] "%1 tag - "
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 tag"
-msgstr[1] "%1 tag"
-
-#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
-#, kde-format
-msgctxt "@button"
-msgid "Add new room"
-msgstr "Új szoba hozzáadása"
-
-#: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:96
-#, kde-format
-msgctxt "@button"
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Don't Make Suggested"
-msgstr "Ne legyen javasolt"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Make Suggested"
-msgstr "Legyen javasolt"
-
-#: src/qml/SpaceHomePage.qml:51
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Meghívás a térbe"
-
-#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Térbeállítások"
-
-#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Gyermek létrehozása"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Ugrás az első olvasatlan üzenetre"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to oldest loaded message"
-msgstr "Ugrás a legkorábbi betöltött üzenetre"
-
-#: src/qml/TimelineView.qml:235
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Ugrás a legújabb üzenetre"
-
-#: src/qml/TimelineView.qml:260
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Húzzon ide elemeket a megosztásukhoz"
-
-#: src/qml/TimelineView.qml:267
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 gépel"
-msgstr[1] "%2 gépel"
 
 #: src/qml/UnlockSSSSDialog.qml:16
 #, kde-format
@@ -4303,6 +4050,12 @@ msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Tér megtekintése"
 
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Térbeállítások"
+
 #: src/rooms/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
@@ -4891,7 +4644,7 @@ msgid "Keyword…"
 msgstr "Kulcsszó…"
 
 #: src/settings/GlobalNotificationsPage.qml:126
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Kulcsszó hozzáadása"
@@ -5640,25 +5393,32 @@ msgstr "Jelszó:"
 msgid "Privileged Users"
 msgstr "Kiemelt felhasználók"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:236
 #, kde-format
 msgid "Default permissions"
 msgstr "Alapértelmezett jogosultságok"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgid "Basic permissions"
 msgstr "Alapvető jogosultságok"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:316
 #, kde-format
 msgid "Event permissions"
 msgstr "Eseményengedélyek"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:363
 #, kde-format
 msgid "Event Type…"
 msgstr "Eseménytípus…"
+
+#: src/settings/Permissions.qml:415
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Betöltés…"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -6079,6 +5839,13 @@ msgctxt "@button"
 msgid "Down"
 msgstr "Letöltés"
 
+#: src/settings/RoomSortParameterDialog.qml:96
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove"
+msgstr "Eltávolítás"
+
 #: src/settings/RoomSortParameterDialog.qml:109
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -6230,6 +5997,57 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Vissza"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Suggested"
+msgstr "Javasolt"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "%1 tag - "
+msgstr[1] "%1 tag - "
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 tag"
+msgstr[1] "%1 tag"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#, kde-format
+msgctxt "@button"
+msgid "Add new room"
+msgstr "Új szoba hozzáadása"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr "Ne legyen javasolt"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr "Legyen javasolt"
+
+#: src/spaces/SpaceHomePage.qml:51
+#, kde-format
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Meghívás a térbe"
+
+#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
+#, kde-format
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Gyermek létrehozása"
+
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
 msgid "%1 started a user verification"
@@ -6264,6 +6082,86 @@ msgstr "Másolás a vágólapra"
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maximalizálás"
+
+#: src/timeline/DelegateContextMenu.qml:71
+#, kde-format
+msgid "View Source"
+msgstr "Forrás megtekintése"
+
+#: src/timeline/DelegateContextMenu.qml:78
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove"
+msgctxt "@action:button"
+msgid "Remove…"
+msgstr "Eltávolítás"
+
+#: src/timeline/DelegateContextMenu.qml:83
+#: src/timeline/DelegateContextMenu.qml:88
+#: src/timeline/FileDelegateContextMenu.qml:79
+#: src/timeline/FileDelegateContextMenu.qml:84
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Message"
+msgstr "Üzenet eltávolítása"
+
+#: src/timeline/DelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Az üzenet eltávolításának oka"
+
+#: src/timeline/DelegateContextMenu.qml:85
+#: src/timeline/FileDelegateContextMenu.qml:81
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: src/timeline/DelegateContextMenu.qml:108
+#: src/timeline/DelegateContextMenu.qml:116
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Jelentés"
+
+#: src/timeline/DelegateContextMenu.qml:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Üzenet jelentése"
+
+#: src/timeline/DelegateContextMenu.qml:114
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Az üzenet jelentésének oka"
+
+#: src/timeline/DelegateContextMenu.qml:118
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Üzenet jelentése"
+
+#: src/timeline/DelegateContextMenu.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Felhasználó megjelenítése"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
+msgid "Unpin"
+msgstr ""
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
+msgid "Pin"
+msgstr ""
 
 #: src/timeline/EncryptedComponent.qml:18
 #, kde-format
@@ -6307,6 +6205,34 @@ msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Letöltés leállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:43
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Open Image"
+msgstr "Kép beállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save Image…"
+msgstr "Kép beállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Image"
+msgctxt "@action:inmenu"
+msgid "Copy Image"
+msgstr "Kép megjelenítése"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove…"
+msgstr "Eltávolítás"
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -6376,6 +6302,64 @@ msgstr "URL előnézetének betöltése"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
+
+#: src/timeline/MessageDelegateContextMenu.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu As in 'Forward this message'"
+#| msgid "Forward"
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward…"
+msgstr "Továbbítás"
+
+#: src/timeline/MessageDelegateContextMenu.qml:60
+#, kde-format
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Üzenet továbbítása"
+
+#: src/timeline/MessageDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Link Address"
+msgstr "Hivatkozás másolása"
+
+#: src/timeline/MessageDelegateContextMenu.qml:80
+#, fuzzy, kde-format
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy Text"
+msgstr "Másolás"
+
+#: src/timeline/MessageDelegateContextMenu.qml:85
+#, fuzzy, kde-format
+#| msgid "Copy Link"
+msgctxt "@action:inmenu"
+msgid "Copy Message Link"
+msgstr "Hivatkozás másolása"
+
+#: src/timeline/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr ""
+
+#: src/timeline/MessageDelegateContextMenu.qml:120
+#, kde-format
+msgid "Search for '%1'"
+msgstr "„%1” keresése"
+
+#: src/timeline/MessageDelegateContextMenu.qml:140
+#, fuzzy, kde-format
+#| msgid "Configure Web Shortcuts..."
+msgid "Configure Web Shortcuts…"
+msgstr "Keresőazonosítók beállítása…"
 
 #: src/timeline/models/messagecontentmodel.cpp:286
 #, kde-format
@@ -6480,6 +6464,34 @@ msgid ""
 "This is the beginning of the chat. There are no historical messages beyond "
 "this point."
 msgstr "Ez a csevegés kezdete. Nincsenek korábbi üzenetek ezen a ponton túl."
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Ugrás az első olvasatlan üzenetre"
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to oldest loaded message"
+msgstr "Ugrás a legkorábbi betöltött üzenetre"
+
+#: src/timeline/TimelineView.qml:235
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Ugrás a legújabb üzenetre"
+
+#: src/timeline/TimelineView.qml:260
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Húzzon ide elemeket a megosztásukhoz"
+
+#: src/timeline/TimelineView.qml:267
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 gépel"
+msgstr[1] "%2 gépel"
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191

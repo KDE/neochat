@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:42+0000\n"
+"POT-Creation-Date: 2025-04-17 00:41+0000\n"
 "PO-Revision-Date: 2025-04-15 23:55+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1831,8 +1831,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Abrir NeoChat en esta sala"
 
-#: src/notificationsmanager.cpp:245 src/qml/DelegateContextMenu.qml:98
-#: src/qml/HoverActions.qml:123
+#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -2000,7 +2000,8 @@ msgid "Attachment:"
 msgstr "Adjunto:"
 
 #: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20 src/qml/MessageDelegateContextMenu.qml:41
+#: src/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
@@ -2243,7 +2244,7 @@ msgid "Explore Rooms"
 msgstr "Explorar salas"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/qml/SpaceHierarchyDelegate.qml:94
+#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Unido"
@@ -2276,80 +2277,6 @@ msgstr "Hacer que este espacio sea el espacio padre canónico"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Aceptar"
-
-#: src/qml/DelegateContextMenu.qml:71
-#, kde-format
-msgid "View Source"
-msgstr "Ver fuente"
-
-#: src/qml/DelegateContextMenu.qml:78
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove…"
-msgstr "Eliminar…"
-
-#: src/qml/DelegateContextMenu.qml:83 src/qml/DelegateContextMenu.qml:88
-#: src/qml/FileDelegateContextMenu.qml:79
-#: src/qml/FileDelegateContextMenu.qml:84
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Message"
-msgstr "Eliminar mensaje"
-
-#: src/qml/DelegateContextMenu.qml:84 src/qml/FileDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
-msgstr "Motivo para eliminar este mensaje"
-
-#: src/qml/DelegateContextMenu.qml:85 src/qml/FileDelegateContextMenu.qml:81
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove this message'"
-msgid "Remove"
-msgstr "Eliminar"
-
-#: src/qml/DelegateContextMenu.qml:108 src/qml/DelegateContextMenu.qml:116
-#, kde-format
-msgctxt ""
-"@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
-msgstr "Denunciar"
-
-#: src/qml/DelegateContextMenu.qml:113
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Report Message"
-msgstr "Denunciar mensaje"
-
-#: src/qml/DelegateContextMenu.qml:114
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
-msgstr "Motivo para denunciar este mensaje"
-
-#: src/qml/DelegateContextMenu.qml:118
-#, kde-format
-msgctxt "@title"
-msgid "Report Message"
-msgstr "Denunciar mensaje"
-
-#: src/qml/DelegateContextMenu.qml:128
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Mostrar usuario"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
-msgid "Unpin"
-msgstr "No fijar"
-
-#: src/qml/DelegateContextMenu.qml:139
-#, kde-format
-msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
-msgid "Pin"
-msgstr "Fijar"
 
 #: src/qml/EditMenu.qml:15
 #, kde-format
@@ -2467,29 +2394,6 @@ msgstr "Encontrar una sala…"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "No se han encontrado salas públicas"
-
-#: src/qml/FileDelegateContextMenu.qml:43
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Image"
-msgstr "Abrir imagen"
-
-#: src/qml/FileDelegateContextMenu.qml:51
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Save Image…"
-msgstr "Guardar imagen…"
-
-#: src/qml/FileDelegateContextMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Image"
-msgstr "Copiar imagen"
-
-#: src/qml/FileDelegateContextMenu.qml:74
-#, kde-format
-msgid "Remove…"
-msgstr "Eliminar…"
 
 #: src/qml/FullScreenMap.qml:23
 #, kde-format
@@ -2943,58 +2847,6 @@ msgstr "Las ID de usuario deben empezar con @"
 msgid "The input is not a valid user ID"
 msgstr "La entrada no es válida como ID de usuario"
 
-#: src/qml/MessageDelegateContextMenu.qml:54
-#, kde-format
-msgctxt "@action:inmenu As in 'Forward this message'"
-msgid "Forward…"
-msgstr "Reenviar…"
-
-#: src/qml/MessageDelegateContextMenu.qml:60
-#, kde-format
-msgctxt "@title"
-msgid "Forward Message"
-msgstr "Reenviar mensaje"
-
-#: src/qml/MessageDelegateContextMenu.qml:74
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Link Address"
-msgstr "Copiar dirección del enlace"
-
-#: src/qml/MessageDelegateContextMenu.qml:80
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Text"
-msgstr "Copiar texto"
-
-#: src/qml/MessageDelegateContextMenu.qml:85
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Message Link"
-msgstr "Copiar enlace del mensaje"
-
-#: src/qml/MessageDelegateContextMenu.qml:92
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Read Text Aloud"
-msgstr "Leer texto en voz alta"
-
-#: src/qml/MessageDelegateContextMenu.qml:95
-#, kde-format
-msgctxt "@info text-to-speech %1 is author %2 is message text"
-msgid "%1 said %2"
-msgstr "%1 dijo %2"
-
-#: src/qml/MessageDelegateContextMenu.qml:120
-#, kde-format
-msgid "Search for '%1'"
-msgstr "Buscar «%1»"
-
-#: src/qml/MessageDelegateContextMenu.qml:140
-#, kde-format
-msgid "Configure Web Shortcuts…"
-msgstr "Configurar atajos web…"
-
 #: src/qml/MessageSourceSheet.qml:46
 #, kde-format
 msgctxt "@action As in 'edit the state of this room'"
@@ -3266,7 +3118,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Mensajes fijados"
 
-#: src/qml/RoomInformation.qml:154 src/qml/SpaceHomePage.qml:66
+#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3283,7 +3135,7 @@ msgstr "Salir de esta sala"
 msgid "Members"
 msgstr "Miembros"
 
-#: src/qml/RoomInformation.qml:182 src/qml/SpaceHomePage.qml:56
+#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3467,98 +3319,6 @@ msgstr "No se puede compartir"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "El URL compartido para la imagen es <a href='%1'>%1</a>"
-
-#: src/qml/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Suggested"
-msgstr "Sugeridas"
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member - "
-msgid_plural "%1 members - "
-msgstr[0] "%1 miembro - "
-msgstr[1] "%1 miembros - "
-
-#: src/qml/SpaceHierarchyDelegate.qml:103
-#, kde-format
-msgctxt "number of room members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 miembro"
-msgstr[1] "%1 miembros"
-
-#: src/qml/SpaceHierarchyDelegate.qml:112 src/qml/SpaceHomePage.qml:61
-#, kde-format
-msgctxt "@button"
-msgid "Add new room"
-msgstr "Añadir nueva sala"
-
-#: src/qml/SpaceHierarchyDelegate.qml:123
-#: src/settings/RoomSortParameterDialog.qml:96
-#, kde-format
-msgctxt "@button"
-msgid "Remove"
-msgstr "Eliminar"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Don't Make Suggested"
-msgstr "No sugerir"
-
-#: src/qml/SpaceHierarchyDelegate.qml:143
-#, kde-format
-msgctxt "@button"
-msgid "Make Suggested"
-msgstr "Sugerir"
-
-#: src/qml/SpaceHomePage.qml:51
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Invitar usuario al espacio"
-
-#: src/qml/SpaceHomePage.qml:77 src/rooms/SpaceListContextMenu.qml:61
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Preferencias del espacio"
-
-#: src/qml/SpaceHomePage.qml:163 src/qml/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Crear un espacio hijo"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Saltar al primer mensaje sin leer"
-
-#: src/qml/TimelineView.qml:191
-#, kde-format
-msgid "Jump to oldest loaded message"
-msgstr "Saltar al mensaje cargado más antiguo"
-
-#: src/qml/TimelineView.qml:235
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Saltar al último mensaje"
-
-#: src/qml/TimelineView.qml:260
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Arrastre elementos aquí para compartirlos"
-
-#: src/qml/TimelineView.qml:267
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 está escribiendo"
-msgstr[1] "%2 están escribiendo"
 
 #: src/qml/UnlockSSSSDialog.qml:16
 #, kde-format
@@ -4235,6 +3995,12 @@ msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Ver espacio"
 
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Preferencias del espacio"
+
 #: src/rooms/SpaceListContextMenu.qml:73
 #, kde-format
 msgctxt "'Space' is a matrix space"
@@ -4779,7 +4545,7 @@ msgid "Keyword…"
 msgstr "Palabra clave…"
 
 #: src/settings/GlobalNotificationsPage.qml:126
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Añadir palabra clave"
@@ -5507,25 +5273,32 @@ msgstr "Contraseña:"
 msgid "Privileged Users"
 msgstr "Usuarios con privilegios"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:236
 #, kde-format
 msgid "Default permissions"
 msgstr "Permisos predeterminados"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgid "Basic permissions"
 msgstr "Permisos básicos"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:316
 #, kde-format
 msgid "Event permissions"
 msgstr "Permisos de eventos"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:363
 #, kde-format
 msgid "Event Type…"
 msgstr "Tipo de evento…"
+
+#: src/settings/Permissions.qml:415
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Cargando…"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5943,6 +5716,13 @@ msgctxt "@button"
 msgid "Down"
 msgstr "Bajar"
 
+#: src/settings/RoomSortParameterDialog.qml:96
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove"
+msgstr "Eliminar"
+
 #: src/settings/RoomSortParameterDialog.qml:109
 #, kde-format
 msgctxt "@action:button"
@@ -6088,6 +5868,57 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Volver"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Suggested"
+msgstr "Sugeridas"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member - "
+msgid_plural "%1 members - "
+msgstr[0] "%1 miembro - "
+msgstr[1] "%1 miembros - "
+
+#: src/spaces/SpaceHierarchyDelegate.qml:103
+#, kde-format
+msgctxt "number of room members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 miembro"
+msgstr[1] "%1 miembros"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#, kde-format
+msgctxt "@button"
+msgid "Add new room"
+msgstr "Añadir nueva sala"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Don't Make Suggested"
+msgstr "No sugerir"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, kde-format
+msgctxt "@button"
+msgid "Make Suggested"
+msgstr "Sugerir"
+
+#: src/spaces/SpaceHomePage.qml:51
+#, kde-format
+msgctxt "@button"
+msgid "Invite user to space"
+msgstr "Invitar usuario al espacio"
+
+#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
+#, kde-format
+msgctxt "@title"
+msgid "Create a Child"
+msgstr "Crear un espacio hijo"
+
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
 msgid "%1 started a user verification"
@@ -6121,6 +5952,84 @@ msgstr "Copiar en el portapapeles"
 msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maximizar"
+
+#: src/timeline/DelegateContextMenu.qml:71
+#, kde-format
+msgid "View Source"
+msgstr "Ver fuente"
+
+#: src/timeline/DelegateContextMenu.qml:78
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove…"
+msgstr "Eliminar…"
+
+#: src/timeline/DelegateContextMenu.qml:83
+#: src/timeline/DelegateContextMenu.qml:88
+#: src/timeline/FileDelegateContextMenu.qml:79
+#: src/timeline/FileDelegateContextMenu.qml:84
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Message"
+msgstr "Eliminar mensaje"
+
+#: src/timeline/DelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this message"
+msgstr "Motivo para eliminar este mensaje"
+
+#: src/timeline/DelegateContextMenu.qml:85
+#: src/timeline/FileDelegateContextMenu.qml:81
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/timeline/DelegateContextMenu.qml:108
+#: src/timeline/DelegateContextMenu.qml:116
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Denunciar"
+
+#: src/timeline/DelegateContextMenu.qml:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Report Message"
+msgstr "Denunciar mensaje"
+
+#: src/timeline/DelegateContextMenu.qml:114
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this message"
+msgstr "Motivo para denunciar este mensaje"
+
+#: src/timeline/DelegateContextMenu.qml:118
+#, kde-format
+msgctxt "@title"
+msgid "Report Message"
+msgstr "Denunciar mensaje"
+
+#: src/timeline/DelegateContextMenu.qml:128
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Show User"
+msgstr "Mostrar usuario"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
+msgid "Unpin"
+msgstr "No fijar"
+
+#: src/timeline/DelegateContextMenu.qml:139
+#, kde-format
+msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
+msgid "Pin"
+msgstr "Fijar"
 
 #: src/timeline/EncryptedComponent.qml:18
 #, kde-format
@@ -6164,6 +6073,29 @@ msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Detener descarga"
+
+#: src/timeline/FileDelegateContextMenu.qml:43
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Image"
+msgstr "Abrir imagen"
+
+#: src/timeline/FileDelegateContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Save Image…"
+msgstr "Guardar imagen…"
+
+#: src/timeline/FileDelegateContextMenu.qml:61
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Image"
+msgstr "Copiar imagen"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, kde-format
+msgid "Remove…"
+msgstr "Eliminar…"
 
 #: src/timeline/FlightReservationComponent.qml:73
 #, kde-format
@@ -6233,6 +6165,58 @@ msgstr "Cargando vista previa de URL"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir externamente"
+
+#: src/timeline/MessageDelegateContextMenu.qml:54
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward…"
+msgstr "Reenviar…"
+
+#: src/timeline/MessageDelegateContextMenu.qml:60
+#, kde-format
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "Reenviar mensaje"
+
+#: src/timeline/MessageDelegateContextMenu.qml:74
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Link Address"
+msgstr "Copiar dirección del enlace"
+
+#: src/timeline/MessageDelegateContextMenu.qml:80
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Text"
+msgstr "Copiar texto"
+
+#: src/timeline/MessageDelegateContextMenu.qml:85
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Message Link"
+msgstr "Copiar enlace del mensaje"
+
+#: src/timeline/MessageDelegateContextMenu.qml:92
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Read Text Aloud"
+msgstr "Leer texto en voz alta"
+
+#: src/timeline/MessageDelegateContextMenu.qml:95
+#, kde-format
+msgctxt "@info text-to-speech %1 is author %2 is message text"
+msgid "%1 said %2"
+msgstr "%1 dijo %2"
+
+#: src/timeline/MessageDelegateContextMenu.qml:120
+#, kde-format
+msgid "Search for '%1'"
+msgstr "Buscar «%1»"
+
+#: src/timeline/MessageDelegateContextMenu.qml:140
+#, kde-format
+msgid "Configure Web Shortcuts…"
+msgstr "Configurar atajos web…"
 
 #: src/timeline/models/messagecontentmodel.cpp:286
 #, kde-format
@@ -6337,6 +6321,34 @@ msgid ""
 msgstr ""
 "Este es el inicio del chat. No hay mensajes en el historial antes de este "
 "punto."
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Saltar al primer mensaje sin leer"
+
+#: src/timeline/TimelineView.qml:191
+#, kde-format
+msgid "Jump to oldest loaded message"
+msgstr "Saltar al mensaje cargado más antiguo"
+
+#: src/timeline/TimelineView.qml:235
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Saltar al último mensaje"
+
+#: src/timeline/TimelineView.qml:260
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Arrastre elementos aquí para compartirlos"
+
+#: src/timeline/TimelineView.qml:267
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 está escribiendo"
+msgstr[1] "%2 están escribiendo"
 
 #: src/timeline/TrainReservationComponent.qml:124
 #: src/timeline/TrainReservationComponent.qml:191
