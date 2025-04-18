@@ -127,7 +127,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ContentModelRole) {
-        if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>()) {
+        if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>() || event->get().is<StickerEvent>()) {
             return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, event->get().id()));
         }
 
