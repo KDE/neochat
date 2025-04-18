@@ -5,7 +5,8 @@
 
 ShareHandler::ShareHandler(QObject *parent)
     : QObject(parent)
-{}
+{
+}
 
 QString ShareHandler::text() const
 {

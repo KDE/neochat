@@ -317,7 +317,8 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
 
     const auto acceptAction = notification->addAction(i18nc("@action:button The thing being accepted is an invitation to chat", "Accept"));
     const auto rejectAction = notification->addAction(i18nc("@action:button The thing being rejected is an invitation to chat", "Reject"));
-    const auto rejectAndIgnoreAction = notification->addAction(i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User"));
+    const auto rejectAndIgnoreAction =
+        notification->addAction(i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User"));
     connect(acceptAction, &KNotificationAction::activated, this, [room, notification]() {
         if (!room) {
             return;

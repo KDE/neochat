@@ -10,10 +10,10 @@
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
 #include "models/messagefiltermodel.h"
+#include "models/sortfilterroomtreemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
-#include "rooms/models/sortfilterroomtreemodel.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 

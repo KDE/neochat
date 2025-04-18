@@ -253,32 +253,32 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KDBUSADDONS
     service.connect(&service,
-        &KDBusService::activateRequested,
-        &RoomManager::instance(),
-        [&engine](const QStringList &arguments, const QString &workingDirectory) {
-            Q_UNUSED(workingDirectory);
+                    &KDBusService::activateRequested,
+                    &RoomManager::instance(),
+                    [&engine](const QStringList &arguments, const QString &workingDirectory) {
+                        Q_UNUSED(workingDirectory);
 
-            QWindow *window = windowFromEngine(&engine);
-            KWindowSystem::updateStartupId(window);
+                        QWindow *window = windowFromEngine(&engine);
+                        KWindowSystem::updateStartupId(window);
 
-            WindowController::instance().showAndRaiseWindow(QString());
+                        WindowController::instance().showAndRaiseWindow(QString());
 
-            // Open matrix uri
-            if (arguments.isEmpty()) {
-                return;
-            }
+                        // Open matrix uri
+                        if (arguments.isEmpty()) {
+                            return;
+                        }
 
-            auto args = arguments;
-            args.removeFirst();
-            if (args.length() == 2 && args[0] == "--share"_L1) {
-                ShareHandler::instance().setText(args[1]);
-                return;
-            }
+                        auto args = arguments;
+                        args.removeFirst();
+                        if (args.length() == 2 && args[0] == "--share"_L1) {
+                            ShareHandler::instance().setText(args[1]);
+                            return;
+                        }
 
-            for (const auto &arg : args) {
-                RoomManager::instance().resolveResource(arg);
-            }
-        });
+                        for (const auto &arg : args) {
+                            RoomManager::instance().resolveResource(arg);
+                        }
+                    });
 #endif
 
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

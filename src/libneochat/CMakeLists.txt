@@ -30,6 +30,7 @@ target_sources(LibNeoChat PRIVATE
     enums/roomsortorder.h
     events/imagepackevent.cpp
     events/pollevent.cpp
+    jobs/neochatgetcommonroomsjob.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
     models/completionproxymodel.cpp
