@@ -23,12 +23,10 @@ AccountManager::AccountManager(bool testMode, QObject *parent)
             loadAccountsFromCache();
         });
     } else {
-        auto c = new NeoChatConnection(this);
+        auto c = new NeoChatConnection(QUrl(u"https://localhost:1234"_s), this);
         c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
-        connect(c, &NeoChatConnection::connected, this, [c, this]() {
-            m_accountRegistry->add(c);
-            c->syncLoop();
-        });
+        m_accountRegistry->add(c);
+        c->syncLoop();
     }
 }
 
