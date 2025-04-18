@@ -362,7 +362,7 @@ QQC2.Control {
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
         endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
-        maxWidth: NeoChatConfig.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+        maxWidth: NeoChatConfig.compactLayout ? root.width - Kirigami.Units.largeSpacing * 2 : Kirigami.Units.gridUnit * 60
     }
 
     Component {
