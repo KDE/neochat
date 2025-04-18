@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:41+0000\n"
+"POT-Creation-Date: 2025-04-18 00:41+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -160,83 +160,85 @@ msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
-#: src/devtools/DebugOptions.qml:19
+#: src/devtools/DebugOptions.qml:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:27
+#: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:33
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
-#, kde-format
+#: src/devtools/DevtoolsPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "@title"
 msgid "Developer Tools"
-msgstr ""
+msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/devtools/DevtoolsPage.qml:29
+#: src/devtools/DevtoolsPage.qml:32
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "ਚੋਣਾਂ:"
 
-#: src/devtools/DevtoolsPage.qml:34
+#: src/devtools/DevtoolsPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "ਰੂਮ"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:42
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:47
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/devtools/DevtoolsPage.qml:49
+#: src/devtools/DevtoolsPage.qml:52
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:19
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:32
+#: src/devtools/FeatureFlagPage.qml:31
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -1089,13 +1091,13 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "ਸੱਦਾ ਭੇਜੋ"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Leaving this room."
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:38
 #: src/libneochat/models/actionsmodel.cpp:224
 #: src/libneochat/models/actionsmodel.cpp:249
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -1104,81 +1106,81 @@ msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:45
+#: src/libneochat/models/actionsmodel.cpp:46
 #, fuzzy, kde-format
 #| msgid "Leave room"
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
 
-#: src/libneochat/models/actionsmodel.cpp:48
+#: src/libneochat/models/actionsmodel.cpp:49
 #, fuzzy, kde-format
 #| msgid "Room not found"
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "ਰੂਮ ਨਹੀ ਲੱਭਿਆ"
 
-#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:57
 #: src/libneochat/models/actionsmodel.cpp:311
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:70
-#: src/libneochat/models/actionsmodel.cpp:79
-#: src/libneochat/models/actionsmodel.cpp:88
-#: src/libneochat/models/actionsmodel.cpp:97
-#: src/libneochat/models/actionsmodel.cpp:115
-#: src/libneochat/models/actionsmodel.cpp:133
-#: src/libneochat/models/actionsmodel.cpp:147
-#: src/libneochat/models/actionsmodel.cpp:161
-#: src/libneochat/models/actionsmodel.cpp:170
-#: src/libneochat/models/actionsmodel.cpp:179
+#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:180
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<message>"
 msgid "<message>"
 msgstr "<message>"
 
-#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:72
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ ¯\\_(ツ)_/¯  ਜੋੜਦਾ ਹੈ"
 
-#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:81
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ ( ͡° ͜ʖ ͡°) ਜੋੜਦਾ ਹੈ"
 
-#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:90
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ  (╯°□°）╯︵ ┻━┻ ਜੋੜਦਾ ਹੈ"
 
-#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ  ┬──┬ ノ( ゜-゜ノ) ਜੋੜਦਾ ਹੈ"
 
-#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:149
 #, fuzzy
 #| msgid "React to this message with a text"
 msgid "Sends the given message as plain text"
 msgstr "ਇਸ ਸੁਨੇਹੇ ਨੂੰ ਲਿਖਤ ਨਾਲ ਅਸਰ ਦਿਓ"
 
-#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
 msgstr ""
 
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
 msgstr ""
 
@@ -2213,67 +2215,6 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgctxt "@title:dialog"
-msgid "Confirm Account Deactivation"
-msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:18
-#, kde-format
-msgid ""
-"Your account will be permanently disabled.\n"
-"This cannot be undone.\n"
-"Your Matrix ID will not be available for new accounts.\n"
-"Your messages will stay available."
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "ਪਾਸਵਰਡ"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:33
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Erase Data"
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, kde-format
-msgctxt "@info"
-msgid "Request your server to delete as much user data as possible."
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:43
-#, fuzzy, kde-format
-#| msgid "Edit Account"
-msgid "Deactivate account"
-msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
-
-#: src/qml/ConfirmEncryptionDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
-msgctxt "@title:dialog"
-msgid "Activate Encryption"
-msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
-
-#: src/qml/ConfirmEncryptionDialog.qml:15
-#, kde-format
-msgid ""
-"It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
-
-#: src/qml/ConfirmEncryptionDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
-msgid "Activate Encryption"
-msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
-
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Configure room"
@@ -2361,8 +2302,8 @@ msgstr "ਰੂਮ ਬਣਾਓ"
 
 #: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
 #: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -2439,7 +2380,7 @@ msgstr "ਰੂਮ ਬਣਾਓ"
 msgid "Select Existing Room"
 msgstr ""
 
-#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
@@ -2447,8 +2388,8 @@ msgstr ""
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
-#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@title"
@@ -2456,7 +2397,8 @@ msgid "Explore Rooms"
 msgstr "ਰੂਮ ਛਾਣੋ"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "ਦਾਖਲ ਹੋਏ"
@@ -3045,7 +2987,7 @@ msgid "Manually Enter a Room"
 msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/qml/SelectParentDialog.qml:37
+#: src/settings/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr ""
@@ -3191,22 +3133,6 @@ msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 msgid "Select a File"
 msgstr "ਸਭ ਚੁਣੋ"
 
-#: src/qml/PowerLevelDialog.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Edit User Power Level"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:35
-#, kde-format
-msgid "New power level"
-msgstr ""
-
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
-#, kde-format
-msgid "Confirm"
-msgstr "ਤਸਦੀਕ ਕਰੋ"
-
 #: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
 #, kde-format
 msgctxt "@title"
@@ -3250,7 +3176,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -3505,54 +3431,6 @@ msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 msgctxt "@action:button"
 msgid "Search"
 msgstr ""
-
-#: src/qml/SelectParentDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "See new room..."
-msgctxt "@title"
-msgid "Select new official parent"
-msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
-
-#: src/qml/SelectParentDialog.qml:57
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Choose Parent Space"
-msgstr "ਰੂਮ ਬਣਾਓ"
-
-#: src/qml/SelectParentDialog.qml:159
-#, kde-format
-msgid "Set this room as a child of the space %1"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "The selected room is not a space"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "You do not have the privileges to complete this action"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:171
-#, kde-format
-msgid "Make this space the canonical parent"
-msgstr ""
-
-#: src/qml/SelectSpacesDialog.qml:37
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Select All"
-msgctxt "@title"
-msgid "Select Spaces"
-msgstr "ਸਭ ਚੁਣੋ"
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -4176,16 +4054,15 @@ msgstr "ਤਰਜੀਹ ਘਟਾਓ"
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
+msgid "Copy user's Matrix ID"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
-#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
+#: src/rooms/RoomContextMenu.qml:126
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
+#| msgid "Copy"
 msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
+msgid "Copy Room Address"
+msgstr "ਕਾਪੀ ਕਰੋ"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, fuzzy, kde-format
@@ -4267,20 +4144,29 @@ msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:133
+#: src/rooms/SpaceDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends (%1 notification)"
+msgid_plural "Friends (%1 notifications)"
+msgstr[0] "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+msgstr[1] "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/rooms/SpaceDrawer.qml:140
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:221
+#: src/rooms/SpaceDrawer.qml:222
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "ਜੁਆਇੰਨ"
 
-#: src/rooms/SpaceDrawer.qml:263
+#: src/rooms/SpaceDrawer.qml:264
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a space"
@@ -4292,6 +4178,13 @@ msgstr "ਰੂਮ ਬਣਾਓ"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "ਸਰੋਤ ਵੇਖੋ"
+
+#: src/rooms/SpaceListContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgid "Copy"
+msgctxt "@action:inmenu"
+msgid "Copy Space Address"
+msgstr "ਕਾਪੀ ਕਰੋ"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, fuzzy, kde-format
@@ -4580,6 +4473,67 @@ msgstr "ਬਾਹੀ ਵਿੱਚ"
 #, kde-format
 msgid "Color theme"
 msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:17
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:18
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "ਪਾਸਵਰਡ"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Deactivate account"
+msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/settings/ConfirmEncryptionDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@title:dialog"
+msgid "Activate Encryption"
+msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
+
+#: src/settings/ConfirmEncryptionDialog.qml:15
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr ""
+
+#: src/settings/ConfirmEncryptionDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "Activate Encryption"
+msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -5413,6 +5367,11 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 msgid "Enable developer tools"
 msgstr ""
 
+#: src/settings/NeoChatGeneralPage.qml:302
+#, kde-format
+msgid "Developer Tools"
+msgstr ""
+
 #: src/settings/NeoChatGeneralPage.qml:307
 #, fuzzy, kde-format
 #| msgid "Settings"
@@ -5745,6 +5704,22 @@ msgstr ""
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: src/settings/PowerLevelDialog.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Edit User Power Level"
+msgstr ""
+
+#: src/settings/PowerLevelDialog.qml:35
+#, kde-format
+msgid "New power level"
+msgstr ""
+
+#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#, kde-format
+msgid "Confirm"
+msgstr "ਤਸਦੀਕ ਕਰੋ"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -6200,6 +6175,54 @@ msgstr ""
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
+
+#: src/settings/SelectParentDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgctxt "@title"
+msgid "Select new official parent"
+msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
+
+#: src/settings/SelectParentDialog.qml:57
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Choose Parent Space"
+msgstr "ਰੂਮ ਬਣਾਓ"
+
+#: src/settings/SelectParentDialog.qml:159
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "The selected room is not a space"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:171
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr ""
+
+#: src/settings/SelectSpacesDialog.qml:37
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Select All"
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "ਸਭ ਚੁਣੋ"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6889,6 +6912,13 @@ msgstr "ਵੇਖਾਓ"
 #, kde-format
 msgid "Quit"
 msgstr "ਬਾਹਰ"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Copy address to clipboard"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Address to Clipboard"
+#~ msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
 #~ msgid "Edit this account"
 #~ msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"

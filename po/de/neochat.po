@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:41+0000\n"
+"POT-Creation-Date: 2025-04-18 00:41+0000\n"
 "PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -152,79 +152,81 @@ msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr "Adresse in die Zwischenablage kopieren"
 
-#: src/devtools/DebugOptions.qml:19
+#: src/devtools/DebugOptions.qml:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr "Ausgeblendete Ereignisse in der Zeitleiste anzeigen"
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "Geräteverifizierung immer zulassen"
 
-#: src/devtools/DebugOptions.qml:27
+#: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:33
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
-#, kde-format
+#: src/devtools/DevtoolsPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Entwicklungswerkzeuge"
 
-#: src/devtools/DevtoolsPage.qml:29
+#: src/devtools/DevtoolsPage.qml:32
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Fehlersuche"
 
-#: src/devtools/DevtoolsPage.qml:34
+#: src/devtools/DevtoolsPage.qml:37
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "Raumdaten"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:42
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "Server-Informationen"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:47
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Kontendaten"
 
-#: src/devtools/DevtoolsPage.qml:49
+#: src/devtools/DevtoolsPage.qml:52
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Funktionen"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:19
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Diskussionsfäden"
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr "Verschlüsselte Sicherungskopie"
 
-#: src/devtools/FeatureFlagPage.qml:32
+#: src/devtools/FeatureFlagPage.qml:31
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -1010,12 +1012,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Ziel"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "Der Raum wird verlassen."
 
-#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:38
 #: src/libneochat/models/actionsmodel.cpp:224
 #: src/libneochat/models/actionsmodel.cpp:249
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -1024,74 +1026,74 @@ msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "„%1“ scheint keine Raum(klar)kennung zu sein."
 
-#: src/libneochat/models/actionsmodel.cpp:45
+#: src/libneochat/models/actionsmodel.cpp:46
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Raum %1 wird verlassen."
 
-#: src/libneochat/models/actionsmodel.cpp:48
+#: src/libneochat/models/actionsmodel.cpp:49
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Raum %1 nicht gefunden."
 
-#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:57
 #: src/libneochat/models/actionsmodel.cpp:311
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Kein neuer Spitzname angegebenen, keine Änderungen vorhanden."
 
-#: src/libneochat/models/actionsmodel.cpp:70
-#: src/libneochat/models/actionsmodel.cpp:79
-#: src/libneochat/models/actionsmodel.cpp:88
-#: src/libneochat/models/actionsmodel.cpp:97
-#: src/libneochat/models/actionsmodel.cpp:115
-#: src/libneochat/models/actionsmodel.cpp:133
-#: src/libneochat/models/actionsmodel.cpp:147
-#: src/libneochat/models/actionsmodel.cpp:161
-#: src/libneochat/models/actionsmodel.cpp:170
-#: src/libneochat/models/actionsmodel.cpp:179
+#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:180
 msgid "<message>"
 msgstr "<Nachricht>"
 
-#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:72
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Stellt einer Klartextnachricht ¯\\_(ツ)_/¯ voran"
 
-#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:81
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Stellt einer Klartextnachricht ( ͡° ͜ʖ ͡°) voran"
 
-#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:90
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Stellt einer Klartextnachricht (╯°□°）╯︵ ┻━┻ voran"
 
-#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Stellt einer Klartextnachricht ┬──┬ ノ( ゜-゜ノ) voran"
 
-#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr "Sendet die angegebene Nachricht in Regenbogenfarben"
 
-#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Sendet das angegebene Emote in Regenbogenfarben"
 
-#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "Sendet die angegebene Nachricht als einfachen Text"
 
-#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
 msgstr "Sendet die angegebene Nachricht als Spoiler"
 
-#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
 msgstr "Sendet das angegebene Emote"
 
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
 msgstr "Sendet die angegebene Nachricht als Hinweis"
 
@@ -2036,67 +2038,6 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Account Deactivation"
-msgstr "Kontenstilllegung bestätigen"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:18
-#, kde-format
-msgid ""
-"Your account will be permanently disabled.\n"
-"This cannot be undone.\n"
-"Your Matrix ID will not be available for new accounts.\n"
-"Your messages will stay available."
-msgstr ""
-"Das Konto wird dauerhaft deaktiviert.\n"
-"Dieser Schritt kann nicht zurückgenommen werden.\n"
-"Die Matrix-Kennung wird für neue Konten nicht zur Verfügung stehen.\n"
-"Die Nachrichten sind jedoch weiterhin verfügbar."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:25
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "Passwort"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:33
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Erase Data"
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, kde-format
-msgctxt "@info"
-msgid "Request your server to delete as much user data as possible."
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:43
-#, kde-format
-msgid "Deactivate account"
-msgstr "Konto deaktivieren"
-
-#: src/qml/ConfirmEncryptionDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Activate Encryption"
-msgstr "Verschlüsselung aktivieren"
-
-#: src/qml/ConfirmEncryptionDialog.qml:15
-#, kde-format
-msgid ""
-"It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
-"Die Verschlüsselung kann nach der Aktivierung nicht wieder deaktiviert "
-"werden."
-
-#: src/qml/ConfirmEncryptionDialog.qml:28
-#, kde-format
-msgid "Activate Encryption"
-msgstr "Verschlüsselung aktivieren"
-
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
 msgctxt "@title:dialog"
@@ -2175,8 +2116,8 @@ msgstr "Einen Raum erstellen"
 
 #: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
 #: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2242,7 +2183,7 @@ msgstr "Raum erstellen"
 msgid "Select Existing Room"
 msgstr "Vorhandenen Raum auswählen"
 
-#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
@@ -2250,15 +2191,16 @@ msgstr "Raum wählen"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
-#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Räume erkunden"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Betreten"
@@ -2829,7 +2771,7 @@ msgid "Manually Enter a Room"
 msgstr "Raum direkt eingeben"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/qml/SelectParentDialog.qml:37
+#: src/settings/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "OK"
@@ -2972,22 +2914,6 @@ msgstr "Keine Benachrichtigungen"
 msgid "Select a File"
 msgstr "Eine Datei auswählen"
 
-#: src/qml/PowerLevelDialog.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Edit User Power Level"
-msgstr "Berechtigungsstufe des Benutzers bearbeiten"
-
-#: src/qml/PowerLevelDialog.qml:35
-#, kde-format
-msgid "New power level"
-msgstr "Neu Berechtigungsstufe"
-
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
-#, kde-format
-msgid "Confirm"
-msgstr "Bestätigen"
-
 #: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
 #, kde-format
 msgctxt "@title"
@@ -3030,7 +2956,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Kein Raum gefunden"
 
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3260,52 +3186,6 @@ msgstr "Keine Nachrichten gefunden"
 msgctxt "@action:button"
 msgid "Search"
 msgstr "Suchen"
-
-#: src/qml/SelectParentDialog.qml:25
-#, kde-format
-msgctxt "@title"
-msgid "Select new official parent"
-msgstr "Neues offziell übergeordnetes Element auswählen"
-
-#: src/qml/SelectParentDialog.qml:57
-#, kde-format
-msgctxt "@title"
-msgid "Choose Parent Space"
-msgstr "Übergeordnete Umgebung wählen"
-
-#: src/qml/SelectParentDialog.qml:159
-#, kde-format
-msgid "Set this room as a child of the space %1"
-msgstr "Diesen Raum als nachgeordnetes Element der Umgebung %1 festlegen"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
-"Sie besitzen nicht die notwendige Berechtigungsstufe beim übergeordneten "
-"Element zum Festlegen dieses Status"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "The selected room is not a space"
-msgstr "Der ausgewählte Raum ist keine Umgebung"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "You do not have the privileges to complete this action"
-msgstr "Sie besitzen nicht die Berechtigung zum Ausführen dieser Aktion"
-
-#: src/qml/SelectParentDialog.qml:171
-#, kde-format
-msgid "Make this space the canonical parent"
-msgstr "Diese als übergeordnete Hauptumgebung festlegen"
-
-#: src/qml/SelectSpacesDialog.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "Select Spaces"
-msgstr "Umgebungen auswählen"
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3935,16 +3815,20 @@ msgid "Deprioritize"
 msgstr "Priorität verringern"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy user's Matrix ID to Clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
+msgid "Copy user's Matrix ID"
 msgstr "Matrix-Kennung des Benutzers in die Zwischenablage kopieren"
 
-#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Link Address"
 msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Adresse in die Zwischenablage kopieren"
+msgid "Copy Room Address"
+msgstr "Verknüpfungsadresse kopieren"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -4022,19 +3906,28 @@ msgstr "Benachrichtigungen anzeigen"
 msgid "Home"
 msgstr "Start"
 
-#: src/rooms/SpaceDrawer.qml:133
+#: src/rooms/SpaceDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends (%1 notification)"
+msgid_plural "Friends (%1 notifications)"
+msgstr[0] "Benachrichtigungen anzeigen"
+msgstr[1] "Benachrichtigungen anzeigen"
+
+#: src/rooms/SpaceDrawer.qml:140
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Freunde"
 
-#: src/rooms/SpaceDrawer.qml:221
+#: src/rooms/SpaceDrawer.qml:222
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 betreten"
 
-#: src/rooms/SpaceDrawer.qml:263
+#: src/rooms/SpaceDrawer.qml:264
 #, kde-format
 msgid "Create a space"
 msgstr "Eine Umgebung erstellen"
@@ -4044,6 +3937,14 @@ msgstr "Eine Umgebung erstellen"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Umgebung anzeigen"
+
+#: src/rooms/SpaceListContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Link Address"
+msgctxt "@action:inmenu"
+msgid "Copy Space Address"
+msgstr "Verknüpfungsadresse kopieren"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -4309,6 +4210,67 @@ msgstr "In der Seitenleiste"
 #, kde-format
 msgid "Color theme"
 msgstr "Farbdesign"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:17
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Kontenstilllegung bestätigen"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:18
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+"Das Konto wird dauerhaft deaktiviert.\n"
+"Dieser Schritt kann nicht zurückgenommen werden.\n"
+"Die Matrix-Kennung wird für neue Konten nicht zur Verfügung stehen.\n"
+"Die Nachrichten sind jedoch weiterhin verfügbar."
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Passwort"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#, kde-format
+msgid "Deactivate account"
+msgstr "Konto deaktivieren"
+
+#: src/settings/ConfirmEncryptionDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Activate Encryption"
+msgstr "Verschlüsselung aktivieren"
+
+#: src/settings/ConfirmEncryptionDialog.qml:15
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr ""
+"Die Verschlüsselung kann nach der Aktivierung nicht wieder deaktiviert "
+"werden."
+
+#: src/settings/ConfirmEncryptionDialog.qml:28
+#, kde-format
+msgid "Activate Encryption"
+msgstr "Verschlüsselung aktivieren"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -5062,6 +5024,11 @@ msgstr "Entwicklungseinstellungen"
 msgid "Enable developer tools"
 msgstr "Entwicklungswerkzeuge aktivieren"
 
+#: src/settings/NeoChatGeneralPage.qml:302
+#, kde-format
+msgid "Developer Tools"
+msgstr "Entwicklungswerkzeuge"
+
 #: src/settings/NeoChatGeneralPage.qml:307
 #, kde-format
 msgctxt "@title:group"
@@ -5374,6 +5341,22 @@ msgstr "Ereignistyp …"
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "Wird geladen …"
+
+#: src/settings/PowerLevelDialog.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Edit User Power Level"
+msgstr "Berechtigungsstufe des Benutzers bearbeiten"
+
+#: src/settings/PowerLevelDialog.qml:35
+#, kde-format
+msgid "New power level"
+msgstr "Neu Berechtigungsstufe"
+
+#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#, kde-format
+msgid "Confirm"
+msgstr "Bestätigen"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -5814,6 +5797,52 @@ msgstr "Parameter hinzufügen"
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
+
+#: src/settings/SelectParentDialog.qml:25
+#, kde-format
+msgctxt "@title"
+msgid "Select new official parent"
+msgstr "Neues offziell übergeordnetes Element auswählen"
+
+#: src/settings/SelectParentDialog.qml:57
+#, kde-format
+msgctxt "@title"
+msgid "Choose Parent Space"
+msgstr "Übergeordnete Umgebung wählen"
+
+#: src/settings/SelectParentDialog.qml:159
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr "Diesen Raum als nachgeordnetes Element der Umgebung %1 festlegen"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+"Sie besitzen nicht die notwendige Berechtigungsstufe beim übergeordneten "
+"Element zum Festlegen dieses Status"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "The selected room is not a space"
+msgstr "Der ausgewählte Raum ist keine Umgebung"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr "Sie besitzen nicht die Berechtigung zum Ausführen dieser Aktion"
+
+#: src/settings/SelectParentDialog.qml:171
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Diese als übergeordnete Hauptumgebung festlegen"
+
+#: src/settings/SelectSpacesDialog.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Umgebungen auswählen"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6465,6 +6494,10 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Address to Clipboard"
+#~ msgstr "Adresse in die Zwischenablage kopieren"
 
 #~ msgid "Edit this account"
 #~ msgstr "Dieses Konto bearbeiten"

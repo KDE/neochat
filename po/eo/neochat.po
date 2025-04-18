@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:41+0000\n"
+"POT-Creation-Date: 2025-04-18 00:41+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -147,19 +147,19 @@ msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr "Kopii Alirĵetonon al tondujo"
 
-#: src/devtools/DebugOptions.qml:19
+#: src/devtools/DebugOptions.qml:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr "Montri kaŝitajn eventojn en la templinio"
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "Ĉiam permesi konfirmon de aparato"
 
-#: src/devtools/DebugOptions.qml:27
+#: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
@@ -168,60 +168,62 @@ msgstr ""
 "Permesi al la uzanto komenci konfirmsesion per aparatoj kiuj jam estis "
 "konfirmitaj"
 
-#: src/devtools/DebugOptions.qml:33
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Montri fokuson en fenestrokapo"
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
-#, kde-format
+#: src/devtools/DevtoolsPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Iloj por programistoj"
 
-#: src/devtools/DevtoolsPage.qml:29
+#: src/devtools/DevtoolsPage.qml:32
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Sencimigaj Elektebloj"
 
-#: src/devtools/DevtoolsPage.qml:34
+#: src/devtools/DevtoolsPage.qml:37
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "Ĉambro-Datumoj"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:42
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "Servila Informo"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:47
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Datumoj pri Konto"
 
-#: src/devtools/DevtoolsPage.qml:49
+#: src/devtools/DevtoolsPage.qml:52
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Trajtoflagoj"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:19
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "Fadenoj"
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr "Sekreta Sekurkopio"
 
-#: src/devtools/FeatureFlagPage.qml:32
+#: src/devtools/FeatureFlagPage.qml:31
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -998,12 +1000,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Celo"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "Forlasante ĉi tiun ĉambron."
 
-#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:38
 #: src/libneochat/models/actionsmodel.cpp:224
 #: src/libneochat/models/actionsmodel.cpp:249
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -1012,74 +1014,74 @@ msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1' ne aspektas kiel ĉambro-identigilo aŭ kaŝnomo."
 
-#: src/libneochat/models/actionsmodel.cpp:45
+#: src/libneochat/models/actionsmodel.cpp:46
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Forlasante la ĉambron %1."
 
-#: src/libneochat/models/actionsmodel.cpp:48
+#: src/libneochat/models/actionsmodel.cpp:49
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Ĉambro %1 ne trovita."
 
-#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:57
 #: src/libneochat/models/actionsmodel.cpp:311
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Neniu nova kromnomo provizita, neniuj ŝanĝoj okazos."
 
-#: src/libneochat/models/actionsmodel.cpp:70
-#: src/libneochat/models/actionsmodel.cpp:79
-#: src/libneochat/models/actionsmodel.cpp:88
-#: src/libneochat/models/actionsmodel.cpp:97
-#: src/libneochat/models/actionsmodel.cpp:115
-#: src/libneochat/models/actionsmodel.cpp:133
-#: src/libneochat/models/actionsmodel.cpp:147
-#: src/libneochat/models/actionsmodel.cpp:161
-#: src/libneochat/models/actionsmodel.cpp:170
-#: src/libneochat/models/actionsmodel.cpp:179
+#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:180
 msgid "<message>"
 msgstr "<mesaĝo>"
 
-#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:72
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Antaŭmetas ¯\\_(ツ)_/¯ al mesaĝo"
 
-#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:81
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Antaŭmetas ( ͡° ͜ʖ ͡°) al klarteksta mesaĝo"
 
-#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:90
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Antaŭmetas (╯°□°）╯︵ ┻━┻ al simplateksta mesaĝo"
 
-#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Antaŭmetas ┬──┬ ノ( ゜-゜ノ) al simplateksta mesaĝo"
 
-#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr "Sendas la donitan mesaĝon kolorigita kiel ĉielarko"
 
-#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Sendas la donitan emocion kolorigitan kiel ĉielarko"
 
-#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "Sendas la donitan mesaĝon kiel simpla teksto"
 
-#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
 msgstr "Sendas la donitan mesaĝon kiel spoiler"
 
-#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
 msgstr "Sendas la donitan emociaĵon"
 
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
 msgstr "Sendas la donitan mesaĝon kiel avizo"
 
@@ -2017,65 +2019,6 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Kopii al tondujo"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Account Deactivation"
-msgstr "Konfirmi Malaktivigon de Konto"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:18
-#, kde-format
-msgid ""
-"Your account will be permanently disabled.\n"
-"This cannot be undone.\n"
-"Your Matrix ID will not be available for new accounts.\n"
-"Your messages will stay available."
-msgstr ""
-"Via konto estos konstante malŝaltita.\n"
-"Ĉi tio ne povas esti malfarita.\n"
-"Via Matrix-ID ne estos disponebla por novaj kontoj.\n"
-"Viaj mesaĝoj restos disponeblaj."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:25
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "Pasvorto"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:33
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Erase Data"
-msgstr "Viŝi Datumojn"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, kde-format
-msgctxt "@info"
-msgid "Request your server to delete as much user data as possible."
-msgstr "Peti al servilo forigi kiel eble plej da uzantodatumoj."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:43
-#, kde-format
-msgid "Deactivate account"
-msgstr "Malaktivigi konton"
-
-#: src/qml/ConfirmEncryptionDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Activate Encryption"
-msgstr "Aktivigi Ĉifradon"
-
-#: src/qml/ConfirmEncryptionDialog.qml:15
-#, kde-format
-msgid ""
-"It will not be possible to deactivate the encryption after it is enabled."
-msgstr "Ne eblos malaktivigi la ĉifradon post kiam ĝi estas ebligita."
-
-#: src/qml/ConfirmEncryptionDialog.qml:28
-#, kde-format
-msgid "Activate Encryption"
-msgstr "Aktivigi Ĉifradon"
-
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
 msgctxt "@title:dialog"
@@ -2154,8 +2097,8 @@ msgstr "Krei Ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
 #: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2221,7 +2164,7 @@ msgstr "Krei Ĉambron"
 msgid "Select Existing Room"
 msgstr "Elekti Ekzistantan Ĉambron"
 
-#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
@@ -2229,15 +2172,16 @@ msgstr "Elekti ĉambron"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
-#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Esplori Ĉambrojn"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "Aliĝis"
@@ -2795,7 +2739,7 @@ msgid "Manually Enter a Room"
 msgstr "Permane Enigi Ĉambron"
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/qml/SelectParentDialog.qml:37
+#: src/settings/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "Bone"
@@ -2923,22 +2867,6 @@ msgstr "Neniuj Sciigoj"
 msgid "Select a File"
 msgstr "Elekti Dosieron"
 
-#: src/qml/PowerLevelDialog.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Edit User Power Level"
-msgstr "Redakti Potenconivelon de Uzanto"
-
-#: src/qml/PowerLevelDialog.qml:35
-#, kde-format
-msgid "New power level"
-msgstr "Nova potencnivelo"
-
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
-#, kde-format
-msgid "Confirm"
-msgstr "Konfirmi"
-
 #: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
 #, kde-format
 msgctxt "@title"
@@ -2981,7 +2909,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Neniu ĉambro trovita"
 
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3207,52 +3135,6 @@ msgstr "Trovis neniujn mesaĝojn"
 msgctxt "@action:button"
 msgid "Search"
 msgstr "Serĉi"
-
-#: src/qml/SelectParentDialog.qml:25
-#, kde-format
-msgctxt "@title"
-msgid "Select new official parent"
-msgstr "Elekti novan oficialan gepatron"
-
-#: src/qml/SelectParentDialog.qml:57
-#, kde-format
-msgctxt "@title"
-msgid "Choose Parent Space"
-msgstr "Elekti Gepatrospacon"
-
-#: src/qml/SelectParentDialog.qml:159
-#, kde-format
-msgid "Set this room as a child of the space %1"
-msgstr "Agordi ĉi ĉambron kiel idon de la spaco %1"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
-"Vi ne havas sufiĉe altan privilegionivelon en la gepatro por meti ĉi tiun "
-"staton"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "The selected room is not a space"
-msgstr "La elektita ĉambro ne estas spaco"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "You do not have the privileges to complete this action"
-msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
-
-#: src/qml/SelectParentDialog.qml:171
-#, kde-format
-msgid "Make this space the canonical parent"
-msgstr "Igi ĉi tiun spacon la kanonikan gepatron"
-
-#: src/qml/SelectSpacesDialog.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "Select Spaces"
-msgstr "Elekti Spacojn"
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3854,16 +3736,20 @@ msgid "Deprioritize"
 msgstr "Malprioritigi"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy user's Matrix ID to Clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
+msgid "Copy user's Matrix ID"
 msgstr "Kopii Matrico-ID de uzanto al Tondujo"
 
-#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Link Address"
 msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Kopii Adreson al Tondujo"
+msgid "Copy Room Address"
+msgstr "Kopii Ligil-Adreson"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -3940,19 +3826,28 @@ msgstr "Rigardi sciigojn"
 msgid "Home"
 msgstr "Hejmo"
 
-#: src/rooms/SpaceDrawer.qml:133
+#: src/rooms/SpaceDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends (%1 notification)"
+msgid_plural "Friends (%1 notifications)"
+msgstr[0] "Rigardi sciigojn"
+msgstr[1] "Rigardi sciigojn"
+
+#: src/rooms/SpaceDrawer.qml:140
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "Amikoj"
 
-#: src/rooms/SpaceDrawer.qml:221
+#: src/rooms/SpaceDrawer.qml:222
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Aliĝi al %1"
 
-#: src/rooms/SpaceDrawer.qml:263
+#: src/rooms/SpaceDrawer.qml:264
 #, kde-format
 msgid "Create a space"
 msgstr "Krei spacon"
@@ -3962,6 +3857,14 @@ msgstr "Krei spacon"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Rigardi Spacon"
+
+#: src/rooms/SpaceListContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Link Address"
+msgctxt "@action:inmenu"
+msgid "Copy Space Address"
+msgstr "Kopii Ligil-Adreson"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -4217,6 +4120,65 @@ msgstr "En flanka kolumno"
 #, kde-format
 msgid "Color theme"
 msgstr "Kolora etoso"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:17
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "Konfirmi Malaktivigon de Konto"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:18
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+"Via konto estos konstante malŝaltita.\n"
+"Ĉi tio ne povas esti malfarita.\n"
+"Via Matrix-ID ne estos disponebla por novaj kontoj.\n"
+"Viaj mesaĝoj restos disponeblaj."
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Pasvorto"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr "Viŝi Datumojn"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr "Peti al servilo forigi kiel eble plej da uzantodatumoj."
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#, kde-format
+msgid "Deactivate account"
+msgstr "Malaktivigi konton"
+
+#: src/settings/ConfirmEncryptionDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Activate Encryption"
+msgstr "Aktivigi Ĉifradon"
+
+#: src/settings/ConfirmEncryptionDialog.qml:15
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr "Ne eblos malaktivigi la ĉifradon post kiam ĝi estas ebligita."
+
+#: src/settings/ConfirmEncryptionDialog.qml:28
+#, kde-format
+msgid "Activate Encryption"
+msgstr "Aktivigi Ĉifradon"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -4951,6 +4913,11 @@ msgstr "Agordoj por programistoj"
 msgid "Enable developer tools"
 msgstr "Ebligi programistajn ilojn"
 
+#: src/settings/NeoChatGeneralPage.qml:302
+#, kde-format
+msgid "Developer Tools"
+msgstr "Iloj por programistoj"
+
 #: src/settings/NeoChatGeneralPage.qml:307
 #, kde-format
 msgctxt "@title:group"
@@ -5263,6 +5230,22 @@ msgstr "Eventtipo…"
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "Ŝargante…"
+
+#: src/settings/PowerLevelDialog.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Edit User Power Level"
+msgstr "Redakti Potenconivelon de Uzanto"
+
+#: src/settings/PowerLevelDialog.qml:35
+#, kde-format
+msgid "New power level"
+msgstr "Nova potencnivelo"
+
+#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#, kde-format
+msgid "Confirm"
+msgstr "Konfirmi"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5688,6 +5671,52 @@ msgstr "Aldoni parametron"
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr "Elekti Parametron Aldonendan"
+
+#: src/settings/SelectParentDialog.qml:25
+#, kde-format
+msgctxt "@title"
+msgid "Select new official parent"
+msgstr "Elekti novan oficialan gepatron"
+
+#: src/settings/SelectParentDialog.qml:57
+#, kde-format
+msgctxt "@title"
+msgid "Choose Parent Space"
+msgstr "Elekti Gepatrospacon"
+
+#: src/settings/SelectParentDialog.qml:159
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr "Agordi ĉi ĉambron kiel idon de la spaco %1"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+"Vi ne havas sufiĉe altan privilegionivelon en la gepatro por meti ĉi tiun "
+"staton"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "The selected room is not a space"
+msgstr "La elektita ĉambro ne estas spaco"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
+
+#: src/settings/SelectParentDialog.qml:171
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "Igi ĉi tiun spacon la kanonikan gepatron"
+
+#: src/settings/SelectSpacesDialog.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "Elekti Spacojn"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6341,3 +6370,7 @@ msgstr "Montri"
 #, kde-format
 msgid "Quit"
 msgstr "Forlasi"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Address to Clipboard"
+#~ msgstr "Kopii Adreson al Tondujo"

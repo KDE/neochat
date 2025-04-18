@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:41+0000\n"
+"POT-Creation-Date: 2025-04-18 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -144,79 +144,81 @@ msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:19
+#: src/devtools/DebugOptions.qml:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr "在时间线中显示隐藏事件"
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "总是允许设备验证"
 
-#: src/devtools/DebugOptions.qml:27
+#: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr "允许用户以已验证的设备开始验证会话"
 
-#: src/devtools/DebugOptions.qml:33
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
-#, kde-format
+#: src/devtools/DevtoolsPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title"
 msgid "Developer Tools"
 msgstr "开发者工具"
 
-#: src/devtools/DevtoolsPage.qml:29
+#: src/devtools/DevtoolsPage.qml:32
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "调试选项"
 
-#: src/devtools/DevtoolsPage.qml:34
+#: src/devtools/DevtoolsPage.qml:37
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:42
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:47
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "账户数据"
 
-#: src/devtools/DevtoolsPage.qml:49
+#: src/devtools/DevtoolsPage.qml:52
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "特性开关"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:19
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:32
+#: src/devtools/FeatureFlagPage.qml:31
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -988,12 +990,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "目标文件夹"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "离开此聊天室。"
 
-#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:38
 #: src/libneochat/models/actionsmodel.cpp:224
 #: src/libneochat/models/actionsmodel.cpp:249
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -1002,74 +1004,74 @@ msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1' 似乎不是聊天室 ID 或别名。"
 
-#: src/libneochat/models/actionsmodel.cpp:45
+#: src/libneochat/models/actionsmodel.cpp:46
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "正在离开聊天室 %1。"
 
-#: src/libneochat/models/actionsmodel.cpp:48
+#: src/libneochat/models/actionsmodel.cpp:49
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "聊天室 %1 未找到。"
 
-#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:57
 #: src/libneochat/models/actionsmodel.cpp:311
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "未提供新昵称，昵称将保持不变。"
 
-#: src/libneochat/models/actionsmodel.cpp:70
-#: src/libneochat/models/actionsmodel.cpp:79
-#: src/libneochat/models/actionsmodel.cpp:88
-#: src/libneochat/models/actionsmodel.cpp:97
-#: src/libneochat/models/actionsmodel.cpp:115
-#: src/libneochat/models/actionsmodel.cpp:133
-#: src/libneochat/models/actionsmodel.cpp:147
-#: src/libneochat/models/actionsmodel.cpp:161
-#: src/libneochat/models/actionsmodel.cpp:170
-#: src/libneochat/models/actionsmodel.cpp:179
+#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:180
 msgid "<message>"
 msgstr "<消息内容>"
 
-#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:72
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "在纯文本消息前追加 ¯\\_(ツ)_/¯"
 
-#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:81
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "在纯文本消息前追加 ( ͡° ͜ʖ ͡°)"
 
-#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:90
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "在纯文本消息前追加 (╯°□°）╯︵ ┻━┻"
 
-#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "在纯文本消息前追加 ┬──┬ ノ( ゜-゜ノ)"
 
-#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr "发送这条彩虹色的消息"
 
-#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
 msgstr "发送这个彩虹色的表情"
 
-#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "将此消息作为纯文本消息发送"
 
-#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
 msgstr "发送消息，并将此消息标记为防剧透"
 
-#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
 msgstr "发送此表情"
 
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
 msgstr "发送消息，并将此消息标记为一条通知"
 
@@ -2004,65 +2006,6 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Account Deactivation"
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:18
-#, kde-format
-msgid ""
-"Your account will be permanently disabled.\n"
-"This cannot be undone.\n"
-"Your Matrix ID will not be available for new accounts.\n"
-"Your messages will stay available."
-msgstr ""
-"您的账户将被永久禁用。\n"
-"此操作无法撤销。\n"
-"新账户将无法使用原来的 Matrix ID。\n"
-"您的消息仍将保持可见。"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:25
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "密码"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:33
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Erase Data"
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, kde-format
-msgctxt "@info"
-msgid "Request your server to delete as much user data as possible."
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:43
-#, kde-format
-msgid "Deactivate account"
-msgstr "停用账户"
-
-#: src/qml/ConfirmEncryptionDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Activate Encryption"
-msgstr "激活加密"
-
-#: src/qml/ConfirmEncryptionDialog.qml:15
-#, kde-format
-msgid ""
-"It will not be possible to deactivate the encryption after it is enabled."
-msgstr "启用加密后将无法停用。"
-
-#: src/qml/ConfirmEncryptionDialog.qml:28
-#, kde-format
-msgid "Activate Encryption"
-msgstr "激活加密"
-
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
 msgctxt "@title:dialog"
@@ -2139,8 +2082,8 @@ msgstr "创建聊天室"
 
 #: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
 #: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2206,7 +2149,7 @@ msgstr ""
 msgid "Select Existing Room"
 msgstr "选择已有聊天室"
 
-#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
@@ -2214,15 +2157,16 @@ msgstr "选择聊天室"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
-#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "探索聊天室"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "已加入"
@@ -2774,7 +2718,7 @@ msgid "Manually Enter a Room"
 msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/qml/SelectParentDialog.qml:37
+#: src/settings/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "确定"
@@ -2902,22 +2846,6 @@ msgstr "无通知"
 msgid "Select a File"
 msgstr "选择一个文件"
 
-#: src/qml/PowerLevelDialog.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Edit User Power Level"
-msgstr "编辑用户权力等级"
-
-#: src/qml/PowerLevelDialog.qml:35
-#, kde-format
-msgid "New power level"
-msgstr "新建权力等级"
-
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
-#, kde-format
-msgid "Confirm"
-msgstr "确认"
-
 #: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
 #, kde-format
 msgctxt "@title"
@@ -2960,7 +2888,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr ""
 
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3183,50 +3111,6 @@ msgstr "未找到消息"
 msgctxt "@action:button"
 msgid "Search"
 msgstr "搜索"
-
-#: src/qml/SelectParentDialog.qml:25
-#, kde-format
-msgctxt "@title"
-msgid "Select new official parent"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:57
-#, kde-format
-msgctxt "@title"
-msgid "Choose Parent Space"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:159
-#, kde-format
-msgid "Set this room as a child of the space %1"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the parent to set this state"
-msgstr ""
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "The selected room is not a space"
-msgstr "所选的聊天室不是空间"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "You do not have the privileges to complete this action"
-msgstr "您无权完成此操作。"
-
-#: src/qml/SelectParentDialog.qml:171
-#, kde-format
-msgid "Make this space the canonical parent"
-msgstr ""
-
-#: src/qml/SelectSpacesDialog.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "Select Spaces"
-msgstr "选择空间"
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3813,16 +3697,18 @@ msgid "Deprioritize"
 msgstr "降低优先级"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy user's Matrix ID to Clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
+msgid "Copy user's Matrix ID"
 msgstr "将用户的 Matrix ID 复制到剪贴板"
 
-#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
+#: src/rooms/RoomContextMenu.qml:126
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "将地址复制到剪贴板"
+msgid "Copy Room Address"
+msgstr ""
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -3898,19 +3784,27 @@ msgstr "查看通知"
 msgid "Home"
 msgstr "主页"
 
-#: src/rooms/SpaceDrawer.qml:133
+#: src/rooms/SpaceDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends (%1 notification)"
+msgid_plural "Friends (%1 notifications)"
+msgstr[0] "查看通知"
+
+#: src/rooms/SpaceDrawer.qml:140
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "好友"
 
-#: src/rooms/SpaceDrawer.qml:221
+#: src/rooms/SpaceDrawer.qml:222
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "加入 %1"
 
-#: src/rooms/SpaceDrawer.qml:263
+#: src/rooms/SpaceDrawer.qml:264
 #, kde-format
 msgid "Create a space"
 msgstr "创建空间"
@@ -3920,6 +3814,12 @@ msgstr "创建空间"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "查看空间"
+
+#: src/rooms/SpaceListContextMenu.qml:51
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Space Address"
+msgstr ""
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -4175,6 +4075,65 @@ msgstr "在侧边栏中"
 #, kde-format
 msgid "Color theme"
 msgstr "颜色主题"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:17
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:18
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+"您的账户将被永久禁用。\n"
+"此操作无法撤销。\n"
+"新账户将无法使用原来的 Matrix ID。\n"
+"您的消息仍将保持可见。"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "密码"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#, kde-format
+msgid "Deactivate account"
+msgstr "停用账户"
+
+#: src/settings/ConfirmEncryptionDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Activate Encryption"
+msgstr "激活加密"
+
+#: src/settings/ConfirmEncryptionDialog.qml:15
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr "启用加密后将无法停用。"
+
+#: src/settings/ConfirmEncryptionDialog.qml:28
+#, kde-format
+msgid "Activate Encryption"
+msgstr "激活加密"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -4900,6 +4859,11 @@ msgstr "开发者设置"
 msgid "Enable developer tools"
 msgstr "启用开发者工具"
 
+#: src/settings/NeoChatGeneralPage.qml:302
+#, kde-format
+msgid "Developer Tools"
+msgstr "开发者工具"
+
 #: src/settings/NeoChatGeneralPage.qml:307
 #, kde-format
 msgctxt "@title:group"
@@ -5203,11 +5167,26 @@ msgid "Event Type…"
 msgstr ""
 
 #: src/settings/Permissions.qml:415
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "加载中…"
+
+#: src/settings/PowerLevelDialog.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Edit User Power Level"
+msgstr "编辑用户权力等级"
+
+#: src/settings/PowerLevelDialog.qml:35
+#, kde-format
+msgid "New power level"
+msgstr "新建权力等级"
+
+#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#, kde-format
+msgid "Confirm"
+msgstr "确认"
 
 #: src/settings/PushNotification.qml:26
 #, kde-format
@@ -5626,6 +5605,50 @@ msgstr ""
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
+
+#: src/settings/SelectParentDialog.qml:25
+#, kde-format
+msgctxt "@title"
+msgid "Select new official parent"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:57
+#, kde-format
+msgctxt "@title"
+msgid "Choose Parent Space"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:159
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "The selected room is not a space"
+msgstr "所选的聊天室不是空间"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr "您无权完成此操作。"
+
+#: src/settings/SelectParentDialog.qml:171
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr ""
+
+#: src/settings/SelectSpacesDialog.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "选择空间"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6257,3 +6280,7 @@ msgstr "显示"
 #, kde-format
 msgid "Quit"
 msgstr "退出"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Address to Clipboard"
+#~ msgstr "将地址复制到剪贴板"

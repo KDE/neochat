@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:41+0000\n"
+"POT-Creation-Date: 2025-04-18 00:41+0000\n"
 "PO-Revision-Date: 2024-02-24 22:09+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -151,85 +151,87 @@ msgctxt "@action:button"
 msgid "Copy access token to clipboard"
 msgstr "클립보드에 주소 복사"
 
-#: src/devtools/DebugOptions.qml:19
+#: src/devtools/DebugOptions.qml:18
 #, fuzzy, kde-format
 #| msgid "Show links preview in the chat messages"
 msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr "대화 메시지에 링크 미리 보기 표시"
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:25
 #, fuzzy, kde-format
 #| msgid "Waiting for device to accept verification."
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "장치에서 확인을 수락하기를 기다리고 있습니다."
 
-#: src/devtools/DebugOptions.qml:27
+#: src/devtools/DebugOptions.qml:26
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
 
-#: src/devtools/DebugOptions.qml:33
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:18 src/settings/NeoChatGeneralPage.qml:302
-#, kde-format
+#: src/devtools/DevtoolsPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgctxt "@title"
 msgid "Developer Tools"
 msgstr "개발자 도구"
 
-#: src/devtools/DevtoolsPage.qml:29
+#: src/devtools/DevtoolsPage.qml:32
 #, fuzzy, kde-format
 #| msgid "Options"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "옵션"
 
-#: src/devtools/DevtoolsPage.qml:34
+#: src/devtools/DevtoolsPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Room ID"
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "대화방 ID"
 
-#: src/devtools/DevtoolsPage.qml:39
+#: src/devtools/DevtoolsPage.qml:42
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "서버 정보"
 
-#: src/devtools/DevtoolsPage.qml:44
+#: src/devtools/DevtoolsPage.qml:47
 #, fuzzy, kde-format
 #| msgid "Room Account Data"
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "대화방 계정 데이터"
 
-#: src/devtools/DevtoolsPage.qml:49
+#: src/devtools/DevtoolsPage.qml:52
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "기능 플래그"
 
-#: src/devtools/FeatureFlagPage.qml:20
+#: src/devtools/FeatureFlagPage.qml:19
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Threads"
 msgstr "스레드"
 
-#: src/devtools/FeatureFlagPage.qml:26
+#: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
 msgctxt "@option:check Enable the matrix 'secret backup' feature"
 msgid "Secret Backup"
 msgstr ""
 
-#: src/devtools/FeatureFlagPage.qml:32
+#: src/devtools/FeatureFlagPage.qml:31
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -1087,12 +1089,12 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "대상"
 
-#: src/libneochat/models/actionsmodel.cpp:30
+#: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
 msgstr "이 대화방을 떠납니다."
 
-#: src/libneochat/models/actionsmodel.cpp:37
+#: src/libneochat/models/actionsmodel.cpp:38
 #: src/libneochat/models/actionsmodel.cpp:224
 #: src/libneochat/models/actionsmodel.cpp:249
 #: src/libneochat/models/actionsmodel.cpp:278
@@ -1101,74 +1103,74 @@ msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1'이(가) 대화방 ID나 별명이 아닌 것 같습니다."
 
-#: src/libneochat/models/actionsmodel.cpp:45
+#: src/libneochat/models/actionsmodel.cpp:46
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "%1 대화방을 떠납니다."
 
-#: src/libneochat/models/actionsmodel.cpp:48
+#: src/libneochat/models/actionsmodel.cpp:49
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "%1 대화방을 찾을 수 없습니다."
 
-#: src/libneochat/models/actionsmodel.cpp:56
+#: src/libneochat/models/actionsmodel.cpp:57
 #: src/libneochat/models/actionsmodel.cpp:311
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "새 별명을 입력하지 않았습니다. 변경 사항이 없습니다."
 
-#: src/libneochat/models/actionsmodel.cpp:70
-#: src/libneochat/models/actionsmodel.cpp:79
-#: src/libneochat/models/actionsmodel.cpp:88
-#: src/libneochat/models/actionsmodel.cpp:97
-#: src/libneochat/models/actionsmodel.cpp:115
-#: src/libneochat/models/actionsmodel.cpp:133
-#: src/libneochat/models/actionsmodel.cpp:147
-#: src/libneochat/models/actionsmodel.cpp:161
-#: src/libneochat/models/actionsmodel.cpp:170
-#: src/libneochat/models/actionsmodel.cpp:179
+#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:180
 msgid "<message>"
 msgstr "<메시지>"
 
-#: src/libneochat/models/actionsmodel.cpp:71
+#: src/libneochat/models/actionsmodel.cpp:72
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "일반 텍스트 메시지 앞에 ¯\\_(ツ)_/¯ 추가"
 
-#: src/libneochat/models/actionsmodel.cpp:80
+#: src/libneochat/models/actionsmodel.cpp:81
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "일반 텍스트 메시지 앞에 ( ͡° ͜ʖ ͡°) 추가"
 
-#: src/libneochat/models/actionsmodel.cpp:89
+#: src/libneochat/models/actionsmodel.cpp:90
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "일반 텍스트 메시지 앞에 (╯°□°）╯︵ ┻━┻ 추가"
 
-#: src/libneochat/models/actionsmodel.cpp:98
+#: src/libneochat/models/actionsmodel.cpp:99
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "일반 텍스트 메시지 앞에 ┬──┬ ノ( ゜-゜ノ) 추가"
 
-#: src/libneochat/models/actionsmodel.cpp:116
+#: src/libneochat/models/actionsmodel.cpp:117
 msgid "Sends the given message colored as a rainbow"
 msgstr "지정한 메시지를 무지개색으로 전송"
 
-#: src/libneochat/models/actionsmodel.cpp:134
+#: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
 msgstr "지정한 이모지를 무지개색으로 전송"
 
-#: src/libneochat/models/actionsmodel.cpp:148
+#: src/libneochat/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
 msgstr "지정한 메시지를 일반 텍스트로 전송"
 
-#: src/libneochat/models/actionsmodel.cpp:162
+#: src/libneochat/models/actionsmodel.cpp:163
 msgid "Sends the given message as a spoiler"
 msgstr "지정한 메시지를 스포일러로 전송"
 
-#: src/libneochat/models/actionsmodel.cpp:171
+#: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
 msgstr "지정한 이모지 전송"
 
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
 msgstr "지정한 메시지를 공지로 전송"
 
@@ -2121,69 +2123,6 @@ msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "클립보드에 대화방 ID 복사"
 
-#: src/qml/ConfirmDeactivateAccountDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Confirm Deactivating Account"
-msgctxt "@title:dialog"
-msgid "Confirm Account Deactivation"
-msgstr "계정 비활성화 확인"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:18
-#, kde-format
-msgid ""
-"Your account will be permanently disabled.\n"
-"This cannot be undone.\n"
-"Your Matrix ID will not be available for new accounts.\n"
-"Your messages will stay available."
-msgstr ""
-"계정이 영구적으로 비활성화됩니다.\n"
-"이 작업은 실행 취소할 수 없습니다.\n"
-"Matrix ID를 다른 계정에서 사용할 수 없습니다.\n"
-"기존 메시지는 삭제되지 않습니다."
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Password"
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "암호"
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:33
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Erase Data"
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:34
-#, kde-format
-msgctxt "@info"
-msgid "Request your server to delete as much user data as possible."
-msgstr ""
-
-#: src/qml/ConfirmDeactivateAccountDialog.qml:43
-#, kde-format
-msgid "Deactivate account"
-msgstr "계정 비활성화"
-
-#: src/qml/ConfirmEncryptionDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Activate Encryption"
-msgctxt "@title:dialog"
-msgid "Activate Encryption"
-msgstr "암호화 활성화"
-
-#: src/qml/ConfirmEncryptionDialog.qml:15
-#, kde-format
-msgid ""
-"It will not be possible to deactivate the encryption after it is enabled."
-msgstr "암호화를 활성화한 후에는 비활성화할 수 없습니다."
-
-#: src/qml/ConfirmEncryptionDialog.qml:28
-#, kde-format
-msgid "Activate Encryption"
-msgstr "암호화 활성화"
-
 #: src/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@title"
@@ -2276,8 +2215,8 @@ msgstr "대화방 만들기"
 
 #: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
 #: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:273
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
@@ -2345,7 +2284,7 @@ msgstr "대화방 만들기"
 msgid "Select Existing Room"
 msgstr "기존 대화방 선택"
 
-#: src/qml/CreateRoomDialog.qml:127 src/qml/SelectParentDialog.qml:50
+#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
@@ -2353,15 +2292,16 @@ msgstr "대화방 선택"
 
 #: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
 #: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/qml/SelectParentDialog.qml:142 src/rooms/ExploreComponentMobile.qml:54
-#: src/rooms/RoomListPage.qml:210 src/rooms/SpaceDrawer.qml:296
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/qml/SelectParentDialog.qml:106 src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
 msgid "Joined"
 msgstr "입장함"
@@ -2944,7 +2884,7 @@ msgid "Manually Enter a Room"
 msgstr ""
 
 #: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/qml/SelectParentDialog.qml:37
+#: src/settings/SelectParentDialog.qml:37
 #, kde-format
 msgid "OK"
 msgstr "확인"
@@ -3085,22 +3025,6 @@ msgstr "알림 없음"
 msgid "Select a File"
 msgstr "파일 선택"
 
-#: src/qml/PowerLevelDialog.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Edit User Power Level"
-msgstr "사용자 권한 수준 편집"
-
-#: src/qml/PowerLevelDialog.qml:35
-#, kde-format
-msgid "New power level"
-msgstr "새 권한 수준"
-
-#: src/qml/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
-#, kde-format
-msgid "Confirm"
-msgstr "확인"
-
 #: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
 #, kde-format
 msgctxt "@title"
@@ -3144,7 +3068,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:284
+#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -3384,50 +3308,6 @@ msgstr "메시지를 찾을 수 없음"
 msgctxt "@action:button"
 msgid "Search"
 msgstr "검색"
-
-#: src/qml/SelectParentDialog.qml:25
-#, kde-format
-msgctxt "@title"
-msgid "Select new official parent"
-msgstr "새 공식 부모 설정"
-
-#: src/qml/SelectParentDialog.qml:57
-#, kde-format
-msgctxt "@title"
-msgid "Choose Parent Space"
-msgstr "부모 스페이스 선택"
-
-#: src/qml/SelectParentDialog.qml:159
-#, kde-format
-msgid "Set this room as a child of the space %1"
-msgstr "이 대화방을 %1 스페이스의 자식 대화방으로 설정"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the parent to set this state"
-msgstr "이 상태를 설정하기에 부모 대화방에서 충분한 권한 수준이 없음"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "The selected room is not a space"
-msgstr "선택한 대화방이 스페이스가 아님"
-
-#: src/qml/SelectParentDialog.qml:166
-#, kde-format
-msgid "You do not have the privileges to complete this action"
-msgstr "이 작업을 수행하기에 충분한 권한이 없음"
-
-#: src/qml/SelectParentDialog.qml:171
-#, kde-format
-msgid "Make this space the canonical parent"
-msgstr "이 스페이스를 공식 부모로 설정"
-
-#: src/qml/SelectSpacesDialog.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "Select Spaces"
-msgstr "스페이스 선택"
 
 #: src/qml/ServerComboBox.qml:47
 #, kde-format
@@ -4039,16 +3919,19 @@ msgid "Deprioritize"
 msgstr "우선 순위 감소"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy user's Matrix ID to Clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
+msgid "Copy user's Matrix ID"
 msgstr "클립보드에 사용자의 Matrix ID 복사"
 
-#: src/rooms/RoomContextMenu.qml:126 src/rooms/SpaceListContextMenu.qml:51
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:126
+#, fuzzy, kde-format
+#| msgid "Copy link"
 msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "클립보드에 주소 복사"
+msgid "Copy Room Address"
+msgstr "링크 복사"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, fuzzy, kde-format
@@ -4125,19 +4008,27 @@ msgstr "알림 표시"
 msgid "Home"
 msgstr "홈"
 
-#: src/rooms/SpaceDrawer.qml:133
+#: src/rooms/SpaceDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "View notifications"
+msgctxt "@button View all one-on-one chats with your friends."
+msgid "Friends (%1 notification)"
+msgid_plural "Friends (%1 notifications)"
+msgstr[0] "알림 표시"
+
+#: src/rooms/SpaceDrawer.qml:140
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "친구"
 
-#: src/rooms/SpaceDrawer.qml:221
+#: src/rooms/SpaceDrawer.qml:222
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 입장"
 
-#: src/rooms/SpaceDrawer.qml:263
+#: src/rooms/SpaceDrawer.qml:264
 #, kde-format
 msgid "Create a space"
 msgstr "스페이스 만들기"
@@ -4147,6 +4038,13 @@ msgstr "스페이스 만들기"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "스페이스 보기"
+
+#: src/rooms/SpaceListContextMenu.qml:51
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Space Address"
+msgstr "링크 복사"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -4425,6 +4323,69 @@ msgstr "사이드바에"
 #, kde-format
 msgid "Color theme"
 msgstr "색 테마"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Confirm Deactivating Account"
+msgctxt "@title:dialog"
+msgid "Confirm Account Deactivation"
+msgstr "계정 비활성화 확인"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:18
+#, kde-format
+msgid ""
+"Your account will be permanently disabled.\n"
+"This cannot be undone.\n"
+"Your Matrix ID will not be available for new accounts.\n"
+"Your messages will stay available."
+msgstr ""
+"계정이 영구적으로 비활성화됩니다.\n"
+"이 작업은 실행 취소할 수 없습니다.\n"
+"Matrix ID를 다른 계정에서 사용할 수 없습니다.\n"
+"기존 메시지는 삭제되지 않습니다."
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "Password"
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "암호"
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Erase Data"
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#, kde-format
+msgctxt "@info"
+msgid "Request your server to delete as much user data as possible."
+msgstr ""
+
+#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#, kde-format
+msgid "Deactivate account"
+msgstr "계정 비활성화"
+
+#: src/settings/ConfirmEncryptionDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Activate Encryption"
+msgctxt "@title:dialog"
+msgid "Activate Encryption"
+msgstr "암호화 활성화"
+
+#: src/settings/ConfirmEncryptionDialog.qml:15
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr "암호화를 활성화한 후에는 비활성화할 수 없습니다."
+
+#: src/settings/ConfirmEncryptionDialog.qml:28
+#, kde-format
+msgid "Activate Encryption"
+msgstr "암호화 활성화"
 
 #: src/settings/DeviceDelegate.qml:51
 #, kde-format
@@ -5244,6 +5205,11 @@ msgstr "개발자 설정"
 msgid "Enable developer tools"
 msgstr "개발자 도구 활성화"
 
+#: src/settings/NeoChatGeneralPage.qml:302
+#, kde-format
+msgid "Developer Tools"
+msgstr "개발자 도구"
+
 #: src/settings/NeoChatGeneralPage.qml:307
 #, fuzzy, kde-format
 #| msgid "Developer Settings"
@@ -5568,6 +5534,22 @@ msgstr ""
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "불러오는 중…"
+
+#: src/settings/PowerLevelDialog.qml:15
+#, kde-format
+msgctxt "@title"
+msgid "Edit User Power Level"
+msgstr "사용자 권한 수준 편집"
+
+#: src/settings/PowerLevelDialog.qml:35
+#, kde-format
+msgid "New power level"
+msgstr "새 권한 수준"
+
+#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#, kde-format
+msgid "Confirm"
+msgstr "확인"
 
 #: src/settings/PushNotification.qml:26
 #, fuzzy, kde-format
@@ -6002,6 +5984,50 @@ msgstr "서버 추가"
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
 msgstr ""
+
+#: src/settings/SelectParentDialog.qml:25
+#, kde-format
+msgctxt "@title"
+msgid "Select new official parent"
+msgstr "새 공식 부모 설정"
+
+#: src/settings/SelectParentDialog.qml:57
+#, kde-format
+msgctxt "@title"
+msgid "Choose Parent Space"
+msgstr "부모 스페이스 선택"
+
+#: src/settings/SelectParentDialog.qml:159
+#, kde-format
+msgid "Set this room as a child of the space %1"
+msgstr "이 대화방을 %1 스페이스의 자식 대화방으로 설정"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the parent to set this state"
+msgstr "이 상태를 설정하기에 부모 대화방에서 충분한 권한 수준이 없음"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "The selected room is not a space"
+msgstr "선택한 대화방이 스페이스가 아님"
+
+#: src/settings/SelectParentDialog.qml:166
+#, kde-format
+msgid "You do not have the privileges to complete this action"
+msgstr "이 작업을 수행하기에 충분한 권한이 없음"
+
+#: src/settings/SelectParentDialog.qml:171
+#, kde-format
+msgid "Make this space the canonical parent"
+msgstr "이 스페이스를 공식 부모로 설정"
+
+#: src/settings/SelectSpacesDialog.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "Select Spaces"
+msgstr "스페이스 선택"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6683,6 +6709,10 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Copy Address to Clipboard"
+#~ msgstr "클립보드에 주소 복사"
 
 #~ msgid "Edit this account"
 #~ msgstr "이 계정 편집"
