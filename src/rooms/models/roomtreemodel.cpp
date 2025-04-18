@@ -397,7 +397,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
 
 QModelIndex RoomTreeModel::indexForRoom(NeoChatRoom *room) const
 {
-    if (room == nullptr) {
+    if (room == nullptr || m_connection == nullptr) {
         return {};
     }
 
