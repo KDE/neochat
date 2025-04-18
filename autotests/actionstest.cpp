@@ -6,9 +6,11 @@
 #include <QSignalSpy>
 #include <QVariantList>
 
+#include "accountmanager.h"
 #include "chatbarcache.h"
 #include "models/actionsmodel.h"
 
+#include "server.h"
 #include "testutils.h"
 
 using namespace Quotient;
@@ -21,9 +23,11 @@ class ActionsTest : public QObject
 
 private:
     Connection *connection = nullptr;
-    TestUtils::TestRoom *room = nullptr;
+    NeoChatRoom *room = nullptr;
 
     void expectMessage(const QString &actionName, const QString &args, MessageType::Type type, const QString &message);
+
+    Server server;
 
 private Q_SLOTS:
     void initTestCase();
@@ -34,8 +38,23 @@ private Q_SLOTS:
 
 void ActionsTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-min-sync.json"));
+    Connection::setRoomType<NeoChatRoom>();
+    server.start();
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
+    auto accountManager = new AccountManager(true);
+    QSignalSpy spy(accountManager, &AccountManager::connectionAdded);
+    connection = accountManager->accounts()->front();
+    auto roomId = server.createRoom(u"@user:localhost:1234"_s);
+    server.inviteUser(roomId, u"@invited:example.com"_s);
+    server.banUser(roomId, u"@banned:example.com"_s);
+    server.joinUser(roomId, u"@example:example.com"_s);
+
+    QSignalSpy syncSpy(connection, &Connection::syncDone);
+    // We need to wait for two syncs, as the next one won't have the changes yet
+    QVERIFY(syncSpy.wait());
+    QVERIFY(syncSpy.wait());
+    room = dynamic_cast<NeoChatRoom *>(connection->room(roomId));
+    QVERIFY(room);
 }
 
 void ActionsTest::testActions_data()
@@ -90,7 +109,7 @@ static ActionsModel::Action findAction(const QString &name)
 void ActionsTest::expectMessage(const QString &actionName, const QString &args, MessageType::Type type, const QString &message)
 {
     auto action = findAction(actionName);
-    QSignalSpy spy(room, &TestUtils::TestRoom::showMessage);
+    QSignalSpy spy(room, &NeoChatRoom::showMessage);
     auto result = action.handle(args, room, nullptr);
     auto expected = QVariantList {type, message};
     auto signal = spy.takeFirst();
@@ -106,14 +125,26 @@ void ActionsTest::testInvite()
     QCOMPARE(room->memberState(u"@banned:example.com"_s), Membership::Ban);
     expectMessage(u"invite"_s, connection->userId(), MessageType::Positive, u"You are already in this room."_s);
     QCOMPARE(room->memberState(connection->userId()), Membership::Join);
-    expectMessage(u"invite"_s, u"@example:example.org"_s, MessageType::Information, u"@example:example.org is already in this room."_s);
-    QCOMPARE(room->memberState(u"@example:example.org"_s), Membership::Join);
+    expectMessage(u"invite"_s, u"@example:example.com"_s, MessageType::Information, u"@example:example.com is already in this room."_s);
+    QCOMPARE(room->memberState(u"@example:example.com"_s), Membership::Join);
 
     QCOMPARE(room->memberState(u"@user:example.com"_s), Membership::Leave);
     expectMessage(u"invite"_s, u"@user:example.com"_s, MessageType::Positive, u"@user:example.com was invited into this room."_s);
 
-    //TODO mock server, wait for invite state to change
-    //TODO QCOMPARE(room->memberState(u"@user:example.com"_s), Membership::Invite);
+    QSignalSpy spy(room, &NeoChatRoom::changed);
+    QVERIFY(spy.wait());
+
+    auto tries = 0;
+
+    while (room->memberState(u"@user:example.com"_s) != Membership::Invite) {
+        QVERIFY(spy.wait());
+        tries += 1;
+        if (tries > 3) {
+            QVERIFY(false);
+        }
+    }
+
+    QCOMPARE(room->memberState(u"@user:example.com"_s), Membership::Invite);
 }
 
 QTEST_MAIN(ActionsTest)
