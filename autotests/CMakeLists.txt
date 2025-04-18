@@ -3,6 +3,10 @@
 
 enable_testing()
 
+add_library(neochat_server STATIC server.cpp)
+
+target_link_libraries(neochat_server PUBLIC Qt::HttpServer QuotientQt6)
+
 add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
 
 ecm_add_test(
@@ -85,6 +89,6 @@ ecm_add_test(
 
 ecm_add_test(
     actionstest.cpp
-    LINK_LIBRARIES neochat Qt::Test
+    LINK_LIBRARIES neochat Qt::Test neochat_server
     TEST_NAME actionstest
 )
