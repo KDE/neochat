@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2025-04-16 08:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -17,6 +17,1954 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 24.12.3\n"
+
+#: src/app/controller.cpp:181
+#, kde-format
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
+msgstr "מתקבלות התראות על הודעות חדשות"
+
+#: src/app/controller.cpp:326
+#, kde-format
+msgid "Receiving push notifications"
+msgstr "התראות בדחיפה מתקבלות"
+
+#: src/app/main.cpp:146 src/login/WelcomePage.qml:75
+#, kde-format
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/main.cpp:148
+#, kde-format
+msgid "Chat on Matrix"
+msgstr "שיחה ב־Matrix"
+
+#: src/app/main.cpp:150
+#, kde-format
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+msgstr "© 2018‏-2020 כובע שחור, 2020‏-2025 קהילת KDE"
+
+#: src/app/main.cpp:151
+#, kde-format
+msgid "Carl Schwan"
+msgstr "קארל שוואן"
+
+#: src/app/main.cpp:151 src/app/main.cpp:152 src/app/main.cpp:153
+#: src/app/main.cpp:155
+#, kde-format
+msgid "Maintainer"
+msgstr "מתחזק"
+
+#: src/app/main.cpp:152
+#, kde-format
+msgid "Tobias Fella"
+msgstr "טוביאס פלה"
+
+#: src/app/main.cpp:153
+#, kde-format
+msgid "James Graham"
+msgstr "ג׳יימס גראהם"
+
+#: src/app/main.cpp:154
+#, kde-format
+msgid "Joshua Goins"
+msgstr "ג׳ושוע גוינס"
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Black Hat"
+msgstr "Black Hat"
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Original author of Spectral"
+msgstr "היוצר המקורי של Spectral"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Alexey Rusakov"
+msgstr "אלכסיי רוסאקוב"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Maintainer of libQuotient"
+msgstr "המתחזק של libQuotient"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: src/app/main.cpp:165
+#, kde-format
+msgid "A Qt library to write cross-platform clients for Matrix"
+msgstr "ספריית Qt ליצירת לקוחות חוצי פלטפורמות ל־Matrix"
+
+#: src/app/main.cpp:167
+#, kde-format
+msgctxt "<version number> (built against <possibly different version number>)"
+msgid "%1 (built against %2)"
+msgstr "%1 (נבנה כנגד %2)"
+
+#: src/app/main.cpp:194
+#, kde-format
+msgid "Client for the matrix communication protocol"
+msgstr "לקוח לפרוטוקול התקשורת matrix"
+
+#: src/app/main.cpp:195
+#, kde-format
+msgid "Supports matrix: url scheme"
+msgstr "תומך בסכמת כתובות מסוג matrix:‎"
+
+#: src/app/main.cpp:196
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr "התעלמות משגיאות SSL, למשל: אישורים לא חתומים."
+
+#: src/app/main.cpp:198
+#, kde-format
+msgid "Only used for autotests"
+msgstr "משמש לבדיקות אוטומטיות בלבד"
+
+#: src/app/main.cpp:203
+#, kde-format
+msgid "Internal usage only."
+msgstr "שימוש פנימי בלבד."
+
+#: src/app/main.cpp:208
+#, kde-format
+msgid "Share a URL to Matrix"
+msgstr "שיתוף כתובת ל־Matrix"
+
+#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#, kde-format
+msgid "Encrypted Message"
+msgstr "הודעה מוצפנת"
+
+#: src/app/notificationsmanager.cpp:226
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/notificationsmanager.cpp:232
+#, kde-format
+msgid "Open NeoChat in this room"
+msgstr "פתיחת NeoChat בחדר הזה"
+
+#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
+#, kde-format
+msgid "Reply"
+msgstr "תגובה"
+
+#: src/app/notificationsmanager.cpp:246
+#, kde-format
+msgid "Reply…"
+msgstr "תגובה…"
+
+#: src/app/notificationsmanager.cpp:305
+#, kde-format
+msgid "%1 invited you to a room"
+msgstr "הוזמנת על ידי %1 לחדר"
+
+#: src/app/notificationsmanager.cpp:308
+#, kde-format
+msgid "Open this invitation in NeoChat"
+msgstr "לפתוח את ההזמנה הזאת ב־NeoChat"
+
+#: src/app/notificationsmanager.cpp:318
+#, kde-format
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "קבלה"
+
+#: src/app/notificationsmanager.cpp:319
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "דחייה"
+
+#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr "דחייה והתעלמות ממשתמש"
+
+#: src/app/notificationsmanager.cpp:380
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/app/notificationsmanager.cpp:391
+#, kde-format
+msgid "Open NeoChat"
+msgstr "פתיחת NeoChat"
+
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "הצגת קוד QR"
+
+#: src/app/qml/AccountMenu.qml:40
+#, kde-format
+msgid "Edit This Account"
+msgstr "עריכת החשבון הזה"
+
+#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/settings/AccountsPage.qml:50
+#, kde-format
+msgid "Account editor"
+msgstr "עורך חשבונות"
+
+#: src/app/qml/AccountMenu.qml:50
+#, kde-format
+msgid "Notification Settings"
+msgstr "הגדרות התראה"
+
+#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#, kde-format
+msgid "Devices"
+msgstr "מכשירים"
+
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#, kde-format
+msgid "Open Developer Tools"
+msgstr "פתיחת כלי מפתחים"
+
+#: src/app/qml/AccountMenu.qml:72
+#, kde-format
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "כלי מפתחים"
+
+#: src/app/qml/AccountMenu.qml:79
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Secret Backup"
+msgstr "פתיחת גיבוי סודי"
+
+#: src/app/qml/AccountMenu.qml:83
+#, kde-format
+msgctxt "@title:window"
+msgid "Open Key Backup"
+msgstr "פתיחת גיבוי מפתחות"
+
+#: src/app/qml/AccountMenu.qml:88
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Verify This Device"
+msgstr "אימות המכשיר הזה"
+
+#: src/app/qml/AccountMenu.qml:93
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr "נשלחה בקשת אימות"
+
+#: src/app/qml/AccountMenu.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr "כדי להמשיך, יש לקבל את בקשת האימות במכשיר השני."
+
+#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#, kde-format
+msgid "Logout"
+msgstr "יציאה"
+
+#: src/app/qml/AccountSwitchDialog.qml:29
+#, kde-format
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "החלפת חשבון"
+
+#: src/app/qml/AccountSwitchDialog.qml:54
+#, kde-format
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "הוספת חשבון"
+
+#: src/app/qml/AccountSwitchDialog.qml:57
+#, kde-format
+msgid "Log in or create a new account"
+msgstr "נא להיכנס או ליצור חשבון חדש"
+
+#: src/app/qml/AccountSwitchDialog.qml:64
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "כניסה"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:20
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "התחלת שיחה"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "להתחיל שיחה עם %1?"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "התחלת שיחה"
+
+#: src/app/qml/AttachmentPane.qml:30
+#, kde-format
+msgid "Attachment:"
+msgstr "קובץ מצורף:"
+
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
+#: src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
+#, kde-format
+msgid "Edit"
+msgstr "עריכה"
+
+#: src/app/qml/AttachmentPane.qml:62
+#, kde-format
+msgid "Cancel sending attachment"
+msgstr "ביטול שליחת קובץ מצורף"
+
+#: src/app/qml/ChooseRoomDialog.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "בחירת חדר"
+
+#: src/app/qml/CodeMaximizeComponent.qml:39
+#, kde-format
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "העתקה ללוח הגזירים"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "אישור עזיבת חדר"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:17
+#, kde-format
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr "לעזוב את %1?"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "עזיבת החדר"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:15
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Sign out"
+msgstr "יציאה"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:16
+#, kde-format
+msgid "Are you sure you want to sign out?"
+msgstr "לצאת?"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "יציאה"
+
+#: src/app/qml/ConfirmUrlDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Open URL"
+msgstr "פתיחת כתובת"
+
+#: src/app/qml/ConfirmUrlDialog.qml:15
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
+msgstr "לפתוח את <link>%1</link>?"
+
+#: src/app/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "הסכמת המשתמש"
+
+#: src/app/qml/ConsentDialog.qml:24
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"שרת הבית שלך דורש ממך להסכים לתנאים וההגבלות שלו לפני שיתאפשר לך להשתמש בו. "
+"נא ללחוץ על הכפתור להלן כדי לקרוא אותם."
+
+#: src/app/qml/ConsentDialog.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Open"
+msgstr "פתיחה"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
+#, kde-format
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "יצירת חדר"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "יצירת מרחב"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Space Information"
+msgstr "פרטים על המרחב החדש"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Room Information"
+msgstr "פרטים על החדר החדש"
+
+#: src/app/qml/CreateRoomDialog.qml:44
+#, kde-format
+msgid "Select type"
+msgstr "בחירת סוג"
+
+#: src/app/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "חדר"
+
+#: src/app/qml/CreateRoomDialog.qml:58
+#, kde-format
+msgid "Space"
+msgstr "מרחב"
+
+#: src/app/qml/CreateRoomDialog.qml:77
+#, kde-format
+msgid "Name:"
+msgstr "שם:"
+
+#: src/app/qml/CreateRoomDialog.qml:87
+#, kde-format
+msgid "Topic:"
+msgstr "נושא:"
+
+#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "להפוך את ההורה הזה לרשמי"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Space"
+msgstr "יצירת מרחב"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "יצירת חדר"
+
+#: src/app/qml/CreateRoomDialog.qml:121
+#, kde-format
+msgid "Select Existing Room"
+msgstr "בחירת חדר קיים"
+
+#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "בחירת חדר"
+
+#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
+#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "עיון בין החדרים"
+
+#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Joined"
+msgstr "הצטרפות"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr "אין לך את ההרשאות הנחוצות בצאצא כדי להגדיר את המצב הזה"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr "אין לך הרשאות גבוהות מספיק בצאצא כדי להגדיר את המצב הזה"
+
+#: src/app/qml/CreateRoomDialog.qml:258
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr ""
+
+#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "אישור"
+
+#: src/app/qml/EditMenu.qml:15
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "הסגה"
+
+#: src/app/qml/EditMenu.qml:25
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "ביצוע מחדש"
+
+#: src/app/qml/EditMenu.qml:37
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "גזירה"
+
+#: src/app/qml/EditMenu.qml:47
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "העתקה"
+
+#: src/app/qml/EditMenu.qml:57
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "הדבקה"
+
+#: src/app/qml/EditMenu.qml:67
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "מחיקה"
+
+#: src/app/qml/EditMenu.qml:79
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "בחירה בהכול"
+
+#: src/app/qml/EditStateDialog.qml:28 src/app/qml/MessageSourceSheet.qml:56
+#, kde-format
+msgctxt "@title As in 'edit the state of this room'"
+msgid "Edit State"
+msgstr "עריכת מצב"
+
+#: src/app/qml/EditStateDialog.qml:32
+#, kde-format
+msgctxt "@action"
+msgid "Revert changes"
+msgstr "הסגת השינויים"
+
+#: src/app/qml/EditStateDialog.qml:38
+#, kde-format
+msgctxt "@action As in 'Apply the changes'"
+msgid "Apply"
+msgstr "החלה"
+
+#: src/app/qml/EmojiSas.qml:26
+#, kde-format
+msgid ""
+"Confirm the emoji below are displayed on both devices, in the same order."
+msgstr "נא לאשר שהאמוג׳ים שלהלן מוצגים בשני המכשירים, באותו הסדר."
+
+#: src/app/qml/EmojiSas.qml:45
+#, kde-format
+msgid "They match"
+msgstr "הם תואמים"
+
+#: src/app/qml/EmojiSas.qml:51
+#, kde-format
+msgid "They don't match"
+msgstr "הם לא תואמים"
+
+#: src/app/qml/ExplorerDelegate.qml:72
+#, kde-format
+msgctxt "@info:label A matrix space"
+msgid "Space"
+msgstr "מרחב"
+
+#: src/app/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "עיון בין החדרים"
+
+#: src/app/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "להציג מרחבים בלבד"
+
+#: src/app/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "נא למלא חדר ידנית"
+
+#: src/app/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "אם הכתובת או הכינוי של החדר כבר ידועים לך ואינם מופיעים כאן."
+
+#: src/app/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "איתור חדר…"
+
+#: src/app/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "לא נמצאו חדרים ציבוריים"
+
+#: src/app/qml/FullScreenMap.qml:23
+#, kde-format
+msgid "View Location"
+msgstr "הצגת מקום"
+
+#: src/app/qml/FullScreenMap.qml:70
+#, kde-format
+msgid "Close"
+msgstr "סגירה"
+
+#: src/app/qml/GlobalMenu.qml:21
+#, kde-format
+msgctxt "menu"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:24
+#, kde-format
+msgid "Configure NeoChat…"
+msgstr "הגדרת NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:25
+#, kde-format
+msgctxt "menu"
+msgid "Configure NeoChat…"
+msgstr "הגדרת NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:31
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "יציאה מ־NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:38
+#, kde-format
+msgctxt "menu"
+msgid "File"
+msgstr "קובץ"
+
+#: src/app/qml/GlobalMenu.qml:41
+#, kde-format
+msgctxt "menu"
+msgid "Find your friends"
+msgstr "איתור החברים שלך"
+
+#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "איתור החברים שלך"
+
+#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "איתור החברים שלך"
+
+#: src/app/qml/GlobalMenu.qml:50
+#, kde-format
+msgctxt "menu"
+msgid "New Group…"
+msgstr "קבוצה חדשה…"
+
+#: src/app/qml/GlobalMenu.qml:59
+#, kde-format
+msgctxt "menu"
+msgid "Browse Chats…"
+msgstr "עיון בשיחות…"
+
+#: src/app/qml/GlobalMenu.qml:73
+#, kde-format
+msgctxt "menu"
+msgid "Edit"
+msgstr "עריכה"
+
+#: src/app/qml/GlobalMenu.qml:77
+#, kde-format
+msgctxt "menu"
+msgid "View"
+msgstr "תצוגה"
+
+#: src/app/qml/GlobalMenu.qml:80
+#, kde-format
+msgctxt ""
+"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"a fast keyboard-based interface for switching in between chats."
+msgid "Open Quick Switcher"
+msgstr "פתיחת מחליף מהיר"
+
+#: src/app/qml/GlobalMenu.qml:85
+#, kde-format
+msgctxt "menu"
+msgid "Window"
+msgstr "חלון"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Exit Full Screen"
+msgstr "יציאה ממסך מלא"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Enter Full Screen"
+msgstr "הגדלה למסך מלא"
+
+#: src/app/qml/GlobalMenu.qml:93
+#, kde-format
+msgctxt "menu"
+msgid "Help"
+msgstr "עזרה"
+
+#: src/app/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "About Matrix"
+msgstr "על Matrix"
+
+#: src/app/qml/GlobalMenu.qml:100
+#, kde-format
+msgctxt "menu"
+msgid "About NeoChat"
+msgstr "על NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:104
+#, kde-format
+msgctxt "menu"
+msgid "About KDE"
+msgstr "על KDE"
+
+#: src/app/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "אין שם"
+
+#: src/app/qml/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "ההודעה הזאת נשלחה ממכשיר מאומת"
+
+#: src/app/qml/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "רגש בתגובה"
+
+#: src/app/qml/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "תגובה בשרשור"
+
+#: src/app/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr "סיום סקר"
+
+#: src/app/qml/HoverLinkIndicator.qml:25
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "הקישור שנבחר כרגע"
+
+#: src/app/qml/ImageEditorPage.qml:36
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "הסגה"
+
+#: src/app/qml/ImageEditorPage.qml:43
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "קבלה"
+
+#: src/app/qml/ImageEditorPage.qml:51
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"לא ניתן לשמור את הקובץ. נא לבדוק אם יש לך את ההרשאות המתאימות לערוך את "
+"תיקיית המטמון."
+
+#: src/app/qml/ImageEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/app/qml/ImageEditorPage.qml:123 src/app/qml/ImageEditorPage.qml:139
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "חיתוך"
+
+#: src/app/qml/ImageEditorPage.qml:144
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "סיבוב שמאלה"
+
+#: src/app/qml/ImageEditorPage.qml:150
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "סיבוב ימינה"
+
+#: src/app/qml/ImageEditorPage.qml:156
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "היפוך אנכי"
+
+#: src/app/qml/ImageEditorPage.qml:162
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "היפוך אופקי"
+
+#: src/app/qml/InvitationView.qml:42
+#, kde-format
+msgctxt "@info:label"
+msgid "%1 has invited you to join"
+msgstr "הוזמנת להצטרף על ידי %1"
+
+#: src/app/qml/InvitationView.qml:70
+#, kde-format
+msgctxt "@info:label"
+msgid "This user is inviting you to chat."
+msgstr "הוזמנת לשיחה עם המשתמש הזה."
+
+#: src/app/qml/InvitationView.qml:79
+#, kde-format
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr "אפשר לדחות הזמנות ממשתמשים לא מוכרים תחת הגדרות האבטחה."
+
+#: src/app/qml/InvitationView.qml:102
+#, kde-format
+msgctxt "@action:button"
+msgid "Reject"
+msgstr "דחייה"
+
+#: src/app/qml/InvitationView.qml:110
+#, kde-format
+msgctxt "@action:button"
+msgid "Accept"
+msgstr "קבלה"
+
+#: src/app/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "הזמנת משתמש"
+
+#: src/app/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "איתור משתמש…"
+
+#: src/app/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "לא נמצאו משתמשים"
+
+#: src/app/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "הזמנת המשתמש הזה"
+
+#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "החבר או החברה כבר חברים או שהוזמנו"
+
+#: src/app/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "שליחת הזמנה"
+
+#: src/app/qml/JoinRoomDialog.qml:29
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Join Room"
+msgstr "הצטרפות לחדר"
+
+#: src/app/qml/JoinRoomDialog.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "הצטרפות לחדר"
+
+#: src/app/qml/KeyVerificationDialog.qml:16
+#, kde-format
+msgid "Session Verification"
+msgstr "אימות פגישה"
+
+#: src/app/qml/KeyVerificationDialog.qml:92
+#, kde-format
+msgid "Accept"
+msgstr "קבלה"
+
+#: src/app/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "דחייה"
+
+#: src/app/qml/KeyVerificationDialog.qml:140
+#, kde-format
+msgid "Waiting for device to accept verification."
+msgstr "בהמתנה למכשיר לקבל את האימות."
+
+#: src/app/qml/KeyVerificationDialog.qml:142
+#, kde-format
+msgid "Incoming key verification request from device **%1**"
+msgstr "בקשת אימות מפתח נכנסת מהמכשיר **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:144
+#, kde-format
+msgid "Waiting for other party to verify."
+msgstr "בהמתנה לאישור מהצד השני."
+
+#: src/app/qml/KeyVerificationDialog.qml:146
+#, kde-format
+msgid "Successfully verified device **%1**"
+msgstr "המכשיר **%1** אומת בהצלחה"
+
+#: src/app/qml/KeyVerificationDialog.qml:161
+#, kde-format
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "נא לבחור שיטת אימות כדי להמשיך"
+
+#: src/app/qml/KeyVerificationDialog.qml:165
+#, kde-format
+msgctxt "@action:button"
+msgid "Emoji Verification"
+msgstr "אימות עם אמוג׳י"
+
+#: src/app/qml/LocationChooser.qml:22
+#, kde-format
+msgid "Choose a Location"
+msgstr "בחירת מקום"
+
+#: src/app/qml/LocationChooser.qml:27
+#, kde-format
+msgid "Send this location"
+msgstr "שליחת המקום הזה"
+
+#: src/app/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr "מרכוז מחדש"
+
+#: src/app/qml/LocationChooser.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "איתור"
+
+#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "מקומות"
+
+#: src/app/qml/LocationsPage.qml:68
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "לא שותפו מקומות בחדר הזה."
+
+#: src/app/qml/Main.qml:167
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "הצגת פרטי חדר"
+
+#: src/app/qml/Main.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "סגירת מגירת פרטי החדר"
+
+#: src/app/qml/Main.qml:290
+#, kde-format
+msgctxt "@title:window"
+msgid "Session Verification"
+msgstr "אימות פגישה"
+
+#: src/app/qml/Main.qml:330 src/app/qml/ShareAction.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Share"
+msgstr "שיתוף"
+
+#: src/app/qml/ManualRoomDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "Manually Enter a Room"
+msgstr "מילוי חדר ידנית"
+
+#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
+#: src/settings/SelectParentDialog.qml:37
+#, kde-format
+msgid "OK"
+msgstr "אישור"
+
+#: src/app/qml/ManualRoomDialog.qml:81
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr "מזהה או כינוי חדר:"
+
+#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr "חייב להתחיל ב־# במקרה של כינוי או ! במקרה של מזהה"
+
+#: src/app/qml/ManualRoomDialog.qml:90
+#, kde-format
+msgid "The input is not a valid room ID or alias"
+msgstr "הקלט אינו מזהה או כינוי תקפים של חדר"
+
+#: src/app/qml/ManualUserDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "User ID"
+msgstr "מזהה משתמש"
+
+#: src/app/qml/ManualUserDialog.qml:54
+#, kde-format
+msgid "User ID:"
+msgstr "מזהה משתמש:"
+
+#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr "מזהי משתמשים חייבים להתחיל ב־@"
+
+#: src/app/qml/ManualUserDialog.qml:63
+#, kde-format
+msgid "The input is not a valid user ID"
+msgstr "הקלט אינו מזהה משתמש תקף."
+
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:57
+#: src/devtools/RoomData.qml:103
+#, kde-format
+msgid "Event Source"
+msgstr "מקור אירועים"
+
+#: src/app/qml/MessageSourceSheet.qml:46
+#, kde-format
+msgctxt "@action As in 'edit the state of this room'"
+msgid "Edit state"
+msgstr "עריכת מצב"
+
+#: src/app/qml/NewPollDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr "שליחה"
+
+#: src/app/qml/NewPollDialog.qml:38
+#, kde-format
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "יצירת סקר"
+
+#: src/app/qml/NewPollDialog.qml:46
+#, kde-format
+msgid "Poll type:"
+msgstr "סוג סקר:"
+
+#: src/app/qml/NewPollDialog.qml:51
+#, kde-format
+msgid "Open poll"
+msgstr "פתיחת סקר"
+
+#: src/app/qml/NewPollDialog.qml:52
+#, kde-format
+msgid "Closed poll"
+msgstr "סקר סגור"
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Voters can see the result as soon as they have voted"
+msgstr "מצביעים יכולים לצפות בתוצאות מיד לאחר הצבעתם"
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Results are revealed only after the poll has closed"
+msgstr "התוצאות תיחשפנה רק לאחר סגירת ההצבעה לסקר"
+
+#: src/app/qml/NewPollDialog.qml:61
+#, kde-format
+msgid "Question:"
+msgstr "שאלה:"
+
+#: src/app/qml/NewPollDialog.qml:104
+#, kde-format
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr "אפשרות %1:"
+
+#: src/app/qml/NewPollDialog.qml:120
+#, kde-format
+msgid "Enter option"
+msgstr "נא למלא אפשרות"
+
+#: src/app/qml/NewPollDialog.qml:126
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "הסרת אפשרות"
+
+#: src/app/qml/NewPollDialog.qml:151
+#, kde-format
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "הוספת אפשרות"
+
+#: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Notifications"
+msgstr "התראות"
+
+#: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
+#: src/login/Login.qml:38 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:19
+#, kde-format
+msgid "Loading…"
+msgstr "בטעינה…"
+
+#: src/app/qml/NotificationsView.qml:34
+#, kde-format
+msgid "No Notifications"
+msgstr "אין התראות"
+
+#: src/app/qml/OpenFileDialog.qml:12
+#, kde-format
+msgid "Select a File"
+msgstr "בחירת קובץ"
+
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "סריקת קוד QR"
+
+#: src/app/qml/QuickFormatBar.qml:23
+#, kde-format
+msgid "Bold"
+msgstr "מודגש"
+
+#: src/app/qml/QuickFormatBar.qml:42
+#, kde-format
+msgid "Italic"
+msgstr "נטוי"
+
+#: src/app/qml/QuickFormatBar.qml:61
+#, kde-format
+msgid "Strikethrough"
+msgstr "קו חוצה"
+
+#: src/app/qml/QuickFormatBar.qml:80
+#, kde-format
+msgid "Code block"
+msgstr "מקטע קוד"
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
+msgid "Quote"
+msgstr "ציטוט"
+
+#: src/app/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Insert link"
+msgstr "הוספת קישור"
+
+#: src/app/qml/QuickSwitcher.qml:29
+#, kde-format
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "לא נמצא כזה חדר"
+
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#, kde-format
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "עיון בין החדרים"
+
+#: src/app/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:25
+#, kde-format
+msgctxt "@title Join <name of a space>"
+msgid "Join %1"
+msgstr "הצטרפות אל %1"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:53
+#, kde-format
+msgctxt "@action:button"
+msgid "Join"
+msgstr "הצטרפות"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:63
+#, kde-format
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "התעלמות"
+
+#: src/app/qml/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "הסרת צאצא"
+
+#: src/app/qml/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "הצאצא %1 יוסר מהמרחב %2"
+
+#: src/app/qml/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "המרחב הנוכחי הוא ההורה הרשמי של החדר הזה, למחוק את ההגדרה הזאת?"
+
+#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "הגדרות חדר"
+
+#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
+#, kde-format
+msgid "Information"
+msgstr "פרטים"
+
+#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
+#, kde-format
+msgid "Media"
+msgstr "מדיה"
+
+#: src/app/qml/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "חברים במרחב"
+
+#: src/app/qml/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "פרטי חדר"
+
+#: src/app/qml/RoomInformation.qml:70
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "פעולות"
+
+#: src/app/qml/RoomInformation.qml:80
+#, kde-format
+msgid "Search in this room"
+msgstr "חיפוש בחדר הזה"
+
+#: src/app/qml/RoomInformation.qml:89
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "חיפוש"
+
+#: src/app/qml/RoomInformation.qml:97
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "אימות משתמש"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "הסרת חדר מהמועדפים"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Favorite this room"
+msgstr "הוספת החדר למועדפים"
+
+#: src/app/qml/RoomInformation.qml:121
+#, kde-format
+msgid "Show locations for this room"
+msgstr "הצגת מקומות מהחדר הזה"
+
+#: src/app/qml/RoomInformation.qml:137
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "הודעות נעוצות"
+
+#: src/app/qml/RoomInformation.qml:146
+#: src/app/qml/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "הודעות נעוצות"
+
+#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "עזיבת המרחב הזה"
+
+#: src/app/qml/RoomInformation.qml:154
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "עזיבת החדר הזה"
+
+#: src/app/qml/RoomInformation.qml:167
+#, kde-format
+msgid "Members"
+msgstr "חברים"
+
+#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "הזמנת משתמש"
+
+#: src/app/qml/RoomInformation.qml:186
+#, kde-format
+msgid "Invite user to room"
+msgstr "הזמנת משתמש לחדר"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "חבר"
+msgstr[1] "שני חברים"
+msgstr[2] "%1 חברים"
+msgstr[3] "%1 חברים"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "No member count"
+msgstr "אין מניין חברים"
+
+#: src/app/qml/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "המדיה בחדר"
+
+#: src/app/qml/RoomPage.qml:92
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat לא מחובר. נא לבדוק את החיבור שלך לרשת."
+
+#: src/app/qml/RoomPage.qml:149
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "ברוך בואך ל־NeoChat"
+
+#: src/app/qml/RoomPage.qml:150
+#, kde-format
+msgid "Select or join a room to get started"
+msgstr "נא לבחור או להצטרף לחדר כדי להתחיל"
+
+#: src/app/qml/RoomPage.qml:243
+#, kde-format
+msgid "Message Source"
+msgstr "מקור הודעה"
+
+#: src/app/qml/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "אין הודעות נעוצות"
+
+#: src/app/qml/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "חיפוש הודעות"
+
+#: src/app/qml/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "איתור הודעות…"
+
+#: src/app/qml/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "נא להקליד טקסט כדי להתחיל לחפש"
+
+#: src/app/qml/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "לא נמצאו הודעות"
+
+#: src/app/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "חיפוש"
+
+#: src/app/qml/ServerComboBox.qml:47
+#, kde-format
+msgid "Add New Server"
+msgstr "הוספת שרת חדש"
+
+#: src/app/qml/ServerComboBox.qml:63
+#, kde-format
+msgid "Home Server"
+msgstr "שרת הבית"
+
+#: src/app/qml/ServerComboBox.qml:70
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "הוספת שרת חדש"
+
+#: src/app/qml/ServerComboBox.qml:110
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "הוספת שרת"
+
+#: src/app/qml/ServerComboBox.qml:137
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "הטקסט שמילאת אינו כתובת תקנית"
+
+#: src/app/qml/ServerComboBox.qml:141
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "אי אפשר לפתור את השרת הזה או שהוא כבר נוסף"
+
+#: src/app/qml/ServerComboBox.qml:152
+#, kde-format
+msgid "Server URL:"
+msgstr "כתובת השרת:"
+
+#: src/app/qml/ShareAction.qml:23
+#, kde-format
+msgid "Share"
+msgstr "שיתוף"
+
+#: src/app/qml/ShareAction.qml:24
+#, kde-format
+msgid "Share the selected media"
+msgstr "שיתוף המדיה הנבחרת"
+
+#: src/app/qml/ShareDialog.qml:37
+#, kde-format
+msgid "Sharing failed"
+msgstr "השיתוף נכשל"
+
+#: src/app/qml/ShareDialog.qml:58
+#, kde-format
+msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr "כתובת שיתוף לתמונה היא <a href='%1'>%1</a>"
+
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Load your encrypted messages"
+msgstr "לטעון את ההודעות המוצפנות שלך"
+
+#: src/app/qml/UnlockSSSSDialog.qml:38
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "מפתחות ההצפנה שוחזרו."
+
+#: src/app/qml/UnlockSSSSDialog.qml:50
+#, kde-format
+msgctxt "@info:status"
+msgid "The security phrase was not correct."
+msgstr "ביטוי האבטחה היה שגוי."
+
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Passphrase"
+msgstr "שחרור באמצעות מילת צופן"
+
+#: src/app/qml/UnlockSSSSDialog.qml:60
+#, kde-format
+msgctxt "@info"
+msgid "If you have a backup passphrase for this account, enter it below."
+msgstr "אם יש לך מילת צופן כגיבוי לחשבון הזה, יש למלא אותה להלן."
+
+#: src/app/qml/UnlockSSSSDialog.qml:64
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Backup Password:"
+msgstr "סיסמת גיבוי:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:69 src/app/qml/UnlockSSSSDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "שחרור נעילה"
+
+#: src/app/qml/UnlockSSSSDialog.qml:81
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Security Key"
+msgstr "שחרור נעילה עם מפתח אבטחה"
+
+#: src/app/qml/UnlockSSSSDialog.qml:85
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a security key for this account, enter it below or upload it as "
+"a file."
+msgstr "אם יש לך מפתח אבטחה לחשבון הזה, יש למלא אותו כאן או להעלות אותו כקובץ."
+
+#: src/app/qml/UnlockSSSSDialog.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Security Key:"
+msgstr "מפתח אבטחה:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload from File"
+msgstr "העלאה מקובץ"
+
+#: src/app/qml/UnlockSSSSDialog.qml:115
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "שחרור נעילה מחתימה צולבת"
+
+#: src/app/qml/UnlockSSSSDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you can try loading the backup "
+"key from other devices by clicking the button below."
+msgstr ""
+"אם אימתת את המכשיר הזה בעבר, אפשר לנסות לטעון את מפתח הגיבוי ממכשירים אחרים "
+"בלחיצה על הכפתור שלהלן."
+
+#: src/app/qml/UnlockSSSSDialog.qml:124
+#, kde-format
+msgctxt "@action:button"
+msgid "Request from other Devices"
+msgstr "בקשה מהתקנים אחרים"
+
+#: src/app/qml/UserDetailDialog.qml:34
+#, kde-format
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
+msgstr "פרטי חשבון"
+
+#: src/app/qml/UserDetailDialog.qml:83
+#, kde-format
+msgctxt "@info"
+msgid "One mutual room"
+msgid_plural "%1 mutual rooms"
+msgstr[0] "חדר משותף"
+msgstr[1] "שני חדרים משותפים"
+msgstr[2] "%1 חדרים משותפים"
+msgstr[3] "%1 חדרים משותפים"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Unignore this user"
+msgstr "ביטול החרגת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Ignore this user"
+msgstr "החרגת מהמשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:149
+#, kde-format
+msgid "Kick this user"
+msgstr "בעיטת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:153 src/app/qml/UserDetailDialog.qml:158
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "בעיטת משתמש"
+
+#: src/app/qml/UserDetailDialog.qml:154
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "הסיבה לבעיטת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:155
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "בעיטה"
+
+#: src/app/qml/UserDetailDialog.qml:174
+#, kde-format
+msgid "Invite this user"
+msgstr "הזמנת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:187
+#, kde-format
+msgid "Ban this user"
+msgstr "חסימת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:192 src/app/qml/UserDetailDialog.qml:197
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "חסימת משתמש"
+
+#: src/app/qml/UserDetailDialog.qml:193
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "הסיבה לחסימת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:194
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "חסימה"
+
+#: src/app/qml/UserDetailDialog.qml:212
+#, kde-format
+msgid "Unban this user"
+msgstr "ביטול חסימת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:225
+#, kde-format
+msgid "Set user power level"
+msgstr "הגדרת רמת העוצמה של המשתמש"
+
+#: src/app/qml/UserDetailDialog.qml:250
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove recent messages by this user"
+msgstr "הסרת הודעות אחרונות מאת המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:255
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "הסרת הודעות"
+
+#: src/app/qml/UserDetailDialog.qml:256
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "הסיבה להסרת ההודעות האחרונות של המשתמש הזה"
+
+#: src/app/qml/UserDetailDialog.qml:257
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "הסרה"
+
+#: src/app/qml/UserDetailDialog.qml:260
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "הסרת הודעות"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr "שיחה עם %1"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgid "Invite to private chat"
+msgstr "הזמנה לשיחה פרטית"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgid "Copy link"
+msgstr "העתקת קישור"
+
+#: src/app/qml/UserSearchPage.qml:33
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr "איתור החברים שלך"
+
+#: src/app/qml/UserSearchPage.qml:46
+#, kde-format
+msgid "Enter a user ID"
+msgstr "נא למלא מזהה משתמש"
+
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Friends"
+msgstr "חברים"
+
+#: src/app/qml/UserSearchPage.qml:91
+#, kde-format
+msgid "Find your friends…"
+msgstr "איתור החברים שלך…"
+
+#: src/app/qml/UserSearchPage.qml:92
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr "נא להקליד כדי להתחיל לחפש בין החברים שלך"
+
+#: src/app/qml/UserSearchPage.qml:93
+#, kde-format
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "לא נמצאו תוצאות"
+
+#: src/app/qml/VerificationCanceled.qml:18
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr "אימות הפגישה בוטל מסיבה לא ידועה."
+
+#: src/app/qml/VerificationCanceled.qml:20
+#, kde-format
+msgid "The session verification timed out."
+msgstr "הזמן שהוקצב לאימות הפגישה הסתיים."
+
+#: src/app/qml/VerificationCanceled.qml:22
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr "הזמן שהוקצב לאימות הפגישה בצד השני הסתיים."
+
+#: src/app/qml/VerificationCanceled.qml:24
+#, kde-format
+msgid "You canceled the session verification."
+msgstr "ביטלת את אימות הפגישה."
+
+#: src/app/qml/VerificationCanceled.qml:26
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr "הצד השני ביטל את אימות הפגישה."
+
+#: src/app/qml/VerificationCanceled.qml:28
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr "אישור הפגישה בוטל כי קיבלנו הודעה מפתיעה."
+
+#: src/app/qml/VerificationCanceled.qml:30
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה מפתיעה."
+
+#: src/app/qml/VerificationCanceled.qml:32
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr "אישור הפגישה בוטל כיוון שהתקבלה הודעה על פגישה לא מוכרת."
+
+#: src/app/qml/VerificationCanceled.qml:34
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה לפגישה לא מוכרת."
+
+#: src/app/qml/VerificationCanceled.qml:36
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr "אימות הפגישה בוטל כיוון ש־NeoChat לא הצליח לטפל בשיטת האימות."
+
+#: src/app/qml/VerificationCanceled.qml:38
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr "הצד השני ביטל את אימות הפגישה כיוון שלא הצליח לטפל בשיטת האימות הזאת."
+
+#: src/app/qml/VerificationCanceled.qml:40
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr "אימות הפגישה בוטל כיוון שהמפתחות שגויים."
+
+#: src/app/qml/VerificationCanceled.qml:42
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
+msgstr ""
+"הצד השני ביטל את אישור הפגישה כיוון שהמפתחות שגויים.\n"
+"\n"
+"**נא לצאת ולהיכנס שוב בחזרה, הפגישה שלך פגומה/שגויה.**"
+
+#: src/app/qml/VerificationCanceled.qml:44
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr "אישור הפגישה בוטל כי הוא מאמת משתמש מפתיע."
+
+#: src/app/qml/VerificationCanceled.qml:46
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr "הצד השני ביטל את אימות הפגישה כיוון שהיא מאמתת משתמש מפתיע."
+
+#: src/app/qml/VerificationCanceled.qml:48
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr "אישור הפגישה בוטל כי קיבלנו הודעה שגויה."
+
+#: src/app/qml/VerificationCanceled.qml:50
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה שגויה."
+
+#: src/app/qml/VerificationCanceled.qml:52
+#: src/app/qml/VerificationCanceled.qml:54
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr "הפגישה אושרה במכשיר השני"
+
+#: src/app/qml/VerificationCanceled.qml:56
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr "הפגישה בוטלה עקב מפתח לא תואם."
+
+#: src/app/qml/VerificationCanceled.qml:58
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr "הצד השני ביטל את אישור הפגישה כיוון שאחד המפתחות לא תואם."
+
+#: src/app/qml/VerificationCanceled.qml:60
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr "אימות הפגישה בוטל כיוון שהמפתחות לא תואמים."
+
+#: src/app/qml/VerificationCanceled.qml:62
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr "הצד השני ביטל את אישור הפגישה כיוון שהמפתחות לא תואמים."
+
+#: src/app/qml/VerificationCanceled.qml:64
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr "אימות הפגישה בוטל עקב שגיאה לא ידועה."
+
+#: src/app/roommanager.cpp:211
+#, kde-format
+msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
+msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
+
+#: src/app/roommanager.cpp:417
+#, kde-format
+msgid "Failed to join room<br />%1"
+msgstr "נכשלה ההצטרפות לחדר<br />%1"
+
+#: src/app/roommanager.cpp:441
+#, kde-format
+msgid "You requested to join '%1'"
+msgstr "ביקשת להצטרף אל ‚%1’"
+
+#: src/app/roommanager.cpp:445
+#, kde-format
+msgid "Failed to request joining room<br />%1"
+msgstr "נכשלה הבקשה להצטרף לחדר<br />%1"
+
+#: src/app/trayicon.cpp:21
+#, kde-format
+msgid "Show"
+msgstr "הצגה"
+
+#: src/app/trayicon.cpp:36
+#, kde-format
+msgid "Quit"
+msgstr "יציאה"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -94,19 +2042,6 @@ msgstr "אמוג׳ים"
 #, kde-format
 msgid "Stickers"
 msgstr "מדבקות"
-
-#: src/controller.cpp:181
-#, kde-format
-msgctxt ""
-"The reason for using push notifications, as in: '[Push notifications are "
-"used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "מתקבלות התראות על הודעות חדשות"
-
-#: src/controller.cpp:326
-#, kde-format
-msgid "Receiving push notifications"
-msgstr "התראות בדחיפה מתקבלות"
 
 #: src/devtools/AccountData.qml:20
 #, kde-format
@@ -263,12 +2198,6 @@ msgstr "מזהה חדר: %1"
 msgid "Room Account Data"
 msgstr "נתוני חשבון חדר"
 
-#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
-#: src/qml/MessageSourceSheet.qml:42
-#, kde-format
-msgid "Event Source"
-msgstr "מקור אירועים"
-
 #: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
@@ -352,11 +2281,6 @@ msgstr "הוזמנת"
 #, kde-format
 msgid "Favorite"
 msgstr "מועדף"
-
-#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "חברים"
 
 #: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
@@ -1506,13 +3430,6 @@ msgstr "מזהה Matrix:"
 msgid "Matrix ID"
 msgstr "מזהה Matrix"
 
-#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:19
-#, kde-format
-msgid "Loading…"
-msgstr "בטעינה…"
-
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
@@ -1658,11 +3575,6 @@ msgstr "שם המשתמש לא זמין"
 msgid "Welcome"
 msgstr "ברוך בואך"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:146
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
-
 #: src/login/WelcomePage.qml:83
 #, kde-format
 msgctxt "@title"
@@ -1698,1904 +3610,6 @@ msgstr "חזרה"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "הגדרות"
-
-#: src/main.cpp:148
-#, kde-format
-msgid "Chat on Matrix"
-msgstr "שיחה ב־Matrix"
-
-#: src/main.cpp:150
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018‏-2020 כובע שחור, 2020‏-2025 קהילת KDE"
-
-#: src/main.cpp:151
-#, kde-format
-msgid "Carl Schwan"
-msgstr "קארל שוואן"
-
-#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
-#, kde-format
-msgid "Maintainer"
-msgstr "מתחזק"
-
-#: src/main.cpp:152
-#, kde-format
-msgid "Tobias Fella"
-msgstr "טוביאס פלה"
-
-#: src/main.cpp:153
-#, kde-format
-msgid "James Graham"
-msgstr "ג׳יימס גראהם"
-
-#: src/main.cpp:154
-#, kde-format
-msgid "Joshua Goins"
-msgstr "ג׳ושוע גוינס"
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Black Hat"
-msgstr "Black Hat"
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Original author of Spectral"
-msgstr "היוצר המקורי של Spectral"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Alexey Rusakov"
-msgstr "אלכסיי רוסאקוב"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Maintainer of libQuotient"
-msgstr "המתחזק של libQuotient"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "צוות התרגום של KDE ישראל"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kde-l10n-he@kde.org"
-
-#: src/main.cpp:165
-#, kde-format
-msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "ספריית Qt ליצירת לקוחות חוצי פלטפורמות ל־Matrix"
-
-#: src/main.cpp:167
-#, kde-format
-msgctxt "<version number> (built against <possibly different version number>)"
-msgid "%1 (built against %2)"
-msgstr "%1 (נבנה כנגד %2)"
-
-#: src/main.cpp:194
-#, kde-format
-msgid "Client for the matrix communication protocol"
-msgstr "לקוח לפרוטוקול התקשורת matrix"
-
-#: src/main.cpp:195
-#, kde-format
-msgid "Supports matrix: url scheme"
-msgstr "תומך בסכמת כתובות מסוג matrix:‎"
-
-#: src/main.cpp:196
-#, kde-format
-msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr "התעלמות משגיאות SSL, למשל: אישורים לא חתומים."
-
-#: src/main.cpp:198
-#, kde-format
-msgid "Only used for autotests"
-msgstr "משמש לבדיקות אוטומטיות בלבד"
-
-#: src/main.cpp:203
-#, kde-format
-msgid "Internal usage only."
-msgstr "שימוש פנימי בלבד."
-
-#: src/main.cpp:208
-#, kde-format
-msgid "Share a URL to Matrix"
-msgstr "שיתוף כתובת ל־Matrix"
-
-#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
-#, kde-format
-msgid "Encrypted Message"
-msgstr "הודעה מוצפנת"
-
-#: src/notificationsmanager.cpp:226
-#, kde-format
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/notificationsmanager.cpp:232
-#, kde-format
-msgid "Open NeoChat in this room"
-msgstr "פתיחת NeoChat בחדר הזה"
-
-#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
-#, kde-format
-msgid "Reply"
-msgstr "תגובה"
-
-#: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply…"
-msgstr "תגובה…"
-
-#: src/notificationsmanager.cpp:305
-#, kde-format
-msgid "%1 invited you to a room"
-msgstr "הוזמנת על ידי %1 לחדר"
-
-#: src/notificationsmanager.cpp:308
-#, kde-format
-msgid "Open this invitation in NeoChat"
-msgstr "לפתוח את ההזמנה הזאת ב־NeoChat"
-
-#: src/notificationsmanager.cpp:318
-#, kde-format
-msgctxt "@action:button The thing being accepted is an invitation to chat"
-msgid "Accept"
-msgstr "קבלה"
-
-#: src/notificationsmanager.cpp:319
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject"
-msgstr "דחייה"
-
-#: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and Ignore User"
-msgstr "דחייה והתעלמות ממשתמש"
-
-#: src/notificationsmanager.cpp:379
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: src/notificationsmanager.cpp:390
-#, kde-format
-msgid "Open NeoChat"
-msgstr "פתיחת NeoChat"
-
-#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "הצגת קוד QR"
-
-#: src/qml/AccountMenu.qml:40
-#, kde-format
-msgid "Edit This Account"
-msgstr "עריכת החשבון הזה"
-
-#: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
-#: src/settings/AccountsPage.qml:50
-#, kde-format
-msgid "Account editor"
-msgstr "עורך חשבונות"
-
-#: src/qml/AccountMenu.qml:50
-#, kde-format
-msgid "Notification Settings"
-msgstr "הגדרות התראה"
-
-#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
-#, kde-format
-msgid "Devices"
-msgstr "מכשירים"
-
-#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, kde-format
-msgid "Open Developer Tools"
-msgstr "פתיחת כלי מפתחים"
-
-#: src/qml/AccountMenu.qml:72
-#, kde-format
-msgctxt "@title:window"
-msgid "Developer Tools"
-msgstr "כלי מפתחים"
-
-#: src/qml/AccountMenu.qml:79
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "פתיחת גיבוי סודי"
-
-#: src/qml/AccountMenu.qml:83
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "פתיחת גיבוי מפתחות"
-
-#: src/qml/AccountMenu.qml:88
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "אימות המכשיר הזה"
-
-#: src/qml/AccountMenu.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "נשלחה בקשת אימות"
-
-#: src/qml/AccountMenu.qml:94
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "כדי להמשיך, יש לקבל את בקשת האימות במכשיר השני."
-
-#: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
-msgstr "יציאה"
-
-#: src/qml/AccountSwitchDialog.qml:29
-#, kde-format
-msgctxt "@title: dialog to switch between logged in accounts"
-msgid "Switch Account"
-msgstr "החלפת חשבון"
-
-#: src/qml/AccountSwitchDialog.qml:54
-#, kde-format
-msgctxt "@button: login to or register a new account."
-msgid "Add Account"
-msgstr "הוספת חשבון"
-
-#: src/qml/AccountSwitchDialog.qml:57
-#, kde-format
-msgid "Log in or create a new account"
-msgstr "נא להיכנס או ליצור חשבון חדש"
-
-#: src/qml/AccountSwitchDialog.qml:64
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "כניסה"
-
-#: src/qml/AskDirectChatConfirmation.qml:20
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Start a chat"
-msgstr "התחלת שיחה"
-
-#: src/qml/AskDirectChatConfirmation.qml:23
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "להתחיל שיחה עם %1?"
-
-#: src/qml/AskDirectChatConfirmation.qml:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Start Chat"
-msgstr "התחלת שיחה"
-
-#: src/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "קובץ מצורף:"
-
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20
-#: src/timeline/MessageDelegateContextMenu.qml:41
-#, kde-format
-msgid "Edit"
-msgstr "עריכה"
-
-#: src/qml/AttachmentPane.qml:62
-#, kde-format
-msgid "Cancel sending attachment"
-msgstr "ביטול שליחת קובץ מצורף"
-
-#: src/qml/ChooseRoomDialog.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Choose a Room"
-msgstr "בחירת חדר"
-
-#: src/qml/CodeMaximizeComponent.qml:39
-#, kde-format
-msgctxt "@action"
-msgid "Copy to clipboard"
-msgstr "העתקה ללוח הגזירים"
-
-#: src/qml/ConfirmLeaveDialog.qml:16
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Leaving Room"
-msgstr "אישור עזיבת חדר"
-
-#: src/qml/ConfirmLeaveDialog.qml:17
-#, kde-format
-msgctxt "Do you really want to leave <room name>?"
-msgid "Do you really want to leave %1?"
-msgstr "לעזוב את %1?"
-
-#: src/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
-msgstr "עזיבת החדר"
-
-#: src/qml/ConfirmLogoutDialog.qml:15
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Sign out"
-msgstr "יציאה"
-
-#: src/qml/ConfirmLogoutDialog.qml:16
-#, kde-format
-msgid "Are you sure you want to sign out?"
-msgstr "לצאת?"
-
-#: src/qml/ConfirmLogoutDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Sign out"
-msgstr "יציאה"
-
-#: src/qml/ConfirmUrlDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Open URL"
-msgstr "פתיחת כתובת"
-
-#: src/qml/ConfirmUrlDialog.qml:15
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Do you want to open <link>%1</link>?"
-msgstr "לפתוח את <link>%1</link>?"
-
-#: src/qml/ConsentDialog.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "הסכמת המשתמש"
-
-#: src/qml/ConsentDialog.qml:24
-#, kde-format
-msgctxt "@info"
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"שרת הבית שלך דורש ממך להסכים לתנאים וההגבלות שלו לפני שיתאפשר לך להשתמש בו. "
-"נא ללחוץ על הכפתור להלן כדי לקרוא אותם."
-
-#: src/qml/ConsentDialog.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Open"
-msgstr "פתיחה"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "יצירת חדר"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
-#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "יצירת מרחב"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "פרטים על המרחב החדש"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "פרטים על החדר החדש"
-
-#: src/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "בחירת סוג"
-
-#: src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "חדר"
-
-#: src/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "מרחב"
-
-#: src/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "שם:"
-
-#: src/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "נושא:"
-
-#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "להפוך את ההורה הזה לרשמי"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "יצירת מרחב"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "יצירת חדר"
-
-#: src/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "בחירת חדר קיים"
-
-#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "בחירת חדר"
-
-#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "עיון בין החדרים"
-
-#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "הצטרפות"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr "אין לך את ההרשאות הנחוצות בצאצא כדי להגדיר את המצב הזה"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr "אין לך הרשאות גבוהות מספיק בצאצא כדי להגדיר את המצב הזה"
-
-#: src/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr ""
-
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "אישור"
-
-#: src/qml/EditMenu.qml:15
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Undo"
-msgstr "הסגה"
-
-#: src/qml/EditMenu.qml:25
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Redo"
-msgstr "ביצוע מחדש"
-
-#: src/qml/EditMenu.qml:37
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Cut"
-msgstr "גזירה"
-
-#: src/qml/EditMenu.qml:47
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Copy"
-msgstr "העתקה"
-
-#: src/qml/EditMenu.qml:57
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Paste"
-msgstr "הדבקה"
-
-#: src/qml/EditMenu.qml:67
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Delete"
-msgstr "מחיקה"
-
-#: src/qml/EditMenu.qml:79
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Select All"
-msgstr "בחירה בהכול"
-
-#: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, kde-format
-msgctxt "@title As in 'edit the state of this room'"
-msgid "Edit State"
-msgstr "עריכת מצב"
-
-#: src/qml/EditStateDialog.qml:32
-#, kde-format
-msgctxt "@action"
-msgid "Revert changes"
-msgstr "הסגת השינויים"
-
-#: src/qml/EditStateDialog.qml:38
-#, kde-format
-msgctxt "@action As in 'Apply the changes'"
-msgid "Apply"
-msgstr "החלה"
-
-#: src/qml/EmojiSas.qml:26
-#, kde-format
-msgid ""
-"Confirm the emoji below are displayed on both devices, in the same order."
-msgstr "נא לאשר שהאמוג׳ים שלהלן מוצגים בשני המכשירים, באותו הסדר."
-
-#: src/qml/EmojiSas.qml:45
-#, kde-format
-msgid "They match"
-msgstr "הם תואמים"
-
-#: src/qml/EmojiSas.qml:51
-#, kde-format
-msgid "They don't match"
-msgstr "הם לא תואמים"
-
-#: src/qml/ExplorerDelegate.qml:72
-#, kde-format
-msgctxt "@info:label A matrix space"
-msgid "Space"
-msgstr "מרחב"
-
-#: src/qml/ExploreRoomsPage.qml:52
-#, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "עיון בין החדרים"
-
-#: src/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "להציג מרחבים בלבד"
-
-#: src/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "נא למלא חדר ידנית"
-
-#: src/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "אם הכתובת או הכינוי של החדר כבר ידועים לך ואינם מופיעים כאן."
-
-#: src/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "איתור חדר…"
-
-#: src/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "לא נמצאו חדרים ציבוריים"
-
-#: src/qml/FullScreenMap.qml:23
-#, kde-format
-msgid "View Location"
-msgstr "הצגת מקום"
-
-#: src/qml/FullScreenMap.qml:70
-#, kde-format
-msgid "Close"
-msgstr "סגירה"
-
-#: src/qml/GlobalMenu.qml:21
-#, kde-format
-msgctxt "menu"
-msgid "NeoChat"
-msgstr "NeoChat"
-
-#: src/qml/GlobalMenu.qml:24
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "הגדרת NeoChat…"
-
-#: src/qml/GlobalMenu.qml:25
-#, kde-format
-msgctxt "menu"
-msgid "Configure NeoChat…"
-msgstr "הגדרת NeoChat…"
-
-#: src/qml/GlobalMenu.qml:31
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "יציאה מ־NeoChat"
-
-#: src/qml/GlobalMenu.qml:38
-#, kde-format
-msgctxt "menu"
-msgid "File"
-msgstr "קובץ"
-
-#: src/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
-msgstr "איתור החברים שלך"
-
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "איתור החברים שלך"
-
-#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
-#: src/rooms/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "איתור החברים שלך"
-
-#: src/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "קבוצה חדשה…"
-
-#: src/qml/GlobalMenu.qml:59
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "עיון בשיחות…"
-
-#: src/qml/GlobalMenu.qml:73
-#, kde-format
-msgctxt "menu"
-msgid "Edit"
-msgstr "עריכה"
-
-#: src/qml/GlobalMenu.qml:77
-#, kde-format
-msgctxt "menu"
-msgid "View"
-msgstr "תצוגה"
-
-#: src/qml/GlobalMenu.qml:80
-#, kde-format
-msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
-"a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "פתיחת מחליף מהיר"
-
-#: src/qml/GlobalMenu.qml:85
-#, kde-format
-msgctxt "menu"
-msgid "Window"
-msgstr "חלון"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Exit Full Screen"
-msgstr "יציאה ממסך מלא"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Enter Full Screen"
-msgstr "הגדלה למסך מלא"
-
-#: src/qml/GlobalMenu.qml:93
-#, kde-format
-msgctxt "menu"
-msgid "Help"
-msgstr "עזרה"
-
-#: src/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "על Matrix"
-
-#: src/qml/GlobalMenu.qml:100
-#, kde-format
-msgctxt "menu"
-msgid "About NeoChat"
-msgstr "על NeoChat"
-
-#: src/qml/GlobalMenu.qml:104
-#, kde-format
-msgctxt "menu"
-msgid "About KDE"
-msgstr "על KDE"
-
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "אין שם"
-
-#: src/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "ההודעה הזאת נשלחה ממכשיר מאומת"
-
-#: src/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "רגש בתגובה"
-
-#: src/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "תגובה בשרשור"
-
-#: src/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr "סיום סקר"
-
-#: src/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "הקישור שנבחר כרגע"
-
-#: src/qml/ImageEditorPage.qml:36
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "הסגה"
-
-#: src/qml/ImageEditorPage.qml:43
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "קבלה"
-
-#: src/qml/ImageEditorPage.qml:51
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"לא ניתן לשמור את הקובץ. נא לבדוק אם יש לך את ההרשאות המתאימות לערוך את "
-"תיקיית המטמון."
-
-#: src/qml/ImageEditorPage.qml:123
-#, kde-format
-msgid "Cancel"
-msgstr "ביטול"
-
-#: src/qml/ImageEditorPage.qml:123 src/qml/ImageEditorPage.qml:139
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "חיתוך"
-
-#: src/qml/ImageEditorPage.qml:144
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "סיבוב שמאלה"
-
-#: src/qml/ImageEditorPage.qml:150
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "סיבוב ימינה"
-
-#: src/qml/ImageEditorPage.qml:156
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "היפוך אנכי"
-
-#: src/qml/ImageEditorPage.qml:162
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "היפוך אופקי"
-
-#: src/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "הוזמנת להצטרף על ידי %1"
-
-#: src/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "הוזמנת לשיחה עם המשתמש הזה."
-
-#: src/qml/InvitationView.qml:79
-#, kde-format
-msgid "You can reject invitations from unknown users under Security settings."
-msgstr "אפשר לדחות הזמנות ממשתמשים לא מוכרים תחת הגדרות האבטחה."
-
-#: src/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "דחייה"
-
-#: src/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "קבלה"
-
-#: src/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "הזמנת משתמש"
-
-#: src/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "איתור משתמש…"
-
-#: src/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "לא נמצאו משתמשים"
-
-#: src/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "הזמנת המשתמש הזה"
-
-#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "החבר או החברה כבר חברים או שהוזמנו"
-
-#: src/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "שליחת הזמנה"
-
-#: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Join Room"
-msgstr "הצטרפות לחדר"
-
-#: src/qml/JoinRoomDialog.qml:67
-#, kde-format
-msgctxt "@action:button"
-msgid "Join room"
-msgstr "הצטרפות לחדר"
-
-#: src/qml/KeyVerificationDialog.qml:16
-#, kde-format
-msgid "Session Verification"
-msgstr "אימות פגישה"
-
-#: src/qml/KeyVerificationDialog.qml:92
-#, kde-format
-msgid "Accept"
-msgstr "קבלה"
-
-#: src/qml/KeyVerificationDialog.qml:98
-#, kde-format
-msgid "Decline"
-msgstr "דחייה"
-
-#: src/qml/KeyVerificationDialog.qml:140
-#, kde-format
-msgid "Waiting for device to accept verification."
-msgstr "בהמתנה למכשיר לקבל את האימות."
-
-#: src/qml/KeyVerificationDialog.qml:142
-#, kde-format
-msgid "Incoming key verification request from device **%1**"
-msgstr "בקשת אימות מפתח נכנסת מהמכשיר **%1**"
-
-#: src/qml/KeyVerificationDialog.qml:144
-#, kde-format
-msgid "Waiting for other party to verify."
-msgstr "בהמתנה לאישור מהצד השני."
-
-#: src/qml/KeyVerificationDialog.qml:146
-#, kde-format
-msgid "Successfully verified device **%1**"
-msgstr "המכשיר **%1** אומת בהצלחה"
-
-#: src/qml/KeyVerificationDialog.qml:161
-#, kde-format
-msgctxt "@info"
-msgid "Choose a verification method to continue"
-msgstr "נא לבחור שיטת אימות כדי להמשיך"
-
-#: src/qml/KeyVerificationDialog.qml:165
-#, kde-format
-msgctxt "@action:button"
-msgid "Emoji Verification"
-msgstr "אימות עם אמוג׳י"
-
-#: src/qml/LocationChooser.qml:22
-#, kde-format
-msgid "Choose a Location"
-msgstr "בחירת מקום"
-
-#: src/qml/LocationChooser.qml:27
-#, kde-format
-msgid "Send this location"
-msgstr "שליחת המקום הזה"
-
-#: src/qml/LocationChooser.qml:35
-#, kde-format
-msgctxt "@action:intoolbar Re-center the map onto the set location"
-msgid "Re-Center"
-msgstr "מרכוז מחדש"
-
-#: src/qml/LocationChooser.qml:41
-#, kde-format
-msgctxt "@action:intoolbar Determine the device's location"
-msgid "Locate"
-msgstr "איתור"
-
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "מקומות"
-
-#: src/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "לא שותפו מקומות בחדר הזה."
-
-#: src/qml/Main.qml:167
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Room Information"
-msgstr "הצגת פרטי חדר"
-
-#: src/qml/Main.qml:170
-#, kde-format
-msgctxt "@action:button"
-msgid "Close Room Information Drawer"
-msgstr "סגירת מגירת פרטי החדר"
-
-#: src/qml/Main.qml:290
-#, kde-format
-msgctxt "@title:window"
-msgid "Session Verification"
-msgstr "אימות פגישה"
-
-#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Share"
-msgstr "שיתוף"
-
-#: src/qml/ManualRoomDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "Manually Enter a Room"
-msgstr "מילוי חדר ידנית"
-
-#: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "אישור"
-
-#: src/qml/ManualRoomDialog.qml:81
-#, kde-format
-msgid "Room ID or Alias:"
-msgstr "מזהה או כינוי חדר:"
-
-#: src/qml/ManualRoomDialog.qml:84 src/qml/ManualRoomDialog.qml:92
-#, kde-format
-msgid "Must start with # for an alias or ! for an ID"
-msgstr "חייב להתחיל ב־# במקרה של כינוי או ! במקרה של מזהה"
-
-#: src/qml/ManualRoomDialog.qml:90
-#, kde-format
-msgid "The input is not a valid room ID or alias"
-msgstr "הקלט אינו מזהה או כינוי תקפים של חדר"
-
-#: src/qml/ManualUserDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "User ID"
-msgstr "מזהה משתמש"
-
-#: src/qml/ManualUserDialog.qml:54
-#, kde-format
-msgid "User ID:"
-msgstr "מזהה משתמש:"
-
-#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
-#, kde-format
-msgid "User IDs Must start with @"
-msgstr "מזהי משתמשים חייבים להתחיל ב־@"
-
-#: src/qml/ManualUserDialog.qml:63
-#, kde-format
-msgid "The input is not a valid user ID"
-msgstr "הקלט אינו מזהה משתמש תקף."
-
-#: src/qml/MessageSourceSheet.qml:46
-#, kde-format
-msgctxt "@action As in 'edit the state of this room'"
-msgid "Edit state"
-msgstr "עריכת מצב"
-
-#: src/qml/NewPollDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr "שליחה"
-
-#: src/qml/NewPollDialog.qml:38
-#, kde-format
-msgctxt "@title: create new poll in the room"
-msgid "Create Poll"
-msgstr "יצירת סקר"
-
-#: src/qml/NewPollDialog.qml:46
-#, kde-format
-msgid "Poll type:"
-msgstr "סוג סקר:"
-
-#: src/qml/NewPollDialog.qml:51
-#, kde-format
-msgid "Open poll"
-msgstr "פתיחת סקר"
-
-#: src/qml/NewPollDialog.qml:52
-#, kde-format
-msgid "Closed poll"
-msgstr "סקר סגור"
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Voters can see the result as soon as they have voted"
-msgstr "מצביעים יכולים לצפות בתוצאות מיד לאחר הצבעתם"
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Results are revealed only after the poll has closed"
-msgstr "התוצאות תיחשפנה רק לאחר סגירת ההצבעה לסקר"
-
-#: src/qml/NewPollDialog.qml:61
-#, kde-format
-msgid "Question:"
-msgstr "שאלה:"
-
-#: src/qml/NewPollDialog.qml:104
-#, kde-format
-msgctxt "As in first answer option to the poll"
-msgid "Option %1:"
-msgstr "אפשרות %1:"
-
-#: src/qml/NewPollDialog.qml:120
-#, kde-format
-msgid "Enter option"
-msgstr "נא למלא אפשרות"
-
-#: src/qml/NewPollDialog.qml:126
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove option"
-msgstr "הסרת אפשרות"
-
-#: src/qml/NewPollDialog.qml:151
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "הוספת אפשרות"
-
-#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Notifications"
-msgstr "התראות"
-
-#: src/qml/NotificationsView.qml:34
-#, kde-format
-msgid "No Notifications"
-msgstr "אין התראות"
-
-#: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Select a File"
-msgstr "בחירת קובץ"
-
-#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "סריקת קוד QR"
-
-#: src/qml/QuickFormatBar.qml:23
-#, kde-format
-msgid "Bold"
-msgstr "מודגש"
-
-#: src/qml/QuickFormatBar.qml:42
-#, kde-format
-msgid "Italic"
-msgstr "נטוי"
-
-#: src/qml/QuickFormatBar.qml:61
-#, kde-format
-msgid "Strikethrough"
-msgstr "קו חוצה"
-
-#: src/qml/QuickFormatBar.qml:80
-#, kde-format
-msgid "Code block"
-msgstr "מקטע קוד"
-
-#: src/qml/QuickFormatBar.qml:99
-#, kde-format
-msgid "Quote"
-msgstr "ציטוט"
-
-#: src/qml/QuickFormatBar.qml:118
-#, kde-format
-msgid "Insert link"
-msgstr "הוספת קישור"
-
-#: src/qml/QuickSwitcher.qml:29
-#, kde-format
-msgctxt "Placeholder message"
-msgid "No room found"
-msgstr "לא נמצא כזה חדר"
-
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
-#, kde-format
-msgctxt "@action:button"
-msgid "Explore rooms"
-msgstr "עיון בין החדרים"
-
-#: src/qml/ReasonDialog.qml:53
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "ביטול"
-
-#: src/qml/RecommendedSpaceDialog.qml:25
-#, kde-format
-msgctxt "@title Join <name of a space>"
-msgid "Join %1"
-msgstr "הצטרפות אל %1"
-
-#: src/qml/RecommendedSpaceDialog.qml:53
-#, kde-format
-msgctxt "@action:button"
-msgid "Join"
-msgstr "הצטרפות"
-
-#: src/qml/RecommendedSpaceDialog.qml:63
-#, kde-format
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "התעלמות"
-
-#: src/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "הסרת צאצא"
-
-#: src/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "הצאצא %1 יוסר מהמרחב %2"
-
-#: src/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "המרחב הנוכחי הוא ההורה הרשמי של החדר הזה, למחוק את ההגדרה הזאת?"
-
-#: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "הגדרות חדר"
-
-#: src/qml/RoomDrawer.qml:165 src/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "פרטים"
-
-#: src/qml/RoomDrawer.qml:170 src/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "מדיה"
-
-#: src/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "חברים במרחב"
-
-#: src/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "פרטי חדר"
-
-#: src/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "פעולות"
-
-#: src/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "חיפוש בחדר הזה"
-
-#: src/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "חיפוש"
-
-#: src/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "אימות משתמש"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "הסרת חדר מהמועדפים"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "הוספת החדר למועדפים"
-
-#: src/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "הצגת מקומות מהחדר הזה"
-
-#: src/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "הודעות נעוצות"
-
-#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "הודעות נעוצות"
-
-#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "עזיבת המרחב הזה"
-
-#: src/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "עזיבת החדר הזה"
-
-#: src/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "חברים"
-
-#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "הזמנת משתמש"
-
-#: src/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "הזמנת משתמש לחדר"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "חבר"
-msgstr[1] "שני חברים"
-msgstr[2] "%1 חברים"
-msgstr[3] "%1 חברים"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "אין מניין חברים"
-
-#: src/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "המדיה בחדר"
-
-#: src/qml/RoomPage.qml:92
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat לא מחובר. נא לבדוק את החיבור שלך לרשת."
-
-#: src/qml/RoomPage.qml:149
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "ברוך בואך ל־NeoChat"
-
-#: src/qml/RoomPage.qml:150
-#, kde-format
-msgid "Select or join a room to get started"
-msgstr "נא לבחור או להצטרף לחדר כדי להתחיל"
-
-#: src/qml/RoomPage.qml:243
-#, kde-format
-msgid "Message Source"
-msgstr "מקור הודעה"
-
-#: src/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "אין הודעות נעוצות"
-
-#: src/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "חיפוש הודעות"
-
-#: src/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "איתור הודעות…"
-
-#: src/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "נא להקליד טקסט כדי להתחיל לחפש"
-
-#: src/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "לא נמצאו הודעות"
-
-#: src/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "חיפוש"
-
-#: src/qml/ServerComboBox.qml:47
-#, kde-format
-msgid "Add New Server"
-msgstr "הוספת שרת חדש"
-
-#: src/qml/ServerComboBox.qml:63
-#, kde-format
-msgid "Home Server"
-msgstr "שרת הבית"
-
-#: src/qml/ServerComboBox.qml:70
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "הוספת שרת חדש"
-
-#: src/qml/ServerComboBox.qml:110
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "הוספת שרת"
-
-#: src/qml/ServerComboBox.qml:137
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "הטקסט שמילאת אינו כתובת תקנית"
-
-#: src/qml/ServerComboBox.qml:141
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "אי אפשר לפתור את השרת הזה או שהוא כבר נוסף"
-
-#: src/qml/ServerComboBox.qml:152
-#, kde-format
-msgid "Server URL:"
-msgstr "כתובת השרת:"
-
-#: src/qml/ShareAction.qml:23
-#, kde-format
-msgid "Share"
-msgstr "שיתוף"
-
-#: src/qml/ShareAction.qml:24
-#, kde-format
-msgid "Share the selected media"
-msgstr "שיתוף המדיה הנבחרת"
-
-#: src/qml/ShareDialog.qml:37
-#, kde-format
-msgid "Sharing failed"
-msgstr "השיתוף נכשל"
-
-#: src/qml/ShareDialog.qml:58
-#, kde-format
-msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr "כתובת שיתוף לתמונה היא <a href='%1'>%1</a>"
-
-#: src/qml/UnlockSSSSDialog.qml:16
-#, kde-format
-msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "לטעון את ההודעות המוצפנות שלך"
-
-#: src/qml/UnlockSSSSDialog.qml:38
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "מפתחות ההצפנה שוחזרו."
-
-#: src/qml/UnlockSSSSDialog.qml:50
-#, kde-format
-msgctxt "@info:status"
-msgid "The security phrase was not correct."
-msgstr "ביטוי האבטחה היה שגוי."
-
-#: src/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Passphrase"
-msgstr "שחרור באמצעות מילת צופן"
-
-#: src/qml/UnlockSSSSDialog.qml:60
-#, kde-format
-msgctxt "@info"
-msgid "If you have a backup passphrase for this account, enter it below."
-msgstr "אם יש לך מילת צופן כגיבוי לחשבון הזה, יש למלא אותה להלן."
-
-#: src/qml/UnlockSSSSDialog.qml:64
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Backup Password:"
-msgstr "סיסמת גיבוי:"
-
-#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "שחרור נעילה"
-
-#: src/qml/UnlockSSSSDialog.qml:81
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Security Key"
-msgstr "שחרור נעילה עם מפתח אבטחה"
-
-#: src/qml/UnlockSSSSDialog.qml:85
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a security key for this account, enter it below or upload it as "
-"a file."
-msgstr "אם יש לך מפתח אבטחה לחשבון הזה, יש למלא אותו כאן או להעלות אותו כקובץ."
-
-#: src/qml/UnlockSSSSDialog.qml:89
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Security Key:"
-msgstr "מפתח אבטחה:"
-
-#: src/qml/UnlockSSSSDialog.qml:94
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload from File"
-msgstr "העלאה מקובץ"
-
-#: src/qml/UnlockSSSSDialog.qml:115
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "שחרור נעילה מחתימה צולבת"
-
-#: src/qml/UnlockSSSSDialog.qml:119
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
-msgstr ""
-"אם אימתת את המכשיר הזה בעבר, אפשר לנסות לטעון את מפתח הגיבוי ממכשירים אחרים "
-"בלחיצה על הכפתור שלהלן."
-
-#: src/qml/UnlockSSSSDialog.qml:124
-#, kde-format
-msgctxt "@action:button"
-msgid "Request from other Devices"
-msgstr "בקשה מהתקנים אחרים"
-
-#: src/qml/UserDetailDialog.qml:34
-#, kde-format
-msgctxt "@title:menu Account details dialog"
-msgid "Account Details"
-msgstr "פרטי חשבון"
-
-#: src/qml/UserDetailDialog.qml:83
-#, kde-format
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "חדר משותף"
-msgstr[1] "שני חדרים משותפים"
-msgstr[2] "%1 חדרים משותפים"
-msgstr[3] "%1 חדרים משותפים"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Unignore this user"
-msgstr "ביטול החרגת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Ignore this user"
-msgstr "החרגת מהמשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:149
-#, kde-format
-msgid "Kick this user"
-msgstr "בעיטת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:153 src/qml/UserDetailDialog.qml:158
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "בעיטת משתמש"
-
-#: src/qml/UserDetailDialog.qml:154
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "הסיבה לבעיטת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:155
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "בעיטה"
-
-#: src/qml/UserDetailDialog.qml:174
-#, kde-format
-msgid "Invite this user"
-msgstr "הזמנת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:187
-#, kde-format
-msgid "Ban this user"
-msgstr "חסימת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:192 src/qml/UserDetailDialog.qml:197
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "חסימת משתמש"
-
-#: src/qml/UserDetailDialog.qml:193
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "הסיבה לחסימת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:194
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "חסימה"
-
-#: src/qml/UserDetailDialog.qml:212
-#, kde-format
-msgid "Unban this user"
-msgstr "ביטול חסימת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:225
-#, kde-format
-msgid "Set user power level"
-msgstr "הגדרת רמת העוצמה של המשתמש"
-
-#: src/qml/UserDetailDialog.qml:250
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "הסרת הודעות אחרונות מאת המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:255
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "הסרת הודעות"
-
-#: src/qml/UserDetailDialog.qml:256
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "הסיבה להסרת ההודעות האחרונות של המשתמש הזה"
-
-#: src/qml/UserDetailDialog.qml:257
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "הסרה"
-
-#: src/qml/UserDetailDialog.qml:260
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "הסרת הודעות"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "שיחה עם %1"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgid "Invite to private chat"
-msgstr "הזמנה לשיחה פרטית"
-
-#: src/qml/UserDetailDialog.qml:285
-#, kde-format
-msgid "Copy link"
-msgstr "העתקת קישור"
-
-#: src/qml/UserSearchPage.qml:33
-#, kde-format
-msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "איתור החברים שלך"
-
-#: src/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "נא למלא מזהה משתמש"
-
-#: src/qml/UserSearchPage.qml:91
-#, kde-format
-msgid "Find your friends…"
-msgstr "איתור החברים שלך…"
-
-#: src/qml/UserSearchPage.qml:92
-#, kde-format
-msgid "Enter text to start searching for your friends"
-msgstr "נא להקליד כדי להתחיל לחפש בין החברים שלך"
-
-#: src/qml/UserSearchPage.qml:93
-#, kde-format
-msgctxt "@info:label"
-msgid "No matches found"
-msgstr "לא נמצאו תוצאות"
-
-#: src/qml/VerificationCanceled.qml:18
-#, kde-format
-msgid "The session verification was canceled for unknown reason."
-msgstr "אימות הפגישה בוטל מסיבה לא ידועה."
-
-#: src/qml/VerificationCanceled.qml:20
-#, kde-format
-msgid "The session verification timed out."
-msgstr "הזמן שהוקצב לאימות הפגישה הסתיים."
-
-#: src/qml/VerificationCanceled.qml:22
-#, kde-format
-msgid "The session verification timed out for remote party."
-msgstr "הזמן שהוקצב לאימות הפגישה בצד השני הסתיים."
-
-#: src/qml/VerificationCanceled.qml:24
-#, kde-format
-msgid "You canceled the session verification."
-msgstr "ביטלת את אימות הפגישה."
-
-#: src/qml/VerificationCanceled.qml:26
-#, kde-format
-msgid "The remote party canceled the session verification."
-msgstr "הצד השני ביטל את אימות הפגישה."
-
-#: src/qml/VerificationCanceled.qml:28
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an unexpected "
-"message."
-msgstr "אישור הפגישה בוטל כי קיבלנו הודעה מפתיעה."
-
-#: src/qml/VerificationCanceled.qml:30
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"unexpected message."
-msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה מפתיעה."
-
-#: src/qml/VerificationCanceled.qml:32
-#, kde-format
-msgid ""
-"The session verification was canceled because it received a message for an "
-"unknown session."
-msgstr "אישור הפגישה בוטל כיוון שהתקבלה הודעה על פגישה לא מוכרת."
-
-#: src/qml/VerificationCanceled.qml:34
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received a "
-"message for an unknown session."
-msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה לפגישה לא מוכרת."
-
-#: src/qml/VerificationCanceled.qml:36
-#, kde-format
-msgid ""
-"The session verification was canceled because NeoChat is unable to handle "
-"this verification method."
-msgstr "אימות הפגישה בוטל כיוון ש־NeoChat לא הצליח לטפל בשיטת האימות."
-
-#: src/qml/VerificationCanceled.qml:38
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it is unable to "
-"handle this verification method."
-msgstr "הצד השני ביטל את אימות הפגישה כיוון שלא הצליח לטפל בשיטת האימות הזאת."
-
-#: src/qml/VerificationCanceled.qml:40
-#, kde-format
-msgid "The session verification was canceled because the keys are incorrect."
-msgstr "אימות הפגישה בוטל כיוון שהמפתחות שגויים."
-
-#: src/qml/VerificationCanceled.qml:42
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys are "
-"incorrect.\n"
-"\n"
-"**Please log out and log back in, your session is broken/corrupt.**"
-msgstr ""
-"הצד השני ביטל את אישור הפגישה כיוון שהמפתחות שגויים.\n"
-"\n"
-"**נא לצאת ולהיכנס שוב בחזרה, הפגישה שלך פגומה/שגויה.**"
-
-#: src/qml/VerificationCanceled.qml:44
-#, kde-format
-msgid ""
-"The session verification was canceled because it verifies an unexpected user."
-msgstr "אישור הפגישה בוטל כי הוא מאמת משתמש מפתיע."
-
-#: src/qml/VerificationCanceled.qml:46
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it verifies an "
-"unexpected user."
-msgstr "הצד השני ביטל את אימות הפגישה כיוון שהיא מאמתת משתמש מפתיע."
-
-#: src/qml/VerificationCanceled.qml:48
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an invalid message."
-msgstr "אישור הפגישה בוטל כי קיבלנו הודעה שגויה."
-
-#: src/qml/VerificationCanceled.qml:50
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"invalid message."
-msgstr "הצד השני ביטל את אימות הפגישה כיוון שקיבל הודעה שגויה."
-
-#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
-#, kde-format
-msgid "The session was accepted on a different device"
-msgstr "הפגישה אושרה במכשיר השני"
-
-#: src/qml/VerificationCanceled.qml:56
-#, kde-format
-msgid "The session verification was canceled because of a mismatched key."
-msgstr "הפגישה בוטלה עקב מפתח לא תואם."
-
-#: src/qml/VerificationCanceled.qml:58
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because of a mismatched "
-"key."
-msgstr "הצד השני ביטל את אישור הפגישה כיוון שאחד המפתחות לא תואם."
-
-#: src/qml/VerificationCanceled.qml:60
-#, kde-format
-msgid "The session verification was canceled because the keys do not match."
-msgstr "אימות הפגישה בוטל כיוון שהמפתחות לא תואמים."
-
-#: src/qml/VerificationCanceled.qml:62
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys do not "
-"match."
-msgstr "הצד השני ביטל את אישור הפגישה כיוון שהמפתחות לא תואמים."
-
-#: src/qml/VerificationCanceled.qml:64
-#, kde-format
-msgid "The session verification was canceled due to an unknown error."
-msgstr "אימות הפגישה בוטל עקב שגיאה לא ידועה."
-
-#: src/roommanager.cpp:211
-#, kde-format
-msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
-
-#: src/roommanager.cpp:417
-#, kde-format
-msgid "Failed to join room<br />%1"
-msgstr "נכשלה ההצטרפות לחדר<br />%1"
-
-#: src/roommanager.cpp:441
-#, kde-format
-msgid "You requested to join '%1'"
-msgstr "ביקשת להצטרף אל ‚%1’"
-
-#: src/roommanager.cpp:445
-#, kde-format
-msgid "Failed to request joining room<br />%1"
-msgstr "נכשלה הבקשה להצטרף לחדר<br />%1"
 
 #: src/rooms/ExploreComponent.qml:34
 #, kde-format
@@ -6331,16 +6345,6 @@ msgstr "עוצמת שמע"
 #, kde-format
 msgid "Maximize"
 msgstr "הגדלה"
-
-#: src/trayicon.cpp:21
-#, kde-format
-msgid "Show"
-msgstr "הצגה"
-
-#: src/trayicon.cpp:36
-#, kde-format
-msgid "Quit"
-msgstr "יציאה"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"

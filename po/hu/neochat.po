@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:41+0000\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -18,6 +18,2023 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.08.3\n"
+
+#: src/app/controller.cpp:181
+#, kde-format
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
+msgstr "Új üzenetek értesítéseinek fogadása"
+
+#: src/app/controller.cpp:326
+#, kde-format
+msgid "Receiving push notifications"
+msgstr "Leküldéses értesítések fogadása"
+
+#: src/app/main.cpp:146 src/login/WelcomePage.qml:75
+#, kde-format
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/main.cpp:148
+#, kde-format
+msgid "Chat on Matrix"
+msgstr "Csevegés Matrixon"
+
+#: src/app/main.cpp:150
+#, fuzzy, kde-format
+#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+msgstr "© Black Hat, 2018-2020., A KDE közösség, 2020-2024."
+
+#: src/app/main.cpp:151
+#, kde-format
+msgid "Carl Schwan"
+msgstr "Carl Schwan"
+
+#: src/app/main.cpp:151 src/app/main.cpp:152 src/app/main.cpp:153
+#: src/app/main.cpp:155
+#, kde-format
+msgid "Maintainer"
+msgstr "Karbantartó"
+
+#: src/app/main.cpp:152
+#, kde-format
+msgid "Tobias Fella"
+msgstr "Tobias Fella"
+
+#: src/app/main.cpp:153
+#, kde-format
+msgid "James Graham"
+msgstr "James Graham"
+
+#: src/app/main.cpp:154
+#, kde-format
+msgid "Joshua Goins"
+msgstr ""
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Black Hat"
+msgstr "Black Hat"
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Original author of Spectral"
+msgstr "A Spectral eredeti szerzője"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Alexey Rusakov"
+msgstr "Alexey Rusakov"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Maintainer of libQuotient"
+msgstr "A libQuotient karbantartója"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf,Kovács Áron"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@fsf.hu,aronkvh@gmail.com"
+
+#: src/app/main.cpp:165
+#, kde-format
+msgid "A Qt library to write cross-platform clients for Matrix"
+msgstr "Qt programkönyvtár keresztplatformos Matrix kliensek írásához"
+
+#: src/app/main.cpp:167
+#, kde-format
+msgctxt "<version number> (built against <possibly different version number>)"
+msgid "%1 (built against %2)"
+msgstr "%1 (fordítva ezzel: %2)"
+
+#: src/app/main.cpp:194
+#, kde-format
+msgid "Client for the matrix communication protocol"
+msgstr "Kliens a matrix kommunikációs protokollhoz"
+
+#: src/app/main.cpp:195
+#, kde-format
+msgid "Supports matrix: url scheme"
+msgstr "Támogatja a matrix: URL-sémát"
+
+#: src/app/main.cpp:196
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
+"Összes SSL hiba, például nem aláírt tanúsítványok figyelmen kívül hagyása"
+
+#: src/app/main.cpp:198
+#, kde-format
+msgid "Only used for autotests"
+msgstr "Csak automatikus tesztekhez használt"
+
+#: src/app/main.cpp:203
+#, kde-format
+msgid "Internal usage only."
+msgstr "Csak belső használatra."
+
+#: src/app/main.cpp:208
+#, kde-format
+msgid "Share a URL to Matrix"
+msgstr "URL megosztása Matrixon"
+
+#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#, kde-format
+msgid "Encrypted Message"
+msgstr "Titkosított üzenet"
+
+#: src/app/notificationsmanager.cpp:226
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/notificationsmanager.cpp:232
+#, kde-format
+msgid "Open NeoChat in this room"
+msgstr "NeoChat megnyitása ebben a szobában"
+
+#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
+#, kde-format
+msgid "Reply"
+msgstr "Válasz"
+
+#: src/app/notificationsmanager.cpp:246
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgid "Reply…"
+msgstr "Válasz"
+
+#: src/app/notificationsmanager.cpp:305
+#, kde-format
+msgid "%1 invited you to a room"
+msgstr "%1 meghívta Önt egy szobába"
+
+#: src/app/notificationsmanager.cpp:308
+#, kde-format
+msgid "Open this invitation in NeoChat"
+msgstr "Meghívás megnyitása NeoChatben"
+
+#: src/app/notificationsmanager.cpp:318
+#, kde-format
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "Elfogadás"
+
+#: src/app/notificationsmanager.cpp:319
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "Elutasítás"
+
+#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr "Elutasítás és felhasználó mellőzése"
+
+#: src/app/notificationsmanager.cpp:380
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/app/notificationsmanager.cpp:391
+#, kde-format
+msgid "Open NeoChat"
+msgstr "NeoChat megnyitása"
+
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "QR-kód megjelenítése"
+
+#: src/app/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit this account"
+msgid "Edit This Account"
+msgstr "Fiók szerkesztése"
+
+#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/settings/AccountsPage.qml:50
+#, kde-format
+msgid "Account editor"
+msgstr "Fiókszerkesztő"
+
+#: src/app/qml/AccountMenu.qml:50
+#, fuzzy, kde-format
+#| msgid "Notification settings"
+msgid "Notification Settings"
+msgstr "Értesítési beállítások"
+
+#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#, kde-format
+msgid "Devices"
+msgstr "Eszközök"
+
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
+msgstr "Fejlesztői eszközök megnyitása"
+
+#: src/app/qml/AccountMenu.qml:72
+#, kde-format
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Fejlesztői eszközök"
+
+#: src/app/qml/AccountMenu.qml:79
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Secret Backup"
+msgstr "Titkos biztonsági mentés megnyitása"
+
+#: src/app/qml/AccountMenu.qml:83
+#, kde-format
+msgctxt "@title:window"
+msgid "Open Key Backup"
+msgstr "Kulcsmentés megnyitása"
+
+#: src/app/qml/AccountMenu.qml:88
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify this Device"
+msgctxt "@action:inmenu"
+msgid "Verify This Device"
+msgstr "Ezen eszköz ellenőrzése"
+
+#: src/app/qml/AccountMenu.qml:93
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr ""
+
+#: src/app/qml/AccountMenu.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr ""
+
+#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#, kde-format
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+#: src/app/qml/AccountSwitchDialog.qml:29
+#, kde-format
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "Fiókváltás"
+
+#: src/app/qml/AccountSwitchDialog.qml:54
+#, kde-format
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "Fiók hozzáadása"
+
+#: src/app/qml/AccountSwitchDialog.qml:57
+#, kde-format
+msgid "Log in or create a new account"
+msgstr "Bejelentkezés vagy új fiók létrehozása"
+
+#: src/app/qml/AccountSwitchDialog.qml:64
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Bejelentkezés"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:20
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Csevegés indítása"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Szeretne csevegést indítani vele: %1?"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Csevegés indítása"
+
+#: src/app/qml/AttachmentPane.qml:30
+#, kde-format
+msgid "Attachment:"
+msgstr "Melléklet"
+
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
+#: src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
+#, kde-format
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: src/app/qml/AttachmentPane.qml:62
+#, kde-format
+msgid "Cancel sending attachment"
+msgstr "Melléklet küldésének megszakítása"
+
+#: src/app/qml/ChooseRoomDialog.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "Szoba kiválasztása"
+
+#: src/app/qml/CodeMaximizeComponent.qml:39
+#, kde-format
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "Másolás a vágólapra"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "Szoba elhagyásának megerősítése"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:17
+#, kde-format
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr "Biztosan el szeretné hagyni a(z) %1 szobát?"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "Szoba elhagyása"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:15
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Sign out"
+msgstr "Kijelentkezés"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:16
+#, kde-format
+msgid "Are you sure you want to sign out?"
+msgstr "Biztosan ki szeretne jelentkezni?"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "Kijelentkezés"
+
+#: src/app/qml/ConfirmUrlDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Open URL"
+msgstr "URL megnyitása"
+
+#: src/app/qml/ConfirmUrlDialog.qml:15
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
+msgstr "Biztosan meg szeretné nyitni ezt: <link>%1</link>?"
+
+#: src/app/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Felhasználói hozzájárulás"
+
+#: src/app/qml/ConsentDialog.qml:24
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Az alapértelmezett kiszolgálója a felhasználási feltételei elfogadását kéri, "
+"mielőtt használná. Kérjük, kattintson az alábbi gombra az elolvasásukhoz."
+
+#: src/app/qml/ConsentDialog.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Megnyitás"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
+#, kde-format
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Szoba létrehozása"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Tér létrehozása"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Space Information"
+msgstr "Új tér jellemzői"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Room Information"
+msgstr "Új szoba jellemzői"
+
+#: src/app/qml/CreateRoomDialog.qml:44
+#, kde-format
+msgid "Select type"
+msgstr "Típus kiválasztása"
+
+#: src/app/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Szoba"
+
+#: src/app/qml/CreateRoomDialog.qml:58
+#, kde-format
+msgid "Space"
+msgstr "Tér"
+
+#: src/app/qml/CreateRoomDialog.qml:77
+#, kde-format
+msgid "Name:"
+msgstr "Név:"
+
+#: src/app/qml/CreateRoomDialog.qml:87
+#, kde-format
+msgid "Topic:"
+msgstr "Téma:"
+
+#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Legyen ez a hivatalos szülő"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Space"
+msgstr "Tér létrehozása"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Szoba létrehozása"
+
+#: src/app/qml/CreateRoomDialog.qml:121
+#, kde-format
+msgid "Select Existing Room"
+msgstr "Meglévő szoba kiválasztása"
+
+#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "Szoba kiválasztása"
+
+#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
+#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Szobák felfedezése"
+
+#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Joined"
+msgstr "Tagja"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+"Ön rendelkezik a szükséges jogosultsági szinttel a gyermekben, hogy "
+"beállítsa ezt az állapotot"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+"Nincs elég magas jogosultsági szintje a gyermekben ahhoz, hogy beállítsa ezt "
+"az állapotot"
+
+#: src/app/qml/CreateRoomDialog.qml:258
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "Legyen ez a tér a kanonikus szülő"
+
+#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "OK"
+
+#: src/app/qml/EditMenu.qml:15
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: src/app/qml/EditMenu.qml:25
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "Újra"
+
+#: src/app/qml/EditMenu.qml:37
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "Kivágás"
+
+#: src/app/qml/EditMenu.qml:47
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "Másolás"
+
+#: src/app/qml/EditMenu.qml:57
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "Beillesztés"
+
+#: src/app/qml/EditMenu.qml:67
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "Törlés"
+
+#: src/app/qml/EditMenu.qml:79
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "Összes kijelölése"
+
+#: src/app/qml/EditStateDialog.qml:28 src/app/qml/MessageSourceSheet.qml:56
+#, kde-format
+msgctxt "@title As in 'edit the state of this room'"
+msgid "Edit State"
+msgstr "Állapot szerkesztése"
+
+#: src/app/qml/EditStateDialog.qml:32
+#, kde-format
+msgctxt "@action"
+msgid "Revert changes"
+msgstr "Változtatások visszavonása"
+
+#: src/app/qml/EditStateDialog.qml:38
+#, kde-format
+msgctxt "@action As in 'Apply the changes'"
+msgid "Apply"
+msgstr "Alkalmaz"
+
+#: src/app/qml/EmojiSas.qml:26
+#, kde-format
+msgid ""
+"Confirm the emoji below are displayed on both devices, in the same order."
+msgstr ""
+"Erősítse meg, hogy az alábbi emodzsik mindkét eszközön ugyanabban a "
+"sorrendben jelennek meg."
+
+#: src/app/qml/EmojiSas.qml:45
+#, kde-format
+msgid "They match"
+msgstr "Egyeznek"
+
+#: src/app/qml/EmojiSas.qml:51
+#, kde-format
+msgid "They don't match"
+msgstr "Nem egyeznek"
+
+#: src/app/qml/ExplorerDelegate.qml:72
+#, kde-format
+msgctxt "@info:label A matrix space"
+msgid "Space"
+msgstr "Tér"
+
+#: src/app/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Szobák felfedezése"
+
+#: src/app/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "Csak terek megjelenítése"
+
+#: src/app/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "Belépés szobába saját kezűleg"
+
+#: src/app/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "Ha már ismeri egy szoba címét vagy álnevét, és az itt nem jelenik meg."
+
+#: src/app/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "Szoba keresése…"
+
+#: src/app/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Nem találhatók nyilvános szobák"
+
+#: src/app/qml/FullScreenMap.qml:23
+#, kde-format
+msgid "View Location"
+msgstr "Hely megtekintése"
+
+#: src/app/qml/FullScreenMap.qml:70
+#, kde-format
+msgid "Close"
+msgstr "Bezárás"
+
+#: src/app/qml/GlobalMenu.qml:21
+#, kde-format
+msgctxt "menu"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:24
+#, kde-format
+msgid "Configure NeoChat…"
+msgstr "A Neochat beállításai…"
+
+#: src/app/qml/GlobalMenu.qml:25
+#, fuzzy, kde-format
+#| msgid "Configure NeoChat…"
+msgctxt "menu"
+msgid "Configure NeoChat…"
+msgstr "A Neochat beállításai…"
+
+#: src/app/qml/GlobalMenu.qml:31
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "Kilépés a NeoChatből"
+
+#: src/app/qml/GlobalMenu.qml:38
+#, kde-format
+msgctxt "menu"
+msgid "File"
+msgstr "Fájl"
+
+#: src/app/qml/GlobalMenu.qml:41
+#, kde-format
+msgctxt "menu"
+msgid "Find your friends"
+msgstr "Barátok keresése"
+
+#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "Barátok keresése"
+
+#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Barátok keresése"
+
+#: src/app/qml/GlobalMenu.qml:50
+#, kde-format
+msgctxt "menu"
+msgid "New Group…"
+msgstr "Új csoport…"
+
+#: src/app/qml/GlobalMenu.qml:59
+#, kde-format
+msgctxt "menu"
+msgid "Browse Chats…"
+msgstr "Csevegések böngészése…"
+
+#: src/app/qml/GlobalMenu.qml:73
+#, kde-format
+msgctxt "menu"
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: src/app/qml/GlobalMenu.qml:77
+#, kde-format
+msgctxt "menu"
+msgid "View"
+msgstr "Nézet"
+
+#: src/app/qml/GlobalMenu.qml:80
+#, kde-format
+msgctxt ""
+"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"a fast keyboard-based interface for switching in between chats."
+msgid "Open Quick Switcher"
+msgstr "Gyorsváltó megnyitása"
+
+#: src/app/qml/GlobalMenu.qml:85
+#, kde-format
+msgctxt "menu"
+msgid "Window"
+msgstr "Ablak"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Exit Full Screen"
+msgstr "Kilépés a teljes képernyős módból"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Enter Full Screen"
+msgstr "Teljes képernyő"
+
+#: src/app/qml/GlobalMenu.qml:93
+#, kde-format
+msgctxt "menu"
+msgid "Help"
+msgstr "Súgó"
+
+#: src/app/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "About Matrix"
+msgstr "A Matrix névjegye"
+
+#: src/app/qml/GlobalMenu.qml:100
+#, kde-format
+msgctxt "menu"
+msgid "About NeoChat"
+msgstr "A Neochat névjegye"
+
+#: src/app/qml/GlobalMenu.qml:104
+#, kde-format
+msgctxt "menu"
+msgid "About KDE"
+msgstr "A KDE névjegye"
+
+#: src/app/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Nincs név"
+
+#: src/app/qml/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Az üzenetet egy ellenőrzött eszközről küldték"
+
+#: src/app/qml/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "Reagálás"
+
+#: src/app/qml/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "Válasz szálban"
+
+#: src/app/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr ""
+
+#: src/app/qml/HoverLinkIndicator.qml:25
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "A jelenleg kiválasztott hivatkozás"
+
+#: src/app/qml/ImageEditorPage.qml:36
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: src/app/qml/ImageEditorPage.qml:43
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "Elfogadás"
+
+#: src/app/qml/ImageEditorPage.qml:51
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"Nem lehet menteni a fájlt. Ellenőrizze, hogy megfelelőek-e a jogosultságai a "
+"gyorsítótárkönyvtár szerkesztéséhez."
+
+#: src/app/qml/ImageEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/app/qml/ImageEditorPage.qml:123 src/app/qml/ImageEditorPage.qml:139
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Levágás"
+
+#: src/app/qml/ImageEditorPage.qml:144
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "Forgatás balra"
+
+#: src/app/qml/ImageEditorPage.qml:150
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "Forgatás jobbra"
+
+#: src/app/qml/ImageEditorPage.qml:156
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Tükrözés függőlegesen"
+
+#: src/app/qml/ImageEditorPage.qml:162
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Tükrözés vízszintesen"
+
+#: src/app/qml/InvitationView.qml:42
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgctxt "@info:label"
+msgid "%1 has invited you to join"
+msgstr "%1 meghívta Önt egy szobába"
+
+#: src/app/qml/InvitationView.qml:70
+#, kde-format
+msgctxt "@info:label"
+msgid "This user is inviting you to chat."
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:79
+#, kde-format
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr ""
+"Az ismeretlen felhasználók meghívásait a Biztonság lapon utasíthatja el a "
+"beállításokban."
+
+#: src/app/qml/InvitationView.qml:102
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button"
+msgid "Reject"
+msgstr "Elutasítás"
+
+#: src/app/qml/InvitationView.qml:110
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button"
+msgid "Accept"
+msgstr "Elfogadás"
+
+#: src/app/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "Felhasználó meghívása"
+
+#: src/app/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "Felhasználó keresése…"
+
+#: src/app/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Nem találhatók szobák"
+
+#: src/app/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Meghívás"
+
+#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "A felhasználó már tag, vagy már kapott meghívót"
+
+#: src/app/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Meghívó küldése"
+
+#: src/app/qml/JoinRoomDialog.qml:29
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Join Room"
+msgstr "Belépés"
+
+#: src/app/qml/JoinRoomDialog.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "Belépés"
+
+#: src/app/qml/KeyVerificationDialog.qml:16
+#, kde-format
+msgid "Session Verification"
+msgstr "Munkamenet-ellenőrzés"
+
+#: src/app/qml/KeyVerificationDialog.qml:92
+#, kde-format
+msgid "Accept"
+msgstr "Elfogadás"
+
+#: src/app/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Elutasítás"
+
+#: src/app/qml/KeyVerificationDialog.qml:140
+#, kde-format
+msgid "Waiting for device to accept verification."
+msgstr "Várakozás az eszközre az ellenőrzés elfogadásához."
+
+#: src/app/qml/KeyVerificationDialog.qml:142
+#, kde-format
+msgid "Incoming key verification request from device **%1**"
+msgstr "Bejövő kulcs-ellenőrzési kérés erről az eszközről: **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:144
+#, kde-format
+msgid "Waiting for other party to verify."
+msgstr "Várakozás a másik fél megerősítésére."
+
+#: src/app/qml/KeyVerificationDialog.qml:146
+#, kde-format
+msgid "Successfully verified device **%1**"
+msgstr "Sikeresen ellenőrizte a(z) **%1** eszközt"
+
+#: src/app/qml/KeyVerificationDialog.qml:161
+#, fuzzy, kde-format
+#| msgid "The session verification timed out."
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot."
+
+#: src/app/qml/KeyVerificationDialog.qml:165
+#, fuzzy, kde-format
+#| msgid "Emoji Verification"
+msgctxt "@action:button"
+msgid "Emoji Verification"
+msgstr "Emodzsi-ellenőrzés"
+
+#: src/app/qml/LocationChooser.qml:22
+#, kde-format
+msgid "Choose a Location"
+msgstr "Hely kiválasztása"
+
+#: src/app/qml/LocationChooser.qml:27
+#, kde-format
+msgid "Send this location"
+msgstr "Hely küldése"
+
+#: src/app/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr "Középre"
+
+#: src/app/qml/LocationChooser.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "Keresés"
+
+#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Helyek"
+
+#: src/app/qml/LocationsPage.qml:68
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "Nincsenek megosztva helyek ebben a szobában."
+
+#: src/app/qml/Main.qml:167
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "Szobainformációk megjelenítése"
+
+#: src/app/qml/Main.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "Szobainformációs fiók bezárása"
+
+#: src/app/qml/Main.qml:290
+#, kde-format
+msgctxt "@title:window"
+msgid "Session Verification"
+msgstr "Munkamenet-ellenőrzés"
+
+#: src/app/qml/Main.qml:330 src/app/qml/ShareAction.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Share"
+msgstr "Megosztás"
+
+#: src/app/qml/ManualRoomDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "Manually Enter a Room"
+msgstr "Belépés szobába saját kezűleg"
+
+#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
+#: src/settings/SelectParentDialog.qml:37
+#, kde-format
+msgid "OK"
+msgstr "OK"
+
+#: src/app/qml/ManualRoomDialog.qml:81
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr "Szobaazonosító vagy álnév:"
+
+#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr ""
+"Az álneveknek kettőskereszttel, az azonosítóknal felkiáltójellel kell "
+"kezdődniük"
+
+#: src/app/qml/ManualRoomDialog.qml:90
+#, kde-format
+msgid "The input is not a valid room ID or alias"
+msgstr "A bemenet nem érvényes szobaazonosító vagy álnév"
+
+#: src/app/qml/ManualUserDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "User ID"
+msgstr "Felhasználóazonosító"
+
+#: src/app/qml/ManualUserDialog.qml:54
+#, kde-format
+msgid "User ID:"
+msgstr "Felhasználóazonosító:"
+
+#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr "A felhasználóazonosítóknak @-cal kell kezdődniük"
+
+#: src/app/qml/ManualUserDialog.qml:63
+#, kde-format
+msgid "The input is not a valid user ID"
+msgstr "A bemenet nem érvényes felhasználóazonosító"
+
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:57
+#: src/devtools/RoomData.qml:103
+#, kde-format
+msgid "Event Source"
+msgstr "Esemény forrása"
+
+#: src/app/qml/MessageSourceSheet.qml:46
+#, kde-format
+msgctxt "@action As in 'edit the state of this room'"
+msgid "Edit state"
+msgstr "Állapot szerkesztése"
+
+#: src/app/qml/NewPollDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr ""
+
+#: src/app/qml/NewPollDialog.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "Szoba létrehozása"
+
+#: src/app/qml/NewPollDialog.qml:46
+#, kde-format
+msgid "Poll type:"
+msgstr ""
+
+#: src/app/qml/NewPollDialog.qml:51
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgid "Open poll"
+msgstr "Fájl megnyitása"
+
+#: src/app/qml/NewPollDialog.qml:52
+#, fuzzy, kde-format
+#| msgid "Close"
+msgid "Closed poll"
+msgstr "Bezárás"
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Voters can see the result as soon as they have voted"
+msgstr ""
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Results are revealed only after the poll has closed"
+msgstr ""
+
+#: src/app/qml/NewPollDialog.qml:61
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Question:"
+msgstr "Leírás:"
+
+#: src/app/qml/NewPollDialog.qml:104
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr "Beállítások"
+
+#: src/app/qml/NewPollDialog.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Encryption"
+msgid "Enter option"
+msgstr "Titkosítás"
+
+#: src/app/qml/NewPollDialog.qml:126
+#, fuzzy, kde-format
+#| msgid "Remove parent"
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "Szülő eltávolítása"
+
+#: src/app/qml/NewPollDialog.qml:151
+#, fuzzy, kde-format
+#| msgid "Add to dictionary"
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "Szótárhoz adás"
+
+#: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Notifications"
+msgstr "Értesítések"
+
+#: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
+#: src/login/Login.qml:38 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:19
+#, kde-format
+msgid "Loading…"
+msgstr "Betöltés…"
+
+#: src/app/qml/NotificationsView.qml:34
+#, kde-format
+msgid "No Notifications"
+msgstr "Nincsenek értesítések"
+
+#: src/app/qml/OpenFileDialog.qml:12
+#, kde-format
+msgid "Select a File"
+msgstr "Fájl kiválasztása"
+
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "QR-kód beolvasása"
+
+#: src/app/qml/QuickFormatBar.qml:23
+#, kde-format
+msgid "Bold"
+msgstr "Félkövér"
+
+#: src/app/qml/QuickFormatBar.qml:42
+#, kde-format
+msgid "Italic"
+msgstr "Dőlt"
+
+#: src/app/qml/QuickFormatBar.qml:61
+#, kde-format
+msgid "Strikethrough"
+msgstr "Áthúzott"
+
+#: src/app/qml/QuickFormatBar.qml:80
+#, kde-format
+msgid "Code block"
+msgstr "Kód"
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
+msgid "Quote"
+msgstr "Idézet"
+
+#: src/app/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Insert link"
+msgstr "Hivatkozás beszúrása"
+
+#: src/app/qml/QuickSwitcher.qml:29
+#, kde-format
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "Nem található szoba"
+
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Szobák felfedezése"
+
+#: src/app/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:25
+#, kde-format
+msgctxt "@title Join <name of a space>"
+msgid "Join %1"
+msgstr "Csatlakozás ehhez: %1"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:53
+#, kde-format
+msgctxt "@action:button"
+msgid "Join"
+msgstr "Csatlakozás"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:63
+#, kde-format
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "Mellőzés"
+
+#: src/app/qml/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Gyermek eltávolítása"
+
+#: src/app/qml/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "A(z) %1 gyermek el lesz távolítva a(z) %2 térből"
+
+#: src/app/qml/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "A jelenlegi tér a szoba hivatalos szülője, ezt is törölni kell?"
+
+#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Szobabeállítások"
+
+#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
+#, kde-format
+msgid "Information"
+msgstr "Információk"
+
+#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
+#, kde-format
+msgid "Media"
+msgstr "Média"
+
+#: src/app/qml/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Tér tagjai"
+
+#: src/app/qml/RoomInformation.qml:42
+#, fuzzy, kde-format
+#| msgid "Room Information"
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Szobainformációk"
+
+#: src/app/qml/RoomInformation.qml:70
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Műveletek"
+
+#: src/app/qml/RoomInformation.qml:80
+#, kde-format
+msgid "Search in this room"
+msgstr "Keresés a szobában"
+
+#: src/app/qml/RoomInformation.qml:89
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Keresés"
+
+#: src/app/qml/RoomInformation.qml:97
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Felhasználó ellenőrzése"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "Eltávolítás a kedvencek közül"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Favorite this room"
+msgstr "Szoba jelölése kedvencnek"
+
+#: src/app/qml/RoomInformation.qml:121
+#, kde-format
+msgid "Show locations for this room"
+msgstr "Helyek megjelenítése a szobában"
+
+#: src/app/qml/RoomInformation.qml:137
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Üzenetek keresése…"
+
+#: src/app/qml/RoomInformation.qml:146
+#: src/app/qml/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Közvetlen üzenet"
+
+#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Leave the space"
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Tér elhagyása"
+
+#: src/app/qml/RoomInformation.qml:154
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Szoba elhagyása"
+
+#: src/app/qml/RoomInformation.qml:167
+#, kde-format
+msgid "Members"
+msgstr "Tagok"
+
+#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Felhasználó meghívása"
+
+#: src/app/qml/RoomInformation.qml:186
+#, kde-format
+msgid "Invite user to room"
+msgstr "Felhasználó meghívása s szobába"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 tag"
+msgstr[1] "%1 tag"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "No member count"
+msgstr "Nincs tagszám"
+
+#: src/app/qml/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Médiatartalom"
+
+#: src/app/qml/RoomPage.qml:92
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr ""
+"A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
+
+#: src/app/qml/RoomPage.qml:149
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Üdvözli a NeoChat"
+
+#: src/app/qml/RoomPage.qml:150
+#, kde-format
+msgid "Select or join a room to get started"
+msgstr "Válasszon ki egy szobát, vagy csatlakozzon hozzá a kezdéshez"
+
+#: src/app/qml/RoomPage.qml:243
+#, kde-format
+msgid "Message Source"
+msgstr "Üzenet forrása"
+
+#: src/app/qml/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Üzenet továbbítása"
+
+#: src/app/qml/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Üzenetek keresése"
+
+#: src/app/qml/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "Üzenetek keresése…"
+
+#: src/app/qml/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "Írjon be szöveget a kereséshez"
+
+#: src/app/qml/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "Nem találhatók üzenetek"
+
+#: src/app/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Keresés"
+
+#: src/app/qml/ServerComboBox.qml:47
+#, kde-format
+msgid "Add New Server"
+msgstr "Új kiszolgáló hozzáadása"
+
+#: src/app/qml/ServerComboBox.qml:63
+#, kde-format
+msgid "Home Server"
+msgstr "Alapértelmezett kiszolgáló"
+
+#: src/app/qml/ServerComboBox.qml:70
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Új kiszolgáló hozzáadása"
+
+#: src/app/qml/ServerComboBox.qml:110
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Kiszolgáló hozzáadása"
+
+#: src/app/qml/ServerComboBox.qml:137
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "A beírt szöveg nem érvényes URL"
+
+#: src/app/qml/ServerComboBox.qml:141
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "A kiszolgálót nem lehet feloldani, vagy már hozzáadták"
+
+#: src/app/qml/ServerComboBox.qml:152
+#, kde-format
+msgid "Server URL:"
+msgstr "Kiszolgáló URL-je:"
+
+#: src/app/qml/ShareAction.qml:23
+#, kde-format
+msgid "Share"
+msgstr "Megosztás"
+
+#: src/app/qml/ShareAction.qml:24
+#, kde-format
+msgid "Share the selected media"
+msgstr "A kiválaszott méida megosztása"
+
+#: src/app/qml/ShareDialog.qml:37
+#, kde-format
+msgid "Sharing failed"
+msgstr "Sikertelen megosztás"
+
+#: src/app/qml/ShareDialog.qml:58
+#, kde-format
+msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr "A kép megosztott URL-je: <a href='%1'>%1</a>"
+
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Load your encrypted messages"
+msgstr "Titkosított üzenetek betöltése"
+
+#: src/app/qml/UnlockSSSSDialog.qml:38
+#, fuzzy, kde-format
+#| msgid "Encryption key"
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Titkosítási kulcs"
+
+#: src/app/qml/UnlockSSSSDialog.qml:50
+#, kde-format
+msgctxt "@info:status"
+msgid "The security phrase was not correct."
+msgstr "A biztonsági mondat helytelen volt."
+
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Passphrase"
+msgstr "Feloldás jelszóval"
+
+#: src/app/qml/UnlockSSSSDialog.qml:60
+#, kde-format
+msgctxt "@info"
+msgid "If you have a backup passphrase for this account, enter it below."
+msgstr "Ha van biztonsági jelszava ehhez a fiókhoz, adja meg alább."
+
+#: src/app/qml/UnlockSSSSDialog.qml:64
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Backup Password:"
+msgstr "Biztonsági jelszó:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:69 src/app/qml/UnlockSSSSDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Feloldás"
+
+#: src/app/qml/UnlockSSSSDialog.qml:81
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Security Key"
+msgstr "Feloldás biztonsági kulccsal"
+
+#: src/app/qml/UnlockSSSSDialog.qml:85
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a security key for this account, enter it below or upload it as "
+"a file."
+msgstr ""
+"Ha van biztonsági kulcsa ehhez a fiókhoz, adja meg alább vagy töltse fel "
+"fájlként."
+
+#: src/app/qml/UnlockSSSSDialog.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Security Key:"
+msgstr "Biztonsági kulcs:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload from File"
+msgstr "Fájl feltöltése"
+
+#: src/app/qml/UnlockSSSSDialog.qml:115
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Feloldás keresztaláírással"
+
+#: src/app/qml/UnlockSSSSDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you can try loading the backup "
+"key from other devices by clicking the button below."
+msgstr ""
+"Ha korábban ellenőrizte ezt az eszközt, megpróbálhatja betölteni a tartalék "
+"kulcsot egy másik eszközről az alábbi gombra kattintva."
+
+#: src/app/qml/UnlockSSSSDialog.qml:124
+#, kde-format
+msgctxt "@action:button"
+msgid "Request from other Devices"
+msgstr "Kérés más eszközökről"
+
+#: src/app/qml/UserDetailDialog.qml:34
+#, kde-format
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
+msgstr "Fiókadatok"
+
+#: src/app/qml/UserDetailDialog.qml:83
+#, fuzzy, kde-format
+#| msgctxt "Notification type"
+#| msgid "Invites to a room"
+msgctxt "@info"
+msgid "One mutual room"
+msgid_plural "%1 mutual rooms"
+msgstr[0] "Meghívások egy szobába"
+msgstr[1] "Meghívások egy szobába"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Unignore this user"
+msgstr "Figyelmen kívül hagyás feloldása"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Ignore this user"
+msgstr "Figyelmen kívül hagyás"
+
+#: src/app/qml/UserDetailDialog.qml:149
+#, kde-format
+msgid "Kick this user"
+msgstr "Kirúgás"
+
+#: src/app/qml/UserDetailDialog.qml:153 src/app/qml/UserDetailDialog.qml:158
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Felhasználó kirúgása"
+
+#: src/app/qml/UserDetailDialog.qml:154
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "A felhasználó kirúgásának oka"
+
+#: src/app/qml/UserDetailDialog.qml:155
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "Kirúgás"
+
+#: src/app/qml/UserDetailDialog.qml:174
+#, kde-format
+msgid "Invite this user"
+msgstr "Meghívás"
+
+#: src/app/qml/UserDetailDialog.qml:187
+#, kde-format
+msgid "Ban this user"
+msgstr "Kitiltás"
+
+#: src/app/qml/UserDetailDialog.qml:192 src/app/qml/UserDetailDialog.qml:197
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "Felhasználó kitiltása"
+
+#: src/app/qml/UserDetailDialog.qml:193
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Kitiltás oka"
+
+#: src/app/qml/UserDetailDialog.qml:194
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Kitiltás"
+
+#: src/app/qml/UserDetailDialog.qml:212
+#, kde-format
+msgid "Unban this user"
+msgstr "Tiltás visszavonása"
+
+#: src/app/qml/UserDetailDialog.qml:225
+#, kde-format
+msgid "Set user power level"
+msgstr "Jogosultsági szint beállítása"
+
+#: src/app/qml/UserDetailDialog.qml:250
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove recent messages by this user"
+msgstr "A felhasználó legutóbbi üzeneteinek eltávolítása"
+
+#: src/app/qml/UserDetailDialog.qml:255
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Üzenetek eltávolítása"
+
+#: src/app/qml/UserDetailDialog.qml:256
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "A felhasználó legutóbbi üzenetei eltávolításának oka"
+
+#: src/app/qml/UserDetailDialog.qml:257
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: src/app/qml/UserDetailDialog.qml:260
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Üzenetek eltávoltása"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr "Csevegés vele: %1"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgid "Invite to private chat"
+msgstr "Meghívás privát csevegésbe"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgid "Copy link"
+msgstr "Hivatkozás másolása"
+
+#: src/app/qml/UserSearchPage.qml:33
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr "Barátok keresése"
+
+#: src/app/qml/UserSearchPage.qml:46
+#, kde-format
+msgid "Enter a user ID"
+msgstr "Írjon be egy felhasználóazonosítót"
+
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Friends"
+msgstr "Barátok"
+
+#: src/app/qml/UserSearchPage.qml:91
+#, kde-format
+msgid "Find your friends…"
+msgstr "Barátok keresése…"
+
+#: src/app/qml/UserSearchPage.qml:92
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr "Írjon be szöveget barátok keresésének indításához"
+
+#: src/app/qml/UserSearchPage.qml:93
+#, kde-format
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Nincs találat"
+
+#: src/app/qml/VerificationCanceled.qml:18
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr "A munkamenet-ellenőrzést ismeretlen okokból megszakították."
+
+#: src/app/qml/VerificationCanceled.qml:20
+#, kde-format
+msgid "The session verification timed out."
+msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot."
+
+#: src/app/qml/VerificationCanceled.qml:22
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot a távoli félnél."
+
+#: src/app/qml/VerificationCanceled.qml:24
+#, kde-format
+msgid "You canceled the session verification."
+msgstr "Megszakította a munkamenet-ellenőrzést."
+
+#: src/app/qml/VerificationCanceled.qml:26
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr "A távoli fél megszakította a munkamenet-ellenőrzést."
+
+#: src/app/qml/VerificationCanceled.qml:28
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr "A munkamenet-ellenőrzés megszakadt, mert váratlan üzenet érkezett."
+
+#: src/app/qml/VerificationCanceled.qml:30
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert váratlan üzenetet "
+"kapott."
+
+#: src/app/qml/VerificationCanceled.qml:32
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr ""
+"A munkamenet-ellenőrzés megszakadt, mert üzenetet kapott egy ismeretlen "
+"munkamenethez."
+
+#: src/app/qml/VerificationCanceled.qml:34
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert üzenetet kapott "
+"egy ismeretlen munkamenethez."
+
+#: src/app/qml/VerificationCanceled.qml:36
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr ""
+"A munkamenet-ellenőrzés megszakadt, mert a NeoChat nem tudja kezelni ezt az "
+"ellenőrzési módszert."
+
+#: src/app/qml/VerificationCanceled.qml:38
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert nem tudja kezelni "
+"ezt az ellenőrzési módszert."
+
+#: src/app/qml/VerificationCanceled.qml:40
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok helytelenek."
+
+#: src/app/qml/VerificationCanceled.qml:42
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert a kulcsok "
+"helytelenek.\n"
+"\n"
+"**Kérjük, jelentkezzen ki és be, a munkamenete törött/sérült.**"
+
+#: src/app/qml/VerificationCanceled.qml:44
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr ""
+"A munkamenet-ellenőrzés megszakadt, mert egy váratlan felhasználót "
+"ellenőrizne."
+
+#: src/app/qml/VerificationCanceled.qml:46
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
+"felhasználót ellenőrizne."
+
+#: src/app/qml/VerificationCanceled.qml:48
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr "A munkamenet-ellenőrzés megszakadt, mert egy váratlan üzenet érkezett."
+
+#: src/app/qml/VerificationCanceled.qml:50
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
+"üzenetet kapott."
+
+#: src/app/qml/VerificationCanceled.qml:52
+#: src/app/qml/VerificationCanceled.qml:54
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr "A munkamenetet egy másik eszközön fogadták el"
+
+#: src/app/qml/VerificationCanceled.qml:56
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr "A munkamenet-egyezés megszakadt egy eltérő kulcs miatt."
+
+#: src/app/qml/VerificationCanceled.qml:58
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést egy eltérő kulcs miatt."
+
+#: src/app/qml/VerificationCanceled.qml:60
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok nem egyeznek."
+
+#: src/app/qml/VerificationCanceled.qml:62
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr ""
+"A távoli fél megszakította a munkamenet-ellenőrzést, mert a kulcsok nem "
+"egyeznek."
+
+#: src/app/qml/VerificationCanceled.qml:64
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr "A munkamenet-ellenőrzés ismeretlen okokból megszakadt."
+
+#: src/app/roommanager.cpp:211
+#, kde-format
+msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
+msgstr ""
+"Helytelenül formázott vagy üres Matrix azonosító<br />A(z) %1 nem helyes "
+"Matrix azonosító"
+
+#: src/app/roommanager.cpp:417
+#, kde-format
+msgid "Failed to join room<br />%1"
+msgstr "Nem sikerült csatlakozni a szobához<br />%1"
+
+#: src/app/roommanager.cpp:441
+#, kde-format
+msgid "You requested to join '%1'"
+msgstr "Csatlakozni kérést küldött ide: „%1”"
+
+#: src/app/roommanager.cpp:445
+#, kde-format
+msgid "Failed to request joining room<br />%1"
+msgstr "Nem sikerült csatlakozási kérést küldeni a szobához<br />%1"
+
+#: src/app/trayicon.cpp:21
+#, kde-format
+msgid "Show"
+msgstr "Megjelenítés"
+
+#: src/app/trayicon.cpp:36
+#, kde-format
+msgid "Quit"
+msgstr "Kilépés"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -96,19 +2113,6 @@ msgstr "Emodzsik"
 #, kde-format
 msgid "Stickers"
 msgstr "Matricák"
-
-#: src/controller.cpp:181
-#, kde-format
-msgctxt ""
-"The reason for using push notifications, as in: '[Push notifications are "
-"used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "Új üzenetek értesítéseinek fogadása"
-
-#: src/controller.cpp:326
-#, kde-format
-msgid "Receiving push notifications"
-msgstr "Leküldéses értesítések fogadása"
 
 #: src/devtools/AccountData.qml:20
 #, kde-format
@@ -275,12 +2279,6 @@ msgstr "Szobaazonosító: %1"
 msgid "Room Account Data"
 msgstr "Szoba fiókadatai"
 
-#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
-#: src/qml/MessageSourceSheet.qml:42
-#, kde-format
-msgid "Event Source"
-msgstr "Esemény forrása"
-
 #: src/devtools/RoomData.qml:65
 #, kde-format
 msgid "Room State"
@@ -364,11 +2362,6 @@ msgstr "Meghívva"
 #, kde-format
 msgid "Favorite"
 msgstr "Kedvenc"
-
-#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Barátok"
 
 #: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
@@ -1540,13 +3533,6 @@ msgstr "Matrix azonosító:"
 msgid "Matrix ID"
 msgstr "Matrix azonosító"
 
-#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:19
-#, kde-format
-msgid "Loading…"
-msgstr "Betöltés…"
-
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
@@ -1694,11 +3680,6 @@ msgstr "A felhasználónév nem érhető el"
 msgid "Welcome"
 msgstr "Kezdőlap"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:146
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
-
 #: src/login/WelcomePage.qml:83
 #, kde-format
 msgctxt "@title"
@@ -1734,1973 +3715,6 @@ msgstr "Vissza"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Beállítások"
-
-#: src/main.cpp:148
-#, kde-format
-msgid "Chat on Matrix"
-msgstr "Csevegés Matrixon"
-
-#: src/main.cpp:150
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
-msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© Black Hat, 2018-2020., A KDE közösség, 2020-2024."
-
-#: src/main.cpp:151
-#, kde-format
-msgid "Carl Schwan"
-msgstr "Carl Schwan"
-
-#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
-#, kde-format
-msgid "Maintainer"
-msgstr "Karbantartó"
-
-#: src/main.cpp:152
-#, kde-format
-msgid "Tobias Fella"
-msgstr "Tobias Fella"
-
-#: src/main.cpp:153
-#, kde-format
-msgid "James Graham"
-msgstr "James Graham"
-
-#: src/main.cpp:154
-#, kde-format
-msgid "Joshua Goins"
-msgstr ""
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Black Hat"
-msgstr "Black Hat"
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Original author of Spectral"
-msgstr "A Spectral eredeti szerzője"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Alexey Rusakov"
-msgstr "Alexey Rusakov"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Maintainer of libQuotient"
-msgstr "A libQuotient karbantartója"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Kiszel Kristóf,Kovács Áron"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "ulysses@fsf.hu,aronkvh@gmail.com"
-
-#: src/main.cpp:165
-#, kde-format
-msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Qt programkönyvtár keresztplatformos Matrix kliensek írásához"
-
-#: src/main.cpp:167
-#, kde-format
-msgctxt "<version number> (built against <possibly different version number>)"
-msgid "%1 (built against %2)"
-msgstr "%1 (fordítva ezzel: %2)"
-
-#: src/main.cpp:194
-#, kde-format
-msgid "Client for the matrix communication protocol"
-msgstr "Kliens a matrix kommunikációs protokollhoz"
-
-#: src/main.cpp:195
-#, kde-format
-msgid "Supports matrix: url scheme"
-msgstr "Támogatja a matrix: URL-sémát"
-
-#: src/main.cpp:196
-#, kde-format
-msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr ""
-"Összes SSL hiba, például nem aláírt tanúsítványok figyelmen kívül hagyása"
-
-#: src/main.cpp:198
-#, kde-format
-msgid "Only used for autotests"
-msgstr "Csak automatikus tesztekhez használt"
-
-#: src/main.cpp:203
-#, kde-format
-msgid "Internal usage only."
-msgstr "Csak belső használatra."
-
-#: src/main.cpp:208
-#, kde-format
-msgid "Share a URL to Matrix"
-msgstr "URL megosztása Matrixon"
-
-#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
-#, kde-format
-msgid "Encrypted Message"
-msgstr "Titkosított üzenet"
-
-#: src/notificationsmanager.cpp:226
-#, kde-format
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/notificationsmanager.cpp:232
-#, kde-format
-msgid "Open NeoChat in this room"
-msgstr "NeoChat megnyitása ebben a szobában"
-
-#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
-#, kde-format
-msgid "Reply"
-msgstr "Válasz"
-
-#: src/notificationsmanager.cpp:246
-#, fuzzy, kde-format
-#| msgid "Reply"
-msgid "Reply…"
-msgstr "Válasz"
-
-#: src/notificationsmanager.cpp:305
-#, kde-format
-msgid "%1 invited you to a room"
-msgstr "%1 meghívta Önt egy szobába"
-
-#: src/notificationsmanager.cpp:308
-#, kde-format
-msgid "Open this invitation in NeoChat"
-msgstr "Meghívás megnyitása NeoChatben"
-
-#: src/notificationsmanager.cpp:318
-#, kde-format
-msgctxt "@action:button The thing being accepted is an invitation to chat"
-msgid "Accept"
-msgstr "Elfogadás"
-
-#: src/notificationsmanager.cpp:319
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject"
-msgstr "Elutasítás"
-
-#: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and Ignore User"
-msgstr "Elutasítás és felhasználó mellőzése"
-
-#: src/notificationsmanager.cpp:379
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: src/notificationsmanager.cpp:390
-#, kde-format
-msgid "Open NeoChat"
-msgstr "NeoChat megnyitása"
-
-#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "QR-kód megjelenítése"
-
-#: src/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgid "Edit this account"
-msgid "Edit This Account"
-msgstr "Fiók szerkesztése"
-
-#: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
-#: src/settings/AccountsPage.qml:50
-#, kde-format
-msgid "Account editor"
-msgstr "Fiókszerkesztő"
-
-#: src/qml/AccountMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Notification settings"
-msgid "Notification Settings"
-msgstr "Értesítési beállítások"
-
-#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
-#, kde-format
-msgid "Devices"
-msgstr "Eszközök"
-
-#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, fuzzy, kde-format
-#| msgid "Open developer tools"
-msgid "Open Developer Tools"
-msgstr "Fejlesztői eszközök megnyitása"
-
-#: src/qml/AccountMenu.qml:72
-#, kde-format
-msgctxt "@title:window"
-msgid "Developer Tools"
-msgstr "Fejlesztői eszközök"
-
-#: src/qml/AccountMenu.qml:79
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "Titkos biztonsági mentés megnyitása"
-
-#: src/qml/AccountMenu.qml:83
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "Kulcsmentés megnyitása"
-
-#: src/qml/AccountMenu.qml:88
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify this Device"
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "Ezen eszköz ellenőrzése"
-
-#: src/qml/AccountMenu.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr ""
-
-#: src/qml/AccountMenu.qml:94
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr ""
-
-#: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
-msgstr "Kijelentkezés"
-
-#: src/qml/AccountSwitchDialog.qml:29
-#, kde-format
-msgctxt "@title: dialog to switch between logged in accounts"
-msgid "Switch Account"
-msgstr "Fiókváltás"
-
-#: src/qml/AccountSwitchDialog.qml:54
-#, kde-format
-msgctxt "@button: login to or register a new account."
-msgid "Add Account"
-msgstr "Fiók hozzáadása"
-
-#: src/qml/AccountSwitchDialog.qml:57
-#, kde-format
-msgid "Log in or create a new account"
-msgstr "Bejelentkezés vagy új fiók létrehozása"
-
-#: src/qml/AccountSwitchDialog.qml:64
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Bejelentkezés"
-
-#: src/qml/AskDirectChatConfirmation.qml:20
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Start a chat"
-msgstr "Csevegés indítása"
-
-#: src/qml/AskDirectChatConfirmation.qml:23
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Szeretne csevegést indítani vele: %1?"
-
-#: src/qml/AskDirectChatConfirmation.qml:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Start Chat"
-msgstr "Csevegés indítása"
-
-#: src/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Melléklet"
-
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20
-#: src/timeline/MessageDelegateContextMenu.qml:41
-#, kde-format
-msgid "Edit"
-msgstr "Szerkesztés"
-
-#: src/qml/AttachmentPane.qml:62
-#, kde-format
-msgid "Cancel sending attachment"
-msgstr "Melléklet küldésének megszakítása"
-
-#: src/qml/ChooseRoomDialog.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Choose a Room"
-msgstr "Szoba kiválasztása"
-
-#: src/qml/CodeMaximizeComponent.qml:39
-#, kde-format
-msgctxt "@action"
-msgid "Copy to clipboard"
-msgstr "Másolás a vágólapra"
-
-#: src/qml/ConfirmLeaveDialog.qml:16
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Leaving Room"
-msgstr "Szoba elhagyásának megerősítése"
-
-#: src/qml/ConfirmLeaveDialog.qml:17
-#, kde-format
-msgctxt "Do you really want to leave <room name>?"
-msgid "Do you really want to leave %1?"
-msgstr "Biztosan el szeretné hagyni a(z) %1 szobát?"
-
-#: src/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
-msgstr "Szoba elhagyása"
-
-#: src/qml/ConfirmLogoutDialog.qml:15
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Sign out"
-msgstr "Kijelentkezés"
-
-#: src/qml/ConfirmLogoutDialog.qml:16
-#, kde-format
-msgid "Are you sure you want to sign out?"
-msgstr "Biztosan ki szeretne jelentkezni?"
-
-#: src/qml/ConfirmLogoutDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Sign out"
-msgstr "Kijelentkezés"
-
-#: src/qml/ConfirmUrlDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Open URL"
-msgstr "URL megnyitása"
-
-#: src/qml/ConfirmUrlDialog.qml:15
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Do you want to open <link>%1</link>?"
-msgstr "Biztosan meg szeretné nyitni ezt: <link>%1</link>?"
-
-#: src/qml/ConsentDialog.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Felhasználói hozzájárulás"
-
-#: src/qml/ConsentDialog.qml:24
-#, kde-format
-msgctxt "@info"
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Az alapértelmezett kiszolgálója a felhasználási feltételei elfogadását kéri, "
-"mielőtt használná. Kérjük, kattintson az alábbi gombra az elolvasásukhoz."
-
-#: src/qml/ConsentDialog.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Open"
-msgstr "Megnyitás"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "Szoba létrehozása"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
-#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Tér létrehozása"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "Új tér jellemzői"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "Új szoba jellemzői"
-
-#: src/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "Típus kiválasztása"
-
-#: src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Szoba"
-
-#: src/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "Tér"
-
-#: src/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "Név:"
-
-#: src/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "Téma:"
-
-#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Legyen ez a hivatalos szülő"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "Tér létrehozása"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "Szoba létrehozása"
-
-#: src/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "Meglévő szoba kiválasztása"
-
-#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "Szoba kiválasztása"
-
-#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Szobák felfedezése"
-
-#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "Tagja"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr ""
-"Ön rendelkezik a szükséges jogosultsági szinttel a gyermekben, hogy "
-"beállítsa ezt az állapotot"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-"Nincs elég magas jogosultsági szintje a gyermekben ahhoz, hogy beállítsa ezt "
-"az állapotot"
-
-#: src/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "Legyen ez a tér a kanonikus szülő"
-
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "OK"
-
-#: src/qml/EditMenu.qml:15
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Undo"
-msgstr "Visszavonás"
-
-#: src/qml/EditMenu.qml:25
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Redo"
-msgstr "Újra"
-
-#: src/qml/EditMenu.qml:37
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Cut"
-msgstr "Kivágás"
-
-#: src/qml/EditMenu.qml:47
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Copy"
-msgstr "Másolás"
-
-#: src/qml/EditMenu.qml:57
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Paste"
-msgstr "Beillesztés"
-
-#: src/qml/EditMenu.qml:67
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Delete"
-msgstr "Törlés"
-
-#: src/qml/EditMenu.qml:79
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Select All"
-msgstr "Összes kijelölése"
-
-#: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, kde-format
-msgctxt "@title As in 'edit the state of this room'"
-msgid "Edit State"
-msgstr "Állapot szerkesztése"
-
-#: src/qml/EditStateDialog.qml:32
-#, kde-format
-msgctxt "@action"
-msgid "Revert changes"
-msgstr "Változtatások visszavonása"
-
-#: src/qml/EditStateDialog.qml:38
-#, kde-format
-msgctxt "@action As in 'Apply the changes'"
-msgid "Apply"
-msgstr "Alkalmaz"
-
-#: src/qml/EmojiSas.qml:26
-#, kde-format
-msgid ""
-"Confirm the emoji below are displayed on both devices, in the same order."
-msgstr ""
-"Erősítse meg, hogy az alábbi emodzsik mindkét eszközön ugyanabban a "
-"sorrendben jelennek meg."
-
-#: src/qml/EmojiSas.qml:45
-#, kde-format
-msgid "They match"
-msgstr "Egyeznek"
-
-#: src/qml/EmojiSas.qml:51
-#, kde-format
-msgid "They don't match"
-msgstr "Nem egyeznek"
-
-#: src/qml/ExplorerDelegate.qml:72
-#, kde-format
-msgctxt "@info:label A matrix space"
-msgid "Space"
-msgstr "Tér"
-
-#: src/qml/ExploreRoomsPage.qml:52
-#, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "Szobák felfedezése"
-
-#: src/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "Csak terek megjelenítése"
-
-#: src/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "Belépés szobába saját kezűleg"
-
-#: src/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "Ha már ismeri egy szoba címét vagy álnevét, és az itt nem jelenik meg."
-
-#: src/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "Szoba keresése…"
-
-#: src/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Nem találhatók nyilvános szobák"
-
-#: src/qml/FullScreenMap.qml:23
-#, kde-format
-msgid "View Location"
-msgstr "Hely megtekintése"
-
-#: src/qml/FullScreenMap.qml:70
-#, kde-format
-msgid "Close"
-msgstr "Bezárás"
-
-#: src/qml/GlobalMenu.qml:21
-#, kde-format
-msgctxt "menu"
-msgid "NeoChat"
-msgstr "NeoChat"
-
-#: src/qml/GlobalMenu.qml:24
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "A Neochat beállításai…"
-
-#: src/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "Configure NeoChat…"
-msgctxt "menu"
-msgid "Configure NeoChat…"
-msgstr "A Neochat beállításai…"
-
-#: src/qml/GlobalMenu.qml:31
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "Kilépés a NeoChatből"
-
-#: src/qml/GlobalMenu.qml:38
-#, kde-format
-msgctxt "menu"
-msgid "File"
-msgstr "Fájl"
-
-#: src/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
-msgstr "Barátok keresése"
-
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "Barátok keresése"
-
-#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
-#: src/rooms/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Barátok keresése"
-
-#: src/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Új csoport…"
-
-#: src/qml/GlobalMenu.qml:59
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Csevegések böngészése…"
-
-#: src/qml/GlobalMenu.qml:73
-#, kde-format
-msgctxt "menu"
-msgid "Edit"
-msgstr "Szerkesztés"
-
-#: src/qml/GlobalMenu.qml:77
-#, kde-format
-msgctxt "menu"
-msgid "View"
-msgstr "Nézet"
-
-#: src/qml/GlobalMenu.qml:80
-#, kde-format
-msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
-"a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Gyorsváltó megnyitása"
-
-#: src/qml/GlobalMenu.qml:85
-#, kde-format
-msgctxt "menu"
-msgid "Window"
-msgstr "Ablak"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Exit Full Screen"
-msgstr "Kilépés a teljes képernyős módból"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Enter Full Screen"
-msgstr "Teljes képernyő"
-
-#: src/qml/GlobalMenu.qml:93
-#, kde-format
-msgctxt "menu"
-msgid "Help"
-msgstr "Súgó"
-
-#: src/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "A Matrix névjegye"
-
-#: src/qml/GlobalMenu.qml:100
-#, kde-format
-msgctxt "menu"
-msgid "About NeoChat"
-msgstr "A Neochat névjegye"
-
-#: src/qml/GlobalMenu.qml:104
-#, kde-format
-msgctxt "menu"
-msgid "About KDE"
-msgstr "A KDE névjegye"
-
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Nincs név"
-
-#: src/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Az üzenetet egy ellenőrzött eszközről küldték"
-
-#: src/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Reagálás"
-
-#: src/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Válasz szálban"
-
-#: src/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
-
-#: src/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "A jelenleg kiválasztott hivatkozás"
-
-#: src/qml/ImageEditorPage.qml:36
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "Visszavonás"
-
-#: src/qml/ImageEditorPage.qml:43
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Elfogadás"
-
-#: src/qml/ImageEditorPage.qml:51
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Nem lehet menteni a fájlt. Ellenőrizze, hogy megfelelőek-e a jogosultságai a "
-"gyorsítótárkönyvtár szerkesztéséhez."
-
-#: src/qml/ImageEditorPage.qml:123
-#, kde-format
-msgid "Cancel"
-msgstr "Mégse"
-
-#: src/qml/ImageEditorPage.qml:123 src/qml/ImageEditorPage.qml:139
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Levágás"
-
-#: src/qml/ImageEditorPage.qml:144
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "Forgatás balra"
-
-#: src/qml/ImageEditorPage.qml:150
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "Forgatás jobbra"
-
-#: src/qml/ImageEditorPage.qml:156
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Tükrözés függőlegesen"
-
-#: src/qml/ImageEditorPage.qml:162
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Tükrözés vízszintesen"
-
-#: src/qml/InvitationView.qml:42
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 meghívta Önt egy szobába"
-
-#: src/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr ""
-
-#: src/qml/InvitationView.qml:79
-#, kde-format
-msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
-"Az ismeretlen felhasználók meghívásait a Biztonság lapon utasíthatja el a "
-"beállításokban."
-
-#: src/qml/InvitationView.qml:102
-#, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "Elutasítás"
-
-#: src/qml/InvitationView.qml:110
-#, fuzzy, kde-format
-#| msgid "Accept"
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "Elfogadás"
-
-#: src/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "Felhasználó meghívása"
-
-#: src/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "Felhasználó keresése…"
-
-#: src/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "Nem találhatók szobák"
-
-#: src/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "Meghívás"
-
-#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "A felhasználó már tag, vagy már kapott meghívót"
-
-#: src/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "Meghívó küldése"
-
-#: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Join Room"
-msgstr "Belépés"
-
-#: src/qml/JoinRoomDialog.qml:67
-#, kde-format
-msgctxt "@action:button"
-msgid "Join room"
-msgstr "Belépés"
-
-#: src/qml/KeyVerificationDialog.qml:16
-#, kde-format
-msgid "Session Verification"
-msgstr "Munkamenet-ellenőrzés"
-
-#: src/qml/KeyVerificationDialog.qml:92
-#, kde-format
-msgid "Accept"
-msgstr "Elfogadás"
-
-#: src/qml/KeyVerificationDialog.qml:98
-#, kde-format
-msgid "Decline"
-msgstr "Elutasítás"
-
-#: src/qml/KeyVerificationDialog.qml:140
-#, kde-format
-msgid "Waiting for device to accept verification."
-msgstr "Várakozás az eszközre az ellenőrzés elfogadásához."
-
-#: src/qml/KeyVerificationDialog.qml:142
-#, kde-format
-msgid "Incoming key verification request from device **%1**"
-msgstr "Bejövő kulcs-ellenőrzési kérés erről az eszközről: **%1**"
-
-#: src/qml/KeyVerificationDialog.qml:144
-#, kde-format
-msgid "Waiting for other party to verify."
-msgstr "Várakozás a másik fél megerősítésére."
-
-#: src/qml/KeyVerificationDialog.qml:146
-#, kde-format
-msgid "Successfully verified device **%1**"
-msgstr "Sikeresen ellenőrizte a(z) **%1** eszközt"
-
-#: src/qml/KeyVerificationDialog.qml:161
-#, fuzzy, kde-format
-#| msgid "The session verification timed out."
-msgctxt "@info"
-msgid "Choose a verification method to continue"
-msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot."
-
-#: src/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Emoji Verification"
-msgctxt "@action:button"
-msgid "Emoji Verification"
-msgstr "Emodzsi-ellenőrzés"
-
-#: src/qml/LocationChooser.qml:22
-#, kde-format
-msgid "Choose a Location"
-msgstr "Hely kiválasztása"
-
-#: src/qml/LocationChooser.qml:27
-#, kde-format
-msgid "Send this location"
-msgstr "Hely küldése"
-
-#: src/qml/LocationChooser.qml:35
-#, kde-format
-msgctxt "@action:intoolbar Re-center the map onto the set location"
-msgid "Re-Center"
-msgstr "Középre"
-
-#: src/qml/LocationChooser.qml:41
-#, kde-format
-msgctxt "@action:intoolbar Determine the device's location"
-msgid "Locate"
-msgstr "Keresés"
-
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Helyek"
-
-#: src/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Nincsenek megosztva helyek ebben a szobában."
-
-#: src/qml/Main.qml:167
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Room Information"
-msgstr "Szobainformációk megjelenítése"
-
-#: src/qml/Main.qml:170
-#, kde-format
-msgctxt "@action:button"
-msgid "Close Room Information Drawer"
-msgstr "Szobainformációs fiók bezárása"
-
-#: src/qml/Main.qml:290
-#, kde-format
-msgctxt "@title:window"
-msgid "Session Verification"
-msgstr "Munkamenet-ellenőrzés"
-
-#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Share"
-msgstr "Megosztás"
-
-#: src/qml/ManualRoomDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "Manually Enter a Room"
-msgstr "Belépés szobába saját kezűleg"
-
-#: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "OK"
-
-#: src/qml/ManualRoomDialog.qml:81
-#, kde-format
-msgid "Room ID or Alias:"
-msgstr "Szobaazonosító vagy álnév:"
-
-#: src/qml/ManualRoomDialog.qml:84 src/qml/ManualRoomDialog.qml:92
-#, kde-format
-msgid "Must start with # for an alias or ! for an ID"
-msgstr ""
-"Az álneveknek kettőskereszttel, az azonosítóknal felkiáltójellel kell "
-"kezdődniük"
-
-#: src/qml/ManualRoomDialog.qml:90
-#, kde-format
-msgid "The input is not a valid room ID or alias"
-msgstr "A bemenet nem érvényes szobaazonosító vagy álnév"
-
-#: src/qml/ManualUserDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "User ID"
-msgstr "Felhasználóazonosító"
-
-#: src/qml/ManualUserDialog.qml:54
-#, kde-format
-msgid "User ID:"
-msgstr "Felhasználóazonosító:"
-
-#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
-#, kde-format
-msgid "User IDs Must start with @"
-msgstr "A felhasználóazonosítóknak @-cal kell kezdődniük"
-
-#: src/qml/ManualUserDialog.qml:63
-#, kde-format
-msgid "The input is not a valid user ID"
-msgstr "A bemenet nem érvényes felhasználóazonosító"
-
-#: src/qml/MessageSourceSheet.qml:46
-#, kde-format
-msgctxt "@action As in 'edit the state of this room'"
-msgid "Edit state"
-msgstr "Állapot szerkesztése"
-
-#: src/qml/NewPollDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr ""
-
-#: src/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
-msgctxt "@title: create new poll in the room"
-msgid "Create Poll"
-msgstr "Szoba létrehozása"
-
-#: src/qml/NewPollDialog.qml:46
-#, kde-format
-msgid "Poll type:"
-msgstr ""
-
-#: src/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgid "Open poll"
-msgstr "Fájl megnyitása"
-
-#: src/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
-msgid "Closed poll"
-msgstr "Bezárás"
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Voters can see the result as soon as they have voted"
-msgstr ""
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Results are revealed only after the poll has closed"
-msgstr ""
-
-#: src/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "Question:"
-msgstr "Leírás:"
-
-#: src/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options"
-msgctxt "As in first answer option to the poll"
-msgid "Option %1:"
-msgstr "Beállítások"
-
-#: src/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
-msgid "Enter option"
-msgstr "Titkosítás"
-
-#: src/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
-msgctxt "@action:button"
-msgid "Remove option"
-msgstr "Szülő eltávolítása"
-
-#: src/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "Szótárhoz adás"
-
-#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Notifications"
-msgstr "Értesítések"
-
-#: src/qml/NotificationsView.qml:34
-#, kde-format
-msgid "No Notifications"
-msgstr "Nincsenek értesítések"
-
-#: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Select a File"
-msgstr "Fájl kiválasztása"
-
-#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "QR-kód beolvasása"
-
-#: src/qml/QuickFormatBar.qml:23
-#, kde-format
-msgid "Bold"
-msgstr "Félkövér"
-
-#: src/qml/QuickFormatBar.qml:42
-#, kde-format
-msgid "Italic"
-msgstr "Dőlt"
-
-#: src/qml/QuickFormatBar.qml:61
-#, kde-format
-msgid "Strikethrough"
-msgstr "Áthúzott"
-
-#: src/qml/QuickFormatBar.qml:80
-#, kde-format
-msgid "Code block"
-msgstr "Kód"
-
-#: src/qml/QuickFormatBar.qml:99
-#, kde-format
-msgid "Quote"
-msgstr "Idézet"
-
-#: src/qml/QuickFormatBar.qml:118
-#, kde-format
-msgid "Insert link"
-msgstr "Hivatkozás beszúrása"
-
-#: src/qml/QuickSwitcher.qml:29
-#, kde-format
-msgctxt "Placeholder message"
-msgid "No room found"
-msgstr "Nem található szoba"
-
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
-msgctxt "@action:button"
-msgid "Explore rooms"
-msgstr "Szobák felfedezése"
-
-#: src/qml/ReasonDialog.qml:53
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Mégse"
-
-#: src/qml/RecommendedSpaceDialog.qml:25
-#, kde-format
-msgctxt "@title Join <name of a space>"
-msgid "Join %1"
-msgstr "Csatlakozás ehhez: %1"
-
-#: src/qml/RecommendedSpaceDialog.qml:53
-#, kde-format
-msgctxt "@action:button"
-msgid "Join"
-msgstr "Csatlakozás"
-
-#: src/qml/RecommendedSpaceDialog.qml:63
-#, kde-format
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "Mellőzés"
-
-#: src/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "Gyermek eltávolítása"
-
-#: src/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "A(z) %1 gyermek el lesz távolítva a(z) %2 térből"
-
-#: src/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "A jelenlegi tér a szoba hivatalos szülője, ezt is törölni kell?"
-
-#: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Szobabeállítások"
-
-#: src/qml/RoomDrawer.qml:165 src/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "Információk"
-
-#: src/qml/RoomDrawer.qml:170 src/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "Média"
-
-#: src/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Tér tagjai"
-
-#: src/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room Information"
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Szobainformációk"
-
-#: src/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Műveletek"
-
-#: src/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "Keresés a szobában"
-
-#: src/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Keresés"
-
-#: src/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Felhasználó ellenőrzése"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Eltávolítás a kedvencek közül"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "Szoba jelölése kedvencnek"
-
-#: src/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Helyek megjelenítése a szobában"
-
-#: src/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Find messages…"
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Üzenetek keresése…"
-
-#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Közvetlen üzenet"
-
-#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Leave the space"
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Tér elhagyása"
-
-#: src/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Szoba elhagyása"
-
-#: src/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Tagok"
-
-#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Felhasználó meghívása"
-
-#: src/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "Felhasználó meghívása s szobába"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 tag"
-msgstr[1] "%1 tag"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "Nincs tagszám"
-
-#: src/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Médiatartalom"
-
-#: src/qml/RoomPage.qml:92
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr ""
-"A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
-
-#: src/qml/RoomPage.qml:149
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Üdvözli a NeoChat"
-
-#: src/qml/RoomPage.qml:150
-#, kde-format
-msgid "Select or join a room to get started"
-msgstr "Válasszon ki egy szobát, vagy csatlakozzon hozzá a kezdéshez"
-
-#: src/qml/RoomPage.qml:243
-#, kde-format
-msgid "Message Source"
-msgstr "Üzenet forrása"
-
-#: src/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Üzenet továbbítása"
-
-#: src/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Üzenetek keresése"
-
-#: src/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "Üzenetek keresése…"
-
-#: src/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "Írjon be szöveget a kereséshez"
-
-#: src/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "Nem találhatók üzenetek"
-
-#: src/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "Keresés"
-
-#: src/qml/ServerComboBox.qml:47
-#, kde-format
-msgid "Add New Server"
-msgstr "Új kiszolgáló hozzáadása"
-
-#: src/qml/ServerComboBox.qml:63
-#, kde-format
-msgid "Home Server"
-msgstr "Alapértelmezett kiszolgáló"
-
-#: src/qml/ServerComboBox.qml:70
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Új kiszolgáló hozzáadása"
-
-#: src/qml/ServerComboBox.qml:110
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Kiszolgáló hozzáadása"
-
-#: src/qml/ServerComboBox.qml:137
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "A beírt szöveg nem érvényes URL"
-
-#: src/qml/ServerComboBox.qml:141
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "A kiszolgálót nem lehet feloldani, vagy már hozzáadták"
-
-#: src/qml/ServerComboBox.qml:152
-#, kde-format
-msgid "Server URL:"
-msgstr "Kiszolgáló URL-je:"
-
-#: src/qml/ShareAction.qml:23
-#, kde-format
-msgid "Share"
-msgstr "Megosztás"
-
-#: src/qml/ShareAction.qml:24
-#, kde-format
-msgid "Share the selected media"
-msgstr "A kiválaszott méida megosztása"
-
-#: src/qml/ShareDialog.qml:37
-#, kde-format
-msgid "Sharing failed"
-msgstr "Sikertelen megosztás"
-
-#: src/qml/ShareDialog.qml:58
-#, kde-format
-msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr "A kép megosztott URL-je: <a href='%1'>%1</a>"
-
-#: src/qml/UnlockSSSSDialog.qml:16
-#, kde-format
-msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Titkosított üzenetek betöltése"
-
-#: src/qml/UnlockSSSSDialog.qml:38
-#, fuzzy, kde-format
-#| msgid "Encryption key"
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Titkosítási kulcs"
-
-#: src/qml/UnlockSSSSDialog.qml:50
-#, kde-format
-msgctxt "@info:status"
-msgid "The security phrase was not correct."
-msgstr "A biztonsági mondat helytelen volt."
-
-#: src/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Passphrase"
-msgstr "Feloldás jelszóval"
-
-#: src/qml/UnlockSSSSDialog.qml:60
-#, kde-format
-msgctxt "@info"
-msgid "If you have a backup passphrase for this account, enter it below."
-msgstr "Ha van biztonsági jelszava ehhez a fiókhoz, adja meg alább."
-
-#: src/qml/UnlockSSSSDialog.qml:64
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Backup Password:"
-msgstr "Biztonsági jelszó:"
-
-#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Feloldás"
-
-#: src/qml/UnlockSSSSDialog.qml:81
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Security Key"
-msgstr "Feloldás biztonsági kulccsal"
-
-#: src/qml/UnlockSSSSDialog.qml:85
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a security key for this account, enter it below or upload it as "
-"a file."
-msgstr ""
-"Ha van biztonsági kulcsa ehhez a fiókhoz, adja meg alább vagy töltse fel "
-"fájlként."
-
-#: src/qml/UnlockSSSSDialog.qml:89
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Security Key:"
-msgstr "Biztonsági kulcs:"
-
-#: src/qml/UnlockSSSSDialog.qml:94
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload from File"
-msgstr "Fájl feltöltése"
-
-#: src/qml/UnlockSSSSDialog.qml:115
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Feloldás keresztaláírással"
-
-#: src/qml/UnlockSSSSDialog.qml:119
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
-msgstr ""
-"Ha korábban ellenőrizte ezt az eszközt, megpróbálhatja betölteni a tartalék "
-"kulcsot egy másik eszközről az alábbi gombra kattintva."
-
-#: src/qml/UnlockSSSSDialog.qml:124
-#, kde-format
-msgctxt "@action:button"
-msgid "Request from other Devices"
-msgstr "Kérés más eszközökről"
-
-#: src/qml/UserDetailDialog.qml:34
-#, kde-format
-msgctxt "@title:menu Account details dialog"
-msgid "Account Details"
-msgstr "Fiókadatok"
-
-#: src/qml/UserDetailDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "Notification type"
-#| msgid "Invites to a room"
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "Meghívások egy szobába"
-msgstr[1] "Meghívások egy szobába"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Unignore this user"
-msgstr "Figyelmen kívül hagyás feloldása"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Ignore this user"
-msgstr "Figyelmen kívül hagyás"
-
-#: src/qml/UserDetailDialog.qml:149
-#, kde-format
-msgid "Kick this user"
-msgstr "Kirúgás"
-
-#: src/qml/UserDetailDialog.qml:153 src/qml/UserDetailDialog.qml:158
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "Felhasználó kirúgása"
-
-#: src/qml/UserDetailDialog.qml:154
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "A felhasználó kirúgásának oka"
-
-#: src/qml/UserDetailDialog.qml:155
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "Kirúgás"
-
-#: src/qml/UserDetailDialog.qml:174
-#, kde-format
-msgid "Invite this user"
-msgstr "Meghívás"
-
-#: src/qml/UserDetailDialog.qml:187
-#, kde-format
-msgid "Ban this user"
-msgstr "Kitiltás"
-
-#: src/qml/UserDetailDialog.qml:192 src/qml/UserDetailDialog.qml:197
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "Felhasználó kitiltása"
-
-#: src/qml/UserDetailDialog.qml:193
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "Kitiltás oka"
-
-#: src/qml/UserDetailDialog.qml:194
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Kitiltás"
-
-#: src/qml/UserDetailDialog.qml:212
-#, kde-format
-msgid "Unban this user"
-msgstr "Tiltás visszavonása"
-
-#: src/qml/UserDetailDialog.qml:225
-#, kde-format
-msgid "Set user power level"
-msgstr "Jogosultsági szint beállítása"
-
-#: src/qml/UserDetailDialog.qml:250
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "A felhasználó legutóbbi üzeneteinek eltávolítása"
-
-#: src/qml/UserDetailDialog.qml:255
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Üzenetek eltávolítása"
-
-#: src/qml/UserDetailDialog.qml:256
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "A felhasználó legutóbbi üzenetei eltávolításának oka"
-
-#: src/qml/UserDetailDialog.qml:257
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#: src/qml/UserDetailDialog.qml:260
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Üzenetek eltávoltása"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "Csevegés vele: %1"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgid "Invite to private chat"
-msgstr "Meghívás privát csevegésbe"
-
-#: src/qml/UserDetailDialog.qml:285
-#, kde-format
-msgid "Copy link"
-msgstr "Hivatkozás másolása"
-
-#: src/qml/UserSearchPage.qml:33
-#, kde-format
-msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Barátok keresése"
-
-#: src/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "Írjon be egy felhasználóazonosítót"
-
-#: src/qml/UserSearchPage.qml:91
-#, kde-format
-msgid "Find your friends…"
-msgstr "Barátok keresése…"
-
-#: src/qml/UserSearchPage.qml:92
-#, kde-format
-msgid "Enter text to start searching for your friends"
-msgstr "Írjon be szöveget barátok keresésének indításához"
-
-#: src/qml/UserSearchPage.qml:93
-#, kde-format
-msgctxt "@info:label"
-msgid "No matches found"
-msgstr "Nincs találat"
-
-#: src/qml/VerificationCanceled.qml:18
-#, kde-format
-msgid "The session verification was canceled for unknown reason."
-msgstr "A munkamenet-ellenőrzést ismeretlen okokból megszakították."
-
-#: src/qml/VerificationCanceled.qml:20
-#, kde-format
-msgid "The session verification timed out."
-msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot."
-
-#: src/qml/VerificationCanceled.qml:22
-#, kde-format
-msgid "The session verification timed out for remote party."
-msgstr "A munkamenet-ellenőrzés túllépte az időkorlátot a távoli félnél."
-
-#: src/qml/VerificationCanceled.qml:24
-#, kde-format
-msgid "You canceled the session verification."
-msgstr "Megszakította a munkamenet-ellenőrzést."
-
-#: src/qml/VerificationCanceled.qml:26
-#, kde-format
-msgid "The remote party canceled the session verification."
-msgstr "A távoli fél megszakította a munkamenet-ellenőrzést."
-
-#: src/qml/VerificationCanceled.qml:28
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an unexpected "
-"message."
-msgstr "A munkamenet-ellenőrzés megszakadt, mert váratlan üzenet érkezett."
-
-#: src/qml/VerificationCanceled.qml:30
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"unexpected message."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert váratlan üzenetet "
-"kapott."
-
-#: src/qml/VerificationCanceled.qml:32
-#, kde-format
-msgid ""
-"The session verification was canceled because it received a message for an "
-"unknown session."
-msgstr ""
-"A munkamenet-ellenőrzés megszakadt, mert üzenetet kapott egy ismeretlen "
-"munkamenethez."
-
-#: src/qml/VerificationCanceled.qml:34
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received a "
-"message for an unknown session."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert üzenetet kapott "
-"egy ismeretlen munkamenethez."
-
-#: src/qml/VerificationCanceled.qml:36
-#, kde-format
-msgid ""
-"The session verification was canceled because NeoChat is unable to handle "
-"this verification method."
-msgstr ""
-"A munkamenet-ellenőrzés megszakadt, mert a NeoChat nem tudja kezelni ezt az "
-"ellenőrzési módszert."
-
-#: src/qml/VerificationCanceled.qml:38
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it is unable to "
-"handle this verification method."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert nem tudja kezelni "
-"ezt az ellenőrzési módszert."
-
-#: src/qml/VerificationCanceled.qml:40
-#, kde-format
-msgid "The session verification was canceled because the keys are incorrect."
-msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok helytelenek."
-
-#: src/qml/VerificationCanceled.qml:42
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys are "
-"incorrect.\n"
-"\n"
-"**Please log out and log back in, your session is broken/corrupt.**"
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert a kulcsok "
-"helytelenek.\n"
-"\n"
-"**Kérjük, jelentkezzen ki és be, a munkamenete törött/sérült.**"
-
-#: src/qml/VerificationCanceled.qml:44
-#, kde-format
-msgid ""
-"The session verification was canceled because it verifies an unexpected user."
-msgstr ""
-"A munkamenet-ellenőrzés megszakadt, mert egy váratlan felhasználót "
-"ellenőrizne."
-
-#: src/qml/VerificationCanceled.qml:46
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it verifies an "
-"unexpected user."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
-"felhasználót ellenőrizne."
-
-#: src/qml/VerificationCanceled.qml:48
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an invalid message."
-msgstr "A munkamenet-ellenőrzés megszakadt, mert egy váratlan üzenet érkezett."
-
-#: src/qml/VerificationCanceled.qml:50
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"invalid message."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert egy váratlan "
-"üzenetet kapott."
-
-#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
-#, kde-format
-msgid "The session was accepted on a different device"
-msgstr "A munkamenetet egy másik eszközön fogadták el"
-
-#: src/qml/VerificationCanceled.qml:56
-#, kde-format
-msgid "The session verification was canceled because of a mismatched key."
-msgstr "A munkamenet-egyezés megszakadt egy eltérő kulcs miatt."
-
-#: src/qml/VerificationCanceled.qml:58
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because of a mismatched "
-"key."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést egy eltérő kulcs miatt."
-
-#: src/qml/VerificationCanceled.qml:60
-#, kde-format
-msgid "The session verification was canceled because the keys do not match."
-msgstr "A munkamenet-ellenőrzés megszakadt, mert a kulcsok nem egyeznek."
-
-#: src/qml/VerificationCanceled.qml:62
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys do not "
-"match."
-msgstr ""
-"A távoli fél megszakította a munkamenet-ellenőrzést, mert a kulcsok nem "
-"egyeznek."
-
-#: src/qml/VerificationCanceled.qml:64
-#, kde-format
-msgid "The session verification was canceled due to an unknown error."
-msgstr "A munkamenet-ellenőrzés ismeretlen okokból megszakadt."
-
-#: src/roommanager.cpp:211
-#, kde-format
-msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr ""
-"Helytelenül formázott vagy üres Matrix azonosító<br />A(z) %1 nem helyes "
-"Matrix azonosító"
-
-#: src/roommanager.cpp:417
-#, kde-format
-msgid "Failed to join room<br />%1"
-msgstr "Nem sikerült csatlakozni a szobához<br />%1"
-
-#: src/roommanager.cpp:441
-#, kde-format
-msgid "You requested to join '%1'"
-msgstr "Csatlakozni kérést küldött ide: „%1”"
-
-#: src/roommanager.cpp:445
-#, kde-format
-msgid "Failed to request joining room<br />%1"
-msgstr "Nem sikerült csatlakozási kérést küldeni a szobához<br />%1"
 
 #: src/rooms/ExploreComponent.qml:34
 #, kde-format
@@ -6547,16 +6561,6 @@ msgstr "Hangerő"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximalizálás"
-
-#: src/trayicon.cpp:21
-#, kde-format
-msgid "Show"
-msgstr "Megjelenítés"
-
-#: src/trayicon.cpp:36
-#, kde-format
-msgid "Quit"
-msgstr "Kilépés"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"

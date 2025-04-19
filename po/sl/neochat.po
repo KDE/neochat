@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-18 00:41+0000\n"
-"PO-Revision-Date: 2025-04-17 06:57+0200\n"
+"POT-Creation-Date: 2025-04-19 00:41+0000\n"
+"PO-Revision-Date: 2025-04-18 06:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,6 +20,1983 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.6\n"
+
+#: src/app/controller.cpp:181
+#, kde-format
+msgctxt ""
+"The reason for using push notifications, as in: '[Push notifications are "
+"used for] Receiving notifications for new messages'"
+msgid "Receiving notifications for new messages"
+msgstr "Sprejemanje obvestil za nova sporočila"
+
+#: src/app/controller.cpp:326
+#, kde-format
+msgid "Receiving push notifications"
+msgstr "Sprejemanje potisnih obvestil"
+
+#: src/app/main.cpp:146 src/login/WelcomePage.qml:75
+#, kde-format
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/main.cpp:148
+#, kde-format
+msgid "Chat on Matrix"
+msgstr "Klepet na Matrixu"
+
+#: src/app/main.cpp:150
+#, kde-format
+msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
+msgstr "© 2018–2020 Black Hat, 2020–2025 skupnost KDE"
+
+#: src/app/main.cpp:151
+#, kde-format
+msgid "Carl Schwan"
+msgstr "Carl Schwan"
+
+#: src/app/main.cpp:151 src/app/main.cpp:152 src/app/main.cpp:153
+#: src/app/main.cpp:155
+#, kde-format
+msgid "Maintainer"
+msgstr "Vzdrževalec"
+
+#: src/app/main.cpp:152
+#, kde-format
+msgid "Tobias Fella"
+msgstr "Tobias Fella"
+
+#: src/app/main.cpp:153
+#, kde-format
+msgid "James Graham"
+msgstr "James Graham"
+
+#: src/app/main.cpp:154
+#, kde-format
+msgid "Joshua Goins"
+msgstr "Joshua Goins"
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Black Hat"
+msgstr "Black Hat"
+
+#: src/app/main.cpp:159
+#, kde-format
+msgid "Original author of Spectral"
+msgstr "Izvorni avtor programa Spectral"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Alexey Rusakov"
+msgstr "Alexey Rusakov"
+
+#: src/app/main.cpp:160
+#, kde-format
+msgid "Maintainer of libQuotient"
+msgstr "Vzdrževalec knjižnice libQuotient"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Jure Repinc,Matjaž Jeran,Martin Srebotnjak"
+
+#: src/app/main.cpp:161
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jlp@holodeck1.com,matjaz.jeran@amis.net,miles@filmsi.net"
+
+#: src/app/main.cpp:165
+#, kde-format
+msgid "A Qt library to write cross-platform clients for Matrix"
+msgstr "Knjižnica Qt za pisanje odjemalcev za Matrix za več platform"
+
+#: src/app/main.cpp:167
+#, kde-format
+msgctxt "<version number> (built against <possibly different version number>)"
+msgid "%1 (built against %2)"
+msgstr "%1 (zgrajeno z %2)"
+
+#: src/app/main.cpp:194
+#, kde-format
+msgid "Client for the matrix communication protocol"
+msgstr "Odjemalec za komunikacijski protokol matrix"
+
+#: src/app/main.cpp:195
+#, kde-format
+msgid "Supports matrix: url scheme"
+msgstr "Podpira matrix: shema URL"
+
+#: src/app/main.cpp:196
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr "Prezri vse napake SSL npr. nepodpisana potrdila."
+
+#: src/app/main.cpp:198
+#, kde-format
+msgid "Only used for autotests"
+msgstr "Se uporablja samo za avtotestiranja"
+
+#: src/app/main.cpp:203
+#, kde-format
+msgid "Internal usage only."
+msgstr "Samo za interno rabo."
+
+#: src/app/main.cpp:208
+#, kde-format
+msgid "Share a URL to Matrix"
+msgstr "Deli URL z Matrixom"
+
+#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#, kde-format
+msgid "Encrypted Message"
+msgstr "Šifrirano sporočilo"
+
+#: src/app/notificationsmanager.cpp:226
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/app/notificationsmanager.cpp:232
+#, kde-format
+msgid "Open NeoChat in this room"
+msgstr "Odpri Neo-chat v tej sobi"
+
+#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
+#: src/timeline/DelegateContextMenu.qml:98
+#, kde-format
+msgid "Reply"
+msgstr "Odgovori"
+
+#: src/app/notificationsmanager.cpp:246
+#, kde-format
+msgid "Reply…"
+msgstr "Odgovori…"
+
+#: src/app/notificationsmanager.cpp:305
+#, kde-format
+msgid "%1 invited you to a room"
+msgstr "%1 vas je povabil v sobo"
+
+#: src/app/notificationsmanager.cpp:308
+#, kde-format
+msgid "Open this invitation in NeoChat"
+msgstr "Odprite to povabilo v NeoChat"
+
+#: src/app/notificationsmanager.cpp:318
+#, kde-format
+msgctxt "@action:button The thing being accepted is an invitation to chat"
+msgid "Accept"
+msgstr "Sprejmi"
+
+#: src/app/notificationsmanager.cpp:319
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject"
+msgstr "Zavrni"
+
+#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#, kde-format
+msgctxt "@action:button The thing being rejected is an invitation to chat"
+msgid "Reject and Ignore User"
+msgstr "Zavrni in prezri uporabnika"
+
+#: src/app/notificationsmanager.cpp:380
+#, kde-format
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/app/notificationsmanager.cpp:391
+#, kde-format
+msgid "Open NeoChat"
+msgstr "Odpri NeoChat"
+
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Prikaži kodo QR"
+
+#: src/app/qml/AccountMenu.qml:40
+#, kde-format
+msgid "Edit This Account"
+msgstr "Uredi ta račun"
+
+#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/settings/AccountsPage.qml:50
+#, kde-format
+msgid "Account editor"
+msgstr "Urejevalnik računa"
+
+#: src/app/qml/AccountMenu.qml:50
+#, kde-format
+msgid "Notification Settings"
+msgstr "Nastavitve obvestil"
+
+#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#, kde-format
+msgid "Devices"
+msgstr "Naprave"
+
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#, kde-format
+msgid "Open Developer Tools"
+msgstr "Odpri razvojna orodja"
+
+#: src/app/qml/AccountMenu.qml:72
+#, kde-format
+msgctxt "@title:window"
+msgid "Developer Tools"
+msgstr "Razvojna orodja"
+
+#: src/app/qml/AccountMenu.qml:79
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Open Secret Backup"
+msgstr "Odpri skrivno varovalno kopijo"
+
+#: src/app/qml/AccountMenu.qml:83
+#, kde-format
+msgctxt "@title:window"
+msgid "Open Key Backup"
+msgstr "Odpri ključ varovalne kopije"
+
+#: src/app/qml/AccountMenu.qml:88
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Verify This Device"
+msgstr "Verificiraj to napravo"
+
+#: src/app/qml/AccountMenu.qml:93
+#, kde-format
+msgctxt "@title"
+msgid "Verification Request Sent"
+msgstr "Zahteva za verifikacijo je poslana"
+
+#: src/app/qml/AccountMenu.qml:94
+#, kde-format
+msgctxt "@info:label"
+msgid "To proceed, accept the verification request on another device."
+msgstr "Za nadaljevanje sprejmite zahtevo za verificiranje na drugi napravi."
+
+#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#, kde-format
+msgid "Logout"
+msgstr "Odjavi se"
+
+#: src/app/qml/AccountSwitchDialog.qml:29
+#, kde-format
+msgctxt "@title: dialog to switch between logged in accounts"
+msgid "Switch Account"
+msgstr "Preklopi račun"
+
+#: src/app/qml/AccountSwitchDialog.qml:54
+#, kde-format
+msgctxt "@button: login to or register a new account."
+msgid "Add Account"
+msgstr "Dodaj račun"
+
+#: src/app/qml/AccountSwitchDialog.qml:57
+#, kde-format
+msgid "Log in or create a new account"
+msgstr "Prijavite se ali ustvarite nov račun"
+
+#: src/app/qml/AccountSwitchDialog.qml:64
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Prijava"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:20
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Start a chat"
+msgstr "Začni klepet"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:23
+#, kde-format
+msgid "Do you want to start a chat with %1?"
+msgstr "Ali želite začeti klepet z %1?"
+
+#: src/app/qml/AskDirectChatConfirmation.qml:32
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Chat"
+msgstr "Začni klepet"
+
+#: src/app/qml/AttachmentPane.qml:30
+#, kde-format
+msgid "Attachment:"
+msgstr "Priloga:"
+
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
+#: src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/MessageDelegateContextMenu.qml:41
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
+
+#: src/app/qml/AttachmentPane.qml:62
+#, kde-format
+msgid "Cancel sending attachment"
+msgstr "Prekliči pošiljanje priloge"
+
+#: src/app/qml/ChooseRoomDialog.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "Izberi sobo"
+
+#: src/app/qml/CodeMaximizeComponent.qml:39
+#, kde-format
+msgctxt "@action"
+msgid "Copy to clipboard"
+msgstr "Kopiraj na odložišče"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Room"
+msgstr "Potrdi zapuščanje sobe"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:17
+#, kde-format
+msgctxt "Do you really want to leave <room name>?"
+msgid "Do you really want to leave %1?"
+msgstr "Ali zares želite zapustiti %1?"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave Room"
+msgstr "Zapusti sobo"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:15
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Sign out"
+msgstr "Odjavi se"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:16
+#, kde-format
+msgid "Are you sure you want to sign out?"
+msgstr "Ali se zares želite odjaviti?"
+
+#: src/app/qml/ConfirmLogoutDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Sign out"
+msgstr "Odjavi se"
+
+#: src/app/qml/ConfirmUrlDialog.qml:14
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Open URL"
+msgstr "Odpri URL"
+
+#: src/app/qml/ConfirmUrlDialog.qml:15
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Do you want to open <link>%1</link>?"
+msgstr "Ali želite odpreti <link>%1</link>?"
+
+#: src/app/qml/ConsentDialog.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "User Consent"
+msgstr "Privoljenje uporabnika"
+
+#: src/app/qml/ConsentDialog.qml:24
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Your homeserver requires you to agree to its terms and conditions before "
+"being able to use it. Please click the button below to read them."
+msgstr ""
+"Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
+"dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
+
+#: src/app/qml/ConsentDialog.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Odpri"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
+#: src/rooms/ExploreComponentMobile.qml:149
+#, kde-format
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Ustvari sobo"
+
+#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
+#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
+#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
+#: src/rooms/SpaceDrawer.qml:276
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Ustvari prostor"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Space Information"
+msgstr "Nove informacije o prostoru"
+
+#: src/app/qml/CreateRoomDialog.qml:35
+#, kde-format
+msgid "New Room Information"
+msgstr "Nove informacije o sobi"
+
+#: src/app/qml/CreateRoomDialog.qml:44
+#, kde-format
+msgid "Select type"
+msgstr "Izberi vrsto"
+
+#: src/app/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgid "Room"
+msgstr "Soba"
+
+#: src/app/qml/CreateRoomDialog.qml:58
+#, kde-format
+msgid "Space"
+msgstr "Prostor"
+
+#: src/app/qml/CreateRoomDialog.qml:77
+#, kde-format
+msgid "Name:"
+msgstr "Ime:"
+
+#: src/app/qml/CreateRoomDialog.qml:87
+#, kde-format
+msgid "Topic:"
+msgstr "Tema:"
+
+#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Določi tega nadrejenega kot uradnega"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Space"
+msgstr "Ustvari prostor"
+
+#: src/app/qml/CreateRoomDialog.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Create Room"
+msgstr "Ustvari sobo"
+
+#: src/app/qml/CreateRoomDialog.qml:121
+#, kde-format
+msgid "Select Existing Room"
+msgstr "Izberite obstoječo sobo"
+
+#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "Poberite sobo"
+
+#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
+#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Razišči sobe"
+
+#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
+#: src/settings/SelectParentDialog.qml:106
+#: src/spaces/SpaceHierarchyDelegate.qml:94
+#, kde-format
+msgid "Joined"
+msgstr "Pridružen"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid "You have the required privilege level in the child to set this state"
+msgstr "Imate zahtevane pravice odvisnega, da nastavite to stanje"
+
+#: src/app/qml/CreateRoomDialog.qml:236
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
+
+#: src/app/qml/CreateRoomDialog.qml:258
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "Določi ta prostor kot kanonično nadrejenega"
+
+#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "V redu"
+
+#: src/app/qml/EditMenu.qml:15
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: src/app/qml/EditMenu.qml:25
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Redo"
+msgstr "Ponovno uveljavi"
+
+#: src/app/qml/EditMenu.qml:37
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Cut"
+msgstr "Izreži"
+
+#: src/app/qml/EditMenu.qml:47
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: src/app/qml/EditMenu.qml:57
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Paste"
+msgstr "Prilepi"
+
+#: src/app/qml/EditMenu.qml:67
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Delete"
+msgstr "Zbriši"
+
+#: src/app/qml/EditMenu.qml:79
+#, kde-format
+msgctxt "text editing menu action"
+msgid "Select All"
+msgstr "Izberi vse"
+
+#: src/app/qml/EditStateDialog.qml:28 src/app/qml/MessageSourceSheet.qml:56
+#, kde-format
+msgctxt "@title As in 'edit the state of this room'"
+msgid "Edit State"
+msgstr "Uredi stanje"
+
+#: src/app/qml/EditStateDialog.qml:32
+#, kde-format
+msgctxt "@action"
+msgid "Revert changes"
+msgstr "Povrni spremembe"
+
+#: src/app/qml/EditStateDialog.qml:38
+#, kde-format
+msgctxt "@action As in 'Apply the changes'"
+msgid "Apply"
+msgstr "Uveljavi"
+
+#: src/app/qml/EmojiSas.qml:26
+#, kde-format
+msgid ""
+"Confirm the emoji below are displayed on both devices, in the same order."
+msgstr ""
+"Potrdite, da so čustvenčki spodaj prikazani na obeh napravah v enakem "
+"zaporedju."
+
+#: src/app/qml/EmojiSas.qml:45
+#, kde-format
+msgid "They match"
+msgstr "Se ujemajo"
+
+#: src/app/qml/EmojiSas.qml:51
+#, kde-format
+msgid "They don't match"
+msgstr "Se ne ujemajo"
+
+#: src/app/qml/ExplorerDelegate.qml:72
+#, kde-format
+msgctxt "@info:label A matrix space"
+msgid "Space"
+msgstr "Prostor"
+
+#: src/app/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Razišči sobe"
+
+#: src/app/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "Prikazuj samo prostore"
+
+#: src/app/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "Vnesite sobo ročno"
+
+#: src/app/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "Če že poznate naslov ali vzdevek sobe in ni prikazan tukaj."
+
+#: src/app/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "Najdi sobo …"
+
+#: src/app/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Nobene javne sobe ni najdene"
+
+#: src/app/qml/FullScreenMap.qml:23
+#, kde-format
+msgid "View Location"
+msgstr "Prikaži mesto"
+
+#: src/app/qml/FullScreenMap.qml:70
+#, kde-format
+msgid "Close"
+msgstr "Zapri"
+
+#: src/app/qml/GlobalMenu.qml:21
+#, kde-format
+msgctxt "menu"
+msgid "NeoChat"
+msgstr "NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:24
+#, kde-format
+msgid "Configure NeoChat…"
+msgstr "Konfiguriraj NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:25
+#, kde-format
+msgctxt "menu"
+msgid "Configure NeoChat…"
+msgstr "Konfiguriraj NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:31
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "Zapusti NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:38
+#, kde-format
+msgctxt "menu"
+msgid "File"
+msgstr "Datoteka"
+
+#: src/app/qml/GlobalMenu.qml:41
+#, kde-format
+msgctxt "menu"
+msgid "Find your friends"
+msgstr "Najdi vaše prijatelje"
+
+#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
+#, kde-format
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
+
+#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
+#: src/rooms/RoomListPage.qml:225
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
+
+#: src/app/qml/GlobalMenu.qml:50
+#, kde-format
+msgctxt "menu"
+msgid "New Group…"
+msgstr "Nova skupina …"
+
+#: src/app/qml/GlobalMenu.qml:59
+#, kde-format
+msgctxt "menu"
+msgid "Browse Chats…"
+msgstr "Brskaj po klepetih …"
+
+#: src/app/qml/GlobalMenu.qml:73
+#, kde-format
+msgctxt "menu"
+msgid "Edit"
+msgstr "Uredi"
+
+#: src/app/qml/GlobalMenu.qml:77
+#, kde-format
+msgctxt "menu"
+msgid "View"
+msgstr "Pogled"
+
+#: src/app/qml/GlobalMenu.qml:80
+#, kde-format
+msgctxt ""
+"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"a fast keyboard-based interface for switching in between chats."
+msgid "Open Quick Switcher"
+msgstr "Odpri hitri preklopnik"
+
+#: src/app/qml/GlobalMenu.qml:85
+#, kde-format
+msgctxt "menu"
+msgid "Window"
+msgstr "Okno"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Exit Full Screen"
+msgstr "Izhod iz celozaslonskega načina"
+
+#: src/app/qml/GlobalMenu.qml:88
+#, kde-format
+msgctxt "menu"
+msgid "Enter Full Screen"
+msgstr "Vstopi na celotni zaslon"
+
+#: src/app/qml/GlobalMenu.qml:93
+#, kde-format
+msgctxt "menu"
+msgid "Help"
+msgstr "Pomoč"
+
+#: src/app/qml/GlobalMenu.qml:96
+#, kde-format
+msgctxt "menu"
+msgid "About Matrix"
+msgstr "O programu Matrix"
+
+#: src/app/qml/GlobalMenu.qml:100
+#, kde-format
+msgctxt "menu"
+msgid "About NeoChat"
+msgstr "O programu NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:104
+#, kde-format
+msgctxt "menu"
+msgid "About KDE"
+msgstr "O KDE"
+
+#: src/app/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Brez imena"
+
+#: src/app/qml/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "To sporočilo je bilo poslano iz verificirane naprave"
+
+#: src/app/qml/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "Odzovi se"
+
+#: src/app/qml/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "Odgovori v niti"
+
+#: src/app/qml/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr "Konec ankete"
+
+#: src/app/qml/HoverLinkIndicator.qml:25
+#, kde-format
+msgctxt "@info screenreader"
+msgid "The currently selected link"
+msgstr "Trenutno izbrana povezava"
+
+#: src/app/qml/ImageEditorPage.qml:36
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: src/app/qml/ImageEditorPage.qml:43
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "Sprejmi"
+
+#: src/app/qml/ImageEditorPage.qml:51
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"Datoteke ni mogoče shraniti. Preverite, ali imate ustrezno dovoljenje za "
+"urejanje predpomnilnika imenika."
+
+#: src/app/qml/ImageEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/app/qml/ImageEditorPage.qml:123 src/app/qml/ImageEditorPage.qml:139
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Obreži"
+
+#: src/app/qml/ImageEditorPage.qml:144
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "Zasukaj v levo"
+
+#: src/app/qml/ImageEditorPage.qml:150
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "Zasukaj v desno"
+
+#: src/app/qml/ImageEditorPage.qml:156
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Prevrni"
+
+#: src/app/qml/ImageEditorPage.qml:162
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Prezrcali"
+
+#: src/app/qml/InvitationView.qml:42
+#, kde-format
+msgctxt "@info:label"
+msgid "%1 has invited you to join"
+msgstr "%1 vas je povabil, da se pridružite"
+
+#: src/app/qml/InvitationView.qml:70
+#, kde-format
+msgctxt "@info:label"
+msgid "This user is inviting you to chat."
+msgstr "Ta uporabnik vas vabi na klepet."
+
+#: src/app/qml/InvitationView.qml:79
+#, kde-format
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr ""
+"Povabila neznanih uporabnikov lahko zavračate v varnostnih nastavitvah."
+
+#: src/app/qml/InvitationView.qml:102
+#, kde-format
+msgctxt "@action:button"
+msgid "Reject"
+msgstr "Zavrni"
+
+#: src/app/qml/InvitationView.qml:110
+#, kde-format
+msgctxt "@action:button"
+msgid "Accept"
+msgstr "Sprejmi"
+
+#: src/app/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "Povabi uporabnika"
+
+#: src/app/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "Najdi uporabnika…"
+
+#: src/app/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Ni najdenih uporabnikov"
+
+#: src/app/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Povabi tega uporabnika"
+
+#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "Uporabnik je ali že član ali je bil povabljen"
+
+#: src/app/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Pošlji povabilo"
+
+#: src/app/qml/JoinRoomDialog.qml:29
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Join Room"
+msgstr "Pridruži se v sobo"
+
+#: src/app/qml/JoinRoomDialog.qml:67
+#, kde-format
+msgctxt "@action:button"
+msgid "Join room"
+msgstr "Pridruži se sobi"
+
+#: src/app/qml/KeyVerificationDialog.qml:16
+#, kde-format
+msgid "Session Verification"
+msgstr "Verifikacija seje"
+
+#: src/app/qml/KeyVerificationDialog.qml:92
+#, kde-format
+msgid "Accept"
+msgstr "Sprejmi"
+
+#: src/app/qml/KeyVerificationDialog.qml:98
+#, kde-format
+msgid "Decline"
+msgstr "Odkloni"
+
+#: src/app/qml/KeyVerificationDialog.qml:140
+#, kde-format
+msgid "Waiting for device to accept verification."
+msgstr "Čakanje na napravo, da sprejme verifikacijo."
+
+#: src/app/qml/KeyVerificationDialog.qml:142
+#, kde-format
+msgid "Incoming key verification request from device **%1**"
+msgstr "Prejet zahtevek verifikacije ključa iz naprave **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:144
+#, kde-format
+msgid "Waiting for other party to verify."
+msgstr "Čakanje na verifikacijo druge stranke."
+
+#: src/app/qml/KeyVerificationDialog.qml:146
+#, kde-format
+msgid "Successfully verified device **%1**"
+msgstr "Uspešno verificirana naprava **%1**"
+
+#: src/app/qml/KeyVerificationDialog.qml:161
+#, kde-format
+msgctxt "@info"
+msgid "Choose a verification method to continue"
+msgstr "Izberite metodo preverjanja za nadaljevanje"
+
+#: src/app/qml/KeyVerificationDialog.qml:165
+#, kde-format
+msgctxt "@action:button"
+msgid "Emoji Verification"
+msgstr "Verifikacija čustvenčka"
+
+#: src/app/qml/LocationChooser.qml:22
+#, kde-format
+msgid "Choose a Location"
+msgstr "Izberi lokacijo"
+
+#: src/app/qml/LocationChooser.qml:27
+#, kde-format
+msgid "Send this location"
+msgstr "Pošlji to lokacijo"
+
+#: src/app/qml/LocationChooser.qml:35
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr "Ponovno usredini"
+
+#: src/app/qml/LocationChooser.qml:41
+#, kde-format
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "Lociraj"
+
+#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Lokacije"
+
+#: src/app/qml/LocationsPage.qml:68
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "Ni deljenih lokacij v tej sobi."
+
+#: src/app/qml/Main.qml:167
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Room Information"
+msgstr "Prikaži informacije o sobi"
+
+#: src/app/qml/Main.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Close Room Information Drawer"
+msgstr "Zapri predal z informacijami o sobi"
+
+#: src/app/qml/Main.qml:290
+#, kde-format
+msgctxt "@title:window"
+msgid "Session Verification"
+msgstr "Verifikacija seje"
+
+#: src/app/qml/Main.qml:330 src/app/qml/ShareAction.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Share"
+msgstr "Deli"
+
+#: src/app/qml/ManualRoomDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "Manually Enter a Room"
+msgstr "Ročno vstopite v sobo"
+
+#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
+#: src/settings/SelectParentDialog.qml:37
+#, kde-format
+msgid "OK"
+msgstr "V redu"
+
+#: src/app/qml/ManualRoomDialog.qml:81
+#, kde-format
+msgid "Room ID or Alias:"
+msgstr "ID sobe ali vzdevek:"
+
+#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#, kde-format
+msgid "Must start with # for an alias or ! for an ID"
+msgstr "Se mora začeti z # za vzdevek ali ! za ID"
+
+#: src/app/qml/ManualRoomDialog.qml:90
+#, kde-format
+msgid "The input is not a valid room ID or alias"
+msgstr "Vneseno ni veljavni ID sobe ali vzdevek"
+
+#: src/app/qml/ManualUserDialog.qml:26
+#, kde-format
+msgctxt "@title"
+msgid "User ID"
+msgstr "Določilnik uporabnika"
+
+#: src/app/qml/ManualUserDialog.qml:54
+#, kde-format
+msgid "User ID:"
+msgstr "Določilnik uporabnika:"
+
+#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#, kde-format
+msgid "User IDs Must start with @"
+msgstr "Določilnik uporabnika se mora začeti z @"
+
+#: src/app/qml/ManualUserDialog.qml:63
+#, kde-format
+msgid "The input is not a valid user ID"
+msgstr "Vneseno ni veljavni določilnik uporabnika"
+
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:57
+#: src/devtools/RoomData.qml:103
+#, kde-format
+msgid "Event Source"
+msgstr "Vir dogodka"
+
+#: src/app/qml/MessageSourceSheet.qml:46
+#, kde-format
+msgctxt "@action As in 'edit the state of this room'"
+msgid "Edit state"
+msgstr "Uredi stanje"
+
+#: src/app/qml/NewPollDialog.qml:28
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr "Pošlji"
+
+#: src/app/qml/NewPollDialog.qml:38
+#, kde-format
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "Ustvari glasovanje"
+
+#: src/app/qml/NewPollDialog.qml:46
+#, kde-format
+msgid "Poll type:"
+msgstr "Vrsta glasovanja:"
+
+#: src/app/qml/NewPollDialog.qml:51
+#, kde-format
+msgid "Open poll"
+msgstr "Odpri glasovanje"
+
+#: src/app/qml/NewPollDialog.qml:52
+#, kde-format
+msgid "Closed poll"
+msgstr "Zapri glasovanje"
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Voters can see the result as soon as they have voted"
+msgstr "Volivci lahko vidijo rezultat takoj, ko glasujejo"
+
+#: src/app/qml/NewPollDialog.qml:57
+#, kde-format
+msgid "Results are revealed only after the poll has closed"
+msgstr "Rezultati so razkriti šele po zaključku glasovanja"
+
+#: src/app/qml/NewPollDialog.qml:61
+#, kde-format
+msgid "Question:"
+msgstr "Vprašanje:"
+
+#: src/app/qml/NewPollDialog.qml:104
+#, kde-format
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr "Možnost %1:"
+
+#: src/app/qml/NewPollDialog.qml:120
+#, kde-format
+msgid "Enter option"
+msgstr "Vnesi možnost"
+
+#: src/app/qml/NewPollDialog.qml:126
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "Odstrani možnost"
+
+#: src/app/qml/NewPollDialog.qml:151
+#, kde-format
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "Dodaj možnost"
+
+#: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
+#, kde-format
+msgctxt "@title"
+msgid "Notifications"
+msgstr "Obvestila"
+
+#: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
+#: src/login/Login.qml:38 src/settings/DevicesPage.qml:20
+#: src/timeline/LoadingDelegate.qml:19
+#, kde-format
+msgid "Loading…"
+msgstr "Nalaganje …"
+
+#: src/app/qml/NotificationsView.qml:34
+#, kde-format
+msgid "No Notifications"
+msgstr "Ni obvestil"
+
+#: src/app/qml/OpenFileDialog.qml:12
+#, kde-format
+msgid "Select a File"
+msgstr "Izberi datoteko"
+
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "Skeniraj kodo QR"
+
+#: src/app/qml/QuickFormatBar.qml:23
+#, kde-format
+msgid "Bold"
+msgstr "Krepko"
+
+#: src/app/qml/QuickFormatBar.qml:42
+#, kde-format
+msgid "Italic"
+msgstr "Ležeče"
+
+#: src/app/qml/QuickFormatBar.qml:61
+#, kde-format
+msgid "Strikethrough"
+msgstr "Prečrtano"
+
+#: src/app/qml/QuickFormatBar.qml:80
+#, kde-format
+msgid "Code block"
+msgstr "Blok kode"
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
+msgid "Quote"
+msgstr "Navedba"
+
+#: src/app/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Insert link"
+msgstr "Vstavi povezavo"
+
+#: src/app/qml/QuickSwitcher.qml:29
+#, kde-format
+msgctxt "Placeholder message"
+msgid "No room found"
+msgstr "Nobene sobe ni mogoče najti"
+
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#, kde-format
+msgctxt "@action:button"
+msgid "Explore rooms"
+msgstr "Razišči sobe"
+
+#: src/app/qml/ReasonDialog.qml:53
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:25
+#, kde-format
+msgctxt "@title Join <name of a space>"
+msgid "Join %1"
+msgstr "Pridruži se %1"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:53
+#, kde-format
+msgctxt "@action:button"
+msgid "Join"
+msgstr "Pridruži se"
+
+#: src/app/qml/RecommendedSpaceDialog.qml:63
+#, kde-format
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "Prezri"
+
+#: src/app/qml/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Odstrani odvisnega"
+
+#: src/app/qml/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "Odvisni %1bo odstranjen iz prostora %2"
+
+#: src/app/qml/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
+
+#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Nastavitve sobe"
+
+#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
+#, kde-format
+msgid "Information"
+msgstr "Informacije"
+
+#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
+#, kde-format
+msgid "Media"
+msgstr "Mediji"
+
+#: src/app/qml/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Člani prostora"
+
+#: src/app/qml/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Informacije o sobi"
+
+#: src/app/qml/RoomInformation.qml:70
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Dejavnosti"
+
+#: src/app/qml/RoomInformation.qml:80
+#, kde-format
+msgid "Search in this room"
+msgstr "Išči v tej sobi"
+
+#: src/app/qml/RoomInformation.qml:89
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Išči"
+
+#: src/app/qml/RoomInformation.qml:97
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Verificiraj uporabnika"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "Odstrani sobo iz priljubljenih"
+
+#: src/app/qml/RoomInformation.qml:108
+#, kde-format
+msgid "Favorite this room"
+msgstr "Označi to sobo za najljubšo"
+
+#: src/app/qml/RoomInformation.qml:121
+#, kde-format
+msgid "Show locations for this room"
+msgstr "Pokaži mesta za to sobo"
+
+#: src/app/qml/RoomInformation.qml:137
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Pripeta sporočila"
+
+#: src/app/qml/RoomInformation.qml:146
+#: src/app/qml/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Pripeta sporočila"
+
+#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Zapusti ta prostor"
+
+#: src/app/qml/RoomInformation.qml:154
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Zapusti to sobo"
+
+#: src/app/qml/RoomInformation.qml:167
+#, kde-format
+msgid "Members"
+msgstr "Člani"
+
+#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Povabi uporabnika"
+
+#: src/app/qml/RoomInformation.qml:186
+#, kde-format
+msgid "Invite user to room"
+msgstr "Povabite uporabnika v sobo"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 članov"
+msgstr[1] "%1 član"
+msgstr[2] "%1 člana"
+msgstr[3] "%1 člani"
+
+#: src/app/qml/RoomInformation.qml:193
+#, kde-format
+msgid "No member count"
+msgstr "Ni števila članov"
+
+#: src/app/qml/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Mediji sobe"
+
+#: src/app/qml/RoomPage.qml:92
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
+
+#: src/app/qml/RoomPage.qml:149
+#, kde-format
+msgid "Welcome to NeoChat"
+msgstr "Dobrodošli v NeoChat"
+
+#: src/app/qml/RoomPage.qml:150
+#, kde-format
+msgid "Select or join a room to get started"
+msgstr "Izberi ali pridruži sobi za začetek"
+
+#: src/app/qml/RoomPage.qml:243
+#, kde-format
+msgid "Message Source"
+msgstr "Vir sporočila"
+
+#: src/app/qml/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Ni pripetih sporočil"
+
+#: src/app/qml/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Išči sporočila"
+
+#: src/app/qml/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "Najdi sporočila …"
+
+#: src/app/qml/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "Vnesite besedilo za začetek iskanja"
+
+#: src/app/qml/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "Ni najdenih sporočil"
+
+#: src/app/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Išči"
+
+#: src/app/qml/ServerComboBox.qml:47
+#, kde-format
+msgid "Add New Server"
+msgstr "Dodaj novi strežnik"
+
+#: src/app/qml/ServerComboBox.qml:63
+#, kde-format
+msgid "Home Server"
+msgstr "Domači strežnik"
+
+#: src/app/qml/ServerComboBox.qml:70
+#, kde-format
+msgctxt "@action:button"
+msgid "Add new server"
+msgstr "Dodaj novi strežnik"
+
+#: src/app/qml/ServerComboBox.qml:110
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr "Dodaj strežnik"
+
+#: src/app/qml/ServerComboBox.qml:137
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr "Vneseno besedilo ni veljavni naslov url"
+
+#: src/app/qml/ServerComboBox.qml:141
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr "Tega strežnika ni mogoče rešiti ali pa je že dodan"
+
+#: src/app/qml/ServerComboBox.qml:152
+#, kde-format
+msgid "Server URL:"
+msgstr "Strežnikov naslov URL:"
+
+#: src/app/qml/ShareAction.qml:23
+#, kde-format
+msgid "Share"
+msgstr "Deli"
+
+#: src/app/qml/ShareAction.qml:24
+#, kde-format
+msgid "Share the selected media"
+msgstr "Deli izbrane medije"
+
+#: src/app/qml/ShareDialog.qml:37
+#, kde-format
+msgid "Sharing failed"
+msgstr "Deljenje ni uspelo"
+
+#: src/app/qml/ShareDialog.qml:58
+#, kde-format
+msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
+
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Load your encrypted messages"
+msgstr "Naloži vaša šifrirana sporočila"
+
+#: src/app/qml/UnlockSSSSDialog.qml:38
+#, kde-format
+msgctxt "@info:status"
+msgid "Encryption keys restored."
+msgstr "Šifrirni ključi obnovljeni."
+
+#: src/app/qml/UnlockSSSSDialog.qml:50
+#, kde-format
+msgctxt "@info:status"
+msgid "The security phrase was not correct."
+msgstr "Varnostna fraza ni pravilna."
+
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Passphrase"
+msgstr "Odkleni z uporabo varnostne fraze"
+
+#: src/app/qml/UnlockSSSSDialog.qml:60
+#, kde-format
+msgctxt "@info"
+msgid "If you have a backup passphrase for this account, enter it below."
+msgstr ""
+"Če imate varnostno kopijo skrivne fraze za ta račun, jo vnesite spodaj."
+
+#: src/app/qml/UnlockSSSSDialog.qml:64
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Backup Password:"
+msgstr "Varnostna kopija gesla:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:69 src/app/qml/UnlockSSSSDialog.qml:104
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Odkleni"
+
+#: src/app/qml/UnlockSSSSDialog.qml:81
+#, kde-format
+msgctxt "@title"
+msgid "Unlock using Security Key"
+msgstr "Odkleni z uporabo varnostnega ključa"
+
+#: src/app/qml/UnlockSSSSDialog.qml:85
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have a security key for this account, enter it below or upload it as "
+"a file."
+msgstr ""
+"Če imate varnostni ključ za ta račun, ga vnesite spodaj ali ga prenesite kot "
+"datoteko."
+
+#: src/app/qml/UnlockSSSSDialog.qml:89
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Security Key:"
+msgstr "Varnostni ključ:"
+
+#: src/app/qml/UnlockSSSSDialog.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Upload from File"
+msgstr "Prenesi iz datoteke"
+
+#: src/app/qml/UnlockSSSSDialog.qml:115
+#, kde-format
+msgctxt "@title"
+msgid "Unlock from Cross-Signing"
+msgstr "Odkleni iz navskrižnega podpisovanja"
+
+#: src/app/qml/UnlockSSSSDialog.qml:119
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If you have previously verified this device, you can try loading the backup "
+"key from other devices by clicking the button below."
+msgstr ""
+"Če ste že preverili to napravo, lahko poskusite naložiti varnostni ključ iz "
+"drugih naprav, tako da kliknete spodnji gumb."
+
+#: src/app/qml/UnlockSSSSDialog.qml:124
+#, kde-format
+msgctxt "@action:button"
+msgid "Request from other Devices"
+msgstr "Zahtevek iz drugih naprav"
+
+#: src/app/qml/UserDetailDialog.qml:34
+#, kde-format
+msgctxt "@title:menu Account details dialog"
+msgid "Account Details"
+msgstr "Podrobnosti računa"
+
+#: src/app/qml/UserDetailDialog.qml:83
+#, kde-format
+msgctxt "@info"
+msgid "One mutual room"
+msgid_plural "%1 mutual rooms"
+msgstr[0] "%1 skupnih sob"
+msgstr[1] "%1 skupna soba"
+msgstr[2] "%1 skupni sobi"
+msgstr[3] "%1 skupne sobe"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Unignore this user"
+msgstr "Ne prezri tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:136
+#, kde-format
+msgid "Ignore this user"
+msgstr "Prezri tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:149
+#, kde-format
+msgid "Kick this user"
+msgstr "Brcni tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:153 src/app/qml/UserDetailDialog.qml:158
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Brcni uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:154
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "Razlog za brco za tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:155
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "Brcni"
+
+#: src/app/qml/UserDetailDialog.qml:174
+#, kde-format
+msgid "Invite this user"
+msgstr "Povabi tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:187
+#, kde-format
+msgid "Ban this user"
+msgstr "Prepovej tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:192 src/app/qml/UserDetailDialog.qml:197
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "Prepovej uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:193
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Razlog za prepoved za tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:194
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Prepoved"
+
+#: src/app/qml/UserDetailDialog.qml:212
+#, kde-format
+msgid "Unban this user"
+msgstr "Prekini prepoved temu uporabniku"
+
+#: src/app/qml/UserDetailDialog.qml:225
+#, kde-format
+msgid "Set user power level"
+msgstr "Uredi raven moči uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:250
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove recent messages by this user"
+msgstr "Odstrani nedavna sporočila tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:255
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Odstrani sporočila"
+
+#: src/app/qml/UserDetailDialog.qml:256
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
+
+#: src/app/qml/UserDetailDialog.qml:257
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: src/app/qml/UserDetailDialog.qml:260
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Odstrani sporočila"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgctxt "%1 is the name of the user."
+msgid "Chat with %1"
+msgstr "Klepet z %1"
+
+#: src/app/qml/UserDetailDialog.qml:274
+#, kde-format
+msgid "Invite to private chat"
+msgstr "Povabi na zasebni klepet"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgid "Copy link"
+msgstr "Kopiraj povezavo"
+
+#: src/app/qml/UserSearchPage.qml:33
+#, kde-format
+msgctxt "@action:title"
+msgid "Find Your Friends"
+msgstr "Poišči vaše prijatelje"
+
+#: src/app/qml/UserSearchPage.qml:46
+#, kde-format
+msgid "Enter a user ID"
+msgstr "Vnesite določilnik uporabnika (ID)"
+
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#, kde-format
+msgid "Friends"
+msgstr "Prijatelji"
+
+#: src/app/qml/UserSearchPage.qml:91
+#, kde-format
+msgid "Find your friends…"
+msgstr "Poiščite svoje prijatelje …"
+
+#: src/app/qml/UserSearchPage.qml:92
+#, kde-format
+msgid "Enter text to start searching for your friends"
+msgstr "Vnesite besedilo za začetek iskanja vaših prijateljev"
+
+#: src/app/qml/UserSearchPage.qml:93
+#, kde-format
+msgctxt "@info:label"
+msgid "No matches found"
+msgstr "Ni najdenih zadetkov"
+
+#: src/app/qml/VerificationCanceled.qml:18
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr "Verifikacija seje je bila prekinjena zaradi neznanega vzroka."
+
+#: src/app/qml/VerificationCanceled.qml:20
+#, kde-format
+msgid "The session verification timed out."
+msgstr "Verifikacija seje je potekla."
+
+#: src/app/qml/VerificationCanceled.qml:22
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr "Verifikacija seje je potekla na oddaljeni strani."
+
+#: src/app/qml/VerificationCanceled.qml:24
+#, kde-format
+msgid "You canceled the session verification."
+msgstr "Preklicali ste verifikacijo seje."
+
+#: src/app/qml/VerificationCanceled.qml:26
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr "Oddaljena stran je preklicala verifikacijo seje."
+
+#: src/app/qml/VerificationCanceled.qml:28
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr ""
+"Verifikacija seje je bila preklicana, ker smo sprejeli nepričakovano "
+"sporočilo."
+
+#: src/app/qml/VerificationCanceled.qml:30
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr ""
+"Verifikacija seje je bila preklicana na oddaljeni strani, ker so sprejeli "
+"nepričakovano sporočilo."
+
+#: src/app/qml/VerificationCanceled.qml:32
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr ""
+"Verifikacija seje je bila preklicana, ker je bilo sprejeto sporočilo neznane "
+"seje."
+
+#: src/app/qml/VerificationCanceled.qml:34
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker je sprejela sporočilo "
+"neznane seje."
+
+#: src/app/qml/VerificationCanceled.qml:36
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr ""
+"Verifikacija seje je bila preklicana, ker NeoChat ni sposoben obravnavati te "
+"metode verifikacije."
+
+#: src/app/qml/VerificationCanceled.qml:38
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker ni sposobna obravnavati "
+"te metode verifikacije."
+
+#: src/app/qml/VerificationCanceled.qml:40
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr "Verifikacija seje je bila preklicana, ker so ključi nekorektni."
+
+#: src/app/qml/VerificationCanceled.qml:42
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect.\n"
+"\n"
+"**Please log out and log back in, your session is broken/corrupt.**"
+msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker so ključi nekorektni.\n"
+"\n"
+"**Prosimo odjavite se in nato se spet prijavite, vaša seja je pokvarjena.**"
+
+#: src/app/qml/VerificationCanceled.qml:44
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr ""
+"Verifikacija seje je bila preklicana, ker verificira nepričakovanega "
+"uporabnika."
+
+#: src/app/qml/VerificationCanceled.qml:46
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr ""
+"Verifikacija seje je preklicala oddaljena stran, ker verificira "
+"nepričakovanega uporabnika."
+
+#: src/app/qml/VerificationCanceled.qml:48
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr ""
+"Verifikacija seje je bila preklicana, ker smo sprejeli neveljavno sporočilo."
+
+#: src/app/qml/VerificationCanceled.qml:50
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr ""
+"Verifikacija seje je preklicala oddaljena stran, ker je sprejela neveljavno "
+"sporočilo."
+
+#: src/app/qml/VerificationCanceled.qml:52
+#: src/app/qml/VerificationCanceled.qml:54
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr "Ta seja je bila sprejeta na drugačni napravi"
+
+#: src/app/qml/VerificationCanceled.qml:56
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr "Verifikacija seje je bila preklicana zaradi neustreznega ključa."
+
+#: src/app/qml/VerificationCanceled.qml:58
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran zaradi neustreznega ključa."
+
+#: src/app/qml/VerificationCanceled.qml:60
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr "Verifikacija seje je bila preklicana, ker se ključa ne ujemata."
+
+#: src/app/qml/VerificationCanceled.qml:62
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker se ključa ne ujemata."
+
+#: src/app/qml/VerificationCanceled.qml:64
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
+
+#: src/app/roommanager.cpp:211
+#, kde-format
+msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
+msgstr ""
+"Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
+"Matrix"
+
+#: src/app/roommanager.cpp:417
+#, kde-format
+msgid "Failed to join room<br />%1"
+msgstr "Neuspela pridružitev v sobo<br />%1"
+
+#: src/app/roommanager.cpp:441
+#, kde-format
+msgid "You requested to join '%1'"
+msgstr "Prosili ste za pridružitev v »%1«"
+
+#: src/app/roommanager.cpp:445
+#, kde-format
+msgid "Failed to request joining room<br />%1"
+msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
+
+#: src/app/trayicon.cpp:21
+#, kde-format
+msgid "Show"
+msgstr "Prikaži"
+
+#: src/app/trayicon.cpp:36
+#, kde-format
+msgid "Quit"
+msgstr "Zapusti"
 
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
@@ -98,19 +2075,6 @@ msgstr "Čustvenčki"
 msgid "Stickers"
 msgstr "Nalepke"
 
-#: src/controller.cpp:181
-#, kde-format
-msgctxt ""
-"The reason for using push notifications, as in: '[Push notifications are "
-"used for] Receiving notifications for new messages'"
-msgid "Receiving notifications for new messages"
-msgstr "Sprejemanje obvestil za nova sporočila"
-
-#: src/controller.cpp:326
-#, kde-format
-msgid "Receiving push notifications"
-msgstr "Sprejemanje potisnih obvestil"
-
 #: src/devtools/AccountData.qml:20
 #, kde-format
 msgctxt "@title:group"
@@ -178,11 +2142,10 @@ msgid "Show focus in window header"
 msgstr "Prikaži fokus v glavi okna"
 
 #: src/devtools/DevtoolsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
-msgstr "Razvojna orodja"
+msgstr "Orodja za razvijalce"
 
 #: src/devtools/DevtoolsPage.qml:32
 #, kde-format
@@ -267,12 +2230,6 @@ msgstr "ID sobe: %1"
 #, kde-format
 msgid "Room Account Data"
 msgstr "Podatki o računu sobe"
-
-#: src/devtools/RoomData.qml:57 src/devtools/RoomData.qml:103
-#: src/qml/MessageSourceSheet.qml:42
-#, kde-format
-msgid "Event Source"
-msgstr "Vir dogodka"
 
 #: src/devtools/RoomData.qml:65
 #, kde-format
@@ -359,11 +2316,6 @@ msgstr "Povabila"
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeno"
-
-#: src/libneochat/enums/neochatroomtype.h:65 src/qml/UserSearchPage.qml:84
-#, kde-format
-msgid "Friends"
-msgstr "Prijatelji"
 
 #: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
@@ -1515,13 +3467,6 @@ msgstr "Matrixov ID:"
 msgid "Matrix ID"
 msgstr "Matrixov ID"
 
-#: src/login/Login.qml:38 src/qml/NotificationsView.qml:34
-#: src/qml/NotificationsView.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:19
-#, kde-format
-msgid "Loading…"
-msgstr "Nalaganje …"
-
 #: src/login/Login.qml:38 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
@@ -1667,11 +3612,6 @@ msgstr "Uporabniško ime ni na voljo"
 msgid "Welcome"
 msgstr "Dobrodošli"
 
-#: src/login/WelcomePage.qml:75 src/main.cpp:146
-#, kde-format
-msgid "NeoChat"
-msgstr "NeoChat"
-
 #: src/login/WelcomePage.qml:83
 #, kde-format
 msgctxt "@title"
@@ -1707,1933 +3647,6 @@ msgstr "Pojdi nazaj"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavitve"
-
-#: src/main.cpp:148
-#, kde-format
-msgid "Chat on Matrix"
-msgstr "Klepet na Matrixu"
-
-#: src/main.cpp:150
-#, kde-format
-msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018–2020 Black Hat, 2020–2025 skupnost KDE"
-
-#: src/main.cpp:151
-#, kde-format
-msgid "Carl Schwan"
-msgstr "Carl Schwan"
-
-#: src/main.cpp:151 src/main.cpp:152 src/main.cpp:153 src/main.cpp:155
-#, kde-format
-msgid "Maintainer"
-msgstr "Vzdrževalec"
-
-#: src/main.cpp:152
-#, kde-format
-msgid "Tobias Fella"
-msgstr "Tobias Fella"
-
-#: src/main.cpp:153
-#, kde-format
-msgid "James Graham"
-msgstr "James Graham"
-
-#: src/main.cpp:154
-#, kde-format
-msgid "Joshua Goins"
-msgstr "Joshua Goins"
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Black Hat"
-msgstr "Black Hat"
-
-#: src/main.cpp:159
-#, kde-format
-msgid "Original author of Spectral"
-msgstr "Izvorni avtor programa Spectral"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Alexey Rusakov"
-msgstr "Alexey Rusakov"
-
-#: src/main.cpp:160
-#, kde-format
-msgid "Maintainer of libQuotient"
-msgstr "Vzdrževalec knjižnice libQuotient"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Jure Repinc,Matjaž Jeran,Martin Srebotnjak"
-
-#: src/main.cpp:161
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "jlp@holodeck1.com,matjaz.jeran@amis.net,miles@filmsi.net"
-
-#: src/main.cpp:165
-#, kde-format
-msgid "A Qt library to write cross-platform clients for Matrix"
-msgstr "Knjižnica Qt za pisanje odjemalcev za Matrix za več platform"
-
-#: src/main.cpp:167
-#, kde-format
-msgctxt "<version number> (built against <possibly different version number>)"
-msgid "%1 (built against %2)"
-msgstr "%1 (zgrajeno z %2)"
-
-#: src/main.cpp:194
-#, kde-format
-msgid "Client for the matrix communication protocol"
-msgstr "Odjemalec za komunikacijski protokol matrix"
-
-#: src/main.cpp:195
-#, kde-format
-msgid "Supports matrix: url scheme"
-msgstr "Podpira matrix: shema URL"
-
-#: src/main.cpp:196
-#, kde-format
-msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr "Prezri vse napake SSL npr. nepodpisana potrdila."
-
-#: src/main.cpp:198
-#, kde-format
-msgid "Only used for autotests"
-msgstr "Se uporablja samo za avtotestiranja"
-
-#: src/main.cpp:203
-#, kde-format
-msgid "Internal usage only."
-msgstr "Samo za interno rabo."
-
-#: src/main.cpp:208
-#, kde-format
-msgid "Share a URL to Matrix"
-msgstr "Deli URL z Matrixom"
-
-#: src/notificationsmanager.cpp:142 src/notificationsmanager.cpp:386
-#, kde-format
-msgid "Encrypted Message"
-msgstr "Šifrirano sporočilo"
-
-#: src/notificationsmanager.cpp:226
-#, kde-format
-msgid "%1: %2"
-msgstr "%1: %2"
-
-#: src/notificationsmanager.cpp:232
-#, kde-format
-msgid "Open NeoChat in this room"
-msgstr "Odpri Neo-chat v tej sobi"
-
-#: src/notificationsmanager.cpp:245 src/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
-#, kde-format
-msgid "Reply"
-msgstr "Odgovori"
-
-#: src/notificationsmanager.cpp:246
-#, kde-format
-msgid "Reply…"
-msgstr "Odgovori…"
-
-#: src/notificationsmanager.cpp:305
-#, kde-format
-msgid "%1 invited you to a room"
-msgstr "%1 vas je povabil v sobo"
-
-#: src/notificationsmanager.cpp:308
-#, kde-format
-msgid "Open this invitation in NeoChat"
-msgstr "Odprite to povabilo v NeoChat"
-
-#: src/notificationsmanager.cpp:318
-#, kde-format
-msgctxt "@action:button The thing being accepted is an invitation to chat"
-msgid "Accept"
-msgstr "Sprejmi"
-
-#: src/notificationsmanager.cpp:319
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject"
-msgstr "Zavrni"
-
-#: src/notificationsmanager.cpp:320 src/qml/InvitationView.qml:91
-#, kde-format
-msgctxt "@action:button The thing being rejected is an invitation to chat"
-msgid "Reject and Ignore User"
-msgstr "Zavrni in prezri uporabnika"
-
-#: src/notificationsmanager.cpp:379
-#, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#: src/notificationsmanager.cpp:390
-#, kde-format
-msgid "Open NeoChat"
-msgstr "Odpri NeoChat"
-
-#: src/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
-#, kde-format
-msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Prikaži kodo QR"
-
-#: src/qml/AccountMenu.qml:40
-#, kde-format
-msgid "Edit This Account"
-msgstr "Uredi ta račun"
-
-#: src/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
-#: src/settings/AccountsPage.qml:50
-#, kde-format
-msgid "Account editor"
-msgstr "Urejevalnik računa"
-
-#: src/qml/AccountMenu.qml:50
-#, kde-format
-msgid "Notification Settings"
-msgstr "Nastavitve obvestil"
-
-#: src/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
-#, kde-format
-msgid "Devices"
-msgstr "Naprave"
-
-#: src/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
-#, kde-format
-msgid "Open Developer Tools"
-msgstr "Odpri razvojna orodja"
-
-#: src/qml/AccountMenu.qml:72
-#, kde-format
-msgctxt "@title:window"
-msgid "Developer Tools"
-msgstr "Razvojna orodja"
-
-#: src/qml/AccountMenu.qml:79
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "Odpri skrivno varovalno kopijo"
-
-#: src/qml/AccountMenu.qml:83
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "Odpri ključ varovalne kopije"
-
-#: src/qml/AccountMenu.qml:88
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Verify This Device"
-msgstr "Verificiraj to napravo"
-
-#: src/qml/AccountMenu.qml:93
-#, kde-format
-msgctxt "@title"
-msgid "Verification Request Sent"
-msgstr "Zahteva za verifikacijo je poslana"
-
-#: src/qml/AccountMenu.qml:94
-#, kde-format
-msgctxt "@info:label"
-msgid "To proceed, accept the verification request on another device."
-msgstr "Za nadaljevanje sprejmite zahtevo za verificiranje na drugi napravi."
-
-#: src/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
-msgstr "Odjavi se"
-
-#: src/qml/AccountSwitchDialog.qml:29
-#, kde-format
-msgctxt "@title: dialog to switch between logged in accounts"
-msgid "Switch Account"
-msgstr "Preklopi račun"
-
-#: src/qml/AccountSwitchDialog.qml:54
-#, kde-format
-msgctxt "@button: login to or register a new account."
-msgid "Add Account"
-msgstr "Dodaj račun"
-
-#: src/qml/AccountSwitchDialog.qml:57
-#, kde-format
-msgid "Log in or create a new account"
-msgstr "Prijavite se ali ustvarite nov račun"
-
-#: src/qml/AccountSwitchDialog.qml:64
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Prijava"
-
-#: src/qml/AskDirectChatConfirmation.qml:20
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Start a chat"
-msgstr "Začni klepet"
-
-#: src/qml/AskDirectChatConfirmation.qml:23
-#, kde-format
-msgid "Do you want to start a chat with %1?"
-msgstr "Ali želite začeti klepet z %1?"
-
-#: src/qml/AskDirectChatConfirmation.qml:32
-#, kde-format
-msgctxt "@action:button"
-msgid "Start Chat"
-msgstr "Začni klepet"
-
-#: src/qml/AttachmentPane.qml:30
-#, kde-format
-msgid "Attachment:"
-msgstr "Priloga:"
-
-#: src/qml/AttachmentPane.qml:38 src/qml/HoverActions.qml:106
-#: src/qml/ImageEditorPage.qml:20
-#: src/timeline/MessageDelegateContextMenu.qml:41
-#, kde-format
-msgid "Edit"
-msgstr "Uredi"
-
-#: src/qml/AttachmentPane.qml:62
-#, kde-format
-msgid "Cancel sending attachment"
-msgstr "Prekliči pošiljanje priloge"
-
-#: src/qml/ChooseRoomDialog.qml:16
-#, kde-format
-msgctxt "@title"
-msgid "Choose a Room"
-msgstr "Izberi sobo"
-
-#: src/qml/CodeMaximizeComponent.qml:39
-#, kde-format
-msgctxt "@action"
-msgid "Copy to clipboard"
-msgstr "Kopiraj na odložišče"
-
-#: src/qml/ConfirmLeaveDialog.qml:16
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Confirm Leaving Room"
-msgstr "Potrdi zapuščanje sobe"
-
-#: src/qml/ConfirmLeaveDialog.qml:17
-#, kde-format
-msgctxt "Do you really want to leave <room name>?"
-msgid "Do you really want to leave %1?"
-msgstr "Ali zares želite zapustiti %1?"
-
-#: src/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
-msgstr "Zapusti sobo"
-
-#: src/qml/ConfirmLogoutDialog.qml:15
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Sign out"
-msgstr "Odjavi se"
-
-#: src/qml/ConfirmLogoutDialog.qml:16
-#, kde-format
-msgid "Are you sure you want to sign out?"
-msgstr "Ali se zares želite odjaviti?"
-
-#: src/qml/ConfirmLogoutDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Sign out"
-msgstr "Odjavi se"
-
-#: src/qml/ConfirmUrlDialog.qml:14
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Open URL"
-msgstr "Odpri URL"
-
-#: src/qml/ConfirmUrlDialog.qml:15
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Do you want to open <link>%1</link>?"
-msgstr "Ali želite odpreti <link>%1</link>?"
-
-#: src/qml/ConsentDialog.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "User Consent"
-msgstr "Privoljenje uporabnika"
-
-#: src/qml/ConsentDialog.qml:24
-#, kde-format
-msgctxt "@info"
-msgid ""
-"Your homeserver requires you to agree to its terms and conditions before "
-"being able to use it. Please click the button below to read them."
-msgstr ""
-"Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
-"dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
-
-#: src/qml/ConsentDialog.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Open"
-msgstr "Odpri"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:100
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "Ustvari sobo"
-
-#: src/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:113
-#: src/rooms/ExploreComponent.qml:115 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Ustvari prostor"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "Nove informacije o prostoru"
-
-#: src/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "Nove informacije o sobi"
-
-#: src/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "Izberi vrsto"
-
-#: src/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Soba"
-
-#: src/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "Prostor"
-
-#: src/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "Ime:"
-
-#: src/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "Tema:"
-
-#: src/qml/CreateRoomDialog.qml:96 src/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Določi tega nadrejenega kot uradnega"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "Ustvari prostor"
-
-#: src/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "Ustvari sobo"
-
-#: src/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "Izberite obstoječo sobo"
-
-#: src/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "Poberite sobo"
-
-#: src/qml/CreateRoomDialog.qml:132 src/qml/CreateRoomDialog.qml:215
-#: src/qml/GlobalMenu.qml:64 src/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:210
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Razišči sobe"
-
-#: src/qml/CreateRoomDialog.qml:181 src/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "Pridružen"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr "Imate zahtevane pravice odvisnega, da nastavite to stanje"
-
-#: src/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr "Nimate dovolj pravic odvisnega, da nastavite to stanje"
-
-#: src/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "Določi ta prostor kot kanonično nadrejenega"
-
-#: src/qml/CreateRoomDialog.qml:267 src/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "V redu"
-
-#: src/qml/EditMenu.qml:15
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Undo"
-msgstr "Razveljavi"
-
-#: src/qml/EditMenu.qml:25
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Redo"
-msgstr "Ponovno uveljavi"
-
-#: src/qml/EditMenu.qml:37
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Cut"
-msgstr "Izreži"
-
-#: src/qml/EditMenu.qml:47
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Copy"
-msgstr "Kopiraj"
-
-#: src/qml/EditMenu.qml:57
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Paste"
-msgstr "Prilepi"
-
-#: src/qml/EditMenu.qml:67
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Delete"
-msgstr "Zbriši"
-
-#: src/qml/EditMenu.qml:79
-#, kde-format
-msgctxt "text editing menu action"
-msgid "Select All"
-msgstr "Izberi vse"
-
-#: src/qml/EditStateDialog.qml:28 src/qml/MessageSourceSheet.qml:56
-#, kde-format
-msgctxt "@title As in 'edit the state of this room'"
-msgid "Edit State"
-msgstr "Uredi stanje"
-
-#: src/qml/EditStateDialog.qml:32
-#, kde-format
-msgctxt "@action"
-msgid "Revert changes"
-msgstr "Povrni spremembe"
-
-#: src/qml/EditStateDialog.qml:38
-#, kde-format
-msgctxt "@action As in 'Apply the changes'"
-msgid "Apply"
-msgstr "Uveljavi"
-
-#: src/qml/EmojiSas.qml:26
-#, kde-format
-msgid ""
-"Confirm the emoji below are displayed on both devices, in the same order."
-msgstr ""
-"Potrdite, da so čustvenčki spodaj prikazani na obeh napravah v enakem "
-"zaporedju."
-
-#: src/qml/EmojiSas.qml:45
-#, kde-format
-msgid "They match"
-msgstr "Se ujemajo"
-
-#: src/qml/EmojiSas.qml:51
-#, kde-format
-msgid "They don't match"
-msgstr "Se ne ujemajo"
-
-#: src/qml/ExplorerDelegate.qml:72
-#, kde-format
-msgctxt "@info:label A matrix space"
-msgid "Space"
-msgstr "Prostor"
-
-#: src/qml/ExploreRoomsPage.qml:52
-#, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "Razišči sobe"
-
-#: src/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "Prikazuj samo prostore"
-
-#: src/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "Vnesite sobo ročno"
-
-#: src/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "Če že poznate naslov ali vzdevek sobe in ni prikazan tukaj."
-
-#: src/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "Najdi sobo …"
-
-#: src/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Nobene javne sobe ni najdene"
-
-#: src/qml/FullScreenMap.qml:23
-#, kde-format
-msgid "View Location"
-msgstr "Prikaži mesto"
-
-#: src/qml/FullScreenMap.qml:70
-#, kde-format
-msgid "Close"
-msgstr "Zapri"
-
-#: src/qml/GlobalMenu.qml:21
-#, kde-format
-msgctxt "menu"
-msgid "NeoChat"
-msgstr "NeoChat"
-
-#: src/qml/GlobalMenu.qml:24
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "Konfiguriraj NeoChat…"
-
-#: src/qml/GlobalMenu.qml:25
-#, kde-format
-msgctxt "menu"
-msgid "Configure NeoChat…"
-msgstr "Konfiguriraj NeoChat…"
-
-#: src/qml/GlobalMenu.qml:31
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "Zapusti NeoChat"
-
-#: src/qml/GlobalMenu.qml:38
-#, kde-format
-msgctxt "menu"
-msgid "File"
-msgstr "Datoteka"
-
-#: src/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
-msgstr "Najdi vaše prijatelje"
-
-#: src/qml/GlobalMenu.qml:42 src/qml/GlobalMenu.qml:51
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:172 src/rooms/RoomListPage.qml:221
-#, kde-format
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
-
-#: src/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:180
-#: src/rooms/RoomListPage.qml:225
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
-
-#: src/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Nova skupina …"
-
-#: src/qml/GlobalMenu.qml:59
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Brskaj po klepetih …"
-
-#: src/qml/GlobalMenu.qml:73
-#, kde-format
-msgctxt "menu"
-msgid "Edit"
-msgstr "Uredi"
-
-#: src/qml/GlobalMenu.qml:77
-#, kde-format
-msgctxt "menu"
-msgid "View"
-msgstr "Pogled"
-
-#: src/qml/GlobalMenu.qml:80
-#, kde-format
-msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
-"a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Odpri hitri preklopnik"
-
-#: src/qml/GlobalMenu.qml:85
-#, kde-format
-msgctxt "menu"
-msgid "Window"
-msgstr "Okno"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Exit Full Screen"
-msgstr "Izhod iz celozaslonskega načina"
-
-#: src/qml/GlobalMenu.qml:88
-#, kde-format
-msgctxt "menu"
-msgid "Enter Full Screen"
-msgstr "Vstopi na celotni zaslon"
-
-#: src/qml/GlobalMenu.qml:93
-#, kde-format
-msgctxt "menu"
-msgid "Help"
-msgstr "Pomoč"
-
-#: src/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "O programu Matrix"
-
-#: src/qml/GlobalMenu.qml:100
-#, kde-format
-msgctxt "menu"
-msgid "About NeoChat"
-msgstr "O programu NeoChat"
-
-#: src/qml/GlobalMenu.qml:104
-#, kde-format
-msgctxt "menu"
-msgid "About KDE"
-msgstr "O KDE"
-
-#: src/qml/GroupChatDrawerHeader.qml:67 src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Brez imena"
-
-#: src/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "To sporočilo je bilo poslano iz verificirane naprave"
-
-#: src/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Odzovi se"
-
-#: src/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Odgovori v niti"
-
-#: src/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr "Konec ankete"
-
-#: src/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Trenutno izbrana povezava"
-
-#: src/qml/ImageEditorPage.qml:36
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "Razveljavi"
-
-#: src/qml/ImageEditorPage.qml:43
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Sprejmi"
-
-#: src/qml/ImageEditorPage.qml:51
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Datoteke ni mogoče shraniti. Preverite, ali imate ustrezno dovoljenje za "
-"urejanje predpomnilnika imenika."
-
-#: src/qml/ImageEditorPage.qml:123
-#, kde-format
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/qml/ImageEditorPage.qml:123 src/qml/ImageEditorPage.qml:139
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Obreži"
-
-#: src/qml/ImageEditorPage.qml:144
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "Zasukaj v levo"
-
-#: src/qml/ImageEditorPage.qml:150
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "Zasukaj v desno"
-
-#: src/qml/ImageEditorPage.qml:156
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Prevrni"
-
-#: src/qml/ImageEditorPage.qml:162
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Prezrcali"
-
-#: src/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 vas je povabil, da se pridružite"
-
-#: src/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "Ta uporabnik vas vabi na klepet."
-
-#: src/qml/InvitationView.qml:79
-#, kde-format
-msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
-"Povabila neznanih uporabnikov lahko zavračate v varnostnih nastavitvah."
-
-#: src/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "Zavrni"
-
-#: src/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "Sprejmi"
-
-#: src/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "Povabi uporabnika"
-
-#: src/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "Najdi uporabnika…"
-
-#: src/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "Ni najdenih uporabnikov"
-
-#: src/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "Povabi tega uporabnika"
-
-#: src/qml/InviteUserPage.qml:34 src/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "Uporabnik je ali že član ali je bil povabljen"
-
-#: src/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "Pošlji povabilo"
-
-#: src/qml/JoinRoomDialog.qml:29
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Join Room"
-msgstr "Pridruži se v sobo"
-
-#: src/qml/JoinRoomDialog.qml:67
-#, kde-format
-msgctxt "@action:button"
-msgid "Join room"
-msgstr "Pridruži se sobi"
-
-#: src/qml/KeyVerificationDialog.qml:16
-#, kde-format
-msgid "Session Verification"
-msgstr "Verifikacija seje"
-
-#: src/qml/KeyVerificationDialog.qml:92
-#, kde-format
-msgid "Accept"
-msgstr "Sprejmi"
-
-#: src/qml/KeyVerificationDialog.qml:98
-#, kde-format
-msgid "Decline"
-msgstr "Odkloni"
-
-#: src/qml/KeyVerificationDialog.qml:140
-#, kde-format
-msgid "Waiting for device to accept verification."
-msgstr "Čakanje na napravo, da sprejme verifikacijo."
-
-#: src/qml/KeyVerificationDialog.qml:142
-#, kde-format
-msgid "Incoming key verification request from device **%1**"
-msgstr "Prejet zahtevek verifikacije ključa iz naprave **%1**"
-
-#: src/qml/KeyVerificationDialog.qml:144
-#, kde-format
-msgid "Waiting for other party to verify."
-msgstr "Čakanje na verifikacijo druge stranke."
-
-#: src/qml/KeyVerificationDialog.qml:146
-#, kde-format
-msgid "Successfully verified device **%1**"
-msgstr "Uspešno verificirana naprava **%1**"
-
-#: src/qml/KeyVerificationDialog.qml:161
-#, kde-format
-msgctxt "@info"
-msgid "Choose a verification method to continue"
-msgstr "Izberite metodo preverjanja za nadaljevanje"
-
-#: src/qml/KeyVerificationDialog.qml:165
-#, kde-format
-msgctxt "@action:button"
-msgid "Emoji Verification"
-msgstr "Verifikacija čustvenčka"
-
-#: src/qml/LocationChooser.qml:22
-#, kde-format
-msgid "Choose a Location"
-msgstr "Izberi lokacijo"
-
-#: src/qml/LocationChooser.qml:27
-#, kde-format
-msgid "Send this location"
-msgstr "Pošlji to lokacijo"
-
-#: src/qml/LocationChooser.qml:35
-#, kde-format
-msgctxt "@action:intoolbar Re-center the map onto the set location"
-msgid "Re-Center"
-msgstr "Ponovno usredini"
-
-#: src/qml/LocationChooser.qml:41
-#, kde-format
-msgctxt "@action:intoolbar Determine the device's location"
-msgid "Locate"
-msgstr "Lociraj"
-
-#: src/qml/LocationsPage.qml:16 src/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Lokacije"
-
-#: src/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Ni deljenih lokacij v tej sobi."
-
-#: src/qml/Main.qml:167
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Room Information"
-msgstr "Prikaži informacije o sobi"
-
-#: src/qml/Main.qml:170
-#, kde-format
-msgctxt "@action:button"
-msgid "Close Room Information Drawer"
-msgstr "Zapri predal z informacijami o sobi"
-
-#: src/qml/Main.qml:290
-#, kde-format
-msgctxt "@title:window"
-msgid "Session Verification"
-msgstr "Verifikacija seje"
-
-#: src/qml/Main.qml:330 src/qml/ShareAction.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Share"
-msgstr "Deli"
-
-#: src/qml/ManualRoomDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "Manually Enter a Room"
-msgstr "Ročno vstopite v sobo"
-
-#: src/qml/ManualRoomDialog.qml:38 src/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "V redu"
-
-#: src/qml/ManualRoomDialog.qml:81
-#, kde-format
-msgid "Room ID or Alias:"
-msgstr "ID sobe ali vzdevek:"
-
-#: src/qml/ManualRoomDialog.qml:84 src/qml/ManualRoomDialog.qml:92
-#, kde-format
-msgid "Must start with # for an alias or ! for an ID"
-msgstr "Se mora začeti z # za vzdevek ali ! za ID"
-
-#: src/qml/ManualRoomDialog.qml:90
-#, kde-format
-msgid "The input is not a valid room ID or alias"
-msgstr "Vneseno ni veljavni ID sobe ali vzdevek"
-
-#: src/qml/ManualUserDialog.qml:26
-#, kde-format
-msgctxt "@title"
-msgid "User ID"
-msgstr "Določilnik uporabnika"
-
-#: src/qml/ManualUserDialog.qml:54
-#, kde-format
-msgid "User ID:"
-msgstr "Določilnik uporabnika:"
-
-#: src/qml/ManualUserDialog.qml:57 src/qml/ManualUserDialog.qml:65
-#, kde-format
-msgid "User IDs Must start with @"
-msgstr "Določilnik uporabnika se mora začeti z @"
-
-#: src/qml/ManualUserDialog.qml:63
-#, kde-format
-msgid "The input is not a valid user ID"
-msgstr "Vneseno ni veljavni določilnik uporabnika"
-
-#: src/qml/MessageSourceSheet.qml:46
-#, kde-format
-msgctxt "@action As in 'edit the state of this room'"
-msgid "Edit state"
-msgstr "Uredi stanje"
-
-#: src/qml/NewPollDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr "Pošlji"
-
-#: src/qml/NewPollDialog.qml:38
-#, kde-format
-msgctxt "@title: create new poll in the room"
-msgid "Create Poll"
-msgstr "Ustvari glasovanje"
-
-#: src/qml/NewPollDialog.qml:46
-#, kde-format
-msgid "Poll type:"
-msgstr "Vrsta glasovanja:"
-
-#: src/qml/NewPollDialog.qml:51
-#, kde-format
-msgid "Open poll"
-msgstr "Odpri glasovanje"
-
-#: src/qml/NewPollDialog.qml:52
-#, kde-format
-msgid "Closed poll"
-msgstr "Zapri glasovanje"
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Voters can see the result as soon as they have voted"
-msgstr "Volivci lahko vidijo rezultat takoj, ko glasujejo"
-
-#: src/qml/NewPollDialog.qml:57
-#, kde-format
-msgid "Results are revealed only after the poll has closed"
-msgstr "Rezultati so razkriti šele po zaključku glasovanja"
-
-#: src/qml/NewPollDialog.qml:61
-#, kde-format
-msgid "Question:"
-msgstr "Vprašanje:"
-
-#: src/qml/NewPollDialog.qml:104
-#, kde-format
-msgctxt "As in first answer option to the poll"
-msgid "Option %1:"
-msgstr "Možnost %1:"
-
-#: src/qml/NewPollDialog.qml:120
-#, kde-format
-msgid "Enter option"
-msgstr "Vnesi možnost"
-
-#: src/qml/NewPollDialog.qml:126
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove option"
-msgstr "Odstrani možnost"
-
-#: src/qml/NewPollDialog.qml:151
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "Dodaj možnost"
-
-#: src/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
-#, kde-format
-msgctxt "@title"
-msgid "Notifications"
-msgstr "Obvestila"
-
-#: src/qml/NotificationsView.qml:34
-#, kde-format
-msgid "No Notifications"
-msgstr "Ni obvestil"
-
-#: src/qml/OpenFileDialog.qml:12
-#, kde-format
-msgid "Select a File"
-msgstr "Izberi datoteko"
-
-#: src/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:126
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "Skeniraj kodo QR"
-
-#: src/qml/QuickFormatBar.qml:23
-#, kde-format
-msgid "Bold"
-msgstr "Krepko"
-
-#: src/qml/QuickFormatBar.qml:42
-#, kde-format
-msgid "Italic"
-msgstr "Ležeče"
-
-#: src/qml/QuickFormatBar.qml:61
-#, kde-format
-msgid "Strikethrough"
-msgstr "Prečrtano"
-
-#: src/qml/QuickFormatBar.qml:80
-#, kde-format
-msgid "Code block"
-msgstr "Blok kode"
-
-#: src/qml/QuickFormatBar.qml:99
-#, kde-format
-msgid "Quote"
-msgstr "Navedba"
-
-#: src/qml/QuickFormatBar.qml:118
-#, kde-format
-msgid "Insert link"
-msgstr "Vstavi povezavo"
-
-#: src/qml/QuickSwitcher.qml:29
-#, kde-format
-msgctxt "Placeholder message"
-msgid "No room found"
-msgstr "Nobene sobe ni mogoče najti"
-
-#: src/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
-#, kde-format
-msgctxt "@action:button"
-msgid "Explore rooms"
-msgstr "Razišči sobe"
-
-#: src/qml/ReasonDialog.qml:53
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/qml/RecommendedSpaceDialog.qml:25
-#, kde-format
-msgctxt "@title Join <name of a space>"
-msgid "Join %1"
-msgstr "Pridruži se %1"
-
-#: src/qml/RecommendedSpaceDialog.qml:53
-#, kde-format
-msgctxt "@action:button"
-msgid "Join"
-msgstr "Pridruži se"
-
-#: src/qml/RecommendedSpaceDialog.qml:63
-#, kde-format
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "Prezri"
-
-#: src/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "Odstrani odvisnega"
-
-#: src/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "Odvisni %1bo odstranjen iz prostora %2"
-
-#: src/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "Trenutni prostor je uradni nadrejeni te sobe, ali naj bo izpraznjen?"
-
-#: src/qml/RoomDrawer.qml:116 src/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Nastavitve sobe"
-
-#: src/qml/RoomDrawer.qml:165 src/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "Informacije"
-
-#: src/qml/RoomDrawer.qml:170 src/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "Mediji"
-
-#: src/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Člani prostora"
-
-#: src/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Informacije o sobi"
-
-#: src/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Dejavnosti"
-
-#: src/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "Išči v tej sobi"
-
-#: src/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Išči"
-
-#: src/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Verificiraj uporabnika"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Odstrani sobo iz priljubljenih"
-
-#: src/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "Označi to sobo za najljubšo"
-
-#: src/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Pokaži mesta za to sobo"
-
-#: src/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Pripeta sporočila"
-
-#: src/qml/RoomInformation.qml:146 src/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Pripeta sporočila"
-
-#: src/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Zapusti ta prostor"
-
-#: src/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Zapusti to sobo"
-
-#: src/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Člani"
-
-#: src/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Povabi uporabnika"
-
-#: src/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "Povabite uporabnika v sobo"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 članov"
-msgstr[1] "%1 član"
-msgstr[2] "%1 člana"
-msgstr[3] "%1 člani"
-
-#: src/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "Ni števila članov"
-
-#: src/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Mediji sobe"
-
-#: src/qml/RoomPage.qml:92
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
-
-#: src/qml/RoomPage.qml:149
-#, kde-format
-msgid "Welcome to NeoChat"
-msgstr "Dobrodošli v NeoChat"
-
-#: src/qml/RoomPage.qml:150
-#, kde-format
-msgid "Select or join a room to get started"
-msgstr "Izberi ali pridruži sobi za začetek"
-
-#: src/qml/RoomPage.qml:243
-#, kde-format
-msgid "Message Source"
-msgstr "Vir sporočila"
-
-#: src/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Ni pripetih sporočil"
-
-#: src/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Išči sporočila"
-
-#: src/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "Najdi sporočila …"
-
-#: src/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "Vnesite besedilo za začetek iskanja"
-
-#: src/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "Ni najdenih sporočil"
-
-#: src/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "Išči"
-
-#: src/qml/ServerComboBox.qml:47
-#, kde-format
-msgid "Add New Server"
-msgstr "Dodaj novi strežnik"
-
-#: src/qml/ServerComboBox.qml:63
-#, kde-format
-msgid "Home Server"
-msgstr "Domači strežnik"
-
-#: src/qml/ServerComboBox.qml:70
-#, kde-format
-msgctxt "@action:button"
-msgid "Add new server"
-msgstr "Dodaj novi strežnik"
-
-#: src/qml/ServerComboBox.qml:110
-#, kde-format
-msgctxt "@title:window"
-msgid "Add server"
-msgstr "Dodaj strežnik"
-
-#: src/qml/ServerComboBox.qml:137
-#, kde-format
-msgid "The entered text is not a valid url"
-msgstr "Vneseno besedilo ni veljavni naslov url"
-
-#: src/qml/ServerComboBox.qml:141
-#, kde-format
-msgid "This server cannot be resolved or has already been added"
-msgstr "Tega strežnika ni mogoče rešiti ali pa je že dodan"
-
-#: src/qml/ServerComboBox.qml:152
-#, kde-format
-msgid "Server URL:"
-msgstr "Strežnikov naslov URL:"
-
-#: src/qml/ShareAction.qml:23
-#, kde-format
-msgid "Share"
-msgstr "Deli"
-
-#: src/qml/ShareAction.qml:24
-#, kde-format
-msgid "Share the selected media"
-msgstr "Deli izbrane medije"
-
-#: src/qml/ShareDialog.qml:37
-#, kde-format
-msgid "Sharing failed"
-msgstr "Deljenje ni uspelo"
-
-#: src/qml/ShareDialog.qml:58
-#, kde-format
-msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
-
-#: src/qml/UnlockSSSSDialog.qml:16
-#, kde-format
-msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Naloži vaša šifrirana sporočila"
-
-#: src/qml/UnlockSSSSDialog.qml:38
-#, kde-format
-msgctxt "@info:status"
-msgid "Encryption keys restored."
-msgstr "Šifrirni ključi obnovljeni."
-
-#: src/qml/UnlockSSSSDialog.qml:50
-#, kde-format
-msgctxt "@info:status"
-msgid "The security phrase was not correct."
-msgstr "Varnostna fraza ni pravilna."
-
-#: src/qml/UnlockSSSSDialog.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Passphrase"
-msgstr "Odkleni z uporabo varnostne fraze"
-
-#: src/qml/UnlockSSSSDialog.qml:60
-#, kde-format
-msgctxt "@info"
-msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
-"Če imate varnostno kopijo skrivne fraze za ta račun, jo vnesite spodaj."
-
-#: src/qml/UnlockSSSSDialog.qml:64
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Backup Password:"
-msgstr "Varnostna kopija gesla:"
-
-#: src/qml/UnlockSSSSDialog.qml:69 src/qml/UnlockSSSSDialog.qml:104
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Odkleni"
-
-#: src/qml/UnlockSSSSDialog.qml:81
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Security Key"
-msgstr "Odkleni z uporabo varnostnega ključa"
-
-#: src/qml/UnlockSSSSDialog.qml:85
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have a security key for this account, enter it below or upload it as "
-"a file."
-msgstr ""
-"Če imate varnostni ključ za ta račun, ga vnesite spodaj ali ga prenesite kot "
-"datoteko."
-
-#: src/qml/UnlockSSSSDialog.qml:89
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Security Key:"
-msgstr "Varnostni ključ:"
-
-#: src/qml/UnlockSSSSDialog.qml:94
-#, kde-format
-msgctxt "@action:button"
-msgid "Upload from File"
-msgstr "Prenesi iz datoteke"
-
-#: src/qml/UnlockSSSSDialog.qml:115
-#, kde-format
-msgctxt "@title"
-msgid "Unlock from Cross-Signing"
-msgstr "Odkleni iz navskrižnega podpisovanja"
-
-#: src/qml/UnlockSSSSDialog.qml:119
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
-msgstr ""
-"Če ste že preverili to napravo, lahko poskusite naložiti varnostni ključ iz "
-"drugih naprav, tako da kliknete spodnji gumb."
-
-#: src/qml/UnlockSSSSDialog.qml:124
-#, kde-format
-msgctxt "@action:button"
-msgid "Request from other Devices"
-msgstr "Zahtevek iz drugih naprav"
-
-#: src/qml/UserDetailDialog.qml:34
-#, kde-format
-msgctxt "@title:menu Account details dialog"
-msgid "Account Details"
-msgstr "Podrobnosti računa"
-
-#: src/qml/UserDetailDialog.qml:83
-#, kde-format
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "%1 skupnih sob"
-msgstr[1] "%1 skupna soba"
-msgstr[2] "%1 skupni sobi"
-msgstr[3] "%1 skupne sobe"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Unignore this user"
-msgstr "Ne prezri tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:136
-#, kde-format
-msgid "Ignore this user"
-msgstr "Prezri tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:149
-#, kde-format
-msgid "Kick this user"
-msgstr "Brcni tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:153 src/qml/UserDetailDialog.qml:158
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "Brcni uporabnika"
-
-#: src/qml/UserDetailDialog.qml:154
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "Razlog za brco za tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:155
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "Brcni"
-
-#: src/qml/UserDetailDialog.qml:174
-#, kde-format
-msgid "Invite this user"
-msgstr "Povabi tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:187
-#, kde-format
-msgid "Ban this user"
-msgstr "Prepovej tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:192 src/qml/UserDetailDialog.qml:197
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "Prepovej uporabnika"
-
-#: src/qml/UserDetailDialog.qml:193
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "Razlog za prepoved za tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:194
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Prepoved"
-
-#: src/qml/UserDetailDialog.qml:212
-#, kde-format
-msgid "Unban this user"
-msgstr "Prekini prepoved temu uporabniku"
-
-#: src/qml/UserDetailDialog.qml:225
-#, kde-format
-msgid "Set user power level"
-msgstr "Uredi raven moči uporabnika"
-
-#: src/qml/UserDetailDialog.qml:250
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "Odstrani nedavna sporočila tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:255
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Odstrani sporočila"
-
-#: src/qml/UserDetailDialog.qml:256
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
-
-#: src/qml/UserDetailDialog.qml:257
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Odstrani"
-
-#: src/qml/UserDetailDialog.qml:260
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Odstrani sporočila"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "Klepet z %1"
-
-#: src/qml/UserDetailDialog.qml:274
-#, kde-format
-msgid "Invite to private chat"
-msgstr "Povabi na zasebni klepet"
-
-#: src/qml/UserDetailDialog.qml:285
-#, kde-format
-msgid "Copy link"
-msgstr "Kopiraj povezavo"
-
-#: src/qml/UserSearchPage.qml:33
-#, kde-format
-msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Poišči vaše prijatelje"
-
-#: src/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "Vnesite določilnik uporabnika (ID)"
-
-#: src/qml/UserSearchPage.qml:91
-#, kde-format
-msgid "Find your friends…"
-msgstr "Poiščite svoje prijatelje …"
-
-#: src/qml/UserSearchPage.qml:92
-#, kde-format
-msgid "Enter text to start searching for your friends"
-msgstr "Vnesite besedilo za začetek iskanja vaših prijateljev"
-
-#: src/qml/UserSearchPage.qml:93
-#, kde-format
-msgctxt "@info:label"
-msgid "No matches found"
-msgstr "Ni najdenih zadetkov"
-
-#: src/qml/VerificationCanceled.qml:18
-#, kde-format
-msgid "The session verification was canceled for unknown reason."
-msgstr "Verifikacija seje je bila prekinjena zaradi neznanega vzroka."
-
-#: src/qml/VerificationCanceled.qml:20
-#, kde-format
-msgid "The session verification timed out."
-msgstr "Verifikacija seje je potekla."
-
-#: src/qml/VerificationCanceled.qml:22
-#, kde-format
-msgid "The session verification timed out for remote party."
-msgstr "Verifikacija seje je potekla na oddaljeni strani."
-
-#: src/qml/VerificationCanceled.qml:24
-#, kde-format
-msgid "You canceled the session verification."
-msgstr "Preklicali ste verifikacijo seje."
-
-#: src/qml/VerificationCanceled.qml:26
-#, kde-format
-msgid "The remote party canceled the session verification."
-msgstr "Oddaljena stran je preklicala verifikacijo seje."
-
-#: src/qml/VerificationCanceled.qml:28
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an unexpected "
-"message."
-msgstr ""
-"Verifikacija seje je bila preklicana, ker smo sprejeli nepričakovano "
-"sporočilo."
-
-#: src/qml/VerificationCanceled.qml:30
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"unexpected message."
-msgstr ""
-"Verifikacija seje je bila preklicana na oddaljeni strani, ker so sprejeli "
-"nepričakovano sporočilo."
-
-#: src/qml/VerificationCanceled.qml:32
-#, kde-format
-msgid ""
-"The session verification was canceled because it received a message for an "
-"unknown session."
-msgstr ""
-"Verifikacija seje je bila preklicana, ker je bilo sprejeto sporočilo neznane "
-"seje."
-
-#: src/qml/VerificationCanceled.qml:34
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received a "
-"message for an unknown session."
-msgstr ""
-"Verifikacijo seje je preklicala oddaljena stran, ker je sprejela sporočilo "
-"neznane seje."
-
-#: src/qml/VerificationCanceled.qml:36
-#, kde-format
-msgid ""
-"The session verification was canceled because NeoChat is unable to handle "
-"this verification method."
-msgstr ""
-"Verifikacija seje je bila preklicana, ker NeoChat ni sposoben obravnavati te "
-"metode verifikacije."
-
-#: src/qml/VerificationCanceled.qml:38
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it is unable to "
-"handle this verification method."
-msgstr ""
-"Verifikacijo seje je preklicala oddaljena stran, ker ni sposobna obravnavati "
-"te metode verifikacije."
-
-#: src/qml/VerificationCanceled.qml:40
-#, kde-format
-msgid "The session verification was canceled because the keys are incorrect."
-msgstr "Verifikacija seje je bila preklicana, ker so ključi nekorektni."
-
-#: src/qml/VerificationCanceled.qml:42
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys are "
-"incorrect.\n"
-"\n"
-"**Please log out and log back in, your session is broken/corrupt.**"
-msgstr ""
-"Verifikacijo seje je preklicala oddaljena stran, ker so ključi nekorektni.\n"
-"\n"
-"**Prosimo odjavite se in nato se spet prijavite, vaša seja je pokvarjena.**"
-
-#: src/qml/VerificationCanceled.qml:44
-#, kde-format
-msgid ""
-"The session verification was canceled because it verifies an unexpected user."
-msgstr ""
-"Verifikacija seje je bila preklicana, ker verificira nepričakovanega "
-"uporabnika."
-
-#: src/qml/VerificationCanceled.qml:46
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it verifies an "
-"unexpected user."
-msgstr ""
-"Verifikacija seje je preklicala oddaljena stran, ker verificira "
-"nepričakovanega uporabnika."
-
-#: src/qml/VerificationCanceled.qml:48
-#, kde-format
-msgid ""
-"The session verification was canceled because we received an invalid message."
-msgstr ""
-"Verifikacija seje je bila preklicana, ker smo sprejeli neveljavno sporočilo."
-
-#: src/qml/VerificationCanceled.qml:50
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because it received an "
-"invalid message."
-msgstr ""
-"Verifikacija seje je preklicala oddaljena stran, ker je sprejela neveljavno "
-"sporočilo."
-
-#: src/qml/VerificationCanceled.qml:52 src/qml/VerificationCanceled.qml:54
-#, kde-format
-msgid "The session was accepted on a different device"
-msgstr "Ta seja je bila sprejeta na drugačni napravi"
-
-#: src/qml/VerificationCanceled.qml:56
-#, kde-format
-msgid "The session verification was canceled because of a mismatched key."
-msgstr "Verifikacija seje je bila preklicana zaradi neustreznega ključa."
-
-#: src/qml/VerificationCanceled.qml:58
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because of a mismatched "
-"key."
-msgstr ""
-"Verifikacijo seje je preklicala oddaljena stran zaradi neustreznega ključa."
-
-#: src/qml/VerificationCanceled.qml:60
-#, kde-format
-msgid "The session verification was canceled because the keys do not match."
-msgstr "Verifikacija seje je bila preklicana, ker se ključa ne ujemata."
-
-#: src/qml/VerificationCanceled.qml:62
-#, kde-format
-msgid ""
-"The remote party canceled the session verification because the keys do not "
-"match."
-msgstr ""
-"Verifikacijo seje je preklicala oddaljena stran, ker se ključa ne ujemata."
-
-#: src/qml/VerificationCanceled.qml:64
-#, kde-format
-msgid "The session verification was canceled due to an unknown error."
-msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
-
-#: src/roommanager.cpp:211
-#, kde-format
-msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
-msgstr ""
-"Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
-"Matrix"
-
-#: src/roommanager.cpp:417
-#, kde-format
-msgid "Failed to join room<br />%1"
-msgstr "Neuspela pridružitev v sobo<br />%1"
-
-#: src/roommanager.cpp:441
-#, kde-format
-msgid "You requested to join '%1'"
-msgstr "Prosili ste za pridružitev v »%1«"
-
-#: src/roommanager.cpp:445
-#, kde-format
-msgid "Failed to request joining room<br />%1"
-msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
 
 #: src/rooms/ExploreComponent.qml:34
 #, kde-format
@@ -3752,20 +3765,16 @@ msgid "Deprioritize"
 msgstr "Odtegni prednost"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Kopiraj uporabnikovo Matrixovo določilo na odložišče"
+msgstr "Kopiraj uporabnikovo Matrixovo določilo"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "Kopiraj naslov povezave"
+msgstr "Kopiraj naslov sobe"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -3844,15 +3853,14 @@ msgid "Home"
 msgstr "Domov"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "Prikaži obvestila"
-msgstr[1] "Prikaži obvestila"
-msgstr[2] "Prikaži obvestila"
-msgstr[3] "Prikaži obvestila"
+msgstr[0] "Prijatelji (%1 obvestil)"
+msgstr[1] "Prijatelji (%1 obvestilo)"
+msgstr[2] "Prijatelji (%1 obvestili)"
+msgstr[3] "Prijatelji (%1 obvestila)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -3878,12 +3886,10 @@ msgid "View Space"
 msgstr "Prikaži prostor"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Kopiraj naslov povezave"
+msgstr "Kopiraj naslov prostora"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -6392,16 +6398,6 @@ msgstr "Glasnost"
 #, kde-format
 msgid "Maximize"
 msgstr "Razpni"
-
-#: src/trayicon.cpp:21
-#, kde-format
-msgid "Show"
-msgstr "Prikaži"
-
-#: src/trayicon.cpp:36
-#, kde-format
-msgid "Quit"
-msgstr "Zapusti"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
