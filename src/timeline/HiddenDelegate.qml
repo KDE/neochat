@@ -28,6 +28,8 @@ TimelineDelegate {
      */
     required property NeochatRoomMember author
 
+    required property string eventType
+
     width: parent?.width
     rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
 
@@ -53,7 +55,7 @@ TimelineDelegate {
             }
             QQC2.Label {
                 Layout.fillWidth: true
-                text: root.author.displayName + " : " + root.eventId
+                text: root.author.displayName + ": " + root.eventType + " " + root.eventId
                 color: Kirigami.Theme.disabledTextColor
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight

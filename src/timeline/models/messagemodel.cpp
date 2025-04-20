@@ -309,6 +309,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return true;
     }
 
+    if (role == EventTypeRole) {
+        return event.value().get().matrixType();
+    }
+
     return {};
 }
 
@@ -338,6 +342,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[MediaInfoRole] = "mediaInfo";
     roles[IsEditableRole] = "isEditable";
     roles[ShowAuthorRole] = "showAuthor";
+    roles[EventTypeRole] = "eventType";
     return roles;
 }
 
