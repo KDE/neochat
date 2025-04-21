@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 08:58+0300\n"
+"PO-Revision-Date: 2025-04-20 08:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2108,8 +2108,7 @@ msgid "Show focus in window header"
 msgstr "הצגת מיקוד בכותרת החלון"
 
 #: src/devtools/DevtoolsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "כלי מפתחים"
@@ -2989,7 +2988,7 @@ msgstr "שולח את ההודעה שסופקה בצבעי קשת בענן"
 
 #: src/libneochat/models/actionsmodel.cpp:135
 msgid "Sends the given emote colored as a rainbow"
-msgstr ""
+msgstr "שליחת המסר הציורי שסופק בצבעי קשת בענן"
 
 #: src/libneochat/models/actionsmodel.cpp:149
 msgid "Sends the given message as plain text"
@@ -3001,7 +3000,7 @@ msgstr "שולח את ההודעה שסופקה כקלקלן"
 
 #: src/libneochat/models/actionsmodel.cpp:172
 msgid "Sends the given emote"
-msgstr ""
+msgstr "שליחת המסר הציורי שסופק"
 
 #: src/libneochat/models/actionsmodel.cpp:181
 msgid "Sends the given message as a notice"
@@ -3728,20 +3727,16 @@ msgid "Deprioritize"
 msgstr "הורדת עדיפות"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "להעתיק את מזהה ה־Matrix של המשתמש ללוח הגזירים"
+msgstr "להעתיק את מזהה ה־Matrix של המשתמש"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "העתקת כתובת קישור"
+msgstr "העתקת כתובת החדר"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -3818,15 +3813,14 @@ msgid "Home"
 msgstr "בית"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "הצגת התראות"
-msgstr[1] "הצגת התראות"
-msgstr[2] "הצגת התראות"
-msgstr[3] "הצגת התראות"
+msgstr[0] "חברים (התראה)"
+msgstr[1] "חברים (שתי התראות)"
+msgstr[2] "חברים (%1 התראות)"
+msgstr[3] "חברים (%1 התראות)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -3852,12 +3846,10 @@ msgid "View Space"
 msgstr "הצגת מרחב"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "העתקת כתובת קישור"
+msgstr "העתקת כתובת מרחב"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -5206,8 +5198,7 @@ msgid "Event Type…"
 msgstr "סוג אירוע…"
 
 #: src/settings/Permissions.qml:415
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "בטעינה…"
