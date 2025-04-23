@@ -10,7 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
     title: i18nc("@title", "Edit User Power Level")
 
@@ -19,8 +19,17 @@ Kirigami.Dialog {
     property int powerLevel
 
     width: Kirigami.Units.gridUnit * 24
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 
-    standardButtons: QQC2.Dialog.NoButton
+    standardButtons: QQC2.Dialog.Ok
+    onAccepted: {
+        root.room.setUserPowerLevel(root.userId, powerLevelComboBox.currentValue);
+        root.close();
+        root.destroy();
+    }
 
     onOpened: {
         if (root.opened) {
@@ -38,15 +47,4 @@ Kirigami.Dialog {
             valueRole: "value"
         }
     }
-    customFooterActions: [
-        Kirigami.Action {
-            text: i18n("Confirm")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                root.room.setUserPowerLevel(root.userId, powerLevelComboBox.currentValue);
-                root.close();
-                root.destroy();
-            }
-        }
-    ]
 }

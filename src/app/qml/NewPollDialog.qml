@@ -15,27 +15,18 @@ import Quotient
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     required property NeoChatRoom room
 
-    standardButtons: Kirigami.Dialog.Cancel
-
-    customFooterActions: [
-        Kirigami.Action {
-            enabled: optionModel.allValuesSet && questionTextField.text.length > 0
-            text: i18nc("@action:button", "Send")
-            icon.name: "document-send"
-            onTriggered: {
-                root.room.postPoll(pollTypeCombo.currentValue, questionTextField.text, optionModel.values())
-                root.close()
-            }
-        }
-    ]
+    title: i18nc("@title: create new poll in the room", "Create Poll")
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title: create new poll in the room", "Create Poll")
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -151,6 +142,21 @@ Kirigami.Dialog {
             text: i18nc("@action:button", "Add option")
 
             onClicked: optionModel.append({optionText: ""})
+        }
+    }
+
+    footer: QQC2.DialogButtonBox {
+        standardButtons: QQC2.Dialog.Cancel
+
+        QQC2.Button {
+            enabled: optionModel.allValuesSet && questionTextField.text.length > 0
+            text: i18nc("@action:button", "Send")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+            icon.name: "document-send"
+            onClicked: {
+                root.room.postPoll(pollTypeCombo.currentValue, questionTextField.text, optionModel.values())
+                root.close()
+            }
         }
     }
 }

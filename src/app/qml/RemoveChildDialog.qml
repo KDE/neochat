@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -9,7 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     required property NeoChatRoom parentRoom
@@ -28,7 +29,7 @@ Kirigami.Dialog {
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
 
-    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     onAccepted: parentRoom.removeChild(root.roomId, removeOfficalCheck.checked)
 

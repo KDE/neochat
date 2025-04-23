@@ -11,14 +11,15 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
     title: i18nc("@title:dialog", "Custom Room Sort Order")
 
     width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
     height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)
+    padding: 0
 
-    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Component.onCompleted: {
         header.background.children[0].visible = true
@@ -117,14 +118,15 @@ Kirigami.Dialog {
     Component {
         id: addParameterDialogComponent
 
-        Kirigami.Dialog {
+        QQC2.Dialog {
             id: addParameterDialog
             title: i18nc("@title:dialog", "Select Parameter to Add")
 
             width: Math.min(parent.width, Kirigami.Units.gridUnit * 24)
             height: Math.min(parent.height, Kirigami.Units.gridUnit * 24)
+            padding: 0
 
-            standardButtons: Kirigami.Dialog.Cancel
+            standardButtons: QQC2.Dialog.Cancel
 
             Component.onCompleted: {
                 header.background.children[0].visible = true

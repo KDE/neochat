@@ -13,7 +13,7 @@ import org.kde.prison
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     // This dialog is sometimes used outside the context of a room, e.g., when scanning a user's QR code.
@@ -28,7 +28,7 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.NoButton
+    standardButtons: QQC2.Dialog.NoButton
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title:menu Account details dialog", "Account Details")

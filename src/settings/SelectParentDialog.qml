@@ -14,7 +14,7 @@ import org.kde.neochat
 /**
  * @brief A dialog to select a parent space to add to a given room.
  */
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     /**
@@ -24,24 +24,26 @@ Kirigami.Dialog {
 
     title: i18nc("@title", "Select new official parent")
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(root.parent.width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
+    footer: QQC2.DialogButtonBox {
+        standardButtons: QQC2.Dialog.Cancel
+
+        QQC2.Button {
             enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
             text: i18n("OK")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             icon.name: "dialog-ok"
-            onTriggered: {
+            onClicked: {
                 root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked);
                 root.close();
             }
         }
-    ]
+    }
 
     contentItem: ColumnLayout {
         spacing: 0

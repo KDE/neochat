@@ -416,14 +416,20 @@ FormCard.FormCardPage {
         }
     }
 
-    property Kirigami.Dialog roomUpgradeDialog: Kirigami.Dialog {
+    property QQC2.Dialog roomUpgradeDialog: QQC2.Dialog {
         id: roomUpgradeDialog
 
         property var currentRoomVersion
 
-        width: Kirigami.Units.gridUnit * 16
-
         title: i18n("Upgrade the Room")
+
+        width: Kirigami.Units.gridUnit * 16
+        standardButtons: QQC2.Dialog.Ok
+        onAccepted: {
+            room.switchVersion(spinBox.value);
+            roomUpgradeDialog.close();
+        }
+
         ColumnLayout {
             FormCard.FormSpinBoxDelegate {
                 id: spinBox
@@ -433,15 +439,5 @@ FormCard.FormCardPage {
                 value: room.version
             }
         }
-        customFooterActions: [
-            Kirigami.Action {
-                text: i18n("Confirm")
-                icon.name: "dialog-ok"
-                onTriggered: {
-                    room.switchVersion(spinBox.value);
-                    roomUpgradeDialog.close();
-                }
-            }
-        ]
     }
 }

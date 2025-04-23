@@ -65,7 +65,7 @@ FormCard.FormCardPage {
         visible: !root.connection
     }
 
-    property Kirigami.Dialog passwordSheet: Kirigami.Dialog {
+    property QQC2.Dialog passwordSheet: QQC2.Dialog {
         id: passwordSheet
 
         property string deviceId
@@ -74,7 +74,6 @@ FormCard.FormCardPage {
 
         title: i18n("Remove device")
 
-        standardButtons: QQC2.Dialog.Cancel
         FormCard.FormCard {
             FormCard.FormTextFieldDelegate {
                 id: passwordField
@@ -82,16 +81,19 @@ FormCard.FormCardPage {
                 echoMode: TextInput.Password
             }
         }
-        customFooterActions: [
-            Kirigami.Action {
+        footer: QQC2.DialogButtonBox {
+            standardButtons: QQC2.Dialog.Cancel
+
+            QQC2.Button {
                 text: i18nc("As in 'Remove this device'", "Remove")
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 icon.name: "delete"
-                onTriggered: {
+                onClicked: {
                     devicesModel.logout(passwordSheet.deviceId, passwordField.text);
                     passwordField.text = "";
                     passwordSheet.close();
                 }
             }
-        ]
+        }
     }
 }

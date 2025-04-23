@@ -13,7 +13,7 @@ import Quotient
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     /**
@@ -26,17 +26,15 @@ Kirigami.Dialog {
      */
     property list<string> restrictedIds: room.restrictedIds
 
-    parent: applicationWindow().overlay
-
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(root.parent.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title", "Select Spaces")
 
-    standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
     onAccepted: {
         let ids = [];
         for (var i in spaceGroup.buttons) {

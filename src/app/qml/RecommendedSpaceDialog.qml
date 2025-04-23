@@ -10,12 +10,10 @@ import org.kde.kirigamiaddons.components
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     property var connection
-
-    parent: applicationWindow().overlay
 
     leftPadding: 0
     rightPadding: 0

@@ -8,33 +8,30 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+Kirigami.PromptDialog {
     id: root
 
     required property var user
 
-    width: Math.min(Kirigami.Units.gridUnit * 24, QQC2.ApplicationWindow.window.width)
-    height: Kirigami.Units.gridUnit * 8
-
-    standardButtons: QQC2.Dialog.Close
     title: i18nc("@title:dialog", "Start a chat")
+    subtitle: i18n("Do you want to start a chat with %1?", root.user.displayName)
+    dialogType: Kirigami.PromptDialog.Warning
 
-    contentItem: QQC2.Label {
-        text: i18n("Do you want to start a chat with %1?", root.user.displayName)
-        textFormat: Text.PlainText
-        wrapMode: Text.Wrap
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
+    onRejected: {
+        root.close();
     }
 
-    customFooterActions: [
-        Kirigami.Action {
+    footer: QQC2.DialogButtonBox {
+        standardButtons: QQC2.Dialog.Cancel
+
+        QQC2.Button {
             text: i18nc("@action:button", "Start Chat")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             icon.name: "im-user"
-            onTriggered: {
+            onClicked: {
                 root.user.requestDirectChat();
                 root.close();
             }
         }
-    ]
+    }
 }

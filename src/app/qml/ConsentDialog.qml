@@ -8,32 +8,30 @@ import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+Kirigami.PromptDialog {
     id: root
 
     required property string url
 
-    width: Math.min(Kirigami.Units.gridUnit * 24, QQC2.ApplicationWindow.window.width)
-    height: Kirigami.Units.gridUnit * 8
-    leftPadding: Kirigami.Units.largeSpacing
-    rightPadding: Kirigami.Units.largeSpacing
-
     title: i18nc("@title:dialog", "User Consent")
+    subtitle: i18nc("@info", "Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
+    dialogType: Kirigami.PromptDialog.Warning
 
-    contentItem: QQC2.Label {
-        text: i18nc("@info", "Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
-        wrapMode: Text.WordWrap
-        horizontalAlignment: Qt.AlignHCenter
-        verticalAlignment: Qt.AlignVCenter
+    onRejected: {
+        root.close();
     }
-    customFooterActions: [
-        Kirigami.Action {
+
+    footer: QQC2.DialogButtonBox {
+        standardButtons: QQC2.Dialog.Cancel
+
+        QQC2.Button {
             text: i18nc("@action:button", "Open")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             icon.name: "internet-services"
-            onTriggered: {
+            onClicked: {
                 UrlHelper.openUrl(root.url);
                 root.close();
             }
         }
-    ]
+    }
 }

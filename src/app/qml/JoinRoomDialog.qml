@@ -12,7 +12,7 @@ import org.kde.prison
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     required property string room
@@ -23,7 +23,7 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.NoButton
+    standardButtons: QQC2.Dialog.NoButton
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title:dialog", "Join Room")

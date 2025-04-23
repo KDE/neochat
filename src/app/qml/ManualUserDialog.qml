@@ -10,7 +10,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     /**
@@ -30,19 +30,6 @@ Kirigami.Dialog {
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
-
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
-            enabled: userIdText.isValidText
-            text: i18n("OK")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                root.connection.requestDirectChat(userIdText.text);
-                root.accept();
-            }
-        }
-    ]
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -71,6 +58,21 @@ Kirigami.Dialog {
             Timer {
                 id: timer
                 interval: 1000
+            }
+        }
+    }
+
+    footer: QQC2.DialogButtonBox {
+        standardButtons: QQC2.Dialog.Cancel
+
+        QQC2.Button {
+            enabled: userIdText.isValidText
+            text: i18n("OK")
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+            icon.name: "dialog-ok"
+            onClicked: {
+                root.connection.requestDirectChat(userIdText.text);
+                root.accept();
             }
         }
     }

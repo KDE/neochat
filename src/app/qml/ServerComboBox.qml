@@ -102,7 +102,7 @@ QQC2.ComboBox {
         }
     }
 
-    Kirigami.Dialog {
+    QQC2.Dialog {
         id: addServerSheet
 
         width: Math.min(Kirigami.Units.gridUnit * 15, QQC2.ApplicationWindow.window.width)
@@ -182,15 +182,19 @@ QQC2.ComboBox {
             }
         }
 
-        customFooterActions: Kirigami.Action {
-            text: i18nc("@action:button", "Ok")
-            enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
-            onTriggered: {
-                serverListModel.addServer(serverUrlField.text);
-                root.currentIndex = root.indexOfValue(serverUrlField.text);
-                root.server = root.currentValue;
-                serverUrlField.text = "";
-                addServerSheet.close();
+        footer: QQC2.DialogButtonBox {
+            QQC2.Button {
+                enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
+                text: i18nc("@action:button", "Ok")
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+                icon.name: "dialog-ok"
+                onClicked: {
+                    serverListModel.addServer(serverUrlField.text);
+                    root.currentIndex = root.indexOfValue(serverUrlField.text);
+                    root.server = root.currentValue;
+                    serverUrlField.text = "";
+                    addServerSheet.close();
+                }
             }
         }
     }

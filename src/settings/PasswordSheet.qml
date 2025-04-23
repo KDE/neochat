@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     signal submitPassword(string password)

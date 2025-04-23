@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -11,7 +12,7 @@ import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     required property NeoChatConnection connection
@@ -23,7 +24,7 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.NoButton
+    standardButtons: QQC2.Dialog.NoButton
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title: dialog to switch between logged in accounts", "Switch Account")

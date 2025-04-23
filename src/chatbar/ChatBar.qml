@@ -123,7 +123,7 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                newPollDialog.createObject(QQC2.Overlay.overlay, {
+                newPollDialog.createObject(root.QQC2.Overlay.overlay, {
                     room: root.currentRoom
                 }).open();
             }
