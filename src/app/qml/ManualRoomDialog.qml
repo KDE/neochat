@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Window
 import QtQuick.Layouts
 
@@ -10,7 +11,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-Kirigami.Dialog {
+QQC2.Dialog {
     id: root
 
     /**
@@ -31,35 +32,41 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             enabled: roomIdAliasText.isValidText
             text: i18n("OK")
             icon.name: "dialog-ok"
-            onTriggered: {
-                // We don't necessarily have all the info so fill out the best we can.
-                let roomId = roomIdAliasText.isAlias() ? "" : roomIdAliasText.text;
-                let displayName = "";
-                let avatarUrl = "";
-                let alias = roomIdAliasText.isAlias() ? roomIdAliasText.text : "";
-                let topic = "";
-                let memberCount = -1;
-                let isJoined = false;
-                if (roomIdAliasText.room) {
-                    roomId = roomIdAliasText.room.id;
-                    displayName = roomIdAliasText.room.displayName;
-                    avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : "";
-                    alias = roomIdAliasText.room.canonicalAlias;
-                    topic = roomIdAliasText.room.topic;
-                    memberCount = roomIdAliasText.room.joinedCount;
-                    isJoined = true;
-                }
-                root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
-                root.close();
-            }
         }
-    ]
+        QQC2.Button {
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
+            text: i18n("Cancel")
+            icon.name: "dialog-cancel"
+        }
+    }
+
+    onAccepted: {
+        // We don't necessarily have all the info so fill out the best we can.
+        let roomId = roomIdAliasText.isAlias() ? "" : roomIdAliasText.text;
+        let displayName = "";
+        let avatarUrl = "";
+        let alias = roomIdAliasText.isAlias() ? roomIdAliasText.text : "";
+        let topic = "";
+        let memberCount = -1;
+        let isJoined = false;
+        if (roomIdAliasText.room) {
+            roomId = roomIdAliasText.room.id;
+            displayName = roomIdAliasText.room.displayName;
+            avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : "";
+            alias = roomIdAliasText.room.canonicalAlias;
+            topic = roomIdAliasText.room.topic;
+            memberCount = roomIdAliasText.room.joinedCount;
+            isJoined = true;
+        }
+        root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
+        root.close();
+    }
 
     contentItem: ColumnLayout {
         spacing: 0
