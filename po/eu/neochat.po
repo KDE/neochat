@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 22:54+0200\n"
+"PO-Revision-Date: 2025-04-23 18:16+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:181
 #, kde-format
@@ -44,10 +44,9 @@ msgid "Chat on Matrix"
 msgstr "Berriketa Matrix-en"
 
 #: src/app/main.cpp:150
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2024 KDE komunitatea"
+msgstr "© 2018-2020 Black Hat, 2020-2025 KDE komunitatea"
 
 #: src/app/main.cpp:151
 #, kde-format
@@ -2149,8 +2148,7 @@ msgid "Show focus in window header"
 msgstr "Erakutsi fokua leihoaren goiburuan"
 
 #: src/devtools/DevtoolsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
@@ -3775,20 +3773,16 @@ msgid "Deprioritize"
 msgstr "Lehentasuna kentzea"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Kopiatu erabiltzailearen «Matrix»eko IDa arbelera"
+msgstr "Kopiatu erabiltzailearen Matrix IDa"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "Kopiatu estekaren helbidea"
+msgstr "Kopiatu gelaren helbidea"
 
 #: src/rooms/RoomContextMenu.qml:138
 #, kde-format
@@ -3867,13 +3861,12 @@ msgid "Home"
 msgstr "Etxea"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "Ikusi jakinarazpenak"
-msgstr[1] "Ikusi jakinarazpenak"
+msgstr[0] "Lagunak (jakinarazpen %1)"
+msgstr[1] "Lagunak (%1 jakinarazpen)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -3899,12 +3892,10 @@ msgid "View Space"
 msgstr "Ikusi tokia"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Kopiatu estekaren helbidea"
+msgstr "Kopiatu tokiaren helbidea"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
 #, kde-format
@@ -5264,8 +5255,7 @@ msgid "Event Type…"
 msgstr "Gertaera mota…"
 
 #: src/settings/Permissions.qml:415
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "Zamatzen..."
