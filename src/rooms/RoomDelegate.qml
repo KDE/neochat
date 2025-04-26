@@ -26,11 +26,14 @@ Delegates.RoundedItemDelegate {
     required property string displayName
 
     property bool openOnClick: true
+    property bool openOnDrag: false
     property bool showConfigure: true
 
     property bool collapsed: false
 
     readonly property bool hasNotifications: contextNotificationCount > 0
+
+    dropAreaHovered: dropArea.containsDrag
 
     Accessible.name: root.displayName
     Accessible.onPressAction: clicked()
@@ -55,6 +58,23 @@ Delegates.RoundedItemDelegate {
     TapHandler {
         acceptedDevices: PointerDevice.TouchScreen
         onLongPressed: root.createRoomListContextMenu()
+    }
+
+    DropArea {
+        id: dropArea
+        enabled: root.openOnDrag
+        anchors.fill: parent
+    }
+
+    Timer {
+        id: dragOpenTimer
+        running: dropArea.containsDrag
+        interval: Application.styleHints.mousePressAndHoldInterval
+        repeat: false
+        onTriggered: {
+            RoomManager.resolveResource(currentRoom.id);
+            pageStack.currentIndex = 1;
+        }
     }
 
     contentItem: RowLayout {

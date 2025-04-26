@@ -163,6 +163,7 @@ Kirigami.Page {
                             connection: root.connection
                             collapsed: root.collapsed
                             highlighted: RoomManager.currentRoom === currentRoom
+                            openOnDrag: true
                         }
                     }
 
