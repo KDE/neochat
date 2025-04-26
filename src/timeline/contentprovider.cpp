@@ -21,7 +21,9 @@ MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, co
     }
 
     if (!m_eventContentModels.contains(evtOrTxnId)) {
-        m_eventContentModels.insert(evtOrTxnId, new MessageContentModel(room, evtOrTxnId, isReply));
+        auto model = new MessageContentModel(room, evtOrTxnId, isReply);
+        QQmlEngine::setObjectOwnership(model, QQmlEngine::CppOwnership);
+        m_eventContentModels.insert(evtOrTxnId, model);
     }
 
     return m_eventContentModels.object(evtOrTxnId);
@@ -80,7 +82,9 @@ ThreadModel *ContentProvider::modelForThread(NeoChatRoom *room, const QString &t
     }
 
     if (!m_threadModels.contains(threadRootId)) {
-        m_threadModels.insert(threadRootId, new ThreadModel(threadRootId, room));
+        auto model = new ThreadModel(threadRootId, room);
+        QQmlEngine::setObjectOwnership(model, QQmlEngine::CppOwnership);
+        m_threadModels.insert(threadRootId, model);
     }
 
     return m_threadModels.object(threadRootId);
@@ -100,7 +104,9 @@ PollHandler *ContentProvider::handlerForPoll(NeoChatRoom *room, const QString &e
     }
 
     if (!m_pollHandlers.contains(eventId)) {
-        m_pollHandlers.insert(eventId, new PollHandler(room, eventId));
+        auto pollHandler = new PollHandler(room, eventId);
+        QQmlEngine::setObjectOwnership(pollHandler, QQmlEngine::CppOwnership);
+        m_pollHandlers.insert(eventId, pollHandler);
     }
 
     return m_pollHandlers.object(eventId);

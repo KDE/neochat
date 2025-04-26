@@ -96,7 +96,9 @@ void RoomListModel::doResetModel()
 
 NeoChatRoom *RoomListModel::roomAt(int row) const
 {
-    return m_rooms.at(row);
+    auto room = m_rooms.at(row);
+    QQmlEngine::setObjectOwnership(room, QQmlEngine::CppOwnership);
+    return room;
 }
 
 void RoomListModel::doAddRoom(Room *r)
@@ -309,6 +311,7 @@ NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
 {
     for (const auto &room : std::as_const(m_rooms)) {
         if (room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
+            QQmlEngine::setObjectOwnership(room, QQmlEngine::CppOwnership);
             return room;
         }
     }
