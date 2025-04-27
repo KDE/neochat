@@ -11,7 +11,7 @@ ecm_add_test(
     TEST_NAME neochatroomtest
 )
 
-if (NOT $ENV{KDE_CI})
+if (NOT DEFINED ENV{KDECI_BUILD})
     ecm_add_test(
         texthandlertest.cpp
         LINK_LIBRARIES neochat Qt::Test
