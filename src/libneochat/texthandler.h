@@ -140,6 +140,7 @@ private:
     QString escapeHtml(QString stringIn);
     QString unescapeHtml(QString stringIn);
     QString linkifyUrls(QString stringIn);
+    QString customMarkdownToHtml(const QString &stringIn);
 
     QString editString() const;
     QString emoteString(const NeoChatRoom *room = nullptr, const Quotient::RoomEvent *event = nullptr) const;

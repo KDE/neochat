@@ -43,6 +43,8 @@ private Q_SLOTS:
     void sendCustomEmoji();
     void sendCustomEmojiCode_data();
     void sendCustomEmojiCode();
+    void sendSpoilerTags_data();
+    void sendSpoilerTags();
 
     void receiveSpacelessSelfClosingTag();
     void receiveStripReply();
@@ -239,6 +241,27 @@ void TextHandlerTest::sendCustomEmojiCode_data()
 
 // Custom emojis in code blocks should be left alone.
 void TextHandlerTest::sendCustomEmojiCode()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+}
+
+void TextHandlerTest::sendSpoilerTags_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("incomplete") << u"||test"_s << u"||test"_s;
+    QTest::newRow("complete") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
+    QTest::newRow("multiple") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
+}
+
+void TextHandlerTest::sendSpoilerTags()
 {
     QFETCH(QString, testInputString);
     QFETCH(QString, testOutputString);

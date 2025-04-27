@@ -53,6 +53,7 @@ QString TextHandler::handleSendText()
 {
     m_pos = 0;
     m_dataBuffer = markdownToHTML(m_data);
+    m_dataBuffer = customMarkdownToHtml(m_dataBuffer);
 
     m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
 
@@ -699,6 +700,31 @@ QString TextHandler::linkifyUrls(QString stringIn)
     }
 
     return stringIn;
+}
+
+QString TextHandler::customMarkdownToHtml(const QString &stringIn)
+{
+    QString buffer = stringIn;
+
+    while (true) {
+        const int pos = buffer.indexOf(u"||"_s);
+        if (pos == -1) {
+            break;
+        }
+
+        int nextPos = buffer.indexOf(u"||"_s, pos + 1);
+        if (nextPos == -1) {
+            break;
+        }
+
+        buffer.replace(pos, 2, QStringLiteral("<span data-mx-spoiler>"));
+
+        // we have to re-search because the index moved!
+        nextPos = buffer.indexOf(u"||"_s, pos + 1);
+        buffer.replace(nextPos, 2, QStringLiteral("</span>"));
+    }
+
+    return buffer;
 }
 
 QString TextHandler::editString() const
