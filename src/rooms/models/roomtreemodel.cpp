@@ -360,7 +360,7 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
             return i18nc("@info:label", "%1 invited you", room->member(room->invitingUserId()).displayName());
         }
         const auto lastEvent = room->lastEvent(m_hiddenFilter);
-        if (lastEvent == nullptr || room->lastEventIsSpoiler()) {
+        if (lastEvent == nullptr || room->isEventSpoiler(lastEvent)) {
             return QString();
         }
         return EventHandler::subtitleText(room, lastEvent);

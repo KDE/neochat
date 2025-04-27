@@ -248,7 +248,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     if (role == SubtitleTextRole) {
         const auto lastEvent = room->lastEvent(m_hiddenFilter);
-        if (lastEvent == nullptr || room->lastEventIsSpoiler()) {
+        if (lastEvent == nullptr || room->isEventSpoiler(lastEvent)) {
             return QString();
         }
         return EventHandler::subtitleText(room, lastEvent);

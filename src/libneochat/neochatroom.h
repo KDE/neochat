@@ -212,7 +212,7 @@ public:
     [[nodiscard]] const Quotient::RoomEvent *lastEvent(std::function<bool(const Quotient::RoomEvent *)> filter = {}) const;
 
     /**
-     * @brief Convenient way to check if the last event looks like it has spoilers.
+     * @brief Convenient way to check if the event looks like it has spoilers.
      *
      * This does a basic check to see if the message contains a data-mx-spoiler
      * attribute within the text which makes it likely that the message has a spoiler
@@ -222,7 +222,7 @@ public:
      *
      * @sa lastEvent()
      */
-    [[nodiscard]] bool lastEventIsSpoiler() const;
+    [[nodiscard]] bool isEventSpoiler(const Quotient::RoomEvent *e) const;
 
     /**
      * @brief Return the notification count for the room accounting for tags and notification state.

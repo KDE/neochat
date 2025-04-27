@@ -379,14 +379,12 @@ void NeoChatRoom::cacheLastEvent()
     }
 }
 
-bool NeoChatRoom::lastEventIsSpoiler() const
+bool NeoChatRoom::isEventSpoiler(const RoomEvent *e) const
 {
-    if (auto event = lastEvent()) {
-        if (auto e = eventCast<const RoomMessageEvent>(event)) {
-            if (e->has<EventContent::TextContent>() && e->content() && e->mimeType().name() == "text/html"_L1) {
-                auto htmlBody = e->get<EventContent::TextContent>()->body;
-                return htmlBody.contains("data-mx-spoiler"_L1);
-            }
+    if (const auto message = eventCast<const RoomMessageEvent>(e)) {
+        if (message->has<EventContent::TextContent>() && message->content() && message->mimeType().name() == "text/html"_L1) {
+            const auto htmlBody = message->get<EventContent::TextContent>()->body;
+            return htmlBody.contains("data-mx-spoiler"_L1);
         }
     }
     return false;
