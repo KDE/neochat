@@ -37,6 +37,7 @@ public:
         TextCode, /*!< Text between code tags */
         End, /*!< End of the input string */
     };
+    Q_ENUM(Type)
 
     /**
      * @brief Get the string being handled.
