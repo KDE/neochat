@@ -196,7 +196,6 @@ Kirigami.ApplicationWindow {
         NeoChatSettingsView.window = root;
         NeoChatSettingsView.connection = root.connection;
         WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
-        TextToSpeechWrapper.warmUp();
         if (ShareHandler.text && root.connection) {
             root.handleShare()
         }
