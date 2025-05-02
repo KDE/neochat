@@ -1660,7 +1660,11 @@ void NeoChatRoom::cleanupExtraEvent(const QString &eventId)
 }
 QString NeoChatRoom::invitingUserId() const
 {
-    return currentState().get<RoomMemberEvent>(connection()->userId())->senderId();
+    auto event = currentState().get<RoomMemberEvent>(connection()->userId());
+    if (!event) {
+        return {};
+    }
+    return event->senderId();
 }
 
 void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, const QByteArray &content)
