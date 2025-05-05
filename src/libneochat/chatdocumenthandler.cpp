@@ -118,6 +118,10 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
         });
     });
     connect(this, &ChatDocumentHandler::documentChanged, this, [this]() {
+        if (!m_document) {
+            m_highlighter->setDocument(nullptr);
+            return;
+        }
         m_highlighter->setDocument(m_document->textDocument());
     });
     connect(this, &ChatDocumentHandler::cursorPositionChanged, this, [this]() {
