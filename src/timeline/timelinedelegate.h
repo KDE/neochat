@@ -50,6 +50,11 @@ class TimelineDelegate : public QQuickItem
      */
     Q_PROPERTY(qreal rightPadding READ rightPadding WRITE setRightPadding NOTIFY rightPaddingChanged FINAL)
 
+    /**
+     * @brief The width of the timeline column.
+     */
+    Q_PROPERTY(qreal timelineWidth READ timelineWidth NOTIFY timelineWidthChanged FINAL)
+
 public:
     TimelineDelegate(QQuickItem *parent = nullptr);
 
@@ -65,28 +70,34 @@ public:
     [[nodiscard]] qreal rightPadding();
     void setRightPadding(qreal rightPadding);
 
+    [[nodiscard]] qreal timelineWidth();
+
 Q_SIGNALS:
     void contentItemChanged();
     void alwaysFillWidthChanged();
     void leftPaddingChanged();
     void rightPaddingChanged();
+    void timelineWidthChanged();
 
 protected:
-    void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
-    void componentComplete() override;
-
-private:
     Kirigami::Platform::Units *m_units = nullptr;
-    void setCurveValues();
+    virtual void setCurveValues();
 
     DelegateSizeHelper m_sizeHelper;
-
     bool m_alwaysFillWidth = false;
 
-    void resizeContent();
-    void updateImplicitHeight();
-
     QPointer<QQuickItem> m_contentItem;
+
+    void markAsDirty();
+    bool m_isDirty = false;
+    virtual void updateImplicitHeight();
+    virtual void resizeContent();
+    bool m_resizingContent = false;
+
+private:
+    void componentComplete() override;
+    void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
+    void updatePolish() override;
 };
 
 #endif

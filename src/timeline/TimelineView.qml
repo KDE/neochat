@@ -159,7 +159,7 @@ QQC2.ScrollView {
                     }
                 ]
 
-                width: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.contentItem.width : 0
+                width: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.timelineWidth : 0
                 labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
                 colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
             }

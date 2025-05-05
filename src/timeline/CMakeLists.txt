@@ -63,6 +63,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         locationhelper.cpp
         mediasizehelper.cpp
         messageattached.cpp
+        messagedelegate.cpp
         pollhandler.cpp
         timelinedelegate.cpp
         enums/delegatetype.h

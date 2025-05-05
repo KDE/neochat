@@ -26,7 +26,7 @@ import org.kde.neochat.libneochat as LibNeoChat
  * This component also supports a compact mode where the padding is adjusted, the
  * background is hidden and the delegate spans the full width of the timeline.
  */
-TimelineDelegate {
+MessageDelegateBase {
     id: root
 
     /**
@@ -45,20 +45,6 @@ TimelineDelegate {
     required property string eventId
 
     /**
-     * @brief The message author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property NeochatRoomMember author
-
-    /**
-     * @brief Whether the message author should be shown.
-     */
-    required property bool showAuthor
-
-    /**
      * @brief The model to visualise the content of the message.
      */
     required property MessageContentModel contentModel
@@ -69,24 +55,9 @@ TimelineDelegate {
     required property string section
 
     /**
-     * @brief Whether the section header should be shown.
-     */
-    required property bool showSection
-
-    /**
      * @brief A model with the first 5 other user read markers for this message.
      */
     required property var readMarkers
-
-    /**
-     * @brief Whether the other user read marker component should be shown.
-     */
-    required property bool showReadMarkers
-
-    /**
-     * @brief Whether the message in a thread.
-     */
-    required property bool isThreaded
 
     /**
      * @brief The Matrix ID of the root message in the thread, if any.
@@ -130,7 +101,7 @@ TimelineDelegate {
      *
      * @note Used for positioning the hover actions.
      */
-    readonly property alias bubbleY: mainContainer.y
+    readonly property alias bubbleY: bubble.y
 
     /**
      * @brief The width of the message bubble.
@@ -164,179 +135,83 @@ TimelineDelegate {
      */
     property bool showHighlight: root.isHighlighted || isTemporaryHighlighted
 
-    /**
-     * @brief Whether the message should temporarily be highlighted.
-     *
-     * Normally triggered when jumping to the event in the timeline, e.g. when a reply
-     * is clicked.
-     */
-    property bool isTemporaryHighlighted: false
-
-    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
-        temporaryHighlightTimer.start();
-    }
-
-    Timer {
-        id: temporaryHighlightTimer
-
-        interval: 1500
-        onTriggered: isTemporaryHighlighted = false
-    }
-
-    /**
-     * @brief The width available to the bubble content.
-     */
-    property real contentMaxWidth: (root.isThreaded ? bubbleSizeHelper.parentWidth : bubbleSizeHelper.availableWidth) - bubble.leftPadding - bubble.rightPadding
-
     Message.room: root.room
     Message.timeline: root.ListView.view
     Message.contentModel: root.contentModel
     Message.index: root.index
-    Message.maxContentWidth: contentMaxWidth
+    Message.maxContentWidth: maxContentWidth - bubble.leftPadding - bubble.rightPadding
 
     width: parent?.width
-    rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
 
-    alwaysFillWidth: NeoChatConfig.compactLayout
+    enableAvatars: NeoChatConfig?.showAvatarInTimeline ?? false
+    compactMode: NeoChatConfig?.compactLayout ?? false
+    showLocalMessagesOnRight: NeoChatConfig.showLocalMessagesOnRight
 
-    contentItem: ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
+    contentItem: Bubble {
+        id: bubble
+        topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
+        bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
+        leftPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-        SectionDelegate {
-            id: sectionDelegate
-            Layout.fillWidth: true
-            visible: root.showSection
-            labelText: root.section
-            colorSet: NeoChatConfig.compactLayout || root.alwaysFillWidth ? Kirigami.Theme.View : Kirigami.Theme.Window
+        author: root.author
+        showAuthor: root.showAuthor
+        isThreaded: root.isThreaded
+
+        contentModel: root.contentModel
+
+        showHighlight: root.showHighlight
+
+        isPending: root.isPending
+
+        onSelectedTextChanged: selectedText => {
+            root.Message.selectedText = selectedText;
         }
-        QQC2.ItemDelegate {
-            id: mainContainer
-
-            Layout.fillWidth: true
-            Layout.topMargin: root.showAuthor ? Kirigami.Units.largeSpacing : (NeoChatConfig.compactLayout ? 1 : Kirigami.Units.smallSpacing)
-            Layout.leftMargin: Kirigami.Units.smallSpacing
-            Layout.rightMargin: Kirigami.Units.smallSpacing
-
-            implicitHeight: Math.max(root.showAuthor ? avatar.implicitHeight : 0, bubble.height)
-
-            // show hover actions
-            onHoveredChanged: {
-                if (hovered && !Kirigami.Settings.isMobile) {
-                    root.setHoverActionsToDelegate();
-                }
-            }
-
-            KirigamiComponents.AvatarButton {
-                id: avatar
-                width: visible || NeoChatConfig.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2 : 0
-                height: width
-                anchors {
-                    left: parent.left
-                    leftMargin: Kirigami.Units.smallSpacing
-                    top: parent.top
-                    topMargin: Kirigami.Units.smallSpacing
-                }
-
-                visible: ((root.showAuthor ?? false) || root.isThreaded) && NeoChatConfig.showAvatarInTimeline && (NeoChatConfig.compactLayout || !_private.showUserMessageOnRight)
-                name: root.author.displayName
-                source: root.author.avatarUrl
-                color: root.author.color
-                asynchronous: true
-                QQC2.ToolTip.text: root.author.htmlSafeDisambiguatedName
-
-                onClicked: RoomManager.resolveResource(root.author.uri)
-            }
-            Bubble {
-                id: bubble
-                anchors.left: avatar.right
-                anchors.leftMargin: Kirigami.Units.largeSpacing
-                anchors.rightMargin: rightPadding
-
-                topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
-                bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
-                leftPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-                rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
-
-                state: _private.showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
-                // states for anchor animations on window resize
-                // as setting anchors to undefined did not work reliably
-                states: [
-                    State {
-                        name: "userMessageOnRight"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: undefined
-                            anchors.right: parent.right
-                        }
-                    },
-                    State {
-                        name: "userMessageOnLeft"
-                        AnchorChanges {
-                            target: bubble
-                            anchors.left: avatar.right
-                            anchors.right: root.isThreaded ? parent.right : undefined
-                        }
-                    }
-                ]
-
-                author: root.author
-                showAuthor: root.showAuthor
-                isThreaded: root.isThreaded
-
-                contentModel: root.contentModel
-
-                showHighlight: root.showHighlight
-
-                isPending: root.isPending
-
-                onSelectedTextChanged: selectedText => {
-                    root.Message.selectedText = selectedText;
-                }
-                onHoveredLinkChanged: hoveredLink => {
-                    root.Message.hoveredLink = hoveredLink;
-                }
-
-                showBackground: root.cardBackground && !NeoChatConfig.compactLayout
-            }
-
-            background: Rectangle {
-                visible: mainContainer.hovered && (NeoChatConfig.compactLayout || root.alwaysFillWidth)
-                color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                radius: Kirigami.Units.cornerRadius
-            }
-
-            TapHandler {
-                acceptedButtons: Qt.RightButton
-                onTapped: _private.showMessageMenu()
-            }
-
-            TapHandler {
-                acceptedDevices: PointerDevice.TouchScreen
-                acceptedButtons: Qt.LeftButton
-                onLongPressed: _private.showMessageMenu()
-            }
-        }
-        AvatarFlow {
-            Layout.alignment: Qt.AlignRight
-            Layout.rightMargin: Kirigami.Units.largeSpacing
-            visible: root.showReadMarkers
-            model: root.readMarkers
+        onHoveredLinkChanged: hoveredLink => {
+            root.Message.hoveredLink = hoveredLink;
         }
 
-        LibNeoChat.DelegateSizeHelper {
-            id: bubbleSizeHelper
-            parentItem: mainContainer
-            leftPadding: avatar.anchors.leftMargin + (NeoChatConfig.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
-            startBreakpoint: Kirigami.Units.gridUnit * 25
-            endBreakpoint: Kirigami.Units.gridUnit * 40
-            startPercentWidth: root.alwaysFillWidth ? 100 : 90
-            endPercentWidth: root.alwaysFillWidth ? 100 : 60
+        showBackground: root.cardBackground && !NeoChatConfig.compactLayout
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: _private.showMessageMenu()
+        }
+
+        TapHandler {
+            acceptedDevices: PointerDevice.TouchScreen
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: _private.showMessageMenu()
         }
     }
 
-    function isVisibleInTimeline() {
-        let yoff = Math.round(y - ListView.view.contentY);
-        return (yoff + height > 0 && yoff < ListView.view.height);
+    avatarComponent: KirigamiComponents.AvatarButton {
+        id: avatar
+        implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+        implicitHeight: width
+
+        name: root.author.displayName
+        source: root.author.avatarUrl
+        color: root.author.color
+        asynchronous: true
+        QQC2.ToolTip.text: root.author.htmlSafeDisambiguatedName
+
+        onClicked: RoomManager.resolveResource(root.author.uri)
+    }
+
+    sectionComponent: SectionDelegate {
+        id: sectionDelegate
+        labelText: root.section
+        colorSet: root.compactMode ? Kirigami.Theme.View : Kirigami.Theme.Window
+    }
+
+    readMarkerComponent: AvatarFlow {
+        model: root.readMarkers
+    }
+
+    compactBackgroundComponent: Rectangle {
+        color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+        radius: Kirigami.Units.cornerRadius
     }
 
     function setHoverActionsToDelegate() {
@@ -347,11 +222,6 @@ TimelineDelegate {
 
     QtObject {
         id: _private
-
-        /**
-         * @brief Whether local user messages should be aligned right.
-         */
-        property bool showUserMessageOnRight: NeoChatConfig.showLocalMessagesOnRight && root.author.isLocalMember && !NeoChatConfig.compactLayout && !root.alwaysFillWidth && !root.isThreaded
 
         function showMessageMenu() {
             RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.Message.selectedText, root.Message.hoveredLink);

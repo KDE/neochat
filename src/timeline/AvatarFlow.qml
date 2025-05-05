@@ -3,11 +3,12 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-Flow {
+RowLayout {
     id: root
 
     property var avatarSize: Kirigami.Units.iconSizes.small
@@ -33,6 +34,11 @@ Flow {
     }
     QQC2.Label {
         id: excessAvatarsLabel
+
+        Layout.preferredWidth: Math.max(excessAvatarsTextMetrics.advanceWidth + Kirigami.Units.largeSpacing * 2, height)
+        Layout.preferredHeight: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
+        Layout.fillHeight: true
+
         visible: text !== ""
         color: Kirigami.Theme.textColor
         horizontalAlignment: Text.AlignHCenter
@@ -41,17 +47,16 @@ Flow {
 
         background: Kirigami.ShadowedRectangle {
             color: Kirigami.Theme.backgroundColor
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            radius: height / 2
-            shadow.size: Kirigami.Units.smallSpacing
-            shadow.color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-            border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-            border.width: 1
+            radius: Math.ceil(height / 2)
+            shadow {
+                size: Kirigami.Units.smallSpacing
+                color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+            }
+            border {
+                color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                width: 1
+            }
         }
-
-        height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
-        width: Math.max(excessAvatarsTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
 
         TextMetrics {
             id: excessAvatarsTextMetrics

@@ -9,13 +9,17 @@ TimelineDelegate::TimelineDelegate(QQuickItem *parent)
     m_sizeHelper.setParentItem(this);
     connect(&m_sizeHelper, &DelegateSizeHelper::leftPaddingChanged, this, [this]() {
         Q_EMIT leftPaddingChanged();
-        resizeContent();
-        updatePolish();
+        Q_EMIT timelineWidthChanged();
+        markAsDirty();
     });
     connect(&m_sizeHelper, &DelegateSizeHelper::rightPaddingChanged, this, [this]() {
         Q_EMIT rightPaddingChanged();
-        resizeContent();
-        updatePolish();
+        Q_EMIT timelineWidthChanged();
+        markAsDirty();
+    });
+    connect(&m_sizeHelper, &DelegateSizeHelper::availableWidthChanged, this, [this]() {
+        Q_EMIT timelineWidthChanged();
+        markAsDirty();
     });
 }
 
@@ -31,7 +35,7 @@ void TimelineDelegate::setContentItem(QQuickItem *item)
     }
 
     if (m_contentItem) {
-        disconnect(m_contentItem, &QQuickItem::implicitHeightChanged, this, &TimelineDelegate::updateImplicitHeight);
+        m_contentItem->disconnect(this);
         m_contentItem->setParentItem(nullptr);
     }
 
@@ -39,13 +43,13 @@ void TimelineDelegate::setContentItem(QQuickItem *item)
 
     if (m_contentItem) {
         m_contentItem->setParentItem(this);
-        connect(m_contentItem, &QQuickItem::implicitHeightChanged, this, &TimelineDelegate::updateImplicitHeight);
+        connect(m_contentItem, &QQuickItem::implicitWidthChanged, this, &TimelineDelegate::markAsDirty);
+        connect(m_contentItem, &QQuickItem::implicitHeightChanged, this, &TimelineDelegate::markAsDirty);
+        connect(m_contentItem, &QQuickItem::visibleChanged, this, &TimelineDelegate::markAsDirty);
     }
 
+    markAsDirty();
     Q_EMIT contentItemChanged();
-
-    updateImplicitHeight();
-    resizeContent();
 }
 
 bool TimelineDelegate::alwaysFillWidth()
@@ -59,10 +63,16 @@ void TimelineDelegate::setAlwaysFillWidth(bool alwaysFillWidth)
         return;
     }
     m_alwaysFillWidth = alwaysFillWidth;
+
+    if (m_alwaysFillWidth) {
+        m_sizeHelper.setEndPercentWidth(100);
+    } else {
+        m_sizeHelper.setEndPercentWidth(85);
+    }
+
     Q_EMIT alwaysFillWidthChanged();
 
-    resizeContent();
-    updatePolish();
+    markAsDirty();
 }
 
 qreal TimelineDelegate::leftPadding()
@@ -85,14 +95,18 @@ void TimelineDelegate::setRightPadding(qreal rightPadding)
     m_sizeHelper.setRightPadding(rightPadding);
 }
 
+qreal TimelineDelegate::timelineWidth()
+{
+    return m_sizeHelper.availableWidth();
+}
+
 void TimelineDelegate::geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry)
 {
-    if (newGeometry == oldGeometry) {
-        return;
+    if (newGeometry != oldGeometry) {
+        markAsDirty();
     }
 
     QQuickItem::geometryChange(newGeometry, oldGeometry);
-    resizeContent();
 }
 
 void TimelineDelegate::componentComplete()
@@ -103,8 +117,14 @@ void TimelineDelegate::componentComplete()
     Q_ASSERT(engine);
     m_units = engine->singletonInstance<Kirigami::Platform::Units *>("org.kde.kirigami.platform", "Units");
     Q_ASSERT(m_units);
-    setCurveValues();
     connect(m_units, &Kirigami::Platform::Units::gridUnitChanged, this, &TimelineDelegate::setCurveValues);
+    connect(m_units, &Kirigami::Platform::Units::largeSpacingChanged, this, &TimelineDelegate::setCurveValues);
+    connect(m_units, &Kirigami::Platform::Units::smallSpacingChanged, this, &TimelineDelegate::setCurveValues);
+    setCurveValues();
+
+    if (m_isDirty) {
+        resizeContent();
+    }
 }
 
 void TimelineDelegate::setCurveValues()
@@ -115,21 +135,38 @@ void TimelineDelegate::setCurveValues()
     m_sizeHelper.setStartBreakpoint(qreal(m_units->gridUnit() * 46));
     m_sizeHelper.setEndBreakpoint(qreal(m_units->gridUnit() * 66));
     m_sizeHelper.setMaxWidth(qreal(m_units->gridUnit() * 60));
+}
 
-    resizeContent();
+void TimelineDelegate::markAsDirty()
+{
+    if (!m_isDirty) {
+        m_isDirty = true;
+        polish();
+    }
+}
+
+void TimelineDelegate::updatePolish()
+{
+    if (m_isDirty) {
+        resizeContent();
+    }
 }
 
 void TimelineDelegate::resizeContent()
 {
-    if (m_contentItem == nullptr || !isComponentComplete()) {
+    if (m_contentItem == nullptr || !isComponentComplete() || m_resizingContent) {
         return;
     }
 
-    auto availableWidth = m_alwaysFillWidth ? m_sizeHelper.maxAvailableWidth() : m_sizeHelper.availableWidth();
+    m_isDirty = false;
+    m_resizingContent = true;
 
-    const auto leftPadding = m_sizeHelper.leftPadding() + (m_sizeHelper.maxAvailableWidth() - availableWidth) / 2;
-    m_contentItem->setPosition(QPointF(leftPadding, 0));
-    m_contentItem->setSize(QSizeF(availableWidth, m_contentItem->implicitHeight()));
+    updateImplicitHeight();
+
+    m_contentItem->setPosition(QPointF(m_sizeHelper.leftX(), 0));
+    m_contentItem->setSize(QSizeF(m_sizeHelper.availableWidth(), m_contentItem->implicitHeight()));
+
+    m_resizingContent = false;
 }
 
 void TimelineDelegate::updateImplicitHeight()

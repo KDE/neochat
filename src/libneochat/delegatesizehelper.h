@@ -84,7 +84,7 @@ class DelegateSizeHelper : public QObject
      *
      * @sa parentWidth, startBreakpoint, endBreakpoint
      */
-    Q_PROPERTY(int availablePercentageWidth READ availablePercentageWidth NOTIFY availablePercentageWidthChanged)
+    Q_PROPERTY(int availablePercentageWidth READ availablePercentageWidth NOTIFY availableWidthChanged)
 
     /**
      * @brief The width (in px) of the component at the current parentWidth.
@@ -124,6 +124,16 @@ public:
     int availablePercentageWidth() const;
     qreal availableWidth() const;
 
+    /**
+     * @brief The left x position of the content column.
+     */
+    qreal leftX() const;
+
+    /**
+     * @brief The right x position of the content column.
+     */
+    qreal rightX() const;
+
 Q_SIGNALS:
     void parentItemChanged();
     void leftPaddingChanged();
@@ -147,6 +157,8 @@ private:
     int m_startPercentWidth = 100;
     int m_endPercentWidth = 85;
     std::optional<qreal> m_maxWidth = std::nullopt;
+
+    void calcWidthsChanged();
 
     int calculateAvailablePercentageWidth() const;
 };

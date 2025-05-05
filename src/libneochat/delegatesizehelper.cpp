@@ -26,14 +26,12 @@ void DelegateSizeHelper::setParentItem(QQuickItem *parentItem)
 
     if (m_parentItem) {
         connect(m_parentItem, &QQuickItem::widthChanged, this, [this]() {
-            Q_EMIT availablePercentageWidthChanged();
-            Q_EMIT availableWidthChanged();
+            calcWidthsChanged();
         });
     }
 
     Q_EMIT parentItemChanged();
-    Q_EMIT availablePercentageWidthChanged();
-    Q_EMIT availableWidthChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::leftPadding() const
@@ -48,8 +46,7 @@ void DelegateSizeHelper::setLeftPadding(qreal leftPadding)
     }
     m_leftPadding = leftPadding;
     Q_EMIT leftPaddingChanged();
-    Q_EMIT availablePercentageWidthChanged();
-    Q_EMIT availableWidthChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::rightPadding() const
@@ -64,8 +61,7 @@ void DelegateSizeHelper::setRightPadding(qreal rightPadding)
     }
     m_rightPadding = rightPadding;
     Q_EMIT rightPaddingChanged();
-    Q_EMIT availablePercentageWidthChanged();
-    Q_EMIT availableWidthChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::startBreakpoint() const
@@ -80,6 +76,7 @@ void DelegateSizeHelper::setStartBreakpoint(qreal startBreakpoint)
     }
     m_startBreakpoint = startBreakpoint;
     Q_EMIT startBreakpointChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::endBreakpoint() const
@@ -94,6 +91,7 @@ void DelegateSizeHelper::setEndBreakpoint(qreal endBreakpoint)
     }
     m_endBreakpoint = endBreakpoint;
     Q_EMIT endBreakpointChanged();
+    calcWidthsChanged();
 }
 
 int DelegateSizeHelper::startPercentWidth() const
@@ -108,6 +106,7 @@ void DelegateSizeHelper::setStartPercentWidth(int startPercentWidth)
     }
     m_startPercentWidth = startPercentWidth;
     Q_EMIT startPercentWidthChanged();
+    calcWidthsChanged();
 }
 
 int DelegateSizeHelper::endPercentWidth() const
@@ -122,6 +121,7 @@ void DelegateSizeHelper::setEndPercentWidth(int endPercentWidth)
     }
     m_endPercentWidth = endPercentWidth;
     Q_EMIT endPercentWidthChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::maxWidth() const
@@ -143,6 +143,7 @@ void DelegateSizeHelper::setMaxWidth(qreal maxWidth)
     }
     m_maxWidth = maxWidth;
     Q_EMIT maxWidthChanged();
+    calcWidthsChanged();
 }
 
 qreal DelegateSizeHelper::maxAvailableWidth() const
@@ -186,6 +187,22 @@ qreal DelegateSizeHelper::availableWidth() const
 {
     qreal absoluteWidth = maxAvailableWidth() * availablePercentageWidth() * 0.01;
     return std::round(std::min(absoluteWidth, maxWidth()));
+}
+
+qreal DelegateSizeHelper::leftX() const
+{
+    return m_leftPadding + (maxAvailableWidth() - availableWidth()) / 2;
+}
+
+qreal DelegateSizeHelper::rightX() const
+{
+    return m_leftPadding + maxAvailableWidth() - (maxAvailableWidth() - availableWidth()) / 2;
+}
+
+void DelegateSizeHelper::calcWidthsChanged()
+{
+    Q_EMIT availablePercentageWidthChanged();
+    Q_EMIT availableWidthChanged();
 }
 
 #include "moc_delegatesizehelper.cpp"

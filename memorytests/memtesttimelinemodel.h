@@ -39,9 +39,51 @@ public:
             testSyncFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + syncFileName);
             testSyncFile.open(QIODevice::ReadOnly);
             auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll()).object();
+            auto timelineJson = testSyncJson["timeline"_L1].toObject();
+            timelineJson["events"_L1] = multiplyEvents(timelineJson["events"_L1].toArray(), 100);
+            testSyncJson["timeline"_L1] = timelineJson;
             Quotient::SyncRoomData roomData(id(), Quotient::JoinState::Join, testSyncJson);
             update(std::move(roomData));
         }
+    }
+
+    QJsonArray multiplyEvents(QJsonArray events, int factor)
+    {
+        QJsonArray newArray;
+        int eventNum = 0;
+        int ts = 0;
+
+        for (int i = 0; i < factor; ++i) {
+            for (const auto &event : events) {
+                auto eventObject = event.toObject();
+                auto contentJson = eventObject["content"_L1].toObject();
+                if (contentJson.contains("m.relates_to"_L1)) {
+                    auto relatesToJson = contentJson["m.relates_to"_L1].toObject();
+                    if (relatesToJson.contains("m.in_reply_to"_L1)) {
+                        auto replyJson = relatesToJson["m.in_reply_to"_L1].toObject();
+                        const auto currentId = eventObject["event_id"_L1].toInt();
+                        const auto currentReplyId = replyJson["event_id"_L1].toInt();
+                        replyJson["event_id"_L1] = "$%1:example.org"_L1.arg(QString::number(eventNum - (currentId - currentReplyId)));
+                        relatesToJson["m.in_reply_to"_L1] = replyJson;
+                    } else if (relatesToJson.contains("event_id"_L1)) {
+                        const auto currentId = eventObject["event_id"_L1].toInt();
+                        const auto currentRelationId = relatesToJson["event_id"_L1].toInt();
+                        relatesToJson["event_id"_L1] = "$%1:example.org"_L1.arg(QString::number(eventNum - (currentId - currentRelationId)));
+                    }
+                    contentJson["m.relates_to"_L1] = relatesToJson;
+                    eventObject["content"_L1] = contentJson;
+                }
+                eventObject["event_id"_L1] = "$%1:example.org"_L1.arg(QString::number(eventNum));
+                eventObject["origin_server_ts"_L1] = ts;
+                auto unsignedJson = eventObject["unsigned"_L1].toObject();
+                unsignedJson["age"_L1] = ts;
+                eventObject["unsigned"_L1] = unsignedJson;
+                newArray.append(eventObject);
+                ++eventNum;
+                ++ts;
+            }
+        }
+        return newArray;
     }
 };
 

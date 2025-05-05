@@ -23,6 +23,7 @@ QQC2.ApplicationWindow {
         height: root.height
 
         contentItem: ListView {
+            cacheBuffer: 1000000
             model: messageFilterModel
 
             delegate: EventDelegate {
