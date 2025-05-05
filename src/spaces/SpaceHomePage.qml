@@ -34,7 +34,7 @@ ColumnLayout {
         ColumnLayout {
             id: headerColumn
             anchors.centerIn: headerItem
-            width: sizeHelper.currentWidth
+            width: sizeHelper.availableWidth
             spacing: Kirigami.Units.largeSpacing
 
             GroupChatDrawerHeader {
