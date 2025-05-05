@@ -183,6 +183,17 @@ Kirigami.Page {
                         }
                     }
                 }
+
+                // This is a bit silly but it guarantees that the room item heights
+                // update promptly on change.
+                Connections {
+                    target: NeoChatConfig
+
+                    function onCompactRoomListChanged() {
+                        treeView.collapseRecursively()
+                        treeView.expandRecursively()
+                    }
+                }
             }
         }
     }
