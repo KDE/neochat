@@ -23,6 +23,7 @@ LoginStep {
     FormCard.FormTextFieldDelegate {
         id: matrixIdField
         label: i18n("Matrix ID:")
+        text: LoginHelper.matrixId
         placeholderText: "@user:example.org"
         Accessible.name: i18n("Matrix ID")
         onTextChanged: {

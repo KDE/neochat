@@ -135,7 +135,7 @@ QString LoginHelper::matrixId() const
 void LoginHelper::setMatrixId(const QString &matrixId)
 {
     m_matrixId = matrixId;
-    if (!m_matrixId.startsWith(QLatin1Char('@'))) {
+    if (!m_matrixId.isEmpty() && !m_matrixId.startsWith(QLatin1Char('@'))) {
         m_matrixId.prepend(QLatin1Char('@'));
     }
     Q_EMIT matrixIdChanged();
