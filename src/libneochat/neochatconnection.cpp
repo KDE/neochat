@@ -61,12 +61,6 @@ void NeoChatConnection::connectSignals()
             Q_EMIT identityServerChanged();
         }
     });
-    connect(this, &NeoChatConnection::syncDone, this, [this] {
-        setIsOnline(true);
-    });
-    connect(this, &NeoChatConnection::networkError, this, [this]() {
-        setIsOnline(false);
-    });
     connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
         if (job->error() == BaseJob::UserConsentRequired) {
             Q_EMIT userConsentRequired(job->errorUrl());
@@ -499,20 +493,6 @@ QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
     Q_UNUSED(endpoint)
     co_return;
 #endif
-}
-
-bool NeoChatConnection::isOnline() const
-{
-    return m_isOnline;
-}
-
-void NeoChatConnection::setIsOnline(bool isOnline)
-{
-    if (isOnline == m_isOnline) {
-        return;
-    }
-    m_isOnline = isOnline;
-    Q_EMIT isOnlineChanged();
 }
 
 QString NeoChatConnection::accountDataJsonString(const QString &type) const

@@ -71,11 +71,6 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(bool directChatInvites READ directChatInvites NOTIFY directChatInvitesChanged)
 
     /**
-     * @brief Whether NeoChat is currently able to connect to the server.
-     */
-    Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
-
-    /**
      * @brief Whether the server supports querying a user's mutual rooms.
      */
     Q_PROPERTY(bool canCheckMutualRooms READ canCheckMutualRooms NOTIFY canCheckMutualRoomsChanged)
@@ -201,8 +196,6 @@ public:
     bool pushNotificationsAvailable() const;
     bool enablePushNotifications() const;
 
-    bool isOnline() const;
-
     LinkPreviewer *previewerForLink(const QUrl &link);
 
 Q_SIGNALS:
@@ -214,7 +207,6 @@ Q_SIGNALS:
     void homeNotificationsChanged();
     void homeHaveHighlightNotificationsChanged();
     void directChatInvitesChanged();
-    void isOnlineChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(int count);
@@ -235,9 +227,6 @@ Q_SIGNALS:
 private:
     static bool m_globalUrlPreviewDefault;
     static PushRuleAction::Action m_defaultAction;
-
-    bool m_isOnline = true;
-    void setIsOnline(bool isOnline);
 
     void connectSignals();
 
