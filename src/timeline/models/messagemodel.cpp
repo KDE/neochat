@@ -154,10 +154,6 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             mId = event.value().get().senderId();
         }
 
-        if (!m_room->isMember(mId)) {
-            return QVariant::fromValue<NeochatRoomMember *>(emptyNeochatRoomMember);
-        }
-
         return QVariant::fromValue<NeochatRoomMember *>(m_room->qmlSafeMember(mId));
     }
 
