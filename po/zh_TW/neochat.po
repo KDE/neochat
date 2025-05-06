@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2025-04-20 15:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -506,7 +506,7 @@ msgstr "選取聊天室"
 
 #: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
 #: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:211
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
 #: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -707,14 +707,14 @@ msgstr "尋找您的朋友"
 
 #: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
 #: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:222
+#: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
-#: src/rooms/RoomListPage.qml:226
+#: src/rooms/RoomListPage.qml:237
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1193,7 +1193,7 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
-#: src/login/Login.qml:38 src/settings/DevicesPage.qml:20
+#: src/login/Login.qml:39 src/settings/DevicesPage.qml:20
 #: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
@@ -3313,35 +3313,35 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "自己的表情符號"
 
-#: src/libneochat/neochatconnection.cpp:77
+#: src/libneochat/neochatconnection.cpp:71
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/libneochat/neochatconnection.cpp:330
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "未設定身份伺服器"
 
-#: src/libneochat/neochatconnection.cpp:361
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/libneochat/neochatconnection.cpp:391
+#: src/libneochat/neochatconnection.cpp:385
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
 
-#: src/libneochat/neochatroom.cpp:1216
+#: src/libneochat/neochatroom.cpp:1214
 #, kde-format
 msgid "Report sent successfully."
 msgstr "已成功傳送檢舉"
 
-#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3411,19 +3411,19 @@ msgstr "登入失敗：%1"
 msgid "Matrix ID:"
 msgstr "Matrix ID："
 
-#: src/login/Login.qml:27
+#: src/login/Login.qml:28
 #, kde-format
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:250
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "繼續"
 
-#: src/login/Login.qml:38
+#: src/login/Login.qml:39
 #, kde-format
 msgid "Already logged in"
 msgstr "已經登入"
@@ -3635,7 +3635,7 @@ msgstr "掃描 QR 碼"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:205
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:216
 #, kde-format
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
@@ -3746,33 +3746,33 @@ msgstr "已靜音的聊天室"
 msgid "Configure room"
 msgstr "設定聊天室"
 
-#: src/rooms/RoomListPage.qml:196
+#: src/rooms/RoomListPage.qml:207
 #, kde-format
 msgid "No friends found"
 msgstr "找不到朋友"
 
-#: src/rooms/RoomListPage.qml:196
+#: src/rooms/RoomListPage.qml:207
 #, kde-format
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: src/rooms/RoomListPage.qml:198
+#: src/rooms/RoomListPage.qml:209
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您尚未加入任何朋友，點擊下方以搜尋您的朋友。"
 
-#: src/rooms/RoomListPage.qml:198
+#: src/rooms/RoomListPage.qml:209
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
-#: src/rooms/RoomListPage.qml:205
+#: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
-#: src/rooms/RoomListPage.qml:222
+#: src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
@@ -6182,19 +6182,19 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/timeline/PollComponent.qml:115
+#: src/timeline/PollComponent.qml:113
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] "%1 張票"
 
-#: src/timeline/PollComponent.qml:131
+#: src/timeline/PollComponent.qml:129
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "基於 %1 個使用者的投票"
 
-#: src/timeline/PollComponent.qml:131
+#: src/timeline/PollComponent.qml:129
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"

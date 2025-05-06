@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-01 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -507,7 +507,7 @@ msgstr "कमरा चुनें"
 
 #: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
 #: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:211
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
 #: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #, kde-format
 msgctxt "@title"
@@ -711,14 +711,14 @@ msgstr "अपने दोस्तों को खोजें"
 
 #: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
 #: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:222
+#: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
 #: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
-#: src/rooms/RoomListPage.qml:226
+#: src/rooms/RoomListPage.qml:237
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -1216,7 +1216,7 @@ msgid "Notifications"
 msgstr "सूचनाएं"
 
 #: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
-#: src/login/Login.qml:38 src/settings/DevicesPage.qml:20
+#: src/login/Login.qml:39 src/settings/DevicesPage.qml:20
 #: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
@@ -3362,7 +3362,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "अपना खुद का इमोजी बनाएं"
 
-#: src/libneochat/neochatconnection.cpp:77
+#: src/libneochat/neochatconnection.cpp:71
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3371,28 +3371,28 @@ msgstr ""
 "फ़ाइल डाउनलोड करने के लिए बहुत बड़ी है.<br /> सहायता के लिए अपने मैट्रिक्स सर्वर "
 "व्यवस्थापक से संपर्क करें।"
 
-#: src/libneochat/neochatconnection.cpp:330
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोई पहचान सर्वर कॉन्फ़िगर नहीं किया गया"
 
-#: src/libneochat/neochatconnection.cpp:361
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्ष निर्माण विफल: %1"
 
-#: src/libneochat/neochatconnection.cpp:391
+#: src/libneochat/neochatconnection.cpp:385
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "स्थान निर्माण विफल: %1"
 
-#: src/libneochat/neochatroom.cpp:1216
+#: src/libneochat/neochatroom.cpp:1214
 #, kde-format
 msgid "Report sent successfully."
 msgstr "रिपोर्ट सफलतापूर्वक भेजी गई."
 
-#: src/libneochat/neochatroom.cpp:1552 src/libneochat/neochatroom.cpp:1560
+#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3463,19 +3463,19 @@ msgstr "लॉगिन विफल: %1"
 msgid "Matrix ID:"
 msgstr "मैट्रिक्स आईडी:"
 
-#: src/login/Login.qml:27
+#: src/login/Login.qml:28
 #, kde-format
 msgid "Matrix ID"
 msgstr "मैट्रिक्स आईडी"
 
-#: src/login/Login.qml:38 src/login/WelcomePage.qml:250
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:250
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "जारी रखना"
 
-#: src/login/Login.qml:38
+#: src/login/Login.qml:39
 #, kde-format
 msgid "Already logged in"
 msgstr "पहले से लॉग्ड इन"
@@ -3687,7 +3687,7 @@ msgstr "QR कोड स्कैन करें"
 msgid "Search"
 msgstr "खोज"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:205
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:216
 #, kde-format
 msgid "Explore rooms"
 msgstr "कमरे खोजें"
@@ -3804,33 +3804,33 @@ msgstr "मौन कमरा"
 msgid "Configure room"
 msgstr "कमरा कॉन्फ़िगर करें"
 
-#: src/rooms/RoomListPage.qml:196
+#: src/rooms/RoomListPage.qml:207
 #, kde-format
 msgid "No friends found"
 msgstr "कोई मित्र नहीं मिला"
 
-#: src/rooms/RoomListPage.qml:196
+#: src/rooms/RoomListPage.qml:207
 #, kde-format
 msgid "No rooms found"
 msgstr "कोई कमरा नहीं मिला"
 
-#: src/rooms/RoomListPage.qml:198
+#: src/rooms/RoomListPage.qml:209
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "आपने अभी तक अपने किसी भी मित्र को नहीं जोड़ा है, उन्हें खोजने के लिए नीचे क्लिक करें।"
 
-#: src/rooms/RoomListPage.qml:198
+#: src/rooms/RoomListPage.qml:209
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "आरंभ करने के लिए कुछ कमरों में शामिल हों"
 
-#: src/rooms/RoomListPage.qml:205
+#: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "कमरे की निर्देशिका में खोजें"
 
-#: src/rooms/RoomListPage.qml:222
+#: src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Search in friend directory"
 msgstr "मित्र निर्देशिका में खोजें"
@@ -6297,21 +6297,21 @@ msgctxt "list separator"
 msgid ", "
 msgstr ","
 
-#: src/timeline/PollComponent.qml:115
+#: src/timeline/PollComponent.qml:113
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/timeline/PollComponent.qml:131
+#: src/timeline/PollComponent.qml:129
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "%1 उपयोगकर्ताओं के वोटों के आधार पर"
 msgstr[1] "%1 उपयोगकर्ताओं के वोटों के आधार पर"
 
-#: src/timeline/PollComponent.qml:131
+#: src/timeline/PollComponent.qml:129
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
