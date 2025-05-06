@@ -259,6 +259,9 @@ void TextHandlerTest::sendSpoilerTags_data()
     QTest::newRow("incomplete") << u"||test"_s << u"||test"_s;
     QTest::newRow("complete") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
     QTest::newRow("multiple") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
+    QTest::newRow("inside code block") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
+    QTest::newRow("outside code block") << u"||apple|| ```||banana||``` ||pear||"_s
+                                        << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
 }
 
 void TextHandlerTest::sendSpoilerTags()

@@ -706,22 +706,44 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
 {
     QString buffer = stringIn;
 
+    qsizetype beginCodeBlockTag = buffer.indexOf(u"<code>"_s);
+    qsizetype endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
+
+    // Indesx to search from
+    qsizetype lastPos = 0;
     while (true) {
-        const int pos = buffer.indexOf(u"||"_s);
+        const qsizetype pos = buffer.indexOf(u"||"_s, lastPos);
         if (pos == -1) {
             break;
         }
 
-        int nextPos = buffer.indexOf(u"||"_s, pos + 1);
+        // If we're inside of a code block, ignore and move the search past the code block
+        const bool validCodeBlock = beginCodeBlockTag != -1 && endCodeBlockTag != -1;
+        if (validCodeBlock && pos > beginCodeBlockTag && pos < endCodeBlockTag) {
+            lastPos = endCodeBlockTag + 5;
+            continue;
+        }
+
+        qsizetype nextPos = buffer.indexOf(u"||"_s, pos + 1);
         if (nextPos == -1) {
             break;
         }
 
+        // Replace the begin ||
         buffer.replace(pos, 2, QStringLiteral("<span data-mx-spoiler>"));
 
-        // we have to re-search because the index moved!
+        // Update positions and re-search since the underlying text buffer changed
         nextPos = buffer.indexOf(u"||"_s, pos + 1);
+        beginCodeBlockTag = buffer.indexOf(u"<code>"_s, pos + 1);
+        endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
+
+        // Now replace the end ||
         buffer.replace(nextPos, 2, QStringLiteral("</span>"));
+
+        // Move the search pointer past this point.
+        // Not technically needed in most cases since we replaced the original tag, but needed for code blocks
+        // which still have the characters.
+        lastPos = nextPos + 2;
     }
 
     return buffer;
