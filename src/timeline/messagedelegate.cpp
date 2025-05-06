@@ -228,8 +228,8 @@ void MessageDelegateBase::updateAvatar()
                     }
                     markAsDirty();
                 }
-                cleanupIncubator(incubator);
                 m_avatarIncubating = false;
+                cleanupIncubator(incubator);
             },
             m_errorCallback);
         m_avatarComponent->create(*avatarIncubator, qmlContext(m_avatarComponent));
@@ -291,8 +291,8 @@ void MessageDelegateBase::updateSection()
                     }
                     markAsDirty();
                 }
-                cleanupIncubator(incubator);
                 m_sectionIncubating = false;
+                cleanupIncubator(incubator);
             },
             m_errorCallback);
         m_sectionComponent->create(*sectionIncubator, qmlContext(m_sectionComponent));
@@ -354,8 +354,8 @@ void MessageDelegateBase::updateReadMarker()
                     }
                     markAsDirty();
                 }
-                cleanupIncubator(incubator);
                 m_readMarkerIncubating = false;
+                cleanupIncubator(incubator);
             },
             m_errorCallback);
         m_readMarkerComponent->create(*readMarkerIncubator, qmlContext(m_readMarkerComponent));
