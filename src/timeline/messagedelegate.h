@@ -222,7 +222,7 @@ private:
         }
         cleanupIncubator(incubator);
     };
-    void cleanupIncubator(MessageObjectIncubator *incubator);
+    static void cleanupIncubator(MessageObjectIncubator *incubator);
     void cleanupItem(QQuickItem *item);
 
     qreal m_spacing = 0.0;
