@@ -192,6 +192,11 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(ChatBarCache *threadCache READ threadCache CONSTANT)
 
+    /**
+     * @brief When the current user was invited to the room.
+     */
+    Q_PROPERTY(QDateTime inviteTimestamp READ inviteTimestamp NOTIFY inviteTimestampChanged)
+
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -526,6 +531,11 @@ public:
     Q_INVOKABLE QString invitingUserId() const;
 
     /**
+     * If we're invited to this room, the timestamp when we were invited in. Undefined in other cases.
+     */
+    Q_INVOKABLE QDateTime inviteTimestamp() const;
+
+    /**
      * @brief Return the cached file transfer information for the event.
      *
      * If we downloaded the file previously, return a struct with Completed status
@@ -621,6 +631,7 @@ Q_SIGNALS:
     void maxRoomVersionChanged();
     void extraEventLoaded(const QString &eventId);
     void extraEventNotFound(const QString &eventId);
+    void inviteTimestampChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.

@@ -124,6 +124,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             updatePushNotificationState(u"m.push_rules"_s);
 
             Q_EMIT canEncryptRoomChanged();
+            Q_EMIT inviteTimestampChanged();
         },
         Qt::SingleShotConnection);
     connect(this, &Room::changed, this, [this] {
@@ -1663,6 +1664,15 @@ QString NeoChatRoom::invitingUserId() const
         return {};
     }
     return event->senderId();
+}
+
+QDateTime NeoChatRoom::inviteTimestamp() const
+{
+    auto event = currentState().get<RoomMemberEvent>(connection()->userId());
+    if (!event) {
+        return {};
+    }
+    return event->originTimestamp();
 }
 
 void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, const QByteArray &content)

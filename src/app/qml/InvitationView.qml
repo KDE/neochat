@@ -16,6 +16,7 @@ ColumnLayout {
 
     required property NeoChatRoom currentRoom
     readonly property var invitingMember: currentRoom.member(currentRoom.invitingUserId())
+    readonly property string inviteTimestamp: root.currentRoom.inviteTimestamp.toLocaleString(Qt.locale(), Locale.ShortFormat)
 
     spacing: Kirigami.Units.smallSpacing
 
@@ -39,7 +40,7 @@ ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.Label {
-                text: i18nc("@info:label", "%1 has invited you to join", root.invitingMember.displayName)
+                text: i18nc("@info:label 'Username' has invited you to this room at 'timestamp'.", "%1 has invited you to this room at %2.", root.invitingMember.displayName, root.inviteTimestamp)
 
                 Layout.alignment: Qt.AlignHCenter
             }
@@ -67,7 +68,7 @@ ColumnLayout {
             }
 
             QQC2.Label {
-                text: i18nc("@info:label", "This user is inviting you to chat.")
+                text: i18nc("@info:label This user invited you to chat at 'timestamp'", "This user invited you to chat at %1.", root.inviteTimestamp)
 
                 Layout.alignment: Qt.AlignHCenter
             }
