@@ -127,10 +127,9 @@ Kirigami.Page {
     Loader {
         id: invitationLoader
         active: root.currentRoom && root.currentRoom.isInvite
-        anchors.centerIn: parent
+        anchors.fill: parent
         sourceComponent: InvitationView {
             currentRoom: root.currentRoom
-            anchors.centerIn: parent
         }
     }
 

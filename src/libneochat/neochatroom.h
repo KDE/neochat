@@ -195,7 +195,12 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief When the current user was invited to the room.
      */
-    Q_PROPERTY(QDateTime inviteTimestamp READ inviteTimestamp NOTIFY inviteTimestampChanged)
+    Q_PROPERTY(QDateTime inviteTimestamp READ inviteTimestamp NOTIFY baseStateLoaded)
+
+    /**
+     * @brief When the current user was invited to the room.
+     */
+    Q_PROPERTY(QString invitingUserId READ invitingUserId NOTIFY baseStateLoaded)
 
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
@@ -528,12 +533,12 @@ public:
     /**
      * If we're invited to this room, the user that invited us. Undefined in other cases.
      */
-    Q_INVOKABLE QString invitingUserId() const;
+    QString invitingUserId() const;
 
     /**
      * If we're invited to this room, the timestamp when we were invited in. Undefined in other cases.
      */
-    Q_INVOKABLE QDateTime inviteTimestamp() const;
+    QDateTime inviteTimestamp() const;
 
     /**
      * @brief Return the cached file transfer information for the event.

@@ -8,6 +8,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -15,16 +16,21 @@ ColumnLayout {
     id: root
 
     required property NeoChatRoom currentRoom
-    readonly property var invitingMember: currentRoom.member(currentRoom.invitingUserId())
+    readonly property var invitingMember: currentRoom.member(currentRoom.invitingUserId)
     readonly property string inviteTimestamp: root.currentRoom.inviteTimestamp.toLocaleString(Qt.locale(), Locale.ShortFormat)
 
     spacing: Kirigami.Units.smallSpacing
+
+    Item {
+        Layout.fillHeight: true
+    }
 
     KirigamiComponents.Avatar {
         id: avatar
         Layout.preferredWidth: Kirigami.Units.iconSizes.huge
         Layout.preferredHeight: Kirigami.Units.iconSizes.huge
         Layout.alignment: Qt.AlignHCenter
+        Layout.fillWidth: true
 
         name: root.invitingMember.displayName
         source: root.invitingMember.avatarUrl
@@ -35,6 +41,7 @@ ColumnLayout {
         active: !root.currentRoom.isDirectChat()
 
         Layout.alignment: Qt.AlignHCenter
+        Layout.fillWidth: true
 
         sourceComponent: ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
@@ -57,6 +64,7 @@ ColumnLayout {
         active: root.currentRoom.isDirectChat()
 
         Layout.alignment: Qt.AlignHCenter
+        Layout.fillWidth: true
 
         sourceComponent: ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
@@ -75,42 +83,101 @@ ColumnLayout {
         }
     }
 
-    QQC2.Label {
-        color: Kirigami.Theme.disabledTextColor
-        text: i18n("You can reject invitations from unknown users under Security settings.")
-        visible: root.currentRoom.connection.canCheckMutualRooms
-    }
+    FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
+        Layout.fillWidth: true
 
-    RowLayout {
-        spacing: Kirigami.Units.smallSpacing
+        FormCard.FormButtonDelegate {
+            id: acceptInviteDelegate
 
-        Layout.alignment: Qt.AlignHCenter
-        Layout.topMargin: Kirigami.Units.mediumSpacing
-
-        QQC2.Button {
-            Layout.alignment: Qt.AlignHCenter
-            text: i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User")
-            icon.name: "list-remove-symbolic"
-
-            onClicked: {
-                RoomManager.leaveRoom(root.currentRoom);
-                root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUserId());
-            }
-        }
-        QQC2.Button {
-            Layout.alignment: Qt.AlignHCenter
-            icon.name: "cards-block-symbolic"
-            text: i18nc("@action:button", "Reject")
-
-            onClicked: RoomManager.leaveRoom(root.currentRoom)
-        }
-
-        QQC2.Button {
-            Layout.alignment: Qt.AlignHCenter
             icon.name: "dialog-ok-symbolic"
-            text: i18nc("@action:button", "Accept")
+            text: i18nc("@action:button Accept this invite", "Accept Invite")
+            focus: true
 
             onClicked: root.currentRoom.acceptInvitation()
         }
+
+        FormCard.FormDelegateSeparator {
+            above: acceptInviteDelegate
+            below: rejectInviteDelegate
+        }
+
+        FormCard.FormButtonDelegate {
+            id: rejectInviteDelegate
+
+            icon.name: "dialog-cancel-symbolic"
+            text: i18nc("@action:button Reject this invite", "Reject Invite")
+
+            onClicked: RoomManager.leaveRoom(root.currentRoom)
+        }
+    }
+
+    FormCard.FormCard {
+        id: blockUserCard
+
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.fillWidth: true
+
+        FormCard.FormButtonDelegate {
+            icon.name: "list-remove-symbolic"
+            text: i18nc("@action:button Block the user", "Block %1", root.invitingMember.displayName)
+
+            onClicked: {
+                RoomManager.leaveRoom(root.currentRoom);
+                root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUserId);
+            }
+        }
+    }
+
+    RowLayout {
+        visible: root.currentRoom.connection.canCheckMutualRooms
+        spacing: 0
+
+        Layout.topMargin: Kirigami.Units.largeSpacing * 2
+        Layout.fillWidth: true
+
+        Item {
+            Layout.fillWidth: true
+        }
+
+        RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+
+            Layout.fillWidth: true
+
+            Item {
+                Layout.fillWidth: true
+            }
+
+            Kirigami.Icon {
+                source: "help-hint-symbolic"
+                color: Kirigami.Theme.disabledTextColor
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                Layout.preferredHeight: Kirigami.Units.iconSizes.small
+            }
+
+            QQC2.Label {
+                color: Kirigami.Theme.disabledTextColor
+                text: i18nc("@info:label", "You can reject invitations from unknown users under Security settings.")
+                wrapMode: Text.WordWrap
+
+                // + 5 to prevent it from wrapping unnecessarily
+                Layout.maximumWidth: implicitWidth + 5
+                Layout.fillWidth: true
+            }
+
+            Item {
+                Layout.fillWidth: true
+            }
+        }
+
+        Item {
+            Layout.fillWidth: true
+        }
+    }
+
+    Item {
+        Layout.fillHeight: true
     }
 }
