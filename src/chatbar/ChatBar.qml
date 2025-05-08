@@ -103,7 +103,7 @@ QQC2.Control {
         },
         Kirigami.Action {
             id: mapButton
-            icon.name: "globe"
+            icon.name: "mark-location-symbolic"
             property bool isBusy: false
             text: i18n("Send a Location")
             displayHint: QQC2.AbstractButton.IconOnly
