@@ -43,8 +43,8 @@ private Q_SLOTS:
     void sendCustomEmoji();
     void sendCustomEmojiCode_data();
     void sendCustomEmojiCode();
-    void sendSpoilerTags_data();
-    void sendSpoilerTags();
+    void sendCustomTags_data();
+    void sendCustomTags();
 
     void receiveSpacelessSelfClosingTag();
     void receiveStripReply();
@@ -251,20 +251,28 @@ void TextHandlerTest::sendCustomEmojiCode()
     QCOMPARE(testTextHandler.handleSendText(), testOutputString);
 }
 
-void TextHandlerTest::sendSpoilerTags_data()
+void TextHandlerTest::sendCustomTags_data()
 {
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("incomplete") << u"||test"_s << u"||test"_s;
-    QTest::newRow("complete") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
-    QTest::newRow("multiple") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
-    QTest::newRow("inside code block") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
-    QTest::newRow("outside code block") << u"||apple|| ```||banana||``` ||pear||"_s
-                                        << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
+    // spoiler
+    QTest::newRow("incomplete spoiler") << u"||test"_s << u"||test"_s;
+    QTest::newRow("complete spoiler") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
+    QTest::newRow("multiple spoiler") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
+    QTest::newRow("inside code block spoiler") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
+    QTest::newRow("outside code block spoiler") << u"||apple|| ```||banana||``` ||pear||"_s
+                                                << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
+
+    // strikethrough
+    QTest::newRow("incomplete strikethrough") << u"~~test"_s << u"~~test"_s;
+    QTest::newRow("complete strikethrough") << u"~~test~~"_s << u"<del>test</del>"_s;
+    QTest::newRow("inside code block strikethrough") << u"```~~apple~~```"_s << u"<code>~~apple~~</code>"_s;
+    QTest::newRow("outside code block strikethrough") << u"~~apple~~ ```~~banana~~``` ~~pear~~"_s
+                                                      << u"<del>apple</del> <code>~~banana~~</code> <del>pear</del>"_s;
 }
 
-void TextHandlerTest::sendSpoilerTags()
+void TextHandlerTest::sendCustomTags()
 {
     QFETCH(QString, testInputString);
     QFETCH(QString, testOutputString);
