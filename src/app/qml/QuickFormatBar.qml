@@ -76,6 +76,25 @@ QQC2.Popup {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
         QQC2.ToolButton {
+            icon.name: "view-hidden-symbolic"
+            text: i18n("Spoiler")
+            display: QQC2.AbstractButton.IconOnly
+
+            onClicked: {
+                const format = {
+                    start: "||",
+                    end: "||",
+                    extra: ""
+                };
+                formattingSelected(format, selectionStart, selectionEnd);
+                root.close();
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.ToolButton {
             icon.name: "format-text-code"
             text: i18n("Code block")
             display: QQC2.AbstractButton.IconOnly
