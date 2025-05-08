@@ -63,8 +63,8 @@ QQC2.Popup {
 
             onClicked: {
                 const format = {
-                    start: "<del>",
-                    end: "</del>",
+                    start: "~~",
+                    end: "~~",
                     extra: ""
                 };
                 formattingSelected(format, selectionStart, selectionEnd);
