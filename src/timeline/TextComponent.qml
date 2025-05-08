@@ -49,6 +49,11 @@ TextEdit {
      */
     property bool spoilerRevealed: !hasSpoiler.test(display)
 
+    /**
+     * @brief The color of spoiler blocks, to be theme-agnostic.
+     */
+    property color spoilerBlockColor: Kirigami.ColorUtils.tintWithAlpha("#232629", Kirigami.Theme.textColor, 0.15)
+
     Layout.fillWidth: true
     Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -91,16 +96,27 @@ a{
     color: " + Kirigami.Theme.linkColor + ";
     text-decoration: none;
 }
+[data-mx-spoiler] a {
+    background: " + root.spoilerBlockColor + ";
+}
+[data-mx-spoiler] {
+    background: " + root.spoilerBlockColor + ";
+}
 " + (!spoilerRevealed ? "
 [data-mx-spoiler] a {
     color: transparent;
-    background: " + Kirigami.Theme.textColor + ";
 }
 [data-mx-spoiler] {
     color: transparent;
-    background: " + Kirigami.Theme.textColor + ";
 }
-" : "") + "
+" : "
+[data-mx-spoiler] a {
+    color: white;
+}
+[data-mx-spoiler] {
+    color: white;
+}
+") + "
 </style>" + display
 
     color: Kirigami.Theme.textColor
