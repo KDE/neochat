@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2025-04-21 13:41+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -192,7 +192,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "거부"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -880,34 +880,49 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "좌우 뒤집기"
 
-#: src/app/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 님이 대화방에 초대함"
-
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "이 사용자가 대화에 초대했습니다."
+#: src/app/qml/InvitationView.qml:50
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room."
+#| msgid "%1 was invited into this room."
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
+msgstr "%1 님이 대화방으로 초대되었습니다."
 
 #: src/app/qml/InvitationView.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "This user is inviting you to chat."
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "이 사용자가 대화에 초대했습니다."
+
+#: src/app/qml/InvitationView.qml:94
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
+msgstr "수락"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject Invitation"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "초대장 거절"
+
+#: src/app/qml/InvitationView.qml:123
 #, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, fuzzy, kde-format
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr "보안 설정에서 알 수 없는 사용자의 초대를 거절할 수 있습니다."
-
-#: src/app/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "거부"
-
-#: src/app/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "수락"
 
 #: src/app/qml/InviteUserPage.qml:21
 #, kde-format
@@ -1232,15 +1247,20 @@ msgstr "취소선"
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
+msgid "Spoiler"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
 msgid "Code block"
 msgstr "코드 블록"
 
-#: src/app/qml/QuickFormatBar.qml:99
+#: src/app/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Quote"
 msgstr "인용문"
 
-#: src/app/qml/QuickFormatBar.qml:118
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr "링크 삽입"
@@ -1429,17 +1449,17 @@ msgstr "대화방 미디어"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "시작하려면 대화방을 선택하거나 입장하십시오"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr "메시지 소스"
@@ -3342,12 +3362,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6312,6 +6332,18 @@ msgstr "음량"
 msgid "Maximize"
 msgstr "최대화"
 
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "%1 님이 대화방에 초대함"
+
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "거부"
+
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "수락"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
 #~ msgstr "클립보드에 주소 복사"
@@ -6780,9 +6812,6 @@ msgstr "최대화"
 #~ msgid "Space topic (optional)"
 #~ msgstr "스페이스 주제(선택 사항)"
 
-#~ msgid "Reject Invitation"
-#~ msgstr "초대장 거절"
-
 #~ msgid "Today"
 #~ msgstr "오늘"
 
@@ -6975,11 +7004,6 @@ msgstr "최대화"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "키 체인이 열려 있는지 확인하십시오."
-
-#, fuzzy
-#~| msgid "Accept"
-#~ msgid "Accept Invite"
-#~ msgstr "수락"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "No suggestions for %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2025-04-18 03:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -193,7 +193,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -882,36 +882,51 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "სარკე"
 
-#: src/app/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1-მა მოგიწვიათ, შეუერთდეთ"
-
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "ამ მომხმარებელმა მოგიწვიათ სასაუბროდ."
+#: src/app/qml/InvitationView.qml:50
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room."
+#| msgid "%1 was invited into this room."
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
+msgstr "%1 მოწვეულია ამ ოთახში."
 
 #: src/app/qml/InvitationView.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "This user is inviting you to chat."
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "ამ მომხმარებელმა მოგიწვიათ სასაუბროდ."
+
+#: src/app/qml/InvitationView.qml:94
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
+msgstr "დასტური"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject Invitation"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "მოსაწვევის უარყოფა"
+
+#: src/app/qml/InvitationView.qml:123
 #, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, fuzzy, kde-format
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 "უცნობი მომხმარებლებისგან მოწვევის უარყოფა უსაფრთხოების პარამეტრებიდან "
 "შეგიძლიათ."
-
-#: src/app/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "უარყოფა"
-
-#: src/app/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "დასტური"
 
 #: src/app/qml/InviteUserPage.qml:21
 #, kde-format
@@ -1236,15 +1251,20 @@ msgstr "ხაზგადასმული"
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
+msgid "Spoiler"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
 msgid "Code block"
 msgstr "კოდის ბლოკი"
 
-#: src/app/qml/QuickFormatBar.qml:99
+#: src/app/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Quote"
 msgstr "ციტატა"
 
-#: src/app/qml/QuickFormatBar.qml:118
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr "ბმულის ჩასმა"
@@ -1433,17 +1453,17 @@ msgstr "ოთახის მედია"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat გათიშულია. შეამოწმეთ ინტერნეტკავშირი."
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "კეთილი იყოს თქვენი მობრძანება NeoChat-ში"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr "შეტყობინების წყარო"
@@ -3364,12 +3384,12 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6367,6 +6387,18 @@ msgstr "ხმის სიმაღლე"
 msgid "Maximize"
 msgstr "გადიდება"
 
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "%1-მა მოგიწვიათ, შეუერთდეთ"
+
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "უარყოფა"
+
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "დასტური"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
 #~ msgstr "მისამართის ბუფერში კოპირება"
@@ -6814,9 +6846,6 @@ msgstr "გადიდება"
 
 #~ msgid "Space topic (optional)"
 #~ msgstr "სივრცის თემა (არასავალდებულო)"
-
-#~ msgid "Reject Invitation"
-#~ msgstr "მოსაწვევის უარყოფა"
 
 #~ msgid "Today"
 #~ msgstr "დღეს"

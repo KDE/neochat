@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2025-04-18 12:16+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -193,7 +193,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -888,36 +888,51 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Horizontaal spiegelen"
 
-#: src/app/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 heeft u uitgenodigd om mee te doen"
-
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "Deze gebruiker nodigt u uit voor een chat."
+#: src/app/qml/InvitationView.qml:50
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room."
+#| msgid "%1 was invited into this room."
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
+msgstr "%1 was uitgenodigd in deze room"
 
 #: src/app/qml/InvitationView.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "This user is inviting you to chat."
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "Deze gebruiker nodigt u uit voor een chat."
+
+#: src/app/qml/InvitationView.qml:94
+#, fuzzy, kde-format
+#| msgid "Accept Invite"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
+msgstr "Uitnodiging accepteren"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject Invitation"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "Uitnodiging afwijzen"
+
+#: src/app/qml/InvitationView.qml:123
 #, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, fuzzy, kde-format
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 "U kunt uitnodigingen van onbekende gebruikers afwijzen onder "
 "beveiligingsinstellingen."
-
-#: src/app/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "Afwijzen"
-
-#: src/app/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "Accepteren"
 
 #: src/app/qml/InviteUserPage.qml:21
 #, kde-format
@@ -1242,15 +1257,20 @@ msgstr "Doorstrepen"
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
+msgid "Spoiler"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
 msgid "Code block"
 msgstr "Codeblok"
 
-#: src/app/qml/QuickFormatBar.qml:99
+#: src/app/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Quote"
 msgstr "Citaat"
 
-#: src/app/qml/QuickFormatBar.qml:118
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr "Koppeling invoegen"
@@ -1441,17 +1461,17 @@ msgstr "Media van room"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat is offline. Controleer uw netwerkverbinding."
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Welkom bij NeoChat"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Selecteer of doe mee met een room om te beginnen"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr "Berichtinhoud"
@@ -3394,12 +3414,12 @@ msgstr "Aanmaken van room is mislukt: %1"
 msgid "Space creation failed: %1"
 msgstr "Ruimte aanmaken is mislukt: %1"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport met succes verzonden."
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6406,6 +6426,18 @@ msgstr "Volume"
 msgid "Maximize"
 msgstr "Maximaliseren"
 
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "%1 heeft u uitgenodigd om mee te doen"
+
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "Afwijzen"
+
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "Accepteren"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
 #~ msgstr "Adres kopiëren naar klembord"
@@ -6855,9 +6887,6 @@ msgstr "Maximaliseren"
 #~ msgid "Space topic (optional)"
 #~ msgstr "Onderwerp van ruimte (optioneel)"
 
-#~ msgid "Reject Invitation"
-#~ msgstr "Uitnodiging afwijzen"
-
 #~ msgid "Today"
 #~ msgstr "Vandaag"
 
@@ -7056,10 +7085,6 @@ msgstr "Maximaliseren"
 
 #~ msgid "Please make sure that the keychain is opened."
 #~ msgstr "Zorg er voor dat de sleutelketting is geopend."
-
-#~| msgid "Accept"
-#~ msgid "Accept Invite"
-#~ msgstr "Uitnodiging accepteren"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "No suggestions for %1"

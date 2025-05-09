@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -193,7 +193,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "மறு"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -882,36 +882,51 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "கிடைமட்டமாக புரட்டு"
 
-#: src/app/qml/InvitationView.qml:42
-#, kde-format
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 உங்களை வரவழைத்தார்"
-
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr "இப்பயனர் உங்களை உரையாடலுக்கு அழைக்கிறார்"
+#: src/app/qml/InvitationView.qml:50
+#, fuzzy, kde-format
+#| msgctxt "<username> was invited into this room."
+#| msgid "%1 was invited into this room."
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
+msgstr "%1 இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார்."
 
 #: src/app/qml/InvitationView.qml:79
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "This user is inviting you to chat."
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "இப்பயனர் உங்களை உரையாடலுக்கு அழைக்கிறார்"
+
+#: src/app/qml/InvitationView.qml:94
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
+msgstr "ஏற்றுக்கொள்"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject Invitation"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "அழைப்பை மறு"
+
+#: src/app/qml/InvitationView.qml:123
 #, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, fuzzy, kde-format
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 "தெரியாத பயனர்களிடமிருந்தான அழைப்பிதழ்களை நிராகரிக்குமாறு பாதுகாப்பு அமைப்புகளில் "
 "அமைக்கலாம்."
-
-#: src/app/qml/InvitationView.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "மறு"
-
-#: src/app/qml/InvitationView.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Accept"
-msgstr "ஏற்றுக்கொள்"
 
 #: src/app/qml/InviteUserPage.qml:21
 #, kde-format
@@ -1249,15 +1264,20 @@ msgstr "குறுக்கடி"
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
+msgid "Spoiler"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:99
+#, kde-format
 msgid "Code block"
 msgstr "நிரல்தொடர் பகுதி"
 
-#: src/app/qml/QuickFormatBar.qml:99
+#: src/app/qml/QuickFormatBar.qml:118
 #, kde-format
 msgid "Quote"
 msgstr "மேற்கோள்"
 
-#: src/app/qml/QuickFormatBar.qml:118
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr "இணைப்பை நுழை"
@@ -1446,17 +1466,17 @@ msgstr "அரங்கிலுள்ள படங்கள்"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "தொடங்க, அரங்கைத் தேர்ந்தெடுக்கவும் அல்லது அதில் செரவும்"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
@@ -3378,12 +3398,12 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6373,6 +6393,18 @@ msgstr "ஒலியளவு"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
 
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "%1 உங்களை வரவழைத்தார்"
+
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "மறு"
+
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "ஏற்றுக்கொள்"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
 #~ msgstr "முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
@@ -6822,9 +6854,6 @@ msgstr "அதிகபட்ச பெரிதாக்கு"
 #~ msgid "Space topic (optional)"
 #~ msgstr "இடத்தின் தலைப்பு (கட்டாயமில்லை)"
 
-#~ msgid "Reject Invitation"
-#~ msgstr "அழைப்பை மறு"
-
 #~ msgid "Today"
 #~ msgstr "இன்று"
 
@@ -7015,11 +7044,6 @@ msgstr "அதிகபட்ச பெரிதாக்கு"
 #~ msgctxt "menu"
 #~ msgid "Preferences…"
 #~ msgstr "விருப்பங்கள்…"
-
-#, fuzzy
-#~| msgid "Accept"
-#~ msgid "Accept Invite"
-#~ msgstr "ஏற்றுக்கொள்"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "No suggestions for %1"

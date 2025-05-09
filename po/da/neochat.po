@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -200,7 +200,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Afvis"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -925,37 +925,45 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Spejlvend"
 
-#: src/app/qml/InvitationView.qml:42
+#: src/app/qml/InvitationView.qml:50
 #, fuzzy, kde-format
 #| msgid "Invite"
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
 msgstr "Invitér"
 
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr ""
-
 #: src/app/qml/InvitationView.qml:79
-#, kde-format
-msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
-
-#: src/app/qml/InvitationView.qml:102
 #, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "Afvis"
+#| msgid "Invite"
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "Invitér"
 
-#: src/app/qml/InvitationView.qml:110
+#: src/app/qml/InvitationView.qml:94
 #, fuzzy, kde-format
 #| msgid "Accept"
-msgctxt "@action:button"
-msgid "Accept"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
 msgstr "Acceptér"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "Afvis"
+
+#: src/app/qml/InvitationView.qml:123
+#, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, kde-format
+msgctxt "@info:label"
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr ""
 
 #: src/app/qml/InviteUserPage.qml:21
 #, fuzzy, kde-format
@@ -1308,15 +1316,20 @@ msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
-msgid "Code block"
+msgid "Spoiler"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
-msgid "Quote"
+msgid "Code block"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr ""
@@ -1523,18 +1536,18 @@ msgstr "Indstillinger"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, fuzzy, kde-format
 #| msgid "Chat"
 msgid "Welcome to NeoChat"
 msgstr "Chat"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr ""
@@ -3497,12 +3510,12 @@ msgstr "Login mislykkedes"
 msgid "Space creation failed: %1"
 msgstr "Login mislykkedes"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6622,6 +6635,24 @@ msgstr ""
 #, kde-format
 msgid "Maximize"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Invite"
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "Invitér"
+
+#, fuzzy
+#~| msgid "Reject"
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "Afvis"
+
+#, fuzzy
+#~| msgid "Accept"
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "Acceptér"
 
 #, fuzzy
 #~| msgid "Reply"

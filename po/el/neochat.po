@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:41+0000\n"
+"POT-Creation-Date: 2025-05-09 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -199,7 +199,7 @@ msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: src/app/notificationsmanager.cpp:321 src/app/qml/InvitationView.qml:91
+#: src/app/notificationsmanager.cpp:321
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
@@ -914,37 +914,46 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Καθρεπτισμός"
 
-#: src/app/qml/InvitationView.qml:42
+#: src/app/qml/InvitationView.qml:50
 #, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
-msgctxt "@info:label"
-msgid "%1 has invited you to join"
-msgstr "%1 σε προσκάλεσε σε μία αίθουσα"
-
-#: src/app/qml/InvitationView.qml:70
-#, kde-format
-msgctxt "@info:label"
-msgid "This user is inviting you to chat."
-msgstr ""
+#| msgctxt "<username> was invited into this room."
+#| msgid "%1 was invited into this room."
+msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
+msgid "%1 has invited you to this room at %2."
+msgstr "%1 είχε προσκληθεί σε αυτήν την αίθουσα."
 
 #: src/app/qml/InvitationView.qml:79
-#, kde-format
-msgid "You can reject invitations from unknown users under Security settings."
-msgstr ""
-
-#: src/app/qml/InvitationView.qml:102
 #, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "@action:button"
-msgid "Reject"
-msgstr "Απόρριψη"
+#| msgid "Open a private chat"
+msgctxt "@info:label This user invited you to chat at 'timestamp'"
+msgid "This user invited you to chat at %1."
+msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 
-#: src/app/qml/InvitationView.qml:110
+#: src/app/qml/InvitationView.qml:94
 #, fuzzy, kde-format
 #| msgid "Accept"
-msgctxt "@action:button"
-msgid "Accept"
+msgctxt "@action:button Accept this invite"
+msgid "Accept Invite"
 msgstr "Αποδοχή"
+
+#: src/app/qml/InvitationView.qml:109
+#, fuzzy, kde-format
+#| msgid "Reject Invitation"
+msgctxt "@action:button Reject this invite"
+msgid "Reject Invite"
+msgstr "Απόρριψη πρόσκλησης"
+
+#: src/app/qml/InvitationView.qml:123
+#, kde-format
+msgctxt "@action:button Block the user"
+msgid "Block %1"
+msgstr ""
+
+#: src/app/qml/InvitationView.qml:162
+#, kde-format
+msgctxt "@info:label"
+msgid "You can reject invitations from unknown users under Security settings."
+msgstr ""
 
 #: src/app/qml/InviteUserPage.qml:21
 #, kde-format
@@ -1301,15 +1310,20 @@ msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
-msgid "Code block"
+msgid "Spoiler"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
-msgid "Quote"
+msgid "Code block"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:118
+#, kde-format
+msgid "Quote"
+msgstr ""
+
+#: src/app/qml/QuickFormatBar.qml:137
 #, kde-format
 msgid "Insert link"
 msgstr ""
@@ -1508,19 +1522,19 @@ msgstr "Έκδοση αίθουσας"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:148
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Καλώς ήρθατε στο Matrix"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:149
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgid "Select or join a room to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:242
 #, kde-format
 msgid "Message Source"
 msgstr "Πηγή μηνύματος"
@@ -3545,12 +3559,12 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/libneochat/neochatroom.cpp:1214
+#: src/libneochat/neochatroom.cpp:1215
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/libneochat/neochatroom.cpp:1550 src/libneochat/neochatroom.cpp:1558
+#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6700,6 +6714,24 @@ msgstr ""
 msgid "Maximize"
 msgstr ""
 
+#, fuzzy
+#~| msgid "%1 invited you to a room"
+#~ msgctxt "@info:label"
+#~ msgid "%1 has invited you to join"
+#~ msgstr "%1 σε προσκάλεσε σε μία αίθουσα"
+
+#, fuzzy
+#~| msgid "Reject"
+#~ msgctxt "@action:button"
+#~ msgid "Reject"
+#~ msgstr "Απόρριψη"
+
+#, fuzzy
+#~| msgid "Accept"
+#~ msgctxt "@action:button"
+#~ msgid "Accept"
+#~ msgstr "Αποδοχή"
+
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Address to Clipboard"
 #~ msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
@@ -7203,9 +7235,6 @@ msgstr ""
 #~| msgid "Space members"
 #~ msgid "Space name"
 #~ msgstr "Μέλη του χώρου"
-
-#~ msgid "Reject Invitation"
-#~ msgstr "Απόρριψη πρόσκλησης"
 
 #~ msgid "Today"
 #~ msgstr "Σήμερα"
