@@ -53,8 +53,9 @@ MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, co
     auto eventId = event->id();
     const auto txnId = event->transactionId();
     if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
-        m_eventContentModels.insert(eventId.isEmpty() ? txnId : eventId,
-                                    new MessageContentModel(room, eventId.isEmpty() ? txnId : eventId, isReply, eventId.isEmpty()));
+        auto model = new MessageContentModel(room, eventId.isEmpty() ? txnId : eventId, isReply, eventId.isEmpty());
+        QQmlEngine::setObjectOwnership(model, QQmlEngine::CppOwnership);
+        m_eventContentModels.insert(eventId.isEmpty() ? txnId : eventId, model);
     }
 
     if (!eventId.isEmpty() && m_eventContentModels.contains(eventId)) {
