@@ -333,6 +333,7 @@ if(ANDROID)
         "pin-symbolic"
         "kt-restore-defaults-symbolic"
         "user-symbolic"
+        "mark-location-symbolic"
 
         ${KIRIGAMI_ADDONS_ICONS}
     )
