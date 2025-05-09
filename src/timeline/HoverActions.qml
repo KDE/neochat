@@ -59,7 +59,7 @@ QQC2.Control {
 
     function updatePosition(): void {
         if (delegate) {
-            root.x = delegate.contentItem.x + delegate.bubbleX + delegate.bubbleWidth - root.implicitWidth;
+            root.x = delegate.contentItem.x + delegate.bubbleWidth - root.implicitWidth - Kirigami.Units.largeSpacing;
             root.y = delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing;
         }
     }

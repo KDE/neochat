@@ -114,6 +114,11 @@ class MessageDelegateBase : public TimelineDelegate
      */
     Q_PROPERTY(bool isTemporaryHighlighted READ isTemporaryHighlighted WRITE setIsTemporaryHighlighted NOTIFY isTemporaryHighlightedChanged FINAL)
 
+    /**
+     * @brief Whether the delegate is hovered.
+     */
+    Q_PROPERTY(bool hovered READ hovered NOTIFY hoveredChanged FINAL)
+
 public:
     MessageDelegateBase(QQuickItem *parent = nullptr);
 
@@ -153,6 +158,8 @@ public:
     bool isTemporaryHighlighted() const;
     void setIsTemporaryHighlighted(bool isTemporaryHighlighted);
 
+    bool hovered() const;
+
 Q_SIGNALS:
     void authorChanged();
     void isThreadedChanged();
@@ -168,6 +175,7 @@ Q_SIGNALS:
     void compactModeChanged();
     void showLocalMessagesOnRightChanged();
     void isTemporaryHighlightedChanged();
+    void hoveredChanged();
 
 private:
     DelegateSizeHelper m_contentSizeHelper;
@@ -222,7 +230,7 @@ private:
         }
         cleanupIncubator(incubator);
     };
-    static void cleanupIncubator(MessageObjectIncubator *incubator);
+    void cleanupIncubator(MessageObjectIncubator *incubator);
     void cleanupItem(QQuickItem *item);
 
     qreal m_spacing = 0.0;

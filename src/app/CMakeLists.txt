@@ -68,7 +68,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/NeochatMaximizeComponent.qml
         qml/TypingPane.qml
         qml/QuickSwitcher.qml
-        qml/HoverActions.qml
         qml/AttachmentPane.qml
         qml/QuickFormatBar.qml
         qml/UserDetailDialog.qml

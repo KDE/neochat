@@ -39,6 +39,7 @@ MessageDelegateBase::MessageDelegateBase(QQuickItem *parent)
     : TimelineDelegate(parent)
 {
     m_contentSizeHelper.setParentItem(this);
+    setAcceptHoverEvents(true);
     setPercentageValues();
 
     connect(this, &MessageDelegateBase::leftPaddingChanged, this, &MessageDelegateBase::setContentPadding);
@@ -395,7 +396,6 @@ void MessageDelegateBase::setCompactMode(bool compactMode)
     m_compactMode = compactMode;
     setAlwaysFillWidth(m_isThreaded || m_compactMode);
     setPercentageValues(m_isThreaded || m_compactMode);
-    setAcceptHoverEvents(m_compactMode);
     setBaseRightPadding();
 
     Q_EMIT compactModeChanged();
@@ -542,13 +542,18 @@ void MessageDelegateBase::resizeContent()
 void MessageDelegateBase::hoverEnterEvent(QHoverEvent *event)
 {
     m_hovered = true;
+    Q_EMIT hoveredChanged();
     event->setAccepted(true);
     updateBackground();
 }
 
 void MessageDelegateBase::hoverMoveEvent(QHoverEvent *event)
 {
+    bool oldHovered = m_hovered;
     m_hovered = contains(event->pos());
+    if (oldHovered != m_hovered) {
+        Q_EMIT hoveredChanged();
+    }
     event->setAccepted(true);
     updateBackground();
 }
@@ -556,6 +561,7 @@ void MessageDelegateBase::hoverMoveEvent(QHoverEvent *event)
 void MessageDelegateBase::hoverLeaveEvent(QHoverEvent *event)
 {
     m_hovered = false;
+    Q_EMIT hoveredChanged();
     event->setAccepted(true);
     updateBackground();
 }
@@ -585,6 +591,11 @@ void MessageDelegateBase::setIsTemporaryHighlighted(bool isTemporaryHighlighted)
         Q_EMIT isTemporaryHighlightedChanged();
     });
     Q_EMIT isTemporaryHighlightedChanged();
+}
+
+bool MessageDelegateBase::hovered() const
+{
+    return m_hovered;
 }
 
 #include "moc_messagedelegate.cpp"

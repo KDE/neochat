@@ -90,13 +90,6 @@ MessageDelegateBase {
     required property bool verified
 
     /**
-     * @brief The x position of the message bubble.
-     *
-     * @note Used for positioning the hover actions.
-     */
-    readonly property real bubbleX: bubble.x + bubble.anchors.leftMargin
-
-    /**
      * @brief The y position of the message bubble.
      *
      * @note Used for positioning the hover actions.
@@ -109,11 +102,6 @@ MessageDelegateBase {
      * @note Used for sizing the hover actions.
      */
     readonly property alias bubbleWidth: bubble.width
-
-    /**
-     * @brief Whether this message is hovered.
-     */
-    readonly property alias hovered: bubble.hovered
 
     /**
      * @brief Open the any message media externally.
@@ -212,6 +200,13 @@ MessageDelegateBase {
     compactBackgroundComponent: Rectangle {
         color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
         radius: Kirigami.Units.cornerRadius
+    }
+
+    // show hover actions
+    onHoveredChanged: {
+        if (hovered && !Kirigami.Settings.isMobile) {
+            root.setHoverActionsToDelegate();
+        }
     }
 
     function setHoverActionsToDelegate() {
