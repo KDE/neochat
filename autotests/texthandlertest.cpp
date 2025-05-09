@@ -8,7 +8,8 @@
 
 #include <Quotient/quotient_common.h>
 #include <Quotient/syncdata.h>
-#include <qnamespace.h>
+
+#include <Kirigami/Platform/PlatformTheme>
 
 #include "enums/messagecomponenttype.h"
 #include "models/customemojimodel.h"
@@ -502,9 +503,12 @@ void TextHandlerTest::receiveRichEdited_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QString>("testOutputString");
 
-    QTest::newRow("basic") << u"Edited"_s << u"Edited <span style=\"color:#000000\">(edited)</span>"_s;
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+
+    QTest::newRow("basic") << u"Edited"_s << u"Edited <span style=\"color:%1\">(edited)</span>"_s.arg(theme ? theme->disabledTextColor().name() : u"#000000"_s);
     QTest::newRow("multiple paragraphs") << u"<p>Edited</p>\n<p>Edited</p>"_s
-                                         << u"<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>"_s;
+                                         << u"<p>Edited</p>\n<p>Edited <span style=\"color:%1\">(edited)</span></p>"_s.arg(
+                                                theme ? theme->disabledTextColor().name() : u"#000000"_s);
 }
 
 void TextHandlerTest::receiveRichEdited()
@@ -544,8 +548,6 @@ void TextHandlerTest::receiveRichColor()
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
-
-    qInfo() << testTextHandler.handleRecieveRichText();
 
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
 }
