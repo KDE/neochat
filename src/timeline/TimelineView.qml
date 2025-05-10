@@ -288,14 +288,6 @@ QQC2.ScrollView {
             itemAtIndex(index).isTemporaryHighlighted = true;
         }
 
-        HoverActions {
-            id: hoverActions
-            currentRoom: root.currentRoom
-            onFocusChatBar: root.focusChatBar()
-        }
-
-        onContentYChanged: hoverActions.updatePosition()
-
         Connections {
             target: root.timelineModel
 
@@ -359,10 +351,6 @@ QQC2.ScrollView {
                 return true;
             }
             return false;
-        }
-
-        function setHoverActionsToDelegate(delegate) {
-            hoverActions.delegate = delegate;
         }
     }
 

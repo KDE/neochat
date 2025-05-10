@@ -120,7 +120,7 @@ void MessageDelegateBase::setPercentageValues(bool fillWidth)
         m_contentSizeHelper.setStartPercentWidth(100);
         m_contentSizeHelper.setEndPercentWidth(100);
     } else {
-        m_contentSizeHelper.setStartPercentWidth(90);
+        m_contentSizeHelper.setStartPercentWidth(85);
         m_contentSizeHelper.setEndPercentWidth(60);
     }
 }
@@ -402,6 +402,7 @@ void MessageDelegateBase::setCompactMode(bool compactMode)
     Q_EMIT maxContentWidthChanged();
 
     updateBackground();
+    updateQuickAction();
 }
 
 void MessageDelegateBase::updateBackground()
@@ -435,6 +436,54 @@ void MessageDelegateBase::updateBackground()
     }
 }
 
+QQmlComponent *MessageDelegateBase::quickActionComponent() const
+{
+    return m_quickActionComponent;
+}
+
+void MessageDelegateBase::setQuickActionComponent(QQmlComponent *quickActionComponent)
+{
+    if (quickActionComponent == m_quickActionComponent) {
+        return;
+    }
+    m_quickActionComponent = quickActionComponent;
+    Q_EMIT quickActionComponentChanged();
+
+    updateQuickAction();
+}
+
+void MessageDelegateBase::updateQuickAction()
+{
+    if (m_quickActionComponent && !m_compactMode && m_hovered && !m_quickActionItem && !m_quickActionIncubating) {
+        const auto quickActionIncubator = new MessageObjectIncubator(
+            m_objectInitialCallback,
+            [this](MessageObjectIncubator *incubator) {
+                if (!incubator) {
+                    return;
+                }
+
+                const auto quickActionObject = qobject_cast<QQuickItem *>(incubator->object());
+                if (quickActionObject) {
+                    if (!m_compactMode) {
+                        m_quickActionItem = quickActionObject;
+                        connect(m_quickActionItem, SIGNAL(reactingChanged()), this, SLOT(updateQuickAction()));
+                    } else {
+                        cleanupItem(quickActionObject);
+                    }
+                    markAsDirty();
+                }
+                cleanupIncubator(incubator);
+                m_quickActionIncubating = false;
+            },
+            m_errorCallback);
+        m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
+        m_quickActionIncubating = true;
+    } else if (m_quickActionItem && !m_hovered && !m_quickActionItem->property("reacting").toBool()) {
+        cleanupItem(m_quickActionItem);
+        markAsDirty();
+    }
+}
+
 bool MessageDelegateBase::showLocalMessagesOnRight() const
 {
     return m_showLocalMessagesOnRight;
@@ -462,6 +511,7 @@ void MessageDelegateBase::updateImplicitHeight()
     }
     qreal avatarHeight = 0.0;
     qreal contentHeight = 0.0;
+    qreal quickActionHeight = 0.0;
     if (showAvatar() && m_avatarItem) {
         m_avatarItem->setImplicitWidth(m_avatarSize);
         m_avatarItem->setImplicitHeight(m_avatarSize);
@@ -470,7 +520,10 @@ void MessageDelegateBase::updateImplicitHeight()
     if (m_contentItem) {
         contentHeight = m_contentItem->implicitHeight();
     }
-    implicitHeight += std::max(avatarHeight, contentHeight);
+    if (m_quickActionItem) {
+        quickActionHeight = m_quickActionItem->implicitHeight();
+    }
+    implicitHeight += std::max({avatarHeight, contentHeight, quickActionHeight});
     if (avatarHeight > 0 || contentHeight > 0) {
         numObj++;
     }
@@ -528,6 +581,17 @@ void MessageDelegateBase::resizeContent()
         m_contentItem->setSize(QSizeF(contentItemWidth, m_contentItem->implicitHeight()));
         yAdd = std::max(yAdd, m_contentItem->implicitHeight());
     }
+    if (m_quickActionItem) {
+        const auto availableWidth = m_contentItem && showMessageOnRight() ? m_contentItem->x() - m_contentSizeHelper.leftPadding()
+                                                                          : m_sizeHelper.rightX() - m_contentItem->x() - m_contentItem->width() - m_spacing;
+        m_quickActionItem->setProperty("availableWidth", availableWidth);
+        const auto actionX = showMessageOnRight() && m_contentItem ? m_contentItem->x() - m_quickActionItem->implicitWidth() - m_spacing
+                                                                   : m_contentItem->x() + m_contentItem->width() + m_spacing;
+        const auto actionWidth = std::min(m_quickActionItem->implicitWidth(), availableWidth);
+        m_quickActionItem->setPosition(QPointF(actionX, nextY));
+        m_quickActionItem->setSize(QSizeF(actionWidth, m_quickActionItem->implicitHeight()));
+        yAdd = std::max(yAdd, m_quickActionItem->implicitHeight());
+    }
     nextY += yAdd + m_spacing;
     if (m_showReadMarkers && m_readMarkerItem) {
         qreal extraSpacing = m_readMarkerItem->implicitWidth() < m_sizeHelper.availableWidth() - m_spacing ? m_spacing : 0;
@@ -545,6 +609,7 @@ void MessageDelegateBase::hoverEnterEvent(QHoverEvent *event)
     Q_EMIT hoveredChanged();
     event->setAccepted(true);
     updateBackground();
+    updateQuickAction();
 }
 
 void MessageDelegateBase::hoverMoveEvent(QHoverEvent *event)
@@ -556,6 +621,7 @@ void MessageDelegateBase::hoverMoveEvent(QHoverEvent *event)
     }
     event->setAccepted(true);
     updateBackground();
+    updateQuickAction();
 }
 
 void MessageDelegateBase::hoverLeaveEvent(QHoverEvent *event)
@@ -564,6 +630,7 @@ void MessageDelegateBase::hoverLeaveEvent(QHoverEvent *event)
     Q_EMIT hoveredChanged();
     event->setAccepted(true);
     updateBackground();
+    updateQuickAction();
 }
 
 bool MessageDelegateBase::isTemporaryHighlighted() const

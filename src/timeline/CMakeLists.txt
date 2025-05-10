@@ -7,7 +7,6 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/timeline
     QML_FILES
         TimelineView.qml
-        HoverActions.qml
         EventDelegate.qml
         HiddenDelegate.qml
         MessageDelegate.qml
@@ -20,6 +19,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         Bubble.qml
         AvatarFlow.qml
         SectionDelegate.qml
+        QuickActions.qml
         BaseMessageComponentChooser.qml
         MessageComponentChooser.qml
         ReplyMessageComponentChooser.qml

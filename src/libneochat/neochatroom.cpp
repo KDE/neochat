@@ -37,6 +37,7 @@
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
+#include <Quotient/thread.h>
 
 #include "chatbarcache.h"
 #include "clipboard.h"
@@ -1706,6 +1707,30 @@ void NeoChatRoom::unpinEvent(const QString &eventId)
 bool NeoChatRoom::isEventPinned(const QString &eventId) const
 {
     return pinnedEventIds().contains(eventId);
+}
+
+bool NeoChatRoom::eventIsThreaded(const QString &eventId) const
+{
+    const auto event = eventCast<const RoomMessageEvent>(getEvent(eventId).first);
+    if (event == nullptr) {
+        return false;
+    }
+
+    return event->isThreaded() || threads().contains(eventId);
+}
+
+QString NeoChatRoom::rootIdForThread(const QString &eventId) const
+{
+    const auto event = eventCast<const RoomMessageEvent>(getEvent(eventId).first);
+    if (event == nullptr) {
+        return {};
+    }
+
+    auto rootId = event->threadRootEventId();
+    if (rootId.isEmpty() && threads().contains(eventId)) {
+        rootId = event->id();
+    }
+    return rootId;
 }
 
 #include "moc_neochatroom.cpp"
