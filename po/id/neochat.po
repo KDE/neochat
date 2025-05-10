@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
+"POT-Creation-Date: 2025-05-10 00:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -166,8 +166,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Buka NeoChat di ruangan ini"
 
-#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
+#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Balas"
@@ -347,8 +347,8 @@ msgstr "Mulai sebuah Obrolan"
 msgid "Attachment:"
 msgstr "Lampiran:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
-#: src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -859,26 +859,6 @@ msgstr "Tentang KDE"
 #, kde-format
 msgid "No name"
 msgstr "Tidak ada nama"
-
-#: src/app/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Pesan ini terkirim dari peranti yang telah diverifikasi"
-
-#: src/app/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Reaksi"
-
-#: src/app/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr ""
-
-#: src/app/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3674,7 +3654,7 @@ msgstr "URL Server"
 msgid "Registration is disabled on this server."
 msgstr ""
 
-#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:30
 #: src/timeline/models/messagecontentmodel.cpp:265
 #: src/timeline/models/messagecontentmodel.cpp:293
@@ -3682,6 +3662,12 @@ msgstr ""
 #| msgid "Loading…"
 msgid "Loading"
 msgstr "Memuat..."
+
+#: src/login/Homeserver.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue in Browser"
+msgstr ""
 
 #: src/login/Loading.qml:17
 #, fuzzy, kde-format
@@ -3780,54 +3766,54 @@ msgstr "Konfirmasi Kata Sandi baru:"
 msgid "The passwords do not match."
 msgstr "Kata sandi tidak cocok"
 
-#: src/login/registration.cpp:306
+#: src/login/registration.cpp:341
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Tambahkan server"
 
-#: src/login/registration.cpp:308
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/login/registration.cpp:310
+#: src/login/registration.cpp:345
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
 
-#: src/login/registration.cpp:312
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/login/registration.cpp:314
+#: src/login/registration.cpp:349
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Tidak ada nama"
 
-#: src/login/registration.cpp:316
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/login/registration.cpp:318
+#: src/login/registration.cpp:353
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Tidak ada pengguna yang tersedia"
 
-#: src/login/registration.cpp:320
+#: src/login/registration.cpp:355
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Lanjut"
 
-#: src/login/registration.cpp:322
+#: src/login/registration.cpp:357
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -6625,6 +6611,26 @@ msgstr ""
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Pesan ini terkirim dari peranti yang telah diverifikasi"
+
+#: src/timeline/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "Reaksi"
+
+#: src/timeline/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr ""
+
+#: src/timeline/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
 msgstr ""
 
 #: src/timeline/ImageComponent.qml:120

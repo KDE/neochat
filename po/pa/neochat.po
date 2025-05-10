@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
+"POT-Creation-Date: 2025-05-10 00:42+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -164,8 +164,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
+#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
@@ -347,8 +347,8 @@ msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
 msgid "Attachment:"
 msgstr "ਨੱਥੀ:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
-#: src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -858,26 +858,6 @@ msgstr "ਇਸ ਬਾਰੇ"
 #, kde-format
 msgid "No name"
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
-
-#: src/app/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr ""
-
-#: src/app/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "ਅਸਰ"
-
-#: src/app/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr ""
-
-#: src/app/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3712,7 +3692,7 @@ msgstr "ਸਰਵਰ ਦਾ ਸਿਰਨਾਵਾਂ"
 msgid "Registration is disabled on this server."
 msgstr ""
 
-#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:30
 #: src/timeline/models/messagecontentmodel.cpp:265
 #: src/timeline/models/messagecontentmodel.cpp:293
@@ -3720,6 +3700,12 @@ msgstr ""
 #| msgid "Loading"
 msgid "Loading"
 msgstr "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: src/login/Homeserver.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue in Browser"
+msgstr ""
 
 #: src/login/Loading.qml:17
 #, fuzzy, kde-format
@@ -3820,52 +3806,52 @@ msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 msgid "The passwords do not match."
 msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
 
-#: src/login/registration.cpp:306
+#: src/login/registration.cpp:341
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "No server."
 msgstr "ਹੋਮ-ਸਰਵਰ:"
 
-#: src/login/registration.cpp:308
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/login/registration.cpp:310
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "This is not a valid server."
 msgstr ""
 
-#: src/login/registration.cpp:312
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/login/registration.cpp:314
+#: src/login/registration.cpp:349
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
 
-#: src/login/registration.cpp:316
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/login/registration.cpp:318
+#: src/login/registration.cpp:353
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: src/login/registration.cpp:320
+#: src/login/registration.cpp:355
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
-#: src/login/registration.cpp:322
+#: src/login/registration.cpp:357
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -6659,6 +6645,26 @@ msgstr ""
 #: src/timeline/HotelReservationComponent.qml:69
 #, kde-format
 msgid "Check-out time: %1"
+msgstr ""
+
+#: src/timeline/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr ""
+
+#: src/timeline/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "ਅਸਰ"
+
+#: src/timeline/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr ""
+
+#: src/timeline/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
 msgstr ""
 
 #: src/timeline/ImageComponent.qml:120

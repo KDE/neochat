@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
-"PO-Revision-Date: 2025-04-18 12:00+0200\n"
+"POT-Creation-Date: 2025-05-10 00:42+0000\n"
+"PO-Revision-Date: 2025-05-09 18:20+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -162,8 +162,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Aperi NeoChat in iste sala"
 
-#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
+#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
@@ -331,8 +331,8 @@ msgstr "Initia conversation in directo"
 msgid "Attachment:"
 msgstr "Attachamento:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
-#: src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -808,26 +808,6 @@ msgstr "A proposito de KDE"
 msgid "No name"
 msgstr "Necun nomine"
 
-#: src/app/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Iste message esseva inviate ex un dispositivo verificate"
-
-#: src/app/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Reage"
-
-#: src/app/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Responde in Topico"
-
-#: src/app/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr "Termina Inquesta"
-
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
 msgctxt "@info screenreader"
@@ -891,31 +871,25 @@ msgid "Mirror"
 msgstr "Speculo"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "%1 esseva invitate in iste sala."
+msgstr "%1 te ha invitate in iste sala a %2"
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Iste usator te invita a conversar."
+msgstr "Iste usator te invita a conversar a %1"
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Accepta"
+msgstr "Accepta invitation"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgid "Reject Invitation"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Rejecta invitation"
@@ -924,12 +898,10 @@ msgstr "Rejecta invitation"
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "Bloca %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
@@ -1260,7 +1232,7 @@ msgstr "Barrate"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Spoiler(Guastator)"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -3464,13 +3436,19 @@ msgstr "URL de servitor:"
 msgid "Registration is disabled on this server."
 msgstr "Registration es dishabilitate sur iste servitor."
 
-#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:30
 #: src/timeline/models/messagecontentmodel.cpp:265
 #: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Cargante"
+
+#: src/login/Homeserver.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue in Browser"
+msgstr ""
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3563,47 +3541,47 @@ msgstr "Confirma contrasigno:"
 msgid "The passwords do not match."
 msgstr "Le contrasigno non es correspondente."
 
-#: src/login/registration.cpp:306
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "No server."
 msgstr "Nulle servitor."
 
-#: src/login/registration.cpp:308
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Verificante disponibilitate de Servitor."
 
-#: src/login/registration.cpp:310
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Isto non es un valide servitor."
 
-#: src/login/registration.cpp:312
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Registration per iste servitor es dishabilitate."
 
-#: src/login/registration.cpp:314
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "No username."
 msgstr "Necun nomine de usator."
 
-#: src/login/registration.cpp:316
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "Checking username availability."
 msgstr "Verificante disponibilitate de nomine de usator."
 
-#: src/login/registration.cpp:318
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "This username is not available."
 msgstr "Iste nomine de usator non es disponibile."
 
-#: src/login/registration.cpp:320
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
 
-#: src/login/registration.cpp:322
+#: src/login/registration.cpp:357
 #, kde-format
 msgid "Working"
 msgstr "travaliante"
@@ -6166,6 +6144,26 @@ msgstr "Tempore de Check-in: %1"
 #, kde-format
 msgid "Check-out time: %1"
 msgstr "Tempore de Check-Out: %1"
+
+#: src/timeline/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Iste message esseva inviate ex un dispositivo verificate"
+
+#: src/timeline/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "Reage"
+
+#: src/timeline/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "Responde in Topico"
+
+#: src/timeline/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr "Termina Inquesta"
 
 #: src/timeline/ImageComponent.qml:120
 #, kde-format

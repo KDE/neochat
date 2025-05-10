@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
+"POT-Creation-Date: 2025-05-10 00:42+0000\n"
 "PO-Revision-Date: 2025-03-27 10:50+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -164,8 +164,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
+#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -331,8 +331,8 @@ msgstr "Начать чат"
 msgid "Attachment:"
 msgstr "Вложение:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
-#: src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -808,26 +808,6 @@ msgstr "О KDE"
 #, kde-format
 msgid "No name"
 msgstr "Без имени"
-
-#: src/app/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Это сообщение было отправлено с проверенного устройства"
-
-#: src/app/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Реакция"
-
-#: src/app/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Ответить в ветке"
-
-#: src/app/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -3463,13 +3443,19 @@ msgstr "Адрес сервера:"
 msgid "Registration is disabled on this server."
 msgstr "Регистрация пользователей отключена на этом сервере."
 
-#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:30
 #: src/timeline/models/messagecontentmodel.cpp:265
 #: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Загрузка"
+
+#: src/login/Homeserver.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue in Browser"
+msgstr ""
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3562,47 +3548,47 @@ msgstr "Проверка пароля:"
 msgid "The passwords do not match."
 msgstr "Пароли не совпадают."
 
-#: src/login/registration.cpp:306
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "No server."
 msgstr "Сервер отсутствует."
 
-#: src/login/registration.cpp:308
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Проверка доступности сервера."
 
-#: src/login/registration.cpp:310
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Этот сервер является некорректным."
 
-#: src/login/registration.cpp:312
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Для этого сервера отключена регистрация."
 
-#: src/login/registration.cpp:314
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "No username."
 msgstr "Имя пользователя отсутствует."
 
-#: src/login/registration.cpp:316
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "Checking username availability."
 msgstr "Проверка доступности имени пользователя."
 
-#: src/login/registration.cpp:318
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "This username is not available."
 msgstr "Это имя пользователя недоступно."
 
-#: src/login/registration.cpp:320
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Continue"
 msgstr "Продолжить"
 
-#: src/login/registration.cpp:322
+#: src/login/registration.cpp:357
 #, kde-format
 msgid "Working"
 msgstr "Работает"
@@ -6195,6 +6181,26 @@ msgstr "Время регистрации: %1"
 #, kde-format
 msgid "Check-out time: %1"
 msgstr "Время регистрации отъезда: %1"
+
+#: src/timeline/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Это сообщение было отправлено с проверенного устройства"
+
+#: src/timeline/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "Реакция"
+
+#: src/timeline/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "Ответить в ветке"
+
+#: src/timeline/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr ""
 
 #: src/timeline/ImageComponent.qml:120
 #, kde-format

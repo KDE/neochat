@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-09 00:41+0000\n"
-"PO-Revision-Date: 2025-04-22 08:29+0300\n"
+"POT-Creation-Date: 2025-05-10 00:42+0000\n"
+"PO-Revision-Date: 2025-05-09 07:54+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/app/controller.cpp:181
 #, kde-format
@@ -160,8 +160,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "פתיחת NeoChat בחדר הזה"
 
-#: src/app/notificationsmanager.cpp:245 src/app/qml/HoverActions.qml:123
-#: src/timeline/DelegateContextMenu.qml:98
+#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/HoverActions.qml:123
 #, kde-format
 msgid "Reply"
 msgstr "תגובה"
@@ -327,8 +327,8 @@ msgstr "התחלת שיחה"
 msgid "Attachment:"
 msgstr "קובץ מצורף:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/HoverActions.qml:106
-#: src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -798,26 +798,6 @@ msgstr "על KDE"
 msgid "No name"
 msgstr "אין שם"
 
-#: src/app/qml/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "ההודעה הזאת נשלחה ממכשיר מאומת"
-
-#: src/app/qml/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "רגש בתגובה"
-
-#: src/app/qml/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "תגובה בשרשור"
-
-#: src/app/qml/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr "סיום סקר"
-
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
 msgctxt "@info screenreader"
@@ -881,46 +861,37 @@ msgid "Mirror"
 msgstr "היפוך אופקי"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "נשלחה הזמנה אל %1 להצטרף לחדר הזה."
+msgstr "נשלחה אליך הזמנה מאת %1 להצטרף לחדר הזה ב־%2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "הוזמנת לשיחה עם המשתמש הזה."
+msgstr "הוזמנת לשיחה עם המשתמש הזה ב־%1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "קבלה"
+msgstr "קבלת ההזמנה"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "דחייה"
+msgstr "דחיית ההזמנה"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "חסימת %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr "אפשר לדחות הזמנות ממשתמשים לא מוכרים תחת הגדרות האבטחה."
@@ -1249,7 +1220,7 @@ msgstr "קו חוצה"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "קלקלן"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -3415,13 +3386,19 @@ msgstr "כתובת שרת:"
 msgid "Registration is disabled on this server."
 msgstr "הרישום לשרת הזה מושבת."
 
-#: src/login/Homeserver.qml:41 src/login/Username.qml:38
+#: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/timeline/LoadComponent.qml:30
 #: src/timeline/models/messagecontentmodel.cpp:265
 #: src/timeline/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "בטעינה"
+
+#: src/login/Homeserver.qml:48
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue in Browser"
+msgstr ""
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3512,47 +3489,47 @@ msgstr "אימות הסיסמה:"
 msgid "The passwords do not match."
 msgstr "הסיסמאות לא תואמות."
 
-#: src/login/registration.cpp:306
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "No server."
 msgstr "אין שרת."
 
-#: src/login/registration.cpp:308
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "Checking Server availability."
 msgstr "זמינות השרת נבדקת."
 
-#: src/login/registration.cpp:310
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "This is not a valid server."
 msgstr "זה לא שרת תקף."
 
-#: src/login/registration.cpp:312
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "ההרשמה לשרת הזה מושבתת."
 
-#: src/login/registration.cpp:314
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "No username."
 msgstr "אין שם משתמש."
 
-#: src/login/registration.cpp:316
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "Checking username availability."
 msgstr "זמינות שם המשתמש נבדקת."
 
-#: src/login/registration.cpp:318
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "This username is not available."
 msgstr "שם המשתמש הזה לא זמין."
 
-#: src/login/registration.cpp:320
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Continue"
 msgstr "להמשיך"
 
-#: src/login/registration.cpp:322
+#: src/login/registration.cpp:357
 #, kde-format
 msgid "Working"
 msgstr "בעבודה"
@@ -6089,6 +6066,26 @@ msgstr "שעת קליטה: %1"
 #, kde-format
 msgid "Check-out time: %1"
 msgstr "שעת מסירה: %1"
+
+#: src/timeline/HoverActions.qml:88
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "ההודעה הזאת נשלחה ממכשיר מאומת"
+
+#: src/timeline/HoverActions.qml:94
+#, kde-format
+msgid "React"
+msgstr "רגש בתגובה"
+
+#: src/timeline/HoverActions.qml:140
+#, kde-format
+msgid "Reply in Thread"
+msgstr "תגובה בשרשור"
+
+#: src/timeline/HoverActions.qml:158
+#, kde-format
+msgid "End Poll"
+msgstr "סיום סקר"
 
 #: src/timeline/ImageComponent.qml:120
 #, kde-format
