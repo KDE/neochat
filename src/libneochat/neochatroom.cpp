@@ -37,6 +37,9 @@
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+#include <Quotient/thread.h>
+#endif
 
 #include "chatbarcache.h"
 #include "clipboard.h"
@@ -1706,6 +1709,36 @@ void NeoChatRoom::unpinEvent(const QString &eventId)
 bool NeoChatRoom::isEventPinned(const QString &eventId) const
 {
     return pinnedEventIds().contains(eventId);
+}
+
+bool NeoChatRoom::eventIsThreaded(const QString &eventId) const
+{
+    const auto event = eventCast<const RoomMessageEvent>(getEvent(eventId).first);
+    if (event == nullptr) {
+        return false;
+    }
+
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+    return event->isThreaded() || threads().contains(eventId);
+#else
+    return event->isThreaded();
+#endif
+}
+
+QString NeoChatRoom::rootIdForThread(const QString &eventId) const
+{
+    const auto event = eventCast<const RoomMessageEvent>(getEvent(eventId).first);
+    if (event == nullptr) {
+        return {};
+    }
+
+    auto rootId = event->threadRootEventId();
+#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
+    if (rootId.isEmpty() && threads().contains(eventId)) {
+        rootId = event->id();
+    }
+#endif
+    return rootId;
 }
 
 #include "moc_neochatroom.cpp"

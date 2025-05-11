@@ -90,20 +90,6 @@ MessageDelegateBase {
     required property bool verified
 
     /**
-     * @brief The y position of the message bubble.
-     *
-     * @note Used for positioning the hover actions.
-     */
-    readonly property alias bubbleY: bubble.y
-
-    /**
-     * @brief The width of the message bubble.
-     *
-     * @note Used for sizing the hover actions.
-     */
-    readonly property alias bubbleWidth: bubble.width
-
-    /**
      * @brief Open the any message media externally.
      */
     signal openExternally
@@ -202,17 +188,9 @@ MessageDelegateBase {
         radius: Kirigami.Units.cornerRadius
     }
 
-    // show hover actions
-    onHoveredChanged: {
-        if (hovered && !Kirigami.Settings.isMobile) {
-            root.setHoverActionsToDelegate();
-        }
-    }
-
-    function setHoverActionsToDelegate() {
-        if (ListView.view.setHoverActionsToDelegate) {
-            ListView.view.setHoverActionsToDelegate(root);
-        }
+    quickActionComponent: QuickActions {
+        room: root.room
+        eventId: root.eventId
     }
 
     QtObject {

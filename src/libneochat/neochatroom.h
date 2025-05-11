@@ -576,6 +576,17 @@ public:
      */
     Q_INVOKABLE bool isEventPinned(const QString &eventId) const;
 
+    /**
+     * @return True if the given @p eventId is threaded.
+     */
+    Q_INVOKABLE bool eventIsThreaded(const QString &eventId) const;
+
+    /**
+     * @return Returns the thread root ID for @p eventId as a string. The string
+     *         is empty if the event is not part of a thread.
+     */
+    Q_INVOKABLE QString rootIdForThread(const QString &eventId) const;
+
 private:
     bool m_visible = false;
 

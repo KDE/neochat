@@ -97,6 +97,11 @@ class MessageDelegateBase : public TimelineDelegate
                    compactBackgroundComponentChanged FINAL)
 
     /**
+     * @brief The component to use to visualize quick actions.
+     */
+    Q_PROPERTY(QQmlComponent *quickActionComponent READ quickActionComponent WRITE setQuickActionComponent NOTIFY quickActionComponentChanged FINAL)
+
+    /**
      * @brief Whether to use the compact mode appearance.
      */
     Q_PROPERTY(bool compactMode READ compactMode WRITE setCompactMode NOTIFY compactModeChanged FINAL)
@@ -152,6 +157,9 @@ public:
     bool compactMode() const;
     void setCompactMode(bool compactMode);
 
+    QQmlComponent *quickActionComponent() const;
+    void setQuickActionComponent(QQmlComponent *quickActionComponent);
+
     bool showLocalMessagesOnRight() const;
     void setShowLocalMessagesOnRight(bool showLocalMessagesOnRight);
 
@@ -172,6 +180,7 @@ Q_SIGNALS:
     void readMarkerComponentChanged();
     void showReadMarkersChanged();
     void compactBackgroundComponentChanged();
+    void quickActionComponentChanged();
     void compactModeChanged();
     void showLocalMessagesOnRightChanged();
     void isTemporaryHighlightedChanged();
@@ -211,6 +220,10 @@ private:
     bool m_compactMode = false;
     void updateBackground();
 
+    QPointer<QQmlComponent> m_quickActionComponent;
+    bool m_quickActionIncubating = false;
+    QPointer<QQuickItem> m_quickActionItem;
+
     bool m_showLocalMessagesOnRight = true;
 
     bool m_hovered = false;
@@ -245,4 +258,7 @@ private:
     void resizeContent() override;
 
     QPointer<QTimer> m_temporaryHighlightTimer;
+
+private Q_SLOTS:
+    void updateQuickAction();
 };

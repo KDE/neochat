@@ -104,6 +104,19 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
+    component ReplyThreadMessageAction: QQC2.Action {
+        text: i18nc("@action:button", "Reply in Thread")
+        icon.name: "dialog-messages"
+        onTriggered: {
+            currentRoom.threadCache.replyId = "";
+            currentRoom.threadCache.threadId = currentRoom.eventIsThreaded(root.eventId) ? currentRoom.rootIdForThread(root.eventId) : root.eventId;
+            currentRoom.mainCache.clearRelations();
+            currentRoom.editCache.clearRelations();
+            RoomManager.requestFullScreenClose();
+        }
+    }
+
+
     component ReportMessageAction: Kirigami.Action {
         text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
         icon.name: "dialog-warning-symbolic"
