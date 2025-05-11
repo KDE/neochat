@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-10 00:42+0000\n"
-"PO-Revision-Date: 2025-04-18 10:51+0200\n"
+"PO-Revision-Date: 2025-05-10 10:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/app/controller.cpp:181
 #, kde-format
@@ -870,46 +870,37 @@ msgid "Mirror"
 msgstr "Emmiralla"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "%1 se l'ha convidat a esta sala."
+msgstr "%1 vos ha convidat en esta sala %2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Este usuari vos ha convidat al xat."
+msgstr "Este usuari vos ha convidat al xat %1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Accepta"
+msgstr "Accepta la invitació"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "Rebutja"
+msgstr "Rebutja la invitació"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "Bloqueja %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
@@ -1241,7 +1232,7 @@ msgstr "Barrat"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Espòiler"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -3462,7 +3453,7 @@ msgstr "S'està carregant"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Continua al navegador"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -6450,15 +6441,3 @@ msgstr "Volum"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximitza"
-
-#~ msgctxt "@info:label"
-#~ msgid "%1 has invited you to join"
-#~ msgstr "%1 vos ha convidat a unir-vos"
-
-#~ msgctxt "@action:button"
-#~ msgid "Reject"
-#~ msgstr "Rebutja"
-
-#~ msgctxt "@action:button"
-#~ msgid "Accept"
-#~ msgstr "Accepta"
