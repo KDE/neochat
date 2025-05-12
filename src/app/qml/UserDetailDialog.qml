@@ -36,6 +36,7 @@ Kirigami.Dialog {
     contentItem: ColumnLayout {
         spacing: 0
         RowLayout {
+            id: detailRow
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing
@@ -70,8 +71,17 @@ Kirigami.Dialog {
                 }
 
                 Kirigami.SelectableLabel {
+                    id: idLabel
                     textFormat: TextEdit.PlainText
-                    text: root.user.id
+                    text: idLabelTextMetrics.elidedText
+
+                    TextMetrics {
+                        id: idLabelTextMetrics
+                        text: root.user.id
+                        elide: Qt.ElideRight
+                        elideWidth: root.availableWidth - avatar.width - qrButton.width - detailRow.spacing * 2 - detailRow.Layout.leftMargin - detailRow.Layout.rightMargin
+                        onElideWidthChanged: console.warn(root.availableWidth, avatar.width, qrButton.width, elideWidth, elidedText)
+                    }
                 }
 
                 QQC2.Label {
@@ -88,6 +98,7 @@ Kirigami.Dialog {
                 }
             }
             QQC2.AbstractButton {
+                id: qrButton
                 Layout.minimumHeight: avatar.height * 0.75
                 Layout.maximumHeight: avatar.height * 1.5
                 Layout.maximumWidth: avatar.height * 1.5
