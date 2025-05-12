@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:42+0000\n"
+"POT-Creation-Date: 2025-05-12 00:41+0000\n"
 "PO-Revision-Date: 2025-02-23 12:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -163,7 +163,7 @@ msgid "Open NeoChat in this room"
 msgstr "Otwórz NeoChat w tym pokoju"
 
 #: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
-#: src/timeline/HoverActions.qml:123
+#: src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Odpowiedz"
@@ -330,7 +330,6 @@ msgid "Attachment:"
 msgstr "Załącznik:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
-#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -3402,12 +3401,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/libneochat/neochatroom.cpp:1215
+#: src/libneochat/neochatroom.cpp:1218
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
+#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6038,44 +6037,51 @@ msgid "Remove"
 msgstr "Usuń"
 
 #: src/timeline/DelegateContextMenu.qml:108
-#: src/timeline/DelegateContextMenu.qml:116
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@action:button"
+msgid "Reply in Thread"
+msgstr "Odpowiedz w wątku"
+
+#: src/timeline/DelegateContextMenu.qml:121
+#: src/timeline/DelegateContextMenu.qml:129
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Zgłoś"
 
-#: src/timeline/DelegateContextMenu.qml:113
+#: src/timeline/DelegateContextMenu.qml:126
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Zgłoś wiadomość"
 
-#: src/timeline/DelegateContextMenu.qml:114
+#: src/timeline/DelegateContextMenu.qml:127
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Powód zgłoszenia tej wiadomości"
 
-#: src/timeline/DelegateContextMenu.qml:118
+#: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Zgłoś wiadomość"
 
-#: src/timeline/DelegateContextMenu.qml:128
+#: src/timeline/DelegateContextMenu.qml:141
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Pokaż użytkownika"
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6170,26 +6176,6 @@ msgstr "Czas zameldowania: %1"
 msgid "Check-out time: %1"
 msgstr "Czas wymeldowania: %1"
 
-#: src/timeline/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Wiadomość tę wysłano ze sprawdzonego urządzenia"
-
-#: src/timeline/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Dodaj reakcję"
-
-#: src/timeline/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Odpowiedz w wątku"
-
-#: src/timeline/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
-
 #: src/timeline/ImageComponent.qml:120
 #, kde-format
 msgctxt "@action:button"
@@ -6237,54 +6223,54 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Otwórz zewnętrznie"
 
-#: src/timeline/MessageDelegateContextMenu.qml:54
+#: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Przekieruj…"
 
-#: src/timeline/MessageDelegateContextMenu.qml:60
+#: src/timeline/MessageDelegateContextMenu.qml:62
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Przekieruj wiadomość"
 
-#: src/timeline/MessageDelegateContextMenu.qml:74
+#: src/timeline/MessageDelegateContextMenu.qml:76
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Skopiuj adres odnośnika"
 
-#: src/timeline/MessageDelegateContextMenu.qml:80
+#: src/timeline/MessageDelegateContextMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Skopiuj tekst"
 
-#: src/timeline/MessageDelegateContextMenu.qml:85
+#: src/timeline/MessageDelegateContextMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Skopiuj odnośnik do wiadomości"
 
-#: src/timeline/MessageDelegateContextMenu.qml:92
+#: src/timeline/MessageDelegateContextMenu.qml:94
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:95
+#: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:120
+#: src/timeline/MessageDelegateContextMenu.qml:122
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Poszukaj '%1'"
 
-#: src/timeline/MessageDelegateContextMenu.qml:140
+#: src/timeline/MessageDelegateContextMenu.qml:142
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Ustawienia skrótów sieciowych…"
@@ -6371,6 +6357,17 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr ""
 
+#: src/timeline/QuickActions.qml:32
+#, kde-format
+msgid "React"
+msgstr "Dodaj reakcję"
+
+#: src/timeline/QuickActions.qml:81
+#, fuzzy, kde-format
+#| msgid "Message Source"
+msgid "Message menu"
+msgstr "Źródło wiadomości"
+
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format
 msgctxt "@button"
@@ -6453,6 +6450,9 @@ msgstr "Głośność"
 #, kde-format
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
+
+#~ msgid "This message was sent from a verified device"
+#~ msgstr "Wiadomość tę wysłano ze sprawdzonego urządzenia"
 
 #~ msgctxt "@info:label"
 #~ msgid "%1 has invited you to join"

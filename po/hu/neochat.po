@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:42+0000\n"
+"POT-Creation-Date: 2025-05-12 00:41+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -164,7 +164,7 @@ msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
 #: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
-#: src/timeline/HoverActions.qml:123
+#: src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
@@ -337,7 +337,6 @@ msgid "Attachment:"
 msgstr "Melléklet"
 
 #: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
-#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -3446,12 +3445,12 @@ msgstr "Nem sikerült létrehozni a szobát: %1"
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
 
-#: src/libneochat/neochatroom.cpp:1215
+#: src/libneochat/neochatroom.cpp:1218
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Jelentés sikeresen elküldve."
 
-#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
+#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6163,44 +6162,51 @@ msgid "Remove"
 msgstr "Eltávolítás"
 
 #: src/timeline/DelegateContextMenu.qml:108
-#: src/timeline/DelegateContextMenu.qml:116
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@action:button"
+msgid "Reply in Thread"
+msgstr "Válasz szálban"
+
+#: src/timeline/DelegateContextMenu.qml:121
+#: src/timeline/DelegateContextMenu.qml:129
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Jelentés"
 
-#: src/timeline/DelegateContextMenu.qml:113
+#: src/timeline/DelegateContextMenu.qml:126
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Üzenet jelentése"
 
-#: src/timeline/DelegateContextMenu.qml:114
+#: src/timeline/DelegateContextMenu.qml:127
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Az üzenet jelentésének oka"
 
-#: src/timeline/DelegateContextMenu.qml:118
+#: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Üzenet jelentése"
 
-#: src/timeline/DelegateContextMenu.qml:128
+#: src/timeline/DelegateContextMenu.qml:141
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Felhasználó megjelenítése"
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6299,26 +6305,6 @@ msgstr "Bejelentkezés ideje: %1"
 msgid "Check-out time: %1"
 msgstr "Kijelentkezés ideje: %1"
 
-#: src/timeline/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Az üzenetet egy ellenőrzött eszközről küldték"
-
-#: src/timeline/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Reagálás"
-
-#: src/timeline/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Válasz szálban"
-
-#: src/timeline/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr ""
-
 #: src/timeline/ImageComponent.qml:120
 #, kde-format
 msgctxt "@action:button"
@@ -6366,7 +6352,7 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
 
-#: src/timeline/MessageDelegateContextMenu.qml:54
+#: src/timeline/MessageDelegateContextMenu.qml:56
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu As in 'Forward this message'"
 #| msgid "Forward"
@@ -6374,51 +6360,51 @@ msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Továbbítás"
 
-#: src/timeline/MessageDelegateContextMenu.qml:60
+#: src/timeline/MessageDelegateContextMenu.qml:62
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Üzenet továbbítása"
 
-#: src/timeline/MessageDelegateContextMenu.qml:74
+#: src/timeline/MessageDelegateContextMenu.qml:76
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Hivatkozás másolása"
 
-#: src/timeline/MessageDelegateContextMenu.qml:80
+#: src/timeline/MessageDelegateContextMenu.qml:82
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Másolás"
 
-#: src/timeline/MessageDelegateContextMenu.qml:85
+#: src/timeline/MessageDelegateContextMenu.qml:87
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Hivatkozás másolása"
 
-#: src/timeline/MessageDelegateContextMenu.qml:92
+#: src/timeline/MessageDelegateContextMenu.qml:94
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:95
+#: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:120
+#: src/timeline/MessageDelegateContextMenu.qml:122
 #, kde-format
 msgid "Search for '%1'"
 msgstr "„%1” keresése"
 
-#: src/timeline/MessageDelegateContextMenu.qml:140
+#: src/timeline/MessageDelegateContextMenu.qml:142
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure Web Shortcuts…"
@@ -6500,6 +6486,17 @@ msgstr "(Befejeződött)"
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr ""
+
+#: src/timeline/QuickActions.qml:32
+#, kde-format
+msgid "React"
+msgstr "Reagálás"
+
+#: src/timeline/QuickActions.qml:81
+#, fuzzy, kde-format
+#| msgid "Message Source"
+msgid "Message menu"
+msgstr "Üzenet forrása"
 
 #: src/timeline/ReactionComponent.qml:89
 #, fuzzy, kde-format
@@ -6583,6 +6580,9 @@ msgstr "Hangerő"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximalizálás"
+
+#~ msgid "This message was sent from a verified device"
+#~ msgstr "Az üzenetet egy ellenőrzött eszközről küldték"
 
 #, fuzzy
 #~| msgid "%1 invited you to a room"

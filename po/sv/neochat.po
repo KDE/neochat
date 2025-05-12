@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:42+0000\n"
+"POT-Creation-Date: 2025-05-12 00:41+0000\n"
 "PO-Revision-Date: 2025-04-17 12:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -160,7 +160,7 @@ msgid "Open NeoChat in this room"
 msgstr "Öppna NeoChat för rummet"
 
 #: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
-#: src/timeline/HoverActions.qml:123
+#: src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
@@ -327,7 +327,6 @@ msgid "Attachment:"
 msgstr "Bilaga:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
-#: src/timeline/HoverActions.qml:106
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -3380,12 +3379,12 @@ msgstr "Misslyckades skapa rum: \"%1"
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
 
-#: src/libneochat/neochatroom.cpp:1215
+#: src/libneochat/neochatroom.cpp:1218
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport skickades med lyckat resultat."
 
-#: src/libneochat/neochatroom.cpp:1551 src/libneochat/neochatroom.cpp:1559
+#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6007,44 +6006,51 @@ msgid "Remove"
 msgstr "Ta bort"
 
 #: src/timeline/DelegateContextMenu.qml:108
-#: src/timeline/DelegateContextMenu.qml:116
+#, fuzzy, kde-format
+#| msgid "Reply in Thread"
+msgctxt "@action:button"
+msgid "Reply in Thread"
+msgstr "Svara i tråd"
+
+#: src/timeline/DelegateContextMenu.qml:121
+#: src/timeline/DelegateContextMenu.qml:129
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Rapportera"
 
-#: src/timeline/DelegateContextMenu.qml:113
+#: src/timeline/DelegateContextMenu.qml:126
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: src/timeline/DelegateContextMenu.qml:114
+#: src/timeline/DelegateContextMenu.qml:127
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Anledning att meddelandet rapporteras"
 
-#: src/timeline/DelegateContextMenu.qml:118
+#: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: src/timeline/DelegateContextMenu.qml:128
+#: src/timeline/DelegateContextMenu.qml:141
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Visa användare"
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Ta ner"
 
-#: src/timeline/DelegateContextMenu.qml:139
+#: src/timeline/DelegateContextMenu.qml:152
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6138,26 +6144,6 @@ msgstr "Incheckningstid: %1"
 msgid "Check-out time: %1"
 msgstr "Utcheckningstid: %1"
 
-#: src/timeline/HoverActions.qml:88
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Meddelandet skickades från en verifierad enhet"
-
-#: src/timeline/HoverActions.qml:94
-#, kde-format
-msgid "React"
-msgstr "Reagera"
-
-#: src/timeline/HoverActions.qml:140
-#, kde-format
-msgid "Reply in Thread"
-msgstr "Svara i tråd"
-
-#: src/timeline/HoverActions.qml:158
-#, kde-format
-msgid "End Poll"
-msgstr "Avsluta omröstning"
-
 #: src/timeline/ImageComponent.qml:120
 #, kde-format
 msgctxt "@action:button"
@@ -6205,54 +6191,54 @@ msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Öppna externt"
 
-#: src/timeline/MessageDelegateContextMenu.qml:54
+#: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Vidarebefordra…"
 
-#: src/timeline/MessageDelegateContextMenu.qml:60
+#: src/timeline/MessageDelegateContextMenu.qml:62
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
-#: src/timeline/MessageDelegateContextMenu.qml:74
+#: src/timeline/MessageDelegateContextMenu.qml:76
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiera länkadress"
 
-#: src/timeline/MessageDelegateContextMenu.qml:80
+#: src/timeline/MessageDelegateContextMenu.qml:82
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiera text"
 
-#: src/timeline/MessageDelegateContextMenu.qml:85
+#: src/timeline/MessageDelegateContextMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiera meddelandelänk"
 
-#: src/timeline/MessageDelegateContextMenu.qml:92
+#: src/timeline/MessageDelegateContextMenu.qml:94
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Läs upp text"
 
-#: src/timeline/MessageDelegateContextMenu.qml:95
+#: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 sa %2"
 
-#: src/timeline/MessageDelegateContextMenu.qml:120
+#: src/timeline/MessageDelegateContextMenu.qml:122
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Sök efter '%1'"
 
-#: src/timeline/MessageDelegateContextMenu.qml:140
+#: src/timeline/MessageDelegateContextMenu.qml:142
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Anpassa webbgenvägar…"
@@ -6333,6 +6319,17 @@ msgstr "(Avslutad)"
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "Omröstningen har avslutats. Vinnande svar: %1"
+
+#: src/timeline/QuickActions.qml:32
+#, kde-format
+msgid "React"
+msgstr "Reagera"
+
+#: src/timeline/QuickActions.qml:81
+#, fuzzy, kde-format
+#| msgid "Message Source"
+msgid "Message menu"
+msgstr "Meddelandekälla"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format
@@ -6416,6 +6413,12 @@ msgstr "Volym"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximera"
+
+#~ msgid "This message was sent from a verified device"
+#~ msgstr "Meddelandet skickades från en verifierad enhet"
+
+#~ msgid "End Poll"
+#~ msgstr "Avsluta omröstning"
 
 #~ msgctxt "@info:label"
 #~ msgid "%1 has invited you to join"
