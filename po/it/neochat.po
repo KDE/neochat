@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-12 00:41+0000\n"
-"PO-Revision-Date: 2025-04-21 14:41+0200\n"
+"POT-Creation-Date: 2025-05-13 00:41+0000\n"
+"PO-Revision-Date: 2025-05-12 10:10+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -868,31 +868,25 @@ msgid "Mirror"
 msgstr "Rispecchia"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "%1 è stato invitato in questa stanza."
+msgstr "%1 ti ha invitato in questa stanza alle %2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Questo utente ti sta invitando in chat."
+msgstr "Questo utente ti ha invitato a conversare su %1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Accetta"
+msgstr "Accetta invito"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgid "Reject Invitation"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Rifiuta invito"
@@ -901,12 +895,10 @@ msgstr "Rifiuta invito"
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "Blocca %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
@@ -1237,7 +1229,7 @@ msgstr "Barrato"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Visualizza nascosto"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -1645,7 +1637,7 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Dettagli dell'account"
 
-#: src/app/qml/UserDetailDialog.qml:83
+#: src/app/qml/UserDetailDialog.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "One mutual room"
@@ -1653,119 +1645,119 @@ msgid_plural "%1 mutual rooms"
 msgstr[0] "Una stanza comune"
 msgstr[1] "%1 stanze comuni"
 
-#: src/app/qml/UserDetailDialog.qml:136
+#: src/app/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Unignore this user"
 msgstr "Non ignorare questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:136
+#: src/app/qml/UserDetailDialog.qml:147
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignora questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:149
+#: src/app/qml/UserDetailDialog.qml:160
 #, kde-format
 msgid "Kick this user"
 msgstr "Espelli questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:153 src/app/qml/UserDetailDialog.qml:158
+#: src/app/qml/UserDetailDialog.qml:164 src/app/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Espelli utente"
 
-#: src/app/qml/UserDetailDialog.qml:154
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Motivo per l'espulsione di questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:155
+#: src/app/qml/UserDetailDialog.qml:166
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Espelli"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:185
 #, kde-format
 msgid "Invite this user"
 msgstr "Invita questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:187
+#: src/app/qml/UserDetailDialog.qml:198
 #, kde-format
 msgid "Ban this user"
 msgstr "Bandisci questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:192 src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:203 src/app/qml/UserDetailDialog.qml:208
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bandisci utente"
 
-#: src/app/qml/UserDetailDialog.qml:193
+#: src/app/qml/UserDetailDialog.qml:204
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Motivo per bandire questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:194
+#: src/app/qml/UserDetailDialog.qml:205
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Bando"
 
-#: src/app/qml/UserDetailDialog.qml:212
+#: src/app/qml/UserDetailDialog.qml:223
 #, kde-format
 msgid "Unban this user"
 msgstr "Rimuovi il bando questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:225
+#: src/app/qml/UserDetailDialog.qml:236
 #, kde-format
 msgid "Set user power level"
 msgstr "Imposta il livello di potere dell'utente"
 
-#: src/app/qml/UserDetailDialog.qml:250
+#: src/app/qml/UserDetailDialog.qml:261
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Rimuovi i messaggi recenti di questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:266
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
-#: src/app/qml/UserDetailDialog.qml:256
+#: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Motivo per la rimozione dei messaggi recenti di questo utente"
 
-#: src/app/qml/UserDetailDialog.qml:257
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: src/app/qml/UserDetailDialog.qml:260
+#: src/app/qml/UserDetailDialog.qml:271
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
-#: src/app/qml/UserDetailDialog.qml:274
+#: src/app/qml/UserDetailDialog.qml:285
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Chat con %1"
 
-#: src/app/qml/UserDetailDialog.qml:274
+#: src/app/qml/UserDetailDialog.qml:285
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Invita in chat privata"
 
-#: src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/UserDetailDialog.qml:296
 #, kde-format
 msgid "Copy link"
 msgstr "Copia collegamento"
@@ -3461,7 +3453,7 @@ msgstr "Caricamento"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Continua nel browser"
 
 #: src/login/Loading.qml:17
 #, kde-format
