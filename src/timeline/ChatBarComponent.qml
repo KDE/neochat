@@ -37,7 +37,7 @@ QQC2.TextArea {
     Layout.maximumWidth: root.maxContentWidth
     Layout.minimumHeight: chatButtons.height + topPadding + bottomPadding
 
-    Component.onCompleted: _private.updateText()
+    Component.onCompleted: Qt.callLater(() => _private.updateText())
 
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
