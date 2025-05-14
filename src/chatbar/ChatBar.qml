@@ -376,6 +376,9 @@ QQC2.Control {
                 replyAuthor: _private.chatBarCache.relationAuthor
                 replyContentModel: ContentProvider.contentModelForEvent(root.currentRoom, _private.chatBarCache.replyId, true)
                 Message.maxContentWidth: replyLoader.item.width
+
+                // When the user replies to a message and the preview is loaded, make sure the text field is focused again
+                Component.onCompleted: textField.forceActiveFocus(Qt.OtherFocusReason)
             }
             QQC2.Button {
                 id: cancelButton
