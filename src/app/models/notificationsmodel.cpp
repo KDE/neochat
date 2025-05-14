@@ -121,6 +121,10 @@ void NotificationsModel::loadData()
                 const auto &authorAvatar = avatar.isValid() && avatar.scheme() == u"mxc"_s ? avatar : QUrl();
 
                 const auto &roomEvent = eventCast<const RoomEvent>(notification.event.get());
+                if (!roomEvent) {
+                    continue;
+                }
+
                 beginInsertRows({}, m_notifications.length(), m_notifications.length());
                 m_notifications += Notification{
                     .roomId = notification.roomId,
