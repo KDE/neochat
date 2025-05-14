@@ -121,9 +121,11 @@ QQC2.TextArea {
 
     CompletionMenu {
         id: completionMenu
+        width: Math.max(350, root.width - 1)
         height: implicitHeight
         y: -height - 5
         z: 10
+        margins: 0
         connection: root.room.connection
         chatDocumentHandler: documentHandler
         Behavior on height {
