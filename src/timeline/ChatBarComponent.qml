@@ -56,7 +56,10 @@ QQC2.Control {
 
                 QQC2.TextArea {
                     id: textArea
-                    Component.onCompleted: _private.updateText()
+
+                    // Work around for BUG: 503846
+                    // Seems to crash when we try to access textArea's text here. Even though we add a slight delay it's still instantaneous in the UI.
+                    Component.onCompleted: Qt.callLater(() => _private.updateText())
 
                     Layout.fillWidth: true
 
