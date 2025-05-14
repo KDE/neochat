@@ -283,12 +283,12 @@ QQC2.Control {
                             if (quickFormatBar.visible && selectedText.length > 0) {
                                 quickFormatBar.close();
                             }
+                        } else if (event.key === Qt.Key_Escape && completionMenu.visible) {
+                            completionMenu.close();
                         }
                     }
                     Keys.onShortcutOverride: event => {
-                        if (completionMenu.visible) {
-                            completionMenu.close();
-                        } else if ((_private.chatBarCache.isReplying || _private.chatBarCache.attachmentPath.length > 0) && event.key === Qt.Key_Escape) {
+                        if ((_private.chatBarCache.isReplying || _private.chatBarCache.attachmentPath.length > 0) && event.key === Qt.Key_Escape) {
                             _private.chatBarCache.attachmentPath = "";
                             _private.chatBarCache.replyId = "";
                             _private.chatBarCache.threadId = "";
