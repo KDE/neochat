@@ -24,10 +24,6 @@ RowLayout {
      */
     signal textChanged(string newText)
 
-    Item {
-        Layout.preferredWidth: Kirigami.Units.largeSpacing
-    }
-
     Kirigami.Heading {
         Layout.fillWidth: true
         visible: !root.collapsed
