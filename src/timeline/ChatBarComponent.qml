@@ -104,11 +104,13 @@ QQC2.Control {
 
                     CompletionMenu {
                         id: completionMenu
+                        width: Math.max(350, root.width - 1)
                         height: implicitHeight
                         y: -height - 5
                         z: 10
                         connection: root.Message.room.connection
                         chatDocumentHandler: documentHandler
+                        margins: 0
                         Behavior on height {
                             NumberAnimation {
                                 property: "height"
