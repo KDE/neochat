@@ -105,20 +105,20 @@ DelegateContextMenu {
     Kirigami.Action {
         id: webShortcutModelAction
 
-        text: i18n("Search for '%1'", webshortcutModel.trunkatedSearchText)
+        text: i18n("Search for '%1'", webShortcutModel.trunkatedSearchText)
         icon.name: "search-symbolic"
-        visible: webshortcutModel.enabled
+        visible: webShortcutModel.enabled
 
         readonly property Instantiator instantiator: Instantiator {
             model: WebShortcutModel {
-                id: webshortcutModel
+                id: webShortcutModel
                 selectedText: root.selectedText.length > 0 ? root.selectedText : root.plainText
                 onOpenUrl: url => RoomManager.resolveResource(url.toString())
             }
             delegate: QQC2.Action {
                 text: model.display
                 icon.name: model.decoration
-                onTriggered: webshortcutModel.trigger(model.edit)
+                onTriggered: webShortcutModel.trigger(model.edit)
             }
             onObjectAdded: (index, object) => webShortcutModelAction.children.push(object)
         }
@@ -127,7 +127,7 @@ DelegateContextMenu {
     Kirigami.Action {
         text: i18n("Configure Web Shortcuts…")
         icon.name: "configure"
-        visible: !Controller.isFlatpak && webshortcutModel.enabled
-        onTriggered: webshortcutModel.configureWebShortcuts()
+        visible: !Controller.isFlatpak && webShortcutModel.enabled
+        onTriggered: webShortcutModel.configureWebShortcuts()
     }
 }
