@@ -55,6 +55,19 @@ QQC2.Control {
         }
     }
 
+    Connections {
+        target: currentRoom.mainCache
+
+        function onMentionAdded(mention: string): void {
+            // add mention text
+            textField.append(mention + " ");
+            // move cursor to the end
+            textField.cursorPosition = textField.text.length;
+            // move the focus back to the chat bar
+            textField.forceActiveFocus(Qt.OtherFocusReason);
+        }
+    }
+
     /**
      * @brief The list of actions in the ChatBar.
      *

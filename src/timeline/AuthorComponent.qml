@@ -41,20 +41,42 @@ RowLayout {
 
     implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
 
-    QQC2.AbstractButton {
+    QQC2.Label {
         id: nameButton
-        contentItem: QQC2.Label {
-            text: root.author.disambiguatedName
-            color: root.author.color
-            textFormat: Text.PlainText
-            font.weight: Font.Bold
-            elide: Text.ElideRight
+
+        text: root.author.disambiguatedName
+        color: root.author.color
+        textFormat: Text.PlainText
+        font.weight: Font.Bold
+        elide: Text.ElideRight
+
+        function openUserMenu(): void {
+            const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {
+                connection: root.connection,
+                window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow,
+                author: root.author,
+            });
+            menu.popup(root);
         }
-        Accessible.name: contentItem.text
-        onClicked: RoomManager.resolveResource(root.author.uri)
 
         HoverHandler {
             cursorShape: Qt.PointingHandCursor
+        }
+
+        // tapping to open profile
+        TapHandler {
+            onTapped: RoomManager.resolveResource(root.author.uri)
+        }
+
+        // right-clicking/long-press for context menu
+        TapHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+            acceptedButtons: Qt.RightButton
+            onTapped: nameButton.openUserMenu()
+        }
+        TapHandler {
+            acceptedDevices: PointerDevice.TouchScreen
+            onTapped: nameButton.openUserMenu()
         }
     }
     Item {
@@ -72,17 +94,5 @@ RowLayout {
         HoverHandler {
             id: timeHoverHandler
         }
-    }
-
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        acceptedDevices: PointerDevice.TouchScreen
-        onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
-    }
-    TapHandler {
-        acceptedButtons: Qt.RightButton
-        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
-        gesturePolicy: TapHandler.WithinBounds
-        onTapped: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
     }
 }
