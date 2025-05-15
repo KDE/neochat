@@ -15,7 +15,7 @@ import org.kde.neochat.settings
 Labs.MenuBar {
     id: root
 
-    property NeoChatConnection connection
+    required property NeoChatConnection connection
 
     Labs.Menu {
         title: i18nc("menu", "NeoChat")
