@@ -30,6 +30,11 @@ KirigamiComponents.ConvergentContextMenu {
     id: root
 
     /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
      * @brief The current connection for the account accessing the event.
      */
     required property NeoChatConnection connection
@@ -195,12 +200,15 @@ KirigamiComponents.ConvergentContextMenu {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
             Repeater {
-                model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
+                model: ["👍", "👎️", "😄", "🎉", "👀", "⋮"]
                 delegate: Delegates.RoundedItemDelegate {
+                    id: emojiDelegate
                     Layout.fillWidth: true
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
                     Layout.fillHeight: true
 
                     contentItem: Kirigami.Heading {
+                        id: emojiText
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
 
@@ -209,9 +217,30 @@ KirigamiComponents.ConvergentContextMenu {
                     }
 
                     onClicked: {
+                        if (emojiText.text === "⋮") {
+                            var dialog = emojiDialog.createObject(emojiDelegate);
+                            dialog.showStickers = false;
+                            dialog.chosen.connect(emoji => {
+                                root.room.toggleReaction(root.eventId, emoji);
+                                root.menuItem.close();
+                            });
+                            dialog.closed.connect(() => {
+                                root.menuItem.close();
+                            });
+                            dialog.open();
+                            return;
+                        }
+
                         currentRoom.toggleReaction(eventId, modelData);
-                        root.item.close();
                     }
+                }
+            }
+            Component {
+                id: emojiDialog
+
+                EmojiDialog {
+                    currentRoom: root.Message.room
+                    showQuickReaction: true
                 }
             }
         }

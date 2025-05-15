@@ -292,6 +292,7 @@ Kirigami.Page {
     Component {
         id: messageDelegateContextMenu
         MessageDelegateContextMenu {
+            room: root.currentRoom
             connection: root.connection
         }
     }
@@ -299,6 +300,7 @@ Kirigami.Page {
     Component {
         id: fileDelegateContextMenu
         FileDelegateContextMenu {
+            room: root.currentRoom
             connection: root.connection
         }
     }
