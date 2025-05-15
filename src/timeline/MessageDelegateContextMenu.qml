@@ -102,7 +102,6 @@ DelegateContextMenu {
     }
     DelegateContextMenu.PinMessageAction {}
     DelegateContextMenu.ReportMessageAction {}
-    DelegateContextMenu.ShowUserAction {}
     Kirigami.Action {
         separator: true
         visible: viewSourceAction.visible

@@ -149,6 +149,7 @@ MessageDelegateBase {
 
         TapHandler {
             acceptedButtons: Qt.RightButton
+            gesturePolicy: TapHandler.ReleaseWithinBounds
             onTapped: _private.showMessageMenu()
         }
 
@@ -159,7 +160,7 @@ MessageDelegateBase {
         }
     }
 
-    avatarComponent: KirigamiComponents.AvatarButton {
+    avatarComponent: KirigamiComponents.Avatar {
         id: avatar
         implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
         implicitHeight: width
@@ -170,7 +171,34 @@ MessageDelegateBase {
         asynchronous: true
         QQC2.ToolTip.text: root.author.htmlSafeDisambiguatedName
 
-        onClicked: RoomManager.resolveResource(root.author.uri)
+        function openUserMenu(): void {
+            const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {
+                connection: root.connection,
+                window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow,
+                author: root.author,
+            });
+            menu.popup(root);
+        }
+
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
+        }
+
+        // tapping to open profile
+        TapHandler {
+            onTapped: RoomManager.resolveResource(root.author.uri)
+        }
+
+        // right-clicking/long-press for context menu
+        TapHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+            acceptedButtons: Qt.RightButton
+            onTapped: avatar.openUserMenu()
+        }
+        TapHandler {
+            acceptedDevices: PointerDevice.TouchScreen
+            onTapped: avatar.openUserMenu()
+        }
     }
 
     sectionComponent: SectionDelegate {
