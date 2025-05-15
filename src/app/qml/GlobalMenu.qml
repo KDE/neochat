@@ -38,9 +38,9 @@ Labs.MenuBar {
         title: i18nc("menu", "File")
 
         Labs.MenuItem {
-            text: i18nc("menu", "Find your friends")
+            text: i18nc("@action:inmenu", "Find your Friends")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Find your friends")
