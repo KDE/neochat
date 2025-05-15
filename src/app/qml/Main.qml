@@ -41,6 +41,7 @@ Kirigami.ApplicationWindow {
             showExisting: true
             onConnectionChosen: root.load()
         }
+        columnView.columnResizeMode: pageStack.wideMode ? Kirigami.ColumnView.DynamicColumns : Kirigami.ColumnView.SingleColumn
         globalToolBar.canContainHandles: true
         globalToolBar {
             style: Kirigami.ApplicationHeaderStyle.ToolBar
