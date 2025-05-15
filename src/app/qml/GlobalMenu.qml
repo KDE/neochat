@@ -101,10 +101,6 @@ Labs.MenuBar {
         title: i18nc("menu", "Help")
 
         Labs.MenuItem {
-            text: i18nc("menu", "About Matrix")
-            onTriggered: UrlHelper.openUrl("https://matrix.org/docs/chat_basics/matrix-for-im/")
-        }
-        Labs.MenuItem {
             icon.name: "help-about-symbolic"
             text: i18nc("menu", "About NeoChat")
             onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"))
