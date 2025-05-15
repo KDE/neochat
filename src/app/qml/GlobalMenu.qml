@@ -47,12 +47,15 @@ Labs.MenuBar {
             })
         }
         Labs.MenuItem {
-            text: i18nc("menu", "New Group…")
+            text: i18nc("@action:inmenu", "Create a Room…")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
             onTriggered: {
-                const dialog = createRoomDialog.createObject(root.overlay);
-                dialog.open();
+                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Create a Room")
+                });
             }
         }
         Labs.MenuItem {
