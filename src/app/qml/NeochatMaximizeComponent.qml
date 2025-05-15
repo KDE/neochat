@@ -29,6 +29,21 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
 
+    actions: [
+        ShareAction {
+            id: shareAction
+            inputData: {
+                urls: [filename],
+                mimeType: [attachmentMimetype]
+            }
+            visible: Qt.platform.os !== "android"
+            room: root.currentRoom
+            eventId: root.currentEventId
+            readonly property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.currentRoom.fileNameToDownload(eventId)
+            readonly property string attachmentMimetype: FileType.mimeTypeForUrl(filename).name
+        }
+    ]
+
     onCurrentProgressInfoChanged: () => {
         if (root.currentProgressInfo) {
             root.downloadAction.progress = root.currentProgressInfo.progress / root.currentProgressInfo.total * 100.0;
