@@ -38,6 +38,7 @@ Labs.MenuBar {
         title: i18nc("menu", "File")
 
         Labs.MenuItem {
+            icon.name: "list-add-user"
             text: i18nc("@action:inmenu", "Find your Friends")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
@@ -47,6 +48,7 @@ Labs.MenuBar {
             })
         }
         Labs.MenuItem {
+            icon.name: "system-users-symbolic"
             text: i18nc("@action:inmenu", "Create a Room…")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
@@ -59,6 +61,7 @@ Labs.MenuBar {
             }
         }
         Labs.MenuItem {
+            icon.name: "compass-symbolic"
             text: i18nc("@action:inmenu", "Explore Rooms")
             onTriggered: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
@@ -80,6 +83,7 @@ Labs.MenuBar {
         title: i18nc("menu", "View")
 
         Labs.MenuItem {
+            icon.name: "search-symbolic"
             text: i18nc("menu item that opens a UI element called the 'Quick Switcher', which offers a fast keyboard-based interface for switching in between chats.", "Search Rooms")
             onTriggered: quickSwitcher.open()
         }
@@ -88,6 +92,7 @@ Labs.MenuBar {
         title: i18nc("menu", "Window")
 
         Labs.MenuItem {
+            icon.name: "view-fullscreen-symbolic"
             text: root.visibility === Window.FullScreen ? i18nc("menu", "Exit Full Screen") : i18nc("menu", "Enter Full Screen")
             onTriggered: root.visibility === Window.FullScreen ? root.showNormal() : root.showFullScreen()
         }
@@ -100,10 +105,12 @@ Labs.MenuBar {
             onTriggered: UrlHelper.openUrl("https://matrix.org/docs/chat_basics/matrix-for-im/")
         }
         Labs.MenuItem {
+            icon.name: "help-about-symbolic"
             text: i18nc("menu", "About NeoChat")
             onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"))
         }
         Labs.MenuItem {
+            icon.name: "kde-symbolic"
             text: i18nc("menu", "About KDE")
             onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutKDEPage"))
         }
