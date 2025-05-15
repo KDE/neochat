@@ -33,7 +33,7 @@ Components.AlbumMaximizeComponent {
         ShareAction {
             id: shareAction
             inputData: {
-                urls: [filename],
+                urls: [filename]
                 mimeType: [attachmentMimetype]
             }
             visible: Qt.platform.os !== "android"
