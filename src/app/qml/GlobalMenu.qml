@@ -56,7 +56,7 @@ Labs.MenuBar {
             }
         }
         Labs.MenuItem {
-            text: i18nc("menu", "Browse Chats…")
+            text: i18nc("@action:inmenu", "Explore Rooms")
             onTriggered: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection
