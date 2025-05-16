@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-16 00:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -166,8 +166,8 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Buka NeoChat di ruangan ini"
 
-#: src/app/notificationsmanager.cpp:245 src/timeline/DelegateContextMenu.qml:98
-#: src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:245
+#: src/timeline/DelegateContextMenu.qml:103 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Balas"
@@ -2184,7 +2184,7 @@ msgstr "Atur takarir lampiran..."
 msgid "Send a message…"
 msgstr "Kirim pesan…"
 
-#: src/chatbar/ChatBar.qml:387 src/timeline/ChatBarComponent.qml:232
+#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -6272,7 +6272,7 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Kompak"
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:191
+#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:196
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -6404,20 +6404,20 @@ msgstr "Buat sebuah Ruangan"
 msgid "%1 started a user verification"
 msgstr "membatalkan undangan pengguna"
 
-#: src/timeline/ChatBarComponent.qml:165
+#: src/timeline/ChatBarComponent.qml:170
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Lampirkan sebuah gambar atau berkas"
 
-#: src/timeline/ChatBarComponent.qml:179
+#: src/timeline/ChatBarComponent.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Konfirmasi penyuntingan"
 
-#: src/timeline/ChatBarComponent.qml:179
+#: src/timeline/ChatBarComponent.qml:184
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@action:button"
@@ -6437,20 +6437,20 @@ msgctxt "@action:button"
 msgid "Maximize"
 msgstr "Maksimalkan"
 
-#: src/timeline/DelegateContextMenu.qml:71
+#: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
 msgid "View Source"
 msgstr "Tampilkan Sumber"
 
-#: src/timeline/DelegateContextMenu.qml:78
+#: src/timeline/DelegateContextMenu.qml:83
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Hapus"
 
-#: src/timeline/DelegateContextMenu.qml:83
 #: src/timeline/DelegateContextMenu.qml:88
+#: src/timeline/DelegateContextMenu.qml:93
 #: src/timeline/FileDelegateContextMenu.qml:79
 #: src/timeline/FileDelegateContextMenu.qml:84
 #, fuzzy, kde-format
@@ -6459,7 +6459,7 @@ msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Hapus Pesan"
 
-#: src/timeline/DelegateContextMenu.qml:84
+#: src/timeline/DelegateContextMenu.qml:89
 #: src/timeline/FileDelegateContextMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Reason for removing this message"
@@ -6467,61 +6467,61 @@ msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Alasan untuk menghapus pesan ini"
 
-#: src/timeline/DelegateContextMenu.qml:85
+#: src/timeline/DelegateContextMenu.qml:90
 #: src/timeline/FileDelegateContextMenu.qml:81
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Hapus"
 
-#: src/timeline/DelegateContextMenu.qml:108
+#: src/timeline/DelegateContextMenu.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:121
-#: src/timeline/DelegateContextMenu.qml:129
+#: src/timeline/DelegateContextMenu.qml:126
+#: src/timeline/DelegateContextMenu.qml:134
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Laporkan"
 
-#: src/timeline/DelegateContextMenu.qml:126
+#: src/timeline/DelegateContextMenu.qml:131
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Laporkan Pesan"
 
-#: src/timeline/DelegateContextMenu.qml:127
+#: src/timeline/DelegateContextMenu.qml:132
 #, fuzzy, kde-format
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Alasan untuk melaporkan pesan ini"
 
-#: src/timeline/DelegateContextMenu.qml:131
+#: src/timeline/DelegateContextMenu.qml:136
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Laporkan Pesan"
 
-#: src/timeline/DelegateContextMenu.qml:141
+#: src/timeline/DelegateContextMenu.qml:146
 #, fuzzy, kde-format
 #| msgid "Switch User"
 msgctxt "@action:inmenu"
 msgid "Show User"
 msgstr "Ganti Pengguna"
 
-#: src/timeline/DelegateContextMenu.qml:152
+#: src/timeline/DelegateContextMenu.qml:157
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:152
+#: src/timeline/DelegateContextMenu.qml:157
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
