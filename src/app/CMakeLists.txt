@@ -37,10 +37,8 @@ add_library(neochat STATIC
     identityserverhelper.h
     models/commonroomsmodel.cpp
     models/commonroomsmodel.h
-)
-
-set_source_files_properties(qml/TextToSpeechWrapper.qml PROPERTIES
-    QT_QML_SINGLETON_TYPE TRUE
+    texttospeechhelper.h
+    texttospeechhelper.cpp
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -87,7 +85,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
         qml/OsmLocationPlugin.qml
-        qml/TextToSpeechWrapper.qml
         qml/FullScreenMap.qml
         qml/LocationsPage.qml
         qml/LocationMapItem.qml
@@ -204,6 +201,7 @@ target_link_libraries(neochat PUBLIC
     Qt::Multimedia
     Qt::Network
     Qt::QuickControls2
+    Qt::TextToSpeech
     KF6::I18n
     KF6::Kirigami
     KF6::Notifications

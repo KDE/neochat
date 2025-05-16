@@ -94,7 +94,7 @@ DelegateContextMenu {
         text: i18nc("@action:inmenu", "Read Text Aloud")
         icon.name: "audio-speakers-symbolic"
         onTriggered: {
-            TextToSpeechWrapper.say(i18nc("@info text-to-speech %1 is author %2 is message text", "%1 said %2", root.author.displayName, root.plainText))
+            TextToSpeechHelper.speak(i18nc("@info text-to-speech %1 is author %2 is message text", "%1 said %2", root.author.displayName, root.plainText))
         }
     }
     Kirigami.Action {
