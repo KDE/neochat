@@ -149,9 +149,13 @@ Kirigami.ApplicationWindow {
     }
 
     function openRoomDrawer() {
-        pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage'), {
-            connection: root.connection
+        const page = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomDrawerPage'), {
+            connection: root.connection,
+            room: RoomManager.currentRoom,
+            userListModel: RoomManager.userListModel,
+            mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
         });
+        page.resolveResource.connect((idOrUri, action) => RoomManager.resolveResource(idOrUri, action))
     }
 
     contextDrawer: RoomDrawer {
@@ -161,7 +165,18 @@ Kirigami.ApplicationWindow {
         // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
         property bool drawerUserState: NeoChatConfig.autoRoomInfoDrawer
 
+        room: RoomManager.currentRoom
         connection: root.connection
+        userListModel: RoomManager.userListModel
+        mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
+
+        onResolveResource: (idOrUri, action) => RoomManager.resolveResource(idOrUri, action)
+
+        roomDrawerWidth: NeoChatConfig.roomDrawerWidth
+        onRoomDrawerWidthChanged: {
+            NeoChatConfig.roomDrawerWidth = actualWidth;
+            NeoChatConfig.save();
+        }
 
         handleClosedIcon.source: "documentinfo-symbolic"
         handleClosedToolTip: i18nc("@action:button", "Show Room Information")

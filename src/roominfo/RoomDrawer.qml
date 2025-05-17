@@ -9,14 +9,19 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
-import org.kde.neochat
-import org.kde.neochat.settings
+import org.kde.neochat.libneochat
+import org.kde.neochat.timeline as Timeline
+import org.kde.neochat.settings as Settings
 
 Kirigami.OverlayDrawer {
     id: root
 
-    readonly property NeoChatRoom room: RoomManager.currentRoom
+    required property NeoChatRoom room
     required property NeoChatConnection connection
+    required property UserListModel userListModel
+    required property Timeline.MediaMessageFilterModel mediaMessageFilterModel
+
+    signal resolveResource(string idOrUri, string action)
 
     width: actualWidth
     interactive: modal
@@ -24,11 +29,12 @@ Kirigami.OverlayDrawer {
     readonly property int minWidth: Kirigami.Units.gridUnit * 15
     readonly property int maxWidth: Kirigami.Units.gridUnit * 25
     readonly property int defaultWidth: Kirigami.Units.gridUnit * 20
+    property int roomDrawerWidth
     property int actualWidth: {
-        if (NeoChatConfig.roomDrawerWidth === -1) {
+        if (root.roomDrawerWidth === -1) {
             return Kirigami.Units.gridUnit * 20;
         } else {
-            return NeoChatConfig.roomDrawerWidth;
+            return root.roomDrawerWidth;
         }
     }
 
@@ -46,8 +52,7 @@ Kirigami.OverlayDrawer {
         visible: true
         onPressed: _lastX = mapToGlobal(mouseX, mouseY).x
         onReleased: {
-            NeoChatConfig.roomDrawerWidth = root.actualWidth;
-            NeoChatConfig.save();
+            root.roomDrawerWidth = root.actualWidth;
         }
         property real _lastX: -1
 
@@ -56,9 +61,9 @@ Kirigami.OverlayDrawer {
                 return;
             }
             if (Qt.application.layoutDirection === Qt.RightToLeft) {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, NeoChatConfig.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, root.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
             } else {
-                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, NeoChatConfig.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
+                root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, root.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
             }
         }
     }
@@ -121,7 +126,7 @@ Kirigami.OverlayDrawer {
                             QQC2.ToolTip.visible: hovered
 
                             onClicked: {
-                                RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                                Settings.RoomSettingsView.openRoomSettings(root.room, Settings.RoomSettingsView.Room);
                             }
                         }
                     }
@@ -138,15 +143,17 @@ Kirigami.OverlayDrawer {
                     id: roomInformation
                     RoomInformation {
                         room: root.room
-                        connection: root.connection
+                        userListModel: root.userListModel
+
+                        onResolveResource: (idOrUri, action) => root.resolveResource(idOrUri, action)
                     }
                 }
 
                 Component {
                     id: roomMedia
                     RoomMedia {
-                        currentRoom: root.room
-                        connection: root.connection
+                        room: root.room
+                        mediaMessageFilterModel: root.mediaMessageFilterModel
                     }
                 }
 

@@ -8,8 +8,6 @@ add_library(neochat STATIC
     controller.h
     roommanager.cpp
     roommanager.h
-    models/userfiltermodel.cpp
-    models/userfiltermodel.h
     models/userdirectorylistmodel.cpp
     models/userdirectorylistmodel.h
     notificationsmanager.cpp
@@ -79,26 +77,15 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/EmojiSas.qml
         qml/VerificationCanceled.qml
         qml/MessageSourceSheet.qml
-        qml/RoomSearchPage.qml
-        qml/RoomPinnedMessagesPage.qml
         qml/LocationChooser.qml
         qml/InvitationView.qml
         qml/AvatarTabButton.qml
         qml/OsmLocationPlugin.qml
         qml/FullScreenMap.qml
-        qml/LocationsPage.qml
-        qml/LocationMapItem.qml
-        qml/RoomDrawer.qml
-        qml/RoomDrawerPage.qml
-        qml/DirectChatDrawerHeader.qml
-        qml/GroupChatDrawerHeader.qml
-        qml/RoomInformation.qml
-        qml/RoomMedia.qml
         qml/ChooseRoomDialog.qml
         qml/RemoveChildDialog.qml
         qml/QrCodeMaximizeComponent.qml
         qml/NotificationsView.qml
-        qml/SearchPage.qml
         qml/ServerComboBox.qml
         qml/UserSearchPage.qml
         qml/ManualUserDialog.qml
@@ -124,6 +111,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
     IMPORTS
         org.kde.neochat.libneochat
         org.kde.neochat.rooms
+        org.kde.neochat.roominfo
         org.kde.neochat.timeline
         org.kde.neochat.spaces
         org.kde.neochat.settings
@@ -189,7 +177,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
-target_link_libraries(neochat PRIVATE Loginplugin Roomsplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
+target_link_libraries(neochat PRIVATE Loginplugin Roomsplugin RoomInfoplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline

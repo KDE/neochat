@@ -8,6 +8,8 @@ import QtPositioning
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat.libneochat
+
 ApplicationWindow {
     id: root
 

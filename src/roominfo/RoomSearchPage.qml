@@ -3,7 +3,7 @@
 
 import QtQuick
 
-import org.kde.neochat
+import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
 
 /**

@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat
+import org.kde.neochat.libneochat
 
 ColumnLayout {
     id: root
@@ -17,6 +17,8 @@ ColumnLayout {
      * @brief The current room that user is viewing.
      */
     required property NeoChatRoom room
+
+    signal resolveResource(string idOrUri, string action)
 
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignVCenter
@@ -33,7 +35,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
 
         onClicked: {
-            RoomManager.resolveResource(root.room.directChatRemoteMember.uri)
+            root.resolveResource(root.room.directChatRemoteMember.uri, "")
         }
 
         contentItem: KirigamiComponents.Avatar {

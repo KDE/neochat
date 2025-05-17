@@ -6,8 +6,8 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
-import org.kde.neochat
-import org.kde.neochat.timeline
+import org.kde.neochat.libneochat
+import org.kde.neochat.timeline as Timeline
 
 /**
  * @brief Component for visualising the loaded media items in the room.
@@ -31,9 +31,9 @@ QQC2.ScrollView {
     /**
      * @brief The current room that user is viewing.
      */
-    required property NeoChatRoom currentRoom
+    required property NeoChatRoom room
 
-    required property NeoChatConnection connection
+    required property Timeline.MediaMessageFilterModel mediaMessageFilterModel
 
     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
@@ -42,26 +42,26 @@ QQC2.ScrollView {
         clip: true
         verticalLayoutDirection: ListView.BottomToTop
 
-        model: RoomManager.mediaMessageFilterModel
+        model: root.mediaMessageFilterModel
 
         delegate: DelegateChooser {
             role: "type"
 
             DelegateChoice {
-                roleValue: MediaMessageFilterModel.Image
-                delegate: MessageDelegate {
+                roleValue: Timeline.MediaMessageFilterModel.Image
+                delegate: Timeline.MessageDelegate {
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.currentRoom
+                    room: root.room
                 }
             }
 
             DelegateChoice {
-                roleValue: MediaMessageFilterModel.Video
-                delegate: MessageDelegate {
+                roleValue: Timeline.MediaMessageFilterModel.Video
+                delegate: Timeline.MessageDelegate {
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.currentRoom
+                    room: root.room
                 }
             }
         }

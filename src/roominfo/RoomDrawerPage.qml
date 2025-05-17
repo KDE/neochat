@@ -7,7 +7,8 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
-import org.kde.neochat
+import org.kde.neochat.libneochat
+import org.kde.neochat.timeline as Timeline
 
 /**
  * @brief Page for holding a room drawer component.
@@ -24,8 +25,12 @@ Kirigami.Page {
     /**
      * @brief The current room that user is viewing.
      */
-    readonly property NeoChatRoom room: RoomManager.currentRoom
+    required property NeoChatRoom room
     required property NeoChatConnection connection
+    required property UserListModel userListModel
+    required property Timeline.MediaMessageFilterModel mediaMessageFilterModel
+
+    signal resolveResource(string idOrUri, string action)
 
     title: drawerItemLoader.item ? drawerItemLoader.item.title : ""
 
@@ -61,15 +66,17 @@ Kirigami.Page {
         id: roomInformation
         RoomInformation {
             room: root.room
-            connection: root.connection
+            userListModel: root.userListModel
+
+            onResolveResource: (idOrUri, action) => root.resolveResource(idOrUri, action)
         }
     }
 
     Component {
         id: roomMedia
         RoomMedia {
-            currentRoom: root.room
-            connection: root.connection
+            room: root.room
+            mediaMessageFilterModel: root.mediaMessageFilterModel
         }
     }
 

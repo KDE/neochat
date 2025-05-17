@@ -41,12 +41,17 @@ target_sources(LibNeoChat PRIVATE
     models/locationsmodel.cpp
     models/roomlistmodel.cpp
     models/stickermodel.cpp
+    models/userfiltermodel.cpp
     models/userlistmodel.cpp
 )
 
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.libneochat
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/libneochat
+    QML_FILES
+        qml/GroupChatDrawerHeader.qml
+        qml/LocationMapItem.qml
+        qml/SearchPage.qml
 )
 
 ecm_qt_declare_logging_category(LibNeoChat

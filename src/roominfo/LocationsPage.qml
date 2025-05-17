@@ -6,12 +6,13 @@ import QtLocation
 import QtPositioning
 
 import org.kde.kirigami as Kirigami
-import org.kde.neochat
+
+import org.kde.neochat.libneochat
 
 Kirigami.Page {
     id: root
 
-    required property var room
+    required property NeoChatRoom room
 
     title: i18nc("Locations on a map", "Locations")
 

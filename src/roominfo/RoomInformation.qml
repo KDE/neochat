@@ -12,7 +12,7 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
-import org.kde.neochat
+import org.kde.neochat.libneochat
 
 /**
  * @brief Component for visualising the room information.
@@ -34,12 +34,14 @@ QQC2.ScrollView {
      */
     required property NeoChatRoom room
 
-    required property NeoChatConnection connection
+    required property UserListModel userListModel
 
     /**
      * @brief The title that should be displayed for this component if available.
      */
     readonly property string title: root.room.isSpace ? i18nc("@action:title", "Space Members") : i18nc("@action:title", "Room Information")
+
+    signal resolveResource(string idOrUri, string action)
 
     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
     QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
@@ -216,7 +218,7 @@ QQC2.ScrollView {
 
         UserFilterModel {
             id: userFilterModel
-            sourceModel: RoomManager.userListModel
+            sourceModel: root.userListModel
             allowEmpty: true
         }
 
@@ -249,7 +251,7 @@ QQC2.ScrollView {
             KeyNavigation.backtab: index === 0 ? userList.headerItem.userListSearchField : null
 
             onClicked: {
-                RoomManager.resolveResource(userDelegate.userId, "mention");
+                root.resolveResource(userDelegate.userId, "mention");
             }
 
             contentItem: RowLayout {
@@ -286,6 +288,8 @@ QQC2.ScrollView {
         id: directChatDrawerHeader
         DirectChatDrawerHeader {
             room: root.room
+
+            onResolveResource: (idOrUri, action) => root.resolveResource(idOrUri, action)
         }
     }
 
