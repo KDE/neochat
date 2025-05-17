@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-16 00:42+0000\n"
-"PO-Revision-Date: 2025-04-20 15:09+0900\n"
+"PO-Revision-Date: 2025-05-16 15:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -860,44 +860,44 @@ msgid "Mirror"
 msgstr "鏡射"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "<username> was invited into this room."
 #| msgid "%1 was invited into this room."
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "%1 已被邀請到這個聊天室裡。"
+msgstr "%1 已於 %2 邀請您到此聊天室。"
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@info:label"
 #| msgid "This user is inviting you to chat."
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "這個使用者邀請您聊天。"
+msgstr "這個使用者在 %1 邀請您聊天。"
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "接受"
+msgstr "接受邀請"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@action:button The thing being rejected is an invitation to chat"
 #| msgid "Reject"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "拒絕"
+msgstr "拒絕邀請"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "封鎖 %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
+#, kde-format
 #| msgid ""
 #| "You can reject invitations from unknown users under Security settings."
 msgctxt "@info:label"
@@ -1228,7 +1228,7 @@ msgstr "刪除線"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "暴雷"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -2253,8 +2253,7 @@ msgstr "鑰匙圈存取被拒絕：請允許 NeoChat 讀取存取權杖"
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr ""
-"沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
+msgstr "沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
 #: src/libneochat/accountmanager.cpp:136
 #, kde-format
@@ -3362,8 +3361,7 @@ msgstr "確認電子郵件地址"
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr ""
-"一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
+msgstr "一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
 
 #: src/login/Email.qml:40
 #, kde-format
@@ -3393,7 +3391,7 @@ msgstr "載入中"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "在瀏覽器中繼續"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -5913,7 +5911,7 @@ msgid "Remove"
 msgstr "移除"
 
 #: src/timeline/DelegateContextMenu.qml:113
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action:button"
 msgid "Reply in Thread"
@@ -6154,8 +6152,7 @@ msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
-msgstr ""
-"這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
+msgstr "這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6225,10 +6222,10 @@ msgid "React"
 msgstr "反應"
 
 #: src/timeline/QuickActions.qml:81
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Message Source"
 msgid "Message menu"
-msgstr "訊息原始碼"
+msgstr "訊息選單"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format
