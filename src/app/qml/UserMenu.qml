@@ -15,9 +15,48 @@ import org.kde.neochat.devtools
 KirigamiComponents.ConvergentContextMenu {
     id: root
 
-    required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
     required property var author
+
+    headerContentItem: RowLayout {
+        id: detailRow
+
+        spacing: Kirigami.Units.largeSpacing
+
+        KirigamiComponents.Avatar {
+            id: avatar
+            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+
+            name: root.author.displayName
+            source: root.author.avatarUrl
+            color: root.author.color
+        }
+
+        ColumnLayout {
+            Layout.fillWidth: true
+
+            spacing: 0
+
+            Kirigami.Heading {
+                level: 1
+                Layout.fillWidth: true
+                font.bold: true
+
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
+                text: root.author.displayName
+                textFormat: Text.PlainText
+            }
+
+            QQC2.Label {
+                id: idLabel
+                textFormat: TextEdit.PlainText
+                text: root.author.id
+                elide: Qt.ElideRight
+            }
+        }
+    }
 
     QQC2.Action {
         text: i18nc("@action:button", "Open Profile")

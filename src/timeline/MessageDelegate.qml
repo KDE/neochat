@@ -173,11 +173,11 @@ MessageDelegateBase {
 
         function openUserMenu(): void {
             const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {
-                connection: root.connection,
                 window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow,
                 author: root.author,
             });
-            menu.popup(root);
+            console.info(Qt.createComponent("org.kde.neochat", "UserMenu").errorString());
+            menu.popup(root.QQC2.Overlay.overlay);
         }
 
         HoverHandler {
