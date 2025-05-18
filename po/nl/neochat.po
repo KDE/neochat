@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2025-05-12 12:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -665,12 +665,12 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Geen publieke rooms gevonden"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, kde-format
 msgid "View Location"
 msgstr "Locatie bekijken"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "Sluiten"
@@ -798,12 +798,6 @@ msgstr "Info over NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "Info over KDE"
-
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Geen naam"
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -1022,36 +1016,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Lokaliseren"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Locaties"
-
-#: src/app/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Er worden geen locaties in deze room gedeeld."
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Roominformatie tonen"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Lade met roominformatie sluiten"
 
-#: src/app/qml/Main.qml:289
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificatie van sessie"
 
-#: src/app/qml/Main.qml:329 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1302,131 +1285,6 @@ msgstr ""
 "De huidige ruimte is de officiële ouder van deze room, moet dit gewist "
 "worden?"
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Roominstellingen"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "Informatie"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "Media"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Leden in ruimtes"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Informatie over room"
-
-#: src/app/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Acties"
-
-#: src/app/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "In deze room zoeken"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Zoeken"
-
-#: src/app/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Gebruiker verifiëren"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Room uit favorieten verwijderen"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "Deze chatroom als favoriet markeren."
-
-#: src/app/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Locaties in deze room tonen"
-
-#: src/app/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Vast gepinde berichten"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Vast gepinde berichten"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Deze ruimte verlaten"
-
-#: src/app/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Deze chatroom verlaten."
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Leden"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Een gebruiker uitnodigen"
-
-#: src/app/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "Gebruiker uitnodigen in room"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 lid"
-msgstr[1] "%1 leden"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "Geen aantal leden"
-
-#: src/app/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Media van room"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1446,39 +1304,6 @@ msgstr "Selecteer of doe mee met een room om te beginnen"
 #, kde-format
 msgid "Message Source"
 msgstr "Berichtinhoud"
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Geen vast gepinde berichten"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Berichten doorzoeken"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "Berichten zoeken…"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "Tekst invoeren om te beginnen met zoeken"
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "Geen berichten gevonden"
-
-#: src/app/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "Zoeken"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3396,6 +3221,18 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Bte: %1, Lte: %2"
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Geen naam"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Zoeken"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3656,6 +3493,169 @@ msgstr "Ga terug"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Instellingen"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Locaties"
+
+#: src/roominfo/LocationsPage.qml:69
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "Er worden geen locaties in deze room gedeeld."
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Roominstellingen"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, kde-format
+msgid "Information"
+msgstr "Informatie"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, kde-format
+msgid "Media"
+msgstr "Media"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Leden in ruimtes"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Informatie over room"
+
+#: src/roominfo/RoomInformation.qml:72
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Acties"
+
+#: src/roominfo/RoomInformation.qml:82
+#, kde-format
+msgid "Search in this room"
+msgstr "In deze room zoeken"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Zoeken"
+
+#: src/roominfo/RoomInformation.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Gebruiker verifiëren"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "Room uit favorieten verwijderen"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Favorite this room"
+msgstr "Deze chatroom als favoriet markeren."
+
+#: src/roominfo/RoomInformation.qml:123
+#, kde-format
+msgid "Show locations for this room"
+msgstr "Locaties in deze room tonen"
+
+#: src/roominfo/RoomInformation.qml:139
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Vast gepinde berichten"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Vast gepinde berichten"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Deze ruimte verlaten"
+
+#: src/roominfo/RoomInformation.qml:156
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Deze chatroom verlaten."
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "Leden"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Een gebruiker uitnodigen"
+
+#: src/roominfo/RoomInformation.qml:188
+#, kde-format
+msgid "Invite user to room"
+msgstr "Gebruiker uitnodigen in room"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 lid"
+msgstr[1] "%1 leden"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "No member count"
+msgstr "Geen aantal leden"
+
+#: src/roominfo/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Media van room"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Geen vast gepinde berichten"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Berichten doorzoeken"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "Berichten zoeken…"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "Tekst invoeren om te beginnen met zoeken"
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "Geen berichten gevonden"
 
 #: src/rooms/ExploreComponent.qml:30
 #, kde-format

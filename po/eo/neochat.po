@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -662,12 +662,12 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Trovis neniujn publikajn ĉambrojn"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, kde-format
 msgid "View Location"
 msgstr "Vidi Lokon"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "Fermi"
@@ -795,12 +795,6 @@ msgstr "Pri NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "Pri KDE"
-
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Neniu nomo"
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -1026,36 +1020,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Lokalizi"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Lokoj"
-
-#: src/app/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Ne estas lokoj kunhavataj en ĉi tiu ĉambro."
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Montri Informon pri Ĉambro"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Fermi Informkeston pri Ĉambro"
 
-#: src/app/qml/Main.qml:289
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Seanca Konfirmo"
 
-#: src/app/qml/Main.qml:329 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1306,131 +1289,6 @@ msgstr ""
 "La aktuala spaco estas la oficiala gepatro de ĉi tiu ĉambro, ĉu tio estu "
 "forigita?"
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Ĉambro-agordoj"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "Informoj"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "Komunikaĵoj"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Membroj de Spaco"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Informoj pri Ĉambro"
-
-#: src/app/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Agoj"
-
-#: src/app/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "Serĉi en ĉi tiu ĉambro"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Serĉi"
-
-#: src/app/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Konfirmi uzanton"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Forigi ĉambron el plej ŝatataj"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "Plejŝatigi ĉi tiun ĉambron"
-
-#: src/app/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Montri lokojn por ĉi tiu ĉambro"
-
-#: src/app/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Pinglitaj mesaĝoj"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Pinglitaj Mesaĝojn"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Forlasi ĉi spacon"
-
-#: src/app/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Forlasi ĉi tiun ĉambron"
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Membroj"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Inviti Uzanton"
-
-#: src/app/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "Inviti uzanton al ĉambro"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 membro"
-msgstr[1] "%1 membroj"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "Neniu membrokalkulo"
-
-#: src/app/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Ĉambro-Komunikaĵoj"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1450,39 +1308,6 @@ msgstr "Elekti aŭ aliĝi al ĉambro por komenciĝi"
 #, kde-format
 msgid "Message Source"
 msgstr "Mesaĝfonto"
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Neniuj Pinglitaj Mesaĝoj"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Serĉi Mesaĝojn"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "Trovi mesaĝojn…"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "Enigi tekston por komenci serĉi"
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "Trovis neniujn mesaĝojn"
-
-#: src/app/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "Serĉi"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3379,6 +3204,18 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Neniu nomo"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Serĉi"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3638,6 +3475,169 @@ msgstr "Reiri"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Agordo"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Lokoj"
+
+#: src/roominfo/LocationsPage.qml:69
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "Ne estas lokoj kunhavataj en ĉi tiu ĉambro."
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Ĉambro-agordoj"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, kde-format
+msgid "Information"
+msgstr "Informoj"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, kde-format
+msgid "Media"
+msgstr "Komunikaĵoj"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Membroj de Spaco"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Informoj pri Ĉambro"
+
+#: src/roominfo/RoomInformation.qml:72
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Agoj"
+
+#: src/roominfo/RoomInformation.qml:82
+#, kde-format
+msgid "Search in this room"
+msgstr "Serĉi en ĉi tiu ĉambro"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/roominfo/RoomInformation.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Konfirmi uzanton"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "Forigi ĉambron el plej ŝatataj"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Favorite this room"
+msgstr "Plejŝatigi ĉi tiun ĉambron"
+
+#: src/roominfo/RoomInformation.qml:123
+#, kde-format
+msgid "Show locations for this room"
+msgstr "Montri lokojn por ĉi tiu ĉambro"
+
+#: src/roominfo/RoomInformation.qml:139
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Pinglitaj mesaĝoj"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Pinglitaj Mesaĝojn"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Forlasi ĉi spacon"
+
+#: src/roominfo/RoomInformation.qml:156
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Forlasi ĉi tiun ĉambron"
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "Membroj"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Inviti Uzanton"
+
+#: src/roominfo/RoomInformation.qml:188
+#, kde-format
+msgid "Invite user to room"
+msgstr "Inviti uzanton al ĉambro"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 membro"
+msgstr[1] "%1 membroj"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "No member count"
+msgstr "Neniu membrokalkulo"
+
+#: src/roominfo/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Ĉambro-Komunikaĵoj"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Neniuj Pinglitaj Mesaĝoj"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Serĉi Mesaĝojn"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "Trovi mesaĝojn…"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "Enigi tekston por komenci serĉi"
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "Trovis neniujn mesaĝojn"
 
 #: src/rooms/ExploreComponent.qml:30
 #, kde-format

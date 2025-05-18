@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2025-05-13 20:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -657,12 +657,12 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "לא נמצאו חדרים ציבוריים"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, kde-format
 msgid "View Location"
 msgstr "הצגת מקום"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "סגירה"
@@ -790,12 +790,6 @@ msgstr "על NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "על KDE"
-
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "אין שם"
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -1012,36 +1006,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "איתור"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "מקומות"
-
-#: src/app/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "לא שותפו מקומות בחדר הזה."
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "הצגת פרטי חדר"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "סגירת מגירת פרטי החדר"
 
-#: src/app/qml/Main.qml:289
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "אימות פגישה"
 
-#: src/app/qml/Main.qml:329 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1290,133 +1273,6 @@ msgid ""
 "cleared?"
 msgstr "המרחב הנוכחי הוא ההורה הרשמי של החדר הזה, למחוק את ההגדרה הזאת?"
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "הגדרות חדר"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "פרטים"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "מדיה"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "חברים במרחב"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "פרטי חדר"
-
-#: src/app/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "פעולות"
-
-#: src/app/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "חיפוש בחדר הזה"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "חיפוש"
-
-#: src/app/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "אימות משתמש"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "הסרת חדר מהמועדפים"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "הוספת החדר למועדפים"
-
-#: src/app/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "הצגת מקומות מהחדר הזה"
-
-#: src/app/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "הודעות נעוצות"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "הודעות נעוצות"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "עזיבת המרחב הזה"
-
-#: src/app/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "עזיבת החדר הזה"
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "חברים"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "הזמנת משתמש"
-
-#: src/app/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "הזמנת משתמש לחדר"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "חבר"
-msgstr[1] "שני חברים"
-msgstr[2] "%1 חברים"
-msgstr[3] "%1 חברים"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "אין מניין חברים"
-
-#: src/app/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "המדיה בחדר"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1436,39 +1292,6 @@ msgstr "נא לבחור או להצטרף לחדר כדי להתחיל"
 #, kde-format
 msgid "Message Source"
 msgstr "מקור הודעה"
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "אין הודעות נעוצות"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "חיפוש הודעות"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "איתור הודעות…"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "נא להקליד טקסט כדי להתחיל לחפש"
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "לא נמצאו הודעות"
-
-#: src/app/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "חיפוש"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3350,6 +3173,18 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "רוחב: %1, אורך: %2"
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "אין שם"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "חיפוש"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3606,6 +3441,171 @@ msgstr "חזרה"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "הגדרות"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "מקומות"
+
+#: src/roominfo/LocationsPage.qml:69
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "לא שותפו מקומות בחדר הזה."
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "הגדרות חדר"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, kde-format
+msgid "Information"
+msgstr "פרטים"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, kde-format
+msgid "Media"
+msgstr "מדיה"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "חברים במרחב"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "פרטי חדר"
+
+#: src/roominfo/RoomInformation.qml:72
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "פעולות"
+
+#: src/roominfo/RoomInformation.qml:82
+#, kde-format
+msgid "Search in this room"
+msgstr "חיפוש בחדר הזה"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "חיפוש"
+
+#: src/roominfo/RoomInformation.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "אימות משתמש"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "הסרת חדר מהמועדפים"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Favorite this room"
+msgstr "הוספת החדר למועדפים"
+
+#: src/roominfo/RoomInformation.qml:123
+#, kde-format
+msgid "Show locations for this room"
+msgstr "הצגת מקומות מהחדר הזה"
+
+#: src/roominfo/RoomInformation.qml:139
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "הודעות נעוצות"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "הודעות נעוצות"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "עזיבת המרחב הזה"
+
+#: src/roominfo/RoomInformation.qml:156
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "עזיבת החדר הזה"
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "חברים"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "הזמנת משתמש"
+
+#: src/roominfo/RoomInformation.qml:188
+#, kde-format
+msgid "Invite user to room"
+msgstr "הזמנת משתמש לחדר"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "חבר"
+msgstr[1] "שני חברים"
+msgstr[2] "%1 חברים"
+msgstr[3] "%1 חברים"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "No member count"
+msgstr "אין מניין חברים"
+
+#: src/roominfo/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "המדיה בחדר"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "אין הודעות נעוצות"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "חיפוש הודעות"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "איתור הודעות…"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "נא להקליד טקסט כדי להתחיל לחפש"
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "לא נמצאו הודעות"
 
 #: src/rooms/ExploreComponent.qml:30
 #, kde-format

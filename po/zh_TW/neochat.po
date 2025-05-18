@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-16 00:42+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2025-05-16 15:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -659,12 +659,12 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "沒有找到公開聊天室"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, kde-format
 msgid "View Location"
 msgstr "檢視位置"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "關閉"
@@ -793,12 +793,6 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "關於 KDE"
 
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "未命名"
-
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
 msgctxt "@info screenreader"
@@ -861,31 +855,24 @@ msgstr "鏡射"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 已於 %2 邀請您到此聊天室。"
 
 #: src/app/qml/InvitationView.qml:79
 #, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "這個使用者在 %1 邀請您聊天。"
 
 #: src/app/qml/InvitationView.qml:94
 #, kde-format
-#| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "接受邀請"
 
 #: src/app/qml/InvitationView.qml:109
 #, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "拒絕邀請"
@@ -898,8 +885,6 @@ msgstr "封鎖 %1"
 
 #: src/app/qml/InvitationView.qml:162
 #, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr "您可以在安全性設定底下設定回絕來自未知使用者的邀請。"
@@ -1021,36 +1006,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "偵測地點"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "位置"
-
-#: src/app/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "沒有在這個聊天室裡分享的位置。"
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "顯示聊天室資訊"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "關閉聊天室資訊側邊欄"
 
-#: src/app/qml/Main.qml:290
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/app/qml/Main.qml:330 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1299,130 +1273,6 @@ msgid ""
 "cleared?"
 msgstr "目前聊天空間是此聊天室的官方上層聊天空間，要清除這個設定嗎？"
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "聊天室設定"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, kde-format
-msgid "Information"
-msgstr "資訊"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr "媒體"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "聊天空間成員"
-
-#: src/app/qml/RoomInformation.qml:42
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "聊天室資訊"
-
-#: src/app/qml/RoomInformation.qml:70
-#, kde-format
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "動作"
-
-#: src/app/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "在這個聊天室裡搜尋"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "搜尋"
-
-#: src/app/qml/RoomInformation.qml:97
-#, kde-format
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "驗證使用者"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "從最愛中移除聊天室"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Favorite this room"
-msgstr "將此聊天室加入最愛"
-
-#: src/app/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "顯示這個聊天室的位置"
-
-#: src/app/qml/RoomInformation.qml:137
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "置頂訊息"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "置頂訊息"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "離開這個聊天空間"
-
-#: src/app/qml/RoomInformation.qml:154
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "離開這個聊天室"
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "成員"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, kde-format
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "邀請一個使用者"
-
-#: src/app/qml/RoomInformation.qml:186
-#, kde-format
-msgid "Invite user to room"
-msgstr "邀請使用者到聊天室"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 名成員"
-
-#: src/app/qml/RoomInformation.qml:193
-#, kde-format
-msgid "No member count"
-msgstr "無成員計數"
-
-#: src/app/qml/RoomMedia.qml:29
-#, kde-format
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "聊天室媒體"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1442,39 +1292,6 @@ msgstr "先加入或選擇聊天室吧"
 #, kde-format
 msgid "Message Source"
 msgstr "訊息原始碼"
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "沒有置頂訊息"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, kde-format
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "搜尋訊息"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, kde-format
-msgid "Find messages…"
-msgstr "尋找訊息…"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr "輸入文字開始搜尋"
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, kde-format
-msgid "No messages found"
-msgstr "找不到訊息"
-
-#: src/app/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr "搜尋"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -2253,7 +2070,8 @@ msgstr "鑰匙圈存取被拒絕：請允許 NeoChat 讀取存取權杖"
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
 "keyring on Linux"
-msgstr "沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
+msgstr ""
+"沒有可用的鑰匙圈：請安裝一個鑰匙圈，例如 Linux 上的 KWallet 或 GNOME 鑰匙圈"
 
 #: src/libneochat/accountmanager.cpp:136
 #, kde-format
@@ -3346,6 +3164,18 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "緯度：%2，經度：%1"
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "未命名"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr "搜尋"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3361,7 +3191,8 @@ msgstr "確認電子郵件地址"
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
 "<b>after</b> clicking on the confirmation link in the e-mail"
-msgstr "一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
+msgstr ""
+"一封確認信已經傳送到您的地址。請在點擊該信件中的確認連結<b>後</b>回到此處繼續"
 
 #: src/login/Email.qml:40
 #, kde-format
@@ -3600,6 +3431,168 @@ msgstr "返回"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "設定"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "位置"
+
+#: src/roominfo/LocationsPage.qml:69
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "沒有在這個聊天室裡分享的位置。"
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "聊天室設定"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, kde-format
+msgid "Information"
+msgstr "資訊"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, kde-format
+msgid "Media"
+msgstr "媒體"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "聊天空間成員"
+
+#: src/roominfo/RoomInformation.qml:42
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "聊天室資訊"
+
+#: src/roominfo/RoomInformation.qml:72
+#, kde-format
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "動作"
+
+#: src/roominfo/RoomInformation.qml:82
+#, kde-format
+msgid "Search in this room"
+msgstr "在這個聊天室裡搜尋"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "搜尋"
+
+#: src/roominfo/RoomInformation.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "驗證使用者"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "從最愛中移除聊天室"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Favorite this room"
+msgstr "將此聊天室加入最愛"
+
+#: src/roominfo/RoomInformation.qml:123
+#, kde-format
+msgid "Show locations for this room"
+msgstr "顯示這個聊天室的位置"
+
+#: src/roominfo/RoomInformation.qml:139
+#, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "置頂訊息"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "置頂訊息"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "離開這個聊天空間"
+
+#: src/roominfo/RoomInformation.qml:156
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "離開這個聊天室"
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "成員"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "邀請一個使用者"
+
+#: src/roominfo/RoomInformation.qml:188
+#, kde-format
+msgid "Invite user to room"
+msgstr "邀請使用者到聊天室"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 名成員"
+
+#: src/roominfo/RoomInformation.qml:195
+#, kde-format
+msgid "No member count"
+msgstr "無成員計數"
+
+#: src/roominfo/RoomMedia.qml:29
+#, kde-format
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "聊天室媒體"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "沒有置頂訊息"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, kde-format
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "搜尋訊息"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, kde-format
+msgid "Find messages…"
+msgstr "尋找訊息…"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr "輸入文字開始搜尋"
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, kde-format
+msgid "No messages found"
+msgstr "找不到訊息"
 
 #: src/rooms/ExploreComponent.qml:30
 #, kde-format
@@ -5912,7 +5905,6 @@ msgstr "移除"
 
 #: src/timeline/DelegateContextMenu.qml:113
 #, kde-format
-#| msgid "Reply in Thread"
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
@@ -6152,7 +6144,8 @@ msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
-msgstr "這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
+msgstr ""
+"這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6223,7 +6216,6 @@ msgstr "反應"
 
 #: src/timeline/QuickActions.qml:81
 #, kde-format
-#| msgid "Message Source"
 msgid "Message menu"
 msgstr "訊息選單"
 

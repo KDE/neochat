@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -702,12 +702,12 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, kde-format
 msgid "View Location"
 msgstr "Zobraziť miesto"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "Zatvoriť"
@@ -840,12 +840,6 @@ msgstr "O Neochat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "Informácie o KDE"
-
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Žiadne meno"
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -1078,39 +1072,28 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Lokalizovať"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, kde-format
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Miesta"
-
-#: src/app/qml/LocationsPage.qml:68
-#, kde-format
-msgid "There are no locations shared in this room."
-msgstr "V tejto miestnosti sa nezdieľajú miesta."
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Informácie o miestnosti"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Informácie o miestnosti"
 
-#: src/app/qml/Main.qml:289
+#: src/app/qml/Main.qml:304
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/app/qml/Main.qml:329 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -1381,150 +1364,6 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Nastavenia miestnosti"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Information"
-msgstr "Informácia"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, fuzzy, kde-format
-msgid "Media"
-msgstr "Média"
-
-#: src/app/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Members"
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Členovia"
-
-#: src/app/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Informácie o miestnosti"
-
-#: src/app/qml/RoomInformation.qml:70
-#, fuzzy, kde-format
-#| msgctxt "Locations on a map"
-#| msgid "Locations"
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Akcie"
-
-#: src/app/qml/RoomInformation.qml:80
-#, kde-format
-msgid "Search in this room"
-msgstr "Hľadať v tejto miestnosti"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Hľadať"
-
-#: src/app/qml/RoomInformation.qml:97
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Upraviť zariadenie"
-
-#: src/app/qml/RoomInformation.qml:108
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Odstrániť miestnosť z obľúbených"
-
-#: src/app/qml/RoomInformation.qml:108
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "Favorite this room"
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/app/qml/RoomInformation.qml:121
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Otvoriť miesta v tejto miestnosti"
-
-#: src/app/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Nájsť správy"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Priame správy"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Vytvoriť miestnosť"
-
-#: src/app/qml/RoomInformation.qml:154
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Členovia"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Invite a User"
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Pozvať používateľa"
-
-#: src/app/qml/RoomInformation.qml:186
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
-msgid "Invite user to room"
-msgstr "pozval %1 do miestnosti"
-
-#: src/app/qml/RoomInformation.qml:193
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "Člen"
-msgstr[1] "Členovia"
-msgstr[2] "Členovia"
-
-#: src/app/qml/RoomInformation.qml:193
-#, fuzzy, kde-format
-#| msgid "No Member Count"
-msgid "No member count"
-msgstr "Žiadny počet členov"
-
-#: src/app/qml/RoomMedia.qml:29
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Informácie o miestnosti"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1546,46 +1385,6 @@ msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 #, kde-format
 msgid "Message Source"
 msgstr "Zdroj správy"
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Forward Message"
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Preposlať správu"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Priame správy"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "Find messages…"
-msgstr "Nájsť správy"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr ""
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, fuzzy, kde-format
-#| msgid "No rooms found"
-msgid "No messages found"
-msgstr "Žiadne miestnosti neboli nájdené"
-
-#: src/app/qml/SearchPage.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search"
-msgctxt "@action:button"
-msgid "Search"
-msgstr "Hľadať"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3644,6 +3443,20 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Žiadne meno"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search"
+msgctxt "@action:button"
+msgid "Search"
+msgstr "Hľadať"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3915,6 +3728,193 @@ msgstr "Návrat"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Nastavenia"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, kde-format
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Miesta"
+
+#: src/roominfo/LocationsPage.qml:69
+#, kde-format
+msgid "There are no locations shared in this room."
+msgstr "V tejto miestnosti sa nezdieľajú miesta."
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Nastavenia miestnosti"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Information"
+msgstr "Informácia"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, fuzzy, kde-format
+msgid "Media"
+msgstr "Média"
+
+#: src/roominfo/RoomInformation.qml:42
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Členovia"
+
+#: src/roominfo/RoomInformation.qml:42
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Informácie o miestnosti"
+
+#: src/roominfo/RoomInformation.qml:72
+#, fuzzy, kde-format
+#| msgctxt "Locations on a map"
+#| msgid "Locations"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Akcie"
+
+#: src/roominfo/RoomInformation.qml:82
+#, kde-format
+msgid "Search in this room"
+msgstr "Hľadať v tejto miestnosti"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Hľadať"
+
+#: src/roominfo/RoomInformation.qml:99
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Upraviť zariadenie"
+
+#: src/roominfo/RoomInformation.qml:110
+#, kde-format
+msgid "Remove room from favorites"
+msgstr "Odstrániť miestnosť z obľúbených"
+
+#: src/roominfo/RoomInformation.qml:110
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "Favorite this room"
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/roominfo/RoomInformation.qml:123
+#, kde-format
+msgid "Show locations for this room"
+msgstr "Otvoriť miesta v tejto miestnosti"
+
+#: src/roominfo/RoomInformation.qml:139
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Nájsť správy"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Priame správy"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Vytvoriť miestnosť"
+
+#: src/roominfo/RoomInformation.qml:156
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "Členovia"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Pozvať používateľa"
+
+#: src/roominfo/RoomInformation.qml:188
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "Invite user to room"
+msgstr "pozval %1 do miestnosti"
+
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "Člen"
+msgstr[1] "Členovia"
+msgstr[2] "Členovia"
+
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
+msgstr "Žiadny počet členov"
+
+#: src/roominfo/RoomMedia.qml:29
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Informácie o miestnosti"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Forward Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Preposlať správu"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Priame správy"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Find messages…"
+msgstr "Nájsť správy"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr ""
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgid "No messages found"
+msgstr "Žiadne miestnosti neboli nájdené"
 
 #: src/rooms/ExploreComponent.qml:30
 #, fuzzy, kde-format

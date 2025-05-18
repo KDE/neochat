@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-18 00:42+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -695,13 +695,13 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Chambres"
 
-#: src/app/qml/FullScreenMap.qml:23
+#: src/app/qml/FullScreenMap.qml:25
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "View Location"
 msgstr "Inviar un invitation"
 
-#: src/app/qml/FullScreenMap.qml:70
+#: src/app/qml/FullScreenMap.qml:72
 #, kde-format
 msgid "Close"
 msgstr "Cluder"
@@ -833,12 +833,6 @@ msgstr "Pri NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr ""
-
-#: src/app/qml/GroupChatDrawerHeader.qml:67
-#: src/timeline/TimelineEndDelegate.qml:69
-#, kde-format
-msgid "No name"
-msgstr "Sin nómine"
 
 #: src/app/qml/HoverLinkIndicator.qml:25
 #, kde-format
@@ -1067,40 +1061,27 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Local"
 
-#: src/app/qml/LocationsPage.qml:16 src/app/qml/RoomInformation.qml:127
-#, fuzzy, kde-format
-#| msgid "Notifications"
-msgctxt "Locations on a map"
-msgid "Locations"
-msgstr "Notificationes"
-
-#: src/app/qml/LocationsPage.qml:68
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
-msgid "There are no locations shared in this room."
-msgstr "Vu ja es in ti chambre."
-
-#: src/app/qml/Main.qml:167
+#: src/app/qml/Main.qml:182
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Information pri li chambre"
 
-#: src/app/qml/Main.qml:170
+#: src/app/qml/Main.qml:185
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Information pri li chambre"
 
-#: src/app/qml/Main.qml:289
+#: src/app/qml/Main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verification del session"
 
-#: src/app/qml/Main.qml:329 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
 #, fuzzy, kde-format
 #| msgid "Share"
 msgctxt "@title"
@@ -1371,145 +1352,6 @@ msgid ""
 "cleared?"
 msgstr ""
 
-#: src/app/qml/RoomDrawer.qml:116 src/app/qml/RoomDrawerPage.qml:45
-#, fuzzy, kde-format
-#| msgid "Room settings"
-msgctxt "@action:button"
-msgid "Room settings"
-msgstr "Parametres del chambre"
-
-#: src/app/qml/RoomDrawer.qml:165 src/app/qml/RoomDrawerPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgid "Information"
-msgstr "Information pri li chambre"
-
-#: src/app/qml/RoomDrawer.qml:170 src/app/qml/RoomDrawerPage.qml:90
-#, kde-format
-msgid "Media"
-msgstr ""
-
-#: src/app/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
-msgctxt "@action:title"
-msgid "Space Members"
-msgstr "Membres del spacie"
-
-#: src/app/qml/RoomInformation.qml:42
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@action:title"
-msgid "Room Information"
-msgstr "Information pri li chambre"
-
-#: src/app/qml/RoomInformation.qml:70
-#, fuzzy, kde-format
-#| msgid "Notifications"
-msgctxt "Room actions"
-msgid "Actions"
-msgstr "Notificationes"
-
-#: src/app/qml/RoomInformation.qml:80
-#, fuzzy, kde-format
-msgid "Search in this room"
-msgstr "Saliente Cinnamon"
-
-#: src/app/qml/RoomInformation.qml:89
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr ""
-
-#: src/app/qml/RoomInformation.qml:97
-#, fuzzy, kde-format
-#| msgid "Verify device"
-msgctxt "@action:button"
-msgid "Verify user"
-msgstr "Verificar li aparate"
-
-#: src/app/qml/RoomInformation.qml:108
-#, fuzzy, kde-format
-msgid "Remove room from favorites"
-msgstr "Remover ex li preferat"
-
-#: src/app/qml/RoomInformation.qml:108
-#, fuzzy, kde-format
-msgid "Favorite this room"
-msgstr "Saliente Cinnamon"
-
-#: src/app/qml/RoomInformation.qml:121
-#, fuzzy, kde-format
-msgid "Show locations for this room"
-msgstr "Saliente Cinnamon"
-
-#: src/app/qml/RoomInformation.qml:137
-#, fuzzy, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Ne successat inviar un missage D-Bus"
-
-#: src/app/qml/RoomInformation.qml:146
-#: src/app/qml/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Direct missages"
-
-#: src/app/qml/RoomInformation.qml:154 src/spaces/SpaceHomePage.qml:66
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:button"
-msgid "Leave this space"
-msgstr "Crear un chambre"
-
-#: src/app/qml/RoomInformation.qml:154
-#, fuzzy, kde-format
-msgctxt "@action:button"
-msgid "Leave this room"
-msgstr "Saliente Cinnamon"
-
-#: src/app/qml/RoomInformation.qml:167
-#, kde-format
-msgid "Members"
-msgstr "Membres"
-
-#: src/app/qml/RoomInformation.qml:182 src/spaces/SpaceHomePage.qml:56
-#, fuzzy, kde-format
-#| msgid "Invite a User"
-msgctxt "@title"
-msgid "Invite a User"
-msgstr "Invitar un usator"
-
-#: src/app/qml/RoomInformation.qml:186
-#, fuzzy, kde-format
-msgid "Invite user to room"
-msgstr "Invitar un usator"
-
-#: src/app/qml/RoomInformation.qml:193
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 membre"
-msgstr[1] "%1 membres"
-
-#: src/app/qml/RoomInformation.qml:193
-#, fuzzy, kde-format
-#| msgid "No Member Count"
-msgid "No member count"
-msgstr "Sin númere de membres"
-
-#: src/app/qml/RoomMedia.qml:29
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@action:title"
-msgid "Room Media"
-msgstr "Information pri li chambre"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1530,42 +1372,6 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "Message Source"
 msgstr "_Missage..."
-
-#: src/app/qml/RoomPinnedMessagesPage.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
-msgctxt "@info:placeholder"
-msgid "No Pinned Messages"
-msgstr "Raportar li missage"
-
-#: src/app/qml/RoomSearchPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:title"
-msgid "Search Messages"
-msgstr "Direct missages"
-
-#: src/app/qml/RoomSearchPage.qml:37
-#, fuzzy, kde-format
-msgid "Find messages…"
-msgstr "Ne successat inviar un missage D-Bus"
-
-#: src/app/qml/RoomSearchPage.qml:38
-#, kde-format
-msgid "Enter text to start searching"
-msgstr ""
-
-#: src/app/qml/RoomSearchPage.qml:39
-#, fuzzy, kde-format
-msgid "No messages found"
-msgstr "Chambres"
-
-#: src/app/qml/SearchPage.qml:147
-#, kde-format
-msgctxt "@action:button"
-msgid "Search"
-msgstr ""
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -3541,6 +3347,18 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/timeline/TimelineEndDelegate.qml:69
+#, kde-format
+msgid "No name"
+msgstr "Sin nómine"
+
+#: src/libneochat/qml/SearchPage.qml:147
+#, kde-format
+msgctxt "@action:button"
+msgid "Search"
+msgstr ""
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3810,6 +3628,188 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Parametres del chambre"
+
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Notificationes"
+
+#: src/roominfo/LocationsPage.qml:69
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "There are no locations shared in this room."
+msgstr "Vu ja es in ti chambre."
+
+#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgctxt "@action:button"
+msgid "Room settings"
+msgstr "Parametres del chambre"
+
+#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Information"
+msgstr "Information pri li chambre"
+
+#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#, kde-format
+msgid "Media"
+msgstr ""
+
+#: src/roominfo/RoomInformation.qml:42
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgctxt "@action:title"
+msgid "Space Members"
+msgstr "Membres del spacie"
+
+#: src/roominfo/RoomInformation.qml:42
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room Information"
+msgstr "Information pri li chambre"
+
+#: src/roominfo/RoomInformation.qml:72
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "Room actions"
+msgid "Actions"
+msgstr "Notificationes"
+
+#: src/roominfo/RoomInformation.qml:82
+#, fuzzy, kde-format
+msgid "Search in this room"
+msgstr "Saliente Cinnamon"
+
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr ""
+
+#: src/roominfo/RoomInformation.qml:99
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
+msgid "Verify user"
+msgstr "Verificar li aparate"
+
+#: src/roominfo/RoomInformation.qml:110
+#, fuzzy, kde-format
+msgid "Remove room from favorites"
+msgstr "Remover ex li preferat"
+
+#: src/roominfo/RoomInformation.qml:110
+#, fuzzy, kde-format
+msgid "Favorite this room"
+msgstr "Saliente Cinnamon"
+
+#: src/roominfo/RoomInformation.qml:123
+#, fuzzy, kde-format
+msgid "Show locations for this room"
+msgstr "Saliente Cinnamon"
+
+#: src/roominfo/RoomInformation.qml:139
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Pinned messages"
+msgstr "Ne successat inviar un missage D-Bus"
+
+#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Direct missages"
+
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Leave this space"
+msgstr "Crear un chambre"
+
+#: src/roominfo/RoomInformation.qml:156
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Leave this room"
+msgstr "Saliente Cinnamon"
+
+#: src/roominfo/RoomInformation.qml:169
+#, kde-format
+msgid "Members"
+msgstr "Membres"
+
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Invitar un usator"
+
+#: src/roominfo/RoomInformation.qml:188
+#, fuzzy, kde-format
+msgid "Invite user to room"
+msgstr "Invitar un usator"
+
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 membre"
+msgstr[1] "%1 membres"
+
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
+msgstr "Sin númere de membres"
+
+#: src/roominfo/RoomMedia.qml:29
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room Media"
+msgstr "Information pri li chambre"
+
+#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@info:placeholder"
+msgid "No Pinned Messages"
+msgstr "Raportar li missage"
+
+#: src/roominfo/RoomSearchPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:title"
+msgid "Search Messages"
+msgstr "Direct missages"
+
+#: src/roominfo/RoomSearchPage.qml:37
+#, fuzzy, kde-format
+msgid "Find messages…"
+msgstr "Ne successat inviar un missage D-Bus"
+
+#: src/roominfo/RoomSearchPage.qml:38
+#, kde-format
+msgid "Enter text to start searching"
+msgstr ""
+
+#: src/roominfo/RoomSearchPage.qml:39
+#, fuzzy, kde-format
+msgid "No messages found"
+msgstr "Chambres"
 
 #: src/rooms/ExploreComponent.qml:30
 #, fuzzy, kde-format
