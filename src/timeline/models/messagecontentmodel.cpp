@@ -559,11 +559,19 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
     case MessageComponentType::Text: {
         const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
         auto body = EventHandler::rawMessageBody(*roomMessageEvent);
-        return TextHandler().textComponents(body,
-                                            EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                            m_room,
-                                            roomMessageEvent,
-                                            roomMessageEvent->isReplaced());
+        if (body.trimmed().isEmpty()) {
+            return TextHandler().textComponents(i18n("<i>This event does not have any content.</i>"),
+                                                Qt::TextFormat::RichText,
+                                                m_room,
+                                                roomMessageEvent,
+                                                roomMessageEvent->isReplaced());
+        } else {
+            return TextHandler().textComponents(body,
+                                                EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                m_room,
+                                                roomMessageEvent,
+                                                roomMessageEvent->isReplaced());
+        }
     }
     case MessageComponentType::File: {
         QList<MessageComponent> components;
