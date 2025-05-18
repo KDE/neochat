@@ -137,7 +137,11 @@ Kirigami.Page {
         id: spaceLoader
         active: root.currentRoom && root.currentRoom.isSpace
         anchors.fill: parent
-        sourceComponent: SpaceHomePage {}
+        sourceComponent: SpaceHomePage {
+            room: root.currentRoom
+
+            onRequestLeaveRoom: room => RoomManager.leaveRoom(room);
+        }
     }
 
     Loader {

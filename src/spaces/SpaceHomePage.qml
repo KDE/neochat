@@ -8,14 +8,21 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
-import org.kde.neochat
-import org.kde.neochat.libneochat as LibNeoChat
-import org.kde.neochat.settings
+import org.kde.neochat.libneochat
+import org.kde.neochat.settings as Settings
 
 ColumnLayout {
     id: root
 
-    readonly property NeoChatRoom currentRoom: RoomManager.currentRoom
+    /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
+     * @brief Request to leave the given room.
+     */
+    signal requestLeaveRoom(NeoChatRoom room)
 
     anchors.fill: parent
 
@@ -28,19 +35,19 @@ ColumnLayout {
             Kirigami.Action {
                 icon.name: "list-add-symbolic"
                 text: i18nc("@action:inmenu", "New Room…")
-                onTriggered: _private.createRoom(root.currentRoom.id)
+                onTriggered: _private.createRoom(root.room.id)
             }
 
             Kirigami.Action {
                 icon.name: "list-add-symbolic"
                 text: i18nc("@action:inmenu", "New Space…")
-                onTriggered: _private.createSpace(root.currentRoom.id)
+                onTriggered: _private.createSpace(root.room.id)
             }
 
             Kirigami.Action {
                 icon.name: "search-symbolic"
                 text: i18nc("@action:inmenu", "Existing Room…")
-                onTriggered: _private.selectExisting(root.currentRoom.id)
+                onTriggered: _private.selectExisting(root.room.id)
             }
         }
     }
@@ -65,18 +72,18 @@ ColumnLayout {
             GroupChatDrawerHeader {
                 id: header
                 Layout.fillWidth: true
-                room: root.currentRoom
+                room: root.room
             }
             RowLayout {
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 QQC2.Button {
-                    visible: root.currentRoom.canSendState("invite")
+                    visible: root.room.canSendState("invite")
                     text: i18nc("@button", "Invite user to space")
                     icon.name: "list-add-user"
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
-                        room: root.currentRoom
+                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'InviteUserPage'), {
+                        room: root.room
                     }, {
                         title: i18nc("@title", "Invite a User")
                     })
@@ -84,7 +91,7 @@ ColumnLayout {
                 QQC2.Button {
                     id: addNewButton
 
-                    visible: root.currentRoom.canSendState("m.space.child")
+                    visible: root.room.canSendState("m.space.child")
                     text: i18nc("@button", "Add to Space")
                     icon.name: "list-add"
                     onClicked: {
@@ -95,7 +102,7 @@ ColumnLayout {
                 QQC2.Button {
                     text: i18nc("@action:button", "Leave this space")
                     icon.name: "go-previous"
-                    onClicked: RoomManager.leaveRoom(root.currentRoom)
+                    onClicked: root.requestLeaveRoom(root.room)
                 }
                 Item {
                     Layout.fillWidth: true
@@ -106,7 +113,7 @@ ColumnLayout {
                     display: QQC2.AbstractButton.IconOnly
                     text: i18nc("'Space' is a matrix space", "Space Settings")
                     onClicked: {
-                        RoomSettingsView.openRoomSettings(root.currentRoom, RoomSettingsView.Space);
+                        Settings.RoomSettingsView.openRoomSettings(root.room, Settings.RoomSettingsView.Space);
                         drawer.close();
                     }
                     icon.name: 'settings-configure-symbolic'
@@ -124,7 +131,7 @@ ColumnLayout {
                 onTextChanged: spaceChildSortFilterModel.filterText = text
             }
         }
-        LibNeoChat.DelegateSizeHelper {
+        DelegateSizeHelper {
             id: sizeHelper
             parentItem: root
             startBreakpoint: Kirigami.Units.gridUnit * 46
@@ -155,7 +162,7 @@ ColumnLayout {
                 id: spaceChildSortFilterModel
                 sourceModel: SpaceChildrenModel {
                     id: spaceChildrenModel
-                    space: root.currentRoom
+                    space: root.room
                 }
             }
 
@@ -190,8 +197,8 @@ ColumnLayout {
         id: _private
 
         function createRoom(parentId) {
-            const dialog = Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
-                connection: root.currentRoom.connection,
+            const dialog = Qt.createComponent('org.kde.neochat.libneochat', 'CreateRoomDialog').createObject(root, {
+                connection: root.room.connection,
                 parentId: parentId
             });
             dialog.newChild.connect(childName => {
@@ -201,8 +208,8 @@ ColumnLayout {
         }
 
         function createSpace(parentId) {
-            const dialog = Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
-                connection: root.currentRoom.connection,
+            const dialog = Qt.createComponent('org.kde.neochat.libneochat', 'CreateSpaceDialog').createObject(root, {
+                connection: root.room.connection,
                 parentId: parentId,
             });
             dialog.newChild.connect(childName => {
@@ -212,14 +219,14 @@ ColumnLayout {
         }
 
         function selectExisting(parentId) {
-            const dialog = Qt.createComponent('org.kde.neochat', 'SelectExistingRoomDialog').createObject(root, {
-                connection: root.currentRoom.connection,
+            const dialog = Qt.createComponent('org.kde.neochat.spaces', 'SelectExistingRoomDialog').createObject(root, {
+                connection: root.room.connection,
                 parentId: parentId,
             });
             dialog.addChild.connect((childId, setChildParent, canonical) => {
                 // We have to get a room object from the connection as we may not
                 // be adding to the top level parent.
-                let parent = root.currentRoom.connection.room(parentId);
+                let parent = root.room.connection.room(parentId);
                 if (parent) {
                     parent.addChild(childId, setChildParent, canonical);
                 }

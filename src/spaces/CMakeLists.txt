@@ -8,6 +8,8 @@ ecm_add_qml_module(Spaces GENERATE_PLUGIN_SOURCE
     QML_FILES
         SpaceHomePage.qml
         SpaceHierarchyDelegate.qml
+        RemoveChildDialog.qml
+        SelectExistingRoomDialog.qml
     SOURCES
         models/spacechildrenmodel.cpp
         models/spacechildsortfiltermodel.cpp

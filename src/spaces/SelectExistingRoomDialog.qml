@@ -9,7 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
-import org.kde.neochat
+import org.kde.neochat.libneochat
 
 Kirigami.Dialog {
     id: root
@@ -38,7 +38,7 @@ Kirigami.Dialog {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick Room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'ExploreRoomsPage'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")

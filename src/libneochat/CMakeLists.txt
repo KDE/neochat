@@ -51,7 +51,11 @@ ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
     QML_FILES
         qml/GroupChatDrawerHeader.qml
         qml/LocationMapItem.qml
+        qml/InviteUserPage.qml
+        qml/ExploreRoomsPage.qml
         qml/SearchPage.qml
+        qml/CreateRoomDialog.qml
+        qml/CreateSpaceDialog.qml
 )
 
 ecm_qt_declare_logging_category(LibNeoChat

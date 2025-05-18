@@ -56,10 +56,8 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AccountMenu.qml
         qml/CollapsedRoomDelegate.qml
         qml/RoomPage.qml
-        qml/ExploreRoomsPage.qml
         qml/ManualRoomDialog.qml
         qml/ExplorerDelegate.qml
-        qml/InviteUserPage.qml
         qml/ImageEditorPage.qml
         qml/NeochatMaximizeComponent.qml
         qml/TypingPane.qml
@@ -67,7 +65,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AttachmentPane.qml
         qml/QuickFormatBar.qml
         qml/UserDetailDialog.qml
-        qml/CreateRoomDialog.qml
         qml/OpenFileDialog.qml
         qml/KeyVerificationDialog.qml
         qml/ConfirmLogoutDialog.qml
@@ -83,7 +80,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/OsmLocationPlugin.qml
         qml/FullScreenMap.qml
         qml/ChooseRoomDialog.qml
-        qml/RemoveChildDialog.qml
         qml/QrCodeMaximizeComponent.qml
         qml/NotificationsView.qml
         qml/ServerComboBox.qml
@@ -105,8 +101,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/AvatarNotification.qml
         qml/ReasonDialog.qml
         qml/NewPollDialog.qml
-        qml/CreateSpaceDialog.qml
-        qml/SelectExistingRoomDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick
