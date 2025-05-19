@@ -13,6 +13,7 @@ import org.kde.kitemmodels
 
 import org.kde.neochat
 import org.kde.neochat.timeline
+import org.kde.neochat.libneochat as LibNeoChat
 
 QQC2.ScrollView {
     id: root
@@ -261,13 +262,24 @@ QQC2.ScrollView {
             }
         }
 
-        TypingPane {
-            id: typingPane
+        LibNeoChat.DelegateSizeHelper {
+            id: typingPaneSizeHelper
+            parentItem: typingPaneContainer
+            startBreakpoint: Kirigami.Units.gridUnit * 46
+            endBreakpoint: Kirigami.Units.gridUnit * 66
+            startPercentWidth: 100
+            endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
+            maxWidth: NeoChatConfig.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+        }
+
+        RowLayout {
+            id: typingPaneContainer
             visible: root.currentRoom && root.currentRoom.otherMembersTyping.length > 0
-            labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.otherMembersTyping.length, root.currentRoom.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
             anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: parent.bottom
-            height: visible ? implicitHeight : 0
+            height: visible ? typingPane.implicitHeight : 0
+            z: 2
             Behavior on height {
                 NumberAnimation {
                     property: "height"
@@ -275,7 +287,15 @@ QQC2.ScrollView {
                     easing.type: Easing.OutCubic
                 }
             }
-            z: 2
+            RowLayout {
+                Layout.alignment: Qt.AlignCenter
+                Layout.fillWidth: true
+                Layout.maximumWidth: typingPaneSizeHelper.availableWidth
+                TypingPane {
+                    id: typingPane
+                    labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.currentRoom.otherMembersTyping.length, root.currentRoom.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
+                }
+            }
         }
 
         function goToEvent(eventID) {
