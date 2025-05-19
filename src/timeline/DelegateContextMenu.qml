@@ -214,10 +214,10 @@ KirigamiComponents.ConvergentContextMenu {
                             dialog.showStickers = false;
                             dialog.chosen.connect(emoji => {
                                 root.room.toggleReaction(root.eventId, emoji);
-                                root.menuItem.close();
+                                root.close();
                             });
                             dialog.closed.connect(() => {
-                                root.menuItem.close();
+                                root.close();
                             });
                             dialog.open();
                             return;
