@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-19 00:42+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -428,133 +428,6 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:96
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "Szoba létrehozása"
-
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:109
-#: src/rooms/ExploreComponent.qml:111 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Tér létrehozása"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "Új tér jellemzői"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "Új szoba jellemzői"
-
-#: src/app/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "Típus kiválasztása"
-
-#: src/app/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Szoba"
-
-#: src/app/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "Tér"
-
-#: src/app/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "Név:"
-
-#: src/app/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "Téma:"
-
-#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Legyen ez a hivatalos szülő"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "Tér létrehozása"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "Szoba létrehozása"
-
-#: src/app/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "Meglévő szoba kiválasztása"
-
-#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "Szoba kiválasztása"
-
-#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
-#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Szobák felfedezése"
-
-#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "Tagja"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr ""
-"Ön rendelkezik a szükséges jogosultsági szinttel a gyermekben, hogy "
-"beállítsa ezt az állapotot"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-"Nincs elég magas jogosultsági szintje a gyermekben ahhoz, hogy beállítsa ezt "
-"az állapotot"
-
-#: src/app/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "Legyen ez a tér a kanonikus szülő"
-
-#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "OK"
-
 #: src/app/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -639,38 +512,12 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Tér"
 
-#: src/app/qml/ExploreRoomsPage.qml:52
+#: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
+#: src/spaces/SelectExistingRoomDialog.qml:93
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "Szobák felfedezése"
-
-#: src/app/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "Csak terek megjelenítése"
-
-#: src/app/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "Belépés szobába saját kezűleg"
-
-#: src/app/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "Ha már ismeri egy szoba címét vagy álnevét, és az itt nem jelenik meg."
-
-#: src/app/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "Szoba keresése…"
-
-#: src/app/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Nem találhatók nyilvános szobák"
+msgid "Joined"
+msgstr "Tagja"
 
 #: src/app/qml/FullScreenMap.qml:25
 #, kde-format
@@ -712,20 +559,21 @@ msgctxt "menu"
 msgid "File"
 msgstr "Fájl"
 
-#: src/app/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
+#: src/app/qml/GlobalMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:inmenu"
+msgid "Find your Friends"
 msgstr "Barátok keresése"
 
-#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "Barátok keresése"
 
-#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
 #: src/rooms/RoomListPage.qml:237
 #, kde-format
@@ -733,75 +581,90 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Barátok keresése"
 
-#: src/app/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Új csoport…"
+#: src/app/qml/GlobalMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Create a Room…"
+msgstr "Szoba létrehozása"
 
-#: src/app/qml/GlobalMenu.qml:59
+#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Csevegések böngészése…"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Szoba létrehozása"
 
-#: src/app/qml/GlobalMenu.qml:73
+#: src/app/qml/GlobalMenu.qml:65
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Explore Rooms"
+msgctxt "@action:inmenu"
+msgid "Explore Rooms"
+msgstr "Szobák felfedezése"
+
+#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
+#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#: src/spaces/SelectExistingRoomDialog.qml:127
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Szobák felfedezése"
+
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: src/app/qml/GlobalMenu.qml:77
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Nézet"
 
-#: src/app/qml/GlobalMenu.qml:80
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Rooms"
 msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Gyorsváltó megnyitása"
+msgid "Search Rooms"
+msgstr "Szobák keresése"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Ablak"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Kilépés a teljes képernyős módból"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Teljes képernyő"
 
-#: src/app/qml/GlobalMenu.qml:93
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Súgó"
 
-#: src/app/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "A Matrix névjegye"
-
-#: src/app/qml/GlobalMenu.qml:100
+#: src/app/qml/GlobalMenu.qml:105
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "A Neochat névjegye"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -914,42 +777,6 @@ msgstr ""
 "Az ismeretlen felhasználók meghívásait a Biztonság lapon utasíthatja el a "
 "beállításokban."
 
-#: src/app/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "Felhasználó meghívása"
-
-#: src/app/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "Felhasználó keresése…"
-
-#: src/app/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "Nem találhatók szobák"
-
-#: src/app/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "Meghívás"
-
-#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "A felhasználó már tag, vagy már kapott meghívót"
-
-#: src/app/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "Meghívó küldése"
-
 #: src/app/qml/JoinRoomDialog.qml:29
 #, kde-format
 msgctxt "@title:dialog"
@@ -1033,25 +860,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Keresés"
 
-#: src/app/qml/Main.qml:182
+#: src/app/qml/Main.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Szobainformációk megjelenítése"
 
-#: src/app/qml/Main.qml:185
+#: src/app/qml/Main.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Szobainformációs fiók bezárása"
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Munkamenet-ellenőrzés"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:343 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1220,7 +1047,7 @@ msgstr "Nincsenek értesítések"
 msgid "Select a File"
 msgstr "Fájl kiválasztása"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:122
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1267,7 +1094,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nem található szoba"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -1298,41 +1125,23 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: src/app/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "Gyermek eltávolítása"
-
-#: src/app/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "A(z) %1 gyermek el lesz távolítva a(z) %2 térből"
-
-#: src/app/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "A jelenlegi tér a szoba hivatalos szülője, ezt is törölni kell?"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:152
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Üdvözli a NeoChat"
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Válasszon ki egy szobát, vagy csatlakozzon hozzá a kezdéshez"
 
-#: src/app/qml/RoomPage.qml:242
+#: src/app/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "Üzenet forrása"
@@ -1373,6 +1182,12 @@ msgstr "A kiszolgálót nem lehet feloldani, vagy már hozzáadták"
 #, kde-format
 msgid "Server URL:"
 msgstr "Kiszolgáló URL-je:"
+
+#: src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "OK"
 
 #: src/app/qml/ShareAction.qml:23
 #, kde-format
@@ -1620,6 +1435,23 @@ msgstr "Meghívás privát csevegésbe"
 msgid "Copy link"
 msgstr "Hivatkozás másolása"
 
+#: src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Open Profile"
+msgstr "Fájl megnyitása"
+
+#: src/app/qml/UserMenu.qml:68
+#, fuzzy, kde-format
+#| msgid "@Mentions"
+msgctxt "@action:button"
+msgid "Mention"
+msgstr "@Említések"
+
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -1859,49 +1691,49 @@ msgstr "Helyi fájl kiválasztása"
 msgid "Clipboard image"
 msgstr "Vágólapon lévő kép"
 
-#: src/chatbar/ChatBar.qml:73
+#: src/chatbar/ChatBar.qml:86
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Kép vagy fájl csatolása"
 
-#: src/chatbar/ChatBar.qml:91
+#: src/chatbar/ChatBar.qml:104
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emodzsik és matricák"
 
-#: src/chatbar/ChatBar.qml:108
+#: src/chatbar/ChatBar.qml:121
 #, kde-format
 msgid "Send a Location"
 msgstr "Hely küldése"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Szoba létrehozása"
 
-#: src/chatbar/ChatBar.qml:138
+#: src/chatbar/ChatBar.qml:151
 #, kde-format
 msgid "Send message"
 msgstr "Üzenet küldése"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Titkosított üzenet küldése…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Mellékletleírás beállítása…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send a message…"
 msgstr "Üzenet küldése…"
 
-#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3274,11 +3106,188 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Hossz.: %1, Szél.: %2"
 
+#: src/libneochat/qml/CreateRoomDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title"
+msgid "Create Room"
+msgstr "Szoba létrehozása"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new room"
+msgid "Create"
+msgstr "Új létrehozása"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:47
+#, kde-format
+msgctxt "@info:label"
+msgid "Private"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:48
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can only be joined with an invite."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Public"
+msgctxt "@info:label"
+msgid "Public"
+msgstr "Nyilvános"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:55
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can be found and joined by anyone."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the room"
+msgid "Name:"
+msgstr "Név:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:63
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@info:placeholder Placeholder for room name"
+msgid "New Room"
+msgstr "Szoba elhagyása"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:68
+#, fuzzy, kde-format
+#| msgid "Server Address"
+msgctxt "@info:label Address or alias to refer to the room by"
+msgid "Address:"
+msgstr "Kiszolgáló címe"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new room"
+msgctxt "@info:placeholder Placeholder address for the room"
+msgid "new-room"
+msgstr "Új szoba hozzáadása"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Tér létrehozása"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new space"
+msgid "Create"
+msgstr "Új létrehozása"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the space"
+msgid "Name:"
+msgstr "Név:"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:48
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@info:placeholder"
+msgid "New Space"
+msgstr "Tér megtekintése"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:60
+#: src/spaces/SelectExistingRoomDialog.qml:149
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Legyen ez a hivatalos szülő"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Szobák felfedezése"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "Csak terek megjelenítése"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "Belépés szobába saját kezűleg"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "Ha már ismeri egy szoba címét vagy álnevét, és az itt nem jelenik meg."
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "Szoba keresése…"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Nem találhatók nyilvános szobák"
+
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:67
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
 msgstr "Nincs név"
+
+#: src/libneochat/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "Felhasználó meghívása"
+
+#: src/libneochat/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "Felhasználó keresése…"
+
+#: src/libneochat/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Nem találhatók szobák"
+
+#: src/libneochat/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Meghívás"
+
+#: src/libneochat/qml/InviteUserPage.qml:34
+#: src/libneochat/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "A felhasználó már tag, vagy már kapott meghívót"
+
+#: src/libneochat/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Meghívó küldése"
 
 #: src/libneochat/qml/SearchPage.qml:147
 #, kde-format
@@ -3640,7 +3649,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Közvetlen üzenet"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Leave the space"
@@ -3659,7 +3668,7 @@ msgstr "Szoba elhagyása"
 msgid "Members"
 msgstr "Tagok"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3740,12 +3749,7 @@ msgstr "Menü megjelenítése"
 msgid "Create a Room"
 msgstr "Szoba létrehozása"
 
-#: src/rooms/ExploreComponent.qml:103 src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "Tér létrehozása"
-
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR-kód beolvasása"
@@ -3764,6 +3768,11 @@ msgstr "Szobák felfedezése"
 #, kde-format
 msgid "Create New"
 msgstr "Új létrehozása"
+
+#: src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "Tér létrehozása"
 
 #: src/rooms/models/roomtreemodel.cpp:358
 #, fuzzy, kde-format
@@ -3965,7 +3974,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Hivatkozás másolása"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5835,7 +5844,7 @@ msgid "Down"
 msgstr "Letöltés"
 
 #: src/settings/RoomSortParameterDialog.qml:96
-#: src/spaces/SpaceHierarchyDelegate.qml:123
+#: src/spaces/SpaceHierarchyDelegate.qml:122
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -5860,6 +5869,12 @@ msgstr ""
 msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Új hivatalos szülő kiválasztása"
+
+#: src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "Szoba kiválasztása"
 
 #: src/settings/SelectParentDialog.qml:57
 #, kde-format
@@ -6039,12 +6054,77 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Vissza"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/spaces/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Gyermek eltávolítása"
+
+#: src/spaces/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "A(z) %1 gyermek el lesz távolítva a(z) %2 térből"
+
+#: src/spaces/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "A jelenlegi tér a szoba hivatalos szülője, ezt is törölni kell?"
+
+#: src/spaces/SelectExistingRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@title"
+msgid "Select Existing Room"
+msgstr "Meglévő szoba kiválasztása"
+
+#: src/spaces/SelectExistingRoomDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick room"
+msgctxt "@action:button"
+msgid "Pick Room"
+msgstr "Szoba kiválasztása"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, fuzzy, kde-format
+#| msgid "You have the required privilege level in the child to set this state"
+msgctxt "@info:description"
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+"Ön rendelkezik a szükséges jogosultsági szinttel a gyermekben, hogy "
+"beállítsa ezt az állapotot"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+"Nincs elég magas jogosultsági szintje a gyermekben ahhoz, hogy beállítsa ezt "
+"az állapotot"
+
+#: src/spaces/SelectExistingRoomDialog.qml:173
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "Legyen ez a tér a kanonikus szülő"
+
+#: src/spaces/SelectExistingRoomDialog.qml:174
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"The canonical parent is the default one if a room has multiple parent spaces."
+msgstr ""
+
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Suggested"
 msgstr "Javasolt"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -6052,7 +6132,7 @@ msgid_plural "%1 members - "
 msgstr[0] "%1 tag - "
 msgstr[1] "%1 tag - "
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -6060,35 +6140,59 @@ msgid_plural "%1 members"
 msgstr[0] "%1 tag"
 msgstr[1] "%1 tag"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#: src/spaces/SpaceHierarchyDelegate.qml:111
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "Új szoba hozzáadása"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Ne legyen javasolt"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Legyen javasolt"
 
-#: src/spaces/SpaceHomePage.qml:51
+#: src/spaces/SpaceHomePage.qml:37
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Room…"
+msgstr "Új csoport…"
+
+#: src/spaces/SpaceHomePage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@action:inmenu"
+msgid "New Space…"
+msgstr "Tér megtekintése"
+
+#: src/spaces/SpaceHomePage.qml:49
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@action:inmenu"
+msgid "Existing Room…"
+msgstr "Meglévő szoba kiválasztása"
+
+#: src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Meghívás a térbe"
 
-#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Gyermek létrehozása"
+#: src/spaces/SpaceHomePage.qml:95
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@button"
+msgid "Add to Space"
+msgstr "Hozzáadás a kedvencekhez"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6194,19 +6298,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "Üzenet jelentése"
 
-#: src/timeline/DelegateContextMenu.qml:146
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Felhasználó megjelenítése"
-
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6399,12 +6497,12 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:122
+#: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr "„%1” keresése"
 
-#: src/timeline/MessageDelegateContextMenu.qml:142
+#: src/timeline/MessageDelegateContextMenu.qml:141
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure Web Shortcuts…"
@@ -6419,6 +6517,11 @@ msgid ""
 msgstr ""
 "Ez az üzenet vagy nem található, vagy nincs jogosultsága a megtekintéséhez, "
 "vagy egy mellőzött felhasználó küldte"
+
+#: src/timeline/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6580,6 +6683,54 @@ msgstr "Hangerő"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximalizálás"
+
+#~ msgid "New Space Information"
+#~ msgstr "Új tér jellemzői"
+
+#~ msgid "New Room Information"
+#~ msgstr "Új szoba jellemzői"
+
+#~ msgid "Select type"
+#~ msgstr "Típus kiválasztása"
+
+#~ msgid "Room"
+#~ msgstr "Szoba"
+
+#~ msgid "Space"
+#~ msgstr "Tér"
+
+#~ msgid "Topic:"
+#~ msgstr "Téma:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Create Space"
+#~ msgstr "Tér létrehozása"
+
+#~ msgctxt "menu"
+#~ msgid "Find your friends"
+#~ msgstr "Barátok keresése"
+
+#~ msgctxt "menu"
+#~ msgid "Browse Chats…"
+#~ msgstr "Csevegések böngészése…"
+
+#~ msgctxt ""
+#~ "menu item that opens a UI element called the 'Quick Switcher', which "
+#~ "offers a fast keyboard-based interface for switching in between chats."
+#~ msgid "Open Quick Switcher"
+#~ msgstr "Gyorsváltó megnyitása"
+
+#~ msgctxt "menu"
+#~ msgid "About Matrix"
+#~ msgstr "A Matrix névjegye"
+
+#~ msgctxt "@title"
+#~ msgid "Create a Child"
+#~ msgstr "Gyermek létrehozása"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show User"
+#~ msgstr "Felhasználó megjelenítése"
 
 #~ msgid "This message was sent from a verified device"
 #~ msgstr "Az üzenetet egy ellenőrzött eszközről küldték"
@@ -7340,9 +7491,6 @@ msgstr "Maximalizálás"
 
 #~ msgid "Redact"
 #~ msgstr "Kitakarás"
-
-#~ msgid "Server Address"
-#~ msgstr "Kiszolgáló címe"
 
 #~ msgid "Device Name (Optional)"
 #~ msgstr "Eszköznév (opcionális)"

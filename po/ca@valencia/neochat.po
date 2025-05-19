@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-19 00:42+0000\n"
 "PO-Revision-Date: 2025-05-12 12:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -423,132 +423,6 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Obri"
 
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:96
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "Crea una sala"
-
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:109
-#: src/rooms/ExploreComponent.qml:111 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Creeu un espai"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "Informació d'espai nou"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "Informació de sala nova"
-
-#: src/app/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "Seleccioneu el tipus"
-
-#: src/app/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Sala"
-
-#: src/app/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "Espai"
-
-#: src/app/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "Nom:"
-
-#: src/app/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "Tema:"
-
-#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Fes oficial este pare"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "Crea un espai"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "Crea una sala"
-
-#: src/app/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "Selecciona una sala existent"
-
-#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "Tria la sala"
-
-#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
-#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Exploració de sales"
-
-#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "Vos heu unit"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr ""
-"Teniu el nivell requerit de privilegi en el fill per a establir este estat"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-"No teniu el nivell suficient de privilegi en el fill per a establir este "
-"estat"
-
-#: src/app/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "Fes que este espai siga el pare canònic"
-
-#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "D'acord"
-
 #: src/app/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -633,38 +507,12 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Espai"
 
-#: src/app/qml/ExploreRoomsPage.qml:52
+#: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
+#: src/spaces/SelectExistingRoomDialog.qml:93
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "Exploració de sales"
-
-#: src/app/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "Mostra només els espais"
-
-#: src/app/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "Introduïu manualment una sala"
-
-#: src/app/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "Si ja coneixeu l'adreça o l'àlies d'una sala i no es mostra ací."
-
-#: src/app/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "Busca una sala…"
-
-#: src/app/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "No s'ha trobat cap sala pública"
+msgid "Joined"
+msgstr "Vos heu unit"
 
 #: src/app/qml/FullScreenMap.qml:25
 #, kde-format
@@ -705,20 +553,21 @@ msgctxt "menu"
 msgid "File"
 msgstr "Fitxer"
 
-#: src/app/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
-msgstr "Busca d'amics"
+#: src/app/qml/GlobalMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:inmenu"
+msgid "Find your Friends"
+msgstr "Busqueu els vostres amics"
 
-#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "Busqueu els vostres amics"
 
-#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
 #: src/rooms/RoomListPage.qml:237
 #, kde-format
@@ -726,75 +575,90 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Busca d'amics"
 
-#: src/app/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Grup nou…"
+#: src/app/qml/GlobalMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Create a Room…"
+msgstr "Crea una sala"
 
-#: src/app/qml/GlobalMenu.qml:59
+#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Navega pels xats…"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Crea una sala"
 
-#: src/app/qml/GlobalMenu.qml:73
+#: src/app/qml/GlobalMenu.qml:65
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Explore Rooms"
+msgctxt "@action:inmenu"
+msgid "Explore Rooms"
+msgstr "Exploració de sales"
+
+#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
+#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#: src/spaces/SelectExistingRoomDialog.qml:127
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Exploració de sales"
+
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Edita"
 
-#: src/app/qml/GlobalMenu.qml:77
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vista"
 
-#: src/app/qml/GlobalMenu.qml:80
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Rooms"
 msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Obri el commutador ràpid"
+msgid "Search Rooms"
+msgstr "Busca sales"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Finestra"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Ix de pantalla completa"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Entra a pantalla completa"
 
-#: src/app/qml/GlobalMenu.qml:93
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/app/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "Quant a Matrix"
-
-#: src/app/qml/GlobalMenu.qml:100
+#: src/app/qml/GlobalMenu.qml:105
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "Quant a NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -900,42 +764,6 @@ msgstr ""
 "Podeu rebutjar invitacions d'usuaris desconeguts des de la configuració de "
 "seguretat."
 
-#: src/app/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "Convida un usuari"
-
-#: src/app/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "Busca un usuari…"
-
-#: src/app/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "No s'ha trobat cap usuari"
-
-#: src/app/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "Convida a este usuari"
-
-#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "L'usuari ja és membre o ha sigut convidat"
-
-#: src/app/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "Envia una invitació"
-
 #: src/app/qml/JoinRoomDialog.qml:29
 #, kde-format
 msgctxt "@title:dialog"
@@ -1017,25 +845,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Ubica"
 
-#: src/app/qml/Main.qml:182
+#: src/app/qml/Main.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Mostra informació de la sala"
 
-#: src/app/qml/Main.qml:185
+#: src/app/qml/Main.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Tanca el calaix d'informació de la sala"
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificació de la sessió"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:343 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1190,7 +1018,7 @@ msgstr "Sense notificacions"
 msgid "Select a File"
 msgstr "Seleccioneu un fitxer"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:122
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1237,7 +1065,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "No s'ha trobat cap sala"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1267,24 +1095,6 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: src/app/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "Elimina un fill"
-
-#: src/app/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "El fill %1 s'eliminarà de l'espai %2"
-
-#: src/app/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "L'espai actual és el pare oficial d'esta sala, s'hauria de netejar?"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
@@ -1292,17 +1102,17 @@ msgstr ""
 "NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
 "xarxa."
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:152
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Us donem la benvinguda a NeoChat"
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Seleccioneu o uniu-vos a una per a començar"
 
-#: src/app/qml/RoomPage.qml:242
+#: src/app/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
@@ -1343,6 +1153,12 @@ msgstr "Este servidor no es pot resoldre o ja s'ha afegit"
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
+
+#: src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "D'acord"
 
 #: src/app/qml/ShareAction.qml:23
 #, kde-format
@@ -1589,6 +1405,24 @@ msgstr "Convida a un xat privat"
 #, kde-format
 msgid "Copy link"
 msgstr "Copia l'enllaç"
+
+#: src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Open Profile"
+msgstr "Obri el fitxer"
+
+#: src/app/qml/UserMenu.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
+msgctxt "@action:button"
+msgid "Mention"
+msgstr "@Mencions"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -1839,48 +1673,48 @@ msgstr "Seleccioneu un fitxer local"
 msgid "Clipboard image"
 msgstr "Imatge del porta-retalls"
 
-#: src/chatbar/ChatBar.qml:73
+#: src/chatbar/ChatBar.qml:86
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjunta una imatge o un fitxer"
 
-#: src/chatbar/ChatBar.qml:91
+#: src/chatbar/ChatBar.qml:104
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji i adhesius"
 
-#: src/chatbar/ChatBar.qml:108
+#: src/chatbar/ChatBar.qml:121
 #, kde-format
 msgid "Send a Location"
 msgstr "Envia una ubicació"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Crea una enquesta"
 
-#: src/chatbar/ChatBar.qml:138
+#: src/chatbar/ChatBar.qml:151
 #, kde-format
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Envia un missatge encriptat…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Establix un títol d'adjunt…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send a message…"
 msgstr "Envia un missatge…"
 
-#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3229,11 +3063,189 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat.: %1, lon.: %2"
 
+#: src/libneochat/qml/CreateRoomDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title"
+msgid "Create Room"
+msgstr "Crea una sala"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new room"
+msgid "Create"
+msgstr "Crea nou"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:47
+#, kde-format
+msgctxt "@info:label"
+msgid "Private"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:48
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can only be joined with an invite."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Public"
+msgctxt "@info:label"
+msgid "Public"
+msgstr "Públic"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:55
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can be found and joined by anyone."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the room"
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:63
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@info:placeholder Placeholder for room name"
+msgid "New Room"
+msgstr "Ix de la sala"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New Email Address:"
+msgctxt "@info:label Address or alias to refer to the room by"
+msgid "Address:"
+msgstr "Adreça de correu electrònic nova:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new room"
+msgctxt "@info:placeholder Placeholder address for the room"
+msgid "new-room"
+msgstr "Afig una sala nova"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Creeu un espai"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new space"
+msgid "Create"
+msgstr "Crea nou"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the space"
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:48
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@info:placeholder"
+msgid "New Space"
+msgstr "Mostra l'espai"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:60
+#: src/spaces/SelectExistingRoomDialog.qml:149
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Fes oficial este pare"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Exploració de sales"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "Mostra només els espais"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "Introduïu manualment una sala"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "Si ja coneixeu l'adreça o l'àlies d'una sala i no es mostra ací."
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "Busca una sala…"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "No s'ha trobat cap sala pública"
+
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:67
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
 msgstr "Sense nom"
+
+#: src/libneochat/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "Convida un usuari"
+
+#: src/libneochat/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "Busca un usuari…"
+
+#: src/libneochat/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "No s'ha trobat cap usuari"
+
+#: src/libneochat/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Convida a este usuari"
+
+#: src/libneochat/qml/InviteUserPage.qml:34
+#: src/libneochat/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "L'usuari ja és membre o ha sigut convidat"
+
+#: src/libneochat/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Envia una invitació"
 
 #: src/libneochat/qml/SearchPage.qml:147
 #, kde-format
@@ -3592,7 +3604,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Missatges fixats"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3609,7 +3621,7 @@ msgstr "Ix d'esta sala"
 msgid "Members"
 msgstr "Membres"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3688,12 +3700,7 @@ msgstr "Mostra el menú"
 msgid "Create a Room"
 msgstr "Crea una sala"
 
-#: src/rooms/ExploreComponent.qml:103 src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "Crea un espai"
-
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Escaneja un codi QR"
@@ -3712,6 +3719,11 @@ msgstr "Explora les sales"
 #, kde-format
 msgid "Create New"
 msgstr "Crea nou"
+
+#: src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "Crea un espai"
 
 #: src/rooms/models/roomtreemodel.cpp:358
 #, kde-format
@@ -3906,7 +3918,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Copia l'adreça de l'espai"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5711,7 +5723,7 @@ msgid "Down"
 msgstr "Avall"
 
 #: src/settings/RoomSortParameterDialog.qml:96
-#: src/spaces/SpaceHierarchyDelegate.qml:123
+#: src/spaces/SpaceHierarchyDelegate.qml:122
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -5734,6 +5746,12 @@ msgstr "Seleccioneu el paràmetre a afegir"
 msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Seleccioneu el pare oficial nou"
+
+#: src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "Tria la sala"
 
 #: src/settings/SelectParentDialog.qml:57
 #, kde-format
@@ -5910,12 +5928,76 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Arrere"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/spaces/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Elimina un fill"
+
+#: src/spaces/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "El fill %1 s'eliminarà de l'espai %2"
+
+#: src/spaces/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "L'espai actual és el pare oficial d'esta sala, s'hauria de netejar?"
+
+#: src/spaces/SelectExistingRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@title"
+msgid "Select Existing Room"
+msgstr "Selecciona una sala existent"
+
+#: src/spaces/SelectExistingRoomDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick room"
+msgctxt "@action:button"
+msgid "Pick Room"
+msgstr "Tria la sala"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, fuzzy, kde-format
+#| msgid "You have the required privilege level in the child to set this state"
+msgctxt "@info:description"
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+"Teniu el nivell requerit de privilegi en el fill per a establir este estat"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+"No teniu el nivell suficient de privilegi en el fill per a establir este "
+"estat"
+
+#: src/spaces/SelectExistingRoomDialog.qml:173
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "Fes que este espai siga el pare canònic"
+
+#: src/spaces/SelectExistingRoomDialog.qml:174
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"The canonical parent is the default one if a room has multiple parent spaces."
+msgstr ""
+
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Suggested"
 msgstr "Suggerits"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -5923,7 +6005,7 @@ msgid_plural "%1 members - "
 msgstr[0] "%1 membre - "
 msgstr[1] "%1 membres - "
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -5931,35 +6013,59 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#: src/spaces/SpaceHierarchyDelegate.qml:111
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "Afig una sala nova"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "No dones suggeriments"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Dona suggeriments"
 
-#: src/spaces/SpaceHomePage.qml:51
+#: src/spaces/SpaceHomePage.qml:37
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Room…"
+msgstr "Grup nou…"
+
+#: src/spaces/SpaceHomePage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@action:inmenu"
+msgid "New Space…"
+msgstr "Mostra l'espai"
+
+#: src/spaces/SpaceHomePage.qml:49
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@action:inmenu"
+msgid "Existing Room…"
+msgstr "Selecciona una sala existent"
+
+#: src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Convida un usuari a l'espai"
 
-#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Crea un fill"
+#: src/spaces/SpaceHomePage.qml:95
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@button"
+msgid "Add to Space"
+msgstr "Afig a les preferides"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6061,19 +6167,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: src/timeline/DelegateContextMenu.qml:146
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Mostra l'usuari"
-
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Deixa de fixar"
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6256,12 +6356,12 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 ha dit %2"
 
-#: src/timeline/MessageDelegateContextMenu.qml:122
+#: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Busca «%1»"
 
-#: src/timeline/MessageDelegateContextMenu.qml:142
+#: src/timeline/MessageDelegateContextMenu.qml:141
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Configura les dreceres web…"
@@ -6275,6 +6375,11 @@ msgid ""
 msgstr ""
 "Este missatge no s'ha trobat o no teniu permís per a veure'l o l'ha enviat "
 "un usuari ignorat"
+
+#: src/timeline/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6436,3 +6541,51 @@ msgstr "Volum"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximitza"
+
+#~ msgid "New Space Information"
+#~ msgstr "Informació d'espai nou"
+
+#~ msgid "New Room Information"
+#~ msgstr "Informació de sala nova"
+
+#~ msgid "Select type"
+#~ msgstr "Seleccioneu el tipus"
+
+#~ msgid "Room"
+#~ msgstr "Sala"
+
+#~ msgid "Space"
+#~ msgstr "Espai"
+
+#~ msgid "Topic:"
+#~ msgstr "Tema:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Create Space"
+#~ msgstr "Crea un espai"
+
+#~ msgctxt "menu"
+#~ msgid "Find your friends"
+#~ msgstr "Busca d'amics"
+
+#~ msgctxt "menu"
+#~ msgid "Browse Chats…"
+#~ msgstr "Navega pels xats…"
+
+#~ msgctxt ""
+#~ "menu item that opens a UI element called the 'Quick Switcher', which "
+#~ "offers a fast keyboard-based interface for switching in between chats."
+#~ msgid "Open Quick Switcher"
+#~ msgstr "Obri el commutador ràpid"
+
+#~ msgctxt "menu"
+#~ msgid "About Matrix"
+#~ msgstr "Quant a Matrix"
+
+#~ msgctxt "@title"
+#~ msgid "Create a Child"
+#~ msgstr "Crea un fill"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show User"
+#~ msgstr "Mostra l'usuari"

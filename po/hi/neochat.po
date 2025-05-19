@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-19 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -422,130 +422,6 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "खुला"
 
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:96
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "एक कमरा बनाएँ"
-
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:109
-#: src/rooms/ExploreComponent.qml:111 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "एक स्थान बनाएं"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "नई अंतरिक्ष जानकारी"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "नये कमरे की जानकारी"
-
-#: src/app/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "प्रकार चुनें"
-
-#: src/app/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "कमरा"
-
-#: src/app/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "अंतरिक्ष"
-
-#: src/app/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "नाम:"
-
-#: src/app/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "विषय:"
-
-#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "इस अभिभावक को आधिकारिक बनाएं"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "जगह बनाएं"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "जगह बनाना"
-
-#: src/app/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "मौजूदा कमरा चुनें"
-
-#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "कमरा चुनें"
-
-#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
-#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "कमरे खोजें"
-
-#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "शामिल हुए"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr "इस स्थिति को सेट करने के लिए आपके पास चाइल्ड में आवश्यक विशेषाधिकार स्तर है"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-"आपके पास चाइल्ड में इस स्थिति को सेट करने के लिए पर्याप्त उच्च विशेषाधिकार स्तर नहीं है"
-
-#: src/app/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "इस स्थान को विहित पैरेंट बनाएं"
-
-#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "ठीक है"
-
 #: src/app/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -628,39 +504,12 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "अंतरिक्ष"
 
-#: src/app/qml/ExploreRoomsPage.qml:52
+#: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
+#: src/spaces/SelectExistingRoomDialog.qml:93
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "कमरे खोजें"
-
-#: src/app/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "केवल रिक्त स्थान दिखाएं"
-
-#: src/app/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "मैन्युअल रूप से एक कमरे में प्रवेश करें"
-
-#: src/app/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
-"यदि आपको पहले से ही किसी कमरे का पता या उपनाम पता है, और वह यहां नहीं दिखाया गया है।"
-
-#: src/app/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "एक कमरा खोजें…"
-
-#: src/app/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "कोई सार्वजनिक कमरा नहीं मिला"
+msgid "Joined"
+msgstr "शामिल हुए"
 
 #: src/app/qml/FullScreenMap.qml:25
 #, kde-format
@@ -702,20 +551,21 @@ msgctxt "menu"
 msgid "File"
 msgstr "फ़ाइल"
 
-#: src/app/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
+#: src/app/qml/GlobalMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:inmenu"
+msgid "Find your Friends"
 msgstr "अपने दोस्तों को खोजें"
 
-#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
-#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
 #: src/rooms/RoomListPage.qml:237
 #, kde-format
@@ -723,75 +573,90 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
-#: src/app/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "नया समूह…"
+#: src/app/qml/GlobalMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Create a Room…"
+msgstr "एक कमरा बनाएँ"
 
-#: src/app/qml/GlobalMenu.qml:59
+#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "चैट ब्राउज़ करें…"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "एक कमरा बनाएँ"
 
-#: src/app/qml/GlobalMenu.qml:73
+#: src/app/qml/GlobalMenu.qml:65
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Explore Rooms"
+msgctxt "@action:inmenu"
+msgid "Explore Rooms"
+msgstr "कमरे खोजें"
+
+#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
+#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#: src/spaces/SelectExistingRoomDialog.qml:127
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "कमरे खोजें"
+
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "संपादन करना"
 
-#: src/app/qml/GlobalMenu.qml:77
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "देखना"
 
-#: src/app/qml/GlobalMenu.qml:80
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Rooms"
 msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "त्वरित स्विचर खोलें"
+msgid "Search Rooms"
+msgstr "कमरे खोजें"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "खिड़की"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "पूर्ण स्क्रीन से बाहर निकलें"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "पूर्ण स्क्रीन दर्ज करें"
 
-#: src/app/qml/GlobalMenu.qml:93
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "मदद"
 
-#: src/app/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "मैट्रिक्स के बारे में"
-
-#: src/app/qml/GlobalMenu.qml:100
+#: src/app/qml/GlobalMenu.qml:105
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "नियोचैट के बारे में"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -903,42 +768,6 @@ msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr "आप सुरक्षा सेटिंग्स के अंतर्गत अज्ञात उपयोगकर्ताओं के आमंत्रणों को अस्वीकार कर सकते हैं।"
 
-#: src/app/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "किसी उपयोगकर्ता को आमंत्रित करें"
-
-#: src/app/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "एक उपयोगकर्ता खोजें…"
-
-#: src/app/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "कोई उपयोगकर्ता नहीं मिला"
-
-#: src/app/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "इस उपयोगकर्ता को आमंत्रित करें"
-
-#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "उपयोगकर्ता या तो पहले से ही सदस्य है या उसे आमंत्रित किया गया है"
-
-#: src/app/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "निमंत्रण भेजना"
-
 #: src/app/qml/JoinRoomDialog.qml:29
 #, kde-format
 msgctxt "@title:dialog"
@@ -1022,25 +851,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "का पता लगाने"
 
-#: src/app/qml/Main.qml:182
+#: src/app/qml/Main.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "शो रूम की जानकारी"
 
-#: src/app/qml/Main.qml:185
+#: src/app/qml/Main.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "कमरे की जानकारी वाला दराज बंद करें"
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "सत्र सत्यापन"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:343 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1206,7 +1035,7 @@ msgstr "कोई सूचना नहीं"
 msgid "Select a File"
 msgstr "किसी फाइल का चयन करें"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:122
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1253,7 +1082,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "कोई कमरा नहीं मिला"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -1284,40 +1113,22 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: src/app/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "बच्चे को हटाएँ"
-
-#: src/app/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "चाइल्ड %1 को स्पेस %2 से हटा दिया जाएगा"
-
-#: src/app/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr "वर्तमान स्थान इस कमरे का आधिकारिक जनक है, क्या इसे साफ़ किया जाना चाहिए?"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "नियोचैट ऑफ़लाइन है। कृपया अपना नेटवर्क कनेक्शन जांचें।"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:152
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "नियोचैट में आपका स्वागत है"
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "आरंभ करने के लिए कोई कमरा चुनें या उसमें शामिल हों"
 
-#: src/app/qml/RoomPage.qml:242
+#: src/app/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "संदेश स्रोत"
@@ -1358,6 +1169,12 @@ msgstr "इस सर्वर का समाधान नहीं किय�
 #, kde-format
 msgid "Server URL:"
 msgstr "सर्वर यूआरएल:"
+
+#: src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "ठीक है"
 
 #: src/app/qml/ShareAction.qml:23
 #, kde-format
@@ -1604,6 +1421,24 @@ msgstr "निजी चैट के लिए आमंत्रित कर�
 msgid "Copy link"
 msgstr "लिंक की प्रतिलिपि करें"
 
+#: src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Open Profile"
+msgstr "खुली फाइल"
+
+#: src/app/qml/UserMenu.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
+msgctxt "@action:button"
+msgid "Mention"
+msgstr "@उल्लेख"
+
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -1829,49 +1664,49 @@ msgstr "स्थानीय फ़ाइल चुनें"
 msgid "Clipboard image"
 msgstr "क्लिपबोर्ड छवि"
 
-#: src/chatbar/ChatBar.qml:73
+#: src/chatbar/ChatBar.qml:86
 #, kde-format
 msgid "Attach an image or file"
 msgstr "कोई छवि या फ़ाइल संलग्न करें"
 
-#: src/chatbar/ChatBar.qml:91
+#: src/chatbar/ChatBar.qml:104
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "इमोजी और स्टिकर"
 
-#: src/chatbar/ChatBar.qml:108
+#: src/chatbar/ChatBar.qml:121
 #, kde-format
 msgid "Send a Location"
 msgstr "स्थान भेजें"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "एक कमरा बनाएँ"
 
-#: src/chatbar/ChatBar.qml:138
+#: src/chatbar/ChatBar.qml:151
 #, kde-format
 msgid "Send message"
 msgstr "मेसेज भेजें"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "एन्क्रिप्टेड संदेश भेजें…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "अनुलग्नक कैप्शन सेट करें…"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send a message…"
 msgstr "एक संदेश भेजो…"
 
-#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3215,11 +3050,190 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "अक्षांश:%1, देशांतर:%2"
 
+#: src/libneochat/qml/CreateRoomDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title"
+msgid "Create Room"
+msgstr "जगह बनाना"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new room"
+msgid "Create"
+msgstr "नया निर्माण"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:47
+#, kde-format
+msgctxt "@info:label"
+msgid "Private"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:48
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can only be joined with an invite."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Public"
+msgctxt "@info:label"
+msgid "Public"
+msgstr "जनता"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:55
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can be found and joined by anyone."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the room"
+msgid "Name:"
+msgstr "नाम:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:63
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@info:placeholder Placeholder for room name"
+msgid "New Room"
+msgstr "कमरा छोड़ें"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New Email Address:"
+msgctxt "@info:label Address or alias to refer to the room by"
+msgid "Address:"
+msgstr "न्यू ईमेल पता:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new room"
+msgctxt "@info:placeholder Placeholder address for the room"
+msgid "new-room"
+msgstr "नया कमरा जोड़ें"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "एक स्थान बनाएं"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new space"
+msgid "Create"
+msgstr "नया निर्माण"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the space"
+msgid "Name:"
+msgstr "नाम:"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:48
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@info:placeholder"
+msgid "New Space"
+msgstr "स्थान देखें"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:60
+#: src/spaces/SelectExistingRoomDialog.qml:149
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "इस अभिभावक को आधिकारिक बनाएं"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "कमरे खोजें"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "केवल रिक्त स्थान दिखाएं"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "मैन्युअल रूप से एक कमरे में प्रवेश करें"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+"यदि आपको पहले से ही किसी कमरे का पता या उपनाम पता है, और वह यहां नहीं दिखाया गया है।"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "एक कमरा खोजें…"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "कोई सार्वजनिक कमरा नहीं मिला"
+
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:67
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
 msgstr "कोई नाम नहीं"
+
+#: src/libneochat/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "किसी उपयोगकर्ता को आमंत्रित करें"
+
+#: src/libneochat/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "एक उपयोगकर्ता खोजें…"
+
+#: src/libneochat/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "कोई उपयोगकर्ता नहीं मिला"
+
+#: src/libneochat/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "इस उपयोगकर्ता को आमंत्रित करें"
+
+#: src/libneochat/qml/InviteUserPage.qml:34
+#: src/libneochat/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "उपयोगकर्ता या तो पहले से ही सदस्य है या उसे आमंत्रित किया गया है"
+
+#: src/libneochat/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "निमंत्रण भेजना"
 
 #: src/libneochat/qml/SearchPage.qml:147
 #, kde-format
@@ -3576,7 +3590,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "संदेश खोजें…"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3593,7 +3607,7 @@ msgstr "यह कमरा छोड़ो"
 msgid "Members"
 msgstr "सदस्यों"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3674,12 +3688,7 @@ msgstr "मेनू दिखाओ"
 msgid "Create a Room"
 msgstr "एक कमरा बनाएँ"
 
-#: src/rooms/ExploreComponent.qml:103 src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "एक स्थान बनाएं"
-
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR कोड स्कैन करें"
@@ -3698,6 +3707,11 @@ msgstr "कमरे खोजें"
 #, kde-format
 msgid "Create New"
 msgstr "नया निर्माण"
+
+#: src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "एक स्थान बनाएं"
 
 #: src/rooms/models/roomtreemodel.cpp:358
 #, fuzzy, kde-format
@@ -3899,7 +3913,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "लिंक पता कॉपी करें"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5698,7 +5712,7 @@ msgid "Down"
 msgstr "डाउनलोड करना"
 
 #: src/settings/RoomSortParameterDialog.qml:96
-#: src/spaces/SpaceHierarchyDelegate.qml:123
+#: src/spaces/SpaceHierarchyDelegate.qml:122
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -5723,6 +5737,12 @@ msgstr ""
 msgctxt "@title"
 msgid "Select new official parent"
 msgstr "नया आधिकारिक अभिभावक चुनें"
+
+#: src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "कमरा चुनें"
 
 #: src/settings/SelectParentDialog.qml:57
 #, kde-format
@@ -5895,12 +5915,74 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "पीछे"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/spaces/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "बच्चे को हटाएँ"
+
+#: src/spaces/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "चाइल्ड %1 को स्पेस %2 से हटा दिया जाएगा"
+
+#: src/spaces/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr "वर्तमान स्थान इस कमरे का आधिकारिक जनक है, क्या इसे साफ़ किया जाना चाहिए?"
+
+#: src/spaces/SelectExistingRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@title"
+msgid "Select Existing Room"
+msgstr "मौजूदा कमरा चुनें"
+
+#: src/spaces/SelectExistingRoomDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick room"
+msgctxt "@action:button"
+msgid "Pick Room"
+msgstr "कमरा चुनें"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, fuzzy, kde-format
+#| msgid "You have the required privilege level in the child to set this state"
+msgctxt "@info:description"
+msgid "You have the required privilege level in the child to set this state"
+msgstr "इस स्थिति को सेट करने के लिए आपके पास चाइल्ड में आवश्यक विशेषाधिकार स्तर है"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+"आपके पास चाइल्ड में इस स्थिति को सेट करने के लिए पर्याप्त उच्च विशेषाधिकार स्तर नहीं है"
+
+#: src/spaces/SelectExistingRoomDialog.qml:173
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "इस स्थान को विहित पैरेंट बनाएं"
+
+#: src/spaces/SelectExistingRoomDialog.qml:174
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"The canonical parent is the default one if a room has multiple parent spaces."
+msgstr ""
+
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Suggested"
 msgstr "सुझाव दिया"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -5908,7 +5990,7 @@ msgid_plural "%1 members - "
 msgstr[0] "%1 सदस्य -"
 msgstr[1] "%1 सदस्य -"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -5916,35 +5998,59 @@ msgid_plural "%1 members"
 msgstr[0] "%1 सदस्य"
 msgstr[1] "%1 सदस्य"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#: src/spaces/SpaceHierarchyDelegate.qml:111
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "नया कमरा जोड़ें"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "सुझाव न दें"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "सुझाव दें"
 
-#: src/spaces/SpaceHomePage.qml:51
+#: src/spaces/SpaceHomePage.qml:37
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Room…"
+msgstr "नया समूह…"
+
+#: src/spaces/SpaceHomePage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@action:inmenu"
+msgid "New Space…"
+msgstr "स्थान देखें"
+
+#: src/spaces/SpaceHomePage.qml:49
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@action:inmenu"
+msgid "Existing Room…"
+msgstr "मौजूदा कमरा चुनें"
+
+#: src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "उपयोगकर्ता को स्पेस में आमंत्रित करें"
 
-#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "एक बच्चा बनाएँ"
+#: src/spaces/SpaceHomePage.qml:95
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@button"
+msgid "Add to Space"
+msgstr "पसंदीदा में जोड़े"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6050,19 +6156,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "संदेश की रिपोर्ट करें"
 
-#: src/timeline/DelegateContextMenu.qml:146
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "उपयोगकर्ता दिखाएँ"
-
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6244,12 +6344,12 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:122
+#: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' को खोजें"
 
-#: src/timeline/MessageDelegateContextMenu.qml:142
+#: src/timeline/MessageDelegateContextMenu.qml:141
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure Web Shortcuts…"
@@ -6264,6 +6364,11 @@ msgid ""
 msgstr ""
 "यह संदेश या तो नहीं मिला, या आपके पास इसे देखने की अनुमति नहीं है, या इसे किसी अनदेखा "
 "उपयोगकर्ता द्वारा भेजा गया है"
+
+#: src/timeline/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6425,6 +6530,54 @@ msgstr "आयतन"
 #, kde-format
 msgid "Maximize"
 msgstr "अधिकतम"
+
+#~ msgid "New Space Information"
+#~ msgstr "नई अंतरिक्ष जानकारी"
+
+#~ msgid "New Room Information"
+#~ msgstr "नये कमरे की जानकारी"
+
+#~ msgid "Select type"
+#~ msgstr "प्रकार चुनें"
+
+#~ msgid "Room"
+#~ msgstr "कमरा"
+
+#~ msgid "Space"
+#~ msgstr "अंतरिक्ष"
+
+#~ msgid "Topic:"
+#~ msgstr "विषय:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Create Space"
+#~ msgstr "जगह बनाएं"
+
+#~ msgctxt "menu"
+#~ msgid "Find your friends"
+#~ msgstr "अपने दोस्तों को खोजें"
+
+#~ msgctxt "menu"
+#~ msgid "Browse Chats…"
+#~ msgstr "चैट ब्राउज़ करें…"
+
+#~ msgctxt ""
+#~ "menu item that opens a UI element called the 'Quick Switcher', which "
+#~ "offers a fast keyboard-based interface for switching in between chats."
+#~ msgid "Open Quick Switcher"
+#~ msgstr "त्वरित स्विचर खोलें"
+
+#~ msgctxt "menu"
+#~ msgid "About Matrix"
+#~ msgstr "मैट्रिक्स के बारे में"
+
+#~ msgctxt "@title"
+#~ msgid "Create a Child"
+#~ msgstr "एक बच्चा बनाएँ"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show User"
+#~ msgstr "उपयोगकर्ता दिखाएँ"
 
 #~ msgid "This message was sent from a verified device"
 #~ msgstr "यह संदेश एक सत्यापित डिवाइस से भेजा गया था"

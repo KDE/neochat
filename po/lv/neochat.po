@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-19 00:42+0000\n"
 "PO-Revision-Date: 2025-03-06 18:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -421,133 +421,6 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:96
-#: src/rooms/ExploreComponentMobile.qml:149
-#, kde-format
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "Izveidot istabu"
-
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:109
-#: src/rooms/ExploreComponent.qml:111 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, kde-format
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "Izveidot telpu"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr "Jaunās telpas informācija"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr "Jaunās istabas informācija"
-
-#: src/app/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr "Atlasīt tipu"
-
-#: src/app/qml/CreateRoomDialog.qml:54
-#, kde-format
-msgid "Room"
-msgstr "Istaba"
-
-#: src/app/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr "Telpa"
-
-#: src/app/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "Vārds:"
-
-#: src/app/qml/CreateRoomDialog.qml:87
-#, kde-format
-msgid "Topic:"
-msgstr "Tēma:"
-
-#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr "Padarīt šo vecākobjektu oficiālu"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "Izveidot telpu"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "Izveidot istabu"
-
-#: src/app/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr "Atlasiet pastāvošu istabu"
-
-#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr "Izvēlieties istabu"
-
-#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
-#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Izpētīt istabas"
-
-#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr "Pievienojās"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr ""
-"Jums ir nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
-"statusu"
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-"Jums nav nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
-"statusu"
-
-#: src/app/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
-
-#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "Labi"
-
 #: src/app/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -632,38 +505,12 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Telpa"
 
-#: src/app/qml/ExploreRoomsPage.qml:52
+#: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
+#: src/spaces/SelectExistingRoomDialog.qml:93
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "Izpētīt istabas"
-
-#: src/app/qml/ExploreRoomsPage.qml:64
-#, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr "Rādīt tikai telpas"
-
-#: src/app/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr "Manuāli ierakstiet istabas adresi"
-
-#: src/app/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "Ja jau zināt istabas adresi vai aizstājējvārdu, bet tas te neuzrādās."
-
-#: src/app/qml/ExploreRoomsPage.qml:118
-#, kde-format
-msgid "Find a room…"
-msgstr "Atrast istabu..."
-
-#: src/app/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
-msgstr "Nav atrastas publiskas istabas"
+msgid "Joined"
+msgstr "Pievienojās"
 
 #: src/app/qml/FullScreenMap.qml:25
 #, kde-format
@@ -704,20 +551,21 @@ msgctxt "menu"
 msgid "File"
 msgstr "Datne"
 
-#: src/app/qml/GlobalMenu.qml:41
-#, kde-format
-msgctxt "menu"
-msgid "Find your friends"
+#: src/app/qml/GlobalMenu.qml:42
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:inmenu"
+msgid "Find your Friends"
 msgstr "Atrast draugus"
 
-#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr "Atrast draugus"
 
-#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
 #: src/rooms/RoomListPage.qml:237
 #, kde-format
@@ -725,75 +573,90 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Atrast draugus"
 
-#: src/app/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "Jauna grupa..."
+#: src/app/qml/GlobalMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Create a Room…"
+msgstr "Izveidot istabu"
 
-#: src/app/qml/GlobalMenu.qml:59
+#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "Pārlūkot tērzēšanas..."
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "Izveidot istabu"
 
-#: src/app/qml/GlobalMenu.qml:73
+#: src/app/qml/GlobalMenu.qml:65
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Explore Rooms"
+msgctxt "@action:inmenu"
+msgid "Explore Rooms"
+msgstr "Izpētīt istabas"
+
+#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
+#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#: src/spaces/SelectExistingRoomDialog.qml:127
+#, kde-format
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "Izpētīt istabas"
+
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: src/app/qml/GlobalMenu.qml:77
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Skats"
 
-#: src/app/qml/GlobalMenu.qml:80
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:87
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Search Rooms"
 msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "Atvērt ātro pārslēgšanos"
+msgid "Search Rooms"
+msgstr "Meklēt istabas"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Logs"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Iziet no pilnekrāna"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Ieslēgt pilnekrānu"
 
-#: src/app/qml/GlobalMenu.qml:93
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Palīdzība"
 
-#: src/app/qml/GlobalMenu.qml:96
-#, kde-format
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "Par „Matrix“"
-
-#: src/app/qml/GlobalMenu.qml:100
+#: src/app/qml/GlobalMenu.qml:105
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "Par „NeoChat“"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -907,42 +770,6 @@ msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 "Uzaicinājumus no nezināmiem lietotājiem varat noraidīt Drošības iestatījumos."
 
-#: src/app/qml/InviteUserPage.qml:21
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "Uzaicināt lietotāju"
-
-#: src/app/qml/InviteUserPage.qml:23
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "Atrast lietotāju…"
-
-#: src/app/qml/InviteUserPage.qml:24
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "Lietotāji nav atrasti"
-
-#: src/app/qml/InviteUserPage.qml:31
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "Uzaicināt šo lietotāju"
-
-#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
-
-#: src/app/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr "Nosūtīt uzaicinājumu"
-
 #: src/app/qml/JoinRoomDialog.qml:29
 #, kde-format
 msgctxt "@title:dialog"
@@ -1024,25 +851,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Noteikt vietu"
 
-#: src/app/qml/Main.qml:182
+#: src/app/qml/Main.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr "Rādīt istabas informāciju"
 
-#: src/app/qml/Main.qml:185
+#: src/app/qml/Main.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr "Aizvērt istabas informācijas atvilktni"
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:343 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1209,7 +1036,7 @@ msgstr "Nav paziņojumu"
 msgid "Select a File"
 msgstr "Atlasīt datni"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:122
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1256,7 +1083,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Neviena istaba nav atrasta"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1286,41 +1113,22 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: src/app/qml/RemoveChildDialog.qml:27
-#, kde-format
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "Noņemt bērnobjektu"
-
-#: src/app/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr "Bērnobjekts „%1“ tiks noņemts no telpas „%2“"
-
-#: src/app/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr ""
-"Pašreizējā telpa ir šīs istabas oficiālais vecākobjekts. Vai to notīrīt?"
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:152
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Laipni lūgti „NeoChat“ programmā!"
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Lai sāktu, atlasiet vai pievienojieties istabai"
 
-#: src/app/qml/RoomPage.qml:242
+#: src/app/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr "Ziņas avots"
@@ -1361,6 +1169,12 @@ msgstr "Vai nu serveri nevar atrisināt, vai arī tas ir jau pievienots"
 #, kde-format
 msgid "Server URL:"
 msgstr "Servera URL:"
+
+#: src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Labi"
 
 #: src/app/qml/ShareAction.qml:23
 #, kde-format
@@ -1606,6 +1420,24 @@ msgstr "Uzaicināt uz privātu tērzēšanu"
 msgid "Copy link"
 msgstr "Kopēt saiti"
 
+#: src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Open Profile"
+msgstr "Atvērt datni"
+
+#: src/app/qml/UserMenu.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
+msgctxt "@action:button"
+msgid "Mention"
+msgstr "@Pieminējumi"
+
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -1835,49 +1667,49 @@ msgstr "Izvēlēties lokālu datni"
 msgid "Clipboard image"
 msgstr "Starpliktuves attēls"
 
-#: src/chatbar/ChatBar.qml:73
+#: src/chatbar/ChatBar.qml:86
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Pievienot attēlu vai datni"
 
-#: src/chatbar/ChatBar.qml:91
+#: src/chatbar/ChatBar.qml:104
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emocijzīmes un uzlīmes"
 
-#: src/chatbar/ChatBar.qml:108
+#: src/chatbar/ChatBar.qml:121
 #, kde-format
 msgid "Send a Location"
 msgstr "Sūtīt vietu"
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Izveidot istabu"
 
-#: src/chatbar/ChatBar.qml:138
+#: src/chatbar/ChatBar.qml:151
 #, kde-format
 msgid "Send message"
 msgstr "Sūtīt ziņu"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Sūtīt šifrētu ziņu..."
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Sūtīt pielikuma virsrakstu..."
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Send a message…"
 msgstr "Sūtīt ziņu..."
 
-#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3223,11 +3055,189 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Plat.: %1, gar.: %2"
 
+#: src/libneochat/qml/CreateRoomDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Create Room"
+msgctxt "@title"
+msgid "Create Room"
+msgstr "Izveidot istabu"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new room"
+msgid "Create"
+msgstr "Izveidot jaunu"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:47
+#, kde-format
+msgctxt "@info:label"
+msgid "Private"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:48
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can only be joined with an invite."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Public"
+msgctxt "@info:label"
+msgid "Public"
+msgstr "Publiska"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:55
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can be found and joined by anyone."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the room"
+msgid "Name:"
+msgstr "Vārds:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:63
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@info:placeholder Placeholder for room name"
+msgid "New Room"
+msgstr "Pamest istabu"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:68
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "New Email Address:"
+msgctxt "@info:label Address or alias to refer to the room by"
+msgid "Address:"
+msgstr "Jauna e-pasta adrese:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:69
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add new room"
+msgctxt "@info:placeholder Placeholder address for the room"
+msgid "new-room"
+msgstr "Pievienot jaunu istabu"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Izveidot telpu"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@action:button Create new space"
+msgid "Create"
+msgstr "Izveidot jaunu"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the space"
+msgid "Name:"
+msgstr "Vārds:"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:48
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@info:placeholder"
+msgid "New Space"
+msgstr "Skatīt telpu"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:60
+#: src/spaces/SelectExistingRoomDialog.qml:149
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr "Padarīt šo vecākobjektu oficiālu"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#, kde-format
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "Izpētīt istabas"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr "Rādīt tikai telpas"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr "Manuāli ierakstiet istabas adresi"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr "Ja jau zināt istabas adresi vai aizstājējvārdu, bet tas te neuzrādās."
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#, kde-format
+msgid "Find a room…"
+msgstr "Atrast istabu..."
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr "Nav atrastas publiskas istabas"
+
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:67
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
 msgstr "Bez vārda"
+
+#: src/libneochat/qml/InviteUserPage.qml:21
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "Uzaicināt lietotāju"
+
+#: src/libneochat/qml/InviteUserPage.qml:23
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "Atrast lietotāju…"
+
+#: src/libneochat/qml/InviteUserPage.qml:24
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "Lietotāji nav atrasti"
+
+#: src/libneochat/qml/InviteUserPage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "Uzaicināt šo lietotāju"
+
+#: src/libneochat/qml/InviteUserPage.qml:34
+#: src/libneochat/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
+
+#: src/libneochat/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
+msgstr "Nosūtīt uzaicinājumu"
 
 #: src/libneochat/qml/SearchPage.qml:147
 #, kde-format
@@ -3583,7 +3593,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Piespraustās ziņas"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3600,7 +3610,7 @@ msgstr "Pamest šo istabu"
 msgid "Members"
 msgstr "Dalībnieki"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3680,12 +3690,7 @@ msgstr "Rādīt izvēlni"
 msgid "Create a Room"
 msgstr "Izveidot istabu"
 
-#: src/rooms/ExploreComponent.qml:103 src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
-msgid "Create a Space"
-msgstr "Izveidot telpu"
-
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Skenēt kvadrātkodu"
@@ -3704,6 +3709,11 @@ msgstr "Izpētīt istabas"
 #, kde-format
 msgid "Create New"
 msgstr "Izveidot jaunu"
+
+#: src/rooms/ExploreComponentMobile.qml:159
+#, kde-format
+msgid "Create a Space"
+msgstr "Izveidot telpu"
 
 #: src/rooms/models/roomtreemodel.cpp:358
 #, kde-format
@@ -3904,7 +3914,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopēt saites adresi"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5687,7 +5697,7 @@ msgid "Down"
 msgstr "Lejup"
 
 #: src/settings/RoomSortParameterDialog.qml:96
-#: src/spaces/SpaceHierarchyDelegate.qml:123
+#: src/spaces/SpaceHierarchyDelegate.qml:122
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -5710,6 +5720,12 @@ msgstr "Atlasiet pievienojamu parametru"
 msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Atlasīt jaunu oficiālo vecākobjektu"
+
+#: src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
+msgstr "Izvēlieties istabu"
 
 #: src/settings/SelectParentDialog.qml:57
 #, kde-format
@@ -5884,12 +5900,78 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr "Atpakaļ"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/spaces/RemoveChildDialog.qml:27
+#, kde-format
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "Noņemt bērnobjektu"
+
+#: src/spaces/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr "Bērnobjekts „%1“ tiks noņemts no telpas „%2“"
+
+#: src/spaces/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
+"Pašreizējā telpa ir šīs istabas oficiālais vecākobjekts. Vai to notīrīt?"
+
+#: src/spaces/SelectExistingRoomDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@title"
+msgid "Select Existing Room"
+msgstr "Atlasiet pastāvošu istabu"
+
+#: src/spaces/SelectExistingRoomDialog.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Pick room"
+msgctxt "@action:button"
+msgid "Pick Room"
+msgstr "Izvēlieties istabu"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, fuzzy, kde-format
+#| msgid "You have the required privilege level in the child to set this state"
+msgctxt "@info:description"
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+"Jums ir nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
+"statusu"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+"Jums nav nepieciešamais privilēģiju līmenis bērnobjektā, lai iestatītu šo "
+"statusu"
+
+#: src/spaces/SelectExistingRoomDialog.qml:173
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
+
+#: src/spaces/SelectExistingRoomDialog.qml:174
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"The canonical parent is the default one if a room has multiple parent spaces."
+msgstr ""
+
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Suggested"
 msgstr "Ieteiktās"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -5898,7 +5980,7 @@ msgstr[0] "%1 dalībnieks — "
 msgstr[1] "%1 dalībnieki — "
 msgstr[2] "%1 dalībnieku — "
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -5907,35 +5989,59 @@ msgstr[0] "%1 dalībnieks"
 msgstr[1] "%1 dalībnieki"
 msgstr[2] "%1 dalībnieku"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#: src/spaces/SpaceHierarchyDelegate.qml:111
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr "Pievienot jaunu istabu"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr "Nepadarīt par ieteikto"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Padarīt par ieteikto"
 
-#: src/spaces/SpaceHomePage.qml:51
+#: src/spaces/SpaceHomePage.qml:37
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Room…"
+msgstr "Jauna grupa..."
+
+#: src/spaces/SpaceHomePage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "View Space"
+msgctxt "@action:inmenu"
+msgid "New Space…"
+msgstr "Skatīt telpu"
+
+#: src/spaces/SpaceHomePage.qml:49
+#, fuzzy, kde-format
+#| msgid "Select Existing Room"
+msgctxt "@action:inmenu"
+msgid "Existing Room…"
+msgstr "Atlasiet pastāvošu istabu"
+
+#: src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Uzaicināt lietotājus uz telpu"
 
-#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
-#, kde-format
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "Izveidot bērnobjektu"
+#: src/spaces/SpaceHomePage.qml:95
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@button"
+msgid "Add to Space"
+msgstr "Pievienot iecienītajām"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6039,19 +6145,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "Ziņot par ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:146
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "Rādīt lietotāju"
-
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Atspraust"
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6232,12 +6332,12 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:122
+#: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Meklēt „%1“"
 
-#: src/timeline/MessageDelegateContextMenu.qml:142
+#: src/timeline/MessageDelegateContextMenu.qml:141
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Konfigurēt tīmekļa saīsnes…"
@@ -6251,6 +6351,11 @@ msgid ""
 msgstr ""
 "Ziņa nav atrasta, jums nav piešķirtas tiesības to redzēt vai to ir nosūtījis "
 "ignorēts lietotājs"
+
+#: src/timeline/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6416,6 +6521,54 @@ msgstr "Skaļums"
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimizēt"
+
+#~ msgid "New Space Information"
+#~ msgstr "Jaunās telpas informācija"
+
+#~ msgid "New Room Information"
+#~ msgstr "Jaunās istabas informācija"
+
+#~ msgid "Select type"
+#~ msgstr "Atlasīt tipu"
+
+#~ msgid "Room"
+#~ msgstr "Istaba"
+
+#~ msgid "Space"
+#~ msgstr "Telpa"
+
+#~ msgid "Topic:"
+#~ msgstr "Tēma:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Create Space"
+#~ msgstr "Izveidot telpu"
+
+#~ msgctxt "menu"
+#~ msgid "Find your friends"
+#~ msgstr "Atrast draugus"
+
+#~ msgctxt "menu"
+#~ msgid "Browse Chats…"
+#~ msgstr "Pārlūkot tērzēšanas..."
+
+#~ msgctxt ""
+#~ "menu item that opens a UI element called the 'Quick Switcher', which "
+#~ "offers a fast keyboard-based interface for switching in between chats."
+#~ msgid "Open Quick Switcher"
+#~ msgstr "Atvērt ātro pārslēgšanos"
+
+#~ msgctxt "menu"
+#~ msgid "About Matrix"
+#~ msgstr "Par „Matrix“"
+
+#~ msgctxt "@title"
+#~ msgid "Create a Child"
+#~ msgstr "Izveidot bērnobjektu"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show User"
+#~ msgstr "Rādīt lietotāju"
 
 #~ msgid "This message was sent from a verified device"
 #~ msgstr "Šis ziņojums ir nosūtīts no verificētas ierīces"

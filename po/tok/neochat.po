@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-18 00:42+0000\n"
+"POT-Creation-Date: 2025-05-19 00:42+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -436,136 +436,6 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "o open"
 
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:96
-#: src/rooms/ExploreComponentMobile.qml:149
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Create a Room"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/CreateRoomDialog.qml:30 src/rooms/ExploreComponent.qml:109
-#: src/rooms/ExploreComponent.qml:111 src/rooms/ExploreComponentMobile.qml:165
-#: src/rooms/ExploreComponentMobile.qml:167 src/rooms/SpaceDrawer.qml:274
-#: src/rooms/SpaceDrawer.qml:276
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Create a Space"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Space Information"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:35
-#, kde-format
-msgid "New Room Information"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:44
-#, kde-format
-msgid "Select type"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Room Name"
-msgid "Room"
-msgstr "nimi tomo"
-
-#: src/app/qml/CreateRoomDialog.qml:58
-#, kde-format
-msgid "Space"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:77
-#, kde-format
-msgid "Name:"
-msgstr "nimi:"
-
-#: src/app/qml/CreateRoomDialog.qml:87
-#, fuzzy, kde-format
-#| msgid "Room Topic"
-msgid "Topic:"
-msgstr "nasin tomo"
-
-#: src/app/qml/CreateRoomDialog.qml:96 src/app/qml/CreateRoomDialog.qml:235
-#, kde-format
-msgctxt ""
-"@option:check As in make the space from which this dialog was created an "
-"official parent."
-msgid "Make this parent official"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:button"
-msgid "Create Space"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/CreateRoomDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:button"
-msgid "Create Room"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/CreateRoomDialog.qml:121
-#, kde-format
-msgid "Select Existing Room"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:127 src/settings/SelectParentDialog.qml:50
-#, kde-format
-msgctxt "@action:button"
-msgid "Pick room"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:132 src/app/qml/CreateRoomDialog.qml:215
-#: src/app/qml/GlobalMenu.qml:64 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/CreateRoomDialog.qml:181 src/app/qml/ExplorerDelegate.qml:77
-#: src/settings/SelectParentDialog.qml:106
-#: src/spaces/SpaceHierarchyDelegate.qml:94
-#, kde-format
-msgid "Joined"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid "You have the required privilege level in the child to set this state"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:236
-#, kde-format
-msgid ""
-"You do not have a high enough privilege level in the child to set this state"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:258
-#, kde-format
-msgctxt ""
-"@option:check The canonical parent is the default one if a room has multiple "
-"parent spaces."
-msgid "Make this space the canonical parent"
-msgstr ""
-
-#: src/app/qml/CreateRoomDialog.qml:267 src/app/qml/ServerComboBox.qml:186
-#, kde-format
-msgctxt "@action:button"
-msgid "Ok"
-msgstr "o ni"
-
 #: src/app/qml/EditMenu.qml:15
 #, kde-format
 msgctxt "text editing menu action"
@@ -649,39 +519,11 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr ""
 
-#: src/app/qml/ExploreRoomsPage.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:title"
-msgid "Explore Rooms"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/ExploreRoomsPage.qml:64
+#: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
+#: src/spaces/SelectExistingRoomDialog.qml:93
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
-msgctxt "@action:button"
-msgid "Only show spaces"
-msgstr ""
-
-#: src/app/qml/ExploreRoomsPage.qml:97
-#, kde-format
-msgid "Enter a Room Manually"
-msgstr ""
-
-#: src/app/qml/ExploreRoomsPage.qml:106
-#, kde-format
-msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr ""
-
-#: src/app/qml/ExploreRoomsPage.qml:118
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "Find a room…"
-msgstr "o pana e toki"
-
-#: src/app/qml/ExploreRoomsPage.qml:119
-#, kde-format
-msgctxt "@info:label"
-msgid "No public rooms found"
+msgid "Joined"
 msgstr ""
 
 #: src/app/qml/FullScreenMap.qml:25
@@ -725,20 +567,20 @@ msgctxt "menu"
 msgid "File"
 msgstr "lipu"
 
-#: src/app/qml/GlobalMenu.qml:41
+#: src/app/qml/GlobalMenu.qml:42
 #, kde-format
-msgctxt "menu"
-msgid "Find your friends"
+msgctxt "@action:inmenu"
+msgid "Find your Friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:42 src/app/qml/GlobalMenu.qml:51
+#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:173 src/rooms/RoomListPage.qml:233
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:46 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:181
 #: src/rooms/RoomListPage.qml:237
 #, kde-format
@@ -746,71 +588,84 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:50
-#, kde-format
-msgctxt "menu"
-msgid "New Group…"
-msgstr "o lon e tomo kulupu sin…"
+#: src/app/qml/GlobalMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Create a Room…"
+msgstr "o pali e tomo toki"
 
-#: src/app/qml/GlobalMenu.qml:59
-#, kde-format
-msgctxt "menu"
-msgid "Browse Chats…"
-msgstr "o alasa e tomo toki…"
+#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Room"
+msgstr "o pali e tomo toki"
 
-#: src/app/qml/GlobalMenu.qml:73
+#: src/app/qml/GlobalMenu.qml:65
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:inmenu"
+msgid "Explore Rooms"
+msgstr "o pali e tomo toki"
+
+#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:222
+#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#: src/spaces/SelectExistingRoomDialog.qml:127
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Explore Rooms"
+msgstr "o pali e tomo toki"
+
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "ante"
 
-#: src/app/qml/GlobalMenu.qml:77
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "lukin"
 
-#: src/app/qml/GlobalMenu.qml:80
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:87
+#, fuzzy, kde-format
+#| msgid "Create a Room"
 msgctxt ""
-"menu item that opens a UI element called the 'Quick Switcher', which offers "
+"@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
-msgid "Open Quick Switcher"
-msgstr "o open e ilo tawa"
+msgid "Search Rooms"
+msgstr "o pali e tomo toki"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "sijelo ilo"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "o weka tan ilo suli"
 
-#: src/app/qml/GlobalMenu.qml:88
+#: src/app/qml/GlobalMenu.qml:96
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "o tawa ilo suli"
 
-#: src/app/qml/GlobalMenu.qml:93
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "wile pona"
 
-#: src/app/qml/GlobalMenu.qml:96
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Quit NeoChat"
-msgctxt "menu"
-msgid "About Matrix"
-msgstr "o pini e ilo toki NeoChat"
-
-#: src/app/qml/GlobalMenu.qml:100
+#: src/app/qml/GlobalMenu.qml:105
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Quit NeoChat"
@@ -818,7 +673,7 @@ msgctxt "menu"
 msgid "About NeoChat"
 msgstr "o pini e ilo toki NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:110
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -922,46 +777,6 @@ msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
 
-#: src/app/qml/InviteUserPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title:dialog"
-msgid "Invite a User"
-msgstr "o len e jan ni"
-
-#: src/app/qml/InviteUserPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@info:placeholder"
-msgid "Find a user…"
-msgstr "o pana e toki"
-
-#: src/app/qml/InviteUserPage.qml:24
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@info:placeholder"
-msgid "No users found"
-msgstr "o pana e toki"
-
-#: src/app/qml/InviteUserPage.qml:31
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@action:button"
-msgid "Invite this User"
-msgstr "o len e jan ni"
-
-#: src/app/qml/InviteUserPage.qml:34 src/app/qml/InviteUserPage.qml:84
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "User is either already a member or has been invited"
-msgstr ""
-
-#: src/app/qml/InviteUserPage.qml:75
-#, kde-format
-msgctxt "@action:button"
-msgid "Send invitation"
-msgstr ""
-
 #: src/app/qml/JoinRoomDialog.qml:29
 #, fuzzy, kde-format
 #| msgid "Room Name"
@@ -1046,25 +861,25 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr ""
 
-#: src/app/qml/Main.qml:182
+#: src/app/qml/Main.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
 msgstr ""
 
-#: src/app/qml/Main.qml:185
+#: src/app/qml/Main.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Close Room Information Drawer"
 msgstr ""
 
-#: src/app/qml/Main.qml:304
+#: src/app/qml/Main.qml:303
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/app/qml/Main.qml:344 src/app/qml/ShareAction.qml:68
+#: src/app/qml/Main.qml:343 src/app/qml/ShareAction.qml:68
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1231,7 +1046,7 @@ msgstr ""
 msgid "Select a File"
 msgstr "o pali e tomo toki"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:122
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1279,7 +1094,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "o pana e toki"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -1310,43 +1125,24 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr ""
 
-#: src/app/qml/RemoveChildDialog.qml:27
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Remove Child"
-msgstr "o pali e tomo toki"
-
-#: src/app/qml/RemoveChildDialog.qml:38
-#, kde-format
-msgid "The child %1 will be removed from the space %2"
-msgstr ""
-
-#: src/app/qml/RemoveChildDialog.qml:45
-#, kde-format
-msgid ""
-"The current space is the official parent of this room, should this be "
-"cleared?"
-msgstr ""
-
 #: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "ilo NeoChat li jo ala e linluwi. o pana e ona tawa ilo."
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:152
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Quit NeoChat"
 msgid "Welcome to NeoChat"
 msgstr "o pini e ilo toki NeoChat"
 
-#: src/app/qml/RoomPage.qml:149
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:242
+#: src/app/qml/RoomPage.qml:246
 #, kde-format
 msgid "Message Source"
 msgstr ""
@@ -1389,6 +1185,12 @@ msgstr ""
 #| msgid "Homeserver:"
 msgid "Server URL:"
 msgstr "nasin URL ilo:"
+
+#: src/app/qml/ServerComboBox.qml:186
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "o ni"
 
 #: src/app/qml/ShareAction.qml:23
 #, kde-format
@@ -1646,6 +1448,22 @@ msgstr "o open e tomo toki pi sina tu taso"
 msgid "Copy link"
 msgstr "o tu e lipu tawa lipu jo"
 
+#: src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Open Profile"
+msgstr "o open e lipu ni"
+
+#: src/app/qml/UserMenu.qml:68
+#, kde-format
+msgctxt "@action:button"
+msgid "Mention"
+msgstr ""
+
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
@@ -1862,51 +1680,51 @@ msgstr ""
 msgid "Clipboard image"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:73
+#: src/chatbar/ChatBar.qml:86
 #, kde-format
 msgid "Attach an image or file"
 msgstr "o pana e sitelen anu lipu"
 
-#: src/chatbar/ChatBar.qml:91
+#: src/chatbar/ChatBar.qml:104
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:108
+#: src/chatbar/ChatBar.qml:121
 #, kde-format
 msgid "Send a Location"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:122
+#: src/chatbar/ChatBar.qml:135
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "o pali e tomo toki"
 
-#: src/chatbar/ChatBar.qml:138
+#: src/chatbar/ChatBar.qml:151
 #, kde-format
 msgid "Send message"
 msgstr "o pana e toki"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send an encrypted message…"
 msgstr "o pana e toki"
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:229
+#: src/chatbar/ChatBar.qml:242
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send a message…"
 msgstr "o pana e toki"
 
-#: src/chatbar/ChatBar.qml:390 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -3305,10 +3123,187 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
+#: src/libneochat/qml/CreateRoomDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create Room"
+msgstr "o pali e tomo toki"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:30
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgctxt "@action:button Create new room"
+msgid "Create"
+msgstr "o open e tomo toki pi sina tu taso"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:47
+#, kde-format
+msgctxt "@info:label"
+msgid "Private"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:48
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can only be joined with an invite."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:54
+#, kde-format
+msgctxt "@info:label"
+msgid "Public"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:55
+#, kde-format
+msgctxt "@info:description"
+msgid "This room can be found and joined by anyone."
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:62
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the room"
+msgid "Name:"
+msgstr "nimi:"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:63
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgctxt "@info:placeholder Placeholder for room name"
+msgid "New Room"
+msgstr "nimi tomo"
+
+#: src/libneochat/qml/CreateRoomDialog.qml:68
+#, kde-format
+msgctxt "@info:label Address or alias to refer to the room by"
+msgid "Address:"
+msgstr ""
+
+#: src/libneochat/qml/CreateRoomDialog.qml:69
+#, kde-format
+msgctxt "@info:placeholder Placeholder address for the room"
+msgid "new-room"
+msgstr ""
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "o pali e tomo toki"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:32
+#, fuzzy, kde-format
+#| msgid "Open a private chat"
+msgctxt "@action:button Create new space"
+msgid "Create"
+msgstr "o open e tomo toki pi sina tu taso"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@info:label Name of the space"
+msgid "Name:"
+msgstr "nimi:"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:48
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@info:placeholder"
+msgid "New Space"
+msgstr "o pali e tomo toki"
+
+#: src/libneochat/qml/CreateSpaceDialog.qml:60
+#: src/spaces/SelectExistingRoomDialog.qml:149
+#, kde-format
+msgctxt ""
+"@option:check As in make the space from which this dialog was created an "
+"official parent."
+msgid "Make this parent official"
+msgstr ""
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:title"
+msgid "Explore Rooms"
+msgstr "o pali e tomo toki"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#, kde-format
+msgctxt "@action:button"
+msgid "Only show spaces"
+msgstr ""
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#, kde-format
+msgid "Enter a Room Manually"
+msgstr ""
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#, kde-format
+msgid "If you already know a room's address or alias, and it isn't shown here."
+msgstr ""
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Find a room…"
+msgstr "o pana e toki"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#, kde-format
+msgctxt "@info:label"
+msgid "No public rooms found"
+msgstr ""
+
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:67
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
+msgstr ""
+
+#: src/libneochat/qml/InviteUserPage.qml:21
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title:dialog"
+msgid "Invite a User"
+msgstr "o len e jan ni"
+
+#: src/libneochat/qml/InviteUserPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@info:placeholder"
+msgid "Find a user…"
+msgstr "o pana e toki"
+
+#: src/libneochat/qml/InviteUserPage.qml:24
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@info:placeholder"
+msgid "No users found"
+msgstr "o pana e toki"
+
+#: src/libneochat/qml/InviteUserPage.qml:31
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@action:button"
+msgid "Invite this User"
+msgstr "o len e jan ni"
+
+#: src/libneochat/qml/InviteUserPage.qml:34
+#: src/libneochat/qml/InviteUserPage.qml:84
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "User is either already a member or has been invited"
+msgstr ""
+
+#: src/libneochat/qml/InviteUserPage.qml:75
+#, kde-format
+msgctxt "@action:button"
+msgid "Send invitation"
 msgstr ""
 
 #: src/libneochat/qml/SearchPage.qml:147
@@ -3687,7 +3682,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "o pana e toki"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:66
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -3706,7 +3701,7 @@ msgstr "o pali e tomo toki"
 msgid "Members"
 msgstr ""
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:56
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@title"
@@ -3796,13 +3791,7 @@ msgstr "o weka wawa e jan ni"
 msgid "Create a Room"
 msgstr "o pali e tomo toki"
 
-#: src/rooms/ExploreComponent.qml:103 src/rooms/ExploreComponentMobile.qml:159
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgid "Create a Space"
-msgstr "o pali e tomo toki"
-
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
@@ -3822,6 +3811,12 @@ msgstr ""
 #| msgid "Open a private chat"
 msgid "Create New"
 msgstr "o open e tomo toki pi sina tu taso"
+
+#: src/rooms/ExploreComponentMobile.qml:159
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a Space"
+msgstr "o pali e tomo toki"
 
 #: src/rooms/models/roomtreemodel.cpp:358
 #, fuzzy, kde-format
@@ -4024,7 +4019,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "o tu e lipu tawa lipu jo"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:77
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5865,7 +5860,7 @@ msgid "Down"
 msgstr "o kama jo"
 
 #: src/settings/RoomSortParameterDialog.qml:96
-#: src/spaces/SpaceHierarchyDelegate.qml:123
+#: src/spaces/SpaceHierarchyDelegate.qml:122
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@button"
@@ -5888,6 +5883,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Select new official parent"
+msgstr ""
+
+#: src/settings/SelectParentDialog.qml:50
+#, kde-format
+msgctxt "@action:button"
+msgid "Pick room"
 msgstr ""
 
 #: src/settings/SelectParentDialog.qml:57
@@ -6060,12 +6061,71 @@ msgctxt "@action:button As in 'go back'"
 msgid "Back"
 msgstr ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:94
+#: src/spaces/RemoveChildDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Remove Child"
+msgstr "o pali e tomo toki"
+
+#: src/spaces/RemoveChildDialog.qml:38
+#, kde-format
+msgid "The child %1 will be removed from the space %2"
+msgstr ""
+
+#: src/spaces/RemoveChildDialog.qml:45
+#, kde-format
+msgid ""
+"The current space is the official parent of this room, should this be "
+"cleared?"
+msgstr ""
+
+#: src/spaces/SelectExistingRoomDialog.qml:24
+#, kde-format
+msgctxt "@title"
+msgid "Select Existing Room"
+msgstr ""
+
+#: src/spaces/SelectExistingRoomDialog.qml:39
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgctxt "@action:button"
+msgid "Pick Room"
+msgstr "nimi tomo"
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgctxt "@info:description"
+msgid "You have the required privilege level in the child to set this state"
+msgstr ""
+
+#: src/spaces/SelectExistingRoomDialog.qml:150
+#, kde-format
+msgid ""
+"You do not have a high enough privilege level in the child to set this state"
+msgstr ""
+
+#: src/spaces/SelectExistingRoomDialog.qml:173
+#, kde-format
+msgctxt ""
+"@option:check The canonical parent is the default one if a room has multiple "
+"parent spaces."
+msgid "Make this space the canonical parent"
+msgstr ""
+
+#: src/spaces/SelectExistingRoomDialog.qml:174
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"The canonical parent is the default one if a room has multiple parent spaces."
+msgstr ""
+
+#: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
 msgid "Suggested"
 msgstr ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member - "
@@ -6075,7 +6135,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:103
+#: src/spaces/SpaceHierarchyDelegate.qml:102
 #, kde-format
 msgctxt "number of room members"
 msgid "%1 member"
@@ -6085,37 +6145,59 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:112 src/spaces/SpaceHomePage.qml:61
+#: src/spaces/SpaceHierarchyDelegate.qml:111
 #, kde-format
 msgctxt "@button"
 msgid "Add new room"
 msgstr ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Don't Make Suggested"
 msgstr ""
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
+#: src/spaces/SpaceHierarchyDelegate.qml:142
 #, kde-format
 msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/spaces/SpaceHomePage.qml:51
+#: src/spaces/SpaceHomePage.qml:37
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Room…"
+msgstr "o lon e tomo kulupu sin…"
+
+#: src/spaces/SpaceHomePage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
+msgctxt "@action:inmenu"
+msgid "New Space…"
+msgstr "o lon e tomo kulupu sin…"
+
+#: src/spaces/SpaceHomePage.qml:49
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:inmenu"
+msgid "Existing Room…"
+msgstr "o pana e toki"
+
+#: src/spaces/SpaceHomePage.qml:83
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "o len e jan ni"
 
-#: src/spaces/SpaceHomePage.qml:163 src/spaces/SpaceHomePage.qml:169
-#, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@title"
-msgid "Create a Child"
-msgstr "o pali e tomo toki"
+#: src/spaces/SpaceHomePage.qml:95
+#, kde-format
+msgctxt "@button"
+msgid "Add to Space"
+msgstr ""
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6226,20 +6308,13 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "o ante e toki"
 
-#: src/timeline/DelegateContextMenu.qml:146
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgctxt "@action:inmenu"
-msgid "Show User"
-msgstr "o weka wawa e jan ni"
-
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:157
+#: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
@@ -6434,12 +6509,12 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:122
+#: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr ""
 
-#: src/timeline/MessageDelegateContextMenu.qml:142
+#: src/timeline/MessageDelegateContextMenu.qml:141
 #, fuzzy, kde-format
 #| msgid "Configure NeoChat..."
 msgid "Configure Web Shortcuts…"
@@ -6451,6 +6526,11 @@ msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
+msgstr ""
+
+#: src/timeline/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
 msgstr ""
 
 #: src/timeline/models/reactionmodel.cpp:69
@@ -6625,6 +6705,40 @@ msgstr ""
 #, kde-format
 msgid "Maximize"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Room Topic"
+#~ msgid "Topic:"
+#~ msgstr "nasin tomo"
+
+#~ msgctxt "menu"
+#~ msgid "Browse Chats…"
+#~ msgstr "o alasa e tomo toki…"
+
+#~ msgctxt ""
+#~ "menu item that opens a UI element called the 'Quick Switcher', which "
+#~ "offers a fast keyboard-based interface for switching in between chats."
+#~ msgid "Open Quick Switcher"
+#~ msgstr "o open e ilo tawa"
+
+#, fuzzy
+#~| msgctxt "menu"
+#~| msgid "Quit NeoChat"
+#~ msgctxt "menu"
+#~ msgid "About Matrix"
+#~ msgstr "o pini e ilo toki NeoChat"
+
+#, fuzzy
+#~| msgid "Create a Room"
+#~ msgctxt "@title"
+#~ msgid "Create a Child"
+#~ msgstr "o pali e tomo toki"
+
+#, fuzzy
+#~| msgid "Ban this user"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Show User"
+#~ msgstr "o weka wawa e jan ni"
 
 #, fuzzy
 #~| msgid "reinvited %1 to the room"
