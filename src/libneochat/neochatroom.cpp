@@ -481,30 +481,6 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
     }
 }
 
-QString msgTypeToString(MessageEventType msgType)
-{
-    switch (msgType) {
-    case MessageEventType::Text:
-        return "m.text"_L1;
-    case MessageEventType::File:
-        return "m.file"_L1;
-    case MessageEventType::Audio:
-        return "m.audio"_L1;
-    case MessageEventType::Emote:
-        return "m.emote"_L1;
-    case MessageEventType::Image:
-        return "m.image"_L1;
-    case MessageEventType::Video:
-        return "m.video"_L1;
-    case MessageEventType::Notice:
-        return "m.notice"_L1;
-    case MessageEventType::Location:
-        return "m.location"_L1;
-    default:
-        return "m.text"_L1;
-    }
-}
-
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
 {
     if (eventId.isEmpty() || reaction.isEmpty()) {
