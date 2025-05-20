@@ -41,7 +41,7 @@ public:
      */
     enum Roles {
         DisplayRole = Qt::DisplayRole, /**< The display text for the message. */
-        ComponentTypeRole, /**< The type of component to visualise the message. */
+        ComponentTypeRole = Qt::UserRole, /**< The type of component to visualise the message. */
         ComponentAttributesRole, /**< The attributes of the component. */
         EventIdRole, /**< The matrix event ID of the event. */
         TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
