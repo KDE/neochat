@@ -355,11 +355,13 @@ QQC2.Control {
                         icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
                         onClicked: modelData.trigger()
 
+                        padding: Kirigami.Units.smallSpacing
+
                         QQC2.ToolTip.visible: hovered
                         QQC2.ToolTip.text: modelData.tooltip
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-                        PieProgressBar {
+                        contentItem: PieProgressBar {
                             visible: modelData.isBusy
                             progress: root.currentRoom.fileUploadingProgress
                         }
