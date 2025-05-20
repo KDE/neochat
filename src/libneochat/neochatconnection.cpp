@@ -9,6 +9,7 @@
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
+#include <Quotient/connection.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>
@@ -384,6 +385,13 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
     connect(job, &CreateRoomJob::failure, this, [this, job] {
         Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
     });
+}
+
+Quotient::ForgetRoomJob *NeoChatConnection::forgetRoom(const QString &id)
+{
+    Q_EMIT roomAboutToBeLeft(id);
+
+    return Connection::forgetRoom(id);
 }
 
 bool NeoChatConnection::directChatExists(Quotient::User *user)

@@ -305,8 +305,9 @@ void NeoChatRoom::forget()
         roomIds += predecessor->id();
     }
 
+    const auto neochatConnection = dynamic_cast<NeoChatConnection *>(connection());
     for (const auto &id : roomIds) {
-        connection()->forgetRoom(id);
+        neochatConnection->forgetRoom(id);
     }
 }
 

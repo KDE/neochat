@@ -28,7 +28,7 @@ Kirigami.PromptDialog {
             text: i18nc("@action:button", "Leave Room")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             icon.name: "arrow-left-symbolic"
-            onClicked: RoomManager.leaveRoom(root.room)
+            onClicked: root.room.forget();
         }
     }
 }

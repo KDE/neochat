@@ -29,7 +29,7 @@ QStringList rainbowColors{"#ff2b00"_L1, "#ff5500"_L1, "#ff8000"_L1, "#ffaa00"_L1
 auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
     if (text.isEmpty()) {
         Q_EMIT room->showMessage(MessageType::Information, i18n("Leaving this room."));
-        room->connection()->leaveRoom(room);
+        room->forget();
     } else {
         QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
         auto regexMatch = roomRegex.match(text);
@@ -38,13 +38,13 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *
                                      i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
             return QString();
         }
-        auto leaving = room->connection()->room(text);
+        auto leaving = dynamic_cast<NeoChatRoom *>(room->connection()->room(text));
         if (!leaving) {
-            leaving = room->connection()->roomByAlias(text);
+            leaving = dynamic_cast<NeoChatRoom *>(room->connection()->roomByAlias(text));
         }
         if (leaving) {
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
-            room->connection()->leaveRoom(leaving);
+            leaving->forget();
         } else {
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Room <roomname> not found", "Room %1 not found.", text));
         }

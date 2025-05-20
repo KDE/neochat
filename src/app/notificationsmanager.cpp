@@ -276,7 +276,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
                 if (inAnyOfOurRooms) {
                     doPostInviteNotification(room);
                 } else {
-                    room->leaveRoom();
+                    room->forget();
                 }
             }
         });
@@ -330,14 +330,14 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
         if (!room) {
             return;
         }
-        RoomManager::instance().leaveRoom(room);
+        room->forget();
         notification->close();
     });
     connect(rejectAndIgnoreAction, &KNotificationAction::activated, this, [room, notification]() {
         if (!room) {
             return;
         }
-        RoomManager::instance().leaveRoom(room);
+        room->forget();
         room->connection()->addToIgnoredUsers(room->invitingUserId());
         notification->close();
     });

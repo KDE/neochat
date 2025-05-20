@@ -448,27 +448,25 @@ void RoomManager::knockRoom(NeoChatConnection *account, const QString &roomAlias
         Qt::SingleShotConnection);
 }
 
+void RoomManager::roomLeft(const QString &id)
+{
+    if (id.isEmpty()) {
+        return;
+    }
+
+    if (m_currentRoom && m_currentRoom->id() == id) {
+        setCurrentRoom({});
+    }
+
+    if (m_currentSpaceId == id) {
+        setCurrentSpace({});
+    }
+}
+
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
     UrlHelper().openUrl(url);
     return true;
-}
-
-void RoomManager::leaveRoom(NeoChatRoom *room)
-{
-    if (!room) {
-        return;
-    }
-
-    if (m_currentRoom && m_currentRoom->id() == room->id()) {
-        setCurrentRoom({});
-    }
-
-    if (m_currentSpaceId == room->id()) {
-        setCurrentSpace({});
-    }
-
-    room->forget();
 }
 
 ChatDocumentHandler *RoomManager::chatDocumentHandler() const

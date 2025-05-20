@@ -32,6 +32,7 @@
 #include "neochatroom.h"
 #include "notificationsmanager.h"
 #include "proxycontroller.h"
+#include "roommanager.h"
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"
@@ -230,6 +231,7 @@ void Controller::initConnection(NeoChatConnection *connection)
         m_notificationsManager.handleNotifications(connection);
     });
     connect(this, &Controller::globalUrlPreviewDefaultChanged, connection, &NeoChatConnection::globalUrlPreviewEnabledChanged);
+    connect(connection, &NeoChatConnection::roomAboutToBeLeft, &RoomManager::instance(), &RoomManager::roomLeft);
     Q_EMIT connectionAdded(connection);
 }
 

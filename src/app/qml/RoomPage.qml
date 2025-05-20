@@ -139,8 +139,6 @@ Kirigami.Page {
         anchors.fill: parent
         sourceComponent: SpaceHomePage {
             room: root.currentRoom
-
-            onRequestLeaveRoom: room => RoomManager.leaveRoom(room);
         }
     }
 

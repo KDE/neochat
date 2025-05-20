@@ -196,17 +196,19 @@ public:
     Q_INVOKABLE void loadInitialRoom();
 
     /**
-     * @brief Leave the room and close it if it is open.
-     */
-    Q_INVOKABLE void leaveRoom(NeoChatRoom *room);
-
-    /**
      * @brief Knock a room.
      *
      * See https://spec.matrix.org/latest/client-server-api/#knocking-on-rooms for
      * knocking on rooms.
      */
     void knockRoom(NeoChatConnection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
+
+    /**
+     * @brief Cleanup after the given room is left.
+     *
+     * This ensures that the current room and space are not set to the left room.
+     */
+    void roomLeft(const QString &id);
 
     /**
      * @brief Show a media item maximized.

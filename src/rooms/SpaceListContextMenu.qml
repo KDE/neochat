@@ -72,6 +72,6 @@ KirigamiComponents.ConvergentContextMenu {
     QQC2.Action {
         text: i18nc("'Space' is a matrix space", "Leave Space")
         icon.name: "go-previous"
-        onTriggered: RoomManager.leaveRoom(room)
+        onTriggered: root.room.forget()
     }
 }

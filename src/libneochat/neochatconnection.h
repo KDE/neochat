@@ -151,6 +151,14 @@ public:
     Q_INVOKABLE void createSpace(const QString &name, const QString &topic, const QString &parent = {}, bool setChildParent = false);
 
     /**
+     * @brief Send /forget to the server and delete room locally.
+     *
+     * @note This wraps around the Quotient::Connection::forgetRoom() to allow
+     *       roomAboutToBeLeft() to be emitted.
+     */
+    Quotient::ForgetRoomJob *forgetRoom(const QString &id);
+
+    /**
      * @brief Whether a direct chat with the user exists.
      */
     Q_INVOKABLE bool directChatExists(Quotient::User *user);
@@ -223,6 +231,11 @@ Q_SIGNALS:
      * @brief Request a error message be shown to the user.
      */
     void errorOccured(const QString &error);
+
+    /**
+     * @brief The given room ID is about to be forgotten.
+     */
+    void roomAboutToBeLeft(const QString &id);
 
 private:
     static bool m_globalUrlPreviewDefault;

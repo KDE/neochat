@@ -108,7 +108,7 @@ ColumnLayout {
             icon.name: "dialog-cancel-symbolic"
             text: i18nc("@action:button Reject this invite", "Reject Invite")
 
-            onClicked: RoomManager.leaveRoom(root.currentRoom)
+            onClicked: root.currentRoom.forget()
         }
     }
 
@@ -123,7 +123,7 @@ ColumnLayout {
             text: i18nc("@action:button Block the user", "Block %1", root.invitingMember.displayName)
 
             onClicked: {
-                RoomManager.leaveRoom(root.currentRoom);
+                root.currentRoom.forget()
                 root.currentRoom.connection.addToIgnoredUsers(root.currentRoom.invitingUserId);
             }
         }

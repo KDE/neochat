@@ -19,11 +19,6 @@ ColumnLayout {
      */
     required property NeoChatRoom room
 
-    /**
-     * @brief Request to leave the given room.
-     */
-    signal requestLeaveRoom(NeoChatRoom room)
-
     anchors.fill: parent
 
     spacing: 0
@@ -102,7 +97,7 @@ ColumnLayout {
                 QQC2.Button {
                     text: i18nc("@action:button", "Leave this space")
                     icon.name: "go-previous"
-                    onClicked: root.requestLeaveRoom(root.room)
+                    onClicked: root.room.forget()
                 }
                 Item {
                     Layout.fillWidth: true
