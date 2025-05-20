@@ -117,9 +117,4 @@ ColumnLayout {
         id: fullScreenMap
         FullScreenMap {}
     }
-
-    TextComponent {
-        display: root.display
-        visible: root.display !== ""
-    }
 }
