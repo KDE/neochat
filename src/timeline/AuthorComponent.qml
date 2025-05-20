@@ -58,20 +58,19 @@ RowLayout {
             menu.popup(root.QQC2.Overlay.overlay);
         }
 
-        HoverHandler {
-            cursorShape: Qt.PointingHandCursor
-        }
-
         // tapping to open profile
         TapHandler {
             onTapped: RoomManager.resolveResource(root.author.uri)
         }
 
         // right-clicking/long-press for context menu
-        TapHandler {
-            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+        MouseArea {
+            anchors.fill: parent
+
             acceptedButtons: Qt.RightButton
-            onTapped: nameButton.openUserMenu()
+            cursorShape: Qt.PointingHandCursor
+
+            onPressed: nameButton.openUserMenu()
         }
         TapHandler {
             acceptedDevices: PointerDevice.TouchScreen

@@ -148,8 +148,8 @@ MessageDelegateBase {
         showBackground: root.cardBackground && !NeoChatConfig.compactLayout
 
         TapHandler {
+            acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
             acceptedButtons: Qt.RightButton
-            gesturePolicy: TapHandler.ReleaseWithinBounds
             onTapped: _private.showMessageMenu()
         }
 
