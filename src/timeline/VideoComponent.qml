@@ -49,23 +49,31 @@ Video {
     required property var fileTransferInfo
 
     /**
+     * @brief Whether the video should be played when downloaded.
+     */
+    required property bool playOnFinished
+
+    /**
      * @brief Whether the media has been downloaded.
      */
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
     onDownloadedChanged: {
         if (downloaded) {
+            root.autoPlay = root.playOnFinished;
             root.source = root.fileTransferInfo.localPath;
-        }
-        if (downloaded && playOnFinished) {
-            playSavedFile();
-            playOnFinished = false;
+
+            console.info("hasAudio:" + root.hasAudio + " hasVideo:" + root.hasVideo);
+
+            if (playOnFinished) {
+                //playSavedFile();
+                root.Message.contentModel.setPlayOnFinished(false);
+            }
         }
     }
 
-    /**
-     * @brief Whether the video should be played when downloaded.
-     */
-    property bool playOnFinished: false
+    onPaused: console.info("PAUSED")
+    onPlaying: console.info("PLAYING")
+    onStopped: console.info("STOPPED")
 
     Layout.preferredWidth: mediaSizeHelper.currentSize.width
     Layout.preferredHeight: mediaSizeHelper.currentSize.height
@@ -87,8 +95,12 @@ Video {
                 target: videoLabel
                 visible: true
             }
-            PropertyChanges {
+            /*PropertyChanges {
                 target: mediaThumbnail
+                visible: true
+            }*/
+            PropertyChanges {
+                target: infoBackground
                 visible: true
             }
         },
@@ -97,6 +109,14 @@ Video {
             when: root.fileTransferInfo.active && !root.fileTransferInfo.completed
             PropertyChanges {
                 target: downloadBar
+                visible: true
+            }
+            /*PropertyChanges {
+                target: mediaThumbnail
+                visible: true
+            }*/
+            PropertyChanges {
+                target: infoBackground
                 visible: true
             }
         },
@@ -136,10 +156,10 @@ Video {
                 target: videoControls
                 stateVisible: true
             }
-            PropertyChanges {
+            /*PropertyChanges {
                 target: mediaThumbnail
                 visible: true
-            }
+            }*/
             PropertyChanges {
                 target: videoLabel
                 visible: true
@@ -188,41 +208,37 @@ Video {
         fillMode: Image.PreserveAspectFit
     }
 
-    QQC2.Label {
-        id: videoLabel
-        anchors.centerIn: parent
+    Rectangle {
+        id: infoBackground
 
+        anchors.fill: parent
+
+        color: "black"
+        opacity: 0.5
         visible: false
-        color: "white"
-        text: i18n("Video")
-        font.pixelSize: 16
-
-        padding: 8
-
-        background: Rectangle {
-            radius: Kirigami.Units.smallSpacing
-            color: "black"
-            opacity: 0.3
-        }
     }
 
-    Rectangle {
-        id: downloadBar
-        anchors.fill: parent
+    Kirigami.Icon {
+        id: videoLabel
+
+        anchors.centerIn: parent
         visible: false
+        source: "media-playback-start-symbolic"
+        width: Kirigami.Units.iconSizes.huge
+        height: Kirigami.Units.iconSizes.huge
+    }
 
-        color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.cornerRadius
+    Kirigami.LoadingPlaceholder {
+        id: downloadBar
 
-        QQC2.ProgressBar {
-            anchors.centerIn: parent
+        anchors.centerIn: parent
 
-            width: parent.width * 0.8
-
-            from: 0
-            to: root.fileTransferInfo.total
-            value: root.fileTransferInfo.progress
-        }
+        text: i18nc("@info:placeholder", "Downloading…")
+        visible: false
+        determinate: root.fileTransferInfo.progress > 0
+        progressBar.from: 0
+        progressBar.to: root.fileTransferInfo.total
+        progressBar.value: root.fileTransferInfo.progress
     }
 
     Rectangle {
@@ -407,7 +423,7 @@ Video {
         acceptedButtons: Qt.LeftButton
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
         onTapped: if (root.fileTransferInfo.completed) {
-            if (root.playbackState == MediaPlayer.PlayingState) {
+            if (root.playbackState === MediaPlayer.PlayingState) {
                 root.pause();
             } else {
                 MediaManager.startPlayback();
@@ -429,14 +445,18 @@ Video {
         if (root.downloaded) {
             playSavedFile();
         } else {
-            playOnFinished = true;
+            //root.Message.contentModel.setPlayOnFinished(true);
             Message.room.downloadFile(root.eventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
         }
     }
 
     function playSavedFile() {
-        root.stop();
         MediaManager.startPlayback();
         root.play();
+        root.state = "playing";
+        console.info("current state:" + root.state);
     }
+
+    onStateChanged: console.info("state changed to " + root.state)
+    onErrorOccurred: (error, errorString) => console.info("ERR: " + errorString)
 }

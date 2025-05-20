@@ -65,6 +65,7 @@ public:
 
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
+        PlayOnFinishedrole, /**< Whether the video should be played when downloaded. */
     };
     Q_ENUM(Roles)
 
@@ -112,6 +113,11 @@ public:
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
+    /**
+     * @brief Set whether the video should be played when downloaded.
+     */
+    Q_INVOKABLE void setPlayOnFinished(bool value);
+
     static void setThreadsEnabled(bool enableThreads);
 
 Q_SIGNALS:
@@ -149,6 +155,7 @@ private:
     QList<MessageComponent> addLinkPreviews(QList<MessageComponent> inputComponents);
 
     QList<QUrl> m_removedLinkPreviews;
+    bool m_playOnFinished = false;
 
     void updateItineraryModel();
     bool m_emptyItinerary = false;

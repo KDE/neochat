@@ -107,6 +107,7 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
         if (m_room != nullptr && eventId == m_eventId) {
+            setPlayOnFinished(true);
             resetContent();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
@@ -377,6 +378,9 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         }
         return QVariant::fromValue<ChatBarCache *>(m_room->editCache());
     }
+    if (role == PlayOnFinishedrole) {
+        return m_playOnFinished;
+    }
 
     return {};
 }
@@ -416,6 +420,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
+    roles[MessageContentModel::PlayOnFinishedrole] = "playOnFinished";
     return roles;
 }
 
@@ -785,6 +790,11 @@ ThreadModel *MessageContentModel::modelForThread(const QString &threadRootId)
 void MessageContentModel::setThreadsEnabled(bool enableThreads)
 {
     m_threadsEnabled = enableThreads;
+}
+
+void MessageContentModel::setPlayOnFinished(bool value)
+{
+    m_playOnFinished = value;
 }
 
 #include "moc_messagecontentmodel.cpp"
