@@ -266,6 +266,7 @@ Kirigami.Page {
                 plainText: plainText,
                 mimeType: mimeType,
                 progressInfo: progressInfo,
+                messageComponentType: messageComponentType,
             });
             contextMenu.popup();
         }

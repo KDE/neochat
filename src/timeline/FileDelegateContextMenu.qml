@@ -33,6 +33,11 @@ DelegateContextMenu {
      */
     required property var progressInfo
 
+    /**
+     * @brief The delegate type of the message.
+     */
+    required property int messageComponentType
+
     DelegateContextMenu.ReplyMessageAction {}
 
     Kirigami.Action {
@@ -40,7 +45,17 @@ DelegateContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Open Image")
+        text: {
+            if (root.messageComponentType === MessageComponentType.Image) {
+                return i18nc("@action:inmenu", "Open Image");
+            } else if (root.messageComponentType === MessageComponentType.Audio) {
+                return i18nc("@action:inmenu", "Open Audio");
+            } else if (root.messageComponentType === MessageComponentType.Video) {
+                return i18nc("@action:inmenu", "Open Video");
+            } else {
+                return i18nc("@action:inmenu", "Open File");
+            }
+        }
         icon.name: "document-open"
         onTriggered: {
             currentRoom.openEventMediaExternally(root.eventId);
@@ -48,7 +63,17 @@ DelegateContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Save Image…")
+        text: {
+            if (root.messageComponentType === MessageComponentType.Image) {
+                return i18nc("@action:inmenu", "Save Image…");
+            } else if (root.messageComponentType === MessageComponentType.Audio) {
+                return i18nc("@action:inmenu", "Save Audio…");
+            } else if (root.messageComponentType === MessageComponentType.Video) {
+                return i18nc("@action:inmenu", "Save Video…");
+            } else {
+                return i18nc("@action:inmenu", "Save File…");
+            }
+        }
         icon.name: "document-save"
         onTriggered: {
             var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
@@ -58,7 +83,17 @@ DelegateContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("@action:inmenu", "Copy Image")
+        text: {
+            if (root.messageComponentType === MessageComponentType.Image) {
+                return i18nc("@action:inmenu", "Copy Image");
+            } else if (root.messageComponentType === MessageComponentType.Audio) {
+                return i18nc("@action:inmenu", "Copy Audio");
+            } else if (root.messageComponentType === MessageComponentType.Video) {
+                return i18nc("@action:inmenu", "Copy Video");
+            } else {
+                return i18nc("@action:inmenu", "Copy File");
+            }
+        }
         icon.name: "edit-copy"
         onTriggered: {
             currentRoom.copyEventMedia(root.eventId);
