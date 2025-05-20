@@ -130,13 +130,26 @@ ColumnLayout {
     }
 
     RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+
         QQC2.ToolButton {
             id: playButton
         }
-        QQC2.Label {
-            text: root.mediaInfo.filename
-            wrapMode: Text.Wrap
-            Layout.fillWidth: true
+
+        ColumnLayout {
+            spacing: 0
+
+            QQC2.Label {
+                text: root.mediaInfo.filename
+                wrapMode: Text.Wrap
+                Layout.fillWidth: true
+            }
+            QQC2.Label {
+                text: Format.formatDuration(root.mediaInfo.duration)
+                color: Kirigami.Theme.disabledTextColor
+                visible: !audio.hasAudio
+                Layout.fillWidth: true
+            }
         }
     }
     QQC2.ProgressBar {
