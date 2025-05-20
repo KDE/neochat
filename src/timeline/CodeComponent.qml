@@ -153,6 +153,7 @@ QQC2.Control {
             rightMargin: (codeScrollView.QQC2.ScrollBar.vertical.visible ? codeScrollView.QQC2.ScrollBar.vertical.width : 0) + Kirigami.Units.smallSpacing
         }
         visible: root.hovered
+        spacing: Kirigami.Units.mediumSpacing
 
         QQC2.Button {
             icon.name: "edit-copy"
