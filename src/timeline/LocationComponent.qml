@@ -74,26 +74,6 @@ ColumnLayout {
 
         Component.onCompleted: map.addMapItem(locationMapItem)
 
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onTapped: {
-                let map = fullScreenMap.createObject(parent, {
-                    latitude: root.latitude,
-                    longitude: root.longitude,
-                    asset: root.asset,
-                    author: root.author
-                });
-                map.open();
-            }
-        }
-        TapHandler {
-            acceptedDevices: PointerDevice.TouchScreen
-            onLongPressed: openMessageContext("")
-        }
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openMessageContext("")
-        }
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated(link: string) {
@@ -101,16 +81,46 @@ ColumnLayout {
             }
         }
 
-        Button {
+        RowLayout {
             anchors {
                 top: parent.top
                 right: parent.right
                 margins: Kirigami.Units.smallSpacing
             }
 
-            text: i18nc("@action:button Open the location in an external program", "Open Externally")
-            icon.name: "compass"
-            onClicked: Qt.openUrlExternally("geo:" + root.latitude + "," + root.longitude)
+            spacing: Kirigami.Units.mediumSpacing
+
+            Button {
+                text: i18nc("@action:button Open the location in an external program", "Open Externally")
+                icon.name: "open-link-symbolic"
+                display: AbstractButton.IconOnly
+
+                onClicked: Qt.openUrlExternally("geo:" + root.latitude + "," + root.longitude)
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+
+            Button {
+                icon.name: "view-fullscreen"
+                text: i18nc("@action:button", "Fullscreen")
+                display: AbstractButton.IconOnly
+
+                onClicked: {
+                    let map = fullScreenMap.createObject(parent, {
+                        latitude: root.latitude,
+                        longitude: root.longitude,
+                        asset: root.asset,
+                        author: root.author
+                    });
+                    map.open();
+                }
+
+                ToolTip.text: text
+                ToolTip.visible: hovered
+                ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
         }
     }
     Component {
