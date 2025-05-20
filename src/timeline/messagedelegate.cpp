@@ -424,8 +424,8 @@ void MessageDelegateBase::updateBackground()
                     }
                     markAsDirty();
                 }
-                cleanupIncubator(incubator);
                 m_compactBackgroundIncubating = false;
+                cleanupIncubator(incubator);
             },
             m_errorCallback);
         m_compactBackgroundComponent->create(*compactBackgroundIncubator, qmlContext(m_compactBackgroundComponent));
@@ -472,8 +472,8 @@ void MessageDelegateBase::updateQuickAction()
                     }
                     markAsDirty();
                 }
-                cleanupIncubator(incubator);
                 m_quickActionIncubating = false;
+                cleanupIncubator(incubator);
             },
             m_errorCallback);
         m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
