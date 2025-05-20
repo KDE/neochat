@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-19 00:42+0000\n"
-"PO-Revision-Date: 2025-05-16 15:57+0900\n"
+"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"PO-Revision-Date: 2025-05-19 21:37+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -550,8 +550,7 @@ msgid "File"
 msgstr "檔案"
 
 #: src/app/qml/GlobalMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "尋找您的朋友"
@@ -572,11 +571,10 @@ msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/app/qml/GlobalMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "建立聊天室"
+msgstr "建立聊天室…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -585,9 +583,7 @@ msgid "Create a Room"
 msgstr "建立聊天室"
 
 #: src/app/qml/GlobalMenu.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "瀏覽聊天室"
@@ -615,9 +611,7 @@ msgid "View"
 msgstr "檢視"
 
 #: src/app/qml/GlobalMenu.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
@@ -1390,22 +1384,16 @@ msgid "Copy link"
 msgstr "複製連結"
 
 #: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Profile"
-msgstr "開啟檔案"
+msgstr "開啟個人檔案"
 
 #: src/app/qml/UserMenu.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mention"
-msgstr "@Mention 提及"
+msgstr "提及"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -3002,36 +2990,31 @@ msgid "Lat: %1, Lon: %2"
 msgstr "緯度：%2，經度：%1"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create Room"
 msgstr "建立聊天室"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
-msgstr "建立新的"
+msgstr "建立"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "私人"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "這個聊天室只能透過邀請加入。"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Public"
+#, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "公開"
@@ -3040,37 +3023,31 @@ msgstr "公開"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "這個聊天室能被任何人發現並加入。"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "名稱："
 
 #: src/libneochat/qml/CreateRoomDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
-msgstr "離開聊天室"
+msgstr "新聊天室"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New Email Address:"
+#, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
-msgstr "新的電子郵件地址："
+msgstr "位址："
 
 #: src/libneochat/qml/CreateRoomDialog.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr "新增聊天室"
+msgstr "new-room"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:23
 #, kde-format
@@ -3079,26 +3056,22 @@ msgid "Create a Space"
 msgstr "建立一個聊天空間"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr "建立新的"
+msgstr "建立"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "名稱："
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "檢視聊天空間"
+msgstr "建立聊天空間"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:60
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -5826,23 +5799,19 @@ msgid ""
 msgstr "目前聊天空間是此聊天室的官方上層聊天空間，要清除這個設定嗎？"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
 msgstr "選取現存的聊天室"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "選取聊天室"
 
 #: src/spaces/SelectExistingRoomDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "You have the required privilege level in the child to set this state"
+#, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr "您在子項目有足夠權限來設定這個狀態"
@@ -5866,7 +5835,7 @@ msgstr "將此聊天空間設為主要上層聊天空間"
 msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
-msgstr ""
+msgstr "聊天室有多個上層聊天空間時「主要上層」是預設的那一個。"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -5906,27 +5875,22 @@ msgid "Make Suggested"
 msgstr "標記為建議"
 
 #: src/spaces/SpaceHomePage.qml:37
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "建立新群組…"
+msgstr "建立聊天室…"
 
 #: src/spaces/SpaceHomePage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "檢視聊天空間"
+msgstr "建立聊天空間…"
 
 #: src/spaces/SpaceHomePage.qml:49
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "選取現存的聊天室"
+msgstr "現存的聊天室…"
 
 #: src/spaces/SpaceHomePage.qml:83
 #, kde-format
@@ -5935,11 +5899,10 @@ msgid "Invite user to space"
 msgstr "邀請使用者到聊天空間"
 
 #: src/spaces/SpaceHomePage.qml:95
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "加入最愛"
+msgstr "加入聊天空間"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6250,7 +6213,7 @@ msgstr ""
 #: src/timeline/models/messagecontentmodel.cpp:563
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>這個活動沒有任何內容。</i>"
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6349,27 +6312,27 @@ msgid ""
 "this point."
 msgstr "這是此聊天的開頭。沒有比這更早的歷史訊息。"
 
-#: src/timeline/TimelineView.qml:191
+#: src/timeline/TimelineView.qml:192
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳到第一個未讀訊息"
 
-#: src/timeline/TimelineView.qml:191
+#: src/timeline/TimelineView.qml:192
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "跳到已載入的最舊的訊息"
 
-#: src/timeline/TimelineView.qml:235
+#: src/timeline/TimelineView.qml:236
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳到最新訊息"
 
-#: src/timeline/TimelineView.qml:260
+#: src/timeline/TimelineView.qml:261
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖曳項目至此來分享它"
 
-#: src/timeline/TimelineView.qml:267
+#: src/timeline/TimelineView.qml:296
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
