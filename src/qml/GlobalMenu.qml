@@ -15,7 +15,7 @@ import org.kde.neochat.settings
 Labs.MenuBar {
     id: root
 
-    property NeoChatConnection connection
+    required property NeoChatConnection connection
 
     Labs.Menu {
         title: i18nc("menu", "NeoChat")
@@ -40,7 +40,7 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "Find your friends")
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
-            onTriggered: pushReplaceLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Find your friends")
@@ -51,8 +51,11 @@ Labs.MenuBar {
             enabled: pageStack.layers.currentItem.title !== i18n("Find your friends") && AccountRegistry.accountCount > 0
             shortcut: StandardKey.New
             onTriggered: {
-                const dialog = createRoomDialog.createObject(root.overlay);
-                dialog.open();
+                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomDialog'), {
+                    connection: root.connection
+                }, {
+                    title: i18nc("@title", "Create a Room")
+                });
             }
         }
         Labs.MenuItem {
