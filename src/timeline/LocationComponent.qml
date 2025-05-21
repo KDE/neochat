@@ -18,6 +18,11 @@ ColumnLayout {
     id: root
 
     /**
+     * @brief The matrix ID of the message event.
+     */
+    required property string eventId
+
+    /**
      * @brief The message author.
      *
      * A Quotient::RoomMember object.
@@ -104,7 +109,7 @@ ColumnLayout {
 
             Button {
                 icon.name: "view-fullscreen"
-                text: i18nc("@action:button", "Fullscreen")
+                text: i18nc("@action:button", "Open Fullscreen")
                 display: AbstractButton.IconOnly
 
                 onClicked: {
@@ -126,5 +131,12 @@ ColumnLayout {
     Component {
         id: fullScreenMap
         FullScreenMap {}
+    }
+
+    TextComponent {
+        eventId: root.eventId
+        author: root.author
+        display: root.display
+        visible: root.display !== ""
     }
 }
