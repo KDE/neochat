@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/app/controller.cpp:181
+#: src/app/controller.cpp:182
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Varsling av nye meldingar"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Varsling av push-varslingar"
@@ -1103,17 +1103,17 @@ msgstr "Ignorer"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat er fråkopla. Sjå til at du er kopla til nettet."
 
-#: src/app/qml/RoomPage.qml:152
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Velkommen til NeoChat"
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:151
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Start ved å velja eller verta med i eit rom"
 
-#: src/app/qml/RoomPage.qml:246
+#: src/app/qml/RoomPage.qml:244
 #, kde-format
 msgid "Message Source"
 msgstr "Meldingskjelde"
@@ -3001,35 +3001,35 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
-#: src/libneochat/neochatconnection.cpp:71
+#: src/libneochat/neochatconnection.cpp:72
 #, fuzzy, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr "Ta kontakt med administratoren av Matrix-tenaren for brukarstøtte."
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetstenar sett opp"
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:356
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Feil ved romregistrering: %1"
 
-#: src/libneochat/neochatconnection.cpp:385
+#: src/libneochat/neochatconnection.cpp:386
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/libneochat/neochatroom.cpp:1218
+#: src/libneochat/neochatroom.cpp:1219
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
+#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3573,7 +3573,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Finn meldingar …"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3590,7 +3590,7 @@ msgstr "Forlat rommet"
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3891,7 +3891,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopier lenkje"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5988,7 +5988,7 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Gjer til føreslått"
 
-#: src/spaces/SpaceHomePage.qml:37
+#: src/spaces/SpaceHomePage.qml:32
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -5996,7 +5996,7 @@ msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Ny gruppe …"
 
-#: src/spaces/SpaceHomePage.qml:43
+#: src/spaces/SpaceHomePage.qml:38
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -6004,20 +6004,20 @@ msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Vis område"
 
-#: src/spaces/SpaceHomePage.qml:49
+#: src/spaces/SpaceHomePage.qml:44
 #, fuzzy, kde-format
 #| msgid "Select Existing Room"
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Vel eit rom"
 
-#: src/spaces/SpaceHomePage.qml:83
+#: src/spaces/SpaceHomePage.qml:78
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Inviter brukar til området"
 
-#: src/spaces/SpaceHomePage.qml:95
+#: src/spaces/SpaceHomePage.qml:90
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
@@ -6497,69 +6497,3 @@ msgstr "Lydstyrke"
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimer"
-
-#~ msgid "New Space Information"
-#~ msgstr "Ny plassinformasjon"
-
-#~ msgid "New Room Information"
-#~ msgstr "Ny rominformasjon"
-
-#~ msgid "Select type"
-#~ msgstr "Vel type"
-
-#~ msgid "Room"
-#~ msgstr "Rom"
-
-#~ msgid "Space"
-#~ msgstr "Rom"
-
-#~ msgid "Topic:"
-#~ msgstr "Emne:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Create Space"
-#~ msgstr "Opprett område"
-
-#~ msgctxt "menu"
-#~ msgid "Find your friends"
-#~ msgstr "Finn vennane dine"
-
-#~ msgctxt "menu"
-#~ msgid "Browse Chats…"
-#~ msgstr "Bla gjennom pratar …"
-
-#~ msgctxt ""
-#~ "menu item that opens a UI element called the 'Quick Switcher', which "
-#~ "offers a fast keyboard-based interface for switching in between chats."
-#~ msgid "Open Quick Switcher"
-#~ msgstr "Opna snøggvekslar"
-
-#~ msgctxt "menu"
-#~ msgid "About Matrix"
-#~ msgstr "Om Matrix"
-
-#~ msgctxt "@title"
-#~ msgid "Create a Child"
-#~ msgstr "Opprett underområde"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Show User"
-#~ msgstr "Vis brukar"
-
-#~ msgid "This message was sent from a verified device"
-#~ msgstr "Meldinga vart send frå ei stadfesta eining"
-
-#, fuzzy
-#~ msgctxt "@info:label"
-#~ msgid "%1 has invited you to join"
-#~ msgstr "%1 inviterte deg til eit rom"
-
-#, fuzzy
-#~ msgctxt "@action:button"
-#~ msgid "Reject"
-#~ msgstr "Avvis"
-
-#, fuzzy
-#~ msgctxt "@action:button"
-#~ msgid "Accept"
-#~ msgstr "Godta"

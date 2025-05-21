@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2025-04-21 11:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/app/controller.cpp:181
+#: src/app/controller.cpp:182
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -26,7 +26,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Vastaanotetaan ilmoituksia uusista viesteistä"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Vastaanotetaan push-ilmoituksia"
@@ -1103,17 +1103,17 @@ msgstr "Sivuuta"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChatillä ei ole yhteyttä. Tarkista verkkoyhteytesi."
 
-#: src/app/qml/RoomPage.qml:152
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Tervetuloa NeoChatiin"
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:151
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Aloita valitsemalla huone tai liittymällä huoneeseen"
 
-#: src/app/qml/RoomPage.qml:246
+#: src/app/qml/RoomPage.qml:244
 #, kde-format
 msgid "Message Source"
 msgstr "Viestin lähde"
@@ -3006,7 +3006,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Omat emojit"
 
-#: src/libneochat/neochatconnection.cpp:71
+#: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3015,28 +3015,28 @@ msgstr ""
 "Tiedosto on liian suuri ladata.<br />Pyydä apua Matrix-palvelimesi "
 "ylläpidolta."
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Henkilöyspalvelinta ei ole määritetty"
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:356
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Huoneen luominen epäonnistui: %1"
 
-#: src/libneochat/neochatconnection.cpp:385
+#: src/libneochat/neochatconnection.cpp:386
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/libneochat/neochatroom.cpp:1218
+#: src/libneochat/neochatroom.cpp:1219
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
+#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3578,7 +3578,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Kiinnitetyt viestit"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space"
@@ -3595,7 +3595,7 @@ msgstr "Poistu tästä huoneesta"
 msgid "Members"
 msgstr "Jäsenet"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -3897,7 +3897,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopioi linkin osoite"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
@@ -5982,7 +5982,7 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Aseta ehdotukseksi"
 
-#: src/spaces/SpaceHomePage.qml:37
+#: src/spaces/SpaceHomePage.qml:32
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -5990,7 +5990,7 @@ msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Uusi ryhmä…"
 
-#: src/spaces/SpaceHomePage.qml:43
+#: src/spaces/SpaceHomePage.qml:38
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -5998,20 +5998,20 @@ msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Näytä tila"
 
-#: src/spaces/SpaceHomePage.qml:49
+#: src/spaces/SpaceHomePage.qml:44
 #, fuzzy, kde-format
 #| msgid "Select Existing Room"
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Valitse olemassa oleva huone"
 
-#: src/spaces/SpaceHomePage.qml:83
+#: src/spaces/SpaceHomePage.qml:78
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Kutsu käyttäjä tilaan"
 
-#: src/spaces/SpaceHomePage.qml:95
+#: src/spaces/SpaceHomePage.qml:90
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"

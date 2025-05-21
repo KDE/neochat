@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-20 00:42+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/app/controller.cpp:181
+#: src/app/controller.cpp:182
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt ""
@@ -25,7 +25,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Zobraziť upozornenia"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Receiving push notifications"
@@ -1159,19 +1159,19 @@ msgstr "Ignorovať"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
 
-#: src/app/qml/RoomPage.qml:152
+#: src/app/qml/RoomPage.qml:150
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Vitajte v Matrixe"
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:151
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgid "Select or join a room to get started"
 msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 
-#: src/app/qml/RoomPage.qml:246
+#: src/app/qml/RoomPage.qml:244
 #, kde-format
 msgid "Message Source"
 msgstr "Zdroj správy"
@@ -3219,38 +3219,38 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastné"
 
-#: src/libneochat/neochatconnection.cpp:71
+#: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:356
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:385
+#: src/libneochat/neochatconnection.cpp:386
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1218
+#: src/libneochat/neochatroom.cpp:1219
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/libneochat/neochatroom.cpp:1554 src/libneochat/neochatroom.cpp:1562
+#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3828,7 +3828,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Priame správy"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:103
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -3847,7 +3847,7 @@ msgstr "Otvoriť NeoChat v tejto miestnosti"
 msgid "Members"
 msgstr "Členovia"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:88
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:83
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -4177,7 +4177,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopírovať odkaz"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:114
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
@@ -6445,7 +6445,7 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/spaces/SpaceHomePage.qml:37
+#: src/spaces/SpaceHomePage.qml:32
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -6453,28 +6453,28 @@ msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Nová skupina..."
 
-#: src/spaces/SpaceHomePage.qml:43
+#: src/spaces/SpaceHomePage.qml:38
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Zobraziť zdroj"
 
-#: src/spaces/SpaceHomePage.qml:49
+#: src/spaces/SpaceHomePage.qml:44
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Nájsť miestnosť..."
 
-#: src/spaces/SpaceHomePage.qml:83
+#: src/spaces/SpaceHomePage.qml:78
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "pozval %1 do miestnosti"
 
-#: src/spaces/SpaceHomePage.qml:95
+#: src/spaces/SpaceHomePage.qml:90
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
