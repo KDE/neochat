@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1810,7 +1810,7 @@ msgstr "Definir uma legenda do anexo..."
 msgid "Send a message…"
 msgstr "Enviar uma mensagem…"
 
-#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:405 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3234,12 +3234,12 @@ msgstr "Não foi possível criar a sala: %1"
 msgid "Space creation failed: %1"
 msgstr "Não foi possível criar o espaço: %1"
 
-#: src/libneochat/neochatroom.cpp:1219
+#: src/libneochat/neochatroom.cpp:1195
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O relatório foi enviado com sucesso."
 
-#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
+#: src/libneochat/neochatroom.cpp:1531 src/libneochat/neochatroom.cpp:1539
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6522,13 +6522,13 @@ msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Não foram encontrados resultados"
 
-#: src/timeline/CodeComponent.qml:159
+#: src/timeline/CodeComponent.qml:160
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgid "Copy to clipboard"
 msgstr "Copiar o ID da sala para a área de transferência"
 
-#: src/timeline/CodeComponent.qml:171
+#: src/timeline/CodeComponent.qml:172
 #, fuzzy, kde-format
 #| msgid "Maximize"
 msgctxt "@action:button"
@@ -6549,8 +6549,8 @@ msgstr "Remover"
 
 #: src/timeline/DelegateContextMenu.qml:88
 #: src/timeline/DelegateContextMenu.qml:93
-#: src/timeline/FileDelegateContextMenu.qml:79
-#: src/timeline/FileDelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:114
+#: src/timeline/FileDelegateContextMenu.qml:119
 #, fuzzy, kde-format
 #| msgid "Remove Message"
 msgctxt "@title:dialog"
@@ -6558,7 +6558,7 @@ msgid "Remove Message"
 msgstr "Remover a Mensagem"
 
 #: src/timeline/DelegateContextMenu.qml:89
-#: src/timeline/FileDelegateContextMenu.qml:80
+#: src/timeline/FileDelegateContextMenu.qml:115
 #, fuzzy, kde-format
 #| msgid "Reason for removing this message"
 msgctxt "@info:placeholder"
@@ -6566,7 +6566,7 @@ msgid "Reason for removing this message"
 msgstr "Razão para remover esta mensagem"
 
 #: src/timeline/DelegateContextMenu.qml:90
-#: src/timeline/FileDelegateContextMenu.qml:81
+#: src/timeline/FileDelegateContextMenu.qml:116
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
@@ -6661,28 +6661,100 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Parar a Transferência"
 
-#: src/timeline/FileDelegateContextMenu.qml:43
+#: src/timeline/FileDelegateContextMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Definir uma Imagem"
 
-#: src/timeline/FileDelegateContextMenu.qml:51
+#: src/timeline/FileDelegateContextMenu.qml:52
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Audio"
+msgstr "Abrir o Ficheiro"
+
+#: src/timeline/FileDelegateContextMenu.qml:54
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Video"
+msgstr "Abrir o Ficheiro"
+
+#: src/timeline/FileDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open File"
+msgstr "Abrir o Ficheiro"
+
+#: src/timeline/FileDelegateContextMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Definir uma Imagem"
 
-#: src/timeline/FileDelegateContextMenu.qml:61
+#: src/timeline/FileDelegateContextMenu.qml:70
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save Audio…"
+msgstr "Definir uma Imagem"
+
+#: src/timeline/FileDelegateContextMenu.qml:72
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save Video…"
+msgstr "Definir uma Imagem"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save File…"
+msgstr "Definir uma Imagem"
+
+#: src/timeline/FileDelegateContextMenu.qml:88
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Definir uma Imagem"
 
-#: src/timeline/FileDelegateContextMenu.qml:74
+#: src/timeline/FileDelegateContextMenu.qml:90
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Audio"
+msgstr "Copiar a ligação"
+
+#: src/timeline/FileDelegateContextMenu.qml:92
+#, fuzzy, kde-format
+#| msgid "Video"
+msgctxt "@action:inmenu"
+msgid "Copy Video"
+msgstr "Vídeo"
+
+#: src/timeline/FileDelegateContextMenu.qml:94
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy File"
+msgstr "Copiar a ligação"
+
+#: src/timeline/FileDelegateContextMenu.qml:109
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove…"
@@ -6754,12 +6826,20 @@ msgstr "A carregar…"
 msgid "Loading URL preview"
 msgstr "A carregar a antevisão do URL"
 
-#: src/timeline/LocationComponent.qml:111
+#: src/timeline/LocationComponent.qml:99
 #, fuzzy, kde-format
 #| msgid "Open Externally"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Abrir Externamente"
+
+#: src/timeline/LocationComponent.qml:112
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "Enter Full Screen"
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Entrar no Ecrã Completo"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format

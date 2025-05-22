@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2025-04-23 18:16+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1712,7 +1712,7 @@ msgstr "Ezarri eranskin baten epigrafea..."
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:405 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3047,12 +3047,12 @@ msgstr "Gela sortzea huts egin du: %1"
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/libneochat/neochatroom.cpp:1219
+#: src/libneochat/neochatroom.cpp:1195
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
+#: src/libneochat/neochatroom.cpp:1531 src/libneochat/neochatroom.cpp:1539
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6064,12 +6064,12 @@ msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Bidali mezua harian"
 
-#: src/timeline/CodeComponent.qml:159
+#: src/timeline/CodeComponent.qml:160
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopiatu arbelera"
 
-#: src/timeline/CodeComponent.qml:171
+#: src/timeline/CodeComponent.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -6088,22 +6088,22 @@ msgstr "Kendu..."
 
 #: src/timeline/DelegateContextMenu.qml:88
 #: src/timeline/DelegateContextMenu.qml:93
-#: src/timeline/FileDelegateContextMenu.qml:79
-#: src/timeline/FileDelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:114
+#: src/timeline/FileDelegateContextMenu.qml:119
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Kendu mezua"
 
 #: src/timeline/DelegateContextMenu.qml:89
-#: src/timeline/FileDelegateContextMenu.qml:80
+#: src/timeline/FileDelegateContextMenu.qml:115
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Mezu hori kentzeko arrazoia"
 
 #: src/timeline/DelegateContextMenu.qml:90
-#: src/timeline/FileDelegateContextMenu.qml:81
+#: src/timeline/FileDelegateContextMenu.qml:116
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
@@ -6196,25 +6196,98 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Gelditu zama-jaistea"
 
-#: src/timeline/FileDelegateContextMenu.qml:43
+#: src/timeline/FileDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Ireki irudia"
 
-#: src/timeline/FileDelegateContextMenu.qml:51
+#: src/timeline/FileDelegateContextMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Open poll"
+msgctxt "@action:inmenu"
+msgid "Open Audio"
+msgstr "Ireki galdetegia"
+
+#: src/timeline/FileDelegateContextMenu.qml:54
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Video"
+msgstr "Ireki fitxategia"
+
+#: src/timeline/FileDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open File"
+msgstr "Ireki fitxategia"
+
+#: src/timeline/FileDelegateContextMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Gorde irudia..."
 
-#: src/timeline/FileDelegateContextMenu.qml:61
+#: src/timeline/FileDelegateContextMenu.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save Audio…"
+msgstr "Gorde irudia..."
+
+#: src/timeline/FileDelegateContextMenu.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save Video…"
+msgstr "Gorde irudia..."
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save File…"
+msgstr "Gorde irudia..."
+
+#: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiatu irudia"
 
-#: src/timeline/FileDelegateContextMenu.qml:74
+#: src/timeline/FileDelegateContextMenu.qml:90
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Audio"
+msgstr "Kopiatu esteka"
+
+#: src/timeline/FileDelegateContextMenu.qml:92
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Copy Video"
+msgstr "Erakutsi bideoa"
+
+#: src/timeline/FileDelegateContextMenu.qml:94
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy File"
+msgstr "Kopiatu esteka"
+
+#: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
 msgid "Remove…"
 msgstr "Kendu..."
@@ -6282,11 +6355,19 @@ msgstr "Erantzuna zamatzen"
 msgid "Loading URL preview"
 msgstr "URLaren aurreikuspegia zamatzen"
 
-#: src/timeline/LocationComponent.qml:111
+#: src/timeline/LocationComponent.qml:99
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Ireki kanpotik"
+
+#: src/timeline/LocationComponent.qml:112
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "Enter Full Screen"
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Sartu pantaila-betean"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format

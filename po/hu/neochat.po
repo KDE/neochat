@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
 "PO-Revision-Date: 2024-11-13 22:41+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1733,7 +1733,7 @@ msgstr "Mellékletleírás beállítása…"
 msgid "Send a message…"
 msgstr "Üzenet küldése…"
 
-#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:405 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3095,12 +3095,12 @@ msgstr "Nem sikerült létrehozni a szobát: %1"
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
 
-#: src/libneochat/neochatroom.cpp:1219
+#: src/libneochat/neochatroom.cpp:1195
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Jelentés sikeresen elküldve."
 
-#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
+#: src/libneochat/neochatroom.cpp:1531 src/libneochat/neochatroom.cpp:1539
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -6218,12 +6218,12 @@ msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Üzenet küldése szálban"
 
-#: src/timeline/CodeComponent.qml:159
+#: src/timeline/CodeComponent.qml:160
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Másolás a vágólapra"
 
-#: src/timeline/CodeComponent.qml:171
+#: src/timeline/CodeComponent.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -6244,22 +6244,22 @@ msgstr "Eltávolítás"
 
 #: src/timeline/DelegateContextMenu.qml:88
 #: src/timeline/DelegateContextMenu.qml:93
-#: src/timeline/FileDelegateContextMenu.qml:79
-#: src/timeline/FileDelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:114
+#: src/timeline/FileDelegateContextMenu.qml:119
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Üzenet eltávolítása"
 
 #: src/timeline/DelegateContextMenu.qml:89
-#: src/timeline/FileDelegateContextMenu.qml:80
+#: src/timeline/FileDelegateContextMenu.qml:115
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Az üzenet eltávolításának oka"
 
 #: src/timeline/DelegateContextMenu.qml:90
-#: src/timeline/FileDelegateContextMenu.qml:81
+#: src/timeline/FileDelegateContextMenu.qml:116
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
@@ -6353,21 +6353,72 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Letöltés leállítása"
 
-#: src/timeline/FileDelegateContextMenu.qml:43
+#: src/timeline/FileDelegateContextMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Kép beállítása"
 
-#: src/timeline/FileDelegateContextMenu.qml:51
+#: src/timeline/FileDelegateContextMenu.qml:52
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Audio"
+msgstr "Fájl megnyitása"
+
+#: src/timeline/FileDelegateContextMenu.qml:54
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Video"
+msgstr "Fájl megnyitása"
+
+#: src/timeline/FileDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open File"
+msgstr "Fájl megnyitása"
+
+#: src/timeline/FileDelegateContextMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Kép beállítása"
 
-#: src/timeline/FileDelegateContextMenu.qml:61
+#: src/timeline/FileDelegateContextMenu.qml:70
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save Audio…"
+msgstr "Kép beállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:72
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save Video…"
+msgstr "Kép beállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:inmenu"
+msgid "Save File…"
+msgstr "Kép beállítása"
+
+#: src/timeline/FileDelegateContextMenu.qml:88
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show Image"
@@ -6375,7 +6426,29 @@ msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kép megjelenítése"
 
-#: src/timeline/FileDelegateContextMenu.qml:74
+#: src/timeline/FileDelegateContextMenu.qml:90
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Audio"
+msgstr "Hivatkozás másolása"
+
+#: src/timeline/FileDelegateContextMenu.qml:92
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Copy Video"
+msgstr "Videó megjelenítése"
+
+#: src/timeline/FileDelegateContextMenu.qml:94
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy File"
+msgstr "Hivatkozás másolása"
+
+#: src/timeline/FileDelegateContextMenu.qml:109
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove…"
@@ -6444,11 +6517,19 @@ msgstr "Válasz betöltése"
 msgid "Loading URL preview"
 msgstr "URL előnézetének betöltése"
 
-#: src/timeline/LocationComponent.qml:111
+#: src/timeline/LocationComponent.qml:99
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
+
+#: src/timeline/LocationComponent.qml:112
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "Enter Full Screen"
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Teljes képernyő"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, fuzzy, kde-format

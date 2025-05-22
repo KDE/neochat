@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-12 10:10+0200\n"
+"POT-Creation-Date: 2025-05-22 00:42+0000\n"
+"PO-Revision-Date: 2025-05-19 17:01+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/app/controller.cpp:182
 #, kde-format
@@ -550,8 +550,7 @@ msgid "File"
 msgstr "File"
 
 #: src/app/qml/GlobalMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Trova i tuoi amici"
@@ -572,11 +571,10 @@ msgid "Find your friends"
 msgstr "Trova i tuoi amici"
 
 #: src/app/qml/GlobalMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "Crea una stanza"
+msgstr "Crea una stanza…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -585,9 +583,7 @@ msgid "Create a Room"
 msgstr "Crea una stanza"
 
 #: src/app/qml/GlobalMenu.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Esplora le stanze"
@@ -615,9 +611,7 @@ msgid "View"
 msgstr "Visualizza"
 
 #: src/app/qml/GlobalMenu.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
@@ -1399,22 +1393,16 @@ msgid "Copy link"
 msgstr "Copia collegamento"
 
 #: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Profile"
-msgstr "Apri file"
+msgstr "Apri profilo"
 
 #: src/app/qml/UserMenu.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mention"
-msgstr "@Menzioni"
+msgstr "Menzione"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -1708,7 +1696,7 @@ msgstr "Imposta una didascalia per l'allegato..."
 msgid "Send a message…"
 msgstr "Invia un messaggio…"
 
-#: src/chatbar/ChatBar.qml:403 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:405 src/timeline/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3048,48 +3036,43 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/libneochat/neochatroom.cpp:1219
+#: src/libneochat/neochatroom.cpp:1195
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/libneochat/neochatroom.cpp:1555 src/libneochat/neochatroom.cpp:1563
+#: src/libneochat/neochatroom.cpp:1531 src/libneochat/neochatroom.cpp:1539
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create Room"
 msgstr "Crea stanza"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
-msgstr "Crea nuovo"
+msgstr "Crea"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Privato"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "È possibile entrare in questa stanza solo tramite invito."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Public"
+#, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "Pubblica"
@@ -3098,36 +3081,31 @@ msgstr "Pubblica"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "Chiunque può trovare e unirsi a questa stanza."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Nome:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
-msgstr "Lascia la stanza"
+msgstr "Nuova stanza"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:68
-#, fuzzy, kde-format
-#| msgid "Server Address"
+#, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
-msgstr "Indirizzo del server"
+msgstr "Indirizzo:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr "Aggiungi una nuova stanza"
+msgstr "nuova-stanza"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:23
 #, kde-format
@@ -3136,26 +3114,22 @@ msgid "Create a Space"
 msgstr "Crea uno spazio"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr "Crea nuovo"
+msgstr "Crea"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "Nome:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Visualizza spazio"
+msgstr "Nuovo spazio"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:60
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -5947,23 +5921,19 @@ msgstr ""
 "cancellato?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
 msgstr "Seleziona stanza esistente"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Scegli la stanza"
 
 #: src/spaces/SelectExistingRoomDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "You have the required privilege level in the child to set this state"
+#, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
@@ -5992,6 +5962,8 @@ msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
 msgstr ""
+"Il genitore canonico è quello predefinito se una stanza ha più spazi "
+"genitore."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:93
 #, kde-format
@@ -6033,27 +6005,22 @@ msgid "Make Suggested"
 msgstr "Rendi suggerito"
 
 #: src/spaces/SpaceHomePage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "Nuovo gruppo…"
+msgstr "Nuova stanza…"
 
 #: src/spaces/SpaceHomePage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Visualizza spazio"
+msgstr "Nuovo spazio…"
 
 #: src/spaces/SpaceHomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "Seleziona stanza esistente"
+msgstr "Stanza esistente…"
 
 #: src/spaces/SpaceHomePage.qml:78
 #, kde-format
@@ -6062,11 +6029,10 @@ msgid "Invite user to space"
 msgstr "Invita utente allo spazio"
 
 #: src/spaces/SpaceHomePage.qml:90
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "Aggiungi ai preferiti"
+msgstr "Aggiungi a spazio"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6091,12 +6057,12 @@ msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Pubblica messaggio nella conversazione"
 
-#: src/timeline/CodeComponent.qml:159
+#: src/timeline/CodeComponent.qml:160
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-#: src/timeline/CodeComponent.qml:171
+#: src/timeline/CodeComponent.qml:172
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -6115,30 +6081,29 @@ msgstr "Rimuovi…"
 
 #: src/timeline/DelegateContextMenu.qml:88
 #: src/timeline/DelegateContextMenu.qml:93
-#: src/timeline/FileDelegateContextMenu.qml:79
-#: src/timeline/FileDelegateContextMenu.qml:84
+#: src/timeline/FileDelegateContextMenu.qml:114
+#: src/timeline/FileDelegateContextMenu.qml:119
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Rimuovi messaggio"
 
 #: src/timeline/DelegateContextMenu.qml:89
-#: src/timeline/FileDelegateContextMenu.qml:80
+#: src/timeline/FileDelegateContextMenu.qml:115
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Motivo per la rimozione di questo messaggio"
 
 #: src/timeline/DelegateContextMenu.qml:90
-#: src/timeline/FileDelegateContextMenu.qml:81
+#: src/timeline/FileDelegateContextMenu.qml:116
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Rimuovi"
 
 #: src/timeline/DelegateContextMenu.qml:113
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr "Rispondi nella conversazione"
@@ -6224,25 +6189,98 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Ferma lo scaricamento"
 
-#: src/timeline/FileDelegateContextMenu.qml:43
+#: src/timeline/FileDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Apri immagine"
 
-#: src/timeline/FileDelegateContextMenu.qml:51
+#: src/timeline/FileDelegateContextMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Open poll"
+msgctxt "@action:inmenu"
+msgid "Open Audio"
+msgstr "Sondaggio aperto"
+
+#: src/timeline/FileDelegateContextMenu.qml:54
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open Video"
+msgstr "Apri file"
+
+#: src/timeline/FileDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:inmenu"
+msgid "Open File"
+msgstr "Apri file"
+
+#: src/timeline/FileDelegateContextMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Salva immagine…"
 
-#: src/timeline/FileDelegateContextMenu.qml:61
+#: src/timeline/FileDelegateContextMenu.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save Audio…"
+msgstr "Salva immagine…"
+
+#: src/timeline/FileDelegateContextMenu.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save Video…"
+msgstr "Salva immagine…"
+
+#: src/timeline/FileDelegateContextMenu.qml:74
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Save Image…"
+msgctxt "@action:inmenu"
+msgid "Save File…"
+msgstr "Salva immagine…"
+
+#: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Copia immagine"
 
-#: src/timeline/FileDelegateContextMenu.qml:74
+#: src/timeline/FileDelegateContextMenu.qml:90
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy Audio"
+msgstr "Copia collegamento"
+
+#: src/timeline/FileDelegateContextMenu.qml:92
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show Video"
+msgctxt "@action:inmenu"
+msgid "Copy Video"
+msgstr "Mostra video"
+
+#: src/timeline/FileDelegateContextMenu.qml:94
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:inmenu"
+msgid "Copy File"
+msgstr "Copia collegamento"
+
+#: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
 msgid "Remove…"
 msgstr "Rimuovi…"
@@ -6310,11 +6348,19 @@ msgstr "Caricamento risposta"
 msgid "Loading URL preview"
 msgstr "Caricamento dell'anteprima dell'URL"
 
-#: src/timeline/LocationComponent.qml:111
+#: src/timeline/LocationComponent.qml:99
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Apri esternamente"
+
+#: src/timeline/LocationComponent.qml:112
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "Enter Full Screen"
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Schermo intero"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
@@ -6381,7 +6427,7 @@ msgstr ""
 #: src/timeline/models/messagecontentmodel.cpp:563
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>Questo evento non ha alcun contenuto.</i>"
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6456,10 +6502,9 @@ msgid "React"
 msgstr "Reagisci"
 
 #: src/timeline/QuickActions.qml:81
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgid "Message menu"
-msgstr "Sorgente del messaggio"
+msgstr "Il menu Messaggio"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format
