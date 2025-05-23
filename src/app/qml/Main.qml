@@ -79,7 +79,7 @@ Kirigami.ApplicationWindow {
     }
 
     Loader {
-        active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
+        active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile && false
         sourceComponent: GlobalMenu {
             connection: root.connection
         }

@@ -47,6 +47,9 @@ if(ANDROID OR WIN32)
     set_source_files_properties(qml/ShareActionStub.qml PROPERTIES
         QT_QML_SOURCE_TYPENAME ShareAction
     )
+    set_source_files_properties(qml/GlobalMenuStub.qml PROPERTIES
+            QT_QML_SOURCE_TYPENAME GlobalMenu
+    )
 endif()
 
 ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
@@ -124,7 +127,10 @@ if(NOT ANDROID AND NOT WIN32)
         qml/EditMenu.qml
     )
 else()
-    qt_target_qml_sources(neochat QML_FILES qml/ShareActionStub.qml)
+    qt_target_qml_sources(neochat QML_FILES
+            qml/ShareActionStub.qml
+            qml/GlobalMenuStub.qml
+    )
 endif()
 
 if(WIN32)
