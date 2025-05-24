@@ -58,14 +58,12 @@ FormCard.FormCardPage {
         }
     }
 
-    FormCard.FormHeader {
-        title: i18n("Room Information")
-    }
-
     FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.gridUnit
+
         FormCard.FormTextFieldDelegate {
             id: roomNameField
-            label: i18n("Room name:")
+            label: i18nc("@label:textbox Room name", "Name:")
             text: room.name
             readOnly: !room.canSendState("m.room.name")
         }
@@ -74,7 +72,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextAreaDelegate {
             id: roomTopicField
-            label: i18n("Room topic:")
+            label: i18nc("@label:textobx Room topic", "Topic:")
             text: room.topic
             readOnly: !room.canSendState("m.room.topic")
             onTextChanged: roomTopicField.text = text
@@ -84,27 +82,16 @@ FormCard.FormCardPage {
             visible: !roomNameField.readOnly || !roomTopicField.readOnly
         }
 
-        FormCard.AbstractFormDelegate {
+        FormCard.FormButtonDelegate {
             visible: !roomNameField.readOnly || !roomTopicField.readOnly
-            background: null
-            contentItem: RowLayout {
-                Item {
-                    Layout.fillWidth: true
+            text: i18n("Save")
+            icon.name: "document-save-symbolic"
+            onClicked: {
+                if (room.name != roomNameField.text) {
+                    room.setName(roomNameField.text);
                 }
-                QQC2.Button {
-                    Layout.bottomMargin: Kirigami.Units.smallSpacing
-                    Layout.topMargin: Kirigami.Units.smallSpacing
-                    enabled: room.name !== roomNameField.text || room.topic !== roomTopicField.text
-                    text: i18n("Save")
-                    icon.name: "document-save-symbolic"
-                    onClicked: {
-                        if (room.name != roomNameField.text) {
-                            room.setName(roomNameField.text);
-                        }
-                        if (room.topic != roomTopicField.text) {
-                            room.setTopic(roomTopicField.text);
-                        }
-                    }
+                if (room.topic != roomTopicField.text) {
+                    room.setTopic(roomTopicField.text);
                 }
             }
         }
