@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-22 00:42+0000\n"
-"PO-Revision-Date: 2025-05-20 16:51+0200\n"
+"POT-Creation-Date: 2025-05-24 00:42+0000\n"
+"PO-Revision-Date: 2025-05-23 08:24+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1928,12 +1928,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Clés d'état"
 
-#: src/libneochat/accountmanager.cpp:126
+#: src/libneochat/accountmanager.cpp:124
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Impossible de trouver le jeton d'accès : peut-être a-t-il été effacé ?"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:128
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1941,7 +1941,7 @@ msgstr ""
 "L'accès au trousseau de clés a été refusé : veuillez autoriser NeoChat à "
 "lire le jeton d'accès."
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:131
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1950,7 +1950,7 @@ msgstr ""
 "Aucun trousseau de clés disponible : veuillez installer un trousseau de "
 "clés, par exemple, KWallet ou le trousseau de clés de GNOME sous Linux."
 
-#: src/libneochat/accountmanager.cpp:136
+#: src/libneochat/accountmanager.cpp:134
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Impossible de lire le jeton d'accès : %1"
@@ -6217,28 +6217,19 @@ msgid "Open Image"
 msgstr "Ouvrir une image"
 
 #: src/timeline/FileDelegateContextMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Open poll"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr "Ouvrir un sondage"
+msgstr "Ouvrir un fichier audio"
 
 #: src/timeline/FileDelegateContextMenu.qml:54
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr "Ouvrir un fichier"
+msgstr "Ouvrir un fichier vidéo"
 
 #: src/timeline/FileDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Ouvrir un fichier"
@@ -6250,28 +6241,22 @@ msgid "Save Image…"
 msgstr "Enregistrer une image…"
 
 #: src/timeline/FileDelegateContextMenu.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr "Enregistrer une image…"
+msgstr "Enregistrer l'audio sous..."
 
 #: src/timeline/FileDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr "Enregistrer une image…"
+msgstr "Enregistrer une vidéo…"
 
 #: src/timeline/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
-msgstr "Enregistrer une image…"
+msgstr "Enregistrer le fichier…"
 
 #: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
@@ -6280,26 +6265,22 @@ msgid "Copy Image"
 msgstr "Copier l'image"
 
 #: src/timeline/FileDelegateContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
-msgstr "Copier un lien"
+msgstr "Copier l'audio"
 
 #: src/timeline/FileDelegateContextMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
-msgstr "Afficher une vidéo"
+msgstr "Copier la vidéo"
 
 #: src/timeline/FileDelegateContextMenu.qml:94
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
-msgstr "Copier un lien"
+msgstr "Copier un fichier"
 
 #: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
@@ -6376,12 +6357,10 @@ msgid "Open Externally"
 msgstr "Ouvrir de façon externe"
 
 #: src/timeline/LocationComponent.qml:112
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Enter Full Screen"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr "Passer en plein écran"
+msgstr "Ouvrir en mode « Plein écran »"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
