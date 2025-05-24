@@ -587,6 +587,8 @@ public:
      */
     Q_INVOKABLE QString rootIdForThread(const QString &eventId) const;
 
+    static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
+
 private:
     bool m_visible = false;
 
@@ -618,6 +620,7 @@ private:
     void cleanupExtraEvent(const QString &eventId);
 
     std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
+    static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);

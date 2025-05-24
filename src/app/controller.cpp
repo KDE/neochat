@@ -99,6 +99,7 @@ Controller::Controller(QObject *parent)
     MessageModel::setHiddenFilter(hiddenEventFilter);
     RoomListModel::setHiddenFilter(hiddenEventFilter);
     RoomTreeModel::setHiddenFilter(hiddenEventFilter);
+    NeoChatRoom::setHiddenFilter(hiddenEventFilter);
 
     MediaSizeHelper::setMaxSize(NeoChatConfig::mediaMaxWidth(), NeoChatConfig::mediaMaxHeight());
     connect(NeoChatConfig::self(), &NeoChatConfig::MediaMaxWidthChanged, this, []() {

@@ -59,6 +59,10 @@
 
 using namespace Quotient;
 
+std::function<bool(const Quotient::RoomEvent *)> NeoChatRoom::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
+    return false;
+};
+
 NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinState)
     : Room(connection, std::move(roomId), joinState)
 {
@@ -369,7 +373,7 @@ const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> f
 
 void NeoChatRoom::cacheLastEvent()
 {
-    auto event = lastEvent();
+    auto event = lastEvent(m_hiddenFilter);
     if (event != nullptr) {
         auto &roomLastMessageProvider = RoomLastMessageProvider::self();
 
@@ -1716,6 +1720,11 @@ QString NeoChatRoom::rootIdForThread(const QString &eventId) const
     }
 #endif
     return rootId;
+}
+
+void NeoChatRoom::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
+{
+    NeoChatRoom::m_hiddenFilter = hiddenFilter;
 }
 
 #include "moc_neochatroom.cpp"
