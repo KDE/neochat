@@ -49,6 +49,7 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         ExportKeysDialog.qml
         RoomSortParameterDialog.qml
         RoomProfile.qml
+        RoomAdvancedPage.qml
     SOURCES
         colorschemer.cpp
         threepidaddhelper.cpp

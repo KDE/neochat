@@ -97,54 +97,6 @@ FormCard.FormCardPage {
         }
     }
 
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.gridUnit
-
-        FormCard.FormTextDelegate {
-            id: roomIdDelegate
-            text: i18n("Room ID")
-            description: room.id
-
-            contentItem.children: QQC2.Button {
-                visible: roomIdDelegate.hovered
-                text: i18n("Copy room ID to clipboard")
-                icon.name: "edit-copy"
-                display: QQC2.AbstractButton.IconOnly
-
-                onClicked: {
-                    Clipboard.saveText(room.id);
-                }
-
-                QQC2.ToolTip.text: text
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                QQC2.ToolTip.visible: hovered
-            }
-        }
-        FormCard.FormTextDelegate {
-            text: i18n("Room version")
-            description: room.version
-
-            contentItem.children: QQC2.Button {
-                visible: room.canSwitchVersions()
-                enabled: room.version < room.maxRoomVersion
-                text: i18n("Upgrade Room")
-                icon.name: "arrow-up-double"
-
-                onClicked: {
-                    if (room.canSwitchVersions()) {
-                        roomUpgradeDialog.currentRoomVersion = room.version;
-                        roomUpgradeDialog.open();
-                    }
-                }
-
-                QQC2.ToolTip {
-                    text: text
-                    delay: Kirigami.Units.toolTipDelay
-                }
-            }
-        }
-    }
-
     FormCard.FormHeader {
         title: i18n("Aliases")
     }
@@ -401,34 +353,5 @@ FormCard.FormCardPage {
         OpenFileDialog {
             parentWindow: root.Window.window
         }
-    }
-
-    property Kirigami.Dialog roomUpgradeDialog: Kirigami.Dialog {
-        id: roomUpgradeDialog
-
-        property var currentRoomVersion
-
-        width: Kirigami.Units.gridUnit * 16
-
-        title: i18n("Upgrade the Room")
-        ColumnLayout {
-            FormCard.FormSpinBoxDelegate {
-                id: spinBox
-                label: i18n("Select new version")
-                from: room.version
-                to: room.maxRoomVersion
-                value: room.version
-            }
-        }
-        customFooterActions: [
-            Kirigami.Action {
-                text: i18n("Confirm")
-                icon.name: "dialog-ok"
-                onTriggered: {
-                    room.switchVersion(spinBox.value);
-                    roomUpgradeDialog.close();
-                }
-            }
-        ]
     }
 }

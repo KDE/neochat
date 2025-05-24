@@ -89,6 +89,17 @@ KirigamiSettings.ConfigurationView {
                     room: root._room
                 };
             }
+        },
+        KirigamiSettings.ConfigurationModule {
+            moduleId: "advanced"
+            text: i18nc("@title", "Advanced")
+            icon.name: "document-properties-symbolic"
+            page: () => Qt.createComponent("org.kde.neochat.settings", "RoomAdvancedPage")
+            initialProperties: () => {
+                return {
+                    room: root._room
+                };
+            }
         }
     ]
 }
