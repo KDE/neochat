@@ -19,6 +19,11 @@ ColumnLayout {
      */
     required property NeoChatRoom room
 
+    /**
+     * @brief The canonical alias of the room, if it exists. Otherwise falls back to the first available alias.
+     */
+    readonly property var roomAlias: room.aliases[0]
+
     Layout.fillWidth: true
 
     RowLayout {
@@ -73,8 +78,8 @@ ColumnLayout {
                 Layout.fillWidth: true
                 font: Kirigami.Theme.smallFont
                 textFormat: TextEdit.PlainText
-                visible: root.room && root.room.canonicalAlias
-                text: root.room && root.room.canonicalAlias ? root.room.canonicalAlias : ""
+                visible: root.room && root.roomAlias
+                text: root.room && root.roomAlias ? root.roomAlias : ""
                 color: Kirigami.Theme.disabledTextColor
             }
         }
