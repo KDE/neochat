@@ -48,6 +48,7 @@ Delegates.RoundedItemDelegate {
 
     TapHandler {
         acceptedDevices: PointerDevice.TouchScreen
+        onTapped: root.selected()
         onLongPressed: root.contextMenuRequested()
     }
 
