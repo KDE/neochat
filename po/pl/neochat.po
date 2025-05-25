@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-24 00:42+0000\n"
+"POT-Creation-Date: 2025-05-25 00:43+0000\n"
 "PO-Revision-Date: 2025-02-23 12:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.12.1\n"
 
-#: src/app/controller.cpp:182
+#: src/app/controller.cpp:183
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +26,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Otrzymywanie powiadomień o nowych wiadomościach"
 
-#: src/app/controller.cpp:328
+#: src/app/controller.cpp:329
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Otrzymywanie powiadomień Push"
@@ -1645,17 +1644,17 @@ msgstr ""
 "Zniekształcony lub pusty ID Matriksa<br />%1 nie jest poprawnym "
 "identyfikatorem Matriksa"
 
-#: src/app/roommanager.cpp:417
+#: src/app/roommanager.cpp:415
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Nie udało się dołączyć do pokoju<br />%1"
 
-#: src/app/roommanager.cpp:441
+#: src/app/roommanager.cpp:439
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Poprosiłeś od dołączenie do '%1'"
 
-#: src/app/roommanager.cpp:445
+#: src/app/roommanager.cpp:443
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Nie udało się poprosić o dołączenie do pokoju<br />%1"
@@ -3057,12 +3056,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/libneochat/neochatroom.cpp:1195
+#: src/libneochat/neochatroom.cpp:1199
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/libneochat/neochatroom.cpp:1531 src/libneochat/neochatroom.cpp:1539
+#: src/libneochat/neochatroom.cpp:1535 src/libneochat/neochatroom.cpp:1543
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3208,7 +3207,7 @@ msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nie znaleziono żadnego publicznego pokoju"
 
-#: src/libneochat/qml/GroupChatDrawerHeader.qml:67
+#: src/libneochat/qml/GroupChatDrawerHeader.qml:72
 #: src/timeline/TimelineEndDelegate.qml:69
 #, kde-format
 msgid "No name"
@@ -3811,13 +3810,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Room Address"
 msgstr "Skopiuj adres odnośnika"
 
-#: src/rooms/RoomContextMenu.qml:138
+#: src/rooms/RoomContextMenu.qml:143
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Room Settings"
 msgstr "Ustawienia pokoju"
 
-#: src/rooms/RoomContextMenu.qml:150
+#: src/rooms/RoomContextMenu.qml:155
 #, kde-format
 msgid "Leave Room"
 msgstr "Opuść pokój"
@@ -3996,7 +3995,7 @@ msgstr "Praca"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:98
+#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
 #, kde-format
 msgid "Save"
 msgstr "Zapisz"
@@ -5309,7 +5308,7 @@ msgstr "Zmień poziom uprawnień użytkownika"
 msgid "New power level"
 msgstr "Nowy poziom uprawnień"
 
-#: src/settings/PowerLevelDialog.qml:43 src/settings/RoomGeneralPage.qml:438
+#: src/settings/PowerLevelDialog.qml:43
 #, kde-format
 msgid "Confirm"
 msgstr "Potwierdź"
@@ -5325,102 +5324,136 @@ msgstr "Ustawienia powiadomień pokoju"
 msgid "Follow global setting"
 msgstr "Zgodnie z ustawieniami ogólnymi"
 
+#: src/settings/RoomAdvancedPage.qml:21
+#, kde-format
+msgctxt "@window:title"
+msgid "Advanced"
+msgstr ""
+
+#: src/settings/RoomAdvancedPage.qml:28
+#, fuzzy, kde-format
+#| msgid "Room ID"
+msgctxt "@info:label"
+msgid "Room ID"
+msgstr "ID pokoju"
+
+#: src/settings/RoomAdvancedPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action:button"
+msgid "Copy room ID to clipboard"
+msgstr "Skopiuj ID pokoju do schowka"
+
+#: src/settings/RoomAdvancedPage.qml:47
+#, fuzzy, kde-format
+#| msgid "Room version"
+msgctxt "@info:label"
+msgid "Room Version"
+msgstr "Wersja pokoju"
+
+#: src/settings/RoomAdvancedPage.qml:53
+#, fuzzy, kde-format
+#| msgid "Upgrade Room"
+msgctxt "@action:button"
+msgid "Upgrade Room"
+msgstr "Uaktualnij pokój"
+
+#: src/settings/RoomAdvancedPage.qml:78
+#, fuzzy, kde-format
+#| msgid "Upgrade the Room"
+msgctxt "@title"
+msgid "Upgrade the Room"
+msgstr "Uaktualnij pokój"
+
+#: src/settings/RoomAdvancedPage.qml:82
+#, fuzzy, kde-format
+#| msgid "Select new version"
+msgctxt "@label:spinbox"
+msgid "Select new version"
+msgstr "Wybierz nową wersję"
+
+#: src/settings/RoomAdvancedPage.qml:90
+#, fuzzy, kde-format
+#| msgid "Confirm"
+msgctxt "@action:button"
+msgid "Confirm"
+msgstr "Potwierdź"
+
 #: src/settings/RoomGeneralPage.qml:37
 #, kde-format
 msgid "Update avatar"
 msgstr "Uaktualnij awatar"
 
-#: src/settings/RoomGeneralPage.qml:62
-#, kde-format
-msgid "Room Information"
-msgstr "Szczegóły pokoju"
+#: src/settings/RoomGeneralPage.qml:66
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgctxt "@label:textbox Room name"
+msgid "Name:"
+msgstr "Nazwa:"
 
-#: src/settings/RoomGeneralPage.qml:68
-#, kde-format
-msgid "Room name:"
-msgstr "Nazwa pokoju:"
+#: src/settings/RoomGeneralPage.qml:75
+#, fuzzy, kde-format
+#| msgid "Topic:"
+msgctxt "@label:textobx Room topic"
+msgid "Topic:"
+msgstr "Temat:"
 
-#: src/settings/RoomGeneralPage.qml:77
-#, kde-format
-msgid "Room topic:"
-msgstr "Temat pokoju:"
-
-#: src/settings/RoomGeneralPage.qml:118
-#, kde-format
-msgid "Room ID"
-msgstr "ID pokoju"
-
-#: src/settings/RoomGeneralPage.qml:123
-#, kde-format
-msgid "Copy room ID to clipboard"
-msgstr "Skopiuj ID pokoju do schowka"
-
-#: src/settings/RoomGeneralPage.qml:137
-#, kde-format
-msgid "Room version"
-msgstr "Wersja pokoju"
-
-#: src/settings/RoomGeneralPage.qml:143
-#, kde-format
-msgid "Upgrade Room"
-msgstr "Uaktualnij pokój"
-
-#: src/settings/RoomGeneralPage.qml:162
+#: src/settings/RoomGeneralPage.qml:101
 #, kde-format
 msgid "Aliases"
 msgstr "Inne nazwy"
 
-#: src/settings/RoomGeneralPage.qml:167
+#: src/settings/RoomGeneralPage.qml:106
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Nie ustawiono kanonicznego aliasu"
 
-#: src/settings/RoomGeneralPage.qml:182
+#: src/settings/RoomGeneralPage.qml:121
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Uczyń ten alias kanonicznym aliasem pokoju"
 
-#: src/settings/RoomGeneralPage.qml:197
+#: src/settings/RoomGeneralPage.qml:136
 #, kde-format
 msgid "Delete alias"
 msgstr "Usuń alias"
 
-#: src/settings/RoomGeneralPage.qml:221
+#: src/settings/RoomGeneralPage.qml:160
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/settings/RoomGeneralPage.qml:238
+#: src/settings/RoomGeneralPage.qml:177
 #, kde-format
 msgid "Add new alias"
 msgstr "Dodaj nowy alias"
 
-#: src/settings/RoomGeneralPage.qml:258
+#: src/settings/RoomGeneralPage.qml:197
 #, kde-format
 msgid "URL Previews"
 msgstr "Podglądy adresów URL"
 
-#: src/settings/RoomGeneralPage.qml:262
+#: src/settings/RoomGeneralPage.qml:201
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Domyślnie włącz podglądy URL dla członków pokoju"
 
-#: src/settings/RoomGeneralPage.qml:271
+#: src/settings/RoomGeneralPage.qml:210
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Włącz podglądy adresów URL"
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:212
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Podglądy URL są domyślnie włączone w tym pokoju"
 
-#: src/settings/RoomGeneralPage.qml:273
+#: src/settings/RoomGeneralPage.qml:212
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
 
-#: src/settings/RoomGeneralPage.qml:285
+#: src/settings/RoomGeneralPage.qml:224
 #, fuzzy, kde-format
 #| msgid "URL previews are disabled by default in this room"
 msgctxt ""
@@ -5429,71 +5462,61 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
 
-#: src/settings/RoomGeneralPage.qml:289
+#: src/settings/RoomGeneralPage.qml:228
 #, kde-format
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:297
+#: src/settings/RoomGeneralPage.qml:236
 #, kde-format
 msgid "Official Parent Spaces"
 msgstr "Oficjalne przestrzenie nadrzędne"
 
-#: src/settings/RoomGeneralPage.qml:330
+#: src/settings/RoomGeneralPage.qml:269
 #, kde-format
 msgid "Canonical"
 msgstr "Kanoniczny"
 
-#: src/settings/RoomGeneralPage.qml:337
+#: src/settings/RoomGeneralPage.qml:276
 #, kde-format
 msgid "Make canonical parent"
 msgstr "Uczyń kanoniczną nadrzędną"
 
-#: src/settings/RoomGeneralPage.qml:349
+#: src/settings/RoomGeneralPage.qml:288
 #, kde-format
 msgid "Remove parent"
 msgstr "Usuń nadrzędnego"
 
-#: src/settings/RoomGeneralPage.qml:362
+#: src/settings/RoomGeneralPage.qml:301
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Ten pokój nie ma żadnej oficjalnej przestrzeni nadrzędnej."
 
-#: src/settings/RoomGeneralPage.qml:366
+#: src/settings/RoomGeneralPage.qml:305
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Dodaj nową oficjalną nadrzędną"
 
-#: src/settings/RoomGeneralPage.qml:383 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:322 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "W tym pokoju nadal toczona jest rozmowa."
 
-#: src/settings/RoomGeneralPage.qml:387 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:326 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Zobacz starsze wiadomości…"
 
-#: src/settings/RoomGeneralPage.qml:399 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:338 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ten pokój został zastąpiony."
 
-#: src/settings/RoomGeneralPage.qml:403 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:342 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Zobacz nowy pokój…"
-
-#: src/settings/RoomGeneralPage.qml:426
-#, kde-format
-msgid "Upgrade the Room"
-msgstr "Uaktualnij pokój"
-
-#: src/settings/RoomGeneralPage.qml:430
-#, kde-format
-msgid "Select new version"
-msgstr "Wybierz nową wersję"
 
 #: src/settings/RoomProfile.qml:30
 #, kde-format
@@ -5690,6 +5713,12 @@ msgstr "Uprawnienia"
 msgctxt "@title"
 msgid "Profile"
 msgstr "Profil"
+
+#: src/settings/RoomSettingsView.qml:95
+#, kde-format
+msgctxt "@title"
+msgid "Advanced"
+msgstr ""
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6639,6 +6668,15 @@ msgstr "Głośność"
 msgid "Maximize"
 msgstr "Zmaksymalizuj"
 
+#~ msgid "Room Information"
+#~ msgstr "Szczegóły pokoju"
+
+#~ msgid "Room name:"
+#~ msgstr "Nazwa pokoju:"
+
+#~ msgid "Room topic:"
+#~ msgstr "Temat pokoju:"
+
 #~ msgid "New Space Information"
 #~ msgstr "Szczegóły o nowej przestrzeni"
 
@@ -6653,9 +6691,6 @@ msgstr "Zmaksymalizuj"
 
 #~ msgid "Space"
 #~ msgstr "Przestrzeń"
-
-#~ msgid "Topic:"
-#~ msgstr "Temat:"
 
 #~ msgctxt "@action:button"
 #~ msgid "Create Space"
