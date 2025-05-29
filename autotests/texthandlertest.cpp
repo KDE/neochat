@@ -264,6 +264,8 @@ void TextHandlerTest::sendCustomTags_data()
     QTest::newRow("inside code block spoiler") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
     QTest::newRow("outside code block spoiler") << u"||apple|| ```||banana||``` ||pear||"_s
                                                 << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
+    QTest::newRow("complex spoiler") << u"Between `formFactor == Horizontal||Vertical` and `location == top||left||bottom||right`"_s
+                                     << u"Between <code>formFactor == Horizontal||Vertical</code> and <code>location == top||left||bottom||right</code>"_s;
 
     // strikethrough
     QTest::newRow("incomplete strikethrough") << u"~~test"_s << u"~~test"_s;

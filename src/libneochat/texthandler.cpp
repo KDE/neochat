@@ -718,10 +718,15 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
                 break;
             }
 
-            // If we're inside a code block, ignore and move the search past the code block
+            // If we're inside a code block, ignore and move the search past this code block
             const bool validCodeBlock = beginCodeBlockTag != -1 && endCodeBlockTag != -1;
             if (validCodeBlock && pos > beginCodeBlockTag && pos < endCodeBlockTag) {
-                lastPos = endCodeBlockTag + 5;
+                lastPos = endCodeBlockTag + 7;
+
+                // since we moved past this code block, make sure to update the indices for the next one
+                beginCodeBlockTag = buffer.indexOf(u"<code>"_s, lastPos + 1);
+                endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
+
                 continue;
             }
 
@@ -731,20 +736,24 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
             }
 
             // Replace the beginning syntax
-            buffer.replace(pos, 2, beginTag);
+            buffer.replace(pos, syntax.length(), beginTag);
 
             // Update positions and re-search since the underlying text buffer changed
             nextPos = buffer.indexOf(syntax, pos + 1);
-            beginCodeBlockTag = buffer.indexOf(u"<code>"_s, pos + 1);
-            endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
 
             // Now replace the end syntax
-            buffer.replace(nextPos, 2, endTag);
+            buffer.replace(nextPos, syntax.length(), endTag);
+
+            // If we have begun checking spoilers past our current code block, make sure we're in the next one (if it exists)
+            if (nextPos > endCodeBlockTag) {
+                beginCodeBlockTag = buffer.indexOf(u"<code>"_s, nextPos + 1);
+                endCodeBlockTag = buffer.indexOf(u"</code>"_s, beginCodeBlockTag + 1);
+            }
 
             // Move the search pointer past this point.
             // Not technically needed in most cases since we replaced the original tag, but needed for code blocks
             // which still have the characters.
-            lastPos = nextPos + 2;
+            lastPos = nextPos + syntax.length();
         }
     };
 
