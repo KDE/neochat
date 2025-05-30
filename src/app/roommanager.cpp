@@ -540,7 +540,7 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
         const auto &lastRoom = m_lastRoomConfig.readEntry(configSpaceId, QString());
         if (lastRoom.isEmpty()) {
-            if (spaceId != u"DM"_s) {
+            if (spaceId != u"DM"_s && spaceId != u"Home"_s) {
                 resolveResource(spaceId, "no_join"_L1);
             }
         } else {
