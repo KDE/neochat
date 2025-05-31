@@ -13,6 +13,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         LoadingDelegate.qml
         PredecessorDelegate.qml
         ReadMarkerDelegate.qml
+        SpacerDelegate.qml
         StateDelegate.qml
         SuccessorDelegate.qml
         TimelineEndDelegate.qml

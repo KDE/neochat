@@ -81,12 +81,14 @@ void TimelineBeginningModel::setRoom(NeoChatRoom *room)
 
 QVariant TimelineBeginningModel::data(const QModelIndex &idx, int role) const
 {
-    Q_UNUSED(idx)
     if (m_room == nullptr) {
         return {};
     }
 
     if (role == DelegateTypeRole) {
+        if (idx.row() == 0) {
+            return DelegateType::Spacer;
+        }
         return DelegateType::Successor;
     }
     return {};
@@ -98,7 +100,7 @@ int TimelineBeginningModel::rowCount(const QModelIndex &parent) const
     if (m_room == nullptr) {
         return 1;
     }
-    return m_room->successorId().isEmpty() ? 0 : 1;
+    return m_room->successorId().isEmpty() ? 1 : 2;
 }
 
 QHash<int, QByteArray> TimelineBeginningModel::roleNames() const

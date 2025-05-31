@@ -63,6 +63,11 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: DelegateType.Spacer
+        delegate: SpacerDelegate {}
+    }
+
+    DelegateChoice {
         roleValue: DelegateType.Other
         delegate: NeoChatConfig.showAllEvents ? hiddenDelegate : emptyDelegate
 
