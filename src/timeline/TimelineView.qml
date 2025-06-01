@@ -68,7 +68,6 @@ QQC2.ScrollView {
         verticalLayoutDirection: ListView.BottomToTop
         clip: true
         interactive: Kirigami.Settings.isMobile
-        bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
         model: root.messageFilterModel
 

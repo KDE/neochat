@@ -42,6 +42,7 @@ public:
         TimelineEnd, /**< A delegate to inform that all messages are loaded. */
         Predecessor, /**< A delegate to show a room predecessor. */
         Successor, /**< A delegate to show a room successor. */
+        Spacer, /**< A spacer because ListView.positionViewAtBeginning() is stupid and ignores white space. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(Type);
