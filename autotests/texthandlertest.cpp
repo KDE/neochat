@@ -61,6 +61,7 @@ private Q_SLOTS:
     void receiveRichStrikethrough();
     void receiveRichtextIn();
     void receiveRichMxcUrl();
+    void receiveRichPlainUrl_data();
     void receiveRichPlainUrl();
     void receiveRichEdited_data();
     void receiveRichEdited();
@@ -450,6 +451,32 @@ void TextHandlerTest::receiveRichMxcUrl()
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(0).get()), testOutputString);
 }
 
+void TextHandlerTest::receiveRichPlainUrl_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+
+    // This is an actual link that caused trouble which is why it's so long. Keeping
+    // so we can confirm consistent behaviour for complex urls.
+    QTest::addRow("link 1")
+        << u"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s
+        << u"<a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
+
+    // Another real case. The linkification wasn't handling it when a single link
+    // contains what looks like and email. It was broken into 3 but needs to
+    // be just single link.
+    QTest::addRow("link 2")
+        << u"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/"_s
+        << u"<a href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\">https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>"_s;
+
+    QTest::addRow("email") << uR"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)"_s
+                           << uR"(<a href="mailto:email@example.com">email@example.com</a> <a href="mailto:email@example.com">Link already rich</a>)"_s;
+    QTest::addRow("mxid")
+        << u"@user:kde.org <a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a>"_s
+        << u"<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>"_s;
+    QTest::addRow("mxid with prefix") << u"a @user:kde.org b"_s << u"a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b"_s;
+}
+
 /**
  * For when your rich input string has a plain text url left in.
  *
@@ -458,46 +485,13 @@ void TextHandlerTest::receiveRichMxcUrl()
  */
 void TextHandlerTest::receiveRichPlainUrl()
 {
-    // This is an actual link that caused trouble which is why it's so long. Keeping
-    // so we can confirm consistent behaviour for complex urls.
-    const QString testInputStringLink1 =
-        u"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
-    const QString testOutputStringLink1 =
-        u"<a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
-
-    // Another real case. The linkification wasn't handling it when a single link
-    // contains what looks like and email. It was been broken into 3 but needs to
-    // be just single link.
-    const QString testInputStringLink2 = u"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/"_s;
-    const QString testOutputStringLink2 =
-        u"<a href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\">https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>"_s;
-
-    QString testInputStringEmail = uR"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)"_s;
-    QString testOutputStringEmail = uR"(<a href="mailto:email@example.com">email@example.com</a> <a href="mailto:email@example.com">Link already rich</a>)"_s;
-
-    QString testInputStringMxId = u"@user:kde.org <a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a>"_s;
-    QString testOutputStringMxId =
-        u"<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>"_s;
-
-    QString testInputStringMxIdWithPrefix = u"a @user:kde.org b"_s;
-    QString testOutputStringMxIdWithPrefix = u"a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b"_s;
+    QFETCH(QString, input);
+    QFETCH(QString, output);
 
     TextHandler testTextHandler;
-    testTextHandler.setData(testInputStringLink1);
+    testTextHandler.setData(input);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringLink1);
-
-    testTextHandler.setData(testInputStringLink2);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringLink2);
-
-    testTextHandler.setData(testInputStringEmail);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringEmail);
-
-    testTextHandler.setData(testInputStringMxId);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxId);
-
-    testTextHandler.setData(testInputStringMxIdWithPrefix);
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxIdWithPrefix);
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), output);
 }
 
 void TextHandlerTest::receiveRichEdited_data()
