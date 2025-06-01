@@ -28,6 +28,14 @@ Kirigami.Page {
         placeholderText: root.placeholder
         anchors.fill: parent
         wrapMode: TextEdit.Wrap
+        focus: true
+
+        Keys.onReturnPressed: event => {
+            if (event.modifiers & Qt.ControlModifier) {
+                root.accepted(reason.text);
+                root.closeDialog();
+            }
+        }
 
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
@@ -50,6 +58,7 @@ Kirigami.Page {
                 }
             }
             QQC2.Button {
+                icon.name: "dialog-cancel-symbolic"
                 text: i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
                 onClicked: root.closeDialog()
