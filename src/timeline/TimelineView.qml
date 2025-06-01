@@ -59,7 +59,6 @@ QQC2.ScrollView {
         id: messageListView
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
-        readonly property var sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : undefined
 
         // Spacing needs to be zero or the top sectionLabel overlay will be disrupted.
         // This is because itemAt returns null in the spaces.
@@ -88,11 +87,6 @@ QQC2.ScrollView {
             repeat: true
         }
 
-        // HACK: The view should do this automatically but doesn't.
-        onAtYBeginningChanged: if (atYBeginning && root.timelineModel.timelineMessageModel.canFetchMore(root.timelineModel.index(0, 0))) {
-            root.timelineModel.timelineMessageModel.fetchMore(root.timelineModel.index(0, 0));
-        }
-
         Timer {
             id: roomChangingTimer
             interval: 1000
@@ -112,60 +106,6 @@ QQC2.ScrollView {
                 root.hasScrolledUpBefore = true;
             }
         }
-
-        // Not rendered because the sections are part of the MessageDelegate.qml, this is only so that items have the section property available for use by sectionBanner.
-        // This is due to the fact that the ListView verticalLayout is BottomToTop.
-        // This also flips the sections which would appear at the bottom but for a timeline they still need to be at the top (bottom from the qml perspective).
-        // There is currently no option to put section headings at the bottom in qml.
-        section.property: "section"
-
-        function sectionBannerIndex() {
-            let center = messageListView.x + messageListView.width / 2;
-            let yStart = messageListView.y + messageListView.contentY;
-            let index = -1;
-            let i = 0;
-            while (index === -1 && i < 100) {
-                index = messageListView.indexAt(center, yStart + i);
-                i++;
-            }
-            return index;
-        }
-
-        footer: Item {
-            z: 3
-            width: root.width
-            visible: !NeoChatConfig.blur
-
-            SectionDelegate {
-                id: sectionDelegate
-                anchors.leftMargin: state === "alignLeft" ? Kirigami.Units.largeSpacing : 0
-                state: NeoChatConfig.compactLayout ? "alignLeft" : "alignCenter"
-                // Align left when in compact mode and center when using bubbles
-                states: [
-                    State {
-                        name: "alignLeft"
-                        AnchorChanges {
-                            target: sectionDelegate
-                            anchors.horizontalCenter: undefined
-                            anchors.left: parent ? parent.left : undefined
-                        }
-                    },
-                    State {
-                        name: "alignCenter"
-                        AnchorChanges {
-                            target: sectionDelegate
-                            anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
-                            anchors.left: undefined
-                        }
-                    }
-                ]
-
-                width: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.timelineWidth : 0
-                labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
-                colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
-            }
-        }
-        footerPositioning: ListView.OverlayHeader
 
         delegate: EventDelegate {
             room: root.currentRoom

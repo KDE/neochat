@@ -111,7 +111,7 @@ public:
     /**
      * @brief Get the row number of the given event ID in the model.
      */
-    Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
+    Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventId) const;
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
@@ -122,6 +122,11 @@ Q_SIGNALS:
      * @brief Emitted when the room is changed.
      */
     void roomChanged();
+
+    /**
+     * @brief Emitted when the model has been reset.
+     */
+    void modelResetComplete();
 
     /**
      * @brief A signal to tell the MessageModel that a new event has been added.

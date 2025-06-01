@@ -7,7 +7,7 @@
 #include <QVariant>
 
 #include "enums/delegatetype.h"
-#include "timelinemessagemodel.h"
+#include "models/timelinemodel.h"
 
 using namespace Quotient;
 
@@ -19,6 +19,10 @@ MessageFilterModel::MessageFilterModel(QObject *parent, QAbstractItemModel *sour
 {
     Q_ASSERT(sourceModel);
     setSourceModel(sourceModel);
+
+    if (auto model = dynamic_cast<TimelineModel *>(sourceModel)) {
+        connect(model->timelineMessageModel(), &TimelineMessageModel::modelResetComplete, this, &MessageFilterModel::modelResetComplete);
+    }
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const

@@ -6,8 +6,7 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
-#include "timelinemessagemodel.h"
-#include "timelinemodel.h"
+#include "models/timelinemessagemodel.h"
 
 /**
  * @class MessageFilterModel
@@ -60,6 +59,12 @@ public:
 
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);
+
+Q_SIGNALS:
+    /**
+     * @brief Emitted when the model has been reset.
+     */
+    void modelResetComplete();
 
 private:
     static bool m_showAllEvents;

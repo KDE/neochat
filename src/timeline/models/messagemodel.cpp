@@ -44,6 +44,7 @@ MessageModel::MessageModel(QObject *parent)
     connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
         beginResetModel();
         endResetModel();
+        Q_EMIT modelResetComplete();
     });
 }
 
@@ -67,6 +68,7 @@ void MessageModel::setRoom(NeoChatRoom *room)
     }
     Q_EMIT roomChanged();
     endResetModel();
+    Q_EMIT modelResetComplete();
 }
 
 int MessageModel::timelineServerIndex() const
@@ -342,15 +344,15 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     return roles;
 }
 
-int MessageModel::eventIdToRow(const QString &eventID) const
+int MessageModel::eventIdToRow(const QString &eventId) const
 {
     if (m_room == nullptr) {
         return -1;
     }
 
-    const auto it = m_room->findInTimeline(eventID);
+    const auto it = m_room->findInTimeline(eventId);
     if (it == m_room->historyEdge()) {
-        // qWarning() << "Trying to find inexistent event:" << eventID;
+        qWarning() << "Trying to find non-existent event:" << eventId;
         return -1;
     }
     return it - m_room->messageEvents().rbegin() + timelineServerIndex();
@@ -466,6 +468,7 @@ void MessageModel::clearModel()
         m_room->disconnect(this);
         m_room = nullptr;
         endResetModel();
+        Q_EMIT modelResetComplete();
 
         // Because we don't want any of the object deleted before the model is cleared.
         oldRoom->setVisible(false);
