@@ -138,7 +138,7 @@ FormCard.FormCardPage {
             icon.name: "document-save-symbolic"
             onClicked: {
                 if (!root.connection.setAvatar(avatar.source)) {
-                    showPassiveNotification("The Avatar could not be set");
+                    (root.Window.window as Kirigami.ApplicationWindow).showPassiveNotification("The Avatar could not be set");
                 }
                 if (root.connection.localUser.displayName !== name.text) {
                     root.connection.localUser.rename(name.text);
