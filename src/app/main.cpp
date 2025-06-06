@@ -138,6 +138,11 @@ int main(int argc, char *argv[])
     font.setHintingPreference(QFont::PreferNoHinting);
     app.setFont(font);
 #endif
+
+#ifdef Q_OS_MACOS
+    QApplication::setStyle(u"breeze"_s);
+#endif
+
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
 
     QGuiApplication::setOrganizationName("KDE"_L1);
