@@ -33,7 +33,7 @@ ColumnLayout {
         Layout.fillWidth: true
 
         name: root.invitingMember.displayName
-        source: root.invitingMember.avatarUrl
+        source: NeoChatConfig.hideImages ? undefined : root.invitingMember.avatarUrl
         color: root.invitingMember.color
     }
 
