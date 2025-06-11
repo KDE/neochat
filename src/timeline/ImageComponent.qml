@@ -54,6 +54,24 @@ Item {
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
 
+    QQC2.Button {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        visible: !_private.hideImage
+        icon.name: "view-hidden"
+        text: i18nc("@action:button", "Hide Image")
+        display: QQC2.Button.IconOnly
+        z: 10
+        onClicked: {
+            _private.hideImage = true;
+            Controller.markImageHidden(root.eventId)
+        }
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
+
     Loader {
         id: imageLoader
 
@@ -103,7 +121,7 @@ Item {
     Rectangle {
         anchors.fill: parent
 
-        visible: _private.imageItem.status !== Image.Ready
+        visible: _private.imageItem.status !== Image.Ready || _private.hideImage
 
         color: "#BB000000"
 

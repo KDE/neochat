@@ -94,7 +94,7 @@ Video {
         },
         State {
             name: "downloading"
-            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed
+            when: root.fileTransferInfo.active && !root.fileTransferInfo.completed && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
                 target: downloadBar
                 visible: true
@@ -102,7 +102,7 @@ Video {
         },
         State {
             name: "paused"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
                 target: videoControls
                 stateVisible: true
@@ -118,7 +118,7 @@ Video {
         },
         State {
             name: "playing"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
                 target: videoControls
                 stateVisible: true
@@ -131,7 +131,7 @@ Video {
         },
         State {
             name: "stopped"
-            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState
+            when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
                 target: videoControls
                 stateVisible: true
@@ -177,6 +177,24 @@ Video {
                 root.pause();
             }
         }
+    }
+
+    QQC2.Button {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        visible: root.state !== "hidden"
+        icon.name: "view-hidden"
+        text: i18nc("@action:button", "Hide Image")
+        display: QQC2.Button.IconOnly
+        z: 10
+        onClicked: {
+            root.state = "hidden"
+            Controller.markImageHidden(root.eventId)
+        }
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
     Image {

@@ -99,6 +99,7 @@ public:
 
     Q_INVOKABLE bool isImageShown(const QString &eventId);
     Q_INVOKABLE void markImageShown(const QString &eventId);
+    Q_INVOKABLE void markImageHidden(const QString &eventId);
 
 private:
     explicit Controller(QObject *parent = nullptr);

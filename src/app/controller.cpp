@@ -407,4 +407,9 @@ void Controller::markImageShown(const QString &eventId)
     m_shownImages.append(eventId);
 }
 
+void Controller::markImageHidden(const QString &eventId)
+{
+    m_shownImages.removeAll(eventId);
+}
+
 #include "moc_controller.cpp"
