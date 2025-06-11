@@ -41,22 +41,8 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Image
-        delegate: Image {
-            id: image
-
-            required property var mediaInfo
-
-            Layout.maximumWidth: mediaSizeHelper.currentSize.width
-            Layout.maximumHeight: mediaSizeHelper.currentSize.height
-            source: image.mediaInfo.source
-
-            MediaSizeHelper {
-                id: mediaSizeHelper
-                contentMaxWidth: Message.maxContentWidth
-                contentMaxHeight: Kirigami.Units.gridUnit * 5
-                mediaWidth: image.mediaInfo.width ?? 0
-                mediaHeight: image.mediaInfo.height ?? 0
-            }
+        delegate: ImageComponent {
+            contentMaxHeight: Kirigami.Units.gridUnit * 5
         }
     }
 

@@ -46,6 +46,11 @@ Item {
      */
     required property var fileTransferInfo
 
+    /**
+     * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
+     */
+    property int contentMaxHeight: undefined
+
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
 
@@ -164,6 +169,7 @@ Item {
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
+        contentMaxHeight: root.contentMaxHeight
         mediaWidth: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.width ?? 0)
         mediaHeight: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.height ?? 0)
     }
