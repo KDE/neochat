@@ -557,7 +557,7 @@ public:
      *          responsibility of the caller to ensure that they only ask for objects
      *          for real senders.
      */
-    NeochatRoomMember *qmlSafeMember(const QString &memberId);
+    Q_INVOKABLE NeochatRoomMember *qmlSafeMember(const QString &memberId);
 
     /**
      * @brief Pin a message in the room.

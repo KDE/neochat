@@ -16,7 +16,7 @@ ColumnLayout {
     id: root
 
     required property NeoChatRoom currentRoom
-    readonly property var invitingMember: currentRoom.member(currentRoom.invitingUserId)
+    readonly property var invitingMember: currentRoom.qmlSafeMember(currentRoom.invitingUserId)
     readonly property string inviteTimestamp: root.currentRoom.inviteTimestamp.toLocaleString(Qt.locale(), Locale.ShortFormat)
 
     spacing: Kirigami.Units.smallSpacing
