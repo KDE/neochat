@@ -49,7 +49,6 @@
 #include "blurhashimageprovider.h"
 #include "colorschemer.h"
 #include "controller.h"
-#include "logger.h"
 #include "login.h"
 #include "registration.h"
 #include "roommanager.h"
@@ -181,8 +180,6 @@ int main(int argc, char *argv[])
 #if __has_include("KCrash")
     KCrash::initialize();
 #endif
-
-    initLogging();
 
     Connection::setEncryptionDefault(true);
     Connection::setDirectChatEncryptionDefault(true);

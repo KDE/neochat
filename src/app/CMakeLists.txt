@@ -20,8 +20,6 @@ add_library(neochat STATIC
     windowcontroller.h
     models/serverlistmodel.cpp
     models/serverlistmodel.h
-    logger.cpp
-    logger.h
     models/notificationsmodel.cpp
     models/notificationsmodel.h
     proxycontroller.cpp
