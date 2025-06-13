@@ -108,6 +108,7 @@ RowLayout {
                 text: i18n("Switch Account")
                 icon.name: "system-switch-user"
                 shortcut: "Ctrl+U"
+                visible: AccountRegistry.accountCount > 1
                 onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
                     connection: root.connection
                 }).open();
