@@ -105,7 +105,7 @@ RowLayout {
 
         actions: [
             Kirigami.Action {
-                text: i18n("Switch User")
+                text: i18n("Switch Account")
                 icon.name: "system-switch-user"
                 shortcut: "Ctrl+U"
                 onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
