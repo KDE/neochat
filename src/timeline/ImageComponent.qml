@@ -49,7 +49,7 @@ Item {
     /**
      * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
      */
-    property int contentMaxHeight: undefined
+    property var contentMaxHeight: undefined
 
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
