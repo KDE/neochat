@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as Components
 
+import org.kde.neochat
 import org.kde.neochat.libneochat
 
 Item {
