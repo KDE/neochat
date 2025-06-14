@@ -124,6 +124,7 @@ Q_SIGNALS:
 
 private:
     QString m_pollStartId;
+    QPointer<NeoChatRoom> m_room;
 
     void updatePoll(Quotient::RoomEventsRange events);
 

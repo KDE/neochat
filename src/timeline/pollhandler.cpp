@@ -17,8 +17,9 @@
 using namespace Quotient;
 
 PollHandler::PollHandler(NeoChatRoom *room, const QString &pollStartId)
-    : QObject(room)
+    : QObject(nullptr)
     , m_pollStartId(pollStartId)
+    , m_room(room)
 {
     Q_ASSERT(room != nullptr);
     Q_ASSERT(!pollStartId.isEmpty());
@@ -32,10 +33,7 @@ PollHandler::PollHandler(NeoChatRoom *room, const QString &pollStartId)
 
 void PollHandler::updatePoll(Quotient::RoomEventsRange events)
 {
-    // This function will never be called if the PollHandler was not initialized with
-    // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
-    const auto room = dynamic_cast<NeoChatRoom *>(parent());
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return;
     }
@@ -46,15 +44,12 @@ void PollHandler::updatePoll(Quotient::RoomEventsRange events)
 
 void PollHandler::checkLoadRelations()
 {
-    // This function will never be called if the PollHandler was not initialized with
-    // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    const auto pollStartEvent = room->getEvent(m_pollStartId).first;
+    const auto pollStartEvent = m_room->getEvent(m_pollStartId).first;
     if (pollStartEvent == nullptr) {
         return;
     }
 
-    auto job = room->connection()->callApi<GetRelatingEventsJob>(room->id(), pollStartEvent->id());
+    auto job = m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id());
     connect(job, &BaseJob::success, this, [this, job]() {
         for (const auto &event : job->chunk()) {
             handleEvent(event.get());
@@ -64,10 +59,7 @@ void PollHandler::checkLoadRelations()
 
 void PollHandler::handleEvent(Quotient::RoomEvent *event)
 {
-    // This function will never be called if the PollHandler was not initialized with
-    // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
-    const auto room = dynamic_cast<NeoChatRoom *>(parent());
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return;
     }
@@ -78,7 +70,7 @@ void PollHandler::handleEvent(Quotient::RoomEvent *event)
             return;
         }
 
-        auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
+        auto plEvent = m_room->currentState().get<RoomPowerLevelsEvent>();
         if (!plEvent) {
             return;
         }
@@ -115,10 +107,7 @@ void PollHandler::handleResponse(const Quotient::PollResponseEvent *event)
         && (!m_hasEnded || event->originTimestamp() < m_endedTimestamp)) {
         m_selectionTimestamps[event->senderId()] = event->originTimestamp();
 
-        // This function will never be called if the PollHandler was not initialized with
-        // a NeoChatRoom as parent and a PollStartEvent so no need to null check.
-        auto room = dynamic_cast<NeoChatRoom *>(parent());
-        const auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+        const auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
         if (pollStartEvent == nullptr) {
             return;
         }
@@ -135,16 +124,15 @@ void PollHandler::handleResponse(const Quotient::PollResponseEvent *event)
 
 NeoChatRoom *PollHandler::room() const
 {
-    return dynamic_cast<NeoChatRoom *>(parent());
+    return m_room.get();
 }
 
 QString PollHandler::question() const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (!m_room) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
@@ -153,11 +141,10 @@ QString PollHandler::question() const
 
 int PollHandler::numAnswers() const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
@@ -166,11 +153,10 @@ int PollHandler::numAnswers() const
 
 Quotient::EventContent::Answer PollHandler::answerAtRow(int row) const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
@@ -195,11 +181,10 @@ bool PollHandler::checkMemberSelectedId(const QString &memberId, const QString &
 
 PollKind::Kind PollHandler::kind() const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
@@ -225,11 +210,10 @@ int PollHandler::totalCount() const
 
 QStringList PollHandler::winningAnswerIds() const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
@@ -256,17 +240,16 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
 {
     Q_ASSERT(eventId.length() > 0);
     Q_ASSERT(answerId.length() > 0);
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         qWarning() << "PollHandler is empty, cannot send an answer.";
         return;
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return;
     }
 
-    QStringList ownAnswers = m_selections[room->localMember().id()];
+    QStringList ownAnswers = m_selections[m_room->localMember().id()];
     if (ownAnswers.contains(answerId)) {
         ownAnswers.erase(std::remove_if(ownAnswers.begin(), ownAnswers.end(), [answerId](const auto &it) {
             return answerId == it;
@@ -278,7 +261,7 @@ void PollHandler::sendPollAnswer(const QString &eventId, const QString &answerId
         ownAnswers.insert(0, answerId);
     }
 
-    const auto &response = room->post<PollResponseEvent>(eventId, ownAnswers);
+    const auto &response = m_room->post<PollResponseEvent>(eventId, ownAnswers);
     handleResponse(eventCast<const PollResponseEvent>(response.event()));
 }
 
@@ -294,11 +277,10 @@ void PollHandler::endPoll() const
 
 QString PollHandler::endText() const
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
+    if (m_room == nullptr) {
         return {};
     }
-    auto pollStartEvent = eventCast<const PollStartEvent>(room->getEvent(m_pollStartId).first);
+    auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return {};
     }
