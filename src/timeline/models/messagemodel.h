@@ -51,6 +51,11 @@ class MessageModel : public QAbstractListModel
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
+    /**
+     * @brief The model index of the read marker.
+     */
+    Q_PROPERTY(QPersistentModelIndex readMarkerIndex READ readMarkerIndex NOTIFY readMarkerIndexChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -94,6 +99,8 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
+    QPersistentModelIndex readMarkerIndex() const;
+
     /**
      * @brief Get the given role value at the given index.
      *
@@ -109,9 +116,9 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * @brief Get the row number of the given event ID in the model.
+     * @brief Get the QModelIndex of the given event ID in the model.
      */
-    Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
+    Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
@@ -124,12 +131,37 @@ Q_SIGNALS:
     void roomChanged();
 
     /**
+     * @brief Emitted when the reader marker is added.
+     */
+    void readMarkerAdded();
+
+    /**
+     * @brief Emitted when the reader marker index is changed.
+     */
+    void readMarkerIndexChanged();
+
+    /**
+     * @brief Emitted when the model is about to reset.
+     */
+    void modelAboutToBeReset();
+
+    /**
+     * @brief Emitted when the model has been reset.
+     */
+    void modelResetComplete();
+
+    /**
      * @brief A signal to tell the MessageModel that a new event has been added.
      *
      * Any model inheriting from MessageModel needs to emit this signal for every
      * new event it adds.
      */
     void newEventAdded(const Quotient::RoomEvent *event);
+
+    /**
+     * @brief A signal that should be emitted when the local user posts a new event in the room.
+     */
+    void newLocalUserEventAdded();
 
     void threadsEnabledChanged();
 
@@ -144,6 +176,8 @@ protected:
     int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void refreshEventRoles(int row, const QList<int> &roles = {});
     void refreshLastUserEvents(int baseTimelineRow);
+
+    void moveReadMarker(const QString &toEventId);
 
     void clearModel();
     void clearEventObjects();

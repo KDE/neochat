@@ -59,9 +59,9 @@ RoomManager::RoomManager(QObject *parent)
     m_directChatsConfig = m_config->group(u"DirectChatsActive"_s);
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
+        m_userListModel->setRoom(m_currentRoom);
         m_timelineModel->setRoom(m_currentRoom);
         m_sortFilterRoomTreeModel->setCurrentRoom(m_currentRoom);
-        m_userListModel->setRoom(m_currentRoom);
     });
 
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this](NeoChatConnection *connection) {
@@ -96,6 +96,7 @@ RoomManager::RoomManager(QObject *parent)
             m_messageFilterModel->invalidate();
         }
     });
+    connect(m_timelineModel->timelineMessageModel(), &MessageModel::modelResetComplete, this, &RoomManager::activateUserModel);
     MessageFilterModel::setShowAllEvents(NeoChatConfig::self()->showAllEvents());
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowAllEventsChanged, this, [this] {
         MessageFilterModel::setShowAllEvents(NeoChatConfig::self()->showAllEvents());

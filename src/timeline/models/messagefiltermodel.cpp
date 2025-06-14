@@ -7,7 +7,8 @@
 #include <QVariant>
 
 #include "enums/delegatetype.h"
-#include "timelinemessagemodel.h"
+#include "messagemodel.h"
+#include "models/timelinemodel.h"
 
 using namespace Quotient;
 
@@ -19,6 +20,37 @@ MessageFilterModel::MessageFilterModel(QObject *parent, QAbstractItemModel *sour
 {
     Q_ASSERT(sourceModel);
     setSourceModel(sourceModel);
+
+    if (auto model = dynamic_cast<TimelineModel *>(sourceModel)) {
+        connect(model->timelineMessageModel(), &MessageModel::readMarkerIndexChanged, this, &MessageFilterModel::readMarkerIndexChanged);
+    }
+}
+
+QPersistentModelIndex MessageFilterModel::readMarkerIndex() const
+{
+    // Check if sourceModel is a message model.
+    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
+    bool timelineModelIsSource = false;
+    // See if it's a timeline model.
+    if (!messageModel) {
+        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
+            messageModel = timelineModel->timelineMessageModel();
+            timelineModelIsSource = true;
+            if (!messageModel) {
+                return {};
+            }
+        }
+    }
+
+    auto eventIndex = messageModel->readMarkerIndex();
+    if (!eventIndex.isValid()) {
+        return {};
+    }
+
+    if (timelineModelIsSource) {
+        eventIndex = dynamic_cast<TimelineModel *>(sourceModel())->mapFromSource(eventIndex);
+    }
+    return mapFromSource(eventIndex);
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -91,6 +123,33 @@ QHash<int, QByteArray> MessageFilterModel::roleNames() const
     roles[AuthorListRole] = "authorList";
     roles[ExcessAuthorsRole] = "excessAuthors";
     return roles;
+}
+
+QModelIndex MessageFilterModel::indexforEventId(const QString &eventId) const
+{
+    // Check if sourceModel is a message model.
+    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
+    bool timelineModelIsSource = false;
+    // See if it's a timeline model.
+    if (!messageModel) {
+        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
+            messageModel = timelineModel->timelineMessageModel();
+            timelineModelIsSource = true;
+            if (!messageModel) {
+                return {};
+            }
+        }
+    }
+
+    auto eventIndex = messageModel->indexforEventId(eventId);
+    if (!eventIndex.isValid()) {
+        return {};
+    }
+
+    if (timelineModelIsSource) {
+        eventIndex = dynamic_cast<TimelineModel *>(sourceModel())->mapFromSource(eventIndex);
+    }
+    return mapFromSource(eventIndex);
 }
 
 bool MessageFilterModel::showAuthor(QModelIndex index) const

@@ -42,8 +42,10 @@ MessageModel::MessageModel(QObject *parent)
     });
 
     connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
+        Q_EMIT modelAboutToBeReset();
         beginResetModel();
         endResetModel();
+        Q_EMIT modelResetComplete();
     });
 }
 
@@ -60,6 +62,7 @@ void MessageModel::setRoom(NeoChatRoom *room)
 
     clearModel();
 
+    Q_EMIT modelAboutToBeReset();
     beginResetModel();
     m_room = room;
     if (m_room != nullptr) {
@@ -67,11 +70,17 @@ void MessageModel::setRoom(NeoChatRoom *room)
     }
     Q_EMIT roomChanged();
     endResetModel();
+    Q_EMIT modelResetComplete();
 }
 
 int MessageModel::timelineServerIndex() const
 {
     return 0;
+}
+
+QPersistentModelIndex MessageModel::readMarkerIndex() const
+{
+    return m_lastReadEventIndex;
 }
 
 std::optional<std::reference_wrapper<const Quotient::RoomEvent>> MessageModel::getEventForIndex(QModelIndex index) const
@@ -342,18 +351,18 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     return roles;
 }
 
-int MessageModel::eventIdToRow(const QString &eventID) const
+QModelIndex MessageModel::indexforEventId(const QString &eventId) const
 {
     if (m_room == nullptr) {
-        return -1;
+        return {};
     }
 
-    const auto it = m_room->findInTimeline(eventID);
+    const auto it = m_room->findInTimeline(eventId);
     if (it == m_room->historyEdge()) {
-        // qWarning() << "Trying to find inexistent event:" << eventID;
-        return -1;
+        qWarning() << "Trying to find non-existent event:" << eventId;
+        return {};
     }
-    return it - m_room->messageEvents().rbegin() + timelineServerIndex();
+    return index(it - m_room->messageEvents().rbegin() + timelineServerIndex());
 }
 
 void MessageModel::fullEventRefresh(int row)
@@ -455,6 +464,47 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
     }
 }
 
+void MessageModel::moveReadMarker(const QString &toEventId)
+{
+    const auto timelineIt = m_room->findInTimeline(toEventId);
+    if (timelineIt == m_room->historyEdge()) {
+        return;
+    }
+    int newRow = int(timelineIt - m_room->messageEvents().rbegin()) + timelineServerIndex();
+
+    if (!m_lastReadEventIndex.isValid()) {
+        // Not valid index means we don't display any marker yet, in this case
+        // we create the new index and insert the row in case the read marker
+        // need to be displayed.
+        if (newRow > timelineServerIndex()) {
+            // The user didn't read all the messages yet.
+            beginInsertRows({}, newRow, newRow);
+            m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
+            endInsertRows();
+            Q_EMIT readMarkerIndexChanged();
+            Q_EMIT readMarkerAdded();
+            return;
+        }
+        // The user read all the messages and we didn't display any read marker yet
+        // => do nothing
+        return;
+    }
+    if (newRow <= timelineServerIndex()) {
+        // The user read all the messages => remove read marker
+        beginRemoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row());
+        m_lastReadEventIndex = QModelIndex();
+        endRemoveRows();
+        Q_EMIT readMarkerIndexChanged();
+        return;
+    }
+
+    // The user didn't read all the messages yet but moved the reader marker.
+    beginMoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row(), {}, newRow);
+    m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
+    endMoveRows();
+    Q_EMIT readMarkerIndexChanged();
+}
+
 void MessageModel::clearModel()
 {
     if (m_room) {
@@ -462,10 +512,12 @@ void MessageModel::clearModel()
 
         // HACK: Reset the model to a null room first to make sure QML dismantles
         // last room's objects before the room is actually changed
+        Q_EMIT modelAboutToBeReset();
         beginResetModel();
         m_room->disconnect(this);
         m_room = nullptr;
         endResetModel();
+        Q_EMIT modelResetComplete();
 
         // Because we don't want any of the object deleted before the model is cleared.
         oldRoom->setVisible(false);

@@ -162,4 +162,7 @@ private:
     TimelineMessageModel *m_timelineMessageModel = nullptr;
     TimelineBeginningModel *m_timelineBeginningModel = nullptr;
     TimelineEndModel *m_timelineEndModel = nullptr;
+
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
 };

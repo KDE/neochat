@@ -112,15 +112,10 @@ Kirigami.Page {
         active: root.currentRoom && !root.currentRoom.isInvite && !root.loading && !root.currentRoom.isSpace
         sourceComponent: TimelineView {
             id: timelineView
-            currentRoom: root.currentRoom
-            page: root
-            timelineModel: root.timelineModel
+            room: root.currentRoom
             messageFilterModel: root.messageFilterModel
-            onFocusChatBar: {
-                if (chatBarLoader.item) {
-                    chatBarLoader.item.forceActiveFocus();
-                }
-            }
+            compactLayout: NeoChatConfig.compactLayout
+            fileDropEnabled: !Controller.isFlatpak
         }
     }
 
@@ -175,11 +170,6 @@ Kirigami.Page {
             width: parent.width
             currentRoom: root.currentRoom
             connection: root.connection
-            onMessageSent: {
-                if (!timelineViewLoader.item.atYEnd) {
-                    timelineViewLoader.item.goToLastMessage();
-                }
-            }
         }
     }
 

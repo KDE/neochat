@@ -41,6 +41,9 @@ public:
      */
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
+
 private:
     void connectNewRoom();
 
@@ -51,11 +54,6 @@ private:
     bool movingEvent = false;
 
     int timelineServerIndex() const override;
-
-    bool canFetchMore(const QModelIndex &parent) const override;
-    void fetchMore(const QModelIndex &parent) override;
-
-    void moveReadMarker(const QString &toEventId);
 
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;

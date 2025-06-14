@@ -60,6 +60,7 @@ void TimelineMessageModel::connectNewRoom()
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
             m_initialized = true;
             Q_EMIT newEventAdded(event);
+            Q_EMIT newLocalUserEventAdded();
             beginInsertRows({}, 0, 0);
             endInsertRows();
         });
@@ -141,44 +142,6 @@ void TimelineMessageModel::connectNewRoom()
 int TimelineMessageModel::timelineServerIndex() const
 {
     return m_room ? int(m_room->pendingEvents().size()) : 0;
-}
-
-void TimelineMessageModel::moveReadMarker(const QString &toEventId)
-{
-    const auto timelineIt = m_room->findInTimeline(toEventId);
-    if (timelineIt == m_room->historyEdge()) {
-        return;
-    }
-    int newRow = int(timelineIt - m_room->messageEvents().rbegin()) + timelineServerIndex();
-
-    if (!m_lastReadEventIndex.isValid()) {
-        // Not valid index means we don't display any marker yet, in this case
-        // we create the new index and insert the row in case the read marker
-        // need to be displayed.
-        if (newRow > timelineServerIndex()) {
-            // The user didn't read all the messages yet.
-            m_initialized = true;
-            beginInsertRows({}, newRow, newRow);
-            m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
-            endInsertRows();
-            return;
-        }
-        // The user read all the messages and we didn't display any read marker yet
-        // => do nothing
-        return;
-    }
-    if (newRow <= timelineServerIndex()) {
-        // The user read all the messages => remove read marker
-        beginRemoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row());
-        m_lastReadEventIndex = QModelIndex();
-        endRemoveRows();
-        return;
-    }
-
-    // The user didn't read all the messages yet but moved the reader marker.
-    beginMoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row(), {}, newRow);
-    m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
-    endMoveRows();
 }
 
 std::optional<std::reference_wrapper<const RoomEvent>> TimelineMessageModel::getEventForIndex(QModelIndex index) const

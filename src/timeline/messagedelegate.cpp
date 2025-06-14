@@ -654,6 +654,7 @@ void MessageDelegateBase::setIsTemporaryHighlighted(bool isTemporaryHighlighted)
     }
     m_temporaryHighlightTimer->start(1500);
     connect(m_temporaryHighlightTimer, &QTimer::timeout, this, [this]() {
+        m_temporaryHighlightTimer->stop();
         m_temporaryHighlightTimer->deleteLater();
         Q_EMIT isTemporaryHighlightedChanged();
     });

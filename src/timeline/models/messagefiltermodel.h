@@ -6,8 +6,7 @@
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
-#include "timelinemessagemodel.h"
-#include "timelinemodel.h"
+#include "models/timelinemessagemodel.h"
 
 /**
  * @class MessageFilterModel
@@ -25,6 +24,11 @@ class MessageFilterModel : public QSortFilterProxyModel
     Q_OBJECT
     QML_ELEMENT
 
+    /**
+     * @brief The model index of the read marker.
+     */
+    Q_PROPERTY(QPersistentModelIndex readMarkerIndex READ readMarkerIndex NOTIFY readMarkerIndexChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -36,6 +40,8 @@ public:
         ExcessAuthorsRole, /**< The number of unique authors beyond the first 5. */
         LastRole, // Keep this last
     };
+
+    QPersistentModelIndex readMarkerIndex() const;
 
     explicit MessageFilterModel(QObject *parent = nullptr, QAbstractItemModel *sourceModel = nullptr);
 
@@ -58,8 +64,19 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Get the QModelIndex the given event ID in the model.
+     */
+    Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
+
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);
+
+Q_SIGNALS:
+    /**
+     * @brief Emitted when the reader marker index is changed.
+     */
+    void readMarkerIndexChanged();
 
 private:
     static bool m_showAllEvents;

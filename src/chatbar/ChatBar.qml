@@ -160,11 +160,6 @@ QQC2.Control {
         }
     ]
 
-    /**
-     * @brief A message has been sent from the chat bar.
-     */
-    signal messageSent
-
     spacing: 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -436,7 +431,6 @@ QQC2.Control {
             repeatTimer.stop();
             root.currentRoom.markAllMessagesAsRead();
             textField.clear();
-            messageSent();
         }
 
         function formatText(format, selectionStart, selectionEnd) {

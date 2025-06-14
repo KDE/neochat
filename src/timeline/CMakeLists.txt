@@ -21,6 +21,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         AvatarFlow.qml
         SectionDelegate.qml
         QuickActions.qml
+        TypingPane.qml
         BaseMessageComponentChooser.qml
         MessageComponentChooser.qml
         ReplyMessageComponentChooser.qml

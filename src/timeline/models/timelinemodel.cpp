@@ -43,6 +43,22 @@ QHash<int, QByteArray> TimelineModel::roleNames() const
     return m_timelineMessageModel->roleNames();
 }
 
+bool TimelineModel::canFetchMore(const QModelIndex &parent) const
+{
+    if (!m_timelineMessageModel) {
+        return false;
+    }
+    return m_timelineMessageModel->canFetchMore(parent);
+}
+
+void TimelineModel::fetchMore(const QModelIndex &parent)
+{
+    if (!m_timelineMessageModel) {
+        return;
+    }
+    return m_timelineMessageModel->fetchMore(parent);
+}
+
 TimelineBeginningModel::TimelineBeginningModel(QObject *parent)
     : QAbstractListModel(parent)
 {
