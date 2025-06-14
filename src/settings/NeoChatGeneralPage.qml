@@ -316,7 +316,7 @@ FormCard.FormCardPage {
     Kirigami.PromptDialog {
         id: resetDialog
         title: i18nc("@title:dialog", "Reset Configuration")
-        subtitle: i18nc("@info", "Do you really want to reset all options to their default value?")
+        subtitle: i18nc("@info", "Do you really want to reset all options to their default values?")
         standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
         onAccepted: Controller.revertToDefaultConfig()
         anchors.centerIn: QQC2.Overlay.overlay
