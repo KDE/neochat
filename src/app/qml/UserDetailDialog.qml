@@ -80,7 +80,6 @@ Kirigami.Dialog {
                         text: root.user.id
                         elide: Qt.ElideRight
                         elideWidth: root.availableWidth - avatar.width - qrButton.width - detailRow.spacing * 2 - detailRow.Layout.leftMargin - detailRow.Layout.rightMargin
-                        onElideWidthChanged: console.warn(root.availableWidth, avatar.width, qrButton.width, elideWidth, elidedText)
                     }
                 }
 
