@@ -197,6 +197,9 @@ int main(int argc, char *argv[])
     parser.addPositionalArgument(u"urls"_s, i18n("Supports matrix: url scheme"));
     parser.addOption(QCommandLineOption("ignore-ssl-errors"_L1, i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
 
+    QCommandLineOption replaceOption({QStringLiteral("replace")}, i18nc("command line description", "Replace an existing instance"));
+    parser.addOption(replaceOption);
+
     QCommandLineOption testOption("test"_L1, i18n("Only used for autotests"));
     testOption.setFlags(QCommandLineOption::HiddenFromHelp);
     parser.addOption(testOption);
@@ -233,7 +236,7 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
+    KDBusService service(KDBusService::Unique | (parser.isSet(replaceOption) ? KDBusService::Replace : KDBusService::StartupOption(0)));
 #endif
 
     const auto accountManager = std::make_unique<AccountManager>(parser.isSet("test"_L1));
