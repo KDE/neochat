@@ -139,7 +139,7 @@ Components.AlbumMaximizeComponent {
         id: saveAsDialog
         Dialogs.FileDialog {
             fileMode: Dialogs.FileDialog.SaveFile
-            currentFolder: root.saveFolder
+            currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : Core.StandardPaths.writableLocation(Core.StandardPaths.DownloadLocation)
             onAccepted: {
                 NeoChatConfig.lastSaveDirectory = currentFolder;
                 NeoChatConfig.save();
