@@ -207,7 +207,7 @@ ColumnLayout {
             padding: Kirigami.Units.largeSpacing
 
             contentItem: Image {
-                source: model.avatarUrl
+                source: model.url
                 fillMode: Image.PreserveAspectFit
                 sourceSize.width: width
                 sourceSize.height: height
