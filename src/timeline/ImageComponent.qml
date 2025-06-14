@@ -187,7 +187,7 @@ Item {
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
-        contentMaxHeight: root.contentMaxHeight
+        contentMaxHeight: root.contentMaxHeight ?? -1
         mediaWidth: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.width ?? 0)
         mediaHeight: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.height ?? 0)
     }
