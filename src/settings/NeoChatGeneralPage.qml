@@ -134,9 +134,45 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Timeline Events")
+        title: i18n("Timeline")
     }
     FormCard.FormCard {
+        FormCard.FormComboBoxDelegate {
+            id: markAsReadCombo
+            text: i18n("Mark messages as read when:")
+            textRole: "name"
+            valueRole: "value"
+            model: [
+                {
+                    name: i18n("Never"),
+                    value: 0
+                },
+                {
+                    name: i18n("Entering the room"),
+                    value: 1
+                },
+                {
+                    name: i18n("Entering the room and all unread messages are visible"),
+                    value: 2
+                },
+                {
+                    name: i18n("Exiting the room"),
+                    value: 3
+                },
+                {
+                    name: i18n("Exiting the room and all unread messages are visible"),
+                    value: 4
+                }
+            ]
+            Component.onCompleted: currentIndex = NeoChatConfig.markReadCondition
+            onCurrentValueChanged: NeoChatConfig.markReadCondition = currentValue
+        }
+
+        FormCard.FormDelegateSeparator {
+            above: markAsReadCombo
+            below: showDeletedMessages
+        }
+
         FormCard.FormCheckDelegate {
             id: showDeletedMessages
             text: i18n("Show deleted messages")

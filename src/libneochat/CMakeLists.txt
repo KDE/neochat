@@ -28,6 +28,7 @@ target_sources(LibNeoChat PRIVATE
     enums/pushrule.h
     enums/roomsortparameter.cpp
     enums/roomsortorder.h
+    enums/timelinemarkreadcondition.h
     events/imagepackevent.cpp
     events/pollevent.cpp
     jobs/neochatgetcommonroomsjob.cpp

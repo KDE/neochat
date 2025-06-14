@@ -34,18 +34,15 @@ MessageModel::MessageModel(QObject *parent)
 {
     connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects);
 
-    connect(this, &MessageModel::modelAboutToBeReset, this, [this]() {
-        resetting = true;
+    connect(this, &MessageModel::modelAboutToReset, this, [this]() {
+        m_resetting = true;
     });
     connect(this, &MessageModel::modelReset, this, [this]() {
-        resetting = false;
+        m_resetting = false;
     });
 
     connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
-        Q_EMIT modelAboutToBeReset();
-        beginResetModel();
-        endResetModel();
-        Q_EMIT modelResetComplete();
+        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {IsThreadedRole});
     });
 }
 
@@ -60,17 +57,25 @@ void MessageModel::setRoom(NeoChatRoom *room)
         return;
     }
 
+    const auto oldRoom = m_room;
+    Q_EMIT roomAboutToChange(oldRoom, room);
     clearModel();
 
-    Q_EMIT modelAboutToBeReset();
-    beginResetModel();
+    if (!m_resetting) {
+        m_resetting = true;
+        Q_EMIT modelAboutToReset();
+        beginResetModel();
+    }
     m_room = room;
     if (m_room != nullptr) {
         m_room->setVisible(true);
     }
-    Q_EMIT roomChanged();
-    endResetModel();
-    Q_EMIT modelResetComplete();
+    if (m_resetting) {
+        endResetModel();
+        Q_EMIT modelResetComplete();
+        m_resetting = false;
+    }
+    Q_EMIT roomChanged(oldRoom, m_room);
 }
 
 int MessageModel::timelineServerIndex() const
@@ -444,7 +449,7 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
         // If a model already exists but now has no reactions remove it
         if (m_readMarkerModels[eventId]->rowCount() <= 0) {
             m_readMarkerModels.remove(eventId);
-            if (!resetting) {
+            if (!m_resetting) {
                 refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
             }
         }
@@ -456,7 +461,7 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
             auto newModel = QSharedPointer<ReadMarkerModel>(new ReadMarkerModel(eventId, m_room));
             if (newModel->rowCount() > 0) {
                 m_readMarkerModels[eventId] = newModel;
-                if (!resetting) {
+                if (!m_resetting) {
                     refreshEventRoles(eventId, {ReadMarkersRole, ShowReadMarkersRole});
                 }
             }
@@ -512,12 +517,18 @@ void MessageModel::clearModel()
 
         // HACK: Reset the model to a null room first to make sure QML dismantles
         // last room's objects before the room is actually changed
-        Q_EMIT modelAboutToBeReset();
-        beginResetModel();
+        if (!m_resetting) {
+            m_resetting = true;
+            Q_EMIT modelAboutToReset();
+            beginResetModel();
+        }
         m_room->disconnect(this);
         m_room = nullptr;
-        endResetModel();
-        Q_EMIT modelResetComplete();
+        if (m_resetting) {
+            endResetModel();
+            Q_EMIT modelResetComplete();
+            m_resetting = false;
+        }
 
         // Because we don't want any of the object deleted before the model is cleared.
         oldRoom->setVisible(false);
