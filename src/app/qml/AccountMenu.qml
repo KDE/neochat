@@ -36,6 +36,14 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Switch Account")
+        icon.name: "system-switch-user"
+        shortcut: "Ctrl+U"
+        onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
+            connection: root.connection
+        }).open();
+    }
     QQC2.Action {
         text: i18n("Edit This Account")
         icon.name: "document-edit"
