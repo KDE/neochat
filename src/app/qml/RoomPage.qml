@@ -11,15 +11,14 @@ import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels
 
 import org.kde.neochat
-import org.kde.neochat.chatbar
 
 Kirigami.Page {
     id: root
 
-    /// Not readonly because of the separate window view.
-    property NeoChatRoom currentRoom: RoomManager.currentRoom
-
-    required property NeoChatConnection connection
+    /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    readonly property NeoChatRoom currentRoom: RoomManager.currentRoom
 
     /**
      * @brief The TimelineModel to use.
@@ -59,11 +58,6 @@ Kirigami.Page {
      */
     property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
 
-    property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
-
-    /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
-    property bool disableCancelShortcut: false
-
     title: root.currentRoom ? root.currentRoom.displayName : ""
     focus: true
     padding: 0
@@ -86,9 +80,9 @@ Kirigami.Page {
     }
 
     Connections {
-        target: root.connection
+        target: root.currentRoom.connection
         function onIsOnlineChanged() {
-            if (!root.connection.isOnline) {
+            if (!root.currentRoom.connection.isOnline) {
                 banner.text = i18n("NeoChat is offline. Please check your network connection.");
                 banner.visible = true;
                 banner.type = Kirigami.MessageType.Error;
@@ -109,10 +103,9 @@ Kirigami.Page {
     Loader {
         id: timelineViewLoader
         anchors.fill: parent
-        active: root.currentRoom && !root.currentRoom.isInvite && !root.loading && !root.currentRoom.isSpace
+        active: root.currentRoom && !root.currentRoom.isInvite && !root.currentRoom.isSpace
         sourceComponent: TimelineView {
             id: timelineView
-            room: root.currentRoom
             messageFilterModel: root.messageFilterModel
             compactLayout: NeoChatConfig.compactLayout
             fileDropEnabled: !Controller.isFlatpak
@@ -147,14 +140,6 @@ Kirigami.Page {
         }
     }
 
-    Loader {
-        active: root.loading && !invitationLoader.active && RoomManager.currentRoom && !spaceLoader.active
-        anchors.centerIn: parent
-        sourceComponent: Kirigami.LoadingPlaceholder {
-            anchors.centerIn: parent
-        }
-    }
-
     background: Rectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
@@ -169,7 +154,7 @@ Kirigami.Page {
             id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
-            connection: root.connection
+            connection: root.currentRoom.connection
         }
     }
 
@@ -186,21 +171,8 @@ Kirigami.Page {
         }
     }
 
-    Shortcut {
-        sequence: StandardKey.Cancel
-        onActivated: {
-            if (!timelineViewLoader.item.atYEnd || !root.currentRoom.partiallyReadStats.empty()) {
-                timelineViewLoader.item.goToLastMessage();
-                root.currentRoom.markAllMessagesAsRead();
-            } else {
-                applicationWindow().pageStack.get(0).forceActiveFocus();
-            }
-        }
-        enabled: !root.disableCancelShortcut
-    }
-
     Connections {
-        target: root.connection
+        target: root.currentRoom.connection
         function onJoinedRoom(room, invited) {
             if (root.currentRoom.id === invited.id) {
                 RoomManager.resolveResource(room.id);
@@ -286,7 +258,7 @@ Kirigami.Page {
         id: messageDelegateContextMenu
         MessageDelegateContextMenu {
             room: root.currentRoom
-            connection: root.connection
+            connection: root.currentRoom.connection
         }
     }
 
@@ -294,7 +266,7 @@ Kirigami.Page {
         id: fileDelegateContextMenu
         FileDelegateContextMenu {
             room: root.currentRoom
-            connection: root.connection
+            connection: root.currentRoom.connection
         }
     }
 
