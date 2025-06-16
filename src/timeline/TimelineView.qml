@@ -231,7 +231,7 @@ QQC2.ScrollView {
             text: i18n("Jump to latest message")
             action: Kirigami.Action {
                 onTriggered: {
-                    root.positionViewAtBeginning();
+                    messageListView.positionViewAtBeginning();
                     root.room.markAllMessagesAsRead();
                 }
                 icon.name: "go-down"
