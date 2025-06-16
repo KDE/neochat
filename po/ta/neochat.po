@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -132,15 +132,21 @@ msgstr "அனைத்து SSL சிக்கல்களையும் ப
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "தானியங்கி சோதனைகளுக்கு மட்டும்"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "உள்ளக் பயன்பாட்டு மட்டும்."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix-க்கு ஓர் முகவரியை பகிர்"
@@ -3928,9 +3934,11 @@ msgid "Manage Account"
 msgstr "கணக்கை கையாள்"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "பயனரை மாற்று"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "கணக்கை மாற்று"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6621,6 +6629,9 @@ msgstr "ஒலியளவு"
 #, kde-format
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
+
+#~ msgid "Switch User"
+#~ msgstr "பயனரை மாற்று"
 
 #~ msgid "Room Information"
 #~ msgstr "அரங்கின் விவரங்கள்"

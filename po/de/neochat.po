@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -136,15 +136,21 @@ msgstr "Alle SSL-Fehler ignorieren (z. B. unsignierte Zertifikate)."
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Nur für automatische Tests"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Nur zur internen Verwendung."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Eine Adresse auf Matrix teilen"
@@ -3989,9 +3995,11 @@ msgid "Manage Account"
 msgstr "Konto deaktivieren"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Benutzer wechseln"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Konto wechseln"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6742,6 +6750,9 @@ msgstr "Lautstärke"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximieren"
+
+#~ msgid "Switch User"
+#~ msgstr "Benutzer wechseln"
 
 #~ msgid "Room Information"
 #~ msgstr "Raum-Informationen"

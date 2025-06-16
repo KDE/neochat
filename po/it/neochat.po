@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
-"PO-Revision-Date: 2025-05-26 16:05+0200\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
+"PO-Revision-Date: 2025-06-15 14:37+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -131,15 +131,21 @@ msgstr "Ignora tutti gli errori SSL, ad es. certificati non firmati."
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Utilizzato solo per autotest"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Solo per uso interno."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Condividi un URL su Matrix"
@@ -3908,9 +3914,11 @@ msgid "Manage Account"
 msgstr "Gestisci account"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Cambia utente"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Cambia account"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6310,11 +6318,10 @@ msgid "Check-out time: %1"
 msgstr "Ora di check-out: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Imposta immagine"
+msgstr "Nascondi immagine"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6595,6 +6602,9 @@ msgstr "Volume"
 #, kde-format
 msgid "Maximize"
 msgstr "Massimizza"
+
+#~ msgid "Switch User"
+#~ msgstr "Cambia utente"
 
 #~ msgid "Room Information"
 #~ msgstr "Informazioni sulla stanza"

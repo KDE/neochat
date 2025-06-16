@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -138,15 +138,21 @@ msgstr ""
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
@@ -4181,9 +4187,10 @@ msgid "Manage Account"
 msgstr "Sunting Akun"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Ganti Pengguna"
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Switch Account"
+msgstr "Sunting Akun"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -7101,6 +7108,9 @@ msgstr "Volume"
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimalkan"
+
+#~ msgid "Switch User"
+#~ msgstr "Ganti Pengguna"
 
 #~ msgid "Room Information"
 #~ msgstr "Informasi Ruangan"

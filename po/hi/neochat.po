@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -134,15 +134,21 @@ msgstr "सभी SSL त्रुटियों को अनदेखा क�
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "केवल ऑटोटेस्ट के लिए उपयोग किया जाता है"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "केवल आंतरिक उपयोग."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "मैट्रिक्स के लिए URL साझा करें"
@@ -3933,9 +3939,11 @@ msgid "Manage Account"
 msgstr "खाता निष्क्रिय करें"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "उपयोगकर्ता बदलें"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "खाता स्थानांतरित करें"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6651,6 +6659,9 @@ msgstr "आयतन"
 #, kde-format
 msgid "Maximize"
 msgstr "अधिकतम"
+
+#~ msgid "Switch User"
+#~ msgstr "उपयोगकर्ता बदलें"
 
 #~ msgid "Room Information"
 #~ msgstr "कमरे की जानकारी"

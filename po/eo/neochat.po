@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -133,15 +133,21 @@ msgstr "Ignori ĉiujn SSL-erarojn, ekz., nesubskribitajn atestojn."
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Nur uzata por aŭtomataj testoj"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Nur por interna uzo."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Kundividi URL al Matrix"
@@ -3917,9 +3923,11 @@ msgid "Manage Account"
 msgstr "Mastrumi Konton"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Ŝanĝi Uzanton"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Ŝanĝi Konton"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6621,6 +6629,9 @@ msgstr "Laŭteco"
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimumigi"
+
+#~ msgid "Switch User"
+#~ msgstr "Ŝanĝi Uzanton"
 
 #~ msgid "Room Information"
 #~ msgstr "Informoj pri Ĉambro"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 12:37+0300\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
+"PO-Revision-Date: 2025-06-15 13:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -135,15 +135,21 @@ msgstr "Ігнорувати усі помилки SSL, наприклад не�
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Використовують лише для автоматичного тестування"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Лише для внутрішнього використання."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
@@ -3905,9 +3911,11 @@ msgid "Manage Account"
 msgstr "Керування обліковим записом"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Змінити користувача"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Перемкнути обліковий запис"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6310,11 +6318,10 @@ msgid "Check-out time: %1"
 msgstr "Час перевірки на виході: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Встановити зображення"
+msgstr "Приховати зображення"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6605,6 +6612,9 @@ msgstr "Гучність"
 #, kde-format
 msgid "Maximize"
 msgstr "Максимізувати"
+
+#~ msgid "Switch User"
+#~ msgstr "Змінити користувача"
 
 #~ msgid "Room Information"
 #~ msgstr "Відомості щодо кімнати"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -135,15 +135,21 @@ msgstr "忽略所有 SSL 错误，例如未签名证书。"
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "仅用于自动测试"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "仅内部使用。"
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "分享 URL 到 Matrix"
@@ -3835,9 +3841,11 @@ msgid "Manage Account"
 msgstr ""
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "切换用户"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "切换账户"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6174,11 +6182,10 @@ msgid "Check-out time: %1"
 msgstr ""
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "设置图像"
+msgstr ""
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6449,3 +6456,6 @@ msgstr "音量"
 #, kde-format
 msgid "Maximize"
 msgstr "最大化"
+
+#~ msgid "Switch User"
+#~ msgstr "切换用户"

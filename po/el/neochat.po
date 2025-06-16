@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -138,15 +138,21 @@ msgstr "Αγνόηση όλων των σφαλμάτων SSL, π.χ. μη υπ�
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Χρήση μόνο για αυτόματες δοκιμές"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Μόνο για εσωτερική χρήση."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Κοινοποίηση ενός URL στο Matrix"
@@ -4113,9 +4119,10 @@ msgid "Manage Account"
 msgstr "Επεξεργασία λογαριασμού"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Εναλλαγή χρήστη"
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgid "Switch Account"
+msgstr "Επεξεργασία λογαριασμού"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6927,6 +6934,9 @@ msgstr ""
 #, kde-format
 msgid "Maximize"
 msgstr ""
+
+#~ msgid "Switch User"
+#~ msgstr "Εναλλαγή χρήστη"
 
 #~ msgid "Room Information"
 #~ msgstr "Πληροφορίες αίθουσας"

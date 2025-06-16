@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 19:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -133,15 +133,21 @@ msgstr "Tüm SSL hatalarını yok say; örn. imzalanmamış sertifikalar."
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Yalnızca kendiliğinden sınamalar için kullanılır"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Yalnızca içsel kullanım."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix’e URL Paylaş"
@@ -3887,9 +3893,11 @@ msgid "Manage Account"
 msgstr "Hesabı Yönet"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Kullanıcı değiştir"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Hesap Değiştir"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6545,6 +6553,9 @@ msgstr "Ses Düzeyi"
 #, kde-format
 msgid "Maximize"
 msgstr "Son Ses"
+
+#~ msgid "Switch User"
+#~ msgstr "Kullanıcı değiştir"
 
 #~ msgid "Room Information"
 #~ msgstr "Oda Bilgisi"

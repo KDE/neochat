@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-06-10 22:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -131,15 +131,21 @@ msgstr "모든 SSL 오류(예: 서명되지 않은 인증서)를 무시합니다
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "자동 테스트에만 사용됨"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "내부 용도입니다."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Matrix에 URL 공유"
@@ -3847,9 +3853,11 @@ msgid "Manage Account"
 msgstr "계정 관리"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "사용자 전환"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "계정 전환"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6482,6 +6490,9 @@ msgstr "음량"
 #, kde-format
 msgid "Maximize"
 msgstr "최대화"
+
+#~ msgid "Switch User"
+#~ msgstr "사용자 전환"
 
 #~ msgid "Room Information"
 #~ msgstr "대화방 정보"

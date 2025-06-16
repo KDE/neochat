@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -135,15 +135,21 @@ msgstr ""
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr ""
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr ""
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr ""
@@ -4199,8 +4205,9 @@ msgstr "Upraviť účet"
 
 #: src/rooms/UserInfo.qml:108
 #, fuzzy, kde-format
-msgid "Switch User"
-msgstr "Prepnúť používateľa"
+#| msgid "Edit Account"
+msgid "Switch Account"
+msgstr "Upraviť účet"
 
 #: src/rooms/UserInfo.qml:116
 #, fuzzy, kde-format
@@ -7089,6 +7096,10 @@ msgstr "Hlasitosť"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximalizovať"
+
+#, fuzzy
+#~ msgid "Switch User"
+#~ msgstr "Prepnúť používateľa"
 
 #, fuzzy
 #~| msgid "Room information"

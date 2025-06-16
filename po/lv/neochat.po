@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-03-06 18:51+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -134,15 +134,21 @@ msgstr "Ignorēt visas SSL kļūdas, piemēram, neparakstītus sertifikātus."
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "Izmantots tikai automātiskajiem testiem"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "Tikai iekšējai lietošanai."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dalīties ar URL „Matrix“ klientā"
@@ -3933,9 +3939,11 @@ msgid "Manage Account"
 msgstr "Pārvaldīt kontu"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "Pārslēgt lietotāju"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "Pārslēgties starp kontiem"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6642,6 +6650,9 @@ msgstr "Skaļums"
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimizēt"
+
+#~ msgid "Switch User"
+#~ msgstr "Pārslēgt lietotāju"
 
 #~ msgid "Room Information"
 #~ msgstr "Istabas informācija"

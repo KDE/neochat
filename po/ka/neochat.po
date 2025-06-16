@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 04:06+0200\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
+"PO-Revision-Date: 2025-06-15 04:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -132,15 +132,21 @@ msgstr "ყველა SSL შეცდომის იგნორი. მა�
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "გამოიყენება მხოლოდ ავტოტესტებისთვის"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "მხოლოდ შიდა გამოყენებისთვის."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "ბმულის გაზიარება Matrix-ზე"
@@ -3873,9 +3879,11 @@ msgid "Manage Account"
 msgstr "ანგარიშის მართვა"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "მომხმარებლის გადართვა"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "ანგარიშის გადართვა"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6252,11 +6260,10 @@ msgid "Check-out time: %1"
 msgstr "ჩეკაუტის დრო: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "გამოსახულების დაყენება"
+msgstr "გამოსახულების დამალვა"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6536,6 +6543,9 @@ msgstr "ხმის სიმაღლე"
 #, kde-format
 msgid "Maximize"
 msgstr "გადიდება"
+
+#~ msgid "Switch User"
+#~ msgstr "მომხმარებლის გადართვა"
 
 #~ msgid "Room Information"
 #~ msgstr "ინფორმაცია ოთახის შესახებ"

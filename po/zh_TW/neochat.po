@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
-"PO-Revision-Date: 2025-05-28 23:23+0900\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
+"PO-Revision-Date: 2025-06-15 18:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -134,15 +134,21 @@ msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "僅 autotest 用。"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "僅內部用。"
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "將網址分享到 Matrix"
@@ -3839,9 +3845,11 @@ msgid "Manage Account"
 msgstr "管理帳號"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "切換使用者"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "切換帳號"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6178,11 +6186,10 @@ msgid "Check-out time: %1"
 msgstr "Check-out 時間：%1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "設定影像"
+msgstr "隱藏影像"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6454,6 +6461,9 @@ msgstr "音量"
 #, kde-format
 msgid "Maximize"
 msgstr "最大化"
+
+#~ msgid "Switch User"
+#~ msgstr "切換使用者"
 
 #~ msgid "Room Information"
 #~ msgstr "聊天室資訊"

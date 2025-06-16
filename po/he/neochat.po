@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-15 00:42+0000\n"
+"POT-Creation-Date: 2025-06-16 00:42+0000\n"
 "PO-Revision-Date: 2025-05-25 15:07+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -132,15 +132,21 @@ msgstr "התעלמות משגיאות SSL, למשל: אישורים לא חתו�
 
 #: src/app/main.cpp:200
 #, kde-format
+msgctxt "command line description"
+msgid "Replace an existing instance"
+msgstr ""
+
+#: src/app/main.cpp:203
+#, kde-format
 msgid "Only used for autotests"
 msgstr "משמש לבדיקות אוטומטיות בלבד"
 
-#: src/app/main.cpp:205
+#: src/app/main.cpp:208
 #, kde-format
 msgid "Internal usage only."
 msgstr "שימוש פנימי בלבד."
 
-#: src/app/main.cpp:210
+#: src/app/main.cpp:213
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "שיתוף כתובת ל־Matrix"
@@ -3855,9 +3861,11 @@ msgid "Manage Account"
 msgstr "ניהול חשבון"
 
 #: src/rooms/UserInfo.qml:108
-#, kde-format
-msgid "Switch User"
-msgstr "החלפת משתמש"
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgid "Switch Account"
+msgstr "החלפת חשבון"
 
 #: src/rooms/UserInfo.qml:116
 #, kde-format
@@ -6505,6 +6513,9 @@ msgstr "עוצמת שמע"
 #, kde-format
 msgid "Maximize"
 msgstr "הגדלה"
+
+#~ msgid "Switch User"
+#~ msgstr "החלפת משתמש"
 
 #~ msgid "Room Information"
 #~ msgstr "פרטי חדר"
