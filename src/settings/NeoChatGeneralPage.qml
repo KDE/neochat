@@ -309,8 +309,16 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             icon.name: "kt-restore-defaults-symbolic"
-            text: i18nc("@action:button", "Reset All Configuration Values to Their Default")
-            onClicked: Controller.revertToDefaultConfig()
+            text: i18nc("@action:button", "Reset all configuration values to their default")
+            onClicked: resetDialog.open()
         }
+    }
+    Kirigami.PromptDialog {
+        id: resetDialog
+        title: i18nc("@title:dialog", "Reset Configuration")
+        subtitle: i18nc("@info", "Do you really want to reset all options to their default values?")
+        standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+        onAccepted: Controller.revertToDefaultConfig()
+        anchors.centerIn: QQC2.Overlay.overlay
     }
 }
