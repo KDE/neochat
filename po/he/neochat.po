@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-16 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 15:07+0300\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"PO-Revision-Date: 2025-06-16 16:09+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -134,7 +134,7 @@ msgstr "התעלמות משגיאות SSL, למשל: אישורים לא חתו�
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "החלפת עותק קיים"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -3861,9 +3861,7 @@ msgid "Manage Account"
 msgstr "ניהול חשבון"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "החלפת חשבון"
 
@@ -4895,10 +4893,26 @@ msgid "Default Settings"
 msgstr "הגדרות ברירת מחדל"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset All Configuration Values to Their Default"
+msgid "Reset all configuration values to their default"
 msgstr "איפוס כל ערכי ההגדרות לברירות המחדל שלהם"
+
+#: src/settings/NeoChatGeneralPage.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Re-send confirmation e-mail"
+msgctxt "@title:dialog"
+msgid "Reset Configuration"
+msgstr "שליחת הודעות אישור בדוא״ל מחדש"
+
+#: src/settings/NeoChatGeneralPage.qml:319
+#, kde-format
+msgctxt "@info"
+msgid "Do you really want to reset all options to their default values?"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -6219,11 +6233,10 @@ msgid "Check-out time: %1"
 msgstr "שעת מסירה: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "הגדרת תמונה"
+msgstr "הסתרת תמונה"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format

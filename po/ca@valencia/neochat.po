@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-16 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 11:15+0200\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"PO-Revision-Date: 2025-06-16 12:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -136,7 +136,7 @@ msgstr "Ignora tots els errors d'SSL, p. ex., certificats sense signar."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Substituïx una instància existent"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -3917,9 +3917,7 @@ msgid "Manage Account"
 msgstr "Gestiona el compte"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "Canvia el compte"
 
@@ -4967,10 +4965,26 @@ msgid "Default Settings"
 msgstr "Configuració predeterminada"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset All Configuration Values to Their Default"
+msgid "Reset all configuration values to their default"
 msgstr "Reinicia tots els valors de configuració als valors predeterminats"
+
+#: src/settings/NeoChatGeneralPage.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Re-send confirmation e-mail"
+msgctxt "@title:dialog"
+msgid "Reset Configuration"
+msgstr "Torna a enviar el correu electrònic de confirmació"
+
+#: src/settings/NeoChatGeneralPage.qml:319
+#, kde-format
+msgctxt "@info"
+msgid "Do you really want to reset all options to their default values?"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -6316,11 +6330,10 @@ msgid "Check-out time: %1"
 msgstr "Hora d'eixida: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Establix la imatge"
+msgstr "Oculta la imatge"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6602,6 +6615,3 @@ msgstr "Volum"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximitza"
-
-#~ msgid "Switch User"
-#~ msgstr "Canvia d'usuari"

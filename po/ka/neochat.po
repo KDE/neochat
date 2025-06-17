@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-16 00:42+0000\n"
-"PO-Revision-Date: 2025-06-15 04:11+0200\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"PO-Revision-Date: 2025-06-16 03:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -134,7 +134,7 @@ msgstr "ყველა SSL შეცდომის იგნორი. მა�
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "გაშვებული ასლის ჩანაცვლება"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -3879,9 +3879,7 @@ msgid "Manage Account"
 msgstr "ანგარიშის მართვა"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "ანგარიშის გადართვა"
 
@@ -4922,10 +4920,26 @@ msgid "Default Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset All Configuration Values to Their Default"
+msgid "Reset all configuration values to their default"
 msgstr "ყველა კონფიგურაციის მნიშვნელობის ნაგულისხმევზე ჩამოყრა"
+
+#: src/settings/NeoChatGeneralPage.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Re-send confirmation e-mail"
+msgctxt "@title:dialog"
+msgid "Reset Configuration"
+msgstr "დადასტურების ელფოსტის ხელახალი გაგზავნა"
+
+#: src/settings/NeoChatGeneralPage.qml:319
+#, kde-format
+msgctxt "@info"
+msgid "Do you really want to reset all options to their default values?"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format

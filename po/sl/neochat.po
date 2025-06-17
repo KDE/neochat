@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-16 00:42+0000\n"
-"PO-Revision-Date: 2025-06-15 12:47+0200\n"
+"POT-Creation-Date: 2025-06-17 00:42+0000\n"
+"PO-Revision-Date: 2025-06-16 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -137,7 +137,7 @@ msgstr "Prezri vse napake SSL npr. nepodpisana potrdila."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Zamenjaj obstoječi pojavek"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -3900,9 +3900,7 @@ msgid "Manage Account"
 msgstr "Upravljaj račun"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "Preklopi račun"
 
@@ -4938,10 +4936,26 @@ msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset All Configuration Values to Their Default"
+msgid "Reset all configuration values to their default"
 msgstr "Ponastavi vse vrednosti konfiguracije na privzete"
+
+#: src/settings/NeoChatGeneralPage.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Re-send confirmation e-mail"
+msgctxt "@title:dialog"
+msgid "Reset Configuration"
+msgstr "Ponovno pošlji potrditveno e-pošto"
+
+#: src/settings/NeoChatGeneralPage.qml:319
+#, kde-format
+msgctxt "@info"
+msgid "Do you really want to reset all options to their default values?"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
