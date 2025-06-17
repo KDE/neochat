@@ -49,6 +49,14 @@ MessageDelegateBase::MessageDelegateBase(QQuickItem *parent)
     connect(&m_contentSizeHelper, &DelegateSizeHelper::availableWidthChanged, this, &MessageDelegateBase::markAsDirty);
 }
 
+MessageDelegateBase::~MessageDelegateBase()
+{
+    for (const auto &incubator : m_activeIncubators) {
+        incubator->clear();
+        delete incubator;
+    }
+}
+
 NeochatRoomMember *MessageDelegateBase::author() const
 {
     return m_author;
@@ -139,6 +147,10 @@ qreal MessageDelegateBase::maxContentWidth() const
 void MessageDelegateBase::cleanupIncubator(MessageObjectIncubator *incubator)
 {
     incubator->clear();
+    const auto it = std::find(m_activeIncubators.begin(), m_activeIncubators.end(), incubator);
+    if (it != m_activeIncubators.end()) {
+        m_activeIncubators.erase(it);
+    }
     delete incubator;
 }
 
@@ -233,6 +245,7 @@ void MessageDelegateBase::updateAvatar()
                 cleanupIncubator(incubator);
             },
             m_errorCallback);
+        m_activeIncubators.push_back(avatarIncubator);
         m_avatarComponent->create(*avatarIncubator, qmlContext(m_avatarComponent));
         m_avatarIncubating = true;
     } else if (!showAvatar() && m_avatarItem) {
@@ -296,6 +309,7 @@ void MessageDelegateBase::updateSection()
                 cleanupIncubator(incubator);
             },
             m_errorCallback);
+        m_activeIncubators.push_back(sectionIncubator);
         m_sectionComponent->create(*sectionIncubator, qmlContext(m_sectionComponent));
         m_sectionIncubating = true;
     } else if (!m_showSection && m_sectionItem) {
@@ -359,6 +373,7 @@ void MessageDelegateBase::updateReadMarker()
                 cleanupIncubator(incubator);
             },
             m_errorCallback);
+        m_activeIncubators.push_back(readMarkerIncubator);
         m_readMarkerComponent->create(*readMarkerIncubator, qmlContext(m_readMarkerComponent));
         m_readMarkerIncubating = true;
     } else if (!m_showReadMarkers && m_readMarkerItem) {
@@ -428,6 +443,7 @@ void MessageDelegateBase::updateBackground()
                 cleanupIncubator(incubator);
             },
             m_errorCallback);
+        m_activeIncubators.push_back(compactBackgroundIncubator);
         m_compactBackgroundComponent->create(*compactBackgroundIncubator, qmlContext(m_compactBackgroundComponent));
         m_compactBackgroundIncubating = true;
     } else if (m_compactBackgroundItem && !m_hovered) {
@@ -476,6 +492,7 @@ void MessageDelegateBase::updateQuickAction()
                 cleanupIncubator(incubator);
             },
             m_errorCallback);
+        m_activeIncubators.push_back(quickActionIncubator);
         m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
         m_quickActionIncubating = true;
     } else if (m_quickActionItem && !m_hovered && !m_quickActionItem->property("reacting").toBool()) {

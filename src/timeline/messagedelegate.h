@@ -126,6 +126,7 @@ class MessageDelegateBase : public TimelineDelegate
 
 public:
     MessageDelegateBase(QQuickItem *parent = nullptr);
+    ~MessageDelegateBase();
 
     NeochatRoomMember *author() const;
     void setAuthor(NeochatRoomMember *author);
@@ -192,6 +193,8 @@ private:
     QPointer<NeochatRoomMember> m_author;
 
     bool m_isThreaded = false;
+
+    std::vector<MessageObjectIncubator *> m_activeIncubators;
 
     QPointer<QQmlComponent> m_avatarComponent;
     bool m_avatarIncubating = false;
