@@ -14,21 +14,11 @@ QQC2.ScrollView {
     id: root
 
     /**
-     * @brief The NeoChatRoom the delegate is being displayed in.
-     */
-    required property LibNeoChat.NeoChatRoom room
-
-    /**
      * @brief The MessageFilterModel to use.
      *
      * This model has the filtered list of events that should be shown in the timeline.
      */
     required property MessageFilterModel messageFilterModel
-
-    /**
-     * @brief Whether the timeline is scrolled to the end.
-     */
-    readonly property bool atYEnd: messageListView.atYEnd
 
     /**
      * @brief Whether the timeline ListView is interactive.
@@ -64,7 +54,7 @@ QQC2.ScrollView {
      * All messages will be marked as read.
      */
     function goToLastMessage() {
-        room.markAllMessagesAsRead();
+        _private.room.markAllMessagesAsRead();
         messageListView.positionViewAtBeginning();
     }
 
@@ -137,6 +127,17 @@ QQC2.ScrollView {
         clip: true
         interactive: Kirigami.Settings.isMobile
 
+        Shortcut {
+            sequence: StandardKey.Cancel
+            onActivated: {
+                if (!messageListView.atYEnd || !_private.room.partiallyReadStats.empty()) {
+                    messageListView.positionViewAtBeginning();
+                } else {
+                    applicationWindow().pageStack.get(0).forceActiveFocus();
+                }
+            }
+        }
+
         Component.onCompleted: {
             positionViewAtBeginning();
         }
@@ -154,19 +155,19 @@ QQC2.ScrollView {
 
             function onReadMarkerAdded() {
                 if (messageListView.allUnreadVisible()) {
-                    root.room.markAllMessagesAsRead();
+                    _private.room.markAllMessagesAsRead();
                 }
             }
 
             function onNewLocalUserEventAdded() {
                 messageListView.positionViewAtBeginning();
-                root.room.markAllMessagesAsRead();
+                _private.room.markAllMessagesAsRead();
             }
         }
 
         onAtYEndChanged: if (atYEnd && _private.hasScrolledUpBefore) {
             if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
-                root.room.markAllMessagesAsRead();
+                _private.room.markAllMessagesAsRead();
             }
             _private.hasScrolledUpBefore = false;
         } else if (!atYEnd) {
@@ -175,7 +176,7 @@ QQC2.ScrollView {
 
         model: root.messageFilterModel
         delegate: EventDelegate {
-            room: root.room
+            room: _private.room
         }
 
         KirigamiComponents.FloatingButton {
@@ -194,13 +195,13 @@ QQC2.ScrollView {
             padding: Kirigami.Units.largeSpacing
 
             z: 2
-            visible: (!root.room?.partiallyReadStats.empty())
+            visible: (!_private.room?.partiallyReadStats.empty())
 
-            text: root.room.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
+            text: _private.room.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
             action: Kirigami.Action {
                 onTriggered: {
                     goReadMarkerFab.textChanged()
-                    root.goToEvent(root.room.lastFullyReadEventId);
+                    root.goToEvent(_private.room.lastFullyReadEventId);
                 }
                 icon.name: "go-up"
                 shortcut: "Shift+PgUp"
@@ -232,7 +233,7 @@ QQC2.ScrollView {
             action: Kirigami.Action {
                 onTriggered: {
                     messageListView.positionViewAtBeginning();
-                    root.room.markAllMessagesAsRead();
+                    _private.room.markAllMessagesAsRead();
                 }
                 icon.name: "go-down"
                 shortcut: "Shift+PgDown"
@@ -248,7 +249,7 @@ QQC2.ScrollView {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: drop => { root.room.mainCache.attachmentPath = drop.urls[0] }
+            onDropped: drop => { _private.room.mainCache.attachmentPath = drop.urls[0] }
             enabled: root.fileDropEnabled
         }
 
@@ -268,7 +269,7 @@ QQC2.ScrollView {
 
         RowLayout {
             id: typingPaneContainer
-            visible: root.room && root.room.otherMembersTyping.length > 0
+            visible: _private.room && _private.room.otherMembersTyping.length > 0
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
@@ -287,7 +288,7 @@ QQC2.ScrollView {
                 Layout.maximumWidth: typingPaneSizeHelper.availableWidth
                 TypingPane {
                     id: typingPane
-                    labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", root.room.otherMembersTyping.length, root.room.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
+                    labelText: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", _private.room.otherMembersTyping.length, _private.room.otherMembersTyping.map(member => member.displayName).join(", ")) : ""
                 }
             }
 
@@ -313,11 +314,17 @@ QQC2.ScrollView {
             }
             repeat: true
         }
+    }
 
-        QtObject {
-            id: _private
-            // Used to determine if scrolling to the bottom should mark the message as unread
-            property bool hasScrolledUpBefore: false
-        }
+    QtObject {
+        id: _private
+
+        // Get the room from the model so we always have the one its using (this
+        // may not be the case just after RoomManager.currentRoom changes while
+        // the model does the switch over).
+        readonly property LibNeoChat.NeoChatRoom room: messageListView.model.sourceModel.timelineMessageModel.room
+
+        // Used to determine if scrolling to the bottom should mark the message as unread
+        property bool hasScrolledUpBefore: false
     }
 }
