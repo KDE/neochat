@@ -37,28 +37,13 @@ QQC2.ItemDelegate {
     Keys.onReturnPressed: root.treeView.toggleExpanded(row)
     Keys.onSpacePressed: root.treeView.toggleExpanded(row)
 
-    contentItem: RowLayout {
-        spacing: Kirigami.Units.largeSpacing
+    contentItem: Kirigami.ListSectionHeader {
+        visible: !root.collapsed
+        horizontalPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+        text: root.collapsed ? "" : root.displayName
 
-        Kirigami.Heading {
-            Layout.alignment: Qt.AlignVCenter
-            visible: !root.collapsed
-
-            opacity: 0.7
-            level: 5
-            type: Kirigami.Heading.Primary
-            text: root.collapsed ? "" : model.displayName
-            elide: Text.ElideRight
-
-            // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text
-            font.weight: Font.Bold
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-            visible: !root.collapsed
-            Layout.alignment: Qt.AlignVCenter
-        }
         QQC2.ToolButton {
             id: collapseButton
             Layout.alignment: Qt.AlignHCenter
