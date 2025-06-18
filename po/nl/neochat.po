@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:42+0000\n"
-"PO-Revision-Date: 2025-05-25 14:20+0200\n"
+"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"PO-Revision-Date: 2025-06-16 13:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "Negeer alle SSL fouten, bijv. niet ondertekende certificaten."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Een bestaand exemplaar vervangen"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -1091,22 +1091,22 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Negeren"
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:86
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat is offline. Controleer uw netwerkverbinding."
 
-#: src/app/qml/RoomPage.qml:145
+#: src/app/qml/RoomPage.qml:138
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Welkom bij NeoChat"
 
-#: src/app/qml/RoomPage.qml:146
+#: src/app/qml/RoomPage.qml:139
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Selecteer of doe mee met een room om te beginnen"
 
-#: src/app/qml/RoomPage.qml:234
+#: src/app/qml/RoomPage.qml:206
 #, kde-format
 msgid "Message Source"
 msgstr "Berichtinhoud"
@@ -3906,9 +3906,7 @@ msgid "Manage Account"
 msgstr "Account beheren"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "Account omschakelen"
 
@@ -6315,11 +6313,10 @@ msgid "Check-out time: %1"
 msgstr "Uitchecktijd: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Afbeelding instellen"
+msgstr "Afbeelding verbergen"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6544,27 +6541,27 @@ msgid ""
 msgstr ""
 "Dit is het begin van de chat. Er zijn geen historische berichten na dit punt."
 
-#: src/timeline/TimelineView.qml:199
+#: src/timeline/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Naar het eerste ongelezen bericht gaan"
 
-#: src/timeline/TimelineView.qml:199
+#: src/timeline/TimelineView.qml:200
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Naar het oudste geladen bericht gaan"
 
-#: src/timeline/TimelineView.qml:231
+#: src/timeline/TimelineView.qml:232
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Naar het laatste bericht gaan"
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Items hierheen verslepen om ze te delen"
 
-#: src/timeline/TimelineView.qml:290
+#: src/timeline/TimelineView.qml:291
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

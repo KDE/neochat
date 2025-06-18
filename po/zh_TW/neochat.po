@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-16 00:42+0000\n"
-"PO-Revision-Date: 2025-06-15 18:15+0900\n"
+"POT-Creation-Date: 2025-06-18 00:42+0000\n"
+"PO-Revision-Date: 2025-06-17 09:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -136,7 +136,7 @@ msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "取代現存實體"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -1086,22 +1086,22 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:86
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 
-#: src/app/qml/RoomPage.qml:145
+#: src/app/qml/RoomPage.qml:138
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "歡迎來到 NeoChat"
 
-#: src/app/qml/RoomPage.qml:146
+#: src/app/qml/RoomPage.qml:139
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "先加入或選擇聊天室吧"
 
-#: src/app/qml/RoomPage.qml:234
+#: src/app/qml/RoomPage.qml:206
 #, kde-format
 msgid "Message Source"
 msgstr "訊息原始碼"
@@ -3845,9 +3845,7 @@ msgid "Manage Account"
 msgstr "管理帳號"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgid "Switch Account"
 msgstr "切換帳號"
 
@@ -4878,10 +4876,26 @@ msgid "Default Settings"
 msgstr "預設設定值"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset All Configuration Values to Their Default"
+msgid "Reset all configuration values to their default"
 msgstr "將所有設定值重設為預設值"
+
+#: src/settings/NeoChatGeneralPage.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Re-send confirmation e-mail"
+msgctxt "@title:dialog"
+msgid "Reset Configuration"
+msgstr "重新傳送確認信"
+
+#: src/settings/NeoChatGeneralPage.qml:319
+#, kde-format
+msgctxt "@info"
+msgid "Do you really want to reset all options to their default values?"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -6407,27 +6421,27 @@ msgid ""
 "this point."
 msgstr "這是此聊天的開頭。沒有比這更早的歷史訊息。"
 
-#: src/timeline/TimelineView.qml:199
+#: src/timeline/TimelineView.qml:200
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳到第一個未讀訊息"
 
-#: src/timeline/TimelineView.qml:199
+#: src/timeline/TimelineView.qml:200
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "跳到已載入的最舊的訊息"
 
-#: src/timeline/TimelineView.qml:231
+#: src/timeline/TimelineView.qml:232
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳到最新訊息"
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖曳項目至此來分享它"
 
-#: src/timeline/TimelineView.qml:290
+#: src/timeline/TimelineView.qml:291
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
