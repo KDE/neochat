@@ -201,10 +201,9 @@ MessageDelegateBase {
         }
     }
 
-    sectionComponent: SectionDelegate {
-        id: sectionDelegate
-        labelText: root.section
-        colorSet: root.compactMode ? Kirigami.Theme.View : Kirigami.Theme.Window
+    sectionComponent: Kirigami.ListSectionHeader {
+        horizontalPadding: 0
+        text: root.section
     }
 
     readMarkerComponent: AvatarFlow {

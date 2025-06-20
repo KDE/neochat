@@ -19,7 +19,6 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         TimelineEndDelegate.qml
         Bubble.qml
         AvatarFlow.qml
-        SectionDelegate.qml
         QuickActions.qml
         TypingPane.qml
         BaseMessageComponentChooser.qml

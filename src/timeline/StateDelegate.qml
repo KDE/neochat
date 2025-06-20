@@ -69,11 +69,11 @@ TimelineDelegate {
     alwaysFillWidth: NeoChatConfig.compactLayout
 
     contentItem: ColumnLayout {
-        SectionDelegate {
+        Kirigami.ListSectionHeader {
             Layout.fillWidth: true
             visible: root.showSection
-            labelText: root.section
-            colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
+            horizontalPadding: 0
+            text: root.section
         }
         RowLayout {
             Layout.fillWidth: true
