@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-21 12:07+0200\n"
+"PO-Revision-Date: 2025-06-22 12:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -41,10 +41,9 @@ msgid "Chat on Matrix"
 msgstr "Charle en Matrix"
 
 #: src/app/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2024 Comunidade KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2025 Comunidade KDE"
 
 #: src/app/main.cpp:155
 #, kde-format
@@ -135,7 +134,7 @@ msgstr "Ignorar todos os erros de SSL, p. ex. certificados sen asinar."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Substituír unha instancia existente."
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -560,8 +559,7 @@ msgid "File"
 msgstr "Ficheiro"
 
 #: src/app/qml/GlobalMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Atopar as súas amizades"
@@ -582,11 +580,10 @@ msgid "Find your friends"
 msgstr "Atopar as súas amizades"
 
 #: src/app/qml/GlobalMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "Crear unha sala"
+msgstr "Crear unha sala…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -729,41 +726,34 @@ msgid "Mirror"
 msgstr "Reflectir"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "Invitouse a %1 a esta sala."
+msgstr "%1 envioulle unha invitación a esta sala ás %2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Esta persoa convidoulle a conversar."
+msgstr "Esta persoa convidoulle a conversar ás %1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Aceptar"
+msgstr "Aceptar a invitación"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgctxt "@action:button The thing being rejected is an invitation to chat"
-#| msgid "Reject"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "Rexeitar"
+msgstr "Rexeitar a invitación"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "Bloquear a %1"
 
 #: src/app/qml/InvitationView.qml:162
 #, kde-format
@@ -944,78 +934,66 @@ msgstr "Editar o estado"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: src/app/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Crear unha sala"
+msgstr "Crear unha enquisa"
 
 #: src/app/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Tipo de enquisa:"
 
 #: src/app/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "Abrir un ficheiro"
+msgstr "Enquisa aberta"
 
 #: src/app/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "Pechar"
+msgstr "Enquisa pechada"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Quen vote verá os resultados inmediatamente despois."
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Os resultados só se amosan unha vez pechada a enquisa."
 
 #: src/app/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "Descrición:"
+msgstr "Pregunta:"
 
 #: src/app/qml/NewPollDialog.qml:104
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr ""
+msgstr "Opción %1:"
 
 #: src/app/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "Cifraxe"
+msgstr "Escriba a opción"
 
 #: src/app/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Retirar o espazo"
+msgstr "Retirar a opción"
 
 #: src/app/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add Emoji"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Engadir unha expresión"
+msgstr "Engadir unha opción"
 
 #: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
@@ -1064,7 +1042,7 @@ msgstr "Riscar"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Revelación"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -1425,22 +1403,16 @@ msgid "Copy link"
 msgstr "Copiar a ligazón"
 
 #: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Profile"
-msgstr "Abrir un ficheiro"
+msgstr "Abrir o perfil"
 
 #: src/app/qml/UserMenu.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mention"
-msgstr "@mencións"
+msgstr "Mención"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -1702,11 +1674,10 @@ msgid "Send a Location"
 msgstr "Enviar unha localización"
 
 #: src/chatbar/ChatBar.qml:135
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Crear unha sala"
+msgstr "Crear unha enquisa"
 
 #: src/chatbar/ChatBar.qml:151
 #, kde-format
@@ -3079,23 +3050,22 @@ msgid "Create Room"
 msgstr "Crear unha sala"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
-msgstr "Crear unha nova"
+msgstr "Crear"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Privada"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "A esta sala só pode accederse mediante invitación."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
 #, kde-format
@@ -3107,7 +3077,7 @@ msgstr "Público"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "Calquera pode atopar e unirse a esta sala."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
 #, kde-format
@@ -3116,27 +3086,22 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
-msgstr "Saír da sala"
+msgstr "Nova sala"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New Email Address:"
+#, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
-msgstr "Novo enderezo de correo electrónico:"
+msgstr "Enderezo:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr "Engadir unha nova sala"
+msgstr "nova-sala"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:23
 #, kde-format
@@ -3145,11 +3110,10 @@ msgid "Create a Space"
 msgstr "Crear un espazo"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr "Crear unha nova"
+msgstr "Crear"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:47
 #, kde-format
@@ -3158,12 +3122,10 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Ver o espazo"
+msgstr "Novo espazo"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:60
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -3303,7 +3265,7 @@ msgstr "Cargando"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Continuar no navegador"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3794,20 +3756,16 @@ msgid "Deprioritize"
 msgstr "Despriorizar"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Copiar o identificador de Matrix da persoa no portapapeis"
+msgstr "Copiar o identificador de Matrix da persoa"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "Copiar o enderezo da ligazón"
+msgstr "Copiar o enderezo da sala"
 
 #: src/rooms/RoomContextMenu.qml:143
 #, kde-format
@@ -3886,13 +3844,12 @@ msgid "Home"
 msgstr "Inicio"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "Ver as notificacións"
-msgstr[1] "Ver as notificacións"
+msgstr[0] "Amizades (%1 notificación)"
+msgstr[1] "Amizades (%1 notificacións)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -3918,12 +3875,10 @@ msgid "View Space"
 msgstr "Ver o espazo"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Copiar o enderezo da ligazón"
+msgstr "Copiar o enderezo do espazo"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, kde-format
@@ -4994,18 +4949,17 @@ msgid "Reset all configuration values to their default"
 msgstr "Restabelecer os valores predeterminados da configuración."
 
 #: src/settings/NeoChatGeneralPage.qml:318
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Re-send confirmation e-mail"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr "Enviar de novo a mensaxe de confirmación"
+msgstr "Restabelecer a configuración"
 
 #: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
 msgstr ""
+"Seguro que quere restabelecer os valores predeterminados de todas as opcións?"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5338,7 +5292,7 @@ msgstr "Usar a opción global"
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: src/settings/RoomAdvancedPage.qml:28
 #, kde-format
@@ -5353,8 +5307,7 @@ msgid "Copy room ID to clipboard"
 msgstr "Copiar o identificador de sala no portapapeis"
 
 #: src/settings/RoomAdvancedPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Versión da sala"
@@ -5726,7 +5679,7 @@ msgstr "Perfil"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzado"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -5986,9 +5939,7 @@ msgid "Select Existing Room"
 msgstr "Seleccione unha sala existente"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Escoller unha sala"
@@ -6021,7 +5972,7 @@ msgstr "Facer este espazo o canónico."
 msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
-msgstr ""
+msgstr "Se unha sala está en varios espazos, o canónico é o predeterminado."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -6063,27 +6014,22 @@ msgid "Make Suggested"
 msgstr "Incluír en suxestións"
 
 #: src/spaces/SpaceHomePage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "Novo grupo…"
+msgstr "Nova sala…"
 
 #: src/spaces/SpaceHomePage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Ver o espazo"
+msgstr "Novo espazo…"
 
 #: src/spaces/SpaceHomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "Seleccione unha sala existente"
+msgstr "Sala existente…"
 
 #: src/spaces/SpaceHomePage.qml:78
 #, kde-format
@@ -6092,11 +6038,10 @@ msgid "Invite user to space"
 msgstr "Invitar a persoa ao espazo"
 
 #: src/spaces/SpaceHomePage.qml:90
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "Engadir aos favoritos"
+msgstr "Engadir ao espazo"
 
 #: src/timeline/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -6260,24 +6205,16 @@ msgid "Open Image"
 msgstr "Abrir a imaxe"
 
 #: src/timeline/FileDelegateContextMenu.qml:52
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr "Abrir un ficheiro"
+msgstr "Abrir o son"
 
 #: src/timeline/FileDelegateContextMenu.qml:54
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr "Abrir un ficheiro"
+msgstr "Abrir o vídeo"
 
 #: src/timeline/FileDelegateContextMenu.qml:56
 #, kde-format
@@ -6292,28 +6229,22 @@ msgid "Save Image…"
 msgstr "Gardar a imaxe…"
 
 #: src/timeline/FileDelegateContextMenu.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr "Gardar a imaxe…"
+msgstr "Gardar o son…"
 
 #: src/timeline/FileDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr "Gardar a imaxe…"
+msgstr "Gardar o vídeo…"
 
 #: src/timeline/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
-msgstr "Gardar a imaxe…"
+msgstr "Gardar o ficheiro…"
 
 #: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
@@ -6322,26 +6253,22 @@ msgid "Copy Image"
 msgstr "Copiar a imaxe"
 
 #: src/timeline/FileDelegateContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
-msgstr "Copiar a ligazón"
+msgstr "Copiar o son"
 
 #: src/timeline/FileDelegateContextMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
-msgstr "Amosar o vídeo"
+msgstr "Copiar o vídeo"
 
 #: src/timeline/FileDelegateContextMenu.qml:94
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
-msgstr "Copiar a ligazón"
+msgstr "Copiara o ficheiro"
 
 #: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
@@ -6371,11 +6298,10 @@ msgid "Check-out time: %1"
 msgstr "Hora de saída: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Definir a imaxe"
+msgstr "Agochar a imaxe"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format
@@ -6425,12 +6351,10 @@ msgid "Open Externally"
 msgstr "Abrir externamente"
 
 #: src/timeline/LocationComponent.qml:112
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Enter Full Screen"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr "Poñer a pantalla completa"
+msgstr "Abrir a pantalla completa"
 
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
@@ -6466,13 +6390,13 @@ msgstr "Copiar a ligazón á mensaxe"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Ler o texto en alto"
 
 #: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 dixo %2"
 
 #: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
@@ -6497,7 +6421,7 @@ msgstr ""
 #: src/timeline/models/messagecontentmodel.cpp:563
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>Este evento non ten contido.</i>"
 
 #: src/timeline/models/reactionmodel.cpp:69
 #, kde-format
@@ -6544,8 +6468,8 @@ msgstr ", "
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 voto"
+msgstr[1] "%1 votos"
 
 #: src/timeline/PollComponent.qml:129
 #, kde-format
@@ -6564,7 +6488,7 @@ msgstr "(rematou)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "A enquisa rematou. Opción máis votada: %1"
 
 #: src/timeline/QuickActions.qml:32
 #, kde-format
@@ -6572,10 +6496,9 @@ msgid "React"
 msgstr "Reaccionar"
 
 #: src/timeline/QuickActions.qml:81
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgid "Message menu"
-msgstr "Orixe da mensaxe"
+msgstr "Menú de mensaxes"
 
 #: src/timeline/ReactionComponent.qml:89
 #, kde-format
