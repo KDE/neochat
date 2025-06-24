@@ -25,8 +25,8 @@ Kirigami.Page {
             Kirigami.ColumnView.preferredWidth = root.Kirigami.ColumnView.minimumWidth;
         }
     }
-    Kirigami.ColumnView.preferredWidth: _private.defaultWidth + spaceDrawer.width + 1
-    onWidthChanged: {
+    Kirigami.ColumnView.preferredWidth: _private.currentWidth + spaceDrawer.width + 1
+    Kirigami.ColumnView.onPreferredWidthChanged: {
         if (width > _private.collapseWidth) {
             NeoChatConfig.collapsed = false;
         } else if (Kirigami.ColumnView.interactiveResizing) {
