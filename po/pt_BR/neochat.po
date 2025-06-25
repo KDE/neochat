@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-08-03 00:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -236,11 +236,18 @@ msgstr ""
 
 #: src/app/qml/AccountMenu.qml:40
 #, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@action:inmenu"
+msgid "Switch Account"
+msgstr "Editar conta"
+
+#: src/app/qml/AccountMenu.qml:48
+#, fuzzy, kde-format
 #| msgid "Edit this account"
 msgid "Edit This Account"
 msgstr "Editar esta conta"
 
-#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
@@ -248,62 +255,62 @@ msgstr "Editar esta conta"
 msgid "Account editor"
 msgstr "Detalhes da conta"
 
-#: src/app/qml/AccountMenu.qml:50
+#: src/app/qml/AccountMenu.qml:58
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notification Settings"
 msgstr "Mostrar notificações"
 
-#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Developer Tools"
 msgstr "Configurações"
 
-#: src/app/qml/AccountMenu.qml:72
+#: src/app/qml/AccountMenu.qml:80
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Configurações"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:96
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Editar dispositivo"
 
-#: src/app/qml/AccountMenu.qml:93
+#: src/app/qml/AccountMenu.qml:101
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:94
+#: src/app/qml/AccountMenu.qml:102
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Sair"
@@ -4238,12 +4245,6 @@ msgid "Manage Account"
 msgstr "Editar conta"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgid "Edit Account"
-msgid "Switch Account"
-msgstr "Editar conta"
-
-#: src/rooms/UserInfo.qml:116
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"

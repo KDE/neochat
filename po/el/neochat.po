@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -229,70 +229,77 @@ msgid "Show QR Code"
 msgstr ""
 
 #: src/app/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Edit Account"
+msgctxt "@action:inmenu"
+msgid "Switch Account"
+msgstr "Επεξεργασία λογαριασμού"
+
+#: src/app/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Edit This Account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
-#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
 #, kde-format
 msgid "Account editor"
 msgstr "Συντάκτης λογαριασμού"
 
-#: src/app/qml/AccountMenu.qml:50
+#: src/app/qml/AccountMenu.qml:58
 #, fuzzy, kde-format
 #| msgid "Room notifications setting"
 msgid "Notification Settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
-#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Συσκευές"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Άνοιγμα εργαλείων προγραμματιστή"
 
-#: src/app/qml/AccountMenu.qml:72
+#: src/app/qml/AccountMenu.qml:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Εργαλεία προγραμματιστή"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Άνοιγμα μυστικού αντιγράφου ασφαλείας"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Άνοιγμα αντιγράφων ασφαλείας κλειδιού"
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:96
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/app/qml/AccountMenu.qml:93
+#: src/app/qml/AccountMenu.qml:101
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:94
+#: src/app/qml/AccountMenu.qml:102
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -4119,12 +4126,6 @@ msgid "Manage Account"
 msgstr "Επεξεργασία λογαριασμού"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgid "Edit Account"
-msgid "Switch Account"
-msgstr "Επεξεργασία λογαριασμού"
-
-#: src/rooms/UserInfo.qml:116
 #, kde-format
 msgid "Open Settings"
 msgstr "Άνοιγμα ρυθμίσεων"

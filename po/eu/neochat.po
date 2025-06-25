@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:42+0000\n"
-"PO-Revision-Date: 2025-06-08 09:29+0200\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
+"PO-Revision-Date: 2025-06-24 17:49+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -136,7 +136,7 @@ msgstr "Ez egin kasu SSL erroreei, adib., sinatu gabeko ziurtagiriei."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Ordezkatu aurrez dagoen instantzia bat"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -224,68 +224,75 @@ msgid "Show QR Code"
 msgstr "Erakutsi QR kodea"
 
 #: src/app/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgid "Switch Account"
+msgctxt "@action:inmenu"
+msgid "Switch Account"
+msgstr "Aldatu kontua"
+
+#: src/app/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Edit This Account"
 msgstr "Editatu kontu hau"
 
-#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
 #, kde-format
 msgid "Account editor"
 msgstr "Kontu-editorea"
 
-#: src/app/qml/AccountMenu.qml:50
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgid "Notification Settings"
 msgstr "Jakinarazpen-ezarpenak"
 
-#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "Gailuak"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Ireki garatzailearen tresnak"
 
-#: src/app/qml/AccountMenu.qml:72
+#: src/app/qml/AccountMenu.qml:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Garatzailearen tresnak"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Ireki babeskopia-sekretua"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Ireki gakoaren babeskopia"
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:96
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Gailu hau egiaztatu"
 
-#: src/app/qml/AccountMenu.qml:93
+#: src/app/qml/AccountMenu.qml:101
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Egiaztapen-eskaera bidali da"
 
-#: src/app/qml/AccountMenu.qml:94
+#: src/app/qml/AccountMenu.qml:102
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Jarraitzeko, egiaztapen-eskaera beste gailu batean onartu."
 
-#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Saioa itxi"
@@ -3905,13 +3912,6 @@ msgid "Manage Account"
 msgstr "Kudeatu kontua"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
-msgid "Switch Account"
-msgstr "Aldatu kontua"
-
-#: src/rooms/UserInfo.qml:116
 #, kde-format
 msgid "Open Settings"
 msgstr "Ireki ezarpenak"
@@ -4944,26 +4944,23 @@ msgid "Default Settings"
 msgstr "Ezarpen lehenetsiak"
 
 #: src/settings/NeoChatGeneralPage.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset All Configuration Values to Their Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
-msgstr "Berrezarri konfigurazio-balio denak haien balio lehenetsietara"
+msgstr "Berrezarri konfigurazio-balio guztiak haien balio lehenetsietara"
 
 #: src/settings/NeoChatGeneralPage.qml:318
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Re-send confirmation e-mail"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr "Berriz bidali baieztatzeko e-posta"
+msgstr "Berrezarri konfigurazioa"
 
 #: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
 msgstr ""
+"Benetan berrezarri nahi dituzu balio guztiak haien balio lehenetsietara?"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -6298,11 +6295,10 @@ msgid "Check-out time: %1"
 msgstr "Ordaindu eta irtete ordua: %1"
 
 #: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Ezarri irudia"
+msgstr "Ezkutatu irudia"
 
 #: src/timeline/ImageComponent.qml:143
 #, kde-format

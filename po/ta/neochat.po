@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-21 00:42+0000\n"
+"POT-Creation-Date: 2025-06-25 00:42+0000\n"
 "PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -222,68 +222,76 @@ msgid "Show QR Code"
 msgstr "QR குறியைக் காட்டு"
 
 #: src/app/qml/AccountMenu.qml:40
+#, fuzzy, kde-format
+#| msgctxt "@title: dialog to switch between logged in accounts"
+#| msgid "Switch Account"
+msgctxt "@action:inmenu"
+msgid "Switch Account"
+msgstr "கணக்கை மாற்று"
+
+#: src/app/qml/AccountMenu.qml:48
 #, kde-format
 msgid "Edit This Account"
 msgstr "இந்தக் கணக்கைத் திருத்து"
 
-#: src/app/qml/AccountMenu.qml:45 src/settings/AccountsPage.qml:33
+#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
 #: src/settings/AccountsPage.qml:50
 #, kde-format
 msgid "Account editor"
 msgstr "கணக்கு திருத்தி"
 
-#: src/app/qml/AccountMenu.qml:50
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgid "Notification Settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
-#: src/app/qml/AccountMenu.qml:58 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
 #, kde-format
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/app/qml/AccountMenu.qml:72
+#: src/app/qml/AccountMenu.qml:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "ரகசிய காப்புநகலைத் திற"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "சாவி காப்புநகலைத் திறப்பது"
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:96
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "இச்சாதனத்தை உறுதிப்படுத்து"
 
-#: src/app/qml/AccountMenu.qml:93
+#: src/app/qml/AccountMenu.qml:101
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "சரிபார்ப்பு கோரிக்கை அனுப்பப்பட்டுள்ளது"
 
-#: src/app/qml/AccountMenu.qml:94
+#: src/app/qml/AccountMenu.qml:102
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "தொடர, சரிபார்ப்பு கோரிக்கையை இன்னொரு சாதனத்தில் ஏற்றுகொள்ளவும்."
 
-#: src/app/qml/AccountMenu.qml:105 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "கணக்கிலிருந்து வெளியேறு"
@@ -3934,13 +3942,6 @@ msgid "Manage Account"
 msgstr "கணக்கை கையாள்"
 
 #: src/rooms/UserInfo.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
-msgid "Switch Account"
-msgstr "கணக்கை மாற்று"
-
-#: src/rooms/UserInfo.qml:116
 #, kde-format
 msgid "Open Settings"
 msgstr "அமைப்புகளை திற"
