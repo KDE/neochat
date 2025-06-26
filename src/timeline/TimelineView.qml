@@ -227,7 +227,7 @@ QQC2.ScrollView {
             padding: Kirigami.Units.largeSpacing
 
             z: 2
-            visible: !root.atYEnd
+            visible: !messageListView.atYEnd
 
             text: i18n("Jump to latest message")
             action: Kirigami.Action {
