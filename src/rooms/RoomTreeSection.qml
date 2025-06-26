@@ -37,13 +37,16 @@ QQC2.ItemDelegate {
     Keys.onReturnPressed: root.treeView.toggleExpanded(row)
     Keys.onSpacePressed: root.treeView.toggleExpanded(row)
 
-    contentItem: Kirigami.ListSectionHeader {
-        visible: !root.collapsed
-        horizontalPadding: 0
-        topPadding: 0
-        bottomPadding: 0
-        text: root.collapsed ? "" : root.displayName
-
+    contentItem: RowLayout {
+        spacing: 0
+        Kirigami.ListSectionHeader {
+            Layout.fillWidth: true
+            visible: !root.collapsed
+            horizontalPadding: 0
+            topPadding: 0
+            bottomPadding: 0
+            text: root.collapsed ? "" : root.displayName
+        }
         QQC2.ToolButton {
             id: collapseButton
             Layout.alignment: Qt.AlignHCenter
