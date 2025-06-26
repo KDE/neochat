@@ -95,23 +95,19 @@ RowLayout {
             window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
         }
     }
-
-    Kirigami.ActionToolBar {
-        alignment: Qt.AlignRight
+    QQC2.ToolButton {
         display: QQC2.Button.IconOnly
-
-        Layout.fillWidth: true
-        Layout.preferredWidth: maximumContentWidth
-
-        actions: [
-            Kirigami.Action {
-                text: i18n("Open Settings")
-                icon.name: "settings-configure-symbolic"
-                onTriggered: {
-                    NeoChatSettingsView.open();
-                }
+        action: Kirigami.Action {
+            text: i18n("Open Settings")
+            icon.name: "settings-configure-symbolic"
+            onTriggered: {
+                NeoChatSettingsView.open();
             }
-        ]
+        }
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
     Component {
