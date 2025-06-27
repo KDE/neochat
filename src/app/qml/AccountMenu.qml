@@ -47,11 +47,7 @@ KirigamiComponents.ConvergentContextMenu {
     QQC2.Action {
         text: i18n("Edit This Account")
         icon.name: "document-edit"
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
-            connection: root.connection
-        }, {
-            title: i18n("Account editor")
-        })
+        onTriggered: NeoChatSettingsView.openWithInitialProperties("accounts", {initialAccount: root.connection});
     }
 
     QQC2.Action {

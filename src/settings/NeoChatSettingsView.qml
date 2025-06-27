@@ -59,6 +59,7 @@ KirigamiSettings.ConfigurationView {
             visible: root.connection !== null
         },
         KirigamiSettings.ConfigurationModule {
+            id: accountsModule
             moduleId: "accounts"
             text: i18n("Accounts")
             icon.name: "preferences-system-users-symbolic"
@@ -111,4 +112,14 @@ KirigamiSettings.ConfigurationView {
             category: i18nc("@title:group", "About")
         }
     ]
+
+    function openWithInitialProperties(defaultModule = '', initialProperties): void {
+        let module = modules.find(module => module.moduleId == defaultModule) ?? null;
+        if (module) {
+            module.initialProperties = () => {
+                return initialProperties;
+            }
+        }
+        root.open(defaultModule);
+    }
 }
