@@ -59,7 +59,6 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/RoomPage.qml
         qml/ManualRoomDialog.qml
         qml/ExplorerDelegate.qml
-        qml/ImageEditorPage.qml
         qml/NeochatMaximizeComponent.qml
         qml/QuickSwitcher.qml
         qml/AttachmentPane.qml
