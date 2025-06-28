@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-06-19 22:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -235,64 +235,58 @@ msgstr "切換帳號"
 msgid "Edit This Account"
 msgstr "編輯這個帳號"
 
-#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
-#: src/settings/AccountsPage.qml:50
-#, kde-format
-msgid "Account editor"
-msgstr "帳號編輯器"
-
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:54
 #, kde-format
 msgid "Notification Settings"
 msgstr "通知設定"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "開啟開發者工具"
 
-#: src/app/qml/AccountMenu.qml:80
+#: src/app/qml/AccountMenu.qml:76
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "開啟秘密備份"
 
-#: src/app/qml/AccountMenu.qml:91
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "開啟金鑰備份"
 
-#: src/app/qml/AccountMenu.qml:96
+#: src/app/qml/AccountMenu.qml:92
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "驗證此裝置"
 
-#: src/app/qml/AccountMenu.qml:101
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "已送出驗證請求"
 
-#: src/app/qml/AccountMenu.qml:102
+#: src/app/qml/AccountMenu.qml:98
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "要繼續進行，請在另一台裝置上接受驗證請求。"
 
-#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "登出"
@@ -342,7 +336,7 @@ msgstr "開始私人聊天"
 msgid "Attachment:"
 msgstr "附件："
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -672,60 +666,6 @@ msgstr "關於 KDE"
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "目前選取的連結"
-
-#: src/app/qml/ImageEditorPage.qml:36
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "復原"
-
-#: src/app/qml/ImageEditorPage.qml:43
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "接受"
-
-#: src/app/qml/ImageEditorPage.qml:51
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr "無法儲存檔案。請檢查您是否有足夠權限編輯快取目錄。"
-
-#: src/app/qml/ImageEditorPage.qml:123
-#, kde-format
-msgid "Cancel"
-msgstr "取消"
-
-#: src/app/qml/ImageEditorPage.qml:123 src/app/qml/ImageEditorPage.qml:139
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "裁切"
-
-#: src/app/qml/ImageEditorPage.qml:144
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "向左旋轉"
-
-#: src/app/qml/ImageEditorPage.qml:150
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "向右旋轉"
-
-#: src/app/qml/ImageEditorPage.qml:156
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "翻轉"
-
-#: src/app/qml/ImageEditorPage.qml:162
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "鏡射"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -1691,6 +1631,60 @@ msgstr "表情符號"
 #, kde-format
 msgid "Stickers"
 msgstr "貼圖"
+
+#: src/chatbar/ImageEditorPage.qml:36
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "復原"
+
+#: src/chatbar/ImageEditorPage.qml:43
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "接受"
+
+#: src/chatbar/ImageEditorPage.qml:51
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr "無法儲存檔案。請檢查您是否有足夠權限編輯快取目錄。"
+
+#: src/chatbar/ImageEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "取消"
+
+#: src/chatbar/ImageEditorPage.qml:123 src/chatbar/ImageEditorPage.qml:139
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "裁切"
+
+#: src/chatbar/ImageEditorPage.qml:144
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "向左旋轉"
+
+#: src/chatbar/ImageEditorPage.qml:150
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "向右旋轉"
+
+#: src/chatbar/ImageEditorPage.qml:156
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "翻轉"
+
+#: src/chatbar/ImageEditorPage.qml:162
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "鏡射"
 
 #: src/devtools/AccountData.qml:20
 #, kde-format
@@ -3851,7 +3845,7 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "管理帳號"
 
-#: src/rooms/UserInfo.qml:108
+#: src/rooms/UserInfo.qml:101
 #, kde-format
 msgid "Open Settings"
 msgstr "開啟設定"
@@ -3999,6 +3993,11 @@ msgstr "變更密碼時發生未知問題"
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "帳號"
+
+#: src/settings/AccountsPage.qml:33 src/settings/AccountsPage.qml:50
+#, kde-format
+msgid "Account editor"
+msgstr "帳號編輯器"
 
 #: src/settings/AccountsPage.qml:38
 #, kde-format
@@ -5024,34 +5023,34 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "安全性與人身安全"
 
-#: src/settings/NeoChatSettingsView.qml:63
+#: src/settings/NeoChatSettingsView.qml:64
 #, kde-format
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/settings/NeoChatSettingsView.qml:70
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "貼圖與表情符號"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:84
 #, kde-format
 msgid "Network Proxy"
 msgstr "網路代理伺服器"
 
-#: src/settings/NeoChatSettingsView.qml:101
+#: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr "關於 NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:104
-#: src/settings/NeoChatSettingsView.qml:111
+#: src/settings/NeoChatSettingsView.qml:105
+#: src/settings/NeoChatSettingsView.qml:112
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "關於"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:109
 #, kde-format
 msgid "About KDE"
 msgstr "關於 KDE"

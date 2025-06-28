@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-28 00:41+0000\n"
 "PO-Revision-Date: 2025-06-25 11:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -232,65 +232,59 @@ msgstr "Account omschakelen"
 msgid "Edit This Account"
 msgstr "Dit account bewerken"
 
-#: src/app/qml/AccountMenu.qml:53 src/settings/AccountsPage.qml:33
-#: src/settings/AccountsPage.qml:50
-#, kde-format
-msgid "Account editor"
-msgstr "Accountbewerker"
-
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:54
 #, kde-format
 msgid "Notification Settings"
 msgstr "Instellingen voor meldingen"
 
-#: src/app/qml/AccountMenu.qml:66 src/settings/NeoChatSettingsView.qml:89
+#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
 #, kde-format
 msgid "Devices"
 msgstr "Apparaten"
 
-#: src/app/qml/AccountMenu.qml:74 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars openen"
 
-#: src/app/qml/AccountMenu.qml:80
+#: src/app/qml/AccountMenu.qml:76
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Reservekopie van geheim openen"
 
-#: src/app/qml/AccountMenu.qml:91
+#: src/app/qml/AccountMenu.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Reservekopie van sleutel openen"
 
-#: src/app/qml/AccountMenu.qml:96
+#: src/app/qml/AccountMenu.qml:92
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Dit apparaat verifiëren"
 
-#: src/app/qml/AccountMenu.qml:101
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Verificatieverzoek verzonden"
 
-#: src/app/qml/AccountMenu.qml:102
+#: src/app/qml/AccountMenu.qml:98
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 "Om door te gaan, accepteer het verificatieverzoek op een ander apparaat."
 
-#: src/app/qml/AccountMenu.qml:113 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
 #, kde-format
 msgid "Logout"
 msgstr "Afmelden"
@@ -340,7 +334,7 @@ msgstr "Chat starten"
 msgid "Attachment:"
 msgstr "Bijlage:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/app/qml/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
 #: src/timeline/MessageDelegateContextMenu.qml:41
 #, kde-format
 msgid "Edit"
@@ -672,62 +666,6 @@ msgstr "Info over KDE"
 msgctxt "@info screenreader"
 msgid "The currently selected link"
 msgstr "De nu geselecteerde koppeling"
-
-#: src/app/qml/ImageEditorPage.qml:36
-#, kde-format
-msgctxt "@action:button Undo modification"
-msgid "Undo"
-msgstr "Ongedaan maken"
-
-#: src/app/qml/ImageEditorPage.qml:43
-#, kde-format
-msgctxt "@action:button Accept image modification"
-msgid "Accept"
-msgstr "Accepteren"
-
-#: src/app/qml/ImageEditorPage.qml:51
-#, kde-format
-msgid ""
-"Unable to save file. Check if you have the correct permission to edit the "
-"cache directory."
-msgstr ""
-"Het bestand kon niet worden opgeslagen. Controleer of u de benodigde "
-"toegangsrechten hebt om de cache-map te bewerken."
-
-#: src/app/qml/ImageEditorPage.qml:123
-#, kde-format
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: src/app/qml/ImageEditorPage.qml:123 src/app/qml/ImageEditorPage.qml:139
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Uitsnijden"
-
-#: src/app/qml/ImageEditorPage.qml:144
-#, kde-format
-msgctxt "@action:button Rotate an image to the left"
-msgid "Rotate left"
-msgstr "Linksom draaien"
-
-#: src/app/qml/ImageEditorPage.qml:150
-#, kde-format
-msgctxt "@action:button Rotate an image to the right"
-msgid "Rotate right"
-msgstr "Rechtsom draaien"
-
-#: src/app/qml/ImageEditorPage.qml:156
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Verticaal spiegelen"
-
-#: src/app/qml/ImageEditorPage.qml:162
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Horizontaal spiegelen"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -1732,6 +1670,62 @@ msgstr "Emoji's"
 #, kde-format
 msgid "Stickers"
 msgstr "Stickers"
+
+#: src/chatbar/ImageEditorPage.qml:36
+#, kde-format
+msgctxt "@action:button Undo modification"
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: src/chatbar/ImageEditorPage.qml:43
+#, kde-format
+msgctxt "@action:button Accept image modification"
+msgid "Accept"
+msgstr "Accepteren"
+
+#: src/chatbar/ImageEditorPage.qml:51
+#, kde-format
+msgid ""
+"Unable to save file. Check if you have the correct permission to edit the "
+"cache directory."
+msgstr ""
+"Het bestand kon niet worden opgeslagen. Controleer of u de benodigde "
+"toegangsrechten hebt om de cache-map te bewerken."
+
+#: src/chatbar/ImageEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: src/chatbar/ImageEditorPage.qml:123 src/chatbar/ImageEditorPage.qml:139
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Uitsnijden"
+
+#: src/chatbar/ImageEditorPage.qml:144
+#, kde-format
+msgctxt "@action:button Rotate an image to the left"
+msgid "Rotate left"
+msgstr "Linksom draaien"
+
+#: src/chatbar/ImageEditorPage.qml:150
+#, kde-format
+msgctxt "@action:button Rotate an image to the right"
+msgid "Rotate right"
+msgstr "Rechtsom draaien"
+
+#: src/chatbar/ImageEditorPage.qml:156
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Verticaal spiegelen"
+
+#: src/chatbar/ImageEditorPage.qml:162
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Horizontaal spiegelen"
 
 #: src/devtools/AccountData.qml:20
 #, kde-format
@@ -3911,7 +3905,7 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Account beheren"
 
-#: src/rooms/UserInfo.qml:108
+#: src/rooms/UserInfo.qml:101
 #, kde-format
 msgid "Open Settings"
 msgstr "Instellingen openen"
@@ -4059,6 +4053,11 @@ msgstr "Onbekend probleem bij poging het wachtwoord te wijzigen"
 msgctxt "@title:window"
 msgid "Accounts"
 msgstr "Accounts"
+
+#: src/settings/AccountsPage.qml:33 src/settings/AccountsPage.qml:50
+#, kde-format
+msgid "Account editor"
+msgstr "Accountbewerker"
 
 #: src/settings/AccountsPage.qml:38
 #, kde-format
@@ -5105,34 +5104,34 @@ msgctxt "@title"
 msgid "Security & Safety"
 msgstr "Beveiliging & veiligheid"
 
-#: src/settings/NeoChatSettingsView.qml:63
+#: src/settings/NeoChatSettingsView.qml:64
 #, kde-format
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/settings/NeoChatSettingsView.qml:70
+#: src/settings/NeoChatSettingsView.qml:71
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr "Stickers & Emoji's"
 
-#: src/settings/NeoChatSettingsView.qml:83
+#: src/settings/NeoChatSettingsView.qml:84
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netwerkproxy"
 
-#: src/settings/NeoChatSettingsView.qml:101
+#: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "About NeoChat"
 msgstr "Info over NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:104
-#: src/settings/NeoChatSettingsView.qml:111
+#: src/settings/NeoChatSettingsView.qml:105
+#: src/settings/NeoChatSettingsView.qml:112
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Info over"
 
-#: src/settings/NeoChatSettingsView.qml:108
+#: src/settings/NeoChatSettingsView.qml:109
 #, kde-format
 msgid "About KDE"
 msgstr "Over KDE"
