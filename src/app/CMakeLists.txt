@@ -108,6 +108,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.neochat.libneochat
         org.kde.neochat.rooms
         org.kde.neochat.roominfo
+        org.kde.neochat.messagecontent
         org.kde.neochat.timeline
         org.kde.neochat.spaces
         org.kde.neochat.settings
@@ -176,7 +177,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
-target_link_libraries(neochat PRIVATE Loginplugin Roomsplugin RoomInfoplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
+target_link_libraries(neochat PRIVATE Loginplugin Roomsplugin RoomInfoplugin MessageContentplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
@@ -201,6 +202,7 @@ target_link_libraries(neochat PUBLIC
     QuotientQt6
     Login
     Rooms
+    MessageContent
     Spaces
 )
 

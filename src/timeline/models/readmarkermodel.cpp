@@ -67,7 +67,7 @@ QVariant ReadMarkerModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() >= rowCount()) {
-        qDebug() << "ReactionModel, something's wrong: index.row() >= rowCount()";
+        qDebug() << "ReadMarkerModel, something's wrong: index.row() >= rowCount()";
         return {};
     }
 

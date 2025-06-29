@@ -9,9 +9,6 @@
 
 #include "neochatroom.h"
 #include "readmarkermodel.h"
-#include "threadmodel.h"
-
-class ReactionModel;
 
 /**
  * @class MessageModel

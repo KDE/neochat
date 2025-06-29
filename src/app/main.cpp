@@ -244,13 +244,6 @@ int main(int argc, char *argv[])
     LoginHelper::instance().setAccountManager(accountManager.get());
     Registration::instance().setAccountManager(accountManager.get());
 
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_settingsPlugin)
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_roomsPlugin)
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_timelinePlugin)
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_devtoolsPlugin)
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_loginPlugin)
-    Q_IMPORT_QML_PLUGIN(org_kde_neochat_chatbarPlugin)
-
     qml_register_types_org_kde_neochat();
     qmlRegisterUncreatableMetaObject(Quotient::staticMetaObject, "Quotient", 1, 0, "JoinRule", u"Access to JoinRule enum only"_s);
 

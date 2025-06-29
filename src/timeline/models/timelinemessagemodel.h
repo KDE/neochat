@@ -8,8 +8,6 @@
 
 #include "messagemodel.h"
 
-class ReactionModel;
-
 namespace Quotient
 {
 class RoomEvent;

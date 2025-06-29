@@ -15,7 +15,7 @@ class LocationHelper : public QObject
     QML_SINGLETON
 
 public:
-    /** Unite two rectanlges. */
+    /** Unite two rectangles. */
     Q_INVOKABLE static QRectF unite(const QRectF &r1, const QRectF &r2);
     /** Returns the center of @p r. */
     Q_INVOKABLE static QPointF center(const QRectF &r);

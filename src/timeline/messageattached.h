@@ -7,7 +7,7 @@
 #include <QQuickAttachedPropertyPropagator>
 #include <QQuickItem>
 
-#include "messagecontentmodel.h"
+#include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
 class MessageAttached : public QQuickAttachedPropertyPropagator
