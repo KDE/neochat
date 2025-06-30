@@ -111,10 +111,16 @@ void MessageContentModel::initializeModel()
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
         }
     });
-    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId) {
+    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
         if (eventId == m_eventId) {
             resetContent();
             Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+            if (errorMessage.isEmpty()) {
+                Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
+            } else {
+                Q_EMIT m_room->showMessage(MessageType::Error,
+                                           i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+            }
         }
     });
     connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
