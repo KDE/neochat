@@ -99,6 +99,10 @@ Video {
                 target: downloadBar
                 visible: true
             }
+            PropertyChanges {
+                target: mediaThumbnail
+                visible: true
+            }
         },
         State {
             name: "paused"
@@ -229,8 +233,7 @@ Video {
         anchors.fill: parent
         visible: false
 
-        color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.cornerRadius
+        color: Qt.alpha(Kirigami.Theme.backgroundColor, 0.25)
 
         QQC2.ProgressBar {
             anchors.centerIn: parent
