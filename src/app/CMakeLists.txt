@@ -24,8 +24,6 @@ add_library(neochat STATIC
     models/notificationsmodel.h
     proxycontroller.cpp
     proxycontroller.h
-    mediamanager.cpp
-    mediamanager.h
     sharehandler.cpp
     sharehandler.h
     foreigntypes.h
