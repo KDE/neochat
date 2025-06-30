@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
+"POT-Creation-Date: 2025-06-30 00:41+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1676,7 +1676,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr "o pana e toki"
 
-#: src/chatbar/ChatBar.qml:400 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:400 src/messagecontent/ChatBarComponent.qml:237
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -3353,9 +3353,9 @@ msgid "Registration is disabled on this server."
 msgstr ""
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:30
-#: src/timeline/models/messagecontentmodel.cpp:265
-#: src/timeline/models/messagecontentmodel.cpp:293
+#: src/messagecontent/LoadComponent.qml:30
+#: src/messagecontent/models/messagecontentmodel.cpp:265
+#: src/messagecontent/models/messagecontentmodel.cpp:293
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -3593,6 +3593,294 @@ msgstr ""
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "nimi tomo"
+
+#: src/messagecontent/BaseMessageComponentChooser.qml:164
+#, kde-format
+msgid "%1 started a user verification"
+msgstr ""
+
+#: src/messagecontent/ChatBarComponent.qml:170
+#, fuzzy, kde-format
+#| msgid "Attach an image or file"
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "o pana e sitelen anu lipu"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "o ante e lawa"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Post message in thread"
+msgstr "o pana e toki"
+
+#: src/messagecontent/ChatBarComponent.qml:196 src/settings/ThreePIdCard.qml:93
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "o ala"
+
+#: src/messagecontent/CodeComponent.qml:160
+#, kde-format
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/messagecontent/CodeComponent.qml:172
+#, kde-format
+msgctxt "@action:button"
+msgid "Maximize"
+msgstr ""
+
+#: src/messagecontent/EncryptedComponent.qml:18
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr "toki ni li len. jan pana li pana ala e ken pi lukin len tawa ilo ni."
+
+#: src/messagecontent/FetchButtonComponent.qml:36
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr ""
+
+#: src/messagecontent/FileComponent.qml:94
+#: src/messagecontent/FileComponent.qml:177
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "o kama jo"
+
+#: src/messagecontent/FileComponent.qml:110
+#: src/messagecontent/FileComponent.qml:167
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "o open e lipu ni"
+
+#: src/messagecontent/FileComponent.qml:125
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/messagecontent/FileComponent.qml:130
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "o pini e kama jo"
+
+#: src/messagecontent/FlightReservationComponent.qml:73
+#, kde-format
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr ""
+
+#: src/messagecontent/FlightReservationComponent.qml:90
+#, kde-format
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr ""
+
+#: src/messagecontent/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr ""
+
+#: src/messagecontent/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr ""
+
+#: src/messagecontent/ImageComponent.qml:62
+#: src/messagecontent/VideoComponent.qml:187
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "Hide Image"
+msgstr "o open e lipu ni"
+
+#: src/messagecontent/ImageComponent.qml:143
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@action:button"
+msgid "Show Image"
+msgstr "o weka wawa e jan ni"
+
+#: src/messagecontent/ItineraryComponent.qml:54
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr ""
+
+#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewLoadComponent.qml:76
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "As in remove the link preview so it's no longer shown"
+msgid "Remove preview"
+msgstr "o ante e toki"
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Shrink preview"
+msgstr ""
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Expand preview"
+msgstr ""
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:63
+#: src/messagecontent/models/messagecontentmodel.cpp:263
+#: src/messagecontent/models/messagecontentmodel.cpp:291
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgid "Loading reply"
+msgstr "mi pali…"
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:65
+#, kde-format
+msgid "Loading URL preview"
+msgstr ""
+
+#: src/messagecontent/LocationComponent.qml:99
+#, kde-format
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr ""
+
+#: src/messagecontent/LocationComponent.qml:112
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "Enter Full Screen"
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "o tawa ilo suli"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+
+#: src/messagecontent/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
+
+#: src/messagecontent/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " en "
+
+#: src/messagecontent/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/messagecontent/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/messagecontent/PollComponent.qml:113
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr ""
+
+#: src/messagecontent/pollhandler.cpp:297
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr ""
+
+#: src/messagecontent/ReactionComponent.qml:89
+#, kde-format
+msgctxt "@button"
+msgid "React"
+msgstr ""
+
+#: src/messagecontent/ReplyButtonComponent.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr ""
+
+#: src/messagecontent/TrainReservationComponent.qml:124
+#: src/messagecontent/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/messagecontent/VideoComponent.qml:215
+#, kde-format
+msgid "Video"
+msgstr "sitelen tawa"
+
+#: src/messagecontent/VideoComponent.qml:255
+#, fuzzy, kde-format
+#| msgid "Video"
+msgctxt "@action:button"
+msgid "Show Video"
+msgstr "sitelen tawa"
+
+#: src/messagecontent/VideoComponent.qml:296
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr ""
+
+#: src/messagecontent/VideoComponent.qml:380
+#, kde-format
+msgid "Maximize"
+msgstr ""
 
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
 #, kde-format
@@ -6040,13 +6328,6 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr ""
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:196
-#, fuzzy, kde-format
-#| msgid "Cancel"
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "o ala"
-
 #: src/settings/ThreePIdCard.qml:136
 #, kde-format
 msgctxt "@label:textbox"
@@ -6241,43 +6522,6 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr ""
 
-#: src/timeline/BaseMessageComponentChooser.qml:164
-#, kde-format
-msgid "%1 started a user verification"
-msgstr ""
-
-#: src/timeline/ChatBarComponent.qml:170
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
-msgctxt "@action:button"
-msgid "Attach an image or file"
-msgstr "o pana e sitelen anu lipu"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, fuzzy, kde-format
-#| msgid "Configure"
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "o ante e lawa"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@action:button"
-msgid "Post message in thread"
-msgstr "o pana e toki"
-
-#: src/timeline/CodeComponent.qml:160
-#, kde-format
-msgid "Copy to clipboard"
-msgstr ""
-
-#: src/timeline/CodeComponent.qml:172
-#, kde-format
-msgctxt "@action:button"
-msgid "Maximize"
-msgstr ""
-
 #: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
 msgid "View Source"
@@ -6361,47 +6605,6 @@ msgstr ""
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
-
-#: src/timeline/EncryptedComponent.qml:18
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr "toki ni li len. jan pana li pana ala e ken pi lukin len tawa ilo ni."
-
-#: src/timeline/FetchButtonComponent.qml:36
-#, kde-format
-msgctxt "@action:button"
-msgid "Fetch More Events"
-msgstr ""
-
-#: src/timeline/FileComponent.qml:94 src/timeline/FileComponent.qml:177
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "o kama jo"
-
-#: src/timeline/FileComponent.qml:110 src/timeline/FileComponent.qml:167
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "o open e lipu ni"
-
-#: src/timeline/FileComponent.qml:125
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/timeline/FileComponent.qml:130
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "o pini e kama jo"
 
 #: src/timeline/FileDelegateContextMenu.qml:50
 #, fuzzy, kde-format
@@ -6505,96 +6708,6 @@ msgstr "o tu e lipu tawa lipu jo"
 msgid "Remove…"
 msgstr "o ante e toki"
 
-#: src/timeline/FlightReservationComponent.qml:73
-#, kde-format
-msgctxt "flight departure, %1 is airport, %2 is time"
-msgid "Departure from %1"
-msgstr ""
-
-#: src/timeline/FlightReservationComponent.qml:90
-#, kde-format
-msgctxt "flight arrival, %1 is airport, %2 is time"
-msgid "Arrival at %1"
-msgstr ""
-
-#: src/timeline/HotelReservationComponent.qml:65
-#, kde-format
-msgid "Check-in time: %1"
-msgstr ""
-
-#: src/timeline/HotelReservationComponent.qml:69
-#, kde-format
-msgid "Check-out time: %1"
-msgstr ""
-
-#: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgctxt "@action:button"
-msgid "Hide Image"
-msgstr "o open e lipu ni"
-
-#: src/timeline/ImageComponent.qml:143
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgctxt "@action:button"
-msgid "Show Image"
-msgstr "o weka wawa e jan ni"
-
-#: src/timeline/ItineraryComponent.qml:54
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr ""
-
-#: src/timeline/LinkPreviewComponent.qml:133
-#: src/timeline/LinkPreviewLoadComponent.qml:76
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "As in remove the link preview so it's no longer shown"
-msgid "Remove preview"
-msgstr "o ante e toki"
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Shrink preview"
-msgstr ""
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Expand preview"
-msgstr ""
-
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#: src/timeline/models/messagecontentmodel.cpp:263
-#: src/timeline/models/messagecontentmodel.cpp:291
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgid "Loading reply"
-msgstr "mi pali…"
-
-#: src/timeline/LinkPreviewLoadComponent.qml:65
-#, kde-format
-msgid "Loading URL preview"
-msgstr ""
-
-#: src/timeline/LocationComponent.qml:99
-#, kde-format
-msgctxt "@action:button Open the location in an external program"
-msgid "Open Externally"
-msgstr ""
-
-#: src/timeline/LocationComponent.qml:112
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Enter Full Screen"
-msgctxt "@action:button"
-msgid "Open Fullscreen"
-msgstr "o tawa ilo suli"
-
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
@@ -6652,45 +6765,6 @@ msgstr ""
 msgid "Configure Web Shortcuts…"
 msgstr "o ante e lawa pi ilo toki NeoChat..."
 
-#: src/timeline/models/messagecontentmodel.cpp:286
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-
-#: src/timeline/models/messagecontentmodel.cpp:563
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr ""
-
-#: src/timeline/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " en "
-
-#: src/timeline/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: src/timeline/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
 #: src/timeline/models/readmarkermodel.cpp:112
 #, kde-format
 msgid "1 user: "
@@ -6712,36 +6786,6 @@ msgctxt "list separator"
 msgid ", "
 msgstr ""
 
-#: src/timeline/PollComponent.qml:113
-#, kde-format
-msgid "%1 Vote"
-msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr ""
-
-#: src/timeline/pollhandler.cpp:297
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr ""
-
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6753,22 +6797,10 @@ msgstr ""
 msgid "Message menu"
 msgstr "o tu e lipu tawa lipu jo"
 
-#: src/timeline/ReactionComponent.qml:89
-#, kde-format
-msgctxt "@button"
-msgid "React"
-msgstr ""
-
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
-msgstr ""
-
-#: src/timeline/ReplyButtonComponent.qml:34
-#, kde-format
-msgctxt "@action:button"
-msgid "Reply"
 msgstr ""
 
 #: src/timeline/TimelineEndDelegate.qml:90
@@ -6808,35 +6840,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
-
-#: src/timeline/TrainReservationComponent.qml:124
-#: src/timeline/TrainReservationComponent.qml:191
-#, kde-format
-msgid "Pl. %1"
-msgstr ""
-
-#: src/timeline/VideoComponent.qml:215
-#, kde-format
-msgid "Video"
-msgstr "sitelen tawa"
-
-#: src/timeline/VideoComponent.qml:255
-#, fuzzy, kde-format
-#| msgid "Video"
-msgctxt "@action:button"
-msgid "Show Video"
-msgstr "sitelen tawa"
-
-#: src/timeline/VideoComponent.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr ""
-
-#: src/timeline/VideoComponent.qml:380
-#, kde-format
-msgid "Maximize"
-msgstr ""
 
 #, fuzzy
 #~| msgid "Room Name"

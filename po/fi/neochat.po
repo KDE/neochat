@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
+"POT-Creation-Date: 2025-06-30 00:41+0000\n"
 "PO-Revision-Date: 2025-06-04 20:53+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1631,7 +1631,7 @@ msgstr "Lähetä liitteen selite…"
 msgid "Send a message…"
 msgstr "Lähetä viesti…"
 
-#: src/chatbar/ChatBar.qml:400 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:400 src/messagecontent/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3240,9 +3240,9 @@ msgid "Registration is disabled on this server."
 msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:30
-#: src/timeline/models/messagecontentmodel.cpp:265
-#: src/timeline/models/messagecontentmodel.cpp:293
+#: src/messagecontent/LoadComponent.qml:30
+#: src/messagecontent/models/messagecontentmodel.cpp:265
+#: src/messagecontent/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Ladataan"
@@ -3460,6 +3460,276 @@ msgstr "Palaa takaisin"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Asetukset"
+
+#: src/messagecontent/BaseMessageComponentChooser.qml:164
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1 käynnisti käyttäjän vahvistuksen"
+
+#: src/messagecontent/ChatBarComponent.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "Liitä kuva tai tiedosto"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Vahvista muokkaus"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, kde-format
+msgctxt "@action:button"
+msgid "Post message in thread"
+msgstr "Lähetä viesti säikeeseen"
+
+#: src/messagecontent/ChatBarComponent.qml:196 src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Peru"
+
+#: src/messagecontent/CodeComponent.qml:160
+#, kde-format
+msgid "Copy to clipboard"
+msgstr "Kopioi leikepöydälle"
+
+#: src/messagecontent/CodeComponent.qml:172
+#, kde-format
+msgctxt "@action:button"
+msgid "Maximize"
+msgstr "Suurenna"
+
+#: src/messagecontent/EncryptedComponent.qml:18
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+"Tämä viesti on salattu, eikä lähettäjä ole jakanut avainta tälle laitteelle."
+
+#: src/messagecontent/FetchButtonComponent.qml:36
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr "Nouda lisää tapahtumia"
+
+#: src/messagecontent/FileComponent.qml:94
+#: src/messagecontent/FileComponent.qml:177
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "Lataa"
+
+#: src/messagecontent/FileComponent.qml:110
+#: src/messagecontent/FileComponent.qml:167
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "Avaa tiedosto"
+
+#: src/messagecontent/FileComponent.qml:125
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/messagecontent/FileComponent.qml:130
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "Keskeytä lataus"
+
+#: src/messagecontent/FlightReservationComponent.qml:73
+#, kde-format
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr "Lähtö: %1"
+
+#: src/messagecontent/FlightReservationComponent.qml:90
+#, kde-format
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr "Saapuminen: %1"
+
+#: src/messagecontent/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr "Sisäänkirjautumisaika: %1"
+
+#: src/messagecontent/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr "Uloskirjautumisaika: %1"
+
+#: src/messagecontent/ImageComponent.qml:62
+#: src/messagecontent/VideoComponent.qml:187
+#, fuzzy, kde-format
+#| msgid "Set Image"
+msgctxt "@action:button"
+msgid "Hide Image"
+msgstr "Aseta kuva"
+
+#: src/messagecontent/ImageComponent.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Image"
+msgstr "Näytä kuva"
+
+#: src/messagecontent/ItineraryComponent.qml:54
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr "Lähetä KDE Itineraryyn"
+
+#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewLoadComponent.qml:76
+#, kde-format
+msgctxt "As in remove the link preview so it's no longer shown"
+msgid "Remove preview"
+msgstr "Poista esikatselu"
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Shrink preview"
+msgstr "Pienennä esikatselua"
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Expand preview"
+msgstr "Suurenna esikatselua"
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:63
+#: src/messagecontent/models/messagecontentmodel.cpp:263
+#: src/messagecontent/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Ladataan vastausta"
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:65
+#, kde-format
+msgid "Loading URL preview"
+msgstr "Ladataan verkko-osoitteen esikatselua"
+
+#: src/messagecontent/LocationComponent.qml:99
+#, kde-format
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Avaa ulkoisesti"
+
+#: src/messagecontent/LocationComponent.qml:112
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Avaa koko näytölle"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Viestiä ei joko löytynyt, sen näyttämiseen ei ole käyttöoikeutta tai sen "
+"lähetti sivuutettu käyttäjä"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr "<i>Tapahtumalla ei ole sisältöä.</i>"
+
+#: src/messagecontent/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " ja "
+
+#: src/messagecontent/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " ja %1 muu"
+msgstr[1] " ja %1 muuta"
+
+#: src/messagecontent/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 reagoi emojilla %3"
+msgstr[1] "%2 reagoivat emojilla %3"
+
+#: src/messagecontent/PollComponent.qml:113
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] "%1 ääni"
+msgstr[1] "%1 ääntä"
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] "Perustuu 1 käyttäjän ääniin"
+msgstr[1] "Perustuu %1 käyttäjän ääniin"
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr "(päättynyt)"
+
+#: src/messagecontent/pollhandler.cpp:297
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr "Kysely on päättynyt. Voittanut vastaus: %1"
+
+#: src/messagecontent/ReactionComponent.qml:89
+#, kde-format
+msgctxt "@button"
+msgid "React"
+msgstr "Reagoi"
+
+#: src/messagecontent/ReplyButtonComponent.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Vastaa"
+
+#: src/messagecontent/TrainReservationComponent.qml:124
+#: src/messagecontent/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr ""
+
+#: src/messagecontent/VideoComponent.qml:215
+#, kde-format
+msgid "Video"
+msgstr "Video"
+
+#: src/messagecontent/VideoComponent.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Video"
+msgstr "Näytä video"
+
+#: src/messagecontent/VideoComponent.qml:296
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr "Äänenvoimakkuus"
+
+#: src/messagecontent/VideoComponent.qml:380
+#, kde-format
+msgid "Maximize"
+msgstr "Suurenna"
 
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
 #, kde-format
@@ -5813,12 +6083,6 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Valmis"
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:196
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "Peru"
-
 #: src/settings/ThreePIdCard.qml:136
 #, kde-format
 msgctxt "@label:textbox"
@@ -6007,40 +6271,6 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Lisää tilaan"
 
-#: src/timeline/BaseMessageComponentChooser.qml:164
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1 käynnisti käyttäjän vahvistuksen"
-
-#: src/timeline/ChatBarComponent.qml:170
-#, kde-format
-msgctxt "@action:button"
-msgid "Attach an image or file"
-msgstr "Liitä kuva tai tiedosto"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Vahvista muokkaus"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, kde-format
-msgctxt "@action:button"
-msgid "Post message in thread"
-msgstr "Lähetä viesti säikeeseen"
-
-#: src/timeline/CodeComponent.qml:160
-#, kde-format
-msgid "Copy to clipboard"
-msgstr "Kopioi leikepöydälle"
-
-#: src/timeline/CodeComponent.qml:172
-#, kde-format
-msgctxt "@action:button"
-msgid "Maximize"
-msgstr "Suurenna"
-
 #: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
 msgid "View Source"
@@ -6119,48 +6349,6 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Kiinnitä"
 
-#: src/timeline/EncryptedComponent.qml:18
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-"Tämä viesti on salattu, eikä lähettäjä ole jakanut avainta tälle laitteelle."
-
-#: src/timeline/FetchButtonComponent.qml:36
-#, kde-format
-msgctxt "@action:button"
-msgid "Fetch More Events"
-msgstr "Nouda lisää tapahtumia"
-
-#: src/timeline/FileComponent.qml:94 src/timeline/FileComponent.qml:177
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "Lataa"
-
-#: src/timeline/FileComponent.qml:110 src/timeline/FileComponent.qml:167
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "Avaa tiedosto"
-
-#: src/timeline/FileComponent.qml:125
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/timeline/FileComponent.qml:130
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "Keskeytä lataus"
-
 #: src/timeline/FileDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
@@ -6238,88 +6426,6 @@ msgstr "Kopioi tiedosto"
 msgid "Remove…"
 msgstr "Poista…"
 
-#: src/timeline/FlightReservationComponent.qml:73
-#, kde-format
-msgctxt "flight departure, %1 is airport, %2 is time"
-msgid "Departure from %1"
-msgstr "Lähtö: %1"
-
-#: src/timeline/FlightReservationComponent.qml:90
-#, kde-format
-msgctxt "flight arrival, %1 is airport, %2 is time"
-msgid "Arrival at %1"
-msgstr "Saapuminen: %1"
-
-#: src/timeline/HotelReservationComponent.qml:65
-#, kde-format
-msgid "Check-in time: %1"
-msgstr "Sisäänkirjautumisaika: %1"
-
-#: src/timeline/HotelReservationComponent.qml:69
-#, kde-format
-msgid "Check-out time: %1"
-msgstr "Uloskirjautumisaika: %1"
-
-#: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, fuzzy, kde-format
-#| msgid "Set Image"
-msgctxt "@action:button"
-msgid "Hide Image"
-msgstr "Aseta kuva"
-
-#: src/timeline/ImageComponent.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Image"
-msgstr "Näytä kuva"
-
-#: src/timeline/ItineraryComponent.qml:54
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr "Lähetä KDE Itineraryyn"
-
-#: src/timeline/LinkPreviewComponent.qml:133
-#: src/timeline/LinkPreviewLoadComponent.qml:76
-#, kde-format
-msgctxt "As in remove the link preview so it's no longer shown"
-msgid "Remove preview"
-msgstr "Poista esikatselu"
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Shrink preview"
-msgstr "Pienennä esikatselua"
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Expand preview"
-msgstr "Suurenna esikatselua"
-
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#: src/timeline/models/messagecontentmodel.cpp:263
-#: src/timeline/models/messagecontentmodel.cpp:291
-#, kde-format
-msgid "Loading reply"
-msgstr "Ladataan vastausta"
-
-#: src/timeline/LinkPreviewLoadComponent.qml:65
-#, kde-format
-msgid "Loading URL preview"
-msgstr "Ladataan verkko-osoitteen esikatselua"
-
-#: src/timeline/LocationComponent.qml:99
-#, kde-format
-msgctxt "@action:button Open the location in an external program"
-msgid "Open Externally"
-msgstr "Avaa ulkoisesti"
-
-#: src/timeline/LocationComponent.qml:112
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Fullscreen"
-msgstr "Avaa koko näytölle"
-
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
@@ -6372,43 +6478,6 @@ msgstr "Etsi: ”%1”"
 msgid "Configure Web Shortcuts…"
 msgstr "Verkkopikavalintojen asetukset…"
 
-#: src/timeline/models/messagecontentmodel.cpp:286
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Viestiä ei joko löytynyt, sen näyttämiseen ei ole käyttöoikeutta tai sen "
-"lähetti sivuutettu käyttäjä"
-
-#: src/timeline/models/messagecontentmodel.cpp:563
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr "<i>Tapahtumalla ei ole sisältöä.</i>"
-
-#: src/timeline/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " ja "
-
-#: src/timeline/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " ja %1 muu"
-msgstr[1] " ja %1 muuta"
-
-#: src/timeline/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 reagoi emojilla %3"
-msgstr[1] "%2 reagoivat emojilla %3"
-
 #: src/timeline/models/readmarkermodel.cpp:112
 #, kde-format
 msgid "1 user: "
@@ -6428,32 +6497,6 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/timeline/PollComponent.qml:113
-#, kde-format
-msgid "%1 Vote"
-msgid_plural "%1 Votes"
-msgstr[0] "%1 ääni"
-msgstr[1] "%1 ääntä"
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] "Perustuu 1 käyttäjän ääniin"
-msgstr[1] "Perustuu %1 käyttäjän ääniin"
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr "(päättynyt)"
-
-#: src/timeline/pollhandler.cpp:297
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr "Kysely on päättynyt. Voittanut vastaus: %1"
-
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6464,23 +6507,11 @@ msgstr "Reagoi"
 msgid "Message menu"
 msgstr "Viestivalikko"
 
-#: src/timeline/ReactionComponent.qml:89
-#, kde-format
-msgctxt "@button"
-msgid "React"
-msgstr "Reagoi"
-
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Viimeksi luettu: %1"
-
-#: src/timeline/ReplyButtonComponent.qml:34
-#, kde-format
-msgctxt "@action:button"
-msgid "Reply"
-msgstr "Vastaa"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6516,34 +6547,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
-
-#: src/timeline/TrainReservationComponent.qml:124
-#: src/timeline/TrainReservationComponent.qml:191
-#, kde-format
-msgid "Pl. %1"
-msgstr ""
-
-#: src/timeline/VideoComponent.qml:215
-#, kde-format
-msgid "Video"
-msgstr "Video"
-
-#: src/timeline/VideoComponent.qml:255
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Video"
-msgstr "Näytä video"
-
-#: src/timeline/VideoComponent.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr "Äänenvoimakkuus"
-
-#: src/timeline/VideoComponent.qml:380
-#, kde-format
-msgid "Maximize"
-msgstr "Suurenna"
 
 #~ msgid "Switch User"
 #~ msgstr "Vaihda käyttäjää"

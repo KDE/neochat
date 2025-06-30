@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:41+0000\n"
+"POT-Creation-Date: 2025-06-30 00:41+0000\n"
 "PO-Revision-Date: 2025-06-25 20:11+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1642,7 +1642,7 @@ msgstr "Ezarri eranskin baten epigrafea..."
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/chatbar/ChatBar.qml:400 src/timeline/ChatBarComponent.qml:237
+#: src/chatbar/ChatBar.qml:400 src/messagecontent/ChatBarComponent.qml:237
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3257,9 +3257,9 @@ msgid "Registration is disabled on this server."
 msgstr "Erregistratzea ezgaituta dago zerbitzari horretan."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
-#: src/timeline/LoadComponent.qml:30
-#: src/timeline/models/messagecontentmodel.cpp:265
-#: src/timeline/models/messagecontentmodel.cpp:293
+#: src/messagecontent/LoadComponent.qml:30
+#: src/messagecontent/models/messagecontentmodel.cpp:265
+#: src/messagecontent/models/messagecontentmodel.cpp:293
 #, kde-format
 msgid "Loading"
 msgstr "Zamatzen..."
@@ -3481,6 +3481,275 @@ msgstr "Itzuli"
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ezarpenak"
+
+#: src/messagecontent/BaseMessageComponentChooser.qml:164
+#, kde-format
+msgid "%1 started a user verification"
+msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
+
+#: src/messagecontent/ChatBarComponent.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "Erantsi irudi bat edo fitxategi bat"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, kde-format
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Berretsi editatutakoa"
+
+#: src/messagecontent/ChatBarComponent.qml:184
+#, kde-format
+msgctxt "@action:button"
+msgid "Post message in thread"
+msgstr "Bidali mezua harian"
+
+#: src/messagecontent/ChatBarComponent.qml:196 src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/messagecontent/CodeComponent.qml:160
+#, kde-format
+msgid "Copy to clipboard"
+msgstr "Kopiatu arbelera"
+
+#: src/messagecontent/CodeComponent.qml:172
+#, kde-format
+msgctxt "@action:button"
+msgid "Maximize"
+msgstr "Maximizatu"
+
+#: src/messagecontent/EncryptedComponent.qml:18
+#, kde-format
+msgid ""
+"This message is encrypted and the sender has not shared the key with this "
+"device."
+msgstr ""
+"Mezu hori zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
+
+#: src/messagecontent/FetchButtonComponent.qml:36
+#, kde-format
+msgctxt "@action:button"
+msgid "Fetch More Events"
+msgstr "Eskuratu gertaera gehiago"
+
+#: src/messagecontent/FileComponent.qml:94
+#: src/messagecontent/FileComponent.qml:177
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to download its file"
+msgid "Download"
+msgstr "Zama-jaitsi"
+
+#: src/messagecontent/FileComponent.qml:110
+#: src/messagecontent/FileComponent.qml:167
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; offers ability to open its downloaded "
+"file with an appropriate application"
+msgid "Open File"
+msgstr "Ireki fitxategia"
+
+#: src/messagecontent/FileComponent.qml:125
+#, kde-format
+msgctxt "file download progress"
+msgid "%1 / %2"
+msgstr "%1 / %2"
+
+#: src/messagecontent/FileComponent.qml:130
+#, kde-format
+msgctxt ""
+"tooltip for a button on a message; stops downloading the message's file"
+msgid "Stop Download"
+msgstr "Gelditu zama-jaistea"
+
+#: src/messagecontent/FlightReservationComponent.qml:73
+#, kde-format
+msgctxt "flight departure, %1 is airport, %2 is time"
+msgid "Departure from %1"
+msgstr "Irteera %1(e)tik"
+
+#: src/messagecontent/FlightReservationComponent.qml:90
+#, kde-format
+msgctxt "flight arrival, %1 is airport, %2 is time"
+msgid "Arrival at %1"
+msgstr "Helduera %1(e)ra"
+
+#: src/messagecontent/HotelReservationComponent.qml:65
+#, kde-format
+msgid "Check-in time: %1"
+msgstr "Izen-emate ordua: %1"
+
+#: src/messagecontent/HotelReservationComponent.qml:69
+#, kde-format
+msgid "Check-out time: %1"
+msgstr "Ordaindu eta irtete ordua: %1"
+
+#: src/messagecontent/ImageComponent.qml:62
+#: src/messagecontent/VideoComponent.qml:187
+#, kde-format
+msgctxt "@action:button"
+msgid "Hide Image"
+msgstr "Ezkutatu irudia"
+
+#: src/messagecontent/ImageComponent.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Image"
+msgstr "Erakutsi irudia"
+
+#: src/messagecontent/ItineraryComponent.qml:54
+#, kde-format
+msgctxt "@action"
+msgid "Send to KDE Itinerary"
+msgstr "Bidali KDE «Itinerary»ra"
+
+#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewLoadComponent.qml:76
+#, kde-format
+msgctxt "As in remove the link preview so it's no longer shown"
+msgid "Remove preview"
+msgstr "Kendu aurreikuspegia"
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Shrink preview"
+msgstr "Txikiagotu aurreikuspegia"
+
+#: src/messagecontent/LinkPreviewComponent.qml:151
+#, kde-format
+msgid "Expand preview"
+msgstr "Zabaldu aurreikuspegia"
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:63
+#: src/messagecontent/models/messagecontentmodel.cpp:263
+#: src/messagecontent/models/messagecontentmodel.cpp:291
+#, kde-format
+msgid "Loading reply"
+msgstr "Erantzuna zamatzen"
+
+#: src/messagecontent/LinkPreviewLoadComponent.qml:65
+#, kde-format
+msgid "Loading URL preview"
+msgstr "URLaren aurreikuspegia zamatzen"
+
+#: src/messagecontent/LocationComponent.qml:99
+#, kde-format
+msgctxt "@action:button Open the location in an external program"
+msgid "Open Externally"
+msgstr "Ireki kanpotik"
+
+#: src/messagecontent/LocationComponent.qml:112
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Fullscreen"
+msgstr "Ireki pantaila-betean"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:286
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This message was either not found, you do not have permission to view it, or "
+"it was sent by an ignored user"
+msgstr ""
+"Mezua ez da aurkitu, ez duzu hura ikusteko baimena, edo ezikusitako "
+"erabiltzaile batek bidalitakoa da"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:563
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr "<i>Ekitaldi honek ez dauka edukirik.</i>"
+
+#: src/messagecontent/models/reactionmodel.cpp:69
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " eta "
+
+#: src/messagecontent/models/reactionmodel.cpp:76
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " eta beste %1"
+msgstr[1] " eta beste %1"
+
+#: src/messagecontent/models/reactionmodel.cpp:80
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2en erreakzioa %3 izan da"
+msgstr[1] "%2(r)en erreakzioa %3 izan da"
+
+#: src/messagecontent/PollComponent.qml:113
+#, kde-format
+msgid "%1 Vote"
+msgid_plural "%1 Votes"
+msgstr[0] "Bozka %1"
+msgstr[1] "%1 bozka"
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgid "Based on votes by %1 user"
+msgid_plural "Based on votes by %1 users"
+msgstr[0] "Erabiltzaile %1(e)n bozkan oinarritua"
+msgstr[1] "%1 erabiltzaileren bozkatan oinarritua"
+
+#: src/messagecontent/PollComponent.qml:129
+#, kde-format
+msgctxt "as in 'this vote has ended'"
+msgid "(Ended)"
+msgstr "(Amaituta)"
+
+#: src/messagecontent/pollhandler.cpp:297
+#, kde-format
+msgctxt "%1 is the poll answer that had the most votes"
+msgid "The poll has ended. Top answer: %1"
+msgstr "Galdeketa bukatu da. Erantzun nagusia: %1"
+
+#: src/messagecontent/ReactionComponent.qml:89
+#, kde-format
+msgctxt "@button"
+msgid "React"
+msgstr "Erreakzionatu"
+
+#: src/messagecontent/ReplyButtonComponent.qml:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Erantzun"
+
+#: src/messagecontent/TrainReservationComponent.qml:124
+#: src/messagecontent/TrainReservationComponent.qml:191
+#, kde-format
+msgid "Pl. %1"
+msgstr "%1 Na."
+
+#: src/messagecontent/VideoComponent.qml:215
+#, kde-format
+msgid "Video"
+msgstr "Bideoa"
+
+#: src/messagecontent/VideoComponent.qml:255
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Video"
+msgstr "Erakutsi bideoa"
+
+#: src/messagecontent/VideoComponent.qml:296
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr "Bolumena"
+
+#: src/messagecontent/VideoComponent.qml:380
+#, kde-format
+msgid "Maximize"
+msgstr "Maximizatu"
 
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
 #, kde-format
@@ -5843,12 +6112,6 @@ msgctxt "@action:button"
 msgid "Complete"
 msgstr "Osatu"
 
-#: src/settings/ThreePIdCard.qml:93 src/timeline/ChatBarComponent.qml:196
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "Utzi"
-
 #: src/settings/ThreePIdCard.qml:136
 #, kde-format
 msgctxt "@label:textbox"
@@ -6039,40 +6302,6 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Gehitu tokietara"
 
-#: src/timeline/BaseMessageComponentChooser.qml:164
-#, kde-format
-msgid "%1 started a user verification"
-msgstr "%1(e)k erabiltzaile egiaztapen bat abiatu du"
-
-#: src/timeline/ChatBarComponent.qml:170
-#, kde-format
-msgctxt "@action:button"
-msgid "Attach an image or file"
-msgstr "Erantsi irudi bat edo fitxategi bat"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Berretsi editatutakoa"
-
-#: src/timeline/ChatBarComponent.qml:184
-#, kde-format
-msgctxt "@action:button"
-msgid "Post message in thread"
-msgstr "Bidali mezua harian"
-
-#: src/timeline/CodeComponent.qml:160
-#, kde-format
-msgid "Copy to clipboard"
-msgstr "Kopiatu arbelera"
-
-#: src/timeline/CodeComponent.qml:172
-#, kde-format
-msgctxt "@action:button"
-msgid "Maximize"
-msgstr "Maximizatu"
-
 #: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
 msgid "View Source"
@@ -6151,48 +6380,6 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Iltzatu"
 
-#: src/timeline/EncryptedComponent.qml:18
-#, kde-format
-msgid ""
-"This message is encrypted and the sender has not shared the key with this "
-"device."
-msgstr ""
-"Mezu hori zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
-
-#: src/timeline/FetchButtonComponent.qml:36
-#, kde-format
-msgctxt "@action:button"
-msgid "Fetch More Events"
-msgstr "Eskuratu gertaera gehiago"
-
-#: src/timeline/FileComponent.qml:94 src/timeline/FileComponent.qml:177
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to download its file"
-msgid "Download"
-msgstr "Zama-jaitsi"
-
-#: src/timeline/FileComponent.qml:110 src/timeline/FileComponent.qml:167
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; offers ability to open its downloaded "
-"file with an appropriate application"
-msgid "Open File"
-msgstr "Ireki fitxategia"
-
-#: src/timeline/FileComponent.qml:125
-#, kde-format
-msgctxt "file download progress"
-msgid "%1 / %2"
-msgstr "%1 / %2"
-
-#: src/timeline/FileComponent.qml:130
-#, kde-format
-msgctxt ""
-"tooltip for a button on a message; stops downloading the message's file"
-msgid "Stop Download"
-msgstr "Gelditu zama-jaistea"
-
 #: src/timeline/FileDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
@@ -6270,87 +6457,6 @@ msgstr "Kopiatu fitxategia"
 msgid "Remove…"
 msgstr "Kendu..."
 
-#: src/timeline/FlightReservationComponent.qml:73
-#, kde-format
-msgctxt "flight departure, %1 is airport, %2 is time"
-msgid "Departure from %1"
-msgstr "Irteera %1(e)tik"
-
-#: src/timeline/FlightReservationComponent.qml:90
-#, kde-format
-msgctxt "flight arrival, %1 is airport, %2 is time"
-msgid "Arrival at %1"
-msgstr "Helduera %1(e)ra"
-
-#: src/timeline/HotelReservationComponent.qml:65
-#, kde-format
-msgid "Check-in time: %1"
-msgstr "Izen-emate ordua: %1"
-
-#: src/timeline/HotelReservationComponent.qml:69
-#, kde-format
-msgid "Check-out time: %1"
-msgstr "Ordaindu eta irtete ordua: %1"
-
-#: src/timeline/ImageComponent.qml:62 src/timeline/VideoComponent.qml:187
-#, kde-format
-msgctxt "@action:button"
-msgid "Hide Image"
-msgstr "Ezkutatu irudia"
-
-#: src/timeline/ImageComponent.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Image"
-msgstr "Erakutsi irudia"
-
-#: src/timeline/ItineraryComponent.qml:54
-#, kde-format
-msgctxt "@action"
-msgid "Send to KDE Itinerary"
-msgstr "Bidali KDE «Itinerary»ra"
-
-#: src/timeline/LinkPreviewComponent.qml:133
-#: src/timeline/LinkPreviewLoadComponent.qml:76
-#, kde-format
-msgctxt "As in remove the link preview so it's no longer shown"
-msgid "Remove preview"
-msgstr "Kendu aurreikuspegia"
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Shrink preview"
-msgstr "Txikiagotu aurreikuspegia"
-
-#: src/timeline/LinkPreviewComponent.qml:151
-#, kde-format
-msgid "Expand preview"
-msgstr "Zabaldu aurreikuspegia"
-
-#: src/timeline/LinkPreviewLoadComponent.qml:63
-#: src/timeline/models/messagecontentmodel.cpp:263
-#: src/timeline/models/messagecontentmodel.cpp:291
-#, kde-format
-msgid "Loading reply"
-msgstr "Erantzuna zamatzen"
-
-#: src/timeline/LinkPreviewLoadComponent.qml:65
-#, kde-format
-msgid "Loading URL preview"
-msgstr "URLaren aurreikuspegia zamatzen"
-
-#: src/timeline/LocationComponent.qml:99
-#, kde-format
-msgctxt "@action:button Open the location in an external program"
-msgid "Open Externally"
-msgstr "Ireki kanpotik"
-
-#: src/timeline/LocationComponent.qml:112
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Fullscreen"
-msgstr "Ireki pantaila-betean"
-
 #: src/timeline/MessageDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
@@ -6403,43 +6509,6 @@ msgstr "Bilatu '%1'"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguratu web-lasterbideak..."
 
-#: src/timeline/models/messagecontentmodel.cpp:286
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This message was either not found, you do not have permission to view it, or "
-"it was sent by an ignored user"
-msgstr ""
-"Mezua ez da aurkitu, ez duzu hura ikusteko baimena, edo ezikusitako "
-"erabiltzaile batek bidalitakoa da"
-
-#: src/timeline/models/messagecontentmodel.cpp:563
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr "<i>Ekitaldi honek ez dauka edukirik.</i>"
-
-#: src/timeline/models/reactionmodel.cpp:69
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " eta "
-
-#: src/timeline/models/reactionmodel.cpp:76
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " eta beste %1"
-msgstr[1] " eta beste %1"
-
-#: src/timeline/models/reactionmodel.cpp:80
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2en erreakzioa %3 izan da"
-msgstr[1] "%2(r)en erreakzioa %3 izan da"
-
 #: src/timeline/models/readmarkermodel.cpp:112
 #, kde-format
 msgid "1 user: "
@@ -6459,32 +6528,6 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/timeline/PollComponent.qml:113
-#, kde-format
-msgid "%1 Vote"
-msgid_plural "%1 Votes"
-msgstr[0] "Bozka %1"
-msgstr[1] "%1 bozka"
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgid "Based on votes by %1 user"
-msgid_plural "Based on votes by %1 users"
-msgstr[0] "Erabiltzaile %1(e)n bozkan oinarritua"
-msgstr[1] "%1 erabiltzaileren bozkatan oinarritua"
-
-#: src/timeline/PollComponent.qml:129
-#, kde-format
-msgctxt "as in 'this vote has ended'"
-msgid "(Ended)"
-msgstr "(Amaituta)"
-
-#: src/timeline/pollhandler.cpp:297
-#, kde-format
-msgctxt "%1 is the poll answer that had the most votes"
-msgid "The poll has ended. Top answer: %1"
-msgstr "Galdeketa bukatu da. Erantzun nagusia: %1"
-
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6495,23 +6538,11 @@ msgstr "Erreakzioa"
 msgid "Message menu"
 msgstr "Mezuaren menua"
 
-#: src/timeline/ReactionComponent.qml:89
-#, kde-format
-msgctxt "@button"
-msgid "React"
-msgstr "Erreakzionatu"
-
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Azken irakurketa: %1"
-
-#: src/timeline/ReplyButtonComponent.qml:34
-#, kde-format
-msgctxt "@action:button"
-msgid "Reply"
-msgstr "Erantzun"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6549,34 +6580,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
-
-#: src/timeline/TrainReservationComponent.qml:124
-#: src/timeline/TrainReservationComponent.qml:191
-#, kde-format
-msgid "Pl. %1"
-msgstr "%1 Na."
-
-#: src/timeline/VideoComponent.qml:215
-#, kde-format
-msgid "Video"
-msgstr "Bideoa"
-
-#: src/timeline/VideoComponent.qml:255
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Video"
-msgstr "Erakutsi bideoa"
-
-#: src/timeline/VideoComponent.qml:296
-#, kde-format
-msgctxt "@action:button"
-msgid "Volume"
-msgstr "Bolumena"
-
-#: src/timeline/VideoComponent.qml:380
-#, kde-format
-msgid "Maximize"
-msgstr "Maximizatu"
 
 #~ msgid "Switch User"
 #~ msgstr "Aldatu erabiltzailea"
