@@ -435,6 +435,13 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
             return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_L1].toString());
         },
         [prettyPrint](const StateEvent &e) {
+            if (e.matrixType() == "org.matrix.msc3401.call.member"_L1) {
+                if (e.contentJson().isEmpty()) {
+                    return i18nc("[User] left a [voice/video] call", "left a call");
+                } else {
+                    return i18nc("[User] joined a [voice/video] call", "joined a call");
+                }
+            }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), prettyPrint ? e.stateKey().toHtmlEscaped() : e.stateKey());
         },
@@ -634,7 +641,14 @@ QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomE
             }
             return i18n("%1 configured a widget", senderString);
         },
-        [senderString](const StateEvent &) {
+        [senderString](const StateEvent &e) {
+            if (e.matrixType() == "org.matrix.msc3401.call.member"_L1) {
+                if (e.contentJson().isEmpty()) {
+                    return i18nc("[User] left a [voice/video] call", "%1 left a call", senderString);
+                } else {
+                    return i18nc("[User] joined a [voice/video] call", "%1 joined a call", senderString);
+                }
+            }
             return i18n("%1 updated the state", senderString);
         },
         [senderString](const PollStartEvent &) {
