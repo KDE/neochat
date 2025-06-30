@@ -190,7 +190,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
-        if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(event.value().get().id()))) {
+        if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(event.value().get().id()))) {
             const auto &thread = m_room->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
             if (thread.latestEventId != event.value().get().id()) {
                 return EventStatus::Hidden;
