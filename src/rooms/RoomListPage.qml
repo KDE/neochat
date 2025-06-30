@@ -17,23 +17,28 @@ import org.kde.neochat
 Kirigami.Page {
     id: root
 
-    /**
-     * @brief The current width of the room list.
-     *
-     * @note Other objects can access the value but the private function makes sure
-     *       that only the internal members can modify it.
-     */
-    readonly property int currentWidth: _private.currentWidth + spaceDrawer.width + 1
+    Kirigami.ColumnView.interactiveResizeEnabled: true
+    Kirigami.ColumnView.minimumWidth: _private.collapsedSize + spaceDrawer.width + 1
+    Kirigami.ColumnView.maximumWidth: _private.defaultWidth + spaceDrawer.width + 1
+    Kirigami.ColumnView.onInteractiveResizingChanged: {
+        if (!Kirigami.ColumnView.interactiveResizing && collapsed) {
+            Kirigami.ColumnView.preferredWidth = root.Kirigami.ColumnView.minimumWidth;
+        }
+    }
+    Kirigami.ColumnView.preferredWidth: _private.currentWidth + spaceDrawer.width + 1
+    Kirigami.ColumnView.onPreferredWidthChanged: {
+        if (width > _private.collapseWidth) {
+            NeoChatConfig.collapsed = false;
+        } else if (Kirigami.ColumnView.interactiveResizing) {
+            NeoChatConfig.collapsed = true;
+        }
+    }
 
     required property NeoChatConnection connection
 
     readonly property bool collapsed: NeoChatConfig.collapsed
 
     signal search
-
-    onCurrentWidthChanged: pageStack.defaultColumnWidth = root.currentWidth
-    Component.onCompleted: pageStack.defaultColumnWidth = root.currentWidth
-
 
     onCollapsedChanged: {
         if (collapsed) {
@@ -242,49 +247,6 @@ Kirigami.Page {
     footer: Loader {
         width: parent.width
         sourceComponent: Kirigami.Settings.isMobile ? exploreComponentMobile : userInfoDesktop
-    }
-
-    MouseArea {
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        parent: applicationWindow().overlay.parent
-
-        x: root.currentWidth - width / 2
-        width: Kirigami.Units.smallSpacing * 2
-        z: root.z + 1
-        enabled: RoomManager.hasOpenRoom && applicationWindow().width >= Kirigami.Units.gridUnit * 35
-        visible: enabled
-        cursorShape: Qt.SplitHCursor
-
-        property int _lastX
-
-        onPressed: mouse => {
-            _lastX = mouse.x;
-        }
-        onPositionChanged: mouse => {
-            if (_lastX == -1) {
-                return;
-            }
-            if (mouse.x > _lastX) {
-                // we moved to the right
-                if (_private.currentWidth < _private.collapseWidth && _private.currentWidth + (mouse.x - _lastX) >= _private.collapseWidth) {
-                    // Here we get back directly to a more wide mode.
-                    _private.currentWidth = _private.defaultWidth;
-                    NeoChatConfig.collapsed = false;
-                } else if (_private.currentWidth >= _private.collapseWidth) {
-                    // Increase page width
-                    _private.currentWidth = Math.min(_private.defaultWidth, _private.currentWidth + (mouse.x - _lastX));
-                }
-            } else if (mouse.x < _lastX) {
-                const tmpWidth = _private.currentWidth - (_lastX - mouse.x);
-                if (tmpWidth < _private.collapseWidth) {
-                    _private.currentWidth = Qt.binding(() => _private.collapsedSize);
-                    NeoChatConfig.collapsed = true;
-                } else {
-                    _private.currentWidth = tmpWidth;
-                }
-            }
-        }
     }
 
     Component {
