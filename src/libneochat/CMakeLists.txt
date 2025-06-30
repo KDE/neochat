@@ -23,6 +23,8 @@ target_sources(LibNeoChat PRIVATE
     urlhelper.cpp
     utils.cpp
     enums/chatbartype.h
+    mediamanager.cpp
+    mediamanager.h
     enums/messagecomponenttype.h
     enums/messagetype.h
     enums/powerlevel.cpp
@@ -32,6 +34,7 @@ target_sources(LibNeoChat PRIVATE
     enums/timelinemarkreadcondition.h
     events/imagepackevent.cpp
     events/pollevent.cpp
+    events/callmemberevent.cpp
     jobs/neochatgetcommonroomsjob.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
@@ -50,6 +53,9 @@ target_sources(LibNeoChat PRIVATE
 if (TARGET KF6::KIOWidgets)
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KIO)
 endif()
+
+qt_add_dbus_interface(MediaPlayer_SRCS org.mpris.MediaPlayer2.Player.xml mediaplayer2player)
+target_sources(LibNeoChat PRIVATE ${MediaPlayer_SRCS})
 
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.libneochat
