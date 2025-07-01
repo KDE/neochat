@@ -110,6 +110,9 @@ void MediaManager::ringUnchecked()
 
     m_player->setSource(QUrl::fromLocalFile(path));
     m_player->play();
+
+    m_ringing = true;
+    Q_EMIT isRingingChanged();
 }
 
 MediaManager::MediaManager()
