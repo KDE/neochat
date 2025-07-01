@@ -83,6 +83,16 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    Connections {
+        target: CallManager
+        property IncomingCallDialog dialog
+        function onIsRingingChanged(): void {
+            if (CallManager.isRinging) {
+                root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "IncomingCallDialog"));
+            }
+        }
+    }
+
     Loader {
         active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
         sourceComponent: GlobalMenu {
