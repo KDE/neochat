@@ -41,12 +41,12 @@
 #include <Quotient/thread.h>
 #endif
 
+#include "callmanager.h"
 #include "chatbarcache.h"
 #include "clipboard.h"
 #include "events/callnotifyevent.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
-#include "mediamanager.h"
 #include "neochatconnection.h"
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
@@ -119,7 +119,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
         for (const auto &event : events) {
             if (event->template is<CallNotifyEvent>()) {
-                MediaManager::instance().ring(event->fullJson(), this);
+                CallManager::instance().ring(event->fullJson(), this);
             }
         }
     });

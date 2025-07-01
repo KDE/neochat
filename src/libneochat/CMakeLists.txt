@@ -8,6 +8,7 @@ target_sources(LibNeoChat PRIVATE
     neochatroom.cpp
     neochatroommember.cpp
     accountmanager.cpp
+    callmanager.cpp
     chatbarcache.cpp
     chatdocumenthandler.cpp
     clipboard.cpp

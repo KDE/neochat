@@ -20,6 +20,7 @@
 #include <Quotient/settings.h>
 
 #include "accountmanager.h"
+#include "callmanager.h"
 #include "enums/roomsortparameter.h"
 #include "mediasizehelper.h"
 #include "models/actionsmodel.h"
@@ -74,6 +75,11 @@ Controller::Controller(QObject *parent)
     : QObject(parent)
 {
     Connection::setRoomType<NeoChatRoom>();
+
+    CallManager::instance().setCallsEnabled(NeoChatConfig::calls());
+    connect(NeoChatConfig::self(), &NeoChatConfig::CallsChanged, this, []() {
+        CallManager::instance().setCallsEnabled(NeoChatConfig::calls());
+    });
 
     Connection::setDirectChatEncryptionDefault(NeoChatConfig::preferUsingEncryption());
     connect(NeoChatConfig::self(), &NeoChatConfig::PreferUsingEncryptionChanged, this, [] {
