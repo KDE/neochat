@@ -36,4 +36,13 @@ FormCard.FormCard {
             NeoChatConfig.save();
         }
     }
+    FormCard.FormCheckDelegate {
+        text: i18nc("@option:check Enable the matrix feature for audio and video calling", "Calls")
+        checked: NeoChatConfig.calls
+
+        onToggled: {
+            NeoChatConfig.calls = checked;
+            NeoChatConfig.save();
+        }
+    }
 }
