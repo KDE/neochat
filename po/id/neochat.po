@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-01 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 07:05+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1961,6 +1961,12 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr ""
 
+#: src/devtools/FeatureFlagPage.qml:40
+#, kde-format
+msgctxt "@option:check Enable the matrix feature for audio and video calling"
+msgid "Calls"
+msgstr ""
+
 #: src/devtools/RoomData.qml:21
 #, fuzzy, kde-format
 #| msgid "Choose a Location"
@@ -3500,8 +3506,8 @@ msgstr ""
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:265
-#: src/messagecontent/models/messagecontentmodel.cpp:293
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -3897,8 +3903,8 @@ msgid "Expand preview"
 msgstr "Luaskan pratinjau"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:263
-#: src/messagecontent/models/messagecontentmodel.cpp:291
+#: src/messagecontent/models/messagecontentmodel.cpp:269
+#: src/messagecontent/models/messagecontentmodel.cpp:297
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
@@ -3924,7 +3930,21 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Masuk ke Layar Penuh"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "File too large to download."
+msgctxt "@info"
+msgid "Failed to download file."
+msgstr "Berkas terlalu besar untuk diunduh."
+
+#: src/messagecontent/models/messagecontentmodel.cpp:122
+#, fuzzy, kde-format
+#| msgid "Failed to join room"
+msgctxt "@info Failed to download file: [error message]"
+msgid "Failed to download file:<br />%1"
+msgstr "Gagal bergabung dengan ruangan"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:292
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3932,7 +3952,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:563
+#: src/messagecontent/models/messagecontentmodel.cpp:569
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -7345,9 +7365,6 @@ msgstr[1] "%2 sedang mengetik"
 
 #~ msgid "Network Error"
 #~ msgstr "Kesalahan Jaringan"
-
-#~ msgid "File too large to download."
-#~ msgstr "Berkas terlalu besar untuk diunduh."
 
 #~ msgid "Malformed or empty Matrix id"
 #~ msgstr "Bentuk ID Matrix salah atau ID Matrix kosong"

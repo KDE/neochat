@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-01 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 07:05+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1929,6 +1929,12 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Προσθήκη αριθμών τηλεφώνου ως 3PID"
 
+#: src/devtools/FeatureFlagPage.qml:40
+#, kde-format
+msgctxt "@option:check Enable the matrix feature for audio and video calling"
+msgid "Calls"
+msgstr ""
+
 #: src/devtools/RoomData.qml:21
 #, fuzzy, kde-format
 #| msgid "Choose local file"
@@ -3451,8 +3457,8 @@ msgstr "Η εγγραφή είναι απενεργοποιημένη σε αυ�
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:265
-#: src/messagecontent/models/messagecontentmodel.cpp:293
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, kde-format
 msgid "Loading"
 msgstr "Φορτώνει"
@@ -3842,8 +3848,8 @@ msgid "Expand preview"
 msgstr ""
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:263
-#: src/messagecontent/models/messagecontentmodel.cpp:291
+#: src/messagecontent/models/messagecontentmodel.cpp:269
+#: src/messagecontent/models/messagecontentmodel.cpp:297
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
@@ -3868,7 +3874,21 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Είσοδος σε πλήρη οθόνη"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "File too large to download."
+msgctxt "@info"
+msgid "Failed to download file."
+msgstr "Αρχείο πολύ μεγάλο για λήψη."
+
+#: src/messagecontent/models/messagecontentmodel.cpp:122
+#, fuzzy, kde-format
+#| msgid "Invites to a room"
+msgctxt "@info Failed to download file: [error message]"
+msgid "Failed to download file:<br />%1"
+msgstr "Προσκαλεί σε μια αίθουσα"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:292
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3876,7 +3896,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:563
+#: src/messagecontent/models/messagecontentmodel.cpp:569
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -7153,9 +7173,6 @@ msgstr[1] "%2 πληκτρολογούν"
 
 #~ msgid "Network Error"
 #~ msgstr "Σφάλμα δικτύου"
-
-#~ msgid "File too large to download."
-#~ msgstr "Αρχείο πολύ μεγάλο για λήψη."
 
 #~ msgid "Malformed or empty Matrix id"
 #~ msgstr "Κακοδιατυπωμένο ή κενό αναγνωριστικό Matrix"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-01 00:42+0000\n"
+"POT-Creation-Date: 2025-07-02 07:05+0000\n"
 "PO-Revision-Date: 2025-03-16 15:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1860,6 +1860,12 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "தொலைபேசி எண்களை 3PIDகளாக சேர்"
 
+#: src/devtools/FeatureFlagPage.qml:40
+#, kde-format
+msgctxt "@option:check Enable the matrix feature for audio and video calling"
+msgid "Calls"
+msgstr ""
+
 #: src/devtools/RoomData.qml:21
 #, kde-format
 msgctxt "@title"
@@ -3311,8 +3317,8 @@ msgstr "இச்சேவையகத்தில் கணக்குரு�
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:265
-#: src/messagecontent/models/messagecontentmodel.cpp:293
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, kde-format
 msgid "Loading"
 msgstr "ஏற்றப்படுகிறது…"
@@ -3678,8 +3684,8 @@ msgid "Expand preview"
 msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:263
-#: src/messagecontent/models/messagecontentmodel.cpp:291
+#: src/messagecontent/models/messagecontentmodel.cpp:269
+#: src/messagecontent/models/messagecontentmodel.cpp:297
 #, kde-format
 msgid "Loading reply"
 msgstr "பதில் ஏற்றப்படுகிறது…"
@@ -3703,7 +3709,21 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "முழுத்திரை முறையில் நுழை"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "File too large to download."
+msgctxt "@info"
+msgid "Failed to download file."
+msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
+
+#: src/messagecontent/models/messagecontentmodel.cpp:122
+#, fuzzy, kde-format
+#| msgid "Failed to join room<br />%1"
+msgctxt "@info Failed to download file: [error message]"
+msgid "Failed to download file:<br />%1"
+msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது<br />%1"
+
+#: src/messagecontent/models/messagecontentmodel.cpp:292
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3713,7 +3733,7 @@ msgstr ""
 "தகவல் கண்டுபிடிக்கப்படவில்லை, அல்லது அதைப் பார்க்கும் அனுமதி உங்களுக்கு இல்லை, அல்லது "
 "பொருட்படுத்தப்படா பயனரால் அனுப்பப்பட்டது"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:563
+#: src/messagecontent/models/messagecontentmodel.cpp:569
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -6836,9 +6856,6 @@ msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
 #~ msgid "Network Error"
 #~ msgstr "பிணைய சிக்கல்"
-
-#~ msgid "File too large to download."
-#~ msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
 #~ msgid "Malformed or empty Matrix id"
 #~ msgstr "செல்லுபடியாகாத அல்லது காலியான Matrix கணக்குப்பெயர்"
