@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-02 07:05+0000\n"
-"PO-Revision-Date: 2025-06-25 09:02+0300\n"
+"PO-Revision-Date: 2025-07-02 17:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1842,7 +1842,7 @@ msgstr "Üçüncü parti kimlik olarak telefon numaraları ekle"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Aramalar"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2325,13 +2325,13 @@ msgstr "%1 araç takımını yapılandırdı"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "aramadan ayrıldı"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "aramaya katıldı"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2581,18 +2581,16 @@ msgid "%1 configured a widget"
 msgstr "%1 bir araç takımını yapılandırdı"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 odadan ayrıldı"
+msgstr "%1 aramadan ayrıldı"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 odaya katıldı"
+msgstr "%1 aramaya katıldı"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3671,14 +3669,13 @@ msgstr "Tam Ekrana Gir"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr ""
+msgstr "Dosya indirilemedi."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:122
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Odaya katılınılamadı<br />%1"
+msgstr "Dosya indirilemedi:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:292
 #, kde-format
