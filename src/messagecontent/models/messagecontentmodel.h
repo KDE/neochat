@@ -9,8 +9,8 @@
 #include <Quotient/events/roomevent.h>
 
 #include "enums/messagecomponenttype.h"
-#include "itinerarymodel.h"
 #include "messagecomponent.h"
+#include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
 #include "neochatroommember.h"
 
@@ -132,6 +132,7 @@ private:
     void initializeModel();
     void initializeEvent();
     void getEvent();
+    void updateFileInfo();
 
     QList<MessageComponent> m_components;
     void resetModel();

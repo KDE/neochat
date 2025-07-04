@@ -5,6 +5,7 @@
 #include "contentprovider.h"
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
+#include "messagecomponent.h"
 
 #include <QImageReader>
 
@@ -88,33 +89,29 @@ void MessageContentModel::initializeModel()
     connect(m_room, &NeoChatRoom::replacedEvent, this, [this](const Quotient::RoomEvent *newEvent) {
         if (m_room != nullptr) {
             if (m_eventId == newEvent->id()) {
-                beginResetModel();
                 initializeEvent();
                 resetContent();
-                endResetModel();
             }
         }
     });
     connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+            updateFileInfo();
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+            updateFileInfo();
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
         if (m_room != nullptr && eventId == m_eventId) {
-            resetContent();
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+            updateFileInfo();
         }
     });
     connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
         if (eventId == m_eventId) {
-            resetContent();
-            Q_EMIT dataChanged(index(0), index(rowCount() - 1), {FileTransferInfoRole});
+            updateFileInfo();
             if (errorMessage.isEmpty()) {
                 Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
             } else {
@@ -125,17 +122,12 @@ void MessageContentModel::initializeModel()
     });
     connect(m_room->editCache(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
         if (oldEventId == m_eventId || newEventId == m_eventId) {
-            // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-            beginResetModel();
             resetContent(newEventId == m_eventId);
-            endResetModel();
         }
     });
     connect(m_room->threadCache(), &ChatBarCache::threadIdChanged, this, [this](const QString &oldThreadId, const QString &newThreadId) {
         if (oldThreadId == m_eventId || newThreadId == m_eventId) {
-            beginResetModel();
             resetContent(false, newThreadId == m_eventId);
-            endResetModel();
         }
     });
     connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, [this]() {
@@ -171,7 +163,17 @@ void MessageContentModel::initializeModel()
         updateReplyModel();
     }
     resetModel();
-    updateReactionModel();
+}
+
+void MessageContentModel::updateFileInfo()
+{
+    for (auto it = m_components.cbegin(); it != m_components.cend(); it++) {
+        const auto currentIndex = it - m_components.cbegin();
+        if (m_components.at(currentIndex).type == MessageComponentType::File || m_components.at(currentIndex).type == MessageComponentType::Audio
+            || m_components.at(currentIndex).type == MessageComponentType::Image || m_components.at(currentIndex).type == MessageComponentType::Video) {
+            Q_EMIT dataChanged(index(currentIndex), index(currentIndex), {FileTransferInfoRole});
+        }
+    }
 }
 
 void MessageContentModel::initializeEvent()
@@ -447,6 +449,8 @@ void MessageContentModel::resetModel()
 
     m_components += messageContentComponents();
     endResetModel();
+
+    updateReactionModel();
 }
 
 void MessageContentModel::resetContent(bool isEditing, bool isThreading)
@@ -463,6 +467,8 @@ void MessageContentModel::resetContent(bool isEditing, bool isThreading)
     beginInsertRows({}, startRow, startRow + newComponents.size() - 1);
     m_components += newComponents;
     endInsertRows();
+
+    updateReactionModel();
 }
 
 QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEditing, bool isThreading)
@@ -497,10 +503,6 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     if (m_room->urlPreviewEnabled()) {
         newComponents = addLinkPreviews(newComponents);
-    }
-
-    if ((m_reactionModel && m_reactionModel->rowCount() > 0)) {
-        newComponents += MessageComponent{MessageComponentType::Reaction, QString(), {}};
     }
 
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
@@ -672,12 +674,10 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
         connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
             const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
             if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
-                for (auto &component : m_components) {
-                    if (component.attributes["link"_L1].toUrl() == link) {
-                        // HACK: Because DelegateChooser can't switch the delegate on dataChanged it has to think there is a new delegate.
-                        beginResetModel();
-                        component.type = MessageComponentType::LinkPreview;
-                        endResetModel();
+                for (auto it = m_components.begin(); it != m_components.end(); it++) {
+                    if (it->attributes["link"_L1].toUrl() == link) {
+                        it->type = MessageComponentType::LinkPreview;
+                        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
                     }
                 }
             }
@@ -716,12 +716,11 @@ void MessageContentModel::closeLinkPreview(int row)
     }
 
     if (m_components[row].type == MessageComponentType::LinkPreview || m_components[row].type == MessageComponentType::LinkPreviewLoad) {
-        beginResetModel();
+        beginRemoveRows({}, row, row);
         m_removedLinkPreviews += m_components[row].attributes["link"_L1].toUrl();
         m_components.remove(row);
         m_components.squeeze();
-        endResetModel();
-        resetContent();
+        endRemoveRows();
     }
 }
 
@@ -764,7 +763,7 @@ void MessageContentModel::updateItineraryModel()
 
 void MessageContentModel::updateReactionModel()
 {
-    if (m_reactionModel != nullptr && m_reactionModel->rowCount() > 0) {
+    if (m_reactionModel && m_reactionModel->rowCount() > 0) {
         return;
     }
 
@@ -775,12 +774,19 @@ void MessageContentModel::updateReactionModel()
 
     if (m_reactionModel->rowCount() <= 0) {
         m_reactionModel->disconnect(this);
-        delete m_reactionModel;
+        m_reactionModel->deleteLater();
         m_reactionModel = nullptr;
-        return;
     }
 
-    resetContent();
+    if (m_reactionModel && m_components.last().type != MessageComponentType::Reaction) {
+        beginInsertRows({}, rowCount(), rowCount());
+        m_components += MessageComponent{MessageComponentType::Reaction, QString(), {}};
+        endInsertRows();
+    } else if (rowCount() > 0 && m_components.last().type == MessageComponentType::Reaction) {
+        beginRemoveRows({}, rowCount() - 1, rowCount() - 1);
+        m_components.removeLast();
+        endRemoveRows();
+    }
 }
 
 ThreadModel *MessageContentModel::modelForThread(const QString &threadRootId)

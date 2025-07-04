@@ -10,7 +10,7 @@ struct MessageComponent {
     QString content;
     QVariantMap attributes;
 
-    int operator==(const MessageComponent &right) const
+    bool operator==(const MessageComponent &right) const
     {
         return type == right.type && content == right.content && attributes == right.attributes;
     }
