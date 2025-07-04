@@ -48,8 +48,6 @@ private:
     std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
 
     int rowBelowInserted = -1;
-    bool resetting = false;
-    bool movingEvent = false;
 
     int timelineServerIndex() const override;
 

@@ -78,6 +78,12 @@
       <label>Use a compact room list layout</label>
       <default>false</default>
     </entry>
+    <entry name="MarkReadCondition" type="Enum">
+      <label>The sort order for the rooms in the list.</label>
+      <choices name="::TimelineMarkReadCondition::Condition">
+      </choices>
+      <default>2</default>
+    </entry>
     <entry name="ShowStateEvent" type="bool">
       <label>Show state events in the timeline</label>
       <default>true</default>

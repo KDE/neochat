@@ -125,7 +125,12 @@ Q_SIGNALS:
     /**
      * @brief Emitted when the room is changed.
      */
-    void roomChanged();
+    void roomAboutToChange(NeoChatRoom *oldRoom, NeoChatRoom *newRoom);
+
+    /**
+     * @brief Emitted when the room is changed.
+     */
+    void roomChanged(NeoChatRoom *oldRoom, NeoChatRoom *newRoom);
 
     /**
      * @brief Emitted when the reader marker is added.
@@ -140,7 +145,7 @@ Q_SIGNALS:
     /**
      * @brief Emitted when the model is about to reset.
      */
-    void modelAboutToBeReset();
+    void modelAboutToReset();
 
     /**
      * @brief Emitted when the model has been reset.
@@ -169,6 +174,9 @@ protected:
     virtual int timelineServerIndex() const;
     virtual std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const;
 
+    bool m_resetting = false;
+    bool m_movingEvent = false;
+
     void fullEventRefresh(int row);
     int refreshEventRoles(const QString &eventId, const QList<int> &roles = {});
     void refreshEventRoles(int row, const QList<int> &roles = {});
@@ -182,9 +190,6 @@ protected:
     bool event(QEvent *event) override;
 
 private:
-    bool resetting = false;
-    bool movingEvent = false;
-
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
 
     void createEventObjects(const Quotient::RoomEvent *event);

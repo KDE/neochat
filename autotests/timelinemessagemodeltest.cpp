@@ -57,7 +57,7 @@ void TimelineMessageModelTest::switchEmptyRoom()
     auto firstRoom = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
     auto secondRoom = new TestUtils::TestRoom(connection, u"#secondRoom:kde.org"_s);
 
-    QSignalSpy spy(model, SIGNAL(roomChanged()));
+    QSignalSpy spy(model, SIGNAL(roomChanged(NeoChatRoom *, NeoChatRoom *)));
 
     QCOMPARE(model->room(), nullptr);
     model->setRoom(firstRoom);
@@ -77,7 +77,7 @@ void TimelineMessageModelTest::switchSyncedRoom()
     auto firstRoom = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
     auto secondRoom = new TestUtils::TestRoom(connection, u"#secondRoom:kde.org"_s, u"test-messageventmodel-sync.json"_s);
 
-    QSignalSpy spy(model, SIGNAL(roomChanged()));
+    QSignalSpy spy(model, SIGNAL(roomChanged(NeoChatRoom *, NeoChatRoom *)));
 
     QCOMPARE(model->room(), nullptr);
     model->setRoom(firstRoom);

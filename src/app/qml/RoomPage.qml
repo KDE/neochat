@@ -104,11 +104,14 @@ Kirigami.Page {
         id: timelineViewLoader
         anchors.fill: parent
         active: root.currentRoom && !root.currentRoom.isInvite && !root.currentRoom.isSpace
+        // We need the loader to be active but invisible while the room is loading messages so signals in TimelineView work.
+        visible: !root.loading
         sourceComponent: TimelineView {
             id: timelineView
             messageFilterModel: root.messageFilterModel
             compactLayout: NeoChatConfig.compactLayout
             fileDropEnabled: !Controller.isFlatpak
+            markReadCondition: NeoChatConfig.markReadCondition
         }
     }
 

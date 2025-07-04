@@ -36,6 +36,11 @@ QQC2.ScrollView {
     property bool fileDropEnabled: true
 
     /**
+     * @brief The TimelineMarkReadCondition to use for when messages should be marked as read automatically.
+     */
+    required property int markReadCondition
+
+    /**
      * @brief Shift the view to the given event ID.
      */
     function goToEvent(eventId) {
@@ -54,7 +59,6 @@ QQC2.ScrollView {
      * All messages will be marked as read.
      */
     function goToLastMessage() {
-        _private.room.markAllMessagesAsRead();
         messageListView.positionViewAtBeginning();
     }
 
@@ -154,14 +158,28 @@ QQC2.ScrollView {
             }
 
             function onReadMarkerAdded() {
-                if (messageListView.allUnreadVisible()) {
-                    _private.room.markAllMessagesAsRead();
+                if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.EntryVisible && messageListView.allUnreadVisible()) {
+                    root.room.markAllMessagesAsRead();
                 }
             }
 
             function onNewLocalUserEventAdded() {
                 messageListView.positionViewAtBeginning();
                 _private.room.markAllMessagesAsRead();
+            }
+
+            function onRoomAboutToChange(oldRoom, newRoom) {
+                if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Exit ||
+                    (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.ExitVisible && messageListView.allUnreadVisible())
+                ) {
+                    oldRoom.markAllMessagesAsRead();
+                }
+            }
+
+            function onRoomChanged(oldRoom, newRoom) {
+                if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Entry) {
+                    newRoom.markAllMessagesAsRead();
+                }
             }
         }
 

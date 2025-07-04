@@ -28,12 +28,16 @@ void TimelineMessageModel::connectNewRoom()
         }
 
         connect(m_room, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
-            m_initialized = true;
-            beginInsertRows({}, timelineServerIndex(), timelineServerIndex() + int(events.size()) - 1);
+            if (!m_resetting) {
+                m_initialized = true;
+                beginInsertRows({}, timelineServerIndex(), timelineServerIndex() + int(events.size()) - 1);
+            }
         });
         connect(m_room, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
-            m_initialized = true;
-            beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
+            if (!m_resetting) {
+                m_initialized = true;
+                beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
+            }
         });
         connect(m_room, &Room::addedMessages, this, [this](int lowest, int biggest) {
             if (m_initialized) {
@@ -58,17 +62,21 @@ void TimelineMessageModel::connectNewRoom()
         });
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
-            m_initialized = true;
             Q_EMIT newEventAdded(event);
             Q_EMIT newLocalUserEventAdded();
-            beginInsertRows({}, 0, 0);
-            endInsertRows();
+            if (!m_resetting) {
+                beginInsertRows({}, 0, 0);
+                endInsertRows();
+            }
         });
 #else
         connect(m_room, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
             m_initialized = true;
             Q_EMIT newEventAdded(event);
-            beginInsertRows({}, 0, 0);
+            if (!m_resetting) {
+                beginInsertRows({}, 0, 0);
+                endInsertRows();
+            }
         });
         connect(m_room, &Room::pendingEventAdded, this, &TimelineMessageModel::endInsertRows);
 #endif
@@ -78,15 +86,15 @@ void TimelineMessageModel::connectNewRoom()
                 return; // No need to move anything, just refresh
             }
 
-            movingEvent = true;
+            m_movingEvent = true;
             // Reverse i because row 0 is bottommost in the model
             const auto row = timelineServerIndex() - i - 1;
             beginMoveRows({}, row, row, {}, timelineServerIndex());
         });
         connect(m_room, &Room::pendingEventMerged, this, [this] {
-            if (movingEvent) {
+            if (m_movingEvent) {
                 endMoveRows();
-                movingEvent = false;
+                m_movingEvent = false;
             }
             fullEventRefresh(timelineServerIndex());
             refreshLastUserEvents(0);
