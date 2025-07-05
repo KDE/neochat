@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-05 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -245,7 +245,7 @@ msgstr "Sciigaj Agordoj"
 msgid "Devices"
 msgstr "Aparatoj"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Malfermi Programistajn Ilojn"
@@ -1055,17 +1055,17 @@ msgstr "Ignori"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 
-#: src/app/qml/RoomPage.qml:138
+#: src/app/qml/RoomPage.qml:141
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Bonvenon al NeoChat"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Elekti aŭ aliĝi al ĉambro por komenciĝi"
 
-#: src/app/qml/RoomPage.qml:206
+#: src/app/qml/RoomPage.qml:209
 #, kde-format
 msgid "Message Source"
 msgstr "Mesaĝfonto"
@@ -3305,8 +3305,8 @@ msgstr "Registrado estas malŝaltita ĉe ĉi tiu servilo."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:271
-#: src/messagecontent/models/messagecontentmodel.cpp:299
+#: src/messagecontent/models/messagecontentmodel.cpp:273
+#: src/messagecontent/models/messagecontentmodel.cpp:301
 #, kde-format
 msgid "Loading"
 msgstr "Ŝargante"
@@ -3673,8 +3673,8 @@ msgid "Expand preview"
 msgstr "Vastigi antaŭrigardon"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:269
-#: src/messagecontent/models/messagecontentmodel.cpp:297
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, kde-format
 msgid "Loading reply"
 msgstr "Ŝargante respondon"
@@ -3698,20 +3698,20 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Eniri Plenan Ekranon"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:119
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:122
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:292
+#: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3721,7 +3721,7 @@ msgstr ""
 "Ĉi tiu mesaĝo aŭ ne estis trovita, vi ne havas permeson vidi ĝin, aŭ ĝi "
 "estis sendita de ignorita uzanto"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:569
+#: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -5204,85 +5204,132 @@ msgid "Custom"
 msgstr "Tajlorita"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, kde-format
-msgid "Timeline Events"
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "@title"
+msgid "Timeline"
 msgstr "Templinio-Eventoj"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
+msgid "Mark messages as read when:"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:147
+#, kde-format
+msgid "Never"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:151
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room"
+msgid "Entering the room"
+msgstr "aliĝis al la ĉambro"
+
+#: src/settings/NeoChatGeneralPage.qml:155
+#, kde-format
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room and all messages are visible on screen"
+msgid "Entering the room and all unread messages are visible"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:159
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the room"
+msgid "Exiting the room"
+msgstr "aliĝis al la ĉambro"
+
+#: src/settings/NeoChatGeneralPage.qml:163
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the most unread message are higher"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the "
+"room and all messages are visible on screen"
+msgid "Exiting the room and all unread messages are visible"
+msgstr "Ĉambroj kun la plejmultaj nelegitaj mesaĝoj estas pli altaj"
+
+#: src/settings/NeoChatGeneralPage.qml:178
+#, kde-format
 msgid "Show deleted messages"
 msgstr "Montri forigitajn mesaĝojn"
 
-#: src/settings/NeoChatGeneralPage.qml:158
+#: src/settings/NeoChatGeneralPage.qml:194
 #, kde-format
 msgid "Show state events"
 msgstr "Montri statajn eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:176
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Montri forir- kaj aliĝ-eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Show name change events"
 msgstr "Montri nomŝanĝajn eventojn"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Montri eventojn pri ĝisdatigo de avataro"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Redaktoro"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:262
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Sendi mesaĝojn per Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:237
+#: src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Sendi mesaĝojn per Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:253
+#: src/settings/NeoChatGeneralPage.qml:289
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Uzu s/text/anstataŭan sintakson por redakti vian lastan mesaĝon"
 
-#: src/settings/NeoChatGeneralPage.qml:267
+#: src/settings/NeoChatGeneralPage.qml:303
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:313
 #, kde-format
 msgid "Developer Settings"
 msgstr "Agordoj por programistoj"
 
-#: src/settings/NeoChatGeneralPage.qml:282
+#: src/settings/NeoChatGeneralPage.qml:318
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Ebligi programistajn ilojn"
 
-#: src/settings/NeoChatGeneralPage.qml:302
+#: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
 msgstr "Iloj por programistoj"
 
-#: src/settings/NeoChatGeneralPage.qml:307
+#: src/settings/NeoChatGeneralPage.qml:343
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Defaŭlta Agordo"
 
-#: src/settings/NeoChatGeneralPage.qml:312
+#: src/settings/NeoChatGeneralPage.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
@@ -5290,7 +5337,7 @@ msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "Restarigi Ĉiujn Agordvalorojn al Ilia Defaŭlto"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:354
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Re-send confirmation e-mail"
@@ -5298,7 +5345,7 @@ msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Resendi konfirman retpoŝton"
 
-#: src/settings/NeoChatGeneralPage.qml:319
+#: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6666,27 +6713,27 @@ msgstr ""
 "Ĉi tio estas komenco de la babilo. Ne estas historiaj mesaĝoj preter ĉi "
 "punkto."
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Salti al la unua nelegita mesaĝo"
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Salti al la plej malnova ŝargita mesaĝo"
 
-#: src/timeline/TimelineView.qml:232
+#: src/timeline/TimelineView.qml:250
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salti al la plej nova mesaĝo"
 
-#: src/timeline/TimelineView.qml:266
+#: src/timeline/TimelineView.qml:284
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Treni erojn ĉi tien por dividi ilin"
 
-#: src/timeline/TimelineView.qml:291
+#: src/timeline/TimelineView.qml:309
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

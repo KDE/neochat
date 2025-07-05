@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-05 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -247,7 +247,7 @@ msgstr "अधिसूचना सेटिंग्स"
 msgid "Devices"
 msgstr "उपकरण"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "डेवलपर टूल खोलें"
@@ -1070,17 +1070,17 @@ msgstr "अनदेखा करना"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "नियोचैट ऑफ़लाइन है। कृपया अपना नेटवर्क कनेक्शन जांचें।"
 
-#: src/app/qml/RoomPage.qml:138
+#: src/app/qml/RoomPage.qml:141
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "नियोचैट में आपका स्वागत है"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "आरंभ करने के लिए कोई कमरा चुनें या उसमें शामिल हों"
 
-#: src/app/qml/RoomPage.qml:206
+#: src/app/qml/RoomPage.qml:209
 #, kde-format
 msgid "Message Source"
 msgstr "संदेश स्रोत"
@@ -3318,8 +3318,8 @@ msgstr "इस सर्वर पर पंजीकरण अक्षम ह�
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:271
-#: src/messagecontent/models/messagecontentmodel.cpp:299
+#: src/messagecontent/models/messagecontentmodel.cpp:273
+#: src/messagecontent/models/messagecontentmodel.cpp:301
 #, kde-format
 msgid "Loading"
 msgstr "लोड हो रहा है"
@@ -3682,8 +3682,8 @@ msgid "Expand preview"
 msgstr "पूर्वावलोकन विस्तृत करें"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:269
-#: src/messagecontent/models/messagecontentmodel.cpp:297
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, kde-format
 msgid "Loading reply"
 msgstr "जवाब लोड हो रहा है"
@@ -3707,20 +3707,20 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "पूर्ण स्क्रीन दर्ज करें"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:119
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:122
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "कमरे में शामिल होने में विफल<br /> %1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:292
+#: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3730,7 +3730,7 @@ msgstr ""
 "यह संदेश या तो नहीं मिला, या आपके पास इसे देखने की अनुमति नहीं है, या इसे किसी अनदेखा "
 "उपयोगकर्ता द्वारा भेजा गया है"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:569
+#: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -5227,85 +5227,132 @@ msgid "Custom"
 msgstr "रिवाज़"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, kde-format
-msgid "Timeline Events"
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "@title"
+msgid "Timeline"
 msgstr "समयरेखा घटनाएँ"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
+msgid "Mark messages as read when:"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:147
+#, kde-format
+msgid "Never"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:151
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room"
+msgid "Entering the room"
+msgstr "कमरे में शामिल हो गए"
+
+#: src/settings/NeoChatGeneralPage.qml:155
+#, kde-format
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room and all messages are visible on screen"
+msgid "Entering the room and all unread messages are visible"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:159
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the room"
+msgid "Exiting the room"
+msgstr "कमरे में शामिल हो गए"
+
+#: src/settings/NeoChatGeneralPage.qml:163
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the most unread message are higher"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the "
+"room and all messages are visible on screen"
+msgid "Exiting the room and all unread messages are visible"
+msgstr "सबसे अधिक अपठित संदेश वाले कमरे अधिक हैं"
+
+#: src/settings/NeoChatGeneralPage.qml:178
+#, kde-format
 msgid "Show deleted messages"
 msgstr "हटाए गए संदेश दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:158
+#: src/settings/NeoChatGeneralPage.qml:194
 #, kde-format
 msgid "Show state events"
 msgstr "राज्य की घटनाएँ दिखाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:176
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show leave and join events"
 msgstr "छोड़ें और शामिल हों ईवेंट दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Show name change events"
 msgstr "नाम परिवर्तन की घटनाएँ दिखाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Show avatar update events"
 msgstr "अवतार अपडेट ईवेंट दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "संपादक"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:262
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Enter के साथ संदेश भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:237
+#: src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Ctrl+Enter से संदेश भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:253
+#: src/settings/NeoChatGeneralPage.qml:289
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "अपने अंतिम संदेश को संपादित करने के लिए s/text/replacement सिंटैक्स का उपयोग करें"
 
-#: src/settings/NeoChatGeneralPage.qml:267
+#: src/settings/NeoChatGeneralPage.qml:303
 #, kde-format
 msgid "Send typing notifications"
 msgstr "टाइपिंग सूचनाएं भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:313
 #, kde-format
 msgid "Developer Settings"
 msgstr "डेवलपर सेटिंग्स"
 
-#: src/settings/NeoChatGeneralPage.qml:282
+#: src/settings/NeoChatGeneralPage.qml:318
 #, kde-format
 msgid "Enable developer tools"
 msgstr "डेवलपर टूल सक्षम करें"
 
-#: src/settings/NeoChatGeneralPage.qml:302
+#: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
 msgstr "डेवलपर उपकरण"
 
-#: src/settings/NeoChatGeneralPage.qml:307
+#: src/settings/NeoChatGeneralPage.qml:343
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "न्यूनता समायोजन"
 
-#: src/settings/NeoChatGeneralPage.qml:312
+#: src/settings/NeoChatGeneralPage.qml:348
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
@@ -5313,7 +5360,7 @@ msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "सभी कॉन्फ़िगरेशन मानों को उनके डिफ़ॉल्ट पर रीसेट करें"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:354
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Re-send confirmation e-mail"
@@ -5321,7 +5368,7 @@ msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "पुष्टिकरण ई-मेल पुनः भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:319
+#: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6696,27 +6743,27 @@ msgid ""
 "this point."
 msgstr "यह चैट की शुरुआत है। इस बिंदु से आगे कोई ऐतिहासिक संदेश नहीं है।"
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "पहले अपठित संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "सबसे पुराने लोड किए गए संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:232
+#: src/timeline/TimelineView.qml:250
 #, kde-format
 msgid "Jump to latest message"
 msgstr "नवीनतम संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:266
+#: src/timeline/TimelineView.qml:284
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "आइटम को साझा करने के लिए उन्हें यहां खींचें"
 
-#: src/timeline/TimelineView.qml:291
+#: src/timeline/TimelineView.qml:309
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-05 00:42+0000\n"
 "PO-Revision-Date: 2024-08-03 00:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -258,7 +258,7 @@ msgstr "Mostrar notificações"
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Developer Tools"
@@ -1129,19 +1129,19 @@ msgstr "Ignorar"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está offline. Verifique sua conexão de rede."
 
-#: src/app/qml/RoomPage.qml:138
+#: src/app/qml/RoomPage.qml:141
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgid "Welcome to NeoChat"
 msgstr "Bem-vindo ao Matrix"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:142
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgid "Select or join a room to get started"
 msgstr "Entre em algumas salas para começar"
 
-#: src/app/qml/RoomPage.qml:206
+#: src/app/qml/RoomPage.qml:209
 #, kde-format
 msgid "Message Source"
 msgstr "Origem da mensagem"
@@ -3553,8 +3553,8 @@ msgstr ""
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:271
-#: src/messagecontent/models/messagecontentmodel.cpp:299
+#: src/messagecontent/models/messagecontentmodel.cpp:273
+#: src/messagecontent/models/messagecontentmodel.cpp:301
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -3944,8 +3944,8 @@ msgid "Expand preview"
 msgstr ""
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:269
-#: src/messagecontent/models/messagecontentmodel.cpp:297
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
@@ -3971,20 +3971,20 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Entrar no modo tela inteira"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:119
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:122
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "%1 convidou você para uma sala"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:292
+#: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3992,7 +3992,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:569
+#: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -5669,105 +5669,151 @@ msgid "Custom"
 msgstr "Personalizado"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, kde-format
-msgid "Timeline Events"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Timeline:"
+msgctxt "@title"
+msgid "Timeline"
+msgstr "Linha do tempo:"
 
 #: src/settings/NeoChatGeneralPage.qml:142
+#, kde-format
+msgid "Mark messages as read when:"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:147
+#, kde-format
+msgid "Never"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:151
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room"
+msgid "Entering the room"
+msgstr "entrou na sala"
+
+#: src/settings/NeoChatGeneralPage.qml:155
+#, kde-format
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room and all messages are visible on screen"
+msgid "Entering the room and all unread messages are visible"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:159
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the room"
+msgid "Exiting the room"
+msgstr "entrou na sala"
+
+#: src/settings/NeoChatGeneralPage.qml:163
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the "
+"room and all messages are visible on screen"
+msgid "Exiting the room and all unread messages are visible"
+msgstr "Enviar mensagem"
+
+#: src/settings/NeoChatGeneralPage.qml:178
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Show deleted messages"
 msgstr "Enviar mensagem"
 
-#: src/settings/NeoChatGeneralPage.qml:158
+#: src/settings/NeoChatGeneralPage.qml:194
 #, fuzzy, kde-format
 #| msgid "Show avatar update events"
 msgid "Show state events"
 msgstr "Mostrar eventos de atualização de avatar"
 
-#: src/settings/NeoChatGeneralPage.qml:176
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Mostrar eventos de entrada e saída na sala"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Show name change events"
 msgstr "Mostrar eventos de alterações de nome"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Mostrar eventos de atualização de avatar"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:258
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editar"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:262
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Enviar mensagem"
 
-#: src/settings/NeoChatGeneralPage.qml:237
+#: src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:253
+#: src/settings/NeoChatGeneralPage.qml:289
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Use a sintaxe s/texto/substituição para editar sua última mensagem"
 
-#: src/settings/NeoChatGeneralPage.qml:267
+#: src/settings/NeoChatGeneralPage.qml:303
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Send typing notifications"
 msgstr "Mostrar notificações de digitação"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:313
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Configurações"
 
-#: src/settings/NeoChatGeneralPage.qml:282
+#: src/settings/NeoChatGeneralPage.qml:318
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:302
+#: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:307
+#: src/settings/NeoChatGeneralPage.qml:343
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Configurações"
 
-#: src/settings/NeoChatGeneralPage.qml:312
+#: src/settings/NeoChatGeneralPage.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:354
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Informação da sala"
 
-#: src/settings/NeoChatGeneralPage.qml:319
+#: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7195,28 +7241,28 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ir para primeira mensagem não lida"
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgid "Jump to oldest loaded message"
 msgstr "Ir para a mensagem mais antiga"
 
-#: src/timeline/TimelineView.qml:232
+#: src/timeline/TimelineView.qml:250
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ir para a mensagem mais antiga"
 
-#: src/timeline/TimelineView.qml:266
+#: src/timeline/TimelineView.qml:284
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arraste itens aqui para compartilhar"
 
-#: src/timeline/TimelineView.qml:291
+#: src/timeline/TimelineView.qml:309
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -7890,11 +7936,6 @@ msgstr[1] "%2 estão digitando"
 #~ msgstr ""
 #~ "Esta sala está criptografada. O envio de mensagens criptografadas ainda "
 #~ "não é suportado."
-
-#, fuzzy
-#~| msgid "Timeline:"
-#~ msgid "Timeline"
-#~ msgstr "Linha do tempo:"
 
 #~ msgid "In Chat"
 #~ msgstr "No bate-papo"

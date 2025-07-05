@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-02 07:05+0000\n"
+"POT-Creation-Date: 2025-07-05 00:42+0000\n"
 "PO-Revision-Date: 2025-07-03 10:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -245,7 +245,7 @@ msgstr "Nastavitve obvestil"
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:298
+#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Odpri razvojna orodja"
@@ -1040,17 +1040,17 @@ msgstr "Prezri"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
 
-#: src/app/qml/RoomPage.qml:138
+#: src/app/qml/RoomPage.qml:141
 #, kde-format
 msgid "Welcome to NeoChat"
 msgstr "Dobrodošli v NeoChat"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgid "Select or join a room to get started"
 msgstr "Izberi ali pridruži sobi za začetek"
 
-#: src/app/qml/RoomPage.qml:206
+#: src/app/qml/RoomPage.qml:209
 #, kde-format
 msgid "Message Source"
 msgstr "Vir sporočila"
@@ -3281,8 +3281,8 @@ msgstr "Registracija je onemogočena na tem strežniku."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:271
-#: src/messagecontent/models/messagecontentmodel.cpp:299
+#: src/messagecontent/models/messagecontentmodel.cpp:273
+#: src/messagecontent/models/messagecontentmodel.cpp:301
 #, kde-format
 msgid "Loading"
 msgstr "Nalaganje"
@@ -3646,8 +3646,8 @@ msgid "Expand preview"
 msgstr "Razširi predogled"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:269
-#: src/messagecontent/models/messagecontentmodel.cpp:297
+#: src/messagecontent/models/messagecontentmodel.cpp:271
+#: src/messagecontent/models/messagecontentmodel.cpp:299
 #, kde-format
 msgid "Loading reply"
 msgstr "Nalaganje odgovora"
@@ -3669,19 +3669,19 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Odpri celotni zaslon"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:119
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Prenos datoteke ni uspel."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:122
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "Neuspel prenos datoteke:<br />%1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:292
+#: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3691,7 +3691,7 @@ msgstr ""
 "Tega sporočila ni bilo mogoče najti, nimate dovoljenja za ogled ali pa ga je "
 "poslal prezrt uporabnik"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:569
+#: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Ta dogodek nima nobene vsebine.</i>"
@@ -5175,98 +5175,145 @@ msgid "Custom"
 msgstr "Po meri"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, kde-format
-msgid "Timeline Events"
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "@title"
+msgid "Timeline"
 msgstr "Dogodki na časovnici"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
+msgid "Mark messages as read when:"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:147
+#, kde-format
+msgid "Never"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:151
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room"
+msgid "Entering the room"
+msgstr "se je pridružil v sobi"
+
+#: src/settings/NeoChatGeneralPage.qml:155
+#, kde-format
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when entering the "
+"room and all messages are visible on screen"
+msgid "Entering the room and all unread messages are visible"
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:159
+#, fuzzy, kde-format
+#| msgid "joined the room"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the room"
+msgid "Exiting the room"
+msgstr "se je pridružil v sobi"
+
+#: src/settings/NeoChatGeneralPage.qml:163
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the most unread message are higher"
+msgctxt ""
+"@item:inlistbox As in mark messages in the room as read when exiting the "
+"room and all messages are visible on screen"
+msgid "Exiting the room and all unread messages are visible"
+msgstr "Sobe z največ neprebranimi sporočili so višje"
+
+#: src/settings/NeoChatGeneralPage.qml:178
+#, kde-format
 msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:158
+#: src/settings/NeoChatGeneralPage.qml:194
 #, kde-format
 msgid "Show state events"
 msgstr "Prikaži dogodke stanj"
 
-#: src/settings/NeoChatGeneralPage.qml:176
+#: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Prikaži dogodke odhodov in prihodov"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
 msgid "Show name change events"
 msgstr "Prikaži dogodke spremembe imen"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:248
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
-#: src/settings/NeoChatGeneralPage.qml:222
+#: src/settings/NeoChatGeneralPage.qml:258
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/settings/NeoChatGeneralPage.qml:226
+#: src/settings/NeoChatGeneralPage.qml:262
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Pošiljaj sporočila s tipko Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:237
+#: src/settings/NeoChatGeneralPage.qml:273
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Pošiljaj sporočila s tipko Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:253
+#: src/settings/NeoChatGeneralPage.qml:289
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:267
+#: src/settings/NeoChatGeneralPage.qml:303
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji obvestila tipkanja"
 
-#: src/settings/NeoChatGeneralPage.qml:277
+#: src/settings/NeoChatGeneralPage.qml:313
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/settings/NeoChatGeneralPage.qml:282
+#: src/settings/NeoChatGeneralPage.qml:318
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:302
+#: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:307
+#: src/settings/NeoChatGeneralPage.qml:343
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
-#: src/settings/NeoChatGeneralPage.qml:312
+#: src/settings/NeoChatGeneralPage.qml:348
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "Ponastavi vse vrednosti konfiguracije na privzete"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Ponovno nastavi konfihuracijo"
 
-#: src/settings/NeoChatGeneralPage.qml:319
+#: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6601,27 +6648,27 @@ msgid ""
 msgstr ""
 "To je začetek klepeta. Onkraj te točke ni nobenih sporočil v zgodovini."
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skoči na prvo neprebrano sporočilo"
 
-#: src/timeline/TimelineView.qml:200
+#: src/timeline/TimelineView.qml:218
 #, kde-format
 msgid "Jump to oldest loaded message"
 msgstr "Skoči na najstarejše naloženo sporočilo"
 
-#: src/timeline/TimelineView.qml:232
+#: src/timeline/TimelineView.qml:250
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Skoči na nedavno sporočilo"
 
-#: src/timeline/TimelineView.qml:266
+#: src/timeline/TimelineView.qml:284
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih deliš z drugimi"
 
-#: src/timeline/TimelineView.qml:291
+#: src/timeline/TimelineView.qml:309
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
