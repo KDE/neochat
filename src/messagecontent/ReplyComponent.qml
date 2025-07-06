@@ -65,7 +65,7 @@ RowLayout {
             id: contentRepeater
             model: root.replyContentModel
             delegate: ReplyMessageComponentChooser {
-                onReplyClicked: root.Message.timeline.goToEvent(root.replyEventId)
+                onReplyClicked: RoomManager.goToEvent(root.replyEventId)
             }
         }
     }
@@ -74,7 +74,7 @@ RowLayout {
     }
     TapHandler {
         acceptedButtons: Qt.LeftButton
-        onTapped: root.Message.timeline.goToEvent(root.replyEventId)
+        onTapped: RoomManager.goToEvent(root.replyEventId)
     }
     QtObject {
         id: _private
