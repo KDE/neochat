@@ -264,6 +264,10 @@ void RoomManager::viewEventSource(const QString &eventId)
 
 void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText, const QString &hoveredLink)
 {
+    if (eventId.isEmpty()) {
+        qWarning() << "Tried to open event menu with empty event id";
+        return;
+    }
     const auto &event = **room->findInTimeline(eventId);
 
     if (EventHandler::mediaInfo(room, &event).contains("mimeType"_L1)) {
