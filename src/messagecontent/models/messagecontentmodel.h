@@ -132,9 +132,16 @@ private:
     void initializeModel();
     void initializeEvent();
     void getEvent();
-    void updateFileInfo();
 
     QList<MessageComponent> m_components;
+    bool hasComponentType(MessageComponentType::Type type);
+    void forEachComponentOfType(MessageComponentType::Type type, std::function<void(const QModelIndex &)> function);
+    void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<void(const QModelIndex &)> function);
+
+    std::function<void(const QModelIndex &)> m_fileInfoFunction = [this](const QModelIndex &index) {
+        Q_EMIT dataChanged(index, index, {MessageContentModel::FileTransferInfoRole});
+    };
+
     void resetModel();
     void resetContent(bool isEditing = false, bool isThreading = false);
     QList<MessageComponent> messageContentComponents(bool isEditing = false, bool isThreading = false);
