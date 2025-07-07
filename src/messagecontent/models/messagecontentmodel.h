@@ -9,6 +9,7 @@
 #include <Quotient/events/roomevent.h>
 
 #include "enums/messagecomponenttype.h"
+#include "linkpreviewer.h"
 #include "messagecomponent.h"
 #include "models/itinerarymodel.h"
 #include "models/reactionmodel.h"
@@ -133,13 +134,32 @@ private:
     void initializeEvent();
     void getEvent();
 
+    using ComponentIt = QList<MessageComponent>::iterator;
+
     QList<MessageComponent> m_components;
     bool hasComponentType(MessageComponentType::Type type);
-    void forEachComponentOfType(MessageComponentType::Type type, std::function<void(const QModelIndex &)> function);
-    void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<void(const QModelIndex &)> function);
+    void forEachComponentOfType(MessageComponentType::Type type, std::function<ComponentIt(ComponentIt)> function);
+    void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<ComponentIt(ComponentIt)> function);
 
-    std::function<void(const QModelIndex &)> m_fileInfoFunction = [this](const QModelIndex &index) {
-        Q_EMIT dataChanged(index, index, {MessageContentModel::FileTransferInfoRole});
+    std::function<ComponentIt(const ComponentIt &)> m_fileInfoFunction = [this](ComponentIt it) {
+        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {MessageContentModel::FileTransferInfoRole});
+        return ++it;
+    };
+    std::function<ComponentIt(const ComponentIt &)> m_linkPreviewFunction = [this](ComponentIt it) {
+        bool previewAdded = false;
+        if (LinkPreviewer::hasPreviewableLinks(it->content)) {
+            const auto links = LinkPreviewer::linkPreviews(it->content);
+            for (qsizetype j = 0; j < links.size(); ++j) {
+                const auto linkPreview = linkPreviewComponent(links[j]);
+                if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
+                    beginInsertRows({}, std::distance(m_components.begin(), it) + j + 1, std::distance(m_components.begin(), it) + j + 1);
+                    it = m_components.insert(it + j + 1, linkPreview);
+                    previewAdded = true;
+                    endInsertRows();
+                }
+            };
+        }
+        return previewAdded ? it : ++it;
     };
 
     void resetModel();
@@ -154,7 +174,6 @@ private:
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
     MessageComponent linkPreviewComponent(const QUrl &link);
-    QList<MessageComponent> addLinkPreviews(QList<MessageComponent> inputComponents);
 
     QList<QUrl> m_removedLinkPreviews;
 
