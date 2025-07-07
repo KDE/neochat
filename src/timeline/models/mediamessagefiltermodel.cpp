@@ -85,9 +85,14 @@ QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
     return roles;
 }
 
-int MediaMessageFilterModel::getRowForSourceItem(int sourceRow) const
+int MediaMessageFilterModel::getRowForEventId(const QString &eventId) const
 {
-    return mapFromSource(sourceModel()->index(sourceRow, 0)).row();
+    for (auto i = 0; i < rowCount(); i++) {
+        if (data(index(i, 0), MessageModel::EventIdRole).toString() == eventId) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 #include "moc_mediamessagefiltermodel.cpp"

@@ -63,5 +63,5 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE int getRowForSourceItem(int sourceRow) const;
+    int getRowForEventId(const QString &eventId) const;
 };

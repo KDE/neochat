@@ -236,11 +236,18 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
     }
 }
 
-void RoomManager::maximizeMedia(int index)
+void RoomManager::maximizeMedia(const QString &eventId)
 {
-    if (index < -1 || index > m_mediaMessageFilterModel->rowCount()) {
+    if (eventId.isEmpty()) {
+        qWarning() << "Tried to open media for empty event id";
         return;
     }
+
+    const auto index = m_mediaMessageFilterModel->getRowForEventId(eventId);
+    if (index == -1) {
+        return;
+    }
+
     Q_EMIT showMaximizedMedia(index);
 }
 
