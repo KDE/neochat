@@ -158,12 +158,7 @@ Item {
             }
             root.Message.timeline.interactive = false;
             if (!root.mediaInfo.isSticker) {
-                // We need to make sure the index is that of the MediaMessageFilterModel.
-                if (root.Message.timeline.model instanceof MessageFilterModel) {
-                    RoomManager.maximizeMedia(RoomManager.mediaMessageFilterModel.getRowForSourceItem(root.Message.index));
-                } else {
-                    RoomManager.maximizeMedia(root.Message.index);
-                }
+                RoomManager.maximizeMedia(root.eventId);
             }
         }
     }

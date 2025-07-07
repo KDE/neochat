@@ -212,12 +212,8 @@ public:
 
     /**
      * @brief Show a media item maximized.
-     *
-     * @param index the index to open the maximize delegate model at. This is the
-     *        index in the MediaMessageFilterModel owned by this RoomManager. A value
-     *        of -1 opens a the default item.
      */
-    Q_INVOKABLE void maximizeMedia(int index);
+    Q_INVOKABLE void maximizeMedia(const QString &eventId);
 
     Q_INVOKABLE void maximizeCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language);
 
