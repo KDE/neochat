@@ -104,6 +104,7 @@ Q_SIGNALS:
     void filterTextChanged();
     void activeSpaceIdChanged();
     void modeChanged();
+    void currentRoomChanged();
 
 private:
     Mode m_mode = All;

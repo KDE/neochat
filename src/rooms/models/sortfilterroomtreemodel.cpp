@@ -134,6 +134,7 @@ void SortFilterRoomTreeModel::setActiveSpaceId(const QString &spaceId)
 void SortFilterRoomTreeModel::setCurrentRoom(NeoChatRoom *room)
 {
     m_currentRoom = room;
+    Q_EMIT currentRoomChanged();
 }
 
 SortFilterRoomTreeModel::Mode SortFilterRoomTreeModel::mode() const

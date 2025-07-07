@@ -96,7 +96,10 @@ Kirigami.Page {
         function onCurrentSpaceChanged() {
             treeView.expandRecursively();
         }
+    }
 
+    Connections {
+        target: RoomManager.sortFilterRoomTreeModel
         function onCurrentRoomChanged() {
             treeView.positionViewAtIndex(RoomManager.sortFilterRoomTreeModel.currentRoomIndex(), TableView.AlignVCenter)
         }
