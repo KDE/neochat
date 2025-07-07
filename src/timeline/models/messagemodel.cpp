@@ -311,7 +311,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsEditableRole) {
-        return MessageComponentType::typeForEvent(event.value().get()) == MessageComponentType::Text
+        return MessageComponentType::typeForEvent(event.value().get(), false) == MessageComponentType::Text
             && event.value().get().senderId() == m_room->localMember().id();
     }
 

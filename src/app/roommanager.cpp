@@ -273,7 +273,7 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
     if (EventHandler::mediaInfo(room, &event).contains("mimeType"_L1)) {
         Q_EMIT showFileMenu(eventId,
                             sender,
-                            MessageComponentType::typeForEvent(event),
+                            MessageComponentType::typeForEvent(event, false),
                             EventHandler::plainBody(room, &event),
                             EventHandler::mediaInfo(room, &event)["mimeType"_L1].toString(),
                             room->fileTransferInfo(eventId));
@@ -282,7 +282,7 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
 
     Q_EMIT showMessageMenu(eventId,
                            sender,
-                           MessageComponentType::typeForEvent(event),
+                           MessageComponentType::typeForEvent(event, false),
                            EventHandler::plainBody(room, &event),
                            EventHandler::richBody(room, &event),
                            selectedText,
