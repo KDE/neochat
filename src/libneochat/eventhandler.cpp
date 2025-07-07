@@ -451,6 +451,9 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
         [](const EncryptedEvent &) {
             return i18nc("@info In room list", "Encrypted event");
         },
+        [](const ReactionEvent &e) {
+            return i18nc("[user] reacted with <emoji>", "reacted with %1", e.key());
+        },
         i18n("Unknown event"));
 }
 

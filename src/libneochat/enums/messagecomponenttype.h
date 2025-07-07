@@ -70,9 +70,11 @@ public:
      *
      * @param event the event to return a type for.
      *
+     * @param isInReply whether this event is to be treated like a replied-to event (i.e., a basic text fallback should be shown if no other type is used)
+     *
      * @sa Type
      */
-    static Type typeForEvent(const Quotient::RoomEvent &event)
+    static Type typeForEvent(const Quotient::RoomEvent &event, bool isInReply = false)
     {
         using namespace Quotient;
 
@@ -103,7 +105,8 @@ public:
             if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
                 return MessageComponentType::LiveLocation;
             }
-            return MessageComponentType::Other;
+            // In the (unlikely) case that this is a reply to a state event, we do want to show something
+            return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
         }
         if (is<const EncryptedEvent>(event)) {
             return MessageComponentType::Encrypted;
@@ -116,7 +119,8 @@ public:
             return MessageComponentType::Poll;
         }
 
-        return MessageComponentType::Other;
+        // In the (unlikely) case that this is a reply to an unusual event, we do want to show something
+        return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
     }
 
     /**

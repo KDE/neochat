@@ -512,7 +512,7 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
     if (isEditing) {
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     } else {
-        newComponents.append(componentsForType(MessageComponentType::typeForEvent(*event.first)));
+        newComponents.append(componentsForType(MessageComponentType::typeForEvent(*event.first, m_isReply)));
     }
 
     if (m_room->urlPreviewEnabled()) {
@@ -598,20 +598,23 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
 
     switch (type) {
     case MessageComponentType::Text: {
-        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-        auto body = EventHandler::rawMessageBody(*roomMessageEvent);
-        if (body.trimmed().isEmpty()) {
-            return TextHandler().textComponents(i18n("<i>This event does not have any content.</i>"),
-                                                Qt::TextFormat::RichText,
-                                                m_room,
-                                                roomMessageEvent,
-                                                roomMessageEvent->isReplaced());
+        if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first)) {
+            auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+            if (body.trimmed().isEmpty()) {
+                return TextHandler().textComponents(i18n("<i>This event does not have any content.</i>"),
+                                                    Qt::TextFormat::RichText,
+                                                    m_room,
+                                                    roomMessageEvent,
+                                                    roomMessageEvent->isReplaced());
+            } else {
+                return TextHandler().textComponents(body,
+                                                    EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                                    m_room,
+                                                    roomMessageEvent,
+                                                    roomMessageEvent->isReplaced());
+            }
         } else {
-            return TextHandler().textComponents(body,
-                                                EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                m_room,
-                                                roomMessageEvent,
-                                                roomMessageEvent->isReplaced());
+            return TextHandler().textComponents(EventHandler::plainBody(m_room, event.first), Qt::TextFormat::PlainText, m_room, event.first, false);
         }
     }
     case MessageComponentType::File: {
