@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-07 00:42+0000\n"
-"PO-Revision-Date: 2025-07-02 13:06+0200\n"
+"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"PO-Revision-Date: 2025-07-05 17:07+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -563,14 +563,14 @@ msgstr "Trova i tuoi amici"
 
 #: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:178 src/rooms/RoomListPage.qml:238
+#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "Trova i tuoi amici"
 
 #: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:186
-#: src/rooms/RoomListPage.qml:242
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
+#: src/rooms/RoomListPage.qml:245
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -595,7 +595,7 @@ msgid "Explore Rooms"
 msgstr "Esplora le stanze"
 
 #: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:227
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -3999,7 +3999,7 @@ msgstr "Scansione di un codice QR"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:221
+#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplora le stanze"
@@ -4115,17 +4115,17 @@ msgstr "Stanza silenziata"
 msgid "Configure room"
 msgstr "Configura la stanza"
 
-#: src/rooms/RoomListPage.qml:212
+#: src/rooms/RoomListPage.qml:215
 #, kde-format
 msgid "No friends found"
 msgstr "Nessun amico trovato"
 
-#: src/rooms/RoomListPage.qml:212
+#: src/rooms/RoomListPage.qml:215
 #, kde-format
 msgid "No rooms found"
 msgstr "Nessuna stanza trovata"
 
-#: src/rooms/RoomListPage.qml:214
+#: src/rooms/RoomListPage.qml:217
 #, kde-format
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -4133,17 +4133,17 @@ msgstr ""
 "Non hai ancora aggiunto nessuno dei tuoi amici, fai clic qui sotto per "
 "cercarli."
 
-#: src/rooms/RoomListPage.qml:214
+#: src/rooms/RoomListPage.qml:217
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Entra in qualche stanza per iniziare"
 
-#: src/rooms/RoomListPage.qml:221
+#: src/rooms/RoomListPage.qml:224
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cerca nella cartella delle stanze"
 
-#: src/rooms/RoomListPage.qml:238
+#: src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Search in friend directory"
 msgstr "Cerca nella cartella degli amici"
@@ -5193,30 +5193,28 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "Rifiuta"
+msgstr "Linea temporale"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Contrassegna i messaggi come letti quando:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "è entrato nella stanza"
+msgstr "Entrando nella stanza"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5224,25 +5222,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "Entrando nella stanza tutti i messaggi non letti saranno visibili"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "è entrato nella stanza"
+msgstr "Uscendo dalla stanza"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "Le stanze con il maggior numero di messaggi non letti sono più alte"
+msgstr "Uscendo dalla stanza tutti i messaggi non letti saranno visibili"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
