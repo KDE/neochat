@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2025-07-05 19:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -4030,9 +4030,12 @@ msgid "Notifications"
 msgstr "Meldingen"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Globale instellingen volgen"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Standaardinstellingen"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -4784,44 +4787,52 @@ msgstr "Push-meldingen zijn beschikbaar maar konden niet ingeschakeld worden."
 msgid "Notifications will only appear when NeoChat is running."
 msgstr "Meldingen zullen alleen verschijnen wanneer NeoChat actief is."
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Roommeldingen"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Vermeldingen"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Trefwoorden"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Trefwoord…"
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Trefwoord toevoegen"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Uitnodigingen"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5648,9 +5659,12 @@ msgid "Room notifications setting"
 msgstr "Instelling van roommeldingen"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Globale instellingen volgen"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Standaardinstellingen"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -6679,6 +6693,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Globale instellingen volgen"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Globale instellingen volgen"
 
 #~ msgid "Timeline Events"
 #~ msgstr "Tijdlijn van gebeurtenissen"

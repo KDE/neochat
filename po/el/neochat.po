@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -4250,9 +4250,11 @@ msgid "Notifications"
 msgstr "Ειδοποιήσεις"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Να ακολουθηθεί η γενική ρύθμιση"
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Ρυθμίσεις προγραμματιστή"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -5037,44 +5039,52 @@ msgstr ""
 msgid "Notifications will only appear when NeoChat is running."
 msgstr ""
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Ειδοποιήσεις αίθουσας"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Αναφορές"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Λέξεις κλειδιά"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Λέξη κλειδί…"
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Προσθήκη λέξης κλειδιού"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Προσκαλεί"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, fuzzy, kde-format
 #| msgid "Unknown event"
 msgctxt "@title:group"
@@ -5943,9 +5953,11 @@ msgid "Room notifications setting"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Ακολούθησε τη γενική ρύθμιση"
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Ρυθμίσεις προγραμματιστή"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -7044,6 +7056,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Να ακολουθηθεί η γενική ρύθμιση"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Ακολούθησε τη γενική ρύθμιση"
 
 #~ msgid "Switch User"
 #~ msgstr "Εναλλαγή χρήστη"

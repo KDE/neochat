@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -4316,9 +4316,11 @@ msgid "Notifications"
 msgstr "Notifikasi"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Ikuti Pengaturan Global"
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Pengaturan Pengembang"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -5122,21 +5124,29 @@ msgstr ""
 msgid "Notifications will only appear when NeoChat is running."
 msgstr ""
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, fuzzy, kde-format
 #| msgid "Room Notifications"
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Notifikasi Ruangan"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, fuzzy, kde-format
 #| msgid "@Mentions"
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Sebutan"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, fuzzy, kde-format
 #| msgid "Keywords"
@@ -5144,26 +5154,26 @@ msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Kata Kunci"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Kata Kunci..."
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Tambahkan kata kunci"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Undangan"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, fuzzy, kde-format
 #| msgid "Unknown event"
 msgctxt "@title:group"
@@ -6101,9 +6111,11 @@ msgid "Room notifications setting"
 msgstr "Pengaturan notifikasi ruangan"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Ikuti pengaturan global"
+#, fuzzy, kde-format
+#| msgid "Developer Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Pengaturan Pengembang"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -7216,6 +7228,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 sedang mengetik"
 msgstr[1] "%2 sedang mengetik"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Ikuti Pengaturan Global"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Ikuti pengaturan global"
 
 #~ msgid "Timeline Events"
 #~ msgstr "Peristiwa Lini Masa"

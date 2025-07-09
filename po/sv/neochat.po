@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2025-07-03 15:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4014,9 +4014,12 @@ msgid "Notifications"
 msgstr "Underrättelser"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Använd global inställning"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Standardinställningar"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -4764,44 +4767,52 @@ msgstr "Utskickade underrättelser är tillgängliga men kunde inte aktiveras."
 msgid "Notifications will only appear when NeoChat is running."
 msgstr "Underrättelser visas bara när NeoChat kör."
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Rumsunderrättelser"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Omnämnanden"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Nyckelord"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Nyckelord…"
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Lägg till nyckelord"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Inbjudningar"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5628,9 +5639,12 @@ msgid "Room notifications setting"
 msgstr "Inställning av rummets underrättelser"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Följ global inställning"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Standardinställningar"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -6662,6 +6676,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Använd global inställning"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Följ global inställning"
 
 #~ msgid "Timeline Events"
 #~ msgstr "Tidslinjehändelser"

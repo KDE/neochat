@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2025-07-03 09:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -4008,9 +4008,12 @@ msgid "Notifications"
 msgstr "الإشعارات"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "استخدم الإعداد العموميّ"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "الإعدادات المبدئية"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -4759,44 +4762,52 @@ msgstr "الإشعارات الفورية متوفرة ولكن تعذر تمك�
 msgid "Notifications will only appear when NeoChat is running."
 msgstr "لن تظهر الإشعارات إلا عند تشغيل نيوتشات."
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "إشعارات الغرفة"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@الذّكورات"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "الكلمات المفتاحيّة"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "الكلمة المفتاحية…"
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "أضِف كلمة مفتاحية"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "الدعوات"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5616,9 +5627,12 @@ msgid "Room notifications setting"
 msgstr "إعدادات إشعارات الغرفة"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "استخدم الإعداد العموميّ"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "الإعدادات المبدئية"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -6645,6 +6659,12 @@ msgstr[2] "‏%2 يكتبان"
 msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "استخدم الإعداد العموميّ"
+
+#~ msgid "Follow global setting"
+#~ msgstr "استخدم الإعداد العموميّ"
 
 #~ msgid "Timeline Events"
 #~ msgstr "الخط الزمني للأحداث"

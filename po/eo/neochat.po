@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -4049,9 +4049,12 @@ msgid "Notifications"
 msgstr "Sciigoj"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Sekvi Ĉiean Agordon"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Defaŭlta Agordo"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -4805,44 +4808,52 @@ msgstr "Puŝ-sciigoj disponeblas sed ne povis esti ŝaltitaj."
 msgid "Notifications will only appear when NeoChat is running."
 msgstr "Sciigoj nur aperos kiam NeoChat estas rulanta."
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Ĉambro Sciigoj"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Mencioj"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ŝlosilvortoj"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Ŝlosilvorto…"
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Aldoni ŝlosilvorton"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Invitas"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5675,9 +5686,12 @@ msgid "Room notifications setting"
 msgstr "Agordo de sciigoj pri ĉambro"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Sekvi ĉiean agordon"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Defaŭlta Agordo"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -6740,6 +6754,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Sekvi Ĉiean Agordon"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Sekvi ĉiean agordon"
 
 #~ msgid "Switch User"
 #~ msgstr "Ŝanĝi Uzanton"

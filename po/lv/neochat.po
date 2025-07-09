@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-08 00:42+0000\n"
+"POT-Creation-Date: 2025-07-09 00:43+0000\n"
 "PO-Revision-Date: 2025-06-18 18:48+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4012,9 +4012,12 @@ msgid "Notifications"
 msgstr "Paziņojumi"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Ievērot globālos iestatījumus"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "@action:inmenu Notification 'Default Settings'"
+msgid "Default Settings"
+msgstr "Noklusējuma iestatījumi"
 
 #: src/rooms/RoomContextMenu.qml:73 src/settings/PushNotification.qml:39
 #, kde-format
@@ -4760,44 +4763,52 @@ msgstr "Pašpiegādes paziņojumi ir pieejami, bet nav ieslēgti."
 msgid "Notifications will only appear when NeoChat is running."
 msgstr "Paziņojumi būs redzami tikai tad, kad ir palaists „NeoChat“."
 
-#: src/settings/GlobalNotificationsPage.qml:49
+#: src/settings/GlobalNotificationsPage.qml:59
+#, kde-format
+msgctxt "@info"
+msgid ""
+"These are the default notification settings for all rooms. You can customize "
+"notifications per-room in the room list or room settings."
+msgstr ""
+
+#: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Room Notifications"
 msgstr "Istabas paziņojumi"
 
-#: src/settings/GlobalNotificationsPage.qml:66
+#: src/settings/GlobalNotificationsPage.qml:86
 #, kde-format
 msgctxt "@title:group"
 msgid "@Mentions"
 msgstr "@Pieminējumi"
 
-#: src/settings/GlobalNotificationsPage.qml:83
+#: src/settings/GlobalNotificationsPage.qml:103
 #: src/settings/PushNotification.qml:65
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Atslēgas vārdi"
 
-#: src/settings/GlobalNotificationsPage.qml:107
+#: src/settings/GlobalNotificationsPage.qml:127
 #: src/settings/PushNotification.qml:100
 #, kde-format
 msgid "Keyword…"
 msgstr "Atslēgas vārds..."
 
-#: src/settings/GlobalNotificationsPage.qml:126
+#: src/settings/GlobalNotificationsPage.qml:146
 #: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Pievienot atslēgas vārdu"
 
-#: src/settings/GlobalNotificationsPage.qml:147
+#: src/settings/GlobalNotificationsPage.qml:167
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
 msgstr "Uzaicinājumi"
 
-#: src/settings/GlobalNotificationsPage.qml:164
+#: src/settings/GlobalNotificationsPage.qml:184
 #, kde-format
 msgctxt "@title:group"
 msgid "Unknown"
@@ -5622,9 +5633,12 @@ msgid "Room notifications setting"
 msgstr "Istabu paziņojumu iestatījums"
 
 #: src/settings/PushNotification.qml:31
-#, kde-format
-msgid "Follow global setting"
-msgstr "Ievērot globālos iestatījumus"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Default Settings"
+msgctxt "As in the default notification setting"
+msgid "Default Settings"
+msgstr "Noklusējuma iestatījumi"
 
 #: src/settings/RoomAdvancedPage.qml:21
 #, kde-format
@@ -6653,6 +6667,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgid "Follow Global Setting"
+#~ msgstr "Ievērot globālos iestatījumus"
+
+#~ msgid "Follow global setting"
+#~ msgstr "Ievērot globālos iestatījumus"
 
 #~ msgid "Switch User"
 #~ msgstr "Pārslēgt lietotāju"
