@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-06-26 11:40+0200\n"
+"PO-Revision-Date: 2025-07-07 09:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -327,7 +327,7 @@ msgstr "Voulez-vous démarrer une discussion avec %1 ?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Chat"
-msgstr "Démarrer une conversation"
+msgstr "Démarrer la conversation"
 
 #: src/app/qml/AttachmentPane.qml:30
 #, kde-format
@@ -396,7 +396,7 @@ msgstr "Se déconnecter"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Open URL"
-msgstr "Ouvrir une URL"
+msgstr "Ouvrir l’URL"
 
 #: src/app/qml/ConfirmUrlDialog.qml:15
 #, kde-kuit-format
@@ -582,7 +582,7 @@ msgstr "Rechercher vos personnes amies"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "Créer un salon..."
+msgstr "Créer un salon…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -690,7 +690,7 @@ msgstr "Accepter l'invitation"
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "Rejeter une invitation"
+msgstr "Rejeter l’invitation"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
@@ -930,7 +930,7 @@ msgstr "Saisir une option"
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Supprimer une option"
+msgstr "Supprimer l’option"
 
 #: src/app/qml/NewPollDialog.qml:151
 #, kde-format
@@ -1857,7 +1857,7 @@ msgstr "Ajouter des numéros de téléphone au format « 3PID »"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Appels"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2345,13 +2345,13 @@ msgstr "composant graphique %1 configuré"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "a appelé"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "a rejoint un appel"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2601,18 +2601,16 @@ msgid "%1 configured a widget"
 msgstr "%1 a configuré un composant graphique"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 a quitté le salon"
+msgstr "%1 a appelé"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 a rejoint le salon"
+msgstr "%1 a rejoint l'appel"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3541,7 +3539,7 @@ msgstr "Joindre une image ou un fichier"
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Confirmer une modification"
+msgstr "Confirmer la modification"
 
 #: src/messagecontent/ChatBarComponent.qml:184
 #, kde-format
@@ -3644,7 +3642,7 @@ msgstr "Masquer l'image"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
-msgstr "Afficher une image"
+msgstr "Afficher l’image"
 
 #: src/messagecontent/ItineraryComponent.qml:54
 #, kde-format
@@ -3694,18 +3692,16 @@ msgid "Open Fullscreen"
 msgstr "Ouvrir en mode « Plein écran »"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "Fichier trop volumineux pour être téléchargé"
+msgstr "Impossible de télécharger le fichier"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Impossible de rejoindre le salon<br />%1"
+msgstr "Impossible de télécharger le fichier :<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
@@ -3797,7 +3793,7 @@ msgstr "Vidéo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
-msgstr "Afficher une vidéo"
+msgstr "Afficher la vidéo"
 
 #: src/messagecontent/VideoComponent.qml:299
 #, kde-format
@@ -5211,8 +5207,7 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Chronologie"
@@ -5220,12 +5215,12 @@ msgstr "Chronologie"
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Marquer les messages comme lus lorsque :"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Jamais"
 
 #: src/settings/NeoChatGeneralPage.qml:151
 #, fuzzy, kde-format
@@ -6535,31 +6530,31 @@ msgstr "Épingler"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
-msgstr "Ouvrir une image"
+msgstr "Ouvrir l’image"
 
 #: src/timeline/FileDelegateContextMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr "Ouvrir un fichier audio"
+msgstr "Ouvrir le fichier audio"
 
 #: src/timeline/FileDelegateContextMenu.qml:54
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr "Ouvrir un fichier vidéo"
+msgstr "Ouvrir le fichier vidéo"
 
 #: src/timeline/FileDelegateContextMenu.qml:56
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
-msgstr "Ouvrir un fichier"
+msgstr "Ouvrir le fichier"
 
 #: src/timeline/FileDelegateContextMenu.qml:68
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
-msgstr "Enregistrer une image…"
+msgstr "Enregistrer l’image…"
 
 #: src/timeline/FileDelegateContextMenu.qml:70
 #, kde-format
@@ -6571,7 +6566,7 @@ msgstr "Enregistrer l'audio sous..."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr "Enregistrer une vidéo…"
+msgstr "Enregistrer la vidéo…"
 
 #: src/timeline/FileDelegateContextMenu.qml:74
 #, kde-format
