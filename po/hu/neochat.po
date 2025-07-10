@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:43+0000\n"
-"PO-Revision-Date: 2025-06-22 16:18+0200\n"
+"PO-Revision-Date: 2025-07-09 22:45+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -43,10 +43,9 @@ msgid "Chat on Matrix"
 msgstr "Csevegés Matrixon"
 
 #: src/app/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
-msgstr "© Black Hat, 2018-2020., A KDE közösség, 2020-2024."
+msgstr "© Black Hat, 2018-2020., A KDE közösség, 2020-2025."
 
 #: src/app/main.cpp:155
 #, kde-format
@@ -137,7 +136,7 @@ msgstr ""
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Meglévő példány cseréje"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -225,9 +224,7 @@ msgid "Show QR Code"
 msgstr "QR-kód megjelenítése"
 
 #: src/app/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Fiókváltás"
@@ -561,8 +558,7 @@ msgid "File"
 msgstr "Fájl"
 
 #: src/app/qml/GlobalMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Barátok keresése"
@@ -583,11 +579,10 @@ msgid "Find your friends"
 msgstr "Barátok keresése"
 
 #: src/app/qml/GlobalMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "Szoba létrehozása"
+msgstr "Szoba létrehozása…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -596,9 +591,7 @@ msgid "Create a Room"
 msgstr "Szoba létrehozása"
 
 #: src/app/qml/GlobalMenu.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Szobák felfedezése"
@@ -626,9 +619,7 @@ msgid "View"
 msgstr "Nézet"
 
 #: src/app/qml/GlobalMenu.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
@@ -713,9 +704,7 @@ msgid "Block %1"
 msgstr ""
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
@@ -893,29 +882,23 @@ msgstr "Állapot szerkesztése"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Küldés"
 
 #: src/app/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Szoba létrehozása"
+msgstr "Szavazás létrehozása"
 
 #: src/app/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Szavazástípus:"
 
 #: src/app/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgid "Open poll"
-msgstr "Fájl megnyitása"
+msgstr "Szavazás megnyitása"
 
 #: src/app/qml/NewPollDialog.qml:52
 #, fuzzy, kde-format
@@ -934,10 +917,9 @@ msgid "Results are revealed only after the poll has closed"
 msgstr ""
 
 #: src/app/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "Question:"
-msgstr "Leírás:"
+msgstr "Kérdés:"
 
 #: src/app/qml/NewPollDialog.qml:104
 #, fuzzy, kde-format
@@ -1375,21 +1357,16 @@ msgid "Copy link"
 msgstr "Hivatkozás másolása"
 
 #: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Profile"
-msgstr "Fájl megnyitása"
+msgstr "Profil megnyitása"
 
 #: src/app/qml/UserMenu.qml:68
-#, fuzzy, kde-format
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mention"
-msgstr "@Említések"
+msgstr "Említés"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -1821,8 +1798,7 @@ msgid "Show focus in window header"
 msgstr "Fókusz megjelenítése az ablak fejlécében"
 
 #: src/devtools/DevtoolsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Fejlesztői eszközök"
@@ -1881,7 +1857,7 @@ msgstr "Telefonszámok hozzáadása harmadik féltől származó azonosítókén
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Hívások"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -3108,25 +3084,22 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Hossz.: %1, Szél.: %2"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create Room"
 msgstr "Szoba létrehozása"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
-msgstr "Új létrehozása"
+msgstr "Létrehozás"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Privát"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
@@ -3135,9 +3108,7 @@ msgid "This room can only be joined with an invite."
 msgstr ""
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Public"
+#, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "Nyilvános"
@@ -3149,33 +3120,28 @@ msgid "This room can be found and joined by anyone."
 msgstr ""
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Név:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
-msgstr "Szoba elhagyása"
+msgstr "Új szoba"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:68
-#, fuzzy, kde-format
-#| msgid "Server Address"
+#, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
-msgstr "Kiszolgáló címe"
+msgstr "Cím:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr "Új szoba hozzáadása"
+msgstr "új-szoba"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:23
 #, kde-format
@@ -3184,26 +3150,22 @@ msgid "Create a Space"
 msgstr "Tér létrehozása"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr "Új létrehozása"
+msgstr "Létrehozás"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "Név:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Tér megtekintése"
+msgstr "Új tér"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:60
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -3343,7 +3305,7 @@ msgstr "Betöltés"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Folytatás böngészőben"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3563,8 +3525,7 @@ msgid "%1 started a user verification"
 msgstr "%1 elindított egy felhasználóellenőrzést"
 
 #: src/messagecontent/ChatBarComponent.qml:170
-#, fuzzy, kde-format
-#| msgid "Attach an image or file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Kép vagy fájl csatolása"
@@ -3667,11 +3628,10 @@ msgstr "Kijelentkezés ideje: %1"
 
 #: src/messagecontent/ImageComponent.qml:62
 #: src/messagecontent/VideoComponent.qml:191
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Kép beállítása"
+msgstr "Kép elrejtése"
 
 #: src/messagecontent/ImageComponent.qml:143
 #, kde-format
@@ -5248,11 +5208,10 @@ msgid "Custom"
 msgstr "Egyéni"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "Idővonal:"
+msgstr "Idővonal"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
@@ -5262,7 +5221,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Soha"
 
 #: src/settings/NeoChatGeneralPage.qml:151
 #, fuzzy, kde-format
@@ -5693,8 +5652,7 @@ msgid "Event Type…"
 msgstr "Eseménytípus…"
 
 #: src/settings/Permissions.qml:415
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
 msgstr "Betöltés…"
@@ -5736,53 +5694,46 @@ msgid "Advanced"
 msgstr ""
 
 #: src/settings/RoomAdvancedPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Szobaazonosító"
 
 #: src/settings/RoomAdvancedPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Szobaazonosító másolása a vágólapra"
 
 #: src/settings/RoomAdvancedPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
-msgstr "A szoba verziója"
+msgstr "Szoba verziója"
 
 #: src/settings/RoomAdvancedPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room"
 msgstr "Szoba frissítése"
 
 #: src/settings/RoomAdvancedPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Upgrade the Room"
+#, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Szoba frissítése"
 
 #: src/settings/RoomAdvancedPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Select new version"
+#, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Új verzió"
 
 #: src/settings/RoomAdvancedPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
-msgstr "Megerősítés"
+msgstr "Megerősít"
 
 #: src/settings/RoomGeneralPage.qml:37
 #, kde-format
@@ -5790,15 +5741,13 @@ msgid "Update avatar"
 msgstr "Profilkép frissítése"
 
 #: src/settings/RoomGeneralPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "Név:"
 
 #: src/settings/RoomGeneralPage.qml:75
-#, fuzzy, kde-format
-#| msgid "Topic:"
+#, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "Téma:"
@@ -6379,23 +6328,19 @@ msgid ""
 msgstr "A jelenlegi tér a szoba hivatalos szülője, ezt is törölni kell?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
 msgstr "Meglévő szoba kiválasztása"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Szoba kiválasztása"
 
 #: src/spaces/SelectExistingRoomDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "You have the required privilege level in the child to set this state"
+#, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
@@ -6465,27 +6410,22 @@ msgid "Make Suggested"
 msgstr "Legyen javasolt"
 
 #: src/spaces/SpaceHomePage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "Új csoport…"
+msgstr "Új szoba…"
 
 #: src/spaces/SpaceHomePage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Tér megtekintése"
+msgstr "Új tér…"
 
 #: src/spaces/SpaceHomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "Meglévő szoba kiválasztása"
+msgstr "Meglévő szoba…"
 
 #: src/spaces/SpaceHomePage.qml:78
 #, kde-format
@@ -6494,11 +6434,10 @@ msgid "Invite user to space"
 msgstr "Meghívás a térbe"
 
 #: src/spaces/SpaceHomePage.qml:90
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "Hozzáadás a kedvencekhez"
+msgstr "Hozzáadás térhez"
 
 #: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
@@ -6535,8 +6474,7 @@ msgid "Remove"
 msgstr "Eltávolítás"
 
 #: src/timeline/DelegateContextMenu.qml:113
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr "Válasz szálban"
@@ -6586,31 +6524,19 @@ msgid "Open Image"
 msgstr "Kép megnyitása"
 
 #: src/timeline/FileDelegateContextMenu.qml:52
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr "Fájl megnyitása"
+msgstr "Hang megnyitása"
 
 #: src/timeline/FileDelegateContextMenu.qml:54
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr "Fájl megnyitása"
+msgstr "Videó megnyitása"
 
 #: src/timeline/FileDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Fájl megnyitása"
@@ -6622,25 +6548,22 @@ msgid "Save Image…"
 msgstr "Kép mentése…"
 
 #: src/timeline/FileDelegateContextMenu.qml:70
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr "Kép beállítása"
+msgstr "Hang mentése…"
 
 #: src/timeline/FileDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr "Kép beállítása"
+msgstr "Videó mentése…"
 
 #: src/timeline/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
-msgstr "Kép beállítása"
+msgstr "Fájl mentése…"
 
 #: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
@@ -6649,26 +6572,22 @@ msgid "Copy Image"
 msgstr "Kép másolása"
 
 #: src/timeline/FileDelegateContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
-msgstr "Hivatkozás másolása"
+msgstr "Hang másolása"
 
 #: src/timeline/FileDelegateContextMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
-msgstr "Videó megjelenítése"
+msgstr "Videó másolása"
 
 #: src/timeline/FileDelegateContextMenu.qml:94
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
-msgstr "Hivatkozás másolása"
+msgstr "Fájl másolása"
 
 #: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
@@ -6752,10 +6671,9 @@ msgid "React"
 msgstr "Reagálás"
 
 #: src/timeline/QuickActions.qml:81
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgid "Message menu"
-msgstr "Üzenet forrása"
+msgstr "Üzenetmenü"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
