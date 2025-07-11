@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:43+0000\n"
-"PO-Revision-Date: 2025-07-02 11:43+0200\n"
+"PO-Revision-Date: 2025-07-09 09:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -4042,9 +4042,7 @@ msgid "Notifications"
 msgstr "Notificacions"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Configuració predeterminada"
@@ -4808,6 +4806,9 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
+"Estos són els paràmetres de notificació predeterminats per a totes les "
+"sales. Podeu personalitzar les notificacions per a cada sala a la llista de "
+"sales o a la configuració de la sala."
 
 #: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
@@ -5209,30 +5210,28 @@ msgid "Custom"
 msgstr "Personalitzat"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "Esdeveniments de la línia de temps"
+msgstr "Línia de temps"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Marca els missatges com a llegits quan:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "s'ha unit a la sala"
+msgstr "En entrar a la sala"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5240,25 +5239,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "En entrar a la sala i tots els missatges no llegits siguen visibles"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "s'ha unit a la sala"
+msgstr "En eixir de la sala"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "Les sales amb més missatges sense llegir estan més amunt"
+msgstr "En eixir de la sala i tots els missatges no llegits siguen visibles"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
@@ -5678,9 +5674,7 @@ msgid "Room notifications setting"
 msgstr "Configureu les notificacions de sala"
 
 #: src/settings/PushNotification.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
 msgstr "Configuració predeterminada"
@@ -6717,9 +6711,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgid "Follow Global Setting"
-#~ msgstr "Seguix l'opció global"
-
-#~ msgid "Follow global setting"
-#~ msgstr "Seguix l'opció global"
