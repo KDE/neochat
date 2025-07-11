@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 00:42+0000\n"
-"PO-Revision-Date: 2025-06-25 20:11+0200\n"
+"PO-Revision-Date: 2025-07-10 16:46+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -1850,7 +1850,7 @@ msgstr "Gehitu telefono-zenbakiak 3PID gisa"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Deiak"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2333,13 +2333,13 @@ msgstr "trepeta %1 konfiguratu da"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "dei bat utzi du"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "dei batera batu da"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2590,18 +2590,16 @@ msgid "%1 configured a widget"
 msgstr "%1(e)k trepeta bat konfiguratu du"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1(e)k gela utzi du"
+msgstr "%1(e)k dei bat utzi du"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 gelara batu da"
+msgstr "%1 dei batera batu da"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3681,18 +3679,16 @@ msgid "Open Fullscreen"
 msgstr "Ireki pantaila-betean"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "Fitxategia zama-jaisteko handiegia da."
+msgstr "Fitxategia zama-jaistea huts egin du."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Gelara batzea huts egin du<br />%1"
+msgstr "Fitxategia zama-jaistea huts egin du:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
@@ -5178,8 +5174,7 @@ msgid "Custom"
 msgstr "Neurrira"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Denbora-lerroa"
@@ -5187,21 +5182,20 @@ msgstr "Denbora-lerroa"
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Markatu mezuak irakurritako gisa kasu hauetan:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Inoiz ez"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "gelara batu da"
+msgstr "Gelara sartzean"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5209,25 +5203,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "Gelara sartu eta irakurri gabeko mezu guztiak ikusgai daudenean"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "gelara batu da"
+msgstr "Gelatik irtetean"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "Irakurri gabeko mezu gehien dituzten gelak gorago daude"
+msgstr "Gelatik irtetean eta irakurri gabeko mezu guztiak ikusgai daudenean"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
