@@ -50,18 +50,18 @@ QQC2.ScrollView {
             DelegateChoice {
                 roleValue: Timeline.MediaMessageFilterModel.Image
                 delegate: Timeline.MessageDelegate {
+                    Timeline.Message.room: root.room
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.room
                 }
             }
 
             DelegateChoice {
                 roleValue: Timeline.MediaMessageFilterModel.Video
                 delegate: Timeline.MessageDelegate {
+                    Timeline.Message.room: root.room
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.room
                 }
             }
         }
