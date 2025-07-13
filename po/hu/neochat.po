@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-09 00:43+0000\n"
-"PO-Revision-Date: 2025-07-09 22:45+0200\n"
+"PO-Revision-Date: 2025-07-12 22:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -669,39 +669,34 @@ msgid "The currently selected link"
 msgstr "A jelenleg kiválasztott hivatkozás"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room"
-#| msgid "%1 was invited into this room"
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "%1 meghívást kapott ebbe a szobába"
+msgstr "%1 meghívta ebbe a szobába ekkor: %2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Meghívás privát csevegésbe"
+msgstr "Ez a felhasználó meghívta Önt a csevegésbe ekkor: %1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Elfogadás"
+msgstr "Meghívás elfogadása"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgid "Reject Invitation"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
-msgstr "Elutasítás"
+msgstr "Meghívás elutasítása"
 
 #: src/app/qml/InvitationView.qml:123
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "%1 tiltása"
 
 #: src/app/qml/InvitationView.qml:162
 #, kde-format
@@ -901,20 +896,19 @@ msgid "Open poll"
 msgstr "Szavazás megnyitása"
 
 #: src/app/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "Close"
+#, kde-format
 msgid "Closed poll"
-msgstr "Bezárás"
+msgstr "Lezárt szavazás"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "A szavazók a szavazás után azonnal láthatják az eredményt"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Az eredmények csak a szavazás lezárása után kerülnek nyilvánosságra"
 
 #: src/app/qml/NewPollDialog.qml:61
 #, kde-format
@@ -922,32 +916,27 @@ msgid "Question:"
 msgstr "Kérdés:"
 
 #: src/app/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "Beállítások"
+msgstr "%1. válaszlehetőség:"
 
 #: src/app/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Encryption"
+#, kde-format
 msgid "Enter option"
-msgstr "Titkosítás"
+msgstr "Válaszlehetőség megadása"
 
 #: src/app/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Szülő eltávolítása"
+msgstr "Válaszlehetőség eltávolítása"
 
 #: src/app/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Add to dictionary"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Szótárhoz adás"
+msgstr "Hozzáadás"
 
 #: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
@@ -996,7 +985,7 @@ msgstr "Áthúzott"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Spoiler"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -1623,11 +1612,10 @@ msgid "Send a Location"
 msgstr "Hely küldése"
 
 #: src/chatbar/ChatBar.qml:135
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Szoba létrehozása"
+msgstr "Szavazás létrehozása"
 
 #: src/chatbar/ChatBar.qml:151
 #, kde-format
@@ -2340,13 +2328,13 @@ msgstr "beállította a(z) %1 widgetet"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "kilépett egy hívásból"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "csatlakozott egy híváshoz"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2597,18 +2585,16 @@ msgid "%1 configured a widget"
 msgstr "%1 beállított egy widgetet"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 elhagyta a szobát"
+msgstr "%1 kilépett egy hívásból"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 csatlakozott a szobához"
+msgstr "%1 csatlakozott egy híváshoz"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3105,7 +3091,7 @@ msgstr "Privát"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "Ehhez a szobához csak meghívóval lehet csatlakozni."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
 #, kde-format
@@ -3117,7 +3103,7 @@ msgstr "Nyilvános"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "Ezt a szobát bárki megtalálhatja és csatlakozhat hozzá."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
 #, kde-format
@@ -3681,26 +3667,22 @@ msgid "Open Externally"
 msgstr "Megnyitás külsőleg"
 
 #: src/messagecontent/LocationComponent.qml:112
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Enter Full Screen"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr "Teljes képernyő"
+msgstr "Teljes képernyő megnyitása"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:117
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "A fájl túl nagy a letöltéshez."
+msgstr "Nem sikerült letölteni a fájlt."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:120
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Nem sikerült csatlakozni a szobához<br />%1"
+msgstr "Nem sikerült letölteni a fájlt:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:279
 #, kde-format
@@ -3715,7 +3697,7 @@ msgstr ""
 #: src/messagecontent/models/messagecontentmodel.cpp:604
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>Ennek az eseménynek nincs tartalma.</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3743,8 +3725,8 @@ msgstr[1] "%2 reakciója: %3"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 szavazat"
+msgstr[1] "%1 szavazat"
 
 #: src/messagecontent/PollComponent.qml:129
 #, kde-format
@@ -3763,7 +3745,7 @@ msgstr "(Befejeződött)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "A szavazás véget ért. A legtöbb szavazatot kapta: %1"
 
 #: src/messagecontent/ReactionComponent.qml:89
 #, kde-format
@@ -4088,19 +4070,16 @@ msgid "Deprioritize"
 msgstr "Fontosság csökkentése"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Felhasználó Matrix azonosítójának másolása a vágólapra"
+msgstr "Felhasználó Matrix azonosítójának másolása"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "Hivatkozás másolása"
+msgstr "Szoba címének másolása"
 
 #: src/rooms/RoomContextMenu.qml:143
 #, kde-format
@@ -4178,13 +4157,12 @@ msgid "Home"
 msgstr "Kezdőlap"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "Értesítések megtekintése"
-msgstr[1] "Értesítések megtekintése"
+msgstr[0] "Barátok (%1 értesítés)"
+msgstr[1] "Barátok (%1 értesítés)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -4210,11 +4188,10 @@ msgid "View Space"
 msgstr "Tér megtekintése"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Hivatkozás másolása"
+msgstr "Tér címének másolása"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, kde-format
@@ -5216,7 +5193,7 @@ msgstr "Idővonal"
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Üzenetek megjelölése olvasottként:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
@@ -5224,13 +5201,12 @@ msgid "Never"
 msgstr "Soha"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "csatlakozott a szobához"
+msgstr "A szobába belépéskor"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5238,25 +5214,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "A szobába belépéskor, és az összes olvasatlan üzenet láthatóvá válik"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "csatlakozott a szobához"
+msgstr "A szobából kilépéskor"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "A legtöbb olvasatlan üzenetet tartalmazó szobák kerülnek előrébb"
+msgstr "A szobából kilépéskor, és az összes olvasatlan üzenet láthatóvá válik"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
@@ -5334,26 +5307,24 @@ msgid "Default Settings"
 msgstr "Alapértelmezett beállítások"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "Minden beállítás visszaállítása az alapértelmezettre"
 
 #: src/settings/NeoChatGeneralPage.qml:354
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Re-send confirmation e-mail"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr "Megerősítő e-mail újraküldése"
+msgstr "Beállítások visszaállítása"
 
 #: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
 msgstr ""
+"Biztosan vissza szeretné állítani az összes beállítást az alapértelmezett "
+"értékekre?"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5691,7 +5662,7 @@ msgstr "Alapértelmezett beállítások"
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
-msgstr ""
+msgstr "Speciális"
 
 #: src/settings/RoomAdvancedPage.qml:28
 #, kde-format
@@ -6074,7 +6045,7 @@ msgstr "Profil"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
-msgstr ""
+msgstr "Speciális"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6369,6 +6340,7 @@ msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
 msgstr ""
+"A kanonikus szülő az alapértelmezett, ha egy szobának több szülőtere van."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -6628,13 +6600,13 @@ msgstr "Üzenet hivatkozásának másolása"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Szöveg felolvasása hangosan"
 
 #: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 ezt mondja: %2"
 
 #: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
