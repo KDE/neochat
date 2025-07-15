@@ -359,7 +359,12 @@ const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> f
         if (auto lastEvent = eventCast<const RoomMessageEvent>(event)) {
             return lastEvent;
         }
+
         if (auto lastEvent = eventCast<const PollStartEvent>(event)) {
+            return lastEvent;
+        }
+
+        if (auto lastEvent = eventCast<const EncryptedEvent>(event)) {
             return lastEvent;
         }
     }
