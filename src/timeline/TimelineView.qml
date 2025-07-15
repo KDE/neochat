@@ -159,7 +159,7 @@ QQC2.ScrollView {
 
             function onReadMarkerAdded() {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.EntryVisible && messageListView.allUnreadVisible()) {
-                    root.room.markAllMessagesAsRead();
+                    _private.room.markAllMessagesAsRead();
                 }
             }
 
