@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-09 00:43+0000\n"
-"PO-Revision-Date: 2025-07-03 09:50+0400\n"
+"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"PO-Revision-Date: 2025-07-14 20:24+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1534,17 +1534,17 @@ msgstr "جلسة التَثَبّت ألغيت لخطأ مجهول."
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "معرف ماتركس مشوه أو فارغ<br />معرف ماتركس %1 غير صحيح"
 
-#: src/app/roommanager.cpp:420
+#: src/app/roommanager.cpp:427
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "أخفق في الانضمام إلى غرفة<br />%1"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:451
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "طلبت الانضمام إلى '%1'"
 
-#: src/app/roommanager.cpp:448
+#: src/app/roommanager.cpp:455
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "فشل في طلب الانضمام لغرفة<br />%1"
@@ -4008,9 +4008,7 @@ msgid "Notifications"
 msgstr "الإشعارات"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "الإعدادات المبدئية"
@@ -4769,6 +4767,8 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
+"هذه هي إعدادات التنبيهات المبدئية لجميع الغرف. يمكنك تخصيص الإشعارات لكل "
+"غرفة في قائمة الغرف أو إعدادات الغرفة."
 
 #: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
@@ -5162,30 +5162,28 @@ msgid "Custom"
 msgstr "مخصّص"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "الخط الزمني"
+msgstr "الخطّ الزّمنيّ"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "علّم الرسائل كمقروءة عند:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "البتة"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "انضم للغرفة"
+msgstr "عند الدخول للغرفة"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5193,25 +5191,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "عند الدخول للغرفة وجميع الرسائل غير المقروءة مرئية"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "انضم للغرفة"
+msgstr "عند الخروج من الغرفة"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "الغرف ذات أكثر رسائل غير مقروءة تكون في الأعلى"
+msgstr "عند الخروج من الغرفة وجميع الرسائل غير المقروءة مرئية"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
@@ -5627,9 +5622,7 @@ msgid "Room notifications setting"
 msgstr "إعدادات إشعارات الغرفة"
 
 #: src/settings/PushNotification.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
 msgstr "الإعدادات المبدئية"
