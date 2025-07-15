@@ -441,20 +441,19 @@ void NeoChatRoom::onRedaction(const RoomEvent &prevEvent, const RoomEvent & /*af
     }
 }
 
-QDateTime NeoChatRoom::lastActiveTime()
+QDateTime NeoChatRoom::lastActiveTime() const
 {
-    if (timelineSize() == 0) {
-        if (m_cachedEvent != nullptr) {
-            return m_cachedEvent->originTimestamp();
-        }
-        return QDateTime();
-    }
-
-    if (auto event = lastEvent()) {
+    // Find the last relevant event:
+    if (const auto event = lastEvent(m_hiddenFilter)) {
         return event->originTimestamp();
     }
 
-    // no message found, take last event
+    // If nothing is loaded yet, and there is no cached event:
+    if (timelineSize() == 0) {
+        return {};
+    }
+
+    // No message found, take last event:
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 

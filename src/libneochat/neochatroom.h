@@ -208,7 +208,7 @@ public:
     bool visible() const;
     void setVisible(bool visible);
 
-    [[nodiscard]] QDateTime lastActiveTime();
+    [[nodiscard]] QDateTime lastActiveTime() const;
 
     /**
      * @brief Get the last interesting event.
