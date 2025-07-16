@@ -123,7 +123,7 @@ KirigamiComponents.ConvergentContextMenu {
 
 
     component ReportMessageAction: Kirigami.Action {
-        text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
+        text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report…")
         icon.name: "dialog-warning-symbolic"
         visible: !author.isLocalMember
         onTriggered: {
