@@ -31,13 +31,7 @@ auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room, ChatBarCache *
         Q_EMIT room->showMessage(MessageType::Information, i18n("Leaving this room."));
         room->forget();
     } else {
-        QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
-        auto regexMatch = roomRegex.match(text);
-        if (!regexMatch.hasMatch()) {
-            Q_EMIT room->showMessage(MessageType::Error,
-                                     i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-            return QString();
-        }
+        // FIXME: re-add sanity check for roomId/alias
         auto leaving = dynamic_cast<NeoChatRoom *>(room->connection()->room(text));
         if (!leaving) {
             leaving = dynamic_cast<NeoChatRoom *>(room->connection()->roomByAlias(text));
@@ -217,13 +211,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"join"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
-            auto regexMatch = roomRegex.match(text);
-            if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(MessageType::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-                return QString();
-            }
+            // FIXME: re-add sanity check for roomId/alias
             auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
             if (targetRoom) {
                 ActionsModel::instance().resolveResource(targetRoom->id());
@@ -242,25 +230,18 @@ QList<ActionsModel::Action> actions{
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(u" "_s);
             QString roomName = parts[0];
-            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
-            auto regexMatch = roomRegex.match(roomName);
-            if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(MessageType::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-                return QString();
-            }
-            auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
-            if (targetRoom) {
+            // FIXME: re-add sanity check for roomId/alias
+            if (const auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text)) {
                 ActionsModel::instance().resolveResource(targetRoom->id());
                 return QString();
             }
             Q_EMIT room->showMessage(MessageType::Information, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
             auto connection = dynamic_cast<NeoChatConnection *>(room->connection());
-            const auto knownServer = roomName.mid(roomName.indexOf(":"_L1) + 1);
+            const auto knownServer = roomName.contains(":"_L1) ? QStringList{roomName.mid(roomName.indexOf(":"_L1) + 1)} : QStringList();
             if (parts.length() >= 2) {
-                ActionsModel::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
+                ActionsModel::instance().knockRoom(connection, roomName, parts[1], knownServer);
             } else {
-                ActionsModel::instance().knockRoom(connection, roomName, QString(), QStringList{knownServer});
+                ActionsModel::instance().knockRoom(connection, roomName, QString(), knownServer);
             }
             return QString();
         },
@@ -271,13 +252,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"j"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            QRegularExpression roomRegex(uR"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"_s);
-            auto regexMatch = roomRegex.match(text);
-            if (!regexMatch.hasMatch()) {
-                Q_EMIT room->showMessage(MessageType::Error,
-                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-                return QString();
-            }
+            // FIXME: re-add sanity check for roomId/alias
             if (room->connection()->room(text) || room->connection()->roomByAlias(text)) {
                 Q_EMIT room->showMessage(MessageType::Information, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
                 return QString();
