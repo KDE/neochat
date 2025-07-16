@@ -558,4 +558,9 @@ bool NeoChatConnection::enablePushNotifications() const
     return m_pushNotificationsEnabled;
 }
 
+bool NeoChatConnection::isVerifiedSession() const
+{
+    return isVerifiedDevice(userId(), deviceId());
+}
+
 #include "moc_neochatconnection.cpp"

@@ -88,9 +88,10 @@ KirigamiComponents.ConvergentContextMenu {
         })
     }
 
-    QQC2.Action {
+    Kirigami.Action {
         text: i18nc("@action:inmenu", "Verify This Device")
         icon.name: "security-low"
+        visible: !root.connection.isVerifiedSession()
         onTriggered: {
             root.connection.startSelfVerification();
             const dialog = Qt.createComponent("org.kde.kirigami", "PromptDialog").createObject(QQC2.Overlay.overlay, {
