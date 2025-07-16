@@ -33,6 +33,25 @@ FormCard.FormCardPage {
         title: i18nc("@info:group", "This Device")
         type: DevicesModel.This
         showVerifyButton: false
+
+        FormCard.FormButtonDelegate {
+            icon.name: "security-low"
+            text: i18nc("@action:button", "Verify This Device")
+            description: i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
+            visible: !root.connection.isVerifiedSession()
+            onClicked: {
+                root.connection.startSelfVerification();
+                const dialog = Qt.createComponent("org.kde.kirigami", "PromptDialog").createObject(QQC2.Overlay.overlay, {
+                    title: i18nc("@title", "Verification Request Sent"),
+                    subtitle: i18nc("@info:label", "To proceed, accept the verification request on another device."),
+                    standardButtons: Kirigami.Dialog.Ok
+                })
+                dialog.open();
+                root.connection.onNewKeyVerificationSession.connect(() => {
+                    dialog.close();
+                });
+            }
+        }
     }
     DevicesCard {
         title: i18nc("@info:group", "Verified Devices")

@@ -13,6 +13,7 @@ import org.kde.neochat
 ColumnLayout {
     id: root
 
+    default property alias delegates: devicesCard.delegates
     required property string title
     required property var type
     required property bool showVerifyButton

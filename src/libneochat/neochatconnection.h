@@ -206,6 +206,11 @@ public:
 
     LinkPreviewer *previewerForLink(const QUrl &link);
 
+    /**
+     * @return True if this connection is a verified session.
+     */
+    Q_INVOKABLE bool isVerifiedSession() const;
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();
