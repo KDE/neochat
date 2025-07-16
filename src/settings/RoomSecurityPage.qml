@@ -25,13 +25,34 @@ FormCard.FormCardPage {
         title: i18nc("@option:check", "Encryption")
     }
     FormCard.FormCard {
-        FormCard.FormSwitchDelegate {
+        FormCard.AbstractFormDelegate {
+            visible: room.usesEncryption
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: "lock"
+                    width: Kirigami.Units.iconSizes.sizeForLabels
+                    height: Kirigami.Units.iconSizes.sizeForLabels
+                }
+                QQC2.Label {
+                    text: i18nc("@info", "This room uses encryption.")
+                    wrapMode: Text.WordWrap
+
+                    Layout.fillWidth: true
+                }
+            }
+        }
+        FormCard.FormButtonDelegate {
             id: enableEncryptionSwitch
-            text: i18n("Enable encryption")
-            description: i18nc("option:check", "Once enabled, encryption cannot be disabled.")
+
+            icon.name: "lock-symbolic"
+            text: i18nc("@action:button Enable encryption in this room", "Enable Encryption…")
+            description: i18nc("@info:description", "Once enabled, encryption cannot be disabled.")
             enabled: room.canEncryptRoom
-            checked: room.usesEncryption
-            onToggled: if (checked) {
+            visible: !room.usesEncryption
+
+            onClicked: {
                 let dialog = confirmEncryptionDialog.createObject(QQC2.Overlay.overlay, {
                     room: room
                 });
