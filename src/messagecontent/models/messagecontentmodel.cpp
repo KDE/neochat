@@ -29,7 +29,6 @@
 #include "chatbarcache.h"
 #include "contentprovider.h"
 #include "filetype.h"
-#include "linkpreviewer.h"
 #include "models/reactionmodel.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
@@ -422,7 +421,8 @@ bool MessageContentModel::hasComponentType(MessageComponentType::Type type)
         != m_components.cend();
 }
 
-void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type, std::function<void(const QModelIndex &)> function)
+void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type,
+                                                 std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
 {
     auto it = m_components.begin();
     while ((it = std::find_if(it,
@@ -431,12 +431,12 @@ void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type
                                   return component.type == type;
                               }))
            != m_components.end()) {
-        function(index(it - m_components.begin()));
-        ++it;
+        it = function(it);
     }
 }
 
-void MessageContentModel::forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<void(const QModelIndex &)> function)
+void MessageContentModel::forEachComponentOfType(QList<MessageComponentType::Type> types,
+                                                 std::function<MessageContentModel::ComponentIt(MessageContentModel::ComponentIt)> function)
 {
     for (const auto &type : types) {
         forEachComponentOfType(type, function);
@@ -466,6 +466,10 @@ void MessageContentModel::resetModel()
     m_components += messageContentComponents();
     endResetModel();
 
+    if (m_room->urlPreviewEnabled()) {
+        forEachComponentOfType({MessageComponentType::Text, MessageComponentType::Quote}, m_linkPreviewFunction);
+    }
+
     updateReplyModel();
     updateReactionModel();
 }
@@ -485,6 +489,10 @@ void MessageContentModel::resetContent(bool isEditing, bool isThreading)
     m_components += newComponents;
     endInsertRows();
 
+    if (m_room->urlPreviewEnabled()) {
+        forEachComponentOfType({MessageComponentType::Text, MessageComponentType::Quote}, m_linkPreviewFunction);
+    }
+
     updateReplyModel();
     updateReactionModel();
 }
@@ -498,27 +506,13 @@ QList<MessageComponent> MessageContentModel::messageContentComponents(bool isEdi
 
     QList<MessageComponent> newComponents;
 
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-    if (roomMessageEvent && roomMessageEvent->rawMsgtype() == u"m.key.verification.request"_s) {
-        newComponents += MessageComponent{MessageComponentType::Verification, QString(), {}};
-        return newComponents;
-    }
-
-    if (event.first->isRedacted()) {
-        newComponents += MessageComponent{MessageComponentType::Text, QString(), {}};
-        return newComponents;
-    }
-
     if (isEditing) {
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     } else {
         newComponents.append(componentsForType(MessageComponentType::typeForEvent(*event.first, m_isReply)));
     }
 
-    if (m_room->urlPreviewEnabled()) {
-        newComponents = addLinkPreviews(newComponents);
-    }
-
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
         && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
@@ -597,25 +591,26 @@ QList<MessageComponent> MessageContentModel::componentsForType(MessageComponentT
     }
 
     switch (type) {
+    case MessageComponentType::Verification: {
+        return {MessageComponent{MessageComponentType::Verification, QString(), {}}};
+    }
     case MessageComponentType::Text: {
         if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first)) {
-            auto body = EventHandler::rawMessageBody(*roomMessageEvent);
-            if (body.trimmed().isEmpty()) {
-                return TextHandler().textComponents(i18n("<i>This event does not have any content.</i>"),
-                                                    Qt::TextFormat::RichText,
-                                                    m_room,
-                                                    roomMessageEvent,
-                                                    roomMessageEvent->isReplaced());
-            } else {
-                return TextHandler().textComponents(body,
-                                                    EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                    m_room,
-                                                    roomMessageEvent,
-                                                    roomMessageEvent->isReplaced());
-            }
+            return TextHandler().textComponents(EventHandler::rawMessageBody(*roomMessageEvent),
+                                            EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                            m_room,
+                                            roomMessageEvent,
+                                            roomMessageEvent->isReplaced());
         } else {
             return TextHandler().textComponents(EventHandler::plainBody(m_room, event.first), Qt::TextFormat::PlainText, m_room, event.first, false);
         }
+
+        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
+        return TextHandler().textComponents(EventHandler::rawMessageBody(*roomMessageEvent),
+                                            EventHandler::messageBodyInputFormat(*roomMessageEvent),
+                                            m_room,
+                                            roomMessageEvent,
+                                            roomMessageEvent->isReplaced());
     }
     case MessageComponentType::File: {
         QList<MessageComponent> components;
@@ -706,42 +701,20 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
     }
     if (linkPreviewer->loaded()) {
         return MessageComponent{MessageComponentType::LinkPreview, QString(), {{"link"_L1, link}}};
-    } else {
-        connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
-            const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
-            if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
-                for (auto it = m_components.begin(); it != m_components.end(); it++) {
-                    if (it->attributes["link"_L1].toUrl() == link) {
-                        it->type = MessageComponentType::LinkPreview;
-                        Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
-                    }
+    }
+    connect(linkPreviewer, &LinkPreviewer::loadedChanged, this, [this, link]() {
+        const auto linkPreviewer = dynamic_cast<NeoChatConnection *>(m_room->connection())->previewerForLink(link);
+        if (linkPreviewer != nullptr && linkPreviewer->loaded()) {
+            forEachComponentOfType(MessageComponentType::LinkPreviewLoad, [this, link](ComponentIt it) {
+                if (it->attributes["link"_L1].toUrl() == link) {
+                    it->type = MessageComponentType::LinkPreview;
+                    Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
                 }
-            }
-        });
-        return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
-    }
-}
-
-QList<MessageComponent> MessageContentModel::addLinkPreviews(QList<MessageComponent> inputComponents)
-{
-    int i = 0;
-    while (i < inputComponents.size()) {
-        const auto component = inputComponents.at(i);
-        if (component.type == MessageComponentType::Text || component.type == MessageComponentType::Quote) {
-            if (LinkPreviewer::hasPreviewableLinks(component.content)) {
-                const auto links = LinkPreviewer::linkPreviews(component.content);
-                for (qsizetype j = 0; j < links.size(); ++j) {
-                    const auto linkPreview = linkPreviewComponent(links[j]);
-                    if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
-                        inputComponents.insert(i + j + 1, linkPreview);
-                    }
-                };
-            }
+                return it;
+            });
         }
-        i++;
-    }
-
-    return inputComponents;
+    });
+    return MessageComponent{MessageComponentType::LinkPreviewLoad, QString(), {{"link"_L1, link}}};
 }
 
 void MessageContentModel::closeLinkPreview(int row)

@@ -78,7 +78,15 @@ public:
     {
         using namespace Quotient;
 
+        if (event.isRedacted()) {
+            return MessageComponentType::Text;
+        }
+
         if (const auto e = eventCast<const RoomMessageEvent>(&event)) {
+            if (e->rawMsgtype() == u"m.key.verification.request"_s) {
+                return MessageComponentType::Verification;
+            }
+
             switch (e->msgtype()) {
             case MessageEventType::Emote:
                 return MessageComponentType::Text;

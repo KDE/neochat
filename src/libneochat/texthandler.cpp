@@ -570,8 +570,8 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
 QList<MessageComponent>
 TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isEdited)
 {
-    if (string.isEmpty()) {
-        return {};
+    if (string.trimmed().isEmpty()) {
+        return {MessageComponent{MessageComponentType::Text, i18n("<i>This event does not have any content.</i>"), {}}};
     }
 
     // Strip mx-reply if present.
