@@ -95,9 +95,11 @@ ColumnLayout {
                     }
                 }
                 QQC2.Button {
-                    text: i18nc("@action:button", "Leave this space")
+                    text: i18nc("@action:button", "Leave this space…")
                     icon.name: "go-previous"
-                    onClicked: root.room.forget()
+                    onClicked: Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+                        room: root.room
+                    }).open();
                 }
                 Item {
                     Layout.fillWidth: true

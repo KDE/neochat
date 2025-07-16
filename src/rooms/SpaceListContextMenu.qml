@@ -70,8 +70,10 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18nc("'Space' is a matrix space", "Leave Space")
+        text: i18nc("'Space' is a matrix space", "Leave Space…")
         icon.name: "go-previous"
-        onTriggered: root.room.forget()
+        onTriggered: Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+            room: root.room
+        }).open();
     }
 }
