@@ -52,6 +52,15 @@ ColumnLayout {
                 Layout.alignment: Qt.AlignHCenter
             }
 
+            Kirigami.SelectableLabel {
+                Layout.fillWidth: true
+                font: Kirigami.Theme.smallFont
+                textFormat: TextEdit.PlainText
+                visible: root.currentRoom && root.currentRoom.canonicalAlias
+                text: root.currentRoom && root.currentRoom.canonicalAlias ? root.currentRoom.canonicalAlias : ""
+                color: Kirigami.Theme.disabledTextColor
+            }
+
             Kirigami.Heading {
                 text: root.currentRoom.displayName
 
@@ -70,7 +79,14 @@ ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
 
             Kirigami.Heading {
-                text: root.currentRoom.displayName
+                text: root.invitingMember.displayName
+
+                Layout.alignment: Qt.AlignHCenter
+            }
+
+            QQC2.Label {
+                text: root.invitingMember.id
+                color: Kirigami.Theme.disabledTextColor
 
                 Layout.alignment: Qt.AlignHCenter
             }

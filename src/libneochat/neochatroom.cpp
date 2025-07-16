@@ -1674,6 +1674,10 @@ void NeoChatRoom::setRoomState(const QString &type, const QString &stateKey, con
 
 NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
 {
+    if (memberId.isEmpty()) {
+        return nullptr;
+    }
+
     if (!m_memberObjects.contains(memberId)) {
         auto member = m_memberObjects.emplace(memberId, std::make_unique<NeochatRoomMember>(this, memberId)).first->second.get();
         QQmlEngine::setObjectOwnership(member, QQmlEngine::CppOwnership);
