@@ -404,7 +404,9 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
 
     // If no one gives us a homeserver suggestion, try the server specified in the alias/id.
     // Otherwise joining a remote room not on our homeserver will fail.
-    if (vias.empty()) {
+    // This is a hack and we're not supposed to do it. With room ids not containing the server going forward, it won't work anymore for new room versions.
+    // FIXME: Let's keep it around anyway for now, remove it at some point, though
+    if (vias.empty() && roomAliasOrId.contains(':'_L1)) {
         vias.append(roomAliasOrId.mid(roomAliasOrId.lastIndexOf(':'_L1) + 1));
     }
 
