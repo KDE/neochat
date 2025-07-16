@@ -71,7 +71,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
 
         Kirigami.Action {
-            text: i18nc("As in 'notify for all messages'", "All")
+            text: i18nc("As in 'notify for all messages'", "All Messages")
             icon.name: "notifications"
             checkable: true
             autoExclusive: true
@@ -95,7 +95,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
 
         Kirigami.Action {
-            text: i18nc("As in 'do not notify for any messages'", "Off")
+            text: i18nc("As in 'do not notify for any messages'", "None")
             icon.name: "notifications-disabled"
             checkable: true
             autoExclusive: true
