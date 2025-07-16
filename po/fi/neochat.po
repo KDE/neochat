@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-07-16 00:43+0000\n"
 "PO-Revision-Date: 2025-07-11 17:15+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2090,7 +2090,7 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "Huoneet, joissa on uusimpia viestejä, tulevat ylemmäs"
 
-#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:503
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:509
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tämä viesti on poistettu]</i>"
@@ -2337,264 +2337,280 @@ msgstr "päivitti %1-tilansa"
 msgid "updated %1 state for %2"
 msgstr "päivitti käyttäjän %2 %1-tilan"
 
-#: src/libneochat/eventhandler.cpp:451 src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:452
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@info In room list"
+msgid "Encrypted event"
+msgstr "Salattu viesti"
+
+#: src/libneochat/eventhandler.cpp:455
+#, fuzzy, kde-format
+#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+#| msgid "%2 reacted with %3"
+#| msgid_plural "%2 reacted with %3"
+msgctxt "[user] reacted with <emoji>"
+msgid "reacted with %1"
+msgstr "%2 reagoi emojilla %3"
+
+#: src/libneochat/eventhandler.cpp:457 src/libneochat/eventhandler.cpp:663
 #, kde-format
 msgid "Unknown event"
 msgstr "Tuntematon tapahtuma"
 
-#: src/libneochat/eventhandler.cpp:466
+#: src/libneochat/eventhandler.cpp:472
 #, kde-format
 msgid "a file"
 msgstr "tiedosto"
 
-#: src/libneochat/eventhandler.cpp:512
+#: src/libneochat/eventhandler.cpp:518
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 lähetti viestin"
 
-#: src/libneochat/eventhandler.cpp:515
+#: src/libneochat/eventhandler.cpp:521
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 lähetti tarran"
 
-#: src/libneochat/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:527
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 kutsui jonkun uudestaan huoneeseen"
 
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:533
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 liittyi huoneeseen (toisto)"
 
-#: src/libneochat/eventhandler.cpp:529
+#: src/libneochat/eventhandler.cpp:535
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 kutsui jonkun huoneeseen"
 
-#: src/libneochat/eventhandler.cpp:530
+#: src/libneochat/eventhandler.cpp:536
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 liittyi huoneeseen"
 
-#: src/libneochat/eventhandler.cpp:556
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 asetti näyttönimen ja avatarin"
 
-#: src/libneochat/eventhandler.cpp:558
+#: src/libneochat/eventhandler.cpp:564
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 asetti näyttönimen ja päivitti avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:560
+#: src/libneochat/eventhandler.cpp:566
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 asetti näyttönimen ja tyhjensi avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:568
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 asetti huoneen näyttönimen"
 
-#: src/libneochat/eventhandler.cpp:565
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 vaihtoi näyttönimensä ja asetti avatarin"
 
-#: src/libneochat/eventhandler.cpp:567
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 vaihto näyttönimensä ja päivitti avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:569
+#: src/libneochat/eventhandler.cpp:575
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 vaihto näyttönimensä ja tyhjensi avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:577
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 vaihtoi näyttönimensä"
 
-#: src/libneochat/eventhandler.cpp:574
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 tyhjensi näyttönimensä ja asetti avatarin"
 
-#: src/libneochat/eventhandler.cpp:576
+#: src/libneochat/eventhandler.cpp:582
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 tyhjensi näyttönimensä ja päivitti avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:578
+#: src/libneochat/eventhandler.cpp:584
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 tyhjensi näyttönimensä ja avatarinsa"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:586
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 tyhjensi näyttönimensä"
 
-#: src/libneochat/eventhandler.cpp:583
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 ei muuttanut mitään"
 
-#: src/libneochat/eventhandler.cpp:587
+#: src/libneochat/eventhandler.cpp:593
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 perui käyttäjän kutsun"
 
-#: src/libneochat/eventhandler.cpp:588
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 hylkäsi kutsun"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 perui käyttäjän eston"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 perui itsensä eston"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 poisti henkilön huoneesta"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 poistui huoneesta"
 
-#: src/libneochat/eventhandler.cpp:597
+#: src/libneochat/eventhandler.cpp:603
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 esti käyttäjän huoneesta"
 
-#: src/libneochat/eventhandler.cpp:599
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 esti itsensä huoneesta"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 pyysi kutsua"
 
-#: src/libneochat/eventhandler.cpp:606
+#: src/libneochat/eventhandler.cpp:612
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 teki jotakin tuntematonta"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 tyhjensi huoneen pääaliaksen"
 
 # Nämä set…-alkuiset oletan imperfekteiksi imperatiivien sijaan, koska ympärillä on muita (banned, upgraded jne.)
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 asetti huoneen pääaliaksen"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 tyhjensi huoneen nimen"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 asetti huoneen nimen"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 tyhjensi aiheen"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 asetti aiheen"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:624
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:627
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 aktivoi päästä päähän -salauksen"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 päivitti huoneen version"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 loi huoneen"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 muutti huoneen voimatasoja"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:636
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 lähetti elävän sijaintimerkin"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:639
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 muutti tämän huoneen palvelimen ACL-luetteloita"
 
-#: src/libneochat/eventhandler.cpp:637
+#: src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 lisäsi sovelman"
 
-#: src/libneochat/eventhandler.cpp:640
+#: src/libneochat/eventhandler.cpp:646
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 poisti sovelman"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:648
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 määritti sovelman"
 
-#: src/libneochat/eventhandler.cpp:647
+#: src/libneochat/eventhandler.cpp:653
 #, fuzzy, kde-format
 #| msgid "%1 left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 poistui huoneesta"
 
-#: src/libneochat/eventhandler.cpp:649
+#: src/libneochat/eventhandler.cpp:655
 #, fuzzy, kde-format
 #| msgid "%1 joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 liittyi huoneeseen"
 
-#: src/libneochat/eventhandler.cpp:652
+#: src/libneochat/eventhandler.cpp:658
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 päivitti tilan"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:661
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 aloitti kyselyn"
@@ -3050,12 +3066,12 @@ msgstr "Huoneen luominen epäonnistui: %1"
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/libneochat/neochatroom.cpp:1199
+#: src/libneochat/neochatroom.cpp:1203
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/libneochat/neochatroom.cpp:1539 src/libneochat/neochatroom.cpp:1547
+#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

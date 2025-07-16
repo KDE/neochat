@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-07-16 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2205,7 +2205,7 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:503
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:509
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
@@ -2453,302 +2453,318 @@ msgstr "ενημερώθηκε %1 κατάσταση"
 msgid "updated %1 state for %2"
 msgstr "ενημερώθηκε %1 κατάσταση για το %2"
 
-#: src/libneochat/eventhandler.cpp:451 src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:452
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@info In room list"
+msgid "Encrypted event"
+msgstr "Κρυπτογραφημένο μήνυμα"
+
+#: src/libneochat/eventhandler.cpp:455
+#, fuzzy, kde-format
+#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+#| msgid "%2 reacted with %3"
+#| msgid_plural "%2 reacted with %3"
+msgctxt "[user] reacted with <emoji>"
+msgid "reacted with %1"
+msgstr "%2 αντέδρασε με %3"
+
+#: src/libneochat/eventhandler.cpp:457 src/libneochat/eventhandler.cpp:663
 #, kde-format
 msgid "Unknown event"
 msgstr "Άγνωστο γεγονός"
 
-#: src/libneochat/eventhandler.cpp:466
+#: src/libneochat/eventhandler.cpp:472
 #, kde-format
 msgid "a file"
 msgstr "ένα αρχείο"
 
-#: src/libneochat/eventhandler.cpp:512
+#: src/libneochat/eventhandler.cpp:518
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "%1 sent a message"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/libneochat/eventhandler.cpp:515
+#: src/libneochat/eventhandler.cpp:521
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 έστειλε αυτοκόλλητο"
 
-#: src/libneochat/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:527
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "%1 reinvited someone to the room"
 msgstr "επαναπροσκλήθηκε %1 στην αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:533
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 εισήλθε στην αίθουσα (επαναληπτικά)"
 
-#: src/libneochat/eventhandler.cpp:529
+#: src/libneochat/eventhandler.cpp:535
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 invited someone to the room"
 msgstr "προσκλήθηκε %1 στην αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:530
+#: src/libneochat/eventhandler.cpp:536
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 εισήλθε στην αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:556
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:558
+#: src/libneochat/eventhandler.cpp:564
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "ενημέρωσε το δικό του avatar"
 
-#: src/libneochat/eventhandler.cpp:560
+#: src/libneochat/eventhandler.cpp:566
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "καθάρισε το δικό του avatar"
 
-#: src/libneochat/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:568
 #, fuzzy, kde-format
 #| msgid "Changes your display name in this room"
 msgid "%1 set a display name for this room"
 msgstr "Αλλάζει το όνομά σου όπως εμφανίζεται σε αυτήν την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:565
+#: src/libneochat/eventhandler.cpp:571
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and set an avatar"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/libneochat/eventhandler.cpp:567
+#: src/libneochat/eventhandler.cpp:573
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/libneochat/eventhandler.cpp:569
+#: src/libneochat/eventhandler.cpp:575
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/libneochat/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:577
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/libneochat/eventhandler.cpp:574
+#: src/libneochat/eventhandler.cpp:580
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "καθάρισε το όνομά του όπως εμφανίζεται"
 
-#: src/libneochat/eventhandler.cpp:576
+#: src/libneochat/eventhandler.cpp:582
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "καθάρισε το όνομά του όπως εμφανίζεται"
 
-#: src/libneochat/eventhandler.cpp:578
+#: src/libneochat/eventhandler.cpp:584
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "καθάρισε το όνομά του όπως εμφανίζεται"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:586
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 καθάρισε το όνομά του όπως εμφανίζεται"
 
-#: src/libneochat/eventhandler.cpp:583
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 δεν άλλαξε τίποτε"
 
-#: src/libneochat/eventhandler.cpp:587
+#: src/libneochat/eventhandler.cpp:593
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 withdrew a user's invitation"
 msgstr "απόσυρε την πρόσκληση για %1"
 
-#: src/libneochat/eventhandler.cpp:588
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 απόρριψε την πρόσκληση"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "%1 unbanned a user"
 msgstr "αναιρέθηκε ο αποκλεισμός για %1"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 αυτοαναίρεση αποκλεισμού"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "%1 put a user out of the room"
 msgstr "έχει θέσει %1 εκτός αιθούσης: %2"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 έφυγε από την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:597
+#: src/libneochat/eventhandler.cpp:603
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room"
 msgid "%1 banned a user from the room"
 msgstr "αποκλείστηκε %1 από την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:599
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 αυτο-αποκλείστηκε από την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 αιτήθηκε μια πρόσκληση"
 
-#: src/libneochat/eventhandler.cpp:606
+#: src/libneochat/eventhandler.cpp:612
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 έκανε κάτι άγνωστο"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 καθάρισε το κύριο συνώνυμο της αίθουσας"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, fuzzy, kde-format
 #| msgid "set the room main alias to: %1"
 msgid "%1 set the room main alias"
 msgstr "ρύθμιση του κύριου συνώνυμου της αίθουσας σε: %1"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 καθάρισε το όνομα της αίθουσας"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, fuzzy, kde-format
 #| msgid "set the room name to: %1"
 msgid "%1 set the room name"
 msgstr "ρύθμιση του ονόματος της αίθουσας σε: %1"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 καθάρισε το θέμα"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, fuzzy, kde-format
 #| msgid "set the topic to: %1"
 msgid "%1 set the topic"
 msgstr "ρύθμιση του θέματος σε: %1"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:624
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 άλλαξε το avatar της αίθουσας"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:627
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 ενεργοποιήθηκε κρυπτογράφηση στα άκρα"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, fuzzy, kde-format
 #| msgid "upgraded the room to version %1"
 msgid "%1 upgraded the room version"
 msgstr "αναβαθμίστηκε η αίθουσα σε έκδοση %1"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 created the room"
 msgstr "έφυγε από την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 άλλαξαν τα επίπεδα δικαιωμάτων για αυτήν την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:636
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 έστειλε φάρο ζωντανής θέσης"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:639
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 "%1 άλλαξε τις λίστες ελέγχου πρόσβασης στον εξυπηρετητή για αυτήν την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:637
+#: src/libneochat/eventhandler.cpp:643
 #, fuzzy, kde-format
 #| msgctxt "[User] added <name> widget"
 #| msgid "added %1 widget"
 msgid "%1 added a widget"
 msgstr "προστέθηκε %1 γραφικό συστατικό"
 
-#: src/libneochat/eventhandler.cpp:640
+#: src/libneochat/eventhandler.cpp:646
 #, fuzzy, kde-format
 #| msgctxt "[User] removed <name> widget"
 #| msgid "removed %1 widget"
 msgid "%1 removed a widget"
 msgstr "αφαιρέθηκε %1 γραφικό συστατικό"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:648
 #, fuzzy, kde-format
 #| msgctxt "[User] configured <name> widget"
 #| msgid "configured %1 widget"
 msgid "%1 configured a widget"
 msgstr "διαμορφώθηκε %1 γραφικό συστατικό"
 
-#: src/libneochat/eventhandler.cpp:647
+#: src/libneochat/eventhandler.cpp:653
 #, fuzzy, kde-format
 #| msgid "%1 left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 έφυγε από την αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:649
+#: src/libneochat/eventhandler.cpp:655
 #, fuzzy, kde-format
 #| msgid "%1 joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 εισήλθε στην αίθουσα"
 
-#: src/libneochat/eventhandler.cpp:652
+#: src/libneochat/eventhandler.cpp:658
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "%1 updated the state"
 msgstr "ενημερώθηκε %1 κατάσταση"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:661
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 ξεκίνησε μια δημοσκόπηση"
@@ -3212,12 +3228,12 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/libneochat/neochatroom.cpp:1199
+#: src/libneochat/neochatroom.cpp:1203
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/libneochat/neochatroom.cpp:1539 src/libneochat/neochatroom.cpp:1547
+#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

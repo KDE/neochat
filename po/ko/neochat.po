@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:43+0000\n"
+"POT-Creation-Date: 2025-07-16 00:43+0000\n"
 "PO-Revision-Date: 2025-06-10 22:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2062,7 +2062,7 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr "방에 새로운 메시지가 있으면 높음"
 
-#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:503
+#: src/libneochat/eventhandler.cpp:280 src/libneochat/eventhandler.cpp:509
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
@@ -2311,263 +2311,279 @@ msgid "updated %1 state for %2"
 msgstr ""
 "님이 %1 상태를 %2(으)로 업데이트함|/|님이 %1 상태를 %2$[으 %2]로 업데이트함"
 
-#: src/libneochat/eventhandler.cpp:451 src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:452
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgctxt "@info In room list"
+msgid "Encrypted event"
+msgstr "암호화된 메시지"
+
+#: src/libneochat/eventhandler.cpp:455
+#, fuzzy, kde-format
+#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+#| msgid "%2 reacted with %3"
+#| msgid_plural "%2 reacted with %3"
+msgctxt "[user] reacted with <emoji>"
+msgid "reacted with %1"
+msgstr "%2 님이 %3(으)로 반응함"
+
+#: src/libneochat/eventhandler.cpp:457 src/libneochat/eventhandler.cpp:663
 #, kde-format
 msgid "Unknown event"
 msgstr "알 수 없는 이벤트"
 
-#: src/libneochat/eventhandler.cpp:466
+#: src/libneochat/eventhandler.cpp:472
 #, kde-format
 msgid "a file"
 msgstr "파일"
 
-#: src/libneochat/eventhandler.cpp:512
+#: src/libneochat/eventhandler.cpp:518
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 님이 메시지를 보냄"
 
-#: src/libneochat/eventhandler.cpp:515
+#: src/libneochat/eventhandler.cpp:521
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 님이 스티커를 보냄"
 
-#: src/libneochat/eventhandler.cpp:521
+#: src/libneochat/eventhandler.cpp:527
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 님이 누군가를 대화방에 다시 초대함"
 
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:533
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 님이 대화방에 입장함(반복됨)"
 
-#: src/libneochat/eventhandler.cpp:529
+#: src/libneochat/eventhandler.cpp:535
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 님이 누군가를 대화방에 초대함"
 
-#: src/libneochat/eventhandler.cpp:530
+#: src/libneochat/eventhandler.cpp:536
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 님이 대화방에 입장함"
 
-#: src/libneochat/eventhandler.cpp:556
+#: src/libneochat/eventhandler.cpp:562
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 님이 표시 이름을 설정하고 아바타를 설정함"
 
-#: src/libneochat/eventhandler.cpp:558
+#: src/libneochat/eventhandler.cpp:564
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 님이 표시 이름을 설정하고 아바타를 업데이트함"
 
-#: src/libneochat/eventhandler.cpp:560
+#: src/libneochat/eventhandler.cpp:566
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 님이 표시 이름을 설정하고 아바타를 지움"
 
-#: src/libneochat/eventhandler.cpp:562
+#: src/libneochat/eventhandler.cpp:568
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 님이 이 대화방에서의 표시 이름을 설정함"
 
-#: src/libneochat/eventhandler.cpp:565
+#: src/libneochat/eventhandler.cpp:571
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 님이 표시 이름을 변경하고 아바타를 설정함"
 
-#: src/libneochat/eventhandler.cpp:567
+#: src/libneochat/eventhandler.cpp:573
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 님이 표시 이름을 변경하고 아바타를 업데이트함"
 
-#: src/libneochat/eventhandler.cpp:569
+#: src/libneochat/eventhandler.cpp:575
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 님이 표시 이름을 변경하고 아바타를 지움"
 
-#: src/libneochat/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:577
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 님이 표시 이름을 변경함"
 
-#: src/libneochat/eventhandler.cpp:574
+#: src/libneochat/eventhandler.cpp:580
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 님이 표시 이름을 지우고 아바타를 설정함"
 
-#: src/libneochat/eventhandler.cpp:576
+#: src/libneochat/eventhandler.cpp:582
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 님이 표시 이름을 지우고 아바타를 업데이트함"
 
-#: src/libneochat/eventhandler.cpp:578
+#: src/libneochat/eventhandler.cpp:584
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 님이 표시 이름을 지우고 아바타를 지움"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:586
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 님이 표시 이름을 지움"
 
-#: src/libneochat/eventhandler.cpp:583
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 님이 아무것도 변경하지 않음"
 
-#: src/libneochat/eventhandler.cpp:587
+#: src/libneochat/eventhandler.cpp:593
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 님이 사용자의 초대를 거절함"
 
-#: src/libneochat/eventhandler.cpp:588
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 님이 초대를 거절함"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 님이 사용자의 차단을 해제함"
 
-#: src/libneochat/eventhandler.cpp:592
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 님이 자기 자신의 차단을 해제함"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 님이 대화방에서 사용자를 추방함"
 
-#: src/libneochat/eventhandler.cpp:594
+#: src/libneochat/eventhandler.cpp:600
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 님이 대화방을 떠남"
 
-#: src/libneochat/eventhandler.cpp:597
+#: src/libneochat/eventhandler.cpp:603
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 님이 대화방에서 사용자를 차단함"
 
-#: src/libneochat/eventhandler.cpp:599
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 님이 대화방에서 자기 자신을 차단함"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:608
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 님이 초대를 요청함"
 
-#: src/libneochat/eventhandler.cpp:606
+#: src/libneochat/eventhandler.cpp:612
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 님이 알 수 없는 무언가를 함"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 님이 대화방 주 별명을 지움"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 님이 대화방 주 별명을 설정함"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 님이 대화방 이름을 지움"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:618
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 님이 대화방 이름을 설정함"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 님이 대화방 주제를 삭제함"
 
-#: src/libneochat/eventhandler.cpp:615
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 님이 주제를 설정함"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:624
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 님이 대화방 아바타를 변경함"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:627
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 님이 종단간 암호화를 활성화함"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 님이 대화방 버전을 업그레이드함"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:630
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 님이 대화방을 생성함"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 님이 이 대화방의 권한 수준을 변경함"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:636
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 님이 실시간 위치 비콘을 전송함"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:639
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 님이 이 대화방의 서버 측 접근 권한 목록을 변경함"
 
-#: src/libneochat/eventhandler.cpp:637
+#: src/libneochat/eventhandler.cpp:643
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 님이 위젯을 추가함"
 
-#: src/libneochat/eventhandler.cpp:640
+#: src/libneochat/eventhandler.cpp:646
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 님이 위젯을 삭제함"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:648
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 님이 위젯을 설정함"
 
-#: src/libneochat/eventhandler.cpp:647
+#: src/libneochat/eventhandler.cpp:653
 #, fuzzy, kde-format
 #| msgid "%1 left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 님이 대화방을 떠남"
 
-#: src/libneochat/eventhandler.cpp:649
+#: src/libneochat/eventhandler.cpp:655
 #, fuzzy, kde-format
 #| msgid "%1 joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 님이 대화방에 입장함"
 
-#: src/libneochat/eventhandler.cpp:652
+#: src/libneochat/eventhandler.cpp:658
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 님이 상태를 업데이트함"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:661
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 님이 투표를 시작함"
@@ -3022,12 +3038,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/libneochat/neochatroom.cpp:1199
+#: src/libneochat/neochatroom.cpp:1203
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/libneochat/neochatroom.cpp:1539 src/libneochat/neochatroom.cpp:1547
+#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
