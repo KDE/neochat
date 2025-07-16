@@ -22,12 +22,11 @@ FormCard.FormCardPage {
 
     title: i18nc('@title:window', 'Notifications')
 
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Room notifications setting")
-    }
-
     FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
+
         FormCard.FormRadioDelegate {
+            icon.name: "globe"
             text: i18nc("As in the default notification setting", "Default Settings")
             checked: room.pushNotificationState === PushNotificationState.Default
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
@@ -36,6 +35,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
+            icon.name: "notifications"
             text: i18nc("As in 'notify for all messages'", "All")
             checked: room.pushNotificationState === PushNotificationState.All
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
@@ -44,6 +44,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
+            icon.name: "im-user"
             text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
             checked: room.pushNotificationState === PushNotificationState.MentionKeyword
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
@@ -52,6 +53,7 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
+            icon.name: "notifications-disabled"
             text: i18nc("As in 'do not notify for any messages'", "Off")
             checked: room.pushNotificationState === PushNotificationState.Mute
             enabled: room.pushNotificationState !== PushNotificationState.Unknown
