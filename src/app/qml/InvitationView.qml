@@ -175,7 +175,7 @@ ColumnLayout {
 
             QQC2.Label {
                 color: Kirigami.Theme.disabledTextColor
-                text: i18nc("@info:label", "You can reject invitations from unknown users under Security settings.")
+                text: xi18nc("@info:label Ensure you are referring to the same translation used for that settings page", "You can reject invitations from unknown users under the <interface>Security & Safety</interface> settings.")
                 wrapMode: Text.WordWrap
 
                 // + 5 to prevent it from wrapping unnecessarily
