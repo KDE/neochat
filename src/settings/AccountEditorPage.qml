@@ -252,7 +252,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             id: deactivateAccountButton
-            text: i18n("Deactivate Account")
+            text: i18nc("@action:button", "Deactivate Account…")
             icon.name: "trash-empty-symbolic"
             onClicked: {
                 const component = Qt.createComponent('org.kde.neochat', 'ConfirmDeactivateAccountDialog');

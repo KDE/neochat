@@ -106,7 +106,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18n("Logout")
+        text: i18n("Logout…")
         icon.name: "im-kick-user"
         onTriggered: confirmLogoutDialogComponent.createObject(root).open()
     }

@@ -85,7 +85,7 @@ FormCard.FormCardPage {
                     }
 
                     QQC2.ToolButton {
-                        text: i18n("Logout")
+                        text: i18n("Logout…")
                         icon.name: "im-kick-user"
                         onClicked: confirmLogoutDialogComponent.createObject(root.QQC2.Overlay.overlay).open()
                     }

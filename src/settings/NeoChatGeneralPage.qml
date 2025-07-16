@@ -345,7 +345,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             icon.name: "kt-restore-defaults-symbolic"
-            text: i18nc("@action:button", "Reset all configuration values to their default")
+            text: i18nc("@action:button", "Reset all configuration values to their default…")
             onClicked: resetDialog.open()
         }
     }
