@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-17 00:41+0000\n"
 "PO-Revision-Date: 2025-07-03 23:47+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -286,8 +286,9 @@ msgid "To proceed, accept the verification request on another device."
 msgstr "要繼續進行，請在另一台裝置上接受驗證請求。"
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
 msgstr "登出"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
@@ -672,31 +673,31 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 已於 %2 邀請您到此聊天室。"
 
-#: src/app/qml/InvitationView.qml:79
+#: src/app/qml/InvitationView.qml:95
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "這個使用者在 %1 邀請您聊天。"
 
-#: src/app/qml/InvitationView.qml:94
+#: src/app/qml/InvitationView.qml:110
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "接受邀請"
 
-#: src/app/qml/InvitationView.qml:109
+#: src/app/qml/InvitationView.qml:125
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "拒絕邀請"
 
-#: src/app/qml/InvitationView.qml:123
+#: src/app/qml/InvitationView.qml:139
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr "封鎖 %1"
 
-#: src/app/qml/InvitationView.qml:162
+#: src/app/qml/InvitationView.qml:178
 #, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
@@ -3216,6 +3217,11 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "搜尋"
 
+#: src/libneochat/texthandler.cpp:574
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr "<i>這個活動沒有任何內容。</i>"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3252,8 +3258,8 @@ msgstr "此伺服器已停用註冊。"
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:258
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:257
+#: src/messagecontent/models/messagecontentmodel.cpp:285
 #, kde-format
 msgid "Loading"
 msgstr "載入中"
@@ -3614,8 +3620,8 @@ msgid "Expand preview"
 msgstr "展開預覽"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:256
-#: src/messagecontent/models/messagecontentmodel.cpp:284
+#: src/messagecontent/models/messagecontentmodel.cpp:255
+#: src/messagecontent/models/messagecontentmodel.cpp:283
 #, kde-format
 msgid "Loading reply"
 msgstr "載入回覆中"
@@ -3637,19 +3643,19 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "開啟全螢幕"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:117
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "下載檔案失敗。"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:120
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "下載檔案失敗：<br />%1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:279
+#: src/messagecontent/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3657,11 +3663,6 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 "這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
-
-#: src/messagecontent/models/messagecontentmodel.cpp:604
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr "<i>這個活動沒有任何內容。</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3838,15 +3839,19 @@ msgid "Pinned Messages"
 msgstr "置頂訊息"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space"
+msgid "Leave this space…"
 msgstr "離開這個聊天空間"
 
 #: src/roominfo/RoomInformation.qml:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
 msgctxt "@action:button"
-msgid "Leave this room"
+msgid "Leave this room…"
 msgstr "離開這個聊天室"
 
 #: src/roominfo/RoomInformation.qml:169
@@ -4047,8 +4052,9 @@ msgid "Room Settings"
 msgstr "聊天室設定"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, kde-format
-msgid "Leave Room"
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgid "Leave Room…"
 msgstr "離開聊天室"
 
 #: src/rooms/RoomDelegate.qml:138
@@ -4150,16 +4156,18 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "複製聊天空間位址"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "聊天空間設定"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
 msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
+msgid "Leave Space…"
 msgstr "離開聊天空間"
 
 #: src/rooms/UserInfo.qml:50
@@ -4289,8 +4297,10 @@ msgid "Account Management"
 msgstr "帳號管理"
 
 #: src/settings/AccountEditorPage.qml:255
-#, kde-format
-msgid "Deactivate Account"
+#, fuzzy, kde-format
+#| msgid "Deactivate Account"
+msgctxt "@action:button"
+msgid "Deactivate Account…"
 msgstr "停用帳號"
 
 #: src/settings/AccountEditorPage.qml:272
@@ -5255,9 +5265,11 @@ msgid "Default Settings"
 msgstr "預設設定值"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Reset all configuration values to their default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset all configuration values to their default…"
 msgstr "將所有設定值重設為預設值"
 
 #: src/settings/NeoChatGeneralPage.qml:354
@@ -5823,111 +5835,122 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/settings/RoomSecurityPage.qml:30
-#, kde-format
-msgid "Enable encryption"
+#: src/settings/RoomSecurityPage.qml:39
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
+msgid "This room uses encryption."
+msgstr "這個聊天室接續了另一個對話。"
+
+#: src/settings/RoomSecurityPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Enable encryption"
+msgctxt "@action:button Enable encryption in this room"
+msgid "Enable Encryption…"
 msgstr "開啟加密"
 
-#: src/settings/RoomSecurityPage.qml:31
-#, kde-format
-msgctxt "option:check"
+#: src/settings/RoomSecurityPage.qml:51
+#, fuzzy, kde-format
+#| msgctxt "option:check"
+#| msgid "Once enabled, encryption cannot be disabled."
+msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "開啟加密後將無法再次關閉。"
 
-#: src/settings/RoomSecurityPage.qml:44
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "存取"
 
-#: src/settings/RoomSecurityPage.qml:48
+#: src/settings/RoomSecurityPage.qml:69
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "私人（只接收邀請）"
 
-#: src/settings/RoomSecurityPage.qml:49
+#: src/settings/RoomSecurityPage.qml:70
 #, kde-format
 msgid "Only invited people can join."
 msgstr "只有受邀請的使用者才能加入。"
 
-#: src/settings/RoomSecurityPage.qml:57
+#: src/settings/RoomSecurityPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "聊天空間成員"
 
-#: src/settings/RoomSecurityPage.qml:58
+#: src/settings/RoomSecurityPage.qml:79
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "所選聊天空間內的任何人都可以搜尋到或加入。"
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:88
 #, kde-format
 msgid "Select spaces"
 msgstr "選取聊天空間"
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "敲門"
 
-#: src/settings/RoomSecurityPage.qml:86
+#: src/settings/RoomSecurityPage.qml:107
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr "不在聊天室的人必須要請求加入聊天室的邀請。"
 
-#: src/settings/RoomSecurityPage.qml:95
+#: src/settings/RoomSecurityPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "公開"
 
-#: src/settings/RoomSecurityPage.qml:96
+#: src/settings/RoomSecurityPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "任何人都可以搜尋到或加入。"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "訊息歷史可見度"
 
-#: src/settings/RoomSecurityPage.qml:110
+#: src/settings/RoomSecurityPage.qml:131
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "任何人"
 
-#: src/settings/RoomSecurityPage.qml:111
+#: src/settings/RoomSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "任何人，不管是否加入聊天室，皆可閱讀歷史。"
 
-#: src/settings/RoomSecurityPage.qml:119
+#: src/settings/RoomSecurityPage.qml:140
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "僅成員"
 
-#: src/settings/RoomSecurityPage.qml:120
+#: src/settings/RoomSecurityPage.qml:141
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "所有成員皆可瀏覽所有訊息歷史，包含他們加入之前的。"
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "僅成員（邀請後）"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5935,13 +5958,13 @@ msgid ""
 "the room."
 msgstr "新成員只能看到被邀請後的訊息歷史。"
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:158
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "僅成員（加入後）"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:159
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6360,11 +6383,13 @@ msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#: src/timeline/DelegateContextMenu.qml:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
+msgid "Report…"
 msgstr "檢舉"
 
 #: src/timeline/DelegateContextMenu.qml:131
@@ -6378,6 +6403,13 @@ msgstr "檢舉訊息"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "檢舉此訊息的原因"
+
+#: src/timeline/DelegateContextMenu.qml:134
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "檢舉"
 
 #: src/timeline/DelegateContextMenu.qml:136
 #, kde-format

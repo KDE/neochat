@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-17 00:41+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -293,7 +293,7 @@ msgstr ""
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
 #, kde-format
-msgid "Logout"
+msgid "Logout…"
 msgstr ""
 
 #: src/app/qml/AccountSwitchDialog.qml:29
@@ -698,32 +698,32 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "li pana sin e wile lon tawa %1"
 
-#: src/app/qml/InvitationView.qml:79
+#: src/app/qml/InvitationView.qml:95
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "o open e tomo toki pi sina tu taso"
 
-#: src/app/qml/InvitationView.qml:94
+#: src/app/qml/InvitationView.qml:110
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:109
+#: src/app/qml/InvitationView.qml:125
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:123
+#: src/app/qml/InvitationView.qml:139
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:162
+#: src/app/qml/InvitationView.qml:178
 #, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
@@ -3363,6 +3363,11 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr ""
 
+#: src/libneochat/texthandler.cpp:574
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3399,8 +3404,8 @@ msgstr ""
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:258
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:257
+#: src/messagecontent/models/messagecontentmodel.cpp:285
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -3791,8 +3796,8 @@ msgid "Expand preview"
 msgstr ""
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:256
-#: src/messagecontent/models/messagecontentmodel.cpp:284
+#: src/messagecontent/models/messagecontentmodel.cpp:255
+#: src/messagecontent/models/messagecontentmodel.cpp:283
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
@@ -3817,30 +3822,25 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "o tawa ilo suli"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:117
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "lipu li suli pi ken jo ala."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:120
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:279
+#: src/messagecontent/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
-msgstr ""
-
-#: src/messagecontent/models/messagecontentmodel.cpp:604
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
 msgstr ""
 
 #: src/messagecontent/models/reactionmodel.cpp:69
@@ -4038,14 +4038,14 @@ msgstr "o pana e toki"
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
-msgid "Leave this space"
+msgid "Leave this space…"
 msgstr "o pali e tomo toki"
 
 #: src/roominfo/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
-msgid "Leave this room"
+msgid "Leave this room…"
 msgstr "o pali e tomo toki"
 
 #: src/roominfo/RoomInformation.qml:169
@@ -4263,9 +4263,10 @@ msgid "Room Settings"
 msgstr "nimi tomo"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, kde-format
-msgid "Leave Room"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Leave Room…"
+msgstr "o pali e tomo toki"
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4373,17 +4374,19 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "o tu e lipu tawa lipu jo"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr ""
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "menu"
+#| msgid "New Group…"
 msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr ""
+msgid "Leave Space…"
+msgstr "o lon e tomo kulupu sin…"
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4521,7 +4524,8 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:255
 #, kde-format
-msgid "Deactivate Account"
+msgctxt "@action:button"
+msgid "Deactivate Account…"
 msgstr ""
 
 #: src/settings/AccountEditorPage.qml:272
@@ -5530,7 +5534,7 @@ msgstr "nimi tomo"
 #: src/settings/NeoChatGeneralPage.qml:348
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset all configuration values to their default…"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:354
@@ -6115,112 +6119,120 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:30
+#: src/settings/RoomSecurityPage.qml:39
 #, kde-format
-msgid "Enable encryption"
+msgctxt "@info"
+msgid "This room uses encryption."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:31
+#: src/settings/RoomSecurityPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@action:button Enable encryption in this room"
+msgid "Enable Encryption…"
+msgstr "o ante e toki"
+
+#: src/settings/RoomSecurityPage.qml:51
 #, kde-format
-msgctxt "option:check"
+msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:44
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:48
+#: src/settings/RoomSecurityPage.qml:69
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:49
+#: src/settings/RoomSecurityPage.qml:70
 #, kde-format
 msgid "Only invited people can join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:57
+#: src/settings/RoomSecurityPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:58
+#: src/settings/RoomSecurityPage.qml:79
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:88
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Select spaces"
 msgstr "o pali e tomo toki"
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:86
+#: src/settings/RoomSecurityPage.qml:107
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:95
+#: src/settings/RoomSecurityPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:96
+#: src/settings/RoomSecurityPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:110
+#: src/settings/RoomSecurityPage.qml:131
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:111
+#: src/settings/RoomSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:119
+#: src/settings/RoomSecurityPage.qml:140
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:120
+#: src/settings/RoomSecurityPage.qml:141
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6228,13 +6240,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:158
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:159
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6681,11 +6693,10 @@ msgid "Reply in Thread"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:126
-#: src/timeline/DelegateContextMenu.qml:134
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
+msgid "Report…"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:131
@@ -6701,6 +6712,13 @@ msgstr "o ante e toki"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "o weka e weka pi jan ni"
+
+#: src/timeline/DelegateContextMenu.qml:134
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:136
 #, fuzzy, kde-format

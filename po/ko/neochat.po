@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-17 00:41+0000\n"
 "PO-Revision-Date: 2025-06-10 22:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -285,8 +285,9 @@ msgid "To proceed, accept the verification request on another device."
 msgstr "계속 진행하려면 다른 장치에서 확인 요청을 수락하십시오."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
 msgstr "로그아웃"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
@@ -671,31 +672,31 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 님이 %2에 대화방으로 초대했습니다."
 
-#: src/app/qml/InvitationView.qml:79
+#: src/app/qml/InvitationView.qml:95
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "이 사용자가 %1에 대화에 초대했습니다."
 
-#: src/app/qml/InvitationView.qml:94
+#: src/app/qml/InvitationView.qml:110
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "초대 수락"
 
-#: src/app/qml/InvitationView.qml:109
+#: src/app/qml/InvitationView.qml:125
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "초대 거절"
 
-#: src/app/qml/InvitationView.qml:123
+#: src/app/qml/InvitationView.qml:139
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr "%1 님 차단"
 
-#: src/app/qml/InvitationView.qml:162
+#: src/app/qml/InvitationView.qml:178
 #, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
@@ -3225,6 +3226,11 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "검색"
 
+#: src/libneochat/texthandler.cpp:574
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr "<i>이벤트에 내용이 없습니다.</i>"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3262,8 +3268,8 @@ msgstr "이 서버에 등록이 비활성화되어 있습니다."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:258
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:257
+#: src/messagecontent/models/messagecontentmodel.cpp:285
 #, kde-format
 msgid "Loading"
 msgstr "불러오는 중"
@@ -3629,8 +3635,8 @@ msgid "Expand preview"
 msgstr "미리 보기 확장"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:256
-#: src/messagecontent/models/messagecontentmodel.cpp:284
+#: src/messagecontent/models/messagecontentmodel.cpp:255
+#: src/messagecontent/models/messagecontentmodel.cpp:283
 #, kde-format
 msgid "Loading reply"
 msgstr "답장 불러오는 중"
@@ -3652,21 +3658,21 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "전체 화면 열기"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:117
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "파일이 다운로드하기에 너무 큽니다."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:120
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "대화방에 입장할 수 없음<br />%1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:279
+#: src/messagecontent/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3675,11 +3681,6 @@ msgid ""
 msgstr ""
 "이 메시지를 찾지 못했거나, 메시지를 볼 수 있는 권한이 없거나, 무시한 사용자"
 "가 전송했습니다"
-
-#: src/messagecontent/models/messagecontentmodel.cpp:604
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr "<i>이벤트에 내용이 없습니다.</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3856,15 +3857,19 @@ msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space"
+msgid "Leave this space…"
 msgstr "이 스페이스 떠나기"
 
 #: src/roominfo/RoomInformation.qml:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
 msgctxt "@action:button"
-msgid "Leave this room"
+msgid "Leave this room…"
 msgstr "이 대화방 떠나기"
 
 #: src/roominfo/RoomInformation.qml:169
@@ -4065,8 +4070,9 @@ msgid "Room Settings"
 msgstr "대화방 설정"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, kde-format
-msgid "Leave Room"
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgid "Leave Room…"
 msgstr "대화방 떠나기"
 
 #: src/rooms/RoomDelegate.qml:138
@@ -4168,16 +4174,18 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "스페이스 주소 복사"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "스페이스 설정"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
 msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
+msgid "Leave Space…"
 msgstr "스페이스 떠나기"
 
 #: src/rooms/UserInfo.qml:50
@@ -4307,8 +4315,10 @@ msgid "Account Management"
 msgstr "계정 관리"
 
 #: src/settings/AccountEditorPage.qml:255
-#, kde-format
-msgid "Deactivate Account"
+#, fuzzy, kde-format
+#| msgid "Deactivate Account"
+msgctxt "@action:button"
+msgid "Deactivate Account…"
 msgstr "계정 비활성화"
 
 #: src/settings/AccountEditorPage.qml:272
@@ -5277,7 +5287,7 @@ msgstr "기본 설정"
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset all configuration values to their default…"
 msgstr "모든 설정값을 기본값으로 초기화"
 
 #: src/settings/NeoChatGeneralPage.qml:354
@@ -5849,111 +5859,122 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "암호화"
 
-#: src/settings/RoomSecurityPage.qml:30
-#, kde-format
-msgid "Enable encryption"
+#: src/settings/RoomSecurityPage.qml:39
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
+msgid "This room uses encryption."
+msgstr "이 대화방에서 다른 대화가 진행 중입니다."
+
+#: src/settings/RoomSecurityPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Enable encryption"
+msgctxt "@action:button Enable encryption in this room"
+msgid "Enable Encryption…"
 msgstr "암호화 활성화"
 
-#: src/settings/RoomSecurityPage.qml:31
-#, kde-format
-msgctxt "option:check"
+#: src/settings/RoomSecurityPage.qml:51
+#, fuzzy, kde-format
+#| msgctxt "option:check"
+#| msgid "Once enabled, encryption cannot be disabled."
+msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "한 번 활성화하면 비활성화할 수 없습니다."
 
-#: src/settings/RoomSecurityPage.qml:44
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "접근"
 
-#: src/settings/RoomSecurityPage.qml:48
+#: src/settings/RoomSecurityPage.qml:69
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "비밀(초대만)"
 
-#: src/settings/RoomSecurityPage.qml:49
+#: src/settings/RoomSecurityPage.qml:70
 #, kde-format
 msgid "Only invited people can join."
 msgstr "초대받은 사람만 입장할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:57
+#: src/settings/RoomSecurityPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "스페이스 구성원"
 
-#: src/settings/RoomSecurityPage.qml:58
+#: src/settings/RoomSecurityPage.qml:79
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "선택한 스페이스에 있는 누구나 찾고 입장할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:88
 #, kde-format
 msgid "Select spaces"
 msgstr "스페이스 선택"
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "노크"
 
-#: src/settings/RoomSecurityPage.qml:86
+#: src/settings/RoomSecurityPage.qml:107
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr "대화방에 없었던 사람이 입장하려면 초대를 요청해야 합니다."
 
-#: src/settings/RoomSecurityPage.qml:95
+#: src/settings/RoomSecurityPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "공개"
 
-#: src/settings/RoomSecurityPage.qml:96
+#: src/settings/RoomSecurityPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "누구나 찾고 등록할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "메시지 과거 기록 표시 여부"
 
-#: src/settings/RoomSecurityPage.qml:110
+#: src/settings/RoomSecurityPage.qml:131
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "누구나"
 
-#: src/settings/RoomSecurityPage.qml:111
+#: src/settings/RoomSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "참여 여부에 관계 없이 누구나 과거 기록을 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:119
+#: src/settings/RoomSecurityPage.qml:140
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "구성원만"
 
-#: src/settings/RoomSecurityPage.qml:120
+#: src/settings/RoomSecurityPage.qml:141
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "모든 구성원은 참여 이전의 과거 기록 전체를 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "구성원만(초대 이후)"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5962,13 +5983,13 @@ msgid ""
 msgstr ""
 "새 구성원은 대화방에 초대된 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:158
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "구성원만(입장 이후)"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:159
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6399,11 +6420,13 @@ msgid "Reply in Thread"
 msgstr "스레드에 답장"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#: src/timeline/DelegateContextMenu.qml:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
+msgid "Report…"
 msgstr "신고"
 
 #: src/timeline/DelegateContextMenu.qml:131
@@ -6417,6 +6440,13 @@ msgstr "메시지 신고"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "이 메시지를 신고하는 이유"
+
+#: src/timeline/DelegateContextMenu.qml:134
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "신고"
 
 #: src/timeline/DelegateContextMenu.qml:136
 #, kde-format

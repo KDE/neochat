@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-17 00:41+0000\n"
 "PO-Revision-Date: 2025-05-27 14:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -290,8 +290,9 @@ msgstr ""
 "dispoisitivo."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
 msgstr "Clausura de session"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
@@ -679,31 +680,31 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 te ha invitate in iste sala a %2"
 
-#: src/app/qml/InvitationView.qml:79
+#: src/app/qml/InvitationView.qml:95
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Iste usator te invita a conversar a %1"
 
-#: src/app/qml/InvitationView.qml:94
+#: src/app/qml/InvitationView.qml:110
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Accepta invitation"
 
-#: src/app/qml/InvitationView.qml:109
+#: src/app/qml/InvitationView.qml:125
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Rejecta invitation"
 
-#: src/app/qml/InvitationView.qml:123
+#: src/app/qml/InvitationView.qml:139
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr "Bloca %1"
 
-#: src/app/qml/InvitationView.qml:162
+#: src/app/qml/InvitationView.qml:178
 #, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
@@ -3275,6 +3276,11 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Cerca"
 
+#: src/libneochat/texthandler.cpp:574
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr "<i>Iste evento non ha alcun contento.</i>"
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3313,8 +3319,8 @@ msgstr "Registration es dishabilitate sur iste servitor."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:258
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:257
+#: src/messagecontent/models/messagecontentmodel.cpp:285
 #, kde-format
 msgid "Loading"
 msgstr "Cargante"
@@ -3682,8 +3688,8 @@ msgid "Expand preview"
 msgstr "Expande Vista Preliminar"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:256
-#: src/messagecontent/models/messagecontentmodel.cpp:284
+#: src/messagecontent/models/messagecontentmodel.cpp:255
+#: src/messagecontent/models/messagecontentmodel.cpp:283
 #, kde-format
 msgid "Loading reply"
 msgstr "Cargante responsa"
@@ -3705,21 +3711,21 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Aperi schermo plen"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:117
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "File troppo grande a discargar."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:120
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "Falleva a unir sala<br />%1"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:279
+#: src/messagecontent/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3728,11 +3734,6 @@ msgid ""
 msgstr ""
 "Iste message o non esseva trovateo tu nonhabeva le permission per vider lo, "
 "o illo esseva inviate per un usator ignorate"
-
-#: src/messagecontent/models/messagecontentmodel.cpp:604
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
-msgstr "<i>Iste evento non ha alcun contento.</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3913,15 +3914,19 @@ msgid "Pinned Messages"
 msgstr "Messages appunctate"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space"
+msgid "Leave this space…"
 msgstr "Lassa iste spatio"
 
 #: src/roominfo/RoomInformation.qml:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this room"
 msgctxt "@action:button"
-msgid "Leave this room"
+msgid "Leave this room…"
 msgstr "Lassa iste sala"
 
 #: src/roominfo/RoomInformation.qml:169
@@ -4123,8 +4128,9 @@ msgid "Room Settings"
 msgstr "Preferentias de sala"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, kde-format
-msgid "Leave Room"
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgid "Leave Room…"
 msgstr "Lassa sala"
 
 #: src/rooms/RoomDelegate.qml:138
@@ -4228,16 +4234,18 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Copia adresse de Spatio"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Preferentias de Spatio"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
 msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
+msgid "Leave Space…"
 msgstr "Lassa spatio"
 
 #: src/rooms/UserInfo.qml:50
@@ -4367,8 +4375,10 @@ msgid "Account Management"
 msgstr "Gestion de conto"
 
 #: src/settings/AccountEditorPage.qml:255
-#, kde-format
-msgid "Deactivate Account"
+#, fuzzy, kde-format
+#| msgid "Deactivate Account"
+msgctxt "@action:button"
+msgid "Deactivate Account…"
 msgstr "Deactiva conto"
 
 #: src/settings/AccountEditorPage.qml:272
@@ -5346,7 +5356,7 @@ msgstr "Preferentias predefinite"
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset all configuration values to their default…"
 msgstr "Reassigna omne valores de configuration a lor valores predefinite"
 
 #: src/settings/NeoChatGeneralPage.qml:354
@@ -5921,100 +5931,111 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Cryptation"
 
-#: src/settings/RoomSecurityPage.qml:30
-#, kde-format
-msgid "Enable encryption"
+#: src/settings/RoomSecurityPage.qml:39
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
+msgid "This room uses encryption."
+msgstr "Iste sala continua un altere conversation."
+
+#: src/settings/RoomSecurityPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Enable encryption"
+msgctxt "@action:button Enable encryption in this room"
+msgid "Enable Encryption…"
 msgstr "Habilita cryptation"
 
-#: src/settings/RoomSecurityPage.qml:31
-#, kde-format
-msgctxt "option:check"
+#: src/settings/RoomSecurityPage.qml:51
+#, fuzzy, kde-format
+#| msgctxt "option:check"
+#| msgid "Once enabled, encryption cannot be disabled."
+msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Un vice habilitate, le cryptation non pote esser  dishabilitate."
 
-#: src/settings/RoomSecurityPage.qml:44
+#: src/settings/RoomSecurityPage.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Accesso"
 
-#: src/settings/RoomSecurityPage.qml:48
+#: src/settings/RoomSecurityPage.qml:69
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Private (solmente invita)"
 
-#: src/settings/RoomSecurityPage.qml:49
+#: src/settings/RoomSecurityPage.qml:70
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Solmente personas invitate pote unir se"
 
-#: src/settings/RoomSecurityPage.qml:57
+#: src/settings/RoomSecurityPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Membros de spatio"
 
-#: src/settings/RoomSecurityPage.qml:58
+#: src/settings/RoomSecurityPage.qml:79
 #, kde-format
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Alcun in un spatio seligite  pote trovar e unir."
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:88
 #, kde-format
 msgid "Select spaces"
 msgstr "Selige  spatios"
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Colpa (knock)"
 
-#: src/settings/RoomSecurityPage.qml:86
+#: src/settings/RoomSecurityPage.qml:107
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Personas non in le sala necessita requirer un invitation pro uner al sala."
 
-#: src/settings/RoomSecurityPage.qml:95
+#: src/settings/RoomSecurityPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Public"
 
-#: src/settings/RoomSecurityPage.qml:96
+#: src/settings/RoomSecurityPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Alcun pote trvar e unir."
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Visibilitate de chronologia de message"
 
-#: src/settings/RoomSecurityPage.qml:110
+#: src/settings/RoomSecurityPage.qml:131
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Quicunque"
 
-#: src/settings/RoomSecurityPage.qml:111
+#: src/settings/RoomSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 "Quicunque, indifferentemente si illo se ha unite , pote vider le chronologia."
 
-#: src/settings/RoomSecurityPage.qml:119
+#: src/settings/RoomSecurityPage.qml:140
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Solmente Membros"
 
-#: src/settings/RoomSecurityPage.qml:120
+#: src/settings/RoomSecurityPage.qml:141
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6023,13 +6044,13 @@ msgstr ""
 "Omne membros pote vider lechronologia de message complete, anque ante que "
 "lor se ha unite."
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Solmente per membros (usque invitation)"
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6039,13 +6060,13 @@ msgstr ""
 "Nove membros pote vider le chronologia de messages ab le puncto de lor "
 "invitation al sala."
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:158
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Solmente per membros (usque unir se)"
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:159
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6488,11 +6509,13 @@ msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#: src/timeline/DelegateContextMenu.qml:134
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
+msgid "Report…"
 msgstr "Reporta"
 
 #: src/timeline/DelegateContextMenu.qml:131
@@ -6506,6 +6529,13 @@ msgstr "Reporta Message"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Motivo per reportar iste message"
+
+#: src/timeline/DelegateContextMenu.qml:134
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr "Reporta"
 
 #: src/timeline/DelegateContextMenu.qml:136
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-16 00:43+0000\n"
+"POT-Creation-Date: 2025-07-17 00:41+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -301,8 +301,9 @@ msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
-msgid "Logout"
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
 msgstr "Çıxış"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
@@ -724,34 +725,34 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/app/qml/InvitationView.qml:79
+#: src/app/qml/InvitationView.qml:95
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Məxfi çatı açmaq"
 
-#: src/app/qml/InvitationView.qml:94
+#: src/app/qml/InvitationView.qml:110
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Qəbul etmək"
 
-#: src/app/qml/InvitationView.qml:109
+#: src/app/qml/InvitationView.qml:125
 #, fuzzy, kde-format
 #| msgid "Reject Invitation"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Dəvəti qəbul etməyin"
 
-#: src/app/qml/InvitationView.qml:123
+#: src/app/qml/InvitationView.qml:139
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:162
+#: src/app/qml/InvitationView.qml:178
 #, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
@@ -3548,6 +3549,11 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr ""
 
+#: src/libneochat/texthandler.cpp:574
+#, kde-format
+msgid "<i>This event does not have any content.</i>"
+msgstr ""
+
 #: src/login/Email.qml:21
 #, kde-format
 msgid "Add an e-mail address:"
@@ -3586,8 +3592,8 @@ msgstr ""
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/messagecontentmodel.cpp:258
-#: src/messagecontent/models/messagecontentmodel.cpp:286
+#: src/messagecontent/models/messagecontentmodel.cpp:257
+#: src/messagecontent/models/messagecontentmodel.cpp:285
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading"
@@ -3980,8 +3986,8 @@ msgid "Expand preview"
 msgstr ""
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/messagecontentmodel.cpp:256
-#: src/messagecontent/models/messagecontentmodel.cpp:284
+#: src/messagecontent/models/messagecontentmodel.cpp:255
+#: src/messagecontent/models/messagecontentmodel.cpp:283
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgid "Loading reply"
@@ -4007,30 +4013,25 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Tam ekran"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:117
+#: src/messagecontent/models/messagecontentmodel.cpp:116
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:120
+#: src/messagecontent/models/messagecontentmodel.cpp:119
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:279
+#: src/messagecontent/models/messagecontentmodel.cpp:278
 #, kde-format
 msgctxt "@info"
 msgid ""
 "This message was either not found, you do not have permission to view it, or "
 "it was sent by an ignored user"
-msgstr ""
-
-#: src/messagecontent/models/messagecontentmodel.cpp:604
-#, kde-format
-msgid "<i>This event does not have any content.</i>"
 msgstr ""
 
 #: src/messagecontent/models/reactionmodel.cpp:69
@@ -4232,14 +4233,14 @@ msgstr "Birbaşa İsmarıclar"
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
-msgid "Leave this space"
+msgid "Leave this space…"
 msgstr "Otaq yaratmaq"
 
 #: src/roominfo/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action:button"
-msgid "Leave this room"
+msgid "Leave this room…"
 msgstr "NeoChatı bu otaqla açın"
 
 #: src/roominfo/RoomInformation.qml:169
@@ -4464,8 +4465,9 @@ msgid "Room Settings"
 msgstr "Otaq ayarları"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, kde-format
-msgid "Leave Room"
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgid "Leave Room…"
 msgstr "Otağı tərk etmək"
 
 #: src/rooms/RoomDelegate.qml:138
@@ -4578,7 +4580,7 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopyalamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
+#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
@@ -4586,10 +4588,11 @@ msgid "Space Settings"
 msgstr "Ayarlar"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "View Source"
 msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr ""
+msgid "Leave Space…"
+msgstr "Mənbəyə nəzər salamaq"
 
 #: src/rooms/UserInfo.qml:50
 #, fuzzy, kde-format
@@ -4740,7 +4743,8 @@ msgstr "İstifadəçi hesabı təfərrüatları"
 #: src/settings/AccountEditorPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Edit Account"
-msgid "Deactivate Account"
+msgctxt "@action:button"
+msgid "Deactivate Account…"
 msgstr "Hesaba düzəliş etmək"
 
 #: src/settings/AccountEditorPage.qml:272
@@ -5851,7 +5855,7 @@ msgstr "Ayarlar"
 #: src/settings/NeoChatGeneralPage.qml:348
 #, kde-format
 msgctxt "@action:button"
-msgid "Reset all configuration values to their default"
+msgid "Reset all configuration values to their default…"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:354
@@ -6469,19 +6473,28 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/RoomSecurityPage.qml:30
-#, kde-format
-msgid "Enable encryption"
-msgstr ""
+#: src/settings/RoomSecurityPage.qml:39
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
+msgid "This room uses encryption."
+msgstr "Bu otaqda başqa bir söhbət davam edir"
 
-#: src/settings/RoomSecurityPage.qml:31
+#: src/settings/RoomSecurityPage.qml:50
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@action:button Enable encryption in this room"
+msgid "Enable Encryption…"
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
+
+#: src/settings/RoomSecurityPage.qml:51
 #, fuzzy, kde-format
 #| msgid "Only enabled if the transparent chat page is enabled."
-msgctxt "option:check"
+msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Yalnız şəffaf söhbət səhifəsi aktiv olduqda aktivdir."
 
-#: src/settings/RoomSecurityPage.qml:44
+#: src/settings/RoomSecurityPage.qml:65
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Access:"
@@ -6489,99 +6502,99 @@ msgctxt "@option:check"
 msgid "Access"
 msgstr "Giriş:"
 
-#: src/settings/RoomSecurityPage.qml:48
+#: src/settings/RoomSecurityPage.qml:69
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Məxfi (yalnız dəvət ilə)"
 
-#: src/settings/RoomSecurityPage.qml:49
+#: src/settings/RoomSecurityPage.qml:70
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Yalnız dəvət olunan qoşula bilər."
 
-#: src/settings/RoomSecurityPage.qml:57
+#: src/settings/RoomSecurityPage.qml:78
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Boşluqdakı üzvlər"
 
-#: src/settings/RoomSecurityPage.qml:58
+#: src/settings/RoomSecurityPage.qml:79
 #, fuzzy, kde-format
 #| msgid "Anyone in a space can find and join."
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Boşluqdakı hər kəs tapa və qoşula bilər."
 
-#: src/settings/RoomSecurityPage.qml:67
+#: src/settings/RoomSecurityPage.qml:88
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
 msgid "Select spaces"
 msgstr "Hamısını seçin"
 
-#: src/settings/RoomSecurityPage.qml:85
+#: src/settings/RoomSecurityPage.qml:106
 #, fuzzy, kde-format
 #| msgid "knocked"
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "vurulmuş"
 
-#: src/settings/RoomSecurityPage.qml:86
+#: src/settings/RoomSecurityPage.qml:107
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:95
+#: src/settings/RoomSecurityPage.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "İctimai"
 
-#: src/settings/RoomSecurityPage.qml:96
+#: src/settings/RoomSecurityPage.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Hər kəs tapa və qoşula bilər."
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:110
+#: src/settings/RoomSecurityPage.qml:131
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:111
+#: src/settings/RoomSecurityPage.qml:132
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:119
+#: src/settings/RoomSecurityPage.qml:140
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Üzvlər"
 
-#: src/settings/RoomSecurityPage.qml:120
+#: src/settings/RoomSecurityPage.qml:141
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:128
+#: src/settings/RoomSecurityPage.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:129
+#: src/settings/RoomSecurityPage.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6589,13 +6602,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:137
+#: src/settings/RoomSecurityPage.qml:158
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:138
+#: src/settings/RoomSecurityPage.qml:159
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -7056,11 +7069,10 @@ msgid "Reply in Thread"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:126
-#: src/timeline/DelegateContextMenu.qml:134
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
-msgid "Report"
+msgid "Report…"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:131
@@ -7076,6 +7088,13 @@ msgstr "İsmarıca düzəliş etmək"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Bu istifadəçini əngəlləmək"
+
+#: src/timeline/DelegateContextMenu.qml:134
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:136
 #, fuzzy, kde-format
