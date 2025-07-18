@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:41+0000\n"
-"PO-Revision-Date: 2025-07-09 04:05+0100\n"
+"POT-Creation-Date: 2025-07-18 00:41+0000\n"
+"PO-Revision-Date: 2025-07-17 19:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -288,10 +288,9 @@ msgstr ""
 "Para continuar, acepte la solicitud de verificación en otro dispositivo."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Logout"
+#, kde-format
 msgid "Logout…"
-msgstr "Salir de la sesión"
+msgstr "Cerrar sesión…"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
 #, kde-format
@@ -702,9 +701,16 @@ msgid "Block %1"
 msgstr "Bloquear a %1"
 
 #: src/app/qml/InvitationView.qml:178
-#, kde-format
-msgctxt "@info:label"
-msgid "You can reject invitations from unknown users under Security settings."
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:label"
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt ""
+"@info:label Ensure you are referring to the same translation used for that "
+"settings page"
+msgid ""
+"You can reject invitations from unknown users under the <interface>Security "
+"& Safety</interface> settings."
 msgstr ""
 "Puede rechazar las invitaciones de usuarios desconocidos en las preferencias "
 "de seguridad."
@@ -2363,20 +2369,16 @@ msgid "updated %1 state for %2"
 msgstr "ha actualizado el estado de %1 para %2"
 
 #: src/libneochat/eventhandler.cpp:452
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
-msgstr "Mensaje cifrado"
+msgstr "Evento cifrado"
 
 #: src/libneochat/eventhandler.cpp:455
-#, fuzzy, kde-format
-#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-#| msgid "%2 reacted with %3"
-#| msgid_plural "%2 reacted with %3"
+#, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
-msgstr "%2 ha reaccionado con %3"
+msgstr "ha reaccionado con %1"
 
 #: src/libneochat/eventhandler.cpp:457 src/libneochat/eventhandler.cpp:663
 #, kde-format
@@ -3908,20 +3910,16 @@ msgid "Pinned Messages"
 msgstr "Mensajes fijados"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
-msgstr "Dejar este espacio"
+msgstr "Dejar este espacio…"
 
 #: src/roominfo/RoomInformation.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
-msgstr "Salir de esta sala"
+msgstr "Salir de esta sala…"
 
 #: src/roominfo/RoomInformation.qml:169
 #, kde-format
@@ -4120,10 +4118,9 @@ msgid "Room Settings"
 msgstr "Preferencias de la sala"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgid "Leave Room…"
-msgstr "Salir de la sala"
+msgstr "Salir de la sala…"
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4232,12 +4229,10 @@ msgid "Space Settings"
 msgstr "Preferencias del espacio"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr "Dejar el espacio"
+msgstr "Dejar el espacio…"
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4366,11 +4361,10 @@ msgid "Account Management"
 msgstr "Gestión de la cuenta"
 
 #: src/settings/AccountEditorPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
-msgstr "Desactivar la cuenta"
+msgstr "Desactivar la cuenta…"
 
 #: src/settings/AccountEditorPage.qml:272
 #, kde-format
@@ -5345,12 +5339,10 @@ msgid "Default Settings"
 msgstr "Preferencias predeterminadas"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr "Restablecer la configuración a sus valores predeterminados"
+msgstr "Restablecer la configuración a sus valores predeterminados…"
 
 #: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
@@ -5929,23 +5921,19 @@ msgid "Encryption"
 msgstr "Cifrado"
 
 #: src/settings/RoomSecurityPage.qml:39
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr "Esta sala continúa otra conversación."
+msgstr "Esta sala usa cifrado."
 
 #: src/settings/RoomSecurityPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr "Activar cifrado"
+msgstr "Activar cifrado…"
 
 #: src/settings/RoomSecurityPage.qml:51
-#, fuzzy, kde-format
-#| msgctxt "option:check"
-#| msgid "Once enabled, encryption cannot be disabled."
+#, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Una vez activado, el cifrado no se puede desactivar."
@@ -6503,14 +6491,11 @@ msgid "Reply in Thread"
 msgstr "Responder en el hilo"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr "Denunciar"
+msgstr "Denunciar…"
 
 #: src/timeline/DelegateContextMenu.qml:131
 #, kde-format

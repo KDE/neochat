@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-17 00:41+0000\n"
-"PO-Revision-Date: 2025-07-16 08:51+0200\n"
+"POT-Creation-Date: 2025-07-18 00:41+0000\n"
+"PO-Revision-Date: 2025-07-17 06:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Poedit 3.6\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -287,10 +287,9 @@ msgid "To proceed, accept the verification request on another device."
 msgstr "Za nadaljevanje sprejmite zahtevo za verificiranje na drugi napravi."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Logout"
+#, kde-format
 msgid "Logout…"
-msgstr "Odjavi se"
+msgstr "Odjavi se…"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
 #, kde-format
@@ -701,9 +700,16 @@ msgid "Block %1"
 msgstr "Blok %1"
 
 #: src/app/qml/InvitationView.qml:178
-#, kde-format
-msgctxt "@info:label"
-msgid "You can reject invitations from unknown users under Security settings."
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:label"
+#| msgid ""
+#| "You can reject invitations from unknown users under Security settings."
+msgctxt ""
+"@info:label Ensure you are referring to the same translation used for that "
+"settings page"
+msgid ""
+"You can reject invitations from unknown users under the <interface>Security "
+"& Safety</interface> settings."
 msgstr "Povabila neznanih uporabnikov lahko zavrnete v varnostnih nastavitvah."
 
 #: src/app/qml/JoinRoomDialog.qml:29
@@ -3896,20 +3902,16 @@ msgid "Pinned Messages"
 msgstr "Pripeta sporočila"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
-msgstr "Zapusti ta prostor"
+msgstr "Zapusti ta prostor…"
 
 #: src/roominfo/RoomInformation.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
-msgstr "Zapusti to sobo"
+msgstr "Zapusti to sobo…"
 
 #: src/roominfo/RoomInformation.qml:169
 #, kde-format
@@ -4110,10 +4112,9 @@ msgid "Room Settings"
 msgstr "Nastavitve sobe"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgid "Leave Room…"
-msgstr "Zapusti sobo"
+msgstr "Zapusti sobo…"
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4226,12 +4227,10 @@ msgid "Space Settings"
 msgstr "Nastavitve prostora"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr "Zapusti prostor"
+msgstr "Zapusti prostor…"
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4360,11 +4359,10 @@ msgid "Account Management"
 msgstr "Upravljanje računa"
 
 #: src/settings/AccountEditorPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
-msgstr "Deaktiviraj račun"
+msgstr "Deaktiviraj račun…"
 
 #: src/settings/AccountEditorPage.qml:272
 #, kde-format
@@ -5330,12 +5328,10 @@ msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr "Ponastavi vse vrednosti konfiguracije na privzete"
+msgstr "Ponastavi vse vrednosti konfiguracije na privzete…"
 
 #: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
@@ -5906,26 +5902,22 @@ msgid "Encryption"
 msgstr "Šifriranje"
 
 #: src/settings/RoomSecurityPage.qml:39
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr "Ta soba nadaljuje drug klepet."
+msgstr "Ta soba uporablja šifriranje."
 
 #: src/settings/RoomSecurityPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr "Omogoči šifriranje"
+msgstr "Omogoči šifriranje…"
 
 #: src/settings/RoomSecurityPage.qml:51
-#, fuzzy, kde-format
-#| msgctxt "option:check"
-#| msgid "Once enabled, encryption cannot be disabled."
+#, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Ko je enkrat omogočeno, šifriranja ni več mogoče onemogočiti."
+msgstr "Ko je enkrat omogočeno, šifriranja ni mogoče onemogočiti."
 
 #: src/settings/RoomSecurityPage.qml:65
 #, kde-format
@@ -6479,14 +6471,11 @@ msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr "Poročilo"
+msgstr "Poročilo…"
 
 #: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
