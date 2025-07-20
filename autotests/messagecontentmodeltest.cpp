@@ -10,7 +10,7 @@
 #include <Quotient/roommember.h>
 #include <Quotient/syncdata.h>
 
-#include "models/messagecontentmodel.h"
+#include "models/eventmessagecontentmodel.h"
 
 #include "neochatconnection.h"
 #include "testutils.h"
@@ -39,13 +39,13 @@ void MessageContentModelTest::initTestCase()
 void MessageContentModelTest::missingEvent()
 {
     auto room = new TestUtils::TestRoom(connection, u"#firstRoom:kde.org"_s);
-    auto model1 = MessageContentModel(room, u"$153456789:example.org"_s);
+    auto model1 = EventMessageContentModel(room, u"$153456789:example.org"_s);
 
     QCOMPARE(model1.rowCount(), 1);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), u"Loading"_s);
 
-    auto model2 = MessageContentModel(room, u"$153456789:example.org"_s, true);
+    auto model2 = EventMessageContentModel(room, u"$153456789:example.org"_s, true);
 
     QCOMPARE(model2.rowCount(), 1);
     QCOMPARE(model2.data(model2.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);

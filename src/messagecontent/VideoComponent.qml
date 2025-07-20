@@ -30,18 +30,9 @@ Video {
     required property string display
 
     /**
-     * @brief The media info for the event.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media (should be image/xxx for this delegate).
-     *  - mimeIcon - The MIME icon name (should be image-xxx).
-     *  - size - The file size in bytes.
-     *  - width - The width in pixels of the audio media.
-     *  - height - The height in pixels of the audio media.
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     * @brief The attributes of the component.
      */
-    required property var mediaInfo
+    required property var componentAttributes
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -206,7 +197,7 @@ Video {
         anchors.fill: parent
         visible: false
 
-        source: visible ? root.mediaInfo.tempInfo.source : ""
+        source: visible ? root.componentAttributes.tempInfo.source : ""
         fillMode: Image.PreserveAspectFit
     }
 
@@ -437,8 +428,8 @@ Video {
     MediaSizeHelper {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
-        mediaWidth: root.mediaInfo.width
-        mediaHeight: root.mediaInfo.height
+        mediaWidth: root.componentAttributes.width
+        mediaHeight: root.componentAttributes.height
     }
 
     function downloadAndPlay() {

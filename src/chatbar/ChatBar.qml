@@ -382,8 +382,6 @@ QQC2.Control {
             implicitHeight: replyComponent.implicitHeight
             ReplyComponent {
                 id: replyComponent
-                replyEventId: _private.chatBarCache.replyId
-                replyAuthor: _private.chatBarCache.relationAuthor
                 replyContentModel: ContentProvider.contentModelForEvent(root.currentRoom, _private.chatBarCache.replyId, true)
                 Message.maxContentWidth: replyLoader.item.width
 

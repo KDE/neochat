@@ -20,6 +20,7 @@
 #include "eventhandler.h"
 #include "events/pollevent.h"
 #include "models/reactionmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatroommember.h"
 
 using namespace Quotient;
@@ -42,7 +43,7 @@ MessageModel::MessageModel(QObject *parent)
     });
 
     connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
-        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {IsThreadedRole});
+        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {ContentModelRole, IsThreadedRole});
     });
 }
 
@@ -142,14 +143,15 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
     if (role == ContentModelRole) {
         if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>() || event->get().is<StickerEvent>()) {
-            return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, event->get().id()));
+            return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, event->get().id()));
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
         if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded()) {
-            return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, roomMessageEvent->threadRootEventId()));
+            return QVariant::fromValue<EventMessageContentModel *>(
+                ContentProvider::self().contentModelForEvent(m_room, roomMessageEvent->threadRootEventId()));
         }
-        return QVariant::fromValue<MessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, &event->get()));
+        return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, &event->get()));
     }
 
     if (role == GenericDisplayRole) {

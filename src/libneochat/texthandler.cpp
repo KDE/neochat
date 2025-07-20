@@ -592,7 +592,7 @@ TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const Ne
         if (event != nullptr && room != nullptr) {
             if (auto e = eventCast<const Quotient::RoomMessageEvent>(event); e && e->msgtype() == Quotient::MessageEventType::Emote && components.size() == 1) {
                 if (components[0].type == MessageComponentType::Text) {
-                    components[0].content = emoteString(room, event) + components[0].content;
+                    components[0].display = emoteString(room, event) + components[0].display;
                 } else {
                     components.prepend(MessageComponent{MessageComponentType::Text, emoteString(room, event), {}});
                 }

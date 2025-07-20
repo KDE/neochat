@@ -7,12 +7,12 @@
 
 struct MessageComponent {
     MessageComponentType::Type type = MessageComponentType::Other;
-    QString content;
+    QString display;
     QVariantMap attributes;
 
     bool operator==(const MessageComponent &right) const
     {
-        return type == right.type && content == right.content && attributes == right.attributes;
+        return type == right.type && display == right.display && attributes == right.attributes;
     }
 
     bool isEmpty() const
