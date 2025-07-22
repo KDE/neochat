@@ -536,6 +536,9 @@ bool NeoChatRoom::containsUser(const QString &userID) const
 
 bool NeoChatRoom::canSendEvent(const QString &eventType) const
 {
+    if (roomCreatorHasUltimatePowerLevel() && isCreator(localMember().id())) {
+        return true;
+    }
     auto plEvent = currentState().get<RoomPowerLevelsEvent>();
     if (!plEvent) {
         return false;
@@ -548,6 +551,9 @@ bool NeoChatRoom::canSendEvent(const QString &eventType) const
 
 bool NeoChatRoom::canSendState(const QString &eventType) const
 {
+    if (roomCreatorHasUltimatePowerLevel() && isCreator(localMember().id())) {
+        return true;
+    }
     auto plEvent = currentState().get<RoomPowerLevelsEvent>();
     if (!plEvent) {
         return false;
@@ -1739,6 +1745,22 @@ QString NeoChatRoom::rootIdForThread(const QString &eventId) const
 void NeoChatRoom::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
 {
     NeoChatRoom::m_hiddenFilter = hiddenFilter;
+}
+
+bool NeoChatRoom::roomCreatorHasUltimatePowerLevel() const
+{
+    bool ok = false;
+    auto version = this->version().toInt(&ok);
+    // This is terrible. For non-numeric room versions, I don't think there's a way of knowing whether they're pre- or post hydra.
+    // We just assume they are. Shouldn't matter for normal users anyway.
+    return !ok || version > 11;
+}
+
+bool NeoChatRoom::isCreator(const QString &userId) const
+{
+    auto createEvent = currentState().get<RoomCreateEvent>();
+    return roomCreatorHasUltimatePowerLevel() && createEvent
+        && (createEvent->senderId() == userId || createEvent->contentPart<QStringList>(u"additional_creators"_s).contains(userId));
 }
 
 #include "moc_neochatroom.cpp"
