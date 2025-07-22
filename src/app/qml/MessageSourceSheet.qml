@@ -47,7 +47,7 @@ Kirigami.Page {
             icon.name: "document-edit"
             visible: root.allowEdit
             enabled: room.canSendState(root.type) && (!root.stateKey.startsWith("@") || root.stateKey === root.room.connection.localUserId) && root.type !== "m.room.create"
-            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "EditStateDialog.qml"), {
+            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "EditStateDialog"), {
                 room: root.room,
                 type: root.type,
                 stateKey: root.stateKey,
