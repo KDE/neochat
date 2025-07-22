@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-20 00:42+0000\n"
-"PO-Revision-Date: 2025-07-08 08:59+0200\n"
+"PO-Revision-Date: 2025-07-18 15:48+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.07.80\n"
 
 #: src/app/controller.cpp:183
 #, kde-format
@@ -285,10 +285,9 @@ msgstr ""
 "périphérique."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Logout"
+#, kde-format
 msgid "Logout…"
-msgstr "Déconnexion"
+msgstr "Se déconnecter…"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
 #, kde-format
@@ -2372,20 +2371,16 @@ msgid "updated %1 state for %2"
 msgstr "État mis à jour de %1 vers %2"
 
 #: src/libneochat/eventhandler.cpp:452
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
-msgstr "Message chiffré"
+msgstr "Évènement chiffré"
 
 #: src/libneochat/eventhandler.cpp:455
-#, fuzzy, kde-format
-#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-#| msgid "%2 reacted with %3"
-#| msgid_plural "%2 reacted with %3"
+#, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
-msgstr "%2 a réagi à %3"
+msgstr "a réagi à %1"
 
 #: src/libneochat/eventhandler.cpp:457 src/libneochat/eventhandler.cpp:663
 #, kde-format
@@ -3912,20 +3907,16 @@ msgid "Pinned Messages"
 msgstr "Messages épinglés"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
-msgstr "Quitter cet espace"
+msgstr "Quitter cet espace..."
 
 #: src/roominfo/RoomInformation.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
-msgstr "Quitter ce salon"
+msgstr "Quitter ce salon..."
 
 #: src/roominfo/RoomInformation.qml:169
 #, kde-format
@@ -4060,9 +4051,7 @@ msgid "Notifications"
 msgstr "Notifications"
 
 #: src/rooms/RoomContextMenu.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Configuration par défaut"
@@ -4126,10 +4115,9 @@ msgid "Room Settings"
 msgstr "Configuration du salon"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgid "Leave Room…"
-msgstr "Quitter le salon"
+msgstr "Quitter le salon..."
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4240,12 +4228,10 @@ msgid "Space Settings"
 msgstr "Configuration des espacements"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr "Quitter l’espace"
+msgstr "Quitter l’espace..."
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4375,11 +4361,10 @@ msgid "Account Management"
 msgstr "Gestion des comptes"
 
 #: src/settings/AccountEditorPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
-msgstr "Désactiver le compte"
+msgstr "Désactiver le compte..."
 
 #: src/settings/AccountEditorPage.qml:272
 #, kde-format
@@ -4839,6 +4824,9 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
+"Ce sont les paramètres de notification par défaut pour tous les salons. Vous "
+"pouvez personnaliser les notifications par pièce dans la liste des salons ou "
+"dans la configuration des salons."
 
 #: src/settings/GlobalNotificationsPage.qml:69
 #, kde-format
@@ -5365,14 +5353,12 @@ msgid "Default Settings"
 msgstr "Configuration par défaut"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr ""
 "Réinitialiser toutes les valeurs de la configuration à leurs valeurs par "
-"défaut"
+"défaut..."
 
 #: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
@@ -5713,9 +5699,7 @@ msgid "Room notifications setting"
 msgstr "Configuration des notifications de salons"
 
 #: src/settings/PushNotification.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Default Settings"
+#, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
 msgstr "Configuration par défaut"
@@ -5948,23 +5932,19 @@ msgid "Encryption"
 msgstr "Chiffrement"
 
 #: src/settings/RoomSecurityPage.qml:39
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr "Ce salon poursuit sur une autre discussion."
+msgstr "Ce salon utilise le chiffrement."
 
 #: src/settings/RoomSecurityPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr "Activer le chiffrement"
+msgstr "Activer le chiffrement..."
 
 #: src/settings/RoomSecurityPage.qml:51
-#, fuzzy, kde-format
-#| msgctxt "option:check"
-#| msgid "Once enabled, encryption cannot be disabled."
+#, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
@@ -6536,14 +6516,11 @@ msgid "Reply in Thread"
 msgstr "Répondre dans le fil de discussions"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr "Rapport"
+msgstr "Signaler…"
 
 #: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
