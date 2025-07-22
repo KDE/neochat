@@ -589,6 +589,18 @@ public:
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
+    /**
+     * @brief Whether this room has a room version where the creator is treated as having an ultimate power level
+     *
+     * For unusual room versions, this information might be wrong.
+     */
+    bool roomCreatorHasUltimatePowerLevel() const;
+
+    /**
+     * @brief Whether this user is considered a creator of this room. Only applies to post-v12 rooms.
+     */
+    bool isCreator(const QString &userId) const;
+
 private:
     bool m_visible = false;
 

@@ -100,6 +100,10 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return plEvent->powerLevelForUser(memberId);
     }
     if (role == PowerLevelStringRole) {
+        if (m_currentRoom->roomCreatorHasUltimatePowerLevel() && m_currentRoom->isCreator(memberId)) {
+            return i18nc("@info the person that created this room", "Creator");
+        }
+
         auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
         // User might not in the room yet, in this case pl can be nullptr.
         // e.g. When invited but user not accepted or denied the invitation.
