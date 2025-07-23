@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-20 00:42+0000\n"
-"PO-Revision-Date: 2025-07-16 14:09+0200\n"
+"PO-Revision-Date: 2025-07-18 14:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -284,10 +284,9 @@ msgstr ""
 "Per continuare, accetta la richiesta di verifica su un altro dispositivo."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, fuzzy, kde-format
-#| msgid "Logout"
+#, kde-format
 msgid "Logout…"
-msgstr "Chiudi sessione"
+msgstr "Chiudi sessione…"
 
 #: src/app/qml/AccountSwitchDialog.qml:29
 #, kde-format
@@ -698,10 +697,7 @@ msgid "Block %1"
 msgstr "Blocca %1"
 
 #: src/app/qml/InvitationView.qml:178
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
 "settings page"
@@ -710,7 +706,7 @@ msgid ""
 "& Safety</interface> settings."
 msgstr ""
 "Puoi rifiutare gli inviti provenienti da utenti sconosciuti nelle "
-"impostazioni di sicurezza."
+"impostazioni di <interface>Sicurezza</interface>."
 
 #: src/app/qml/JoinRoomDialog.qml:29
 #, kde-format
@@ -3905,20 +3901,16 @@ msgid "Pinned Messages"
 msgstr "Messaggi appuntati"
 
 #: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
-msgstr "Abbandona questo spazio"
+msgstr "Abbandona questo spazio…"
 
 #: src/roominfo/RoomInformation.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
-msgstr "Lascia questa stanza"
+msgstr "Abbandona questa stanza…"
 
 #: src/roominfo/RoomInformation.qml:169
 #, kde-format
@@ -4117,10 +4109,9 @@ msgid "Room Settings"
 msgstr "Impostazioni della stanza"
 
 #: src/rooms/RoomContextMenu.qml:155
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgid "Leave Room…"
-msgstr "Lascia la stanza"
+msgstr "Abbandona la stanza…"
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4231,12 +4222,10 @@ msgid "Space Settings"
 msgstr "Impostazioni degli spazi"
 
 #: src/rooms/SpaceListContextMenu.qml:73
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr "Abbandona spazio"
+msgstr "Abbandona lo spazio…"
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4365,11 +4354,10 @@ msgid "Account Management"
 msgstr "Gestione degli account"
 
 #: src/settings/AccountEditorPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Deactivate Account"
+#, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
-msgstr "Disattiva account"
+msgstr "Disattiva account…"
 
 #: src/settings/AccountEditorPage.qml:272
 #, kde-format
@@ -5347,12 +5335,10 @@ msgid "Default Settings"
 msgstr "Impostazioni predefinite"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset all configuration values to their default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr "Ripristina tutti i valori di configurazione ai valori predefiniti"
+msgstr "Ripristina tutti i valori di configurazione ai valori predefiniti…"
 
 #: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
@@ -5931,23 +5917,19 @@ msgid "Encryption"
 msgstr "Cifratura"
 
 #: src/settings/RoomSecurityPage.qml:39
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room uses encryption."
-msgstr "Questa stanza continua un'altra conversazione."
+msgstr "Questa stanza utilizza la cifratura."
 
 #: src/settings/RoomSecurityPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr "Abilita cifratura"
+msgstr "Abilita cifratura…"
 
 #: src/settings/RoomSecurityPage.qml:51
-#, fuzzy, kde-format
-#| msgctxt "option:check"
-#| msgid "Once enabled, encryption cannot be disabled."
+#, kde-format
 msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Una volta abilitata, la cifratura non può essere disabilitata."
@@ -6508,14 +6490,11 @@ msgid "Reply in Thread"
 msgstr "Rispondi nella conversazione"
 
 #: src/timeline/DelegateContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr "Segnala"
+msgstr "Segnala…"
 
 #: src/timeline/DelegateContextMenu.qml:131
 #, kde-format
