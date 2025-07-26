@@ -21,8 +21,8 @@ FormCard.FormCard {
         onToggled: NeoChatConfig.showAllEvents = checked
     }
     FormCard.FormCheckDelegate {
-        text: i18nc("@option:check", "Send relations to any event in the timeline")
-        description: i18n("This includes state events")
+        text: i18nc("@option:check", "Allow sending relations to any event in the timeline")
+        description: i18nc("@info", "This includes state events")
         checked: NeoChatConfig.relateAnyEvent
 
         onToggled: NeoChatConfig.relateAnyEvent = checked

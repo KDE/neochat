@@ -87,7 +87,7 @@ RowLayout {
         id: _private
 
         function showMessageMenu() {
-            if (!NeoChatConfig.relateAnyEvent) {
+            if (!NeoChatConfig.developerTools) {
                 return;
             }
             RoomManager.viewEventMenu(root.modelData.eventId, root.Message.room, root.author, "", "");
