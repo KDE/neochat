@@ -130,7 +130,8 @@ void EventHandlerTest::timeString()
              QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
     QCOMPARE(EventHandler::timeString(room, event, true),
              format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
-    QCOMPARE(EventHandler::timeString(room, event, u"hh:mm"_s), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toString(u"hh:mm"_s));
+    QCOMPARE(EventHandler::timeString(room, event, u"hh:mm"_s),
+             QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::LocalTime)).toString(u"hh:mm"_s));
 
     const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
     QCOMPARE(room->pendingEvents().size(), 1);
