@@ -18,23 +18,6 @@ Labs.MenuBar {
     required property NeoChatConnection connection
 
     Labs.Menu {
-        title: i18nc("menu", "NeoChat")
-
-        Labs.MenuItem {
-            enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat…")
-            text: i18nc("menu", "Configure NeoChat…")
-
-            shortcut: StandardKey.Preferences
-            onTriggered: NeoChatSettingsView.open()
-        }
-        Labs.MenuItem {
-            text: i18nc("menu", "Quit NeoChat")
-
-            shortcut: StandardKey.Quit
-            onTriggered: Qt.quit()
-        }
-    }
-    Labs.Menu {
         title: i18nc("menu", "File")
 
         Labs.MenuItem {
@@ -73,6 +56,19 @@ Labs.MenuBar {
                     RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
                 });
             }
+        }
+        Labs.MenuItem {
+            enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat…")
+            text: i18nc("menu", "Configure NeoChat…")
+
+            shortcut: StandardKey.Preferences
+            onTriggered: NeoChatSettingsView.open()
+        }
+        Labs.MenuItem {
+            text: i18nc("menu", "Quit NeoChat")
+
+            shortcut: StandardKey.Quit
+            onTriggered: Qt.quit()
         }
     }
     EditMenu {
