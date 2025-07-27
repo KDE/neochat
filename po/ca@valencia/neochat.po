@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-20 00:42+0000\n"
+"POT-Creation-Date: 2025-07-27 00:42+0000\n"
 "PO-Revision-Date: 2025-07-18 09:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2026,7 +2026,7 @@ msgid "Custom"
 msgstr "Personalitzats"
 
 #: src/libneochat/enums/powerlevel.cpp:88
-#: src/libneochat/models/userlistmodel.cpp:113
+#: src/libneochat/models/userlistmodel.cpp:117
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
@@ -3059,6 +3059,14 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emoji propis"
 
+#: src/libneochat/models/userlistmodel.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:button Create new room"
+#| msgid "Create"
+msgctxt "@info the person that created this room"
+msgid "Creator"
+msgstr "Crea"
+
 #: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
@@ -3084,12 +3092,12 @@ msgstr "No s'ha pogut crear la sala: %1"
 msgid "Space creation failed: %1"
 msgstr "No s'ha pogut crear l'espai: %1"
 
-#: src/libneochat/neochatroom.cpp:1203
+#: src/libneochat/neochatroom.cpp:1209
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
+#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

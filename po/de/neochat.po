@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-20 00:42+0000\n"
+"POT-Creation-Date: 2025-07-27 00:42+0000\n"
 "PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2071,7 +2071,7 @@ msgid "Custom"
 msgstr "Benutzerdefiniert"
 
 #: src/libneochat/enums/powerlevel.cpp:88
-#: src/libneochat/models/userlistmodel.cpp:113
+#: src/libneochat/models/userlistmodel.cpp:117
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
@@ -3117,6 +3117,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigene Emojis"
 
+#: src/libneochat/models/userlistmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@info the person that created this room"
+msgid "Creator"
+msgstr "Neue erstellen"
+
 #: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
@@ -3142,12 +3149,12 @@ msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 msgid "Space creation failed: %1"
 msgstr "Erstellen der Umgebung ist fehlgeschlagen: %1"
 
-#: src/libneochat/neochatroom.cpp:1203
+#: src/libneochat/neochatroom.cpp:1209
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Meldung erfolgreich übertragen."
 
-#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
+#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

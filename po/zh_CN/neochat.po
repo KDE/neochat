@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-20 00:42+0000\n"
+"POT-Creation-Date: 2025-07-27 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1966,7 +1966,7 @@ msgid "Custom"
 msgstr "自定义"
 
 #: src/libneochat/enums/powerlevel.cpp:88
-#: src/libneochat/models/userlistmodel.cpp:113
+#: src/libneochat/models/userlistmodel.cpp:117
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
@@ -2994,6 +2994,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "自己的表情"
 
+#: src/libneochat/models/userlistmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@info the person that created this room"
+msgid "Creator"
+msgstr "创建聊天室"
+
 #: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
@@ -3017,12 +3024,12 @@ msgstr "聊天室创建失败：%1"
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/libneochat/neochatroom.cpp:1203
+#: src/libneochat/neochatroom.cpp:1209
 #, kde-format
 msgid "Report sent successfully."
 msgstr "举报成功。"
 
-#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
+#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

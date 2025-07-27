@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-20 00:42+0000\n"
+"POT-Creation-Date: 2025-07-27 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -2095,7 +2095,7 @@ msgid "Custom"
 msgstr "Vlastné"
 
 #: src/libneochat/enums/powerlevel.cpp:88
-#: src/libneochat/models/userlistmodel.cpp:113
+#: src/libneochat/models/userlistmodel.cpp:117
 #: src/settings/models/permissionsmodel.cpp:185
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
@@ -3268,6 +3268,13 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Vlastné"
 
+#: src/libneochat/models/userlistmodel.cpp:104
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgctxt "@info the person that created this room"
+msgid "Creator"
+msgstr "Vytvoriť nový"
+
 #: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
@@ -3293,13 +3300,13 @@ msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1203
+#: src/libneochat/neochatroom.cpp:1209
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Heslo úspešne zmenené"
 
-#: src/libneochat/neochatroom.cpp:1543 src/libneochat/neochatroom.cpp:1551
+#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
