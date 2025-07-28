@@ -41,7 +41,7 @@ RowLayout {
 
         down: accountMenu.opened || pressed
 
-        onClicked: accountMenu.popup()
+        onClicked: accountMenu.popup(QQC2.Overlay.overlay)
 
         Layout.fillWidth: true
         Layout.fillHeight: true
