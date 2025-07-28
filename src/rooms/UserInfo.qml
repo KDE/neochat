@@ -102,9 +102,4 @@ RowLayout {
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
-
-    Component {
-        id: accountSwitchDialog
-        AccountSwitchDialog {}
-    }
 }

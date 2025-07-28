@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2022 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
@@ -18,21 +19,17 @@ KirigamiComponents.ConvergentContextMenu {
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
 
-    QQC2.Action {
+    Kirigami.Action {
         text: i18nc("@action:button", "Show QR Code")
         icon.name: "view-barcode-qr-symbolic"
         onTriggered: {
-            let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+            (Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                 text: "https://matrix.to/#/" + root.connection.localUser.id,
                 title: root.connection.localUser.displayName,
                 subtitle: root.connection.localUser.id,
                 // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                 avatarSource: root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : ""
-            });
-            if (typeof root.closeDialog === "function") {
-                root.closeDialog();
-            }
-            qrMax.open();
+            }) as QrCodeMaximizeComponent).open();
         }
     }
 
@@ -40,26 +37,27 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Switch Account")
         icon.name: "system-switch-user"
         shortcut: "Ctrl+U"
-        onTriggered: accountSwitchDialog.createObject(QQC2.Overlay.overlay, {
+        onTriggered: (Qt.createComponent("org.kde.neochat", "AccountSwitchDialog").createObject(QQC2.Overlay.overlay, {
             connection: root.connection
-        }).open();
+        }) as Kirigami.Dialog).open();
     }
-    QQC2.Action {
-        text: i18n("Edit This Account")
+
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Edit This Account")
         icon.name: "document-edit"
         onTriggered: NeoChatSettingsView.openWithInitialProperties("accounts", {initialAccount: root.connection});
     }
 
-    QQC2.Action {
-        text: i18n("Notification Settings")
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Notification Settings")
         icon.name: "notifications"
         onTriggered: {
             NeoChatSettingsView.open('notifications');
         }
     }
 
-    QQC2.Action {
-        text: i18n("Devices")
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Devices")
         icon.name: "computer-symbolic"
         onTriggered: {
             NeoChatSettingsView.open('devices');
@@ -67,10 +65,10 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18n("Open Developer Tools")
+        text: i18nc("@action:inmenu", "Open Developer Tools")
         icon.name: "tools"
         visible: NeoChatConfig.developerTools
-        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
+        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
             connection: root.connection
         }, {
             title: i18nc("@title:window", "Developer Tools"),
@@ -106,13 +104,11 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
-    QQC2.Action {
-        text: i18n("Logout…")
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Logout…")
         icon.name: "im-kick-user"
-        onTriggered: confirmLogoutDialogComponent.createObject(root).open()
-    }
-
-    readonly property Component confirmLogoutDialogComponent: ConfirmLogoutDialog {
-        connection: root.connection
+        onTriggered: (Qt.createComponent("org.kde.neochat", "ConfirmLogoutDialog").createObject(QQC2.Overlay.overlay, {
+            connection: root.connection
+        }) as Kirigami.Dialog).open()
     }
 }
