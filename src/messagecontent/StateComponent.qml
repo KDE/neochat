@@ -71,4 +71,26 @@ RowLayout {
             cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
         }
     }
+
+    TapHandler {
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
+        acceptedButtons: Qt.RightButton
+        onTapped: _private.showMessageMenu()
+    }
+    TapHandler {
+        acceptedDevices: PointerDevice.TouchScreen
+        acceptedButtons: Qt.LeftButton
+        onLongPressed: _private.showMessageMenu()
+    }
+
+    QtObject {
+        id: _private
+
+        function showMessageMenu() {
+            if (!NeoChatConfig.developerTools) {
+                return;
+            }
+            RoomManager.viewEventMenu(root.modelData.eventId, root.Message.room, root.author, "", "");
+        }
+    }
 }

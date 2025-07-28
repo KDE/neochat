@@ -198,6 +198,7 @@ QVariantList MessageFilterModel::stateEventsList(int sourceRow) const
     QVariantList stateEvents;
     for (int i = sourceRow; i >= 0; i--) {
         auto nextState = QVariantMap{
+            {u"eventId"_s, sourceModel()->data(sourceModel()->index(i, 0), TimelineMessageModel::EventIdRole)},
             {u"author"_s, sourceModel()->data(sourceModel()->index(i, 0), TimelineMessageModel::AuthorRole)},
             {u"authorDisplayName"_s, sourceModel()->data(sourceModel()->index(i, 0), TimelineMessageModel::AuthorDisplayNameRole).toString()},
             {u"text"_s, sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},

@@ -21,7 +21,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.State
-        delegate: StateDelegate {}
+        delegate: StateDelegate {
+            room: root.room
+        }
     }
 
     DelegateChoice {

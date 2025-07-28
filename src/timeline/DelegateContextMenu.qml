@@ -54,6 +54,11 @@ KirigamiComponents.ConvergentContextMenu {
     required property var author
 
     /**
+     * @brief The delegate type of the message.
+     */
+    required property int messageComponentType
+
+    /**
      * @brief The display text of the message as plain text.
      */
     required property string plainText
@@ -79,7 +84,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     component RemoveMessageAction: Kirigami.Action {
-        visible: author.isLocalMember || currentRoom.canSendState("redact")
+        visible: (author.isLocalMember || currentRoom.canSendState("redact")) && root.messageComponentType !== MessageComponentType.Other
         text: i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
         icon.color: "red"
@@ -99,7 +104,8 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
-    component ReplyMessageAction: QQC2.Action {
+    component ReplyMessageAction: Kirigami.Action {
+        visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
         text: i18n("Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
@@ -109,7 +115,8 @@ KirigamiComponents.ConvergentContextMenu {
         }
     }
 
-    component ReplyThreadMessageAction: QQC2.Action {
+    component ReplyThreadMessageAction: Kirigami.Action {
+        visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
         text: i18nc("@action:button", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
@@ -145,7 +152,7 @@ KirigamiComponents.ConvergentContextMenu {
     component PinMessageAction: Kirigami.Action {
         readonly property bool pinned: currentRoom.isEventPinned(root.eventId)
 
-        visible: currentRoom.canSendState("m.room.pinned_events")
+        visible: currentRoom.canSendState("m.room.pinned_events") && root.messageComponentType !== MessageComponentType.Other
         text: pinned ? i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
         icon.name: pinned ? "window-unpin-symbolic" : "pin-symbolic"
         onTriggered: pinned ? currentRoom.unpinEvent(root.eventId) : currentRoom.pinEvent(root.eventId)
@@ -185,9 +192,11 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        visible: Kirigami.Settings.isMobile
+        id: emojiAction
+        visible: root.messageComponentType === MessageComponentType.Other ? NeoChatConfig.relateAnyEvent : true
 
         displayComponent: RowLayout {
+            visible: emojiAction.visible
             spacing: 0
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5

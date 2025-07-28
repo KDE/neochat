@@ -21,6 +21,13 @@ FormCard.FormCard {
         onToggled: NeoChatConfig.showAllEvents = checked
     }
     FormCard.FormCheckDelegate {
+        text: i18nc("@option:check", "Allow sending relations to any event in the timeline")
+        description: i18nc("@info", "This includes state events")
+        checked: NeoChatConfig.relateAnyEvent
+
+        onToggled: NeoChatConfig.relateAnyEvent = checked
+    }
+    FormCard.FormCheckDelegate {
         id: roomAccountDataVisibleCheck
         text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
         description: i18n("Allow the user to start a verification session with devices that were already verified")

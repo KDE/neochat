@@ -19,6 +19,11 @@ TimelineDelegate {
     id: root
 
     /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
      * @brief List of the first 5 unique authors of the aggregated state event.
      */
     required property var authorList
@@ -62,6 +67,8 @@ TimelineDelegate {
      * @brief Whether the state event is folded to a single line.
      */
     property bool folded: true
+
+    Message.room: root.room
 
     width: parent?.width
     rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing

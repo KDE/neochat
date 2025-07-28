@@ -28,11 +28,6 @@ DelegateContextMenu {
     id: root
 
     /**
-     * @brief The delegate type of the message.
-     */
-    required property int messageComponentType
-
-    /**
      * @brief The display text of the message as rich text.
      */
     required property string htmlText
@@ -52,7 +47,8 @@ DelegateContextMenu {
 
     DelegateContextMenu.ReplyThreadMessageAction {}
 
-    QQC2.Action {
+    Kirigami.Action {
+        visible: root.messageComponentType !== MessageComponentType.Other
         text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"
         onTriggered: {
@@ -69,6 +65,7 @@ DelegateContextMenu {
         }
     }
     Kirigami.Action {
+        visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
         separator: true
     }
     DelegateContextMenu.RemoveMessageAction {}

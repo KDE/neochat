@@ -33,11 +33,6 @@ DelegateContextMenu {
      */
     required property var progressInfo
 
-    /**
-     * @brief The delegate type of the message.
-     */
-    required property int messageComponentType
-
     DelegateContextMenu.ReplyMessageAction {}
 
     Kirigami.Action {
