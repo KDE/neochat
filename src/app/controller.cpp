@@ -5,7 +5,6 @@
 #include "controller.h"
 
 #include <Quotient/connection.h>
-#include <qt6keychain/keychain.h>
 
 #include <KLocalizedString>
 
@@ -14,7 +13,6 @@
 
 #include <signal.h>
 
-#include <Quotient/csapi/notifications.h>
 #include <Quotient/events/roommemberevent.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
@@ -24,7 +22,6 @@
 #include "mediasizehelper.h"
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
-#include "models/pushrulemodel.h"
 #include "models/roomlistmodel.h"
 #include "models/roomtreemodel.h"
 #include "neochatconfig.h"
