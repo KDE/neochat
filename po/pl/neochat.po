@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
+"POT-Creation-Date: 2025-07-28 02:33+0000\n"
 "PO-Revision-Date: 2025-02-23 12:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1596,17 +1596,17 @@ msgstr ""
 "Zniekształcony lub pusty ID Matriksa<br />%1 nie jest poprawnym "
 "identyfikatorem Matriksa"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:418
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Nie udało się dołączyć do pokoju<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Poprosiłeś od dołączenie do '%1'"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Nie udało się poprosić o dołączenie do pokoju<br />%1"
@@ -2674,321 +2674,312 @@ msgstr "Miejsce docelowe"
 msgid "Leaving this room."
 msgstr "Opuszcza ten pokój."
 
-#: src/libneochat/models/actionsmodel.cpp:38
-#: src/libneochat/models/actionsmodel.cpp:224
-#: src/libneochat/models/actionsmodel.cpp:249
-#: src/libneochat/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "'%1' nie wygląda jak identyfikator pokoju, czy alias."
-
-#: src/libneochat/models/actionsmodel.cpp:46
+#: src/libneochat/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Opuszczanie pokoju %1."
 
-#: src/libneochat/models/actionsmodel.cpp:49
+#: src/libneochat/models/actionsmodel.cpp:43
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Nie znaleziono pokoju %1."
 
-#: src/libneochat/models/actionsmodel.cpp:57
-#: src/libneochat/models/actionsmodel.cpp:311
+#: src/libneochat/models/actionsmodel.cpp:51
+#: src/libneochat/models/actionsmodel.cpp:286
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Nie podano nowego pseudonimu, więc nie nastąpi żadna zmiana."
 
-#: src/libneochat/models/actionsmodel.cpp:71
-#: src/libneochat/models/actionsmodel.cpp:80
-#: src/libneochat/models/actionsmodel.cpp:89
-#: src/libneochat/models/actionsmodel.cpp:98
-#: src/libneochat/models/actionsmodel.cpp:116
-#: src/libneochat/models/actionsmodel.cpp:134
-#: src/libneochat/models/actionsmodel.cpp:148
-#: src/libneochat/models/actionsmodel.cpp:162
-#: src/libneochat/models/actionsmodel.cpp:171
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:174
 msgid "<message>"
 msgstr "<wiadomość>"
 
-#: src/libneochat/models/actionsmodel.cpp:72
+#: src/libneochat/models/actionsmodel.cpp:66
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Wstawia ¯\\_(ツ)_/¯ do zwykłej wiadomości tekstowej"
 
-#: src/libneochat/models/actionsmodel.cpp:81
+#: src/libneochat/models/actionsmodel.cpp:75
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Wstawia ( ͡° ͜ʖ ͡°) do zwykłej wiadomości tekstowej"
 
-#: src/libneochat/models/actionsmodel.cpp:90
+#: src/libneochat/models/actionsmodel.cpp:84
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Poprzedza (╯°□°）╯︵ ┻━┻ w zwykłej wiadomości tekstowej"
 
-#: src/libneochat/models/actionsmodel.cpp:99
+#: src/libneochat/models/actionsmodel.cpp:93
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Poprzedza ┬──┬ ノ( ゜-゜ノ) w zwykłej wiadomości tekstowej"
 
-#: src/libneochat/models/actionsmodel.cpp:117
+#: src/libneochat/models/actionsmodel.cpp:111
 msgid "Sends the given message colored as a rainbow"
 msgstr "Wysyła daną wiadomość w barwach tęczy"
 
-#: src/libneochat/models/actionsmodel.cpp:135
+#: src/libneochat/models/actionsmodel.cpp:129
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Wysyła daną emotikonę w barwach tęczy"
 
-#: src/libneochat/models/actionsmodel.cpp:149
+#: src/libneochat/models/actionsmodel.cpp:143
 msgid "Sends the given message as plain text"
 msgstr "Wysyła daną wiadomość w postaci zwykłego tekstu"
 
-#: src/libneochat/models/actionsmodel.cpp:163
+#: src/libneochat/models/actionsmodel.cpp:157
 msgid "Sends the given message as a spoiler"
 msgstr "Wysyła daną wiadomość jako spojler"
 
-#: src/libneochat/models/actionsmodel.cpp:172
+#: src/libneochat/models/actionsmodel.cpp:166
 msgid "Sends the given emote"
 msgstr "Wysyła daną emotikonę"
 
-#: src/libneochat/models/actionsmodel.cpp:181
+#: src/libneochat/models/actionsmodel.cpp:175
 msgid "Sends the given message as a notice"
 msgstr "Wysyła daną wiadomość jako powiadomienie"
 
-#: src/libneochat/models/actionsmodel.cpp:188
-#: src/libneochat/models/actionsmodel.cpp:341
-#: src/libneochat/models/actionsmodel.cpp:363
-#: src/libneochat/models/actionsmodel.cpp:404
-#: src/libneochat/models/actionsmodel.cpp:441
-#: src/libneochat/models/actionsmodel.cpp:474
+#: src/libneochat/models/actionsmodel.cpp:182
+#: src/libneochat/models/actionsmodel.cpp:316
+#: src/libneochat/models/actionsmodel.cpp:338
+#: src/libneochat/models/actionsmodel.cpp:379
+#: src/libneochat/models/actionsmodel.cpp:416
+#: src/libneochat/models/actionsmodel.cpp:449
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "'%1' nie wygląda jak identyfikator matriksa."
 
-#: src/libneochat/models/actionsmodel.cpp:194
+#: src/libneochat/models/actionsmodel.cpp:188
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 został już zaproszony do tego pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:198
+#: src/libneochat/models/actionsmodel.cpp:192
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 jest zbanowany w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:202
+#: src/libneochat/models/actionsmodel.cpp:196
 #, kde-format
 msgid "You are already in this room."
 msgstr "Już jesteś w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:206
+#: src/libneochat/models/actionsmodel.cpp:200
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 przebywa już w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:210
+#: src/libneochat/models/actionsmodel.cpp:204
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "%1 został zaproszony do tego pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:214
-#: src/libneochat/models/actionsmodel.cpp:354
-#: src/libneochat/models/actionsmodel.cpp:375
-#: src/libneochat/models/actionsmodel.cpp:463
+#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:329
+#: src/libneochat/models/actionsmodel.cpp:350
+#: src/libneochat/models/actionsmodel.cpp:438
 msgid "<user id>"
 msgstr "<id-użytkownika>"
 
-#: src/libneochat/models/actionsmodel.cpp:215
+#: src/libneochat/models/actionsmodel.cpp:209
 msgid "Invites the user to this room"
 msgstr "Zaprasza użytkownika do tego pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:232
-#: src/libneochat/models/actionsmodel.cpp:285
+#: src/libneochat/models/actionsmodel.cpp:220
+#: src/libneochat/models/actionsmodel.cpp:260
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Dołączanie do pokoju %1."
 
-#: src/libneochat/models/actionsmodel.cpp:237
-#: src/libneochat/models/actionsmodel.cpp:290
+#: src/libneochat/models/actionsmodel.cpp:225
+#: src/libneochat/models/actionsmodel.cpp:265
 msgid "<room alias or id>"
 msgstr "<alias lub id pokoju>"
 
-#: src/libneochat/models/actionsmodel.cpp:238
-#: src/libneochat/models/actionsmodel.cpp:291
+#: src/libneochat/models/actionsmodel.cpp:226
+#: src/libneochat/models/actionsmodel.cpp:266
 msgid "Joins the given room"
 msgstr "Dołącza do danego pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:257
+#: src/libneochat/models/actionsmodel.cpp:238
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Pukanie do pokoju %1."
 
-#: src/libneochat/models/actionsmodel.cpp:268
+#: src/libneochat/models/actionsmodel.cpp:249
 msgid "<room alias or id> [<reason>]"
 msgstr "<alias lub id pokoju> [<powód>]"
 
-#: src/libneochat/models/actionsmodel.cpp:269
+#: src/libneochat/models/actionsmodel.cpp:250
 msgid "Requests to join the given room"
 msgstr "Prośby o dołączenie do danego pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:282
+#: src/libneochat/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Już przebywasz w tym pokoju %1."
 
-#: src/libneochat/models/actionsmodel.cpp:297
-#: src/libneochat/models/actionsmodel.cpp:304
+#: src/libneochat/models/actionsmodel.cpp:272
+#: src/libneochat/models/actionsmodel.cpp:279
 msgid "[<room alias or id>]"
 msgstr "[<alias lub id pokoju>]"
 
-#: src/libneochat/models/actionsmodel.cpp:298
-#: src/libneochat/models/actionsmodel.cpp:305
+#: src/libneochat/models/actionsmodel.cpp:273
+#: src/libneochat/models/actionsmodel.cpp:280
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Opuszcza dany pokój lub ten pokój, jeśli nie podano żadnego"
 
-#: src/libneochat/models/actionsmodel.cpp:318
-#: src/libneochat/models/actionsmodel.cpp:325
-#: src/libneochat/models/actionsmodel.cpp:332
+#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:300
+#: src/libneochat/models/actionsmodel.cpp:307
 msgid "<display name>"
 msgstr "<wyświetlana nazwa>"
 
-#: src/libneochat/models/actionsmodel.cpp:319
+#: src/libneochat/models/actionsmodel.cpp:294
 msgid "Changes your global display name"
 msgstr "Zmienia twoją globalną, wyświetlaną nazwę"
 
-#: src/libneochat/models/actionsmodel.cpp:326
-#: src/libneochat/models/actionsmodel.cpp:333
+#: src/libneochat/models/actionsmodel.cpp:301
+#: src/libneochat/models/actionsmodel.cpp:308
 msgid "Changes your display name in this room"
 msgstr "Zmienia twoją wyświetlaną nazwę w tym pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:345
+#: src/libneochat/models/actionsmodel.cpp:320
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 jest już wyciszony."
 
-#: src/libneochat/models/actionsmodel.cpp:349
+#: src/libneochat/models/actionsmodel.cpp:324
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 jest teraz wyciszony."
 
-#: src/libneochat/models/actionsmodel.cpp:355
+#: src/libneochat/models/actionsmodel.cpp:330
 msgid "Ignores the given user"
 msgstr "Wycisza danego użytkownika"
 
-#: src/libneochat/models/actionsmodel.cpp:367
+#: src/libneochat/models/actionsmodel.cpp:342
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 nie jest wyciszony."
 
-#: src/libneochat/models/actionsmodel.cpp:371
+#: src/libneochat/models/actionsmodel.cpp:346
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 nie jest już wyciszony."
 
-#: src/libneochat/models/actionsmodel.cpp:376
+#: src/libneochat/models/actionsmodel.cpp:351
 msgid "Unignores the given user"
 msgstr "Usuwa wyciszenie danego użytkownika"
 
-#: src/libneochat/models/actionsmodel.cpp:394
+#: src/libneochat/models/actionsmodel.cpp:369
 msgid "<reaction text>"
 msgstr "<tekst reakcji>"
 
-#: src/libneochat/models/actionsmodel.cpp:395
+#: src/libneochat/models/actionsmodel.cpp:370
 msgid "React to the message with the given text"
 msgstr "Zareaguj na tę wiadomość danym tekstem"
 
-#: src/libneochat/models/actionsmodel.cpp:410
+#: src/libneochat/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 został już zbanowany w tym pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:418
+#: src/libneochat/models/actionsmodel.cpp:393
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Nie masz pozwolenia na banowanie użytkowników w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:424
+#: src/libneochat/models/actionsmodel.cpp:399
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Nie masz pozwolenia na zbanowanie %1 w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:428
+#: src/libneochat/models/actionsmodel.cpp:403
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 został zbanowany w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:432
-#: src/libneochat/models/actionsmodel.cpp:505
+#: src/libneochat/models/actionsmodel.cpp:407
+#: src/libneochat/models/actionsmodel.cpp:480
 msgid "<user id> [<reason>]"
 msgstr "<id-użytkownika> [<powód>]"
 
-#: src/libneochat/models/actionsmodel.cpp:433
+#: src/libneochat/models/actionsmodel.cpp:408
 msgid "Bans the given user"
 msgstr "Banuje danego użytkownika"
 
-#: src/libneochat/models/actionsmodel.cpp:449
+#: src/libneochat/models/actionsmodel.cpp:424
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Nie masz pozwolenia na odbanowywanie użytkowników w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:454
+#: src/libneochat/models/actionsmodel.cpp:429
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 nie jest zbanowany w tym pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:458
+#: src/libneochat/models/actionsmodel.cpp:433
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 został odbanowany w tym pokoju"
 
-#: src/libneochat/models/actionsmodel.cpp:464
+#: src/libneochat/models/actionsmodel.cpp:439
 msgid "Removes the ban of the given user"
 msgstr "Usuwa bana na danego użytkownika"
 
-#: src/libneochat/models/actionsmodel.cpp:478
+#: src/libneochat/models/actionsmodel.cpp:453
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Nie możesz wykopać samego siebie z pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:482
+#: src/libneochat/models/actionsmodel.cpp:457
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 nie przebywa w tym pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:491
+#: src/libneochat/models/actionsmodel.cpp:466
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Nie masz pozwolenia na wykopywanie użytkowników z tego pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:497
+#: src/libneochat/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Nie masz pozwolenia na wykopanie %1 z tego pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:501
+#: src/libneochat/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 został wykopany z tego pokoju."
 
-#: src/libneochat/models/actionsmodel.cpp:506
+#: src/libneochat/models/actionsmodel.cpp:481
 msgid "Removes the user from the room"
 msgstr "Usuwa użytkownika z pokoju"
 
@@ -6794,6 +6785,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
+
+#~ msgctxt "'<text>' does not look like a room id or alias."
+#~ msgid "'%1' does not look like a room id or alias."
+#~ msgstr "'%1' nie wygląda jak identyfikator pokoju, czy alias."
 
 #~ msgid "Timeline Events"
 #~ msgstr "Wydarzenia na osi czasu"

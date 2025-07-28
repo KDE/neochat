@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 00:42+0000\n"
+"POT-Creation-Date: 2025-07-28 02:33+0000\n"
 "PO-Revision-Date: 2025-07-12 20:04+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1570,17 +1570,17 @@ msgstr ""
 "Помилково форматований або порожній ідентифікатор Matrix<br />%1 не є "
 "правильним ідентифікатором Matrix"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:418
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Не вдалося приєднатися до кімнати<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати<br />%1"
@@ -2645,321 +2645,312 @@ msgstr "Призначення"
 msgid "Leaving this room."
 msgstr "Полишаємо цю кімнату."
 
-#: src/libneochat/models/actionsmodel.cpp:38
-#: src/libneochat/models/actionsmodel.cpp:224
-#: src/libneochat/models/actionsmodel.cpp:249
-#: src/libneochat/models/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
-
-#: src/libneochat/models/actionsmodel.cpp:46
+#: src/libneochat/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Полишаємо кімнату %1."
 
-#: src/libneochat/models/actionsmodel.cpp:49
+#: src/libneochat/models/actionsmodel.cpp:43
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Кімнати %1 не знайдено."
 
-#: src/libneochat/models/actionsmodel.cpp:57
-#: src/libneochat/models/actionsmodel.cpp:311
+#: src/libneochat/models/actionsmodel.cpp:51
+#: src/libneochat/models/actionsmodel.cpp:286
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Не вказано нового псевдоніма, ніяких змін внесено не буде."
 
-#: src/libneochat/models/actionsmodel.cpp:71
-#: src/libneochat/models/actionsmodel.cpp:80
-#: src/libneochat/models/actionsmodel.cpp:89
-#: src/libneochat/models/actionsmodel.cpp:98
-#: src/libneochat/models/actionsmodel.cpp:116
-#: src/libneochat/models/actionsmodel.cpp:134
-#: src/libneochat/models/actionsmodel.cpp:148
-#: src/libneochat/models/actionsmodel.cpp:162
-#: src/libneochat/models/actionsmodel.cpp:171
-#: src/libneochat/models/actionsmodel.cpp:180
+#: src/libneochat/models/actionsmodel.cpp:65
+#: src/libneochat/models/actionsmodel.cpp:74
+#: src/libneochat/models/actionsmodel.cpp:83
+#: src/libneochat/models/actionsmodel.cpp:92
+#: src/libneochat/models/actionsmodel.cpp:110
+#: src/libneochat/models/actionsmodel.cpp:128
+#: src/libneochat/models/actionsmodel.cpp:142
+#: src/libneochat/models/actionsmodel.cpp:156
+#: src/libneochat/models/actionsmodel.cpp:165
+#: src/libneochat/models/actionsmodel.cpp:174
 msgid "<message>"
 msgstr "<повідомлення>"
 
-#: src/libneochat/models/actionsmodel.cpp:72
+#: src/libneochat/models/actionsmodel.cpp:66
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Дописати ¯\\_(ツ)_/¯ перед звичайним текстовим повідомленням"
 
-#: src/libneochat/models/actionsmodel.cpp:81
+#: src/libneochat/models/actionsmodel.cpp:75
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Дописати ( ͡° ͜ʖ ͡°) перед звичайним текстовим повідомленням"
 
-#: src/libneochat/models/actionsmodel.cpp:90
+#: src/libneochat/models/actionsmodel.cpp:84
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Дописати (╯°□°）╯︵ ┻━┻ перед звичайним текстовим повідомленням"
 
-#: src/libneochat/models/actionsmodel.cpp:99
+#: src/libneochat/models/actionsmodel.cpp:93
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
 
-#: src/libneochat/models/actionsmodel.cpp:117
+#: src/libneochat/models/actionsmodel.cpp:111
 msgid "Sends the given message colored as a rainbow"
 msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
 
-#: src/libneochat/models/actionsmodel.cpp:135
+#: src/libneochat/models/actionsmodel.cpp:129
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
 
-#: src/libneochat/models/actionsmodel.cpp:149
+#: src/libneochat/models/actionsmodel.cpp:143
 msgid "Sends the given message as plain text"
 msgstr "Надіслати вказане повідомлення як звичайний текст"
 
-#: src/libneochat/models/actionsmodel.cpp:163
+#: src/libneochat/models/actionsmodel.cpp:157
 msgid "Sends the given message as a spoiler"
 msgstr "Надіслати вказане повідомлення як спойлер"
 
-#: src/libneochat/models/actionsmodel.cpp:172
+#: src/libneochat/models/actionsmodel.cpp:166
 msgid "Sends the given emote"
 msgstr "Надіслати вказану емоцію"
 
-#: src/libneochat/models/actionsmodel.cpp:181
+#: src/libneochat/models/actionsmodel.cpp:175
 msgid "Sends the given message as a notice"
 msgstr "Надіслати вказане повідомлення як зауваження"
 
-#: src/libneochat/models/actionsmodel.cpp:188
-#: src/libneochat/models/actionsmodel.cpp:341
-#: src/libneochat/models/actionsmodel.cpp:363
-#: src/libneochat/models/actionsmodel.cpp:404
-#: src/libneochat/models/actionsmodel.cpp:441
-#: src/libneochat/models/actionsmodel.cpp:474
+#: src/libneochat/models/actionsmodel.cpp:182
+#: src/libneochat/models/actionsmodel.cpp:316
+#: src/libneochat/models/actionsmodel.cpp:338
+#: src/libneochat/models/actionsmodel.cpp:379
+#: src/libneochat/models/actionsmodel.cpp:416
+#: src/libneochat/models/actionsmodel.cpp:449
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "Здається, «%1» не є ідентифікатором matrix."
 
-#: src/libneochat/models/actionsmodel.cpp:194
+#: src/libneochat/models/actionsmodel.cpp:188
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 вже запрошено до цієї кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:198
+#: src/libneochat/models/actionsmodel.cpp:192
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 заблоковано у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:202
+#: src/libneochat/models/actionsmodel.cpp:196
 #, kde-format
 msgid "You are already in this room."
 msgstr "Ви вже перебуваєте у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:206
+#: src/libneochat/models/actionsmodel.cpp:200
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 вже перебуває у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:210
+#: src/libneochat/models/actionsmodel.cpp:204
 #, kde-format
 msgctxt "<username> was invited into this room."
 msgid "%1 was invited into this room."
 msgstr "%1 було запрошено до цієї кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:214
-#: src/libneochat/models/actionsmodel.cpp:354
-#: src/libneochat/models/actionsmodel.cpp:375
-#: src/libneochat/models/actionsmodel.cpp:463
+#: src/libneochat/models/actionsmodel.cpp:208
+#: src/libneochat/models/actionsmodel.cpp:329
+#: src/libneochat/models/actionsmodel.cpp:350
+#: src/libneochat/models/actionsmodel.cpp:438
 msgid "<user id>"
 msgstr "<ідентифікатор користувача>"
 
-#: src/libneochat/models/actionsmodel.cpp:215
+#: src/libneochat/models/actionsmodel.cpp:209
 msgid "Invites the user to this room"
 msgstr "Запрошує користувача до цієї кімнати"
 
-#: src/libneochat/models/actionsmodel.cpp:232
-#: src/libneochat/models/actionsmodel.cpp:285
+#: src/libneochat/models/actionsmodel.cpp:220
+#: src/libneochat/models/actionsmodel.cpp:260
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Долучається до кімнати %1."
 
-#: src/libneochat/models/actionsmodel.cpp:237
-#: src/libneochat/models/actionsmodel.cpp:290
+#: src/libneochat/models/actionsmodel.cpp:225
+#: src/libneochat/models/actionsmodel.cpp:265
 msgid "<room alias or id>"
 msgstr "<альтернативна назва або ідентифікатор кімнати>"
 
-#: src/libneochat/models/actionsmodel.cpp:238
-#: src/libneochat/models/actionsmodel.cpp:291
+#: src/libneochat/models/actionsmodel.cpp:226
+#: src/libneochat/models/actionsmodel.cpp:266
 msgid "Joins the given room"
 msgstr "Долучається до вказаної кімнати"
 
-#: src/libneochat/models/actionsmodel.cpp:257
+#: src/libneochat/models/actionsmodel.cpp:238
 #, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Стукаємося до кімнати %1."
 
-#: src/libneochat/models/actionsmodel.cpp:268
+#: src/libneochat/models/actionsmodel.cpp:249
 msgid "<room alias or id> [<reason>]"
 msgstr "<альтернативна назва або ідентифікатор кімнати> [<причина>]"
 
-#: src/libneochat/models/actionsmodel.cpp:269
+#: src/libneochat/models/actionsmodel.cpp:250
 msgid "Requests to join the given room"
 msgstr "Надсилає запит щодо долучення до вказаної кімнати"
 
-#: src/libneochat/models/actionsmodel.cpp:282
+#: src/libneochat/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Ви вже перебуваєте у кімнаті %1."
 
-#: src/libneochat/models/actionsmodel.cpp:297
-#: src/libneochat/models/actionsmodel.cpp:304
+#: src/libneochat/models/actionsmodel.cpp:272
+#: src/libneochat/models/actionsmodel.cpp:279
 msgid "[<room alias or id>]"
 msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
 
-#: src/libneochat/models/actionsmodel.cpp:298
-#: src/libneochat/models/actionsmodel.cpp:305
+#: src/libneochat/models/actionsmodel.cpp:273
+#: src/libneochat/models/actionsmodel.cpp:280
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
 
-#: src/libneochat/models/actionsmodel.cpp:318
-#: src/libneochat/models/actionsmodel.cpp:325
-#: src/libneochat/models/actionsmodel.cpp:332
+#: src/libneochat/models/actionsmodel.cpp:293
+#: src/libneochat/models/actionsmodel.cpp:300
+#: src/libneochat/models/actionsmodel.cpp:307
 msgid "<display name>"
 msgstr "<показане ім'я>"
 
-#: src/libneochat/models/actionsmodel.cpp:319
+#: src/libneochat/models/actionsmodel.cpp:294
 msgid "Changes your global display name"
 msgstr "Змінює ваше загальне показане ім'я"
 
-#: src/libneochat/models/actionsmodel.cpp:326
-#: src/libneochat/models/actionsmodel.cpp:333
+#: src/libneochat/models/actionsmodel.cpp:301
+#: src/libneochat/models/actionsmodel.cpp:308
 msgid "Changes your display name in this room"
 msgstr "Змінює ваше показане ім'я у цій кімнаті"
 
-#: src/libneochat/models/actionsmodel.cpp:345
+#: src/libneochat/models/actionsmodel.cpp:320
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 вже додано до ігнорованих."
 
-#: src/libneochat/models/actionsmodel.cpp:349
+#: src/libneochat/models/actionsmodel.cpp:324
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 тепер є ігнорованим."
 
-#: src/libneochat/models/actionsmodel.cpp:355
+#: src/libneochat/models/actionsmodel.cpp:330
 msgid "Ignores the given user"
 msgstr "Ігнорує вказаного користувача"
 
-#: src/libneochat/models/actionsmodel.cpp:367
+#: src/libneochat/models/actionsmodel.cpp:342
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 не включено до ігнорованих."
 
-#: src/libneochat/models/actionsmodel.cpp:371
+#: src/libneochat/models/actionsmodel.cpp:346
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 Ігнорується."
 
-#: src/libneochat/models/actionsmodel.cpp:376
+#: src/libneochat/models/actionsmodel.cpp:351
 msgid "Unignores the given user"
 msgstr "Скасовує ігнорування вказаного користувача"
 
-#: src/libneochat/models/actionsmodel.cpp:394
+#: src/libneochat/models/actionsmodel.cpp:369
 msgid "<reaction text>"
 msgstr "<текст реакції>"
 
-#: src/libneochat/models/actionsmodel.cpp:395
+#: src/libneochat/models/actionsmodel.cpp:370
 msgid "React to the message with the given text"
 msgstr "Зреагувати на це повідомлення вказаним текстом"
 
-#: src/libneochat/models/actionsmodel.cpp:410
+#: src/libneochat/models/actionsmodel.cpp:385
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 вже заблоковано у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:418
+#: src/libneochat/models/actionsmodel.cpp:393
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Ви не можете блокувати користувачів у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:424
+#: src/libneochat/models/actionsmodel.cpp:399
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Ви не можете заблокувати %1 у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:428
+#: src/libneochat/models/actionsmodel.cpp:403
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 було заблоковано у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:432
-#: src/libneochat/models/actionsmodel.cpp:505
+#: src/libneochat/models/actionsmodel.cpp:407
+#: src/libneochat/models/actionsmodel.cpp:480
 msgid "<user id> [<reason>]"
 msgstr "<ідентифікатор користувача> [<причина>]"
 
-#: src/libneochat/models/actionsmodel.cpp:433
+#: src/libneochat/models/actionsmodel.cpp:408
 msgid "Bans the given user"
 msgstr "Блокує вказаного користувача"
 
-#: src/libneochat/models/actionsmodel.cpp:449
+#: src/libneochat/models/actionsmodel.cpp:424
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Ви не можете розблоковувати користувачів у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:454
+#: src/libneochat/models/actionsmodel.cpp:429
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 не заблоковано у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:458
+#: src/libneochat/models/actionsmodel.cpp:433
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 було розблоковано у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:464
+#: src/libneochat/models/actionsmodel.cpp:439
 msgid "Removes the ban of the given user"
 msgstr "Вилучає блокування зі вказаного користувача"
 
-#: src/libneochat/models/actionsmodel.cpp:478
+#: src/libneochat/models/actionsmodel.cpp:453
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Ви не можете викинути себе з кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:482
+#: src/libneochat/models/actionsmodel.cpp:457
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 не перебуває у цій кімнаті."
 
-#: src/libneochat/models/actionsmodel.cpp:491
+#: src/libneochat/models/actionsmodel.cpp:466
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Ви не можете викидати користувачів з цієї кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:497
+#: src/libneochat/models/actionsmodel.cpp:472
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Ви не можете викидати %1 з цієї кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:501
+#: src/libneochat/models/actionsmodel.cpp:476
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 було викинуто з цієї кімнати."
 
-#: src/libneochat/models/actionsmodel.cpp:506
+#: src/libneochat/models/actionsmodel.cpp:481
 msgid "Removes the user from the room"
 msgstr "Вилучає користувача з кімнати"
 
@@ -6709,6 +6700,11 @@ msgstr[0] "%2 вводять текст…"
 msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
+
+#~ msgctxt "'<text>' does not look like a room id or alias."
+#~ msgid "'%1' does not look like a room id or alias."
+#~ msgstr ""
+#~ "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
 
 #~ msgid "Timeline Events"
 #~ msgstr "Події розкладу"
