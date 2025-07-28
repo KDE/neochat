@@ -30,12 +30,6 @@ RowLayout {
     Layout.leftMargin: Kirigami.Units.largeSpacing
     Layout.minimumHeight: bottomEdge ? Kirigami.Units.gridUnit * 3 : -1
 
-    onVisibleChanged: {
-        if (!visible) {
-            accountsPopup.close();
-        }
-    }
-
     QQC2.ToolButton {
         id: accountButton
 
