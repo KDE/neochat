@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-28 02:33+0000\n"
-"PO-Revision-Date: 2025-03-27 10:50+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2025-07-28 12:31+0300\n"
+"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -43,12 +43,11 @@ msgid "Chat on Matrix"
 msgstr "Общение в Matrix"
 
 #: src/app/main.cpp:154
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2024 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr ""
-"© Black Hat 2018-2020\n"
-"© Сообщество KDE 2020-2024"
+"© Black Hat, 2018–2020\n"
+"© Сообщество KDE, 2020–2025"
 
 #: src/app/main.cpp:155
 #, kde-format
@@ -138,7 +137,7 @@ msgstr "Игнорировать все ошибки SSL (например, се
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Заменить существующий экземпляр"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -184,7 +183,7 @@ msgstr "Ответить…"
 #: src/app/notificationsmanager.cpp:305
 #, kde-format
 msgid "%1 invited you to a room"
-msgstr "%1 пригласил вас в комнату"
+msgstr "%1 пригласил(а) вас в комнату"
 
 #: src/app/notificationsmanager.cpp:308
 #, kde-format
@@ -226,12 +225,10 @@ msgid "Show QR Code"
 msgstr "Показать QR-код"
 
 #: src/app/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
-msgstr "Смена учётной записи"
+msgstr "Сменить учётную запись"
 
 #: src/app/qml/AccountMenu.qml:48
 #, kde-format
@@ -563,11 +560,10 @@ msgid "File"
 msgstr "Файл"
 
 #: src/app/qml/GlobalMenu.qml:42
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
-msgstr "Поиск друзей"
+msgstr "Найти друзей"
 
 #: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
@@ -585,11 +581,10 @@ msgid "Find your friends"
 msgstr "Поиск друзей"
 
 #: src/app/qml/GlobalMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
-msgstr "Создать комнату"
+msgstr "Создать комнату…"
 
 #: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
@@ -598,12 +593,10 @@ msgid "Create a Room"
 msgstr "Создание комнаты"
 
 #: src/app/qml/GlobalMenu.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore Rooms"
-msgstr "Обзор комнат"
+msgstr "Просмотреть комнаты"
 
 #: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:227
@@ -628,14 +621,12 @@ msgid "View"
 msgstr "Вид"
 
 #: src/app/qml/GlobalMenu.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
 msgid "Search Rooms"
-msgstr "Искать комнаты"
+msgstr "Найти комнаты"
 
 #: src/app/qml/GlobalMenu.qml:92
 #, kde-format
@@ -680,31 +671,25 @@ msgid "The currently selected link"
 msgstr "Текущая выбранная ссылка"
 
 #: src/app/qml/InvitationView.qml:50
-#, fuzzy, kde-format
-#| msgctxt "<username> was invited into this room."
-#| msgid "%1 was invited into this room."
+#, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
-msgstr "Пользователь %1 был приглашён в эту комнату."
+msgstr "%1 пригласил(а) вас в эту комнату в %2."
 
 #: src/app/qml/InvitationView.qml:79
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "This user is inviting you to chat."
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Этот пользователь приглашает вас в чат."
+msgstr "Этот пользователь пригласил вас в чат в %1."
 
 #: src/app/qml/InvitationView.qml:94
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
-msgstr "Принять"
+msgstr "Принять приглашение"
 
 #: src/app/qml/InvitationView.qml:109
-#, fuzzy, kde-format
-#| msgid "Reject Invitation"
+#, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Отклонить приглашение"
@@ -713,12 +698,10 @@ msgstr "Отклонить приглашение"
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
-msgstr ""
+msgstr "Заблокировать %1"
 
 #: src/app/qml/InvitationView.qml:162
-#, fuzzy, kde-format
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-format
 msgctxt "@info:label"
 msgid "You can reject invitations from unknown users under Security settings."
 msgstr ""
@@ -897,66 +880,66 @@ msgstr "Изменить состояние"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Отправить"
 
 #: src/app/qml/NewPollDialog.qml:38
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
-msgstr "Создать комнату"
+msgstr "Создание голосования"
 
 #: src/app/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Тип голосования:"
 
 #: src/app/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open poll"
-msgstr "Открыть файл"
+msgstr "Открытое голосование"
 
 #: src/app/qml/NewPollDialog.qml:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Closed poll"
-msgstr "Закрыть"
+msgstr "Закрытое голосование"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Участники голосования увидят результаты, как только проголосуют"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Результаты будут показаны только после закрытия голосования"
 
 #: src/app/qml/NewPollDialog.qml:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Question:"
-msgstr "Описание:"
+msgstr "Вопрос:"
 
 #: src/app/qml/NewPollDialog.qml:104
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr "Параметры:"
+msgstr "Вариант %1:"
 
 #: src/app/qml/NewPollDialog.qml:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enter option"
-msgstr "Шифрование"
+msgstr "Введите вариант"
 
 #: src/app/qml/NewPollDialog.qml:126
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr "Удалить родительское пространство"
+msgstr "Удалить вариант"
 
 #: src/app/qml/NewPollDialog.qml:151
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr "Добавить эмодзи"
+msgstr "Добавить вариант"
 
 #: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
 #, kde-format
@@ -1005,7 +988,7 @@ msgstr "Зачёркнутый"
 #: src/app/qml/QuickFormatBar.qml:80
 #, kde-format
 msgid "Spoiler"
-msgstr ""
+msgstr "Спойлер"
 
 #: src/app/qml/QuickFormatBar.qml:99
 #, kde-format
@@ -1373,22 +1356,16 @@ msgid "Copy link"
 msgstr "Скопировать ссылку"
 
 #: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Profile"
-msgstr "Открыть файл"
+msgstr "Открыть профиль"
 
 #: src/app/qml/UserMenu.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Mention"
-msgstr "Упоминания (@)"
+msgstr "Упомянуть"
 
 #: src/app/qml/UserSearchPage.qml:33
 #, kde-format
@@ -1631,10 +1608,10 @@ msgid "Send a Location"
 msgstr "Отправить местоположение"
 
 #: src/chatbar/ChatBar.qml:135
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
-msgstr "Создать комнату"
+msgstr "Создать голосование"
 
 #: src/chatbar/ChatBar.qml:151
 #, kde-format
@@ -1804,8 +1781,7 @@ msgid "Show focus in window header"
 msgstr "Показывать фокус в заголовке окна"
 
 #: src/devtools/DevtoolsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "Developer Tools"
+#, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Инструменты разработчика"
@@ -1864,7 +1840,7 @@ msgstr "Добавлять телефонные номера как 3PID (сто
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Вызовы"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2350,13 +2326,13 @@ msgstr "настроил(а) виджет %1"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "покинул(а) вызов"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "присоединился(лась) к вызову"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2615,18 +2591,16 @@ msgid "%1 configured a widget"
 msgstr "%1 настроил(а) виджет"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 покинул(а) комнату"
+msgstr "%1 покинул(а) вызов"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 присоединился(лась) к комнате"
+msgstr "%1 присоединился(лась) к вызову"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3092,16 +3066,13 @@ msgid "Lat: %1, Lon: %2"
 msgstr "Широта: %1, долгота: %2"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create Room"
+#, kde-format
 msgctxt "@title"
 msgid "Create Room"
-msgstr "Создать комнату"
+msgstr "Создание комнаты"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
 msgstr "Создать"
@@ -3110,57 +3081,49 @@ msgstr "Создать"
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Закрытая"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "В эту комнату можно войти только по приглашению."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Public"
+#, kde-format
 msgctxt "@info:label"
 msgid "Public"
-msgstr "Общедоступная"
+msgstr "Открытая"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:55
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "Эта комната доступна для поиска и входа всем пользователям."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Название:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
-msgstr "Покинуть комнату"
+msgstr "Новая комната"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "New Email Address:"
+#, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
-msgstr "Новый адрес электронной почты:"
+msgstr "Адрес:"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:69
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Add new room"
+#, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
-msgstr "Добавить комнату"
+msgstr "новая_комната"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:23
 #, kde-format
@@ -3169,26 +3132,22 @@ msgid "Create a Space"
 msgstr "Создание пространства"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
 msgstr "Создать"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Название:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Просмотреть пространство"
+msgstr "Новое пространство"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:60
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -3329,7 +3288,7 @@ msgstr "Загрузка"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Продолжить в браузере"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3547,7 +3506,7 @@ msgid "%1 started a user verification"
 msgstr "%1 начал(а) проверку пользователя"
 
 #: src/messagecontent/ChatBarComponent.qml:170
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Вложить изображение или файл"
@@ -3650,11 +3609,10 @@ msgstr "Время регистрации отъезда: %1"
 
 #: src/messagecontent/ImageComponent.qml:62
 #: src/messagecontent/VideoComponent.qml:191
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Установить изображение"
+msgstr "Скрыть изображение"
 
 #: src/messagecontent/ImageComponent.qml:143
 #, kde-format
@@ -3704,26 +3662,22 @@ msgid "Open Externally"
 msgstr "Открыть во внешней программе"
 
 #: src/messagecontent/LocationComponent.qml:112
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "Enter Full Screen"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
-msgstr "Полноэкранный режим"
+msgstr "Открыть на весь экран"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "Слишком большой файл для загрузки."
+msgstr "Не удалось загрузить файл."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Не удалось присоединиться к комнате<br />%1"
+msgstr "Не удалось загрузить файл:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
@@ -3738,7 +3692,7 @@ msgstr ""
 #: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>У этого события нет содержимого.</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3770,10 +3724,10 @@ msgstr[3] "%2 пользователь использовал %3"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 голос"
+msgstr[1] "%1 голоса"
+msgstr[2] "%1 голосов"
+msgstr[3] "%1 голос"
 
 #: src/messagecontent/PollComponent.qml:129
 #, kde-format
@@ -3795,6 +3749,7 @@ msgstr "(Завершено)"
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr ""
+"Голосование завершено. Ответ, набравший максимальное количество голосов: %1"
 
 #: src/messagecontent/ReactionComponent.qml:89
 #, kde-format
@@ -4011,7 +3966,7 @@ msgstr "Комнаты"
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
-msgstr "Искать комнаты"
+msgstr "Найти комнаты"
 
 #: src/rooms/ExploreComponent.qml:60
 #, kde-format
@@ -4118,20 +4073,16 @@ msgid "Deprioritize"
 msgstr "Понизить приоритет"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Скопировать идентификатор Matrix пользователя в буфер обмена"
+msgstr "Скопировать идентификатор Matrix пользователя"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Address"
-msgstr "Скопировать адрес ссылки"
+msgstr "Скопировать адрес комнаты"
 
 #: src/rooms/RoomContextMenu.qml:143
 #, kde-format
@@ -4208,15 +4159,14 @@ msgid "Home"
 msgstr "Домашняя страница"
 
 #: src/rooms/SpaceDrawer.qml:137
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
 msgid_plural "Friends (%1 notifications)"
-msgstr[0] "Просмотреть уведомления"
-msgstr[1] "Просмотреть уведомления"
-msgstr[2] "Просмотреть уведомления"
-msgstr[3] "Просмотреть уведомления"
+msgstr[0] "Друзья (%1 уведомление)"
+msgstr[1] "Друзья (%1 уведомления)"
+msgstr[2] "Друзья (%1 уведомлений)"
+msgstr[3] "Друзья (%1 уведомление)"
 
 #: src/rooms/SpaceDrawer.qml:140
 #, kde-format
@@ -4242,12 +4192,10 @@ msgid "View Space"
 msgstr "Просмотреть пространство"
 
 #: src/rooms/SpaceListContextMenu.qml:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Скопировать адрес ссылки"
+msgstr "Скопировать адрес пространства"
 
 #: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:109
 #, kde-format
@@ -5237,29 +5185,28 @@ msgid "Custom"
 msgstr "Другой"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "В сети"
+msgstr "Хронология"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Следует ли отмечать сообщения прочитанными:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Нет"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "присоединился(лась) к комнате"
+msgstr "При входе в комнату"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5267,26 +5214,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "При входе в комнату, если видны все непрочитанные сообщения"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "присоединился(лась) к комнате"
+msgstr "При выходе из комнаты"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr ""
-"Комнаты с наибольшим количеством непрочитанных сообщений будут выше в списке"
+msgstr "При выходе из комнаты, если видны все непрочитанные сообщения"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
@@ -5365,26 +5308,22 @@ msgid "Default Settings"
 msgstr "Параметры по умолчанию"
 
 #: src/settings/NeoChatGeneralPage.qml:348
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reset All Configuration Values to Their Default"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default"
 msgstr "Вернуть всем параметрам настройки значения по умолчанию"
 
 #: src/settings/NeoChatGeneralPage.qml:354
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Re-send confirmation e-mail"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr "Повторно отправить эл. письмо для подтверждения"
+msgstr "Сброс конфигурации"
 
 #: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
-msgstr ""
+msgstr "Действительно вернуть все параметры к значениям по умолчанию?"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
@@ -5683,11 +5622,10 @@ msgid "Event Type…"
 msgstr "Тип событий…"
 
 #: src/settings/Permissions.qml:415
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
-msgstr "Загрузка..."
+msgstr "Загрузка…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -5720,53 +5658,46 @@ msgstr "По умолчанию"
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
-msgstr ""
+msgstr "Дополнительные параметры"
 
 #: src/settings/RoomAdvancedPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Идентификатор комнаты"
 
 #: src/settings/RoomAdvancedPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Скопировать идентификатор комнаты в буфер обмена"
 
 #: src/settings/RoomAdvancedPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Версия комнаты"
 
 #: src/settings/RoomAdvancedPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room"
 msgstr "Обновить комнату"
 
 #: src/settings/RoomAdvancedPage.qml:78
-#, fuzzy, kde-format
-#| msgid "Upgrade the Room"
+#, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Обновление комнаты"
 
 #: src/settings/RoomAdvancedPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Select new version"
+#, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
-msgstr "Выберите новую версию"
+msgstr "Новая версия"
 
 #: src/settings/RoomAdvancedPage.qml:90
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Подтвердить"
@@ -5777,15 +5708,13 @@ msgid "Update avatar"
 msgstr "Обновить изображение"
 
 #: src/settings/RoomGeneralPage.qml:66
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Название:"
 
 #: src/settings/RoomGeneralPage.qml:75
-#, fuzzy, kde-format
-#| msgid "Topic:"
+#, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "Тема:"
@@ -6120,7 +6049,7 @@ msgstr "Профиль"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
-msgstr ""
+msgstr "Дополнительные параметры"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6375,23 +6304,19 @@ msgstr ""
 "комнаты. Удалить эти данные?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
 msgstr "Выбор существующей комнаты"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Выбрать комнату"
 
 #: src/spaces/SelectExistingRoomDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "You have the required privilege level in the child to set this state"
+#, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
@@ -6420,6 +6345,8 @@ msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
 msgstr ""
+"Каноническое родительское пространство — это родительское пространство по "
+"умолчанию, если у комнаты несколько родительских пространств."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -6465,27 +6392,22 @@ msgid "Make Suggested"
 msgstr "Внести в список предлагаемых"
 
 #: src/spaces/SpaceHomePage.qml:32
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "Создать группу…"
+msgstr "Новая комната…"
 
 #: src/spaces/SpaceHomePage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Просмотреть пространство"
+msgstr "Новое пространство…"
 
 #: src/spaces/SpaceHomePage.qml:44
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "Выбор существующей комнаты"
+msgstr "Существующая комната…"
 
 #: src/spaces/SpaceHomePage.qml:78
 #, kde-format
@@ -6494,11 +6416,10 @@ msgid "Invite user to space"
 msgstr "Пригласить пользователя в пространство"
 
 #: src/spaces/SpaceHomePage.qml:90
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "Добавить в избранное"
+msgstr "Добавить в пространство"
 
 #: src/timeline/DelegateContextMenu.qml:76
 #, kde-format
@@ -6535,8 +6456,7 @@ msgid "Remove"
 msgstr "Удалить"
 
 #: src/timeline/DelegateContextMenu.qml:113
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
@@ -6586,27 +6506,19 @@ msgid "Open Image"
 msgstr "Открыть изображение"
 
 #: src/timeline/FileDelegateContextMenu.qml:52
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
-msgstr "Открыть файл"
+msgstr "Открыть аудиофайл"
 
 #: src/timeline/FileDelegateContextMenu.qml:54
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
-msgstr "Открыть файл"
+msgstr "Открыть видеофайл"
 
 #: src/timeline/FileDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Открыть файл"
@@ -6618,28 +6530,22 @@ msgid "Save Image…"
 msgstr "Сохранить изображение…"
 
 #: src/timeline/FileDelegateContextMenu.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
-msgstr "Сохранить изображение…"
+msgstr "Сохранить аудиофайл…"
 
 #: src/timeline/FileDelegateContextMenu.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
-msgstr "Сохранить изображение…"
+msgstr "Сохранить видеофайл…"
 
 #: src/timeline/FileDelegateContextMenu.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Save Image…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
-msgstr "Сохранить изображение…"
+msgstr "Сохранить файл…"
 
 #: src/timeline/FileDelegateContextMenu.qml:88
 #, kde-format
@@ -6648,26 +6554,22 @@ msgid "Copy Image"
 msgstr "Скопировать изображение"
 
 #: src/timeline/FileDelegateContextMenu.qml:90
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
-msgstr "Скопировать ссылку"
+msgstr "Скопировать аудиофайл"
 
 #: src/timeline/FileDelegateContextMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show Video"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
-msgstr "Показать видео"
+msgstr "Скопировать видеофайл"
 
 #: src/timeline/FileDelegateContextMenu.qml:94
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
-msgstr "Скопировать ссылку"
+msgstr "Скопировать файл"
 
 #: src/timeline/FileDelegateContextMenu.qml:109
 #, kde-format
@@ -6708,13 +6610,13 @@ msgstr "Скопировать ссылку на сообщение"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Зачитать текст вслух"
 
 #: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 сказал(а) %2"
 
 #: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
@@ -6753,10 +6655,9 @@ msgid "React"
 msgstr "Реакция"
 
 #: src/timeline/QuickActions.qml:81
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgid "Message menu"
-msgstr "Исходный код сообщения"
+msgstr "Меню сообщения"
 
 #: src/timeline/ReadMarkerDelegate.qml:42
 #, kde-format
