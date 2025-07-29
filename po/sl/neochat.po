@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-27 00:42+0000\n"
+"POT-Creation-Date: 2025-07-29 00:41+0000\n"
 "PO-Revision-Date: 2025-07-27 08:08+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: src/app/controller.cpp:183
+#: src/app/controller.cpp:180
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -29,7 +29,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje obvestil za nova sporočila"
 
-#: src/app/controller.cpp:329
+#: src/app/controller.cpp:326
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -170,7 +170,7 @@ msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
 #: src/app/notificationsmanager.cpp:245
-#: src/timeline/DelegateContextMenu.qml:103 src/timeline/QuickActions.qml:66
+#: src/timeline/DelegateContextMenu.qml:109 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
@@ -337,7 +337,7 @@ msgid "Attachment:"
 msgstr "Priloga:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
-#: src/timeline/MessageDelegateContextMenu.qml:41
+#: src/timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -532,46 +532,23 @@ msgstr "Zapri"
 #: src/app/qml/GlobalMenu.qml:21
 #, kde-format
 msgctxt "menu"
-msgid "NeoChat"
-msgstr "NeoChat"
-
-#: src/app/qml/GlobalMenu.qml:24
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "Konfiguriraj NeoChat…"
-
-#: src/app/qml/GlobalMenu.qml:25
-#, kde-format
-msgctxt "menu"
-msgid "Configure NeoChat…"
-msgstr "Konfiguriraj NeoChat…"
-
-#: src/app/qml/GlobalMenu.qml:31
-#, kde-format
-msgctxt "menu"
-msgid "Quit NeoChat"
-msgstr "Zapusti NeoChat"
-
-#: src/app/qml/GlobalMenu.qml:38
-#, kde-format
-msgctxt "menu"
 msgid "File"
 msgstr "Datoteka"
 
-#: src/app/qml/GlobalMenu.qml:42
+#: src/app/qml/GlobalMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/app/qml/GlobalMenu.qml:43 src/app/qml/GlobalMenu.qml:53
+#: src/app/qml/GlobalMenu.qml:26 src/app/qml/GlobalMenu.qml:36
 #: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
 #: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/app/qml/GlobalMenu.qml:47 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:83
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
 #: src/rooms/RoomListPage.qml:245
 #, kde-format
@@ -579,25 +556,25 @@ msgctxt "@title"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/app/qml/GlobalMenu.qml:52
+#: src/app/qml/GlobalMenu.qml:35
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Create a Room…"
 msgstr "Ustvari sobo…"
 
-#: src/app/qml/GlobalMenu.qml:59 src/rooms/ExploreComponentMobile.qml:149
+#: src/app/qml/GlobalMenu.qml:42 src/rooms/ExploreComponentMobile.qml:149
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
 msgstr "Ustvari sobo"
 
-#: src/app/qml/GlobalMenu.qml:65
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Razišči sobe"
 
-#: src/app/qml/GlobalMenu.qml:70 src/app/qml/QuickSwitcher.qml:39
+#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:39
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -607,19 +584,36 @@ msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Razišči sobe"
 
-#: src/app/qml/GlobalMenu.qml:79
+#: src/app/qml/GlobalMenu.qml:61
+#, kde-format
+msgid "Configure NeoChat…"
+msgstr "Konfiguriraj NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:62
+#, kde-format
+msgctxt "menu"
+msgid "Configure NeoChat…"
+msgstr "Konfiguriraj NeoChat…"
+
+#: src/app/qml/GlobalMenu.qml:68
+#, kde-format
+msgctxt "menu"
+msgid "Quit NeoChat"
+msgstr "Zapusti NeoChat"
+
+#: src/app/qml/GlobalMenu.qml:75
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Uredi"
 
-#: src/app/qml/GlobalMenu.qml:83
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Pogled"
 
-#: src/app/qml/GlobalMenu.qml:87
+#: src/app/qml/GlobalMenu.qml:83
 #, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
@@ -627,37 +621,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "Išči sobe"
 
-#: src/app/qml/GlobalMenu.qml:92
+#: src/app/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Okno"
 
-#: src/app/qml/GlobalMenu.qml:96
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Izhod iz celozaslonskega načina"
 
-#: src/app/qml/GlobalMenu.qml:96
+#: src/app/qml/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Vstopi na celotni zaslon"
 
-#: src/app/qml/GlobalMenu.qml:101
+#: src/app/qml/GlobalMenu.qml:97
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Pomoč"
 
-#: src/app/qml/GlobalMenu.qml:105
+#: src/app/qml/GlobalMenu.qml:101
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "O programu NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:110
+#: src/app/qml/GlobalMenu.qml:106
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -1770,13 +1764,28 @@ msgctxt "@option:check"
 msgid "Show hidden events in the timeline"
 msgstr "Prikaži skrite dogodke v časovnici"
 
+#: src/devtools/DebugOptions.qml:24
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Show hidden events in the timeline"
+msgctxt "@option:check"
+msgid "Allow sending relations to any event in the timeline"
+msgstr "Prikaži skrite dogodke v časovnici"
+
 #: src/devtools/DebugOptions.qml:25
+#, fuzzy, kde-format
+#| msgid "Show state events"
+msgctxt "@info"
+msgid "This includes state events"
+msgstr "Prikaži dogodke stanj"
+
+#: src/devtools/DebugOptions.qml:32
 #, kde-format
 msgctxt "@option:check Enable the matrix 'threads' feature"
 msgid "Always allow device verification"
 msgstr "Vedno dovoli preverjanje naprave"
 
-#: src/devtools/DebugOptions.qml:26
+#: src/devtools/DebugOptions.qml:33
 #, kde-format
 msgid ""
 "Allow the user to start a verification session with devices that were "
@@ -1785,7 +1794,7 @@ msgstr ""
 "Omogočite uporabniku, da začne sejo preverjanja z napravami, ki so že bile "
 "preverjene"
 
-#: src/devtools/DebugOptions.qml:32
+#: src/devtools/DebugOptions.qml:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Show focus in window header"
@@ -4228,14 +4237,16 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
 msgstr "Zapusti prostor…"
 
-#: src/rooms/UserInfo.qml:50
+#: src/rooms/UserInfo.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Upravljaj račun"
 
-#: src/rooms/UserInfo.qml:101
-#, kde-format
+#: src/rooms/UserInfo.qml:94
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
 
@@ -6426,215 +6437,215 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Dodaj v prostor"
 
-#: src/timeline/DelegateContextMenu.qml:76
+#: src/timeline/DelegateContextMenu.qml:81
 #, kde-format
 msgid "View Source"
 msgstr "Prikaži vir"
 
-#: src/timeline/DelegateContextMenu.qml:83
+#: src/timeline/DelegateContextMenu.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Odstrani…"
 
-#: src/timeline/DelegateContextMenu.qml:88
 #: src/timeline/DelegateContextMenu.qml:93
+#: src/timeline/DelegateContextMenu.qml:98
+#: src/timeline/FileDelegateContextMenu.qml:109
 #: src/timeline/FileDelegateContextMenu.qml:114
-#: src/timeline/FileDelegateContextMenu.qml:119
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Odstrani sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:89
-#: src/timeline/FileDelegateContextMenu.qml:115
+#: src/timeline/DelegateContextMenu.qml:94
+#: src/timeline/FileDelegateContextMenu.qml:110
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Razlog za odstranjevanje tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:90
-#: src/timeline/FileDelegateContextMenu.qml:116
+#: src/timeline/DelegateContextMenu.qml:95
+#: src/timeline/FileDelegateContextMenu.qml:111
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/timeline/DelegateContextMenu.qml:113
+#: src/timeline/DelegateContextMenu.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: src/timeline/DelegateContextMenu.qml:126
+#: src/timeline/DelegateContextMenu.qml:133
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Poročilo…"
 
-#: src/timeline/DelegateContextMenu.qml:131
+#: src/timeline/DelegateContextMenu.qml:138
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:132
+#: src/timeline/DelegateContextMenu.qml:139
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Razlog za poročanje tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:134
+#: src/timeline/DelegateContextMenu.qml:141
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Poročilo"
 
-#: src/timeline/DelegateContextMenu.qml:136
+#: src/timeline/DelegateContextMenu.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:149
+#: src/timeline/DelegateContextMenu.qml:156
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Odpni"
 
-#: src/timeline/DelegateContextMenu.qml:149
+#: src/timeline/DelegateContextMenu.qml:156
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Pripni"
 
-#: src/timeline/FileDelegateContextMenu.qml:50
+#: src/timeline/FileDelegateContextMenu.qml:45
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Odpri sliko"
 
-#: src/timeline/FileDelegateContextMenu.qml:52
+#: src/timeline/FileDelegateContextMenu.qml:47
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Odpri avdio"
 
-#: src/timeline/FileDelegateContextMenu.qml:54
+#: src/timeline/FileDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Odpri video"
 
-#: src/timeline/FileDelegateContextMenu.qml:56
+#: src/timeline/FileDelegateContextMenu.qml:51
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/timeline/FileDelegateContextMenu.qml:68
+#: src/timeline/FileDelegateContextMenu.qml:63
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Shrani sliko…"
 
-#: src/timeline/FileDelegateContextMenu.qml:70
+#: src/timeline/FileDelegateContextMenu.qml:65
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Shrani avdio…"
 
-#: src/timeline/FileDelegateContextMenu.qml:72
+#: src/timeline/FileDelegateContextMenu.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Shrani video…"
 
-#: src/timeline/FileDelegateContextMenu.qml:74
+#: src/timeline/FileDelegateContextMenu.qml:69
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Shrani datoteko…"
 
-#: src/timeline/FileDelegateContextMenu.qml:88
+#: src/timeline/FileDelegateContextMenu.qml:83
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiraj sliko"
 
-#: src/timeline/FileDelegateContextMenu.qml:90
+#: src/timeline/FileDelegateContextMenu.qml:85
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopiraj avdio"
 
-#: src/timeline/FileDelegateContextMenu.qml:92
+#: src/timeline/FileDelegateContextMenu.qml:87
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Prikaži video"
 
-#: src/timeline/FileDelegateContextMenu.qml:94
+#: src/timeline/FileDelegateContextMenu.qml:89
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopiraj datoteko"
 
-#: src/timeline/FileDelegateContextMenu.qml:109
+#: src/timeline/FileDelegateContextMenu.qml:104
 #, kde-format
 msgid "Remove…"
 msgstr "Odstrani…"
 
-#: src/timeline/MessageDelegateContextMenu.qml:56
+#: src/timeline/MessageDelegateContextMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Naprej…"
 
-#: src/timeline/MessageDelegateContextMenu.qml:62
+#: src/timeline/MessageDelegateContextMenu.qml:58
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Prenesi sporočilo naprej"
 
-#: src/timeline/MessageDelegateContextMenu.qml:76
+#: src/timeline/MessageDelegateContextMenu.qml:73
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiraj naslov povezave"
 
-#: src/timeline/MessageDelegateContextMenu.qml:82
+#: src/timeline/MessageDelegateContextMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: src/timeline/MessageDelegateContextMenu.qml:87
+#: src/timeline/MessageDelegateContextMenu.qml:84
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiraj povezavo na sporočilo"
 
-#: src/timeline/MessageDelegateContextMenu.qml:94
+#: src/timeline/MessageDelegateContextMenu.qml:91
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Preberi besedilo na glas"
 
-#: src/timeline/MessageDelegateContextMenu.qml:97
+#: src/timeline/MessageDelegateContextMenu.qml:94
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 je rekel %2"
 
-#: src/timeline/MessageDelegateContextMenu.qml:121
+#: src/timeline/MessageDelegateContextMenu.qml:118
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Poišči »%1«"
 
-#: src/timeline/MessageDelegateContextMenu.qml:141
+#: src/timeline/MessageDelegateContextMenu.qml:138
 #, kde-format
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguriraj spletne bližnjice…"
@@ -6713,6 +6724,10 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "menu"
+#~ msgid "NeoChat"
+#~ msgstr "NeoChat"
 
 #~ msgctxt "'<text>' does not look like a room id or alias."
 #~ msgid "'%1' does not look like a room id or alias."
