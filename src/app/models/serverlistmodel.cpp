@@ -176,7 +176,7 @@ void ServerListModel::initialize()
         true,
         false,
     });
-    beginResetModel();
+    endResetModel();
 }
 
 #include "moc_serverlistmodel.cpp"
