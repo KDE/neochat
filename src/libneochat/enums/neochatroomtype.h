@@ -23,6 +23,7 @@ public:
      * @brief Defines the room list categories a room can be assigned.
      */
     enum Types {
+        ServerNotice, /**< Official messages from the server. */
         Invited, /**< The user has been invited to the room. */
         Favorite, /**< The room is set as a favourite. */
         Direct, /**< The room is a direct chat. */
@@ -36,6 +37,9 @@ public:
 
     static NeoChatRoomType::Types typeForRoom(const NeoChatRoom *room)
     {
+        if (room->hasAccountData(u"m.tag"_s) && room->accountData(u"m.tag"_s)->contentPart<QJsonObject>(u"tags"_s).contains(u"m.server_notice"_s)) {
+            return NeoChatRoomType::ServerNotice;
+        }
         if (room->isSpace()) {
             return NeoChatRoomType::Space;
         }
@@ -69,6 +73,8 @@ public:
             return i18n("Low priority");
         case NeoChatRoomType::Space:
             return i18n("Spaces");
+        case NeoChatRoomType::ServerNotice:
+            return i18nc("@info Meaning: official information messages from your server", "Server Notices");
         default:
             return {};
         }
