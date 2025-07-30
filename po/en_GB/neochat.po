@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2024-11-23 12:05+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -216,13 +216,13 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Open NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Show QR Code"
 
-#: src/app/qml/AccountMenu.qml:40
+#: src/app/qml/AccountMenu.qml:37
 #, fuzzy, kde-format
 #| msgctxt "@title: dialog to switch between logged in accounts"
 #| msgid "Switch Account"
@@ -230,48 +230,53 @@ msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Switch Account"
 
-#: src/app/qml/AccountMenu.qml:48
+#: src/app/qml/AccountMenu.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit this account"
+msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Edit this account"
 
-#: src/app/qml/AccountMenu.qml:54
+#: src/app/qml/AccountMenu.qml:52
 #, fuzzy, kde-format
 #| msgid "Notification settings"
+msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Notification settings"
 
-#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
-#, kde-format
+#: src/app/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Devices"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
+#: src/app/qml/AccountMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Open developer tools"
+msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Open developer tools"
 
-#: src/app/qml/AccountMenu.qml:76
+#: src/app/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Developer Tools"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Open Secret Backup"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Open Key Backup"
 
-#: src/app/qml/AccountMenu.qml:92
+#: src/app/qml/AccountMenu.qml:90
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Verify this Device"
@@ -279,21 +284,22 @@ msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verify this Device"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:98
+#: src/app/qml/AccountMenu.qml:97 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:108
 #, fuzzy, kde-format
 #| msgid "Logout"
+msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "Logout"
 
@@ -3153,12 +3159,12 @@ msgstr "Room creation failed: %1"
 msgid "Space creation failed: %1"
 msgstr "Space creation failed: %1"
 
-#: src/libneochat/neochatroom.cpp:1209
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Report sent successfully."
 
-#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
+#: src/libneochat/neochatroom.cpp:1577 src/libneochat/neochatroom.cpp:1585
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3474,7 +3480,7 @@ msgid "Register"
 msgstr "Register"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
+#: src/settings/DevicesPage.qml:100
 #, kde-format
 msgid "Password:"
 msgstr "Password:"
@@ -4532,6 +4538,12 @@ msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Accounts"
 
+#: src/settings/AccountsPage.qml:88
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
+msgstr "Logout"
+
 #: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
@@ -4726,38 +4738,54 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "This Device"
 
-#: src/settings/DevicesPage.qml:38
+#: src/settings/DevicesPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify this Device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Verify this Device"
+
+#: src/settings/DevicesPage.qml:40
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"This device is marked as insecure until it's verified by another device. "
+"It's recommended to verify as soon as possible."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:57
 #, fuzzy, kde-format
 #| msgid "Verified Devices"
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verified Devices"
 
-#: src/settings/DevicesPage.qml:43
+#: src/settings/DevicesPage.qml:62
 #, fuzzy, kde-format
 #| msgid "Unverified Devices"
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Unverified Devices"
 
-#: src/settings/DevicesPage.qml:48
+#: src/settings/DevicesPage.qml:67
 #, fuzzy, kde-format
 #| msgid "Devices without Encryption Support"
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Devices without Encryption Support"
 
-#: src/settings/DevicesPage.qml:63
+#: src/settings/DevicesPage.qml:82
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Please login to view the signed-in devices for your account."
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:94
 #, kde-format
 msgid "Remove device"
 msgstr "Remove device"
 
-#: src/settings/DevicesPage.qml:87
+#: src/settings/DevicesPage.qml:106
 #, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
@@ -5486,6 +5514,12 @@ msgstr "Developer Settings"
 msgid "Enable developer tools"
 msgstr "Enable developer tools"
 
+#: src/settings/NeoChatGeneralPage.qml:334
+#, fuzzy, kde-format
+#| msgid "Open developer tools"
+msgid "Open Developer Tools"
+msgstr "Open developer tools"
+
 #: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
@@ -5672,6 +5706,11 @@ msgstr "Stickers & Emojis"
 #, kde-format
 msgid "Network Proxy"
 msgstr "Network Proxy"
+
+#: src/settings/NeoChatSettingsView.qml:90
+#, kde-format
+msgid "Devices"
+msgstr "Devices"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format

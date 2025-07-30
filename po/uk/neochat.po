@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:41+0000\n"
-"PO-Revision-Date: 2025-07-27 16:42+0300\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
+"PO-Revision-Date: 2025-07-29 09:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -218,76 +218,86 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Відкрити NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Показати QR-код"
 
-#: src/app/qml/AccountMenu.qml:40
+#: src/app/qml/AccountMenu.qml:37
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Перемкнути обліковий запис"
 
-#: src/app/qml/AccountMenu.qml:48
-#, kde-format
+#: src/app/qml/AccountMenu.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit This Account"
+msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Редагувати цей обліковий запис"
 
-#: src/app/qml/AccountMenu.qml:54
-#, kde-format
+#: src/app/qml/AccountMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Notification Settings"
+msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Параметри сповіщення"
 
-#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
-#, kde-format
+#: src/app/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
-#, kde-format
+#: src/app/qml/AccountMenu.qml:68
+#, fuzzy, kde-format
+#| msgid "Open Developer Tools"
+msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:76
+#: src/app/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Відкриття резервної копії реєстраційних даних"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Відкриття резервної копії ключів"
 
-#: src/app/qml/AccountMenu.qml:92
+#: src/app/qml/AccountMenu.qml:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Перевірити цей пристрій"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Надіслано запит щодо перевірки"
 
-#: src/app/qml/AccountMenu.qml:98
+#: src/app/qml/AccountMenu.qml:97 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Далі, вам слід прийняти запит щодо перевірки на іншому пристрої."
 
-#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
+#: src/app/qml/AccountMenu.qml:108
+#, fuzzy, kde-format
+#| msgid "Logout…"
+msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "Вийти…"
 
@@ -1772,19 +1782,16 @@ msgid "Show hidden events in the timeline"
 msgstr "Показувати приховані події у розкладі"
 
 #: src/devtools/DebugOptions.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show hidden events in the timeline"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow sending relations to any event in the timeline"
-msgstr "Показувати приховані події у розкладі"
+msgstr "Дозволити надсилання зв'язків до будь-якої події у розкладі"
 
 #: src/devtools/DebugOptions.qml:25
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "@info"
 msgid "This includes state events"
-msgstr "Показувати події стану"
+msgstr "Включає події стану"
 
 #: src/devtools/DebugOptions.qml:32
 #, kde-format
@@ -3089,12 +3096,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/libneochat/neochatroom.cpp:1209
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
+#: src/libneochat/neochatroom.cpp:1577 src/libneochat/neochatroom.cpp:1585
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3398,7 +3405,7 @@ msgid "Register"
 msgstr "Зареєструватися"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
+#: src/settings/DevicesPage.qml:100
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
@@ -4254,8 +4261,7 @@ msgid "Manage Account"
 msgstr "Керування обліковим записом"
 
 #: src/rooms/UserInfo.qml:94
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Відкрити налаштування"
@@ -4415,6 +4421,11 @@ msgstr "Редактор облікових записів"
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Облікові записи"
+
+#: src/settings/AccountsPage.qml:88
+#, kde-format
+msgid "Logout…"
+msgstr "Вийти…"
 
 #: src/settings/AccountsPage.qml:118
 #, kde-format
@@ -4609,37 +4620,53 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Цей пристрій"
 
-#: src/settings/DevicesPage.qml:38
+#: src/settings/DevicesPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify This Device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Перевірити цей пристрій"
+
+#: src/settings/DevicesPage.qml:40
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"This device is marked as insecure until it's verified by another device. "
+"It's recommended to verify as soon as possible."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:57
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Перевірені пристрої"
 
-#: src/settings/DevicesPage.qml:43
+#: src/settings/DevicesPage.qml:62
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Неперевірені пристрої"
 
-#: src/settings/DevicesPage.qml:48
+#: src/settings/DevicesPage.qml:67
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Пристрої без підтримки шифрування"
 
-#: src/settings/DevicesPage.qml:63
+#: src/settings/DevicesPage.qml:82
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 "Будь ласка, увійдіть до системи для перегляду підписаних пристроїв для "
 "вашого облікового запису."
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:94
 #, kde-format
 msgid "Remove device"
 msgstr "Вилучити пристрій"
 
-#: src/settings/DevicesPage.qml:87
+#: src/settings/DevicesPage.qml:106
 #, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
@@ -5344,6 +5371,11 @@ msgstr "Параметри розробки"
 msgid "Enable developer tools"
 msgstr "Увімкнути інструменти розробника"
 
+#: src/settings/NeoChatGeneralPage.qml:334
+#, kde-format
+msgid "Open Developer Tools"
+msgstr "Відкрити інструменти розробника"
+
 #: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
@@ -5522,6 +5554,11 @@ msgstr "Наліпки та емоційки"
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
+
+#: src/settings/NeoChatSettingsView.qml:90
+#, kde-format
+msgid "Devices"
+msgstr "Пристрої"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format

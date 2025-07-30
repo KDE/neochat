@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2025-06-18 18:48+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -216,78 +216,87 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Atvērt „NeoChat“"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Rādīt kvadrātkodu"
 
-#: src/app/qml/AccountMenu.qml:40
+#: src/app/qml/AccountMenu.qml:37
 #, fuzzy, kde-format
 #| msgid "Switch Account"
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Pārslēgties starp kontiem"
 
-#: src/app/qml/AccountMenu.qml:48
-#, kde-format
+#: src/app/qml/AccountMenu.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit This Account"
+msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Rediģēt šo kontu"
 
-#: src/app/qml/AccountMenu.qml:54
-#, kde-format
+#: src/app/qml/AccountMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Notification Settings"
+msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Paziņojumu iestatījumi"
 
-#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
-#, kde-format
+#: src/app/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Ierīces"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
-#, kde-format
+#: src/app/qml/AccountMenu.qml:68
+#, fuzzy, kde-format
+#| msgid "Open Developer Tools"
+msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Atvērt rīkus izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:76
+#: src/app/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Rīki izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Atvērt slepeno rezervi"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Atvērt atslēgas rezervi"
 
-#: src/app/qml/AccountMenu.qml:92
+#: src/app/qml/AccountMenu.qml:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verificēt šo ierīci"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Ir nosūtīts verifikācijas pieprasījums"
 
-#: src/app/qml/AccountMenu.qml:98
+#: src/app/qml/AccountMenu.qml:97 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Lai turpinātu, otrā ierīcē apstipriniet verifikācijas pieprasījumu."
 
-#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:108
 #, fuzzy, kde-format
 #| msgid "Logout"
+msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "Izrakstīties"
 
@@ -3078,12 +3087,12 @@ msgstr "Istabas izveide neizdevās: %1"
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/libneochat/neochatroom.cpp:1209
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
+#: src/libneochat/neochatroom.cpp:1577 src/libneochat/neochatroom.cpp:1585
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3383,7 +3392,7 @@ msgid "Register"
 msgstr "Reģistrēties"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
+#: src/settings/DevicesPage.qml:100
 #, kde-format
 msgid "Password:"
 msgstr "Parole:"
@@ -4404,6 +4413,12 @@ msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Konti"
 
+#: src/settings/AccountsPage.qml:88
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
+msgstr "Izrakstīties"
+
 #: src/settings/AccountsPage.qml:118
 #, kde-format
 msgid "Add Account"
@@ -4594,35 +4609,51 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Šī ierīce"
 
-#: src/settings/DevicesPage.qml:38
+#: src/settings/DevicesPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify This Device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Verificēt šo ierīci"
+
+#: src/settings/DevicesPage.qml:40
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"This device is marked as insecure until it's verified by another device. "
+"It's recommended to verify as soon as possible."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:57
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verificētās ierīces"
 
-#: src/settings/DevicesPage.qml:43
+#: src/settings/DevicesPage.qml:62
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Neverificētās ierīces"
 
-#: src/settings/DevicesPage.qml:48
+#: src/settings/DevicesPage.qml:67
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Ierīces bez šifrēšanas atbalsta"
 
-#: src/settings/DevicesPage.qml:63
+#: src/settings/DevicesPage.qml:82
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Lūdzu, ierakstieties, ka apskatītu šī konta ierakstītās ierīces."
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:94
 #, kde-format
 msgid "Remove device"
 msgstr "Noņemt ierīci"
 
-#: src/settings/DevicesPage.qml:87
+#: src/settings/DevicesPage.qml:106
 #, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
@@ -5322,6 +5353,11 @@ msgstr "Iestatījumi izstrādātājiem"
 msgid "Enable developer tools"
 msgstr "Ieslēgt rīkus izstrādātājiem"
 
+#: src/settings/NeoChatGeneralPage.qml:334
+#, kde-format
+msgid "Open Developer Tools"
+msgstr "Atvērt rīkus izstrādātājiem"
+
 #: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
@@ -5502,6 +5538,11 @@ msgstr "Uzlīmes un emocijzīmes"
 #, kde-format
 msgid "Network Proxy"
 msgstr "Tīkla starpniekserveris"
+
+#: src/settings/NeoChatSettingsView.qml:90
+#, kde-format
+msgid "Devices"
+msgstr "Ierīces"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format

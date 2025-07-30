@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:41+0000\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -223,83 +223,89 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:40
+#: src/app/qml/AccountMenu.qml:37
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/app/qml/AccountMenu.qml:48
+#: src/app/qml/AccountMenu.qml:46
 #, fuzzy, kde-format
 #| msgid "Edit this account"
+msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/app/qml/AccountMenu.qml:54
+#: src/app/qml/AccountMenu.qml:52
 #, fuzzy, kde-format
 #| msgid "Show notifications"
+msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
-#, kde-format
+#: src/app/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "ਡਿਵਾਈਸ"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
+#: src/app/qml/AccountMenu.qml:68
 #, fuzzy, kde-format
 #| msgid "Settings"
+msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/app/qml/AccountMenu.qml:76
+#: src/app/qml/AccountMenu.qml:74
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:92
+#: src/app/qml/AccountMenu.qml:90
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:98
+#: src/app/qml/AccountMenu.qml:97 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
+#: src/app/qml/AccountMenu.qml:108
 #, fuzzy, kde-format
 #| msgid "Logout"
+msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "ਲਾਗ ਆਉਟ"
 
@@ -3312,13 +3318,13 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1209
+#: src/libneochat/neochatroom.cpp:1237
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
+#: src/libneochat/neochatroom.cpp:1577 src/libneochat/neochatroom.cpp:1585
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3647,7 +3653,7 @@ msgid "Register"
 msgstr "ਰਜਿਸਟਰ ਕਰੋ"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
+#: src/settings/DevicesPage.qml:100
 #, kde-format
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
@@ -4763,6 +4769,12 @@ msgctxt "@title:group"
 msgid "Accounts"
 msgstr "ਖਾਤੇ"
 
+#: src/settings/AccountsPage.qml:88
+#, fuzzy, kde-format
+#| msgid "Logout"
+msgid "Logout…"
+msgstr "ਲਾਗ ਆਉਟ"
+
 #: src/settings/AccountsPage.qml:118
 #, fuzzy, kde-format
 #| msgid "Add an account"
@@ -4970,37 +4982,52 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "ਡਿਵਾਈਸ"
 
-#: src/settings/DevicesPage.qml:38
+#: src/settings/DevicesPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
+
+#: src/settings/DevicesPage.qml:40
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"This device is marked as insecure until it's verified by another device. "
+"It's recommended to verify as soon as possible."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:57
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/settings/DevicesPage.qml:43
+#: src/settings/DevicesPage.qml:62
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/settings/DevicesPage.qml:48
+#: src/settings/DevicesPage.qml:67
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:63
+#: src/settings/DevicesPage.qml:82
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:94
 #, kde-format
 msgid "Remove device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: src/settings/DevicesPage.qml:87
+#: src/settings/DevicesPage.qml:106
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "As in 'Remove this device'"
@@ -5793,6 +5820,12 @@ msgstr "ਸੈਟਿੰਗਾਂ"
 msgid "Enable developer tools"
 msgstr ""
 
+#: src/settings/NeoChatGeneralPage.qml:334
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Developer Tools"
+msgstr "ਸੈਟਿੰਗਾਂ"
+
 #: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
@@ -5978,6 +6011,11 @@ msgstr ""
 #| msgid "Network Error"
 msgid "Network Proxy"
 msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
+
+#: src/settings/NeoChatSettingsView.qml:90
+#, kde-format
+msgid "Devices"
+msgstr "ਡਿਵਾਈਸ"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format

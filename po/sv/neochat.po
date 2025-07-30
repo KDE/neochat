@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-29 00:41+0000\n"
-"PO-Revision-Date: 2025-07-28 22:47+0200\n"
+"POT-Creation-Date: 2025-07-30 00:43+0000\n"
+"PO-Revision-Date: 2025-07-29 12:18+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/app/controller.cpp:180
 #, kde-format
@@ -214,76 +214,86 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Öppna NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:23 src/settings/AccountEditorPage.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Visa QR-kod"
 
-#: src/app/qml/AccountMenu.qml:40
+#: src/app/qml/AccountMenu.qml:37
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Byt konto"
 
-#: src/app/qml/AccountMenu.qml:48
-#, kde-format
+#: src/app/qml/AccountMenu.qml:46
+#, fuzzy, kde-format
+#| msgid "Edit This Account"
+msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Redigera kontot"
 
-#: src/app/qml/AccountMenu.qml:54
-#, kde-format
+#: src/app/qml/AccountMenu.qml:52
+#, fuzzy, kde-format
+#| msgid "Notification Settings"
+msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Underrättelseinställningar"
 
-#: src/app/qml/AccountMenu.qml:62 src/settings/NeoChatSettingsView.qml:90
-#, kde-format
+#: src/app/qml/AccountMenu.qml:60
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/app/qml/AccountMenu.qml:70 src/settings/NeoChatGeneralPage.qml:334
-#, kde-format
+#: src/app/qml/AccountMenu.qml:68
+#, fuzzy, kde-format
+#| msgid "Open Developer Tools"
+msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Öppna utvecklingsverktyg"
 
-#: src/app/qml/AccountMenu.qml:76
+#: src/app/qml/AccountMenu.qml:74
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Utvecklingsverktyg"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:81
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Öppna hemlig säkerhetskopia"
 
-#: src/app/qml/AccountMenu.qml:87
+#: src/app/qml/AccountMenu.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Öppna nyckelsäkerhetskopia"
 
-#: src/app/qml/AccountMenu.qml:92
+#: src/app/qml/AccountMenu.qml:90
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verifiera enheten"
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:45
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Verifikationsbegäran skickad"
 
-#: src/app/qml/AccountMenu.qml:98
+#: src/app/qml/AccountMenu.qml:97 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "För att fortsätta, acceptera verifieringsbegäran på en annan enhet."
 
-#: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
-#, kde-format
+#: src/app/qml/AccountMenu.qml:108
+#, fuzzy, kde-format
+#| msgid "Logout…"
+msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "Logga ut…"
 
@@ -1757,19 +1767,16 @@ msgid "Show hidden events in the timeline"
 msgstr "Visa dolda händelser i tidslinjen"
 
 #: src/devtools/DebugOptions.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show hidden events in the timeline"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow sending relations to any event in the timeline"
-msgstr "Visa dolda händelser i tidslinjen"
+msgstr "Tillåt skicka relationer till vilken händelse som helst i tidslinjen"
 
 #: src/devtools/DebugOptions.qml:25
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "@info"
 msgid "This includes state events"
-msgstr "Visa tillståndshändelser"
+msgstr "Det inkluderar tillståndshändelser"
 
 #: src/devtools/DebugOptions.qml:32
 #, kde-format
@@ -3071,12 +3078,12 @@ msgstr "Misslyckades skapa rum: \"%1"
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
 
-#: src/libneochat/neochatroom.cpp:1209
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport skickades med lyckat resultat."
 
-#: src/libneochat/neochatroom.cpp:1549 src/libneochat/neochatroom.cpp:1557
+#: src/libneochat/neochatroom.cpp:1577 src/libneochat/neochatroom.cpp:1585
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3378,7 +3385,7 @@ msgid "Register"
 msgstr "Registrera"
 
 #: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:81
+#: src/settings/DevicesPage.qml:100
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -4225,8 +4232,7 @@ msgid "Manage Account"
 msgstr "Hantera konto"
 
 #: src/rooms/UserInfo.qml:94
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Öppna inställningarna"
@@ -4386,6 +4392,11 @@ msgstr "Kontoeditor"
 msgctxt "@title:group"
 msgid "Accounts"
 msgstr "Konton"
+
+#: src/settings/AccountsPage.qml:88
+#, kde-format
+msgid "Logout…"
+msgstr "Logga ut…"
 
 #: src/settings/AccountsPage.qml:118
 #, kde-format
@@ -4577,35 +4588,51 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr "Den här enheten"
 
-#: src/settings/DevicesPage.qml:38
+#: src/settings/DevicesPage.qml:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Verify This Device"
+msgctxt "@action:button"
+msgid "Verify This Device"
+msgstr "Verifiera enheten"
+
+#: src/settings/DevicesPage.qml:40
+#, kde-format
+msgctxt "@info:description"
+msgid ""
+"This device is marked as insecure until it's verified by another device. "
+"It's recommended to verify as soon as possible."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:57
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verifierade enheter"
 
-#: src/settings/DevicesPage.qml:43
+#: src/settings/DevicesPage.qml:62
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Overifierade enheter"
 
-#: src/settings/DevicesPage.qml:48
+#: src/settings/DevicesPage.qml:67
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Enhet utan krypteringsstöd"
 
-#: src/settings/DevicesPage.qml:63
+#: src/settings/DevicesPage.qml:82
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Logga in för att visa inloggade enheter för ditt konto."
 
-#: src/settings/DevicesPage.qml:75
+#: src/settings/DevicesPage.qml:94
 #, kde-format
 msgid "Remove device"
 msgstr "Ta bort enhet"
 
-#: src/settings/DevicesPage.qml:87
+#: src/settings/DevicesPage.qml:106
 #, kde-format
 msgctxt "As in 'Remove this device'"
 msgid "Remove"
@@ -5306,6 +5333,11 @@ msgstr "Utvecklarinställningar"
 msgid "Enable developer tools"
 msgstr "Aktivera utvecklingsverktyg"
 
+#: src/settings/NeoChatGeneralPage.qml:334
+#, kde-format
+msgid "Open Developer Tools"
+msgstr "Öppna utvecklingsverktyg"
+
 #: src/settings/NeoChatGeneralPage.qml:338
 #, kde-format
 msgid "Developer Tools"
@@ -5483,6 +5515,11 @@ msgstr "Klistermärken och emoji"
 #, kde-format
 msgid "Network Proxy"
 msgstr "Nätverksproxy"
+
+#: src/settings/NeoChatSettingsView.qml:90
+#, kde-format
+msgid "Devices"
+msgstr "Enheter"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
