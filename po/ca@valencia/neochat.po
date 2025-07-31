@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-30 00:43+0000\n"
-"PO-Revision-Date: 2025-07-27 11:45+0200\n"
+"PO-Revision-Date: 2025-07-30 10:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -230,29 +230,25 @@ msgid "Switch Account"
 msgstr "Canvia el compte"
 
 #: src/app/qml/AccountMenu.qml:46
-#, fuzzy, kde-format
-#| msgid "Edit This Account"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Edita este compte"
 
 #: src/app/qml/AccountMenu.qml:52
-#, fuzzy, kde-format
-#| msgid "Notification Settings"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Configureu les notificacions"
 
 #: src/app/qml/AccountMenu.qml:60
-#, fuzzy, kde-format
-#| msgid "Devices"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Dispositius"
 
 #: src/app/qml/AccountMenu.qml:68
-#, fuzzy, kde-format
-#| msgid "Open Developer Tools"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Obri les eines de desenvolupament"
@@ -296,8 +292,7 @@ msgstr ""
 "dispositiu."
 
 #: src/app/qml/AccountMenu.qml:108
-#, fuzzy, kde-format
-#| msgid "Logout…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
 msgstr "Desconnecta…"
@@ -362,7 +357,7 @@ msgstr "Cancel·la l'enviament de l'adjunt"
 #, kde-format
 msgctxt "@title"
 msgid "Choose a Room"
-msgstr "Seleccioneu una sala"
+msgstr "Trieu una sala"
 
 #: src/app/qml/CodeMaximizeComponent.qml:39
 #, kde-format
@@ -768,7 +763,7 @@ msgstr "Dispositiu **%1** verificat correctament"
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
-msgstr "Seleccioneu un mètode de verificació per a continuar"
+msgstr "Trieu un mètode de verificació per a continuar"
 
 #: src/app/qml/KeyVerificationDialog.qml:165
 #, kde-format
@@ -779,7 +774,7 @@ msgstr "Verificació dels emoji"
 #: src/app/qml/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
-msgstr "Seleccioneu una ubicació"
+msgstr "Trieu una ubicació"
 
 #: src/app/qml/LocationChooser.qml:27
 #, kde-format
@@ -969,7 +964,7 @@ msgstr "Sense notificacions"
 #: src/app/qml/OpenFileDialog.qml:12
 #, kde-format
 msgid "Select a File"
-msgstr "Seleccioneu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
 #, kde-format
@@ -1613,7 +1608,7 @@ msgstr "Ix"
 #: src/chatbar/AttachDialog.qml:29
 #, kde-format
 msgid "Choose local file"
-msgstr "Seleccioneu un fitxer local"
+msgstr "Trieu un fitxer local"
 
 #: src/chatbar/AttachDialog.qml:45
 #, kde-format
@@ -1789,19 +1784,16 @@ msgid "Show hidden events in the timeline"
 msgstr "Mostra els esdeveniments ocults en la línia de temps"
 
 #: src/devtools/DebugOptions.qml:24
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Show hidden events in the timeline"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow sending relations to any event in the timeline"
-msgstr "Mostra els esdeveniments ocults en la línia de temps"
+msgstr "Permet enviar relacions a qualsevol esdeveniment de la línia de temps"
 
 #: src/devtools/DebugOptions.qml:25
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "@info"
 msgid "This includes state events"
-msgstr "Mostra els esdeveniments d'estat"
+msgstr "Açò inclou els esdeveniments d'estat"
 
 #: src/devtools/DebugOptions.qml:32
 #, kde-format
@@ -1890,7 +1882,7 @@ msgstr "Tocades"
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
-msgstr "Seleccioneu una sala"
+msgstr "Trieu una sala"
 
 #: src/devtools/RoomData.qml:25
 #, kde-format
@@ -1908,7 +1900,7 @@ msgstr "Clic per a triar una sala"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
-msgstr "Seleccioneu una sala"
+msgstr "Trieu una sala"
 
 #: src/devtools/RoomData.qml:40
 #, kde-format
@@ -4263,8 +4255,7 @@ msgid "Manage Account"
 msgstr "Gestiona el compte"
 
 #: src/rooms/UserInfo.qml:94
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Settings"
 msgstr "Obri la configuració"
@@ -4623,9 +4614,7 @@ msgid "This Device"
 msgstr "Este dispositiu"
 
 #: src/settings/DevicesPage.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Verify This Device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify This Device"
 msgstr "Verifica este dispositiu"
@@ -4637,6 +4626,8 @@ msgid ""
 "This device is marked as insecure until it's verified by another device. "
 "It's recommended to verify as soon as possible."
 msgstr ""
+"Este dispositiu està marcat com a insegur fins que siga verificat per un "
+"altre dispositiu. Es recomana verificar com més prompte millor."
 
 #: src/settings/DevicesPage.qml:57
 #, kde-format
@@ -4977,7 +4968,7 @@ msgstr "Importació de claus"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose backup file"
-msgstr "Seleccioneu un fitxer de còpia de seguretat"
+msgstr "Trieu un fitxer de còpia de seguretat"
 
 #: src/settings/ImportKeysDialog.qml:56
 #, kde-format
@@ -6211,7 +6202,7 @@ msgstr "Tria la sala"
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "Seleccioneu l'espai pare"
+msgstr "Trieu l'espai pare"
 
 #: src/settings/SelectParentDialog.qml:159
 #, kde-format
@@ -6790,7 +6781,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt "menu"
-#~ msgid "NeoChat"
-#~ msgstr "NeoChat"
