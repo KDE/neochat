@@ -11,6 +11,8 @@
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
+#include <Quotient/eventstats.h>
+
 bool SortFilterRoomTreeModel::m_showAllRoomsInHome = false;
 
 SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QObject *parent)
@@ -22,6 +24,7 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
     setRecursiveFilteringEnabled(true);
     sort(0);
     connect(this, &SortFilterRoomTreeModel::filterTextChanged, this, &SortFilterRoomTreeModel::invalidateFilter);
+    connect(sourceModel, &RoomTreeModel::invalidateSort, this, &SortFilterRoomTreeModel::invalidate);
     connect(this, &SortFilterRoomTreeModel::sourceModelChanged, this, [this]() {
         this->sourceModel()->disconnect(this);
         connect(this->sourceModel(), &QAbstractItemModel::rowsInserted, this, &SortFilterRoomTreeModel::invalidateFilter);
@@ -31,13 +34,21 @@ SortFilterRoomTreeModel::SortFilterRoomTreeModel(RoomTreeModel *sourceModel, QOb
 
 bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
-    // Don't sort the top level categories.
-    if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
+    const auto treeModel = dynamic_cast<RoomTreeModel *>(sourceModel());
+    if (treeModel == nullptr) {
         return false;
     }
 
-    const auto treeModel = dynamic_cast<RoomTreeModel *>(sourceModel());
-    if (treeModel == nullptr) {
+    // Don't sort the top level categories, unless there's a server notice with unread messages.
+    if (!source_left.parent().isValid() || !source_right.parent().isValid()) {
+        if (source_left.row() == NeoChatRoomType::ServerNotice) {
+            for (int i = 0; i < treeModel->rowCount(source_left); i++) {
+                auto room = treeModel->connection()->room(treeModel->index(i, 0, source_left).data(RoomTreeModel::RoomIdRole).toString());
+                if (room && room->unreadStats().notableCount > 0) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

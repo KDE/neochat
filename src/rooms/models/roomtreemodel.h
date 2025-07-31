@@ -80,6 +80,7 @@ public:
 
 Q_SIGNALS:
     void connectionChanged();
+    void invalidateSort();
 
 private:
     QPointer<NeoChatConnection> m_connection;
