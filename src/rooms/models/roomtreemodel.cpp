@@ -9,7 +9,9 @@
 #include "enums/neochatroomtype.h"
 #include "eventhandler.h"
 #include "neochatconnection.h"
+#include "neochatroom.h"
 #include "spacehierarchycache.h"
+#include <Quotient/qt_connection_util.h>
 
 using namespace Quotient;
 
@@ -170,6 +172,9 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
     });
     connect(room, &Room::unreadStatsChanged, this, [this, room] {
         refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
+        if (room->isServerNoticeRoom()) {
+            Q_EMIT invalidateSort();
+        }
     });
     connect(room, &Room::avatarChanged, this, [this, room] {
         refreshRoomRoles(room, {AvatarRole});
