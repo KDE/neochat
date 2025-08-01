@@ -100,9 +100,7 @@ Kirigami.ApplicationWindow {
 
         function onCurrentRoomChanged() {
             if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
-                let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
-                    connection: root.connection
-                });
+                let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
                 roomPage.backRequested.connect(event => {
                     RoomManager.clearCurrentRoom();
                 });
@@ -365,9 +363,7 @@ Kirigami.ApplicationWindow {
         RoomManager.loadInitialRoom();
 
         if (!Kirigami.Settings.isMobile) {
-            let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'), {
-                connection: root.connection
-            });
+            let roomPage = pageStack.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
             roomPage.forceActiveFocus();
         }
 
