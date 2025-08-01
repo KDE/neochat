@@ -27,19 +27,9 @@ Item {
     required property string display
 
     /**
-     * @brief The media info for the event.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media (should be image/xxx for this delegate).
-     *  - mimeIcon - The MIME icon name (should be image-xxx).
-     *  - size - The file size in bytes.
-     *  - width - The width in pixels of the audio media.
-     *  - height - The height in pixels of the audio media.
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
-     *  - isSticker - Whether the image is a sticker or not
+     * @brief The attributes of the component.
      */
-    required property var mediaInfo
+    required property var componentAttributes
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -77,9 +67,9 @@ Item {
 
         anchors.fill: parent
 
-        active: !root.mediaInfo.animated && !_private.hideImage
+        active: !root.componentAttributes.animated && !_private.hideImage
         sourceComponent: Image {
-            source: root.mediaInfo.source
+            source: root.componentAttributes.source
             sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
             sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
 
@@ -93,9 +83,9 @@ Item {
 
         anchors.fill: parent
 
-        active: (root?.mediaInfo.animated ?? false) && !_private.hideImage
+        active: (root?.componentAttributes.animated ?? false) && !_private.hideImage
         sourceComponent: AnimatedImage {
-            source: root.mediaInfo.source
+            source: root.componentAttributes.source
 
             fillMode: Image.PreserveAspectFit
             autoTransform: true
@@ -106,7 +96,7 @@ Item {
 
     Image {
         anchors.fill: parent
-        source: visible ? (root?.mediaInfo.tempInfo?.source ?? "") : ""
+        source: visible ? (root?.componentAttributes.tempInfo?.source ?? "") : ""
         visible: _private.imageItem && _private.imageItem.status !== Image.Ready && !_private.hideImage
     }
 
@@ -153,11 +143,11 @@ Item {
         gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
         onTapped: {
             root.QQC2.ToolTip.hide();
-            if (root.mediaInfo.animated) {
+            if (root.componentAttributes.animated) {
                 _private.imageItem.paused = true;
             }
             root.Message.timeline.interactive = false;
-            if (!root.mediaInfo.isSticker) {
+            if (!root.componentAttributes.isSticker) {
                 RoomManager.maximizeMedia(root.eventId);
             }
         }
@@ -183,13 +173,13 @@ Item {
         id: mediaSizeHelper
         contentMaxWidth: root.Message.maxContentWidth
         contentMaxHeight: root.contentMaxHeight ?? -1
-        mediaWidth: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.width ?? 0)
-        mediaHeight: root?.mediaInfo.isSticker ? 256 : (root?.mediaInfo.height ?? 0)
+        mediaWidth: root?.componentAttributes.isSticker ? 256 : (root?.componentAttributes.width ?? 0)
+        mediaHeight: root?.componentAttributes.isSticker ? 256 : (root?.componentAttributes.height ?? 0)
     }
 
     QtObject {
         id: _private
-        readonly property var imageItem: root.mediaInfo.animated ? animatedImageLoader.item : imageLoader.item
+        readonly property var imageItem: root.componentAttributes.animated ? animatedImageLoader.item : imageLoader.item
 
         // The space available for the component after taking away the border
         readonly property real downloaded: root.fileTransferInfo && root.fileTransferInfo.completed

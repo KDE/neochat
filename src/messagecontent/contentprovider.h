@@ -7,8 +7,8 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include "models/messagecontentmodel.h"
 #include "models/threadmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatroom.h"
 #include "pollhandler.h"
 
@@ -46,7 +46,7 @@ public:
      *
      * @warning Do NOT use for pending events as this function has no way to differentiate.
      */
-    Q_INVOKABLE MessageContentModel *contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply = false);
+    Q_INVOKABLE EventMessageContentModel *contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply = false);
 
     /**
      * @brief Returns the content model for the given event.
@@ -61,7 +61,7 @@ public:
      *
      * @note This version must be used for pending events as it can differentiate.
      */
-    MessageContentModel *contentModelForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false);
+    EventMessageContentModel *contentModelForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply = false);
 
     /**
      * @brief Returns the thread model for the given thread root event ID.
@@ -86,7 +86,7 @@ public:
 private:
     explicit ContentProvider(QObject *parent = nullptr);
 
-    QCache<QString, MessageContentModel> m_eventContentModels;
+    QCache<QString, EventMessageContentModel> m_eventContentModels;
     QCache<QString, ThreadModel> m_threadModels;
     QCache<QString, PollHandler> m_pollHandlers;
 };

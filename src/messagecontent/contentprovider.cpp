@@ -14,14 +14,14 @@ ContentProvider &ContentProvider::self()
     return instance;
 }
 
-MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply)
+EventMessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, const QString &evtOrTxnId, bool isReply)
 {
     if (!room || evtOrTxnId.isEmpty()) {
         return nullptr;
     }
 
     if (!m_eventContentModels.contains(evtOrTxnId)) {
-        auto model = new MessageContentModel(room, evtOrTxnId, isReply);
+        auto model = new EventMessageContentModel(room, evtOrTxnId, isReply);
         QQmlEngine::setObjectOwnership(model, QQmlEngine::CppOwnership);
         m_eventContentModels.insert(evtOrTxnId, model);
     }
@@ -29,7 +29,7 @@ MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, co
     return m_eventContentModels.object(evtOrTxnId);
 }
 
-MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply)
+EventMessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, const Quotient::RoomEvent *event, bool isReply)
 {
     if (!room) {
         return nullptr;
@@ -53,7 +53,7 @@ MessageContentModel *ContentProvider::contentModelForEvent(NeoChatRoom *room, co
     auto eventId = event->id();
     const auto txnId = event->transactionId();
     if (!m_eventContentModels.contains(eventId) && !m_eventContentModels.contains(txnId)) {
-        auto model = new MessageContentModel(room, eventId.isEmpty() ? txnId : eventId, isReply, eventId.isEmpty());
+        auto model = new EventMessageContentModel(room, eventId.isEmpty() ? txnId : eventId, isReply, eventId.isEmpty());
         QQmlEngine::setObjectOwnership(model, QQmlEngine::CppOwnership);
         m_eventContentModels.insert(eventId.isEmpty() ? txnId : eventId, model);
     }
@@ -115,7 +115,7 @@ PollHandler *ContentProvider::handlerForPoll(NeoChatRoom *room, const QString &e
 
 void ContentProvider::setThreadsEnabled(bool enableThreads)
 {
-    MessageContentModel::setThreadsEnabled(enableThreads);
+    EventMessageContentModel::setThreadsEnabled(enableThreads);
 
     for (const auto &key : m_eventContentModels.keys()) {
         m_eventContentModels.object(key)->threadsEnabledChanged();

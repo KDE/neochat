@@ -544,7 +544,15 @@ public:
      * @brief Return the cached file transfer information for the event.
      *
      * If we downloaded the file previously, return a struct with Completed status
-     * and the local file path stored in KSharedCOnfig
+     * and the local file path stored in KSharedConfig
+     */
+    Quotient::FileTransferInfo cachedFileTransferInfo(const QString &eventId) const;
+
+    /**
+     * @brief Return the cached file transfer information for the event.
+     *
+     * If we downloaded the file previously, return a struct with Completed status
+     * and the local file path stored in KSharedConfig
      */
     Quotient::FileTransferInfo cachedFileTransferInfo(const Quotient::RoomEvent *event) const;
 

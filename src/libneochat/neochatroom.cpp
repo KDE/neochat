@@ -1319,6 +1319,19 @@ void NeoChatRoom::copyEventMedia(const QString &eventId)
     }
 }
 
+FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const QString &eventId) const
+{
+    if (eventId.isEmpty()) {
+        return {};
+    }
+
+    const auto eventResult = getEvent(eventId);
+    if (!eventResult.first) {
+        return {};
+    }
+    return cachedFileTransferInfo(eventResult.first);
+}
+
 FileTransferInfo NeoChatRoom::cachedFileTransferInfo(const Quotient::RoomEvent *event) const
 {
     QString mxcUrl;

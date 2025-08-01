@@ -25,20 +25,6 @@ RowLayout {
     id: root
 
     /**
-     * @brief The matrix ID of the reply event.
-     */
-    required property var replyEventId
-
-    /**
-     * @brief The reply author.
-     *
-     * A Quotient::RoomMember object.
-     *
-     * @sa Quotient::RoomMember
-     */
-    required property var replyAuthor
-
-    /**
      * @brief The model to visualise the content of the message replied to.
      */
     required property var replyContentModel
@@ -52,7 +38,7 @@ RowLayout {
         Layout.fillHeight: true
 
         implicitWidth: Kirigami.Units.smallSpacing
-        color: root.replyAuthor.color
+        color: root.replyContentModel.author.color
         radius: Kirigami.Units.cornerRadius
     }
     ColumnLayout {
@@ -65,7 +51,7 @@ RowLayout {
             id: contentRepeater
             model: root.replyContentModel
             delegate: ReplyMessageComponentChooser {
-                onReplyClicked: RoomManager.goToEvent(root.replyEventId)
+                onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
             }
         }
     }
@@ -74,7 +60,7 @@ RowLayout {
     }
     TapHandler {
         acceptedButtons: Qt.LeftButton
-        onTapped: RoomManager.goToEvent(root.replyEventId)
+        onTapped: RoomManager.goToEvent(root.replyContentModel.eventId)
     }
     QtObject {
         id: _private

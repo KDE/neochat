@@ -49,12 +49,12 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Video
         delegate: MimeComponent {
-            required property var mediaInfo
+            required property var componentAttributes
             
-            mimeIconSource: mediaInfo.mimeIcon
-            size: mediaInfo.size
-            duration: mediaInfo.duration
-            label: mediaInfo.filename
+            mimeIconSource: componentAttributes.mimeIcon
+            size: componentAttributes.size
+            duration: componentAttributes.duration
+            label: componentAttributes.filename
         }
     }
 
@@ -88,12 +88,12 @@ DelegateChooser {
         roleValue: MessageComponentType.Audio
         delegate: MimeComponent {
             required property string display
-            required property var mediaInfo
+            required property var componentAttributes
 
-            mimeIconSource: mediaInfo.mimeIcon
-            size: mediaInfo.size
-            duration: mediaInfo.duration
-            label: mediaInfo.filename
+            mimeIconSource: componentAttributes.mimeIcon
+            size: componentAttributes.size
+            duration: componentAttributes.duration
+            label: componentAttributes.filename
         }
     }
 
@@ -101,11 +101,11 @@ DelegateChooser {
         roleValue: MessageComponentType.File
         delegate: MimeComponent {
             required property string display
-            required property var mediaInfo
+            required property var componentAttributes
 
-            mimeIconSource: mediaInfo.mimeIcon
-            size: mediaInfo.size
-            label: mediaInfo.filename
+            mimeIconSource: componentAttributes.mimeIcon
+            size: componentAttributes.size
+            label: componentAttributes.filename
         }
     }
 

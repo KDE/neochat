@@ -37,22 +37,9 @@ ColumnLayout {
     required property string display
 
     /**
-     * @brief The latitude of the location marker in the message.
+     * @brief The attributes of the component.
      */
-    required property real latitude
-
-    /**
-     * @brief The longitude of the location marker in the message.
-     */
-    required property real longitude
-
-    /**
-     * @brief What type of marker the location message is.
-     *
-     * The main options are m.pin for a general location or m.self for a pin to show
-     * a user's location.
-     */
-    required property string asset
+    required property var componentAttributes
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -63,15 +50,15 @@ ColumnLayout {
         Layout.preferredWidth: root.Message.maxContentWidth
         Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
 
-        map.center: QtPositioning.coordinate(root.latitude, root.longitude)
+        map.center: QtPositioning.coordinate(root.componentAttributes.latitude, root.componentAttributes.longitude)
         map.zoomLevel: 15
 
         map.plugin: OsmLocationPlugin.plugin
 
         readonly property LocationMapItem locationMapItem: LocationMapItem {
-            latitude: root.latitude
-            longitude: root.longitude
-            asset: root.asset
+            latitude: root.componentAttributes.latitude
+            longitude: root.componentAttributes.longitude
+            asset: root.componentAttributes.asset
             author: root.author
             isLive: true
             heading: NaN
@@ -100,7 +87,7 @@ ColumnLayout {
                 icon.name: "open-link-symbolic"
                 display: AbstractButton.IconOnly
 
-                onClicked: Qt.openUrlExternally("geo:" + root.latitude + "," + root.longitude)
+                onClicked: Qt.openUrlExternally("geo:" + root.componentAttributes.latitude + "," + root.componentAttributes.longitude)
 
                 ToolTip.text: text
                 ToolTip.visible: hovered
@@ -114,12 +101,11 @@ ColumnLayout {
 
                 onClicked: {
                     let map = fullScreenMap.createObject(parent, {
-                        latitude: root.latitude,
-                        longitude: root.longitude,
-                        asset: root.asset,
+                        latitude: root.componentAttributes.latitude,
+                        longitude: root.componentAttributes.longitude,
+                        asset: root.componentAttributes.asset,
                         author: root.author
                     });
-                    map.open();
                 }
 
                 ToolTip.text: text

@@ -24,19 +24,9 @@ ColumnLayout {
     required property string eventId
 
     /**
-     * @brief The media info for the event.
-     *
-     * This should consist of the following:
-     *  - source - The mxc URL for the media.
-     *  - mimeType - The MIME type of the media (should be image/xxx for this delegate).
-     *  - mimeIcon - The MIME icon name (should be image-xxx).
-     *  - size - The file size in bytes.
-     *  - width - The width in pixels of the audio media.
-     *  - height - The height in pixels of the audio media.
-     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
-     *  - filename - original filename of the media
+     * @brief The attributes of the component.
      */
-    required property var mediaInfo
+    required property var componentAttributes
 
     /**
      * @brief FileTransferInfo for any downloading files.
@@ -130,12 +120,12 @@ ColumnLayout {
             spacing: 0
 
             QQC2.Label {
-                text: root.mediaInfo.filename
+                text: root.componentAttributes.filename
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
             QQC2.Label {
-                text: Format.formatDuration(root.mediaInfo.duration)
+                text: Format.formatDuration(root.componentAttributes.duration)
                 color: Kirigami.Theme.disabledTextColor
                 visible: !audio.hasAudio
                 Layout.fillWidth: true
@@ -147,7 +137,7 @@ ColumnLayout {
         visible: false
         Layout.fillWidth: true
         from: 0
-        to: root.mediaInfo.size
+        to: root.componentAttributes.size
         value: root.fileTransferInfo.progress
     }
     RowLayout {

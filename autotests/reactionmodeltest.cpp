@@ -9,7 +9,7 @@
 
 #include <Quotient/events/roommessageevent.h>
 
-#include "models/messagecontentmodel.h"
+#include "models/eventmessagecontentmodel.h"
 #include "testutils.h"
 
 using namespace Quotient;
@@ -21,7 +21,7 @@ class ReactionModelTest : public QObject
 private:
     Connection *connection = nullptr;
     TestUtils::TestRoom *room = nullptr;
-    MessageContentModel *parentModel;
+    EventMessageContentModel *parentModel;
 
 private Q_SLOTS:
     void initTestCase();
@@ -34,7 +34,7 @@ void ReactionModelTest::initTestCase()
 {
     connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
     room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-reactionmodel-sync.json"_s);
-    parentModel = new MessageContentModel(room, "123456"_L1);
+    parentModel = new EventMessageContentModel(room, "123456"_L1);
 }
 
 void ReactionModelTest::basicReaction()

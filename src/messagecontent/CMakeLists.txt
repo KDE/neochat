@@ -52,6 +52,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         models/pollanswermodel.cpp
         models/reactionmodel.cpp
         models/threadmodel.cpp
+        models/eventmessagecontentmodel.cpp
     RESOURCES
         images/bike.svg
         images/bus.svg

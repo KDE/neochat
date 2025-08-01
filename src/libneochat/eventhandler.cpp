@@ -198,6 +198,10 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
 
 Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageEvent &event)
 {
+    if (event.isRedacted() && !event.isStateEvent()) {
+        return Qt::RichText;
+    }
+
     if (event.mimeType().name() == "text/plain"_L1) {
         return Qt::PlainText;
     } else {
@@ -207,6 +211,11 @@ Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageE
 
 QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 {
+    if (event.isRedacted() && !event.isStateEvent()) {
+        auto reason = event.redactedBecause()->reason();
+        return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>") : i18n("<i>[This message was deleted: %1]</i>", reason.toHtmlEscaped());
+    }
+
     QString body;
 
     if (event.has<EventContent::FileContent>()) {
