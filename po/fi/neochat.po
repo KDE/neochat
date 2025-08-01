@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-28 02:33+0000\n"
-"PO-Revision-Date: 2025-07-11 17:15+0300\n"
+"PO-Revision-Date: 2025-07-17 18:18+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -222,9 +222,7 @@ msgid "Show QR Code"
 msgstr "Näytä QR-koodi"
 
 #: src/app/qml/AccountMenu.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@title: dialog to switch between logged in accounts"
-#| msgid "Switch Account"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Vaihda tiliä"
@@ -1837,7 +1835,7 @@ msgstr "Lisää puhelinnumerot 3PIDeinä"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Puhelut"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2319,13 +2317,13 @@ msgstr "muutti %1-sovelman asetuksia"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "jätti puhelun"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "liittyi puheluun"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2576,18 +2574,16 @@ msgid "%1 configured a widget"
 msgstr "%1 määritti sovelman"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 poistui huoneesta"
+msgstr "%1 jätti puhelun"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 liittyi huoneeseen"
+msgstr "%1 liittyi puheluun"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3651,18 +3647,16 @@ msgid "Open Fullscreen"
 msgstr "Avaa koko näytölle"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "Liian iso tiedosto ladattavaksi."
+msgstr "Tiedoston lataaminen epäonnistui."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Huoneeseen liittyminen epäonnistui<br />%1"
+msgstr "Tiedoston lataaminen epäonnistui:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
@@ -5145,30 +5139,28 @@ msgid "Custom"
 msgstr "Mukautettu"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
-msgstr "Aikajana:"
+msgstr "Aikajana"
 
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Merkitse viestit luetuiksi:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "ei koskaan"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "liittyi huoneeseen"
+msgstr "saavuttaessa huoneeseen"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5177,24 +5169,23 @@ msgctxt ""
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
 msgstr ""
+"saavuttaessa huoneeseen ja kaikki lukematta olevat viestit ovat näkyvissä"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "liittyi huoneeseen"
+msgstr "poistuttaessa huoneesta"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "Huoneet, joissa on eniten viestejä lukematta, tulevat ylemmäs"
+msgstr ""
+"poistuttaessa huoneesta ja kaikki lukematta olevat viestit ovat näkyvissä"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
