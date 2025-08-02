@@ -422,7 +422,6 @@ QQC2.Control {
     QtObject {
         id: _private
         property ChatBarCache chatBarCache
-        onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
         function postMessage() {
             _private.chatBarCache.postMessage();
@@ -484,15 +483,14 @@ QQC2.Control {
 
     ChatDocumentHandler {
         id: documentHandler
+        type: ChatBarType.Room
+        room: root.currentRoom
         document: textField.textDocument
         cursorPosition: textField.cursorPosition
         selectionStart: textField.selectionStart
         selectionEnd: textField.selectionEnd
         mentionColor: Kirigami.Theme.linkColor
         errorColor: Kirigami.Theme.negativeTextColor
-        Component.onCompleted: {
-            RoomManager.chatDocumentHandler = documentHandler;
-        }
     }
 
     Component {

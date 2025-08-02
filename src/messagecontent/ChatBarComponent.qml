@@ -21,7 +21,6 @@ QQC2.Control {
      * @brief The ChatBarCache to use.
      */
     required property ChatBarCache chatBarCache
-    onChatBarCacheChanged: documentHandler.chatBarCache = chatBarCache
 
     readonly property bool isBusy: root.Message.room && root.Message.room.hasFileUploading
 
@@ -125,11 +124,12 @@ QQC2.Control {
 
                     ChatDocumentHandler {
                         id: documentHandler
+                        type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
                         document: textArea.textDocument
                         cursorPosition: textArea.cursorPosition
                         selectionStart: textArea.selectionStart
                         selectionEnd: textArea.selectionEnd
-                        room: root.Message.room // We don't care about saving for edits so this is OK.
+                        room: root.Message.room
                         mentionColor: Kirigami.Theme.linkColor
                         errorColor: Kirigami.Theme.negativeTextColor
                     }

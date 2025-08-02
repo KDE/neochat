@@ -12,6 +12,7 @@
 
 #include <QCoroTask>
 
+#include "enums/chatbartype.h"
 #include "enums/messagetype.h"
 #include "enums/pushrule.h"
 #include "events/pollevent.h"
@@ -483,6 +484,8 @@ public:
     ChatBarCache *editCache() const;
 
     ChatBarCache *threadCache() const;
+
+    ChatBarCache *cacheForType(ChatBarType::Type type) const;
 
     /**
      * @brief Reply to the last message sent in the timeline.

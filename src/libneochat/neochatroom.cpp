@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "neochatroom.h"
+#include "chatbartype.h"
 
 #include <QFileInfo>
 #include <QMediaMetaData>
@@ -1388,6 +1389,20 @@ ChatBarCache *NeoChatRoom::editCache() const
 ChatBarCache *NeoChatRoom::threadCache() const
 {
     return m_threadCache;
+}
+
+ChatBarCache *NeoChatRoom::cacheForType(ChatBarType::Type type) const
+{
+    switch (type) {
+    case ChatBarType::Room:
+        return m_mainCache;
+    case ChatBarType::Edit:
+        return m_editCache;
+    case ChatBarType::Thread:
+        return m_threadCache;
+    default:
+        return nullptr;
+    }
 }
 
 void NeoChatRoom::replyLastMessage()

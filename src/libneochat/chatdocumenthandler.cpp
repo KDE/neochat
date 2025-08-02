@@ -14,6 +14,7 @@
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
+#include "chatbartype.h"
 #include "chatdocumenthandler_logging.h"
 #include "eventhandler.h"
 
@@ -67,7 +68,11 @@ public:
         if (!room) {
             return;
         }
-        auto mentions = handler->chatBarCache()->mentions();
+        const auto chatchache = handler->chatBarCache();
+        if (!chatchache) {
+            return;
+        }
+        auto mentions = chatchache->mentions();
         mentions->erase(std::remove_if(mentions->begin(),
                                        mentions->end(),
                                        [this](auto &mention) {
@@ -105,18 +110,6 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     , m_highlighter(new SyntaxHighlighter(this))
     , m_completionModel(new CompletionModel(this))
 {
-    connect(this, &ChatDocumentHandler::roomChanged, this, [this]() {
-        m_completionModel->setRoom(m_room);
-        static QPointer<NeoChatRoom> previousRoom = nullptr;
-        if (previousRoom) {
-            disconnect(m_chatBarCache, &ChatBarCache::textChanged, this, nullptr);
-        }
-        previousRoom = m_room;
-        connect(m_chatBarCache, &ChatBarCache::textChanged, this, [this]() {
-            int start = completionStartIndex();
-            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-        });
-    });
     connect(this, &ChatDocumentHandler::documentChanged, this, [this]() {
         if (!m_document) {
             m_highlighter->setDocument(nullptr);
@@ -151,6 +144,20 @@ int ChatDocumentHandler::completionStartIndex() const
         start--;
     }
     return start;
+}
+
+ChatBarType::Type ChatDocumentHandler::type() const
+{
+    return m_type;
+}
+
+void ChatDocumentHandler::setType(ChatBarType::Type type)
+{
+    if (type == m_type) {
+        return;
+    }
+    m_type = type;
+    Q_EMIT typeChanged();
 }
 
 QQuickTextDocument *ChatDocumentHandler::document() const
@@ -198,22 +205,36 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
         return;
     }
 
+    if (m_room && m_type != ChatBarType::None) {
+        m_room->cacheForType(m_type)->disconnect(this);
+        if (!m_room->isSpace() && m_document && m_type == ChatBarType::Room) {
+            m_room->mainCache()->setSavedText(document()->textDocument()->toPlainText());
+        }
+    }
+
     m_room = room;
+
+    m_completionModel->setRoom(m_room);
+    if (m_room && m_type != ChatBarType::None) {
+        connect(m_room->cacheForType(m_type), &ChatBarCache::textChanged, this, [this]() {
+            int start = completionStartIndex();
+            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+        });
+        if (!m_room->isSpace() && m_document && m_type == ChatBarType::Room) {
+            document()->textDocument()->setPlainText(room->mainCache()->savedText());
+            m_room->mainCache()->setText(room->mainCache()->savedText());
+        }
+    }
+
     Q_EMIT roomChanged();
 }
 
 ChatBarCache *ChatDocumentHandler::chatBarCache() const
 {
-    return m_chatBarCache;
-}
-
-void ChatDocumentHandler::setChatBarCache(ChatBarCache *chatBarCache)
-{
-    if (m_chatBarCache == chatBarCache) {
-        return;
+    if (!m_room || m_type == ChatBarType::None) {
+        return nullptr;
     }
-    m_chatBarCache = chatBarCache;
-    Q_EMIT chatBarCacheChanged();
+    return m_room->cacheForType(m_type);
 }
 
 void ChatDocumentHandler::complete(int index)
@@ -313,20 +334,20 @@ void ChatDocumentHandler::setSelectionEnd(int position)
 
 QString ChatDocumentHandler::getText() const
 {
-    if (!m_chatBarCache) {
-        qCWarning(ChatDocumentHandling) << "getText called with m_chatBarCache set to nullptr.";
+    if (!m_room || m_type == ChatBarType::None) {
+        qCWarning(ChatDocumentHandling) << "getText called with no ChatBarCache available. ChatBarType: " << m_type << " Room: " << m_room;
         return {};
     }
-    return m_chatBarCache->text();
+    return m_room->cacheForType(m_type)->text();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
 {
-    if (!m_chatBarCache) {
-        qCWarning(ChatDocumentHandling) << "pushMention called with m_chatBarCache set to nullptr.";
+    if (!m_room || m_type == ChatBarType::None) {
+        qCWarning(ChatDocumentHandling) << "pushMention called with no ChatBarCache available. ChatBarType: " << m_type << " Room: " << m_room;
         return;
     }
-    m_chatBarCache->mentions()->push_back(mention);
+    m_room->cacheForType(m_type)->mentions()->push_back(mention);
 }
 
 QColor ChatDocumentHandler::mentionColor() const
@@ -365,7 +386,7 @@ void ChatDocumentHandler::updateMentions(QQuickTextDocument *document, const QSt
 {
     setDocument(document);
 
-    if (editId.isEmpty() || !m_chatBarCache || !m_room) {
+    if (editId.isEmpty() || m_type == ChatBarType::None || !m_room) {
         return;
     }
 
@@ -374,7 +395,7 @@ void ChatDocumentHandler::updateMentions(QQuickTextDocument *document, const QSt
             // Replaces the mentions that are baked into the HTML but plaintext in the original markdown
             const QRegularExpression re(uR"lit(<a\shref="https:\/\/matrix.to\/#\/([\S]*)"\s?>([\S]*)<\/a>)lit"_s);
 
-            m_chatBarCache->mentions()->clear();
+            m_room->cacheForType(m_type)->mentions()->clear();
 
             int linkSize = 0;
             auto matches = re.globalMatch(EventHandler::rawMessageBody(*roomMessageEvent));

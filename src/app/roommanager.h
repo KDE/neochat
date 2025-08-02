@@ -11,7 +11,6 @@
 #include <Quotient/roommember.h>
 #include <Quotient/uriresolver.h>
 
-#include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"
 #include "enums/messagetype.h"
 #include "models/mediamessagefiltermodel.h"
@@ -137,13 +136,6 @@ class RoomManager : public QObject, public UriResolverBase
      */
     Q_PROPERTY(bool hasOpenRoom READ hasOpenRoom NOTIFY currentRoomChanged)
 
-    /**
-     * @brief The ChatDocumentHandler for the open room.
-     *
-     * @sa ChatDocumentHandler
-     */
-    Q_PROPERTY(ChatDocumentHandler *chatDocumentHandler READ chatDocumentHandler WRITE setChatDocumentHandler NOTIFY chatDocumentHandlerChanged)
-
 public:
     virtual ~RoomManager();
     static RoomManager &instance();
@@ -232,9 +224,6 @@ public:
      */
     Q_INVOKABLE void
     viewEventMenu(const QString &eventId, NeoChatRoom *room, NeochatRoomMember *sender, const QString &selectedText = {}, const QString &hoveredLink = {});
-
-    ChatDocumentHandler *chatDocumentHandler() const;
-    void setChatDocumentHandler(ChatDocumentHandler *handler);
 
     /**
      * @brief Set a URL to be loaded as the initial room.
@@ -338,8 +327,6 @@ Q_SIGNALS:
      */
     void showMessage(MessageType::Type messageType, const QString &message);
 
-    void chatDocumentHandlerChanged();
-
     void connectionChanged();
 
     void directChatsActiveChanged();
@@ -368,7 +355,6 @@ private:
     KConfigGroup m_lastRoomConfig;
     KConfigGroup m_lastSpaceConfig;
     KConfigGroup m_directChatsConfig;
-    QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 
     RoomListModel *m_roomListModel;
     SortFilterRoomListModel *m_sortFilterRoomListModel;

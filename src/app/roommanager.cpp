@@ -369,19 +369,6 @@ void RoomManager::visitRoom(Room *r, const QString &eventId)
     if (m_currentRoom && !m_currentRoom->editCache()->editId().isEmpty()) {
         m_currentRoom->editCache()->setEditId({});
     }
-    if (m_currentRoom && !m_currentRoom->isSpace() && m_chatDocumentHandler) {
-        // We're doing these things here because it is critical that they are switched at the same time
-        if (m_chatDocumentHandler->document()) {
-            m_currentRoom->mainCache()->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
-            m_chatDocumentHandler->setRoom(room);
-            if (room) {
-                m_chatDocumentHandler->document()->textDocument()->setPlainText(room->mainCache()->savedText());
-                room->mainCache()->setText(room->mainCache()->savedText());
-            }
-        } else {
-            m_chatDocumentHandler->setRoom(room);
-        }
-    }
 
     if (!room) {
         setCurrentRoom({});
@@ -479,18 +466,6 @@ bool RoomManager::visitNonMatrix(const QUrl &url)
 {
     UrlHelper().openUrl(url);
     return true;
-}
-
-ChatDocumentHandler *RoomManager::chatDocumentHandler() const
-{
-    return m_chatDocumentHandler;
-}
-
-void RoomManager::setChatDocumentHandler(ChatDocumentHandler *handler)
-{
-    m_chatDocumentHandler = handler;
-    m_chatDocumentHandler->setRoom(m_currentRoom);
-    Q_EMIT chatDocumentHandlerChanged();
 }
 
 void RoomManager::setConnection(NeoChatConnection *connection)

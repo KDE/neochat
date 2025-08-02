@@ -9,6 +9,7 @@
 #include <QTextCursor>
 
 #include "chatbarcache.h"
+#include "enums/chatbartype.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
 
@@ -65,6 +66,11 @@ class ChatDocumentHandler : public QObject
     /**
      * @brief The QQuickTextDocument that is being handled.
      */
+    Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
+
+    /**
+     * @brief The QQuickTextDocument that is being handled.
+     */
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
 
     /**
@@ -96,11 +102,6 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
     /**
-     * @brief The cache for the chat bar the text document is being handled for.
-     */
-    Q_PROPERTY(ChatBarCache *chatBarCache READ chatBarCache WRITE setChatBarCache NOTIFY chatBarCacheChanged)
-
-    /**
      * @brief The color to highlight user mentions.
      */
     Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged)
@@ -112,6 +113,9 @@ class ChatDocumentHandler : public QObject
 
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);
+
+    ChatBarType::Type type() const;
+    void setType(ChatBarType::Type type);
 
     [[nodiscard]] QQuickTextDocument *document() const;
     void setDocument(QQuickTextDocument *document);
@@ -128,8 +132,7 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    [[nodiscard]] ChatBarCache *chatBarCache() const;
-    void setChatBarCache(ChatBarCache *chatBarCache);
+    ChatBarCache *chatBarCache() const;
 
     Q_INVOKABLE void complete(int index);
 
@@ -147,10 +150,10 @@ public:
     Q_INVOKABLE void updateMentions(QQuickTextDocument *document, const QString &editId);
 
 Q_SIGNALS:
+    void typeChanged();
     void documentChanged();
     void cursorPositionChanged();
     void roomChanged();
-    void chatBarCacheChanged();
     void selectionStartChanged();
     void selectionEndChanged();
     void errorColorChanged();
@@ -159,10 +162,10 @@ Q_SIGNALS:
 private:
     int completionStartIndex() const;
 
+    ChatBarType::Type m_type = ChatBarType::None;
     QPointer<QQuickTextDocument> m_document;
 
     QPointer<NeoChatRoom> m_room;
-    QPointer<ChatBarCache> m_chatBarCache;
 
     QColor m_mentionColor;
     QColor m_errorColor;
