@@ -275,8 +275,13 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
         qWarning() << "Tried to open event menu with empty event id";
         return;
     }
-    const auto &event = **room->findInTimeline(eventId);
 
+    const auto it = room->findInTimeline(eventId);
+    if (it == room->historyEdge()) {
+        // This is probably a pending event
+        return;
+    }
+    const auto &event = **it;
     if (EventHandler::mediaInfo(room, &event).contains("mimeType"_L1)) {
         Q_EMIT showFileMenu(eventId,
                             sender,
