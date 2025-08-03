@@ -49,8 +49,8 @@ RowLayout {
             KirigamiComponents.Avatar {
                 readonly property url avatarUrl: root.connection.localUser.avatarUrl
 
-                Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                Layout.preferredWidth: Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium
+                Layout.preferredHeight: Kirigami.Settings.isMobile ? Kirigami.Units.iconSizes.smallMedium : Kirigami.Units.iconSizes.medium
                 Layout.leftMargin: Kirigami.Units.largeSpacing
 
                 // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
@@ -67,6 +67,7 @@ RowLayout {
                     id: displayNameLabel
                     Layout.fillWidth: true
                     text: root.connection.localUser.displayName
+                    font.pointSize: Kirigami.Settings.isMobile ? Kirigami.Theme.smallFont : Kirigami.Theme.defaultFont
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
                 }
