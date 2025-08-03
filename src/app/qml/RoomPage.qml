@@ -71,9 +71,15 @@ Kirigami.Page {
     KeyNavigation.left: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).get(0)
 
     onCurrentRoomChanged: {
-        banner.visible = false;
         if (!Kirigami.Settings.isMobile && chatBarLoader.item) {
             (chatBarLoader.item as ChatBar).forceActiveFocus();
+        }
+
+        if (root.currentRoom.tagNames.includes("m.server_notice")) {
+            banner.text = i18nc("@info", "This room contains official messages from your homeserver.")
+            banner.visible = true;
+        } else {
+            banner.visible = false;
         }
     }
 
