@@ -41,9 +41,25 @@ TextEdit {
     required property string display
 
     /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
      * @brief The attributes of the component.
      */
     required property var componentAttributes
+    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
+    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
+        chatDocumentHandler.type = ChatBarType.Room;
+        chatDocumentHandler.room = root.Message.room;
+        chatDocumentHandler.textItem = root;
+    }
+
+    /**
+     * @brief Whether the component is currently focussed.
+     */
+    required property bool currentFocus
 
     /**
      * @brief Whether the message contains a spoiler
@@ -56,22 +72,54 @@ TextEdit {
     property bool isReply: false
 
     Layout.fillWidth: true
-    Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
 
+    Keys.onUpPressed: (event) => {
+        event.accepted = false;
+        if (chatDocumentHandler.atFirstLine) {
+            Message.contentModel.focusRow = root.index - 1
+        }
+    }
+    Keys.onDownPressed: (event) => {
+        event.accepted = false;
+        if (chatDocumentHandler.atLastLine) {
+            Message.contentModel.focusRow = root.index + 1
+        }
+    }
+
+    Keys.onPressed: (event) => {
+        if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
+            Message.contentModel.focusRow = index - 1
+            if (length <= 0) {
+                Message.contentModel.removeComponent(index);
+            }
+            event.accepted = true;
+            return;
+        }
+        event.accepted = false;
+    }
+
+    onFocusChanged: if (focus && !root.currentFocus) {
+        Message.contentModel.setFocusRow(root.index, true)
+    }
+
+    ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
+
+    leftPadding: Kirigami.Units.smallSpacing
+    rightPadding: Kirigami.Units.smallSpacing
     persistentSelection: true
 
-    text: display
+    text: root.editable ? "" : display
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
-    font {
-        pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
-        family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
-    }
+    // font {
+    //     pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+    //     family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
+    // }
     selectByMouse: !Kirigami.Settings.isMobile
-    readOnly: true
+    readOnly: !root.editable
     wrapMode: Text.Wrap
     textFormat: Text.RichText
 

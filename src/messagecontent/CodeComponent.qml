@@ -14,6 +14,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
+
+    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -38,19 +43,41 @@ QQC2.Control {
     required property string display
 
     /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
      * @brief The attributes of the component.
      */
     required property var componentAttributes
+    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
+    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
+        chatDocumentHandler.type = ChatBarType.Room;
+        chatDocumentHandler.room = root.Message.room;
+        chatDocumentHandler.textItem = codeText;
+    }
+
+    /**
+     * @brief Whether the component is currently focussed.
+     */
+    required property bool currentFocus
 
     /**
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
 
+    onFocusChanged: if (focus && !root.currentFocus) {
+        Message.contentModel.setFocusRow(root.index, true)
+    }
+
     Layout.fillWidth: true
     Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
     Layout.maximumHeight: Kirigami.Units.gridUnit * 20
+
+    width: ListView.view?.width ?? -1
 
     topPadding: 0
     bottomPadding: 0
@@ -66,12 +93,38 @@ QQC2.Control {
 
         QQC2.TextArea {
             id: codeText
+
+            Keys.onEnterPressed: (event) => {
+                event.accepted = true;
+                if (root.chatDocumentHandler) {
+                    root.chatDocumentHandler.insertText("\n")
+                }
+            }
+            Keys.onReturnPressed: (event) => {
+                event.accepted = true;
+                if (root.chatDocumentHandler) {
+                    root.chatDocumentHandler.insertText("\n")
+                }
+            }
+
+            Keys.onPressed: (event) => {
+                if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
+                    Message.contentModel.focusRow = root.index - 1
+                    if (length <= 0) {
+                        Message.contentModel.removeComponent(root.index);
+                    }
+                    event.accepted = true;
+                    return;
+                }
+                event.accepted = false;
+            }
+
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
 
-            text: root.display
-            readOnly: true
+            text: root.editable ? "" : root.display
+            readOnly: !root.editable
             textFormat: TextEdit.PlainText
             wrapMode: TextEdit.Wrap
             color: Kirigami.Theme.textColor

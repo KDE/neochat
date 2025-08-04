@@ -7,6 +7,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QTextCursor>
+#include <qtextdocumentfragment.h>
 
 #include "chatbarcache.h"
 #include "enums/chatbartype.h"
@@ -89,6 +90,16 @@ class ChatDocumentHandler : public QObject
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
+    /**
+     * @brief Whether the cursor is cuurently on the first line.
+     */
+    Q_PROPERTY(bool atFirstLine READ atFirstLine NOTIFY atFirstLineChanged)
+
+    /**
+     * @brief Whether the cursor is cuurently on the last line.
+     */
+    Q_PROPERTY(bool atLastLine READ atLastLine NOTIFY atLastLineChanged)
+
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
     Q_PROPERTY(QString fontFamily READ fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment NOTIFY alignmentChanged)
@@ -98,10 +109,10 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY underlineChanged)
     Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY strikethroughChanged)
 
-    Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
-    Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
-    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
-    Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
+    // Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
+    // Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
+    // Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
+    // Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
 
     // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
 
@@ -122,6 +133,16 @@ public:
 
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
+
+    bool isEmpty() const;
+    bool atFirstLine() const;
+    bool atLastLine() const;
+    void setCursorFromDocumentHandler(ChatDocumentHandler *previousDocumentHandler, bool infront, int defaultPosition = 0);
+    int lineCount() const;
+    std::optional<int> lineLength(int lineNumber) const;
+    int cursorPositionInLine() const;
+    void fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment);
+    void insertFragment(const QTextDocumentFragment fragment);
 
     ChatBarCache *chatBarCache() const;
 
@@ -145,7 +166,6 @@ public:
 
     bool bold() const;
     void setBold(bool bold);
-
     bool italic() const;
     void setItalic(bool italic);
 
@@ -185,12 +205,15 @@ public:
     Q_INVOKABLE void setHeadingLevel(int level);
 
     Q_INVOKABLE void dumpHtml();
-    Q_INVOKABLE QString htmlText();
+    Q_INVOKABLE QString htmlText() const;
 
 Q_SIGNALS:
     void typeChanged();
     void textItemChanged();
     void roomChanged();
+
+    void atFirstLineChanged();
+    void atLastLineChanged();
 
     void fontFamilyChanged();
     void textColorChanged();
@@ -215,6 +238,7 @@ private:
     QPointer<NeoChatRoom> m_room;
 
     int cursorPosition() const;
+    void updateCursor() const;
     int selectionStart() const;
     int selectionEnd() const;
 
