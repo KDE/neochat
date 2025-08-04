@@ -83,7 +83,7 @@ Kirigami.Page {
         target: root.currentRoom.connection
         function onIsOnlineChanged() {
             if (!root.currentRoom.connection.isOnline) {
-                banner.text = i18n("NeoChat is offline. Please check your network connection.");
+                banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
                 banner.visible = true;
                 banner.type = Kirigami.MessageType.Error;
             } else {
@@ -138,8 +138,8 @@ Kirigami.Page {
         anchors.centerIn: parent
         sourceComponent: Kirigami.PlaceholderMessage {
             icon.name: "org.kde.neochat"
-            text: i18n("Welcome to NeoChat")
-            explanation: i18n("Select or join a room to get started")
+            text: i18nc("@title", "Welcome to NeoChat")
+            explanation: i18nc("@info:usagetip", "Select or join a room to get started")
         }
     }
 
@@ -206,7 +206,7 @@ Kirigami.Page {
             applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
-                title: i18n("Message Source"),
+                title: i18nc("@title:dialog", "Message Source"),
                 width: Kirigami.Units.gridUnit * 25
             });
         }
