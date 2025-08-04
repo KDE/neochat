@@ -6,12 +6,10 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include <Quotient/events/encryptedevent.h>
-#include <Quotient/events/roomevent.h>
-#include <Quotient/events/roommessageevent.h>
-#include <Quotient/events/stickerevent.h>
-
-#include "events/pollevent.h"
+namespace Quotient
+{
+class RoomEvent;
+}
 
 using namespace Qt::StringLiterals;
 
@@ -74,62 +72,14 @@ public:
      *
      * @sa Type
      */
-    static Type typeForEvent(const Quotient::RoomEvent &event, bool isInReply = false)
-    {
-        using namespace Quotient;
+    static Type typeForEvent(const Quotient::RoomEvent &event, bool isInReply = false);
 
-        if (event.isRedacted()) {
-            return MessageComponentType::Text;
-        }
-
-        if (const auto e = eventCast<const RoomMessageEvent>(&event)) {
-            if (e->rawMsgtype() == u"m.key.verification.request"_s) {
-                return MessageComponentType::Verification;
-            }
-
-            switch (e->msgtype()) {
-            case MessageEventType::Emote:
-                return MessageComponentType::Text;
-            case MessageEventType::Notice:
-                return MessageComponentType::Text;
-            case MessageEventType::Image:
-                return MessageComponentType::Image;
-            case MessageEventType::Audio:
-                return MessageComponentType::Audio;
-            case MessageEventType::Video:
-                return MessageComponentType::Video;
-            case MessageEventType::Location:
-                return MessageComponentType::Location;
-            case MessageEventType::File:
-                return MessageComponentType::File;
-            default:
-                return MessageComponentType::Text;
-            }
-        }
-        if (is<const StickerEvent>(event)) {
-            return MessageComponentType::Image;
-        }
-        if (event.isStateEvent()) {
-            if (event.matrixType() == u"org.matrix.msc3672.beacon_info"_s) {
-                return MessageComponentType::LiveLocation;
-            }
-            // In the (unlikely) case that this is a reply to a state event, we do want to show something
-            return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
-        }
-        if (is<const EncryptedEvent>(event)) {
-            return MessageComponentType::Encrypted;
-        }
-        if (is<PollStartEvent>(event)) {
-            const auto pollEvent = eventCast<const PollStartEvent>(&event);
-            if (pollEvent->isRedacted()) {
-                return MessageComponentType::Text;
-            }
-            return MessageComponentType::Poll;
-        }
-
-        // In the (unlikely) case that this is a reply to an unusual event, we do want to show something
-        return isInReply ? MessageComponentType::Text : MessageComponentType::Other;
-    }
+    /**
+     * @brief Return MessageComponentType for the given string.
+     *
+     * @sa Type
+     */
+    static Type typeForString(const QString &string);
 
     /**
      * @brief Return MessageComponentType for the given html tag.
@@ -138,14 +88,30 @@ public:
      *
      * @sa Type
      */
-    static Type typeForTag(const QString &tag)
-    {
-        if (tag == u"pre"_s || tag == u"pre"_s) {
-            return Code;
-        }
-        if (tag == u"blockquote"_s) {
-            return Quote;
-        }
-        return Text;
-    }
+    static Type typeForTag(const QString &tag);
+
+    /**
+     * @brief Return MessageComponentType for the file with the given path.
+     *
+     * @sa Type
+     */
+    static Type typeForPath(const QUrl &path);
+
+    /**
+     * @brief Return if the given MessageComponentType is a text type.
+     *
+     * @sa Type
+     */
+    static bool isTextType(const MessageComponentType::Type &type);
+
+    /**
+     * @brief Return if the given MessageComponentType is a file type.
+     *
+     * @sa Type
+     */
+    static bool isFileType(const MessageComponentType::Type &type);
+
+private:
+    static const QList<MessageComponentType::Type> textTypes;
+    static const QList<MessageComponentType::Type> fileTypes;
 };

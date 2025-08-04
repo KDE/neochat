@@ -18,16 +18,15 @@ QQC2.Popup {
 
     required property NeoChatConnection connection
     required property var chatDocumentHandler
+    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
+        chatDocumentHandler.completionModel.roomListModel = RoomManager.roomListModel;
+        chatDocumentHandler.completionModel.userListModel = RoomManager.userListModel;
+    }
 
     visible: completions.count > 0
 
     onVisibleChanged: if (visible) {
         root.open();
-    }
-
-    Component.onCompleted: {
-        chatDocumentHandler.completionModel.roomListModel = RoomManager.roomListModel;
-        chatDocumentHandler.completionModel.userListModel = RoomManager.userListModel;
     }
 
     function incrementIndex() {
