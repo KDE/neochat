@@ -68,7 +68,7 @@ private:
     void resetContent(bool isEditing = false, bool isThreading = false);
     QList<MessageComponent> messageContentComponents(bool isEditing = false, bool isThreading = false);
 
-    void updateReplyModel();
+    std::optional<QString> getReplyEventId() override;
 
     QList<MessageComponent> componentsForType(MessageComponentType::Type type);
 

@@ -11,6 +11,7 @@
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QTextDocumentFragment>
 #include <QTextList>
 #include <QTextTable>
 #include <QTimer>
@@ -20,6 +21,10 @@
 
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
+#include <qlogging.h>
+#include <qnamespace.h>
+#include <qtextcursor.h>
+#include <sched.h>
 
 #include "chatbartype.h"
 #include "chatdocumenthandler_logging.h"
@@ -127,18 +132,8 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
 {
 }
 
-void ChatDocumentHandler::updateCompletion() const
-{
-    int start = completionStartIndex();
-    m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-}
-
 int ChatDocumentHandler::completionStartIndex() const
 {
-    if (!m_room) {
-        return 0;
-    }
-
     const qsizetype cursor = cursorPosition();
     const auto &text = getText();
 
@@ -189,11 +184,13 @@ void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
 
     m_highlighter->setDocument(document());
     if (m_textItem) {
-        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCompletion()));
+        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCursor()));
+        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(atFirstLineChanged()));
+        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(atLastLineChanged()));
         if (document()) {
+            connect(document(), &QTextDocument::contentsChanged, this, &ChatDocumentHandler::contentsChanged);
             connect(document(), &QTextDocument::contentsChanged, this, [this]() {
                 if (m_room) {
-                    m_room->cacheForType(m_type)->setText(getText());
                     int start = completionStartIndex();
                     m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
                 }
@@ -202,6 +199,26 @@ void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
     }
 
     Q_EMIT textItemChanged();
+}
+
+ChatDocumentHandler *ChatDocumentHandler::previousDocumentHandler() const
+{
+    return m_previousDocumentHandler;
+}
+
+void ChatDocumentHandler::setPreviousDocumentHandler(ChatDocumentHandler *previousDocumentHandler)
+{
+    m_previousDocumentHandler = previousDocumentHandler;
+}
+
+ChatDocumentHandler *ChatDocumentHandler::nextDocumentHandler() const
+{
+    return m_nextDocumentHandler;
+}
+
+void ChatDocumentHandler::setNextDocumentHandler(ChatDocumentHandler *nextDocumentHandler)
+{
+    m_nextDocumentHandler = nextDocumentHandler;
 }
 
 QTextDocument *ChatDocumentHandler::document() const
@@ -219,6 +236,12 @@ int ChatDocumentHandler::cursorPosition() const
         return -1;
     }
     return m_textItem->property("cursorPosition").toInt();
+}
+
+void ChatDocumentHandler::updateCursor() const
+{
+    int start = completionStartIndex();
+    m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
 }
 
 int ChatDocumentHandler::selectionStart() const
@@ -262,16 +285,6 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
         connect(m_room->cacheForType(m_type), &ChatBarCache::textChanged, this, [this]() {
             int start = completionStartIndex();
             m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-            Q_EMIT fontFamilyChanged();
-            Q_EMIT textColorChanged();
-            Q_EMIT alignmentChanged();
-            Q_EMIT boldChanged();
-            Q_EMIT italicChanged();
-            Q_EMIT underlineChanged();
-            Q_EMIT checkableChanged();
-            Q_EMIT strikethroughChanged();
-            Q_EMIT fontSizeChanged();
-            Q_EMIT fileUrlChanged();
         });
         if (!m_room->isSpace() && document() && m_type == ChatBarType::Room) {
             document()->setPlainText(room->mainCache()->savedText());
@@ -280,6 +293,169 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
     }
 
     Q_EMIT roomChanged();
+}
+
+bool ChatDocumentHandler::isEmpty() const
+{
+    return htmlText().length() == 0;
+}
+
+bool ChatDocumentHandler::atFirstLine() const
+{
+    const auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return cursor.blockNumber() == 0 && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == 0;
+}
+
+bool ChatDocumentHandler::atLastLine() const
+{
+    const auto cursor = textCursor();
+    const auto doc = document();
+    if (cursor.isNull() || !doc) {
+        return false;
+    }
+    return cursor.blockNumber() == doc->blockCount() - 1
+        && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == (cursor.block().layout()->lineCount() - 1);
+}
+
+void ChatDocumentHandler::setCursorFromDocumentHandler(ChatDocumentHandler *previousDocumentHandler, bool infront, int defaultPosition)
+{
+    const auto doc = document();
+    const auto item = textItem();
+    if (!doc || !item) {
+        return;
+    }
+
+    item->forceActiveFocus();
+
+    if (!previousDocumentHandler) {
+        const auto docLastBlockLayout = doc->lastBlock().layout();
+        item->setProperty("cursorPosition", infront ? defaultPosition : docLastBlockLayout->lineAt(docLastBlockLayout->lineCount() - 1).textStart());
+        item->setProperty("cursorVisible", true);
+        return;
+    }
+
+    const auto previousLinePosition = previousDocumentHandler->cursorPositionInLine();
+    const auto newMaxLineLength = lineLength(infront ? 0 : lineCount() - 1);
+    item->setProperty("cursorPosition",
+                      std::min(previousLinePosition, newMaxLineLength ? *newMaxLineLength : defaultPosition) + (infront ? 0 : doc->lastBlock().position()));
+    item->setProperty("cursorVisible", true);
+}
+
+int ChatDocumentHandler::lineCount() const
+{
+    if (const auto doc = document()) {
+        return doc->lineCount();
+    }
+    return 0;
+}
+
+std::optional<int> ChatDocumentHandler::lineLength(int lineNumber) const
+{
+    const auto doc = document();
+    if (!doc || lineNumber < 0 || lineNumber >= doc->lineCount()) {
+        return std::nullopt;
+    }
+    const auto block = doc->findBlockByLineNumber(lineNumber);
+    const auto lineNumInBlock = lineNumber - block.firstLineNumber();
+    return block.layout()->lineAt(lineNumInBlock).textLength();
+}
+
+int ChatDocumentHandler::cursorPositionInLine() const
+{
+    const auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return cursor.positionInBlock();
+}
+
+QTextDocumentFragment ChatDocumentHandler::takeFirstBlock()
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return {};
+    }
+    cursor.setPosition(0);
+    cursor.select(QTextCursor::BlockUnderCursor);
+    const auto block = cursor.selection();
+    cursor.removeSelectedText();
+    if (isEmpty()) {
+        Q_EMIT removeMe(this);
+    }
+    return block;
+}
+
+void ChatDocumentHandler::fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment)
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    if (cursor.blockNumber() > 0) {
+        hasBefore = true;
+    }
+    cursor.select(QTextCursor::BlockUnderCursor);
+    midFragment = cursor.selection();
+    auto afterBlock = cursor.blockNumber() < document()->blockCount() - 1;
+    if (midFragment.isEmpty()) {
+        cursor.deletePreviousChar();
+    } else {
+        cursor.removeSelectedText();
+    }
+    if (afterBlock) {
+        cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+        afterFragment = cursor.selection();
+        cursor.removeSelectedText();
+    }
+}
+
+void ChatDocumentHandler::insertFragment(const QTextDocumentFragment fragment, InsertPosition position, bool keepPosition)
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    int currentPosition;
+    switch (position) {
+    case Start:
+        currentPosition = 0;
+        break;
+    case End:
+        currentPosition = document()->characterCount() - 1;
+        break;
+    case Cursor:
+        currentPosition = cursor.position();
+        break;
+    }
+    cursor.setPosition(currentPosition);
+    if (textFormat() && textFormat() == Qt::PlainText) {
+        const auto wasEmpty = isEmpty();
+        auto text = fragment.toPlainText();
+        while (text.startsWith(u"\n"_s)) {
+            text.removeFirst();
+        }
+        while (text.endsWith(u"\n"_s)) {
+            text.removeLast();
+        }
+        cursor.insertText(fragment.toPlainText());
+        if (wasEmpty) {
+            cursor.movePosition(QTextCursor::StartOfBlock);
+            cursor.deletePreviousChar();
+        }
+    } else {
+        cursor.insertMarkdown(fragment.toMarkdown());
+    }
+    if (keepPosition) {
+        cursor.setPosition(currentPosition);
+    }
+    if (textItem()) {
+        textItem()->setProperty("cursorPosition", currentPosition);
+    }
 }
 
 ChatBarCache *ChatDocumentHandler::chatBarCache() const
@@ -549,11 +725,11 @@ QColor ChatDocumentHandler::textColor() const
 
 QTextCursor ChatDocumentHandler::textCursor() const
 {
-    QTextDocument *doc = document();
-    if (!doc)
+    if (!document()) {
         return QTextCursor();
+    }
 
-    QTextCursor cursor = QTextCursor(doc);
+    QTextCursor cursor = QTextCursor(document());
     if (selectionStart() != selectionEnd()) {
         cursor.setPosition(selectionStart());
         cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
@@ -561,6 +737,15 @@ QTextCursor ChatDocumentHandler::textCursor() const
         cursor.setPosition(cursorPosition());
     }
     return cursor;
+}
+
+std::optional<Qt::TextFormat> ChatDocumentHandler::textFormat() const
+{
+    if (!m_textItem) {
+        return std::nullopt;
+    }
+
+    return static_cast<Qt::TextFormat>(m_textItem->property("textFormat").toInt());
 }
 
 void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
@@ -857,6 +1042,38 @@ QUrl ChatDocumentHandler::fileUrl() const
     return m_fileUrl;
 }
 
+void ChatDocumentHandler::deleteChar()
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    if (cursor.atEnd()) {
+        if (const auto nextHandler = nextDocumentHandler()) {
+            insertFragment(nextHandler->takeFirstBlock(), Cursor, true);
+        }
+        return;
+    }
+    cursor.deleteChar();
+}
+
+void ChatDocumentHandler::backspace()
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    if (cursor.atStart()) {
+        if (const auto previousHandler = previousDocumentHandler()) {
+            previousHandler->insertFragment(takeFirstBlock(), End);
+        } else {
+            Q_EMIT unhandledBackspaceAtBeginning(this);
+        }
+        return;
+    }
+    cursor.deletePreviousChar();
+}
+
 void ChatDocumentHandler::insertText(const QString &text)
 {
     textCursor().insertText(text);
@@ -872,9 +1089,13 @@ void ChatDocumentHandler::dumpHtml()
     qWarning() << htmlText();
 }
 
-QString ChatDocumentHandler::htmlText()
+QString ChatDocumentHandler::htmlText() const
 {
-    auto text = document()->toMarkdown();
+    const auto doc = document();
+    if (!doc) {
+        return {};
+    }
+    auto text = doc->toMarkdown();
     while (text.startsWith(u"\n"_s)) {
         text.remove(0, 1);
     }

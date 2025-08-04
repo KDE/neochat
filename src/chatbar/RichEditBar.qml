@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -8,6 +9,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat.libneochat as LibNeoChat
+import org.kde.neochat.messagecontent as MessageContent
 
 QQC2.ToolBar {
     id: root
@@ -19,13 +21,23 @@ QQC2.ToolBar {
 
     property LibNeoChat.ChatBarCache chatBarCache
 
-    required property LibNeoChat.ChatDocumentHandler documentHandler
+    required property MessageContent.ChatBarMessageContentModel contentModel
+    readonly property LibNeoChat.ChatDocumentHandler focusedDocumentHandler: contentModel.focusedDocumentHandler
+
+    Connections {
+        target: contentModel
+
+        function onFocusRowChanged() {
+            console.warn("focus changed", contentModel.focusRow, contentModel.focusType)
+        }
+    }
 
     required property real maxAvailableWidth
 
     readonly property real uncompressedImplicitWidth: textFormatRow.implicitWidth +
                                                       listRow.implicitWidth +
                                                       styleButton.implicitWidth +
+                                                      codeButton.implicitWidth +
                                                       emojiButton.implicitWidth +
                                                       linkButton.implicitWidth +
                                                       sendRow.implicitWidth +
@@ -36,6 +48,7 @@ QQC2.ToolBar {
     readonly property real listCompressedImplicitWidth: textFormatRow.implicitWidth +
                                                         compressedListButton.implicitWidth +
                                                         styleButton.implicitWidth +
+                                                        codeButton.implicitWidth +
                                                         emojiButton.implicitWidth +
                                                         linkButton.implicitWidth +
                                                         sendRow.implicitWidth +
@@ -46,6 +59,7 @@ QQC2.ToolBar {
     readonly property real textFormatCompressedImplicitWidth: compressedTextFormatButton.implicitWidth +
                                                               compressedListButton.implicitWidth +
                                                               styleButton.implicitWidth +
+                                                              codeButton.implicitWidth +
                                                               emojiButton.implicitWidth +
                                                               linkButton.implicitWidth +
                                                               sendRow.implicitWidth +
@@ -53,6 +67,7 @@ QQC2.ToolBar {
                                                               buttonRow.spacing * 9 +
                                                               3
 
+    signal clicked
     signal requestPostMessage
 
     RowLayout {
@@ -70,8 +85,11 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Bold")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.bold
-                onClicked: root.documentHandler.bold = checked;
+                checked: root.focusedDocumentHandler.bold
+                onClicked: {
+                    root.focusedDocumentHandler.bold = checked;
+                    root.clicked()
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -87,8 +105,11 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Italic")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.italic
-                onClicked: root.documentHandler.italic = checked;
+                checked: root.focusedDocumentHandler.italic
+                onClicked: {
+                    root.focusedDocumentHandler.italic = checked;
+                    root.clicked()
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -104,8 +125,11 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Underline")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.underline
-                onClicked: root.documentHandler.underline = checked;
+                checked: root.focusedDocumentHandler.underline
+                onClicked: {
+                    root.focusedDocumentHandler.underline = checked;
+                    root.clicked();
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -116,8 +140,11 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Strikethrough")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.strikethrough
-                onClicked: root.documentHandler.strikethrough = checked;
+                checked: root.focusedDocumentHandler.strikethrough
+                onClicked: {
+                    root.focusedDocumentHandler.strikethrough = checked;
+                    root.clicked()
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -144,29 +171,41 @@ QQC2.ToolBar {
                     icon.name: "format-text-bold"
                     text: i18nc("@action:button", "Bold")
                     checkable: true
-                    checked: root.documentHandler.bold
-                    onTriggered: root.documentHandler.bold = checked;
+                    checked: root.focusedDocumentHandler.bold
+                    onTriggered: {
+                        root.focusedDocumentHandler.bold = checked;
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-text-italic"
                     text: i18nc("@action:button", "Italic")
                     checkable: true
-                    checked: root.documentHandler.italic
-                    onTriggered: root.documentHandler.italic = checked;
+                    checked: root.focusedDocumentHandler.italic
+                    onTriggered: {
+                        root.focusedDocumentHandler.italic = checked;
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-text-underline"
                     text: i18nc("@action:button", "Underline")
                     checkable: true
-                    checked: root.documentHandler.underline
-                    onTriggered: root.documentHandler.underline = checked;
+                    checked: root.focusedDocumentHandler.underline
+                    onTriggered: {
+                        root.focusedDocumentHandler.underline = checked;
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-text-strikethrough"
                     text: i18nc("@action:button", "Strikethrough")
                     checkable: true
-                    checked: root.documentHandler.strikethrough
-                    onTriggered: root.documentHandler.strikethrough = checked;
+                    checked: root.focusedDocumentHandler.strikethrough
+                    onTriggered: {
+                        root.focusedDocumentHandler.strikethrough = checked;
+                        root.clicked();
+                    }
                 }
             }
 
@@ -186,9 +225,10 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Unordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.currentListStyle === 1
+                checked: root.focusedDocumentHandler.currentListStyle === 1
                 onClicked: {
-                    root.documentHandler.setListStyle(root.documentHandler.currentListStyle === 1 ? 0 : 1)
+                    root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 1 ? 0 : 1);
+                    root.clicked();
                 }
 
                 QQC2.ToolTip.text: text
@@ -200,8 +240,11 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Ordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.currentListStyle === 4
-                onClicked: root.documentHandler.setListStyle(root.documentHandler.currentListStyle === 4 ? 0 : 4)
+                checked: root.focusedDocumentHandler.currentListStyle === 4
+                onClicked: {
+                    root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 4 ? 0 : 4);
+                    root.clicked();
+                }
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -213,7 +256,8 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Increase List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
-                    root.documentHandler.indentListMore();
+                    root.focusedDocumentHandler.indentListMore();
+                    root.clicked();
                 }
 
                 QQC2.ToolTip.text: text
@@ -226,7 +270,8 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Decrease List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
-                    root.documentHandler.indentListLess();
+                    root.focusedDocumentHandler.indentListLess();
+                    root.clicked();
                 }
 
                 QQC2.ToolTip.text: text
@@ -253,22 +298,34 @@ QQC2.ToolBar {
                 QQC2.MenuItem {
                     icon.name: "format-list-unordered"
                     text: i18nc("@action:button", "Unordered List")
-                    onTriggered: root.documentHandler.setListStyle(root.documentHandler.currentListStyle === 1 ? 0 : 1);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 1 ? 0 : 1);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-list-ordered"
                     text: i18nc("@action:button", "Ordered List")
-                    onTriggered: root.documentHandler.setListStyle(root.documentHandler.currentListStyle === 4 ? 0 : 4);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 4 ? 0 : 4);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-indent-more"
                     text: i18nc("@action:button", "Increase List Level")
-                    onTriggered: root.documentHandler.indentListMore();
+                    onTriggered: {
+                        root.focusedDocumentHandler.indentListMore();
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     icon.name: "format-indent-less"
                     text: i18nc("@action:button", "Decrease List Level")
-                    onTriggered: root.documentHandler.indentListLess();
+                    onTriggered: {
+                        root.focusedDocumentHandler.indentListLess();
+                        root.clicked();
+                    }
                 }
             }
 
@@ -293,37 +350,75 @@ QQC2.ToolBar {
 
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu no heading", "Paragraph")
-                    onTriggered: root.documentHandler.setHeadingLevel(0);
+                    onTriggered: root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Text);
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 1 (largest)", "Heading 1")
-                    onTriggered: root.documentHandler.setHeadingLevel(1);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(1);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 2", "Heading 2")
-                    onTriggered: root.documentHandler.setHeadingLevel(2);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(2);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 3", "Heading 3")
-                    onTriggered: root.documentHandler.setHeadingLevel(3);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(3);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 4", "Heading 4")
-                    onTriggered: root.documentHandler.setHeadingLevel(4);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(4);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 5", "Heading 5")
-                    onTriggered: root.documentHandler.setHeadingLevel(5);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(5);
+                        root.clicked();
+                    }
                 }
                 QQC2.MenuItem {
                     text: i18nc("@item:inmenu heading level 6 (smallest)", "Heading 6")
-                    onTriggered: root.documentHandler.setHeadingLevel(6);
+                    onTriggered: {
+                        root.focusedDocumentHandler.setHeadingLevel(6);
+                        root.clicked();
+                    }
+                }
+                QQC2.MenuItem {
+                    text: i18nc("@item:inmenu", "Quote")
+                    onTriggered: root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Quote);
                 }
             }
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.ToolButton {
+            id: codeButton
+
+            icon.name: "format-text-code"
+            text: i18n("Code")
+            display: QQC2.AbstractButton.IconOnly
+            checkable: true
+
+            onClicked: {
+                root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Code);
+                root.clicked();
+            }
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.text: text
         }
         Kirigami.Separator {
             Layout.fillHeight: true
@@ -354,10 +449,13 @@ QQC2.ToolBar {
             display: QQC2.AbstractButton.IconOnly
             onClicked: {
                 let dialog = linkDialog.createObject(QQC2.Overlay.overlay, {
-                    linkText: root.documentHandler.currentLinkText(),
-                    linkUrl: root.documentHandler.currentLinkUrl()
+                    linkText: root.focusedDocumentHandler.currentLinkText(),
+                    linkUrl: root.focusedDocumentHandler.currentLinkUrl()
                 })
-                dialog.onAccepted.connect(() => { documentHandler.updateLink(dialog.linkUrl, dialog.linkText) });
+                dialog.onAccepted.connect(() => {
+                    root.focusedDocumentHandler.updateLink(dialog.linkUrl, dialog.linkText)
+                    root.clicked();
+                });
                 dialog.open();
             }
 
@@ -384,7 +482,7 @@ QQC2.ToolBar {
 
                 onClicked: {
                     let dialog = (LibNeoChat.Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay);
-                    dialog.chosen.connect(path => root.chatBarCache.attachmentPath = path);
+                    dialog.chosen.connect(path => root.contentModel.addAttachment(path));
                     dialog.open();
                 }
                 QQC2.ToolTip.visible: hovered
@@ -484,7 +582,7 @@ QQC2.ToolBar {
             display: QQC2.AbstractButton.IconOnly
             checkable: true
 
-            onClicked: root.requestPostMessage()
+            onClicked: root.contentModel.postMessage();
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             QQC2.ToolTip.text: text
