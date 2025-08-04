@@ -52,6 +52,8 @@ QQC2.Control {
     Layout.maximumWidth: Message.maxContentWidth
     Layout.maximumHeight: Kirigami.Units.gridUnit * 20
 
+    width: ListView.view?.width ?? -1
+
     topPadding: 0
     bottomPadding: 0
     leftPadding: 0

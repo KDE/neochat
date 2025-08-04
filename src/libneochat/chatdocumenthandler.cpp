@@ -190,6 +190,7 @@ int ChatDocumentHandler::cursorPosition() const
 
 void ChatDocumentHandler::setCursorPosition(int position)
 {
+    qWarning() << position;
     if (position == m_cursorPosition) {
         return;
     }

@@ -150,7 +150,6 @@ Kirigami.Page {
 
     footer: Loader {
         id: chatBarLoader
-        height: active ? item.implicitHeight : 0
         active: timelineViewLoader.active && !root.currentRoom.readOnly
         sourceComponent: ChatBar {
             id: chatBar

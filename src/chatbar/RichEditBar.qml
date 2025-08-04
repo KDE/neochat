@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat.libneochat as LibNeoChat
+import org.kde.neochat.messagecontent as MessageContent
 
 QQC2.ToolBar {
     id: root
@@ -19,13 +20,14 @@ QQC2.ToolBar {
 
     property LibNeoChat.ChatBarCache chatBarCache
 
-    required property LibNeoChat.ChatDocumentHandler documentHandler
+    required property MessageContent.ChatBarMessageContentModel contentModel
 
     required property real maxAvailableWidth
 
     readonly property real uncompressedImplicitWidth: textFormatRow.implicitWidth +
                                                       listRow.implicitWidth +
                                                       styleButton.implicitWidth +
+                                                      codeButton.implicitWidth +
                                                       emojiButton.implicitWidth +
                                                       linkButton.implicitWidth +
                                                       sendRow.implicitWidth +
@@ -36,6 +38,7 @@ QQC2.ToolBar {
     readonly property real listCompressedImplicitWidth: textFormatRow.implicitWidth +
                                                         compressedListButton.implicitWidth +
                                                         styleButton.implicitWidth +
+                                                        codeButton.implicitWidth +
                                                         emojiButton.implicitWidth +
                                                         linkButton.implicitWidth +
                                                         sendRow.implicitWidth +
@@ -46,6 +49,7 @@ QQC2.ToolBar {
     readonly property real textFormatCompressedImplicitWidth: compressedTextFormatButton.implicitWidth +
                                                               compressedListButton.implicitWidth +
                                                               styleButton.implicitWidth +
+                                                              codeButton.implicitWidth +
                                                               emojiButton.implicitWidth +
                                                               linkButton.implicitWidth +
                                                               sendRow.implicitWidth +
@@ -70,8 +74,8 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Bold")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.documentHandler.bold
-                onClicked: root.documentHandler.bold = checked;
+                checked: root.contentModel.bold
+                onClicked: root.contentModel.bold = checked;
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
@@ -324,6 +328,21 @@ QQC2.ToolBar {
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.ToolButton {
+            id: codeButton
+
+            icon.name: "format-text-code"
+            text: i18n("Code")
+            display: QQC2.AbstractButton.IconOnly
+            checkable: true
+
+            onClicked: {
+                root.contentModel.addNewComponent(LibNeoChat.MessageComponentType.Code)
+            }
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.text: text
         }
         Kirigami.Separator {
             Layout.fillHeight: true

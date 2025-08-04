@@ -17,6 +17,11 @@ TextEdit {
     id: root
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
+
+    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -34,6 +39,29 @@ TextEdit {
      * @brief The display text of the message.
      */
     required property string display
+
+    /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
+     * @brief The attributes of the component.
+     */
+    required property var componentAttributes
+    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
+    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
+        console.warn(chatDocumentHandler)
+        chatDocumentHandler.type = ChatBarType.Room;
+        chatDocumentHandler.room = root.Message.room;
+        chatDocumentHandler.textArea = root;
+        chatDocumentHandler.document = root.textDocument;
+        chatDocumentHandler.cursorPosition = Qt.binding(() => cursorPosition);
+        chatDocumentHandler.selectionStart = root.selectionStart;
+        chatDocumentHandler.selectionEnd = root.selectionEnd;
+        chatDocumentHandler.mentionColor = Kirigami.Theme.linkColor;
+        chatDocumentHandler.errorColor = Kirigami.Theme.negativeTextColor;
+    }
 
     /**
      * @brief Whether this message is replying to another.
@@ -56,8 +84,11 @@ TextEdit {
     property color spoilerBlockColor: Kirigami.ColorUtils.tintWithAlpha("#232629", Kirigami.Theme.textColor, 0.15)
 
     Layout.fillWidth: true
-    Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
+
+    onFocusChanged: if (focus) {
+        Message.contentModel.focusRow = root.index
+    }
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
 
@@ -123,12 +154,12 @@ a{
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
-    font {
-        pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
-        family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
-    }
+    // font {
+    //     pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+    //     family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
+    // }
     selectByMouse: !Kirigami.Settings.isMobile
-    readOnly: true
+    readOnly: !root.editable
     wrapMode: Text.Wrap
     textFormat: Text.RichText
 
