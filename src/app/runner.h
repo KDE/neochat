@@ -190,6 +190,8 @@ public:
      */
     Q_SCRIPTABLE void Run(const QString &id, const QString &actionId);
 
+    Q_SCRIPTABLE void SetActivationToken(const QString &token);
+
 Q_SIGNALS:
     void roomListModelChanged();
 

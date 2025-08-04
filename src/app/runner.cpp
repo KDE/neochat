@@ -5,6 +5,8 @@
 
 #include <QDBusMetaType>
 
+#include <KWindowSystem>
+
 #include "controller.h"
 #include "models/roomlistmodel.h"
 #include "models/sortfilterroomlistmodel.h"
@@ -84,6 +86,11 @@ void Runner::Run(const QString &id, const QString &actionId)
 
     RoomManager::instance().resolveResource(id);
     WindowController::instance().showAndRaiseWindow(QString());
+}
+
+void Runner::SetActivationToken(const QString &token)
+{
+    KWindowSystem::setCurrentXdgActivationToken(token);
 }
 
 #include "moc_runner.cpp"
