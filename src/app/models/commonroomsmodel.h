@@ -7,7 +7,6 @@
 #include <QQmlEngine>
 
 #include "neochatconnection.h"
-#include "neochatroom.h"
 
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/roommember.h>
@@ -25,11 +24,7 @@ class CommonRoomsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        TextRole = Qt::DisplayRole,
-        LongitudeRole,
-        LatitudeRole,
-        AssetRole,
-        AuthorRole,
+        RoomIdRole = Qt::DisplayRole,
     };
     Q_ENUM(Roles)
 
