@@ -67,9 +67,13 @@ QQC2.ComboBox {
             QQC2.ToolButton {
                 visible: serverItem.isAddServerDelegate || serverItem.isDeletable
                 icon.name: serverItem.isAddServerDelegate ? "list-add" : "dialog-close"
-                text: i18nc("@action:button", "Add new server")
+                text: serverItem.isAddServerDelegate ? i18nc("@action:button", "Add new server") : i18nc("@action:button", "Remove server")
                 Accessible.name: text
                 display: QQC2.AbstractButton.IconOnly
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onClicked: {
                     if (root.currentIndex === serverItem.index && serverItem.isDeletable) {
