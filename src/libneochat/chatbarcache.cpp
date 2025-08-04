@@ -15,6 +15,18 @@ using namespace Qt::StringLiterals;
 ChatBarCache::ChatBarCache(QObject *parent)
     : QObject(parent)
 {
+    if (parent == nullptr) {
+        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
+        return;
+    }
+    auto room = dynamic_cast<NeoChatRoom *>(parent);
+    if (room == nullptr) {
+        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+        return;
+    }
+    connect(room, &NeoChatRoom::memberLeft, this, &ChatBarCache::relationAuthorIsPresentChanged);
+    connect(room, &NeoChatRoom::memberJoined, this, &ChatBarCache::relationAuthorIsPresentChanged);
+    connect(this, &ChatBarCache::relationIdChanged, this, &ChatBarCache::relationAuthorIsPresentChanged);
 }
 
 QString ChatBarCache::text() const
@@ -135,6 +147,11 @@ Quotient::RoomMember ChatBarCache::relationAuthor() const
         return room->member(QString());
     }
     return room->member((*room->findInTimeline(m_relationId))->senderId());
+}
+
+bool ChatBarCache::relationAuthorIsPresent() const
+{
+    return relationAuthor().membershipState() == Quotient::Membership::Join;
 }
 
 QString ChatBarCache::relationMessage() const

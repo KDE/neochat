@@ -100,6 +100,13 @@ class ChatBarCache : public QObject
     Q_PROPERTY(Quotient::RoomMember relationAuthor READ relationAuthor NOTIFY relationIdChanged)
 
     /**
+     * @brief If the author for the message being replied to is still present in the room.
+     *
+     * @sa Quotient::RoomMember
+     */
+    Q_PROPERTY(bool relationAuthorIsPresent READ relationAuthorIsPresent NOTIFY relationAuthorIsPresentChanged)
+
+    /**
      * @brief The content of the related message.
      *
      * Will be QString() if no related message.
@@ -153,6 +160,7 @@ public:
     void setEditId(const QString &editId);
 
     Quotient::RoomMember relationAuthor() const;
+    bool relationAuthorIsPresent() const;
 
     QString relationMessage() const;
 
@@ -196,6 +204,7 @@ Q_SIGNALS:
     void threadIdChanged(const QString &oldThreadId, const QString &newThreadId);
     void attachmentPathChanged();
     void mentionAdded(const QString &mention);
+    void relationAuthorIsPresentChanged();
 
 private:
     QString m_text = QString();

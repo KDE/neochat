@@ -197,6 +197,22 @@ QQC2.Control {
             visible: root.currentRoom.mainCache.replyId.length > 0
             sourceComponent: replyPane
         }
+        RowLayout {
+            visible: replyLoader.visible && !root.currentRoom.mainCache.relationAuthorIsPresent
+            spacing: Kirigami.Units.smallSpacing
+
+            Kirigami.Icon {
+                source: "help-hint-symbolic"
+                color: Kirigami.Theme.disabledTextColor
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                Layout.preferredHeight: Kirigami.Units.iconSizes.small
+            }
+            QQC2.Label {
+                text: i18nc("@info", "The user you're replying to has left the room, and can't be notified.")
+                color: Kirigami.Theme.disabledTextColor
+            }
+        }
         Loader {
             id: attachLoader
 

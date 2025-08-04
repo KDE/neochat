@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QTest>
 
+#include <QSignalSpy>
 #include <Quotient/roommember.h>
 #include <Quotient/syncdata.h>
 #include <qtestcase.h>
@@ -32,6 +33,7 @@ private Q_SLOTS:
     void noRoom();
     void badParent();
     void reply();
+    void replyMissingUser();
     void edit();
     void attachment();
 };
@@ -102,6 +104,33 @@ void ChatBarCacheTest::reply()
     QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
     QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
+    QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
+}
+
+void ChatBarCacheTest::replyMissingUser()
+{
+    QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
+    chatBarCache->setText(u"some text"_s);
+    chatBarCache->setAttachmentPath(u"some/path"_s);
+    chatBarCache->setReplyId(u"$153456789:example.org"_s);
+
+    QCOMPARE(chatBarCache->text(), u"some text"_s);
+    QCOMPARE(chatBarCache->isReplying(), true);
+    QCOMPARE(chatBarCache->replyId(), u"$153456789:example.org"_s);
+    QCOMPARE(chatBarCache->isEditing(), false);
+    QCOMPARE(chatBarCache->editId(), QString());
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
+    QCOMPARE(chatBarCache->attachmentPath(), QString());
+    QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
+
+    QSignalSpy relationAuthorIsPresentSpy(chatBarCache.get(), &ChatBarCache::relationAuthorIsPresentChanged);
+
+    // sync again, which will simulate the reply user leaving the room
+    room->syncNewEvents(u"test-min-sync-extra-sync.json"_s);
+
+    QTRY_COMPARE(relationAuthorIsPresentSpy.count(), 1);
+    QCOMPARE(chatBarCache->relationAuthorIsPresent(), false);
 }
 
 void ChatBarCacheTest::edit()
