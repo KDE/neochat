@@ -14,6 +14,11 @@ QQC2.Control {
     id: root
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
+
+    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -38,9 +43,28 @@ QQC2.Control {
     required property string display
 
     /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
      * @brief The attributes of the component.
      */
     required property var componentAttributes
+    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
+    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
+        chatDocumentHandler.type = ChatBarType.Room;
+        chatDocumentHandler.room = root.Message.room;
+        chatDocumentHandler.textItem = codeText;
+    }
+
+    /**
+     * @brief Whether the component is currently focussed.
+     */
+    required property bool currentFocus
+    onCurrentFocusChanged: if (currentFocus && !codeText.focus) {
+        codeText.forceActiveFocus();
+    }
 
     /**
      * @brief The user selected text has changed.
@@ -51,6 +75,8 @@ QQC2.Control {
     Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
     Layout.maximumHeight: Kirigami.Units.gridUnit * 20
+
+    width: ListView.view?.width ?? -1
 
     topPadding: 0
     bottomPadding: 0
@@ -66,12 +92,44 @@ QQC2.Control {
 
         QQC2.TextArea {
             id: codeText
+
+            Keys.onUpPressed: (event) => {
+                event.accepted = false;
+                if (root.chatDocumentHandler.atFirstLine) {
+                    Message.contentModel.focusRow = root.index - 1
+                }
+            }
+            Keys.onDownPressed: (event) => {
+                event.accepted = false;
+                if (root.chatDocumentHandler.atLastLine) {
+                    Message.contentModel.focusRow = root.index + 1
+                }
+            }
+
+            Keys.onDeletePressed: (event) => {
+                event.accepted = true;
+                root.chatDocumentHandler.deleteChar();
+            }
+
+            Keys.onPressed: (event) => {
+                if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
+                    event.accepted = true;
+                    root.chatDocumentHandler.backspace();
+                    return;
+                }
+                event.accepted = false;
+            }
+
+            onFocusChanged: if (focus && !root.currentFocus) {
+                Message.contentModel.setFocusRow(root.index, true)
+            }
+
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
 
-            text: root.display
-            readOnly: true
+            text: root.editable ? "" : root.display
+            readOnly: !root.editable
             textFormat: TextEdit.PlainText
             wrapMode: TextEdit.Wrap
             color: Kirigami.Theme.textColor
@@ -149,7 +207,7 @@ QQC2.Control {
             right: parent.right
             rightMargin: (codeScrollView.QQC2.ScrollBar.vertical.visible ? codeScrollView.QQC2.ScrollBar.vertical.width : 0) + Kirigami.Units.smallSpacing
         }
-        visible: root.hovered
+        visible: root.hovered && !root.editable
         spacing: Kirigami.Units.mediumSpacing
 
         QQC2.Button {

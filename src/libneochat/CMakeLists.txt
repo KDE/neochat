@@ -27,7 +27,7 @@ target_sources(LibNeoChat PRIVATE
     utils.cpp
     voicerecorder.cpp
     enums/chatbartype.h
-    enums/messagecomponenttype.h
+    enums/messagecomponenttype.cpp
     enums/messagetype.h
     enums/powerlevel.cpp
     enums/pushrule.h

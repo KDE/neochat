@@ -35,7 +35,7 @@ QQC2.Control {
 
     required property NeoChatConnection connection
 
-    onActiveFocusChanged: textField.forceActiveFocus()
+    onActiveFocusChanged: chatContentView.itemAt(contentModel.index(contentModel.focusRow, 0)).forceActiveFocus()
 
     onCurrentRoomChanged: {
         _private.chatBarCache = currentRoom.mainCache
@@ -75,6 +75,9 @@ QQC2.Control {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
+    Message.room: root.currentRoom
+    Message.contentModel: contentModel
+
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
         Kirigami.Separator {
@@ -84,233 +87,39 @@ QQC2.Control {
         }
     }
 
+    height: Math.max(Math.min(chatScrollView.contentHeight + bottomPadding + topPadding, Kirigami.Units.gridUnit * 10), Kirigami.Units.gridUnit * 5)
     leftPadding: rightPadding
     rightPadding: (root.width - chatBarSizeHelper.availableWidth) / 2
-    topPadding: 0
-    bottomPadding: 0
+    topPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
 
-    contentItem: ColumnLayout {
-        spacing: 0
-        Item {
-            // Required to adjust for the top separator
-            Layout.preferredHeight: 1
-            Layout.fillWidth: true
-        }
-        Loader {
-            id: replyLoader
-
-            Layout.fillWidth: true
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.preferredHeight: active ? (item as Item).implicitHeight : 0
-
-            active: visible
-            visible: root.currentRoom.mainCache.replyId.length > 0
-            sourceComponent: replyPane
-        }
-        RowLayout {
-            visible: replyLoader.visible && !root.currentRoom.mainCache.relationAuthorIsPresent
+    contentItem: QQC2.ScrollView {
+        id: chatScrollView
+        ColumnLayout {
             spacing: Kirigami.Units.smallSpacing
 
-            Kirigami.Icon {
-                source: "help-hint-symbolic"
-                color: Kirigami.Theme.disabledTextColor
-
-                Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                Layout.preferredHeight: Kirigami.Units.iconSizes.small
-            }
-            QQC2.Label {
-                text: i18nc("@info", "The user you're replying to has left the room, and can't be notified.")
-                color: Kirigami.Theme.disabledTextColor
-            }
-        }
-        Loader {
-            id: attachLoader
-
-            Layout.fillWidth: true
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.preferredHeight: active ? (item as Item).implicitHeight : 0
-
-            active: visible
-            visible: root.currentRoom.mainCache.attachmentPath.length > 0
-            sourceComponent: attachmentPane
-        }
-        RowLayout {
-            QQC2.ScrollView {
-                id: chatBarScrollView
-                Layout.topMargin: Kirigami.Units.smallSpacing
-                Layout.bottomMargin: Kirigami.Units.smallSpacing
-                Layout.leftMargin: Kirigami.Units.largeSpacing
-                Layout.rightMargin: Kirigami.Units.largeSpacing
-
-                Layout.fillWidth: true
-                Layout.maximumHeight: Kirigami.Units.gridUnit * 8
-                Layout.minimumHeight: Kirigami.Units.gridUnit * 3
-
-                // HACK: This is to stop the ScrollBar flickering on and off as the height is increased
-                QQC2.ScrollBar.vertical.policy: chatBarHeightAnimation.running && implicitHeight <= height ? QQC2.ScrollBar.AlwaysOff : QQC2.ScrollBar.AsNeeded
-
-                Behavior on implicitHeight {
-                    NumberAnimation {
-                        id: chatBarHeightAnimation
-                        duration: Kirigami.Units.shortDuration
-                        easing.type: Easing.InOutCubic
-                    }
+            Repeater {
+                id: chatContentView
+                model: ChatBarMessageContentModel {
+                    id: contentModel
+                    type: ChatBarType.Room
+                    room: root.currentRoom
                 }
 
-                QQC2.TextArea {
-                    id: textField
-
-                    placeholderText: root.currentRoom.usesEncryption ? i18nc("@placeholder", "Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18nc("@placeholder", "Set an attachment caption…") : i18nc("@placeholder", "Send a message…")
-                    verticalAlignment: TextEdit.AlignVCenter
-                    wrapMode: TextEdit.Wrap
-                    persistentSelection: true
-
-                    Accessible.description: placeholderText
-
-                    Kirigami.SpellCheck.enabled: false
-
-                    Timer {
-                        id: repeatTimer
-                        interval: 5000
-                    }
-
-                    onTextChanged: {
-                        if (!repeatTimer.running && NeoChatConfig.typingNotifications) {
-                            var textExists = text.length > 0;
-                            root.currentRoom.sendTypingNotification(textExists);
-                            textExists ? repeatTimer.start() : repeatTimer.stop();
-                        }
-                    }
-                    onSelectedTextChanged: {
-                        if (selectedText.length > 0) {
-                            quickFormatBar.selectionStart = selectionStart;
-                            quickFormatBar.selectionEnd = selectionEnd;
-                            quickFormatBar.open();
-                        } else if (quickFormatBar.visible) {
-                            quickFormatBar.close();
-                        }
-                    }
-
-                    QuickFormatBar {
-                        id: quickFormatBar
-
-                        x: textField.cursorRectangle.x
-                        y: textField.cursorRectangle.y - height
-
-                        onFormattingSelected: (format, selectionStart, selectionEnd) => _private.formatText(format, selectionStart, selectionEnd)
-                    }
-
-                    Keys.onEnterPressed: event => {
-                        const controlIsPressed = event.modifiers & Qt.ControlModifier;
-                        if (completionMenu.visible) {
-                            completionMenu.complete();
-                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile || NeoChatConfig.sendMessageWith === 1 && !controlIsPressed || NeoChatConfig.sendMessageWith === 0 && controlIsPressed) {
-                            textField.insert(cursorPosition, "\n");
-                        } else if (NeoChatConfig.sendMessageWith === 0 && !controlIsPressed || NeoChatConfig.sendMessageWith === 1 && controlIsPressed) {
-                            _private.postMessage();
-                        }
-                    }
-                    Keys.onReturnPressed: event => {
-                        const controlIsPressed = event.modifiers & Qt.ControlModifier;
-                        if (completionMenu.visible) {
-                            completionMenu.complete();
-                        } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile || NeoChatConfig.sendMessageWith === 1 && !controlIsPressed || NeoChatConfig.sendMessageWith === 0 && controlIsPressed) {
-                            textField.insert(cursorPosition, "\n");
-                        } else if (NeoChatConfig.sendMessageWith === 0 && !controlIsPressed || NeoChatConfig.sendMessageWith === 1 && controlIsPressed) {
-                            _private.postMessage();
-                        }
-                    }
-                    Keys.onTabPressed: {
-                        if (completionMenu.visible) {
-                            completionMenu.complete();
-                        } else {
-                            contextDrawer.handle.children[0].forceActiveFocus()
-                        }
-                    }
-                    Keys.onPressed: event => {
-                        if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
-                            event.accepted = _private.pasteImage();
-                        } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
-                            root.currentRoom.replyLastMessage();
-                        } else if (event.key === Qt.Key_Up && textField.text.length === 0) {
-                            root.currentRoom.editLastMessage();
-                        } else if (event.key === Qt.Key_Up && completionMenu.visible) {
-                            completionMenu.decrementIndex();
-                        } else if (event.key === Qt.Key_Down && completionMenu.visible) {
-                            completionMenu.incrementIndex();
-                        } else if (event.key === Qt.Key_Backspace || event.key === Qt.Key_Delete) {
-                            if (textField.text == selectedText || textField.text.length <= 1) {
-                                root.currentRoom.sendTypingNotification(false);
-                                repeatTimer.stop();
-                            }
-                            if (quickFormatBar.visible && selectedText.length > 0) {
-                                quickFormatBar.close();
-                            }
-                        } else if (event.key === Qt.Key_Escape && completionMenu.visible) {
-                            completionMenu.close();
-                        }
-                    }
-                    Keys.onShortcutOverride: event => {
-                        if ((_private.chatBarCache.isReplying || _private.chatBarCache.attachmentPath.length > 0) && event.key === Qt.Key_Escape) {
-                            _private.chatBarCache.attachmentPath = "";
-                            _private.chatBarCache.replyId = "";
-                            _private.chatBarCache.threadId = "";
-                            event.accepted = true;
-                        }
-                    }
-
-                    background: MouseArea {
-                        acceptedButtons: Qt.NoButton
-                        cursorShape: Qt.IBeamCursor
-                        z: 1
-                    }
-                }
+                delegate: MessageComponentChooser {}
             }
-            RowLayout {
-                id: actionsRow
-                spacing: 0
-                Layout.alignment: Qt.AlignBottom
-                Layout.bottomMargin: Kirigami.Units.smallSpacing * 4
+            RichEditBar {
+                id: richEditBar
+                maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
 
-                Repeater {
-                    model: root.actions
-                    delegate: QQC2.ToolButton {
-                        id: actionDelegate
-                        required property BusyAction modelData
-                        icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
-                        onClicked: if (!pieProgress.visible) {
-                            modelData.trigger()
-                        }
+                room: root.currentRoom
+                contentModel: chatContentView.model
 
-                        padding: Kirigami.Units.smallSpacing
-
-                        QQC2.ToolTip.visible: hovered
-                        QQC2.ToolTip.text: modelData.tooltip
-                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-                        PieProgressBar {
-                            id: pieProgress
-                            anchors.fill: parent
-                            visible: actionDelegate.modelData.isBusy
-                            progress: root.currentRoom.fileUploadingProgress
-                        }
-                    }
-                }
+                onClicked: contentModel.refocusCurrentComponent()
             }
-        }
-        RichEditBar {
-            id: richEditBar
-            Layout.maximumWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
-            Layout.margins: Kirigami.Units.largeSpacing
-            Layout.alignment:Qt.AlignHCenter
-            maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
-
-            room: root.currentRoom
-            documentHandler: documentHandler
-
-            onRequestPostMessage: _private.postMessage()
         }
     }
+
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
         parentItem: root
@@ -321,101 +130,11 @@ QQC2.Control {
         maxWidth: NeoChatConfig.compactLayout ? root.width - Kirigami.Units.largeSpacing * 2 : Kirigami.Units.gridUnit * 60
     }
 
-    Component {
-        id: replyPane
-        Item {
-            implicitHeight: replyComponent.implicitHeight
-            ReplyComponent {
-                id: replyComponent
-                replyContentModel: ContentProvider.contentModelForEvent(root.currentRoom, _private.chatBarCache.replyId, true)
-                Message.maxContentWidth: (replyLoader.item as Item).width
-
-                // When the user replies to a message and the preview is loaded, make sure the text field is focused again
-                Component.onCompleted: textField.forceActiveFocus(Qt.OtherFocusReason)
-            }
-            QQC2.Button {
-                id: cancelButton
-
-                anchors.top: parent.top
-                anchors.right: parent.right
-
-                display: QQC2.AbstractButton.IconOnly
-                text: i18nc("@action:button", "Cancel reply")
-                icon.name: "dialog-close"
-                onClicked: {
-                    _private.chatBarCache.replyId = "";
-                    _private.chatBarCache.attachmentPath = "";
-                }
-                QQC2.ToolTip.text: text
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-        }
-    }
-    Component {
-        id: attachmentPane
-        AttachmentPane {
-            attachmentPath: _private.chatBarCache.attachmentPath
-
-            onAttachmentCancelled: {
-                _private.chatBarCache.attachmentPath = "";
-                root.forceActiveFocus();
-            }
-        }
-    }
-
     QtObject {
         id: _private
         property ChatBarCache chatBarCache
         onChatBarCacheChanged: {
             richEditBar.chatBarCache = chatBarCache
-        }
-
-        function postMessage() {
-            _private.chatBarCache.postMessage();
-            repeatTimer.stop();
-            textField.clear();
-        }
-
-        function formatText(format, selectionStart, selectionEnd) {
-            let index = textField.cursorPosition;
-
-            /*
-            * There cannot be white space at the beginning or end of the string for the
-            * formatting to work so move the sectionStart and sectionEnd markers past any whitespace.
-            */
-            let innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
-            if (innerText.charAt(innerText.length - 1) === " ") {
-                let trimmedRightString = innerText.replace(/\s*$/, "");
-                let trimDifference = innerText.length - trimmedRightString.length;
-                selectionEnd -= trimDifference;
-            }
-            if (innerText.charAt(0) === " ") {
-                let trimmedLeftString = innerText.replace(/^\s*/, "");
-                let trimDifference = innerText.length - trimmedLeftString.length;
-                selectionStart = selectionStart + trimDifference;
-            }
-            let startText = textField.text.substr(0, selectionStart);
-            // Needs updating with the new selectionStart and selectionEnd with white space trimmed.
-            innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
-            let endText = textField.text.substr(selectionEnd);
-            textField.text = "";
-            textField.text = startText + format.start + innerText + format.end + format.extra + endText;
-
-            /*
-            * Put the cursor where it was when the popup was opened accounting for the
-            * new markup.
-            *
-            * The exception is for a hyperlink where it is placed ready to start typing
-            * the url.
-            */
-            if (format.extra !== "") {
-                textField.cursorPosition = selectionEnd + format.start.length + format.end.length;
-            } else if (index == selectionStart) {
-                textField.cursorPosition = index;
-            } else {
-                textField.cursorPosition = index + format.start.length + format.end.length;
-            }
         }
 
         function pasteImage() {
@@ -428,16 +147,9 @@ QQC2.Control {
         }
     }
 
-    ChatDocumentHandler {
-        id: documentHandler
-        type: ChatBarType.Room
-        textItem: textField
-        room: root.currentRoom
-    }
-
     CompletionMenu {
         id: completionMenu
-        chatDocumentHandler: documentHandler
+        chatDocumentHandler: contentModel.focusedDocumentHandler
         connection: root.connection
 
         x: 1

@@ -25,7 +25,7 @@ using namespace Quotient;
 bool EventMessageContentModel::m_threadsEnabled = false;
 
 EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
-    : MessageContentModel(room, parent, eventId)
+    : MessageContentModel(room, eventId, parent)
     , m_currentState(isPending ? Pending : Unknown)
     , m_isReply(isReply)
 {
@@ -313,44 +313,23 @@ QList<MessageComponent> EventMessageContentModel::messageContentComponents(bool 
     return newComponents;
 }
 
-void EventMessageContentModel::updateReplyModel()
+std::optional<QString> EventMessageContentModel::getReplyEventId()
 {
-    const auto event = m_room->getEvent(m_eventId);
-    if (event.first == nullptr || m_isReply) {
-        return;
+    if (m_isReply) {
+        return std::nullopt;
     }
-
-    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(m_room->getEvent(m_eventId).first);
     if (roomMessageEvent == nullptr) {
-        return;
+       return std::nullopt;
     }
     if (!roomMessageEvent->isReply(!m_threadsEnabled)) {
         if (m_replyModel) {
             m_replyModel->disconnect(this);
             m_replyModel->deleteLater();
         }
-        return;
+        return std::nullopt;
     }
-
-    m_replyModel = new EventMessageContentModel(m_room, roomMessageEvent->replyEventId(!m_threadsEnabled), true, false, this);
-
-    bool hasModel = hasComponentType(MessageComponentType::Reply);
-    if (m_replyModel && !hasModel) {
-        int insertRow = 0;
-        if (m_components.first().type == MessageComponentType::Author) {
-            insertRow = 1;
-        }
-        beginInsertRows({}, insertRow, insertRow);
-        m_components.insert(insertRow, MessageComponent{MessageComponentType::Reply, QString(), {}});
-    } else if (!m_replyModel && hasModel) {
-        int removeRow = 0;
-        if (m_components.first().type == MessageComponentType::Author) {
-            removeRow = 1;
-        }
-        beginRemoveRows({}, removeRow, removeRow);
-        m_components.removeAt(removeRow);
-        endRemoveRows();
-    }
+    return roomMessageEvent->isReply(!m_threadsEnabled) ? std::make_optional(roomMessageEvent->replyEventId(!m_threadsEnabled)) : std::nullopt;
 }
 
 QList<MessageComponent> EventMessageContentModel::componentsForType(MessageComponentType::Type type)

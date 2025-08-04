@@ -29,6 +29,11 @@ RowLayout {
      */
     required property var replyContentModel
 
+    /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
     Layout.fillWidth: true
 
     spacing: Kirigami.Units.largeSpacing
@@ -54,6 +59,21 @@ RowLayout {
                 onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
             }
         }
+    }
+    QQC2.Button {
+        id: cancelButton
+
+        anchors.top: root.top
+        anchors.right: root.right
+
+        visible: root.editable
+        display: QQC2.AbstractButton.IconOnly
+        text: i18nc("@action:button", "Cancel reply")
+        icon.name: "dialog-close"
+        onClicked: root.Message.room.mainCache.replyId = ""
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
     HoverHandler {
         cursorShape: Qt.PointingHandCursor
