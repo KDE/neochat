@@ -92,3 +92,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test neochat_server
     TEST_NAME actionstest
 )
+
+ecm_add_test(
+    modeltest.cpp
+    LINK_LIBRARIES neochat Qt::Test neochat_server Devtools
+    TEST_NAME modeltest
+)
