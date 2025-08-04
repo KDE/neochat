@@ -92,7 +92,9 @@ void NotificationsModel::setConnection(NeoChatConnection *connection)
 
 void NotificationsModel::loadData()
 {
-    Q_ASSERT(m_connection);
+    if (!m_connection) {
+        return;
+    }
     if (m_job || (m_notifications.size() && m_nextToken.isEmpty())) {
         return;
     }
