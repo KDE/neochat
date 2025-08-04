@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-02 02:35+0000\n"
-"PO-Revision-Date: 2025-07-14 20:24+0400\n"
+"PO-Revision-Date: 2025-08-03 16:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -360,19 +360,19 @@ msgstr "انسخ إلى الحافظة"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Room"
-msgstr "تأكيد ترك الغرفة"
+msgstr "تأكيد مغادرة الغرفة"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:17
 #, kde-format
 msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
-msgstr "أتريد حقًّا ترك %1؟"
+msgstr "أتريد حقًّا مغادرة %1؟"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room"
-msgstr "اترك الغرفة"
+msgstr "غادر الغرفة"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -957,7 +957,7 @@ msgstr "اختر ملف"
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
-msgstr "امسح رمز البيانات"
+msgstr "امسح رمز الاستجابة السريعة"
 
 #: src/app/qml/QuickFormatBar.qml:23
 #, kde-format
@@ -1135,7 +1135,7 @@ msgstr "العبارة الأمنية لم تكن صحيحة."
 #, kde-format
 msgctxt "@title"
 msgid "Unlock using Passphrase"
-msgstr "فك القفل باستخدام عبارة المرور"
+msgstr "فك القفل باستخدام عبارة السر"
 
 #: src/app/qml/UnlockSSSSDialog.qml:60
 #, kde-format
@@ -1598,7 +1598,7 @@ msgstr "أرسل رسالة"
 #: src/chatbar/ChatBar.qml:237
 #, kde-format
 msgid "Send an encrypted message…"
-msgstr "أرسل رسالة مشفرة..."
+msgstr "أرسل رسالة معماة…"
 
 #: src/chatbar/ChatBar.qml:237
 #, kde-format
@@ -2258,7 +2258,7 @@ msgstr "غير الصورة الرمزية للغرفة"
 #: src/libneochat/eventhandler.cpp:412
 #, kde-format
 msgid "activated End-to-End Encryption"
-msgstr "فعل التشفير التام من طرف إلى طرف"
+msgstr "نشّط التعمية التامة من طرف إلى طرف"
 
 #: src/libneochat/eventhandler.cpp:416
 #, kde-format
@@ -2515,7 +2515,7 @@ msgstr "%1 غير الصورة الرمزية للغرفة"
 #: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
-msgstr "%1 فعل التشفير التام من طرف إلى طرف"
+msgstr "%1 نشّط التعمية التامة من طرف إلى طرف"
 
 #: src/libneochat/eventhandler.cpp:624
 #, kde-format
@@ -2607,13 +2607,13 @@ msgstr "المقصد"
 #: src/libneochat/models/actionsmodel.cpp:31
 #, kde-format
 msgid "Leaving this room."
-msgstr "يترك هذه الغرفة."
+msgstr "غادر هذه الغرفة."
 
 #: src/libneochat/models/actionsmodel.cpp:40
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "يترك غرفة %1."
+msgstr "غادر غرفة %1."
 
 #: src/libneochat/models/actionsmodel.cpp:43
 #, kde-format
@@ -2776,7 +2776,7 @@ msgstr "[<معرف أو اسم الغرفة>]"
 #: src/libneochat/models/actionsmodel.cpp:273
 #: src/libneochat/models/actionsmodel.cpp:280
 msgid "Leaves the given room or this room, if there is none given"
-msgstr "سيترك الغرفة المعطاة أو هذه الغرفة إن لم يكن هناك غرفة معطاة"
+msgstr "يغادر الغرفة المعطاة أو هذه الغرفة إن لم يكن هناك غرفة معطاة"
 
 #: src/libneochat/models/actionsmodel.cpp:293
 #: src/libneochat/models/actionsmodel.cpp:300
@@ -3509,7 +3509,7 @@ msgstr "كبّر"
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
-msgstr "هذه الرسالة مشفرة ولم يشارك المرسل المفتاح مع هذا الجهاز."
+msgstr "هذه الرسالة معماة ولم يشارك المرسل المفتاح مع هذا الجهاز."
 
 #: src/messagecontent/FetchButtonComponent.qml:36
 #, kde-format
@@ -3860,7 +3860,7 @@ msgstr "غادر هذا الفضاء"
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room"
-msgstr "اترك هذه الغرفة"
+msgstr "غادر هذه الغرفة"
 
 #: src/roominfo/RoomInformation.qml:169
 #, kde-format
@@ -3953,7 +3953,7 @@ msgstr "أنشئ غرفة"
 #: src/rooms/ExploreComponent.qml:101
 #, kde-format
 msgid "Scan a QR Code"
-msgstr "امسح رمز البيانات"
+msgstr "امسح رمز الاستجابة السريعة"
 
 #: src/rooms/ExploreComponentMobile.qml:31
 #, kde-format
@@ -4064,7 +4064,7 @@ msgstr "إعدادات الغرفة"
 #: src/rooms/RoomContextMenu.qml:155
 #, kde-format
 msgid "Leave Room"
-msgstr "اترك الغرفة"
+msgstr "غادر الغرفة"
 
 #: src/rooms/RoomDelegate.qml:138
 #, kde-format
@@ -4180,7 +4180,7 @@ msgstr "إعدادات الفضاء"
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
-msgstr "اترك الفضاء"
+msgstr "غادر الفضاء"
 
 #: src/rooms/UserInfo.qml:50
 #, kde-format
@@ -4454,7 +4454,7 @@ msgstr "كلمة السّر"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr "امسح البيانات"
+msgstr "امحُ البيانات"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -4696,7 +4696,7 @@ msgstr "صدّر المفاتيح"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Passphrase:"
-msgstr "عبارة المرور:"
+msgstr "عبارة السر:"
 
 #: src/settings/ExportKeysDialog.qml:37
 #, kde-format
@@ -4704,7 +4704,7 @@ msgid ""
 "A passphrase to secure your key backup. It should not be your account "
 "password."
 msgstr ""
-"عبارة المرور لتأمين النسخة الاحتياطية لمفاتيحك. يجب أن تكون كلمة مرور حسابك."
+"عبارة السر لتأمين النسخة الاحتياطية لمفاتيحك. يجب أن تكون كلمة مرور حسابك."
 
 #: src/settings/ExportKeysDialog.qml:42
 #, kde-format
@@ -5201,7 +5201,7 @@ msgstr "أظهر أحداث الحالة"
 #: src/settings/NeoChatGeneralPage.qml:212
 #, kde-format
 msgid "Show leave and join events"
-msgstr "أظهر أحداث الانضمام و الترك"
+msgstr "أظهر أحداث الانضمام و المغادرة"
 
 #: src/settings/NeoChatGeneralPage.qml:230
 #, kde-format
@@ -5540,7 +5540,7 @@ msgstr "احذف الكلمة المفتاحية"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Enter password"
-msgstr "أدخل كلمة المرور"
+msgstr "أدخل كلمة السر"
 
 #: src/settings/PasswordSheet.qml:30
 #, kde-format
