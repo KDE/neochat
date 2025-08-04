@@ -74,7 +74,7 @@ public:
      */
     enum Roles {
         NameRole = Qt::DisplayRole, /**< The power level name. */
-        ValueRole, /**< The power level value. */
+        ValueRole = Qt::UserRole, /**< The power level value. */
     };
     Q_ENUM(Roles)
 
