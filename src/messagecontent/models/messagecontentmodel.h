@@ -4,8 +4,9 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QQmlEngine>
 #include <QImageReader>
+#include <QQmlEngine>
+#include <optional>
 
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
@@ -35,8 +36,15 @@ class MessageContentModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
-    QML_UNCREATABLE("")
 
+    /**
+     * @brief The room the chat bar is for.
+     */
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+
+    /**
+     * @brief The author if the message.
+     */
     Q_PROPERTY(NeochatRoomMember *author READ author NOTIFY authorChanged)
     Q_PROPERTY(QString eventId READ eventId CONSTANT)
 
@@ -59,10 +67,16 @@ public:
         ThreadRootRole, /**< The thread root event ID for the event. */
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
+        Editable, /**< Whether the component can be edited. */
+        CurrentFocusRole, /**< Whteher the delegate should have focus. */
     };
     Q_ENUM(Roles)
 
-    explicit MessageContentModel(NeoChatRoom *room, MessageContentModel *parent = nullptr, const QString &eventId = {});
+    explicit MessageContentModel(QObject *parent = nullptr);
+    explicit MessageContentModel(NeoChatRoom *room, const QString &eventId, MessageContentModel *parent = nullptr);
+
+    NeoChatRoom *room() const;
+    void setRoom(NeoChatRoom *room);
 
     /**
      * @brief Get the given role value at the given index.
@@ -109,6 +123,7 @@ public:
     Q_INVOKABLE void toggleSpoiler(QModelIndex index);
 
 Q_SIGNALS:
+    void roomChanged();
     void authorChanged();
 
     /**
@@ -123,7 +138,7 @@ Q_SIGNALS:
 
 protected:
     QPointer<NeoChatRoom> m_room;
-    QString m_eventId;
+    QString m_eventId = {};
 
     /**
      * @brief NeoChatDateTime for the message.
@@ -150,13 +165,24 @@ protected:
 
     QList<MessageComponent> m_components;
     bool hasComponentType(MessageComponentType::Type type);
+    bool hasComponentType(QList<MessageComponentType::Type> types);
     void forEachComponentOfType(MessageComponentType::Type type, std::function<ComponentIt(ComponentIt)> function);
     void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<ComponentIt(ComponentIt)> function);
 
+    /**
+     * @brief The ID for the event that the message is replying to, if any.
+     *
+     * The default implementation returns a std::nullopt.
+     */
+    virtual std::optional<QString> getReplyEventId();
+    void updateReplyModel();
     QPointer<MessageContentModel> m_replyModel;
     QPointer<ReactionModel> m_reactionModel = nullptr;
     QPointer<ItineraryModel> m_itineraryModel = nullptr;
     bool m_emptyItinerary = false;
+
+    bool m_editableActive = false;
+    QPersistentModelIndex m_currentFocusComponent = {};
 
 private:
     void initializeModel();

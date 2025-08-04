@@ -15,21 +15,29 @@
 
 using namespace Quotient;
 
-MessageContentModel::MessageContentModel(NeoChatRoom *room, MessageContentModel *parent, const QString &eventId)
+MessageContentModel::MessageContentModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_room(room)
+{
+    initializeModel();
+}
+
+MessageContentModel::MessageContentModel(NeoChatRoom *room, const QString &eventId, MessageContentModel *parent)
+    : QAbstractListModel(parent)
     , m_eventId(eventId)
 {
     connect(qGuiApp->styleHints(), &QStyleHints::colorSchemeChanged, this, &MessageContentModel::updateSpoilers);
 
+    setRoom(room);
     initializeModel();
 }
 
 void MessageContentModel::initializeModel()
 {
-    Q_ASSERT(m_room != nullptr);
-
     connect(this, &MessageContentModel::componentsUpdated, this, [this]() {
+        if (!m_room) {
+            return;
+        }
+
         if (m_room->urlPreviewEnabled()) {
             forEachComponentOfType({MessageComponentType::Text, MessageComponentType::Quote}, m_linkPreviewAddFunction);
         } else {
@@ -42,37 +50,60 @@ void MessageContentModel::initializeModel()
             forEachComponentOfType(MessageComponentType::File, m_fileFunction);
         }
     });
-    connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
-        if (eventId == m_eventId) {
-            forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                   m_fileInfoFunction);
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
-        if (eventId == m_eventId) {
-            forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                   m_fileInfoFunction);
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
-        if (m_room != nullptr && eventId == m_eventId) {
-            forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                   m_fileInfoFunction);
-        }
-    });
-    connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
-        if (eventId == m_eventId) {
-            forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
-                                   m_fileInfoFunction);
-            if (errorMessage.isEmpty()) {
-                Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
-            } else {
-                Q_EMIT m_room->showMessage(MessageType::Error,
-                                           i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+}
+
+NeoChatRoom *MessageContentModel::room() const
+{
+    return m_room;
+}
+
+void MessageContentModel::setRoom(NeoChatRoom *room)
+{
+    if (room == m_room) {
+        return;
+    }
+
+    if (m_room) {
+        m_room->disconnect(this);
+    }
+
+    m_room = room;
+
+    if (m_room) {
+        connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
+                                       m_fileInfoFunction);
             }
-        }
-    });
-    connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
+        });
+        connect(m_room, &NeoChatRoom::fileTransferProgress, this, [this](const QString &eventId) {
+            if (eventId == m_eventId) {
+                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
+                                       m_fileInfoFunction);
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferCompleted, this, [this](const QString &eventId) {
+            if (m_room != nullptr && eventId == m_eventId) {
+                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
+                                       m_fileInfoFunction);
+            }
+        });
+        connect(m_room, &NeoChatRoom::fileTransferFailed, this, [this](const QString &eventId, const QString &errorMessage) {
+            if (eventId == m_eventId) {
+                forEachComponentOfType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video},
+                                       m_fileInfoFunction);
+                if (errorMessage.isEmpty()) {
+                    Q_EMIT m_room->showMessage(MessageType::Error, i18nc("@info", "Failed to download file."));
+                } else {
+                    Q_EMIT m_room->showMessage(MessageType::Error,
+                                               i18nc("@info Failed to download file: [error message]", "Failed to download file:<br />%1", errorMessage));
+                }
+            }
+        });
+        connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
+    }
+
+    Q_EMIT roomChanged();
 }
 
 QString MessageContentModel::eventId() const
@@ -170,6 +201,12 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         }
         return QVariant::fromValue<ChatBarCache *>(m_room->editCache());
     }
+    if (role == Editable) {
+        return m_editableActive;
+    }
+    if (role == CurrentFocusRole) {
+        return index.row() == m_currentFocusComponent.row();
+    }
 
     return {};
 }
@@ -202,6 +239,8 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
+    roles[MessageContentModel::Editable] = "editable";
+    roles[MessageContentModel::CurrentFocusRole] = "currentFocus";
     return roles;
 }
 
@@ -213,6 +252,16 @@ bool MessageContentModel::hasComponentType(MessageComponentType::Type type)
                             return component.type == type;
                         })
         != m_components.cend();
+}
+
+bool MessageContentModel::hasComponentType(QList<MessageComponentType::Type> types)
+{
+    for (const auto &type : types) {
+        if (hasComponentType(type)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type,
@@ -234,6 +283,54 @@ void MessageContentModel::forEachComponentOfType(QList<MessageComponentType::Typ
 {
     for (const auto &type : types) {
         forEachComponentOfType(type, function);
+    }
+}
+
+std::optional<QString> MessageContentModel::getReplyEventId()
+{
+    return std::nullopt;
+}
+
+void MessageContentModel::updateReplyModel()
+{
+    const auto eventId = getReplyEventId();
+    if (!eventId) {
+        if (m_replyModel) {
+            m_replyModel->disconnect(this);
+            m_replyModel->deleteLater();
+        }
+        if (hasComponentType(MessageComponentType::Reply)) {
+            forEachComponentOfType(MessageComponentType::Reply, [this](ComponentIt it) {
+                beginRemoveRows({}, std::distance(m_components.begin(), it), std::distance(m_components.begin(), it));
+                it = m_components.erase(it);
+                endRemoveRows();
+                return it;
+            });
+        }
+        return;
+    }
+
+    if (m_replyModel && m_replyModel->eventId() == eventId) {
+        return;
+    }
+
+    m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
+
+    bool hasModel = hasComponentType(MessageComponentType::Reply);
+    if (!hasModel) {
+        int insertRow = 0;
+        if (m_components.first().type == MessageComponentType::Author) {
+            insertRow = 1;
+        }
+        beginInsertRows({}, insertRow, insertRow);
+        m_components.insert(insertRow, MessageComponent{MessageComponentType::Reply, QString(), {}});
+        endInsertRows();
+    } else {
+        forEachComponentOfType(MessageComponentType::Reply, [this](ComponentIt it) {
+            const auto replyIndex = index(std::distance(m_components.begin(), it));
+            dataChanged(replyIndex, replyIndex, {ReplyContentModelRole});
+            return ++it;
+        });
     }
 }
 

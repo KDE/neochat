@@ -26,7 +26,7 @@ target_sources(LibNeoChat PRIVATE
     urlhelper.cpp
     utils.cpp
     enums/chatbartype.h
-    enums/messagecomponenttype.h
+    enums/messagecomponenttype.cpp
     enums/messagetype.h
     enums/powerlevel.cpp
     enums/pushrule.h
