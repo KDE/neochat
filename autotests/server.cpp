@@ -12,6 +12,8 @@
 #include <QSslKey>
 #include <QUuid>
 
+#include <QBuffer>
+#include <QImage>
 #include <Quotient/networkaccessmanager.h>
 
 using namespace Qt::Literals::StringLiterals;
@@ -116,6 +118,20 @@ void Server::start()
                    });
 
     m_server.route(u"/_matrix/client/r0/sync"_s, QHttpServerRequest::Method::Get, this, &Server::sync);
+    m_server.route(u"/_matrix/client/v1/media/download/<arg>/<arg>"_s,
+                   QHttpServerRequest::Method::Get,
+                   [](const QString &serverName, const QString &mediaId, QHttpServerResponder &responder) {
+                       qInfo() << serverName << mediaId;
+                       QImage image(128, 128, QImage::Format::Format_RGB32);
+                       image.fill(Qt::white);
+
+                       QByteArray bytes;
+                       QBuffer buffer(&bytes);
+                       buffer.open(QIODevice::WriteOnly);
+                       image.save(&buffer, "PNG");
+
+                       responder.write(&buffer, "image/png", QHttpServerResponder::StatusCode::Ok);
+                   });
 
     QSslConfiguration config;
     QFile key(QStringLiteral(DATA_DIR) + u"/localhost.key"_s);

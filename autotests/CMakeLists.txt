@@ -9,6 +9,21 @@ target_link_libraries(neochat_server PUBLIC Qt::HttpServer QuotientQt6)
 
 add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
 
+macro(add_qml_tests)
+    if (WIN32)
+        set(_extra_args -platform offscreen)
+    endif()
+
+    foreach(test ${ARGV})
+        add_test(NAME ${test}
+                COMMAND qmltest
+                ${_extra_args}
+                -input ${test}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        )
+    endforeach()
+endmacro()
+
 ecm_add_test(
     neochatroomtest.cpp
     LINK_LIBRARIES neochat Qt::Test
@@ -104,3 +119,14 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test neochat_server
     TEST_NAME roommanagertest
 )
+
+add_executable(qmltest qmltest.cpp)
+target_link_libraries(qmltest
+        PRIVATE
+        Qt6::Qml
+        Qt6::QuickTest
+        neochat_server
+        neochat
+        neochatplugin)
+
+add_qml_tests(tst_media.qml)
