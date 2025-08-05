@@ -43,6 +43,8 @@ Item {
      */
     property var contentMaxHeight: undefined
 
+    readonly property alias _private: _private
+
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
 
