@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-04 00:42+0000\n"
+"POT-Creation-Date: 2025-08-05 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1103,24 +1103,30 @@ msgid "Ignore"
 msgstr ""
 
 #: src/app/qml/RoomPage.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "NeoChat is offline. Please check your network connection."
+msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
 
 #: src/app/qml/RoomPage.qml:141
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
+msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Καλώς ήρθατε στο Matrix"
 
 #: src/app/qml/RoomPage.qml:142
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
+msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
 #: src/app/qml/RoomPage.qml:209
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Source"
+msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Πηγή μηνύματος"
 

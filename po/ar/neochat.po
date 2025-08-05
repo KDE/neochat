@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-04 00:42+0000\n"
-"PO-Revision-Date: 2025-08-03 16:11+0400\n"
+"POT-Creation-Date: 2025-08-05 00:42+0000\n"
+"PO-Revision-Date: 2025-08-04 14:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -24,12 +24,12 @@ msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "تلقي إخطارات بالرسائل الجديدة"
+msgstr "تلقي إشعارات بالرسائل الجديدة"
 
 #: src/app/controller.cpp:326
 #, kde-format
 msgid "Receiving push notifications"
-msgstr "تلقي إخطارات"
+msgstr "تلقي إشعارات"
 
 #: src/app/main.cpp:150 src/login/WelcomePage.qml:75
 #, kde-format
@@ -55,7 +55,7 @@ msgstr "كارل شوان"
 #: src/app/main.cpp:159
 #, kde-format
 msgid "Maintainer"
-msgstr "المصين"
+msgstr "الصائن"
 
 #: src/app/main.cpp:156
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "مكتبة Qt لكتابة عملاء عابرة للأنظمة لمات
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr "‏%1 (بني على %2)"
+msgstr "‏%1 (بُني على %2)"
 
 #: src/app/main.cpp:196
 #, kde-format
@@ -139,7 +139,7 @@ msgstr "استبدل نسخة موجودة"
 #: src/app/main.cpp:203
 #, kde-format
 msgid "Only used for autotests"
-msgstr "يستعمل في للاختبار آلي"
+msgstr "يستعمل في للاختبار آليّ"
 
 #: src/app/main.cpp:208
 #, kde-format
@@ -1036,22 +1036,30 @@ msgid "Ignore"
 msgstr "تجاهل"
 
 #: src/app/qml/RoomPage.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "NeoChat is offline. Please check your network connection."
+msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "نيوتشات غير متصل: الرجاء التأكد من اتصالك بالشبكة"
 
 #: src/app/qml/RoomPage.qml:141
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Welcome to NeoChat"
+msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "أهلا في نيوتشات"
 
 #: src/app/qml/RoomPage.qml:142
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Select or join a room to get started"
+msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "حدد أو انضم لغرفة لتبدأ"
 
 #: src/app/qml/RoomPage.qml:209
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message Source"
+msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "مصدر الرّسالة"
 
@@ -4815,7 +4823,7 @@ msgid ""
 "These are the default notification settings for all rooms. You can customize "
 "notifications per-room in the room list or room settings."
 msgstr ""
-"هذه هي إعدادات التنبيهات المبدئية لجميع الغرف. يمكنك تخصيص الإشعارات لكل "
+"هذه هي إعدادات الإشعارات المبدئية لجميع الغرف. يمكنك تخصيص الإشعارات لكل "
 "غرفة في قائمة الغرف أو إعدادات الغرفة."
 
 #: src/settings/GlobalNotificationsPage.qml:69
@@ -5160,7 +5168,7 @@ msgstr "صغر إلى صينية النظام عند البدء"
 #: src/settings/NeoChatGeneralPage.qml:64
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr "أخفِ/أظهر معلومات الغرفة تلقائيًا عند تغيير حجم النافذة"
+msgstr "أخفِ/أظهر معلومات الغرفة آليًّا عند تغيير حجم النافذة"
 
 #: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
@@ -5339,13 +5347,13 @@ msgstr "الإعدادات المبدئية"
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
-msgstr "أعد كلّ الإعدادات إلى قيمها المبدئية…"
+msgstr "صفّر كلّ الإعدادات إلى قيمها المبدئية…"
 
 #: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
-msgstr "أعد الضبط"
+msgstr "صفّر الضبط"
 
 #: src/settings/NeoChatGeneralPage.qml:355
 #, kde-format
