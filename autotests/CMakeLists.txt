@@ -9,6 +9,21 @@ target_link_libraries(neochat_server PUBLIC Qt::HttpServer QuotientQt6)
 
 add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
 
+macro(add_qml_tests)
+    if (WIN32)
+        set(_extra_args -platform offscreen)
+    endif()
+
+    foreach(test ${ARGV})
+        add_test(NAME ${test}
+                COMMAND qmltest
+                ${_extra_args}
+                -input ${test}
+                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        )
+    endforeach()
+endmacro()
+
 ecm_add_test(
     neochatroomtest.cpp
     LINK_LIBRARIES neochat Qt::Test
@@ -92,3 +107,18 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test neochat_server
     TEST_NAME actionstest
 )
+
+if(NOT TARGET Qt6::QuickTest)
+    message(STATUS "Qt6QuickTest not found, autotests will not be built.")
+    return()
+endif()
+
+add_executable(qmltest qmltest.cpp)
+qt_add_qml_module(qmltest URI KirigamiTestUtils)
+target_link_libraries(qmltest PRIVATE Qt6::Qml Qt6::QuickTest Kirigami neochat_server neochat)
+if (NOT QT6_IS_SHARED_LIBS_BUILD OR NOT BUILD_SHARED_LIBS)
+    target_link_libraries(qmltest PRIVATE KirigamiPolyfillplugin)
+    qt6_import_qml_plugins(qmltest)
+endif()
+
+add_qml_tests(tst_media.qml)
