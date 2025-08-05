@@ -23,6 +23,13 @@
         "--talk-name=org.kde.kuiserver",
         "--own-name=org.kde.StatusNotifierItem-2-2"
     ],
+    "cleanup": [
+        "/include",
+        "/lib/*.a",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/share/ndk-modules"
+    ],
     "modules": [
         {
             "name": "kirigamiaddons",
