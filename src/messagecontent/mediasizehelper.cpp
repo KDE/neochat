@@ -150,6 +150,10 @@ QSize MediaSizeHelper::currentSize() const
         if (height > heightLimit()) {
             return QSize(qRound(heightLimit() * aspectRatio()), qRound(heightLimit()));
         }
+        // TODO: NO
+        if (qIsNaN(width) || qIsNaN(height)) {
+            return {};
+        }
         return QSize(qRound(width), qRound(height));
     } else {
         qreal height = std::min(heightLimit(), resolvedMediaHeight());
