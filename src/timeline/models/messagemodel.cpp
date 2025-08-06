@@ -43,7 +43,7 @@ MessageModel::MessageModel(QObject *parent)
     });
 
     connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
-        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {ContentModelRole, IsThreadedRole});
+        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {DelegateTypeRole, ContentModelRole, IsThreadedRole, SpecialMarksRole});
     });
 }
 

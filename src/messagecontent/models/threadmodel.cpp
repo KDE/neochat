@@ -95,7 +95,9 @@ void ThreadModel::fetchMoreEvents(int max)
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
             auto newEvents = m_currentJob->chunk();
             for (auto &event : newEvents) {
-                m_events.push_back(event->id());
+                if (std::find(m_events.begin(), m_events.end(), event->id()) == m_events.end()) {
+                    m_events.push_back(event->id());
+                }
             }
 
             addModels();
@@ -122,7 +124,9 @@ void ThreadModel::addNewEvent(const Quotient::RoomEvent *event)
     if (eventId.isEmpty()) {
         eventId = event->transactionId();
     }
-    m_events.push_front(eventId);
+    if (std::find(m_events.begin(), m_events.end(), eventId) == m_events.end()) {
+        m_events.push_front(eventId);
+    }
 }
 
 void ThreadModel::addModels()

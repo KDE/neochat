@@ -113,6 +113,13 @@ void EventMessageContentModel::initializeModel()
             updateReactionModel();
         }
     });
+#if Quotient_VERSION_MINOR > 9
+    connect(m_room, &Room::newThread, this, [this](const Thread &newThread) {
+        if (newThread.threadRootId == m_eventId) {
+            resetContent();
+        }
+    });
+#endif
 
     initializeEvent();
     resetModel();
@@ -157,12 +164,16 @@ QString EventMessageContentModel::threadRootId() const
     }
     auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first);
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
-    if (roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
+    if (roomMessageEvent && roomMessageEvent->isThreaded()) {
+        return roomMessageEvent->threadRootEventId();
+    } else if (m_room->threads().contains(roomMessageEvent->id())) {
+        return m_eventId;
+    }
 #else
     if (roomMessageEvent && roomMessageEvent->isThreaded()) {
-#endif
         return roomMessageEvent->threadRootEventId();
     }
+#endif
     return {};
 }
 
@@ -306,8 +317,9 @@ QList<MessageComponent> EventMessageContentModel::messageContentComponents(bool 
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
 #if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
-    if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))
-        && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
+    if (m_threadsEnabled && roomMessageEvent
+        && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
+            || m_room->threads().contains(roomMessageEvent->id()))) {
 #else
     if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
 #endif

@@ -87,6 +87,7 @@ void MessageDelegateBase::setIsThreaded(bool isThreaded)
     m_isThreaded = isThreaded;
     setAlwaysFillWidth(m_isThreaded || m_compactMode);
     setPercentageValues(m_isThreaded || m_compactMode);
+    updateAvatar();
     Q_EMIT isThreadedChanged();
 }
 
