@@ -77,7 +77,7 @@ ColumnLayout {
                     visible: root.room.canSendState("invite")
                     text: i18nc("@button", "Invite user to space")
                     icon.name: "list-add-user"
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'InviteUserPage'), {
+                    onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'InviteUserPage'), {
                         room: root.room
                     }, {
                         title: i18nc("@title", "Invite a User")

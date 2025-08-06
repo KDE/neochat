@@ -261,7 +261,7 @@ Kirigami.Dialog {
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                    let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                         title: i18nc("@title:dialog", "Remove Messages"),
                         placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
                         actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),

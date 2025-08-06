@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -26,7 +27,7 @@ Kirigami.Dialog {
 
     title: i18nc("@title", "Remove Child")
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
 
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 

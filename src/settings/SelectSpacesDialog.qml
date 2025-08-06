@@ -26,14 +26,12 @@ Kirigami.Dialog {
      */
     property list<string> restrictedIds: room.restrictedIds
 
-    parent: applicationWindow().overlay
-
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title", "Select Spaces")
 
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel

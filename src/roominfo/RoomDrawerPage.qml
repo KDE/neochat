@@ -101,16 +101,16 @@ Kirigami.Page {
     }
 
     Connections {
-        target: applicationWindow().pageStack
+        target: root.Kirigami.PageStack.pageStack
         onWideModeChanged: {
-            if (applicationWindow().pageStack.wideMode) {
-                applicationWindow().pageStack.pop();
+            if ((root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode) {
+                root.Kirigami.PageStack.pop();
             }
         }
     }
 
     onBackRequested: event => {
         event.accepted = true;
-        applicationWindow().pageStack.pop();
+        Kirigami.PageStack.pop();
     }
 }

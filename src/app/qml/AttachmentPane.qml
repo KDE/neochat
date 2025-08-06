@@ -48,7 +48,7 @@ ColumnLayout {
             onClicked: {
                 let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage);
                 imageEditor.newPathChanged.connect(function (newPath) {
-                    applicationWindow().pageStack.layers.pop();
+                    imageEditor.closeDialog();
                     root.attachmentPath = newPath;
                 });
             }

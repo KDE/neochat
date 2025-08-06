@@ -24,7 +24,7 @@ Kirigami.Dialog {
 
     title: i18nc("@title", "Select new official parent")
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
     rightPadding: 0
     topPadding: 0

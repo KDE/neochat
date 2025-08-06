@@ -34,7 +34,7 @@ Kirigami.Dialog {
         }
     ]
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title: create new poll in the room", "Create Poll")
 
     contentItem: ColumnLayout {

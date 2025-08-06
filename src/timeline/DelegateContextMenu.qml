@@ -89,7 +89,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "edit-delete-remove"
         icon.color: "red"
         onTriggered: {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Remove Message"),
                 placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
                 actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
@@ -134,7 +134,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "dialog-warning-symbolic"
         visible: !author.isLocalMember
         onTriggered: {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Report Message"),
                 placeholder: i18nc("@info:placeholder", "Reason for reporting this message"),
                 icon: "dialog-warning-symbolic",
@@ -262,8 +262,6 @@ KirigamiComponents.ConvergentContextMenu {
             rightPadding: 0
             bottomPadding: 0
             topPadding: 0
-
-            parent: applicationWindow().overlay
 
             QQC2.StackView {
                 id: stackView

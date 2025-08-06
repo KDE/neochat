@@ -99,26 +99,7 @@ DelegateContextMenu {
         separator: true
     }
 
-    Kirigami.Action {
-        visible: author.id === currentRoom.localMember.id || currentRoom.canSendState("redact")
-        text: i18n("Remove…")
-        icon.name: "edit-delete-remove"
-        icon.color: "red"
-        onTriggered: {
-            let dialog = applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                title: i18nc("@title:dialog", "Remove Message"),
-                placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
-                actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
-                icon: "delete"
-            }, {
-                title: i18nc("@title:dialog", "Remove Message"),
-                width: Kirigami.Units.gridUnit * 25
-            });
-            dialog.accepted.connect(reason => {
-                currentRoom.redactEvent(root.eventId, reason);
-            });
-        }
-    }
+    DelegateContextMenu.RemoveMessageAction {}
 
     DelegateContextMenu.PinMessageAction {}
 

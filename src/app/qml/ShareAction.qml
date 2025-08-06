@@ -23,8 +23,6 @@ Kirigami.Action {
     text: i18n("Share")
     tooltip: i18n("Share the selected media")
 
-    visible: false
-
     /**
      * This property holds the input data for purpose.
      *
@@ -60,7 +58,7 @@ Kirigami.Action {
                 if (id != root.eventId) {
                     return;
                 }
-                applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "ShareDialog"), {
+                pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "ShareDialog"), {
                     title: root.text,
                     index: index,
                     model: root._instantiator.model

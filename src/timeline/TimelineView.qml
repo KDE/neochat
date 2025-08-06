@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
+import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 
 QQC2.ScrollView {
@@ -137,7 +138,7 @@ QQC2.ScrollView {
                 if (!messageListView.atYEnd || !_private.room.partiallyReadStats.empty()) {
                     messageListView.positionViewAtBeginning();
                 } else {
-                    applicationWindow().pageStack.get(0).forceActiveFocus();
+                    (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).get(0).forceActiveFocus();
                 }
             }
         }
@@ -149,7 +150,7 @@ QQC2.ScrollView {
             target: messageListView.model.sourceModel.timelineMessageModel
 
             function onModelAboutToBeReset() {
-                applicationWindow().hoverLinkIndicator.text = "";
+                (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
                 _private.hasScrolledUpBefore = false;
             }
 

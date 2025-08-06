@@ -63,9 +63,9 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
-            visible: Kirigami.Settings.isMobile || !applicationWindow().pageStack.wideMode
+            visible: Kirigami.Settings.isMobile || !root.Kirigami.PageStack.pageStack.wideMode
             icon.name: "view-right-new"
-            onTriggered: applicationWindow().openRoomDrawer()
+            onTriggered: (root.QQC2.ApplicationWindow.window as Main).openRoomDrawer()
         }
     ]
 
@@ -202,7 +202,7 @@ Kirigami.Page {
         }
 
         function onShowEventSource(eventId) {
-            applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+            (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
                 title: i18nc("@title:dialog", "Message Source"),

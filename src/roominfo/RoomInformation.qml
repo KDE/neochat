@@ -177,7 +177,7 @@ QQC2.ScrollView {
                     icon.name: "list-add-user"
 
                     onClicked: {
-                        applicationWindow().pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
+                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
                             room: root.room
                         }, {
                             title: i18nc("@title", "Invite a User")

@@ -15,8 +15,6 @@ Kirigami.Dialog {
 
     property var connection
 
-    parent: applicationWindow().overlay
-
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
@@ -24,7 +22,7 @@ Kirigami.Dialog {
 
     title: i18nc("@title Join <name of a space>", "Join %1", SpaceHierarchyCache.recommendedSpaceDisplayName)
 
-    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
+    width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
 
     contentItem: ColumnLayout {
         FormCard.AbstractFormDelegate {

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -136,9 +137,9 @@ a{
         RoomManager.resolveResource(link, "join");
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
-        applicationWindow().hoverLinkIndicator.text = hoveredLink;
+        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
     } else {
-        applicationWindow().hoverLinkIndicator.text = "";
+        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
 
     HoverHandler {

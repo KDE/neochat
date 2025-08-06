@@ -90,7 +90,7 @@ Item {
             fillMode: Image.PreserveAspectFit
             autoTransform: true
 
-            paused: !applicationWindow().active
+            paused: !QQC2.ApplicationWindow.window.active
         }
     }
 

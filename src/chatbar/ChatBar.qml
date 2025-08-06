@@ -87,7 +87,7 @@ QQC2.Control {
             displayHint: Kirigami.DisplayHint.IconOnly
 
             onTriggered: {
-                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(applicationWindow().overlay);
+                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(root.QQC2.Overlay.overlay);
                 dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
                 dialog.open();
             }
