@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1117,28 +1117,35 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "नया सर्वर जोड़ें"
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr "डिवाइस हटाएँ"
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "सर्वर जोड़ें"
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "दर्ज किया गया पाठ मान्य URL नहीं है"
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "इस सर्वर का समाधान नहीं किया जा सकता या इसे पहले ही जोड़ दिया गया है"
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr "सर्वर यूआरएल:"
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1597,17 +1604,17 @@ msgstr "अज्ञात त्रुटि के कारण सत्र �
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत या रिक्त मैट्रिक्स आईडी<br /> %1 सही मैट्रिक्स पहचानकर्ता नहीं है"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "कमरे में शामिल होने में विफल<br /> %1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "आपने '%1' में शामिल होने का अनुरोध किया"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "कमरे में शामिल होने का अनुरोध विफल<br /> %1"

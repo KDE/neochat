@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
 "PO-Revision-Date: 2023-12-12 01:02+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -1070,28 +1070,34 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr ""
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr ""
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr ""
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr ""
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr ""
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1527,17 +1533,17 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr ""
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr ""

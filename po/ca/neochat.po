@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-30 10:38+0200\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"PO-Revision-Date: 2025-08-05 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1043,8 +1043,7 @@ msgid "Ignore"
 msgstr "Ignora"
 
 #: src/app/qml/RoomPage.qml:86
-#, fuzzy, kde-format
-#| msgid "NeoChat is offline. Please check your network connection."
+#, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
@@ -1052,22 +1051,19 @@ msgstr ""
 "xarxa."
 
 #: src/app/qml/RoomPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat"
+#, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Us donem la benvinguda al NeoChat"
 
 #: src/app/qml/RoomPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Select or join a room to get started"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Seleccioneu o uniu-vos a una per a començar"
 
 #: src/app/qml/RoomPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Codi font del missatge"
@@ -1088,28 +1084,35 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Afegeix un servidor nou"
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr "Elimina el dispositiu"
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Afegeix un servidor"
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "El text que heu introduït no és un URL vàlid"
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Aquest servidor no es pot resoldre o ja s'ha afegit"
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1587,17 +1590,17 @@ msgstr ""
 "ID de Matrix amb forma incorrecte o buit<br />%1 no és cap identificador "
 "correcte de Matrix"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Ha fallat en unir-se a la sala<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Heu sol·licitat unir-vos a «%1»"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Ha fallat en sol·licitar unir-vos a la sala<br />%1"

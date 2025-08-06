@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
-"PO-Revision-Date: 2025-08-04 14:04+0400\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"PO-Revision-Date: 2025-08-05 14:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -90,7 +90,7 @@ msgstr "أليكسي روساكوف"
 #: src/app/main.cpp:164
 #, kde-format
 msgid "Maintainer of libQuotient"
-msgstr "مصين libQuotient"
+msgstr "صائن libQuotient"
 
 #: src/app/main.cpp:165
 #, kde-format
@@ -1079,28 +1079,35 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "أضف خادماً جديداً"
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr "أزل الجهاز"
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "أضف خادمًا"
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "ليس النص المُدخَل رابطا صالحا"
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "لا يمكن التحقق من الخادم أو أنه مضاف فعلا"
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr "مسار الخادوم:"
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1547,17 +1554,17 @@ msgstr "جلسة التَثَبّت ألغيت لخطأ مجهول."
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "معرف ماتركس مشوه أو فارغ<br />معرف ماتركس %1 غير صحيح"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "أخفق في الانضمام إلى غرفة<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "طلبت الانضمام إلى '%1'"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "فشل في طلب الانضمام لغرفة<br />%1"
@@ -1774,7 +1781,7 @@ msgid ""
 "Allow the user to start a verification session with devices that were "
 "already verified"
 msgstr ""
-"اسمح للمستخدم ببدء جلسة التحقق باستخدام الأجهزة التي تم التحقق منها بالفعل"
+"اسمح للمستخدم ببدء جلسة التحقق باستخدام الأجهزة التي المتحقق منها بالفعل"
 
 #: src/devtools/DebugOptions.qml:39
 #, kde-format
@@ -3189,7 +3196,7 @@ msgstr "ادخل الغرفة يدويًا"
 #: src/libneochat/qml/ExploreRoomsPage.qml:106
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
-msgstr "إذا كنت تعرف بالفعل عنوان الغرفة أو اسمها المستعار، ولم يتم عرضه هنا."
+msgstr "إذا كنت تعرف بالفعل عنوان الغرفة أو اسمها المستعار، ولم تعرض هنا."
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:118
 #, kde-format
@@ -4804,7 +4811,7 @@ msgstr "مكّن إشعارات هذا الحساب"
 #: src/settings/GlobalNotificationsPage.qml:32
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
-msgstr "يمكن أن تظهر الإشعارت حتى في حالة عدم تشغيل نيوتشات."
+msgstr "يمكن أن تظهر الإشعارات حتى في حالة عدم تشغيل نيوتشات."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
@@ -4894,7 +4901,7 @@ msgstr "ليس العنوان المُدخَل ليس خادم هوية صالح
 #: src/settings/IdentityServerDelegate.qml:75
 #, kde-format
 msgid "The entered url is already configured as your identity server"
-msgstr "تم بالفعل ضبط العنوان الذي أدخلته كخادم هويتك"
+msgstr "ضُبط العنوان الذي أدخلته كخادم هويتك من قبل"
 
 #: src/settings/IdentityServerDelegate.qml:98
 #, kde-format
@@ -5544,7 +5551,7 @@ msgstr "مبدئي النظام"
 #: src/settings/NetworkProxyPage.qml:35
 #, kde-format
 msgid "No Proxy"
-msgstr "لا وكيل"
+msgstr "لا يوجد وكيل"
 
 #: src/settings/NetworkProxyPage.qml:47
 #, kde-format
@@ -5559,7 +5566,7 @@ msgstr "Socks5"
 #: src/settings/NetworkProxyPage.qml:69
 #, kde-format
 msgid "Proxy Settings"
-msgstr "إعدادت الوسيط"
+msgstr "إعدادات الوسيط"
 
 #: src/settings/NetworkProxyPage.qml:78
 #, kde-format

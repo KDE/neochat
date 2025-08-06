@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-30 17:15+0300\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"PO-Revision-Date: 2025-08-05 14:25+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1042,8 +1042,7 @@ msgid "Ignore"
 msgstr "Ігнорувати"
 
 #: src/app/qml/RoomPage.qml:86
-#, fuzzy, kde-format
-#| msgid "NeoChat is offline. Please check your network connection."
+#, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
@@ -1051,22 +1050,19 @@ msgstr ""
 "інтернетом."
 
 #: src/app/qml/RoomPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat"
+#, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Вітаємо у NeoChat"
 
 #: src/app/qml/RoomPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Select or join a room to get started"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Для початку, виберіть кімнату або долучіться до неї"
 
 #: src/app/qml/RoomPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Джерело повідомлення"
@@ -1087,28 +1083,35 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "Додати новий сервер"
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr "Вилучити пристрій"
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Додавання сервера"
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Введений текст не є коректною адресою"
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Цей сервер не вдалося визначити або сервер уже було додано"
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr "Адреса сервера:"
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1581,17 +1584,17 @@ msgstr ""
 "Помилково форматований або порожній ідентифікатор Matrix<br />%1 не є "
 "правильним ідентифікатором Matrix"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "Не вдалося приєднатися до кімнати<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати<br />%1"

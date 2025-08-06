@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-05 00:42+0000\n"
-"PO-Revision-Date: 2025-07-30 06:55+0200\n"
+"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"PO-Revision-Date: 2025-08-05 05:39+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1037,29 +1037,25 @@ msgid "Ignore"
 msgstr "იგნორი"
 
 #: src/app/qml/RoomPage.qml:86
-#, fuzzy, kde-format
-#| msgid "NeoChat is offline. Please check your network connection."
+#, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat გათიშულია. შეამოწმეთ ინტერნეტკავშირი."
 
 #: src/app/qml/RoomPage.qml:141
-#, fuzzy, kde-format
-#| msgid "Welcome to NeoChat"
+#, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "კეთილი იყოს თქვენი მობრძანება NeoChat-ში"
 
 #: src/app/qml/RoomPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Select or join a room to get started"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
 
 #: src/app/qml/RoomPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "შეტყობინების წყარო"
@@ -1080,28 +1076,35 @@ msgctxt "@action:button"
 msgid "Add new server"
 msgstr "ახალი სერვერის დამატება"
 
-#: src/app/qml/ServerComboBox.qml:110
+#: src/app/qml/ServerComboBox.qml:70
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@action:button"
+msgid "Remove server"
+msgstr "მოწყობილობის წაშლა"
+
+#: src/app/qml/ServerComboBox.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "სერვერის დამატება"
 
-#: src/app/qml/ServerComboBox.qml:137
+#: src/app/qml/ServerComboBox.qml:141
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "შეყვანილი ტექსტი სწორ URL-ს არ წარმოადგენს"
 
-#: src/app/qml/ServerComboBox.qml:141
+#: src/app/qml/ServerComboBox.qml:145
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "სერვერის ამოხსნა შეუძლებელია ან ის უკვე დამატებულია"
 
-#: src/app/qml/ServerComboBox.qml:152
+#: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
 msgstr "სერვერის URL:"
 
-#: src/app/qml/ServerComboBox.qml:186
+#: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1556,17 +1559,17 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "არასწორი ან ცარიელი Matrix id<br />%1 Matrix-ის არასწორი იდენტიფიკატორია"
 
-#: src/app/roommanager.cpp:416
+#: src/app/roommanager.cpp:421
 #, kde-format
 msgid "Failed to join room<br />%1"
 msgstr "ოთახში შესვლის შეცდომა<br />%1"
 
-#: src/app/roommanager.cpp:440
+#: src/app/roommanager.cpp:445
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "მოითხოვეთ '%1'-ზე შესვლა"
 
-#: src/app/roommanager.cpp:444
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "ოთახში შესვლის მოთხოვნის შეცდომა<br />%1"
