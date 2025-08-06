@@ -98,7 +98,7 @@ KirigamiComponents.ConvergentContextMenu {
                 standardButtons: Kirigami.Dialog.Ok
             })
             dialog.open();
-            root.connection.onNewKeyVerificationSession.connect(() => {
+            root.connection.newKeyVerificationSession.connect(() => {
                 dialog.close();
             });
         }
