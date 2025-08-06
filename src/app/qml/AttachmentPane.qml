@@ -33,7 +33,7 @@ ColumnLayout {
         }
         QQC2.ToolButton {
             id: editImageButton
-            visible: hasImage
+            visible: root.hasImage
             icon.name: "document-edit"
             text: i18n("Edit")
             display: QQC2.AbstractButton.IconOnly
@@ -61,7 +61,7 @@ ColumnLayout {
             action: Kirigami.Action {
                 text: i18n("Cancel sending attachment")
                 icon.name: "dialog-close"
-                onTriggered: attachmentCancelled()
+                onTriggered: root.attachmentCancelled()
                 shortcut: "Escape"
             }
             QQC2.ToolTip.text: text
@@ -75,8 +75,8 @@ ColumnLayout {
 
         asynchronous: true
         cache: false // Cache is not needed. Images will rarely be shown repeatedly.
-        source: hasImage ? root.attachmentPath : ""
-        visible: hasImage
+        source: root.hasImage ? root.attachmentPath : ""
+        visible: root.hasImage
         fillMode: Image.PreserveAspectFit
 
         onSourceChanged: {
@@ -114,11 +114,11 @@ ColumnLayout {
             id: mimetypeIcon
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            source: attachmentMimetype.iconName
+            source: root.attachmentMimetype.iconName
         }
         QQC2.Label {
             id: fileLabel
-            text: baseFileName
+            text: root.baseFileName
         }
     }
 }
