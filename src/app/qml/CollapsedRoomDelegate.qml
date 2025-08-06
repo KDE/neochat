@@ -8,7 +8,6 @@ import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
-import org.kde.kitemmodels
 
 import org.kde.neochat
 

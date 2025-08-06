@@ -5,7 +5,6 @@ import QtQuick
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kitemmodels
 
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline as Timeline
