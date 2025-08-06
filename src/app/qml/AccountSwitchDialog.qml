@@ -53,7 +53,7 @@ Kirigami.Dialog {
             }
             text: i18nc("@button: login to or register a new account.", "Add Account")
             contentItem: Delegates.SubtitleContentItem {
-                itemDelegate: parent
+                itemDelegate: addDelegate
                 subtitle: i18n("Log in or create a new account")
                 labelItem.textFormat: Text.PlainText
                 subtitleItem.textFormat: Text.PlainText
