@@ -67,7 +67,7 @@ RowLayout {
                     id: displayNameLabel
                     Layout.fillWidth: true
                     text: root.connection.localUser.displayName
-                    font.pointSize: Kirigami.Settings.isMobile ? Kirigami.Theme.smallFont : Kirigami.Theme.defaultFont
+                    font: Kirigami.Settings.isMobile ? Kirigami.Theme.smallFont : Kirigami.Theme.defaultFont
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
                 }
