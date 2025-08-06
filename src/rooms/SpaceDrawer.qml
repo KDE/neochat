@@ -269,9 +269,9 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     onSelected: {
-                        Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
+                        (Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
                             connection: root.connection
-                        }).open();
+                        }) as CreateSpaceDialog).open();
                     }
                 }
 
