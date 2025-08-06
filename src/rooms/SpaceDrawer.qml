@@ -288,7 +288,7 @@ QQC2.Control {
                     activeFocusOnTab: true
 
                     onSelected: {
-                        let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+                        let dialog = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                             connection: root.connection,
                             keyword: RoomManager.sortFilterRoomTreeModel.filterText
                         }, {
