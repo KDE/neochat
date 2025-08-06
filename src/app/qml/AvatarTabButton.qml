@@ -3,12 +3,9 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as QQC2
-import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 Delegates.RoundedItemDelegate {
     id: root
