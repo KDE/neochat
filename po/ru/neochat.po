@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"POT-Creation-Date: 2025-08-07 00:42+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -584,7 +584,7 @@ msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Просмотреть комнаты"
 
-#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:39
+#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:38
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -871,8 +871,8 @@ msgstr "Идентификатор пользователя должен нач�
 msgid "The input is not a valid user ID"
 msgstr "Введённый текст не является допустимым идентификатором пользователя"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:57
-#: src/devtools/RoomData.qml:103
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:56
+#: src/devtools/RoomData.qml:102
 #, kde-format
 msgid "Event Source"
 msgstr "Исходный код события"
@@ -1012,13 +1012,13 @@ msgstr "Цитата"
 msgid "Insert link"
 msgstr "Вставить ссылку"
 
-#: src/app/qml/QuickSwitcher.qml:29
+#: src/app/qml/QuickSwitcher.qml:28
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Не найдено ни одной комнаты"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
+#: src/app/qml/QuickSwitcher.qml:31 src/rooms/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1048,7 +1048,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/app/qml/RoomPage.qml:86
+#: src/app/qml/RoomPage.qml:85
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
@@ -1056,21 +1056,21 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "NeoChat находится в автономном режиме. Проверьте своё сетевое подключение."
 
-#: src/app/qml/RoomPage.qml:141
+#: src/app/qml/RoomPage.qml:140
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Добро пожаловать в NeoChat"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:141
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Чтобы начать, выберите комнату или присоединитесь к ней"
 
-#: src/app/qml/RoomPage.qml:209
+#: src/app/qml/RoomPage.qml:208
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1640,22 +1640,28 @@ msgstr "Создать голосование"
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:212
+#, kde-format
+msgctxt "@info"
+msgid "The user you're replying to has left the room, and can't be notified."
+msgstr ""
+
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Отправить зашифрованное сообщение…"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Задать подпись для вложения…"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Send a message…"
 msgstr "Введите текст сообщения…"
 
-#: src/chatbar/ChatBar.qml:398 src/messagecontent/ChatBarComponent.qml:235
+#: src/chatbar/ChatBar.qml:414 src/messagecontent/ChatBarComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1743,7 +1749,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Данные учётной записи"
 
-#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:48
+#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
@@ -1879,46 +1885,46 @@ msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Вызовы"
 
-#: src/devtools/RoomData.qml:21
+#: src/devtools/RoomData.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Выбор комнаты"
 
-#: src/devtools/RoomData.qml:25
+#: src/devtools/RoomData.qml:24
 #, kde-format
 msgctxt "@info"
 msgid "No room selected"
 msgstr "Комната не выбрана"
 
-#: src/devtools/RoomData.qml:26
+#: src/devtools/RoomData.qml:25
 #, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
 msgstr "Нажмите для выбора комнаты"
 
-#: src/devtools/RoomData.qml:32
+#: src/devtools/RoomData.qml:31
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Выбор комнаты"
 
-#: src/devtools/RoomData.qml:40
+#: src/devtools/RoomData.qml:39
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Идентификатор комнаты: %1"
 
-#: src/devtools/RoomData.qml:44
+#: src/devtools/RoomData.qml:43
 #, kde-format
 msgid "Room Account Data"
 msgstr "Данные учётной записи комнаты"
 
-#: src/devtools/RoomData.qml:65
+#: src/devtools/RoomData.qml:64
 #, kde-format
 msgid "Room State"
 msgstr "Состояние комнаты"
 
-#: src/devtools/RoomData.qml:79
+#: src/devtools/RoomData.qml:78
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -1928,33 +1934,33 @@ msgstr[1] "%1 события этого типа"
 msgstr[2] "%1 событий этого типа"
 msgstr[3] "%1 событие этого типа"
 
-#: src/devtools/RoomData.qml:88
+#: src/devtools/RoomData.qml:87
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
 msgstr "Информация о событии"
 
-#: src/devtools/ServerData.qml:20
+#: src/devtools/ServerData.qml:19
 #, kde-format
 msgid "Server Capabilities"
 msgstr "Возможности сервера"
 
-#: src/devtools/ServerData.qml:24
+#: src/devtools/ServerData.qml:23
 #, kde-format
 msgid "Can change password"
 msgstr "Может изменять пароль"
 
-#: src/devtools/ServerData.qml:29
+#: src/devtools/ServerData.qml:28
 #, kde-format
 msgid "Default Room Version"
 msgstr "Стандартная версия комнаты"
 
-#: src/devtools/ServerData.qml:37
+#: src/devtools/ServerData.qml:36
 #, kde-format
 msgid "Available Room Versions"
 msgstr "Доступные версии комнаты"
 
-#: src/devtools/StateKeys.qml:23
+#: src/devtools/StateKeys.qml:22
 #, kde-format
 msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
@@ -3339,7 +3345,7 @@ msgstr "Регистрация пользователей отключена н�
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:259
 #, kde-format
 msgid "Loading"
 msgstr "Загрузка"
@@ -3704,7 +3710,7 @@ msgid "Expand preview"
 msgstr "Увеличить область предварительного просмотра"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:259
 #, kde-format
 msgid "Loading reply"
 msgstr "Загрузка ответа"
@@ -3726,7 +3732,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Открыть на весь экран"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:230
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3845,7 +3851,7 @@ msgstr "Громкость"
 msgid "Maximize"
 msgstr "Развернуть"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3856,114 +3862,114 @@ msgstr "Местоположения"
 msgid "There are no locations shared in this room."
 msgstr "В этой комнате не публиковались местоположения."
 
-#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Параметры комнаты"
 
-#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
 #, kde-format
 msgid "Information"
 msgstr "Сведения"
 
-#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
 #, kde-format
 msgid "Media"
 msgstr "Мультимедиа"
 
-#: src/roominfo/RoomInformation.qml:42
+#: src/roominfo/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Участники пространства"
 
-#: src/roominfo/RoomInformation.qml:42
+#: src/roominfo/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Информация о комнате"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:71
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Действия"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:81
 #, kde-format
 msgid "Search in this room"
 msgstr "Искать в этой комнате"
 
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Проверить пользователя"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Убрать комнату из избранного"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgid "Favorite this room"
 msgstr "Добавить эту комнату в избранное"
 
-#: src/roominfo/RoomInformation.qml:123
+#: src/roominfo/RoomInformation.qml:122
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Показать местоположения для этой комнаты"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Закреплённые сообщения"
 
-#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomInformation.qml:147
 #: src/roominfo/RoomPinnedMessagesPage.qml:23
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
+#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:98
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "Покинуть это пространство"
 
-#: src/roominfo/RoomInformation.qml:156
+#: src/roominfo/RoomInformation.qml:155
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
 msgstr "Покинуть комнату"
 
-#: src/roominfo/RoomInformation.qml:169
+#: src/roominfo/RoomInformation.qml:168
 #, kde-format
 msgid "Members"
 msgstr "Участники"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:83
+#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Приглашение пользователя"
 
-#: src/roominfo/RoomInformation.qml:188
+#: src/roominfo/RoomInformation.qml:187
 #, kde-format
 msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
-#: src/roominfo/RoomInformation.qml:195
+#: src/roominfo/RoomInformation.qml:194
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -3972,7 +3978,7 @@ msgstr[1] "%1 участника"
 msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
-#: src/roominfo/RoomInformation.qml:195
+#: src/roominfo/RoomInformation.qml:194
 #, kde-format
 msgid "No member count"
 msgstr "Количество участников не подсчитывается"
@@ -4150,12 +4156,12 @@ msgstr "Параметры комнаты"
 msgid "Leave Room…"
 msgstr "Покинуть комнату"
 
-#: src/rooms/RoomDelegate.qml:138
+#: src/rooms/RoomDelegate.qml:137
 #, kde-format
 msgid "Muted room"
 msgstr "Уведомления отключены"
 
-#: src/rooms/RoomDelegate.qml:171
+#: src/rooms/RoomDelegate.qml:170
 #, kde-format
 msgid "Configure room"
 msgstr "Настроить комнату"
@@ -5942,25 +5948,25 @@ msgstr "Эта комната была заменена."
 msgid "See new room…"
 msgstr "Посмотреть новую комнату…"
 
-#: src/settings/RoomProfile.qml:30
+#: src/settings/RoomProfile.qml:29
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
 msgstr "Настроить свой профиль только для этой комнаты."
 
-#: src/settings/RoomProfile.qml:38
+#: src/settings/RoomProfile.qml:37
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
-#: src/settings/RoomProfile.qml:48
+#: src/settings/RoomProfile.qml:47
 #, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/settings/RoomProfile.qml:54
+#: src/settings/RoomProfile.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"

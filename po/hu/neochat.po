@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-06 00:44+0000\n"
+"POT-Creation-Date: 2025-08-07 00:42+0000\n"
 "PO-Revision-Date: 2025-07-12 22:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -583,7 +583,7 @@ msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Szobák felfedezése"
 
-#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:39
+#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:38
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -872,8 +872,8 @@ msgstr "A felhasználóazonosítóknak @-cal kell kezdődniük"
 msgid "The input is not a valid user ID"
 msgstr "A bemenet nem érvényes felhasználóazonosító"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:57
-#: src/devtools/RoomData.qml:103
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:56
+#: src/devtools/RoomData.qml:102
 #, kde-format
 msgid "Event Source"
 msgstr "Esemény forrása"
@@ -1013,13 +1013,13 @@ msgstr "Idézet"
 msgid "Insert link"
 msgstr "Hivatkozás beszúrása"
 
-#: src/app/qml/QuickSwitcher.qml:29
+#: src/app/qml/QuickSwitcher.qml:28
 #, kde-format
 msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nem található szoba"
 
-#: src/app/qml/QuickSwitcher.qml:32 src/rooms/SpaceDrawer.qml:283
+#: src/app/qml/QuickSwitcher.qml:31 src/rooms/SpaceDrawer.qml:283
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1049,7 +1049,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: src/app/qml/RoomPage.qml:86
+#: src/app/qml/RoomPage.qml:85
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
@@ -1057,21 +1057,21 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
 
-#: src/app/qml/RoomPage.qml:141
+#: src/app/qml/RoomPage.qml:140
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Üdvözli a NeoChat"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:141
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Válasszon ki egy szobát, vagy csatlakozzon hozzá a kezdéshez"
 
-#: src/app/qml/RoomPage.qml:209
+#: src/app/qml/RoomPage.qml:208
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1648,22 +1648,28 @@ msgstr "Szavazás létrehozása"
 msgid "Send message"
 msgstr "Üzenet küldése"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:212
+#, kde-format
+msgctxt "@info"
+msgid "The user you're replying to has left the room, and can't be notified."
+msgstr ""
+
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Titkosított üzenet küldése…"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Set an attachment caption…"
 msgstr "Mellékletleírás beállítása…"
 
-#: src/chatbar/ChatBar.qml:237
+#: src/chatbar/ChatBar.qml:253
 #, kde-format
 msgid "Send a message…"
 msgstr "Üzenet küldése…"
 
-#: src/chatbar/ChatBar.qml:398 src/messagecontent/ChatBarComponent.qml:235
+#: src/chatbar/ChatBar.qml:414 src/messagecontent/ChatBarComponent.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1751,7 +1757,7 @@ msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Fiókadatok"
 
-#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:48
+#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
@@ -1888,46 +1894,46 @@ msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "Hívások"
 
-#: src/devtools/RoomData.qml:21
+#: src/devtools/RoomData.qml:20
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Szoba kiválasztása"
 
-#: src/devtools/RoomData.qml:25
+#: src/devtools/RoomData.qml:24
 #, kde-format
 msgctxt "@info"
 msgid "No room selected"
 msgstr "Nincs kiválasztva szoba"
 
-#: src/devtools/RoomData.qml:26
+#: src/devtools/RoomData.qml:25
 #, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
 msgstr "Kattintson szoba kiválasztásához"
 
-#: src/devtools/RoomData.qml:32
+#: src/devtools/RoomData.qml:31
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Szoba kiválasztása"
 
-#: src/devtools/RoomData.qml:40
+#: src/devtools/RoomData.qml:39
 #, kde-format
 msgid "Room Id: %1"
 msgstr "Szobaazonosító: %1"
 
-#: src/devtools/RoomData.qml:44
+#: src/devtools/RoomData.qml:43
 #, kde-format
 msgid "Room Account Data"
 msgstr "Szoba fiókadatai"
 
-#: src/devtools/RoomData.qml:65
+#: src/devtools/RoomData.qml:64
 #, kde-format
 msgid "Room State"
 msgstr "Szoba állapota"
 
-#: src/devtools/RoomData.qml:79
+#: src/devtools/RoomData.qml:78
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -1935,33 +1941,33 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 ilyen típusú esemény"
 msgstr[1] "%1 ilyen típusú esemény"
 
-#: src/devtools/RoomData.qml:88
+#: src/devtools/RoomData.qml:87
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
 msgstr "Eseményinformációk"
 
-#: src/devtools/ServerData.qml:20
+#: src/devtools/ServerData.qml:19
 #, kde-format
 msgid "Server Capabilities"
 msgstr "Kiszolgáló képességei"
 
-#: src/devtools/ServerData.qml:24
+#: src/devtools/ServerData.qml:23
 #, kde-format
 msgid "Can change password"
 msgstr "Jelszóváltoztatás"
 
-#: src/devtools/ServerData.qml:29
+#: src/devtools/ServerData.qml:28
 #, kde-format
 msgid "Default Room Version"
 msgstr "Alapértelmezett szobaverzió"
 
-#: src/devtools/ServerData.qml:37
+#: src/devtools/ServerData.qml:36
 #, kde-format
 msgid "Available Room Versions"
 msgstr "Elérhető szobaverziók"
 
-#: src/devtools/StateKeys.qml:23
+#: src/devtools/StateKeys.qml:22
 #, kde-format
 msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
@@ -3343,7 +3349,7 @@ msgstr "A regisztráció le van tiltva ezen a kiszolgálón."
 
 #: src/login/Homeserver.qml:48 src/login/Username.qml:38
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:259
 #, kde-format
 msgid "Loading"
 msgstr "Betöltés"
@@ -3710,7 +3716,7 @@ msgid "Expand preview"
 msgstr "Előnézet nagyítása"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:248
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:259
 #, kde-format
 msgid "Loading reply"
 msgstr "Válasz betöltése"
@@ -3732,7 +3738,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Teljes képernyő megnyitása"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:230
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3842,7 +3848,7 @@ msgstr "Hangerő"
 msgid "Maximize"
 msgstr "Maximalizálás"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3853,86 +3859,86 @@ msgstr "Helyek"
 msgid "There are no locations shared in this room."
 msgstr "Nincsenek megosztva helyek ebben a szobában."
 
-#: src/roominfo/RoomDrawer.qml:121 src/roominfo/RoomDrawerPage.qml:50
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Szobabeállítások"
 
-#: src/roominfo/RoomDrawer.qml:172 src/roominfo/RoomDrawerPage.qml:92
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
 #, kde-format
 msgid "Information"
 msgstr "Információk"
 
-#: src/roominfo/RoomDrawer.qml:177 src/roominfo/RoomDrawerPage.qml:97
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
 #, kde-format
 msgid "Media"
 msgstr "Média"
 
-#: src/roominfo/RoomInformation.qml:42
+#: src/roominfo/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Tér tagjai"
 
-#: src/roominfo/RoomInformation.qml:42
+#: src/roominfo/RoomInformation.qml:41
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Szobainformációk"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:71
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Műveletek"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:81
 #, kde-format
 msgid "Search in this room"
 msgstr "Keresés a szobában"
 
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Keresés"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Felhasználó ellenőrzése"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Eltávolítás a kedvencek közül"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgid "Favorite this room"
 msgstr "Szoba jelölése kedvencnek"
 
-#: src/roominfo/RoomInformation.qml:123
+#: src/roominfo/RoomInformation.qml:122
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Helyek megjelenítése a szobában"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Kitűzött üzenetek"
 
-#: src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomInformation.qml:147
 #: src/roominfo/RoomPinnedMessagesPage.qml:23
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Kitűzött üzenetek"
 
-#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:98
+#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:98
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
@@ -3940,7 +3946,7 @@ msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "Tér elhagyása"
 
-#: src/roominfo/RoomInformation.qml:156
+#: src/roominfo/RoomInformation.qml:155
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this room"
@@ -3948,30 +3954,30 @@ msgctxt "@action:button"
 msgid "Leave this room…"
 msgstr "Szoba elhagyása"
 
-#: src/roominfo/RoomInformation.qml:169
+#: src/roominfo/RoomInformation.qml:168
 #, kde-format
 msgid "Members"
 msgstr "Tagok"
 
-#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:83
+#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:83
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Felhasználó meghívása"
 
-#: src/roominfo/RoomInformation.qml:188
+#: src/roominfo/RoomInformation.qml:187
 #, kde-format
 msgid "Invite user to room"
 msgstr "Felhasználó meghívása s szobába"
 
-#: src/roominfo/RoomInformation.qml:195
+#: src/roominfo/RoomInformation.qml:194
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 tag"
 msgstr[1] "%1 tag"
 
-#: src/roominfo/RoomInformation.qml:195
+#: src/roominfo/RoomInformation.qml:194
 #, kde-format
 msgid "No member count"
 msgstr "Nincs tagszám"
@@ -4152,12 +4158,12 @@ msgstr "Szobabeállítások"
 msgid "Leave Room…"
 msgstr "Szoba elhagyása"
 
-#: src/rooms/RoomDelegate.qml:138
+#: src/rooms/RoomDelegate.qml:137
 #, kde-format
 msgid "Muted room"
 msgstr "Némított szoba"
 
-#: src/rooms/RoomDelegate.qml:171
+#: src/rooms/RoomDelegate.qml:170
 #, kde-format
 msgid "Configure room"
 msgstr "Szoba beállítása"
@@ -5942,25 +5948,25 @@ msgstr "Ezt a szobát lecserélték."
 msgid "See new room…"
 msgstr "Új szoba megtekintése…"
 
-#: src/settings/RoomProfile.qml:30
+#: src/settings/RoomProfile.qml:29
 #, kde-format
 msgctxt "@info"
 msgid "Customize your profile only for this room."
 msgstr "Profil testre szabása csak ehhez a szobához."
 
-#: src/settings/RoomProfile.qml:38
+#: src/settings/RoomProfile.qml:37
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Display Name"
 msgstr "Megjelenítendő név"
 
-#: src/settings/RoomProfile.qml:48
+#: src/settings/RoomProfile.qml:47
 #, kde-format
 msgctxt "@action:button Save profile"
 msgid "Save"
 msgstr "Mentés"
 
-#: src/settings/RoomProfile.qml:54
+#: src/settings/RoomProfile.qml:53
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset to Default"
