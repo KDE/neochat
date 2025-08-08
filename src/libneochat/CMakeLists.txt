@@ -58,6 +58,8 @@ ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
         qml/SearchPage.qml
         qml/CreateRoomDialog.qml
         qml/CreateSpaceDialog.qml
+    DEPENDENCIES
+        com.github.quotient_im.libquotient
 )
 
 ecm_qt_declare_logging_category(LibNeoChat
