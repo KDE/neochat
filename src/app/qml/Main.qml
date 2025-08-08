@@ -118,13 +118,6 @@ Kirigami.ApplicationWindow {
             root.showUserDetail(user, room);
         }
 
-        function goToEvent(event) {
-            if (event.length > 0) {
-                roomItem.goToEvent(event);
-            }
-            roomItem.forceActiveFocus();
-        }
-
         function onAskDirectChatConfirmation(user) {
             Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
                 user: user
