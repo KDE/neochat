@@ -10,6 +10,8 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
 
+import Quotient
+
 import org.kde.neochat
 import org.kde.neochat.settings
 
@@ -122,19 +124,17 @@ KirigamiComponents.ConvergentContextMenu {
         separator: true
     }
 
-    QQC2.Action {
-        text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID") : i18nc("@action:inmenu", "Copy Room Address")
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Copy Room Link")
         icon.name: "edit-copy"
+        visible: !room.isDirectChat() && room.joinRule !== JoinRule.Invite
         onTriggered: {
             // The canonical alias (if it exists) otherwise the first available alias
             const firstAlias = room.aliases[0];
-
-            if (room.isDirectChat()) {
-                Clipboard.saveText(room.directChatRemoteMember.id);
-            } else if (!firstAlias) {
-                Clipboard.saveText(room.id);
+            if (firstAlias) {
+                Clipboard.saveText("https://matrix.to/#/" + firstAlias);
             } else {
-                Clipboard.saveText(firstAlias);
+                Clipboard.saveText("https://matrix.to/#/" + room.id);
             }
         }
     }
