@@ -76,9 +76,9 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Space members")
-            description: i18n("Anyone in the selected spaces can find and join.") + (!["8", "9", "10"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
+            description: i18n("Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
             checked: room.joinRule === JoinRule.Restricted
-            enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10"].includes(room.version)
+            enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10", "11", "12"].includes(room.version)
             onCheckedChanged: if (checked && room.joinRule != JoinRule.Restricted) {
                 selectSpacesDialog.createObject(QQC2.Overlay.overlay).open();
             }
@@ -104,10 +104,10 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Knock")
-            description: i18n("People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
+            description: i18n("People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
             checked: room.joinRule === JoinRule.Knock
             // https://spec.matrix.org/v1.4/rooms/#feature-matrix
-            enabled: room.canSendState("m.room.join_rules") && ["7", "8", "9", "10"].includes(room.version)
+            enabled: room.canSendState("m.room.join_rules") && ["7", "8", "9", "10", "11", "12"].includes(room.version)
             onCheckedChanged: if (checked && room.joinRule != JoinRule.Knock) {
                 root.room.joinRule = JoinRule.Knock;
             }
