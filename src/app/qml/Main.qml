@@ -108,10 +108,10 @@ Kirigami.ApplicationWindow {
         }
 
         function onAskJoinRoom(room) {
-            Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
+            (Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
                 room: room,
                 connection: root.connection
-            }).open();
+            }) as JoinRoomDialog).open();
         }
 
         function onShowUserDetail(user, room) {
