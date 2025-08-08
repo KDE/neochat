@@ -99,8 +99,8 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onCurrentRoomChanged() {
-            if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
-                let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
+            if (RoomManager.currentRoom && root.pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
+                let roomPage = root.pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
                 roomPage.backRequested.connect(event => {
                     RoomManager.clearCurrentRoom();
                 });
