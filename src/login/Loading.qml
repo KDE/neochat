@@ -23,7 +23,7 @@ LoginStep {
 
     Connections {
         target: Controller
-        function onConnectionAdded(connection) {
+        function onConnectionAdded(connection: NeoChatConnection): void {
             connection.syncDone.connect(() => root.closeDialog());
         }
     }

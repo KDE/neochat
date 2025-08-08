@@ -14,7 +14,7 @@ LoginStep {
 
     Connections {
         target: LoginHelper
-        function onConnected() {
+        function onConnected(): void {
             processed("Loading");
         }
     }

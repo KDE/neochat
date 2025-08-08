@@ -149,27 +149,27 @@ QQC2.ScrollView {
         Connections {
             target: messageListView.model.sourceModel.timelineMessageModel
 
-            function onModelAboutToBeReset() {
+            function onModelAboutToBeReset(): void {
                 (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
                 _private.hasScrolledUpBefore = false;
             }
 
-            function onModelResetComplete() {
+            function onModelResetComplete(): void {
                 messageListView.positionViewAtBeginning();
             }
 
-            function onReadMarkerAdded() {
+            function onReadMarkerAdded(): void {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.EntryVisible && messageListView.allUnreadVisible()) {
                     _private.room.markAllMessagesAsRead();
                 }
             }
 
-            function onNewLocalUserEventAdded() {
+            function onNewLocalUserEventAdded(): void {
                 messageListView.positionViewAtBeginning();
                 _private.room.markAllMessagesAsRead();
             }
 
-            function onRoomAboutToChange(oldRoom, newRoom) {
+            function onRoomAboutToChange(oldRoom: NeoChatRoom, newRoom: NeoChatRoom): void {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Exit ||
                     (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.ExitVisible && messageListView.allUnreadVisible())
                 ) {
@@ -177,7 +177,7 @@ QQC2.ScrollView {
                 }
             }
 
-            function onRoomChanged(oldRoom, newRoom) {
+            function onRoomChanged(oldRoom: NeoChatRoom, newRoom: NeoChatRoom): void {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Entry) {
                     newRoom.markAllMessagesAsRead();
                 }

@@ -93,14 +93,14 @@ Kirigami.Page {
 
     Connections {
         target: RoomManager
-        function onCurrentSpaceChanged() {
+        function onCurrentSpaceChanged(): void {
             treeView.expandRecursively();
         }
     }
 
     Connections {
         target: RoomManager.sortFilterRoomTreeModel
-        function onCurrentRoomChanged() {
+        function onCurrentRoomChanged(): void {
             treeView.positionViewAtIndex(RoomManager.sortFilterRoomTreeModel.currentRoomIndex(), TableView.AlignVCenter)
         }
     }
@@ -197,7 +197,7 @@ Kirigami.Page {
                 Connections {
                     target: NeoChatConfig
 
-                    function onCompactRoomListChanged() {
+                    function onCompactRoomListChanged(): void {
                         treeView.collapseRecursively()
                         treeView.expandRecursively()
                     }

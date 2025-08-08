@@ -18,10 +18,10 @@ LoginStep {
 
     Connections {
         target: LoginHelper
-        function onSsoUrlChanged() {
+        function onSsoUrlChanged(): void {
             UrlHelper.openUrl(LoginHelper.ssoUrl);
         }
-        function onConnected() {
+        function onConnected(): void {
             processed("Loading");
         }
     }

@@ -100,7 +100,7 @@ Kirigami.Page {
             }
             Connections {
                 target: selectionTool.selectionArea
-                function onDoubleClicked() {
+                function onDoubleClicked(): void {
                     rootEditorView.crop();
                 }
             }

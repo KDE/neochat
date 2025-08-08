@@ -60,21 +60,21 @@ Kirigami.ApplicationWindow {
 
     Connections {
         target: LoginHelper
-        function onLoaded() {
+        function onLoaded(): void {
             root.load();
         }
     }
 
     Connections {
         target: Registration
-        function onLoaded() {
+        function onLoaded(): void {
             root.load();
         }
     }
 
     Connections {
         target: root.quitAction
-        function onTriggered() {
+        function onTriggered(): void {
             Qt.quit();
         }
     }
@@ -98,7 +98,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: RoomManager
 
-        function onCurrentRoomChanged() {
+        function onCurrentRoomChanged(): void {
             if (RoomManager.currentRoom && pageStack.depth <= 1 && root.initialized && Kirigami.Settings.isMobile) {
                 let roomPage = pageStack.layers.push(Qt.createComponent('org.kde.neochat', 'RoomPage'));
                 roomPage.backRequested.connect(event => {
@@ -107,31 +107,31 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        function onAskJoinRoom(room) {
+        function onAskJoinRoom(room: NeoChatRoom): void {
             Qt.createComponent("org.kde.neochat", "JoinRoomDialog").createObject(root, {
                 room: room,
                 connection: root.connection
             }).open();
         }
 
-        function onShowUserDetail(user, room) {
+        function onShowUserDetail(user, room: NeoChatRoom): void {
             root.showUserDetail(user, room);
         }
 
-        function goToEvent(event) {
+        function goToEvent(event: string): void {
             if (event.length > 0) {
                 roomItem.goToEvent(event);
             }
             roomItem.forceActiveFocus();
         }
 
-        function onAskDirectChatConfirmation(user) {
+        function onAskDirectChatConfirmation(user): void {
             Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
                 user: user
             }).open();
         }
 
-        function onExternalUrl(url) {
+        function onExternalUrl(url): void {
             let dialog = Qt.createComponent("org.kde.neochat", "ConfirmUrlDialog").createObject(this);
             dialog.link = url;
             dialog.open();

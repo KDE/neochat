@@ -180,7 +180,7 @@ FormCard.FormCardPage {
 
     property Connections connections: Connections {
         target: room
-        onEncryption: {
+        function onEncryption(): void {
             enableEncryptionSwitch.checked = room.usesEncryption;
         }
     }

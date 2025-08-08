@@ -138,7 +138,7 @@ ColumnLayout {
             Connections {
                 target: threePIdModel
 
-                function onModelReset() {
+                function onModelReset(): void {
                     newCountryCode.text = ""
                 }
             }
@@ -178,7 +178,7 @@ ColumnLayout {
             Connections {
                 target: threePIdModel
 
-                function onModelReset() {
+                function onModelReset(): void {
                     newId.text = ""
                 }
             }

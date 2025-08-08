@@ -22,7 +22,7 @@ Kirigami.Page {
 
     Connections {
         target: root.QQC2.ApplicationWindow.window
-        function onClosing() {
+        function onClosing(): void {
             root.destroy();
         }
     }

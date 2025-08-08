@@ -177,7 +177,7 @@ QQC2.ComboBox {
 
                 Connections {
                     target: serverListModel
-                    function onServerCheckComplete(url, valid) {
+                    function onServerCheckComplete(url: string, valid: bool): void {
                         if (url == serverUrlField.text && valid) {
                             serverUrlField.isValidServer = true;
                         }

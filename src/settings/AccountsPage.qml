@@ -123,7 +123,7 @@ FormCard.FormCardPage {
 
     property Connections connections: Connections {
         target: Controller
-        function onConnectionAdded() {
+        function onConnectionAdded(): void {
             if (pageStack.layers.depth > 2) {
                 pageStack.layers.pop();
             }

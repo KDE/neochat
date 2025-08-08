@@ -80,7 +80,7 @@ Kirigami.Page {
 
     Connections {
         target: root.currentRoom.connection
-        function onIsOnlineChanged() {
+        function onIsOnlineChanged(): void {
             if (!root.currentRoom.connection.isOnline) {
                 banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
                 banner.visible = true;
@@ -162,20 +162,20 @@ Kirigami.Page {
 
     Connections {
         target: RoomManager
-        function onCurrentRoomChanged() {
+        function onCurrentRoomChanged(): void {
             if (root.currentRoom && root.currentRoom.isInvite) {
                 Controller.clearInvitationNotification(root.currentRoom.id);
             }
         }
 
-        function onGoToEvent(eventId) {
+        function onGoToEvent(eventId: string): void {
             (timelineViewLoader.item as TimelineView).goToEvent(eventId);
         }
     }
 
     Connections {
         target: root.currentRoom.connection
-        function onJoinedRoom(room, invited) {
+        function onJoinedRoom(room: NeoChatRoom, invited: NeoChatRoom): void {
             if (root.currentRoom.id === invited.id) {
                 RoomManager.resolveResource(room.id);
             }
@@ -195,13 +195,13 @@ Kirigami.Page {
     Connections {
         target: RoomManager
 
-        function onShowMessage(messageType, message) {
+        function onShowMessage(messageType: Kirigami.MessageType, message: string): void {
             banner.text = message;
             banner.type = messageType;
             banner.visible = true;
         }
 
-        function onShowEventSource(eventId) {
+        function onShowEventSource(eventId: string): void {
             (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                 sourceText: root.currentRoom.getEventJsonSource(eventId)
             }, {
@@ -210,7 +210,7 @@ Kirigami.Page {
             });
         }
 
-        function onShowMessageMenu(eventId, author, messageComponentType, plainText, htmlText, selectedText, hoveredLink, isThread) {
+        function onShowMessageMenu(eventId: string, author, messageComponentType, plainText: string, htmlText: string, selectedText: string, hoveredLink: string, isThread: bool): void {
             const contextMenu = messageDelegateContextMenu.createObject(root, {
                 selectedText: selectedText,
                 hoveredLink: hoveredLink,

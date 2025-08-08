@@ -39,7 +39,7 @@ LoginStep {
 
     Connections {
         target: Registration
-        function onConnected(connection): void {
+        function onConnected(connection: NeoChatConnection): void {
             root.processed("Loading");
         }
     }

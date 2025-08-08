@@ -68,7 +68,7 @@ ColumnLayout {
 
         Connections {
             target: mapView.map
-            function onCopyrightLinkActivated(link: string) {
+            function onCopyrightLinkActivated(link: string): void {
                 Qt.openUrlExternally(link);
             }
         }

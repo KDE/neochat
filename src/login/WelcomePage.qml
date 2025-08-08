@@ -214,7 +214,7 @@ Kirigami.Page {
                     Connections {
                         target: Registration
 
-                        function onNextStepChanged() {
+                        function onNextStepChanged(): void {
                             if (Registration.nextStep === "m.login.recaptcha") {
                                 stepConnections.onProcessed("Captcha");
                             }
@@ -232,7 +232,7 @@ Kirigami.Page {
                     Connections {
                         target: LoginHelper
 
-                        function onLoginErrorOccured(message) {
+                        function onLoginErrorOccured(message: string): void {
                             headerMessage.text = message;
                             headerMessage.visible = message.length > 0;
                             headerMessage.type = Kirigami.MessageType.Error;

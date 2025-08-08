@@ -167,7 +167,7 @@ Video {
 
     Connections {
         target: MediaManager
-        function onPlaybackStarted() {
+        function onPlaybackStarted(): void {
             if (root.playbackState === MediaPlayer.PlayingState) {
                 root.pause();
             }

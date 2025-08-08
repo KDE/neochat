@@ -102,7 +102,7 @@ ColumnLayout {
 
     Connections {
         target: MediaManager
-        function onPlaybackStarted() {
+        function onPlaybackStarted(): void {
             if (audio.playbackState === MediaPlayer.PlayingState) {
                 audio.pause();
             }

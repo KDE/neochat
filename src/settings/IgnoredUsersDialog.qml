@@ -68,7 +68,7 @@ FormCard.FormCardPage {
 
     Connections {
         target: root.connection
-        function onIgnoredUsersListChanged() {
+        function onIgnoredUsersListChanged(): void {
             repeater.model = root.connection.ignoredUsers();
         }
     }

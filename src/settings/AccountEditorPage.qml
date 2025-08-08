@@ -266,7 +266,7 @@ FormCard.FormCardPage {
 
     data: Connections {
         target: root.connection
-        function onPasswordStatus(status) {
+        function onPasswordStatus(status): void {
             if (status === NeoChatConnection.Success) {
                 confirmPassword.status = Kirigami.MessageType.Positive
                 confirmPassword.statusMessage = i18nc("@info", "Password changed successfully");

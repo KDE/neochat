@@ -25,7 +25,7 @@ QQC2.Popup {
 
     Connections {
         target: RoomManager
-        function onCurrentRoomChanged() {
+        function onCurrentRoomChanged(): void {
             root.close();
         }
     }

@@ -102,7 +102,7 @@ Kirigami.Page {
 
     Connections {
         target: root.Kirigami.PageStack.pageStack
-        onWideModeChanged: {
+        function onWideModeChanged(): void {
             if ((root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode) {
                 root.Kirigami.PageStack.pop();
             }

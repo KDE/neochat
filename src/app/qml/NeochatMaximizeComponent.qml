@@ -72,7 +72,7 @@ Components.AlbumMaximizeComponent {
 
     Connections {
         target: MediaManager
-        function onPlaybackStarted() {
+        function onPlaybackStarted(): void {
             if (currentItem.playbackState === MediaPlayer.PlayingState) {
                 currentItem.pause();
             }
@@ -82,7 +82,7 @@ Components.AlbumMaximizeComponent {
     Connections {
         target: currentRoom
 
-        function onFileTransferProgress(id, progress, total) {
+        function onFileTransferProgress(id: string, progress: int, total: int): void {
             if (id == root.currentEventId) {
                 root.downloadAction.progress = progress / total * 100.0;
             }
@@ -130,7 +130,7 @@ Components.AlbumMaximizeComponent {
 
     Connections {
         target: RoomManager
-        function onCloseFullScreen() {
+        function onCloseFullScreen(): void {
             root.close();
         }
     }
