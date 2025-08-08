@@ -122,7 +122,6 @@ if(NOT ANDROID AND NOT WIN32)
     qt_target_qml_sources(neochat QML_FILES
         qml/ShareAction.qml
         qml/GlobalMenu.qml
-        qml/EditMenu.qml
     )
 else()
     qt_target_qml_sources(neochat QML_FILES

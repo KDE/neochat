@@ -71,10 +71,7 @@ Labs.MenuBar {
             onTriggered: Qt.quit()
         }
     }
-    EditMenu {
-        title: i18nc("menu", "Edit")
-        field: (root.activeFocusItem instanceof TextEdit || root.activeFocusItem instanceof TextInput) ? root.activeFocusItem : null
-    }
+
     Labs.Menu {
         title: i18nc("menu", "View")
 
