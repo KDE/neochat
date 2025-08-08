@@ -119,9 +119,9 @@ Kirigami.ApplicationWindow {
         }
 
         function onAskDirectChatConfirmation(user) {
-            Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
+            (Qt.createComponent("org.kde.neochat", "AskDirectChatConfirmation").createObject(this, {
                 user: user
-            }).open();
+            }) as AskDirectChatConfirmation).open();
         }
 
         function onExternalUrl(url) {
