@@ -1,17 +1,19 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-FileCopyrightText: 2025 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
 
 #include <QObject>
 #include <QQmlEngine>
-#include <QQuickTextDocument>
 #include <QTextCursor>
 
 #include "chatbarcache.h"
 #include "enums/chatbartype.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
+
+class QTextDocument;
 
 class NeoChatRoom;
 class SyntaxHighlighter;
@@ -69,24 +71,9 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
 
     /**
-     * @brief The QQuickTextDocument that is being handled.
+     * @brief The QML text Item the ChatDocumentHandler is handling.
      */
-    Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
-
-    /**
-     * @brief The current saved cursor position.
-     */
-    Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
-
-    /**
-     * @brief The start position of any currently selected text.
-     */
-    Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
-
-    /**
-     * @brief The end position of any currently selected text.
-     */
-    Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
+    Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
      * @brief The current CompletionModel.
@@ -101,33 +88,14 @@ class ChatDocumentHandler : public QObject
      */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
-    /**
-     * @brief The color to highlight user mentions.
-     */
-    Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged)
-
-    /**
-     * @brief The color to highlight spelling errors.
-     */
-    Q_PROPERTY(QColor errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged)
-
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
     ChatBarType::Type type() const;
     void setType(ChatBarType::Type type);
 
-    [[nodiscard]] QQuickTextDocument *document() const;
-    void setDocument(QQuickTextDocument *document);
-
-    [[nodiscard]] int cursorPosition() const;
-    void setCursorPosition(int position);
-
-    [[nodiscard]] int selectionStart() const;
-    void setSelectionStart(int position);
-
-    [[nodiscard]] int selectionEnd() const;
-    void setSelectionEnd(int position);
+    QQuickItem *textItem() const;
+    void setTextItem(QQuickItem *textItem);
 
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
@@ -138,41 +106,27 @@ public:
 
     CompletionModel *completionModel() const;
 
-    [[nodiscard]] QColor mentionColor() const;
-    void setMentionColor(const QColor &color);
-
-    [[nodiscard]] QColor errorColor() const;
-    void setErrorColor(const QColor &color);
-
     /**
      * @brief Update the mentions in @p document when editing a message.
      */
-    Q_INVOKABLE void updateMentions(QQuickTextDocument *document, const QString &editId);
+    Q_INVOKABLE void updateMentions(const QString &editId);
 
 Q_SIGNALS:
     void typeChanged();
-    void documentChanged();
-    void cursorPositionChanged();
+    void textItemChanged();
     void roomChanged();
-    void selectionStartChanged();
-    void selectionEndChanged();
-    void errorColorChanged();
-    void mentionColorChanged();
 
 private:
-    int completionStartIndex() const;
-
     ChatBarType::Type m_type = ChatBarType::None;
-    QPointer<QQuickTextDocument> m_document;
+    QPointer<QQuickItem> m_textItem;
+    QTextDocument *document() const;
+
+    void updateCompletion() const;
+    int completionStartIndex() const;
 
     QPointer<NeoChatRoom> m_room;
 
-    QColor m_mentionColor;
-    QColor m_errorColor;
-
-    int m_cursorPosition;
-    int m_selectionStart;
-    int m_selectionEnd;
+    int cursorPosition() const;
 
     QString getText() const;
     void pushMention(const Mention mention) const;

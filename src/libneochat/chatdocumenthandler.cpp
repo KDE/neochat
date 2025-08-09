@@ -1,16 +1,19 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carlschwan@kde.org>
+// SPDX-FileCopyrightText: 2025 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "chatdocumenthandler.h"
 
 #include <QQmlFile>
 #include <QQmlFileSelector>
+#include <QQuickTextDocument>
 #include <QStringBuilder>
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
 #include <QTextDocument>
 #include <QTimer>
 
+#include <Kirigami/Platform/PlatformTheme>
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
@@ -33,10 +36,16 @@ public:
     SyntaxHighlighter(QObject *parent)
         : QSyntaxHighlighter(parent)
     {
-        mentionFormat.setFontWeight(QFont::Bold);
-        mentionFormat.setForeground(Qt::blue);
+        m_theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+        connect(m_theme, &Kirigami::Platform::PlatformTheme::colorsChanged, this, [this]() {
+            mentionFormat.setForeground(m_theme->linkColor());
+            errorFormat.setForeground(m_theme->negativeTextColor());
+        });
 
-        errorFormat.setForeground(Qt::red);
+        mentionFormat.setFontWeight(QFont::Bold);
+        mentionFormat.setForeground(m_theme->linkColor());
+
+        errorFormat.setForeground(m_theme->negativeTextColor());
         errorFormat.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
         connect(checker, &Sonnet::BackgroundChecker::misspelling, this, [this](const QString &word, int start) {
@@ -101,29 +110,22 @@ public:
                                        }),
                         mentions->end());
     }
+
+private:
+    Kirigami::Platform::PlatformTheme *m_theme = nullptr;
 };
 
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     : QObject(parent)
-    , m_document(nullptr)
-    , m_cursorPosition(-1)
     , m_highlighter(new SyntaxHighlighter(this))
     , m_completionModel(new CompletionModel(this))
 {
-    connect(this, &ChatDocumentHandler::documentChanged, this, [this]() {
-        if (!m_document) {
-            m_highlighter->setDocument(nullptr);
-            return;
-        }
-        m_highlighter->setDocument(m_document->textDocument());
-    });
-    connect(this, &ChatDocumentHandler::cursorPositionChanged, this, [this]() {
-        if (!m_room) {
-            return;
-        }
-        int start = completionStartIndex();
-        m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-    });
+}
+
+void ChatDocumentHandler::updateCompletion() const
+{
+    int start = completionStartIndex();
+    m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
 }
 
 int ChatDocumentHandler::completionStartIndex() const
@@ -160,38 +162,49 @@ void ChatDocumentHandler::setType(ChatBarType::Type type)
     Q_EMIT typeChanged();
 }
 
-QQuickTextDocument *ChatDocumentHandler::document() const
+QQuickItem *ChatDocumentHandler::textItem() const
 {
-    return m_document;
+    return m_textItem;
 }
 
-void ChatDocumentHandler::setDocument(QQuickTextDocument *document)
+void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
 {
-    if (document == m_document) {
+    if (textItem == m_textItem) {
         return;
     }
 
-    if (m_document) {
-        m_document->textDocument()->disconnect(this);
+    if (m_textItem) {
+        m_textItem->disconnect(this);
+        if (const auto textDoc = document()) {
+            textDoc->disconnect(this);
+        }
     }
-    m_document = document;
-    Q_EMIT documentChanged();
+
+    m_textItem = textItem;
+
+    m_highlighter->setDocument(document());
+    if (m_textItem) {
+        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCompletion()));
+    }
+
+    Q_EMIT textItemChanged();
+}
+
+QTextDocument *ChatDocumentHandler::document() const
+{
+    if (!m_textItem) {
+        return nullptr;
+    }
+    const auto quickDocument = qvariant_cast<QQuickTextDocument *>(m_textItem->property("textDocument"));
+    return quickDocument ? quickDocument->textDocument() : nullptr;
 }
 
 int ChatDocumentHandler::cursorPosition() const
 {
-    return m_cursorPosition;
-}
-
-void ChatDocumentHandler::setCursorPosition(int position)
-{
-    if (position == m_cursorPosition) {
-        return;
+    if (!m_textItem) {
+        return -1;
     }
-    if (m_room) {
-        m_cursorPosition = position;
-    }
-    Q_EMIT cursorPositionChanged();
+    return m_textItem->property("cursorPosition").toInt();
 }
 
 NeoChatRoom *ChatDocumentHandler::room() const
@@ -207,8 +220,8 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
 
     if (m_room && m_type != ChatBarType::None) {
         m_room->cacheForType(m_type)->disconnect(this);
-        if (!m_room->isSpace() && m_document && m_type == ChatBarType::Room) {
-            m_room->mainCache()->setSavedText(document()->textDocument()->toPlainText());
+        if (!m_room->isSpace() && document() && m_type == ChatBarType::Room) {
+            m_room->mainCache()->setSavedText(document()->toPlainText());
         }
     }
 
@@ -220,8 +233,8 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
             int start = completionStartIndex();
             m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
         });
-        if (!m_room->isSpace() && m_document && m_type == ChatBarType::Room) {
-            document()->textDocument()->setPlainText(room->mainCache()->savedText());
+        if (!m_room->isSpace() && document() && m_type == ChatBarType::Room) {
+            document()->setPlainText(room->mainCache()->savedText());
             m_room->mainCache()->setText(room->mainCache()->savedText());
         }
     }
@@ -239,7 +252,7 @@ ChatBarCache *ChatDocumentHandler::chatBarCache() const
 
 void ChatDocumentHandler::complete(int index)
 {
-    if (m_document == nullptr) {
+    if (document() == nullptr) {
         qCWarning(ChatDocumentHandling) << "complete called with m_document set to nullptr.";
         return;
     }
@@ -256,7 +269,7 @@ void ChatDocumentHandler::complete(int index)
         auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
         auto text = getText();
         auto at = text.indexOf(QLatin1Char('@'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
+        QTextCursor cursor(document());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(name + u" "_s);
@@ -269,7 +282,7 @@ void ChatDocumentHandler::complete(int index)
         auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
         auto text = getText();
         auto at = text.indexOf(QLatin1Char('/'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
+        QTextCursor cursor(document());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(u"/%1 "_s.arg(command));
@@ -277,7 +290,7 @@ void ChatDocumentHandler::complete(int index)
         auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
         auto text = getText();
         auto at = text.indexOf(QLatin1Char('#'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
+        QTextCursor cursor(document());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(alias + u" "_s);
@@ -290,7 +303,7 @@ void ChatDocumentHandler::complete(int index)
         auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
         auto text = getText();
         auto at = text.indexOf(QLatin1Char(':'), fromIndex);
-        QTextCursor cursor(document()->textDocument());
+        QTextCursor cursor(document());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(shortcode);
@@ -300,36 +313,6 @@ void ChatDocumentHandler::complete(int index)
 CompletionModel *ChatDocumentHandler::completionModel() const
 {
     return m_completionModel;
-}
-
-int ChatDocumentHandler::selectionStart() const
-{
-    return m_selectionStart;
-}
-
-void ChatDocumentHandler::setSelectionStart(int position)
-{
-    if (position == m_selectionStart) {
-        return;
-    }
-
-    m_selectionStart = position;
-    Q_EMIT selectionStartChanged();
-}
-
-int ChatDocumentHandler::selectionEnd() const
-{
-    return m_selectionEnd;
-}
-
-void ChatDocumentHandler::setSelectionEnd(int position)
-{
-    if (position == m_selectionEnd) {
-        return;
-    }
-
-    m_selectionEnd = position;
-    Q_EMIT selectionEndChanged();
 }
 
 QString ChatDocumentHandler::getText() const
@@ -350,42 +333,8 @@ void ChatDocumentHandler::pushMention(const Mention mention) const
     m_room->cacheForType(m_type)->mentions()->push_back(mention);
 }
 
-QColor ChatDocumentHandler::mentionColor() const
+void ChatDocumentHandler::updateMentions(const QString &editId)
 {
-    return m_mentionColor;
-}
-
-void ChatDocumentHandler::setMentionColor(const QColor &color)
-{
-    if (m_mentionColor == color) {
-        return;
-    }
-    m_mentionColor = color;
-    m_highlighter->mentionFormat.setForeground(m_mentionColor);
-    m_highlighter->rehighlight();
-    Q_EMIT mentionColorChanged();
-}
-
-QColor ChatDocumentHandler::errorColor() const
-{
-    return m_errorColor;
-}
-
-void ChatDocumentHandler::setErrorColor(const QColor &color)
-{
-    if (m_errorColor == color) {
-        return;
-    }
-    m_errorColor = color;
-    m_highlighter->errorFormat.setForeground(m_errorColor);
-    m_highlighter->rehighlight();
-    Q_EMIT errorColorChanged();
-}
-
-void ChatDocumentHandler::updateMentions(QQuickTextDocument *document, const QString &editId)
-{
-    setDocument(document);
-
     if (editId.isEmpty() || m_type == ChatBarType::None || !m_room) {
         return;
     }
@@ -409,7 +358,7 @@ void ChatDocumentHandler::updateMentions(QQuickTextDocument *document, const QSt
                     const int end = position + name.length();
                     linkSize += match.capturedLength(0) - name.length();
 
-                    QTextCursor cursor(this->document()->textDocument());
+                    QTextCursor cursor(document());
                     cursor.setPosition(position);
                     cursor.setPosition(end, QTextCursor::KeepAnchor);
                     cursor.setKeepPositionOnInsert(true);

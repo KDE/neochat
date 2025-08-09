@@ -500,13 +500,8 @@ QQC2.Control {
     ChatDocumentHandler {
         id: documentHandler
         type: ChatBarType.Room
+        textItem: textField
         room: root.currentRoom
-        document: textField.textDocument
-        cursorPosition: textField.cursorPosition
-        selectionStart: textField.selectionStart
-        selectionEnd: textField.selectionEnd
-        mentionColor: Kirigami.Theme.linkColor
-        errorColor: Kirigami.Theme.negativeTextColor
     }
 
     Component {
