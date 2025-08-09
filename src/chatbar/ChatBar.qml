@@ -253,6 +253,7 @@ QQC2.Control {
                     placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18n("Set an attachment caption…") : i18n("Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
+                    textFormat: TextEdit.MarkdownText
 
                     Accessible.description: placeholderText
 
@@ -269,7 +270,6 @@ QQC2.Control {
                             root.currentRoom.sendTypingNotification(textExists);
                             textExists ? repeatTimer.start() : repeatTimer.stop();
                         }
-                        _private.chatBarCache.text = text;
                     }
                     onSelectedTextChanged: {
                         if (selectedText.length > 0) {

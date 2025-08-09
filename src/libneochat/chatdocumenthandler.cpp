@@ -175,6 +175,17 @@ void ChatDocumentHandler::setDocument(QQuickTextDocument *document)
         m_document->textDocument()->disconnect(this);
     }
     m_document = document;
+
+    if (m_document) {
+        connect(m_document->textDocument(), &QTextDocument::contentsChanged, this, [this]() {
+            if (m_room) {
+                m_room->cacheForType(m_type)->setText(getText());
+                int start = completionStartIndex();
+                m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+            }
+        });
+    }
+
     Q_EMIT documentChanged();
 }
 
@@ -216,10 +227,6 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
 
     m_completionModel->setRoom(m_room);
     if (m_room && m_type != ChatBarType::None) {
-        connect(m_room->cacheForType(m_type), &ChatBarCache::textChanged, this, [this]() {
-            int start = completionStartIndex();
-            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-        });
         if (!m_room->isSpace() && m_document && m_type == ChatBarType::Room) {
             document()->textDocument()->setPlainText(room->mainCache()->savedText());
             m_room->mainCache()->setText(room->mainCache()->savedText());
@@ -334,11 +341,11 @@ void ChatDocumentHandler::setSelectionEnd(int position)
 
 QString ChatDocumentHandler::getText() const
 {
-    if (!m_room || m_type == ChatBarType::None) {
-        qCWarning(ChatDocumentHandling) << "getText called with no ChatBarCache available. ChatBarType: " << m_type << " Room: " << m_room;
+    if (!m_document) {
+        qCWarning(ChatDocumentHandling) << "getText called with no QQuickTextDocument available.";
         return {};
     }
-    return m_room->cacheForType(m_type)->text();
+    return m_document->textDocument()->toRawText();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
