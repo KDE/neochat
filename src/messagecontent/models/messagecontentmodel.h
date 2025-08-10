@@ -101,6 +101,11 @@ public:
      */
     Q_INVOKABLE void closeLinkPreview(int row);
 
+    /**
+     * @brief Toggle spoiler for the component at the given row.
+     */
+    Q_INVOKABLE void toggleSpoiler(int row);
+
 Q_SIGNALS:
     void authorChanged();
 

@@ -93,8 +93,12 @@ QString TextHandler::handleSendText()
     return outputString;
 }
 
-QString
-TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines, bool isEdited)
+QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
+                                           const NeoChatRoom *room,
+                                           const Quotient::RoomEvent *event,
+                                           bool stripNewlines,
+                                           bool isEdited,
+                                           bool spoilerRevealed)
 {
     m_pos = 0;
     m_dataBuffer = m_data;
@@ -151,7 +155,7 @@ TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom
             } else if ((getTagType(m_nextToken) == u"br"_s && stripNewlines)) {
                 nextTokenBuffer = u' ';
             }
-            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer);
+            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer, spoilerRevealed);
         }
 
         outputString.append(nextTokenBuffer);
@@ -333,7 +337,8 @@ MessageComponent TextHandler::nextBlock(const QString &string,
                                         Qt::TextFormat inputFormat,
                                         const NeoChatRoom *room,
                                         const Quotient::RoomEvent *event,
-                                        bool isEdited)
+                                        bool isEdited,
+                                        bool spoilerRevealed)
 {
     if (string.isEmpty()) {
         return {};
@@ -355,7 +360,11 @@ MessageComponent TextHandler::nextBlock(const QString &string,
         content = unescapeHtml(content);
         break;
     default:
-        content = handleRecieveRichText(inputFormat, room, event, false, isEdited);
+        content = handleRecieveRichText(inputFormat, room, event, false, isEdited, spoilerRevealed);
+    }
+
+    if (content.contains(u"data-mx-spoiler"_s)) {
+        attributes[u"hasSpoiler"_s] = true;
     }
     return MessageComponent{messageComponentType, content, attributes};
 }
@@ -462,7 +471,7 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
     }
 }
 
-QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString)
+QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString, bool spoilerRevealed)
 {
     int nextAttributeIndex = tagString.indexOf(u' ', 1);
 
@@ -518,11 +527,33 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
             nextAttributeIndex = nextSpaceIndex + 1;
         }
 
-        outputString += u'>';
-        return outputString;
+        return addStyle(tag, outputString, spoilerRevealed);
     }
 
-    return tagString;
+    return addStyle(tag, tagString);
+}
+
+QString TextHandler::addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed)
+{
+    if (cleanTagString.endsWith(u'>')) {
+        cleanTagString.removeLast();
+    }
+
+    if (!cleanTagString.startsWith(u"</"_s)) {
+        if (tag == u"a"_s) {
+            cleanTagString += u" style=\"text-decoration: none;\""_s;
+        } else if (tag == u"table"_s) {
+            cleanTagString += u" style=\"width: 100%; border-collapse: collapse; border: 1px; border-style: solid;\""_s;
+        } else if (tag == u"th"_s || tag == u"td"_s) {
+            cleanTagString += u" style=\"border: 1px solid black; padding: 3px;\""_s;
+        } else if (tag == u"span"_s && cleanTagString.contains(u"data-mx-spoiler"_s)) {
+            Kirigami::Platform::PlatformTheme *theme =
+                static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+            cleanTagString += u" style=\"color: %1; background: %2;\""_s.arg(spoilerRevealed ? theme->textColor().name() : u"transparent"_s,
+                                                                             spoilerRevealed ? u"transparent"_s : theme->alternateBackgroundColor().name());
+        }
+    }
+    return cleanTagString + u'>';
 }
 
 QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagString)
@@ -567,8 +598,12 @@ QVariantMap TextHandler::getAttributes(const QString &tag, const QString &tagStr
     return attributes;
 }
 
-QList<MessageComponent>
-TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isEdited)
+QList<MessageComponent> TextHandler::textComponents(QString string,
+                                                    Qt::TextFormat inputFormat,
+                                                    const NeoChatRoom *room,
+                                                    const Quotient::RoomEvent *event,
+                                                    bool isEdited,
+                                                    bool spoilerRevealed)
 {
     if (string.trimmed().isEmpty()) {
         return {MessageComponent{MessageComponentType::Text, i18n("<i>This event does not have any content.</i>"), {}}};
@@ -580,7 +615,8 @@ TextHandler::textComponents(QString string, Qt::TextFormat inputFormat, const Ne
     QList<MessageComponent> components;
     while (!string.isEmpty()) {
         const auto nextBlockPos = this->nextBlockPos(string);
-        const auto nextBlock = this->nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false);
+        const auto nextBlock =
+            this->nextBlock(string, nextBlockPos, inputFormat, room, event, nextBlockPos == string.size() ? isEdited : false, spoilerRevealed);
         components += nextBlock;
         string.remove(0, nextBlockPos);
 
@@ -796,6 +832,19 @@ QString TextHandler::convertCodeLanguageString(const QString &languageString)
 {
     const int equalsPos = languageString.indexOf(u'-');
     return languageString.right(languageString.length() - equalsPos - 1);
+}
+
+QString TextHandler::toggleSpoilerText(QObject *object, QString string, bool spoilerRevealed)
+{
+    auto it = QRegularExpression(u"<span[^>]*data-mx-spoiler[^>]*style=\"color: (.*?); background: (.*?);\">"_s).globalMatch(string);
+    Kirigami::Platform::PlatformTheme *theme =
+        static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
+    while (it.hasNext()) {
+        const QRegularExpressionMatch match = it.next();
+        string.replace(match.capturedStart(2), match.capturedLength(2), spoilerRevealed ? u"transparent"_s : theme->alternateBackgroundColor().name());
+        string.replace(match.capturedStart(1), match.capturedLength(1), spoilerRevealed ? theme->textColor().name() : u"transparent"_s);
+    }
+    return string;
 }
 
 #include "moc_texthandler.cpp"

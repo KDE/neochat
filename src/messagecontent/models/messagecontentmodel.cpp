@@ -4,11 +4,13 @@
 #include "messagecontentmodel.h"
 
 #include <KLocalizedString>
+#include <Kirigami/Platform/PlatformTheme>
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
 #include "enums/messagecomponenttype.h"
 #include "neochatconnection.h"
+#include "texthandler.h"
 
 using namespace Quotient;
 
@@ -275,6 +277,21 @@ void MessageContentModel::closeLinkPreview(int row)
         m_components.squeeze();
         endRemoveRows();
     }
+}
+
+void MessageContentModel::toggleSpoiler(int row)
+{
+    if (row < 0 || row >= rowCount()) {
+        qWarning() << "closeLinkPreview() called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        return;
+    }
+    if (m_components[row].type != MessageComponentType::Text) {
+        return;
+    }
+    const auto spoilerRevealed = !m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();
+    m_components[row].attributes["spoilerRevealed"_L1] = spoilerRevealed;
+    m_components[row].display = TextHandler::toggleSpoilerText(this, m_components[row].display, spoilerRevealed);
+    Q_EMIT dataChanged(index(row), index(row), {DisplayRole, ComponentAttributesRole});
 }
 
 #include "moc_messagecontentmodel.cpp"
