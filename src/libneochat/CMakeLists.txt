@@ -47,6 +47,10 @@ target_sources(LibNeoChat PRIVATE
     models/userlistmodel.cpp
 )
 
+if (TARGET KF6::KIOWidgets)
+    target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KIO)
+endif()
+
 ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.libneochat
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/libneochat

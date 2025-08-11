@@ -341,10 +341,6 @@ if(TARGET KF6::DBusAddons AND NOT WIN32)
     target_compile_definitions(neochat PUBLIC -DHAVE_KDBUSADDONS)
 endif()
 
-if (TARGET KF6::KIOWidgets)
-    target_compile_definitions(neochat PUBLIC -DHAVE_KIO)
-endif()
-
 if (TARGET KUnifiedPush)
     target_compile_definitions(neochat PUBLIC -DHAVE_KUNIFIEDPUSH)
     target_link_libraries(neochat PUBLIC KUnifiedPush)
