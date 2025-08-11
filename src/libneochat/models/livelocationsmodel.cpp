@@ -178,4 +178,19 @@ void LiveLocationsModel::updateLocationData(LiveLocationData &&data)
     Q_EMIT dataChanged(idx, idx);
 }
 
+NeoChatRoom *LiveLocationsModel::room() const
+{
+    return m_room;
+}
+
+void LiveLocationsModel::setRoom(NeoChatRoom *room)
+{
+    if (m_room == room) {
+        return;
+    }
+
+    m_room = room;
+    Q_EMIT roomChanged();
+}
+
 #include "moc_livelocationsmodel.cpp"
