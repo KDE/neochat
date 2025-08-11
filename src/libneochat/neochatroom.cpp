@@ -1269,7 +1269,7 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
         return;
     }
     downloadFile(eventId,
-                 QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
+                 QUrl(u"file:"_s + QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
                       + evtIt->event()->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
     connect(
         this,
