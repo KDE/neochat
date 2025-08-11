@@ -215,21 +215,8 @@ Kirigami.Page {
             });
         }
 
-        function onShowMessageMenu(eventId, author, messageComponentType, plainText, htmlText, selectedText, hoveredLink, isThread) {
-            const contextMenu = messageDelegateContextMenu.createObject(root, {
-                selectedText: selectedText,
-                hoveredLink: hoveredLink,
-                author: author,
-                eventId: eventId,
-                messageComponentType: messageComponentType,
-                plainText: plainText,
-                htmlText: htmlText,
-            });
-            contextMenu.popup();
-        }
-
-        function onShowFileMenu(eventId, author, messageComponentType, plainText, mimeType, progressInfo, isThread) {
-            const contextMenu = fileDelegateContextMenu.createObject(root, {
+        function onShowDelegateMenu(eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
+            const contextMenu = delegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
                 plainText: plainText,
@@ -262,16 +249,8 @@ Kirigami.Page {
     }
 
     Component {
-        id: messageDelegateContextMenu
-        MessageDelegateContextMenu {
-            room: root.currentRoom
-            connection: root.currentRoom.connection
-        }
-    }
-
-    Component {
-        id: fileDelegateContextMenu
-        FileDelegateContextMenu {
+        id: delegateContextMenu
+        DelegateContextMenu {
             room: root.currentRoom
             connection: root.currentRoom.connection
         }

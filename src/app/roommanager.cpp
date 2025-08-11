@@ -279,23 +279,15 @@ void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, Neoch
         return;
     }
     const auto &event = **it;
-    if (EventHandler::mediaInfo(room, &event).contains("mimeType"_L1)) {
-        Q_EMIT showFileMenu(eventId,
+    Q_EMIT showDelegateMenu(eventId,
                             sender,
                             MessageComponentType::typeForEvent(event),
                             EventHandler::plainBody(room, &event),
+                            EventHandler::richBody(room, &event),
                             EventHandler::mediaInfo(room, &event)["mimeType"_L1].toString(),
-                            room->fileTransferInfo(eventId));
-        return;
-    }
-
-    Q_EMIT showMessageMenu(eventId,
-                           sender,
-                           MessageComponentType::typeForEvent(event),
-                           EventHandler::plainBody(room, &event),
-                           EventHandler::richBody(room, &event),
-                           selectedText,
-                           hoveredLink);
+                            room->fileTransferInfo(eventId),
+                            selectedText,
+                            hoveredLink);
 }
 
 bool RoomManager::hasOpenRoom() const
