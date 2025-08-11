@@ -296,23 +296,15 @@ Q_SIGNALS:
     /**
      * @brief Request to show a menu for the given event.
      */
-    void showMessageMenu(const QString &eventId,
-                         const NeochatRoomMember *author,
-                         MessageComponentType::Type messageComponentType,
-                         const QString &plainText,
-                         const QString &htmlText,
-                         const QString &selectedText,
-                         const QString &hoveredLink);
-
-    /**
-     * @brief Request to show a menu for the given media event.
-     */
-    void showFileMenu(const QString &eventId,
-                      const NeochatRoomMember *author,
-                      MessageComponentType::Type messageComponentType,
-                      const QString &plainText,
-                      const QString &mimeType,
-                      const FileTransferInfo &progressInfo);
+    void showDelegateMenu(const QString &eventId,
+                          const NeochatRoomMember *author,
+                          MessageComponentType::Type messageComponentType,
+                          const QString &plainText,
+                          const QString &richtText,
+                          const QString &mimeType,
+                          const FileTransferInfo &progressInfo,
+                          const QString &selectedText,
+                          const QString &hoveredLink);
 
     /**
      * @brief Show the direct chat confirmation dialog.

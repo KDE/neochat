@@ -22,8 +22,6 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         QuickActions.qml
         TypingPane.qml
         DelegateContextMenu.qml
-        FileDelegateContextMenu.qml
-        MessageDelegateContextMenu.qml
     SOURCES
         messageattached.cpp
         messagedelegate.cpp
