@@ -1290,33 +1290,36 @@ void NeoChatRoom::openEventMediaExternally(const QString &eventId)
 void NeoChatRoom::copyEventMedia(const QString &eventId)
 {
     const auto evtIt = findInTimeline(eventId);
-    if (evtIt != messageEvents().rend() && is<RoomMessageEvent>(**evtIt)) {
-        const auto event = evtIt->viewAs<RoomMessageEvent>();
-        if (event->has<EventContent::FileContent>()) {
-            const auto transferInfo = fileTransferInfo(eventId);
-            if (transferInfo.completed()) {
-                Clipboard clipboard;
-                clipboard.setImage(transferInfo.localPath);
-            } else {
-                downloadFile(eventId,
-                             QUrl(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
-                                  + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
-                connect(
-                    this,
-                    &Room::fileTransferCompleted,
-                    this,
-                    [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
-                        Q_UNUSED(localFile);
-                        Q_UNUSED(fileMetadata);
-                        if (id == eventId) {
-                            auto transferInfo = fileTransferInfo(eventId);
-                            Clipboard clipboard;
-                            clipboard.setImage(transferInfo.localPath);
-                        }
-                    },
-                    static_cast<Qt::ConnectionType>(Qt::SingleShotConnection));
-            }
-        }
+
+    if (evtIt == messageEvents().rend() || !is<RoomMessageEvent>(**evtIt)) {
+        return;
+    }
+    const auto event = evtIt->viewAs<RoomMessageEvent>();
+    if (!event->has<EventContent::FileContentBase>()) {
+        return;
+    }
+    const auto transferInfo = fileTransferInfo(eventId);
+    if (transferInfo.completed()) {
+        Clipboard clipboard;
+        clipboard.setImage(transferInfo.localPath);
+    } else {
+        downloadFile(eventId,
+                     QUrl(u"file:"_s + QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/'
+                          + event->id().replace(u':', u'_').replace(u'/', u'_').replace(u'+', u'_') + fileNameToDownload(eventId)));
+        connect(
+            this,
+            &Room::fileTransferCompleted,
+            this,
+            [this, eventId](QString id, QUrl localFile, FileSourceInfo fileMetadata) {
+                Q_UNUSED(localFile);
+                Q_UNUSED(fileMetadata);
+                if (id == eventId) {
+                    auto transferInfo = fileTransferInfo(eventId);
+                    Clipboard clipboard;
+                    clipboard.setImage(transferInfo.localPath);
+                }
+            },
+            Qt::SingleShotConnection);
     }
 }
 
