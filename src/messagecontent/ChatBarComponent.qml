@@ -125,13 +125,8 @@ QQC2.Control {
                     ChatDocumentHandler {
                         id: documentHandler
                         type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
-                        document: textArea.textDocument
-                        cursorPosition: textArea.cursorPosition
-                        selectionStart: textArea.selectionStart
-                        selectionEnd: textArea.selectionEnd
+                        textItem: textArea
                         room: root.Message.room
-                        mentionColor: Kirigami.Theme.linkColor
-                        errorColor: Kirigami.Theme.negativeTextColor
                     }
 
                     TextMetrics {
@@ -264,7 +259,7 @@ QQC2.Control {
             documentHandler.document;
             if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
                 textArea.text = chatBarCache.relationMessage;
-                documentHandler.updateMentions(textArea.textDocument, chatBarCache.editId);
+                documentHandler.updateMentions(chatBarCache.editId);
                 textArea.forceActiveFocus();
                 textArea.cursorPosition = textArea.text.length;
             }
