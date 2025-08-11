@@ -27,7 +27,7 @@ class LiveLocationsModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(NeoChatRoom *room MEMBER m_room NOTIFY roomChanged)
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
     /** The event id of the beacon start event, ie. the one all suspequent
      *  events use to relate to the same beacon.
      *  If this is set only this specific beacon will be coverd by this model,
@@ -56,6 +56,9 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QRectF boundingBox() const;
+
+    NeoChatRoom *room() const;
+    void setRoom(NeoChatRoom *room);
 
 Q_SIGNALS:
     void roomChanged();
