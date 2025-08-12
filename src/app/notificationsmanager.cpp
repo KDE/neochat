@@ -433,7 +433,7 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
 
     if (room != nullptr) {
         const QImage roomAvatar = room->avatar(imageRect.width(), imageRect.height());
-        if (icon != roomAvatar) {
+        if (!roomAvatar.isNull() && icon != roomAvatar) {
             const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
 
             painter.setBrush(Qt::white);
