@@ -4,6 +4,12 @@
 #include <QHttpServer>
 #include <QSslServer>
 
+struct RoomData {
+    QStringList members;
+    QString id;
+    QStringList tags;
+};
+
 class Server
 {
 public:
@@ -21,6 +27,12 @@ public:
     void banUser(const QString &roomId, const QString &matrixId);
     void joinUser(const QString &roomId, const QString &matrixId);
 
+    /**
+     * Create a server notices room.
+     */
+    QString createServerNoticesRoom(const QString &matrixId);
+    QString sendEvent(const QString &roomId, const QString &eventType, const QJsonObject &content);
+
 private:
     QHttpServer m_server;
     QSslServer m_sslServer;
@@ -29,5 +41,6 @@ private:
     QHash<QString, QList<QString>> m_bannedUsers;
     QHash<QString, QList<QString>> m_joinedUsers;
 
-    QList<std::pair<QString, QString>> m_roomsToCreate;
+    QList<RoomData> m_roomsToCreate;
+    QMap<QString, QJsonArray> m_events;
 };

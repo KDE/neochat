@@ -115,28 +115,36 @@ void Server::start()
 
     m_server.route(u"/_matrix/client/r0/sync"_s, QHttpServerRequest::Method::Get, [this](QHttpServerResponder &responder) {
         QMap<QString, QJsonArray> stateEvents;
+        QMap<QString, QJsonArray> roomAccountData;
 
-        for (const auto &[roomId, matrixId] : m_roomsToCreate) {
-            stateEvents[roomId] += QJsonObject{
+        for (const auto &roomData : m_roomsToCreate) {
+            stateEvents[roomData.id] += QJsonObject{
                 {u"content"_s, QJsonObject{{u"room_version"_s, u"11"_s}}},
                 {u"event_id"_s, generateEventId()},
                 {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
-                {u"room_id"_s, roomId},
-                {u"sender"_s, matrixId},
+                {u"room_id"_s, roomData.id},
+                {u"sender"_s, roomData.members[0]},
                 {u"state_key"_s, QString()},
                 {u"type"_s, u"m.room.create"_s},
                 {u"unsigned"_s, QJsonObject{{u"age"_s, 1234}}},
             };
-            stateEvents[roomId] += QJsonObject{
-                {u"content"_s, QJsonObject{{u"displayname"_s, u"User"_s}, {u"membership"_s, u"join"_s}}},
-                {u"event_id"_s, generateEventId()},
-                {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
-                {u"room_id"_s, roomId},
-                {u"sender"_s, matrixId},
-                {u"state_key"_s, matrixId},
-                {u"type"_s, u"m.room.member"_s},
-                {u"unsigned"_s, QJsonObject{{u"age"_s, 1234}}},
-            };
+            for (const auto &member : roomData.members) {
+                stateEvents[roomData.id] += QJsonObject{
+                    {u"content"_s, QJsonObject{{u"displayname"_s, u"User"_s}, {u"membership"_s, u"join"_s}}},
+                    {u"event_id"_s, generateEventId()},
+                    {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
+                    {u"room_id"_s, roomData.id},
+                    {u"sender"_s, member},
+                    {u"state_key"_s, member},
+                    {u"type"_s, u"m.room.member"_s},
+                    {u"unsigned"_s, QJsonObject{{u"age"_s, 1234}}},
+                };
+            }
+            QJsonObject tags;
+            for (const auto &tag : roomData.tags) {
+                tags[tag] = QJsonObject();
+            }
+            roomAccountData[roomData.id] += QJsonObject{{u"type"_s, u"m.tag"_s}, {u"content"_s, QJsonObject{{u"tags"_s, tags}}}};
         }
         m_roomsToCreate.clear();
         for (const auto &roomId : m_invitedUsers.keys()) {
@@ -191,11 +199,18 @@ void Server::start()
         m_joinedUsers.clear();
 
         QJsonObject rooms;
-        for (const auto &roomId : stateEvents.keys()) {
-            rooms[roomId] = QJsonObject{{u"state"_s, QJsonObject{{u"events"_s, stateEvents[roomId]}}}};
+        auto keys = stateEvents.keys() + m_events.keys();
+        for (const auto &roomId : QSet(keys.begin(), keys.end())) {
+            rooms[roomId] = QJsonObject{
+                {u"state"_s, QJsonObject{{u"events"_s, stateEvents[roomId]}}},
+                {u"account_data"_s, QJsonObject{{u"events"_s, roomAccountData[roomId]}}},
+                {u"timeline"_s, QJsonObject{{u"events"_s, m_events[roomId]}}},
+            };
         }
+        m_events.clear();
 
-        responder.write(QJsonDocument(QJsonObject{{u"rooms"_s, QJsonObject{{u"join"_s, rooms}}}}), QHttpServerResponder::StatusCode::Ok);
+        auto json = QJsonObject{{u"rooms"_s, QJsonObject{{u"join"_s, rooms}}}};
+        responder.write(QJsonDocument(json), QHttpServerResponder::StatusCode::Ok);
     });
 
     QSslConfiguration config;
@@ -215,7 +230,11 @@ void Server::start()
 QString Server::createRoom(const QString &matrixId)
 {
     auto roomId = generateRoomId();
-    m_roomsToCreate += {roomId, matrixId};
+    m_roomsToCreate += RoomData{
+        .members = {matrixId},
+        .id = roomId,
+        .tags = {},
+    };
     return roomId;
 }
 
@@ -232,4 +251,24 @@ void Server::banUser(const QString &roomId, const QString &matrixId)
 void Server::joinUser(const QString &roomId, const QString &matrixId)
 {
     m_joinedUsers[roomId] += matrixId;
+}
+
+QString Server::createServerNoticesRoom(const QString &matrixId)
+{
+    auto roomId = createRoom(matrixId);
+    m_roomsToCreate.last().tags = {u"m.server_notice"_s};
+    return roomId;
+}
+
+QString Server::sendEvent(const QString &roomId, const QString &eventType, const QJsonObject &content)
+{
+    const auto eventId = generateEventId();
+    m_events[roomId] += QJsonObject{
+        {u"type"_s, eventType},
+        {u"content"_s, content},
+        {u"sender"_s, u"@foo:server.com"_s},
+        {u"event_id"_s, eventId},
+        {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
+    };
+    return eventId;
 }

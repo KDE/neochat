@@ -245,6 +245,7 @@ void RoomManager::maximizeMedia(const QString &eventId)
 
     const auto index = m_mediaMessageFilterModel->getRowForEventId(eventId);
     if (index == -1) {
+        qWarning() << "Tried to open media for unknown event id" << eventId;
         return;
     }
 
