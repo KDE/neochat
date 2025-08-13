@@ -18,7 +18,7 @@ Kirigami.SearchDialog {
 
     Shortcut {
         sequence: "Ctrl+K"
-        onActivated: root.open()
+        onActivated: if (root.connection) root.open()
     }
 
     onAccepted: if (currentItem) {
