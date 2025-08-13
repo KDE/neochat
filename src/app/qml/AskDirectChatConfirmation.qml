@@ -18,7 +18,7 @@ Kirigami.Dialog {
     title: i18nc("@title:dialog", "Start a chat")
 
     contentItem: QQC2.Label {
-        text: i18n("Do you want to start a chat with %1?", root.user.displayName)
+        text: i18nc("@info", "Do you want to start a chat with %1?", root.user.displayName)
         textFormat: Text.PlainText
         wrapMode: Text.Wrap
         horizontalAlignment: Qt.AlignHCenter
