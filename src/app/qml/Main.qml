@@ -19,6 +19,11 @@ Kirigami.ApplicationWindow {
 
     property bool initialized: false
 
+    readonly property QuickSwitcher quickSwitcher: QuickSwitcher {
+        connection: root.connection
+        window: root
+    }
+
     title: {
         if (NeoChatConfig.windowTitleFocus) {
             return activeFocusItem + " " + (activeFocusItem ? activeFocusItem.Accessible.name : "");
@@ -82,17 +87,12 @@ Kirigami.ApplicationWindow {
         active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
         sourceComponent: GlobalMenu {
             connection: root.connection
+            appWindow: root
         }
     }
 
     KConfig.WindowStateSaver {
         configGroupName: "MainWindow"
-    }
-
-    QuickSwitcher {
-        id: quickSwitcher
-        connection: root.connection
-        window: root
     }
 
     Connections {
