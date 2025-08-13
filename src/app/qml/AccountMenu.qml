@@ -11,7 +11,6 @@ import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.settings
-import org.kde.neochat.devtools
 
 KirigamiComponents.ConvergentContextMenu {
     id: root
