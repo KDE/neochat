@@ -74,11 +74,11 @@ QQC2.Control {
      * Each of these will be visualised in the ChatBar so new actions can be added
      * by appending to this list.
      */
-    property list<Kirigami.Action> actions: [
-        Kirigami.Action {
+    property list<BusyAction> actions: [
+        BusyAction {
             id: attachmentAction
 
-            property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
+            isBusy: root.currentRoom && root.currentRoom.hasFileUploading
 
             // Matrix does not allow sending attachments in replies
             visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
@@ -94,10 +94,10 @@ QQC2.Control {
 
             tooltip: text
         },
-        Kirigami.Action {
+        BusyAction {
             id: emojiAction
 
-            property bool isBusy: false
+            isBusy: false
 
             visible: !Kirigami.Settings.isMobile
             icon.name: "smiley"
@@ -114,10 +114,10 @@ QQC2.Control {
             }
             tooltip: text
         },
-        Kirigami.Action {
+        BusyAction {
             id: mapButton
             icon.name: "mark-location-symbolic"
-            property bool isBusy: false
+            isBusy: false
             text: i18nc("@action:button", "Send a Location")
             displayHint: QQC2.AbstractButton.IconOnly
 
@@ -128,10 +128,10 @@ QQC2.Control {
             }
             tooltip: text
         },
-        Kirigami.Action {
+        BusyAction {
             id: pollButton
             icon.name: "amarok_playcount"
-            property bool isBusy: false
+            isBusy: false
             text: i18nc("@action:button", "Create a Poll")
             displayHint: QQC2.AbstractButton.IconOnly
 
@@ -142,10 +142,10 @@ QQC2.Control {
             }
             tooltip: text
         },
-        Kirigami.Action {
+        BusyAction {
             id: sendAction
 
-            property bool isBusy: false
+            isBusy: false
 
             icon.name: "document-send"
             text: i18nc("@action:button", "Send message")
@@ -363,6 +363,8 @@ QQC2.Control {
                 Repeater {
                     model: root.actions
                     delegate: QQC2.ToolButton {
+                        id: actionDelegate
+                        required property BusyAction modelData
                         icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
                         onClicked: modelData.trigger()
 
@@ -373,7 +375,7 @@ QQC2.Control {
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                         contentItem: PieProgressBar {
-                            visible: modelData.isBusy
+                            visible: actionDelegate.modelData.isBusy
                             progress: root.currentRoom.fileUploadingProgress
                         }
                     }
@@ -570,5 +572,9 @@ QQC2.Control {
         let initialCursorPosition = textField.cursorPosition;
         textField.text = textField.text.substr(0, initialCursorPosition) + text + textField.text.substr(initialCursorPosition);
         textField.cursorPosition = initialCursorPosition + text.length;
+    }
+
+    component BusyAction : Kirigami.Action {
+        required property bool isBusy
     }
 }
