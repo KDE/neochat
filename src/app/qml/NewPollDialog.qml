@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2025 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -8,10 +10,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
 import org.kde.kirigamiaddons.formcard as FormCard
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kirigamiaddons.delegates as Delegates
-
-import Quotient
 
 import org.kde.neochat
 
@@ -43,22 +42,22 @@ Kirigami.Dialog {
         FormCard.FormComboBoxDelegate {
             id: pollTypeCombo
 
-            text: i18n("Poll type:")
+            text: i18nc("@label", "Poll type:")
             currentIndex: 0
             textRole: "text"
             valueRole: "value"
             model: [
-                { value: PollKind.Disclosed, text: i18n("Open poll") },
-                { value: PollKind.Undisclosed, text: i18n("Closed poll") }
+                { value: PollKind.Disclosed, text: i18nc("@item:inlistbox", "Open poll") },
+                { value: PollKind.Undisclosed, text: i18nc("@item:inlistbox", "Closed poll") }
             ]
         }
         FormCard.FormTextDelegate {
             verticalPadding: 0
-            text: pollTypeCombo.currentValue == 0 ? i18n("Voters can see the result as soon as they have voted") : i18n("Results are revealed only after the poll has closed")
+            text: pollTypeCombo.currentValue == 0 ? i18nc("@info", "Voters can see the result as soon as they have voted") : i18nc("@info", "Results are revealed only after the poll has closed")
         }
         FormCard.FormTextFieldDelegate {
             id: questionTextField
-            label: i18n("Question:")
+            label: i18nc("@label", "Question:")
         }
         Repeater {
             id: optionRepeater
