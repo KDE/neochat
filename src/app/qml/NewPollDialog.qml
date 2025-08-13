@@ -120,16 +120,12 @@ Kirigami.Dialog {
                         }
                         QQC2.ToolButton {
                             display: QQC2.AbstractButton.IconOnly
-                            action: Kirigami.Action {
-                                id: removeOptionAction
-                                text: i18nc("@action:button", "Remove option")
-                                icon.name: "edit-delete-remove"
-                                onTriggered: optionModel.remove(optionDelegate.index)
-                            }
-                            QQC2.ToolTip {
-                                text: removeOptionAction.text
-                                delay: Kirigami.Units.toolTipDelay
-                            }
+                            text: i18nc("@action:button", "Remove option")
+                            icon.name: "edit-delete-remove"
+                            onClicked: optionModel.remove(optionDelegate.index)
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            QQC2.ToolTip.visible: hovered
                         }
                     }
                 }

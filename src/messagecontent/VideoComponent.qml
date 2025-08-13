@@ -370,15 +370,17 @@ Video {
                 id: maximizeButton
                 display: QQC2.AbstractButton.IconOnly
 
-                action: Kirigami.Action {
-                    text: i18n("Maximize")
-                    icon.name: "view-fullscreen"
-                    onTriggered: {
-                        root.Message.timeline.interactive = false;
-                        root.pause();
-                        RoomManager.maximizeMedia(root.eventId);
-                    }
+                text: i18nc("@action:button", "Maximize")
+                icon.name: "view-fullscreen"
+                onClicked: {
+                    root.Message.timeline.interactive = false;
+                    root.pause();
+                    RoomManager.maximizeMedia(root.eventId);
                 }
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: hovered
             }
         }
         background: Kirigami.ShadowedRectangle {

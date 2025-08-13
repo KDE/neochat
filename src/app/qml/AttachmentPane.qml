@@ -58,14 +58,18 @@ ColumnLayout {
         QQC2.ToolButton {
             id: cancelAttachmentButton
             display: QQC2.AbstractButton.IconOnly
-            action: Kirigami.Action {
-                text: i18n("Cancel sending attachment")
-                icon.name: "dialog-close"
-                onTriggered: root.attachmentCancelled()
-                shortcut: "Escape"
-            }
+            text: i18nc("@action:button", "Cancel sending attachment")
+            icon.name: "dialog-close"
+            onClicked: root.attachmentCancelled()
+
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+            Kirigami.Action {
+                shortcut: "Escape"
+                onTriggered: cancelAttachmentButton.clicked()
+            }
         }
     }
 

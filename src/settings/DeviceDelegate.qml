@@ -86,32 +86,23 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            action: Kirigami.Action {
-                id: editDeviceAction
-                text: i18n("Edit device name")
-                icon.name: "document-edit"
-                onTriggered: root.editDeviceName = true
-            }
-            QQC2.ToolTip {
-                text: editDeviceAction.text
-                delay: Kirigami.Units.toolTipDelay
-            }
+            text: i18nc("@action:button", "Edit device name")
+            icon.name: "document-edit"
+            onClicked: root.editDeviceName = true
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
             visible: root.showVerifyButton && (root.type !== DevicesModel.Verified || NeoChatConfig.alwaysVerifyDevice)
-            action: Kirigami.Action {
-                id: verifyDeviceAction
-                text: i18n("Verify device")
-                icon.name: "security-low-symbolic"
-                onTriggered: {
-                    devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id);
-                }
-            }
-            QQC2.ToolTip {
-                text: verifyDeviceAction.text
-                delay: Kirigami.Units.toolTipDelay
-            }
+            text: i18nc("@action:button", "Verify device")
+            icon.name: "security-low-symbolic"
+            onClicked: devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id)
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
         }
         Kirigami.Icon {
             visible: root.showVerifyButton && root.type === DevicesModel.Verified
@@ -130,19 +121,16 @@ FormCard.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            action: Kirigami.Action {
-                id: logoutDeviceAction
-                text: i18n("Logout device")
-                icon.name: "edit-delete-remove"
-                onTriggered: {
-                    passwordSheet.deviceId = root.id;
-                    passwordSheet.open();
-                }
+            text: i18nc("@action:button", "Logout device")
+            icon.name: "edit-delete-remove"
+            onClicked: {
+                passwordSheet.deviceId = root.id;
+                passwordSheet.open();
             }
-            QQC2.ToolTip {
-                text: logoutDeviceAction.text
-                delay: Kirigami.Units.toolTipDelay
-            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
         }
     }
 }

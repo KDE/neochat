@@ -271,16 +271,13 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         visible: root.room.canSendState("m.space.parent") && root.room.canonicalParent !== officalParentDelegate.modelData
                         display: QQC2.AbstractButton.IconOnly
-                        action: Kirigami.Action {
-                            id: canonicalParentAction
-                            text: i18n("Make canonical parent")
-                            icon.name: "checkmark"
-                            onTriggered: root.room.canonicalParent = officalParentDelegate.modelData
-                        }
-                        QQC2.ToolTip {
-                            text: canonicalParentAction.text
-                            delay: Kirigami.Units.toolTipDelay
-                        }
+                        text: i18nc("@action:button", "Make canonical parent")
+                        icon.name: "checkmark"
+                        onClicked: root.room.canonicalParent = officalParentDelegate.modelData
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
                     }
                     QQC2.ToolButton {
                         visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")

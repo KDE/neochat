@@ -142,107 +142,95 @@ Kirigami.Dialog {
 
         FormCard.FormButtonDelegate {
             visible: root.user.id !== root.connection.localUserId && !!root.user
-            action: Kirigami.Action {
-                text: !!root.user && root.connection.isIgnored(root.user.id) ? i18n("Unignore this user") : i18n("Ignore this user")
-                icon.name: "im-invisible-user"
-                onTriggered: {
-                    root.close();
-                    root.connection.isIgnored(root.user.id) ? root.connection.removeFromIgnoredUsers(root.user.id) : root.connection.addToIgnoredUsers(root.user.id);
-                }
+            text: !!root.user && root.connection.isIgnored(root.user.id) ? i18n("Unignore this user") : i18n("Ignore this user")
+            icon.name: "im-invisible-user"
+            onClicked: {
+                root.close();
+                root.connection.isIgnored(root.user.id) ? root.connection.removeFromIgnoredUsers(root.user.id) : root.connection.addToIgnoredUsers(root.user.id);
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("kick") && room.containsUser(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
 
-            action: Kirigami.Action {
-                text: i18n("Kick this user")
-                icon.name: "im-kick-user"
-                onTriggered: {
-                    let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                        title: i18nc("@title:dialog", "Kick User"),
-                        placeholder: i18nc("@info:placeholder", "Reason for kicking this user"),
-                        actionText: i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
-                        icon: "im-kick-user"
-                    }, {
-                        title: i18nc("@title:dialog", "Kick User"),
-                        width: Kirigami.Units.gridUnit * 25
-                    });
-                    dialog.accepted.connect(reason => {
-                        root.room.kickMember(root.user.id, reason);
-                    });
-                    root.close();
-                }
+            text: i18nc("@action:button", "Kick this user")
+            icon.name: "im-kick-user"
+            onClicked: {
+                let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                    title: i18nc("@title:dialog", "Kick User"),
+                    placeholder: i18nc("@info:placeholder", "Reason for kicking this user"),
+                    actionText: i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
+                    icon: "im-kick-user"
+                }, {
+                    title: i18nc("@title:dialog", "Kick User"),
+                    width: Kirigami.Units.gridUnit * 25
+                });
+                dialog.accepted.connect(reason => {
+                    root.room.kickMember(root.user.id, reason);
+                });
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("invite") && !room.containsUser(root.user.id)
 
-            action: Kirigami.Action {
-                enabled: root.room && !root.room.isUserBanned(root.user.id)
-                text: i18n("Invite this user")
-                icon.name: "list-add-user"
-                onTriggered: {
-                    root.room.inviteToRoom(root.user.id);
-                    root.close();
-                }
+            enabled: root.room && !root.room.isUserBanned(root.user.id)
+            text: i18nc("@action:button", "Invite this user")
+            icon.name: "list-add-user"
+            onClicked: {
+                root.room.inviteToRoom(root.user.id);
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
 
-            action: Kirigami.Action {
-                text: i18n("Ban this user")
-                icon.name: "im-ban-user"
-                icon.color: Kirigami.Theme.negativeTextColor
-                onTriggered: {
-                    let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                        title: i18nc("@title:dialog", "Ban User"),
-                        placeholder: i18nc("@info:placeholder", "Reason for banning this user"),
-                        actionText: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
-                        icon: "im-ban-user"
-                    }, {
-                        title: i18nc("@title:dialog", "Ban User"),
-                        width: Kirigami.Units.gridUnit * 25
-                    });
-                    dialog.accepted.connect(reason => {
-                        root.room.ban(root.user.id, reason);
-                    });
-                    root.close();
-                }
+            text: i18nc("@action:button", "Ban this user")
+            icon.name: "im-ban-user"
+            icon.color: Kirigami.Theme.negativeTextColor
+            onClicked: {
+                let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                    title: i18nc("@title:dialog", "Ban User"),
+                    placeholder: i18nc("@info:placeholder", "Reason for banning this user"),
+                    actionText: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
+                    icon: "im-ban-user"
+                }, {
+                    title: i18nc("@title:dialog", "Ban User"),
+                    width: Kirigami.Units.gridUnit * 25
+                });
+                dialog.accepted.connect(reason => {
+                    root.room.ban(root.user.id, reason);
+                });
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && room.isUserBanned(root.user.id)
 
-            action: Kirigami.Action {
-                text: i18n("Unban this user")
-                icon.name: "im-irc"
-                icon.color: Kirigami.Theme.negativeTextColor
-                onTriggered: {
-                    root.room.unban(root.user.id);
-                    root.close();
-                }
+            text: i18nc("@action:button", "Unban this user")
+            icon.name: "im-irc"
+            icon.color: Kirigami.Theme.negativeTextColor
+            onClicked: {
+                root.room.unban(root.user.id);
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.room && root.room.canSendState("m.room.power_levels")
-            action: Kirigami.Action {
-                text: i18n("Set user power level")
-                icon.name: "visibility"
-                onTriggered: {
-                    let dialog = powerLevelDialog.createObject(this, {
-                        room: root.room,
-                        userId: root.user.id,
-                        powerLevel: root.room.memberEffectivePowerLevel(root.user.id)
-                    });
-                    dialog.open();
-                    root.close();
-                }
+            text: i18nc("@action:button", "Set user power level")
+            icon.name: "visibility"
+            onClicked: {
+                let dialog = powerLevelDialog.createObject(this, {
+                    room: root.room,
+                    userId: root.user.id,
+                    powerLevel: root.room.memberEffectivePowerLevel(root.user.id)
+                });
+                dialog.open();
+                root.close();
             }
 
             Component {
@@ -256,48 +244,40 @@ Kirigami.Dialog {
         FormCard.FormButtonDelegate {
             visible: root.room && (root.user.id === root.connection.localUserId || room.canSendState("redact"))
 
-            action: Kirigami.Action {
-                text: i18nc("@action:button", "Remove recent messages by this user")
-                icon.name: "delete"
-                icon.color: Kirigami.Theme.negativeTextColor
-                onTriggered: {
-                    let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                        title: i18nc("@title:dialog", "Remove Messages"),
-                        placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
-                        actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
-                        icon: "delete"
-                    }, {
-                        title: i18nc("@title", "Remove Messages"),
-                        width: Kirigami.Units.gridUnit * 25
-                    });
-                    dialog.accepted.connect(reason => {
-                        root.room.deleteMessagesByUser(root.user.id, reason);
-                    });
-                    root.close();
-                }
+            text: i18nc("@action:button", "Remove recent messages by this user")
+            icon.name: "delete"
+            icon.color: Kirigami.Theme.negativeTextColor
+            onClicked: {
+                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                    title: i18nc("@title:dialog", "Remove Messages"),
+                    placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
+                    actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
+                    icon: "delete"
+                }, {
+                    title: i18nc("@title", "Remove Messages"),
+                    width: Kirigami.Units.gridUnit * 25
+                });
+                dialog.accepted.connect(reason => {
+                    root.room.deleteMessagesByUser(root.user.id, reason);
+                });
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
             visible: root.user.id !== root.connection.localUserId
-            action: Kirigami.Action {
-                text: root.connection.directChatExists(root.user) ? i18nc("%1 is the name of the user.", "Chat with %1", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName)) : i18n("Invite to private chat")
-                icon.name: "document-send"
-                onTriggered: {
-                    root.connection.requestDirectChat(root.user.id);
-                    root.close();
-                }
+            text: root.connection.directChatExists(root.user) ? i18nc("%1 is the name of the user.", "Chat with %1", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName)) : i18n("Invite to private chat")
+            icon.name: "document-send"
+            onClicked: {
+                root.connection.requestDirectChat(root.user.id);
+                root.close();
             }
         }
 
         FormCard.FormButtonDelegate {
-            action: Kirigami.Action {
-                text: i18n("Copy link")
-                icon.name: "username-copy"
-                onTriggered: {
-                    Clipboard.saveText("https://matrix.to/#/" + root.user.id);
-                }
-            }
+            text: i18n("Copy link")
+            icon.name: "username-copy"
+            onClicked: Clipboard.saveText("https://matrix.to/#/" + root.user.id)
         }
     }
 }

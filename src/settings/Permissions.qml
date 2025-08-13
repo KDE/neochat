@@ -205,17 +205,14 @@ FormCard.FormCardPage {
                                 }
                             }
 
-                            action: Kirigami.Action {
-                                id: editPowerLevelAction
-                                onTriggered: {
-                                    userListSearchPopup.close();
-                                    let dialog = powerLevelDialog.createObject(root.QQC2.Overlay.overlay, {
-                                        room: root.room,
-                                        userId: userListItem.userId,
-                                        powerLevel: userListItem.powerLevel
-                                    });
-                                    dialog.open();
-                                }
+                            onClicked: {
+                                userListSearchPopup.close();
+                                let dialog = powerLevelDialog.createObject(root.QQC2.Overlay.overlay, {
+                                    room: root.room,
+                                    userId: userListItem.userId,
+                                    powerLevel: userListItem.powerLevel
+                                });
+                                dialog.open();
                             }
 
                             Component {

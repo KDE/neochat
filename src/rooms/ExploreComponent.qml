@@ -56,14 +56,12 @@ RowLayout {
         Accessible.onPressAction: menuButton.action.trigger()
         display: QQC2.AbstractButton.IconOnly
         checkable: true
-        action: QQC2.Action {
-            text: i18nc("@action:button", "Show Menu")
-            icon.name: "application-menu-symbolic"
-            onTriggered: {
-                const item = menu.createObject(menuButton);
-                item.closed.connect(menuButton.toggle);
-                item.open();
-            }
+        text: i18nc("@action:button", "Show Menu")
+        icon.name: "application-menu-symbolic"
+        onClicked: {
+            const item = menu.createObject(menuButton);
+            item.closed.connect(menuButton.toggle);
+            item.open();
         }
 
         QQC2.ToolTip.visible: hovered
@@ -87,13 +85,15 @@ RowLayout {
             QQC2.MenuItem {
                 text: i18n("Create a Room")
                 icon.name: "system-users-symbolic"
-                action: QQC2.Action {
+                onTriggered: {
+                    Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
+                        connection: root.connection
+                    }).open();
+                }
+
+                Kirigami.Action {
                     shortcut: StandardKey.New
-                    onTriggered: {
-                        Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
-                            connection: root.connection
-                        }).open();
-                    }
+                    onTriggered: parent.trigger()
                 }
             }
 

@@ -161,42 +161,45 @@ QQC2.Control {
             QQC2.ToolButton {
                 visible: !root.isBusy
                 display: QQC2.AbstractButton.IconOnly
-                action: Kirigami.Action {
-                    text: i18nc("@action:button", "Attach an image or file")
-                    icon.name: "mail-attachment"
-                    onTriggered: {
-                        let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay);
-                        dialog.chosen.connect(path => root.chatBarCache.attachmentPath = path);
-                        dialog.open();
-                    }
+                text: i18nc("@action:button", "Attach an image or file")
+                icon.name: "mail-attachment"
+                onClicked: {
+                    let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay);
+                    dialog.chosen.connect(path => root.chatBarCache.attachmentPath = path);
+                    dialog.open();
                 }
+
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
             QQC2.ToolButton {
                 display: QQC2.AbstractButton.IconOnly
-                action: Kirigami.Action {
-                    text: root.chatBarCache.isEditing ? i18nc("@action:button", "Confirm edit") : i18nc("@action:button", "Post message in thread")
-                    icon.name: "document-send"
-                    onTriggered: {
-                        _private.post();
-                    }
-                }
+                text: root.chatBarCache.isEditing ? i18nc("@action:button", "Confirm edit") : i18nc("@action:button", "Post message in thread")
+                icon.name: "document-send"
+                onClicked: _private.post()
+
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
             QQC2.ToolButton {
+                id: cancelButton
                 display: QQC2.AbstractButton.IconOnly
-                action: Kirigami.Action {
-                    text: i18nc("@action:button", "Cancel")
-                    icon.name: "dialog-close"
-                    onTriggered: {
-                        root.chatBarCache.clearRelations();
-                    }
+                text: i18nc("@action:button", "Cancel")
+                icon.name: "dialog-close"
+                onClicked: {
+                    root.chatBarCache.clearRelations();
+                }
+
+                Kirigami.Action {
                     shortcut: "Escape"
+                    onTriggered: cancelButton.clicked()
                 }
+
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }

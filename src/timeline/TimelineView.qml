@@ -214,23 +214,22 @@ QQC2.ScrollView {
             padding: Kirigami.Units.largeSpacing
 
             z: 2
-            visible: (!_private.room?.partiallyReadStats.empty())
+            visible: !_private.room?.partiallyReadStats.empty()
 
-            text: _private.room.readMarkerLoaded ? i18n("Jump to first unread message") : i18n("Jump to oldest loaded message")
-            action: Kirigami.Action {
-                onTriggered: {
-                    goReadMarkerFab.textChanged()
-                    root.goToEvent(_private.room.lastFullyReadEventId);
-                }
-                icon.name: "go-up"
+            text: _private.room.readMarkerLoaded ? i18nc("@action:button", "Jump to first unread message") : i18nc("@action:button", "Jump to oldest loaded message")
+            icon.name: "go-up"
+            onClicked: {
+                goReadMarkerFab.textChanged()
+                root.goToEvent(_private.room.lastFullyReadEventId);
+            }
+            Kirigami.Action {
                 shortcut: "Shift+PgUp"
+                onTriggered: goReadMarkerFab.clicked()
             }
 
-            QQC2.ToolTip {
-                text: goReadMarkerFab.text
-                delay: Kirigami.Units.toolTipDelay
-                visible: goReadMarkerFab.hovered
-            }
+            QQC2.ToolTip.text: goReadMarkerFab.text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: goReadMarkerFab.hovered
         }
         KirigamiComponents.FloatingButton {
             id: goMarkAsReadFab
@@ -248,21 +247,22 @@ QQC2.ScrollView {
             z: 2
             visible: !messageListView.atYEnd
 
-            text: i18n("Jump to latest message")
-            action: Kirigami.Action {
-                onTriggered: {
-                    messageListView.positionViewAtBeginning();
-                    _private.room.markAllMessagesAsRead();
-                }
-                icon.name: "go-down"
-                shortcut: "Shift+PgDown"
+            text: i18nc("@action:button", "Jump to latest message")
+
+            onClicked: {
+                messageListView.positionViewAtBeginning();
+                _private.room.markAllMessagesAsRead();
             }
 
-            QQC2.ToolTip {
-                text: goMarkAsReadFab.text
-                delay: Kirigami.Units.toolTipDelay
-                visible: goMarkAsReadFab.hovered
+            icon.name: "go-down"
+            Kirigami.Action {
+                shortcut: "Shift+PgDown"
+                onTriggered: goMarkAsReadFab.clicked()
             }
+
+            QQC2.ToolTip.text: goMarkAsReadFab.text
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: goMarkAsReadFab.hovered
         }
 
         DropArea {
