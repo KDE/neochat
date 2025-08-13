@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -53,7 +55,7 @@ Kirigami.Dialog {
             text: i18nc("@button: login to or register a new account.", "Add Account")
             contentItem: Delegates.SubtitleContentItem {
                 itemDelegate: addDelegate
-                subtitle: i18n("Log in or create a new account")
+                subtitle: i18nc("@info", "Log in or create a new account")
                 labelItem.textFormat: Text.PlainText
                 subtitleItem.textFormat: Text.PlainText
             }
@@ -93,8 +95,8 @@ Kirigami.Dialog {
                 accountView.decrementCurrentIndex();
             }
         }
-        Keys.onEnterPressed: accountView.currentItem.clicked()
-        Keys.onReturnPressed: accountView.currentItem.clicked()
+        Keys.onEnterPressed: (accountView.currentItem as Delegates.RoundedItemDelegate).clicked()
+        Keys.onReturnPressed: (accountView.currentItem as Delegates.RoundedItemDelegate).clicked()
 
         onVisibleChanged: {
             for (let i = 0; i < accountView.count; i++) {
