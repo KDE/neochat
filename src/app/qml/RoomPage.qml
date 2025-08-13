@@ -63,18 +63,18 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
-            visible: Kirigami.Settings.isMobile || !root.Kirigami.PageStack.pageStack.wideMode
+            visible: Kirigami.Settings.isMobile || !(root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode
             icon.name: "view-right-new"
             onTriggered: (root.QQC2.ApplicationWindow.window as Main).openRoomDrawer()
         }
     ]
 
-    KeyNavigation.left: pageStack.get(0)
+    KeyNavigation.left: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).get(0)
 
     onCurrentRoomChanged: {
         banner.visible = false;
         if (!Kirigami.Settings.isMobile && chatBarLoader.item) {
-            chatBarLoader.item.forceActiveFocus();
+            (chatBarLoader.item as ChatBar).forceActiveFocus();
         }
     }
 
