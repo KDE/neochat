@@ -3,15 +3,11 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 import QtLocation
 import QtPositioning
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
-
-import org.kde.neochat
 
 /** Location marker for any of the shared location maps. */
 MapQuickItem {
