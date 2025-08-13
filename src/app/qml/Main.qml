@@ -295,9 +295,9 @@ Kirigami.ApplicationWindow {
             });
         }
         function onUserConsentRequired(url) {
-            Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
+            (Qt.createComponent("org.kde.neochat", "ConsentDialog").createObject(this, {
                 url: url
-            }).open();
+            }) as ConsentDialog).open();
         }
     }
 
@@ -345,7 +345,7 @@ Kirigami.ApplicationWindow {
             room: room,
             user: user,
             connection: root.connection,
-        });
+        }) as UserDetailDialog;
         dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
         dialog.open();
     }
