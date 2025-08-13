@@ -4,7 +4,6 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
@@ -185,10 +184,10 @@ Kirigami.Page {
     Keys.onPressed: event => {
         if (event.key === Qt.Key_PageUp) {
             event.accepted = true;
-            timelineViewLoader.item.pageUp();
+            (timelineViewLoader.item as TimelineView).pageUp();
         } else if (event.key === Qt.Key_PageDown) {
             event.accepted = true;
-            timelineViewLoader.item.pageDown();
+            (timelineViewLoader.item as TimelineView).pageDown();
         }
     }
 
