@@ -26,11 +26,11 @@ QQC2.Popup {
 
             icon.name: 'mail-attachment'
 
-            text: i18n("Choose local file")
+            text: i18nc("@action:button", "Choose local file")
 
             onClicked: {
                 root.close();
-                var fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
+                var fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay) as OpenFileDialog;
                 fileDialog.chosen.connect(path => root.chosen(path));
                 fileDialog.open();
             }
@@ -42,7 +42,7 @@ QQC2.Popup {
             Layout.fillHeight: true
 
             icon.name: 'insert-image'
-            text: i18n("Clipboard image")
+            text: i18nc("@action:button", "Clipboard image")
             onClicked: {
                 const path = StandardPaths.standardLocations(StandardPaths.CacheLocation)[0] + "/screenshots/" + (new Date()).getTime() + ".png";
                 if (!Clipboard.saveImage(path)) {
