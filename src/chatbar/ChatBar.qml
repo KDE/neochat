@@ -56,7 +56,7 @@ QQC2.Control {
     }
 
     Connections {
-        target: currentRoom.mainCache
+        target: root.currentRoom.mainCache
 
         function onMentionAdded(mention: string): void {
             // add mention text
@@ -83,7 +83,7 @@ QQC2.Control {
             // Matrix does not allow sending attachments in replies
             visible: _private.chatBarCache.replyId.length === 0 && _private.chatBarCache.attachmentPath.length === 0
             icon.name: "mail-attachment"
-            text: i18n("Attach an image or file")
+            text: i18nc("@action:button", "Attach an image or file")
             displayHint: Kirigami.DisplayHint.IconOnly
 
             onTriggered: {
@@ -101,7 +101,7 @@ QQC2.Control {
 
             visible: !Kirigami.Settings.isMobile
             icon.name: "smiley"
-            text: i18n("Emojis & Stickers")
+            text: i18nc("@action:button", "Emojis & Stickers")
             displayHint: Kirigami.DisplayHint.IconOnly
             checkable: true
 
@@ -118,7 +118,7 @@ QQC2.Control {
             id: mapButton
             icon.name: "mark-location-symbolic"
             property bool isBusy: false
-            text: i18n("Send a Location")
+            text: i18nc("@action:button", "Send a Location")
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
@@ -148,7 +148,7 @@ QQC2.Control {
             property bool isBusy: false
 
             icon.name: "document-send"
-            text: i18n("Send message")
+            text: i18nc("@action:button", "Send message")
             displayHint: Kirigami.DisplayHint.IconOnly
             checkable: true
 
@@ -191,7 +191,7 @@ QQC2.Control {
 
             Layout.fillWidth: true
             Layout.margins: Kirigami.Units.largeSpacing
-            Layout.preferredHeight: active ? item.implicitHeight : 0
+            Layout.preferredHeight: active ? (item as Item).implicitHeight : 0
 
             active: visible
             visible: root.currentRoom.mainCache.replyId.length > 0
@@ -218,7 +218,7 @@ QQC2.Control {
 
             Layout.fillWidth: true
             Layout.margins: Kirigami.Units.largeSpacing
-            Layout.preferredHeight: active ? item.implicitHeight : 0
+            Layout.preferredHeight: active ? (item as Item).implicitHeight : 0
 
             active: visible
             visible: root.currentRoom.mainCache.attachmentPath.length > 0
@@ -250,7 +250,7 @@ QQC2.Control {
                 QQC2.TextArea {
                     id: textField
 
-                    placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18n("Set an attachment caption…") : i18n("Send a message…")
+                    placeholderText: root.currentRoom.usesEncryption ? i18nc("@placeholder", "Send an encrypted message…") : root.currentRoom.mainCache.attachmentPath.length > 0 ? i18nc("@placeholder", "Set an attachment caption…") : i18nc("@placeholder", "Send a message…")
                     verticalAlignment: TextEdit.AlignVCenter
                     wrapMode: TextEdit.Wrap
                     textFormat: TextEdit.MarkdownText
@@ -285,7 +285,7 @@ QQC2.Control {
                         x: textField.cursorRectangle.x
                         y: textField.cursorRectangle.y - height
 
-                        onFormattingSelected: _private.formatText(format, selectionStart, selectionEnd)
+                        onFormattingSelected: (format, selectionStart, selectionEnd) => _private.formatText(format, selectionStart, selectionEnd)
                     }
 
                     Keys.onEnterPressed: event => {
@@ -560,7 +560,7 @@ QQC2.Control {
 
         currentRoom: root.currentRoom
 
-        onChosen: emoji => insertText(emoji)
+        onChosen: emoji => root.insertText(emoji)
         onClosed: if (emojiAction.checked) {
             emojiAction.checked = false;
         }
