@@ -6,7 +6,6 @@
  */
 
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 
 import org.kde.purpose as Purpose
@@ -24,7 +23,7 @@ Kirigami.Page {
     bottomPadding: 0
 
     property alias index: jobView.index
-    property alias model: jobView.model
+    required property var model
 
     QQC2.Action {
         shortcut: 'Escape'
@@ -34,7 +33,7 @@ Kirigami.Page {
     Notification {
         id: sharingFailed
         eventId: "Share"
-        text: i18n("Sharing failed")
+        text: i18nc("@info:status", "Sharing failed")
         urgency: Notification.NormalUrgency
     }
 
@@ -51,11 +50,12 @@ Kirigami.Page {
     Purpose.JobView {
         id: jobView
 
+        model: root.model
         anchors.fill: parent
         onStateChanged: {
             if (state === Purpose.PurposeJobController.Finished) {
                 if (jobView.job?.output?.url?.length > 0) {
-                    sharingSuccess.text = i18n("Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
+                    sharingSuccess.text = i18nc("@info", "Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.job.output.url);
                 }

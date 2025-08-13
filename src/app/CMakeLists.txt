@@ -117,6 +117,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.neochat.login
         org.kde.neochat.chatbar
         org.kde.config
+        org.kde.purpose
 )
 
 if(NOT ANDROID AND NOT WIN32)
