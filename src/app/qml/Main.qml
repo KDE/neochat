@@ -92,6 +92,7 @@ Kirigami.ApplicationWindow {
     QuickSwitcher {
         id: quickSwitcher
         connection: root.connection
+        window: root
     }
 
     Connections {

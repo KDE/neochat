@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -13,6 +14,7 @@ Kirigami.SearchDialog {
     id: root
 
     required property NeoChatConnection connection
+    required property Kirigami.ApplicationWindow window
 
     Shortcut {
         sequence: "Ctrl+K"
@@ -20,7 +22,7 @@ Kirigami.SearchDialog {
     }
 
     onAccepted: if (currentItem) {
-        currentItem.clicked();
+        (currentItem as QQC2.ItemDelegate).clicked();
     }
 
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
@@ -32,7 +34,7 @@ Kirigami.SearchDialog {
         icon.name: "compass"
         onTriggered: {
             root.close()
-            let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+            let dialog = root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Explore Rooms")
