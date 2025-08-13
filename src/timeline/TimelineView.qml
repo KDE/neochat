@@ -282,7 +282,7 @@ QQC2.ScrollView {
             Kirigami.PlaceholderMessage {
                 anchors.centerIn: parent
                 width: parent.width - (Kirigami.Units.largeSpacing * 4)
-                text: i18n("Drag items here to share them")
+                text: i18nc("@info:placeholder", "Drag items here to share them")
             }
         }
 
