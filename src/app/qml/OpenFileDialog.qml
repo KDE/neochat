@@ -9,6 +9,6 @@ FileDialog {
 
     signal chosen(string path)
 
-    title: i18n("Select a File")
+    title: i18nc("@title:dialog", "Select a File")
     onAccepted: root.chosen(selectedFile)
 }
