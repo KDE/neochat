@@ -3,7 +3,6 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -20,7 +19,7 @@ QQC2.Popup {
     contentItem: Flow {
         QQC2.ToolButton {
             icon.name: "format-text-bold"
-            text: i18n("Bold")
+            text: i18nc("@action:button", "Bold")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -29,7 +28,7 @@ QQC2.Popup {
                     end: "**",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -39,7 +38,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-italic"
-            text: i18n("Italic")
+            text: i18nc("@action:button", "Italic")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -48,7 +47,7 @@ QQC2.Popup {
                     end: "*",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -58,7 +57,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-strikethrough"
-            text: i18n("Strikethrough")
+            text: i18nc("@action:button", "Strikethrough")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -67,7 +66,7 @@ QQC2.Popup {
                     end: "~~",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -77,7 +76,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "view-hidden-symbolic"
-            text: i18n("Spoiler")
+            text: i18nc("@action:button", "Spoiler")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -86,7 +85,7 @@ QQC2.Popup {
                     end: "||",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -96,7 +95,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-code"
-            text: i18n("Code block")
+            text: i18nc("@action:button", "Code block")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -105,7 +104,7 @@ QQC2.Popup {
                     end: "`",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -115,16 +114,16 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "format-text-blockquote"
-            text: i18n("Quote")
+            text: i18nc("@action:button", "Quote")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
                 const format = {
-                    start: selectionStart == 0 ? ">" : "\n>",
+                    start: root.selectionStart == 0 ? ">" : "\n>",
                     end: "\n\n",
                     extra: ""
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
@@ -134,7 +133,7 @@ QQC2.Popup {
         }
         QQC2.ToolButton {
             icon.name: "link"
-            text: i18n("Insert link")
+            text: i18nc("@action:button", "Insert link")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
@@ -143,7 +142,7 @@ QQC2.Popup {
                     end: "](",
                     extra: ")"
                 };
-                formattingSelected(format, selectionStart, selectionEnd);
+                root.formattingSelected(format, root.selectionStart, root.selectionEnd);
                 root.close();
             }
 
