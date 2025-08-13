@@ -134,8 +134,8 @@ Kirigami.ScrollablePage {
                 Keys.onReturnPressed: searchButton.clicked()
                 onTextChanged: {
                     searchTimer.restart();
-                    if (model) {
-                        model.searchText = text;
+                    if (root.model) {
+                        root.model.searchText = text;
                     }
                 }
             }
@@ -147,8 +147,8 @@ Kirigami.ScrollablePage {
                 text: i18nc("@action:button", "Search")
 
                 onClicked: {
-                    if (typeof model.search === 'function') {
-                        model.search();
+                    if (typeof root.model.search === 'function') {
+                        root.model.search();
                     }
                 }
 
@@ -160,8 +160,8 @@ Kirigami.ScrollablePage {
                 id: searchTimer
                 interval: 500
                 running: true
-                onTriggered: if (typeof model.search === 'function') {
-                    model.search();
+                onTriggered: if (typeof root.model.search === 'function') {
+                    root.model.search();
                 }
             }
         }
