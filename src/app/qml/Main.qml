@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.config as KConfig
@@ -191,7 +190,7 @@ Kirigami.ApplicationWindow {
                 dim = false;
             }
         }
-        enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3 && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0) && !Kirigami.Settings.isMobile && root.pageStack.wideMode
+        enabled: RoomManager.hasOpenRoom && root.pageStack.layers.depth < 2 && root.pageStack.depth < 3 && (root.pageStack.visibleItems.length > 1 || root.pageStack.currentIndex > 0) && !Kirigami.Settings.isMobile && root.pageStack.wideMode
         handleVisible: enabled
     }
 
@@ -213,10 +212,10 @@ Kirigami.ApplicationWindow {
     Connections {
         target: NeoChatConfig
         function onBlurChanged() {
-            WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
+            WindowController.setBlur(root.pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
         }
         function onCompactLayoutChanged() {
-            WindowController.setBlur(pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
+            WindowController.setBlur(root.pageStack, NeoChatConfig.blur && !NeoChatConfig.compactLayout);
         }
     }
 
@@ -271,8 +270,8 @@ Kirigami.ApplicationWindow {
         target: AccountRegistry
         function onRowsRemoved() {
             if (AccountRegistry.rowCount() === 0) {
-                pageStack.clear();
-                pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'));
+                root.pageStack.clear();
+                root.pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'));
             }
         }
     }
@@ -281,7 +280,7 @@ Kirigami.ApplicationWindow {
         target: Controller
 
         function onErrorOccured(error) {
-            showPassiveNotification(error, "short");
+            root.showPassiveNotification(error, "short");
         }
     }
 
