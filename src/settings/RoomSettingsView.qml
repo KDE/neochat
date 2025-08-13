@@ -4,9 +4,7 @@
 pragma Singleton
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.settings as KirigamiSettings
-import QtQuick.Layouts
 
 import org.kde.neochat
 
@@ -36,7 +34,7 @@ KirigamiSettings.ConfigurationView {
     modules: [
         KirigamiSettings.ConfigurationModule {
             moduleId: "general"
-            text: i18n("General")
+            text: i18nc("@title", "General")
             icon.name: "settings-configure"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomGeneralPage")
             initialProperties: () => {
@@ -48,7 +46,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "security"
-            text: i18n("Security")
+            text: i18nc("@title", "Security")
             icon.name: "security-low"
             page: () => Qt.createComponent("org.kde.neochat.settings", "RoomSecurityPage")
             initialProperties: () => {
@@ -59,7 +57,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "permissions"
-            text: i18n("Permissions")
+            text: i18nc("@title", "Permissions")
             icon.name: "visibility"
             page: () => Qt.createComponent("org.kde.neochat.settings", "Permissions")
             initialProperties: () => {
@@ -70,7 +68,7 @@ KirigamiSettings.ConfigurationView {
         },
         KirigamiSettings.ConfigurationModule {
             moduleId: "notifications"
-            text: i18n("Notifications")
+            text: i18nc("@title", "Notifications")
             icon.name: "notifications"
             page: () => Qt.createComponent("org.kde.neochat.settings", "PushNotification")
             initialProperties: () => {
