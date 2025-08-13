@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.purpose as Purpose
@@ -20,8 +21,8 @@ Kirigami.Action {
     id: root
 
     icon.name: "emblem-shared-symbolic"
-    text: i18n("Share")
-    tooltip: i18n("Share the selected media")
+    text: i18nc("@action:button", "Share")
+    tooltip: i18nc("@info:tooltip", "Share the selected media")
 
     /**
      * This property holds the input data for purpose.
@@ -47,14 +48,17 @@ Kirigami.Action {
         }
 
         delegate: Kirigami.Action {
-            property int index
-            text: model.display
-            icon.name: model.iconName
+            required property int index
+            required property string display
+            required property string iconName
+
+            text: display
+            icon.name: iconName
             onTriggered: {
                 root.room.download(root.eventId, root.inputData.urls[0]);
                 root.room.fileTransferCompleted.connect(share);
             }
-            function share(id) {
+            function share(id: string): void {
                 if (id != root.eventId) {
                     return;
                 }
