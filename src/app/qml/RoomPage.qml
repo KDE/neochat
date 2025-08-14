@@ -76,7 +76,7 @@ Kirigami.Page {
         }
 
         if (root.currentRoom.tagNames.includes("m.server_notice")) {
-            banner.text = i18nc("@info", "This room contains official messages by your homeserver.")
+            banner.text = i18nc("@info", "This room contains official messages from your homeserver.")
             banner.visible = true;
         } else {
             banner.visible = false;
