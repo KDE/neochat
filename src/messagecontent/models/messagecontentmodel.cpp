@@ -282,7 +282,7 @@ void MessageContentModel::closeLinkPreview(int row)
 void MessageContentModel::toggleSpoiler(int row)
 {
     if (row < 0 || row >= rowCount()) {
-        qWarning() << "closeLinkPreview() called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        qWarning() << __FUNCTION__ << "called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
         return;
     }
     if (m_components[row].type != MessageComponentType::Text) {

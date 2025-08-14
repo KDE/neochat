@@ -34,6 +34,8 @@ private Q_SLOTS:
     void stripDisallowedTags();
     void stripDisallowedAttributes();
     void emptyCodeTags();
+    void addStyle_data();
+    void addStyle();
 
     void sendSimpleStringCase();
     void sendSingleParaMarkup();
@@ -89,11 +91,14 @@ void TextHandlerTest::initTestCase()
 
 void TextHandlerTest::allowedAttributes()
 {
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
     const QString testInputString1 = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
-    const QString testOutputString1 = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
+    const QString testOutputString1 = u"<span data-mx-spoiler style=\"color: transparent; background: %1;\"><font color=#FFFFFF>Test</font><span>"_s.arg(
+        theme->alternateBackgroundColor().name());
     // Handle urls where the href has either single (') or double (") quotes.
     const QString testInputString2 = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
-    const QString testOutputString2 = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
+    const QString testOutputString2 =
+        u"<a href=\"https://kde.org\" style=\"text-decoration: none;\">link</a><a href='https://kde.org' style=\"text-decoration: none;\">link</a>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString1);
@@ -146,6 +151,33 @@ void TextHandlerTest::emptyCodeTags()
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
 }
 
+void TextHandlerTest::addStyle_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("link") << u"<a href=\"https://kde.org\">link</a>"_s << u"<a href=\"https://kde.org\" style=\"text-decoration: none;\">link</a>"_s;
+    QTest::newRow("table")
+        << u"<table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td></tr></table>"_s
+        << u"<table style=\"width: 100%; border-collapse: collapse; border: 1px; border-style: solid;\"><tr><th style=\"border: 1px solid black; padding: 3px;\">Company</th><th style=\"border: 1px solid black; padding: 3px;\">Contact</th><th style=\"border: 1px solid black; padding: 3px;\">Country</th></tr><tr><td style=\"border: 1px solid black; padding: 3px;\">Alfreds Futterkiste</td><td style=\"border: 1px solid black; padding: 3px;\">Maria Anders</td><td style=\"border: 1px solid black; padding: 3px;\">Germany</td></tr><tr><td style=\"border: 1px solid black; padding: 3px;\">Centro comercial Moctezuma</td><td style=\"border: 1px solid black; padding: 3px;\">Francisco Chang</td><td style=\"border: 1px solid black; padding: 3px;\">Mexico</td></tr></table>"_s;
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    QTest::newRow("spoiler") << u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s
+                             << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\"><font color=#FFFFFF>Test</font><span>"_s.arg(
+                                    theme->alternateBackgroundColor().name());
+}
+
+void TextHandlerTest::addStyle()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+}
+
 void TextHandlerTest::sendSimpleStringCase()
 {
     const QString testInputString = u"This data should just be left alone."_s;
@@ -162,7 +194,7 @@ void TextHandlerTest::sendSingleParaMarkup()
     const QString testInputString =
         u"Text para with **bold**, *italic*, [link](https://kde.org), ![image](mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e), `inline code`."_s;
     const QString testOutputString =
-        u"Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>."_s;
+        u"Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\" style=\"text-decoration: none;\">link</a>, <img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>."_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -186,7 +218,7 @@ void TextHandlerTest::sendMultipleSectionMarkup()
 void TextHandlerTest::sendBadLinks()
 {
     const QString testInputString = u"[link](kde.org), ![image](https://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e)"_s;
-    const QString testOutputString = u"<a>link</a>, <img alt=\"image\">"_s;
+    const QString testOutputString = u"<a style=\"text-decoration: none;\">link</a>, <img alt=\"image\">"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -259,12 +291,20 @@ void TextHandlerTest::sendCustomTags_data()
     QTest::addColumn<QString>("testOutputString");
 
     // spoiler
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
     QTest::newRow("incomplete spoiler") << u"||test"_s << u"||test"_s;
-    QTest::newRow("complete spoiler") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
-    QTest::newRow("multiple spoiler") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
+    QTest::newRow("complete spoiler") << u"||test||"_s
+                                      << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">test</span>"_s.arg(
+                                             theme->alternateBackgroundColor().name());
+    QTest::newRow("multiple spoiler")
+        << u"||apple||banana||pear||"_s
+        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">apple</span>banana<span data-mx-spoiler style=\"color: transparent; background: %1;\">pear</span>"_s
+               .arg(theme->alternateBackgroundColor().name());
     QTest::newRow("inside code block spoiler") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
-    QTest::newRow("outside code block spoiler") << u"||apple|| ```||banana||``` ||pear||"_s
-                                                << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
+    QTest::newRow("outside code block spoiler")
+        << u"||apple|| ```||banana||``` ||pear||"_s
+        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">apple</span> <code>||banana||</code> <span data-mx-spoiler style=\"color: transparent; background: %1;\">pear</span>"_s
+               .arg(theme->alternateBackgroundColor().name());
     QTest::newRow("complex spoiler") << u"Between `formFactor == Horizontal||Vertical` and `location == top||left||bottom||right`"_s
                                      << u"Between <code>formFactor == Horizontal||Vertical</code> and <code>location == top||left||bottom||right</code>"_s;
 
@@ -338,7 +378,8 @@ void TextHandlerTest::receiveRichInPlainOut()
 void TextHandlerTest::receivePlainTextIn()
 {
     const QString testInputString = u"<plain text in tag bracket>\nTest link https://kde.org."_s;
-    const QString testOutputStringRich = u"&lt;plain text in tag bracket&gt;<br>Test link <a href=\"https://kde.org\">https://kde.org</a>."_s;
+    const QString testOutputStringRich =
+        u"&lt;plain text in tag bracket&gt;<br>Test link <a href=\"https://kde.org\" style=\"text-decoration: none;\">https://kde.org</a>."_s;
     QString testOutputStringPlain = u"<plain text in tag bracket>\nTest link https://kde.org."_s;
 
     // Make sure quotes are maintained in a plain string.
@@ -408,7 +449,7 @@ void TextHandlerTest::receivePlainStripMarkup()
 void TextHandlerTest::receiveRichUserPill()
 {
     const QString testInputString = u"<p><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></p>"_s;
-    const QString testOutputString = u"<b><a href=\"https://matrix.to/#/@alice:example.org\">@alice:example.org</a></b>"_s;
+    const QString testOutputString = u"<b><a href=\"https://matrix.to/#/@alice:example.org\" style=\"text-decoration: none;\">@alice:example.org</a></b>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -460,21 +501,23 @@ void TextHandlerTest::receiveRichPlainUrl_data()
     // so we can confirm consistent behaviour for complex urls.
     QTest::addRow("link 1")
         << u"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s
-        << u"<a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\">Link already rich</a>"_s;
+        << u"<a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\" style=\"text-decoration: none;\">https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im</a> <a href=\"https://matrix.to/#/!RvzunyTWZGfNxJVQqv:matrix.org/$-9TJVTh5PvW6MvIhFDwteiyLBVGriinueO5eeIazQS8?via=libera.chat&amp;via=matrix.org&amp;via=fedora.im\" style=\"text-decoration: none;\">Link already rich</a>"_s;
 
     // Another real case. The linkification wasn't handling it when a single link
     // contains what looks like and email. It was broken into 3 but needs to
     // be just single link.
     QTest::addRow("link 2")
         << u"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/"_s
-        << u"<a href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\">https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>"_s;
+        << u"<a href=\"https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/\" style=\"text-decoration: none;\">https://lore.kernel.org/lkml/CAHk-=wio46vC4t6xXD-sFqjoPwFm_u515jm3suzmkGxQTeA1_A@mail.gmail.com/</a>"_s;
 
-    QTest::addRow("email") << uR"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)"_s
-                           << uR"(<a href="mailto:email@example.com">email@example.com</a> <a href="mailto:email@example.com">Link already rich</a>)"_s;
+    QTest::addRow("email")
+        << uR"(email@example.com <a href="mailto:email@example.com">Link already rich</a>)"_s
+        << uR"(<a href="mailto:email@example.com" style="text-decoration: none;">email@example.com</a> <a href="mailto:email@example.com" style="text-decoration: none;">Link already rich</a>)"_s;
     QTest::addRow("mxid")
         << u"@user:kde.org <a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a>"_s
-        << u"<b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\">Link already rich</a></b>"_s;
-    QTest::addRow("mxid with prefix") << u"a @user:kde.org b"_s << u"a <b><a href=\"https://matrix.to/#/@user:kde.org\">@user:kde.org</a></b> b"_s;
+        << u"<b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">@user:kde.org</a></b> <b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">Link already rich</a></b>"_s;
+    QTest::addRow("mxid with prefix") << u"a @user:kde.org b"_s
+                                      << u"a <b><a href=\"https://matrix.to/#/@user:kde.org\" style=\"text-decoration: none;\">@user:kde.org</a></b> b"_s;
 }
 
 /**

@@ -473,6 +473,9 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
 
 QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString, bool spoilerRevealed)
 {
+    if (!tagString.contains(u'<') || !tagString.contains(u'>')) {
+        return tagString;
+    }
     int nextAttributeIndex = tagString.indexOf(u' ', 1);
 
     if (nextAttributeIndex != -1) {
