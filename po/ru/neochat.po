@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-14 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -355,8 +355,10 @@ msgstr "Вложение:"
 msgid "Edit"
 msgstr "Изменить"
 
-#: src/app/qml/AttachmentPane.qml:62
-#, kde-format
+#: src/app/qml/AttachmentPane.qml:61
+#, fuzzy, kde-format
+#| msgid "Cancel sending attachment"
+msgctxt "@action:button"
 msgid "Cancel sending attachment"
 msgstr "Отменить отправку вложения"
 
@@ -513,14 +515,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Найти друзей"
 
-#: src/app/qml/GlobalMenu.qml:26 src/app/qml/GlobalMenu.qml:36
-#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
-#, kde-format
-msgid "Find your friends"
-msgstr "Поиск друзей"
-
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
 #: src/rooms/RoomListPage.qml:245
 #, kde-format
@@ -546,7 +541,7 @@ msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Просмотреть комнаты"
 
-#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:40
+#: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -555,11 +550,6 @@ msgstr "Просмотреть комнаты"
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Обзор комнат"
-
-#: src/app/qml/GlobalMenu.qml:61
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "Настроить NeoChat…"
 
 #: src/app/qml/GlobalMenu.qml:62
 #, kde-format
@@ -579,7 +569,7 @@ msgctxt "menu"
 msgid "View"
 msgstr "Вид"
 
-#: src/app/qml/GlobalMenu.qml:80
+#: src/app/qml/GlobalMenu.qml:81
 #, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
@@ -587,37 +577,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "Найти комнаты"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:86
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Окно"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Выйти из полноэкранного режима"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Полноэкранный режим"
 
-#: src/app/qml/GlobalMenu.qml:94
+#: src/app/qml/GlobalMenu.qml:95
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Справка"
 
-#: src/app/qml/GlobalMenu.qml:98
+#: src/app/qml/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "О программе NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:103
+#: src/app/qml/GlobalMenu.qml:104
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -839,66 +829,78 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Изменить состояние"
 
-#: src/app/qml/NewPollDialog.qml:28
+#: src/app/qml/NewPollDialog.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Отправить"
 
-#: src/app/qml/NewPollDialog.qml:38
+#: src/app/qml/NewPollDialog.qml:37
 #, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "Создание голосования"
 
-#: src/app/qml/NewPollDialog.qml:46
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:45
+#, fuzzy, kde-format
+#| msgid "Poll type:"
+msgctxt "@label"
 msgid "Poll type:"
 msgstr "Тип голосования:"
 
-#: src/app/qml/NewPollDialog.qml:51
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "Open poll"
+msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "Открытое голосование"
 
-#: src/app/qml/NewPollDialog.qml:52
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Closed poll"
+msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Закрытое голосование"
 
-#: src/app/qml/NewPollDialog.qml:57
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:56
+#, fuzzy, kde-format
+#| msgid "Voters can see the result as soon as they have voted"
+msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr "Участники голосования увидят результаты, как только проголосуют"
 
-#: src/app/qml/NewPollDialog.qml:57
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:56
+#, fuzzy, kde-format
+#| msgid "Results are revealed only after the poll has closed"
+msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr "Результаты будут показаны только после закрытия голосования"
 
-#: src/app/qml/NewPollDialog.qml:61
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:60
+#, fuzzy, kde-format
+#| msgid "Question:"
+msgctxt "@label"
 msgid "Question:"
 msgstr "Вопрос:"
 
-#: src/app/qml/NewPollDialog.qml:104
+#: src/app/qml/NewPollDialog.qml:103
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Вариант %1:"
 
-#: src/app/qml/NewPollDialog.qml:120
+#: src/app/qml/NewPollDialog.qml:119
 #, kde-format
 msgid "Enter option"
 msgstr "Введите вариант"
 
-#: src/app/qml/NewPollDialog.qml:126
+#: src/app/qml/NewPollDialog.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Удалить вариант"
 
-#: src/app/qml/NewPollDialog.qml:151
+#: src/app/qml/NewPollDialog.qml:146
 #, kde-format
 msgctxt "@action:button"
 msgid "Add option"
@@ -936,38 +938,52 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Сканирование QR-кода"
 
-#: src/app/qml/QuickFormatBar.qml:23
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:22
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@action:button"
 msgid "Bold"
 msgstr "Полужирный"
 
-#: src/app/qml/QuickFormatBar.qml:42
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@action:button"
 msgid "Italic"
 msgstr "Курсив"
 
-#: src/app/qml/QuickFormatBar.qml:61
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:60
+#, fuzzy, kde-format
+#| msgid "Strikethrough"
+msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Зачёркнутый"
 
-#: src/app/qml/QuickFormatBar.qml:80
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:79
+#, fuzzy, kde-format
+#| msgid "Spoiler"
+msgctxt "@action:button"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/app/qml/QuickFormatBar.qml:99
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:98
+#, fuzzy, kde-format
+#| msgid "Code block"
+msgctxt "@action:button"
 msgid "Code block"
 msgstr "Блок кода"
 
-#: src/app/qml/QuickFormatBar.qml:118
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:117
+#, fuzzy, kde-format
+#| msgid "Quote"
+msgctxt "@action:button"
 msgid "Quote"
 msgstr "Цитата"
 
-#: src/app/qml/QuickFormatBar.qml:137
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:136
+#, fuzzy, kde-format
+#| msgid "Insert link"
+msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Вставить ссылку"
 
@@ -1225,120 +1241,130 @@ msgstr[1] "%1 совместные комнаты"
 msgstr[2] "%1 совместных комнат"
 msgstr[3] "Одна совместная комната"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Unignore this user"
 msgstr "Перестать игнорировать этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Ignore this user"
 msgstr "Игнорировать этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:159
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:156
+#, fuzzy, kde-format
+#| msgid "Kick this user"
+msgctxt "@action:button"
 msgid "Kick this user"
 msgstr "Выгнать этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:163 src/app/qml/UserDetailDialog.qml:168
+#: src/app/qml/UserDetailDialog.qml:160 src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Выгон пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:164
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Причина (почему пришлось выгнать этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:162
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Выгнать"
 
-#: src/app/qml/UserDetailDialog.qml:184
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:179
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
 msgid "Invite this user"
 msgstr "Пригласить этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:197
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@action:button"
 msgid "Ban this user"
 msgstr "Заблокировать этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:202 src/app/qml/UserDetailDialog.qml:207
+#: src/app/qml/UserDetailDialog.qml:195 src/app/qml/UserDetailDialog.qml:200
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Блокировка пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:203
+#: src/app/qml/UserDetailDialog.qml:196
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Причина (почему пришлось заблокировать этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:204
+#: src/app/qml/UserDetailDialog.qml:197
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Заблокировать"
 
-#: src/app/qml/UserDetailDialog.qml:222
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:213
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@action:button"
 msgid "Unban this user"
 msgstr "Разблокировать этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:235
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:224
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "Установить уровень возможностей пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:260
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Удалить последние сообщения этого пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:252
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Удаление сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:266
+#: src/app/qml/UserDetailDialog.qml:253
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr ""
 "Причина (почему пришлось удалить последние сообщения этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Удаление сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Чат с %1"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Пригласить в частный чат"
 
-#: src/app/qml/UserDetailDialog.qml:295
+#: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgid "Copy link"
 msgstr "Скопировать ссылку"
@@ -1584,7 +1610,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Изображение из буфера обмена"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
@@ -1644,7 +1670,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Введите текст сообщения…"
 
-#: src/chatbar/ChatBar.qml:414 src/messagecontent/ChatBarComponent.qml:230
+#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3554,19 +3580,19 @@ msgstr "Параметры"
 msgid "%1 started a user verification"
 msgstr "%1 начал(а) проверку пользователя"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Подтвердить изменение"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Опубликовать сообщение в ветке"
 
-#: src/messagecontent/ChatBarComponent.qml:191 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3578,6 +3604,7 @@ msgid "Copy to clipboard"
 msgstr "Скопировать в буфер обмена"
 
 #: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/VideoComponent.qml:373
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3823,11 +3850,6 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Громкость"
 
-#: src/messagecontent/VideoComponent.qml:374
-#, kde-format
-msgid "Maximize"
-msgstr "Развернуть"
-
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "Locations on a map"
@@ -4005,13 +4027,19 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Найти комнаты"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Показать меню"
 
-#: src/rooms/ExploreComponent.qml:88 src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
+#, kde-format
+msgid "Find your friends"
+msgstr "Поиск друзей"
+
+#: src/rooms/ExploreComponent.qml:86
 #, kde-format
 msgid "Create a Room"
 msgstr "Создать комнату"
@@ -4036,8 +4064,17 @@ msgstr "Просмотреть комнаты"
 msgid "Create New"
 msgstr "Создать"
 
-#: src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
+#: src/rooms/ExploreComponentMobile.qml:143
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create a Room"
+msgstr "Создать комнату"
+
+#: src/rooms/ExploreComponentMobile.qml:161
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Создать пространство"
 
@@ -4248,7 +4285,7 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Управление учётной записью"
 
-#: src/rooms/UserInfo.qml:95
+#: src/rooms/UserInfo.qml:94
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -4576,24 +4613,30 @@ msgstr "Отменить изменение отображаемого имен�
 msgid "Confirm new display name"
 msgstr "Подтвердить новое отображаемое имя"
 
-#: src/settings/DeviceDelegate.qml:91
-#, kde-format
+#: src/settings/DeviceDelegate.qml:89
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgctxt "@action:button"
 msgid "Edit device name"
 msgstr "Изменить имя устройства"
 
-#: src/settings/DeviceDelegate.qml:105
-#, kde-format
+#: src/settings/DeviceDelegate.qml:99
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
 msgid "Verify device"
 msgstr "Проверить устройство"
 
-#: src/settings/DeviceDelegate.qml:126
+#: src/settings/DeviceDelegate.qml:117
 #, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
 msgstr "Проверено"
 
-#: src/settings/DeviceDelegate.qml:135
-#, kde-format
+#: src/settings/DeviceDelegate.qml:124
+#, fuzzy, kde-format
+#| msgid "Logout device"
+msgctxt "@action:button"
 msgid "Logout device"
 msgstr "Отключить устройство от учётной записи"
 
@@ -4875,7 +4918,7 @@ msgid "Keyword…"
 msgstr "Ключевое слово…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Добавить ключевое слово"
@@ -5675,27 +5718,27 @@ msgstr "Пароль:"
 msgid "Privileged Users"
 msgstr "Привилегированные пользователи"
 
-#: src/settings/Permissions.qml:236
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgid "Default permissions"
 msgstr "Стандартные разрешения"
 
-#: src/settings/Permissions.qml:276
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgid "Basic permissions"
 msgstr "Базовые разрешения"
 
-#: src/settings/Permissions.qml:316
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgid "Event permissions"
 msgstr "Разрешения событий"
 
-#: src/settings/Permissions.qml:363
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgid "Event Type…"
 msgstr "Тип событий…"
 
-#: src/settings/Permissions.qml:415
+#: src/settings/Permissions.qml:412
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5878,43 +5921,45 @@ msgstr "Официальные родительские пространства
 msgid "Canonical"
 msgstr "Каноничность"
 
-#: src/settings/RoomGeneralPage.qml:276
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:274
+#, fuzzy, kde-format
+#| msgid "Make canonical parent"
+msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Назначить каноническим родительским пространством"
 
-#: src/settings/RoomGeneralPage.qml:288
+#: src/settings/RoomGeneralPage.qml:285
 #, kde-format
 msgid "Remove parent"
 msgstr "Удалить родительское пространство"
 
-#: src/settings/RoomGeneralPage.qml:301
+#: src/settings/RoomGeneralPage.qml:298
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Для этой комнаты нет официальных родительских пространств."
 
-#: src/settings/RoomGeneralPage.qml:305
+#: src/settings/RoomGeneralPage.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Добавить официальное родительское пространство"
 
-#: src/settings/RoomGeneralPage.qml:322 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "В этой комнате продолжается другой разговор."
 
-#: src/settings/RoomGeneralPage.qml:326 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Посмотреть более старые сообщения…"
 
-#: src/settings/RoomGeneralPage.qml:338 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Эта комната была заменена."
 
-#: src/settings/RoomGeneralPage.qml:342 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Посмотреть новую комнату…"
@@ -6761,17 +6806,23 @@ msgid ""
 msgstr "Это начало чата. Более ранних сообщений нет."
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Перейти к первому непрочитанному сообщению"
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to oldest loaded message"
+msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Перейти к самому старому загруженному сообщению"
 
-#: src/timeline/TimelineView.qml:251
-#, kde-format
+#: src/timeline/TimelineView.qml:250
+#, fuzzy, kde-format
+#| msgid "Jump to latest message"
+msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Перейти к последнему сообщению"
 
@@ -6791,6 +6842,12 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#~ msgid "Configure NeoChat…"
+#~ msgstr "Настроить NeoChat…"
+
+#~ msgid "Maximize"
+#~ msgstr "Развернуть"
 
 #~ msgid "Share"
 #~ msgstr "Опубликовать"

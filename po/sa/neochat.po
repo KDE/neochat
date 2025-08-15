@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-14 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -358,8 +358,10 @@ msgstr "संलग्न:"
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: src/app/qml/AttachmentPane.qml:62
-#, kde-format
+#: src/app/qml/AttachmentPane.qml:61
+#, fuzzy, kde-format
+#| msgid "Cancel sending attachment"
+msgctxt "@action:button"
 msgid "Cancel sending attachment"
 msgstr "संलग्नकं प्रेषयन् रद्दं कुरुत"
 
@@ -514,14 +516,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
-#: src/app/qml/GlobalMenu.qml:26 src/app/qml/GlobalMenu.qml:36
-#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
-#, kde-format
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
-
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
 #: src/rooms/RoomListPage.qml:245
 #, kde-format
@@ -550,7 +545,7 @@ msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:40
+#: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -559,11 +554,6 @@ msgstr "कक्षेषु अन्वेषणं कुर्वन्त�
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
-
-#: src/app/qml/GlobalMenu.qml:61
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "NeoChat विन्यस्तं कुर्वन्तु..."
 
 #: src/app/qml/GlobalMenu.qml:62
 #, fuzzy, kde-format
@@ -584,7 +574,7 @@ msgctxt "menu"
 msgid "View"
 msgstr "दृश्यं"
 
-#: src/app/qml/GlobalMenu.qml:80
+#: src/app/qml/GlobalMenu.qml:81
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Search Rooms"
@@ -594,37 +584,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:86
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "कोष्ठ"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "पूर्णपर्दे निर्गच्छन्तु"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Full Screen इति प्रविष्टं कुर्वन्तु"
 
-#: src/app/qml/GlobalMenu.qml:94
+#: src/app/qml/GlobalMenu.qml:95
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "साहाय्यम्‌"
 
-#: src/app/qml/GlobalMenu.qml:98
+#: src/app/qml/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "NeoChat विषये"
 
-#: src/app/qml/GlobalMenu.qml:103
+#: src/app/qml/GlobalMenu.qml:104
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -851,13 +841,13 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "सम्पादन अवस्था"
 
-#: src/app/qml/NewPollDialog.qml:28
+#: src/app/qml/NewPollDialog.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
-#: src/app/qml/NewPollDialog.qml:38
+#: src/app/qml/NewPollDialog.qml:37
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Create Room"
@@ -865,63 +855,69 @@ msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "कक्षं रचयन्तु"
 
-#: src/app/qml/NewPollDialog.qml:46
+#: src/app/qml/NewPollDialog.qml:45
 #, kde-format
+msgctxt "@label"
 msgid "Poll type:"
 msgstr ""
 
-#: src/app/qml/NewPollDialog.qml:51
+#: src/app/qml/NewPollDialog.qml:50
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
 #| "file with an appropriate application"
 #| msgid "Open File"
+msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/app/qml/NewPollDialog.qml:52
+#: src/app/qml/NewPollDialog.qml:51
 #, fuzzy, kde-format
 #| msgid "Close"
+msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "पिधानं करोतु"
 
-#: src/app/qml/NewPollDialog.qml:57
+#: src/app/qml/NewPollDialog.qml:56
 #, kde-format
+msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr ""
 
-#: src/app/qml/NewPollDialog.qml:57
+#: src/app/qml/NewPollDialog.qml:56
 #, kde-format
+msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr ""
 
-#: src/app/qml/NewPollDialog.qml:61
+#: src/app/qml/NewPollDialog.qml:60
 #, fuzzy, kde-format
 #| msgid "Description:"
+msgctxt "@label"
 msgid "Question:"
 msgstr "वर्णनम्‌:"
 
-#: src/app/qml/NewPollDialog.qml:104
+#: src/app/qml/NewPollDialog.qml:103
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr ""
 
-#: src/app/qml/NewPollDialog.qml:120
+#: src/app/qml/NewPollDialog.qml:119
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "Encryption"
 msgid "Enter option"
 msgstr "एन्क्रिप्शन"
 
-#: src/app/qml/NewPollDialog.qml:126
+#: src/app/qml/NewPollDialog.qml:123
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "मातापितरं निष्कासयन्तु"
 
-#: src/app/qml/NewPollDialog.qml:151
+#: src/app/qml/NewPollDialog.qml:146
 #, fuzzy, kde-format
 #| msgid "Add Emoji"
 msgctxt "@action:button"
@@ -960,38 +956,51 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "एकं QR कोडं स्कैन कुर्वन्तु"
 
-#: src/app/qml/QuickFormatBar.qml:23
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:22
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@action:button"
 msgid "Bold"
 msgstr "विक्रान्तः"
 
-#: src/app/qml/QuickFormatBar.qml:42
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@action:button"
 msgid "Italic"
 msgstr "इटालिक"
 
-#: src/app/qml/QuickFormatBar.qml:61
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:60
+#, fuzzy, kde-format
+#| msgid "Strikethrough"
+msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "स्ट्राइकथ्रू"
 
-#: src/app/qml/QuickFormatBar.qml:80
+#: src/app/qml/QuickFormatBar.qml:79
 #, kde-format
+msgctxt "@action:button"
 msgid "Spoiler"
 msgstr ""
 
-#: src/app/qml/QuickFormatBar.qml:99
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:98
+#, fuzzy, kde-format
+#| msgid "Code block"
+msgctxt "@action:button"
 msgid "Code block"
 msgstr "कोड ब्लॉक"
 
-#: src/app/qml/QuickFormatBar.qml:118
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:117
+#, fuzzy, kde-format
+#| msgid "Quote"
+msgctxt "@action:button"
 msgid "Quote"
 msgstr "उद्धरण"
 
-#: src/app/qml/QuickFormatBar.qml:137
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:136
+#, fuzzy, kde-format
+#| msgid "Insert link"
+msgctxt "@action:button"
 msgid "Insert link"
 msgstr "लिङ्कं सम्मिलितं कुर्वन्तु"
 
@@ -1245,119 +1254,129 @@ msgid_plural "%1 mutual rooms"
 msgstr[0] "कक्षे आमन्त्रयति"
 msgstr[1] "कक्षे आमन्त्रयति"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Unignore this user"
 msgstr "अस्य उपयोक्तुः अवहेलनां कुर्वन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Ignore this user"
 msgstr "अस्य उपयोक्तुः अवहेलनां कुर्वन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:159
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:156
+#, fuzzy, kde-format
+#| msgid "Kick this user"
+msgctxt "@action:button"
 msgid "Kick this user"
 msgstr "अस्य उपयोक्तुः पादं पातयतु"
 
-#: src/app/qml/UserDetailDialog.qml:163 src/app/qml/UserDetailDialog.qml:168
+#: src/app/qml/UserDetailDialog.qml:160 src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "उपयोक्तारं किक कुर्वन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:164
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "अस्य उपयोक्तुः पादप्रहारस्य कारणम्"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:162
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "पादप्रहार"
 
-#: src/app/qml/UserDetailDialog.qml:184
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:179
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
 msgid "Invite this user"
 msgstr "एतत् उपयोक्तारं आमन्त्रयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:197
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@action:button"
 msgid "Ban this user"
 msgstr "अस्य उपयोक्तुः प्रतिबन्धः"
 
-#: src/app/qml/UserDetailDialog.qml:202 src/app/qml/UserDetailDialog.qml:207
+#: src/app/qml/UserDetailDialog.qml:195 src/app/qml/UserDetailDialog.qml:200
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "उपयोक्तारं प्रतिबन्धयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:203
+#: src/app/qml/UserDetailDialog.qml:196
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "अस्य उपयोक्तुः प्रतिबन्धस्य कारणम्"
 
-#: src/app/qml/UserDetailDialog.qml:204
+#: src/app/qml/UserDetailDialog.qml:197
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "बाण"
 
-#: src/app/qml/UserDetailDialog.qml:222
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:213
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@action:button"
 msgid "Unban this user"
 msgstr "अस्य उपयोक्तुः प्रतिबन्धं विमोचयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:235
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:224
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "उपयोक्तृशक्तिस्तरं सेट् कुर्वन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:260
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "अस्य उपयोक्तुः अद्यतनसन्देशान् निष्कासयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:252
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "सन्देशान् निष्कासयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:266
+#: src/app/qml/UserDetailDialog.qml:253
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "अस्य उपयोक्तुः अद्यतनसन्देशान् निष्कासयितुं कारणम्"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "सन्देशान् निष्कासयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "%1 इत्यनेन सह गपशपं कुर्वन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgid "Invite to private chat"
 msgstr "निजी गपशपं आमन्त्रयन्तु"
 
-#: src/app/qml/UserDetailDialog.qml:295
+#: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgid "Copy link"
 msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन्तु"
@@ -1602,7 +1621,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "क्लिपबोर्ड इमेज"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
@@ -1664,7 +1683,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "सन्देशं प्रेषयन्तु..."
 
-#: src/chatbar/ChatBar.qml:414 src/messagecontent/ChatBarComponent.qml:230
+#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3582,19 +3601,19 @@ msgstr "सेटिंग्स्"
 msgid "%1 started a user verification"
 msgstr "%1 इत्यनेन उपयोक्तृसत्यापनम् आरब्धम्"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "सम्पादनस्य पुष्टिं कुर्वन्तु"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "सूत्रे सन्देशं स्थापयन्तु"
 
-#: src/messagecontent/ChatBarComponent.qml:191 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3606,6 +3625,7 @@ msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
 #: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/VideoComponent.qml:373
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3844,11 +3864,6 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "मात्रा"
 
-#: src/messagecontent/VideoComponent.qml:374
-#, kde-format
-msgid "Maximize"
-msgstr "अधिकतमं कुरुत"
-
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "Locations on a map"
@@ -4032,13 +4047,19 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "मेनू दर्शयतु"
 
-#: src/rooms/ExploreComponent.qml:88 src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
+#, kde-format
+msgid "Find your friends"
+msgstr "मित्राणि अन्वेष्यताम्"
+
+#: src/rooms/ExploreComponent.qml:86
 #, kde-format
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
@@ -4063,8 +4084,17 @@ msgstr "कक्ष्याः अन्वेषणं कुर्वन्�
 msgid "Create New"
 msgstr "New रचयतु"
 
-#: src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
+#: src/rooms/ExploreComponentMobile.qml:143
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create a Room"
+msgstr "एकं कक्षं रचयन्तु"
+
+#: src/rooms/ExploreComponentMobile.qml:161
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "एकं Space रचयन्तु"
 
@@ -4284,7 +4314,7 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "खातं निष्क्रियं कुर्वन्तु"
 
-#: src/rooms/UserInfo.qml:95
+#: src/rooms/UserInfo.qml:94
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -4620,24 +4650,30 @@ msgstr "सम्पादनं प्रदर्शननाम रद्द�
 msgid "Confirm new display name"
 msgstr "नूतनं प्रदर्शननाम पुष्टयन्तु"
 
-#: src/settings/DeviceDelegate.qml:91
-#, kde-format
+#: src/settings/DeviceDelegate.qml:89
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgctxt "@action:button"
 msgid "Edit device name"
 msgstr "यन्त्रनाम सम्पादयतु"
 
-#: src/settings/DeviceDelegate.qml:105
-#, kde-format
+#: src/settings/DeviceDelegate.qml:99
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
 msgid "Verify device"
 msgstr "यन्त्रस्य सत्यापनम्"
 
-#: src/settings/DeviceDelegate.qml:126
+#: src/settings/DeviceDelegate.qml:117
 #, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
 msgstr "सत्यापित"
 
-#: src/settings/DeviceDelegate.qml:135
-#, kde-format
+#: src/settings/DeviceDelegate.qml:124
+#, fuzzy, kde-format
+#| msgid "Logout device"
+msgctxt "@action:button"
 msgid "Logout device"
 msgstr "लॉगआउट् यन्त्रम्"
 
@@ -4914,7 +4950,7 @@ msgid "Keyword…"
 msgstr "कीवर्ड..."
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "कीवर्ड योजयतु"
@@ -5710,27 +5746,27 @@ msgstr "समाभाष्:"
 msgid "Privileged Users"
 msgstr "विशेषाधिकार प्राप्ताः उपयोक्तारः"
 
-#: src/settings/Permissions.qml:236
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgid "Default permissions"
 msgstr "पूर्वनिर्धारित अनुमतिः"
 
-#: src/settings/Permissions.qml:276
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgid "Basic permissions"
 msgstr "मूलभूताः अनुमतिः"
 
-#: src/settings/Permissions.qml:316
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgid "Event permissions"
 msgstr "घटनानुमतयः"
 
-#: src/settings/Permissions.qml:363
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgid "Event Type…"
 msgstr "घटनाप्रकारः..."
 
-#: src/settings/Permissions.qml:415
+#: src/settings/Permissions.qml:412
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@placeholder"
@@ -5920,43 +5956,45 @@ msgstr "आधिकारिक अभिभावक स्थान"
 msgid "Canonical"
 msgstr "कैनोनिकल"
 
-#: src/settings/RoomGeneralPage.qml:276
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:274
+#, fuzzy, kde-format
+#| msgid "Make canonical parent"
+msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "कैननिकल मातापितरं कुरुत"
 
-#: src/settings/RoomGeneralPage.qml:288
+#: src/settings/RoomGeneralPage.qml:285
 #, kde-format
 msgid "Remove parent"
 msgstr "मातापितरं निष्कासयन्तु"
 
-#: src/settings/RoomGeneralPage.qml:301
+#: src/settings/RoomGeneralPage.qml:298
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "अस्मिन् कक्षे आधिकारिकाः मातापितृस्थानानि नास्ति ।"
 
-#: src/settings/RoomGeneralPage.qml:305
+#: src/settings/RoomGeneralPage.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "नूतनं आधिकारिकं मातापितरं योजयन्तु"
 
-#: src/settings/RoomGeneralPage.qml:322 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "अयं कक्षः अन्यं वार्तालापं निरन्तरं करोति।"
 
-#: src/settings/RoomGeneralPage.qml:326 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "प्राचीनसन्देशान् पश्यन्तु..."
 
-#: src/settings/RoomGeneralPage.qml:338 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "अयं कक्षः प्रतिस्थापितः अस्ति।"
 
-#: src/settings/RoomGeneralPage.qml:342 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "नूतनं कक्षं पश्यन्तु..."
@@ -6818,17 +6856,23 @@ msgid ""
 msgstr "इति चटस्य आरम्भः । अस्मात् परं ऐतिहासिकसन्देशाः नास्ति ।"
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "प्रथमं अपठितं सन्देशं प्रति कूदन्तु"
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to oldest loaded message"
+msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "प्राचीनतमं लोड् कृतं सन्देशं प्रति कूदन्तु"
 
-#: src/timeline/TimelineView.qml:251
-#, kde-format
+#: src/timeline/TimelineView.qml:250
+#, fuzzy, kde-format
+#| msgid "Jump to latest message"
+msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "नवीनतमसन्देशं प्रति कूदन्तु"
 
@@ -6846,6 +6890,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
+
+#~ msgid "Configure NeoChat…"
+#~ msgstr "NeoChat विन्यस्तं कुर्वन्तु..."
+
+#~ msgid "Maximize"
+#~ msgstr "अधिकतमं कुरुत"
 
 #~ msgid "Share"
 #~ msgstr "संविभागः"

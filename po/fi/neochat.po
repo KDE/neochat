@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-14 00:42+0000\n"
+"POT-Creation-Date: 2025-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-07-17 18:18+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -353,8 +353,10 @@ msgstr "Liite:"
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: src/app/qml/AttachmentPane.qml:62
-#, kde-format
+#: src/app/qml/AttachmentPane.qml:61
+#, fuzzy, kde-format
+#| msgid "Cancel sending attachment"
+msgctxt "@action:button"
 msgid "Cancel sending attachment"
 msgstr "Peru liitteen lähettäminen"
 
@@ -510,14 +512,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Etsi kavereita"
 
-#: src/app/qml/GlobalMenu.qml:26 src/app/qml/GlobalMenu.qml:36
-#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
-#, kde-format
-msgid "Find your friends"
-msgstr "Etsi kavereita"
-
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:83
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
 #: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
 #: src/rooms/RoomListPage.qml:245
 #, kde-format
@@ -543,7 +538,7 @@ msgctxt "@action:inmenu"
 msgid "Explore Rooms"
 msgstr "Tutki huoneita"
 
-#: src/app/qml/GlobalMenu.qml:53 src/app/qml/QuickSwitcher.qml:40
+#: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
@@ -552,11 +547,6 @@ msgstr "Tutki huoneita"
 msgctxt "@title"
 msgid "Explore Rooms"
 msgstr "Tutki huoneita"
-
-#: src/app/qml/GlobalMenu.qml:61
-#, kde-format
-msgid "Configure NeoChat…"
-msgstr "NeoChatin asetukset…"
 
 #: src/app/qml/GlobalMenu.qml:62
 #, kde-format
@@ -576,7 +566,7 @@ msgctxt "menu"
 msgid "View"
 msgstr "Näkymä"
 
-#: src/app/qml/GlobalMenu.qml:80
+#: src/app/qml/GlobalMenu.qml:81
 #, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
@@ -584,37 +574,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "Etsi huoneita"
 
-#: src/app/qml/GlobalMenu.qml:85
+#: src/app/qml/GlobalMenu.qml:86
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Ikkuna"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Poistu koko näytöltä"
 
-#: src/app/qml/GlobalMenu.qml:89
+#: src/app/qml/GlobalMenu.qml:90
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Siirry koko näytölle"
 
-#: src/app/qml/GlobalMenu.qml:94
+#: src/app/qml/GlobalMenu.qml:95
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Ohje"
 
-#: src/app/qml/GlobalMenu.qml:98
+#: src/app/qml/GlobalMenu.qml:99
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
-#: src/app/qml/GlobalMenu.qml:103
+#: src/app/qml/GlobalMenu.qml:104
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -836,66 +826,78 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Muokkaa tilaa"
 
-#: src/app/qml/NewPollDialog.qml:28
+#: src/app/qml/NewPollDialog.qml:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Lähetä"
 
-#: src/app/qml/NewPollDialog.qml:38
+#: src/app/qml/NewPollDialog.qml:37
 #, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "Luo kysely"
 
-#: src/app/qml/NewPollDialog.qml:46
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:45
+#, fuzzy, kde-format
+#| msgid "Poll type:"
+msgctxt "@label"
 msgid "Poll type:"
 msgstr "Kyselyn tyyppi:"
 
-#: src/app/qml/NewPollDialog.qml:51
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "Open poll"
+msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "Avoin kysely"
 
-#: src/app/qml/NewPollDialog.qml:52
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:51
+#, fuzzy, kde-format
+#| msgid "Closed poll"
+msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Suljettu kysely"
 
-#: src/app/qml/NewPollDialog.qml:57
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:56
+#, fuzzy, kde-format
+#| msgid "Voters can see the result as soon as they have voted"
+msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr "Äänestäjät näkevät tulokset heti äänestettyään"
 
-#: src/app/qml/NewPollDialog.qml:57
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:56
+#, fuzzy, kde-format
+#| msgid "Results are revealed only after the poll has closed"
+msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr "Tulokset paljastetaan vasta kyselyn päätyttyä"
 
-#: src/app/qml/NewPollDialog.qml:61
-#, kde-format
+#: src/app/qml/NewPollDialog.qml:60
+#, fuzzy, kde-format
+#| msgid "Question:"
+msgctxt "@label"
 msgid "Question:"
 msgstr "Kysymys:"
 
-#: src/app/qml/NewPollDialog.qml:104
+#: src/app/qml/NewPollDialog.qml:103
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Valinta %1:"
 
-#: src/app/qml/NewPollDialog.qml:120
+#: src/app/qml/NewPollDialog.qml:119
 #, kde-format
 msgid "Enter option"
 msgstr "Anna valinta"
 
-#: src/app/qml/NewPollDialog.qml:126
+#: src/app/qml/NewPollDialog.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Poista valinta"
 
-#: src/app/qml/NewPollDialog.qml:151
+#: src/app/qml/NewPollDialog.qml:146
 #, kde-format
 msgctxt "@action:button"
 msgid "Add option"
@@ -933,38 +935,52 @@ msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Lue QR-koodi"
 
-#: src/app/qml/QuickFormatBar.qml:23
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:22
+#, fuzzy, kde-format
+#| msgid "Bold"
+msgctxt "@action:button"
 msgid "Bold"
 msgstr "Lihavointi"
 
-#: src/app/qml/QuickFormatBar.qml:42
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:41
+#, fuzzy, kde-format
+#| msgid "Italic"
+msgctxt "@action:button"
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: src/app/qml/QuickFormatBar.qml:61
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:60
+#, fuzzy, kde-format
+#| msgid "Strikethrough"
+msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "Yliviivaus"
 
-#: src/app/qml/QuickFormatBar.qml:80
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:79
+#, fuzzy, kde-format
+#| msgid "Spoiler"
+msgctxt "@action:button"
 msgid "Spoiler"
 msgstr "Ilonpilaaja"
 
-#: src/app/qml/QuickFormatBar.qml:99
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:98
+#, fuzzy, kde-format
+#| msgid "Code block"
+msgctxt "@action:button"
 msgid "Code block"
 msgstr "Koodilohko"
 
-#: src/app/qml/QuickFormatBar.qml:118
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:117
+#, fuzzy, kde-format
+#| msgid "Quote"
+msgctxt "@action:button"
 msgid "Quote"
 msgstr "Lainaus"
 
-#: src/app/qml/QuickFormatBar.qml:137
-#, kde-format
+#: src/app/qml/QuickFormatBar.qml:136
+#, fuzzy, kde-format
+#| msgid "Insert link"
+msgctxt "@action:button"
 msgid "Insert link"
 msgstr "Lisää linkki"
 
@@ -1213,120 +1229,130 @@ msgid_plural "%1 mutual rooms"
 msgstr[0] "Yksi yhteinen huone"
 msgstr[1] "%1 yhteistä huonetta"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Unignore this user"
 msgstr "Peru tämän käyttäjän sivuuttaminen"
 
-#: src/app/qml/UserDetailDialog.qml:146
+#: src/app/qml/UserDetailDialog.qml:145
 #, kde-format
 msgid "Ignore this user"
 msgstr "Sivuuta tämä käyttäjä"
 
-#: src/app/qml/UserDetailDialog.qml:159
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:156
+#, fuzzy, kde-format
+#| msgid "Kick this user"
+msgctxt "@action:button"
 msgid "Kick this user"
 msgstr "Potkaise tätä käyttäjää"
 
-#: src/app/qml/UserDetailDialog.qml:163 src/app/qml/UserDetailDialog.qml:168
+#: src/app/qml/UserDetailDialog.qml:160 src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Potkaise käyttäjää"
 
-#: src/app/qml/UserDetailDialog.qml:164
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Syy tämän käyttäjän potkaisemiseen"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:162
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Potkaise"
 
-#: src/app/qml/UserDetailDialog.qml:184
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:179
+#, fuzzy, kde-format
+#| msgid "Invite this user"
+msgctxt "@action:button"
 msgid "Invite this user"
 msgstr "Kutsu tämä käyttäjä"
 
-#: src/app/qml/UserDetailDialog.qml:197
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:190
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@action:button"
 msgid "Ban this user"
 msgstr "Estä tämä käyttäjä"
 
-#: src/app/qml/UserDetailDialog.qml:202 src/app/qml/UserDetailDialog.qml:207
+#: src/app/qml/UserDetailDialog.qml:195 src/app/qml/UserDetailDialog.qml:200
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Estä käyttäjä"
 
-#: src/app/qml/UserDetailDialog.qml:203
+#: src/app/qml/UserDetailDialog.qml:196
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Syy tämän käyttäjän estämiseen"
 
-#: src/app/qml/UserDetailDialog.qml:204
+#: src/app/qml/UserDetailDialog.qml:197
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Estä"
 
-#: src/app/qml/UserDetailDialog.qml:222
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:213
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@action:button"
 msgid "Unban this user"
 msgstr "Poista esto tältä käyttäjältä"
 
-#: src/app/qml/UserDetailDialog.qml:235
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:224
+#, fuzzy, kde-format
+#| msgid "Set user power level"
+msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "Aseta käyttäjän voimataso"
 
-#: src/app/qml/UserDetailDialog.qml:260
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Poista tämän käyttäjän viimeisimmät viestit"
 
 # Voisi olla myös ”Poista viestejä”, jos on valikossa…
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:252
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Poista viestit"
 
-#: src/app/qml/UserDetailDialog.qml:266
+#: src/app/qml/UserDetailDialog.qml:253
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Syy käyttäjän viimeisimpien viestien poistamiseen"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Poista viestejä"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Keskustelu käyttäjän %1 kanssa"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Kutsu yksityiskeskusteluun"
 
-#: src/app/qml/UserDetailDialog.qml:295
+#: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgid "Copy link"
 msgstr "Kopioi linkki"
@@ -1584,7 +1610,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Leikepöydän kuva"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
@@ -1644,7 +1670,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Lähetä viesti…"
 
-#: src/chatbar/ChatBar.qml:414 src/messagecontent/ChatBarComponent.qml:230
+#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3544,19 +3570,19 @@ msgstr "Asetukset"
 msgid "%1 started a user verification"
 msgstr "%1 käynnisti käyttäjän vahvistuksen"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Vahvista muokkaus"
 
-#: src/messagecontent/ChatBarComponent.qml:179
+#: src/messagecontent/ChatBarComponent.qml:178
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Lähetä viesti säikeeseen"
 
-#: src/messagecontent/ChatBarComponent.qml:191 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -3568,6 +3594,7 @@ msgid "Copy to clipboard"
 msgstr "Kopioi leikepöydälle"
 
 #: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/VideoComponent.qml:373
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3803,11 +3830,6 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Äänenvoimakkuus"
 
-#: src/messagecontent/VideoComponent.qml:374
-#, kde-format
-msgid "Maximize"
-msgstr "Suurenna"
-
 #: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "Locations on a map"
@@ -3987,13 +4009,19 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Etsi huoneita"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Näytä valikko"
 
-#: src/rooms/ExploreComponent.qml:88 src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
+#, kde-format
+msgid "Find your friends"
+msgstr "Etsi kavereita"
+
+#: src/rooms/ExploreComponent.qml:86
 #, kde-format
 msgid "Create a Room"
 msgstr "Luo huone"
@@ -4018,8 +4046,17 @@ msgstr "Tutki huoneita"
 msgid "Create New"
 msgstr "Luo uusi"
 
-#: src/rooms/ExploreComponentMobile.qml:159
-#, kde-format
+#: src/rooms/ExploreComponentMobile.qml:143
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Create a Room"
+msgstr "Luo huone"
+
+#: src/rooms/ExploreComponentMobile.qml:161
+#, fuzzy, kde-format
+#| msgid "Create a Space"
+msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Luo tila"
 
@@ -4231,7 +4268,7 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Tilin hallinta"
 
-#: src/rooms/UserInfo.qml:95
+#: src/rooms/UserInfo.qml:94
 #, fuzzy, kde-format
 #| msgid "Open Settings"
 msgctxt "@action:button"
@@ -4559,24 +4596,30 @@ msgstr "Peru näyttönimen muokkaus"
 msgid "Confirm new display name"
 msgstr "Vahvista uusi näyttönimi"
 
-#: src/settings/DeviceDelegate.qml:91
-#, kde-format
+#: src/settings/DeviceDelegate.qml:89
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgctxt "@action:button"
 msgid "Edit device name"
 msgstr "Muokkaa laitteen nimeä"
 
-#: src/settings/DeviceDelegate.qml:105
-#, kde-format
+#: src/settings/DeviceDelegate.qml:99
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgctxt "@action:button"
 msgid "Verify device"
 msgstr "Vahvista laite"
 
-#: src/settings/DeviceDelegate.qml:126
+#: src/settings/DeviceDelegate.qml:117
 #, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
 msgstr "Vahvistettu"
 
-#: src/settings/DeviceDelegate.qml:135
-#, kde-format
+#: src/settings/DeviceDelegate.qml:124
+#, fuzzy, kde-format
+#| msgid "Logout device"
+msgctxt "@action:button"
 msgid "Logout device"
 msgstr "Kirjaa laite ulos"
 
@@ -4855,7 +4898,7 @@ msgid "Keyword…"
 msgstr "Hakusana…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:389 src/settings/PushNotification.qml:119
+#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Lisää hakusana"
@@ -5651,27 +5694,27 @@ msgstr "Salasana:"
 msgid "Privileged Users"
 msgstr "Etuoikeutetut käyttäjät"
 
-#: src/settings/Permissions.qml:236
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgid "Default permissions"
 msgstr "Oletusluvat"
 
-#: src/settings/Permissions.qml:276
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgid "Basic permissions"
 msgstr "Perusluvat"
 
-#: src/settings/Permissions.qml:316
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgid "Event permissions"
 msgstr "Tapahtumaluvat"
 
-#: src/settings/Permissions.qml:363
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgid "Event Type…"
 msgstr "Tapahtumatyyppi…"
 
-#: src/settings/Permissions.qml:415
+#: src/settings/Permissions.qml:412
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5850,43 +5893,45 @@ msgstr "Viralliset emotilat"
 msgid "Canonical"
 msgstr "Kanoninen"
 
-#: src/settings/RoomGeneralPage.qml:276
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:274
+#, fuzzy, kde-format
+#| msgid "Make canonical parent"
+msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Tee kanoniseksi emoksi"
 
-#: src/settings/RoomGeneralPage.qml:288
+#: src/settings/RoomGeneralPage.qml:285
 #, kde-format
 msgid "Remove parent"
 msgstr "Poista emo"
 
-#: src/settings/RoomGeneralPage.qml:301
+#: src/settings/RoomGeneralPage.qml:298
 #, kde-format
 msgid "This room has no official parent spaces."
 msgstr "Tällä huoneella ei ole virallista emotilaa."
 
-#: src/settings/RoomGeneralPage.qml:305
+#: src/settings/RoomGeneralPage.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Lisää uusi virallinen emo"
 
-#: src/settings/RoomGeneralPage.qml:322 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Huone jatkaa toista keskustelua."
 
-#: src/settings/RoomGeneralPage.qml:326 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
 #, kde-format
 msgid "See older messages…"
 msgstr "Katso vanhempia viestejä…"
 
-#: src/settings/RoomGeneralPage.qml:338 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Tämä huone on korvattu."
 
-#: src/settings/RoomGeneralPage.qml:342 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
 #, kde-format
 msgid "See new room…"
 msgstr "Katso uutta huonetta…"
@@ -6711,17 +6756,23 @@ msgid ""
 msgstr "Tämä on keskustelun alku. Tästä edemmäs keskusteluhistoriaa ei ole."
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Hyppää ensimmäiseen lukemattomaan viestiin"
 
 #: src/timeline/TimelineView.qml:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Jump to oldest loaded message"
+msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Siirry vanhimpaan ladattuun viestiin"
 
-#: src/timeline/TimelineView.qml:251
-#, kde-format
+#: src/timeline/TimelineView.qml:250
+#, fuzzy, kde-format
+#| msgid "Jump to latest message"
+msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Hyppää viimeisimpään viestiin"
 
@@ -6739,6 +6790,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
+
+#~ msgid "Configure NeoChat…"
+#~ msgstr "NeoChatin asetukset…"
+
+#~ msgid "Maximize"
+#~ msgstr "Suurenna"
 
 #~ msgid "Share"
 #~ msgstr "Jaa"
