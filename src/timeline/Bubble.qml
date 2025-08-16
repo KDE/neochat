@@ -73,6 +73,8 @@ QQC2.Control {
      */
     signal showMessageMenu
 
+    Message.contentFilterModel: messageContentFilterModel
+
     contentItem: RowLayout {
         Kirigami.Icon {
             source: "content-loading-symbolic"
@@ -87,6 +89,7 @@ QQC2.Control {
             Repeater {
                 id: contentRepeater
                 model: MessageContentFilterModel {
+                    id: messageContentFilterModel
                     showAuthor: root.showAuthor
                     sourceModel: root.contentModel
                 }

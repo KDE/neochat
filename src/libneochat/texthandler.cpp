@@ -155,7 +155,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat,
             } else if ((getTagType(m_nextToken) == u"br"_s && stripNewlines)) {
                 nextTokenBuffer = u' ';
             }
-            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer, spoilerRevealed);
+            nextTokenBuffer = cleanAttributes(getTagType(m_nextToken), nextTokenBuffer, true, spoilerRevealed);
         }
 
         outputString.append(nextTokenBuffer);
@@ -471,7 +471,7 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
     }
 }
 
-QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString, bool spoilerRevealed)
+QString TextHandler::cleanAttributes(const QString &tag, const QString &tagString, bool addStyle, bool spoilerRevealed)
 {
     if (!tagString.contains(u'<') || !tagString.contains(u'>')) {
         return tagString;
@@ -530,10 +530,10 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
             nextAttributeIndex = nextSpaceIndex + 1;
         }
 
-        return addStyle(tag, outputString, spoilerRevealed);
+        return addStyle ? this->addStyle(tag, outputString, spoilerRevealed) : outputString + u'>';
     }
 
-    return addStyle(tag, tagString);
+    return addStyle ? this->addStyle(tag, tagString) : tagString;
 }
 
 QString TextHandler::addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed)
@@ -552,8 +552,8 @@ QString TextHandler::addStyle(const QString &tag, QString cleanTagString, bool s
         } else if (tag == u"span"_s && cleanTagString.contains(u"data-mx-spoiler"_s)) {
             Kirigami::Platform::PlatformTheme *theme =
                 static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-            cleanTagString += u" style=\"color: %1; background: %2;\""_s.arg(spoilerRevealed ? theme->textColor().name() : u"transparent"_s,
-                                                                             spoilerRevealed ? u"transparent"_s : theme->alternateBackgroundColor().name());
+            cleanTagString += u" style=\"color: %1; background: %2;\""_s.arg(spoilerRevealed ? theme->highlightedTextColor().name() : u"transparent"_s,
+                                                                             theme->alternateBackgroundColor().name());
         }
     }
     return cleanTagString + u'>';
@@ -837,15 +837,18 @@ QString TextHandler::convertCodeLanguageString(const QString &languageString)
     return languageString.right(languageString.length() - equalsPos - 1);
 }
 
-QString TextHandler::toggleSpoilerText(QObject *object, QString string, bool spoilerRevealed)
+QString TextHandler::updateSpoilerText(QObject *object, QString string, bool spoilerRevealed)
 {
     auto it = QRegularExpression(u"<span[^>]*data-mx-spoiler[^>]*style=\"color: (.*?); background: (.*?);\">"_s).globalMatch(string);
     Kirigami::Platform::PlatformTheme *theme =
         static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(object, true));
+    int offset = 0;
     while (it.hasNext()) {
         const QRegularExpressionMatch match = it.next();
-        string.replace(match.capturedStart(2), match.capturedLength(2), spoilerRevealed ? u"transparent"_s : theme->alternateBackgroundColor().name());
-        string.replace(match.capturedStart(1), match.capturedLength(1), spoilerRevealed ? theme->textColor().name() : u"transparent"_s);
+        const auto newColor = spoilerRevealed ? theme->textColor().name() : u"transparent"_s;
+        string.replace(match.capturedStart(2) + offset, match.capturedLength(2), theme->alternateBackgroundColor().name());
+        string.replace(match.capturedStart(1) + offset, match.capturedLength(1), newColor);
+        offset = newColor.length() - match.capturedLength(1);
     }
     return string;
 }

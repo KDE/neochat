@@ -7,6 +7,7 @@
 #include <QQmlEngine>
 #include <QImageReader>
 
+#include <Kirigami/Platform/PlatformTheme>
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
@@ -104,7 +105,7 @@ public:
     /**
      * @brief Toggle spoiler for the component at the given row.
      */
-    Q_INVOKABLE void toggleSpoiler(int row);
+    Q_INVOKABLE void toggleSpoiler(QModelIndex index);
 
 Q_SIGNALS:
     void authorChanged();
@@ -237,4 +238,8 @@ private:
 
     QList<QUrl> m_removedLinkPreviews;
     MessageComponent linkPreviewComponent(const QUrl &link);
+
+    Kirigami::Platform::PlatformTheme *m_theme = nullptr;
+    void updateSpoilers();
+    void updateSpoiler(const QModelIndex &index);
 };

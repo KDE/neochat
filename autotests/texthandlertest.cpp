@@ -36,6 +36,8 @@ private Q_SLOTS:
     void emptyCodeTags();
     void addStyle_data();
     void addStyle();
+    void dontAddStyle_data();
+    void dontAddStyle();
 
     void sendSimpleStringCase();
     void sendSingleParaMarkup();
@@ -73,6 +75,9 @@ private Q_SLOTS:
 
     void componentOutput_data();
     void componentOutput();
+
+    void updateSpoiler_data();
+    void updateSpoiler();
 };
 
 void TextHandlerTest::initTestCase()
@@ -93,22 +98,24 @@ void TextHandlerTest::allowedAttributes()
 {
     auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
     const QString testInputString1 = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
-    const QString testOutputString1 = u"<span data-mx-spoiler style=\"color: transparent; background: %1;\"><font color=#FFFFFF>Test</font><span>"_s.arg(
+    const QString testOutputString1S = u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
+    const QString testOutputString1R = u"<span data-mx-spoiler style=\"color: transparent; background: %1;\"><font color=#FFFFFF>Test</font><span>"_s.arg(
         theme->alternateBackgroundColor().name());
     // Handle urls where the href has either single (') or double (") quotes.
     const QString testInputString2 = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
-    const QString testOutputString2 =
+    const QString testOutputString2S = u"<a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a>"_s;
+    const QString testOutputString2R =
         u"<a href=\"https://kde.org\" style=\"text-decoration: none;\">link</a><a href='https://kde.org' style=\"text-decoration: none;\">link</a>"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString1);
 
-    QCOMPARE(testTextHandler.handleSendText(), testOutputString1);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString1);
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString1S);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString1R);
 
     testTextHandler.setData(testInputString2);
-    QCOMPARE(testTextHandler.handleSendText(), testOutputString2);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString2);
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString2S);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString2R);
 }
 
 void TextHandlerTest::stripDisallowedTags()
@@ -174,8 +181,31 @@ void TextHandlerTest::addStyle()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+}
+
+void TextHandlerTest::dontAddStyle_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("link") << u"<a href=\"https://kde.org\">link</a>"_s << u"<a href=\"https://kde.org\">link</a>"_s;
+    QTest::newRow("table")
+        << u"<table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td></tr></table>"_s
+        << u"<table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td></tr></table>"_s;
+    QTest::newRow("spoiler") << u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s
+                             << u"<span data-mx-spoiler><font color=#FFFFFF>Test</font><span>"_s;
+}
+
+void TextHandlerTest::dontAddStyle()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
 }
 
 void TextHandlerTest::sendSimpleStringCase()
@@ -194,7 +224,7 @@ void TextHandlerTest::sendSingleParaMarkup()
     const QString testInputString =
         u"Text para with **bold**, *italic*, [link](https://kde.org), ![image](mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e), `inline code`."_s;
     const QString testOutputString =
-        u"Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\" style=\"text-decoration: none;\">link</a>, <img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>."_s;
+        u"Text para with <strong>bold</strong>, <em>italic</em>, <a href=\"https://kde.org\">link</a>, <img src=\"mxc://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e\" alt=\"image\">, <code>inline code</code>."_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -218,7 +248,7 @@ void TextHandlerTest::sendMultipleSectionMarkup()
 void TextHandlerTest::sendBadLinks()
 {
     const QString testInputString = u"[link](kde.org), ![image](https://kde.org/aebd3ffd40503e1ef0525bf8f0d60282fec6183e)"_s;
-    const QString testOutputString = u"<a style=\"text-decoration: none;\">link</a>, <img alt=\"image\">"_s;
+    const QString testOutputString = u"<a>link</a>, <img alt=\"image\">"_s;
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -291,20 +321,12 @@ void TextHandlerTest::sendCustomTags_data()
     QTest::addColumn<QString>("testOutputString");
 
     // spoiler
-    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
     QTest::newRow("incomplete spoiler") << u"||test"_s << u"||test"_s;
-    QTest::newRow("complete spoiler") << u"||test||"_s
-                                      << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">test</span>"_s.arg(
-                                             theme->alternateBackgroundColor().name());
-    QTest::newRow("multiple spoiler")
-        << u"||apple||banana||pear||"_s
-        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">apple</span>banana<span data-mx-spoiler style=\"color: transparent; background: %1;\">pear</span>"_s
-               .arg(theme->alternateBackgroundColor().name());
+    QTest::newRow("complete spoiler") << u"||test||"_s << u"<span data-mx-spoiler>test</span>"_s;
+    QTest::newRow("multiple spoiler") << u"||apple||banana||pear||"_s << u"<span data-mx-spoiler>apple</span>banana<span data-mx-spoiler>pear</span>"_s;
     QTest::newRow("inside code block spoiler") << u"```||apple||```"_s << u"<code>||apple||</code>"_s;
-    QTest::newRow("outside code block spoiler")
-        << u"||apple|| ```||banana||``` ||pear||"_s
-        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">apple</span> <code>||banana||</code> <span data-mx-spoiler style=\"color: transparent; background: %1;\">pear</span>"_s
-               .arg(theme->alternateBackgroundColor().name());
+    QTest::newRow("outside code block spoiler") << u"||apple|| ```||banana||``` ||pear||"_s
+                                                << u"<span data-mx-spoiler>apple</span> <code>||banana||</code> <span data-mx-spoiler>pear</span>"_s;
     QTest::newRow("complex spoiler") << u"Between `formFactor == Horizontal||Vertical` and `location == top||left||bottom||right`"_s
                                      << u"Between <code>formFactor == Horizontal||Vertical</code> and <code>location == top||left||bottom||right</code>"_s;
 
@@ -637,6 +659,36 @@ void TextHandlerTest::componentOutput()
 
     TextHandler testTextHandler;
     QCOMPARE(testTextHandler.textComponents(testInputString), testOutputComponents);
+}
+
+void TextHandlerTest::updateSpoiler_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+    QTest::addColumn<bool>("spoilerRevealed");
+
+    auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    QTest::newRow("same length") << u"<span data-mx-spoiler style=\"color: #123456; background: #123456;\">Test<span>"_s
+                                 << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(
+                                        theme->alternateBackgroundColor().name())
+                                 << false;
+    QTest::newRow("different length") << u"<span data-mx-spoiler style=\"color: short; background: looooooooooong;\">Test<span>"_s
+                                      << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(
+                                             theme->alternateBackgroundColor().name())
+                                      << false;
+    QTest::newRow("spoiler revealed")
+        << u"<span data-mx-spoiler style=\"color: transparent; background: %1;\">Test<span>"_s.arg(theme->alternateBackgroundColor().name())
+        << u"<span data-mx-spoiler style=\"color: %1; background: %2;\">Test<span>"_s.arg(theme->textColor().name(), theme->alternateBackgroundColor().name())
+        << true;
+}
+
+void TextHandlerTest::updateSpoiler()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+    QFETCH(bool, spoilerRevealed);
+
+    QCOMPARE(TextHandler::updateSpoilerText(this, testInputString, spoilerRevealed), testOutputString);
 }
 
 QTEST_MAIN(TextHandlerTest)

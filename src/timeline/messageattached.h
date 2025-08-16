@@ -7,6 +7,7 @@
 #include <QQuickAttachedPropertyPropagator>
 #include <QQuickItem>
 
+#include "models/messagecontentfiltermodel.h"
 #include "models/messagecontentmodel.h"
 #include "neochatroom.h"
 
@@ -31,6 +32,11 @@ class MessageAttached : public QQuickAttachedPropertyPropagator
      * @brief The content model for the current message.
      */
     Q_PROPERTY(MessageContentModel *contentModel READ contentModel WRITE setContentModel NOTIFY contentModelChanged FINAL)
+
+    /**
+     * @brief The content model for the current message.
+     */
+    Q_PROPERTY(MessageContentFilterModel *contentFilterModel READ contentFilterModel WRITE setContentFilterModel NOTIFY contentFilterModelChanged FINAL)
 
     /**
      * @brief The index of the message in the timeline
@@ -66,6 +72,9 @@ public:
     MessageContentModel *contentModel() const;
     void setContentModel(MessageContentModel *contentModel);
 
+    MessageContentFilterModel *contentFilterModel() const;
+    void setContentFilterModel(MessageContentFilterModel *contentFilterModel);
+
     int index() const;
     void setIndex(int index);
 
@@ -82,6 +91,7 @@ Q_SIGNALS:
     void roomChanged();
     void timelineChanged();
     void contentModelChanged();
+    void contentFilterModelChanged();
     void indexChanged();
     void maxContentWidthChanged();
     void selectedTextChanged();
@@ -100,6 +110,9 @@ private:
 
     QPointer<MessageContentModel> m_contentModel;
     bool m_explicitContentModel = false;
+
+    QPointer<MessageContentFilterModel> m_contentFilterModel;
+    bool m_explicitContentFilterModel = false;
 
     int m_index = -1;
     bool m_explicitIndex = false;

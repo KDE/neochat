@@ -66,6 +66,22 @@ void MessageAttached::setContentModel(MessageContentModel *contentModel)
     Q_EMIT contentModelChanged();
 }
 
+MessageContentFilterModel *MessageAttached::contentFilterModel() const
+{
+    return m_contentFilterModel;
+}
+
+void MessageAttached::setContentFilterModel(MessageContentFilterModel *contentFilterModel)
+{
+    m_explicitContentFilterModel = true;
+    if (m_contentFilterModel == contentFilterModel) {
+        return;
+    }
+    m_contentFilterModel = contentFilterModel;
+    propagateMessage(this);
+    Q_EMIT contentFilterModelChanged();
+}
+
 int MessageAttached::index() const
 {
     return m_index;
@@ -145,6 +161,11 @@ void MessageAttached::propagateMessage(MessageAttached *message)
     if (!m_explicitContentModel && m_contentModel != message->contentModel()) {
         m_contentModel = message->contentModel();
         Q_EMIT contentModelChanged();
+    }
+
+    if (!m_explicitContentFilterModel && m_contentFilterModel != message->contentFilterModel()) {
+        m_contentFilterModel = message->contentFilterModel();
+        Q_EMIT contentFilterModelChanged();
     }
 
     if (m_explicitIndex || m_index != message->index()) {

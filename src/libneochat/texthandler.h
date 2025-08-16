@@ -111,7 +111,7 @@ public:
     /**
      * @brief Modify the style parameters of the spoilers to reveal or hide the text.
      */
-    static QString toggleSpoilerText(QObject *object, QString string, bool spoilerRevealed);
+    static QString updateSpoilerText(QObject *object, QString string, bool spoilerRevealed);
 
 private:
     QString m_data;
@@ -141,7 +141,7 @@ private:
     bool isAllowedTag(const QString &type);
     bool isAllowedAttribute(const QString &tag, const QString &attribute);
     bool isAllowedLink(const QString &link, bool isImg = false);
-    QString cleanAttributes(const QString &tag, const QString &tagString, bool spoilerRevealed = false);
+    QString cleanAttributes(const QString &tag, const QString &tagString, bool addStyle = false, bool spoilerRevealed = false);
     QString addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
     QVariantMap getAttributes(const QString &tag, const QString &tagString);
 

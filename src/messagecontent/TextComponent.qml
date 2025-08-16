@@ -89,7 +89,7 @@ TextEdit {
     }
     TapHandler {
         enabled: !root.hoveredLink && root.hasSpoiler
-        onTapped: root.Message.contentModel.toggleSpoiler(root.index)
+        onTapped: root.Message.contentModel.toggleSpoiler(root.Message.contentFilterModel.mapToSource(root.Message.contentFilterModel.index(root.index, 0)))
     }
     TapHandler {
         enabled: !root.hoveredLink
