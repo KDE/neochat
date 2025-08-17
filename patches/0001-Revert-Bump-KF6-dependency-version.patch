@@ -1,0 +1,28 @@
+SPDX-FileCopyrightText: 2025 Tobias Fella <tobias.fella@kde.org>
+SPDX-License-Identifier: BSD-2-Clause
+From dbd1cefd0f07a6942aef450f8f3e082aa3b1cc25 Mon Sep 17 00:00:00 2001
+From: Tobias Fella <tobias.fella@kde.org>
+Date: Sun, 17 Aug 2025 20:04:04 +0200
+Subject: [PATCH] Revert "Bump KF6 dependency version"
+
+This reverts commit 18a6ea98232b3a734905fb18eebba9cf39bf5325.
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 10fe66daa..cd063113d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -14,7 +14,7 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
+ 
+ project(NeoChat VERSION ${RELEASE_SERVICE_VERSION})
+ 
+-set(KF_MIN_VERSION "6.17")
++set(KF_MIN_VERSION "6.12")
+ set(QT_MIN_VERSION "6.5")
+ 
+ find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+-- 
+2.50.1
+
