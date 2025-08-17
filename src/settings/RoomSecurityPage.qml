@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -9,31 +11,29 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
-import Quotient
-
 import org.kde.neochat
+
+import Quotient
 
 FormCard.FormCardPage {
     id: root
 
     property NeoChatRoom room
-    property string needUpgradeRoom: i18n("You need to upgrade this room to a newer version to enable this setting.")
+    property string needUpgradeRoom: i18nc("@info", "You need to upgrade this room to a newer version to enable this setting.")
 
-    title: i18n("Security")
+    title: i18nc("@title", "Security")
 
     FormCard.FormHeader {
         title: i18nc("@option:check", "Encryption")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
-            visible: room.usesEncryption
+            visible: root.room.usesEncryption
 
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
                     source: "lock"
-                    width: Kirigami.Units.iconSizes.sizeForLabels
-                    height: Kirigami.Units.iconSizes.sizeForLabels
                 }
                 QQC2.Label {
                     text: i18nc("@info", "This room uses encryption.")
@@ -49,15 +49,12 @@ FormCard.FormCardPage {
             icon.name: "lock-symbolic"
             text: i18nc("@action:button Enable encryption in this room", "Enable Encryption…")
             description: i18nc("@info:description", "Once enabled, encryption cannot be disabled.")
-            enabled: room.canEncryptRoom
-            visible: !room.usesEncryption
+            enabled: root.room.canEncryptRoom
+            visible: !root.room.usesEncryption
 
-            onClicked: {
-                let dialog = confirmEncryptionDialog.createObject(QQC2.Overlay.overlay, {
-                    room: room
-                });
-                dialog.open();
-            }
+            onClicked: (confirmEncryptionDialog.createObject(QQC2.Overlay.overlay, {
+                room: root.room
+            }) as ConfirmEncryptionDialog).open()
         }
     }
 
@@ -67,28 +64,28 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Private (invite only)")
-            description: i18n("Only invited people can join.")
-            checked: room.joinRule === JoinRule.Invite
-            enabled: room.canSendState("m.room.join_rules")
-            onCheckedChanged: if (checked && room.joinRule != JoinRule.Invite) {
+            description: i18nc("@info", "Only invited people can join.")
+            checked: root.room.joinRule === JoinRule.Invite
+            enabled: root.room.canSendState("m.room.join_rules")
+            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Invite) {
                 root.room.joinRule = JoinRule.Invite;
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Space members")
-            description: i18n("Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
-            checked: room.joinRule === JoinRule.Restricted
-            enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10", "11", "12"].includes(room.version)
-            onCheckedChanged: if (checked && room.joinRule != JoinRule.Restricted) {
-                selectSpacesDialog.createObject(QQC2.Overlay.overlay).open();
+            description: i18nc("@info", "Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
+            checked: root.room.joinRule === JoinRule.Restricted
+            enabled: root.room.canSendState("m.room.join_rules") && ["8", "9", "10", "11", "12"].includes(root.room.version)
+            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Restricted) {
+                (selectSpacesDialog.createObject(QQC2.Overlay.overlay) as SelectSpacesDialog).open();
             }
 
             contentItem.children: QQC2.Button {
                 visible: root.room.joinRule === JoinRule.Restricted
-                text: i18n("Select spaces")
+                text: i18nc("@action:button", "Select spaces")
                 icon.name: "list-add"
 
-                onClicked: selectSpacesDialog.createObject(QQC2.Overlay.overlay).open()
+                onClicked: (selectSpacesDialog.createObject(QQC2.Overlay.overlay) as SelectSpacesDialog).open()
 
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -104,19 +101,19 @@ FormCard.FormCardPage {
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Knock")
-            description: i18n("People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
-            checked: room.joinRule === JoinRule.Knock
+            description: i18nc("@info", "People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
+            checked: root.room.joinRule === JoinRule.Knock
             // https://spec.matrix.org/v1.4/rooms/#feature-matrix
-            enabled: room.canSendState("m.room.join_rules") && ["7", "8", "9", "10", "11", "12"].includes(room.version)
-            onCheckedChanged: if (checked && room.joinRule != JoinRule.Knock) {
+            enabled: root.room.canSendState("m.room.join_rules") && ["7", "8", "9", "10", "11", "12"].includes(root.room.version)
+            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Knock) {
                 root.room.joinRule = JoinRule.Knock;
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Public")
             description: i18nc("@option:check", "Anyone can find and join.")
-            checked: room.joinRule === JoinRule.Public
-            enabled: room.canSendState("m.room.join_rules")
+            checked: root.room.joinRule === JoinRule.Public
+            enabled: root.room.canSendState("m.room.join_rules")
             onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Public) {
                 root.room.joinRule = JoinRule.Public;
             }
@@ -130,37 +127,37 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Anyone")
             description: i18nc("@option:check", "Anyone, regardless of whether they have joined, can view history.")
-            checked: room.historyVisibility === "world_readable"
-            enabled: room.canSendState("m.room.history_visibility")
+            checked: root.room.historyVisibility === "world_readable"
+            enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
-                room.historyVisibility = "world_readable";
+                root.room.historyVisibility = "world_readable";
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Members only")
             description: i18nc("@option:check", "All members can view the entire message history, even before they joined.")
-            checked: room.historyVisibility === "shared"
-            enabled: room.canSendState("m.room.history_visibility")
+            checked: root.room.historyVisibility === "shared"
+            enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
-                room.historyVisibility = "shared";
+                root.room.historyVisibility = "shared";
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Members only (since invite)")
             description: i18nc("@option:check", "New members can view the message history from the point they were invited to the room.")
-            checked: room.historyVisibility === "invited"
-            enabled: room.canSendState("m.room.history_visibility")
+            checked: root.room.historyVisibility === "invited"
+            enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
-                room.historyVisibility = "invited";
+                root.room.historyVisibility = "invited";
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Members only (since joining)")
             description: i18nc("@option:check", "New members can view the message history from the point they joined the room.")
-            checked: room.historyVisibility === "joined"
-            enabled: room.canSendState("m.room.history_visibility")
+            checked: root.room.historyVisibility === "joined"
+            enabled: root.room.canSendState("m.room.history_visibility")
             onCheckedChanged: if (checked) {
-                room.historyVisibility = "joined";
+                root.room.historyVisibility = "joined";
             }
         }
     }
@@ -179,9 +176,9 @@ FormCard.FormCardPage {
     }
 
     property Connections connections: Connections {
-        target: room
-        onEncryption: {
-            enableEncryptionSwitch.checked = room.usesEncryption;
+        target: root.room
+        function onEncryption() {
+            enableEncryptionSwitch.checked = root.room.usesEncryption;
         }
     }
 }
