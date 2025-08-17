@@ -62,6 +62,10 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         models/pushrulemodel.cpp
         models/roomsortparametermodel.cpp
         models/threepidmodel.cpp
+    DEPENDENCIES
+        QtCore
+        io.github.quotient_im.libquotient
+        org.kde.neochat.libneochat
 )
 
 

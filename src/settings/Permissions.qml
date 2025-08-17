@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2022 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -29,7 +31,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Privileged Users")
+        title: i18nc("@title", "Privileged Users")
         visible: permissions.count > 0
     }
     FormCard.FormCard {
@@ -60,7 +62,7 @@ FormCard.FormCardPage {
                     QQC2.Label {
                         id: powerLevelLabel
                         text: privilegedUserDelegate.powerLevelString
-                        visible: !room.canSendState("m.room.power_levels") || (room.memberEffectivePowerLevel(room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != room.localMember.id)
+                        visible: !root.room.canSendState("m.room.power_levels") || (root.room.memberEffectivePowerLevel(root.room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != root.room.localMember.id)
                         color: Kirigami.Theme.disabledTextColor
                     }
                     QQC2.ComboBox {
@@ -78,7 +80,7 @@ FormCard.FormCardPage {
                             }
                         }
                         onActivated: {
-                            room.setUserPowerLevel(userId, currentValue);
+                            root.room.setUserPowerLevel(privilegedUserDelegate.userId, currentValue);
                         }
                     }
                 }
@@ -89,7 +91,7 @@ FormCard.FormCardPage {
         }
         FormCard.AbstractFormDelegate {
             id: userListSearchCard
-            visible: room.canSendState("m.room.power_levels")
+            visible: root.room.canSendState("m.room.power_levels")
 
             contentItem: Kirigami.SearchField {
                 id: userListSearchField
@@ -101,10 +103,7 @@ FormCard.FormCardPage {
                 Keys.onUpPressed: userListView.decrementCurrentIndex()
                 Keys.onDownPressed: userListView.incrementCurrentIndex()
 
-                onAccepted: {
-                    let currentUser = userListView.itemAtIndex(userListView.currentIndex);
-                    currentUser.action.trigger();
-                }
+                onAccepted: (userListView.itemAtIndex(userListView.currentIndex) as Delegates.RoundedItemDelegate).action.trigger()
             }
             QQC2.Popup {
                 id: userListSearchPopup
@@ -207,19 +206,16 @@ FormCard.FormCardPage {
 
                             onClicked: {
                                 userListSearchPopup.close();
-                                let dialog = powerLevelDialog.createObject(root.QQC2.Overlay.overlay, {
+                                (powerLevelDialog.createObject(root.QQC2.Overlay.overlay, {
                                     room: root.room,
                                     userId: userListItem.userId,
                                     powerLevel: userListItem.powerLevel
-                                });
-                                dialog.open();
+                                }) as PowerLevelDialog).open();
                             }
 
                             Component {
                                 id: powerLevelDialog
-                                PowerLevelDialog {
-                                    id: powerLevelDialog
-                                }
+                                PowerLevelDialog {}
                             }
                         }
                     }
@@ -229,11 +225,11 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        visible: room.canSendState("m.room.power_levels")
-        title: i18n("Default permissions")
+        visible: root.room.canSendState("m.room.power_levels")
+        title: i18nc("@title", "Default permissions")
     }
     FormCard.FormCard {
-        visible: room.canSendState("m.room.power_levels")
+        visible: root.room.canSendState("m.room.power_levels")
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.permissionsModel
@@ -269,11 +265,11 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        visible: room.canSendState("m.room.power_levels")
-        title: i18n("Basic permissions")
+        visible: root.room.canSendState("m.room.power_levels")
+        title: i18nc("@title", "Basic permissions")
     }
     FormCard.FormCard {
-        visible: room.canSendState("m.room.power_levels")
+        visible: root.room.canSendState("m.room.power_levels")
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.permissionsModel
@@ -309,11 +305,11 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        visible: room.canSendState("m.room.power_levels")
-        title: i18n("Event permissions")
+        visible: root.room.canSendState("m.room.power_levels")
+        title: i18nc("@title", "Event permissions")
     }
     FormCard.FormCard {
-        visible: room.canSendState("m.room.power_levels")
+        visible: root.room.canSendState("m.room.power_levels")
         Repeater {
             model: KSortFilterProxyModel {
                 sourceModel: root.permissionsModel
@@ -343,7 +339,7 @@ FormCard.FormCardPage {
                         currentIndex = index;
                     }
                 }
-                onCurrentValueChanged: if (room.canSendState("m.room.power_levels")) {
+                onCurrentValueChanged: if (root.room.canSendState("m.room.power_levels")) {
                     root.permissionsModel.setPowerLevel(type, currentValue);
                 }
             }
@@ -357,7 +353,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18n("Event Type…")
+                    placeholderText: i18nc("@placeholder", "Event Type…")
                     enabled: NotificationsManager.keywordNotificationAction !== PushRuleAction.Unknown
 
                     rightActions: Kirigami.Action {
@@ -383,7 +379,7 @@ FormCard.FormCardPage {
                 QQC2.Button {
                     id: addButton
 
-                    text: i18n("Add keyword")
+                    text: i18nc("@action:button", "Add keyword")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
