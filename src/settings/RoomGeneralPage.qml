@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -19,26 +21,26 @@ FormCard.FormCardPage {
     property NeoChatRoom room
     required property NeoChatConnection connection
 
-    title: i18n("General")
+    title: i18nc("@title", "General")
 
     KirigamiComponents.Avatar {
         id: avatar
         Layout.alignment: Qt.AlignHCenter
         Layout.topMargin: Kirigami.Units.gridUnit
-        name: room.name
-        source: room.avatarMediaUrl
+        name: root.room.name
+        source: root.room.avatarMediaUrl
         implicitWidth: Kirigami.Units.iconSizes.enormous
         implicitHeight: Kirigami.Units.iconSizes.enormous
 
         QQC2.Button {
-            enabled: room.canSendState("m.room.avatar")
+            enabled: root.room.canSendState("m.room.avatar")
             visible: enabled
             icon.name: "cloud-upload"
-            text: i18n("Update avatar")
+            text: i18nc("@action:button", "Update avatar")
             display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
-                const fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
+                const fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay) as OpenFileDialog;
                 fileDialog.chosen.connect(function (path) {
                     if (!path)
                         return;
@@ -64,8 +66,8 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: roomNameField
             label: i18nc("@label:textbox Room name", "Name:")
-            text: room.name
-            readOnly: !room.canSendState("m.room.name")
+            text: root.room.name
+            readOnly: !root.room.canSendState("m.room.name")
         }
 
         FormCard.FormDelegateSeparator {}
@@ -73,8 +75,8 @@ FormCard.FormCardPage {
         FormCard.FormTextAreaDelegate {
             id: roomTopicField
             label: i18nc("@label:textobx Room topic", "Topic:")
-            text: room.topic
-            readOnly: !room.canSendState("m.room.topic")
+            text: root.room.topic
+            readOnly: !root.room.canSendState("m.room.topic")
             onTextChanged: roomTopicField.text = text
         }
 
@@ -84,72 +86,70 @@ FormCard.FormCardPage {
 
         FormCard.FormButtonDelegate {
             visible: !roomNameField.readOnly || !roomTopicField.readOnly
-            text: i18n("Save")
+            text: i18nc("@action:button", "Save")
             icon.name: "document-save-symbolic"
             onClicked: {
-                if (room.name != roomNameField.text) {
-                    room.setName(roomNameField.text);
+                if (root.room.name != roomNameField.text) {
+                    root.room.setName(roomNameField.text);
                 }
-                if (room.topic != roomTopicField.text) {
-                    room.setTopic(roomTopicField.text);
+                if (root.room.topic != roomTopicField.text) {
+                    root.room.setTopic(roomTopicField.text);
                 }
             }
         }
     }
 
     FormCard.FormHeader {
-        title: i18n("Aliases")
+        title: i18nc("@title", "Aliases")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            visible: room.aliases.length <= 0
-            text: i18n("No canonical alias set")
+            visible: root.room.aliases.length <= 0
+            text: i18nc("@info", "No canonical alias set")
         }
         Repeater {
             id: altAliasRepeater
-            model: room.aliases.slice().reverse()
+            model: root.room.aliases.slice().reverse()
 
             delegate: FormCard.FormTextDelegate {
+                id: altAliasDelegate
+                required property string modelData
                 text: modelData
-                description: room.canonicalAlias.length > 0 && modelData === room.canonicalAlias ? "Canonical alias" : ""
+                description: root.room.canonicalAlias.length > 0 && modelData === root.room.canonicalAlias ? "Canonical alias" : ""
                 textItem.textFormat: Text.PlainText
 
                 contentItem.children: [
                     QQC2.ToolButton {
                         id: setCanonicalAliasButton
-                        visible: modelData !== room.canonicalAlias && room.canSendState("m.room.canonical_alias")
-                        text: i18n("Make this alias the room's canonical alias")
+                        visible: altAliasDelegate.modelData !== root.room.canonicalAlias && root.room.canSendState("m.room.canonical_alias")
+                        text: i18nc("@action:button", "Make this alias the room's canonical alias")
                         icon.name: "checkmark"
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: {
-                            room.setCanonicalAlias(modelData);
-                        }
-                        QQC2.ToolTip {
-                            text: setCanonicalAliasButton.text
-                            delay: Kirigami.Units.toolTipDelay
-                        }
+                        onClicked: root.room.setCanonicalAlias(altAliasDelegate.modelData)
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
                     },
                     QQC2.ToolButton {
                         id: deleteButton
-                        visible: room.canSendState("m.room.canonical_alias")
-                        text: i18n("Delete alias")
+                        visible: root.room.canSendState("m.room.canonical_alias")
+                        text: i18nc("@action:button", "Delete alias")
                         icon.name: "edit-delete-remove"
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: {
-                            room.unmapAlias(modelData);
-                        }
-                        QQC2.ToolTip {
-                            text: deleteButton.text
-                            delay: Kirigami.Units.toolTipDelay
-                        }
+                        onClicked: root.room.unmapAlias(altAliasDelegate.modelData)
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
                     }
                 ]
             }
         }
         FormCard.AbstractFormDelegate {
-            visible: room.canSendState("m.room.canonical_alias")
+            visible: root.room.canSendState("m.room.canonical_alias")
 
             contentItem: RowLayout {
                 Kirigami.ActionTextField {
@@ -157,7 +157,7 @@ FormCard.FormCardPage {
 
                     Layout.fillWidth: true
 
-                    placeholderText: i18n("#new_alias:server.org")
+                    placeholderText: i18nc("The new alias (room address) to be added to a room", "#new_alias:server.org")
 
                     rightActions: Kirigami.Action {
                         icon.name: "edit-clear"
@@ -168,51 +168,48 @@ FormCard.FormCardPage {
                     }
 
                     onAccepted: {
-                        room.mapAlias(aliasAddField.text);
+                        root.room.mapAlias(aliasAddField.text);
                     }
                 }
                 QQC2.Button {
                     id: addButton
 
-                    text: i18n("Add new alias")
+                    text: i18nc("@action:button", "Add new alias")
                     Accessible.name: text
                     icon.name: "list-add"
                     display: QQC2.AbstractButton.IconOnly
                     enabled: aliasAddField.text.length > 0
 
-                    onClicked: {
-                        room.mapAlias(aliasAddField.text);
-                    }
+                    onClicked: root.room.mapAlias(aliasAddField.text)
 
-                    QQC2.ToolTip {
-                        text: addButton.text
-                        delay: Kirigami.Units.toolTipDelay
-                    }
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
             }
         }
     }
 
     FormCard.FormHeader {
-        title: i18n("URL Previews")
+        title: i18nc("@title", "URL Previews")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
-            text: i18n("Enable URL previews by default for room members")
-            checked: room.defaultUrlPreviewState
-            visible: room.canSendState("org.matrix.room.preview_urls")
+            text: i18nc("@label:checkbox", "Enable URL previews by default for room members")
+            checked: root.room.defaultUrlPreviewState
+            visible: root.room.canSendState("org.matrix.room.preview_urls")
             onToggled: {
-                room.defaultUrlPreviewState = checked;
+                root.room.defaultUrlPreviewState = checked;
             }
         }
         FormCard.FormCheckDelegate {
             enabled: NeoChatConfig.showLinkPreview
-            text: i18n("Enable URL previews")
+            text: i18nc("@label:checkbox", "Enable URL previews")
             // Most users won't see the above setting so tell them the default.
-            description: room.defaultUrlPreviewState ? i18n("URL previews are enabled by default in this room") : i18n("URL previews are disabled by default in this room")
-            checked: room.urlPreviewEnabled
+            description: root.room.defaultUrlPreviewState ? i18nc("@info", "URL previews are enabled by default in this room") : i18nc("@info", "URL previews are disabled by default in this room")
+            checked: root.room.urlPreviewEnabled
             onToggled: {
-                room.urlPreviewEnabled = checked;
+                root.room.urlPreviewEnabled = checked;
             }
         }
     }
@@ -225,7 +222,7 @@ FormCard.FormCardPage {
         type: Kirigami.MessageType.Information
         visible: !NeoChatConfig.showLinkPreview
         actions: Kirigami.Action {
-            text: i18n("Enable")
+            text: i18nc("@action:button", "Enable")
             onTriggered: {
                 NeoChatConfig.showLinkPreview = true;
                 NeoChatConfig.save();
@@ -233,7 +230,7 @@ FormCard.FormCardPage {
         }
     }
     FormCard.FormHeader {
-        title: i18n("Official Parent Spaces")
+        title: i18nc("@title", "Official Parent Spaces")
     }
     FormCard.FormCard {
         Repeater {
@@ -243,7 +240,7 @@ FormCard.FormCardPage {
             delegate: FormCard.FormTextDelegate {
                 id: officalParentDelegate
                 required property string modelData
-                property NeoChatRoom space: root.connection.room(modelData)
+                property NeoChatRoom space: root.connection.room(modelData) as NeoChatRoom
                 text: {
                     if (space) {
                         return space.displayName;
@@ -266,7 +263,7 @@ FormCard.FormCardPage {
                 contentItem.children: RowLayout {
                     QQC2.Label {
                         visible: root.room.canonicalParent === officalParentDelegate.modelData
-                        text: i18n("Canonical")
+                        text: i18nc("@action:button", "Canonical")
                     }
                     QQC2.ToolButton {
                         visible: root.room.canSendState("m.space.parent") && root.room.canonicalParent !== officalParentDelegate.modelData
@@ -282,7 +279,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         visible: officalParentDelegate?.space.canSendState("m.space.child") && root.room.canSendState("m.space.parent")
                         display: QQC2.AbstractButton.IconOnly
-                        text: i18n("Remove parent")
+                        text: i18nc("@action:button", "Remove parent")
                         icon.name: "edit-delete-remove"
                         onClicked: root.room.removeParent(officalParentDelegate.modelData)
 
@@ -295,12 +292,12 @@ FormCard.FormCardPage {
         }
         FormCard.FormTextDelegate {
             visible: officalParentRepeater.count <= 0
-            text: i18n("This room has no official parent spaces.")
+            text: i18nc("@info", "This room has no official parent spaces.")
         }
         FormCard.FormButtonDelegate {
             visible: root.room.canSendState("m.space.parent")
             text: i18nc("@action:button", "Add new official parent")
-            onClicked: selectParentDialog.createObject(QQC2.Overlay.overlay).open()
+            onClicked: (selectParentDialog.createObject(QQC2.Overlay.overlay) as SelectParentDialog).open()
 
             Component {
                 id: selectParentDialog
@@ -316,13 +313,13 @@ FormCard.FormCardPage {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18n("This room continues another conversation.")
+        text: i18nc("@info", "This room continues another conversation.")
         type: Kirigami.MessageType.Information
-        visible: room.predecessorId
+        visible: root.room.predecessorId
         actions: Kirigami.Action {
-            text: i18n("See older messages…")
+            text: i18nc("@action:button", "See older messages…")
             onTriggered: {
-                RoomManager.resolveResource(room.predecessorId);
+                RoomManager.resolveResource(root.room.predecessorId);
                 root.close();
             }
         }
@@ -332,13 +329,13 @@ FormCard.FormCardPage {
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
         Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18n("This room has been replaced.")
+        text: i18nc("@info", "This room has been replaced.")
         type: Kirigami.MessageType.Information
-        visible: room.successorId
+        visible: root.room.successorId
         actions: Kirigami.Action {
-            text: i18n("See new room…")
+            text: i18nc("@action:button", "See new room…")
             onTriggered: {
-                RoomManager.resolveResource(room.successorId);
+                RoomManager.resolveResource(root.room.successorId);
                 root.close();
             }
         }
