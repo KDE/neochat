@@ -51,6 +51,22 @@ Kirigami.Page {
             }
         },
         State {
+            name: "waitingForKey"
+            when: root.session.state === KeyVerificationSession.WAITINGFORKEY
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
+        },
+        State {
+            name: "waitingForAccept"
+            when: root.session.state === KeyVerificationSession.WAITINGFORACCEPT
+            PropertyChanges {
+                target: stateLoader
+                sourceComponent: message
+            }
+        },
+        State {
             name: "waitingForMac"
             when: root.session.state === KeyVerificationSession.WAITINGFORMAC
             PropertyChanges {
@@ -127,7 +143,9 @@ Kirigami.Page {
                 case KeyVerificationSession.WAITINGFORREADY:
                 case KeyVerificationSession.INCOMING:
                 case KeyVerificationSession.WAITINGFORMAC:
-                    return "security-medium-symbolic";
+                case KeyVerificationSession.WAITINGFORKEY:
+                case KeyVerificationSession.WAITINGFORACCEPT:
+                        return "security-medium-symbolic";
                 case KeyVerificationSession.DONE:
                     return "security-high";
                 default:
@@ -141,9 +159,13 @@ Kirigami.Page {
                 case KeyVerificationSession.INCOMING:
                     return i18n("Incoming key verification request from device **%1**", root.session.remoteDeviceId);
                 case KeyVerificationSession.WAITINGFORMAC:
+                    return i18n("Waiting for other party to send us keys.");
+                case KeyVerificationSession.WAITINGFORKEY:
+                    return i18n("Waiting for other party to confirm our keys.");
+                case KeyVerificationSession.WAITINGFORACCEPT:
                     return i18n("Waiting for other party to verify.");
                 case KeyVerificationSession.DONE:
-                    return i18n("Successfully verified device **%1**", root.session.remoteDeviceId)
+                    return i18n("Successfully verified device **%1**", root.session.remoteDeviceId);
                 default:
                     return "";
                 }
