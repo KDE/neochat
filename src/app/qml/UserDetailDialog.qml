@@ -126,14 +126,32 @@ Kirigami.Dialog {
             }
         }
 
-        Kirigami.Chip {
-            visible: root.room
-            text: root.room ? QmlUtils.nameForPowerLevelValue(root.room.memberEffectivePowerLevel(root.user.id)) : ""
-            closable: false
-            checkable: false
-
+        Flow {
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+            Kirigami.Chip {
+                visible: root.room
+                text: root.room ? QmlUtils.nameForPowerLevelValue(root.room.memberEffectivePowerLevel(root.user.id)) : ""
+                closable: false
+                checkable: false
+
+            }
+
+            Kirigami.Chip {
+                id: onlineChip
+                visible: root.room && root.connection.isUserPresent(root.user.id)
+                text: i18nc("@info", "Online")
+                closable: false
+                checkable: false
+
+                Connections {
+                    target: root.connection
+                    function onPresenceChanged() {
+                        onlineChip.visible = root.room && root.connection.isUserPresent(root.user.id)
+                    }
+                }
+            }
         }
 
         Kirigami.Separator {
