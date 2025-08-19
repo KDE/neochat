@@ -77,6 +77,8 @@ QQC2.Control {
             visible: root.linkPreviewer.imageSource.toString().length > 0
             source: root.linkPreviewer.imageSource
             fillMode: Image.PreserveAspectFit
+            sourceSize.width: width * Screen.devicePixelRatio
+            sourceSize.height: height * Screen.devicePixelRatio
         }
         ColumnLayout {
             id: column
