@@ -17,6 +17,11 @@ TextEdit {
     id: root
 
     /**
+     * @brief The index of the delegate in the model.
+     */
+    required property int index
+
+    /**
      * @brief The matrix ID of the message event.
      */
     required property string eventId
@@ -36,89 +41,27 @@ TextEdit {
     required property string display
 
     /**
+     * @brief The attributes of the component.
+     */
+    required property var componentAttributes
+
+    /**
+     * @brief Whether the message contains a spoiler
+     */
+    readonly property var hasSpoiler: root.componentAttributes?.hasSpoiler ?? false
+
+    /**
      * @brief Whether this message is replying to another.
      */
     property bool isReply: false
-
-    /**
-     * @brief Regex for detecting a message with a spoiler.
-     */
-    readonly property var hasSpoiler: /data-mx-spoiler/g
-
-    /**
-     * @brief Whether a spoiler should be revealed.
-     */
-    property bool spoilerRevealed: !hasSpoiler.test(display)
-
-    /**
-     * @brief The color of spoiler blocks, to be theme-agnostic.
-     */
-    property color spoilerBlockColor: Kirigami.ColorUtils.tintWithAlpha("#232629", Kirigami.Theme.textColor, 0.15)
 
     Layout.fillWidth: true
     Layout.fillHeight: true
     Layout.maximumWidth: Message.maxContentWidth
 
-    ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
-
     persistentSelection: true
 
-    text: "<style>
-table {
-    width:100%;
-    border-width: 1px;
-    border-collapse: collapse;
-    border-style: solid;
-}
-code {
-    background-color:" + Kirigami.Theme.alternateBackgroundColor + ";
-}
-table th,
-table td {
-    border: 1px solid black;
-    padding: 3px;
-}
-blockquote {
-    margin: 0;
-}
-blockquote table {
-    width: 100%;
-    border-width: 0;
-    background-color:" + Kirigami.Theme.alternateBackgroundColor + ";
-}
-blockquote td {
-    width: 100%;
-    padding: " + Kirigami.Units.largeSpacing + ";
-}
-pre {
-    white-space: pre-wrap
-}
-a{
-    color: " + Kirigami.Theme.linkColor + ";
-    text-decoration: none;
-}
-[data-mx-spoiler] a {
-    background: " + root.spoilerBlockColor + ";
-}
-[data-mx-spoiler] {
-    background: " + root.spoilerBlockColor + ";
-}
-" + (!spoilerRevealed ? "
-[data-mx-spoiler] a {
-    color: transparent;
-}
-[data-mx-spoiler] {
-    color: transparent;
-}
-" : "
-[data-mx-spoiler] a {
-    color: white;
-}
-[data-mx-spoiler] {
-    color: white;
-}
-") + "
-</style>" + display
+    text: display
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
@@ -133,7 +76,6 @@ a{
     textFormat: Text.RichText
 
     onLinkActivated: link => {
-        spoilerRevealed = true;
         RoomManager.resolveResource(link, "join");
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
@@ -143,11 +85,11 @@ a{
     }
 
     HoverHandler {
-        cursorShape: (root.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
+        cursorShape: root.hoveredLink || (!(root.componentAttributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
     TapHandler {
-        enabled: !root.hoveredLink && !spoilerRevealed
-        onTapped: spoilerRevealed = true
+        enabled: !root.hoveredLink && root.hasSpoiler
+        onTapped: root.Message.contentModel.toggleSpoiler(root.Message.contentFilterModel.mapToSource(root.Message.contentFilterModel.index(root.index, 0)))
     }
     TapHandler {
         enabled: !root.hoveredLink

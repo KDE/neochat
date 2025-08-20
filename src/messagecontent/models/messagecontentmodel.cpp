@@ -9,6 +9,7 @@
 #include "contentprovider.h"
 #include "enums/messagecomponenttype.h"
 #include "neochatconnection.h"
+#include "texthandler.h"
 
 using namespace Quotient;
 
@@ -17,6 +18,11 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, MessageContentModel 
     , m_room(room)
     , m_eventId(eventId)
 {
+    m_theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    if (m_theme) {
+        connect(m_theme, &Kirigami::Platform::PlatformTheme::colorsChanged, this, &MessageContentModel::updateSpoilers);
+    }
+
     initializeModel();
 }
 
@@ -275,6 +281,42 @@ void MessageContentModel::closeLinkPreview(int row)
         m_components.squeeze();
         endRemoveRows();
     }
+}
+
+void MessageContentModel::updateSpoilers()
+{
+    for (auto it = m_components.begin(); it != m_components.end(); ++it) {
+        updateSpoiler(index(it - m_components.begin()));
+    }
+}
+
+void MessageContentModel::updateSpoiler(const QModelIndex &index)
+{
+    const auto row = index.row();
+    if (row < 0 || row >= rowCount()) {
+        qWarning() << __FUNCTION__ << "called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        return;
+    }
+
+    const auto spoilerRevealed = m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();
+    m_components[row].display = TextHandler::updateSpoilerText(this, m_components[row].display, spoilerRevealed);
+    Q_EMIT dataChanged(index, index, {DisplayRole});
+}
+
+void MessageContentModel::toggleSpoiler(QModelIndex index)
+{
+    const auto row = index.row();
+    if (row < 0 || row >= rowCount()) {
+        qWarning() << __FUNCTION__ << "called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        return;
+    }
+    if (m_components[row].type != MessageComponentType::Text) {
+        return;
+    }
+    const auto spoilerRevealed = !m_components[row].attributes.value("spoilerRevealed"_L1, false).toBool();
+    m_components[row].attributes["spoilerRevealed"_L1] = spoilerRevealed;
+    Q_EMIT dataChanged(index, index, {ComponentAttributesRole});
+    updateSpoiler(index);
 }
 
 #include "moc_messagecontentmodel.cpp"

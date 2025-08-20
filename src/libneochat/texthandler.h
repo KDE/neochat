@@ -75,7 +75,8 @@ public:
                                   const NeoChatRoom *room = nullptr,
                                   const Quotient::RoomEvent *event = nullptr,
                                   bool stripNewlines = false,
-                                  bool isEdited = false);
+                                  bool isEdited = false,
+                                  bool spoilerRevealed = false);
 
     /**
      * @brief Handle the text as a plain output for a message being received.
@@ -104,7 +105,13 @@ public:
                                            Qt::TextFormat inputFormat = Qt::RichText,
                                            const NeoChatRoom *room = nullptr,
                                            const Quotient::RoomEvent *event = nullptr,
-                                           bool isEdited = false);
+                                           bool isEdited = false,
+                                           bool spoilerRevealed = false);
+
+    /**
+     * @brief Modify the style parameters of the spoilers to reveal or hide the text.
+     */
+    static QString updateSpoilerText(QObject *object, QString string, bool spoilerRevealed);
 
 private:
     QString m_data;
@@ -123,7 +130,8 @@ private:
                                Qt::TextFormat inputFormat = Qt::RichText,
                                const NeoChatRoom *room = nullptr,
                                const Quotient::RoomEvent *event = nullptr,
-                               bool isEdited = false);
+                               bool isEdited = false,
+                               bool spoilerRevealed = false);
     QString stripBlockTags(QString string, const QString &tagType) const;
 
     QString getTagType(const QString &tagToken) const;
@@ -133,7 +141,8 @@ private:
     bool isAllowedTag(const QString &type);
     bool isAllowedAttribute(const QString &tag, const QString &attribute);
     bool isAllowedLink(const QString &link, bool isImg = false);
-    QString cleanAttributes(const QString &tag, const QString &tagString);
+    QString cleanAttributes(const QString &tag, const QString &tagString, bool addStyle = false, bool spoilerRevealed = false);
+    QString addStyle(const QString &tag, QString cleanTagString, bool spoilerRevealed = false);
     QVariantMap getAttributes(const QString &tag, const QString &tagString);
 
     QString markdownToHTML(const QString &markdown);
