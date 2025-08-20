@@ -82,8 +82,8 @@ QString SortFilterRoomTreeModel::filterText() const
 bool SortFilterRoomTreeModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     if (!source_parent.isValid()) {
-        if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect
-            && m_mode == DirectChats) {
+        if (sourceModel()->data(sourceModel()->index(source_row, 0), RoomTreeModel::CategoryRole).toInt() == NeoChatRoomType::AddDirect && m_mode == DirectChats
+            && sourceModel()->rowCount(sourceModel()->index(NeoChatRoomType::Direct, 0)) > 0) {
             return true;
         }
         return false;
