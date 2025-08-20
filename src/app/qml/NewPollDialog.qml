@@ -116,7 +116,7 @@ Kirigami.Dialog {
                                 optionModel.set(optionDelegate.index, {optionText: text})
                                 optionModel.allValuesSetChanged()
                             }
-                            placeholderText: i18n("Enter option")
+                            placeholderText: i18nc("@placeholder", "Enter option")
                         }
                         QQC2.ToolButton {
                             display: QQC2.AbstractButton.IconOnly
