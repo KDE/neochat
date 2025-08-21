@@ -37,6 +37,7 @@ class MessageContentModel : public QAbstractListModel
     QML_UNCREATABLE("")
 
     Q_PROPERTY(NeochatRoomMember *author READ author NOTIFY authorChanged)
+    Q_PROPERTY(QString eventId READ eventId CONSTANT)
 
 public:
     /**
