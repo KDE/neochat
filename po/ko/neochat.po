@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2025-07-21 01:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -672,43 +672,55 @@ msgstr "대화방 입장"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "거절"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "장치에서 확인을 수락하기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "**%1** 장치에서 들어오는 키 확인 요청을 받음"
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to send us keys."
+msgstr "다른 쪽에서 확인 작업을 완료하기를 기다리고 있습니다."
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to confirm our keys."
+msgstr "다른 쪽에서 확인 작업을 완료하기를 기다리고 있습니다."
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "다른 쪽에서 확인 작업을 완료하기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** 장치를 성공적으로 확인함"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "계속 진행하려면 확인 방법을 선택하십시오"
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -881,7 +893,9 @@ msgid "Option %1:"
 msgstr "옵션 %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter option"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "옵션 입력"
 
@@ -1014,28 +1028,34 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "무시"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "시작하려면 대화방을 선택하거나 입장하십시오"
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1372,7 +1392,7 @@ msgstr "친구 찾기"
 msgid "Enter a user ID"
 msgstr "사용자 ID 입력"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "친구"
@@ -1971,30 +1991,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "접근 토큰을 읽을 수 없음: %1"
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "초대 받음"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "책갈피"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "일반"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "낮은 우선 순위"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "스페이스"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "서버 기능"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3272,7 +3299,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "검색"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>이벤트에 내용이 없습니다.</i>"
@@ -3656,19 +3683,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "KDE 여행 정보로 전송"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "미리 보기 삭제"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "미리 보기 축소"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "미리 보기 확장"
@@ -3706,13 +3733,13 @@ msgstr ""
 "이 메시지를 찾지 못했거나, 메시지를 볼 수 있는 권한이 없거나, 무시한 사용자"
 "가 전송했습니다"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "파일을 다운로드할 수 없습니다."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4022,13 +4049,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "스페이스 만들기"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "채팅에 초대함"
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

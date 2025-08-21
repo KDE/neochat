@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2025-05-27 14:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -685,43 +685,55 @@ msgstr "Uni te a sala"
 msgid "Session Verification"
 msgstr "Veification de Session"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "Declina"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Attendente que le dispositivo accepta verification."
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Requesta de Verification de Clave in arrivata ex le dispositivo **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to send us keys."
+msgstr "Attendente altere parte a verificar."
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to confirm our keys."
+msgstr "Attendente altere parte a verificar."
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Attendente altere parte a verificar."
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Dispositivo **%1** verificato con successo"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Selige un methodo de  verification per continuar"
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -894,7 +906,9 @@ msgid "Option %1:"
 msgstr "Option %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter option"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Inserta option"
 
@@ -1027,28 +1041,34 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Benvenite a NeoChat"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Selige o Uni un sala per initiar"
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1390,7 +1410,7 @@ msgstr "Trova tu amicos"
 msgid "Enter a user ID"
 msgstr "Inserta  un ID de usator"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Amicos"
@@ -2026,30 +2046,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Incapace a leger indicio de accesso: %1"
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "Invitate"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "Favorito"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "Basse prioritate"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "Spatios"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "Capacitates de servitor"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3331,7 +3358,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Iste evento non ha alcun contento.</i>"
@@ -3719,19 +3746,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Invia a  KDE Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Remove vista preliminar"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "Comprime vista preliminar"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "Expande Vista Preliminar"
@@ -3769,14 +3796,14 @@ msgstr ""
 "Iste message o non esseva trovateo tu nonhabeva le permission per vider lo, "
 "o illo esseva inviate per un usator ignorate"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "File troppo grande a discargar."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
@@ -4096,13 +4123,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Crea un  spatio"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Invitava te in conversation"
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

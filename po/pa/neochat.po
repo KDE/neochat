@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -719,44 +719,54 @@ msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
 msgid "Session Verification"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, fuzzy, kde-format
 #| msgid "Timeline:"
 msgid "Decline"
 msgstr "ਸਮਾਂ-ਲਾਈਨ:"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, kde-format
+msgid "Waiting for other party to send us keys."
+msgstr ""
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, kde-format
+msgid "Waiting for other party to confirm our keys."
+msgstr ""
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@action:button"
@@ -944,6 +954,7 @@ msgstr "ਚੋਣਾਂ:"
 #: src/app/qml/NewPollDialog.qml:119
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
@@ -1080,28 +1091,34 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "ਅਣਡਿ਼ੱਠਾ"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "ਮੈਟਰਿਕਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1460,7 +1477,7 @@ msgstr ""
 msgid "Enter a user ID"
 msgstr "ਆਪਣਾ ਮੈਟਰਿਕਸ ID ਦਿਓ"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr ""
@@ -2082,30 +2099,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "ਸੱਦਿਆ"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "ਮਨਪਸੰਦ"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "ਸਧਾਰਨ"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "ਘੱਟ ਤਰਜੀਹ"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr ""
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, fuzzy, kde-format
@@ -3533,7 +3557,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr ""
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -3944,7 +3968,7 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr ""
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, fuzzy, kde-format
 #| msgid "Remove device"
@@ -3952,12 +3976,12 @@ msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr ""
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr ""
@@ -3997,13 +4021,13 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4352,14 +4376,14 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info:label"

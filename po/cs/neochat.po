@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2024-09-17 15:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -673,43 +673,53 @@ msgstr "Připojit se do místnosti"
 msgid "Session Verification"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "Přijmout"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "Odmítnout"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, kde-format
+msgid "Waiting for other party to send us keys."
+msgstr ""
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, kde-format
+msgid "Waiting for other party to confirm our keys."
+msgstr ""
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr ""
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -882,9 +892,12 @@ msgid "Option %1:"
 msgstr ""
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Encryption"
+msgctxt "@placeholder"
 msgid "Enter option"
-msgstr ""
+msgstr "Šifrování"
 
 #: src/app/qml/NewPollDialog.qml:123
 #, kde-format
@@ -1014,27 +1027,33 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Prosím, zkontrolujte internetové připojení."
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, fuzzy, kde-format
 #| msgid "About NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "O aplikaci NeoChat"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@title:dialog"
@@ -1379,7 +1398,7 @@ msgstr ""
 msgid "Enter a user ID"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Přátelé"
@@ -1968,30 +1987,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr ""
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "Pozváni"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "Oblíbené"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "Normální"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "Nízká priorita"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "Mezery"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "Možnosti serveru"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3280,7 +3306,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Hledat"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
@@ -3659,19 +3685,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Poslat do itineráře KDE"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Odstranit náhled"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "Zmenšit náhled"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "Roztáhnout náhled"
@@ -3709,13 +3735,13 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4037,13 +4063,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Vytvořit místnost"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr ""
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

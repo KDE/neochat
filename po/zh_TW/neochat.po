@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2025-08-08 02:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -670,43 +670,55 @@ msgstr "加入聊天室"
 msgid "Session Verification"
 msgstr "工作階段驗證"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "婉拒"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "正在等待裝置接收驗證。"
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to send us keys."
+msgstr "正在等待對方驗證。"
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to confirm our keys."
+msgstr "正在等待對方驗證。"
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "正在等待對方驗證。"
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "已成功驗證裝置 **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "選擇驗證方法來繼續"
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -879,7 +891,9 @@ msgid "Option %1:"
 msgstr "選項 %1："
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter option"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "輸入選項"
 
@@ -1012,19 +1026,25 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 目前為離線狀態。請檢查您的網路連線。"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "歡迎來到 NeoChat"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
@@ -1033,7 +1053,7 @@ msgstr "先加入或選擇聊天室吧"
 # sourceText: root.currentRoom.getEventJsonSource(eventId)
 # 應該確實是原始碼吧
 # --Kisaragi
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1368,7 +1388,7 @@ msgstr "尋找您的朋友"
 msgid "Enter a user ID"
 msgstr "輸入一個使用者 ID"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "好友"
@@ -1960,30 +1980,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "無法讀取存取權杖：%1"
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "已邀請"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "最愛"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "一般"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "低優先權"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "聊天空間"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "伺服器功能"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3255,7 +3282,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>這個活動沒有任何內容。</i>"
@@ -3634,19 +3661,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "傳送到 KDE 旅程計劃"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "移除預覽"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "收起預覽"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "展開預覽"
@@ -3683,13 +3710,13 @@ msgid ""
 msgstr ""
 "這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "下載檔案失敗。"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -3999,13 +4026,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "建立一個聊天空間"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "邀請您聊天"
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

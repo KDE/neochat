@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
 "PO-Revision-Date: 2025-06-18 18:48+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -679,43 +679,55 @@ msgstr "Pievienojas istabai"
 msgid "Session Verification"
 msgstr "Sesijas verifikācija"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "Pieņemt"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "Noraidīt"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Gaida ierīci verifikācijas pieņemšanai."
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Ienākošs atslēgas verifikācijas pieprasījums no ierīces **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to send us keys."
+msgstr "Gaida otras puses verifikāciju."
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to confirm our keys."
+msgstr "Gaida otras puses verifikāciju."
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Gaida otras puses verifikāciju."
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Veiksmīgi verificēt ierīce **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Lai turpinātu, izvēlieties verifikācijas metodi"
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -888,7 +900,9 @@ msgid "Option %1:"
 msgstr "Iespēja %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter option"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Norādiet opciju"
 
@@ -1021,28 +1035,34 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudīt tīkla savienojumu."
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Laipni lūgti „NeoChat“ programmā!"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Lai sāktu, atlasiet vai pievienojieties istabai"
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1383,7 +1403,7 @@ msgstr "Atrast draugus"
 msgid "Enter a user ID"
 msgstr "Ievadiet lietotāja ID"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Draugi"
@@ -1999,30 +2019,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "Neizdodas nolasīt piekļuves pilnvaru: %1"
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "Uzaicināts"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "Iecienīts"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "Normāls"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "Zemas prioritātes"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "Telpas"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "Servera spējas"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3304,7 +3331,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "Meklēt"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>Šim notikumam nav satura.</i>"
@@ -3685,19 +3712,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Sūtīt uz KDE „Itinerary“"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Noņemt priekšskatījumu"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "Samazināt priekšskatījumu"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "Palielināt priekšskatījumu"
@@ -3735,14 +3762,14 @@ msgstr ""
 "Ziņa nav atrasta, jums nav piešķirtas tiesības to redzēt vai to ir nosūtījis "
 "ignorēts lietotājs"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Datne ir par lielu lejupielādei."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
@@ -4067,13 +4094,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Izveidot telpu"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Jūs uzaicināja tērzēt"
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

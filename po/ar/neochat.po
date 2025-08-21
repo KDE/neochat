@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-16 00:43+0000\n"
-"PO-Revision-Date: 2025-08-17 22:16+0400\n"
+"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"PO-Revision-Date: 2025-08-20 21:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -665,43 +665,55 @@ msgstr "انضمّ لغرفة دردشة"
 msgid "Session Verification"
 msgstr "تَثَبّت الجلسة"
 
-#: src/app/qml/KeyVerificationDialog.qml:92
+#: src/app/qml/KeyVerificationDialog.qml:108
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
-#: src/app/qml/KeyVerificationDialog.qml:98
+#: src/app/qml/KeyVerificationDialog.qml:114
 #, kde-format
 msgid "Decline"
 msgstr "ارفض"
 
-#: src/app/qml/KeyVerificationDialog.qml:140
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "في انتظار قبول الجهاز للتَثَبّت"
 
-#: src/app/qml/KeyVerificationDialog.qml:142
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "هناك طلب تَثَبّت قادم من جهاز **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:144
+#: src/app/qml/KeyVerificationDialog.qml:162
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to send us keys."
+msgstr "في انتظار تَثَبّت الطرف الثاني."
+
+#: src/app/qml/KeyVerificationDialog.qml:164
+#, fuzzy, kde-format
+#| msgid "Waiting for other party to verify."
+msgid "Waiting for other party to confirm our keys."
+msgstr "في انتظار تَثَبّت الطرف الثاني."
+
+#: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "في انتظار تَثَبّت الطرف الثاني."
 
-#: src/app/qml/KeyVerificationDialog.qml:146
+#: src/app/qml/KeyVerificationDialog.qml:168
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "نجح في تَثَبّت من جهاز **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:183
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "اختر طريقة التحقق للمتابعة"
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:187
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -868,7 +880,9 @@ msgid "Option %1:"
 msgstr "الخيار %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter option"
+msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "أدخل خيارًا"
 
@@ -993,25 +1007,31 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: src/app/qml/RoomPage.qml:84
+#: src/app/qml/RoomPage.qml:79
+#, kde-format
+msgctxt "@info"
+msgid "This room contains official messages from your homeserver."
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "نيوتشات غير متصل: الرجاء التأكد من اتصالك بالشبكة"
 
-#: src/app/qml/RoomPage.qml:139
+#: src/app/qml/RoomPage.qml:145
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "أهلا في نيوتشات"
 
-#: src/app/qml/RoomPage.qml:140
+#: src/app/qml/RoomPage.qml:146
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "حدد أو انضم لغرفة لتبدأ"
 
-#: src/app/qml/RoomPage.qml:207
+#: src/app/qml/RoomPage.qml:213
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1058,7 +1078,7 @@ msgstr "لا يمكن التحقق من الخادم أو أنه مضاف فعل
 #: src/app/qml/ServerComboBox.qml:156
 #, kde-format
 msgid "Server URL:"
-msgstr "مسار الخادوم:"
+msgstr "مسار الخادم:"
 
 #: src/app/qml/ServerComboBox.qml:190
 #, kde-format
@@ -1318,7 +1338,7 @@ msgstr "أدع إلى دردشة خاصة"
 #: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgid "Copy link"
-msgstr "نسخ الرابط"
+msgstr "انسخ الرابط"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1343,7 +1363,7 @@ msgstr "اعثر على أصدقائك"
 msgid "Enter a user ID"
 msgstr "أدخل معرف المستخدم"
 
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:65
+#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "الأصدقاء"
@@ -1651,8 +1671,7 @@ msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
 "cache directory."
 msgstr ""
-"تعذر حفظ الملف. تحقق مما إذا كان لديك الإذن الصحيح لتحرير دليل ذاكرة التخزين "
-"المؤقت."
+"تعذر حفظ الملف. تحقق مما إذا كان لديك الإذن الصحيح لتحرير دليل الخبيئة."
 
 #: src/chatbar/ImageEditorPage.qml:123
 #, kde-format
@@ -1787,7 +1806,7 @@ msgstr "بيانات الغرفة"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
-msgstr "معلومات الخادوم"
+msgstr "معلومات الخادم"
 
 #: src/devtools/DevtoolsPage.qml:47
 #, kde-format
@@ -1887,7 +1906,7 @@ msgstr "معلومات الحدث"
 #: src/devtools/ServerData.qml:19
 #, kde-format
 msgid "Server Capabilities"
-msgstr "إمكانيّات الخادوم"
+msgstr "إمكانيّات الخادم"
 
 #: src/devtools/ServerData.qml:23
 #, kde-format
@@ -1938,30 +1957,37 @@ msgstr ""
 msgid "Unable to read access token: %1"
 msgstr "غير قادر على قراءة رقم النفاذ: %1"
 
-#: src/libneochat/enums/neochatroomtype.h:61
+#: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
 msgid "Invited"
 msgstr "مدعو"
 
-#: src/libneochat/enums/neochatroomtype.h:63
+#: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
 msgstr "المفضّلة"
 
-#: src/libneochat/enums/neochatroomtype.h:67
+#: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
 msgid "Normal"
 msgstr "عادي"
 
-#: src/libneochat/enums/neochatroomtype.h:69
+#: src/libneochat/enums/neochatroomtype.h:73
 #, kde-format
 msgid "Low priority"
 msgstr "منخفضة الأولوية"
 
-#: src/libneochat/enums/neochatroomtype.h:71
+#: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
 msgstr "الفضاءات"
+
+#: src/libneochat/enums/neochatroomtype.h:77
+#, fuzzy, kde-format
+#| msgid "Server Capabilities"
+msgctxt "@info Meaning: official information messages from your server"
+msgid "Server Notices"
+msgstr "إمكانيّات الخادم"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3030,13 +3056,13 @@ msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
-"الملف كبير للغاية بحيث لا يمكن تحميله.<br />راسل مدير خادوم ماتركس للدعم."
+"الملف كبير للغاية بحيث لا يمكن تحميله.<br />راسل مدير خادم ماتركس للدعم."
 
 #: src/libneochat/neochatconnection.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
-msgstr "لم يُضبط خادوم هوية بعد"
+msgstr "لم يُضبط خادم هوية بعد"
 
 #: src/libneochat/neochatconnection.cpp:356
 #, kde-format
@@ -3234,7 +3260,7 @@ msgctxt "@action:button"
 msgid "Search"
 msgstr "ابحث"
 
-#: src/libneochat/texthandler.cpp:574
+#: src/libneochat/texthandler.cpp:612
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>هذا الحدث لا يحتوي على أي محتوى.</i>"
@@ -3267,7 +3293,7 @@ msgstr "أعد إرسال رسالة البريد الإلكتروني الخا�
 #: src/login/Homeserver.qml:21
 #, kde-format
 msgid "Server Url:"
-msgstr "عنوان الخادوم:"
+msgstr "عنوان الخادم:"
 
 #: src/login/Homeserver.qml:26
 #, kde-format
@@ -3614,19 +3640,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "أرسل إلى كِيدِي Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:133
+#: src/messagecontent/LinkPreviewComponent.qml:135
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "أزل المعاينة"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Shrink preview"
 msgstr "صغر المعاينة"
 
-#: src/messagecontent/LinkPreviewComponent.qml:151
+#: src/messagecontent/LinkPreviewComponent.qml:153
 #, kde-format
 msgid "Expand preview"
 msgstr "وسع المعاينة"
@@ -3664,13 +3690,13 @@ msgstr ""
 "لم يعثر على هذه الرسالة، أو ليس لديك الإذن لعرضها، أو أرسلت بواسطة مستخدم "
 "متجاهل"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:63
+#: src/messagecontent/models/messagecontentmodel.cpp:69
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "فشل تنزيل الملفّ."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:66
+#: src/messagecontent/models/messagecontentmodel.cpp:72
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4003,13 +4029,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "أنشئ فضاء"
 
-#: src/rooms/models/roomtreemodel.cpp:358
+#: src/rooms/models/roomtreemodel.cpp:363
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "يدعوك للدردشة."
 
-#: src/rooms/models/roomtreemodel.cpp:360
+#: src/rooms/models/roomtreemodel.cpp:365
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4319,7 +4345,7 @@ msgstr "خادم الهوية"
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
-msgstr "معلومات الخادوم"
+msgstr "معلومات الخادم"
 
 #: src/settings/AccountEditorPage.qml:229
 #, kde-format
@@ -6047,11 +6073,10 @@ msgid "Room Settings"
 msgstr "إعدادات الغرفة"
 
 #: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
-msgstr "عامّ"
+msgstr "عام"
 
 #: src/settings/RoomSettingsView.qml:49
 #, kde-format
@@ -6060,11 +6085,10 @@ msgid "Security"
 msgstr "الأمن"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذونات"
 
 #: src/settings/RoomSettingsView.qml:82
 #, kde-format
