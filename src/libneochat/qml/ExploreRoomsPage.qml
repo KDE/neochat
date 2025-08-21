@@ -57,6 +57,16 @@ SearchPage {
 
     headerTrailing: RowLayout {
         QQC2.Button {
+            icon.name: "list-add"
+            text: i18nc("@action:button", "Enter room by address")
+            display: QQC2.Button.IconOnly
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            onClicked: _private.openManualRoomDialog()
+        }
+        QQC2.Button {
             id: spacesOnlyButton
             icon.name: "globe"
             display: QQC2.Button.IconOnly
@@ -85,25 +95,6 @@ SearchPage {
         onRoomSelected: (roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
             root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
             root.closeDialog();
-        }
-    }
-
-    listHeaderDelegate: Delegates.RoundedItemDelegate {
-        id: delegate
-
-        onClicked: _private.openManualRoomDialog()
-
-        activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
-        text: i18n("Enter a Room Manually")
-        visible: publicRoomListModel.redirectedText.length === 0
-        icon.name: "compass"
-        icon.width: Kirigami.Units.gridUnit * 2
-        icon.height: Kirigami.Units.gridUnit * 2
-
-        contentItem: Kirigami.IconTitleSubtitle {
-            icon: icon.fromControlsIcon(delegate.icon)
-            title: delegate.text
-            subtitle: i18n("If you already know a room's address or alias, and it isn't shown here.")
         }
     }
 
