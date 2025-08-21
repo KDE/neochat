@@ -342,9 +342,6 @@ if(TARGET KF6::DBusAddons AND NOT WIN32)
 endif()
 
 if (TARGET KUnifiedPush)
-    target_compile_definitions(neochat PUBLIC -DHAVE_KUNIFIEDPUSH)
-    target_link_libraries(neochat PUBLIC KUnifiedPush)
-
     if (NOT ANDROID)
         configure_file(org.kde.neochat.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.neochat.service)
         install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.neochat.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})

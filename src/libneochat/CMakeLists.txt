@@ -105,3 +105,8 @@ if(NOT ANDROID)
     )
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_ICU)
 endif()
+
+if (TARGET KUnifiedPush)
+    target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KUNIFIEDPUSH)
+    target_link_libraries(LibNeoChat PUBLIC KUnifiedPush)
+endif()
