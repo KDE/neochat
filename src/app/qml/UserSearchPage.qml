@@ -106,6 +106,9 @@ SearchPage {
             dialog.accepted.connect(() => {
                 root.closeDialog();
             });
+            dialog.userSelected.connect(userId => {
+                root.connection.requestDirectChat(userId);
+            });
             dialog.open();
         }
     }

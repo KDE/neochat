@@ -21,7 +21,7 @@ Kirigami.Dialog {
     /**
      * @brief Thrown when a user is selected.
      */
-    signal userSelected
+    signal userSelected(string userId)
 
     title: i18nc("@title", "User ID")
 
@@ -38,7 +38,7 @@ Kirigami.Dialog {
             text: i18n("OK")
             icon.name: "dialog-ok"
             onTriggered: {
-                root.connection.requestDirectChat(userIdText.text);
+                root.userSelected(userIdText.text)
                 root.accept();
             }
         }

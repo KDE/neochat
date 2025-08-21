@@ -23,6 +23,8 @@ SearchPage {
     searchFieldPlaceholder: i18nc("@info:placeholder", "Find a user…")
     noResultPlaceholderMessage: i18nc("@info:placeholder", "No users found")
 
+    noSearchPlaceholderMessage: i18nc("@placeholder", "Enter text to start searching for users")
+
     headerTrailing: QQC2.Button {
         icon.name: "list-add"
         display: QQC2.Button.IconOnly
@@ -35,6 +37,15 @@ SearchPage {
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         onClicked: root.room.inviteToRoom(root.model.searchText);
+    }
+
+    noSearchHelpfulAction: noResultHelpfulAction
+
+    noResultHelpfulAction: Kirigami.Action {
+        icon.name: "list-add-user"
+        text: i18nc("@action:button", "Enter a User ID")
+        onTriggered: _private.openManualUserDialog()
+        tooltip: text
     }
 
     model: UserDirectoryListModel {
@@ -85,6 +96,28 @@ SearchPage {
                 QQC2.ToolTip.visible: inviteButton.hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
+        }
+    }
+
+    Component {
+        id: manualUserDialog
+        ManualUserDialog {}
+    }
+
+    QtObject {
+        id: _private
+        function openManualUserDialog(): void {
+            let dialog = manualUserDialog.createObject(this, {
+                connection: root.connection
+            });
+            dialog.parent = root.Window.window.overlay;
+            dialog.accepted.connect(() => {
+                root.closeDialog();
+            });
+            dialog.userSelected.connect(userId => {
+                root.room.inviteToRoom(userId)
+            });
+            dialog.open();
         }
     }
 }
