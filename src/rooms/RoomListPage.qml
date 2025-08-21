@@ -213,11 +213,11 @@ Kirigami.Page {
         width: scrollView.width - Kirigami.Units.largeSpacing * 4
         visible: treeView.rows == 0
         text: if (RoomManager.sortFilterRoomTreeModel.filterText.length > 0) {
-            return spaceDrawer.showDirectChats ? i18nc("@info", "No friends found") : i18nc("@info", "No rooms found");
+            return RoomManager.currentSpace === "DM" ? i18nc("@info", "No friends found") : i18nc("@info", "No rooms found");
         } else {
-            return spaceDrawer.showDirectChats ? i18nc("@info", "You haven't added any of your friends yet, click below to search for them.") : i18nc("@info", "Join some rooms to get started");
+            return RoomManager.currentSpace === "DM" ? i18nc("@info", "You haven't added any of your friends yet, click below to search for them.") : i18nc("@info", "Join some rooms to get started");
         }
-        helpfulAction: spaceDrawer.showDirectChats ? userSearchAction : exploreRoomAction
+        helpfulAction: RoomManager.currentSpace === "DM" ? userSearchAction : exploreRoomAction
 
         Kirigami.Action {
             id: exploreRoomAction
