@@ -187,7 +187,7 @@ QQC2.ComboBox {
         }
 
         customFooterActions: Kirigami.Action {
-            text: i18nc("@action:button", "Ok")
+            text: i18nc("@action:button", "OK")
             enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
             onTriggered: {
                 serverListModel.addServer(serverUrlField.text);
