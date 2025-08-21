@@ -92,6 +92,16 @@ Kirigami.ScrollablePage {
     property string customPlaceholderIcon: ""
 
     /**
+     * @brief Action to be shown in the "no search" placeholder
+     */
+    property Kirigami.Action noSearchHelpfulAction
+
+    /**
+     * @brief Action to be shown in the "no result" placeholder
+     */
+    property Kirigami.Action noResultHelpfulAction
+
+    /**
      * @brief Force the search field to be focussed.
      */
     function focusSearch() {
@@ -179,12 +189,14 @@ Kirigami.ScrollablePage {
             id: noSearchMessage
             anchors.centerIn: parent
             visible: searchField.text.length === 0 && listView.count === 0 && customPlaceholder.text.length === 0
+            helpfulAction: root.noSearchHelpfulAction
         }
 
         Kirigami.PlaceholderMessage {
             id: noResultMessage
             anchors.centerIn: parent
             visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
+            helpfulAction: root.noResultHelpfulAction
         }
 
         Kirigami.PlaceholderMessage {

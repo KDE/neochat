@@ -39,16 +39,6 @@ SearchPage {
         connection: root.connection
     }
 
-    listHeaderDelegate: Delegates.RoundedItemDelegate {
-        onClicked: _private.openManualUserDialog()
-
-        activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
-        text: i18n("Enter a user ID")
-        icon.name: "list-add-user"
-        icon.width: Kirigami.Units.gridUnit * 2
-        icon.height: Kirigami.Units.gridUnit * 2
-    }
-
     modelDelegate: Delegates.RoundedItemDelegate {
         id: userDelegate
         required property string userId
@@ -91,6 +81,15 @@ SearchPage {
     searchFieldPlaceholder: i18n("Find your friends…")
     noSearchPlaceholderMessage: i18n("Enter text to start searching for your friends")
     noResultPlaceholderMessage: i18nc("@info:label", "No matches found")
+
+    noSearchHelpfulAction: noResultHelpfulAction
+
+    noResultHelpfulAction: Kirigami.Action {
+        icon.name: "list-add-user"
+        text: i18nc("@action:button", "Enter a User ID")
+        onTriggered: _private.openManualUserDialog()
+        tooltip: text
+    }
 
     Component {
         id: manualUserDialog
