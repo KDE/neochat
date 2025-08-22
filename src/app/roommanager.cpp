@@ -347,7 +347,11 @@ void RoomManager::openRoomForActiveConnection()
         setCurrentSpace({}, false);
         return;
     }
-    setCurrentSpace(m_lastSpaceConfig.readEntry(m_connection->userId(), QString()), true);
+    auto lastSpace = m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+    if (lastSpace == u"Home"_s) {
+        lastSpace.clear();
+    }
+    setCurrentSpace(lastSpace, true);
 }
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
