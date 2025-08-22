@@ -3,6 +3,8 @@
 
 #include "messagecontentmodel.h"
 
+#include <QStyleHints>
+
 #include <KLocalizedString>
 
 #include "chatbarcache.h"
@@ -18,10 +20,7 @@ MessageContentModel::MessageContentModel(NeoChatRoom *room, MessageContentModel 
     , m_room(room)
     , m_eventId(eventId)
 {
-    m_theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
-    if (m_theme) {
-        connect(m_theme, &Kirigami::Platform::PlatformTheme::colorsChanged, this, &MessageContentModel::updateSpoilers);
-    }
+    connect(qGuiApp->styleHints(), &QStyleHints::colorSchemeChanged, this, &MessageContentModel::updateSpoilers);
 
     initializeModel();
 }

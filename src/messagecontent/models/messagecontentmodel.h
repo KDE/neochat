@@ -7,7 +7,6 @@
 #include <QQmlEngine>
 #include <QImageReader>
 
-#include <Kirigami/Platform/PlatformTheme>
 #ifndef Q_OS_ANDROID
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
@@ -240,7 +239,6 @@ private:
     QList<QUrl> m_removedLinkPreviews;
     MessageComponent linkPreviewComponent(const QUrl &link);
 
-    Kirigami::Platform::PlatformTheme *m_theme = nullptr;
     void updateSpoilers();
     void updateSpoiler(const QModelIndex &index);
 };
