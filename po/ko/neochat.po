@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2025-07-21 01:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -510,8 +510,8 @@ msgid "Find your Friends"
 msgstr "친구 찾기"
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -536,7 +536,7 @@ msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -606,12 +606,6 @@ msgstr "NeoChat 정보"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "KDE 정보"
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "현재 선택한 링크"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -1107,9 +1101,10 @@ msgid "Server URL:"
 msgstr "서버 URL:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr "확인"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1387,31 +1382,33 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "친구 찾기"
 
-#: src/app/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "사용자 ID 입력"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "친구"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr "친구 찾기…"
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "친구 목록 검색을 시작하려면 텍스트를 입력하십시오"
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "검색 결과가 없습니다"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter a user ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "사용자 ID 입력"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -3293,7 +3290,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "초대 보내기"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -4005,7 +4002,6 @@ msgid "Show Menu"
 msgstr "메뉴 표시"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "친구 찾기"
@@ -4025,7 +4021,7 @@ msgstr "QR 코드 스캔"
 msgid "Search"
 msgstr "검색"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "대화방 탐색"
@@ -4146,34 +4142,61 @@ msgstr "대화방 음소거됨"
 msgid "Configure room"
 msgstr "대화방 설정"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr "친구 찾기"
+
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No friends found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "친구를 찾을 수 없음"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "You haven't added any of your friends yet, click below to search for them."
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "친구를 추가하지 않았습니다. 아래를 클릭하여 검색할 수 있습니다."
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "시작하려면 대화방에 입장하십시오"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/rooms/RoomListPage.qml:241
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "대화방 탐색"
+
+#: src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Search in friend directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "친구 디렉터리에서 검색"
 
@@ -4299,7 +4322,7 @@ msgstr "직장"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "저장"
@@ -4880,7 +4903,7 @@ msgid "Keyword…"
 msgstr "키워드…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "키워드 추가"
@@ -5500,7 +5523,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr "키 내보내기"
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "일반"
@@ -5662,32 +5685,49 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/settings/Permissions.qml:32
-#, kde-format
+#: src/settings/Permissions.qml:34
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr "상위 권한 사용자"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+#| msgid "Default permissions"
+msgctxt "@title"
 msgid "Default permissions"
 msgstr "기본 권한"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+#| msgid "Basic permissions"
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "기본 권한"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
+#: src/settings/Permissions.qml:309
+#, fuzzy, kde-format
+#| msgid "Event permissions"
+msgctxt "@title"
 msgid "Event permissions"
 msgstr "이벤트 권한"
 
-#: src/settings/Permissions.qml:360
-#, kde-format
+#: src/settings/Permissions.qml:356
+#, fuzzy, kde-format
+#| msgid "Event Type…"
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "이벤트 형식…"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "키워드 추가"
+
+#: src/settings/Permissions.qml:408
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5769,79 +5809,117 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/settings/RoomGeneralPage.qml:37
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "일반"
+
+#: src/settings/RoomGeneralPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "아바타 업데이트"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "이름:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "주제:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "저장"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "별칭"
 
-#: src/settings/RoomGeneralPage.qml:106
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:108
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "주 별명이 설정되지 않음"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "이 별명을 대화방의 주 별명으로 설정"
 
-#: src/settings/RoomGeneralPage.qml:136
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Delete alias"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "별명 삭제"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "#new_alias:server.org"
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "새 별명 추가"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgid "URL Previews"
+msgctxt "@title"
 msgid "URL Previews"
 msgstr "URL 미리 보기"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr "기본값으로 대화방 구성원에 대하여 URL 미리 보기 활성화"
 
-#: src/settings/RoomGeneralPage.qml:210
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:207
+#, fuzzy, kde-format
+#| msgid "Enable URL previews"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "URL 미리 보기 활성화"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "이 대화방에는 URL 미리 보기가 기본값으로 활성화되어 있음"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "이 대화방에는 URL 미리 보기가 기본값으로 비활성화되어 있음"
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
@@ -5849,61 +5927,79 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr "내 계정의 URL 미리 보기가 비활성화되어 있음"
 
-#: src/settings/RoomGeneralPage.qml:228
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Enable"
+msgctxt "@action:button"
 msgid "Enable"
 msgstr "활성화"
 
-#: src/settings/RoomGeneralPage.qml:236
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:233
+#, fuzzy, kde-format
+#| msgid "Official Parent Spaces"
+msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "공식 부모 스페이스"
 
-#: src/settings/RoomGeneralPage.qml:269
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:266
+#, fuzzy, kde-format
+#| msgid "Canonical"
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Canonical"
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, fuzzy, kde-format
 #| msgid "Make canonical parent"
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "공식 부모로 설정"
 
-#: src/settings/RoomGeneralPage.qml:285
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:282
+#, fuzzy, kde-format
+#| msgid "Remove parent"
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "부모 삭제"
 
-#: src/settings/RoomGeneralPage.qml:298
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:295
+#, fuzzy, kde-format
+#| msgid "This room has no official parent spaces."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "이 대화방에는 공식 부모 스페이스가 없습니다."
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "새 공식 부모 추가"
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "이 대화방에서 다른 대화가 진행 중입니다."
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:320
+#, fuzzy, kde-format
+#| msgid "See older messages…"
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "이전 메시지 보기…"
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "이 대화방이 대체되었습니다."
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:336
+#, fuzzy, kde-format
+#| msgid "See new room…"
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "새 대화방 보기…"
 
@@ -5931,18 +6027,22 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "기본값으로 초기화"
 
-#: src/settings/RoomSecurityPage.qml:20
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:22
+#, fuzzy, kde-format
+#| msgid ""
+#| "You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "이 설정을 활성화하려면 대화방을 새로운 버전으로 업그레이드해야 합니다."
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
 #, kde-format
+msgctxt "@title"
 msgid "Security"
 msgstr "보안"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -5966,100 +6066,108 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "한 번 활성화하면 비활성화할 수 없습니다."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "접근"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "비밀(초대만)"
 
-#: src/settings/RoomSecurityPage.qml:70
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Only invited people can join."
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "초대받은 사람만 입장할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "스페이스 구성원"
 
-#: src/settings/RoomSecurityPage.qml:79
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:76
+#, fuzzy, kde-format
+#| msgid "Anyone in the selected spaces can find and join."
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "선택한 스페이스에 있는 누구나 찾고 입장할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:88
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Select spaces"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "스페이스 선택"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "노크"
 
-#: src/settings/RoomSecurityPage.qml:107
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:104
+#, fuzzy, kde-format
+#| msgid "People not in the room need to request an invite to join the room."
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr "대화방에 없었던 사람이 입장하려면 초대를 요청해야 합니다."
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "공개"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "누구나 찾고 등록할 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "메시지 과거 기록 표시 여부"
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "누구나"
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "참여 여부에 관계 없이 누구나 과거 기록을 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "구성원만"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "모든 구성원은 참여 이전의 과거 기록 전체를 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "구성원만(초대 이후)"
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6068,13 +6176,13 @@ msgid ""
 msgstr ""
 "새 구성원은 대화방에 초대된 시점 이후의 메시지 과거 기록을 볼 수 있습니다."
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "구성원만(입장 이후)"
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6093,19 +6201,6 @@ msgstr "스페이스 설정"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "대화방 설정"
-
-#: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "일반"
-
-#: src/settings/RoomSettingsView.qml:49
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "보안"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
@@ -6695,6 +6790,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "이 대화방에서 다른 대화가 진행 중입니다."
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr "이전 메시지 보기…"
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6710,6 +6815,16 @@ msgstr "메시지 메뉴"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "마지막 읽음: %1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "이 대화방이 대체되었습니다."
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
+msgstr "새 대화방 보기…"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6752,6 +6867,17 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgctxt "@info screenreader"
+#~ msgid "The currently selected link"
+#~ msgstr "현재 선택한 링크"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "확인"
+
+#~ msgid "Security"
+#~ msgstr "보안"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "NeoChat 설정…"

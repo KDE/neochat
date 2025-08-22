@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
-"PO-Revision-Date: 2025-08-15 13:25+0300\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"PO-Revision-Date: 2025-08-21 08:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: src/app/controller.cpp:180
 #, kde-format
@@ -503,8 +503,8 @@ msgid "Find your Friends"
 msgstr "איתור החברים שלך"
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -529,7 +529,7 @@ msgid "Explore Rooms"
 msgstr "עיון בין החדרים"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -599,12 +599,6 @@ msgstr "על NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "על KDE"
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "הקישור שנבחר כרגע"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -686,16 +680,14 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "בקשת אימות מפתח נכנסת מהמכשיר **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:162
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to send us keys."
-msgstr "בהמתנה לאישור מהצד השני."
+msgstr "בהמתנה לשליחת מפתחות מהצד השני."
 
 #: src/app/qml/KeyVerificationDialog.qml:164
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to confirm our keys."
-msgstr "בהמתנה לאישור מהצד השני."
+msgstr "בהמתנה לאישור המפתחות על ידי הצד השני."
 
 #: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
@@ -880,8 +872,7 @@ msgid "Option %1:"
 msgstr "אפשרות %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "נא למלא אפשרות"
@@ -1011,7 +1002,7 @@ msgstr "התעלמות"
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
-msgstr ""
+msgstr "החדר הזה מכיל הודעות רשמיות משרת הבית שלך."
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
@@ -1081,9 +1072,10 @@ msgid "Server URL:"
 msgstr "כתובת השרת:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr "אישור"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1356,31 +1348,33 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "איתור החברים שלך"
 
-#: src/app/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "נא למלא מזהה משתמש"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "חברים"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr "איתור החברים שלך…"
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "נא להקליד כדי להתחיל לחפש בין החברים שלך"
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "לא נמצאו תוצאות"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter a user ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "נא למלא מזהה משתמש"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -1977,11 +1971,10 @@ msgid "Spaces"
 msgstr "מרחבים"
 
 #: src/libneochat/enums/neochatroomtype.h:77
-#, fuzzy, kde-format
-#| msgid "Server Capabilities"
+#, kde-format
 msgctxt "@info Meaning: official information messages from your server"
 msgid "Server Notices"
-msgstr "יכולות שרת"
+msgstr "הודעות שרת"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3249,7 +3242,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "שליחת הזמנה"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3971,7 +3964,6 @@ msgid "Show Menu"
 msgstr "הצגת תפריט"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "איתור החברים שלך"
@@ -3991,7 +3983,7 @@ msgstr "סריקת קוד QR"
 msgid "Search"
 msgstr "חיפוש"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "עיון בין החדרים"
@@ -4109,34 +4101,61 @@ msgstr "חדר מושתק"
 msgid "Configure room"
 msgstr "הגדרת חדר"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr "איתור החברים שלך"
+
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No friends found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "לא נמצאו חברים"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "לא נמצאו חדרים"
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "You haven't added any of your friends yet, click below to search for them."
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "לא הוספת אף אחד מהחברים שלך עדיין, אפשר ללחוץ להלן כדי לחפש אותם."
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "יש להצטרף לכל מיני חדרים כדי להתחיל"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "חיפוש בספריית החדרים"
 
-#: src/rooms/RoomListPage.qml:241
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "עיון בין החדרים"
+
+#: src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Search in friend directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "חיפוש בספריית החברים"
 
@@ -4264,7 +4283,7 @@ msgstr "עבודה"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
@@ -4842,7 +4861,7 @@ msgid "Keyword…"
 msgstr "מילת מפתח…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "הוספת מילת מפתח"
@@ -5458,7 +5477,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr "ייצוא מפתחות"
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "כללי"
@@ -5620,32 +5639,49 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "סיסמה:"
 
-#: src/settings/Permissions.qml:32
-#, kde-format
+#: src/settings/Permissions.qml:34
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr "משתמשים עם הרשאות"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+#| msgid "Default permissions"
+msgctxt "@title"
 msgid "Default permissions"
 msgstr "הרשאות ברירת מחדל"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+#| msgid "Basic permissions"
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "הרשאות בסיסיות"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
+#: src/settings/Permissions.qml:309
+#, fuzzy, kde-format
+#| msgid "Event permissions"
+msgctxt "@title"
 msgid "Event permissions"
 msgstr "הרשאות אירועים"
 
-#: src/settings/Permissions.qml:360
-#, kde-format
+#: src/settings/Permissions.qml:356
+#, fuzzy, kde-format
+#| msgid "Event Type…"
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "סוג אירוע…"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "הוספת מילת מפתח"
+
+#: src/settings/Permissions.qml:408
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5727,79 +5763,116 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "אישור"
 
-#: src/settings/RoomGeneralPage.qml:37
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
 #, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr "כללי"
+
+#: src/settings/RoomGeneralPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "עדכון תמונה ייצוגית"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "שם:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "נושא:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "שמירה"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "כינויים"
 
-#: src/settings/RoomGeneralPage.qml:106
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:108
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "לא הוגדר כינוי עיקרי"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "להפוך את הכינוי הזה לכינוי העיקרי של החדר"
 
-#: src/settings/RoomGeneralPage.qml:136
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Delete alias"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "מחיקת כינוי"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "#new_alias:server.org"
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "הוספת כינוי חדש"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgid "URL Previews"
+msgctxt "@title"
 msgid "URL Previews"
 msgstr "תצוגות מקדימות של כתובות"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr "הפעלת תצוגות מקדימות של כתובות כברירת מחדל לחברי החדר"
 
-#: src/settings/RoomGeneralPage.qml:210
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:207
+#, fuzzy, kde-format
+#| msgid "Enable URL previews"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "הפעלת תצוגות מקדימות של כתובות"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "תצוגות מקדימות של כתובות פעילות כברירת מחדל בחדר הזה"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "תצוגות מקדימות של כתובות כבויות כברירת מחדל בחדר הזה"
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
@@ -5807,60 +5880,78 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr "תצוגות מקדימות של כתובות מושבתת כרגע בחשבון שלך"
 
-#: src/settings/RoomGeneralPage.qml:228
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Enable"
+msgctxt "@action:button"
 msgid "Enable"
 msgstr "הפעלה"
 
-#: src/settings/RoomGeneralPage.qml:236
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:233
+#, fuzzy, kde-format
+#| msgid "Official Parent Spaces"
+msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "מרחבי על רשמיים"
 
-#: src/settings/RoomGeneralPage.qml:269
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:266
+#, fuzzy, kde-format
+#| msgid "Canonical"
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr "עיקרי"
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "להפוך אותו להורה העיקרי"
 
-#: src/settings/RoomGeneralPage.qml:285
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:282
+#, fuzzy, kde-format
+#| msgid "Remove parent"
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "הסרת קשר על"
 
-#: src/settings/RoomGeneralPage.qml:298
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:295
+#, fuzzy, kde-format
+#| msgid "This room has no official parent spaces."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "לחדר הזה אין מרחבי על רשמיים."
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "הוספת מרחב על רשמי חדש"
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "החדר הזה ממשיך דיון אחר."
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:320
+#, fuzzy, kde-format
+#| msgid "See older messages…"
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "להציג הודעות ישנות…"
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "החדר הזה הוחלף."
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:336
+#, fuzzy, kde-format
+#| msgid "See new room…"
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "הצגת חדר חדש…"
 
@@ -5888,18 +5979,22 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "איפוס לברירת המחדל"
 
-#: src/settings/RoomSecurityPage.qml:20
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:22
+#, fuzzy, kde-format
+#| msgid ""
+#| "You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "יש לשדרג את החדר הזה לגרסה חדשה כדי להפעיל את ההגדרה הזאת."
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
 #, kde-format
+msgctxt "@title"
 msgid "Security"
 msgstr "אבטחה"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -5923,100 +6018,108 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "לאחר הפעלתה, לא ניתן להשבית את ההצפנה."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "גישה"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "פרטי (הזמנה בלבד)"
 
-#: src/settings/RoomSecurityPage.qml:70
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Only invited people can join."
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "רק משתמשים שהוזמנו יוכלו להצטרף."
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "חברים במרחב"
 
-#: src/settings/RoomSecurityPage.qml:79
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:76
+#, fuzzy, kde-format
+#| msgid "Anyone in the selected spaces can find and join."
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "כל מי שבמרחבים הנבחרים יוכל למצוא ולהצטרף."
 
-#: src/settings/RoomSecurityPage.qml:88
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Select spaces"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "בחירת מרחבים"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "נקישה"
 
-#: src/settings/RoomSecurityPage.qml:107
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:104
+#, fuzzy, kde-format
+#| msgid "People not in the room need to request an invite to join the room."
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr "אנשים שאינם בחדר צריכים לבקש הזמנה להצטרף לחדר."
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "ציבורי"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "כולם יוכלים למצוא ולהצטרף."
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "חשיפת היסטוריית הודעות"
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "כולם"
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "כולם, גם אם לא הצטרפו, יכולים לצפות בהיסטוריה."
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "חברים בלבד"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "כל החברים יכולים לצפות בכל היסטוריית ההודעות, אפילו בטרם הצטרפותם."
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "חברים בלבד (מאז ההזמנה)"
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6025,13 +6128,13 @@ msgid ""
 msgstr ""
 "חברים חדשים יכולים לצפות בהיסטוריים ההודעות החל מהנקודה בה הוזמנו לחדר."
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "חברים בלבד (מאז ההצטרפות)"
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6050,18 +6153,6 @@ msgstr "הגדרות מרחב"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "הגדרות חדר"
-
-#: src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "כללי"
-
-#: src/settings/RoomSettingsView.qml:49
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "אבטחה"
 
 #: src/settings/RoomSettingsView.qml:60
 #, kde-format
@@ -6656,6 +6747,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "החדר הזה ממשיך דיון אחר."
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr "להציג הודעות ישנות…"
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6671,6 +6772,16 @@ msgstr "תפריט הודעה"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "נקרא לאחרונה: %1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "החדר הזה הוחלף."
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
+msgstr "הצגת חדר חדש…"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6712,6 +6823,17 @@ msgstr[0] "הקלדה מצד %2"
 msgstr[1] "הקלדה מצד %2"
 msgstr[2] "הקלדה מצד %2"
 msgstr[3] "הקלדה מצד %2"
+
+#~ msgctxt "@info screenreader"
+#~ msgid "The currently selected link"
+#~ msgstr "הקישור שנבחר כרגע"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "אישור"
+
+#~ msgid "Security"
+#~ msgstr "אבטחה"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "הגדרת NeoChat…"

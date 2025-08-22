@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -534,8 +534,8 @@ msgid "Find your Friends"
 msgstr ""
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -563,7 +563,7 @@ msgid "Explore Rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -634,12 +634,6 @@ msgstr "Σχετικά με το NeoChat"
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
-msgstr ""
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
 msgstr ""
 
 #: src/app/qml/InvitationView.qml:50
@@ -1153,9 +1147,10 @@ msgid "Server URL:"
 msgstr "URL εξυπηρετητή:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr "Εντάξει"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1447,34 +1442,35 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Enter your Matrix ID"
-msgid "Enter a user ID"
-msgstr "Δώσε το αναγνωριστικό σου στο Matrix"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Φίλοι"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching for your friends"
 msgstr "Δώσε ένα κείμενο για να ξεκινήσει η αναζήτηση"
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "Δώσε το αναγνωριστικό σου στο Matrix"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -3487,7 +3483,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Αποστολή πρόσκλησης"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -4255,7 +4251,6 @@ msgid "Show Menu"
 msgstr "Εναλλαγή χρήστη"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr ""
@@ -4275,7 +4270,7 @@ msgstr ""
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "Εξερεύνηση αιθουσών"
@@ -4403,36 +4398,58 @@ msgstr "Αίθουσα σε σίγαση"
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"
 
-#: src/rooms/RoomListPage.qml:215
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, kde-format
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr ""
+
+#: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No rooms found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/rooms/RoomListPage.qml:217
+#: src/rooms/RoomListPage.qml:218
 #, kde-format
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/rooms/RoomListPage.qml:241
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "Εξερεύνηση αιθουσών"
+
+#: src/rooms/RoomListPage.qml:242
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
@@ -4568,7 +4585,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Αποθήκευση"
@@ -5176,7 +5193,7 @@ msgid "Keyword…"
 msgstr "Λέξη κλειδί…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Προσθήκη λέξης κλειδιού"
@@ -5844,7 +5861,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "Γενικά"
@@ -6009,32 +6026,48 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/settings/Permissions.qml:32
-#, kde-format
+#: src/settings/Permissions.qml:34
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr "Χρήστες με προνόμια"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+#| msgid "Default permissions"
+msgctxt "@title"
 msgid "Default permissions"
 msgstr "Προκαθορισμένα δικαιώματα"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+#| msgid "Basic permissions"
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "Βασικά δικαιώματα"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
+#: src/settings/Permissions.qml:309
+#, fuzzy, kde-format
+#| msgid "Event permissions"
+msgctxt "@title"
 msgid "Event permissions"
 msgstr "Δικαιώματα γεγονότος"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:356
 #, kde-format
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "Προσθήκη λέξης κλειδιού"
+
+#: src/settings/Permissions.qml:408
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@placeholder"
@@ -6127,85 +6160,122 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
-#: src/settings/RoomGeneralPage.qml:37
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Γενικά"
+
+#: src/settings/RoomGeneralPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "Ενημέρωση avatar"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "Όνομα:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, fuzzy, kde-format
 #| msgid "Topic:"
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "Θέμα:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "Συνώνυμα"
 
-#: src/settings/RoomGeneralPage.qml:106
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:108
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "Δεν ρυθμίστηκε κανονικό συνώνυμο"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "Να γίνει αυτό το συνώνυμο το κανονικό συνώνυμο της αίθουσας"
 
-#: src/settings/RoomGeneralPage.qml:136
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Delete alias"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "Διαγραφή συνωνύμου"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "#new_alias:server.org"
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "Προσθήκη νέου ψευδωνύμου"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgctxt "As in remove the link preview so it's no longer shown"
+#| msgid "Remove preview"
+msgctxt "@title"
 msgid "URL Previews"
-msgstr ""
+msgstr "Αφαίρεση προεπισκόπησης"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgctxt "<user> is already in this room."
+#| msgid "%1 is already in this room."
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/settings/RoomGeneralPage.qml:210
+#: src/settings/RoomGeneralPage.qml:207
 #, kde-format
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
@@ -6215,65 +6285,80 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/settings/RoomGeneralPage.qml:228
+#: src/settings/RoomGeneralPage.qml:225
 #, kde-format
+msgctxt "@action:button"
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:236
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:233
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@title"
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Αποχώρηση από τον χώρο"
 
-#: src/settings/RoomGeneralPage.qml:269
+#: src/settings/RoomGeneralPage.qml:266
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Χωρίς κανονικό συνώνυμο"
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Δεν ρυθμίστηκε κανονικό συνώνυμο"
 
-#: src/settings/RoomGeneralPage.qml:285
+#: src/settings/RoomGeneralPage.qml:282
 #, fuzzy, kde-format
 #| msgid "Remove Message"
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Αφαίρεση μηνύματος"
 
-#: src/settings/RoomGeneralPage.qml:298
+#: src/settings/RoomGeneralPage.qml:295
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Αυτή η αίθουσα έχει αντικατασταθεί."
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, fuzzy, kde-format
 #| msgid "No canonical alias set"
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Δεν ρυθμίστηκε κανονικό συνώνυμο"
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Σε αυτήν την αίθουσα συνεχίζεται μια άλλη συνομιλία."
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:320
+#, fuzzy, kde-format
+#| msgid "See older messages…"
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Δες παλαιότερα μηνύματα…"
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Αυτή η αίθουσα έχει αντικατασταθεί."
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:336
+#, fuzzy, kde-format
+#| msgid "See new room…"
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "Δες τη νέα αίθουσα…"
 
@@ -6302,20 +6387,25 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Προκαθορισμένο συστήματος"
 
-#: src/settings/RoomSecurityPage.qml:20
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:22
+#, fuzzy, kde-format
+#| msgid ""
+#| "You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 "Πρέπει να αναβαθμίσεις αυτήν την αίθουσα σε νεότερη έκδοση για να "
 "ενεργοποιηθεί αυτή η ρύθμιση."
 
-#: src/settings/RoomSecurityPage.qml:22
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
 msgid "Security"
 msgstr "Ασφάλεια"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -6343,91 +6433,97 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Όταν ενεργοποιηθεί, η κρυπτογράφηση δεν απενεργοποιείται."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Πρόσβαση"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Ιδιωτική (με πρόσκληση μόνο)"
 
-#: src/settings/RoomSecurityPage.qml:70
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Only invited people can join."
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Η είσοδος μόνο με πρόσκληση."
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Μέλη του χώρου"
 
-#: src/settings/RoomSecurityPage.qml:79
+#: src/settings/RoomSecurityPage.qml:76
 #, fuzzy, kde-format
 #| msgid "Anyone in a space can find and join."
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Οποιοσδήποτε σε έναν χώρο μπορεί να εισέλθει."
 
-#: src/settings/RoomSecurityPage.qml:88
+#: src/settings/RoomSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Επιλογή όλων"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Χτύπα την πόρτα"
 
-#: src/settings/RoomSecurityPage.qml:107
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:104
+#, fuzzy, kde-format
+#| msgid "People not in the room need to request an invite to join the room."
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Όσοι είναι εκτός αίθουσας πρέπει να ζητήσουν πρόσκληση για να εισέλθουν."
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Δημόσια"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Όποιος βλέπει φως, μπαίνει."
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Ορατότητα ιστορικού μηνυμάτων"
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Οποιοσδήποτε"
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Οποιοσδήποτε, ανεξάρτητα αν έχει εισέλθει, μπορεί να δει το ιστορικό."
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Μέλη μόνο"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6436,13 +6532,13 @@ msgstr ""
 "Όλα τα μέλη μπορούν να δουν όλο το ιστορικό των μηνυμάτων, ακόμη και πριν "
 "εισέλθουν."
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Μέλη μόνο (αφού έχουν προσκληθεί)"
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6452,13 +6548,13 @@ msgstr ""
 "Τα νέα μέλη μπορούν να δουν το ιστορικό των μηνυμάτων από τη στιγμή που "
 "προσκλήθηκαν στην αίθουσα."
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Μέλη μόνο (αφού έχουν εισέλθει)"
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6478,20 +6574,6 @@ msgstr "Ρυθμίσεις χώρου"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "Ρυθμίσεις αίθουσας"
-
-#: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Γενικά"
-
-#: src/settings/RoomSettingsView.qml:49
-#, fuzzy, kde-format
-#| msgid "Security"
-msgctxt "@title"
-msgid "Security"
-msgstr "Ασφάλεια"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
@@ -7137,6 +7219,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "Σε αυτήν την αίθουσα συνεχίζεται μια άλλη συνομιλία."
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr "Δες παλαιότερα μηνύματα…"
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -7153,6 +7245,16 @@ msgstr "Πηγή μηνύματος"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Τελευταία ανάγνωση: %1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "Αυτή η αίθουσα έχει αντικατασταθεί."
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
+msgstr "Δες τη νέα αίθουσα…"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -7196,6 +7298,13 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "Εντάξει"
+
+#~ msgid "Security"
+#~ msgstr "Ασφάλεια"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "Διαμόρφωση του NeoChat…"

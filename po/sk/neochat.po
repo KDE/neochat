@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -536,8 +536,8 @@ msgid "Find your Friends"
 msgstr ""
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -564,7 +564,7 @@ msgid "Explore Rooms"
 msgstr "Prehliadať miestnosti"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -640,12 +640,6 @@ msgstr "O Neochat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "Informácie o KDE"
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr ""
 
 #: src/app/qml/InvitationView.qml:50
 #, fuzzy, kde-format
@@ -1163,10 +1157,11 @@ msgid "Server URL:"
 msgstr "URL serveru:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
-msgstr "Ok"
+msgid "OK"
+msgstr "OK"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
 #, fuzzy, kde-format
@@ -1460,32 +1455,33 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Enter your Matrix ID"
-msgid "Enter a user ID"
-msgstr "Zadajte svoje Matrix ID"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Priatelia"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Nič nenájdené"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter your Matrix ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "Zadajte svoje Matrix ID"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -3554,7 +3550,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Odoslať pozvanie"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search"
@@ -4324,7 +4320,6 @@ msgid "Show Menu"
 msgstr "Zobraziť ponuku"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr ""
@@ -4344,7 +4339,7 @@ msgstr ""
 msgid "Search"
 msgstr "Hľadať"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "Prehliadať miestnosti"
@@ -4474,36 +4469,58 @@ msgstr "Stlmený"
 msgid "Configure room"
 msgstr "Nastaviť miestnosť"
 
-#: src/rooms/RoomListPage.qml:215
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, kde-format
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr ""
+
+#: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No rooms found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/rooms/RoomListPage.qml:217
+#: src/rooms/RoomListPage.qml:218
 #, kde-format
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "Vyhľadajte v adresári miestnosti"
 
-#: src/rooms/RoomListPage.qml:241
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "Prehliadať miestnosti"
+
+#: src/rooms/RoomListPage.qml:242
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Vyhľadajte v adresári miestnosti"
 
@@ -4645,7 +4662,7 @@ msgstr "Práca"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Uložiť"
@@ -5275,7 +5292,7 @@ msgid "Keyword…"
 msgstr "Kľúčové slovo"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr ""
@@ -5978,7 +5995,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "Všeobecné"
@@ -6152,32 +6169,46 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Heslo:"
 
-#: src/settings/Permissions.qml:32
-#, kde-format
-msgid "Privileged Users"
-msgstr ""
-
-#: src/settings/Permissions.qml:233
-#, kde-format
-msgid "Default permissions"
-msgstr ""
-
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:34
 #, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Privileged Users"
+msgstr "Ignorovať tohto používateľa"
+
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+msgctxt "@title"
+msgid "Default permissions"
+msgstr "Základné oprávnenia"
+
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "Základné oprávnenia"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
-msgid "Event permissions"
-msgstr ""
-
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:309
 #, fuzzy, kde-format
+msgctxt "@title"
+msgid "Event permissions"
+msgstr "Práva"
+
+#: src/settings/Permissions.qml:356
+#, fuzzy, kde-format
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Typ udalosti"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Delete"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "Vymazať"
+
+#: src/settings/Permissions.qml:408
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@placeholder"
@@ -6269,88 +6300,120 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Potvrdiť"
 
-#: src/settings/RoomGeneralPage.qml:37
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Všeobecné"
+
+#: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "updated their avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "aktualizovali avatara"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "Meno:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, fuzzy, kde-format
 #| msgid "Topic:"
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "Téma:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "Uložiť"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "Aliasy"
 
-#: src/settings/RoomGeneralPage.qml:106
+#: src/settings/RoomGeneralPage.qml:108
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "Žiadny kanonický alias"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "cleared the room main alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "vyčistil hlavný alias miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:136
+#: src/settings/RoomGeneralPage.qml:138
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Delete"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "Vymazať"
 
 #: src/settings/RoomGeneralPage.qml:160
 #, kde-format
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "Pridať nový alias"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgid "URL Previews"
+msgctxt "@title"
 msgid "URL Previews"
 msgstr "Náhľady odkazov"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:210
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:207
+#, fuzzy, kde-format
+#| msgid "Enable URL previews"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "Povoliť náhľady odkazov"
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt ""
@@ -6359,67 +6422,79 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:228
+#: src/settings/RoomGeneralPage.qml:225
 #, kde-format
+msgctxt "@action:button"
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:236
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:233
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
 msgid "Official Parent Spaces"
-msgstr ""
+msgstr "Vytvoriť miestnosť"
 
-#: src/settings/RoomGeneralPage.qml:269
+#: src/settings/RoomGeneralPage.qml:266
 #, fuzzy, kde-format
 #| msgid "Canonical Alias:"
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Kanonický alias:"
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Žiadny kanonický alias"
 
-#: src/settings/RoomGeneralPage.qml:285
+#: src/settings/RoomGeneralPage.qml:282
 #, fuzzy, kde-format
 #| msgid "Edit Message"
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Upraviť správu"
 
-#: src/settings/RoomGeneralPage.qml:298
+#: src/settings/RoomGeneralPage.qml:295
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Táto miestnosť bola nahradená."
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Žiadny kanonický alias"
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Táto miestnosť pokračuje v ďalšej konverzácii."
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:320
 #, fuzzy, kde-format
 #| msgid "See older messages..."
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Zobraziť staršie správy"
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Táto miestnosť bola nahradená."
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:336
 #, fuzzy, kde-format
 #| msgid "See new room..."
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "Zobraziť novú miestnosť..."
 
@@ -6450,18 +6525,21 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Predvolené systémom"
 
-#: src/settings/RoomSecurityPage.qml:20
+#: src/settings/RoomSecurityPage.qml:22
 #, kde-format
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:22
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@title"
 msgid "Security"
 msgstr "Bezpečnosť"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@option:check"
@@ -6488,105 +6566,109 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Prístup"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:70
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Členovia"
 
-#: src/settings/RoomSecurityPage.qml:79
+#: src/settings/RoomSecurityPage.qml:76
 #, kde-format
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:88
+#: src/settings/RoomSecurityPage.qml:85
 #, fuzzy, kde-format
 #| msgctxt "text editing menu action"
 #| msgid "Select All"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Vybrať všetko"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, fuzzy, kde-format
 #| msgid "knocked"
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "zaklopal"
 
-#: src/settings/RoomSecurityPage.qml:107
+#: src/settings/RoomSecurityPage.qml:104
 #, kde-format
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Verejné"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Členovia"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6594,13 +6676,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6620,20 +6702,6 @@ msgstr "Nastavenia"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "Nastavenia miestnosti"
-
-#: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Všeobecné"
-
-#: src/settings/RoomSettingsView.qml:49
-#, fuzzy, kde-format
-#| msgid "Security"
-msgctxt "@title"
-msgid "Security"
-msgstr "Bezpečnosť"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
@@ -7281,6 +7349,17 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "Táto miestnosť pokračuje v ďalšej konverzácii."
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, fuzzy, kde-format
+#| msgid "See older messages..."
+msgid "See older messages…"
+msgstr "Zobraziť staršie správy"
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -7297,6 +7376,17 @@ msgstr "Zdroj správy"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Naposledy prečítané: %1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "Táto miestnosť bola nahradená."
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "See new room…"
+msgstr "Zobraziť novú miestnosť..."
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -7341,6 +7431,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "Security"
+#~ msgstr "Bezpečnosť"
 
 #, fuzzy
 #~| msgid "Configure Web Shortcuts..."
@@ -7537,12 +7634,6 @@ msgstr[2] "%2 píšu"
 #~ msgctxt "@action:button"
 #~ msgid "Show QR code"
 #~ msgstr "Zobraziť QR kód"
-
-#, fuzzy
-#~| msgid "Ignore this user"
-#~ msgctxt "@title"
-#~ msgid "Ignored Users"
-#~ msgstr "Ignorovať tohto používateľa"
 
 #, fuzzy
 #~| msgid "Show notifications"

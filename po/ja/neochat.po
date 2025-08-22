@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -497,8 +497,8 @@ msgid "Find your Friends"
 msgstr ""
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -523,7 +523,7 @@ msgid "Explore Rooms"
 msgstr ""
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -592,12 +592,6 @@ msgstr ""
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
-msgstr ""
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
 msgstr ""
 
 #: src/app/qml/InvitationView.qml:50
@@ -1072,7 +1066,7 @@ msgstr ""
 #: src/app/qml/ServerComboBox.qml:190
 #, kde-format
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1340,30 +1334,31 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr ""
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
+msgstr ""
+
+#: src/app/qml/UserSearchPage.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Enter a User ID"
 msgstr ""
 
 #: src/app/qml/VerificationCanceled.qml:18
@@ -3218,7 +3213,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr ""
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3922,7 +3917,6 @@ msgid "Show Menu"
 msgstr ""
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr ""
@@ -3942,7 +3936,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
@@ -4060,34 +4054,52 @@ msgstr ""
 msgid "Configure room"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:215
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
 #, kde-format
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr ""
+
+#: src/rooms/RoomListPage.qml:216
+#, kde-format
+msgctxt "@info"
 msgid "No friends found"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:215
+#: src/rooms/RoomListPage.qml:216
 #, kde-format
+msgctxt "@info"
 msgid "No rooms found"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:217
+#: src/rooms/RoomListPage.qml:218
 #, kde-format
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:217
+#: src/rooms/RoomListPage.qml:218
 #, kde-format
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:224
+#: src/rooms/RoomListPage.qml:225
 #, kde-format
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:241
+#: src/rooms/RoomListPage.qml:225
 #, kde-format
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr ""
+
+#: src/rooms/RoomListPage.qml:242
+#, kde-format
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr ""
 
@@ -4212,7 +4224,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr ""
@@ -4782,7 +4794,7 @@ msgid "Keyword…"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr ""
@@ -5398,7 +5410,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr ""
@@ -5560,32 +5572,43 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr ""
 
-#: src/settings/Permissions.qml:32
+#: src/settings/Permissions.qml:34
 #, kde-format
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr ""
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:229
 #, kde-format
+msgctxt "@title"
 msgid "Default permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:269
 #, kde-format
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:309
 #, kde-format
+msgctxt "@title"
 msgid "Event permissions"
 msgstr ""
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:356
 #, kde-format
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, kde-format
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr ""
+
+#: src/settings/Permissions.qml:408
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5667,79 +5690,103 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:37
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
 #, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr ""
+
+#: src/settings/RoomGeneralPage.qml:39
+#, kde-format
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:101
+#: src/settings/RoomGeneralPage.qml:89
 #, kde-format
+msgctxt "@action:button"
+msgid "Save"
+msgstr ""
+
+#: src/settings/RoomGeneralPage.qml:103
+#, kde-format
+msgctxt "@title"
 msgid "Aliases"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:106
+#: src/settings/RoomGeneralPage.qml:108
 #, kde-format
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:121
+#: src/settings/RoomGeneralPage.qml:125
 #, kde-format
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:136
+#: src/settings/RoomGeneralPage.qml:138
 #, kde-format
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:160
 #, kde-format
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:177
 #, kde-format
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:197
+#: src/settings/RoomGeneralPage.qml:194
 #, kde-format
+msgctxt "@title"
 msgid "URL Previews"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:201
+#: src/settings/RoomGeneralPage.qml:198
 #, kde-format
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:210
+#: src/settings/RoomGeneralPage.qml:207
 #, kde-format
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, kde-format
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:212
+#: src/settings/RoomGeneralPage.qml:209
 #, kde-format
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
@@ -5747,60 +5794,69 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:228
+#: src/settings/RoomGeneralPage.qml:225
 #, kde-format
+msgctxt "@action:button"
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:236
+#: src/settings/RoomGeneralPage.qml:233
 #, kde-format
+msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:269
+#: src/settings/RoomGeneralPage.qml:266
 #, kde-format
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:285
+#: src/settings/RoomGeneralPage.qml:282
 #, kde-format
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:298
+#: src/settings/RoomGeneralPage.qml:295
 #, kde-format
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:316
 #, kde-format
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:320
 #, kde-format
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
+#: src/settings/RoomGeneralPage.qml:332
 #, kde-format
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
+#: src/settings/RoomGeneralPage.qml:336
 #, kde-format
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr ""
 
@@ -5828,18 +5884,20 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:20
+#: src/settings/RoomSecurityPage.qml:22
 #, kde-format
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
 #, kde-format
+msgctxt "@title"
 msgid "Security"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -5863,100 +5921,104 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:70
+#: src/settings/RoomSecurityPage.qml:67
 #, kde-format
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:79
+#: src/settings/RoomSecurityPage.qml:76
 #, kde-format
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:88
+#: src/settings/RoomSecurityPage.qml:85
 #, kde-format
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:107
+#: src/settings/RoomSecurityPage.qml:104
 #, kde-format
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5964,13 +6026,13 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5987,18 +6049,6 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Room Settings"
-msgstr ""
-
-#: src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr ""
-
-#: src/settings/RoomSettingsView.qml:49
-#, kde-format
-msgctxt "@title"
-msgid "Security"
 msgstr ""
 
 #: src/settings/RoomSettingsView.qml:60
@@ -6577,6 +6627,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ""
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr ""
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr ""
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6591,6 +6651,16 @@ msgstr ""
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
+msgstr ""
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr ""
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
 msgstr ""
 
 #: src/timeline/TimelineEndDelegate.qml:90

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2025-07-17 18:18+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -513,8 +513,8 @@ msgid "Find your Friends"
 msgstr "Etsi kavereita"
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -539,7 +539,7 @@ msgid "Explore Rooms"
 msgstr "Tutki huoneita"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -609,12 +609,6 @@ msgstr "Tietoa Neochatistä"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "Tietoa KDE:stä"
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "Valittu linkki"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -1113,9 +1107,10 @@ msgid "Server URL:"
 msgstr "Palvelimen verkko-osoite:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr "OK"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1395,31 +1390,33 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Etsi kavereita"
 
-#: src/app/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "Syötä käyttäjätunniste"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "Kaverit"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr "Etsi kavereita…"
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "Aloita kaverihaku kirjoittamalla jotakin"
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Osumia ei löytynyt"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter a user ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "Syötä käyttäjätunniste"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -3325,7 +3322,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Lähetä kutsu"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -4043,7 +4040,6 @@ msgid "Show Menu"
 msgstr "Näytä valikko"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "Etsi kavereita"
@@ -4063,7 +4059,7 @@ msgstr "Lue QR-koodi"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "Tutki huoneita"
@@ -4185,34 +4181,61 @@ msgstr "Vaimennettu huone"
 msgid "Configure room"
 msgstr "Huoneen asetukset"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr "Etsi kavereita"
+
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No friends found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "Kavereita ei löytynyt"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "Huoneita ei löytynyt"
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "You haven't added any of your friends yet, click below to search for them."
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "Kavereita ei ole vielä lisätty: etsi sellaisia napsauttamalla alta."
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Aloita liittymällä joihinkin huoneisiin"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "Etsi huonehakemistosta"
 
-#: src/rooms/RoomListPage.qml:241
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "Tutki huoneita"
+
+#: src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Search in friend directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Etsi kaverihakemistosta"
 
@@ -4341,7 +4364,7 @@ msgstr "Työ"
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Tallenna"
@@ -4925,7 +4948,7 @@ msgid "Keyword…"
 msgstr "Hakusana…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "Lisää hakusana"
@@ -5554,7 +5577,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr "Vie avaimia"
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "Perusasetukset"
@@ -5716,32 +5739,49 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Salasana:"
 
-#: src/settings/Permissions.qml:32
-#, kde-format
+#: src/settings/Permissions.qml:34
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr "Etuoikeutetut käyttäjät"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+#| msgid "Default permissions"
+msgctxt "@title"
 msgid "Default permissions"
 msgstr "Oletusluvat"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+#| msgid "Basic permissions"
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "Perusluvat"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
+#: src/settings/Permissions.qml:309
+#, fuzzy, kde-format
+#| msgid "Event permissions"
+msgctxt "@title"
 msgid "Event permissions"
 msgstr "Tapahtumaluvat"
 
-#: src/settings/Permissions.qml:360
-#, kde-format
+#: src/settings/Permissions.qml:356
+#, fuzzy, kde-format
+#| msgid "Event Type…"
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Tapahtumatyyppi…"
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "Lisää hakusana"
+
+#: src/settings/Permissions.qml:408
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5823,80 +5863,118 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Vahvista"
 
-#: src/settings/RoomGeneralPage.qml:37
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Perusasetukset"
+
+#: src/settings/RoomGeneralPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "Päivitä avatar"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "Nimi:"
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "Aihe:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "Tallenna"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "Aliakset"
 
-#: src/settings/RoomGeneralPage.qml:106
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:108
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "Kanonista aliasta ei ole asetettu"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "Tee tästä huoneen kanoninen alias"
 
-#: src/settings/RoomGeneralPage.qml:136
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Delete alias"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "Poista alias"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "#new_alias:server.org"
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#uusi_alias:palvelin.fi"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "Lisää uusi alias"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgid "URL Previews"
+msgctxt "@title"
 msgid "URL Previews"
 msgstr "Verkko-osoitteen esikatselut"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr "Salli huoneen jäsenille oletuksena verkko-osoitteiden esikatselu"
 
-#: src/settings/RoomGeneralPage.qml:210
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:207
+#, fuzzy, kde-format
+#| msgid "Enable URL previews"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "Käytä verkko-osoitteiden esikatselua"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "Verkko-osoitteiden esikatselu on jo käytössä tässä huoneessa"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr ""
 "Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
@@ -5905,61 +5983,79 @@ msgid "URL previews are currently disabled for your account"
 msgstr ""
 "Verkko-osoitteiden esikatselu ei oletusarvoisesti ole tililläsi käytössä"
 
-#: src/settings/RoomGeneralPage.qml:228
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Enable"
+msgctxt "@action:button"
 msgid "Enable"
 msgstr "Käytä"
 
-#: src/settings/RoomGeneralPage.qml:236
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:233
+#, fuzzy, kde-format
+#| msgid "Official Parent Spaces"
+msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "Viralliset emotilat"
 
-#: src/settings/RoomGeneralPage.qml:269
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:266
+#, fuzzy, kde-format
+#| msgid "Canonical"
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Kanoninen"
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, fuzzy, kde-format
 #| msgid "Make canonical parent"
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Tee kanoniseksi emoksi"
 
-#: src/settings/RoomGeneralPage.qml:285
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:282
+#, fuzzy, kde-format
+#| msgid "Remove parent"
+msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Poista emo"
 
-#: src/settings/RoomGeneralPage.qml:298
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:295
+#, fuzzy, kde-format
+#| msgid "This room has no official parent spaces."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Tällä huoneella ei ole virallista emotilaa."
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Lisää uusi virallinen emo"
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Huone jatkaa toista keskustelua."
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:320
+#, fuzzy, kde-format
+#| msgid "See older messages…"
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Katso vanhempia viestejä…"
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Tämä huone on korvattu."
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:336
+#, fuzzy, kde-format
+#| msgid "See new room…"
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "Katso uutta huonetta…"
 
@@ -5987,18 +6083,22 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr "Palauta oletukseksi"
 
-#: src/settings/RoomSecurityPage.qml:20
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:22
+#, fuzzy, kde-format
+#| msgid ""
+#| "You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "Tätä asetusta varten huone on päivitettävä uudempaan versioon."
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
 #, kde-format
+msgctxt "@title"
 msgid "Security"
 msgstr "Tietoturva"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -6026,100 +6126,108 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Käyttöönoton jälkeen salausta ei voi poistaa käytöstä."
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Saanti"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Yksityinen (vain kutsutuille)"
 
-#: src/settings/RoomSecurityPage.qml:70
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Only invited people can join."
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Vain kutsutut voivat liittyä."
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Tilan jäsenet"
 
-#: src/settings/RoomSecurityPage.qml:79
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:76
+#, fuzzy, kde-format
+#| msgid "Anyone in the selected spaces can find and join."
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Kuka tahansa tilassa voi löytää ja liittyä."
 
-#: src/settings/RoomSecurityPage.qml:88
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Select spaces"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Valitse tilat"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Koputa"
 
-#: src/settings/RoomSecurityPage.qml:107
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:104
+#, fuzzy, kde-format
+#| msgid "People not in the room need to request an invite to join the room."
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr "Ne, jotka eivät ole tässä huoneessa, tarvitsevat kutsun liittyäkseen."
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Julkinen"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Kuka tahansa voi löytää ja liittyä."
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Viestihistorian näkyvyys"
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Kuka tahansa"
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Kuka tahansa siitä riippumatta onko liittynyt voi katsella historiaa."
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Vain jäsenet"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "Kaikki jäsenet voivat katsella viestihistoriaa jo ennen liittymistään."
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Vain jäsenet (kutsun saatuaan)"
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6127,13 +6235,13 @@ msgid ""
 "the room."
 msgstr "Uudet jäsenet voivat katsella viestihistoriaa heti saatuaan kutsun."
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Vain jäsenet (liityttyään)"
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6151,19 +6259,6 @@ msgstr "Tilan asetukset"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "Huoneen asetukset"
-
-#: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Perusasetukset"
-
-#: src/settings/RoomSettingsView.qml:49
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "Tietoturva"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
@@ -6759,6 +6854,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "Huone jatkaa toista keskustelua."
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr "Katso vanhempia viestejä…"
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6774,6 +6879,16 @@ msgstr "Viestivalikko"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Viimeksi luettu: %1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "Tämä huone on korvattu."
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
+msgstr "Katso uutta huonetta…"
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6817,6 +6932,17 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
+
+#~ msgctxt "@info screenreader"
+#~ msgid "The currently selected link"
+#~ msgstr "Valittu linkki"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "OK"
+
+#~ msgid "Security"
+#~ msgstr "Tietoturva"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "NeoChatin asetukset…"

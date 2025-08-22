@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-21 00:43+0000\n"
+"POT-Creation-Date: 2025-08-22 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -504,8 +504,8 @@ msgid "Find your Friends"
 msgstr ""
 
 #: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:189
-#: src/rooms/RoomListPage.qml:245
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -530,7 +530,7 @@ msgid "Explore Rooms"
 msgstr "探索聊天室"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:230
+#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -600,12 +600,6 @@ msgstr "关于 NeoChat"
 msgctxt "menu"
 msgid "About KDE"
 msgstr "关于 KDE"
-
-#: src/app/qml/HoverLinkIndicator.qml:25
-#, kde-format
-msgctxt "@info screenreader"
-msgid "The currently selected link"
-msgstr "当前选择的链接"
 
 #: src/app/qml/InvitationView.qml:50
 #, kde-format
@@ -685,16 +679,14 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "收到来自设备 **%1** 的密钥验证请求"
 
 #: src/app/qml/KeyVerificationDialog.qml:162
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to send us keys."
-msgstr "正在等待对方验证。"
+msgstr ""
 
 #: src/app/qml/KeyVerificationDialog.qml:164
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to confirm our keys."
-msgstr "正在等待对方验证。"
+msgstr ""
 
 #: src/app/qml/KeyVerificationDialog.qml:166
 #, kde-format
@@ -879,12 +871,10 @@ msgid "Option %1:"
 msgstr ""
 
 #: src/app/qml/NewPollDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
-msgstr "加密"
+msgstr ""
 
 #: src/app/qml/NewPollDialog.qml:123
 #, kde-format
@@ -1081,9 +1071,10 @@ msgid "Server URL:"
 msgstr ""
 
 #: src/app/qml/ServerComboBox.qml:190
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "OK"
 msgctxt "@action:button"
-msgid "Ok"
+msgid "OK"
 msgstr "确定"
 
 #: src/app/qml/ShareAction.qml:24 src/settings/ThreePIdCard.qml:64
@@ -1353,31 +1344,33 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "查找好友"
 
-#: src/app/qml/UserSearchPage.qml:46
-#, kde-format
-msgid "Enter a user ID"
-msgstr "输入用户 ID"
-
-#: src/app/qml/UserSearchPage.qml:84 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
 msgid "Friends"
 msgstr "好友"
 
-#: src/app/qml/UserSearchPage.qml:91
+#: src/app/qml/UserSearchPage.qml:81
 #, kde-format
 msgid "Find your friends…"
 msgstr "查找好友..."
 
-#: src/app/qml/UserSearchPage.qml:92
+#: src/app/qml/UserSearchPage.qml:82
 #, kde-format
 msgid "Enter text to start searching for your friends"
 msgstr "输入文本开始搜索您的好友"
 
-#: src/app/qml/UserSearchPage.qml:93
+#: src/app/qml/UserSearchPage.qml:83
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "无匹配结果"
+
+#: src/app/qml/UserSearchPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Enter a user ID"
+msgctxt "@action:button"
+msgid "Enter a User ID"
+msgstr "输入用户 ID"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -1965,11 +1958,10 @@ msgid "Spaces"
 msgstr "空间"
 
 #: src/libneochat/enums/neochatroomtype.h:77
-#, fuzzy, kde-format
-#| msgid "Server Capabilities"
+#, kde-format
 msgctxt "@info Meaning: official information messages from your server"
 msgid "Server Notices"
-msgstr "服务器功能"
+msgstr ""
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3235,7 +3227,7 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "发送邀请"
 
-#: src/libneochat/qml/SearchPage.qml:147
+#: src/libneochat/qml/SearchPage.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3940,7 +3932,6 @@ msgid "Show Menu"
 msgstr "显示菜单"
 
 #: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
-#: src/rooms/RoomListPage.qml:181 src/rooms/RoomListPage.qml:241
 #, kde-format
 msgid "Find your friends"
 msgstr "查找好友"
@@ -3960,7 +3951,7 @@ msgstr "扫描二维码"
 msgid "Search"
 msgstr "搜索"
 
-#: src/rooms/ExploreComponentMobile.qml:47 src/rooms/RoomListPage.qml:224
+#: src/rooms/ExploreComponentMobile.qml:47
 #, kde-format
 msgid "Explore rooms"
 msgstr "探索聊天室"
@@ -4078,34 +4069,61 @@ msgstr "已静音的聊天室"
 msgid "Configure room"
 msgstr "配置聊天室"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Find your friends"
+msgctxt "@action:button"
+msgid "Find your friends"
+msgstr "查找好友"
+
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No friends found"
+msgctxt "@info"
 msgid "No friends found"
 msgstr "没有找到好友"
 
-#: src/rooms/RoomListPage.qml:215
-#, kde-format
+#: src/rooms/RoomListPage.qml:216
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
 msgid "No rooms found"
 msgstr "没有找到聊天室"
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid ""
+#| "You haven't added any of your friends yet, click below to search for them."
+msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您还没有添加好友，点击下面进行搜索。"
 
-#: src/rooms/RoomListPage.qml:217
-#, kde-format
+#: src/rooms/RoomListPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Join some rooms to get started"
+msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "加入聊天室，开始畅聊"
 
-#: src/rooms/RoomListPage.qml:224
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Search in room directory"
+msgctxt "@action"
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/rooms/RoomListPage.qml:241
-#, kde-format
+#: src/rooms/RoomListPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action"
+msgid "Explore rooms"
+msgstr "探索聊天室"
+
+#: src/rooms/RoomListPage.qml:242
+#, fuzzy, kde-format
+#| msgid "Search in friend directory"
+msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "在好友目录中搜索"
 
@@ -4230,7 +4248,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:137
 #: src/settings/AccountEditorPage.qml:193
-#: src/settings/EmoticonEditorPage.qml:108 src/settings/RoomGeneralPage.qml:87
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "保存"
@@ -4804,7 +4822,7 @@ msgid "Keyword…"
 msgstr "关键词…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/Permissions.qml:386 src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:119
 #, kde-format
 msgid "Add keyword"
 msgstr "添加关键词"
@@ -5420,7 +5438,7 @@ msgctxt "@title"
 msgid "Export Keys"
 msgstr ""
 
-#: src/settings/NeoChatSettingsView.qml:22 src/settings/RoomGeneralPage.qml:22
+#: src/settings/NeoChatSettingsView.qml:22
 #, kde-format
 msgid "General"
 msgstr "常规"
@@ -5582,32 +5600,48 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "密码："
 
-#: src/settings/Permissions.qml:32
-#, kde-format
+#: src/settings/Permissions.qml:34
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
 msgid "Privileged Users"
 msgstr "特权用户"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:229
+#, fuzzy, kde-format
+#| msgid "Default permissions"
+msgctxt "@title"
 msgid "Default permissions"
 msgstr "默认权限"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
+#: src/settings/Permissions.qml:269
+#, fuzzy, kde-format
+#| msgid "Basic permissions"
+msgctxt "@title"
 msgid "Basic permissions"
 msgstr "基本权限"
 
-#: src/settings/Permissions.qml:313
-#, kde-format
+#: src/settings/Permissions.qml:309
+#, fuzzy, kde-format
+#| msgid "Event permissions"
+msgctxt "@title"
 msgid "Event permissions"
 msgstr "事件权限"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:356
 #, kde-format
+msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:412
+#: src/settings/Permissions.qml:382
+#, fuzzy, kde-format
+#| msgid "Add keyword"
+msgctxt "@action:button"
+msgid "Add keyword"
+msgstr "添加关键词"
+
+#: src/settings/Permissions.qml:408
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
@@ -5689,79 +5723,116 @@ msgctxt "@action:button"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/settings/RoomGeneralPage.qml:37
+#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
 #, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr "常规"
+
+#: src/settings/RoomGeneralPage.qml:39
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "更新头像"
 
-#: src/settings/RoomGeneralPage.qml:66
+#: src/settings/RoomGeneralPage.qml:68
 #, kde-format
 msgctxt "@label:textbox Room name"
 msgid "Name:"
 msgstr "名称："
 
-#: src/settings/RoomGeneralPage.qml:75
+#: src/settings/RoomGeneralPage.qml:77
 #, kde-format
 msgctxt "@label:textobx Room topic"
 msgid "Topic:"
 msgstr "话题:"
 
-#: src/settings/RoomGeneralPage.qml:101
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:89
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@action:button"
+msgid "Save"
+msgstr "保存"
+
+#: src/settings/RoomGeneralPage.qml:103
+#, fuzzy, kde-format
+#| msgid "Aliases"
+msgctxt "@title"
 msgid "Aliases"
 msgstr "别名"
 
-#: src/settings/RoomGeneralPage.qml:106
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:108
+#, fuzzy, kde-format
+#| msgid "No canonical alias set"
+msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "未设置主别名"
 
-#: src/settings/RoomGeneralPage.qml:121
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Make this alias the room's canonical alias"
+msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "将此别名设置为聊天室主别名"
 
-#: src/settings/RoomGeneralPage.qml:136
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:138
+#, fuzzy, kde-format
+#| msgid "Delete alias"
+msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "删除别名"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "#new_alias:server.org"
+msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add new alias"
+msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "添加新别名"
 
-#: src/settings/RoomGeneralPage.qml:197
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:194
+#, fuzzy, kde-format
+#| msgid "URL Previews"
+msgctxt "@title"
 msgid "URL Previews"
 msgstr "URL 预览"
 
-#: src/settings/RoomGeneralPage.qml:201
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:198
+#, fuzzy, kde-format
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr "默认情况下为聊天室成员启用 URL 预览"
 
-#: src/settings/RoomGeneralPage.qml:210
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:207
+#, fuzzy, kde-format
+#| msgid "Enable URL previews"
+msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "启用 URL 预览"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "此聊天室默认启用 URL 预览"
 
-#: src/settings/RoomGeneralPage.qml:212
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:209
+#, fuzzy, kde-format
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "此聊天室默认禁用 URL 预览"
 
-#: src/settings/RoomGeneralPage.qml:224
+#: src/settings/RoomGeneralPage.qml:221
 #, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
@@ -5769,60 +5840,76 @@ msgctxt ""
 msgid "URL previews are currently disabled for your account"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:228
+#: src/settings/RoomGeneralPage.qml:225
 #, kde-format
+msgctxt "@action:button"
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:236
+#: src/settings/RoomGeneralPage.qml:233
 #, kde-format
+msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:269
+#: src/settings/RoomGeneralPage.qml:266
 #, kde-format
+msgctxt "@action:button"
 msgid "Canonical"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:274
+#: src/settings/RoomGeneralPage.qml:271
 #, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:285
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:282
+#, fuzzy, kde-format
+#| msgctxt "As in remove the link preview so it's no longer shown"
+#| msgid "Remove preview"
+msgctxt "@action:button"
 msgid "Remove parent"
-msgstr ""
+msgstr "移除预览"
 
-#: src/settings/RoomGeneralPage.qml:298
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:295
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has no official parent spaces."
-msgstr ""
+msgstr "此聊天室已被替换。"
 
-#: src/settings/RoomGeneralPage.qml:302
+#: src/settings/RoomGeneralPage.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:319 src/timeline/PredecessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:316
+#, fuzzy, kde-format
+#| msgid "This room continues another conversation."
+msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "此聊天室接续了另一个对话。"
 
-#: src/settings/RoomGeneralPage.qml:323 src/timeline/PredecessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:320
+#, fuzzy, kde-format
+#| msgid "See older messages…"
+msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "查看更早的消息..."
 
-#: src/settings/RoomGeneralPage.qml:335 src/timeline/SuccessorDelegate.qml:26
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:332
+#, fuzzy, kde-format
+#| msgid "This room has been replaced."
+msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "此聊天室已被替换。"
 
-#: src/settings/RoomGeneralPage.qml:339 src/timeline/SuccessorDelegate.qml:29
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:336
+#, fuzzy, kde-format
+#| msgid "See new room…"
+msgctxt "@action:button"
 msgid "See new room…"
 msgstr "查看新聊天室..."
 
@@ -5850,18 +5937,22 @@ msgctxt "@action:button"
 msgid "Reset to Default"
 msgstr ""
 
-#: src/settings/RoomSecurityPage.qml:20
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:22
+#, fuzzy, kde-format
+#| msgid ""
+#| "You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr "您需要将此聊天室升级到一个更新的版本才能进行此设置。"
 
-#: src/settings/RoomSecurityPage.qml:22
+#: src/settings/RoomSecurityPage.qml:24 src/settings/RoomSettingsView.qml:49
 #, kde-format
+msgctxt "@title"
 msgid "Security"
 msgstr "安全"
 
-#: src/settings/RoomSecurityPage.qml:25
+#: src/settings/RoomSecurityPage.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -5885,100 +5976,108 @@ msgctxt "@info:description"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "加密一经启用，便无法禁用。"
 
-#: src/settings/RoomSecurityPage.qml:65
+#: src/settings/RoomSecurityPage.qml:62
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "访问"
 
-#: src/settings/RoomSecurityPage.qml:69
+#: src/settings/RoomSecurityPage.qml:66
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "私有（仅可邀请）"
 
-#: src/settings/RoomSecurityPage.qml:70
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Only invited people can join."
+msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "只有被邀请的人才能加入。"
 
-#: src/settings/RoomSecurityPage.qml:78
+#: src/settings/RoomSecurityPage.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "空间成员"
 
-#: src/settings/RoomSecurityPage.qml:79
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:76
+#, fuzzy, kde-format
+#| msgid "Anyone in the selected spaces can find and join."
+msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "所选空间中的任何人都可以查找并加入。"
 
-#: src/settings/RoomSecurityPage.qml:88
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Select spaces"
+msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "选择空间"
 
-#: src/settings/RoomSecurityPage.qml:106
+#: src/settings/RoomSecurityPage.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "需申请被邀入"
 
-#: src/settings/RoomSecurityPage.qml:107
-#, kde-format
+#: src/settings/RoomSecurityPage.qml:104
+#, fuzzy, kde-format
+#| msgid "People not in the room need to request an invite to join the room."
+msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr "未在聊天室的人可以请求邀请以加入聊天室。"
 
-#: src/settings/RoomSecurityPage.qml:116
+#: src/settings/RoomSecurityPage.qml:113
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "公开"
 
-#: src/settings/RoomSecurityPage.qml:117
+#: src/settings/RoomSecurityPage.qml:114
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "任何人均可搜索与加入。"
 
-#: src/settings/RoomSecurityPage.qml:127
+#: src/settings/RoomSecurityPage.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "消息历史可见性"
 
-#: src/settings/RoomSecurityPage.qml:131
+#: src/settings/RoomSecurityPage.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "任何人"
 
-#: src/settings/RoomSecurityPage.qml:132
+#: src/settings/RoomSecurityPage.qml:129
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "任何人，不论是否加入，都可以查看历史。"
 
-#: src/settings/RoomSecurityPage.qml:140
+#: src/settings/RoomSecurityPage.qml:137
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "仅限成员"
 
-#: src/settings/RoomSecurityPage.qml:141
+#: src/settings/RoomSecurityPage.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr "所有成员都可以查看整个消息历史，即便是在他们加入之前的消息。"
 
-#: src/settings/RoomSecurityPage.qml:149
+#: src/settings/RoomSecurityPage.qml:146
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "仅限成员（自邀请时起）"
 
-#: src/settings/RoomSecurityPage.qml:150
+#: src/settings/RoomSecurityPage.qml:147
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -5986,13 +6085,13 @@ msgid ""
 "the room."
 msgstr "新成员可以查看从被邀请到聊天室时起的消息历史记录。"
 
-#: src/settings/RoomSecurityPage.qml:158
+#: src/settings/RoomSecurityPage.qml:155
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "仅限成员（自加入时起）"
 
-#: src/settings/RoomSecurityPage.qml:159
+#: src/settings/RoomSecurityPage.qml:156
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -6010,18 +6109,6 @@ msgstr "空间设置"
 msgctxt "@title:window"
 msgid "Room Settings"
 msgstr "聊天室设置"
-
-#: src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "常规"
-
-#: src/settings/RoomSettingsView.qml:49
-#, kde-format
-msgctxt "@title"
-msgid "Security"
-msgstr "安全"
 
 #: src/settings/RoomSettingsView.qml:60
 #, kde-format
@@ -6599,6 +6686,16 @@ msgctxt "list separator"
 msgid ", "
 msgstr ","
 
+#: src/timeline/PredecessorDelegate.qml:26
+#, kde-format
+msgid "This room continues another conversation."
+msgstr "此聊天室接续了另一个对话。"
+
+#: src/timeline/PredecessorDelegate.qml:29
+#, kde-format
+msgid "See older messages…"
+msgstr "查看更早的消息..."
+
 #: src/timeline/QuickActions.qml:32
 #, kde-format
 msgid "React"
@@ -6614,6 +6711,16 @@ msgstr ""
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "上次查看：%1"
+
+#: src/timeline/SuccessorDelegate.qml:26
+#, kde-format
+msgid "This room has been replaced."
+msgstr "此聊天室已被替换。"
+
+#: src/timeline/SuccessorDelegate.qml:29
+#, kde-format
+msgid "See new room…"
+msgstr "查看新聊天室..."
 
 #: src/timeline/TimelineEndDelegate.qml:90
 #, kde-format
@@ -6652,3 +6759,14 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
+
+#~ msgctxt "@info screenreader"
+#~ msgid "The currently selected link"
+#~ msgstr "当前选择的链接"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ok"
+#~ msgstr "确定"
+
+#~ msgid "Security"
+#~ msgstr "安全"
