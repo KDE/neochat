@@ -161,11 +161,15 @@
             "name": "kunifiedpush",
             "buildsystem": "cmake-ninja",
             "builddir": true,
+            "config-opts": [
+                "-DENABLE_TESTING=OFF",
+                "-DKUNIFIEDPUSH_CLIENT_ONLY=ON"
+            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/stable/release-service/25.04.3/src/kunifiedpush-25.04.3.tar.xz",
-                    "sha256": "a16ffe4117b14baa02f3b8ae7de9e509a17359c1b67dcd851aef4f3c3661a1df",
+                    "url": "https://download.kde.org/stable/release-service/25.08.0/src/kunifiedpush-25.08.0.tar.xz",
+                    "sha256": "846db6ffc7d93f6afea7ce0d5a9f10b52792157ceb593856542279f4197f3518",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 8763,
