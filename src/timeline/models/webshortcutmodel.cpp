@@ -37,7 +37,7 @@ QString WebShortcutModel::selectedText() const
 
 QString WebShortcutModel::trunkatedSearchText() const
 {
-    return KStringHandler::rsqueeze(d->selectedText, 21);
+    return KStringHandler::rsqueeze(d->selectedText, 21).toHtmlEscaped().replace(u"&"_s, u"&&"_s);
 }
 
 bool WebShortcutModel::enabled() const
