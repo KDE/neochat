@@ -354,7 +354,6 @@ private:
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
     KConfigGroup m_lastSpaceConfig;
-    KConfigGroup m_directChatsConfig;
 
     RoomListModel *m_roomListModel;
     SortFilterRoomListModel *m_sortFilterRoomListModel;

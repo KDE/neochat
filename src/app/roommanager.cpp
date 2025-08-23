@@ -56,7 +56,6 @@ RoomManager::RoomManager(QObject *parent)
 
     m_lastRoomConfig = m_config->group(u"LastOpenRoom"_s);
     m_lastSpaceConfig = m_config->group(u"LastOpenSpace"_s);
-    m_directChatsConfig = m_config->group(u"DirectChatsActive"_s);
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_userListModel->setRoom(m_currentRoom);
