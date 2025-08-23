@@ -187,6 +187,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.PlaceholderMessage {
             id: noSearchMessage
+            icon.name: "search"
             anchors.centerIn: parent
             visible: searchField.text.length === 0 && listView.count === 0 && customPlaceholder.text.length === 0
             helpfulAction: root.noSearchHelpfulAction
@@ -194,6 +195,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.PlaceholderMessage {
             id: noResultMessage
+            icon.name: "search"
             anchors.centerIn: parent
             visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
             helpfulAction: root.noResultHelpfulAction
