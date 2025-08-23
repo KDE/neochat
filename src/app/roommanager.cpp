@@ -54,9 +54,6 @@ RoomManager::RoomManager(QObject *parent)
     }
 #endif
 
-    m_lastRoomConfig = m_config->group(u"LastOpenRoom"_s);
-    m_lastSpaceConfig = m_config->group(u"LastOpenSpace"_s);
-
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
         m_userListModel->setRoom(m_currentRoom);
         m_timelineModel->setRoom(m_currentRoom);
@@ -320,7 +317,7 @@ void RoomManager::loadInitialRoom()
     }
 
     if (m_isMobile) {
-        QString lastSpace = m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+        QString lastSpace = m_lastRoomConfig.readEntry(u"lastSpace"_s, QString());
         // We can't have empty keys in KConfig, so we stored it as "Home"
         if (lastSpace == u"Home"_s) {
             lastSpace.clear();
@@ -347,7 +344,7 @@ void RoomManager::openRoomForActiveConnection()
         setCurrentSpace({}, false);
         return;
     }
-    auto lastSpace = m_lastSpaceConfig.readEntry(m_connection->userId(), QString());
+    auto lastSpace = m_lastRoomConfig.readEntry(u"lastSpace"_s, QString());
     if (lastSpace == u"Home"_s) {
         lastSpace.clear();
     }
@@ -489,6 +486,8 @@ void RoomManager::setConnection(NeoChatConnection *connection)
 
     m_connection = connection;
 
+    m_lastRoomConfig = m_config->group(m_connection->userId()).group(u"LastOpenRoom"_s);
+
     if (m_connection != nullptr) {
         connect(m_connection, &NeoChatConnection::showMessage, this, &RoomManager::showMessage);
         connect(m_connection, &NeoChatConnection::createdRoom, this, [this](Quotient::Room *room) {
@@ -517,11 +516,7 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
     Q_EMIT currentSpaceChanged();
     if (m_connection) {
-        if (spaceId.isEmpty()) {
-            m_lastSpaceConfig.writeEntry(m_connection->userId(), u"Home"_s);
-        } else {
-            m_lastSpaceConfig.writeEntry(m_connection->userId(), spaceId);
-        }
+        m_lastRoomConfig.writeEntry(u"lastSpace"_s, spaceId.isEmpty() ? u"Home"_s : spaceId);
     }
 
     if (!setRoom) {
@@ -529,22 +524,20 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
     }
 
     // We intentionally don't want to open the last room on mobile
-    if (!m_isMobile) {
-        QString configSpaceId = spaceId;
-        // We can't have empty keys in KConfig, so it's stored as "Home"
-        if (spaceId.isEmpty()) {
-            configSpaceId = u"Home"_s;
-        }
-
-        const auto &lastRoom = m_lastRoomConfig.readEntry(configSpaceId, QString());
-        if (lastRoom.isEmpty()) {
-            if (spaceId != u"DM"_s && spaceId != u"Home"_s) {
-                resolveResource(spaceId, "no_join"_L1);
-            }
-        } else {
-            resolveResource(lastRoom, "no_join"_L1);
-        }
+    if (m_isMobile) {
+        return;
     }
+
+    // We can't have empty keys in KConfig, so it's stored as "Home"
+    if (const auto &lastRoom = m_lastRoomConfig.readEntry(spaceId.isEmpty() ? u"Home"_s : spaceId, QString()); !lastRoom.isEmpty()) {
+        resolveResource(lastRoom, "no_join"_L1);
+        return;
+    }
+    if (!spaceId.isEmpty() && spaceId != u"DM"_s) {
+        resolveResource(spaceId, "no_join"_L1);
+        return;
+    }
+    setCurrentRoom({});
 }
 
 void RoomManager::setCurrentRoom(const QString &roomId)

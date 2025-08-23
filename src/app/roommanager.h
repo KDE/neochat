@@ -353,7 +353,6 @@ private:
     QString m_arg;
     KSharedConfig::Ptr m_config;
     KConfigGroup m_lastRoomConfig;
-    KConfigGroup m_lastSpaceConfig;
 
     RoomListModel *m_roomListModel;
     SortFilterRoomListModel *m_sortFilterRoomListModel;
