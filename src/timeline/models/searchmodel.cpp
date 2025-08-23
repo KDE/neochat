@@ -5,8 +5,6 @@
 
 using namespace Quotient;
 
-// TODO search only in the current room
-
 SearchModel::SearchModel(QObject *parent)
     : MessageModel(parent)
 {
@@ -37,7 +35,9 @@ void SearchModel::search()
     filter.lazyLoadMembers = true;
     filter.includeRedundantMembers = false;
     filter.notRooms = QStringList();
-    filter.rooms = QStringList{m_room->id()};
+    if (!m_allRooms) {
+        filter.rooms = QStringList{m_room->id()};
+    }
     filter.containsUrl = false;
 
     SearchJob::RoomEventsCriteria criteria{
@@ -99,6 +99,20 @@ void SearchModel::setSearching(bool searching)
 {
     m_searching = searching;
     Q_EMIT searchingChanged();
+}
+
+bool SearchModel::allRooms() const
+{
+    return m_allRooms;
+}
+
+void SearchModel::setAllRooms(bool allRooms)
+{
+    if (m_allRooms == allRooms) {
+        return;
+    }
+    m_allRooms = allRooms;
+    Q_EMIT allRoomsChanged();
 }
 
 #include "moc_searchmodel.cpp"

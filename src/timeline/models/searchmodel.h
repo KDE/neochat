@@ -37,11 +37,19 @@ class SearchModel : public MessageModel
      */
     Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
+    /**
+     * @brief Whether to search the current room or all of them.
+     */
+    Q_PROPERTY(bool allRooms READ allRooms WRITE setAllRooms NOTIFY allRoomsChanged)
+
 public:
     explicit SearchModel(QObject *parent = nullptr);
 
     QString searchText() const;
     void setSearchText(const QString &searchText);
+
+    bool allRooms() const;
+    void setAllRooms(bool allRooms);
 
     bool searching() const;
 
@@ -61,6 +69,7 @@ Q_SIGNALS:
     void searchTextChanged();
     void roomChanged();
     void searchingChanged();
+    void allRoomsChanged();
 
 private:
     std::optional<std::reference_wrapper<const Quotient::RoomEvent>> getEventForIndex(QModelIndex index) const override;
@@ -71,4 +80,5 @@ private:
     std::optional<Quotient::SearchJob::ResultRoomEvents> m_result = std::nullopt;
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;
+    bool m_allRooms = false;
 };

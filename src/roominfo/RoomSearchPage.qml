@@ -3,6 +3,7 @@
 
 import QtQuick
 
+import org.kde.kirigami as Kirigami
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
 
@@ -39,4 +40,15 @@ SearchPage {
     noResultPlaceholderMessage: i18n("No messages found")
 
     listVerticalLayoutDirection: ListView.BottomToTop
+
+    actions: [
+        Kirigami.Action {
+            text: "Search All Rooms"
+            checkable: true
+            onToggled: {
+                root.model.allRooms = checked;
+                root.updateSearch();
+            }
+        }
+    ]
 }
