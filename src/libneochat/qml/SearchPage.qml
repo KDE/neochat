@@ -112,7 +112,7 @@ Kirigami.ScrollablePage {
      * @brief Force the search to be updated if the model has a valid search function.
      */
     function updateSearch() {
-        searchTimer.restart();
+        root.model.search();
     }
 
     header: QQC2.Control {
@@ -142,10 +142,13 @@ Kirigami.ScrollablePage {
                 Layout.fillWidth: true
                 Keys.onEnterPressed: searchButton.clicked()
                 Keys.onReturnPressed: searchButton.clicked()
-                onTextChanged: {
-                    searchTimer.restart();
-                    if (root.model) {
-                        root.model.searchText = text;
+                onTextChanged: root.model.searchText = text
+                onAccepted: {
+                    // If the text is empty, call the search model immediately because it will early-return.
+                    if (root.model.searchText.length === 0) {
+                        root.model.search();
+                    } else {
+                        searchTimer.restart();
                     }
                 }
             }
@@ -158,6 +161,7 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     if (typeof root.model.search === 'function') {
+                        searchTimer.stop();
                         root.model.search();
                     }
                 }
@@ -197,7 +201,7 @@ Kirigami.ScrollablePage {
             id: noResultMessage
             icon.name: "search"
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
+            visible: searchField.text.length > 0 && listView.count === 0 && (!root.model.searching && !searchTimer.running) && customPlaceholder.text.length === 0
             helpfulAction: root.noResultHelpfulAction
         }
 
@@ -210,7 +214,7 @@ Kirigami.ScrollablePage {
 
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && root.model.searching && customPlaceholder.text.length === 0
+            visible: searchField.text.length > 0 && listView.count === 0 && (root.model.searching || searchTimer.running) && customPlaceholder.text.length === 0
         }
 
         Keys.onUpPressed: {

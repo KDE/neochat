@@ -26,11 +26,23 @@ void SearchModel::setSearchText(const QString &searchText)
 void SearchModel::search()
 {
     Q_ASSERT(m_room);
-    setSearching(true);
+
     if (m_job) {
         m_job->abandon();
         m_job = nullptr;
     }
+
+    // early-return case: the user sets the text to nothing, and we simply clear the results
+    if (m_searchText.isEmpty()) {
+        clearEventObjects();
+
+        beginResetModel();
+        m_result = std::nullopt;
+        endResetModel();
+        return;
+    }
+
+    setSearching(true);
 
     RoomEventFilter filter;
     filter.unreadThreadNotifications = std::nullopt;
@@ -48,7 +60,6 @@ void SearchModel::search()
         .eventContext = SearchJob::IncludeEventContext{3, 3, true},
         .includeState = false,
         .groupings = std::nullopt,
-
     };
 
     auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria});
