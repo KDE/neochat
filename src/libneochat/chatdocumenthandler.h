@@ -116,12 +116,14 @@ Q_SIGNALS:
     void textItemChanged();
     void roomChanged();
 
+public Q_SLOTS:
+    void updateCompletion() const;
+
 private:
     ChatBarType::Type m_type = ChatBarType::None;
     QPointer<QQuickItem> m_textItem;
     QTextDocument *document() const;
 
-    void updateCompletion() const;
     int completionStartIndex() const;
 
     QPointer<NeoChatRoom> m_room;
