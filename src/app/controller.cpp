@@ -19,6 +19,7 @@
 
 #include "accountmanager.h"
 #include "enums/roomsortparameter.h"
+#include "general_logging.h"
 #include "mediasizehelper.h"
 #include "models/actionsmodel.h"
 #include "models/messagemodel.h"
@@ -133,7 +134,7 @@ Controller::Controller(QObject *parent)
     connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, &Controller::setQuitOnLastWindowClosed);
 #endif
 
-    QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
+    connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
         delete m_trayIcon;
         NeoChatConfig::self()->save();
     });
@@ -200,13 +201,15 @@ void Controller::setAccountManager(AccountManager *manager)
 
     m_accountManager = manager;
 
-    if (m_accountManager) {
-        connect(m_accountManager, &AccountManager::errorOccured, this, &Controller::errorOccured);
-        connect(m_accountManager, &AccountManager::accountsLoadingChanged, this, &Controller::accountsLoadingChanged);
-        connect(m_accountManager, &AccountManager::connectionAdded, this, &Controller::initConnection);
-        connect(m_accountManager, &AccountManager::connectionDropped, this, &Controller::teardownConnection);
-        connect(m_accountManager, &AccountManager::activeConnectionChanged, this, &Controller::initActiveConnection);
+    if (!m_accountManager) {
+        return;
     }
+
+    connect(m_accountManager, &AccountManager::errorOccured, this, &Controller::errorOccured);
+    connect(m_accountManager, &AccountManager::accountsLoadingChanged, this, &Controller::accountsLoadingChanged);
+    connect(m_accountManager, &AccountManager::connectionAdded, this, &Controller::initConnection);
+    connect(m_accountManager, &AccountManager::connectionDropped, this, &Controller::teardownConnection);
+    connect(m_accountManager, &AccountManager::activeConnectionChanged, this, &Controller::initActiveConnection);
 }
 
 void Controller::initConnection(NeoChatConnection *connection)
@@ -262,8 +265,8 @@ bool Controller::supportSystemTray() const
 #ifdef Q_OS_ANDROID
     return false;
 #else
-    auto de = QString::fromLatin1(qgetenv("XDG_CURRENT_DESKTOP"));
-    return de != u"GNOME"_s && de != u"Pantheon"_s;
+    QStringList unsupportedPlatforms{u"GNOME"_s, u"Pantheon"_s};
+    return !unsupportedPlatforms.contains(QString::fromLatin1(qgetenv("XDG_CURRENT_DESKTOP")));
 #endif
 }
 
@@ -273,11 +276,8 @@ void Controller::setQuitOnLastWindowClosed()
     if (supportSystemTray() && NeoChatConfig::self()->systemTray()) {
         m_trayIcon = new TrayIcon(this);
         m_trayIcon->show();
-    } else {
-        if (m_trayIcon) {
-            delete m_trayIcon;
-            m_trayIcon = nullptr;
-        }
+    } else if (m_trayIcon) {
+        delete m_trayIcon;
     }
 #endif
 }
@@ -378,7 +378,10 @@ QString Controller::loadFileContent(const QString &path) const
 {
     QUrl url(path);
     QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
-    file.open(QFile::ReadOnly);
+    if (!file.open(QFile::ReadOnly)) {
+        qCWarning(GENERAL) << "Failed to open file" << path;
+        return {};
+    }
     return QString::fromLatin1(file.readAll());
 }
 

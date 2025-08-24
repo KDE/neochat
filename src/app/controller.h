@@ -110,7 +110,7 @@ private:
     void initActiveConnection(NeoChatConnection *oldConnection, NeoChatConnection *newConnection);
 
     QPointer<NeoChatConnection> m_connection;
-    TrayIcon *m_trayIcon = nullptr;
+    QPointer<TrayIcon> m_trayIcon;
 
     QString m_endpoint;
     QStringList m_shownImages;
