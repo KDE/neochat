@@ -330,7 +330,7 @@ QString ChatDocumentHandler::getText() const
         qCWarning(ChatDocumentHandling) << "getText called with no QQuickTextDocument available.";
         return {};
     }
-    return document()->toRawText();
+    return document()->toPlainText();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
