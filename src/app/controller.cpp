@@ -135,7 +135,9 @@ Controller::Controller(QObject *parent)
 #endif
 
     connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
+#ifndef Q_OS_ANDROID
         delete m_trayIcon;
+#endif
         NeoChatConfig::self()->save();
     });
 

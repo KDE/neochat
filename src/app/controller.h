@@ -110,8 +110,9 @@ private:
     void initActiveConnection(NeoChatConnection *oldConnection, NeoChatConnection *newConnection);
 
     QPointer<NeoChatConnection> m_connection;
+#ifndef Q_OS_ANDROID
     QPointer<TrayIcon> m_trayIcon;
-
+#endif
     QString m_endpoint;
     QStringList m_shownImages;
 
