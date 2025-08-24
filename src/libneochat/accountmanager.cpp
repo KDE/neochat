@@ -25,10 +25,10 @@ AccountManager::AccountManager(bool testMode, QObject *parent)
             loadAccountsFromCache();
         });
     } else {
-        auto c = new NeoChatConnection(QUrl(u"https://localhost:1234"_s), this);
-        c->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
-        m_accountRegistry->add(c);
-        c->syncLoop();
+        auto connection = new NeoChatConnection(QUrl(u"https://localhost:1234"_s), this);
+        connection->assumeIdentity(u"@user:localhost:1234"_s, u"device_1234"_s, u"token_1234"_s);
+        m_accountRegistry->add(connection);
+        connection->syncLoop();
     }
 }
 
@@ -39,48 +39,45 @@ Quotient::AccountRegistry *AccountManager::accounts()
 
 void AccountManager::loadAccountsFromCache()
 {
-    const auto accounts = Quotient::SettingsGroup("Accounts"_L1).childGroups();
-    for (const auto &accountId : accounts) {
+    for (const auto &accountId : Quotient::SettingsGroup("Accounts"_L1).childGroups()) {
         Quotient::AccountSettings account{accountId};
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
-        if (!account.homeserver().isEmpty()) {
-            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account.userId());
-            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, this, accessTokenLoadingJob](QKeychain::Job *) {
-                Quotient::AccountSettings account{accountId};
-                QString accessToken;
-                if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
-                    accessToken = QString::fromLatin1(accessTokenLoadingJob->binaryData());
-                } else {
-                    return;
-                }
-
-                auto connection = new NeoChatConnection(account.homeserver());
-                m_connectionsLoading[accountId] = connection;
-                connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
-                    connection->loadState();
-                    if (connection->allRooms().size() == 0 || connection->allRooms()[0]->currentState().get<Quotient::RoomCreateEvent>()) {
-                        addConnection(connection);
-                        m_accountsLoading.removeAll(connection->userId());
-                        m_connectionsLoading.remove(accountId);
-                        Q_EMIT accountsLoadingChanged();
-                    } else {
-                        connect(
-                            connection->allRooms()[0],
-                            &NeoChatRoom::baseStateLoaded,
-                            this,
-                            [this, connection, accountId]() {
-                                addConnection(connection);
-                                m_accountsLoading.removeAll(connection->userId());
-                                m_connectionsLoading.remove(accountId);
-                                Q_EMIT accountsLoadingChanged();
-                            },
-                            Qt::SingleShotConnection);
-                    }
-                });
-                connection->assumeIdentity(account.userId(), account.deviceId(), accessToken);
-            });
+        if (account.homeserver().isEmpty()) {
+            continue;
         }
+        auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account.userId());
+        connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, this, accessTokenLoadingJob](QKeychain::Job *) {
+            if (accessTokenLoadingJob->error() != QKeychain::Error::NoError) {
+                return;
+            }
+
+            Quotient::AccountSettings account{accountId};
+            auto connection = new NeoChatConnection(account.homeserver());
+            m_connectionsLoading[accountId] = connection;
+            connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
+                connection->loadState();
+                if (connection->allRooms().size() == 0 || connection->allRooms()[0]->currentState().get<Quotient::RoomCreateEvent>()) {
+                    addConnection(connection);
+                    m_accountsLoading.removeAll(connection->userId());
+                    m_connectionsLoading.remove(accountId);
+                    Q_EMIT accountsLoadingChanged();
+                } else {
+                    connect(
+                        connection->allRooms()[0],
+                        &NeoChatRoom::baseStateLoaded,
+                        this,
+                        [this, connection, accountId]() {
+                            addConnection(connection);
+                            m_accountsLoading.removeAll(connection->userId());
+                            m_connectionsLoading.remove(accountId);
+                            Q_EMIT accountsLoadingChanged();
+                        },
+                        Qt::SingleShotConnection);
+                }
+            });
+            connection->assumeIdentity(account.userId(), account.deviceId(), QString::fromLatin1(accessTokenLoadingJob->binaryData()));
+        });
     }
 }
 
@@ -207,8 +204,7 @@ void AccountManager::dropConnection(const QString &userId)
     if (dropConnectionLoading(m_connectionsLoading.value(userId, nullptr))) {
         return;
     }
-    const auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry->get(userId));
-    if (connection) {
+    if (const auto connection = dynamic_cast<NeoChatConnection *>(m_accountRegistry->get(userId))) {
         dropRegistry(connection);
     }
 }
