@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2025-06-18 18:48+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1414,7 +1414,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Atbilsmes nav atrastas"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"
@@ -1576,7 +1576,7 @@ msgstr "Attālā puse atcēla sesijas verifikāciju, jo neatbilst atslēgas"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3303,26 +3303,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "Lietotāji nav atrasti"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Uzaicināt šo lietotāju"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "Lietotājs ir jau dalībnieks vai ir uzaicināts"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Nosūtīt uzaicinājumu"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3759,14 +3766,14 @@ msgstr ""
 "Ziņa nav atrasta, jums nav piešķirtas tiesības to redzēt vai to ir nosūtījis "
 "ignorēts lietotājs"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Datne ir par lielu lejupielādei."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"

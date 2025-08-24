@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2025-08-21 08:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -1369,7 +1369,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "לא נמצאו תוצאות"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"
@@ -1521,7 +1521,7 @@ msgstr "הצד השני ביטל את אישור הפגישה כיוון שהמ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "אימות הפגישה בוטל עקב שגיאה לא ידועה."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "מזהה Matrix שגוי או ריק<br />%1 אינו מזהה נכון של Matrix"
@@ -3223,26 +3223,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "לא נמצאו משתמשים"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "נא להקליד כדי להתחיל לחפש בין החברים שלך"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "הזמנת המשתמש הזה"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "החבר או החברה כבר חברים או שהוזמנו"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "שליחת הזמנה"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3677,13 +3684,13 @@ msgid ""
 msgstr ""
 "ההודעה הזאת לא נמצאה, אין לך הרשאה לצפות בה או שנשלחה על ידי משתמש בהתעלמות"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "הורדת הקובץ נכשלה."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"

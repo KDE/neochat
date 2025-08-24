@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -1476,7 +1476,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Nič nenájdené"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter your Matrix ID"
 msgctxt "@action:button"
@@ -1625,7 +1625,7 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -3529,28 +3529,34 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "Žiadne miestnosti neboli nájdené"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, kde-format
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr ""
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Odoslať pozvanie"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search"
@@ -4008,13 +4014,13 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgctxt "@info Failed to download file: [error message]"

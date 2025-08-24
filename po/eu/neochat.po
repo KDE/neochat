@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2025-08-22 11:14+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1372,7 +1372,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Ez da bat datorrenik aurkitu"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
@@ -1551,7 +1551,7 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Saioaren egiaztapena bertan behera utzi da, errore ezezagun baten ondorioz."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3263,26 +3263,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "Ez da erabiltzailerik aurkitu"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "Sartu zure lagunak bilatzen hasteko testua"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Gonbidatu erabiltzaile hau"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "Erabiltzailea dagoeneko kidea da edo gonbidapena jaso du"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Bidali gonbita"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3723,13 +3730,13 @@ msgstr ""
 "Mezua ez da aurkitu, ez duzu hura ikusteko baimena, edo ezikusitako "
 "erabiltzaile batek bidalitakoa da"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Fitxategia zama-jaistea huts egin du."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"

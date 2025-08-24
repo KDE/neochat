@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1364,7 +1364,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "无匹配结果"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
@@ -1515,7 +1515,7 @@ msgstr "由于密钥不匹配，另一端取消了会话验证。"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "由于未知错误，会话验证被取消。"
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3206,26 +3206,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr ""
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "输入文本开始搜索您的好友"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr ""
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "用户已经是成员或已被邀请"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "发送邀请"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3658,13 +3665,13 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"

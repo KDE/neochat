@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1442,7 +1442,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "o pana e toki"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter your Matrix ID"
 msgctxt "@action:button"
@@ -1591,7 +1591,7 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3373,27 +3373,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "o pana e toki"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, kde-format
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr ""
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Ignore this user"
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "o len e jan ni"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr ""
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3858,14 +3864,14 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "lipu li suli pi ken jo ala."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"

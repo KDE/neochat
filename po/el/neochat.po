@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1465,7 +1465,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter your Matrix ID"
 msgctxt "@action:button"
@@ -1639,7 +1639,7 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Η επαλήθευση συνεδρίας ακυρώθηκε από άγνωστο σφάλμα."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -3464,26 +3464,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter a text to start searching"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "Δώσε ένα κείμενο για να ξεκινήσει η αναζήτηση"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Προσκάλεσε αυτόν τον χρήστη"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Αποστολή πρόσκλησης"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3950,14 +3957,14 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Αρχείο πολύ μεγάλο για λήψη."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgctxt "@info Failed to download file: [error message]"

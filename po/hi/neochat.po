@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1440,7 +1440,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "कोई मेल नहीं मिले"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"
@@ -1600,7 +1600,7 @@ msgstr "दूरस्थ पार्टी ने सत्र सत्य�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "अज्ञात त्रुटि के कारण सत्र सत्यापन रद्द कर दिया गया."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत या रिक्त मैट्रिक्स आईडी<br /> %1 सही मैट्रिक्स पहचानकर्ता नहीं है"
@@ -3341,26 +3341,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "कोई उपयोगकर्ता नहीं मिला"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "अपने मित्रों की खोज शुरू करने के लिए पाठ दर्ज करें"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "इस उपयोगकर्ता को आमंत्रित करें"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "उपयोगकर्ता या तो पहले से ही सदस्य है या उसे आमंत्रित किया गया है"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "निमंत्रण भेजना"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3799,13 +3806,13 @@ msgstr ""
 "यह संदेश या तो नहीं मिला, या आपके पास इसे देखने की अनुमति नहीं है, या इसे किसी अनदेखा "
 "उपयोगकर्ता द्वारा भेजा गया है"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr ""
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"

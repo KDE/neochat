@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
-"PO-Revision-Date: 2025-08-21 11:11+0100\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
+"PO-Revision-Date: 2025-08-23 01:37+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1078,8 +1078,7 @@ msgid "Server URL:"
 msgstr "URL del servidor:"
 
 #: src/app/qml/ServerComboBox.qml:190
-#, fuzzy, kde-format
-#| msgid "OK"
+#, kde-format
 msgctxt "@action:button"
 msgid "OK"
 msgstr "Aceptar"
@@ -1377,9 +1376,8 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "No se han encontrado coincidencias"
 
-#: src/app/qml/UserSearchPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Enter a user ID"
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
 msgstr "Introduzca un ID de usuario"
@@ -1561,7 +1559,7 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "La verificación de la sesión se ha cancelado debido a un error desconocido."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3272,26 +3270,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "No se ha encontrado ningún usuario"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "Introduzca un texto para empezar a buscar amigos"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "Invitar a este usuario"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "El usuario ya es miembro o ha sido invitado"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Enviar invitación"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3732,13 +3737,13 @@ msgstr ""
 "Este mensaje no se ha encontrado, no tiene permiso para verlo o ha sido "
 "enviado por un usuario ignorado"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "No se ha podido descargar el archivo."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4147,59 +4152,50 @@ msgid "Configure room"
 msgstr "Configurar la sala"
 
 #: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Encontrar amigos"
 
 #: src/rooms/RoomListPage.qml:216
-#, fuzzy, kde-format
-#| msgid "No friends found"
+#, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "No se ha encontrado ningún amigo"
 
 #: src/rooms/RoomListPage.qml:216
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "No se ha encontrado ninguna sala"
 
 #: src/rooms/RoomListPage.qml:218
-#, fuzzy, kde-format
-#| msgid ""
-#| "You haven't added any of your friends yet, click below to search for them."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "Todavía no ha añadido ningún amigo. Pulse abajo para buscarlos."
 
 #: src/rooms/RoomListPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Únase a algunas salas para empezar"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Search in room directory"
+#, kde-format
 msgctxt "@action"
 msgid "Search in room directory"
 msgstr "Buscar en el directorio de la sala"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action"
 msgid "Explore rooms"
 msgstr "Explorar salas"
 
 #: src/rooms/RoomListPage.qml:242
-#, fuzzy, kde-format
-#| msgid "Search in friend directory"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Buscar en el directorio de amigos"
@@ -5704,43 +5700,37 @@ msgid "Password:"
 msgstr "Contraseña:"
 
 #: src/settings/Permissions.qml:34
-#, fuzzy, kde-format
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Users"
 msgstr "Usuarios con privilegios"
 
 #: src/settings/Permissions.qml:229
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Default permissions"
 msgstr "Permisos predeterminados"
 
 #: src/settings/Permissions.qml:269
-#, fuzzy, kde-format
-#| msgid "Basic permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Basic permissions"
 msgstr "Permisos básicos"
 
 #: src/settings/Permissions.qml:309
-#, fuzzy, kde-format
-#| msgid "Event permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Event permissions"
 msgstr "Permisos de eventos"
 
 #: src/settings/Permissions.qml:356
-#, fuzzy, kde-format
-#| msgid "Event Type…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Tipo de evento…"
 
 #: src/settings/Permissions.qml:382
-#, fuzzy, kde-format
-#| msgid "Add keyword"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Añadir palabra clave"
@@ -5834,8 +5824,7 @@ msgid "General"
 msgstr "General"
 
 #: src/settings/RoomGeneralPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "Actualizar el avatar"
@@ -5853,64 +5842,55 @@ msgid "Topic:"
 msgstr "Tema:"
 
 #: src/settings/RoomGeneralPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Guardar"
 
 #: src/settings/RoomGeneralPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Aliases"
+#, kde-format
 msgctxt "@title"
 msgid "Aliases"
 msgstr "Alias"
 
 #: src/settings/RoomGeneralPage.qml:108
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "Ningún alias canónico definido"
 
 #: src/settings/RoomGeneralPage.qml:125
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "Hacer que este sea el alias canónico de la sala"
 
 #: src/settings/RoomGeneralPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Delete alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "Borrar alias"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, fuzzy, kde-format
-#| msgid "#new_alias:server.org"
+#, kde-format
 msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#nuevo_alias:servidor.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "Añadir nuevo alias"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "URL Previews"
 msgstr "Vistas previas de URL"
 
 #: src/settings/RoomGeneralPage.qml:198
-#, fuzzy, kde-format
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr ""
@@ -5918,15 +5898,13 @@ msgstr ""
 "de la sala"
 
 #: src/settings/RoomGeneralPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Enable URL previews"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "Activar vistas previas de URL"
 
 #: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr ""
@@ -5934,8 +5912,7 @@ msgstr ""
 "sala"
 
 #: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr ""
@@ -5952,22 +5929,19 @@ msgstr ""
 "Las vistas previas de URL están desactivadas en la actualidad para su cuenta"
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable"
 msgstr "Activar"
 
 #: src/settings/RoomGeneralPage.qml:233
-#, fuzzy, kde-format
-#| msgid "Official Parent Spaces"
+#, kde-format
 msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "Espacios padre oficiales"
 
 #: src/settings/RoomGeneralPage.qml:266
-#, fuzzy, kde-format
-#| msgid "Canonical"
+#, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Canónico"
@@ -5979,15 +5953,13 @@ msgid "Make canonical parent"
 msgstr "Hacer que sea el padre canónico"
 
 #: src/settings/RoomGeneralPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Eliminar padre"
 
 #: src/settings/RoomGeneralPage.qml:295
-#, fuzzy, kde-format
-#| msgid "This room has no official parent spaces."
+#, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Esta sala no tiene ningún espacio padre oficial."
@@ -5999,29 +5971,25 @@ msgid "Add new official parent"
 msgstr "Añadir nuevo padre oficial"
 
 #: src/settings/RoomGeneralPage.qml:316
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Esta sala continúa otra conversación."
 
 #: src/settings/RoomGeneralPage.qml:320
-#, fuzzy, kde-format
-#| msgid "See older messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Ver mensajes antiguos…"
 
 #: src/settings/RoomGeneralPage.qml:332
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Se ha sustituido esta sala."
 
 #: src/settings/RoomGeneralPage.qml:336
-#, fuzzy, kde-format
-#| msgid "See new room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See new room…"
 msgstr "Ver la nueva sala…"
@@ -6051,9 +6019,7 @@ msgid "Reset to Default"
 msgstr "Restablecer valores predeterminados"
 
 #: src/settings/RoomSecurityPage.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "You need to upgrade this room to a newer version to enable this setting."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -6103,8 +6069,7 @@ msgid "Private (invite only)"
 msgstr "Privado (solo con invitación)"
 
 #: src/settings/RoomSecurityPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Only invited people can join."
+#, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "Solo se pueden unir personas con invitación."
@@ -6116,15 +6081,13 @@ msgid "Space members"
 msgstr "Miembros del espacio"
 
 #: src/settings/RoomSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Anyone in the selected spaces can find and join."
+#, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "Puede encontrarla y unirse cualquiera de los espacios seleccionados."
 
 #: src/settings/RoomSecurityPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Select spaces"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Seleccionar espacios"
@@ -6136,8 +6099,7 @@ msgid "Knock"
 msgstr "Llamar"
 
 #: src/settings/RoomSecurityPage.qml:104
-#, fuzzy, kde-format
-#| msgid "People not in the room need to request an invite to join the room."
+#, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
@@ -6904,14 +6866,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt "@info screenreader"
-#~ msgid "The currently selected link"
-#~ msgstr "El enlace seleccionado actualmente"
-
-#~ msgctxt "@action:button"
-#~ msgid "Ok"
-#~ msgstr "Aceptar"
-
-#~ msgid "Security"
-#~ msgstr "Seguridad"

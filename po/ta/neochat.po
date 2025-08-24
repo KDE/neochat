@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-22 00:42+0000\n"
+"POT-Creation-Date: 2025-08-24 00:42+0000\n"
 "PO-Revision-Date: 2025-08-10 21:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1425,7 +1425,7 @@ msgctxt "@info:label"
 msgid "No matches found"
 msgstr "யாரும் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/app/qml/UserSearchPage.qml:89
+#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"
@@ -1586,7 +1586,7 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
-#: src/app/roommanager.cpp:212
+#: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
@@ -3328,26 +3328,33 @@ msgctxt "@info:placeholder"
 msgid "No users found"
 msgstr "எந்த பயனரும் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/libneochat/qml/InviteUserPage.qml:31
+#: src/libneochat/qml/InviteUserPage.qml:26
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@placeholder"
+msgid "Enter text to start searching for users"
+msgstr "நண்பர்களைத் தேடுவதற்கு எதையாவது உள்ளிடுங்கள்"
+
+#: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Invite this User"
 msgstr "இந்த பயனரை வரவழை"
 
-#: src/libneochat/qml/InviteUserPage.qml:34
-#: src/libneochat/qml/InviteUserPage.qml:84
+#: src/libneochat/qml/InviteUserPage.qml:36
+#: src/libneochat/qml/InviteUserPage.qml:95
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "User is either already a member or has been invited"
 msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார், அல்லது இவ்வரங்கில் உள்ளார்"
 
-#: src/libneochat/qml/InviteUserPage.qml:75
+#: src/libneochat/qml/InviteUserPage.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "வரவழை"
 
-#: src/libneochat/qml/SearchPage.qml:157
+#: src/libneochat/qml/SearchPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3789,14 +3796,14 @@ msgstr ""
 "தகவல் கண்டுபிடிக்கப்படவில்லை, அல்லது அதைப் பார்க்கும் அனுமதி உங்களுக்கு இல்லை, அல்லது "
 "பொருட்படுத்தப்படா பயனரால் அனுப்பப்பட்டது"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:69
+#: src/messagecontent/models/messagecontentmodel.cpp:68
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:72
+#: src/messagecontent/models/messagecontentmodel.cpp:71
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgctxt "@info Failed to download file: [error message]"
