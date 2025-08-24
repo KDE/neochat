@@ -12,6 +12,8 @@
 
 #include "neochatroom.h"
 
+#include "general_logging.h"
+
 using namespace Qt::StringLiterals;
 
 AccountManager::AccountManager(bool testMode, QObject *parent)
@@ -94,7 +96,7 @@ void AccountManager::saveAccessTokenToKeyChain(NeoChatConnection *connection)
     }
     const auto userId = connection->userId();
 
-    qDebug() << "Save the access token to the keychain for " << userId;
+    qCDebug(GENERAL) << "Save the access token to the keychain for " << userId;
     auto job = new QKeychain::WritePasswordJob(qAppName());
     job->setAutoDelete(true);
     job->setKey(userId);
@@ -109,7 +111,7 @@ void AccountManager::saveAccessTokenToKeyChain(NeoChatConnection *connection)
 
 QKeychain::ReadPasswordJob *AccountManager::loadAccessTokenFromKeyChain(const QString &userId)
 {
-    qDebug() << "Reading access token from the keychain for" << userId;
+    qCDebug(GENERAL) << "Reading access token from the keychain for" << userId;
     auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
     job->setKey(userId);
 

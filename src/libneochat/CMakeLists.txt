@@ -67,6 +67,13 @@ ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
 )
 
 ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "general_logging.h"
+    IDENTIFIER "GENERAL"
+    CATEGORY_NAME "org.kde.neochat"
+    DEFAULT_SEVERITY Info
+)
+
+ecm_qt_declare_logging_category(LibNeoChat
     HEADER "eventhandler_logging.h"
     IDENTIFIER "EventHandling"
     CATEGORY_NAME "org.kde.neochat.eventhandler"
