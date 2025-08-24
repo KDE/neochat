@@ -133,7 +133,7 @@ QQC2.ScrollView {
         interactive: Kirigami.Settings.isMobile
 
         Shortcut {
-            sequence: StandardKey.Cancel
+            sequences: [ StandardKey.Cancel ]
             onActivated: {
                 if (!messageListView.atYEnd || !_private.room.partiallyReadStats.empty()) {
                     messageListView.positionViewAtBeginning();
