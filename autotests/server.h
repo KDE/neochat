@@ -2,7 +2,40 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include <QHttpServer>
+#include <QJsonObject>
 #include <QSslServer>
+
+struct Changes {
+    struct NewRoom {
+        QStringList initialMembers;
+        QString roomId;
+        QStringList tags;
+    };
+    QList<NewRoom> newRooms;
+
+    struct InviteUser {
+        QString userId;
+        QString roomId;
+    };
+    QList<InviteUser> invitations;
+
+    struct BanUser {
+        QString userId;
+        QString roomId;
+    };
+    QList<BanUser> bans;
+
+    struct JoinUser {
+        QString userId;
+        QString roomId;
+    };
+    QList<JoinUser> joins;
+
+    struct Event {
+        QJsonObject fullJson;
+    };
+    QList<Event> events;
+};
 
 struct RoomData {
     QStringList members;
@@ -10,8 +43,10 @@ struct RoomData {
     QStringList tags;
 };
 
-class Server
+class Server : public QObject
 {
+    Q_OBJECT
+
 public:
     Server();
 
@@ -37,10 +72,7 @@ private:
     QHttpServer m_server;
     QSslServer m_sslServer;
 
-    QHash<QString, QList<QString>> m_invitedUsers;
-    QHash<QString, QList<QString>> m_bannedUsers;
-    QHash<QString, QList<QString>> m_joinedUsers;
+    void sync(const QHttpServerRequest &request, QHttpServerResponder &responder);
 
-    QList<RoomData> m_roomsToCreate;
-    QMap<QString, QJsonArray> m_events;
+    QList<Changes> m_state;
 };
