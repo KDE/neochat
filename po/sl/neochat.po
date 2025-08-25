@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-22 08:09+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 07:32+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: src/app/controller.cpp:180
+#: src/app/controller.cpp:183
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -29,7 +29,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje obvestil za nova sporočila"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -1952,12 +1952,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Ključi stanja"
 
-#: src/libneochat/accountmanager.cpp:124
+#: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Žetona za dostop ni bilo mogoče najti: morda je bil izbrisan?"
 
-#: src/libneochat/accountmanager.cpp:128
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1965,7 +1965,7 @@ msgstr ""
 "Dostop do obeska ključev je bil zavrnjen: dovolite NeoChatu, da prebere "
 "žeton za dostop"
 
-#: src/libneochat/accountmanager.cpp:131
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1974,7 +1974,7 @@ msgstr ""
 "Obesek za ključe ni na voljo: namestite obesek za ključe, npr. KWallet ali "
 "GNOME kot obesek za ključe na Linuxu"
 
-#: src/libneochat/accountmanager.cpp:134
+#: src/libneochat/accountmanager.cpp:136
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ni mogoče prebrati žetona za dostop: %1"
@@ -3258,11 +3258,10 @@ msgid "No users found"
 msgstr "Ni najdenih uporabnikov"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Vnesite besedilo za začetek iskanja vaših prijateljev"
+msgstr "Vnesite besedilo za začetek iskanja uporabnikov"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format

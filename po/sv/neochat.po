@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-22 15:16+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 17:14+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: src/app/controller.cpp:180
+#: src/app/controller.cpp:183
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -25,7 +25,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Skicka skrivunderrättelser för nya meddelanden"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Tar emot utskickade underrättelser"
@@ -1941,19 +1941,19 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Tillståndsnycklar"
 
-#: src/libneochat/accountmanager.cpp:124
+#: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Åtkomstsymbol hittades inte. Kanske den har tagits bort?"
 
-#: src/libneochat/accountmanager.cpp:128
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr ""
 "Åtkomst till nyckelkedja nekades. Tillåt NeoChat att läsa åtkomstsymbolen."
 
-#: src/libneochat/accountmanager.cpp:131
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1962,7 +1962,7 @@ msgstr ""
 "Ingen nyckelkedja tillgänglig. Installera en nyckelkedja, t.ex. plånboken "
 "eller GNOME-nyckelring på Linux"
 
-#: src/libneochat/accountmanager.cpp:134
+#: src/libneochat/accountmanager.cpp:136
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Kan inte läsa åtkomstsymbol: %1"
@@ -3247,11 +3247,10 @@ msgid "No users found"
 msgstr "Inga användare hittades"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Skriv in text för att börja söka efter dina vänner"
+msgstr "Skriv in text för att börja söka efter användare"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format

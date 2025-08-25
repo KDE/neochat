@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-22 16:38+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 16:07+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: src/app/controller.cpp:180
+#: src/app/controller.cpp:183
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -26,7 +26,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Meldingen voor nieuwe berichten worden ontvangen"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Push-meldingen ontvangen"
@@ -1956,12 +1956,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Status van toetsen"
 
-#: src/libneochat/accountmanager.cpp:124
+#: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Toegangstoken is niet gevonden: misschien is het verwijderd?"
 
-#: src/libneochat/accountmanager.cpp:128
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1969,7 +1969,7 @@ msgstr ""
 "Toegang tot sleutelring was geweigerd: sta aan NeoChat toe het toegangstoken "
 "te lezen"
 
-#: src/libneochat/accountmanager.cpp:131
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1978,7 +1978,7 @@ msgstr ""
 "Geen sleutelring beschikbaar: instaleer een sleutelring, bijv. KWallet of "
 "GNOME sleutelring op Linux"
 
-#: src/libneochat/accountmanager.cpp:134
+#: src/libneochat/accountmanager.cpp:136
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Lezen van toegangstoken lukt niet: %1"
@@ -3264,11 +3264,10 @@ msgid "No users found"
 msgstr "Geen gebruikers gevonden"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Tekst invoeren om te beginnen met zoeken naar uw vrienden"
+msgstr "Tekst invoeren om te beginnen met zoeken naar gebruikers"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format

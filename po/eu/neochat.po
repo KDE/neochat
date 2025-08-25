@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-24 00:42+0000\n"
-"PO-Revision-Date: 2025-08-22 11:14+0200\n"
+"POT-Creation-Date: 2025-08-25 00:42+0000\n"
+"PO-Revision-Date: 2025-08-24 18:56+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,15 +20,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: src/app/controller.cpp:180
+#: src/app/controller.cpp:183
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Mezu berrien jakinarazpenak jasotzeko"
+msgstr "Mezu berrientzako jakinarazpenak jasotzea"
 
-#: src/app/controller.cpp:326
+#: src/app/controller.cpp:328
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Bultzada-jakinarazpenak jasotzea"
@@ -1954,12 +1954,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "«State Keys»"
 
-#: src/libneochat/accountmanager.cpp:124
+#: src/libneochat/accountmanager.cpp:126
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Ez du aurkitu sartzeko tokena: Agiaz ezabatu egin da?"
 
-#: src/libneochat/accountmanager.cpp:128
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1967,7 +1967,7 @@ msgstr ""
 "Giltzatakoan sartzea ukatu egin da: Mesedez, utzi NeoChat-eri sarrerako "
 "tokena irakurtzen"
 
-#: src/libneochat/accountmanager.cpp:131
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1976,7 +1976,7 @@ msgstr ""
 "Ez dago giltzatarakorik erabilgarri: Mesedez, instalatu giltzatarako bat, "
 "adib. KWallet edo GNOMEren giltzatarakoa Linux-en"
 
-#: src/libneochat/accountmanager.cpp:134
+#: src/libneochat/accountmanager.cpp:136
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ez da sartzeko tokena irakurtzeko gai: %1"
@@ -3264,11 +3264,10 @@ msgid "No users found"
 msgstr "Ez da erabiltzailerik aurkitu"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Sartu zure lagunak bilatzen hasteko testua"
+msgstr "Sartu erabiltzaileak bilatzen hasteko testua"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
