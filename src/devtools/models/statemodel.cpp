@@ -46,6 +46,7 @@ void StateModel::loadState()
     beginResetModel();
     m_stateEvents.clear();
     if (!m_room) {
+        endResetModel();
         return;
     }
     const auto keys = m_room->currentState().events().keys();
