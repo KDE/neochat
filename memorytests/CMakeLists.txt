@@ -16,7 +16,6 @@ target_link_libraries(timeline-memtest PUBLIC
     Qt::QuickControls2
     Qt::Widgets
     KF6::I18nQml
-    KF6::Kirigami
     QuotientQt6
     LibNeoChat
     Timeline
