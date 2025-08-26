@@ -38,14 +38,6 @@
 #include "trayicon_sni.h"
 #endif
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
-#ifndef Q_OS_ANDROID
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusMessage>
-#endif
-#endif
-
 #ifdef HAVE_KUNIFIEDPUSH
 #include <kunifiedpush/connector.h>
 #endif
@@ -336,30 +328,7 @@ void Controller::clearInvitationNotification(const QString &roomId)
 
 void Controller::updateBadgeNotificationCount(int count)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
-#ifndef Q_OS_ANDROID
-    // copied from Telegram desktop
-    const auto launcherUrl = "application://org.kde.neochat.desktop"_L1;
-    // Gnome requires that count is a 64bit integer
-    const qint64 counterSlice = std::min(count, 9999);
-    QVariantMap dbusUnityProperties;
-
-    if (counterSlice > 0) {
-        dbusUnityProperties["count"_L1] = counterSlice;
-        dbusUnityProperties["count-visible"_L1] = true;
-    } else {
-        dbusUnityProperties["count-visible"_L1] = false;
-    }
-
-    auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_L1, "com.canonical.Unity.LauncherEntry"_L1, "Update"_L1);
-
-    signal.setArguments({launcherUrl, dbusUnityProperties});
-
-    QDBusConnection::sessionBus().send(signal);
-#endif // Q_OS_ANDROID
-#else
     qGuiApp->setBadgeNumber(count);
-#endif // QT_VERSION_CHECK(6, 6, 0)
 }
 
 bool Controller::isFlatpak() const
