@@ -533,7 +533,11 @@ KeyImport::Error NeoChatConnection::exportMegolmSessions(const QString &passphra
     }
     QUrl url(path);
     QFile file(url.toLocalFile());
-    file.open(QFile::WriteOnly);
+    auto ok = file.open(QFile::WriteOnly);
+    if (!ok) {
+        qWarning() << "Failed to open" << file.fileName() << file.errorString();
+        return KeyImport::OtherError;
+    }
     file.write(result.value());
     file.close();
     return KeyImport::Success;

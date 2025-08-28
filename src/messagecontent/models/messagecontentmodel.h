@@ -189,7 +189,11 @@ private:
                 }
 
                 QFile file(fileTransferInfo.localPath.path());
-                file.open(QIODevice::ReadOnly);
+                auto ok = file.open(QIODevice::ReadOnly);
+                if (!ok) {
+                    qWarning() << "Failed to open" << fileTransferInfo.localPath.path() << file.errorString();
+                }
+
                 beginInsertRows({}, std::distance(m_components.begin(), it) + 1, std::distance(m_components.begin(), it) + 1);
                 it = m_components.insert(it + 1, MessageComponent{MessageComponentType::Code,  QString::fromStdString(file.readAll().toStdString()), {{u"class"_s, definitionForFile.name()}}});
                 endInsertRows();

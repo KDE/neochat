@@ -161,7 +161,7 @@ void TimelineMessageModelTest::pendingEvent()
     // different every time.
     QFile testSyncFile;
     testSyncFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + u"test-pending-sync.json"_s);
-    testSyncFile.open(QIODevice::ReadOnly);
+    QVERIFY(testSyncFile.open(QIODevice::ReadOnly));
     auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll());
     auto root = testSyncJson.object();
     auto timeline = root["timeline"_L1].toObject();

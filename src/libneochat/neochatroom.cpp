@@ -261,7 +261,10 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
 
         QTemporaryFile file;
         file.setFileTemplate(QStringLiteral("XXXXXX.jpg"));
-        file.open();
+        auto ok = file.open();
+        if (!ok) {
+            qWarning() << "Failed to open" << file.fileName() << file.errorString();
+        }
 
         const auto thumbnailImage = sink.videoFrame().toImage();
         Q_UNUSED(thumbnailImage.save(file.fileName()))

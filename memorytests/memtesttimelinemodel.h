@@ -37,7 +37,11 @@ public:
         if (!syncFileName.isEmpty()) {
             QFile testSyncFile;
             testSyncFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + syncFileName);
-            testSyncFile.open(QIODevice::ReadOnly);
+            auto ok = testSyncFile.open(QIODevice::ReadOnly);
+            if (!ok) {
+                qWarning() << "Failed to open" << testSyncFile.fileName() << testSyncFile.errorString();
+            }
+
             auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll()).object();
             auto timelineJson = testSyncJson["timeline"_L1].toObject();
             timelineJson["events"_L1] = multiplyEvents(timelineJson["events"_L1].toArray(), 100);

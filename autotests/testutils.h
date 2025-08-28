@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+#include <QTest>
 #include <Quotient/events/event.h>
 #include <Quotient/syncdata.h>
 
@@ -32,7 +33,7 @@ public:
         if (!syncFileName.isEmpty()) {
             QFile testSyncFile;
             testSyncFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + syncFileName);
-            testSyncFile.open(QIODevice::ReadOnly);
+            Q_UNUSED(testSyncFile.open(QIODevice::ReadOnly));
             const auto testSyncJson = QJsonDocument::fromJson(testSyncFile.readAll());
             Quotient::SyncRoomData roomData(id(), Quotient::JoinState::Join, testSyncJson.object());
             update(std::move(roomData));
@@ -46,7 +47,7 @@ inline Quotient::event_ptr_tt<EventT> loadEventFromFile(const QString &eventFile
     if (!eventFileName.isEmpty()) {
         QFile testEventFile;
         testEventFile.setFileName(QStringLiteral(DATA_DIR) + u'/' + eventFileName);
-        testEventFile.open(QIODevice::ReadOnly);
+        Q_UNUSED(testEventFile.open(QIODevice::ReadOnly));
         auto testSyncJson = QJsonDocument::fromJson(testEventFile.readAll()).object();
         return Quotient::loadEvent<EventT>(testSyncJson);
     }
