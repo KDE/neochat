@@ -45,6 +45,8 @@ Kirigami.Action {
         model: Purpose.PurposeAlternativesModel {
             pluginType: "Export"
             inputData: root.inputData
+            // We already have many better ways to copy events to the clipboard
+            disabledPlugins: ["clipboardplugin"]
         }
 
         delegate: Kirigami.Action {
