@@ -20,8 +20,7 @@ RowLayout {
         }
     }
 
-    Kirigami.OverlayZStacking.layer: Kirigami.OverlayZStacking.ToolTip
-    z: Kirigami.OverlayZStacking.z
+    z: 99
     spacing: 0
 
     opacity: (!root.text.startsWith("https://matrix.to/") && root.text.length > 0) ? 1 : 0
