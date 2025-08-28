@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     engine.rootContext()->setContextProperty(u"memTestTimelineModel"_s, memTestTimelineModel);
     engine.rootContext()->setContextProperty(u"messageFilterModel"_s, messageFilterModel);
 
-    engine.loadFromModule("org.kde.neochat.timeline-memtest", "Main");
+    engine.loadFromModule("org.kde.neochat.timeline_memtest", "Main");
 
     return app.exec();
 }

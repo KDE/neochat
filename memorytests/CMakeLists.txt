@@ -3,12 +3,12 @@
 
 add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}" )
 
-qt_add_executable(timeline-memtest
+qt_add_executable(timeline_memtest
     main.cpp
 )
 
-target_link_libraries(timeline-memtest PRIVATE neochatplugin Timelineplugin)
-target_link_libraries(timeline-memtest PUBLIC
+target_link_libraries(timeline_memtest PRIVATE neochatplugin Timelineplugin)
+target_link_libraries(timeline_memtest PUBLIC
     Qt::Core
     Qt::Quick
     Qt::Qml
@@ -21,8 +21,8 @@ target_link_libraries(timeline-memtest PUBLIC
     Timeline
 )
 
-ecm_add_qml_module(timeline-memtest URI org.kde.neochat.timeline-memtest GENERATE_PLUGIN_SOURCE
-    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/timeline-memtest
+ecm_add_qml_module(timeline_memtest URI org.kde.neochat.timeline_memtest GENERATE_PLUGIN_SOURCE
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/timeline_memtest
     QML_FILES
         Main.qml
     SOURCES
