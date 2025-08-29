@@ -129,7 +129,7 @@ QQC2.Control {
 
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
-                onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
+                onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
             }
 
             background: null

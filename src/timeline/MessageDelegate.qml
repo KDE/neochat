@@ -224,7 +224,7 @@ MessageDelegateBase {
         id: _private
 
         function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, root.author, root.Message.selectedText, root.Message.hoveredLink);
+            RoomManager.viewEventMenu(root.eventId, root.room, root.Message.selectedText, root.Message.hoveredLink);
         }
     }
 }
