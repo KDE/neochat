@@ -26,6 +26,7 @@ QQC2.Control {
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
+    implicitWidth: Message.maxContentWidth
 
     contentItem: ColumnLayout {
         Loader {
