@@ -41,6 +41,8 @@ ColumnLayout {
      */
     required property var componentAttributes
 
+    required property int index
+
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
@@ -124,5 +126,7 @@ ColumnLayout {
         author: root.author
         display: root.display
         visible: root.display !== ""
+        index: root.index
+        componentAttributes: root.componentAttributes
     }
 }

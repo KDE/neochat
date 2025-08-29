@@ -448,7 +448,7 @@ QList<MessageComponent> EventMessageContentModel::componentsForType(MessageCompo
     }
     case MessageComponentType::Location:
         return {MessageComponent{type,
-                                 QString(),
+                                 EventHandler::plainBody(m_room, event.first),
                                  {
                                      {u"latitude"_s, EventHandler::latitude(event.first)},
                                      {u"longitude"_s, EventHandler::longitude(event.first)},
