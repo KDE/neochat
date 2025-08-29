@@ -1252,10 +1252,8 @@ void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
 
 QByteArray NeoChatRoom::getEventJsonSource(const QString &eventId)
 {
-    auto evtIt = findInTimeline(eventId);
-    if (evtIt != messageEvents().rend() && is<RoomEvent>(**evtIt)) {
-        const auto event = evtIt->viewAs<RoomEvent>();
-        return QJsonDocument(event->fullJson()).toJson();
+    if (const auto evtIt = findInTimeline(eventId); evtIt != messageEvents().rend() && is<RoomEvent>(**evtIt)) {
+        return QJsonDocument(evtIt->viewAs<RoomEvent>()->fullJson()).toJson();
     }
     return {};
 }
