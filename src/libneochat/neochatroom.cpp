@@ -1675,7 +1675,11 @@ std::pair<const Quotient::RoomEvent *, bool> NeoChatRoom::getEvent(const QString
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
+#if Quotient_VERSION_MINOR > 9
+    const QString &replyEventId = event.replyEventId(true);
+#else
     const QString &replyEventId = event.contentJson()["m.relates_to"_L1].toObject()["m.in_reply_to"_L1].toObject()["event_id"_L1].toString();
+#endif
     if (replyEventId.isEmpty()) {
         return {};
     };
