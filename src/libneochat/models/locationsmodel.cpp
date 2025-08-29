@@ -12,33 +12,27 @@ LocationsModel::LocationsModel(QObject *parent)
 {
     connect(this, &LocationsModel::roomChanged, this, [this]() {
         for (const auto &event : m_room->messageEvents()) {
-            if (!is<RoomMessageEvent>(*event)) {
-                continue;
-            }
-            if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
-                const auto &e = *event;
-                addLocation(eventCast<const RoomMessageEvent>(&e));
+            if (const auto &roomMessageEvent = event.viewAs<RoomMessageEvent>()) {
+                if (roomMessageEvent->msgtype() == RoomMessageEvent::MsgType::Location) {
+                    addLocation(roomMessageEvent);
+                }
             }
         }
         connect(m_room, &NeoChatRoom::aboutToAddHistoricalMessages, this, [this](const auto &events) {
             for (const auto &event : events) {
-                if (!is<RoomMessageEvent>(*event)) {
-                    continue;
-                }
-                if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
-                    const auto &e = *event;
-                    addLocation(eventCast<const RoomMessageEvent>(&e));
+                if (const auto &roomMessageEvent = eventCast<const RoomMessageEvent>(event)) {
+                    if (roomMessageEvent->msgtype() == RoomMessageEvent::MsgType::Location) {
+                        addLocation(roomMessageEvent);
+                    }
                 }
             }
         });
         connect(m_room, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
             for (const auto &event : events) {
-                if (!is<RoomMessageEvent>(*event)) {
-                    continue;
-                }
-                if (event->contentJson()["msgtype"_L1] == "m.location"_L1) {
-                    const auto &e = *event;
-                    addLocation(eventCast<const RoomMessageEvent>(&e));
+                if (const auto &roomMessageEvent = eventCast<const RoomMessageEvent>(event)) {
+                    if (roomMessageEvent->msgtype() == RoomMessageEvent::MsgType::Location) {
+                        addLocation(roomMessageEvent);
+                    }
                 }
             }
         });
