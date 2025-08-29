@@ -49,8 +49,7 @@ void PollHandler::checkLoadRelations()
         return;
     }
 
-    auto job = m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id());
-    connect(job, &BaseJob::success, this, [this, job]() {
+    m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id()).onResult([this](const auto &job) {
         for (const auto &event : job->chunk()) {
             handleEvent(event.get());
         }

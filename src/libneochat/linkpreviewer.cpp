@@ -61,14 +61,7 @@ void LinkPreviewer::loadUrlPreview()
             return;
         }
 
-        BaseJob *job = nullptr;
-        if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
-            job = conn->callApi<GetUrlPreviewAuthedJob>(m_url);
-        } else {
-            QT_IGNORE_DEPRECATIONS(job = conn->callApi<GetUrlPreviewJob>(m_url);)
-        }
-
-        connect(job, &BaseJob::success, this, [this, job, conn]() {
+        auto onSuccess = [this, conn](const auto &job) {
             const auto json = job->jsonData();
             m_title = json["og:title"_L1].toString().trimmed();
             m_description = json["og:description"_L1].toString().trimmed().replace("\n"_L1, " "_L1);
@@ -85,7 +78,13 @@ void LinkPreviewer::loadUrlPreview()
             Q_EMIT descriptionChanged();
             Q_EMIT imageSourceChanged();
             Q_EMIT loadedChanged();
-        });
+        };
+
+        if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
+            conn->callApi<GetUrlPreviewAuthedJob>(m_url);
+        } else {
+            QT_IGNORE_DEPRECATIONS(conn->callApi<GetUrlPreviewJob>(m_url).onResult(onSuccess);)
+        }
     }
 }
 

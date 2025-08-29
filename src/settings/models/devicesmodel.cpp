@@ -22,15 +22,15 @@ DevicesModel::DevicesModel(QObject *parent)
 
 void DevicesModel::fetchDevices()
 {
-    if (m_connection) {
-        auto job = m_connection->callApi<GetDevicesJob>();
-        connect(job, &BaseJob::success, this, [this, job]() {
-            beginResetModel();
-            m_devices = job->devices();
-            endResetModel();
-            Q_EMIT countChanged();
-        });
+    if (!m_connection) {
+        return;
     }
+    m_connection->callApi<GetDevicesJob>().onResult([this](const auto &job) {
+        beginResetModel();
+        m_devices = job->devices();
+        endResetModel();
+        Q_EMIT countChanged();
+    });
 }
 
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
@@ -100,27 +100,20 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
     for (index = 0; m_devices[index].deviceId != deviceId; index++)
         ;
 
-    auto job = m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId);
-
-    connect(job, &BaseJob::result, this, [this, job, password, index] {
-        auto onSuccess = [this, index]() {
-            beginRemoveRows(QModelIndex(), index, index);
-            m_devices.remove(index);
-            endRemoveRows();
-            Q_EMIT countChanged();
-        };
-        if (job->error() != BaseJob::Success) {
-            QJsonObject replyData = job->jsonData();
-            AuthenticationData authData;
-            authData.session = replyData["session"_L1].toString();
-            authData.authInfo["password"_L1] = password;
-            authData.type = "m.login.password"_L1;
-            authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
-            auto innerJob = m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData);
-            connect(innerJob.get(), &BaseJob::success, this, onSuccess);
-        } else {
-            onSuccess();
-        }
+    auto onSuccess = [this, index]() {
+        beginRemoveRows(QModelIndex(), index, index);
+        m_devices.remove(index);
+        endRemoveRows();
+        Q_EMIT countChanged();
+    };
+    m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId).then(onSuccess, [password, this, index, onSuccess](const auto &job) {
+        QJsonObject replyData = job->jsonData();
+        AuthenticationData authData;
+        authData.session = replyData["session"_L1].toString();
+        authData.authInfo["password"_L1] = password;
+        authData.type = "m.login.password"_L1;
+        authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, m_connection->user()->id()}};
+        m_connection->callApi<DeleteDeviceJob>(m_devices[index].deviceId, authData).onResult(onSuccess);
     });
 }
 

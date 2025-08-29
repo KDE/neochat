@@ -60,9 +60,8 @@ void NotificationsManager::startNotificationJob(QPointer<NeoChatConnection> conn
     }
 
     if (!m_connActiveJob.contains(connection->user()->id())) {
-        auto job = connection->callApi<GetNotificationsJob>();
         m_connActiveJob.append(connection->user()->id());
-        connect(job, &BaseJob::success, this, [this, job, connection]() {
+        connection->callApi<GetNotificationsJob>().onResult([this, connection](const auto &job) {
             m_connActiveJob.removeAll(connection->user()->id());
             processNotificationJob(connection, job, !m_oldNotifications.contains(connection->user()->id()));
         });

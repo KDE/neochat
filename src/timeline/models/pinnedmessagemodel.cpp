@@ -53,8 +53,7 @@ void PinnedMessageModel::fill()
     const auto events = m_room->pinnedEventIds();
 
     for (const auto &event : std::as_const(events)) {
-        auto job = m_room->connection()->callApi<GetOneRoomEventJob>(m_room->id(), event);
-        connect(job, &BaseJob::success, this, [this, job] {
+        m_room->connection()->callApi<GetOneRoomEventJob>(m_room->id(), event).then([this](const auto &job) {
             beginInsertRows({}, m_pinnedEvents.size(), m_pinnedEvents.size());
             m_pinnedEvents.push_back(std::move(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData())));
             Q_EMIT newEventAdded(m_pinnedEvents.back().get());

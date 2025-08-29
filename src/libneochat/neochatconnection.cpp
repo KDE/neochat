@@ -133,8 +133,7 @@ void NeoChatConnection::connectSignals()
         &Connection::connected,
         this,
         [this] {
-            auto job = callApi<GetVersionsJob>(BackgroundRequest);
-            connect(job, &GetVersionsJob::success, this, [this, job] {
+            callApi<GetVersionsJob>(BackgroundRequest).onResult([this](const auto &job) {
                 m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_L1);
                 Q_EMIT canCheckMutualRoomsChanged();
                 m_canEraseData = job->unstableFeatures().contains("org.matrix.msc4025"_L1) || job->versions().count("v1.10"_L1);
@@ -237,24 +236,22 @@ bool NeoChatConnection::canCheckMutualRooms() const
 
 void NeoChatConnection::changePassword(const QString &currentPassword, const QString &newPassword)
 {
-    auto job = callApi<ChangePasswordJob>(newPassword, false);
-    connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword] {
-        if (job->error() == 103) {
-            QJsonObject replyData = job->jsonData();
-            AuthenticationData authData;
-            authData.session = replyData["session"_L1].toString();
-            authData.type = "m.login.password"_L1;
-            authData.authInfo["password"_L1] = currentPassword;
-            authData.authInfo["user"_L1] = user()->id();
-            authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
-            auto innerJob = callApi<ChangePasswordJob>(newPassword, false, authData);
-            connect(innerJob, &BaseJob::success, this, [this]() {
-                Q_EMIT passwordStatus(PasswordStatus::Success);
-            });
-            connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
-                Q_EMIT passwordStatus(innerJob->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1 ? PasswordStatus::Wrong : PasswordStatus::Other);
-            });
-        }
+    callApi<ChangePasswordJob>(newPassword, false).onFailure([this, currentPassword, newPassword](const auto &job) {
+        QJsonObject replyData = job->jsonData();
+        AuthenticationData authData;
+        authData.session = replyData["session"_L1].toString();
+        authData.type = "m.login.password"_L1;
+        authData.authInfo["password"_L1] = currentPassword;
+        authData.authInfo["user"_L1] = user()->id();
+        authData.authInfo["identifier"_L1] = QJsonObject{{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
+        auto innerJob = callApi<ChangePasswordJob>(newPassword, false, authData)
+                            .then(
+                                [this]() {
+                                    Q_EMIT passwordStatus(PasswordStatus::Success);
+                                },
+                                [this](const auto &job) {
+                                    Q_EMIT passwordStatus(job->jsonData()["errcode"_L1] == "M_FORBIDDEN"_L1 ? PasswordStatus::Wrong : PasswordStatus::Other);
+                                });
     });
 }
 
@@ -274,22 +271,18 @@ QString NeoChatConnection::label() const
 
 void NeoChatConnection::deactivateAccount(const QString &password, const bool erase)
 {
-    auto job = callApi<DeactivateAccountJob>();
-    connect(job, &BaseJob::result, this, [this, job, password, erase] {
-        if (job->error() == 103) {
-            QJsonObject replyData = job->jsonData();
-            AuthenticationData authData;
-            authData.session = replyData["session"_L1].toString();
-            authData.authInfo["password"_L1] = password;
-            authData.type = "m.login.password"_L1;
-            authData.authInfo["user"_L1] = user()->id();
-            QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
-            authData.authInfo["identifier"_L1] = identifier;
-            auto innerJob = callApi<DeactivateAccountJob>(authData, QString{}, erase);
-            connect(innerJob, &BaseJob::success, this, [this]() {
-                logout(false);
-            });
-        }
+    callApi<DeactivateAccountJob>().onFailure([password, erase, this](const auto &job) {
+        QJsonObject replyData = job->jsonData();
+        AuthenticationData authData;
+        authData.session = replyData["session"_L1].toString();
+        authData.authInfo["password"_L1] = password;
+        authData.type = "m.login.password"_L1;
+        authData.authInfo["user"_L1] = user()->id();
+        QJsonObject identifier = {{"type"_L1, "m.id.user"_L1}, {"user"_L1, user()->id()}};
+        authData.authInfo["identifier"_L1] = identifier;
+        callApi<DeactivateAccountJob>(authData, QString{}, erase).onResult([this]() {
+            logout(false);
+        });
     });
 }
 
@@ -342,19 +335,19 @@ void NeoChatConnection::createRoom(const QString &name, const QString &topic, co
         });
     }
 
-    const auto job = Connection::createRoom(Connection::PublishRoom, QString(), name, topic, QStringList(), {}, {}, {}, initialStateEvents);
-    if (!parent.isEmpty()) {
-        connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
-            if (setChildParent) {
+    Connection::createRoom(Connection::PublishRoom, QString(), name, topic, QStringList(), {}, {}, {}, initialStateEvents)
+        .then(
+            [parent, setChildParent, this](const auto &job) {
+                if (parent.isEmpty() || !setChildParent) {
+                    return;
+                }
                 if (auto parentRoom = room(parent)) {
                     parentRoom->setState(u"m.space.child"_s, job->roomId(), QJsonObject{{"via"_L1, QJsonArray{domain()}}});
                 }
-            }
-        });
-    }
-    connect(job, &CreateRoomJob::failure, this, [this, job] {
-        Q_EMIT errorOccured(i18n("Room creation failed: %1", job->errorString()));
-    });
+            },
+            [this](const auto &job) {
+                Q_EMIT errorOccured(i18n("Room creation failed: %1", job->errorString()));
+            });
 }
 
 void NeoChatConnection::createSpace(const QString &name, const QString &topic, const QString &parent, bool setChildParent)
@@ -371,20 +364,19 @@ void NeoChatConnection::createSpace(const QString &name, const QString &topic, c
         });
     }
 
-    const auto job =
-        Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_L1, "m.space"_L1}});
-    if (!parent.isEmpty()) {
-        connect(job, &Quotient::CreateRoomJob::success, this, [this, parent, setChildParent, job]() {
-            if (setChildParent) {
+    Connection::createRoom(Connection::UnpublishRoom, {}, name, topic, {}, {}, {}, false, initialStateEvents, {}, QJsonObject{{"type"_L1, "m.space"_L1}})
+        .then(
+            [parent, setChildParent, this](const auto &job) {
+                if (parent.isEmpty() || !setChildParent) {
+                    return;
+                }
                 if (auto parentRoom = room(parent)) {
                     parentRoom->setState(u"m.space.child"_s, job->roomId(), QJsonObject{{"via"_L1, QJsonArray{domain()}}});
                 }
-            }
-        });
-    }
-    connect(job, &CreateRoomJob::failure, this, [this, job] {
-        Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
-    });
+            },
+            [this](const auto &job) {
+                Q_EMIT errorOccured(i18n("Space creation failed: %1", job->errorString()));
+            });
 }
 
 Quotient::ForgetRoomJob *NeoChatConnection::forgetRoom(const QString &id)

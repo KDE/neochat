@@ -61,13 +61,12 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
     }
 
     m_nextBatchTokens[spaceId] = QString();
-    auto job = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId]);
+    m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId])
+        .onResult([this, spaceId](const auto &job) {
+            addBatch(spaceId, job);
+        });
     auto group = KConfigGroup(KSharedConfig::openStateConfig("SpaceHierarchy"_L1), "Cache"_L1);
     m_spaceHierarchy.insert(spaceId, group.readEntry(spaceId, QStringList()));
-
-    connect(job, &BaseJob::success, this, [this, job, spaceId]() {
-        addBatch(spaceId, job);
-    });
 }
 
 void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHierarchyJob *job)
@@ -90,10 +89,10 @@ void SpaceHierarchyCache::addBatch(const QString &spaceId, Quotient::GetSpaceHie
     const auto nextBatchToken = job->nextBatch();
     if (!nextBatchToken.isEmpty() && nextBatchToken != *m_nextBatchTokens[spaceId] && m_connection) {
         *m_nextBatchTokens[spaceId] = nextBatchToken;
-        auto nextJob = m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId]);
-        connect(nextJob, &BaseJob::success, this, [this, nextJob, spaceId]() {
-            addBatch(spaceId, nextJob);
-        });
+        m_connection->callApi<GetSpaceHierarchyJob>(spaceId, std::nullopt, std::nullopt, std::nullopt, *m_nextBatchTokens[spaceId])
+            .onResult([this, spaceId](const auto &nextJob) {
+                addBatch(spaceId, nextJob);
+            });
     } else {
         m_nextBatchTokens[spaceId].reset();
     }

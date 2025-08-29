@@ -513,12 +513,9 @@ QUrl NeoChatRoom::avatarMediaUrl() const
 
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
-    const auto job = connection()->uploadFile(localFile.toLocalFile());
-    if (isJobPending(job)) {
-        connect(job, &BaseJob::success, this, [this, job] {
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_L1, QString(), QJsonObject{{"url"_L1, job->contentUri().toString()}});
-        });
-    }
+    connection()->uploadFile(localFile.toLocalFile()).onResult([this](const auto &job) {
+        connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_L1, QString(), QJsonObject{{"url"_L1, job->contentUri().toString()}});
+    });
 }
 
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
@@ -1115,10 +1112,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-        auto job = connection()->callApi<SetPushRuleJob>("override"_L1, id(), actions, QString(), QString(), conditions, QString());
-        connect(job, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("override"_L1, id(), true);
-            connect(enableJob, &BaseJob::success, this, [this]() {
+        connection()->callApi<SetPushRuleJob>("override"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("override"_L1, id(), true).onResult([this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1141,10 +1136,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         // No conditions for a room rule
         const QList<PushCondition> conditions;
 
-        auto setJob = connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString());
-        connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true);
-            connect(enableJob, &BaseJob::success, this, [this]() {
+        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult([this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1172,10 +1165,8 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         const QList<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-        auto setJob = connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString());
-        connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true);
-            connect(enableJob, &BaseJob::success, this, [this]() {
+        connection()->callApi<SetPushRuleJob>("room"_L1, id(), actions, QString(), QString(), conditions, QString()).onResult([this]() {
+            connection()->callApi<SetPushRuleEnabledJob>("room"_L1, id(), true).onResult([this]() {
                 m_pushNotificationStateUpdating = false;
             });
         });
@@ -1242,11 +1233,8 @@ void NeoChatRoom::updatePushNotificationState(QString type)
 
 void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
 {
-    auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason);
-    connect(job, &BaseJob::finished, this, [this, job]() {
-        if (job->error() == BaseJob::Success) {
-            Q_EMIT showMessage(MessageType::Positive, i18n("Report sent successfully."));
-        }
+    auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason).onResult([this]() {
+        Q_EMIT showMessage(MessageType::Positive, i18n("Report sent successfully."));
     });
 }
 
@@ -1541,13 +1529,11 @@ void NeoChatRoom::download(const QString &eventId, const QUrl &localFilename)
 
 void NeoChatRoom::mapAlias(const QString &alias)
 {
-    auto getLocalAliasesJob = connection()->callApi<GetLocalAliasesJob>(id());
-    connect(getLocalAliasesJob, &BaseJob::success, this, [this, getLocalAliasesJob, alias] {
-        if (getLocalAliasesJob->aliases().contains(alias)) {
+    connection()->callApi<GetLocalAliasesJob>(id()).onResult([this, alias](const auto &job) {
+        if (job->aliases().contains(alias)) {
             return;
         } else {
-            auto setRoomAliasJob = connection()->callApi<SetRoomAliasJob>(alias, id());
-            connect(setRoomAliasJob, &BaseJob::success, this, [this, alias] {
+            connection()->callApi<SetRoomAliasJob>(alias, id()).onResult([this, alias] {
                 auto newAltAliases = altAliases();
                 newAltAliases.append(alias);
                 setLocalAliases(newAltAliases);
@@ -1639,23 +1625,25 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
         Q_EMIT extraEventLoaded(eventId);
         return;
     }
-    auto job = connection()->callApi<GetOneRoomEventJob>(id(), eventId);
-    connect(job, &BaseJob::success, this, [this, job, eventId] {
-        // The event may have arrived in the meantime so check it's not in the timeline.
-        if (findInTimeline(eventId) != historyEdge()) {
-            Q_EMIT extraEventLoaded(eventId);
-            return;
-        }
+    connection()
+        ->callApi<GetOneRoomEventJob>(id(), eventId)
+        .then(
+            [this, eventId](const auto &job) {
+                // The event may have arrived in the meantime so check it's not in the timeline.
+                if (findInTimeline(eventId) != historyEdge()) {
+                    Q_EMIT extraEventLoaded(eventId);
+                    return;
+                }
 
-        event_ptr_tt<RoomEvent> event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
-        m_extraEvents.push_back(std::move(event));
-        Q_EMIT extraEventLoaded(eventId);
-    });
-    connect(job, &BaseJob::failure, this, [this, job, eventId] {
-        if (job->error() == BaseJob::NotFound) {
-            Q_EMIT extraEventNotFound(eventId);
-        }
-    });
+                event_ptr_tt<RoomEvent> event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+                m_extraEvents.push_back(std::move(event));
+                Q_EMIT extraEventLoaded(eventId);
+            },
+            [this, eventId](const auto &job) {
+                if (job->error() == BaseJob::NotFound) {
+                    Q_EMIT extraEventNotFound(eventId);
+                }
+            });
 }
 
 std::pair<const Quotient::RoomEvent *, bool> NeoChatRoom::getEvent(const QString &eventId) const
