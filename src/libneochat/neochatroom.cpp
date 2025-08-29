@@ -628,8 +628,8 @@ void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reaso
 
 QString NeoChatRoom::historyVisibility() const
 {
-    if (auto stateEvent = currentState().get("m.room.history_visibility"_L1)) {
-        return stateEvent->contentJson()["history_visibility"_L1].toString();
+    if (const auto stateEvent = currentState().get("m.room.history_visibility"_L1)) {
+        return stateEvent->contentPart<QString>("history_visibility"_L1);
     }
     return {};
 }
