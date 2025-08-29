@@ -27,6 +27,15 @@ ColumnLayout {
      */
     required property string display
 
+    /**
+     * @brief The attributes of the component.
+     */
+    required property var componentAttributes
+
+    required property int index
+
+    required property NeochatRoomMember author
+
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
@@ -83,5 +92,9 @@ ColumnLayout {
     TextComponent {
         display: root.display
         visible: root.display !== ""
+        componentAttributes: root.componentAttributes
+        index: root.index
+        eventId: root.eventId
+        author: root.author
     }
 }
