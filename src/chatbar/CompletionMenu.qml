@@ -92,6 +92,7 @@ QQC2.Popup {
                         Delegates.SubtitleContentItem {
                             itemDelegate: completionDelegate
                             labelItem.textFormat: Text.PlainText
+                            labelItem.clip: true // Intentional to limit insane Unicode in display names
                             subtitle: completionDelegate.subtitle ?? ""
                             subtitleItem.textFormat: Text.PlainText
                         }

@@ -63,6 +63,7 @@ Kirigami.Dialog {
                     level: 1
                     Layout.fillWidth: true
                     font.bold: true
+                    clip: true // Intentional to limit insane Unicode in display names
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap

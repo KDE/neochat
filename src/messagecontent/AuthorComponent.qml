@@ -49,6 +49,7 @@ RowLayout {
         textFormat: Text.PlainText
         font.weight: Font.Bold
         elide: Text.ElideRight
+        clip: true // Intentional to limit insane Unicode in display names
 
         function openUserMenu(): void {
             const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {

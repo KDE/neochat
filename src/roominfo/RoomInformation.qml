@@ -269,6 +269,7 @@ QQC2.ScrollView {
                     text: userDelegate.name
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
+                    clip: true // Intentional to limit insane Unicode in display names
 
                     Layout.fillWidth: true
                 }
