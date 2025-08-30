@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:43+0000\n"
-"PO-Revision-Date: 2025-08-24 07:32+0200\n"
+"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"PO-Revision-Date: 2025-08-29 10:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: src/app/controller.cpp:183
+#: src/app/controller.cpp:175
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -29,7 +29,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Sprejemanje obvestil za nova sporočila"
 
-#: src/app/controller.cpp:328
+#: src/app/controller.cpp:320
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Sprejemanje potisnih obvestil"
@@ -755,7 +755,7 @@ msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:70
+#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1591,7 +1591,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
@@ -1646,7 +1646,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
 
-#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
+#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1951,12 +1951,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Ključi stanja"
 
-#: src/libneochat/accountmanager.cpp:126
+#: src/libneochat/accountmanager.cpp:123
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Žetona za dostop ni bilo mogoče najti: morda je bil izbrisan?"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:127
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1964,7 +1964,7 @@ msgstr ""
 "Dostop do obeska ključev je bil zavrnjen: dovolite NeoChatu, da prebere "
 "žeton za dostop"
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1973,7 +1973,7 @@ msgstr ""
 "Obesek za ključe ni na voljo: namestite obesek za ključe, npr. KWallet ali "
 "GNOME kot obesek za ključe na Linuxu"
 
-#: src/libneochat/accountmanager.cpp:136
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Ni mogoče prebrati žetona za dostop: %1"
@@ -3095,12 +3095,12 @@ msgstr "Ustvarjanje sobe ni uspelo: %1"
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/libneochat/neochatroom.cpp:1241
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Poročilo uspešno poslano."
 
-#: src/libneochat/neochatroom.cpp:1611 src/libneochat/neochatroom.cpp:1619
+#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3555,19 +3555,19 @@ msgstr "Nastavitve"
 msgid "%1 started a user verification"
 msgstr "%1 je začel preverjanje uporabnika"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Potrdi urejanje"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Objavi sporočilo v niti"
 
-#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:190 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -6547,16 +6547,13 @@ msgid "Add to Space"
 msgstr "Dodaj v prostor"
 
 #: src/timeline/DelegateContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Odgovori"
 
 #: src/timeline/DelegateContextMenu.qml:171
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
@@ -6721,15 +6718,13 @@ msgid "Report Message"
 msgstr "Poročaj sporočilo"
 
 #: src/timeline/DelegateContextMenu.qml:340
-#, fuzzy, kde-format
-#| msgid "Search for '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
-msgstr "Poišči »%1«"
+msgstr "Poišči '%1'"
 
 #: src/timeline/DelegateContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguriraj spletne bližnjice…"
@@ -6759,11 +6754,10 @@ msgid "Pin"
 msgstr "Pripni"
 
 #: src/timeline/DelegateContextMenu.qml:403
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
-msgstr "Prikaži vir"
+msgstr "Poglej vir"
 
 #: src/timeline/models/readmarkermodel.cpp:112
 #, kde-format

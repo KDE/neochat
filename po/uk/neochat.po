@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:43+0000\n"
-"PO-Revision-Date: 2025-08-24 21:22+0300\n"
+"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"PO-Revision-Date: 2025-08-29 19:02+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/app/controller.cpp:183
+#: src/app/controller.cpp:175
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Отримання сповіщень щодо нових повідомлень"
 
-#: src/app/controller.cpp:328
+#: src/app/controller.cpp:320
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Отримання імпульсних сповіщень"
@@ -756,7 +756,7 @@ msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:70
+#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1599,7 +1599,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
@@ -1655,7 +1655,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
+#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1960,12 +1960,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Ключі стану"
 
-#: src/libneochat/accountmanager.cpp:126
+#: src/libneochat/accountmanager.cpp:123
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Не знайдено жетона доступу: можливо, його вилучено?"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:127
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1973,7 +1973,7 @@ msgstr ""
 "У доступі до ланцюжка ключів відмовлено: будь ласка, дозвольте NeoChat "
 "читання жетона доступу"
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1982,7 +1982,7 @@ msgstr ""
 "Немає доступного ланцюжка ключів: будь ласка, встановіть засіб керування "
 "ключами, наприклад KWallet або GNOME keyring у Linux"
 
-#: src/libneochat/accountmanager.cpp:136
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Не вдалося прочитати жетон доступу: %1"
@@ -3104,12 +3104,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/libneochat/neochatroom.cpp:1241
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/libneochat/neochatroom.cpp:1611 src/libneochat/neochatroom.cpp:1619
+#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3567,19 +3567,19 @@ msgstr "Параметри"
 msgid "%1 started a user verification"
 msgstr "%1 розпочато перевірку користувача"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Підтвердити редагування"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Додати повідомлення до гілки"
 
-#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:190 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -6585,16 +6585,13 @@ msgid "Add to Space"
 msgstr "Додати до простору"
 
 #: src/timeline/DelegateContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Відповісти"
 
 #: src/timeline/DelegateContextMenu.qml:171
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
@@ -6759,15 +6756,13 @@ msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
 #: src/timeline/DelegateContextMenu.qml:340
-#, fuzzy, kde-format
-#| msgid "Search for '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Пошук «%1»"
 
 #: src/timeline/DelegateContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Налаштувати вебскорочення…"
@@ -6797,8 +6792,7 @@ msgid "Pin"
 msgstr "Пришпилити"
 
 #: src/timeline/DelegateContextMenu.qml:403
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Переглянути джерело"

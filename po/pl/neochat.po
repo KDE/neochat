@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:43+0000\n"
+"POT-Creation-Date: 2025-08-30 00:42+0000\n"
 "PO-Revision-Date: 2025-02-23 12:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/app/controller.cpp:183
+#: src/app/controller.cpp:175
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -26,7 +26,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Otrzymywanie powiadomień o nowych wiadomościach"
 
-#: src/app/controller.cpp:328
+#: src/app/controller.cpp:320
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Otrzymywanie powiadomień Push"
@@ -779,7 +779,7 @@ msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sprawdzenie posiedzenia"
 
-#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:70
+#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1658,7 +1658,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Obraz ze schowka"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
@@ -1720,7 +1720,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Wiadomość do wysłania…"
 
-#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
+#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2028,12 +2028,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "Klawisze stanu"
 
-#: src/libneochat/accountmanager.cpp:126
+#: src/libneochat/accountmanager.cpp:123
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Nie znaleziono żadnego tokena dostępu: Może został usunięty?"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:127
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -2041,7 +2041,7 @@ msgstr ""
 "Odmówiono dostępu do pęku kluczy: Zezwól NeoChatowi odczytać tokena "
 "dostępowego"
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -2050,7 +2050,7 @@ msgstr ""
 "Pęk kluczy niedostępny: Wgraj pęk kluczy, np. KWallet lub pęk kluczy GNOME "
 "dla Linuksa"
 
-#: src/libneochat/accountmanager.cpp:136
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Nie można odczytać tokena dostępu: %1"
@@ -3180,12 +3180,12 @@ msgstr "Nie udało się utworzyć pokoju: %1"
 msgid "Space creation failed: %1"
 msgstr "Nie udało się utworzyć przestrzeni: %1"
 
-#: src/libneochat/neochatroom.cpp:1241
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
 
-#: src/libneochat/neochatroom.cpp:1611 src/libneochat/neochatroom.cpp:1619
+#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3654,19 +3654,19 @@ msgstr "Ustawienia"
 msgid "%1 started a user verification"
 msgstr "%1 rozpoczął sprawdzanie użytkownika"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Potwierdź zmianę"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Wyślij wiadomość w wątku"
 
-#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:190 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"

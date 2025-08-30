@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-29 00:43+0000\n"
-"PO-Revision-Date: 2025-08-22 15:49+0200\n"
+"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"PO-Revision-Date: 2025-08-25 08:38+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: src/app/controller.cpp:183
+#: src/app/controller.cpp:175
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -25,7 +25,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Ricezione delle notifiche per i nuovi messaggi"
 
-#: src/app/controller.cpp:328
+#: src/app/controller.cpp:320
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Ricezione delle notifiche push"
@@ -752,7 +752,7 @@ msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifica della sessione"
 
-#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:70
+#: src/app/qml/Main.qml:335 src/app/qml/ShareAction.qml:72
 #, kde-format
 msgctxt "@title"
 msgid "Share"
@@ -1598,7 +1598,7 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Immagine dagli appunti"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:164
+#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
@@ -1654,7 +1654,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Invia un messaggio…"
 
-#: src/chatbar/ChatBar.qml:416 src/messagecontent/ChatBarComponent.qml:233
+#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1957,12 +1957,12 @@ msgctxt ""
 msgid "State Keys"
 msgstr "State Keys"
 
-#: src/libneochat/accountmanager.cpp:126
+#: src/libneochat/accountmanager.cpp:123
 #, kde-format
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "Il token di accesso non è stato trovato: forse è stato eliminato?"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:127
 #, kde-format
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
@@ -1970,7 +1970,7 @@ msgstr ""
 "L'accesso al portachiavi è stato negato: consenti a NeoChat di leggere il "
 "token di accesso"
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:130
 #, kde-format
 msgid ""
 "No keychain available: Please install a keychain, e.g. KWallet or GNOME "
@@ -1979,7 +1979,7 @@ msgstr ""
 "Nessun portachiavi disponibile: installa un portachiavi, ad esempio KWallet "
 "o il portachiavi di GNOME su Linux"
 
-#: src/libneochat/accountmanager.cpp:136
+#: src/libneochat/accountmanager.cpp:133
 #, kde-format
 msgid "Unable to read access token: %1"
 msgstr "Impossibile leggere il token di accesso: %1"
@@ -3108,12 +3108,12 @@ msgstr "Creazione della stanza non riuscita: %1"
 msgid "Space creation failed: %1"
 msgstr "Creazione dello spazio non riuscita: %1"
 
-#: src/libneochat/neochatroom.cpp:1241
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/libneochat/neochatroom.cpp:1611 src/libneochat/neochatroom.cpp:1619
+#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3272,11 +3272,10 @@ msgid "No users found"
 msgstr "Nessun utente trovato"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Digita del testo per iniziare a cercare i tuoi amici"
+msgstr "Digita del testo per iniziare la ricerca degli utenti"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
@@ -3573,19 +3572,19 @@ msgstr "Impostazioni"
 msgid "%1 started a user verification"
 msgstr "%1 ha iniziato una verifica utente"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Conferma la modifica"
 
-#: src/messagecontent/ChatBarComponent.qml:178
+#: src/messagecontent/ChatBarComponent.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Post message in thread"
 msgstr "Pubblica messaggio nella conversazione"
 
-#: src/messagecontent/ChatBarComponent.qml:189 src/settings/ThreePIdCard.qml:93
+#: src/messagecontent/ChatBarComponent.qml:190 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
