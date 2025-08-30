@@ -419,6 +419,7 @@ void MessageDelegateBase::setCompactMode(bool compactMode)
 
     updateBackground();
     updateQuickAction();
+    updateAvatar();
 }
 
 void MessageDelegateBase::updateBackground()
