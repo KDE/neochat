@@ -186,6 +186,10 @@ int DelegateSizeHelper::availablePercentageWidth() const
 qreal DelegateSizeHelper::availableWidth() const
 {
     qreal absoluteWidth = maxAvailableWidth() * availablePercentageWidth() * 0.01;
+    // We want to use all available space for a horizontal line.
+    if (m_startPercentWidth == m_endPercentWidth) {
+        return std::round(absoluteWidth);
+    }
     return std::round(std::min(absoluteWidth, maxWidth()));
 }
 
