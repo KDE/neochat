@@ -275,6 +275,20 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
+            text: i18nc("@action:button %1 is the name of the user.", "Search room for %1's messages", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName))
+            icon.name: "search-symbolic"
+            onClicked: {
+                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
+                    room: root.room,
+                    senderId: root.user.id
+                }, {
+                    title: i18nc("@action:title", "Search")
+                });
+                root.close();
+            }
+        }
+
+        FormCard.FormButtonDelegate {
             text: i18n("Copy link")
             icon.name: "username-copy"
             onClicked: Clipboard.saveText("https://matrix.to/#/" + root.user.id)

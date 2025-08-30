@@ -23,11 +23,17 @@ SearchPage {
      */
     required property NeoChatRoom room
 
+    /**
+     * @brief If set, limits the search to events from a specific user id.
+     */
+    property string senderId
+
     title: i18nc("@action:title", "Search Messages")
 
     model: SearchModel {
         id: searchModel
         room: root.room
+        senderId: root.senderId
     }
 
     modelDelegate: EventDelegate {
