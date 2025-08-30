@@ -7,6 +7,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Window
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -98,24 +99,87 @@ Kirigami.Page {
         }
     }
 
-    header: Kirigami.InlineMessage {
-        id: banner
+    header: ColumnLayout {
+        id: headerLayout
 
-        // Used to keep track of messages so we can hide the right one at the right time
-        property string messageId
+        spacing: 0
 
-        showCloseButton: true
-        visible: false
-        position: Kirigami.InlineMessage.Position.Header
+        readonly property bool shouldShowPins: root.currentRoom.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile
 
-        function show(msgid: string): void {
-            messageId = msgid;
-            visible = true;
+        QQC2.Control {
+            id: pinControl
+
+            visible: headerLayout.shouldShowPins
+
+            Layout.fillWidth: true
+
+            background: Rectangle {
+                color: Kirigami.Theme.backgroundColor
+
+                Kirigami.Theme.colorSet: Kirigami.Theme.View
+                Kirigami.Theme.inherit: false
+            }
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                Kirigami.Icon {
+                    source: "pin-symbolic"
+
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+                }
+
+                QQC2.Label {
+                    text: root.currentRoom.pinnedMessage
+                    maximumLineCount: 1
+                    elide: Text.ElideRight
+
+                    onLinkActivated: link => UrlHelper.openUrl(link)
+                    onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
+                        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
+                    } else {
+                        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
+                    }
+
+                    Layout.fillWidth: true
+                }
+            }
+
+            TapHandler {
+                onTapped: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
+                    room: root.currentRoom
+                }, {
+                    title: i18nc("@title", "Pinned Messages")
+                });
+            }
         }
 
-        function hideIf(msgid: string): void {
-            if (messageId == msgid) {
-                visible = false;
+        Kirigami.Separator {
+            visible: headerLayout.shouldShowPins
+
+            Layout.fillWidth: true
+        }
+
+        Kirigami.InlineMessage {
+            id: banner
+
+            // Used to keep track of messages so we can hide the right one at the right time
+            property string messageId
+
+            showCloseButton: true
+            visible: false
+            position: Kirigami.InlineMessage.Position.Header
+
+            function show(msgid: string): void {
+                messageId = msgid;
+                visible = true;
+            }
+
+            function hideIf(msgid: string): void {
+                if (messageId == msgid) {
+                    visible = false;
+                }
             }
         }
     }

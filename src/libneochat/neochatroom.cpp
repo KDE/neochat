@@ -44,6 +44,7 @@
 
 #include "chatbarcache.h"
 #include "clipboard.h"
+#include "eventhandler.h"
 #include "events/pollevent.h"
 #include "filetransferpseudojob.h"
 #include "neochatconnection.h"
@@ -55,6 +56,7 @@
 #include <KIO/Job>
 #include <KIO/JobTracker>
 #endif
+
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
@@ -130,11 +132,13 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         this,
         [this]() {
             updatePushNotificationState(u"m.push_rules"_s);
+            loadPinnedMessage();
 
             Q_EMIT canEncryptRoomChanged();
             Q_EMIT inviteTimestampChanged();
         },
         Qt::SingleShotConnection);
+    connect(this, &Room::pinnedEventsChanged, this, &NeoChatRoom::loadPinnedMessage);
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
         Q_EMIT parentIdsChanged();
@@ -1170,6 +1174,19 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
     Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
 }
 
+void NeoChatRoom::loadPinnedMessage()
+{
+    const auto events = pinnedEventIds();
+    if (!events.isEmpty()) {
+        const QString &mostRecentEventId = events.last();
+        connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then([this](const auto &job) {
+            auto event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+            m_pinnedMessage = EventHandler::richBody(this, event.get());
+            Q_EMIT pinnedMessageChanged();
+        });
+    }
+}
+
 void NeoChatRoom::updatePushNotificationState(QString type)
 {
     if (type != "m.push_rules"_L1 || m_pushNotificationStateUpdating) {
@@ -1808,6 +1825,11 @@ bool NeoChatRoom::isCreator(const QString &userId) const
     auto createEvent = currentState().get<RoomCreateEvent>();
     return roomCreatorHasUltimatePowerLevel() && createEvent
         && (createEvent->senderId() == userId || createEvent->contentPart<QStringList>(u"additional_creators"_s).contains(userId));
+}
+
+QString NeoChatRoom::pinnedMessage() const
+{
+    return m_pinnedMessage;
 }
 
 #include "moc_neochatroom.cpp"
