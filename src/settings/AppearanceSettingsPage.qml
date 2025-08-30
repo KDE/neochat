@@ -18,7 +18,35 @@ FormCard.FormCardPage {
     title: i18nc("@title:window", "Appearance")
 
     FormCard.FormHeader {
-        title: i18nc("@title:group", "General Theme")
+        title: i18nc("@title:group", "General")
+    }
+    FormCard.FormCard {
+        Loader {
+            id: colorSchemeDelegate
+            visible: item !== null
+            sourceComponent: Qt.createComponent('org.kde.neochat.settings', 'ColorScheme')
+            Layout.fillWidth: true
+        }
+
+        FormCard.FormDelegateSeparator {
+            above: colorSchemeDelegate
+            below: compactRoomListDelegate
+            visible: colorSchemeDelegate.visible
+        }
+
+        FormCard.FormCheckDelegate {
+            id: compactRoomListDelegate
+            text: i18n("Use compact room list")
+            checked: NeoChatConfig.compactRoomList
+            onToggled: {
+                NeoChatConfig.compactRoomList = checked;
+                NeoChatConfig.save();
+            }
+        }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Message Layout")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
@@ -198,40 +226,15 @@ FormCard.FormCardPage {
         }
 
         FormCard.FormDelegateSeparator {
-            below: compactRoomListDelegate
+            above: timelineModeSetting
+            below: hasWindowSystemDelegate
         }
 
-        FormCard.FormCheckDelegate {
-            id: compactRoomListDelegate
-            text: i18n("Use compact room list")
-            checked: NeoChatConfig.compactRoomList
-            onToggled: {
-                NeoChatConfig.compactRoomList = checked;
-                NeoChatConfig.save();
-            }
-        }
-
-        FormCard.FormDelegateSeparator {
-            above: compactRoomListDelegate
-            below: colorSchemeDelegate.item
-            visible: colorSchemeDelegate.visible
-        }
-
-        Loader {
-            id: colorSchemeDelegate
-            visible: item !== null
-            sourceComponent: Qt.createComponent('org.kde.neochat.settings', 'ColorScheme')
-            Layout.fillWidth: true
-        }
-    }
-
-    FormCard.FormCard {
-        Layout.topMargin: Kirigami.Units.largeSpacing
         FormCard.FormCheckDelegate {
             id: hasWindowSystemDelegate
-            visible: WindowController.hasWindowSystem
             text: i18n("Use transparent chat page")
             enabled: !NeoChatConfig.compactLayout && !NeoChatConfig.isBlurImmutable
+            visible: WindowController.hasWindowSystem && !NeoChatConfig.compactLayout
             checked: NeoChatConfig.blur
             onToggled: {
                 NeoChatConfig.blur = checked;
@@ -242,7 +245,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {
             above: hasWindowSystemDelegate
             below: transparencyDelegate
-            visible: WindowController.hasWindowSystem
+            visible: transparencyDelegate.visible
         }
 
         FormCard.AbstractFormDelegate {
@@ -283,7 +286,6 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {
             above: transparencyDelegate
             below: showLocalMessagesOnRightDelegate
-            visible: transparencyDelegate.visible
         }
 
         FormCard.FormCheckDelegate {
@@ -291,6 +293,7 @@ FormCard.FormCardPage {
             text: i18n("Show your messages on the right")
             checked: NeoChatConfig.showLocalMessagesOnRight
             enabled: !NeoChatConfig.isShowLocalMessagesOnRightImmutable && !NeoChatConfig.compactLayout
+            visible: !NeoChatConfig.compactLayout
             onToggled: {
                 NeoChatConfig.showLocalMessagesOnRight = checked;
                 NeoChatConfig.save();
@@ -304,7 +307,7 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showLinkPreviewDelegate
-            text: i18n("Show links preview in the chat messages")
+            text: i18nc("@label:checkbox", "Show link previews in messages")
             checked: NeoChatConfig.showLinkPreview
             onToggled: {
                 NeoChatConfig.showLinkPreview = checked;
@@ -314,7 +317,7 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18n("Show Avatar")
+        title: i18nc("@title", "Show Avatars")
     }
     FormCard.FormCard {
         FormCard.FormCheckDelegate {
