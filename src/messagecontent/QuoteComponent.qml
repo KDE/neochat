@@ -54,6 +54,8 @@ QQC2.Control {
         textFormat: TextEdit.RichText
         wrapMode: TextEdit.Wrap
         color: Kirigami.Theme.textColor
+        selectedTextColor: Kirigami.Theme.highlightedTextColor
+        selectionColor: Kirigami.Theme.highlightColor
 
         font.italic: true
 
