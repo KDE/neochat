@@ -221,8 +221,9 @@ private:
             for (qsizetype j = 0; j < links.size(); ++j) {
                 const auto linkPreview = linkPreviewComponent(links[j]);
                 if (!m_removedLinkPreviews.contains(links[j]) && !linkPreview.isEmpty()) {
-                    beginInsertRows({}, std::distance(m_components.begin(), it) + j + 1, std::distance(m_components.begin(), it) + j + 1);
-                    it = m_components.insert(it + j + 1, linkPreview);
+                    const auto insertRow = std::distance(m_components.begin(), it) + 1;
+                    beginInsertRows({}, insertRow, insertRow);
+                    it = m_components.insert(insertRow, linkPreview);
                     previewAdded = true;
                     endInsertRows();
                 }

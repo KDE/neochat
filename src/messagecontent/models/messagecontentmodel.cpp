@@ -259,7 +259,7 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
                     it->type = MessageComponentType::LinkPreview;
                     Q_EMIT dataChanged(index(it - m_components.begin()), index(it - m_components.begin()), {ComponentTypeRole});
                 }
-                return it;
+                return ++it;
             });
         }
     });
