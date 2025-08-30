@@ -5,6 +5,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Window
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -96,12 +97,68 @@ Kirigami.Page {
         }
     }
 
-    header: Kirigami.InlineMessage {
-        id: banner
+    header: ColumnLayout {
+        id: headerLayout
 
-        showCloseButton: true
-        visible: false
-        position: Kirigami.InlineMessage.Position.Header
+        spacing: 0
+
+        readonly property bool shouldShowPins: root.currentRoom.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile
+
+        QQC2.Control {
+            id: pinControl
+
+            visible: headerLayout.shouldShowPins
+
+            Layout.fillWidth: true
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                Kirigami.Icon {
+                    source: "pin-symbolic"
+
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                }
+
+                QQC2.Label {
+                    text: root.currentRoom.pinnedMessage
+                    maximumLineCount: 1
+                    elide: Text.ElideRight
+
+                    onLinkActivated: link => UrlHelper.openUrl(link)
+                    onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
+                        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
+                    } else {
+                        (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
+                    }
+
+                    Layout.fillWidth: true
+                }
+            }
+
+            TapHandler {
+                onTapped: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
+                    room: root.currentRoom
+                }, {
+                    title: i18nc("@title", "Pinned Messages")
+                });
+            }
+        }
+
+        Kirigami.Separator {
+            visible: headerLayout.shouldShowPins
+
+            Layout.fillWidth: true
+        }
+
+        Kirigami.InlineMessage {
+            id: banner
+
+            showCloseButton: true
+            visible: false
+            position: Kirigami.InlineMessage.Position.Header
+        }
     }
 
     Loader {

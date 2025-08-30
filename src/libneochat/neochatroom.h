@@ -203,6 +203,11 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(QString invitingUserId READ invitingUserId NOTIFY baseStateLoaded)
 
+    /**
+     * @brief The most recently pinned message in the room.
+     */
+    Q_PROPERTY(QString pinnedMessage READ pinnedMessage NOTIFY pinnedMessageChanged)
+
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -612,6 +617,11 @@ public:
      */
     bool isCreator(const QString &userId) const;
 
+    /**
+     * @return The most recent pinned message in the room.
+     */
+    QString pinnedMessage() const;
+
 private:
     bool m_visible = false;
 
@@ -644,6 +654,8 @@ private:
 
     std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
     static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
+    QString m_pinnedMessage;
+    void loadPinnedMessage();
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
@@ -674,6 +686,7 @@ Q_SIGNALS:
     void extraEventLoaded(const QString &eventId);
     void extraEventNotFound(const QString &eventId);
     void inviteTimestampChanged();
+    void pinnedMessageChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.
