@@ -256,7 +256,8 @@ void EventMessageContentModel::resetModel()
 
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
-        m_components += MessageComponent{MessageComponentType::Loading, m_isReply ? i18n("Loading reply") : i18n("Loading"), {}};
+        m_components +=
+            MessageComponent{MessageComponentType::Loading, m_isReply ? i18nc("@info", "Loading reply…") : i18nc("@info Loading this message", "Loading…"), {}};
         endResetModel();
         return;
     }

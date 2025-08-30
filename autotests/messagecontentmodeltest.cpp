@@ -43,13 +43,13 @@ void MessageContentModelTest::missingEvent()
 
     QCOMPARE(model1.rowCount(), 1);
     QCOMPARE(model1.data(model1.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);
-    QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), u"Loading"_s);
+    QCOMPARE(model1.data(model1.index(0), MessageContentModel::DisplayRole), u"Loading…"_s);
 
     auto model2 = EventMessageContentModel(room, u"$153456789:example.org"_s, true);
 
     QCOMPARE(model2.rowCount(), 1);
     QCOMPARE(model2.data(model2.index(0), MessageContentModel::ComponentTypeRole), MessageComponentType::Loading);
-    QCOMPARE(model2.data(model2.index(0), MessageContentModel::DisplayRole), u"Loading reply"_s);
+    QCOMPARE(model2.data(model2.index(0), MessageContentModel::DisplayRole), u"Loading reply…"_s);
 
     room->syncNewEvents(u"test-min-sync.json"_s);
     QCOMPARE(model1.rowCount(), 2);

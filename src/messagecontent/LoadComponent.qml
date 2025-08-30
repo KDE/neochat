@@ -19,7 +19,7 @@ RowLayout {
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
-    spacing: Kirigami.Units.smallSpacing
+    spacing: 0
 
     QQC2.BusyIndicator {}
     Kirigami.Heading {
@@ -27,7 +27,7 @@ RowLayout {
         Layout.fillWidth: true
         verticalAlignment: Text.AlignVCenter
         level: 2
-        text: root.display.length > 0 ? root.display : i18n("Loading")
+        text: root.display.length > 0 ? root.display : i18nc("@info Loading this message", "Loading…")
     }
 }
 
