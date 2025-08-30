@@ -51,6 +51,9 @@ void SearchModel::search()
     filter.notRooms = QStringList();
     filter.rooms = QStringList{m_room->id()};
     filter.containsUrl = false;
+    if (!m_senderId.isEmpty()) {
+        filter.senders = {m_senderId};
+    }
 
     SearchJob::RoomEventsCriteria criteria{
         .searchTerm = m_searchText,
@@ -110,6 +113,17 @@ void SearchModel::setSearching(bool searching)
 {
     m_searching = searching;
     Q_EMIT searchingChanged();
+}
+
+QString SearchModel::senderId() const
+{
+    return m_senderId;
+}
+
+void SearchModel::setSenderId(const QString &sender)
+{
+    m_senderId = sender;
+    Q_EMIT senderIdChanged();
 }
 
 #include "moc_searchmodel.cpp"
