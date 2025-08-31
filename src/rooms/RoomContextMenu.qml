@@ -8,7 +8,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import Quotient
 
@@ -30,8 +29,8 @@ KirigamiComponents.ConvergentContextMenu {
         spacing: Kirigami.Units.largeSpacing
         KirigamiComponents.Avatar {
             id: avatar
-            source: room.avatarMediaUrl
-            name: room.displayName
+            source: root.room.avatarMediaUrl
+            name: root.room.displayName
             Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
             Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
             Layout.alignment: Qt.AlignTop
@@ -39,16 +38,16 @@ KirigamiComponents.ConvergentContextMenu {
         Kirigami.Heading {
             level: 5
             Layout.fillWidth: true
-            text: room.displayName
+            text: root.room.displayName
             elide: Text.ElideRight
         }
     }
 
     QQC2.Action {
-        text: i18n("Mark as Read")
+        text: i18nc("@action:inmenu", "Mark as Read")
         icon.name: "checkmark"
-        enabled: room.notificationCount > 0
-        onTriggered: room.markAllMessagesAsRead()
+        enabled: root.room.notificationCount > 0
+        onTriggered: root.room.markAllMessagesAsRead()
     }
 
     Kirigami.Action {
@@ -64,10 +63,10 @@ KirigamiComponents.ConvergentContextMenu {
             icon.name: "globe"
             checkable: true
             autoExclusive: true
-            checked: room.pushNotificationState === PushNotificationState.Default
-            enabled: room.pushNotificationState != PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.Default
+            enabled: root.room.pushNotificationState != PushNotificationState.Unknown
             onTriggered: {
-                room.pushNotificationState = PushNotificationState.Default;
+                root.room.pushNotificationState = PushNotificationState.Default;
             }
         }
 
@@ -76,10 +75,10 @@ KirigamiComponents.ConvergentContextMenu {
             icon.name: "notifications"
             checkable: true
             autoExclusive: true
-            checked: room.pushNotificationState === PushNotificationState.All
-            enabled: room.pushNotificationState != PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.All
+            enabled: root.room.pushNotificationState != PushNotificationState.Unknown
             onTriggered: {
-                room.pushNotificationState = PushNotificationState.All;
+                root.room.pushNotificationState = PushNotificationState.All;
             }
         }
 
@@ -88,10 +87,10 @@ KirigamiComponents.ConvergentContextMenu {
             icon.name: "im-user"
             checkable: true
             autoExclusive: true
-            checked: room.pushNotificationState === PushNotificationState.MentionKeyword
-            enabled: room.pushNotificationState != PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.MentionKeyword
+            enabled: root.room.pushNotificationState != PushNotificationState.Unknown
             onTriggered: {
-                room.pushNotificationState = PushNotificationState.MentionKeyword;
+                root.room.pushNotificationState = PushNotificationState.MentionKeyword;
             }
         }
 
@@ -100,24 +99,24 @@ KirigamiComponents.ConvergentContextMenu {
             icon.name: "notifications-disabled"
             checkable: true
             autoExclusive: true
-            checked: room.pushNotificationState === PushNotificationState.Mute
-            enabled: room.pushNotificationState != PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.Mute
+            enabled: root.room.pushNotificationState != PushNotificationState.Unknown
             onTriggered: {
-                room.pushNotificationState = PushNotificationState.Mute;
+                root.room.pushNotificationState = PushNotificationState.Mute;
             }
         }
     }
 
     QQC2.Action {
-        text: room.isFavourite ? i18n("Remove from Favorites") : i18n("Add to Favorites")
-        icon.name: room.isFavourite ? "rating" : "rating-unrated"
-        onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+        text: root.room.isFavourite ? i18nc("@action:inmenu", "Remove from Favorites") : i18nc("@action:inmenu", "Add to Favorites")
+        icon.name: root.room.isFavourite ? "rating" : "rating-unrated"
+        onTriggered: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
     }
 
     QQC2.Action {
-        text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
-        icon.name: room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
-        onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
+        text: root.room.isLowPriority ? i18nc("@action:inmenu", "Reprioritize") : i18nc("@action:inmenu", "Deprioritize")
+        icon.name: root.room.isLowPriority ? "arrow-up-symbolic" : "arrow-down-symbolic"
+        onTriggered: root.room.isLowPriority ? root.room.removeTag("m.lowpriority") : root.room.addTag("m.lowpriority", 1.0)
     }
 
     Kirigami.Action {
@@ -127,14 +126,14 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         text: i18nc("@action:inmenu", "Copy Room Link")
         icon.name: "edit-copy"
-        visible: !room.isDirectChat() && room.joinRule !== JoinRule.Invite
+        visible: !root.room.isDirectChat() && root.room.joinRule !== JoinRule.Invite
         onTriggered: {
             // The canonical alias (if it exists) otherwise the first available alias
-            const firstAlias = room.aliases[0];
+            const firstAlias = root.room.aliases[0];
             if (firstAlias) {
                 Clipboard.saveText("https://matrix.to/#/" + firstAlias);
             } else {
-                Clipboard.saveText("https://matrix.to/#/" + room.id);
+                Clipboard.saveText("https://matrix.to/#/" + root.room.id);
             }
         }
     }
@@ -152,12 +151,12 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
-        text: i18n("Leave Room…")
+        text: i18nc("@action:inmenu", "Leave Room…")
         icon.name: "go-previous"
         onTriggered: {
-            Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+            (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                 room: root.room
-            }).open();
+            }) as ConfirmLeaveDialog).open();
         }
     }
 }
