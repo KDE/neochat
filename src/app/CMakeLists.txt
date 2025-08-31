@@ -104,8 +104,8 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
     DEPENDENCIES
         QtCore
         QtQuick
-        io.github.quotient_im.libquotient
     IMPORTS
+        io.github.quotient_im.libquotient
         org.kde.neochat.libneochat
         org.kde.neochat.rooms
         org.kde.neochat.roominfo
