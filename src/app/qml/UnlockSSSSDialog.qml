@@ -130,6 +130,6 @@ FormCard.FormCardPage {
 
     property OpenFileDialog openFileDialog: OpenFileDialog {
         id: openFileDialog
-        onChosen: securityKeyField.text = Controller.loadFileContent(path)
+        onChosen: path => securityKeyField.text = Controller.loadFileContent(path)
     }
 }
