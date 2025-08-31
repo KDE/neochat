@@ -51,14 +51,14 @@ ColumnLayout {
             Kirigami.Action {
                 id: emojis
                 icon.name: "smiley"
-                text: i18n("Emojis")
+                text: i18nc("@action:button", "Emojis")
                 checked: true
                 onTriggered: root.selectedType = 0
             },
             Kirigami.Action {
                 id: stickers
                 icon.name: "stickers"
-                text: i18n("Stickers")
+                text: i18nc("@action:button", "Stickers")
                 onTriggered: root.selectedType = 1
             }
         ]
@@ -107,7 +107,7 @@ ColumnLayout {
         id: searchField
         Layout.margins: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
-        visible: selectedType === 0
+        visible: root.selectedType === 0
 
         /**
          * The focus is manged by the parent and we don't want to use the standard
@@ -131,13 +131,13 @@ ColumnLayout {
     }
 
     Kirigami.Separator {
-        visible: showQuickReaction
+        visible: root.showQuickReaction
         Layout.fillWidth: true
         Layout.preferredHeight: 1
     }
 
     QQC2.ScrollView {
-        visible: showQuickReaction
+        visible: root.showQuickReaction
         Layout.fillWidth: true
         Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
         QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
