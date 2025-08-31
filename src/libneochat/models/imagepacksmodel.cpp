@@ -44,8 +44,8 @@ QVariant ImagePacksModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> ImagePacksModel::roleNames() const
 {
     return {
-        {DisplayNameRole, "displayName"},
-        {AvatarUrlRole, "avatarUrl"},
+        {DisplayNameRole, "name"},
+        {AvatarUrlRole, "emoji"},
         {AttributionRole, "attribution"},
         {IdRole, "id"},
     };

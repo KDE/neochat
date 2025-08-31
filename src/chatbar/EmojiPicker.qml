@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -127,7 +129,7 @@ ColumnLayout {
         header: categories
         Keys.forwardTo: searchField
         stickers: root.selectedType === 1
-        onStickerChosen: stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
+        onStickerChosen: index => stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
     }
 
     Kirigami.Separator {
@@ -149,6 +151,7 @@ ColumnLayout {
             model: ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"]
 
             delegate: EmojiDelegate {
+                required property string modelData
                 emoji: modelData
 
                 height: root.categoryIconSize
@@ -184,11 +187,14 @@ ColumnLayout {
     Component {
         id: emojiDelegate
         Kirigami.NavigationTabButton {
+            required property string emoji
+            required property int index
+            required property string name
             width: root.categoryIconSize
             height: width
-            checked: categories.currentIndex === model.index
-            text: modelData ? modelData.emoji : ""
-            QQC2.ToolTip.text: modelData ? modelData.name : ""
+            checked: categories.currentIndex === index
+            text: emoji
+            QQC2.ToolTip.text: name
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             QQC2.ToolTip.visible: hovered
             onClicked: {
@@ -201,21 +207,25 @@ ColumnLayout {
     Component {
         id: stickerDelegate
         Kirigami.NavigationTabButton {
+            id: sticker
+            required property string name
+            required property int index
+            required property string emoji
             width: root.categoryIconSize
             height: width
-            checked: stickerModel.packIndex === model.index
+            checked: stickerModel.packIndex === index
             padding: Kirigami.Units.largeSpacing
 
             contentItem: Image {
-                source: model.url
+                source: sticker.emoji
                 fillMode: Image.PreserveAspectFit
                 sourceSize.width: width
                 sourceSize.height: height
             }
-            QQC2.ToolTip.text: model.name
+            QQC2.ToolTip.text: name
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: hovered && !!model.name
-            onClicked: stickerModel.packIndex = model.index
+            QQC2.ToolTip.visible: hovered && !!name
+            onClicked: stickerModel.packIndex = index
         }
     }
 
