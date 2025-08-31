@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2025-08-10 21:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -150,65 +150,65 @@ msgstr "உள்ளக் பயன்பாட்டு மட்டும்.
 msgid "Share a URL to Matrix"
 msgstr "Matrix-க்கு ஓர் முகவரியை பகிர்"
 
-#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/app/notificationsmanager.cpp:226
+#: src/app/notificationsmanager.cpp:225
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:232
+#: src/app/notificationsmanager.cpp:231
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/app/notificationsmanager.cpp:245 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
 
-#: src/app/notificationsmanager.cpp:246
+#: src/app/notificationsmanager.cpp:245
 #, kde-format
 msgid "Reply…"
 msgstr "பதிலளி…"
 
-#: src/app/notificationsmanager.cpp:305
+#: src/app/notificationsmanager.cpp:304
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 உங்களை ஒர் அரங்குக்கு வரவழைத்தார்"
 
-#: src/app/notificationsmanager.cpp:308
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "இவ்வழைப்பை நியோச்சாட்டில் திற"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "மறு"
 
-#: src/app/notificationsmanager.cpp:321
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "மறுத்து பயனரைத் தடு"
 
-#: src/app/notificationsmanager.cpp:380
+#: src/app/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:391
+#: src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "நியோச்சாட்டைத் திற"
@@ -1375,6 +1375,20 @@ msgid "Invite to private chat"
 msgstr "தனிப்பட்ட உரையாடலுக்கு அழை"
 
 #: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button %1 is the name of the user."
+msgid "Search room for %1's messages"
+msgstr "செய்திகளில் தேடு"
+
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "தேடல்"
+
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "இணைப்பை நகலெடு"
@@ -3135,28 +3149,28 @@ msgstr ""
 "கோப்பு பதிவிறக்கக்கூடியதைவிட பெரிதாக உள்ளது.<br />உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக "
 "நிர்வாகியை தொடர்புகொள்ளவும்."
 
-#: src/libneochat/neochatconnection.cpp:325
+#: src/libneochat/neochatconnection.cpp:318
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
-#: src/libneochat/neochatconnection.cpp:356
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatroom.cpp:1248
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
+#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3771,13 +3785,13 @@ msgstr "பதில் ஏற்றப்படுகிறது…"
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
-#: src/messagecontent/LocationComponent.qml:86
+#: src/messagecontent/LocationComponent.qml:88
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "வெளியமைவாகத் திற"
 
-#: src/messagecontent/LocationComponent.qml:99
+#: src/messagecontent/LocationComponent.qml:101
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -3851,7 +3865,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(முடிந்துள்ளது)"
 
-#: src/messagecontent/pollhandler.cpp:297
+#: src/messagecontent/pollhandler.cpp:296
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -3941,12 +3955,6 @@ msgstr "செயல்கள்"
 #, kde-format
 msgid "Search in this room"
 msgstr "இவ்வரங்கில் தேடு"
-
-#: src/roominfo/RoomInformation.qml:90
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "தேடல்"
 
 #: src/roominfo/RoomInformation.qml:98
 #, kde-format
@@ -4038,23 +4046,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள் இல்லை"
 
-#: src/roominfo/RoomSearchPage.qml:26
+#: src/roominfo/RoomSearchPage.qml:31
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "செய்திகளில் தேடு"
 
-#: src/roominfo/RoomSearchPage.qml:37
+#: src/roominfo/RoomSearchPage.qml:43
 #, kde-format
 msgid "Find messages…"
 msgstr "செய்திகளைக் கண்டுபிடி"
 
-#: src/roominfo/RoomSearchPage.qml:38
+#: src/roominfo/RoomSearchPage.qml:44
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "தேடுவதற்கான உரையை உள்ளிடவும்"
 
-#: src/roominfo/RoomSearchPage.qml:39
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "No messages found"
 msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"

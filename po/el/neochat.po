@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -157,65 +157,65 @@ msgstr "Μόνο για εσωτερική χρήση."
 msgid "Share a URL to Matrix"
 msgstr "Κοινοποίηση ενός URL στο Matrix"
 
-#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Κρυπτογραφημένο μήνυμα"
 
-#: src/app/notificationsmanager.cpp:226
+#: src/app/notificationsmanager.cpp:225
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:232
+#: src/app/notificationsmanager.cpp:231
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Άνοιγμα NeoChat σε αυτήν την αίθουσα"
 
-#: src/app/notificationsmanager.cpp:245 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Απάντηση"
 
-#: src/app/notificationsmanager.cpp:246
+#: src/app/notificationsmanager.cpp:245
 #, kde-format
 msgid "Reply…"
 msgstr "Απάντηση…"
 
-#: src/app/notificationsmanager.cpp:305
+#: src/app/notificationsmanager.cpp:304
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 σε προσκάλεσε σε μία αίθουσα"
 
-#: src/app/notificationsmanager.cpp:308
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Άνοιγμα αυτής της πρόσκλησης στο NeoChat"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: src/app/notificationsmanager.cpp:321
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Απόρριψη και αγνόηση χρήστη"
 
-#: src/app/notificationsmanager.cpp:380
+#: src/app/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:391
+#: src/app/notificationsmanager.cpp:390
 #, fuzzy, kde-format
 #| msgid "NeoChat"
 msgid "Open NeoChat"
@@ -1413,6 +1413,20 @@ msgid "Invite to private chat"
 msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 
 #: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button %1 is the name of the user."
+msgid "Search room for %1's messages"
+msgstr "Αναζήτηση στα μηνύματα"
+
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "Αντιγραφή συνδέσμου"
@@ -3265,29 +3279,29 @@ msgid ""
 "for support."
 msgstr "Επικοινωνήστε με τον διαχειριστή του διακομιστή matrix για υποστήριξη."
 
-#: src/libneochat/neochatconnection.cpp:325
+#: src/libneochat/neochatconnection.cpp:318
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Δεν έχει ρυθμιστεί διακομιστής ταυτότητας"
 
-#: src/libneochat/neochatconnection.cpp:356
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:378
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/libneochat/neochatroom.cpp:1248
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
+#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3934,13 +3948,13 @@ msgstr "Φορτώνει…"
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/messagecontent/LocationComponent.qml:86
+#: src/messagecontent/LocationComponent.qml:88
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Άνοιγμα εξωτερικά"
 
-#: src/messagecontent/LocationComponent.qml:99
+#: src/messagecontent/LocationComponent.qml:101
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4012,7 +4026,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Τερματίστηκε)"
 
-#: src/messagecontent/pollhandler.cpp:297
+#: src/messagecontent/pollhandler.cpp:296
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -4107,12 +4121,6 @@ msgstr "Ειδοποιήσεις"
 #, kde-format
 msgid "Search in this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
-
-#: src/roominfo/RoomInformation.qml:90
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Αναζήτηση"
 
 #: src/roominfo/RoomInformation.qml:98
 #, fuzzy, kde-format
@@ -4212,24 +4220,24 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Αναφορά μηνύματος"
 
-#: src/roominfo/RoomSearchPage.qml:26
+#: src/roominfo/RoomSearchPage.qml:31
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Αναζήτηση στα μηνύματα"
 
-#: src/roominfo/RoomSearchPage.qml:37
+#: src/roominfo/RoomSearchPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "Find messages…"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/roominfo/RoomSearchPage.qml:38
+#: src/roominfo/RoomSearchPage.qml:44
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Δώσε κείμενο για να ξεκινήσει η αναζήτηση"
 
-#: src/roominfo/RoomSearchPage.qml:39
+#: src/roominfo/RoomSearchPage.qml:45
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgid "No messages found"

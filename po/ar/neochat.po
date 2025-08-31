@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-30 00:42+0000\n"
-"PO-Revision-Date: 2025-08-24 21:40+0400\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
+"PO-Revision-Date: 2025-08-30 09:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -151,65 +151,65 @@ msgstr "استعمال داخلي فقط."
 msgid "Share a URL to Matrix"
 msgstr "شارِك رابط على مارتكس"
 
-#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "رسالة معمّاة"
 
-#: src/app/notificationsmanager.cpp:226
+#: src/app/notificationsmanager.cpp:225
 #, kde-format
 msgid "%1: %2"
 msgstr "‏%1: ‏%2"
 
-#: src/app/notificationsmanager.cpp:232
+#: src/app/notificationsmanager.cpp:231
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "افتح نيوتشات في هذه الغرفة"
 
-#: src/app/notificationsmanager.cpp:245 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "ردّ"
 
-#: src/app/notificationsmanager.cpp:246
+#: src/app/notificationsmanager.cpp:245
 #, kde-format
 msgid "Reply…"
 msgstr "ردّ…"
 
-#: src/app/notificationsmanager.cpp:305
+#: src/app/notificationsmanager.cpp:304
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "‏%1 دعاك إلى غرفة"
 
-#: src/app/notificationsmanager.cpp:308
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "افتح هذه الدعوة في نيوتشات"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "اقبل"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:318
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "ارفض"
 
-#: src/app/notificationsmanager.cpp:321
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "ألغ وتجاهل المستخدم"
 
-#: src/app/notificationsmanager.cpp:380
+#: src/app/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "‏%1 (‏%2)"
 
-#: src/app/notificationsmanager.cpp:391
+#: src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Open NeoChat"
 msgstr "افتح نيوتشات"
@@ -1326,6 +1326,20 @@ msgid "Invite to private chat"
 msgstr "أدع إلى دردشة خاصة"
 
 #: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button %1 is the name of the user."
+msgid "Search room for %1's messages"
+msgstr "ابحث في الرسائل"
+
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "ابحث"
+
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "انسخ الرابط"
@@ -3048,28 +3062,28 @@ msgid ""
 msgstr ""
 "الملف كبير للغاية بحيث لا يمكن تحميله.<br />راسل مدير خادم ماتركس للدعم."
 
-#: src/libneochat/neochatconnection.cpp:325
+#: src/libneochat/neochatconnection.cpp:318
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "لم يُضبط خادم هوية بعد"
 
-#: src/libneochat/neochatconnection.cpp:356
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "فشل إنشاء غرفة: %1"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/libneochat/neochatroom.cpp:1248
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
+#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3664,13 +3678,13 @@ msgstr "يحمّل الرد"
 msgid "Loading URL preview"
 msgstr "يحمل معاينة الرابط"
 
-#: src/messagecontent/LocationComponent.qml:86
+#: src/messagecontent/LocationComponent.qml:88
 #, kde-format
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "افتحه خارجيا"
 
-#: src/messagecontent/LocationComponent.qml:99
+#: src/messagecontent/LocationComponent.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Fullscreen"
@@ -3756,7 +3770,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(انتهى)"
 
-#: src/messagecontent/pollhandler.cpp:297
+#: src/messagecontent/pollhandler.cpp:296
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -3846,12 +3860,6 @@ msgstr "الإجراءات"
 #, kde-format
 msgid "Search in this room"
 msgstr "ابحث في هذه الغرفة"
-
-#: src/roominfo/RoomInformation.qml:90
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "ابحث"
 
 #: src/roominfo/RoomInformation.qml:98
 #, kde-format
@@ -3943,23 +3951,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "لا توجد رسائل مثبتة"
 
-#: src/roominfo/RoomSearchPage.qml:26
+#: src/roominfo/RoomSearchPage.qml:31
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "ابحث في الرسائل"
 
-#: src/roominfo/RoomSearchPage.qml:37
+#: src/roominfo/RoomSearchPage.qml:43
 #, kde-format
 msgid "Find messages…"
 msgstr "ابحث عن رسائل…"
 
-#: src/roominfo/RoomSearchPage.qml:38
+#: src/roominfo/RoomSearchPage.qml:44
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "ادخل نص لتبدأ البحث"
 
-#: src/roominfo/RoomSearchPage.qml:39
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "No messages found"
 msgstr "لا يعثر على رسائل"
@@ -6509,16 +6517,13 @@ msgid "Add to Space"
 msgstr "أضف فضاء"
 
 #: src/timeline/DelegateContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "ردّ"
 
 #: src/timeline/DelegateContextMenu.qml:171
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "رد في الموضوع"
@@ -6683,15 +6688,13 @@ msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
 #: src/timeline/DelegateContextMenu.qml:340
-#, fuzzy, kde-format
-#| msgid "Search for '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "بحث عن '%1'"
 
 #: src/timeline/DelegateContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "اضبط اختصارات الوبّ…"
@@ -6721,8 +6724,7 @@ msgid "Pin"
 msgstr "ثبت"
 
 #: src/timeline/DelegateContextMenu.qml:403
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "اعرض المصدر"

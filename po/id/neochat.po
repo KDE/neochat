@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-08-30 00:42+0000\n"
+"POT-Creation-Date: 2025-08-31 00:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -157,68 +157,68 @@ msgstr ""
 msgid "Share a URL to Matrix"
 msgstr ""
 
-#: src/app/notificationsmanager.cpp:142 src/app/notificationsmanager.cpp:387
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Pesan Terenkripsi"
 
-#: src/app/notificationsmanager.cpp:226
+#: src/app/notificationsmanager.cpp:225
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:232
+#: src/app/notificationsmanager.cpp:231
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Buka NeoChat di ruangan ini"
 
-#: src/app/notificationsmanager.cpp:245 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
 #, kde-format
 msgid "Reply"
 msgstr "Balas"
 
-#: src/app/notificationsmanager.cpp:246
+#: src/app/notificationsmanager.cpp:245
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgid "Reply…"
 msgstr "Balas"
 
-#: src/app/notificationsmanager.cpp:305
+#: src/app/notificationsmanager.cpp:304
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 mengundang Anda ke sebuah ruangan"
 
-#: src/app/notificationsmanager.cpp:308
+#: src/app/notificationsmanager.cpp:307
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Buka undangan ini di NeoChat"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:317
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Terima"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:318
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Tolak"
 
-#: src/app/notificationsmanager.cpp:321
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/app/notificationsmanager.cpp:380
+#: src/app/notificationsmanager.cpp:379
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:391
+#: src/app/notificationsmanager.cpp:390
 #, fuzzy, kde-format
 #| msgid "NeoChat"
 msgid "Open NeoChat"
@@ -1455,6 +1455,20 @@ msgid "Invite to private chat"
 msgstr "Buka sebuah obrolan privat"
 
 #: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button %1 is the name of the user."
+msgid "Search room for %1's messages"
+msgstr "Cari Pesan"
+
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Cari"
+
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "Salin tautan"
@@ -3316,28 +3330,28 @@ msgid ""
 "for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/libneochat/neochatconnection.cpp:325
+#: src/libneochat/neochatconnection.cpp:318
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:356
+#: src/libneochat/neochatconnection.cpp:349
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Pembuatan ruangan gagal: %1"
 
-#: src/libneochat/neochatconnection.cpp:386
+#: src/libneochat/neochatconnection.cpp:378
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/libneochat/neochatroom.cpp:1248
+#: src/libneochat/neochatroom.cpp:1237
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/libneochat/neochatroom.cpp:1616 src/libneochat/neochatroom.cpp:1624
+#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3992,14 +4006,14 @@ msgstr "Memuat..."
 msgid "Loading URL preview"
 msgstr "Memuat pratinjau URL"
 
-#: src/messagecontent/LocationComponent.qml:86
+#: src/messagecontent/LocationComponent.qml:88
 #, fuzzy, kde-format
 #| msgid "Open Externally"
 msgctxt "@action:button Open the location in an external program"
 msgid "Open Externally"
 msgstr "Buka secara Eksternal"
 
-#: src/messagecontent/LocationComponent.qml:99
+#: src/messagecontent/LocationComponent.qml:101
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "Enter Full Screen"
@@ -4071,7 +4085,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Berakhir)"
 
-#: src/messagecontent/pollhandler.cpp:297
+#: src/messagecontent/pollhandler.cpp:296
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -4173,12 +4187,6 @@ msgstr "Notifikasi"
 msgid "Search in this room"
 msgstr "Cari di ruangan ini"
 
-#: src/roominfo/RoomInformation.qml:90
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Cari"
-
 #: src/roominfo/RoomInformation.qml:98
 #, fuzzy, kde-format
 #| msgid "Verify device"
@@ -4277,25 +4285,25 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Laporkan Pesan"
 
-#: src/roominfo/RoomSearchPage.qml:26
+#: src/roominfo/RoomSearchPage.qml:31
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Cari Pesan"
 
-#: src/roominfo/RoomSearchPage.qml:37
+#: src/roominfo/RoomSearchPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "Find messages…"
 msgstr "Kirim pesan…"
 
-#: src/roominfo/RoomSearchPage.qml:38
+#: src/roominfo/RoomSearchPage.qml:44
 #, fuzzy, kde-format
 #| msgid "Enter a text to start searching"
 msgid "Enter text to start searching"
 msgstr "Masukkan teks untuk memulai mencari"
 
-#: src/roominfo/RoomSearchPage.qml:39
+#: src/roominfo/RoomSearchPage.qml:45
 #, fuzzy, kde-format
 #| msgid "No results found"
 msgid "No messages found"
