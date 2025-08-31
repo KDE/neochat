@@ -15,7 +15,7 @@ QQC2.ScrollView {
     readonly property int emojisPerRow: emojis.width / targetIconSize
     required property bool withCustom
     readonly property var searchCategory: withCustom ? EmojiModel.Search : EmojiModel.SearchNoCustom
-    required property QtObject header
+    required property Item header
     property bool stickers: false
 
     signal chosen(string unicode)
@@ -75,7 +75,7 @@ QQC2.ScrollView {
                     shortName: modelData.shortName,
                     unicode: modelData.unicode,
                     categoryIconSize: root.targetIconSize
-                });
+                }) as EmojiTonesPicker;
                 tones.open();
                 tones.forceActiveFocus();
             }
@@ -85,14 +85,14 @@ QQC2.ScrollView {
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             icon.name: root.stickers ? "stickers" : "preferences-desktop-emoticons"
-            text: root.stickers ? i18n("No stickers") : i18n("No emojis")
+            text: root.stickers ? i18nc("@info", "No stickers") : i18nc("@info", "No emojis")
             visible: emojis.count === 0
         }
     }
     Component {
         id: tonesPopupComponent
         EmojiTonesPicker {
-            onChosen: root.chosen(emoji)
+            onChosen: emoji => root.chosen(emoji)
         }
     }
 }
