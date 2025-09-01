@@ -1,6 +1,7 @@
-
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -8,7 +9,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
-import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -44,7 +44,7 @@ QQC2.ComboBox {
         required property bool isHomeServer
         required property bool isDeletable
 
-        text: isAddServerDelegate ? i18n("Add New Server") : url
+        text: isAddServerDelegate ? i18nc("@action:button", "Add New Server") : url
         highlighted: index === root.highlightedIndex
 
         topInset: index === 0 ? Kirigami.Units.smallSpacing : Math.round(Kirigami.Units.smallSpacing / 2)
@@ -60,7 +60,7 @@ QQC2.ComboBox {
 
             Delegates.SubtitleContentItem {
                 itemDelegate: serverItem
-                subtitle: serverItem.isHomeServer ? i18n("Home Server") : ""
+                subtitle: serverItem.isHomeServer ? i18nc("@info", "Home Server") : ""
                 Layout.fillWidth: true
             }
 
@@ -138,11 +138,11 @@ QQC2.ComboBox {
                 text: {
                     if (serverUrlField.length > 0) {
                         if (!serverUrlField.acceptableInput) {
-                            return i18n("The entered text is not a valid url");
+                            return i18nc("@info", "The entered text is not a valid url");
                         }
 
                         if (!serverUrlField.isValidServer) {
-                            return i18n("This server cannot be resolved or has already been added");
+                            return i18nc("@info", "This server cannot be resolved or has already been added");
                         }
                     }
 
@@ -153,7 +153,7 @@ QQC2.ComboBox {
             QQC2.Label {
                 Layout.fillWidth: true
 
-                text: i18n("Server URL:")
+                text: i18nc("@label", "Server URL:")
             }
 
             QQC2.TextField {
