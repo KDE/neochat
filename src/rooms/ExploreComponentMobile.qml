@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -48,7 +50,7 @@ Kirigami.NavigationTabBar {
             icon.name: "compass"
             onTriggered: {
                 explorePopup.close();
-                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
+                let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")
@@ -64,7 +66,7 @@ Kirigami.NavigationTabBar {
             icon.name: "list-add-user"
             onTriggered: {
                 explorePopup.close();
-                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+                (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Find your friends")
@@ -143,11 +145,9 @@ Kirigami.NavigationTabBar {
                     text: i18nc("@action:button", "Create a Room")
                     icon.name: "system-users-symbolic"
                     onClicked: {
-                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'CreateRoomPage'), {
+                        (Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
                             connection: root.connection
-                        }, {
-                            title: i18nc("@title", "Create a Room")
-                        });
+                        }) as CreateRoomDialog).open();
                         explorePopup.close();
                     }
 
@@ -161,9 +161,9 @@ Kirigami.NavigationTabBar {
                     text: i18nc("@action:button", "Create a Space")
                     icon.name: "list-add"
                     onClicked: {
-                        Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
+                        (Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
                             connection: root.connection
-                        }).open();
+                        }) as CreateSpaceDialog).open();
                         explorePopup.close();
                     }
                 }
