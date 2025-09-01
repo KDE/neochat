@@ -34,8 +34,8 @@ Kirigami.Page {
         enabled: root.model
         target: root.room
         function onChanged(): void {
-            root.contentJson = model.stateEventContentJson(root.type, root.stateKey);
-            root.sourceText = model.stateEventJson(root.type, root.stateKey);
+            root.contentJson = root.model.stateEventContentJson(root.type, root.stateKey);
+            root.sourceText = root.model.stateEventJson(root.type, root.stateKey);
         }
     }
 
@@ -46,8 +46,8 @@ Kirigami.Page {
             text: i18nc("@action As in 'edit the state of this room'", "Edit state")
             icon.name: "document-edit"
             visible: root.allowEdit
-            enabled: room.canSendState(root.type) && (!root.stateKey.startsWith("@") || root.stateKey === root.room.connection.localUserId) && root.type !== "m.room.create"
-            onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "EditStateDialog"), {
+            enabled: root.room.canSendState(root.type) && (!root.stateKey.startsWith("@") || root.stateKey === root.room.connection.localUserId) && root.type !== "m.room.create"
+            onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "EditStateDialog"), {
                 room: root.room,
                 type: root.type,
                 stateKey: root.stateKey,
