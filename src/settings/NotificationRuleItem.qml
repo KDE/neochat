@@ -41,14 +41,14 @@ FormCard.AbstractFormDelegate {
             Layout.minimumWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
             Layout.minimumHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
 
-            text: notificationsOn ? "" : "●"
+            text: root.notificationsOn ? "" : "●"
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             background: Rectangle {
-                visible: notificationsOn
+                visible: root.notificationsOn
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                color: highlightOn && highlightable ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
-                opacity: highlightOn && highlightable ? 1 : 0.3
+                color: root.highlightOn && root.highlightable ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
+                opacity: root.highlightOn && root.highlightable ? 1 : 0.3
                 radius: height / 2
             }
         }
@@ -95,7 +95,7 @@ FormCard.AbstractFormDelegate {
                 display: QQC2.AbstractButton.IconOnly
 
                 checkable: true
-                checked: isNotificationRuleNoisy(root.ruleAction)
+                checked: root.isNotificationRuleNoisy(root.ruleAction)
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
