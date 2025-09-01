@@ -23,72 +23,63 @@ Kirigami.Page {
             name: "cancelled"
             when: root.session.state === KeyVerificationSession.CANCELED
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: verificationCanceled
+                stateLoader.sourceComponent: verificationCanceled
             }
         },
         State {
             name: "waitingForVerification"
             when: root.session.state === KeyVerificationSession.WAITINGFORVERIFICATION
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: emojiSas
+                stateLoader.sourceComponent: emojiSas
             }
         },
         State {
             name: "waitingForReady"
             when: root.session.state === KeyVerificationSession.WAITINGFORREADY
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         },
         State {
             name: "incoming"
             when: root.session.state === KeyVerificationSession.INCOMING
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         },
         State {
             name: "waitingForKey"
             when: root.session.state === KeyVerificationSession.WAITINGFORKEY
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         },
         State {
             name: "waitingForAccept"
             when: root.session.state === KeyVerificationSession.WAITINGFORACCEPT
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         },
         State {
             name: "waitingForMac"
             when: root.session.state === KeyVerificationSession.WAITINGFORMAC
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         },
         State {
             name: "ready"
             when: root.session.state === KeyVerificationSession.READY
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: chooseVerificationComponent
+                stateLoader.sourceComponent: chooseVerificationComponent
             }
         },
         State {
             name: "done"
             when: root.session.state === KeyVerificationSession.DONE
             PropertyChanges {
-                target: stateLoader
-                sourceComponent: message
+                stateLoader.sourceComponent: message
             }
         }
     ]
