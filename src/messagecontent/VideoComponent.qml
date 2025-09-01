@@ -75,37 +75,25 @@ Video {
             name: "notDownloaded"
             when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
             PropertyChanges {
-                target: videoLabel
-                visible: true
-            }
-            PropertyChanges {
-                target: mediaThumbnail
-                visible: true
+                videoLabel.visible: true
+                mediaThumbnail.visible: true
             }
         },
         State {
             name: "downloading"
             when: root.fileTransferInfo.active && !root.fileTransferInfo.completed && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
-                target: downloadBar
-                visible: true
-            }
-            PropertyChanges {
-                target: mediaThumbnail
-                visible: true
+                downloadBar.visible: true
+                mediaThumbnail.visible: true
             }
         },
         State {
             name: "paused"
             when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PausedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
-                target: videoControls
-                stateVisible: true
-            }
-            PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-start"
-                onClicked: {
+                videoControls.stateVisible: true
+                playButton.icon.name: "media-playback-start"
+                playButton.onClicked: {
                     MediaManager.startPlayback();
                     root.play();
                 }
@@ -115,34 +103,20 @@ Video {
             name: "playing"
             when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.PlayingState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
-                target: videoControls
-                stateVisible: true
-            }
-            PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-pause"
-                onClicked: root.pause()
+                videoControls.stateVisible: true
+                playButton.icon.name: "media-playback-pause"
+                playButton.onClicked: root.pause()
             }
         },
         State {
             name: "stopped"
             when: root.fileTransferInfo.completed && root.playbackState === MediaPlayer.StoppedState && (Controller.isImageShown(root.eventId) || !NeoChatConfig.hideImages)
             PropertyChanges {
-                target: videoControls
-                stateVisible: true
-            }
-            PropertyChanges {
-                target: mediaThumbnail
-                visible: true
-            }
-            PropertyChanges {
-                target: videoLabel
-                visible: true
-            }
-            PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-start"
-                onClicked: {
+                videoControls.stateVisible: true
+                mediaThumbnail.visible: true
+                videoLabel.visible: true
+                playButton.icon.name: "media-playback-start"
+                playButton.onClicked: {
                     MediaManager.startPlayback();
                     root.play();
                 }
@@ -151,16 +125,9 @@ Video {
         State {
             name: "hidden"
             PropertyChanges {
-                target: mediaThumbnail
-                visible: false
-            }
-            PropertyChanges {
-                target: videoControls
-                visible: false
-            }
-            PropertyChanges {
-                target: hidden
-                visible: true
+                mediaThumbnail.visible: false
+                videoControls.visible: false
+                hidden.visible: true
             }
         }
     ]
