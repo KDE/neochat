@@ -69,14 +69,6 @@ ColumnLayout {
                 map.open();
             }
         }
-        TapHandler {
-            acceptedDevices: PointerDevice.TouchScreen
-            onLongPressed: openMessageContext("")
-        }
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openMessageContext("")
-        }
         Connections {
             target: mapView.map
             function onCopyrightLinkActivated(link: string) {
