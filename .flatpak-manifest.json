@@ -45,6 +45,22 @@
             ]
         },
         {
+            "name": "opencv",
+            "config-opts": [
+                "-DBUILD_TESTS=OFF",
+                "-DWITH_GTK=OFF",
+                "-DBUILD_opencv_dnn=OFF"
+            ],
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/opencv/opencv"
+                }
+            ],
+            "builddir": true
+        },
+        {
             "name": "kquickimageeditor",
             "config-opts": [
                 "-DBUILD_WITH_QT6=ON",
