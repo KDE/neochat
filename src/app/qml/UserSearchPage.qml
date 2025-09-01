@@ -71,15 +71,15 @@ SearchPage {
             }
             QQC2.Label {
                 visible: userDelegate.directChatExists
-                text: i18n("Friends")
+                text: i18nc("@info", "Friends")
                 textFormat: Text.PlainText
                 color: Kirigami.Theme.positiveTextColor
             }
         }
     }
 
-    searchFieldPlaceholder: i18n("Find your friends…")
-    noSearchPlaceholderMessage: i18n("Enter text to start searching for your friends")
+    searchFieldPlaceholder: i18nc("@info:placeholder", "Find your friends…")
+    noSearchPlaceholderMessage: i18nc("@info:placeholder", "Enter text to start searching for your friends")
     noResultPlaceholderMessage: i18nc("@info:label", "No matches found")
 
     noSearchHelpfulAction: noResultHelpfulAction
@@ -101,8 +101,8 @@ SearchPage {
         function openManualUserDialog() {
             let dialog = manualUserDialog.createObject(this, {
                 connection: root.connection
-            });
-            dialog.parent = root.Window.window.overlay;
+            }) as ManualUserDialog;
+            dialog.parent = root.QQC2.Overlay.overlay;
             dialog.accepted.connect(() => {
                 root.closeDialog();
             });
