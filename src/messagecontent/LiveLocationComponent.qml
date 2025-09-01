@@ -63,10 +63,9 @@ ColumnLayout {
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onTapped: {
-                let map = fullScreenMap.createObject(parent, {
+                fullScreenMap.createObject(parent, {
                     liveLocationModel: liveLocationModel
-                });
-                map.open();
+                })
             }
         }
         Connections {
