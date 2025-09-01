@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -8,7 +10,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
-import org.kde.neochat.libneochat
+import org.kde.neochat
 import org.kde.neochat.settings as Settings
 
 ColumnLayout {
@@ -90,16 +92,15 @@ ColumnLayout {
                     text: i18nc("@button", "Add to Space")
                     icon.name: "list-add"
                     onClicked: {
-                        const menu = roomMenuComponent.createObject(addNewButton);
-                        menu.popup();
+                        (roomMenuComponent.createObject(addNewButton) as KirigamiComponents.ConvergentContextMenu).popup();
                     }
                 }
                 QQC2.Button {
                     text: i18nc("@action:button", "Leave this space…")
                     icon.name: "go-previous"
-                    onClicked: Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+                    onClicked: (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                         room: root.room
-                    }).open();
+                    }) as ConfirmLeaveDialog).open();
                 }
                 Item {
                     Layout.fillWidth: true
@@ -197,7 +198,7 @@ ColumnLayout {
             const dialog = Qt.createComponent('org.kde.neochat.libneochat', 'CreateRoomDialog').createObject(root, {
                 connection: root.room.connection,
                 parentId: parentId
-            });
+            }) as CreateRoomDialog;
             dialog.newChild.connect(childName => {
                 spaceChildrenModel.addPendingChild(childName);
             });
@@ -208,7 +209,7 @@ ColumnLayout {
             const dialog = Qt.createComponent('org.kde.neochat.libneochat', 'CreateSpaceDialog').createObject(root, {
                 connection: root.room.connection,
                 parentId: parentId,
-            });
+            }) as CreateSpaceDialog;
             dialog.newChild.connect(childName => {
                 spaceChildrenModel.addPendingChild(childName);
             });
@@ -219,7 +220,7 @@ ColumnLayout {
             const dialog = Qt.createComponent('org.kde.neochat.spaces', 'SelectExistingRoomDialog').createObject(root, {
                 connection: root.room.connection,
                 parentId: parentId,
-            });
+            }) as SelectExistingRoomDialog;
             dialog.addChild.connect((childId, setChildParent, canonical) => {
                 // We have to get a room object from the connection as we may not
                 // be adding to the top level parent.
