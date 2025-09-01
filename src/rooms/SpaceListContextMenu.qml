@@ -8,7 +8,6 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 import org.kde.neochat.settings
@@ -28,7 +27,7 @@ KirigamiComponents.ConvergentContextMenu {
 
         KirigamiComponents.Avatar {
             id: avatar
-            source: room.avatarMediaUrl
+            source: root.room.avatarMediaUrl
             Layout.preferredWidth: Kirigami.Units.gridUnit * 2
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2
         }
@@ -36,7 +35,7 @@ KirigamiComponents.ConvergentContextMenu {
         Kirigami.Heading {
             level: 2
             Layout.fillWidth: true
-            text: room.displayName
+            text: root.room.displayName
             wrapMode: Text.WordWrap
         }
     }
@@ -44,16 +43,16 @@ KirigamiComponents.ConvergentContextMenu {
     QQC2.Action {
         text: i18nc("'Space' is a matrix space", "View Space")
         icon.name: "view-list-details"
-        onTriggered: RoomManager.resolveResource(room.id)
+        onTriggered: RoomManager.resolveResource(root.room.id)
     }
 
     QQC2.Action {
         text: i18nc("@action:inmenu", "Copy Space Address")
         icon.name: "edit-copy"
-        onTriggered: if (room.canonicalAlias.length === 0) {
-            Clipboard.saveText(room.id);
+        onTriggered: if (root.room.canonicalAlias.length === 0) {
+            Clipboard.saveText(root.room.id);
         } else {
-            Clipboard.saveText(room.canonicalAlias);
+            Clipboard.saveText(root.room.canonicalAlias);
         }
     }
 
@@ -72,8 +71,8 @@ KirigamiComponents.ConvergentContextMenu {
     QQC2.Action {
         text: i18nc("'Space' is a matrix space", "Leave Space…")
         icon.name: "go-previous"
-        onTriggered: Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+        onTriggered: (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
             room: root.room
-        }).open();
+        }) as ConfirmLeaveDialog).open();
     }
 }
