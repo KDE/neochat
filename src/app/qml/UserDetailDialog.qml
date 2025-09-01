@@ -110,15 +110,15 @@ Kirigami.Dialog {
                 }
 
                 onClicked: {
-                    let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                    let qrCode = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                         text: barcode.content,
                         title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
                         subtitle: root.user.id,
                         avatarColor: root.room?.member(root.user.id).color,
                         avatarSource: root.room? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
-                    });
+                    }) as QrCodeMaximizeComponent;
                     root.close();
-                    map.open();
+                    qrCode.open();
                 }
 
                 QQC2.ToolTip.visible: hovered
@@ -152,7 +152,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("kick") && room.containsUser(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
+            visible: root.room && root.user.id !== root.connection.localUserId && root.room.canSendState("kick") && root.room.containsUser(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId)
 
             text: i18nc("@action:button", "Kick this user")
             icon.name: "im-kick-user"
@@ -174,7 +174,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("invite") && !room.containsUser(root.user.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && root.room.canSendState("invite") && !root.room.containsUser(root.user.id)
 
             enabled: root.room && !root.room.isUserBanned(root.user.id)
             text: i18nc("@action:button", "Invite this user")
@@ -186,7 +186,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && !room.isUserBanned(root.user.id) && room.memberEffectivePowerLevel(root.user.id) < room.memberEffectivePowerLevel(root.connection.localUserId)
+            visible: root.room && root.user.id !== root.connection.localUserId && root.room.canSendState("ban") && !root.room.isUserBanned(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId)
 
             text: i18nc("@action:button", "Ban this user")
             icon.name: "im-ban-user"
@@ -209,7 +209,7 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && root.user.id !== root.connection.localUserId && room.canSendState("ban") && room.isUserBanned(root.user.id)
+            visible: root.room && root.user.id !== root.connection.localUserId && root.room.canSendState("ban") && root.room.isUserBanned(root.user.id)
 
             text: i18nc("@action:button", "Unban this user")
             icon.name: "im-irc"
@@ -225,12 +225,11 @@ Kirigami.Dialog {
             text: i18nc("@action:button", "Set user power level")
             icon.name: "visibility"
             onClicked: {
-                let dialog = powerLevelDialog.createObject(this, {
+                (powerLevelDialog.createObject(this, {
                     room: root.room,
                     userId: root.user.id,
                     powerLevel: root.room.memberEffectivePowerLevel(root.user.id)
-                });
-                dialog.open();
+                }) as PowerLevelDialog).open();
                 root.close();
             }
 
@@ -243,13 +242,13 @@ Kirigami.Dialog {
         }
 
         FormCard.FormButtonDelegate {
-            visible: root.room && (root.user.id === root.connection.localUserId || room.canSendState("redact"))
+            visible: root.room && (root.user.id === root.connection.localUserId || root.room.canSendState("redact"))
 
             text: i18nc("@action:button", "Remove recent messages by this user")
             icon.name: "delete"
             icon.color: Kirigami.Theme.negativeTextColor
             onClicked: {
-                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                let dialog = ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                     title: i18nc("@title:dialog", "Remove Messages"),
                     placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
                     actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
@@ -279,7 +278,7 @@ Kirigami.Dialog {
             text: i18nc("@action:button %1 is the name of the user.", "Search room for %1's messages", root.room ? root.room.member(root.user.id).htmlSafeDisplayName : QmlUtils.escapeString(root.user.displayName))
             icon.name: "search-symbolic"
             onClicked: {
-                pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
+                ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                     room: root.room,
                     senderId: root.user.id
                 }, {

@@ -216,7 +216,7 @@ ColumnLayout {
             if (threePIdAddHelper.newIdStatus == ThreePIdAddHelper.Ready) {
                 threePIdAddHelper.initiateNewIdAdd();
             } else {
-                let dialog = Qt.createComponent('org.kde.neochat.settings', 'PasswordSheet').createObject(root, {});
+                let dialog = Qt.createComponent('org.kde.neochat.settings', 'PasswordSheet').createObject(root, {}) as PasswordSheet;
                 dialog.submitPassword.connect(password => threePIdAddHelper.finalizeNewIdAdd(password));
                 dialog.open();
             }
