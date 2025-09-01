@@ -46,24 +46,24 @@ Item {
     Kirigami.ShadowedRectangle {
         id: line
         x: root.lineWidth / 2
-        y: isDeparture? parent.height-height:0
+        y: root.isDeparture ? parent.height-height:0
         width: root.lineWidth
         color: root.lineColor
 
         corners {
-            topRightRadius: isDeparture ? Math.round(width / 2) : 0
-            topLeftRadius: isDeparture ? Math.round(width / 2) : 0
+            topRightRadius: root.isDeparture ? Math.round(width / 2) : 0
+            topLeftRadius: root.isDeparture ? Math.round(width / 2) : 0
 
-            bottomRightRadius: isArrival ? Math.round(width / 2) : 0
-            bottomLeftRadius: isArrival ? Math.round(width / 2) : 0
+            bottomRightRadius: root.isArrival ? Math.round(width / 2) : 0
+            bottomLeftRadius: root.isArrival ? Math.round(width / 2) : 0
         }
         height:
-            if (isArrival) {
-                Math.round(parent.height / 2) + root.lineWidth / 2
-            } else if (isDeparture) {
-                Math.round(parent.height / 2) + root.lineWidth / 2
+            if (root.isArrival) {
+                return Math.round(parent.height / 2) + root.lineWidth / 2
+            } else if (root.isDeparture) {
+                return Math.round(parent.height / 2) + root.lineWidth / 2
             } else {
-                parent.height
+                return parent.height
             }
     }
 

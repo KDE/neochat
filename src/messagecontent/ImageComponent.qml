@@ -2,9 +2,11 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
+import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -157,7 +159,7 @@ Item {
         if (_private.downloaded) {
             openSavedFile();
         } else {
-            openOnFinished = true;
+            root.openOnFinished = true;
             Message.room.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + Message.room.fileNameToDownload(root.eventId));
         }
     }

@@ -55,7 +55,7 @@ ColumnLayout {
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        onClicked: itineraryModel.sendToItinerary()
+        onClicked: root.itineraryModel.sendToItinerary()
         visible: itinerary.count > 0
     }
 }
