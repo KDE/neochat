@@ -53,22 +53,19 @@ ColumnLayout {
             when: !root.fileTransferInfo.completed && !root.fileTransferInfo.active
 
             PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-start"
-                onClicked: Message.room.downloadFile(root.eventId)
+                playButton.icon.name: "media-playback-start"
+                playButton.onClicked: Message.room.downloadFile(root.eventId)
             }
         },
         State {
             name: "downloading"
             when: root.fileTransferInfo.active && !root.fileTransferInfo.completed
             PropertyChanges {
-                target: downloadBar
-                visible: true
+                downloadBar.visible: true
             }
             PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-stop"
-                onClicked: {
+                playButton.icon.name: "media-playback-stop"
+                playButton.onClicked: {
                     Message.room.cancelFileTransfer(root.eventId);
                 }
             }
@@ -77,9 +74,8 @@ ColumnLayout {
             name: "paused"
             when: root.fileTransferInfo.completed && (audio.playbackState === MediaPlayer.StoppedState || audio.playbackState === MediaPlayer.PausedState)
             PropertyChanges {
-                target: playButton
-                icon.name: "media-playback-start"
-                onClicked: {
+                playButton.icon.name: "media-playback-start"
+                playButton.onClicked: {
                     audio.source = root.fileTransferInfo.localPath;
                     MediaManager.startPlayback();
                     audio.play();
@@ -91,11 +87,8 @@ ColumnLayout {
             when: root.fileTransferInfo.completed && audio.playbackState === MediaPlayer.PlayingState
 
             PropertyChanges {
-                target: playButton
-
-                icon.name: "media-playback-pause"
-
-                onClicked: audio.pause()
+                playButton.icon.name: "media-playback-pause"
+                playButton.onClicked: audio.pause()
             }
         }
     ]

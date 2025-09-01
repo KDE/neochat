@@ -73,16 +73,13 @@ ColumnLayout {
                 when: root.fileTransferInfo.completed && autoOpenFile
 
                 PropertyChanges {
-                    target: openButton
-                    icon.name: "document-open"
-                    onClicked: openSavedFile()
-                }
-
-                PropertyChanges {
-                    target: downloadButton
-                    icon.name: "download"
-                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
-                    onClicked: saveFileAs()
+                    openButton.icon.name: "document-open"
+                    openButton.onClicked: openSavedFile()
+                    downloadButton {
+                        icon.name: "download"
+                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+                        onClicked: saveFileAs()
+                    }
                 }
             },
             State {
@@ -90,15 +87,12 @@ ColumnLayout {
                 when: root.fileTransferInfo.completed && !autoOpenFile
 
                 PropertyChanges {
-                    target: openButton
-                    visible: false
-                }
-
-                PropertyChanges {
-                    target: downloadButton
-                    icon.name: "document-open"
-                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
-                    onClicked: openSavedFile()
+                    openButton.visible: false
+                    downloadButton {
+                        icon.name: "document-open"
+                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+                        onClicked: openSavedFile()
+                    }
                 }
             },
             State {
@@ -106,19 +100,13 @@ ColumnLayout {
                 when: root.fileTransferInfo.active
 
                 PropertyChanges {
-                    target: openButton
-                    visible: false
-                }
-
-                PropertyChanges {
-                    target: sizeLabel
-                    text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.fileTransferInfo.progress), Format.formatByteSize(root.fileTransferInfo.total))
-                }
-                PropertyChanges {
-                    target: downloadButton
-                    icon.name: "media-playback-stop"
-                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                    onClicked: Message.room.cancelFileTransfer(root.eventId)
+                    sizeLabel.text: i18nc("file download progress", "%1 / %2", Format.formatByteSize(root.fileTransferInfo.progress), Format.formatByteSize(root.fileTransferInfo.total))
+                    openButton.visible: false
+                    downloadButton {
+                        icon.name: "media-playback-stop"
+                        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
+                        onClicked: Message.room.cancelFileTransfer(root.eventId)
+                    }
                 }
             }
         ]
