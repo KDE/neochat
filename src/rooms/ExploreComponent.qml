@@ -1,12 +1,13 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
 
@@ -59,7 +60,7 @@ RowLayout {
         text: i18nc("@action:button", "Show Menu")
         icon.name: "application-menu-symbolic"
         onClicked: {
-            const item = menu.createObject(menuButton);
+            const item = menu.createObject(menuButton) as QQC2.Menu;
             item.closed.connect(menuButton.toggle);
             item.open();
         }
@@ -75,7 +76,7 @@ RowLayout {
             QQC2.MenuItem {
                 text: i18n("Find your friends")
                 icon.name: "list-add-user"
-                onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+                onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Find your friends")
@@ -86,9 +87,9 @@ RowLayout {
                 text: i18n("Create a Room")
                 icon.name: "system-users-symbolic"
                 onTriggered: {
-                    Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
+                    (Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
                         connection: root.connection
-                    }).open();
+                    }) as CreateRoomDialog).open();
                 }
 
                 Kirigami.Action {
@@ -100,7 +101,7 @@ RowLayout {
             QQC2.MenuItem {
                 text: i18n("Scan a QR Code")
                 icon.name: "view-barcode-qr"
-                onTriggered: pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage"), {
+                onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage"), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Scan a QR Code")
