@@ -605,7 +605,7 @@ public:
      *
      * For unusual room versions, this information might be wrong.
      */
-    bool roomCreatorHasUltimatePowerLevel() const;
+    Q_INVOKABLE bool roomCreatorHasUltimatePowerLevel() const;
 
     /**
      * @brief Whether this user is considered a creator of this room. Only applies to post-v12 rooms.

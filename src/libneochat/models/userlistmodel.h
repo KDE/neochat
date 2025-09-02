@@ -48,6 +48,7 @@ public:
         ObjectRole, /**< The QObject for the user. */
         PowerLevelRole, /**< The user's power level in the current room. */
         PowerLevelStringRole, /**< The name of the user's power level in the current room. */
+        IsCreatorRole, /**< Whether this user is considered a creator of the current room. */
     };
     Q_ENUM(EventRoles)
 
