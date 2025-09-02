@@ -13,7 +13,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-import Quotient // TODO: Remove once we depend on the libquotient qml module
+import Quotient
 
 FormCard.FormCardPage {
     id: root

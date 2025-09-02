@@ -62,7 +62,7 @@ ecm_add_qml_module(LibNeoChat GENERATE_PLUGIN_SOURCE
         qml/SearchPage.qml
         qml/CreateRoomDialog.qml
         qml/CreateSpaceDialog.qml
-    IMPORTS
+    DEPENDENCIES
         io.github.quotient_im.libquotient
 )
 
