@@ -2,13 +2,14 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
-import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -108,9 +109,9 @@ ColumnLayout {
                         source: "favorite-favorited"
                     }
                     QQC2.Label {
-                        visible: root.pollHandler.kind == PollKind.Disclosed || pollHandler.hasEnded
+                        visible: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded
                         horizontalAlignment: Text.AlignRight
-                        text: i18np("%1 Vote", "%1 Votes", answerDelegate.count)
+                        text: i18ncp("@info", "%1 Vote", "%1 Votes", answerDelegate.count)
                     }
                 }
                 QQC2.ProgressBar {
@@ -118,7 +119,7 @@ ColumnLayout {
 
                     Layout.fillWidth: true
                     to: root.pollHandler.totalCount
-                    value: root.pollHandler.kind == PollKind.Disclosed || pollHandler.hasEnded ? answerDelegate.count : 0
+                    value: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded ? answerDelegate.count : 0
                 }
             }
         }
@@ -126,7 +127,7 @@ ColumnLayout {
 
     QQC2.Label {
         visible: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded
-        text: i18np("Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.totalCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
+        text: i18ncp("@info", "Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.totalCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
         font.pointSize: questionLabel.font.pointSize * 0.8
     }
 }
