@@ -58,7 +58,7 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> NotificationsModel::roleNames() const
 {
     return {
-        {TextRole, "text"},
+        {TextRole, "notificationText"},
         {RoomIdRole, "roomId"},
         {AuthorName, "authorName"},
         {AuthorAvatar, "authorAvatar"},

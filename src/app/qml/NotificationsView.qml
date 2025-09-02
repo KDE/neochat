@@ -1,12 +1,13 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigami.delegates as KD
 import org.kde.kirigamiaddons.components as Components
 
 import org.kde.neochat
@@ -41,15 +42,23 @@ Kirigami.ScrollablePage {
         }
 
         delegate: QQC2.ItemDelegate {
+            id: notificationDelegate
+
+            required property string uri
+            required property string authorAvatar
+            required property string authorName
+            required property string roomDisplayName
+            required property string notificationText
+
             width: parent?.width ?? 0
 
-            onClicked: RoomManager.resolveResource(model.uri)
+            onClicked: RoomManager.resolveResource(uri)
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
 
                 Components.Avatar {
-                    source: model.authorAvatar
-                    name: model.authorName
+                    source: notificationDelegate.authorAvatar
+                    name: notificationDelegate.authorName
                     implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
                     implicitWidth: implicitHeight
 
@@ -66,7 +75,7 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         id: label
 
-                        text: model.roomDisplayName
+                        text: notificationDelegate.roomDisplayName
                         elide: Text.ElideRight
                         font.weight: Font.Normal
                         textFormat: Text.PlainText
@@ -78,10 +87,9 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         id: subtitle
 
-                        text: model.text
+                        text: notificationDelegate.notificationText
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
-                        opacity: root.hasNotifications ? 0.9 : 0.7
 
                         Layout.fillWidth: true
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop
