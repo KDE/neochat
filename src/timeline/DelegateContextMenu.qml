@@ -2,16 +2,16 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs as Dialogs
 
-import Qt.labs.qmlmodels
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
-import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.delegates as Delegates
 
 import org.kde.neochat
@@ -108,6 +108,8 @@ KirigamiComponents.ConvergentContextMenu {
                 model: ["👍", "👎️", "😄", "🎉", "👀", "⋮"]
                 delegate: Delegates.RoundedItemDelegate {
                     id: emojiDelegate
+
+                    required property string modelData
                     Layout.fillWidth: true
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
                     Layout.fillHeight: true
@@ -118,12 +120,12 @@ KirigamiComponents.ConvergentContextMenu {
                         verticalAlignment: Text.AlignVCenter
 
                         font.family: "emoji"
-                        text: modelData
+                        text: emojiDelegate.modelData
                     }
 
                     onClicked: {
                         if (emojiText.text === "⋮") {
-                            var dialog = emojiDialog.createObject(emojiDelegate);
+                            var dialog = emojiDialog.createObject(emojiDelegate) as EmojiDialog;
                             dialog.showStickers = false;
                             dialog.chosen.connect(emoji => {
                                 root.room.toggleReaction(root.eventId, emoji);
@@ -136,7 +138,7 @@ KirigamiComponents.ConvergentContextMenu {
                             return;
                         }
 
-                        currentRoom.toggleReaction(eventId, modelData);
+                        root.room.toggleReaction(root.eventId, modelData);
                     }
                 }
             }
@@ -144,7 +146,7 @@ KirigamiComponents.ConvergentContextMenu {
                 id: emojiDialog
 
                 EmojiDialog {
-                    currentRoom: root.Message.room
+                    currentRoom: root.room
                     showQuickReaction: true
                 }
             }
@@ -160,8 +162,8 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
-            currentRoom.mainCache.replyId = eventId;
-            currentRoom.editCache.editId = "";
+            root.room.mainCache.replyId = root.eventId;
+            root.room.editCache.editId = "";
             RoomManager.requestFullScreenClose();
         }
     }
@@ -171,10 +173,10 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {
-            currentRoom.threadCache.replyId = "";
-            currentRoom.threadCache.threadId = currentRoom.eventIsThreaded(root.eventId) ? currentRoom.rootIdForThread(root.eventId) : root.eventId;
-            currentRoom.mainCache.clearRelations();
-            currentRoom.editCache.clearRelations();
+            root.room.threadCache.replyId = "";
+            root.room.threadCache.threadId = root.room.eventIsThreaded(root.eventId) ? root.room.rootIdForThread(root.eventId) : root.eventId;
+            root.room.mainCache.clearRelations();
+            root.room.editCache.clearRelations();
             RoomManager.requestFullScreenClose();
         }
     }
@@ -184,14 +186,14 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18n("Edit")
         icon.name: "document-edit"
         onTriggered: {
-            currentRoom.editCache.editId = eventId;
-            currentRoom.mainCache.replyId = "";
-            currentRoom.mainCache.threadId = "";
+            root.room.editCache.editId = root.eventId;
+            root.room.mainCache.replyId = "";
+            root.room.mainCache.threadId = "";
         }
     }
 
     Kirigami.Action {
-        visible: (author.isLocalMember || currentRoom.canSendState("redact")) && root.messageComponentType !== MessageComponentType.Other
+        visible: (root.author.isLocalMember || root.room.canSendState("redact")) && root.messageComponentType !== MessageComponentType.Other
         text: i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
         icon.color: "red"
@@ -248,7 +250,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
         icon.name: "document-open"
         onTriggered: {
-            currentRoom.openEventMediaExternally(root.eventId);
+            root.room.openEventMediaExternally(root.eventId);
         }
     }
 
@@ -267,8 +269,8 @@ KirigamiComponents.ConvergentContextMenu {
         }
         icon.name: "document-save"
         onTriggered: {
-            var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
-            dialog.selectedFile = currentRoom.fileNameToDownload(eventId);
+            var dialog = root.saveAsDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
+            dialog.selectedFile = root.room.fileNameToDownload(root.eventId);
             dialog.open();
         }
     }
@@ -288,7 +290,7 @@ KirigamiComponents.ConvergentContextMenu {
         }
         icon.name: "edit-copy"
         onTriggered: {
-            currentRoom.copyEventMedia(root.eventId);
+            root.room.copyEventMedia(root.eventId);
         }
     }
 
@@ -310,14 +312,14 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Copy Message Link")
         icon.name: "link-symbolic"
         onTriggered: {
-            Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + root.eventId);
+            Clipboard.saveText("https://matrix.to/#/" + root.room.id + "/" + root.eventId);
         }
     }
 
     Kirigami.Action {
         text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report…")
         icon.name: "dialog-warning-symbolic"
-        visible: !author.isLocalMember
+        visible: !root.author.isLocalMember
         onTriggered: {
             let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Report Message"),
@@ -348,9 +350,12 @@ KirigamiComponents.ConvergentContextMenu {
                 onOpenUrl: url => RoomManager.resolveResource(url.toString())
             }
             delegate: Kirigami.Action {
-                text: model.display
-                icon.name: model.decoration
-                onTriggered: webShortcutModel.trigger(model.edit)
+                required property string display
+                required property string decoration
+                required property var edit
+                text: display
+                icon.name: decoration
+                onTriggered: webShortcutModel.trigger(edit)
             }
             onObjectAdded: (index, object) => webShortcutModelAction.children.push(object)
         }
@@ -378,18 +383,18 @@ KirigamiComponents.ConvergentContextMenu {
             "urls": [filename],
             "mimeType": [root.mimeType]
         }
-        room: currentRoom
+        room: root.room
         eventId: root.eventId
-        property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId)
+        property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(eventId)
     }
 
     Kirigami.Action {
-        readonly property bool pinned: currentRoom.isEventPinned(root.eventId)
+        readonly property bool pinned: root.room.isEventPinned(root.eventId)
 
-        visible: currentRoom.canSendState("m.room.pinned_events") && root.messageComponentType !== MessageComponentType.Other
+        visible: root.room.canSendState("m.room.pinned_events") && root.messageComponentType !== MessageComponentType.Other
         text: pinned ? i18nc("@action:button 'Unpin' as in 'Unpin this message'", "Unpin") : i18nc("@action:button 'Pin' as in 'Pin the message in the room'", "Pin")
         icon.name: pinned ? "window-unpin-symbolic" : "pin-symbolic"
-        onTriggered: pinned ? currentRoom.unpinEvent(root.eventId) : currentRoom.pinEvent(root.eventId)
+        onTriggered: pinned ? root.room.unpinEvent(root.eventId) : root.room.pinEvent(root.eventId)
     }
 
     Kirigami.Action {
@@ -414,7 +419,7 @@ KirigamiComponents.ConvergentContextMenu {
             }
             NeoChatConfig.lastSaveDirectory = currentFolder;
             NeoChatConfig.save();
-            currentRoom.downloadFile(eventId, selectedFile);
+            root.room.downloadFile(root.eventId, selectedFile);
         }
     }
 
@@ -445,7 +450,7 @@ KirigamiComponents.ConvergentContextMenu {
                 text: root.plainText
                 textFormat: Text.PlainText
                 elide: Text.ElideRight
-                onLinkActivated: RoomManager.resolveResource(link, "join")
+                onLinkActivated: link => RoomManager.resolveResource(link, "join")
                 Layout.fillWidth: true
             }
         }
