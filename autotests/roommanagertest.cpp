@@ -28,6 +28,7 @@ private:
 private Q_SLOTS:
     void initTestCase();
     void testMaximizeMedia();
+    void testResolveMatrixLinks();
 };
 
 void RoomManagerTest::initTestCase()
@@ -126,6 +127,14 @@ void RoomManagerTest::testMaximizeMedia()
     RoomManager::instance().maximizeMedia(pendingEventWithMedia);
     QVERIFY(spy.size() == 2);
     QVERIFY(spy[1][0] == 0);
+}
+
+void RoomManagerTest::testResolveMatrixLinks()
+{
+    // Test if resolving a non-joined room will bring up the confirmation dialog.
+    const QSignalSpy askToJoinSpy(&RoomManager::instance(), &RoomManager::askJoinRoom);
+    RoomManager::instance().resolveResource(QStringLiteral("matrix:r/testbuild:matrix.org"), QStringLiteral("join"));
+    QTRY_COMPARE(askToJoinSpy.size(), 1);
 }
 
 QTEST_MAIN(RoomManagerTest)

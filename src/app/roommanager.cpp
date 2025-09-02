@@ -214,19 +214,23 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
         return;
     }
 
+    // For matrix URIs:
     if (uri.type() != Uri::NonMatrix) {
         if (!m_connection) {
             return;
         }
-        if (!action.isEmpty() && (uri.type() != Uri::UserId || action != "join"_L1)) {
-            uri.setAction(action);
+        // Once a join is confirmed, set the action to "join" so it skips the confirmation check.
+        if (action == "join_confirmed"_L1) {
+            uri.setAction(QStringLiteral("join"));
         }
         // TODO we should allow the user to select a connection.
     }
 
     const auto result = visitResource(m_connection, uri);
+
+    // If we are not already in the room:
     if (result == Quotient::CouldNotResolve) {
-        if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action != "no_join"_L1) {
+        if ((uri.type() == Uri::RoomAlias || uri.type() == Uri::RoomId) && action == "join"_L1) {
             Q_EMIT askJoinRoom(uri.primaryId());
         }
     }

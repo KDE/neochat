@@ -66,7 +66,7 @@ Kirigami.Dialog {
             text: i18nc("@action:button", "Join room")
             icon.name: "irc-join-channel"
             onClicked: {
-                RoomManager.resolveResource(root.room, "join");
+                RoomManager.resolveResource(root.room, "join_confirmed");
                 root.close();
             }
         }
