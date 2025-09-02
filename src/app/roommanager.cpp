@@ -400,7 +400,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
         job.get(),
         &Quotient::BaseJob::finished,
         this,
-        [this, account](Quotient::BaseJob *finish) {
+        [this, account, roomAliasOrId](Quotient::BaseJob *finish) {
             if (finish->status() == Quotient::BaseJob::Success) {
                 connect(
                     account,
@@ -411,7 +411,7 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
                     },
                     Qt::SingleShotConnection);
             } else {
-                Q_EMIT showMessage(MessageType::Warning, i18n("Failed to join room<br />%1", finish->errorString()));
+                Q_EMIT showMessage(MessageType::Warning, i18n("Failed to join %1:<br />%2", roomAliasOrId, finish->errorString()));
             }
         },
         Qt::SingleShotConnection);
