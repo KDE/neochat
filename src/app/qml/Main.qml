@@ -268,6 +268,17 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
+        target: root.connection
+        function onLoggedOut(): void {
+            root.pageStack.clear();
+            let page = root.pageStack.push(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), {
+                showExisting: true,
+            }) as WelcomePage;
+            page.connectionChosen.connect(() => root.load())
+        }
+    }
+
+    Connections {
         target: AccountRegistry
         function onRowsRemoved() {
             if (AccountRegistry.rowCount() === 0) {

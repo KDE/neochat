@@ -478,9 +478,8 @@ void RoomManager::setConnection(NeoChatConnection *connection)
 
     m_connection = connection;
 
-    m_lastRoomConfig = m_config->group(m_connection->userId()).group(u"LastOpenRoom"_s);
-
     if (m_connection != nullptr) {
+        m_lastRoomConfig = m_config->group(m_connection->userId()).group(u"LastOpenRoom"_s);
         connect(m_connection, &NeoChatConnection::showMessage, this, &RoomManager::showMessage);
         connect(m_connection, &NeoChatConnection::createdRoom, this, [this](Quotient::Room *room) {
             resolveResource(room->id());
