@@ -17,9 +17,6 @@ RowLayout {
 
     Repeater {
         id: repeater
-        delegate: EmojiItem {
-            emoji: modelData.emoji
-            description: modelData.description
-        }
+        delegate: EmojiItem {}
     }
 }
