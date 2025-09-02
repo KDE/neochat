@@ -12,6 +12,8 @@ import org.kde.kirigami as Kirigami
  * @brief A component to show media based upon its mime type.
  */
 RowLayout {
+    id: root
+
     property alias mimeIconSource: icon.source
     property alias label: nameLabel.text
     property string subLabel: ""
@@ -43,10 +45,10 @@ RowLayout {
 
             Layout.fillWidth: true
 
-            text: (subLabel || size || duration || '') && [
-                subLabel,
-                size && Format.formatByteSize(size),
-                duration > 0 && Format.formatDuration(duration),
+            text: (root.subLabel || root.size || root.duration || '') && [
+                root.subLabel,
+                root.size && Format.formatByteSize(root.size),
+                root.duration > 0 && Format.formatDuration(root.duration),
             ].filter(Boolean).join(" | ")
 
             elide: Text.ElideRight
