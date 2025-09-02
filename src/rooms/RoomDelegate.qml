@@ -4,11 +4,9 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import QtQml.Models
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
-import org.kde.kirigamiaddons.labs.components as Components
 
 import org.kde.neochat
 
@@ -71,7 +69,7 @@ Delegates.RoundedItemDelegate {
         interval: Application.styleHints.mousePressAndHoldInterval
         repeat: false
         onTriggered: {
-            RoomManager.resolveResource(currentRoom.id);
+            RoomManager.resolveResource(root.currentRoom.id);
             pageStack.currentIndex = 1;
         }
     }
@@ -133,7 +131,7 @@ Delegates.RoundedItemDelegate {
             enabled: false
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !root.collapsed
+            visible: root.currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !root.collapsed
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
@@ -171,7 +169,7 @@ Delegates.RoundedItemDelegate {
             display: QQC2.Button.IconOnly
 
             icon.name: "overflow-menu-symbolic"
-            onClicked: createRoomListContextMenu()
+            onClicked: root.createRoomListContextMenu()
         }
     }
 
@@ -183,7 +181,7 @@ Delegates.RoundedItemDelegate {
         const menu = component.createObject(root.ListView.view ?? root.treeView, {
             room: root.currentRoom,
             connection: root.connection
-        });
+        }) as RoomContextMenu;
         if (!Kirigami.Settings.isMobile && !NeoChatConfig.compactRoomList) {
             configButton.visible = true;
             configButton.down = true;
