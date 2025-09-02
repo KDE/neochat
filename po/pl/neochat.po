@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-01 00:42+0000\n"
+"POT-Creation-Date: 2025-09-02 00:43+0000\n"
 "PO-Revision-Date: 2025-02-23 12:33+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -515,8 +515,8 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Poszukaj swoich znajomych"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
@@ -530,7 +530,7 @@ msgctxt "@action:inmenu"
 msgid "Create a Room…"
 msgstr "Stwórz pokój"
 
-#: src/app/qml/GlobalMenu.qml:42 src/rooms/ExploreComponentMobile.qml:149
+#: src/app/qml/GlobalMenu.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -545,7 +545,7 @@ msgid "Explore Rooms"
 msgstr "Przeglądaj pokoje"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
+#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -618,7 +618,7 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "O KDE"
 
-#: src/app/qml/InvitationView.qml:50
+#: src/app/qml/InvitationView.qml:52
 #, fuzzy, kde-format
 #| msgctxt "<username> was invited into this room."
 #| msgid "%1 was invited into this room."
@@ -626,7 +626,7 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 został zaproszony do tego pokoju."
 
-#: src/app/qml/InvitationView.qml:95
+#: src/app/qml/InvitationView.qml:97
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "This user is inviting you to chat."
@@ -634,27 +634,27 @@ msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Ten użytkownik zaprasza cię do rozmowy."
 
-#: src/app/qml/InvitationView.qml:110
+#: src/app/qml/InvitationView.qml:112
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Zaakceptuj"
 
-#: src/app/qml/InvitationView.qml:125
+#: src/app/qml/InvitationView.qml:127
 #, fuzzy, kde-format
 #| msgid "Reject Invitation"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Odrzuć zaproszenie"
 
-#: src/app/qml/InvitationView.qml:139
+#: src/app/qml/InvitationView.qml:141
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:178
+#: src/app/qml/InvitationView.qml:180
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You can reject invitations from unknown users under Security settings."
@@ -956,7 +956,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Wybierz plik"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1081,12 +1081,16 @@ msgid "Message Source"
 msgstr "Źródło wiadomości"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add New Server"
+msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "Dodaj nowy serwer"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Home Server"
+msgctxt "@info"
 msgid "Home Server"
 msgstr "Serwer domowy"
 
@@ -1110,17 +1114,23 @@ msgid "Add server"
 msgstr "Dodawanie serwera"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "Wpisany tekst jest nieprawidłowym adresem url"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This server cannot be resolved or has already been added"
+msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "Nie można ustalić położenia tego serwera lub już został dodany"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server URL:"
+msgctxt "@label"
 msgid "Server URL:"
 msgstr "Adres URL serwera:"
 
@@ -1346,48 +1356,48 @@ msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "Ustaw poziom uprawnień użytkownika"
 
-#: src/app/qml/UserDetailDialog.qml:248
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Usuń ostatnie wiadomości tego użytkownika"
 
-#: src/app/qml/UserDetailDialog.qml:253
+#: src/app/qml/UserDetailDialog.qml:252
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Usuń wiadomości"
 
-#: src/app/qml/UserDetailDialog.qml:254
+#: src/app/qml/UserDetailDialog.qml:253
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Powód usunięcia ostatnich wiadomości tego użytkownika"
 
-#: src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Usuń"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Usuń wiadomości"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "Porozmawiaj z %1"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Zaproś do rozmowy jeden-na-jeden"
 
-#: src/app/qml/UserDetailDialog.qml:279
+#: src/app/qml/UserDetailDialog.qml:278
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -1395,13 +1405,13 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Poszukaj wiadomości"
 
-#: src/app/qml/UserDetailDialog.qml:286 src/roominfo/RoomInformation.qml:90
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Poszukaj"
 
-#: src/app/qml/UserDetailDialog.qml:293
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "Skopiuj odnośnik"
@@ -1430,18 +1440,24 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Poszukaj swoich znajomych"
 
-#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
+#: src/app/qml/UserSearchPage.qml:74
+#, fuzzy, kde-format
+#| msgid "Friends"
+msgctxt "@info"
 msgid "Friends"
 msgstr "Znajomi"
 
 #: src/app/qml/UserSearchPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Find your friends…"
+msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Poszukaj swoich znajomych…"
 
 #: src/app/qml/UserSearchPage.qml:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Wpisz tekst, aby zacząć szukać swoich znajomych"
 
@@ -2086,6 +2102,11 @@ msgstr "Zaproszone"
 #, kde-format
 msgid "Favorite"
 msgstr "Ulubione"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Friends"
+msgstr "Znajomi"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -3713,7 +3734,7 @@ msgstr ""
 "Ta wiadomość jest zaszyfrowana, a jej nadawca nie udostępnił klucza temu "
 "urządzeniowi."
 
-#: src/messagecontent/FetchButtonComponent.qml:36
+#: src/messagecontent/FetchButtonComponent.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
@@ -3771,7 +3792,7 @@ msgstr "Czas zameldowania: %1"
 msgid "Check-out time: %1"
 msgstr "Czas wymeldowania: %1"
 
-#: src/messagecontent/ImageComponent.qml:52
+#: src/messagecontent/ImageComponent.qml:54
 #: src/messagecontent/VideoComponent.qml:182
 #, fuzzy, kde-format
 #| msgid "Set Image"
@@ -3779,7 +3800,7 @@ msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ustaw obraz"
 
-#: src/messagecontent/ImageComponent.qml:133
+#: src/messagecontent/ImageComponent.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -4042,7 +4063,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Przypięte wiadomości"
 
-#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:98
+#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
@@ -4063,7 +4084,7 @@ msgstr "Opuść ten pokój"
 msgid "Members"
 msgstr "Członkowie"
 
-#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:83
+#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4120,55 +4141,55 @@ msgstr "Wpisz tekst, aby rozpocząć wyszukiwanie"
 msgid "No messages found"
 msgstr "Nie znaleziono żadnych wiadomości"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:31
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Pokoje"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:43
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Szukaj pokojów"
 
-#: src/rooms/ExploreComponent.qml:59
+#: src/rooms/ExploreComponent.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Pokaż menu"
 
-#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Poszukaj swoich znajomych"
 
-#: src/rooms/ExploreComponent.qml:86
+#: src/rooms/ExploreComponent.qml:87
 #, kde-format
 msgid "Create a Room"
 msgstr "Stwórz pokój"
 
-#: src/rooms/ExploreComponent.qml:101
+#: src/rooms/ExploreComponent.qml:102
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Zeskanuj kod QR"
 
-#: src/rooms/ExploreComponentMobile.qml:31
+#: src/rooms/ExploreComponentMobile.qml:33
 #, kde-format
 msgid "Search"
 msgstr "Poszukaj"
 
-#: src/rooms/ExploreComponentMobile.qml:47
+#: src/rooms/ExploreComponentMobile.qml:49
 #, kde-format
 msgid "Explore rooms"
 msgstr "Przeglądaj pokoje"
 
-#: src/rooms/ExploreComponentMobile.qml:76
+#: src/rooms/ExploreComponentMobile.qml:78
 #, kde-format
 msgid "Create New"
 msgstr "Utwórz nowy"
 
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:145
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -4402,13 +4423,13 @@ msgstr "Dołącz %1"
 msgid "Create a space"
 msgstr "Utwórz przestrzeń"
 
-#: src/rooms/SpaceListContextMenu.qml:45
+#: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Pokaż przestrzeń"
 
-#: src/rooms/SpaceListContextMenu.qml:51
+#: src/rooms/SpaceListContextMenu.qml:50
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Link Address"
@@ -4416,13 +4437,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Skopiuj adres odnośnika"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
+#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Ustawienia space"
 
-#: src/rooms/SpaceListContextMenu.qml:73
+#: src/rooms/SpaceListContextMenu.qml:72
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -6770,7 +6791,7 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Uczyń sugerowanym"
 
-#: src/spaces/SpaceHomePage.qml:32
+#: src/spaces/SpaceHomePage.qml:34
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -6778,7 +6799,7 @@ msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Nowa grupa..."
 
-#: src/spaces/SpaceHomePage.qml:38
+#: src/spaces/SpaceHomePage.qml:40
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -6786,20 +6807,20 @@ msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Pokaż przestrzeń"
 
-#: src/spaces/SpaceHomePage.qml:44
+#: src/spaces/SpaceHomePage.qml:46
 #, fuzzy, kde-format
 #| msgid "Select Existing Room"
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Wybierz istniejący pokój"
 
-#: src/spaces/SpaceHomePage.qml:78
+#: src/spaces/SpaceHomePage.qml:80
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Zaproś użytkownika do przestrzeni"
 
-#: src/spaces/SpaceHomePage.qml:90
+#: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"

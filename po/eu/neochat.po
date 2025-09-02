@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-01 00:42+0000\n"
-"PO-Revision-Date: 2025-08-31 12:29+0200\n"
+"POT-Creation-Date: 2025-09-02 00:43+0000\n"
+"PO-Revision-Date: 2025-09-01 22:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -505,8 +505,8 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
@@ -519,7 +519,7 @@ msgctxt "@action:inmenu"
 msgid "Create a Room…"
 msgstr "Sortu gela bat…"
 
-#: src/app/qml/GlobalMenu.qml:42 src/rooms/ExploreComponentMobile.qml:149
+#: src/app/qml/GlobalMenu.qml:42
 #, kde-format
 msgctxt "@title"
 msgid "Create a Room"
@@ -532,7 +532,7 @@ msgid "Explore Rooms"
 msgstr "Esploratu gelak"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
+#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -603,37 +603,37 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "KDEri buruz"
 
-#: src/app/qml/InvitationView.qml:50
+#: src/app/qml/InvitationView.qml:52
 #, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1(e)k gela honetara gonbidatu zaitu %2(e)tan."
 
-#: src/app/qml/InvitationView.qml:95
+#: src/app/qml/InvitationView.qml:97
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Erabiltzaile honek berriketara gonbidatzen zaizu %1(e)tan."
 
-#: src/app/qml/InvitationView.qml:110
+#: src/app/qml/InvitationView.qml:112
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Onartu gonbidapena"
 
-#: src/app/qml/InvitationView.qml:125
+#: src/app/qml/InvitationView.qml:127
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Errefusatu gonbidapena"
 
-#: src/app/qml/InvitationView.qml:139
+#: src/app/qml/InvitationView.qml:141
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr "Oztopatu %1"
 
-#: src/app/qml/InvitationView.qml:178
+#: src/app/qml/InvitationView.qml:180
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -917,7 +917,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Hautatu fitxategi bat"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1032,12 +1032,16 @@ msgid "Message Source"
 msgstr "Mezuaren sorburua"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add New Server"
+msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "Gehitu zerbitzari berria"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Home Server"
+msgctxt "@info"
 msgid "Home Server"
 msgstr "Etxeko zerbitzaria"
 
@@ -1060,17 +1064,23 @@ msgid "Add server"
 msgstr "Gehitu zerbitzaria"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The entered text is not a valid url"
+msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "Sartutako testua ez da URL baliodun bat"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "This server cannot be resolved or has already been added"
+msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "Zerbitzari hori ezin da ebatzi edo dagoeneko gehitu da"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Server URL:"
+msgctxt "@label"
 msgid "Server URL:"
 msgstr "Zerbitzariaren URL:"
 
@@ -1286,60 +1296,60 @@ msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "Ezarri erabiltzailearen ahalmen maila"
 
-#: src/app/qml/UserDetailDialog.qml:248
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Kendu erabiltzaile horren azken aldiko mezuak"
 
-#: src/app/qml/UserDetailDialog.qml:253
+#: src/app/qml/UserDetailDialog.qml:252
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/app/qml/UserDetailDialog.qml:254
+#: src/app/qml/UserDetailDialog.qml:253
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Erabiltzaile horren azken aldiko mezuak kentzeko arrazoia"
 
-#: src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:254
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr "%1(e)rekin berriketa"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgid "Invite to private chat"
 msgstr "Gonbidatu berriketa pribatura"
 
-#: src/app/qml/UserDetailDialog.qml:279
+#: src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Bilatu %1(e)ren mezuak gelan"
 
-#: src/app/qml/UserDetailDialog.qml:286 src/roominfo/RoomInformation.qml:90
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/app/qml/UserDetailDialog.qml:293
+#: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
 msgstr "Kopiatu esteka"
@@ -1362,18 +1372,24 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
+#: src/app/qml/UserSearchPage.qml:74
+#, fuzzy, kde-format
+#| msgid "Friends"
+msgctxt "@info"
 msgid "Friends"
 msgstr "Lagunak"
 
 #: src/app/qml/UserSearchPage.qml:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Find your friends…"
+msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Aurkitu zure lagunak…"
 
 #: src/app/qml/UserSearchPage.qml:82
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Enter text to start searching for your friends"
+msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Sartu zure lagunak bilatzen hasteko testua"
 
@@ -1669,29 +1685,25 @@ msgid "Cancel reply"
 msgstr "Utzi erantzuna bertan behera"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No stickers"
+#, kde-format
 msgctxt "@info"
 msgid "No stickers"
 msgstr "Eranskailurik ez"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "@info"
 msgid "No emojis"
-msgstr "Emojirik gabe"
+msgstr "Emojirik ez"
 
 #: src/chatbar/EmojiPicker.qml:56
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "Emojiak"
 
 #: src/chatbar/EmojiPicker.qml:63
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Eranskailuak"
@@ -2009,6 +2021,11 @@ msgstr "Gonbidatuta"
 #, kde-format
 msgid "Favorite"
 msgstr "Gogokoak"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Friends"
+msgstr "Lagunak"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -3619,7 +3636,7 @@ msgid ""
 msgstr ""
 "Mezu hori zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
 
-#: src/messagecontent/FetchButtonComponent.qml:36
+#: src/messagecontent/FetchButtonComponent.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
@@ -3677,14 +3694,14 @@ msgstr "Izen-emate ordua: %1"
 msgid "Check-out time: %1"
 msgstr "Ordaindu eta irtete ordua: %1"
 
-#: src/messagecontent/ImageComponent.qml:52
+#: src/messagecontent/ImageComponent.qml:54
 #: src/messagecontent/VideoComponent.qml:182
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Ezkutatu irudia"
 
-#: src/messagecontent/ImageComponent.qml:133
+#: src/messagecontent/ImageComponent.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -3725,8 +3742,7 @@ msgstr "URLaren aurreikuspegia zamatzen"
 
 #: src/messagecontent/LoadComponent.qml:30
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Zamatzen…"
@@ -3754,11 +3770,10 @@ msgstr ""
 "erabiltzaile batek bidalitakoa da"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading reply"
+#, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr "Erantzuna zamatzen"
+msgstr "Erantzuna zamatzen…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
@@ -3939,7 +3954,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Iltzatutako mezuak"
 
-#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:98
+#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
@@ -3956,7 +3971,7 @@ msgstr "Utzi gela hau…"
 msgid "Members"
 msgstr "Kideak"
 
-#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:83
+#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
@@ -4012,55 +4027,55 @@ msgstr "Sartu bilatzen hasteko testua"
 msgid "No messages found"
 msgstr "Ez da mezurik aurkitu"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:31
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Gelak"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:43
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Bilatu gelak"
 
-#: src/rooms/ExploreComponent.qml:59
+#: src/rooms/ExploreComponent.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Erakutsi menua"
 
-#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
-#: src/rooms/ExploreComponent.qml:86
+#: src/rooms/ExploreComponent.qml:87
 #, kde-format
 msgid "Create a Room"
 msgstr "Sortu gela bat"
 
-#: src/rooms/ExploreComponent.qml:101
+#: src/rooms/ExploreComponent.qml:102
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Eskaneatu QR kode bat"
 
-#: src/rooms/ExploreComponentMobile.qml:31
+#: src/rooms/ExploreComponentMobile.qml:33
 #, kde-format
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/rooms/ExploreComponentMobile.qml:47
+#: src/rooms/ExploreComponentMobile.qml:49
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/rooms/ExploreComponentMobile.qml:76
+#: src/rooms/ExploreComponentMobile.qml:78
 #, kde-format
 msgid "Create New"
 msgstr "Sortu berria"
 
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:145
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
@@ -4085,8 +4100,7 @@ msgid "%1 invited you"
 msgstr "%1(e)k gonbidatu zaitu"
 
 #: src/rooms/RoomContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Markatu irakurritako gisa"
@@ -4124,29 +4138,25 @@ msgid "Off"
 msgstr "Itzalita"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Kendu gogokoetatik"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Gehitu gogokoetara"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Reprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "Lehentasuna aldatzea"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Deprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Lehentasuna kentzea"
@@ -4164,8 +4174,7 @@ msgid "Room Settings"
 msgstr "Gelaren ezarpenak"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Utzi gela…"
@@ -4278,25 +4287,25 @@ msgstr "Elkartu %1(e)ra"
 msgid "Create a space"
 msgstr "Sortu toki bat"
 
-#: src/rooms/SpaceListContextMenu.qml:45
+#: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Ikusi tokia"
 
-#: src/rooms/SpaceListContextMenu.qml:51
+#: src/rooms/SpaceListContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopiatu tokiaren helbidea"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
+#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Tokien ezarpenak"
 
-#: src/rooms/SpaceListContextMenu.qml:73
+#: src/rooms/SpaceListContextMenu.qml:72
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -4487,8 +4496,7 @@ msgid "Appearance"
 msgstr "Itxura"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:group"
 msgid "General"
 msgstr "Orokorra"
@@ -4499,12 +4507,10 @@ msgid "Use compact room list"
 msgstr "Erabili gela-zerrenda trinkoa"
 
 #: src/settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
-msgstr "Mezuaren sorburua"
+msgstr "Mezu-antolaera"
 
 #: src/settings/AppearanceSettingsPage.qml:143
 #, kde-format
@@ -4537,18 +4543,16 @@ msgid "Show your messages on the right"
 msgstr "Erakutsi zure mezuak eskuinean"
 
 #: src/settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
-msgstr "Erakutsi estekaren aurreikuspegia berriketa-mezuetan"
+msgstr "Erakutsi esteka-aurreikuspegiak mezuetan"
 
 #: src/settings/AppearanceSettingsPage.qml:320
-#, fuzzy, kde-format
-#| msgid "Show Avatar"
+#, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
-msgstr "Erakutsi abatarra"
+msgstr "Erakutsi abatarrak"
 
 #: src/settings/AppearanceSettingsPage.qml:324
 #, kde-format
@@ -6562,31 +6566,31 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr "Egin iradokitakoa"
 
-#: src/spaces/SpaceHomePage.qml:32
+#: src/spaces/SpaceHomePage.qml:34
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Gela berria…"
 
-#: src/spaces/SpaceHomePage.qml:38
+#: src/spaces/SpaceHomePage.qml:40
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Toki berria…"
 
-#: src/spaces/SpaceHomePage.qml:44
+#: src/spaces/SpaceHomePage.qml:46
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Dagoen gela…"
 
-#: src/spaces/SpaceHomePage.qml:78
+#: src/spaces/SpaceHomePage.qml:80
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "Gonbidatu erabiltzailea tokira"
 
-#: src/spaces/SpaceHomePage.qml:90
+#: src/spaces/SpaceHomePage.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Add to Space"

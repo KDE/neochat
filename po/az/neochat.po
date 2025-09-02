@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-01 00:42+0000\n"
+"POT-Creation-Date: 2025-09-02 00:43+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -549,8 +549,8 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:81
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
@@ -564,7 +564,7 @@ msgctxt "@action:inmenu"
 msgid "Create a Room…"
 msgstr "Otaq yaratmaq"
 
-#: src/app/qml/GlobalMenu.qml:42 src/rooms/ExploreComponentMobile.qml:149
+#: src/app/qml/GlobalMenu.qml:42
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
@@ -579,7 +579,7 @@ msgid "Explore Rooms"
 msgstr "Otaqlara baxış"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:54 src/rooms/RoomListPage.qml:231
+#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
 #: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -655,41 +655,41 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "Haqqında"
 
-#: src/app/qml/InvitationView.qml:50
+#: src/app/qml/InvitationView.qml:52
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/app/qml/InvitationView.qml:95
+#: src/app/qml/InvitationView.qml:97
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Məxfi çatı açmaq"
 
-#: src/app/qml/InvitationView.qml:110
+#: src/app/qml/InvitationView.qml:112
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Qəbul etmək"
 
-#: src/app/qml/InvitationView.qml:125
+#: src/app/qml/InvitationView.qml:127
 #, fuzzy, kde-format
 #| msgid "Reject Invitation"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Dəvəti qəbul etməyin"
 
-#: src/app/qml/InvitationView.qml:139
+#: src/app/qml/InvitationView.qml:141
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:178
+#: src/app/qml/InvitationView.qml:180
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1002,7 +1002,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Hamısını seçin"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:106
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1126,13 +1126,16 @@ msgid "Message Source"
 msgstr "İsmarıc mənbəyi"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgctxt "@action:button"
 msgid "Add New Server"
-msgstr ""
+msgstr "Əsas server:"
 
 #: src/app/qml/ServerComboBox.qml:63
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
+msgctxt "@info"
 msgid "Home Server"
 msgstr "Əsas server:"
 
@@ -1157,17 +1160,20 @@ msgstr ""
 
 #: src/app/qml/ServerComboBox.qml:141
 #, kde-format
+msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr ""
 
 #: src/app/qml/ServerComboBox.qml:145
 #, kde-format
+msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 
 #: src/app/qml/ServerComboBox.qml:156
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
+msgctxt "@label"
 msgid "Server URL:"
 msgstr "Əsas server:"
 
@@ -1398,67 +1404,67 @@ msgctxt "@action:button"
 msgid "Set user power level"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:248
+#: src/app/qml/UserDetailDialog.qml:247
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgctxt "@action:button"
 msgid "Remove recent messages by this user"
 msgstr "Bu istifadəçinin az əvvəlki məktublarını silin"
 
-#: src/app/qml/UserDetailDialog.qml:253
+#: src/app/qml/UserDetailDialog.qml:252
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:254
+#: src/app/qml/UserDetailDialog.qml:253
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:254
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:257
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, kde-format
 msgctxt "%1 is the name of the user."
 msgid "Chat with %1"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:270
+#: src/app/qml/UserDetailDialog.qml:269
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Invite to private chat"
 msgstr "Məxfi çatı açmaq"
 
-#: src/app/qml/UserDetailDialog.qml:279
+#: src/app/qml/UserDetailDialog.qml:278
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/app/qml/UserDetailDialog.qml:286 src/roominfo/RoomInformation.qml:90
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:293
+#: src/app/qml/UserDetailDialog.qml:292
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
@@ -1487,18 +1493,21 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr ""
 
-#: src/app/qml/UserSearchPage.qml:74 src/libneochat/enums/neochatroomtype.h:69
+#: src/app/qml/UserSearchPage.qml:74
 #, kde-format
+msgctxt "@info"
 msgid "Friends"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:81
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:82
 #, kde-format
+msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr ""
 
@@ -2137,6 +2146,11 @@ msgstr "Dəvət edildi"
 #, kde-format
 msgid "Favorite"
 msgstr "Seçilmiş"
+
+#: src/libneochat/enums/neochatroomtype.h:69
+#, kde-format
+msgid "Friends"
+msgstr ""
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -3948,7 +3962,7 @@ msgid ""
 "device."
 msgstr "Bu ismarıc şifrələnib və göndərən açarı bu cihaz ilə paylaşmadı."
 
-#: src/messagecontent/FetchButtonComponent.qml:36
+#: src/messagecontent/FetchButtonComponent.qml:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Fetch More Events"
@@ -4006,7 +4020,7 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:52
+#: src/messagecontent/ImageComponent.qml:54
 #: src/messagecontent/VideoComponent.qml:182
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
@@ -4014,7 +4028,7 @@ msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "otağın adını silmək"
 
-#: src/messagecontent/ImageComponent.qml:133
+#: src/messagecontent/ImageComponent.qml:135
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
@@ -4291,7 +4305,7 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:98
+#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -4310,7 +4324,7 @@ msgstr "NeoChatı bu otaqla açın"
 msgid "Members"
 msgstr "Üzvlər"
 
-#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:83
+#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:85
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
@@ -4376,59 +4390,59 @@ msgstr ""
 msgid "No messages found"
 msgstr "Otaqlar tapılmadı"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:31
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Otaqlar"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:43
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/rooms/ExploreComponent.qml:59
+#: src/rooms/ExploreComponent.qml:60
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/rooms/ExploreComponent.qml:76 src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:86
+#: src/rooms/ExploreComponent.qml:87
 #, kde-format
 msgid "Create a Room"
 msgstr "Otaq yaratmaq"
 
-#: src/rooms/ExploreComponent.qml:101
+#: src/rooms/ExploreComponent.qml:102
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:31
+#: src/rooms/ExploreComponentMobile.qml:33
 #, kde-format
 msgid "Search"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:47
+#: src/rooms/ExploreComponentMobile.qml:49
 #, kde-format
 msgid "Explore rooms"
 msgstr "Otaqlara baxış"
 
-#: src/rooms/ExploreComponentMobile.qml:76
+#: src/rooms/ExploreComponentMobile.qml:78
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create New"
 msgstr "Otaqlar və məxfi söhbətlər:"
 
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:145
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -4664,28 +4678,28 @@ msgstr "Qoşulun"
 msgid "Create a space"
 msgstr "Otaq yaratmaq"
 
-#: src/rooms/SpaceListContextMenu.qml:45
+#: src/rooms/SpaceListContextMenu.qml:44
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:51
+#: src/rooms/SpaceListContextMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopyalamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:61 src/spaces/SpaceHomePage.qml:111
+#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Ayarlar"
 
-#: src/rooms/SpaceListContextMenu.qml:73
+#: src/rooms/SpaceListContextMenu.qml:72
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
@@ -7195,7 +7209,7 @@ msgctxt "@button"
 msgid "Make Suggested"
 msgstr ""
 
-#: src/spaces/SpaceHomePage.qml:32
+#: src/spaces/SpaceHomePage.qml:34
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -7203,28 +7217,28 @@ msgctxt "@action:inmenu"
 msgid "New Room…"
 msgstr "Yeni Qrup…"
 
-#: src/spaces/SpaceHomePage.qml:38
+#: src/spaces/SpaceHomePage.qml:40
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
 msgid "New Space…"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/spaces/SpaceHomePage.qml:44
+#: src/spaces/SpaceHomePage.qml:46
 #, fuzzy, kde-format
 #| msgid "Find a room..."
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
 msgstr "Otaq tapmaq"
 
-#: src/spaces/SpaceHomePage.qml:78
+#: src/spaces/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@button"
 msgid "Invite user to space"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/spaces/SpaceHomePage.qml:90
+#: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favourites"
 msgctxt "@button"
