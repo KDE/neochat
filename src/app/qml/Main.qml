@@ -233,7 +233,7 @@ Kirigami.ApplicationWindow {
         RoomListPage {
             id: roomList
 
-            onSearch: quickSwitcher.open()
+            onSearch: root.quickSwitcher.open()
 
             connection: root.connection
 

@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Window
@@ -107,9 +109,8 @@ Kirigami.Page {
     Loader {
         id: timelineViewLoader
         anchors.fill: parent
-        active: root.currentRoom && !root.currentRoom.isInvite && !root.currentRoom.isSpace
         // We need the loader to be active but invisible while the room is loading messages so signals in TimelineView work.
-        visible: !root.loading
+        active: root.currentRoom && !root.currentRoom.isInvite && !root.currentRoom.isSpace
         sourceComponent: TimelineView {
             id: timelineView
             messageFilterModel: root.messageFilterModel
@@ -155,13 +156,13 @@ Kirigami.Page {
 
     footer: Loader {
         id: chatBarLoader
-        height: active ? item.implicitHeight : 0
+        height: active ? (item as ChatBar).implicitHeight : 0
         active: timelineViewLoader.active && !root.currentRoom.readOnly
         sourceComponent: ChatBar {
             id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
-            connection: root.currentRoom.connection
+            connection: root.currentRoom.connection as NeoChatConnection
         }
     }
 
@@ -216,15 +217,14 @@ Kirigami.Page {
         }
 
         function onShowDelegateMenu(eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
-            const contextMenu = delegateContextMenu.createObject(root, {
+            (delegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
                 plainText: plainText,
                 mimeType: mimeType,
                 progressInfo: progressInfo,
                 messageComponentType: messageComponentType,
-            });
-            contextMenu.popup();
+            }) as DelegateContextMenu).popup();
         }
 
         function onShowMaximizedMedia(index) {
@@ -239,12 +239,12 @@ Kirigami.Page {
         }
 
         function onShowMaximizedCode(author, time, codeText, language) {
-            let popup = Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+            (Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                 author: author,
                 time: time,
                 codeText: codeText,
                 language: language
-            }).open();
+            }) as CodeMaximizeComponent).open();
         }
     }
 
@@ -252,7 +252,7 @@ Kirigami.Page {
         id: delegateContextMenu
         DelegateContextMenu {
             room: root.currentRoom
-            connection: root.currentRoom.connection
+            connection: root.currentRoom.connection as NeoChatConnection
         }
     }
 
