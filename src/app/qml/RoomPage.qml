@@ -79,9 +79,9 @@ Kirigami.Page {
 
         if (root.currentRoom.tagNames.includes("m.server_notice")) {
             banner.text = i18nc("@info", "This room contains official messages from your homeserver.")
-            banner.visible = true;
+            banner.show("message");
         } else {
-            banner.visible = false;
+            banner.hideIf("message");
         }
     }
 
@@ -90,10 +90,10 @@ Kirigami.Page {
         function onIsOnlineChanged() {
             if (!root.currentRoom.connection.isOnline) {
                 banner.text = i18nc("@info:status", "NeoChat is offline. Please check your network connection.");
-                banner.visible = true;
                 banner.type = Kirigami.MessageType.Error;
+                banner.show("offline");
             } else {
-                banner.visible = false;
+                banner.hideIf("offline");
             }
         }
     }
@@ -101,9 +101,23 @@ Kirigami.Page {
     header: Kirigami.InlineMessage {
         id: banner
 
+        // Used to keep track of messages so we can hide the right one at the right time
+        property string messageId
+
         showCloseButton: true
         visible: false
         position: Kirigami.InlineMessage.Position.Header
+
+        function show(msgid: string): void {
+            messageId = msgid;
+            visible = true;
+        }
+
+        function hideIf(msgid: string): void {
+            if (messageId == msgid) {
+                visible = false;
+            }
+        }
     }
 
     Loader {
@@ -204,7 +218,7 @@ Kirigami.Page {
         function onShowMessage(messageType, message) {
             banner.text = message;
             banner.type = messageType;
-            banner.visible = true;
+            banner.show("generic");
         }
 
         function onShowEventSource(eventId) {
