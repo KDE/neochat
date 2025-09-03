@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-13 02:37+0000\n"
-"PO-Revision-Date: 2025-07-30 18:32+0200\n"
+"PO-Revision-Date: 2025-09-02 12:37+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -136,7 +136,7 @@ msgstr "Ignora omne errores de SSL, p.ex. certificatos non signate."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Reimplacia un instantia existente"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -2341,13 +2341,13 @@ msgstr "configurate %1 widget"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr " lassava un appello"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr " univa se a un appello"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -2597,18 +2597,16 @@ msgid "%1 configured a widget"
 msgstr "%1 configurava un widget"
 
 #: src/libneochat/eventhandler.cpp:647
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 lassava le sala"
+msgstr "%1 lassava un appello"
 
 #: src/libneochat/eventhandler.cpp:649
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 univa se al sala"
+msgstr "%1 univa se a un appello"
 
 #: src/libneochat/eventhandler.cpp:652
 #, kde-format
@@ -3619,11 +3617,10 @@ msgstr "Tempore de Check-Out: %1"
 
 #: src/messagecontent/ImageComponent.qml:62
 #: src/messagecontent/VideoComponent.qml:191
-#, fuzzy, kde-format
-#| msgid "Set Image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
-msgstr "Fixa imagine"
+msgstr "Cela imagine"
 
 #: src/messagecontent/ImageComponent.qml:143
 #, kde-format
@@ -3679,18 +3676,16 @@ msgid "Open Fullscreen"
 msgstr "Aperi schermo plen"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "File troppo grande a discargar."
+msgstr "Il falleva a discargar file."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
-msgstr "Falleva a unir sala<br />%1"
+msgstr "Il falleva a discargar file:<br />%1"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:294
 #, kde-format
@@ -5178,8 +5173,7 @@ msgid "Custom"
 msgstr "Personalisate"
 
 #: src/settings/NeoChatGeneralPage.qml:137
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Chronologia (linea del tempore)"
@@ -5187,21 +5181,20 @@ msgstr "Chronologia (linea del tempore)"
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Marca messages como legite quando:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
-#, fuzzy, kde-format
+#, kde-format
 msgid "Never"
 msgstr "Jammais"
 
 #: src/settings/NeoChatGeneralPage.qml:151
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room"
 msgid "Entering the room"
-msgstr "unite al sala"
+msgstr "Entrante al sala"
 
 #: src/settings/NeoChatGeneralPage.qml:155
 #, kde-format
@@ -5209,25 +5202,22 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "Entrante le sala e omne messages non legite es visibile"
 
 #: src/settings/NeoChatGeneralPage.qml:159
-#, fuzzy, kde-format
-#| msgid "joined the room"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
-msgstr "unite al sala"
+msgstr "Exiente le sala"
 
 #: src/settings/NeoChatGeneralPage.qml:163
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the most unread message are higher"
+#, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
 "room and all messages are visible on screen"
 msgid "Exiting the room and all unread messages are visible"
-msgstr "Salas con majoritate de messages non legites es plus in alto"
+msgstr "Exiente le sala e omne messages non legite es visibile"
 
 #: src/settings/NeoChatGeneralPage.qml:178
 #, kde-format
@@ -5310,9 +5300,7 @@ msgid "Reset all configuration values to their default"
 msgstr "Re-fixa omne valores de configuration a loervalores predefinite"
 
 #: src/settings/NeoChatGeneralPage.qml:354
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Re-send confirmation e-mail"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Re-fixa le configuration"
@@ -5321,7 +5309,7 @@ msgstr "Re-fixa le configuration"
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
-msgstr ""
+msgstr "Tu vermente vole reassignar omne optiones a lor valor predefinite?"
 
 #: src/settings/NeoChatSecurityPage.qml:18
 #, kde-format
