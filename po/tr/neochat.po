@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:43+0000\n"
+"POT-Creation-Date: 2025-09-03 00:43+0000\n"
 "PO-Revision-Date: 2025-09-01 09:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -341,7 +341,7 @@ msgid "Attachment:"
 msgstr "İlişik:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
-#: src/timeline/DelegateContextMenu.qml:184
+#: src/timeline/DelegateContextMenu.qml:186
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
@@ -891,21 +891,21 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Seçenek Ekle"
 
-#: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:68
 #: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
+#: src/app/qml/NotificationsView.qml:35 src/app/qml/NotificationsView.qml:40
 #: src/login/Login.qml:39 src/settings/DevicesPage.qml:20
 #: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
-#: src/app/qml/NotificationsView.qml:34
+#: src/app/qml/NotificationsView.qml:35
 #, kde-format
 msgid "No Notifications"
 msgstr "Bildirim yok"
@@ -1000,31 +1000,31 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: src/app/qml/RoomPage.qml:79
+#: src/app/qml/RoomPage.qml:81
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Bu oda, ana sunucunuzdan okunmamış iletiler içeriyor."
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
 
-#: src/app/qml/RoomPage.qml:145
+#: src/app/qml/RoomPage.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat’e hoş geldiniz"
 
-#: src/app/qml/RoomPage.qml:146
+#: src/app/qml/RoomPage.qml:147
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Başlamak için bir oda seçin veya odaya katılın"
 
-#: src/app/qml/RoomPage.qml:213
+#: src/app/qml/RoomPage.qml:214
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -3795,21 +3795,27 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2, %3 ile tepki verdi"
 msgstr[1] "%2, %3 ile tepki verdi"
 
-#: src/messagecontent/PollComponent.qml:113
-#, kde-format
+#: src/messagecontent/PollComponent.qml:114
+#, fuzzy, kde-format
+#| msgid "%1 Vote"
+#| msgid_plural "%1 Votes"
+msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] "%1 oy"
 msgstr[1] "%1 oy"
 
-#: src/messagecontent/PollComponent.qml:129
-#, kde-format
+#: src/messagecontent/PollComponent.qml:130
+#, fuzzy, kde-format
+#| msgid "Based on votes by %1 user"
+#| msgid_plural "Based on votes by %1 users"
+msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "%1 kullanıcı tarafından verilen oylara istinaden"
 msgstr[1] "%1 kullanıcı tarafından verilen oylara istinaden"
 
-#: src/messagecontent/PollComponent.qml:129
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4165,12 +4171,12 @@ msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Odadan Ayrıl…"
 
-#: src/rooms/RoomDelegate.qml:137
+#: src/rooms/RoomDelegate.qml:135
 #, kde-format
 msgid "Muted room"
 msgstr "Sessize alınmış oda"
 
-#: src/rooms/RoomDelegate.qml:170
+#: src/rooms/RoomDelegate.qml:168
 #, kde-format
 msgid "Configure room"
 msgstr "Odayı yapılandır"
@@ -5796,49 +5802,49 @@ msgctxt "As in the default notification setting"
 msgid "Default Settings"
 msgstr "Öntanımlı Ayarlar"
 
-#: src/settings/RoomAdvancedPage.qml:21
+#: src/settings/RoomAdvancedPage.qml:20
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: src/settings/RoomAdvancedPage.qml:28
+#: src/settings/RoomAdvancedPage.qml:27
 #, kde-format
 msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Oda kimliği"
 
-#: src/settings/RoomAdvancedPage.qml:33
+#: src/settings/RoomAdvancedPage.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Oda Kimliğini Panoya Kopyala"
 
-#: src/settings/RoomAdvancedPage.qml:47
+#: src/settings/RoomAdvancedPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Oda sürümü"
 
-#: src/settings/RoomAdvancedPage.qml:53
+#: src/settings/RoomAdvancedPage.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room"
 msgstr "Odayı Yükselt"
 
-#: src/settings/RoomAdvancedPage.qml:78
+#: src/settings/RoomAdvancedPage.qml:77
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Odayı Yükselt"
 
-#: src/settings/RoomAdvancedPage.qml:82
+#: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Yeni sürüm seç"
 
-#: src/settings/RoomAdvancedPage.qml:90
+#: src/settings/RoomAdvancedPage.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
@@ -6580,214 +6586,214 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Alana Ekle"
 
-#: src/timeline/DelegateContextMenu.qml:160
+#: src/timeline/DelegateContextMenu.qml:162
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/timeline/DelegateContextMenu.qml:171
+#: src/timeline/DelegateContextMenu.qml:173
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "İleti Dizisinde Yanıtla"
 
-#: src/timeline/DelegateContextMenu.qml:195
+#: src/timeline/DelegateContextMenu.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Kaldır…"
 
-#: src/timeline/DelegateContextMenu.qml:200
-#: src/timeline/DelegateContextMenu.qml:205
+#: src/timeline/DelegateContextMenu.qml:202
+#: src/timeline/DelegateContextMenu.qml:207
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "İletiyi Kaldır"
 
-#: src/timeline/DelegateContextMenu.qml:201
+#: src/timeline/DelegateContextMenu.qml:203
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "Bu iletiyi kaldırma gerekçesi"
 
-#: src/timeline/DelegateContextMenu.qml:202
+#: src/timeline/DelegateContextMenu.qml:204
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/timeline/DelegateContextMenu.qml:220
+#: src/timeline/DelegateContextMenu.qml:222
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "İlet…"
 
-#: src/timeline/DelegateContextMenu.qml:226
+#: src/timeline/DelegateContextMenu.qml:228
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "İletiyi İlet"
 
-#: src/timeline/DelegateContextMenu.qml:240
+#: src/timeline/DelegateContextMenu.qml:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Görsel Aç"
 
-#: src/timeline/DelegateContextMenu.qml:242
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Ses Aç"
 
-#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Video Aç"
 
-#: src/timeline/DelegateContextMenu.qml:246
+#: src/timeline/DelegateContextMenu.qml:248
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Görseli Kaydet…"
 
-#: src/timeline/DelegateContextMenu.qml:261
+#: src/timeline/DelegateContextMenu.qml:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Sesi Kaydet…"
 
-#: src/timeline/DelegateContextMenu.qml:263
+#: src/timeline/DelegateContextMenu.qml:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Videoyu Kaydet…"
 
-#: src/timeline/DelegateContextMenu.qml:265
+#: src/timeline/DelegateContextMenu.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Dosyayı Kaydet…"
 
-#: src/timeline/DelegateContextMenu.qml:280
+#: src/timeline/DelegateContextMenu.qml:282
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Görseli Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:282
+#: src/timeline/DelegateContextMenu.qml:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Sesi Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:284
+#: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Videoyu Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:286
+#: src/timeline/DelegateContextMenu.qml:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Dosyayı Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:298
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Bağlantı Adresini Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Metni Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "İleti Bağlantısını Kopyala"
 
-#: src/timeline/DelegateContextMenu.qml:318
+#: src/timeline/DelegateContextMenu.qml:320
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Bildir…"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:325
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:324
+#: src/timeline/DelegateContextMenu.qml:326
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "Bu iletiyi bildirme gerekçesi"
 
-#: src/timeline/DelegateContextMenu.qml:326
+#: src/timeline/DelegateContextMenu.qml:328
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:328
+#: src/timeline/DelegateContextMenu.qml:330
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: src/timeline/DelegateContextMenu.qml:340
+#: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Ara: “%1”"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Web Kısayollarını Yapılandır…"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Metni Sesli Olarak Oku"
 
-#: src/timeline/DelegateContextMenu.qml:371
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1, %2 dedi"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Sabitle"
 
-#: src/timeline/DelegateContextMenu.qml:403
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"

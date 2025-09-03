@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:43+0000\n"
-"PO-Revision-Date: 2025-08-31 06:25+0200\n"
+"POT-Creation-Date: 2025-09-03 00:43+0000\n"
+"PO-Revision-Date: 2025-09-02 04:56+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -340,7 +340,7 @@ msgid "Attachment:"
 msgstr "მიმაგრება:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
-#: src/timeline/DelegateContextMenu.qml:184
+#: src/timeline/DelegateContextMenu.qml:186
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
@@ -889,21 +889,21 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "არჩევნის დამატება"
 
-#: src/app/qml/NotificationsView.qml:19 src/rooms/SpaceDrawer.qml:68
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:68
 #: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
 msgstr "გაფრთხილებები"
 
-#: src/app/qml/NotificationsView.qml:34 src/app/qml/NotificationsView.qml:39
+#: src/app/qml/NotificationsView.qml:35 src/app/qml/NotificationsView.qml:40
 #: src/login/Login.qml:39 src/settings/DevicesPage.qml:20
 #: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
-#: src/app/qml/NotificationsView.qml:34
+#: src/app/qml/NotificationsView.qml:35
 #, kde-format
 msgid "No Notifications"
 msgstr "გაფრთხილებების გარეშე"
@@ -998,46 +998,44 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "იგნორი"
 
-#: src/app/qml/RoomPage.qml:79
+#: src/app/qml/RoomPage.qml:81
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "ეს ოთახი ოფიციალურ შეტყობინებებს შეიცავს თქვენი სახლის სერვერიდან."
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat გათიშულია. შეამოწმეთ ინტერნეტკავშირი."
 
-#: src/app/qml/RoomPage.qml:145
+#: src/app/qml/RoomPage.qml:146
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "კეთილი იყოს თქვენი მობრძანება NeoChat-ში"
 
-#: src/app/qml/RoomPage.qml:146
+#: src/app/qml/RoomPage.qml:147
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
 
-#: src/app/qml/RoomPage.qml:213
+#: src/app/qml/RoomPage.qml:214
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "შეტყობინების წყარო"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "ახალი სერვერის დამატება"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "სახლის სერვერი"
@@ -1061,22 +1059,19 @@ msgid "Add server"
 msgstr "სერვერის დამატება"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
-msgstr "შეყვანილი ტექსტი სწორ URL-ს არ წარმოადგენს"
+msgstr "შეყვანილი ტექსტი სწორი URL არაა"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
-msgstr "სერვერის ამოხსნა შეუძლებელია ან ის უკვე დამატებულია"
+msgstr "სერვერის ამოხსნა შეუძლებელია, ან ის უკვე დამატებულია"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "სერვერის URL:"
@@ -1370,22 +1365,19 @@ msgid "Find Your Friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
 #: src/app/qml/UserSearchPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "მეგობრები"
 
 #: src/app/qml/UserSearchPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "იპოვეთ თქვენი მეგობრები…"
 
 #: src/app/qml/UserSearchPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "მეგობრების ძებნის დასაწყებად შეიყვანეთ ტექსტი"
@@ -1664,29 +1656,25 @@ msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No stickers"
+#, kde-format
 msgctxt "@info"
 msgid "No stickers"
 msgstr "სტიკერების გარეშე"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "@info"
 msgid "No emojis"
 msgstr "ემოჯიების გარეშე"
 
 #: src/chatbar/EmojiPicker.qml:56
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "ემოჯიები"
 
 #: src/chatbar/EmojiPicker.qml:63
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "სტიკერები"
@@ -3723,8 +3711,7 @@ msgstr "URL-ის მინიატურის ჩატვირთვა"
 
 #: src/messagecontent/LoadComponent.qml:30
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
@@ -3752,11 +3739,10 @@ msgstr ""
 "დაიგნორებულმა მომხმარებელმა გამოაგზავნა"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading reply"
+#, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr "პასუხის ჩატვირთვა"
+msgstr "პასუხის ჩატვირთვა…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
@@ -3792,21 +3778,27 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2-ის რეაქცია იყო %3"
 msgstr[1] "%2-ის რეაქცია იყო %3"
 
-#: src/messagecontent/PollComponent.qml:113
-#, kde-format
+#: src/messagecontent/PollComponent.qml:114
+#, fuzzy, kde-format
+#| msgid "%1 Vote"
+#| msgid_plural "%1 Votes"
+msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] "%1 ხმა"
 msgstr[1] "%1 ხმა"
 
-#: src/messagecontent/PollComponent.qml:129
-#, kde-format
+#: src/messagecontent/PollComponent.qml:130
+#, fuzzy, kde-format
+#| msgid "Based on votes by %1 user"
+#| msgid_plural "Based on votes by %1 users"
+msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "ეფუძნება %1 მომხმარებლის არჩევანს"
 msgstr[1] "ეფუძნება %1 მომხმარებლის არჩევანს"
 
-#: src/messagecontent/PollComponent.qml:129
+#: src/messagecontent/PollComponent.qml:130
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -4083,11 +4075,10 @@ msgid "%1 invited you"
 msgstr "%1-მა მოგიწვიათ"
 
 #: src/rooms/RoomContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
-msgstr "მონიშნე როგორც წაკითხული"
+msgstr "წაკითხულად მონიშვნა"
 
 #: src/rooms/RoomContextMenu.qml:58
 #, kde-format
@@ -4122,29 +4113,25 @@ msgid "Off"
 msgstr "გამორთული"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "რჩეულებიდან წაშლა"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "რჩეულებში ჩამატება"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Reprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "პრიორიტეტის აწევა"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Deprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "პრიორიტეტის დაწევა"
@@ -4162,18 +4149,17 @@ msgid "Room Settings"
 msgstr "ოთახის მორგება"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "ოთახიდან გასვლა…"
 
-#: src/rooms/RoomDelegate.qml:137
+#: src/rooms/RoomDelegate.qml:135
 #, kde-format
 msgid "Muted room"
 msgstr "დადუმებული ოთახი"
 
-#: src/rooms/RoomDelegate.qml:170
+#: src/rooms/RoomDelegate.qml:168
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -4484,8 +4470,7 @@ msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:group"
 msgid "General"
 msgstr "ზოგადი"
@@ -4496,12 +4481,10 @@ msgid "Use compact room list"
 msgstr "ოთახების სიის კომპაქტური ვარიანტის გამოყენება"
 
 #: src/settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
-msgstr "შეტყობინების წყარო"
+msgstr "შეტყობინების განლაგება"
 
 #: src/settings/AppearanceSettingsPage.qml:143
 #, kde-format
@@ -4534,18 +4517,16 @@ msgid "Show your messages on the right"
 msgstr "თქვენი შეტყობინებების მარჯვენა მხარეს ჩვენება"
 
 #: src/settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
 msgstr "საუბრის შეტყობინებებში ბმულის მინიატურების ჩვენება"
 
 #: src/settings/AppearanceSettingsPage.qml:320
-#, fuzzy, kde-format
-#| msgid "Show Avatar"
+#, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
-msgstr "ავატარის ჩვენება"
+msgstr "ავატარების ჩვენება"
 
 #: src/settings/AppearanceSettingsPage.qml:324
 #, kde-format
@@ -5806,49 +5787,49 @@ msgctxt "As in the default notification setting"
 msgid "Default Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
-#: src/settings/RoomAdvancedPage.qml:21
+#: src/settings/RoomAdvancedPage.qml:20
 #, kde-format
 msgctxt "@window:title"
 msgid "Advanced"
 msgstr "დამატებით"
 
-#: src/settings/RoomAdvancedPage.qml:28
+#: src/settings/RoomAdvancedPage.qml:27
 #, kde-format
 msgctxt "@info:label"
 msgid "Room ID"
 msgstr "ოთახის ID"
 
-#: src/settings/RoomAdvancedPage.qml:33
+#: src/settings/RoomAdvancedPage.qml:32
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "ოთახის ID-ის კოპირება ბუფერში"
 
-#: src/settings/RoomAdvancedPage.qml:47
+#: src/settings/RoomAdvancedPage.qml:46
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "ოთახის ვერსია"
 
-#: src/settings/RoomAdvancedPage.qml:53
+#: src/settings/RoomAdvancedPage.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room"
 msgstr "ოთახის გაუმჯობესება"
 
-#: src/settings/RoomAdvancedPage.qml:78
+#: src/settings/RoomAdvancedPage.qml:77
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "ოთახის გაუმჯობესება"
 
-#: src/settings/RoomAdvancedPage.qml:82
+#: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "აირჩიეთ ახალი ვერსია"
 
-#: src/settings/RoomAdvancedPage.qml:90
+#: src/settings/RoomAdvancedPage.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
@@ -6591,214 +6572,214 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "ჩამატება სივრცეში"
 
-#: src/timeline/DelegateContextMenu.qml:160
+#: src/timeline/DelegateContextMenu.qml:162
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "პასუხი"
 
-#: src/timeline/DelegateContextMenu.qml:171
+#: src/timeline/DelegateContextMenu.qml:173
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "ნაკადში პასუხი"
 
-#: src/timeline/DelegateContextMenu.qml:195
+#: src/timeline/DelegateContextMenu.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "წაშლა…"
 
-#: src/timeline/DelegateContextMenu.qml:200
-#: src/timeline/DelegateContextMenu.qml:205
+#: src/timeline/DelegateContextMenu.qml:202
+#: src/timeline/DelegateContextMenu.qml:207
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "შეტყობინების წაშლა"
 
-#: src/timeline/DelegateContextMenu.qml:201
+#: src/timeline/DelegateContextMenu.qml:203
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this message"
 msgstr "ამ შეტყობინების წაშლის მიზეზი"
 
-#: src/timeline/DelegateContextMenu.qml:202
+#: src/timeline/DelegateContextMenu.qml:204
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: src/timeline/DelegateContextMenu.qml:220
+#: src/timeline/DelegateContextMenu.qml:222
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "გადაგზავნა…"
 
-#: src/timeline/DelegateContextMenu.qml:226
+#: src/timeline/DelegateContextMenu.qml:228
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "შეტყობინების გადაგზავნა"
 
-#: src/timeline/DelegateContextMenu.qml:240
+#: src/timeline/DelegateContextMenu.qml:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "გამოსახულების გახსნა"
 
-#: src/timeline/DelegateContextMenu.qml:242
+#: src/timeline/DelegateContextMenu.qml:244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "აუდიოს გახსნა"
 
-#: src/timeline/DelegateContextMenu.qml:244
+#: src/timeline/DelegateContextMenu.qml:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "ვიდეოს გახსნა"
 
-#: src/timeline/DelegateContextMenu.qml:246
+#: src/timeline/DelegateContextMenu.qml:248
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/timeline/DelegateContextMenu.qml:259
+#: src/timeline/DelegateContextMenu.qml:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "გამოსახულების შენახვა…"
 
-#: src/timeline/DelegateContextMenu.qml:261
+#: src/timeline/DelegateContextMenu.qml:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "აუდიოს შენახვა…"
 
-#: src/timeline/DelegateContextMenu.qml:263
+#: src/timeline/DelegateContextMenu.qml:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "ვიდეოს შენახვა…"
 
-#: src/timeline/DelegateContextMenu.qml:265
+#: src/timeline/DelegateContextMenu.qml:267
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "ფაილის შენახვა…"
 
-#: src/timeline/DelegateContextMenu.qml:280
+#: src/timeline/DelegateContextMenu.qml:282
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "გამოსახულების კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:282
+#: src/timeline/DelegateContextMenu.qml:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "აუდიოს კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:284
+#: src/timeline/DelegateContextMenu.qml:286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "ვიდეოს კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:286
+#: src/timeline/DelegateContextMenu.qml:288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "ფაილის კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:296
+#: src/timeline/DelegateContextMenu.qml:298
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "ბმულის მისამართის კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:304
+#: src/timeline/DelegateContextMenu.qml:306
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "ტექსტის კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:310
+#: src/timeline/DelegateContextMenu.qml:312
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "შეტყობინების ბმულის კოპირება"
 
-#: src/timeline/DelegateContextMenu.qml:318
+#: src/timeline/DelegateContextMenu.qml:320
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "ანგარიში…"
 
-#: src/timeline/DelegateContextMenu.qml:323
+#: src/timeline/DelegateContextMenu.qml:325
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
 
-#: src/timeline/DelegateContextMenu.qml:324
+#: src/timeline/DelegateContextMenu.qml:326
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this message"
 msgstr "ამ შეტყობინების შესახებ ანგარიშის გაგზავნის მიზეზი"
 
-#: src/timeline/DelegateContextMenu.qml:326
+#: src/timeline/DelegateContextMenu.qml:328
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "ანგარიში"
 
-#: src/timeline/DelegateContextMenu.qml:328
+#: src/timeline/DelegateContextMenu.qml:330
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
 
-#: src/timeline/DelegateContextMenu.qml:340
+#: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "'%1'-ის მოძებნა"
 
-#: src/timeline/DelegateContextMenu.qml:360
+#: src/timeline/DelegateContextMenu.qml:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "ვებ-მალსახმობების მორგება…"
 
-#: src/timeline/DelegateContextMenu.qml:368
+#: src/timeline/DelegateContextMenu.qml:373
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "ტექსტის წაკითხვა ხმამაღლა"
 
-#: src/timeline/DelegateContextMenu.qml:371
+#: src/timeline/DelegateContextMenu.qml:376
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1-მა თქვა %2"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "ჩამოხსნა"
 
-#: src/timeline/DelegateContextMenu.qml:390
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "მიმაგრება"
 
-#: src/timeline/DelegateContextMenu.qml:403
+#: src/timeline/DelegateContextMenu.qml:408
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
