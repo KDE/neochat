@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:43+0000\n"
-"PO-Revision-Date: 2025-09-02 04:56+0200\n"
+"POT-Creation-Date: 2025-09-04 00:42+0000\n"
+"PO-Revision-Date: 2025-09-03 04:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1557,8 +1557,9 @@ msgstr ""
 "არასწორი ან ცარიელი Matrix id<br />%1 Matrix-ის არასწორი იდენტიფიკატორია"
 
 #: src/app/roommanager.cpp:414
-#, kde-format
-msgid "Failed to join room<br />%1"
+#, fuzzy, kde-format
+#| msgid "Failed to join room<br />%1"
+msgid "Failed to join %1:<br />%2"
 msgstr "ოთახში შესვლის შეცდომა<br />%1"
 
 #: src/app/roommanager.cpp:438
@@ -3779,9 +3780,7 @@ msgstr[0] "%2-ის რეაქცია იყო %3"
 msgstr[1] "%2-ის რეაქცია იყო %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3789,9 +3788,7 @@ msgstr[0] "%1 ხმა"
 msgstr[1] "%1 ხმა"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"

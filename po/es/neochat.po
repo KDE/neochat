@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:43+0000\n"
-"PO-Revision-Date: 2025-09-02 16:37+0100\n"
+"POT-Creation-Date: 2025-09-04 00:42+0000\n"
+"PO-Revision-Date: 2025-09-03 22:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1586,8 +1586,9 @@ msgstr ""
 "correcto"
 
 #: src/app/roommanager.cpp:414
-#, kde-format
-msgid "Failed to join room<br />%1"
+#, fuzzy, kde-format
+#| msgid "Failed to join room<br />%1"
+msgid "Failed to join %1:<br />%2"
 msgstr "No se ha podido unir a la sala<br />%1"
 
 #: src/app/roommanager.cpp:438
@@ -3809,9 +3810,7 @@ msgstr[0] "%2 ha reaccionado con %3"
 msgstr[1] "%2 han reaccionado con %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3819,9 +3818,7 @@ msgstr[0] "%1 voto"
 msgstr[1] "%1 votos"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"

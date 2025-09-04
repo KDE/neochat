@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:43+0000\n"
-"PO-Revision-Date: 2025-09-02 09:26+0200\n"
+"POT-Creation-Date: 2025-09-04 00:42+0000\n"
+"PO-Revision-Date: 2025-09-03 07:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1575,8 +1575,9 @@ msgstr ""
 "Matrix"
 
 #: src/app/roommanager.cpp:414
-#, kde-format
-msgid "Failed to join room<br />%1"
+#, fuzzy, kde-format
+#| msgid "Failed to join room<br />%1"
+msgid "Failed to join %1:<br />%2"
 msgstr "Neuspela pridružitev v sobo<br />%1"
 
 #: src/app/roommanager.cpp:438
@@ -3798,9 +3799,7 @@ msgstr[2] "%2 sta se odzvala z %3"
 msgstr[3] "%2 so se odzvali z %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3810,15 +3809,13 @@ msgstr[2] "%1 Glasova"
 msgstr[3] "%1 Glasovi"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Glede na glasove %1 uporabnikov"
-msgstr[1] "Glede na glas %1 uporabnika"
-msgstr[2] "Glede na glasova %1 uporabnikov"
+msgstr[1] "Glede na glasove %1 uporabnika"
+msgstr[2] "Glede na glasove %1 uporabnikov"
 msgstr[3] "Glede na glasove %1 uporabnikov"
 
 #: src/messagecontent/PollComponent.qml:130
