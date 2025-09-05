@@ -5,8 +5,6 @@
 
 using namespace Quotient;
 
-// TODO search only in the current room
-
 SearchModel::SearchModel(QObject *parent)
     : MessageModel(parent)
 {
@@ -37,7 +35,8 @@ void SearchModel::search()
         clearEventObjects();
 
         beginResetModel();
-        m_result = std::nullopt;
+        m_nextBatch.clear();
+        m_results.clear();
         endResetModel();
         return;
     }
@@ -65,43 +64,56 @@ void SearchModel::search()
         .groupings = std::nullopt,
     };
 
-    auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria});
+    auto job = m_room->connection()->callApi<SearchJob>(SearchJob::Categories{criteria}, m_nextBatch);
     m_job = job;
     connect(job, &BaseJob::finished, this, [this, job] {
         clearEventObjects();
 
-        beginResetModel();
-        m_result = job->searchCategories().roomEvents;
-
-        if (m_result.has_value()) {
-            for (const auto &result : m_result.value().results) {
+        auto results = job->searchCategories().roomEvents;
+        if (results.has_value()) {
+            beginInsertRows({}, rowCount({}), rowCount({}) + int(results->results.size()) - 1);
+            for (const auto &result : results.value().results) {
                 Q_EMIT newEventAdded(result.result.get());
             }
+            std::move(results->results.begin(), results->results.end(), std::back_inserter(m_results));
+            endInsertRows();
+
+            m_nextBatch = results->nextBatch;
+        } else {
+            m_nextBatch.clear();
         }
 
-        endResetModel();
         setSearching(false);
         m_job = nullptr;
         // TODO error handling
     });
 }
 
+void SearchModel::fetchMore(const QModelIndex &parent)
+{
+    Q_UNUSED(parent)
+    search();
+}
+
+bool SearchModel::canFetchMore(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent)
+    return !m_nextBatch.isEmpty() && !searching();
+}
+
 std::optional<std::reference_wrapper<const RoomEvent>> SearchModel::getEventForIndex(QModelIndex index) const
 {
-    if (!m_result.has_value()) {
+    if (m_results.empty()) {
         return std::nullopt;
     }
 
-    return *m_result.value().results.at(index.row()).result.get();
+    return *m_results.at(index.row()).result.get();
 }
 
 int SearchModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    if (m_result.has_value()) {
-        return m_result->results.size();
-    }
-    return 0;
+    return m_results.size();
 }
 
 bool SearchModel::searching() const

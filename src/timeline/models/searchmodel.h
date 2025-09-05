@@ -65,6 +65,9 @@ public:
      */
     Q_INVOKABLE void search();
 
+    void fetchMore(const QModelIndex &parent) override;
+    bool canFetchMore(const QModelIndex &parent) const override;
+
 Q_SIGNALS:
     void searchTextChanged();
     void roomChanged();
@@ -77,8 +80,9 @@ private:
     void setSearching(bool searching);
 
     QString m_searchText;
-    std::optional<Quotient::SearchJob::ResultRoomEvents> m_result = std::nullopt;
+    std::vector<Quotient::SearchJob::Result> m_results;
     Quotient::SearchJob *m_job = nullptr;
     bool m_searching = false;
     QString m_senderId;
+    QString m_nextBatch;
 };
