@@ -141,6 +141,12 @@ void NeoChatConnection::connectSignals()
             });
         },
         Qt::SingleShotConnection);
+
+    connect(this, &Connection::sessionVerified, this, [this](const QString &userId, const QString &deviceId) {
+        if (userId == this->userId() && deviceId == this->deviceId()) {
+            Q_EMIT ownSessionVerified();
+        }
+    });
 }
 
 int NeoChatConnection::badgeNotificationCount() const

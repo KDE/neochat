@@ -90,6 +90,11 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool enablePushNotifications READ enablePushNotifications NOTIFY enablePushNotificationsChanged)
 
+    /**
+     * @brief True if this connection is a verified session.
+     */
+    Q_PROPERTY(bool isVerifiedSession READ isVerifiedSession NOTIFY ownSessionVerified)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -209,7 +214,7 @@ public:
     /**
      * @return True if this connection is a verified session.
      */
-    Q_INVOKABLE bool isVerifiedSession() const;
+    bool isVerifiedSession() const;
 
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
@@ -241,6 +246,11 @@ Q_SIGNALS:
      * @brief The given room ID is about to be forgotten.
      */
     void roomAboutToBeLeft(const QString &id);
+
+    /**
+     * @brief When the connection's own verification state changes.
+     */
+    void ownSessionVerified();
 
 private:
     static bool m_globalUrlPreviewDefault;

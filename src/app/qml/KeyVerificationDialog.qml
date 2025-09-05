@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtQuick.Window
 import QtQml
 
 import org.kde.kirigami as Kirigami
@@ -170,6 +171,7 @@ Kirigami.Page {
                     return "";
                 }
             }
+            onDone: root.QQC2.Window.window.close()
         }
     }
 
