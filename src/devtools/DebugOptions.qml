@@ -29,7 +29,7 @@ FormCard.FormCard {
     }
     FormCard.FormCheckDelegate {
         id: roomAccountDataVisibleCheck
-        text: i18nc("@option:check Enable the matrix 'threads' feature", "Always allow device verification")
+        text: i18nc("@option:check", "Always allow device verification")
         description: i18n("Allow the user to start a verification session with devices that were already verified")
         checked: NeoChatConfig.alwaysVerifyDevice
 
