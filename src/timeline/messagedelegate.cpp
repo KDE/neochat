@@ -634,7 +634,7 @@ void MessageDelegateBase::hoverEnterEvent(QHoverEvent *event)
 void MessageDelegateBase::hoverMoveEvent(QHoverEvent *event)
 {
     bool oldHovered = m_hovered;
-    m_hovered = contains(event->pos());
+    m_hovered = contains(event->position());
     if (oldHovered != m_hovered) {
         Q_EMIT hoveredChanged();
     }
