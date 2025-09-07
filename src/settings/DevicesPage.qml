@@ -38,7 +38,7 @@ FormCard.FormCardPage {
             icon.name: "security-low"
             text: i18nc("@action:button", "Verify This Device")
             description: i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
-            visible: !root.connection.isVerifiedSession
+            visible: !root.connection.isVerifiedSession || NeoChatConfig.alwaysVerifyDevice
             onClicked: {
                 root.connection.startSelfVerification();
                 const dialog = Qt.createComponent("org.kde.kirigami", "PromptDialog").createObject(QQC2.Overlay.overlay, {
