@@ -171,7 +171,8 @@ Kirigami.Page {
                     return "";
                 }
             }
-            onDone: root.QQC2.Window.window.close()
+            isDone: root.session.state === KeyVerificationSession.DONE
+            onDone: root.closeDialog()
         }
     }
 

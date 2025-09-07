@@ -13,6 +13,9 @@ ColumnLayout {
 
     required property string icon
     required property string text
+    required property bool isDone
+
+    signal done
 
     anchors.fill: parent
 
@@ -31,6 +34,14 @@ ColumnLayout {
         textFormat: Text.MarkdownText
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
+    }
+    QQC2.Button {
+        text: i18nc("@action:button Done, we are finished with verification", "Done")
+        visible: root.isDone
+        onClicked: root.done()
+
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.alignment: Qt.AlignHCenter
     }
     Item {
         Layout.fillHeight: true
