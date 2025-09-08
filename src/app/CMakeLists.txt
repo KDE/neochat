@@ -48,6 +48,8 @@ if(ANDROID OR WIN32)
     set_source_files_properties(qml/GlobalMenuStub.qml PROPERTIES
             QT_QML_SOURCE_TYPENAME GlobalMenu
     )
+else()
+    set(EXTRA_IMPORTS org.kde.purpose)
 endif()
 
 ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
@@ -117,8 +119,8 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.neochat.login
         org.kde.neochat.chatbar
         org.kde.config
-        org.kde.purpose
         org.kde.syntaxhighlighting
+        ${EXTRA_IMPORTS}
 )
 
 if(NOT ANDROID AND NOT WIN32)
