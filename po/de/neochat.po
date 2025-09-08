@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2025-01-08 15:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -732,14 +732,14 @@ msgstr "Warten auf Verifizierung durch Gegenseite."
 msgid "Successfully verified device **%1**"
 msgstr "Gerät **%1** erfolgreich verifiziert"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "The session verification timed out."
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Zeitüberschreitung während der Sitzungsverifizierung."
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, fuzzy, kde-format
 #| msgid "Emoji Verification"
 msgctxt "@action:button"
@@ -1663,24 +1663,30 @@ msgid "The session verification was canceled due to an unknown error."
 msgstr ""
 "Die Sitzungsverifizierung wurde wegen eines unbekannten Fehlers abgebrochen."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Ungültige oder leere Matrix-Kennung<br />%1 ist keine korrekte Matrix-Kennung"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Raum kann nicht betreten werden<br />%1"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room<br />%1"
@@ -1924,8 +1930,10 @@ msgid "This includes state events"
 msgstr "Statusänderungen anzeigen"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Geräteverifizierung immer zulassen"
 

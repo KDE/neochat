@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -726,14 +726,14 @@ msgstr "दूसरे पक्ष के सत्यापन की प्�
 msgid "Successfully verified device **%1**"
 msgstr "डिवाइस **%1** का सफलतापूर्वक सत्यापन किया गया"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "The session verification timed out."
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "सत्र सत्यापन का समय समाप्त हो गया."
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, fuzzy, kde-format
 #| msgid "Emoji Verification"
 msgctxt "@action:button"
@@ -1629,23 +1629,29 @@ msgstr "दूरस्थ पार्टी ने सत्र सत्य�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "अज्ञात त्रुटि के कारण सत्र सत्यापन रद्द कर दिया गया."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत या रिक्त मैट्रिक्स आईडी<br /> %1 सही मैट्रिक्स पहचानकर्ता नहीं है"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कमरे में शामिल होने में विफल<br /> %1"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "आपने '%1' में शामिल होने का अनुरोध किया"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "कमरे में शामिल होने का अनुरोध विफल<br /> %1"
@@ -1887,8 +1893,10 @@ msgid "This includes state events"
 msgstr "राज्य की घटनाएँ दिखाएँ"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "डिवाइस सत्यापन की हमेशा अनुमति दें"
 

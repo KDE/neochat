@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2025-08-10 21:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -714,13 +714,13 @@ msgstr "மறுதரப்பினர் உறுதிசெய்ய க�
 msgid "Successfully verified device **%1**"
 msgstr "**%1** சாதனம் வெற்றிகரமாக உறுதிப்படுத்தப்பட்டுள்ளது"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "தோடர உறுதிப்படுத்தும் முறையை தேர்ந்தெடுக்கவும்"
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1615,6 +1615,12 @@ msgstr "சாவிகள் பொருந்தாமையால் தொ�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -1622,18 +1628,18 @@ msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது<br />%1"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -1873,8 +1879,10 @@ msgid "This includes state events"
 msgstr "நிலைமாற்ற நிகழ்வுகளை காட்டு"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "சாதன உறுதிப்பாட்டை எப்போதும் அனுமதி"
 

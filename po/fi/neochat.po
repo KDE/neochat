@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2025-07-31 09:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -705,13 +705,13 @@ msgstr "Odotetaan toisen osapuolen vahvistusta."
 msgid "Successfully verified device **%1**"
 msgstr "Laitteen **%1** vahvistaminen onnistui"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Jatka valitsemalla todennustapa"
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1602,6 +1602,12 @@ msgstr "Etäosapuoli perui istunnon vahvistamisen, koska avaimet eivät täsmä�
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Istunnon vahvistaminen peruttiin tuntemattomasta syystä."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
@@ -1609,18 +1615,18 @@ msgstr ""
 "Virheellinen tai tyhjä Matrix-tunniste<br />%1 ei ole kelvollinen Matrix-"
 "tunniste"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Huoneeseen liittyminen epäonnistui<br />%1"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pyysit liittyä huoneeseen ”%1”"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Pyyntö liittyä huoneeseen epäonnistui<br />%1"
@@ -1858,8 +1864,10 @@ msgid "This includes state events"
 msgstr "Sisältää tilatapahtumat"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Salli laitteen vahvistaminen aina"
 

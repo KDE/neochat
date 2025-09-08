@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2025-08-08 02:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -705,13 +705,13 @@ msgstr "正在等待對方驗證。"
 msgid "Successfully verified device **%1**"
 msgstr "已成功驗證裝置 **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "選擇驗證方法來繼續"
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1580,23 +1580,29 @@ msgstr "遠端由於雙方金鑰不相符而取消了工作階段驗證。"
 msgid "The session verification was canceled due to an unknown error."
 msgstr "工作階段驗證由於不明錯誤而取消。"
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "加入聊天室失敗<br />%1"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您已請求加入 '%1'"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "請求加入聊天室失敗<br />%1"
@@ -1831,8 +1837,10 @@ msgid "This includes state events"
 msgstr "這包含狀態事件"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "總是允許裝置驗證"
 

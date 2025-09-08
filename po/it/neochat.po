@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
-"PO-Revision-Date: 2025-08-25 08:38+0200\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
+"PO-Revision-Date: 2025-09-04 17:19+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -700,13 +700,13 @@ msgstr "In attesa che l'altra parte verifichi."
 msgid "Successfully verified device **%1**"
 msgstr "Dispositivo **%1** verificato correttamente"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Scegli un metodo di verifica per continuare"
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1030,15 +1030,13 @@ msgid "Message Source"
 msgstr "Sorgente del messaggio"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "Aggiungi nuovo server"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "Server principale"
@@ -1062,22 +1060,19 @@ msgid "Add server"
 msgstr "Aggiungi server"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "Il testo digitato non è un URL valido"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "Questo server non può essere risolto o è già stato aggiunto"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "URL del server:"
@@ -1338,12 +1333,10 @@ msgid "Invite to private chat"
 msgstr "Invita in chat privata"
 
 #: src/app/qml/UserDetailDialog.qml:278
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
-msgstr "Cerca messaggi"
+msgstr "Cerca nella stanza i messaggi di %1"
 
 #: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
 #, kde-format
@@ -1375,22 +1368,19 @@ msgid "Find Your Friends"
 msgstr "Trova i tuoi amici"
 
 #: src/app/qml/UserSearchPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "Amici"
 
 #: src/app/qml/UserSearchPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Trova i tuoi amici…"
 
 #: src/app/qml/UserSearchPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Digita del testo per iniziare a cercare i tuoi amici"
@@ -1585,24 +1575,29 @@ msgstr ""
 "La verifica della sessione è stata annullata a causa di un errore "
 "sconosciuto."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "ID Matrix non valido o vuoto<br />%1 non è un identificatore Matrix corretto"
 
-#: src/app/roommanager.cpp:414
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#: src/app/roommanager.cpp:418
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "Accesso alla stanza non riuscito<br />%1"
+msgstr "Impossibile unirsi a %1:<br />%2"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Hai chiesto di unirti a «%1»"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Impossibile richiedere l'accesso alla stanza<br />%1"
@@ -1692,29 +1687,25 @@ msgid "Cancel reply"
 msgstr "Annulla la risposta"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No stickers"
+#, kde-format
 msgctxt "@info"
 msgid "No stickers"
 msgstr "Nessun adesivo"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "@info"
 msgid "No emojis"
 msgstr "Nessun emoji"
 
 #: src/chatbar/EmojiPicker.qml:56
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "Emoji"
 
 #: src/chatbar/EmojiPicker.qml:63
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Adesivi"
@@ -1833,8 +1824,10 @@ msgid "This includes state events"
 msgstr "Ciò include eventi di stato"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Consenti sempre la verifica del dispositivo"
 
@@ -3759,8 +3752,7 @@ msgstr "Caricamento dell'anteprima dell'URL"
 
 #: src/messagecontent/LoadComponent.qml:30
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Caricamento…"
@@ -3788,11 +3780,10 @@ msgstr ""
 "visualizzarlo oppure è stato inviato da un utente ignorato"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Loading reply"
+#, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr "Caricamento risposta"
+msgstr "Caricamento della risposta…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
@@ -3829,9 +3820,7 @@ msgstr[0] "%2 ha reagito con %3"
 msgstr[1] "%2 hanno reagito con %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3839,9 +3828,7 @@ msgstr[0] "%1 voto"
 msgstr[1] "%1 voti"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -4125,8 +4112,7 @@ msgid "%1 invited you"
 msgstr "%1 ti ha invitato"
 
 #: src/rooms/RoomContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Marca come letto"
@@ -4164,29 +4150,25 @@ msgid "Off"
 msgstr "Spento"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "Rimuovi dai preferiti"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "Aggiungi ai preferiti"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Reprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "Modifica la priorità"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Deprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Riduci priorità"
@@ -4204,8 +4186,7 @@ msgid "Room Settings"
 msgstr "Impostazioni della stanza"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Abbandona la stanza…"
@@ -4527,8 +4508,7 @@ msgid "Appearance"
 msgstr "Aspetto"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:group"
 msgid "General"
 msgstr "Generale"
@@ -4539,12 +4519,10 @@ msgid "Use compact room list"
 msgstr "Usa l'elenco  delle stanze compatto"
 
 #: src/settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
-msgstr "Sorgente del messaggio"
+msgstr "Struttura del messaggio"
 
 #: src/settings/AppearanceSettingsPage.qml:143
 #, kde-format
@@ -4577,15 +4555,13 @@ msgid "Show your messages on the right"
 msgstr "Mostra i tuoi messaggi sulla destra"
 
 #: src/settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
-msgstr "Mostra l'anteprima dei collegamenti nei messaggi di chat"
+msgstr "Mostra l'anteprima dei collegamenti nei messaggi"
 
 #: src/settings/AppearanceSettingsPage.qml:320
-#, fuzzy, kde-format
-#| msgid "Show Avatar"
+#, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Mostra avatar"
@@ -6659,16 +6635,13 @@ msgid "Add to Space"
 msgstr "Aggiungi a spazio"
 
 #: src/timeline/DelegateContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Rispondi"
 
 #: src/timeline/DelegateContextMenu.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Rispondi nella conversazione"
@@ -6833,15 +6806,13 @@ msgid "Report Message"
 msgstr "Messaggio della segnalazione"
 
 #: src/timeline/DelegateContextMenu.qml:342
-#, fuzzy, kde-format
-#| msgid "Search for '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
 #: src/timeline/DelegateContextMenu.qml:365
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Configura le scorciatoie web…"
@@ -6871,8 +6842,7 @@ msgid "Pin"
 msgstr "Appunta"
 
 #: src/timeline/DelegateContextMenu.qml:408
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Visualizza sorgente"

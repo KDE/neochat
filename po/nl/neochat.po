@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2025-09-04 17:00+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -701,13 +701,13 @@ msgstr "Wacht op andere partij om te verifiëren."
 msgid "Successfully verified device **%1**"
 msgstr "Apparaat **%1** is met succes geverifieerd"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Een verificatiemethode kiezen om door te gaan"
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1574,23 +1574,29 @@ msgstr ""
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verificatie van de sessie is geannuleerd vanwege een onbekende fout."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Onjuist gevormde of lege Matrix-id<br />%1 is geen juiste Matrix-identifier"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Deelnemen aan %1 is mislukt<br />%2"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "U verzocht om mee te doen met '%1'"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Verzoek om mee te doen met room is mislukt<br />%1"
@@ -1816,8 +1822,10 @@ msgid "This includes state events"
 msgstr "Dit omvat status van gebeurtenissen"
 
 #: src/devtools/DebugOptions.qml:32
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
+#, fuzzy, kde-format
+#| msgctxt "@option:check Enable the matrix 'threads' feature"
+#| msgid "Always allow device verification"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Altijd verificatie van apparaat toestaan."
 

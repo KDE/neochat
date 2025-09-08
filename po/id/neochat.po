@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-07 00:42+0000\n"
+"POT-Creation-Date: 2025-09-08 00:43+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -763,14 +763,14 @@ msgstr "Menunggu pihak lain untuk memverifikasi."
 msgid "Successfully verified device **%1**"
 msgstr "Berhasil memverifikasi peranti **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:185
+#: src/app/qml/KeyVerificationDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "The session verification timed out."
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Verifikasi sesi kehabisan waktu."
 
-#: src/app/qml/KeyVerificationDialog.qml:189
+#: src/app/qml/KeyVerificationDialog.qml:190
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgctxt "@action:button"
@@ -1702,24 +1702,30 @@ msgstr "Pihak jarak jauh membatalkan verifikasi sesi karena kunci tidak cocok."
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."
 
+#: src/app/qml/VerificationMessage.qml:39
+#, kde-format
+msgctxt "@action:button Done, we are finished with verification"
+msgid "Done"
+msgstr ""
+
 #: src/app/roommanager.cpp:208
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 bukan pengenal Matrix yang benar"
 
-#: src/app/roommanager.cpp:414
+#: src/app/roommanager.cpp:418
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgid "Failed to join %1:<br />%2"
 msgstr "Gagal bergabung dengan ruangan"
 
-#: src/app/roommanager.cpp:438
+#: src/app/roommanager.cpp:442
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Anda meminta untuk bergabung ke '%1'"
 
-#: src/app/roommanager.cpp:442
+#: src/app/roommanager.cpp:446
 #, fuzzy, kde-format
 #| msgid "Failed to request joining room"
 msgid "Failed to request joining room<br />%1"
@@ -1968,7 +1974,7 @@ msgstr "Tampilkan peristiwa keadaan"
 #: src/devtools/DebugOptions.qml:32
 #, fuzzy, kde-format
 #| msgid "Waiting for device to accept verification."
-msgctxt "@option:check Enable the matrix 'threads' feature"
+msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Menunggu peranti untuk menerima verifikasi."
 
