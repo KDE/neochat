@@ -93,6 +93,9 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(memberId);
     }
     if (role == PowerLevelRole) {
+        if (m_currentRoom->isCreator(memberId)) {
+            return std::numeric_limits<int>::max();
+        }
         auto plEvent = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
         if (!plEvent) {
             return 0;
@@ -117,6 +120,9 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
                      "%1 (%2)",
                      PowerLevel::nameForLevel(PowerLevel::levelForValue(userPl)),
                      userPl);
+    }
+    if (role == IsCreatorRole) {
+        return m_currentRoom->isCreator(memberId);
     }
 
     return {};
@@ -219,6 +225,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     roles[ObjectRole] = "user";
     roles[PowerLevelRole] = "powerLevel";
     roles[PowerLevelStringRole] = "powerLevelString";
+    roles[IsCreatorRole] = "isCreator";
 
     return roles;
 }

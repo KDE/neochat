@@ -22,6 +22,8 @@ FormCard.FormCardPage {
 
     title: i18nc('@title:window', 'Permissions')
 
+    readonly property bool loading: permissions.count === 0 && !root.room.roomCreatorHasUltimatePowerLevel()
+
     readonly property PowerLevelModel powerLevelModel: PowerLevelModel {
         showMute: false
     }
@@ -32,10 +34,11 @@ FormCard.FormCardPage {
 
     FormCard.FormHeader {
         title: i18nc("@title", "Privileged Users")
-        visible: permissions.count > 0
+        visible: !root.loading
     }
     FormCard.FormCard {
-        visible: permissions.count > 0
+        visible: !root.loading
+
         Repeater {
             id: permissions
             model: KSortFilterProxyModel {
@@ -53,6 +56,7 @@ FormCard.FormCardPage {
                 required property string name
                 required property int powerLevel
                 required property string powerLevelString
+                required property bool isCreator
 
                 text: name
                 textItem.textFormat: Text.PlainText
@@ -62,7 +66,7 @@ FormCard.FormCardPage {
                     QQC2.Label {
                         id: powerLevelLabel
                         text: privilegedUserDelegate.powerLevelString
-                        visible: !root.room.canSendState("m.room.power_levels") || (root.room.memberEffectivePowerLevel(root.room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != root.room.localMember.id)
+                        visible: (!root.room.canSendState("m.room.power_levels") || (root.room.memberEffectivePowerLevel(root.room.localMember.id) <= privilegedUserDelegate.powerLevel && privilegedUserDelegate.userId != root.room.localMember.id)) || privilegedUserDelegate.isCreator
                         color: Kirigami.Theme.disabledTextColor
                     }
                     QQC2.ComboBox {
@@ -400,7 +404,7 @@ FormCard.FormCardPage {
     }
 
     Item {
-        visible: permissions.count === 0
+        visible: root.loading
         Layout.fillWidth: true
         implicitHeight: root.height * 0.9
         Kirigami.LoadingPlaceholder {
