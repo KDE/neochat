@@ -3,8 +3,10 @@
 
 import QtQuick
 
+import org.kde.kirigami as Kirigami
 import org.kde.neochat
 
 Item {
     required property NeoChatConnection connection
+    required property Kirigami.ApplicationWindow appWindow
 }
