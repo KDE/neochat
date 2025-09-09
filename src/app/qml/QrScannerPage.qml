@@ -27,9 +27,26 @@ Kirigami.Page {
         }
     }
 
+    MediaDevices {
+        id: devices
+    }
+
+    Rectangle {
+        anchors.fill: parent
+
+        color: Kirigami.Theme.backgroundColor
+        visible: devices.videoInputs.length === 0
+
+        Kirigami.PlaceholderMessage {
+            text: i18nc("@info", "No Camera Connected")
+            anchors.centerIn: parent
+        }
+    }
+
     VideoOutput {
         id: viewFinder
         anchors.centerIn: parent
+        visible: devices.videoInputs.length > 0
     }
 
     Prison.VideoScanner {
@@ -47,6 +64,8 @@ Kirigami.Page {
     }
 
     CaptureSession {
+        id: session
+
         camera: Camera {
             id: camera
         }

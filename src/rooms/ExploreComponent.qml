@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 
@@ -24,6 +25,10 @@ RowLayout {
      * @brief Emitted when the text is changed in the search field.
      */
     signal textChanged(string newText)
+
+    MediaDevices {
+        id: devices
+    }
 
     Kirigami.Heading {
         Layout.fillWidth: true
@@ -101,6 +106,7 @@ RowLayout {
             QQC2.MenuItem {
                 text: i18n("Scan a QR Code")
                 icon.name: "view-barcode-qr"
+                visible: devices.videoInputs.length > 0
                 onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage"), {
                     connection: root.connection
                 }, {
