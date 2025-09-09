@@ -33,6 +33,8 @@ target_sources(LibNeoChat PRIVATE
     events/imagepackevent.cpp
     events/pollevent.cpp
     jobs/neochatgetcommonroomsjob.cpp
+    jobs/neochatreportroomjob.cpp
+    jobs/neochatreportuserjob.cpp
     models/actionsmodel.cpp
     models/completionmodel.cpp
     models/completionproxymodel.cpp
