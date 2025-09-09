@@ -81,7 +81,7 @@ void LinkPreviewer::loadUrlPreview()
         };
 
         if (conn->supportedMatrixSpecVersions().contains("v1.11"_L1)) {
-            conn->callApi<GetUrlPreviewAuthedJob>(m_url);
+            conn->callApi<GetUrlPreviewAuthedJob>(m_url).onResult(onSuccess);
         } else {
             QT_IGNORE_DEPRECATIONS(conn->callApi<GetUrlPreviewJob>(m_url).onResult(onSuccess);)
         }
