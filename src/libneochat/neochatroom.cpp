@@ -1744,12 +1744,12 @@ NeochatRoomMember *NeoChatRoom::qmlSafeMember(const QString &memberId)
     }
 
     if (!m_memberObjects.contains(memberId)) {
-        auto member = m_memberObjects.emplace(memberId, std::make_unique<NeochatRoomMember>(this, memberId)).first->second.get();
+        auto member = m_memberObjects.emplace(memberId, new NeochatRoomMember(this, memberId)).first->second;
         QQmlEngine::setObjectOwnership(member, QQmlEngine::CppOwnership);
         return member;
     }
 
-    return m_memberObjects[memberId].get();
+    return m_memberObjects[memberId];
 }
 
 void NeoChatRoom::pinEvent(const QString &eventId)

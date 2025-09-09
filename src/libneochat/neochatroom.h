@@ -642,7 +642,7 @@ private:
     void cleanupExtraEventRange(Quotient::RoomEventsRange events);
     void cleanupExtraEvent(const QString &eventId);
 
-    std::unordered_map<QString, std::unique_ptr<NeochatRoomMember>> m_memberObjects;
+    std::unordered_map<QString, NeochatRoomMember *> m_memberObjects;
     static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
 
 private Q_SLOTS:
