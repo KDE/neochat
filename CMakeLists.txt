@@ -148,7 +148,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 
 option(WITH_UNIFIEDPUSH "Build with KUnifiedPush support" ON)
 
-if (ANDROID OR APPLE OR WIN32 OR HAIKU)
+if (APPLE OR WIN32 OR HAIKU)
     set(WITH_UNIFIEDPUSH OFF)
 endif()
 
