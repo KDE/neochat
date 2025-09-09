@@ -358,7 +358,11 @@ Kirigami.ApplicationWindow {
             user: user,
             connection: root.connection,
         }) as UserDetailDialog;
-        dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
+        // FIXME: The reason why we don't want the focusedWindowItem for the room null case (aka QR codes) is because it will parent it to the soon-to-be-destroyed window item.
+        // But this won't be a problem if we turn it into a Kirigami.Dialog or some other in-scene item, which it really should be.
+        if (room != null) {
+            dialog.parent = QmlUtils.focusedWindowItem(); // Kirigami Dialogs overwrite the parent, so we need to set it again
+        }
         dialog.open();
     }
 

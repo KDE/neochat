@@ -209,9 +209,16 @@ void RoomManager::resolveResource(Uri uri, const QString &action)
         return;
     }
 
-    if (uri.type() == Uri::NonMatrix && action == "qr"_L1) {
-        Q_EMIT externalUrl(uri.toUrl());
-        return;
+    if (action == "qr"_L1) {
+        if (uri.type() == Uri::NonMatrix) {
+            Q_EMIT externalUrl(uri.toUrl());
+            return;
+        }
+        if (uri.type() != Uri::UserId) {
+            uri.setAction(QStringLiteral("join"));
+        } else {
+            uri.setAction(action);
+        }
     }
 
     // For matrix URIs:
