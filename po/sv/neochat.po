@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-08 00:43+0000\n"
-"PO-Revision-Date: 2025-09-01 19:08+0200\n"
+"POT-Creation-Date: 2025-09-09 00:54+0000\n"
+"PO-Revision-Date: 2025-09-08 18:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -1027,15 +1027,13 @@ msgid "Message Source"
 msgstr "Meddelandekälla"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "Lägg till ny server"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "Hemserver"
@@ -1059,22 +1057,19 @@ msgid "Add server"
 msgstr "Lägg till server"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "Den angivna texten är inte en giltig webbadress"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "Servern kan inte lösas upp eller har redan lagts till"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "Serverwebbadress:"
@@ -1369,22 +1364,19 @@ msgid "Find Your Friends"
 msgstr "Sök efter dina vänner"
 
 #: src/app/qml/UserSearchPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "Vänner"
 
 #: src/app/qml/UserSearchPage.qml:81
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Sök efter dina vänner…"
 
 #: src/app/qml/UserSearchPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Skriv in text för att börja söka efter dina vänner"
@@ -1571,7 +1563,7 @@ msgstr "Sessionsverifikationen avbröts på grund av ett okänt fel."
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "Klar"
 
 #: src/app/roommanager.cpp:208
 #, kde-format
@@ -1581,10 +1573,9 @@ msgstr ""
 "identifierare"
 
 #: src/app/roommanager.cpp:418
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "Misslyckades gå med i rum<br />%1"
+msgstr "Misslyckades gå med i %1:<br />%2"
 
 #: src/app/roommanager.cpp:442
 #, kde-format
@@ -1816,9 +1807,7 @@ msgid "This includes state events"
 msgstr "Det inkluderar tillståndshändelser"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Tillåt alltid enhetsverifikation"
@@ -2069,7 +2058,7 @@ msgid "Custom"
 msgstr "Egen"
 
 #: src/libneochat/enums/powerlevel.cpp:88
-#: src/libneochat/models/userlistmodel.cpp:117
+#: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
 msgctxt ""
@@ -3098,7 +3087,7 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Egna emoji"
 
-#: src/libneochat/models/userlistmodel.cpp:104
+#: src/libneochat/models/userlistmodel.cpp:107
 #, kde-format
 msgctxt "@info the person that created this room"
 msgid "Creator"
@@ -3803,9 +3792,7 @@ msgstr[0] "%2 reagerade med %3"
 msgstr[1] "%2 reagerade med %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3813,9 +3800,7 @@ msgstr[0] "%1 röst"
 msgstr[1] "%1 röster"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -5737,43 +5722,43 @@ msgctxt "@label:textbox"
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: src/settings/Permissions.qml:34
+#: src/settings/Permissions.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Privileged Users"
 msgstr "Privilegierade användare"
 
-#: src/settings/Permissions.qml:229
+#: src/settings/Permissions.qml:233
 #, kde-format
 msgctxt "@title"
 msgid "Default permissions"
 msgstr "Normala rättigheter"
 
-#: src/settings/Permissions.qml:269
+#: src/settings/Permissions.qml:273
 #, kde-format
 msgctxt "@title"
 msgid "Basic permissions"
 msgstr "Grundrättigheter"
 
-#: src/settings/Permissions.qml:309
+#: src/settings/Permissions.qml:313
 #, kde-format
 msgctxt "@title"
 msgid "Event permissions"
 msgstr "Händelserättigheter"
 
-#: src/settings/Permissions.qml:356
+#: src/settings/Permissions.qml:360
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Händelsetyp…"
 
-#: src/settings/Permissions.qml:382
+#: src/settings/Permissions.qml:386
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Lägg till nyckelord"
 
-#: src/settings/Permissions.qml:408
+#: src/settings/Permissions.qml:412
 #, kde-format
 msgctxt "@placeholder"
 msgid "Loading…"
