@@ -293,5 +293,25 @@ Kirigami.Dialog {
             icon.name: "username-copy"
             onClicked: Clipboard.saveText("https://matrix.to/#/" + root.user.id)
         }
+
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report…")
+            icon.name: "dialog-warning-symbolic"
+            visible: root.connection.supportsMatrixSpecVersion("v1.13")
+            onClicked: {
+                let dialog = ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                    title: i18nc("@title:dialog", "Report User"),
+                    placeholder: i18nc("@info:placeholder", "Reason for reporting this user"),
+                    icon: "dialog-warning-symbolic",
+                    actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report")
+                }, {
+                    title: i18nc("@title", "Report User"),
+                    width: Kirigami.Units.gridUnit * 25
+                }) as ReasonDialog;
+                dialog.accepted.connect(reason => {
+                    root.connection.reportUser(root.user.id, reason);
+                });
+            }
+        }
     }
 }
