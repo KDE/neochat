@@ -53,6 +53,7 @@ public:
         IsChildSpaceRole, /**< Whether this space is a child of a different space. */
         ReplacementIdRole, /**< The room id of the room replacing this one, if any. */
         IsDirectChat, /**< Whether this room is a direct chat. */
+        NotificationCountRole, /**< Count of all notifications that also include non-notable events like unread messages. */
     };
     Q_ENUM(EventRoles)
 

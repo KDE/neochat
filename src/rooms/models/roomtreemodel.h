@@ -47,6 +47,7 @@ public:
         DelegateTypeRole,
         IconRole,
         RoomTypeRole, /**< The room's type. */
+        NotificationCountRole, /**< Count of all notifications that also include non-notable events like unread messages. */
     };
     Q_ENUM(EventRoles)
     explicit RoomTreeModel(QObject *parent = nullptr);

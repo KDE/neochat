@@ -119,7 +119,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room, {DisplayNameRole});
     });
     connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
+        refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
@@ -271,6 +271,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == IsDirectChat) {
         return room->isDirectChat();
     }
+    if (role == NotificationCountRole) {
+        return room->notificationCount();
+    }
 
     return QVariant();
 }
@@ -304,6 +307,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[RoomIdRole] = "roomId";
     roles[IsChildSpaceRole] = "isChildSpace";
     roles[IsDirectChat] = "isDirectChat";
+    roles[NotificationCountRole] = "notificationCount";
     return roles;
 }
 

@@ -21,6 +21,7 @@ Delegates.RoundedItemDelegate {
     required property url avatar
     required property string subtitleText
     required property string displayName
+    required property int notificationCount
 
     property bool openOnClick: true
     property bool openOnDrag: false
@@ -28,7 +29,8 @@ Delegates.RoundedItemDelegate {
 
     property bool collapsed: false
 
-    readonly property bool hasNotifications: contextNotificationCount > 0
+    readonly property bool hasNotableNotifications: contextNotificationCount > 0
+    readonly property bool hasUnreadMessages: notificationCount > 0
 
     dropAreaHovered: dropArea.containsDrag
 
@@ -86,7 +88,7 @@ Delegates.RoundedItemDelegate {
 
             notificationCount: root.contextNotificationCount
             notificationHighlight: root.hasHighlightNotifications
-            showNotificationLabel: root.hasNotifications && root.collapsed
+            showNotificationLabel: root.hasNotableNotifications && root.collapsed
             asynchronous: true
 
             Layout.preferredWidth: height
@@ -104,7 +106,7 @@ Delegates.RoundedItemDelegate {
 
                 text: root.displayName
                 elide: Text.ElideRight
-                font.weight: root.hasNotifications ? Font.Bold : Font.Normal
+                font.weight: root.hasUnreadMessages ? Font.Bold : Font.Normal
                 textFormat: Text.PlainText
 
                 Layout.fillWidth: true
@@ -117,7 +119,7 @@ Delegates.RoundedItemDelegate {
                 text: root.subtitleText
                 elide: Text.ElideRight
                 font: Kirigami.Theme.smallFont
-                opacity: root.hasNotifications ? 0.9 : 0.7
+                opacity: root.hasUnreadMessages ? 0.9 : 0.7
                 visible: !NeoChatConfig.compactRoomList && text.length > 0
                 textFormat: Text.PlainText
 
@@ -140,12 +142,12 @@ Delegates.RoundedItemDelegate {
             id: notificationCountLabel
 
             text: root.contextNotificationCount
-            visible: root.hasNotifications && !root.collapsed
+            visible: root.hasNotableNotifications && !root.collapsed
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             background: Rectangle {
-                visible: root.hasNotifications
+                visible: root.hasNotableNotifications
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                 Kirigami.Theme.inherit: false
                 color: root.hasHighlightNotifications > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor

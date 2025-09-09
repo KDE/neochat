@@ -171,7 +171,7 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
         refreshRoomRoles(room, {DisplayNameRole});
     });
     connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole});
+        refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
         if (room->isServerNoticeRoom()) {
             Q_EMIT invalidateSort();
         }
@@ -294,6 +294,7 @@ QHash<int, QByteArray> RoomTreeModel::roleNames() const
     roles[DelegateTypeRole] = "delegateType";
     roles[IconRole] = "icon";
     roles[RoomTypeRole] = "roomType";
+    roles[NotificationCountRole] = "notificationCount";
     return roles;
 }
 
@@ -395,6 +396,9 @@ QVariant RoomTreeModel::data(const QModelIndex &index, int role) const
         if (room->creation()) {
             return room->creation()->contentPart<QString>("type"_L1);
         }
+    }
+    if (role == NotificationCountRole) {
+        return room->notificationCount();
     }
 
     return {};
