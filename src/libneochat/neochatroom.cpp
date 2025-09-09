@@ -50,12 +50,12 @@
 #include "roomlastmessageprovider.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
+#include "jobs/neochatreportroomjob.h"
 
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
 #include <KIO/JobTracker>
 #endif
-
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
@@ -1836,6 +1836,11 @@ bool NeoChatRoom::isCreator(const QString &userId) const
 QString NeoChatRoom::pinnedMessage() const
 {
     return m_pinnedMessage;
+}
+
+void NeoChatRoom::report(const QString &reason)
+{
+    connection()->callApi<NeochatReportRoomJob>(id(), reason);
 }
 
 #include "moc_neochatroom.cpp"

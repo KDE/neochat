@@ -6,6 +6,7 @@
 #include <QImageReader>
 #include <QJsonDocument>
 
+#include "jobs/neochatreportuserjob.h"
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
