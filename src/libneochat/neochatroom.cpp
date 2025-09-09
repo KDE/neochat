@@ -8,6 +8,8 @@
 #include <QMediaPlayer>
 #include <QMimeDatabase>
 #include <QTemporaryFile>
+#include <QVideoFrame>
+#include <QVideoSink>
 
 #include <Quotient/events/eventcontent.h>
 #include <Quotient/events/eventrelation.h>
@@ -245,11 +247,37 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
     } else if (mime.name().startsWith("audio/"_L1)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_L1)) {
+        QVideoSink sink;
+
         QMediaPlayer player;
         player.setSource(url);
+        player.setVideoSink(&sink);
         co_await qCoro(&player, &QMediaPlayer::mediaStatusChanged);
-        auto resolution = player.metaData().value(QMediaMetaData::Resolution).toSize();
+
+        // Get the first video frame to use as a thumbnail.
+        player.play();
+        co_await qCoro(&player, &QMediaPlayer::positionChanged);
+
+        QTemporaryFile file;
+        file.setFileTemplate(QStringLiteral("XXXXXX.jpg"));
+        file.open();
+
+        const auto thumbnailImage = sink.videoFrame().toImage();
+        Q_UNUSED(thumbnailImage.save(file.fileName()))
+        player.stop(); // We have to delay the stop() because it will invalidate our image
+
+        const auto thumbnailFileInfo = QFileInfo(file.fileName());
+
+        // Upload the thumbnail
+        const auto job = connection()->uploadFile(thumbnailFileInfo.absoluteFilePath());
+        co_await qCoro(job.get(), &BaseJob::finished);
+
+        const auto resolution = player.metaData().value(QMediaMetaData::Resolution).toSize();
         content = new EventContent::VideoContent(url, fileInfo.size(), mime, resolution, fileInfo.fileName());
+        content->thumbnail = EventContent::Thumbnail(job->contentUri(),
+                                                     thumbnailFileInfo.size(),
+                                                     QMimeDatabase().mimeTypeForName(QStringLiteral("image/jpeg")),
+                                                     thumbnailImage.size());
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
