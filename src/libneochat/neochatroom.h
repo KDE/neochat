@@ -612,6 +612,11 @@ public:
      */
     bool isCreator(const QString &userId) const;
 
+    /**
+     * @brief Send a report about this room.
+     */
+    Q_INVOKABLE void report(const QString &reason);
+
 private:
     bool m_visible = false;
 

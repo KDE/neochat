@@ -216,6 +216,11 @@ public:
      */
     bool isVerifiedSession() const;
 
+    /**
+     * @brief Report a user.
+     */
+    Q_INVOKABLE void reportUser(const QString &userId, const QString &reason);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();

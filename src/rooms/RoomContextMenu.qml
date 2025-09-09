@@ -150,6 +150,25 @@ KirigamiComponents.ConvergentContextMenu {
         separator: true
     }
 
+    Kirigami.Action {
+        text: i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report…")
+        icon.name: "dialog-warning-symbolic"
+        onTriggered: {
+            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+            title: i18nc("@title:dialog", "Report Room"),
+            placeholder: i18nc("@info:placeholder", "Reason for reporting this room"),
+            icon: "dialog-warning-symbolic",
+            actionText: i18nc("@action:button 'Report' as in 'Report this room to the administrators'", "Report")
+        }, {
+            title: i18nc("@title", "Report Room"),
+            width: Kirigami.Units.gridUnit * 25
+        });
+            dialog.accepted.connect(reason => {
+                currentRoom.report(reason);
+            });
+        }
+    }
+
     QQC2.Action {
         text: i18nc("@action:inmenu", "Leave Room…")
         icon.name: "go-previous"

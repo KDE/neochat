@@ -57,6 +57,8 @@
 #include <KIO/Job>
 #include <KIO/JobTracker>
 #endif
+#include "jobs/neochatreportroomjob.h"
+
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
@@ -1820,6 +1822,11 @@ bool NeoChatRoom::isCreator(const QString &userId) const
     auto createEvent = currentState().get<RoomCreateEvent>();
     return roomCreatorHasUltimatePowerLevel() && createEvent
         && (createEvent->senderId() == userId || createEvent->contentPart<QStringList>(u"additional_creators"_s).contains(userId));
+}
+
+void NeoChatRoom::report(const QString &reason)
+{
+    connection()->callApi<NeochatReportRoomJob>(id(), reason);
 }
 
 #include "moc_neochatroom.cpp"
