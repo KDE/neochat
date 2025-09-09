@@ -219,8 +219,10 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {
+#ifdef HAVE_KDBUSADDONS
         // We want to be replaceable by the main client
         KDBusService service(KDBusService::Replace);
+#endif
 
 #ifdef HAVE_RUNNER
         // If we are built with KRunner and KUnifiedPush support, we need to do something special.
