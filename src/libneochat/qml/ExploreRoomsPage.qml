@@ -117,6 +117,7 @@ SearchPage {
 
     searchFieldPlaceholder: i18n("Find a room…")
     noResultPlaceholderMessage: i18nc("@info:label", "No public rooms found")
+    noSearchPlaceholderMessage: i18nc("@info:label", "No public rooms")
 
     Component {
         id: manualRoomDialog
