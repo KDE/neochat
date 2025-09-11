@@ -180,7 +180,6 @@ void Registration::testHomeserver()
             if (m_testServerJob) {
                 delete m_testServerJob;
             }
-#if Quotient_VERSION_MINOR > 9 || Quotient_VERSION_PATCH > 2
             auto ssoFlow = m_connection->getLoginFlow(LoginFlowTypes::SSO);
             if (ssoFlow && ssoFlow->delegatedOidcCompatibility) {
                 auto session = m_connection->prepareForSso(u"NeoChat"_s);
@@ -214,7 +213,6 @@ void Registration::testHomeserver()
                 });
                 return;
             }
-#endif
             m_testServerJob = m_connection->callApi<NeoChatRegisterJob>("user"_L1, std::nullopt, "user"_L1, QString(), QString(), QString(), false);
 
             connect(m_testServerJob.data(), &BaseJob::finished, this, [this]() {

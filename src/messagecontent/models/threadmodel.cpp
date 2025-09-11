@@ -24,11 +24,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
     Q_ASSERT(!m_threadRootId.isEmpty());
     Q_ASSERT(room);
 
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
     connect(room, &Quotient::Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
-#else
-    connect(room, &Quotient::Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
-#endif
         if (auto roomEvent = eventCast<const Quotient::RoomMessageEvent>(event)) {
             if (roomEvent->isThreaded() && roomEvent->threadRootEventId() == m_threadRootId) {
                 addNewEvent(event);

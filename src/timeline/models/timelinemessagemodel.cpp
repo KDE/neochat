@@ -60,7 +60,6 @@ void TimelineMessageModel::connectNewRoom()
                 refreshLastUserEvents(i);
             }
         });
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 0)
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
             Q_EMIT newEventAdded(event);
             Q_EMIT newLocalUserEventAdded();
@@ -69,17 +68,6 @@ void TimelineMessageModel::connectNewRoom()
                 endInsertRows();
             }
         });
-#else
-        connect(m_room, &Room::pendingEventAboutToAdd, this, [this](Quotient::RoomEvent *event) {
-            m_initialized = true;
-            Q_EMIT newEventAdded(event);
-            if (!m_resetting) {
-                beginInsertRows({}, 0, 0);
-                endInsertRows();
-            }
-        });
-        connect(m_room, &Room::pendingEventAdded, this, &TimelineMessageModel::endInsertRows);
-#endif
         connect(m_room, &Room::pendingEventAboutToMerge, this, [this](RoomEvent *, int i) {
             Q_EMIT dataChanged(index(i, 0), index(i, 0), {IsPendingRole});
             if (i == 0) {

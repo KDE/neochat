@@ -7,9 +7,7 @@
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/qt_connection_util.h>
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
 #include <Quotient/thread.h>
-#endif
 
 #include <KLocalizedString>
 #include <Kirigami/Platform/PlatformTheme>
@@ -163,17 +161,11 @@ QString EventMessageContentModel::threadRootId() const
         return {};
     }
     auto roomMessageEvent = eventCast<const RoomMessageEvent>(event.first);
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (roomMessageEvent && roomMessageEvent->isThreaded()) {
         return roomMessageEvent->threadRootEventId();
     } else if (m_room->threads().contains(roomMessageEvent->id())) {
         return m_eventId;
     }
-#else
-    if (roomMessageEvent && roomMessageEvent->isThreaded()) {
-        return roomMessageEvent->threadRootEventId();
-    }
-#endif
     return {};
 }
 
@@ -317,23 +309,15 @@ QList<MessageComponent> EventMessageContentModel::messageContentComponents(bool 
     }
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (m_threadsEnabled && roomMessageEvent
         && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
             || m_room->threads().contains(roomMessageEvent->id()))) {
-#else
-    if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId()) {
-#endif
         newComponents += MessageComponent{MessageComponentType::Separator, {}, {}};
         newComponents += MessageComponent{MessageComponentType::ThreadBody, u"Thread Body"_s, {}};
     }
 
     // If the event is already threaded the ThreadModel will handle displaying a chat bar.
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (isThreading && roomMessageEvent && !(roomMessageEvent->isThreaded() || m_room->threads().contains(roomMessageEvent->id()))) {
-#else
-    if (isThreading && roomMessageEvent && roomMessageEvent->isThreaded()) {
-#endif
         newComponents += MessageComponent{MessageComponentType::ChatBar, QString(), {}};
     }
 

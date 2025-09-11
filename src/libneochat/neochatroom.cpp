@@ -40,9 +40,7 @@
 #include <Quotient/events/simplestateevents.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
 #include <Quotient/thread.h>
-#endif
 
 #include "chatbarcache.h"
 #include "clipboard.h"
@@ -286,11 +284,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
 
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 2)
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content), relatesTo);
-#else
-    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content));
-#endif
     setHasFileUploading(true);
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
         if (id == txnId) {
@@ -1778,11 +1772,7 @@ bool NeoChatRoom::eventIsThreaded(const QString &eventId) const
         return false;
     }
 
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     return event->isThreaded() || threads().contains(eventId);
-#else
-    return event->isThreaded();
-#endif
 }
 
 QString NeoChatRoom::rootIdForThread(const QString &eventId) const
@@ -1793,11 +1783,9 @@ QString NeoChatRoom::rootIdForThread(const QString &eventId) const
     }
 
     auto rootId = event->threadRootEventId();
-#if Quotient_VERSION_MINOR > 9 || (Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH > 1)
     if (rootId.isEmpty() && threads().contains(eventId)) {
         rootId = event->id();
     }
-#endif
     return rootId;
 }
 
