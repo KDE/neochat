@@ -35,8 +35,12 @@ FormCard.FormCardPage {
         padding: 0
 
         // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-        source: root.connection && (root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : "")
+        source: findOriginalAvatarUrl()
         name: root.connection.localUser.displayName
+
+        function findOriginalAvatarUrl(): string {
+            return root.connection && (root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : "");
+        }
 
         onClicked: {
             if (fileDialog) {
@@ -137,7 +141,7 @@ FormCard.FormCardPage {
             text: i18n("Save")
             icon.name: "document-save-symbolic"
             onClicked: {
-                if (!root.connection.setAvatar(avatar.source)) {
+                if (avatar.source != avatar.findOriginalAvatarUrl() && !root.connection.setAvatar(avatar.source)) {
                     (root.Window.window as Kirigami.ApplicationWindow).showPassiveNotification("The Avatar could not be set");
                 }
                 if (root.connection.localUser.displayName !== name.text) {
