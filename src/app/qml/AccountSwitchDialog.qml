@@ -95,8 +95,8 @@ Kirigami.Dialog {
                 accountView.decrementCurrentIndex();
             }
         }
-        Keys.onEnterPressed: (accountView.currentItem as Delegates.RoundedItemDelegate).clicked()
-        Keys.onReturnPressed: (accountView.currentItem as Delegates.RoundedItemDelegate).clicked()
+        Keys.onEnterPressed: (accountView.currentItem as Delegates.RoundedItemDelegate ?? accountView.footerItem).clicked()
+        Keys.onReturnPressed: (accountView.currentItem as Delegates.RoundedItemDelegate ?? accountView.footerItem).clicked()
 
         onVisibleChanged: {
             for (let i = 0; i < accountView.count; i++) {
