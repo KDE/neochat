@@ -49,6 +49,7 @@ Item {
     QQC2.Button {
         anchors.right: parent.right
         anchors.top: parent.top
+        anchors.margins: Kirigami.Units.smallSpacing
         visible: !_private.hideImage
         icon.name: "view-hidden"
         text: i18nc("@action:button", "Hide Image")
