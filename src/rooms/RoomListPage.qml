@@ -221,7 +221,7 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: exploreRoomAction
-            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "compass"
             text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18nc("@action", "Search in room directory") : i18nc("@action", "Explore rooms")
             onTriggered: {
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
@@ -238,7 +238,7 @@ Kirigami.Page {
 
         Kirigami.Action {
             id: userSearchAction
-            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add"
+            icon.name: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? "search" : "list-add-user"
             text: RoomManager.sortFilterRoomTreeModel.filterText.length > 0 ? i18nc("@action:button", "Search in friend directory") : i18nc("@action:button", "Find your friends")
             onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
