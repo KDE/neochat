@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -224,7 +224,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -548,7 +548,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
@@ -1005,10 +1005,16 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Pilih Semua"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
+msgstr ""
+
+#: src/app/qml/QrScannerPage.qml:41
+#, kde-format
+msgctxt "@info"
+msgid "No Camera Connected"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
@@ -1099,34 +1105,42 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:81
+#: src/app/qml/RoomPage.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:93
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 
-#: src/app/qml/RoomPage.qml:160
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Pesan Langsung"
+
+#: src/app/qml/RoomPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Selamat datang di Matrix"
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:225
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Bergabung ke beberapa ruangan untuk memulai"
 
-#: src/app/qml/RoomPage.qml:228
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -3377,12 +3391,12 @@ msgstr "Pembuatan ruangan gagal: %1"
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/libneochat/neochatroom.cpp:1237
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
+#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3528,6 +3542,13 @@ msgstr "Temukan sebuah ruangan..."
 #| msgid "No rooms found"
 msgctxt "@info:label"
 msgid "No public rooms found"
+msgstr "Tidak ada ruangan yang ditemukan"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms"
 msgstr "Tidak ada ruangan yang ditemukan"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
@@ -3743,54 +3764,54 @@ msgstr "Konfirmasi Kata Sandi baru:"
 msgid "The passwords do not match."
 msgstr "Kata sandi tidak cocok"
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:339
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
 msgid "No server."
 msgstr "Tambahkan server"
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:343
 #, fuzzy, kde-format
 #| msgid "The entered text is not a valid url"
 msgid "This is not a valid server."
 msgstr "Teks yang dimasukkan bukan sebuah URL yang valid"
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:347
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "Tidak ada nama"
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:351
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "Tidak ada pengguna yang tersedia"
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:353
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "Lanjut"
 
-#: src/login/registration.cpp:357
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -3911,7 +3932,7 @@ msgid "Copy to clipboard"
 msgstr "Salin ID ruangan ke papan klip"
 
 #: src/messagecontent/CodeComponent.qml:172
-#: src/messagecontent/VideoComponent.qml:373
+#: src/messagecontent/VideoComponent.qml:374
 #, fuzzy, kde-format
 #| msgid "Maximize"
 msgctxt "@action:button"
@@ -3984,15 +4005,15 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:54
-#: src/messagecontent/VideoComponent.qml:182
+#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/VideoComponent.qml:183
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Tetapkan Gambar"
 
-#: src/messagecontent/ImageComponent.qml:135
+#: src/messagecontent/ImageComponent.qml:136
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
@@ -4035,7 +4056,7 @@ msgid "Loading URL preview"
 msgstr "Memuat pratinjau URL"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
@@ -4057,7 +4078,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Masuk ke Layar Penuh"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:233
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4065,7 +4086,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info"
@@ -4158,19 +4179,19 @@ msgstr "Balas"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:210
+#: src/messagecontent/VideoComponent.qml:211
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:249
+#: src/messagecontent/VideoComponent.qml:250
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:290
+#: src/messagecontent/VideoComponent.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4265,14 +4286,6 @@ msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Kirim pesan…"
 
-#: src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Pesan Langsung"
-
 #: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
@@ -4356,14 +4369,14 @@ msgstr "Masukkan teks untuk memulai mencari"
 msgid "No messages found"
 msgstr "Tidak ada hasil yang ditemukan"
 
-#: src/rooms/ExploreComponent.qml:31
+#: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Room"
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Ruangan"
 
-#: src/rooms/ExploreComponent.qml:43
+#: src/rooms/ExploreComponent.qml:48
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search"
@@ -4371,24 +4384,24 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Cari"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:65
 #, fuzzy, kde-format
 #| msgid "Switch User"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Ganti Pengguna"
 
-#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
 msgstr "Buat sebuah Ruangan"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
@@ -4694,151 +4707,151 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Sunting Akun"
 
-#: src/settings/AccountEditorPage.qml:62
+#: src/settings/AccountEditorPage.qml:66
 #, fuzzy, kde-format
 #| msgid "Update avatar"
 msgid "Upload new avatar"
 msgstr "Perbarui avatar"
 
-#: src/settings/AccountEditorPage.qml:79
+#: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Hapus avatar saat ini"
 
-#: src/settings/AccountEditorPage.qml:102
+#: src/settings/AccountEditorPage.qml:106
 #, fuzzy, kde-format
 #| msgid "User information"
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Informasi pengguna"
 
-#: src/settings/AccountEditorPage.qml:107
+#: src/settings/AccountEditorPage.qml:111
 #, fuzzy, kde-format
 #| msgid "<display name>"
 msgid "Display Name:"
 msgstr "<nama tampilan>"
 
-#: src/settings/AccountEditorPage.qml:113
+#: src/settings/AccountEditorPage.qml:117
 #, kde-format
 msgid "Label:"
 msgstr "Label:"
 
-#: src/settings/AccountEditorPage.qml:114
+#: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:137
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:141
+#: src/settings/AccountEditorPage.qml:197
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Simpan"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:158
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Kata sandi"
 
-#: src/settings/AccountEditorPage.qml:159
+#: src/settings/AccountEditorPage.qml:163
 #, fuzzy, kde-format
 #| msgid "Your server doesn't support changing your password"
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Server Anda tidak mendukung mengubah kata sandi Anda"
 
-#: src/settings/AccountEditorPage.qml:166
+#: src/settings/AccountEditorPage.qml:170
 #, fuzzy, kde-format
 #| msgid "Current Password:"
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Kata Sandi Saat Ini:"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:177
 #, fuzzy, kde-format
 #| msgid "New Password:"
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Kata Sandi Baru:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:184
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Konfirmasi Kata Sandi baru:"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:189
 #, fuzzy, kde-format
 #| msgid "Passwords don't match"
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Kata sandi tidak cocok"
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:209
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Konfirmasi nama tampilan baru"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Anggota"
 
-#: src/settings/AccountEditorPage.qml:216
+#: src/settings/AccountEditorPage.qml:220
 #, fuzzy, kde-format
 #| msgid "Add New Server"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Tambahkan Server Baru"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informasi Server"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL Homeserver"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Penyunting akun"
 
-#: src/settings/AccountEditorPage.qml:255
+#: src/settings/AccountEditorPage.qml:259
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Sunting Akun"
 
-#: src/settings/AccountEditorPage.qml:272
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Kata sandi berhasil diubah"
 
-#: src/settings/AccountEditorPage.qml:275
+#: src/settings/AccountEditorPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Masukkan kata sandi Anda"
 
-#: src/settings/AccountEditorPage.qml:278
+#: src/settings/AccountEditorPage.qml:282
 #, fuzzy, kde-format
 #| msgid "Unknown problem while trying to change password"
 msgctxt "@info"

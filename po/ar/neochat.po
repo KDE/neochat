@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-09-01 19:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -214,7 +214,7 @@ msgstr "‏%1 (‏%2)"
 msgid "Open NeoChat"
 msgstr "افتح نيوتشات"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -501,7 +501,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "اعثر على أصدقائك"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
@@ -913,11 +913,17 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "اختر ملف"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "امسح رمز الاستجابة السريعة"
+
+#: src/app/qml/QrScannerPage.qml:41
+#, kde-format
+msgctxt "@info"
+msgid "No Camera Connected"
+msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -997,31 +1003,38 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: src/app/qml/RoomPage.qml:81
+#: src/app/qml/RoomPage.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "تحتوي هذه الغرفة على رسائل رسمية من خادم منزلك."
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "نيوتشات غير متصل: الرجاء التأكد من اتصالك بالشبكة"
 
-#: src/app/qml/RoomPage.qml:160
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "الرسائل المثبتة"
+
+#: src/app/qml/RoomPage.qml:224
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "أهلا في نيوتشات"
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:225
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "حدد أو انضم لغرفة لتبدأ"
 
-#: src/app/qml/RoomPage.qml:228
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -3110,12 +3123,12 @@ msgstr "فشل إنشاء غرفة: %1"
 msgid "Space creation failed: %1"
 msgstr "فشل إنشاء فضاء: %1"
 
-#: src/libneochat/neochatroom.cpp:1237
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "أرسل البلاغ بنجاح."
 
-#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
+#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3245,6 +3258,14 @@ msgstr "اعثر على غرفة…"
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
+msgstr "لم يعثر على غرف عامة"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No public rooms found"
+msgctxt "@info:label"
+msgid "No public rooms"
 msgstr "لم يعثر على غرف عامة"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
@@ -3442,47 +3463,47 @@ msgstr "اكتبها ثانية:"
 msgid "The passwords do not match."
 msgstr "كلمتا السر لم تتطابقا."
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:339
 #, kde-format
 msgid "No server."
 msgstr "لا يوجد خادم."
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "Checking Server availability."
 msgstr "التحقق من توافر الخادم."
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "This is not a valid server."
 msgstr "هذا ليس خادما صالحا"
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "عطل التسجيل لهذا الخادم."
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "No username."
 msgstr "لا يوجد اسم المستخدم."
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "Checking username availability."
 msgstr "التحقق من توفر اسم المستخدم."
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "This username is not available."
 msgstr "اسم المستخدم غير متوفر."
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "Continue"
 msgstr "تابع"
 
-#: src/login/registration.cpp:357
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Working"
 msgstr "يعمل"
@@ -3590,7 +3611,7 @@ msgid "Copy to clipboard"
 msgstr "انسخ إلى الحافظة"
 
 #: src/messagecontent/CodeComponent.qml:172
-#: src/messagecontent/VideoComponent.qml:373
+#: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3661,14 +3682,14 @@ msgstr "وقت تسجيل الوصول: %1"
 msgid "Check-out time: %1"
 msgstr "وقت تسجيل الخروج: %1"
 
-#: src/messagecontent/ImageComponent.qml:54
-#: src/messagecontent/VideoComponent.qml:182
+#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "أخفِ صورة"
 
-#: src/messagecontent/ImageComponent.qml:135
+#: src/messagecontent/ImageComponent.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -3708,7 +3729,7 @@ msgid "Loading URL preview"
 msgstr "يحمل معاينة الرابط"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -3726,7 +3747,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "افتح في ملء الشاشة"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:233
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3736,7 +3757,7 @@ msgstr ""
 "لم يعثر على هذه الرسالة، أو ليس لديك الإذن لعرضها، أو أرسلت بواسطة مستخدم "
 "متجاهل"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
@@ -3842,18 +3863,18 @@ msgstr "ردّ"
 msgid "Pl. %1"
 msgstr "المنصة %1"
 
-#: src/messagecontent/VideoComponent.qml:210
+#: src/messagecontent/VideoComponent.qml:211
 #, kde-format
 msgid "Video"
 msgstr "فيديو"
 
-#: src/messagecontent/VideoComponent.qml:249
+#: src/messagecontent/VideoComponent.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "أظهر الفيديو"
 
-#: src/messagecontent/VideoComponent.qml:290
+#: src/messagecontent/VideoComponent.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -3936,13 +3957,6 @@ msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "الرسائل المثبتة"
 
-#: src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "الرسائل المثبتة"
-
 #: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
@@ -4020,35 +4034,35 @@ msgstr "ادخل نص لتبدأ البحث"
 msgid "No messages found"
 msgstr "لا يعثر على رسائل"
 
-#: src/rooms/ExploreComponent.qml:31
+#: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "كل الغرف"
 
-#: src/rooms/ExploreComponent.qml:43
+#: src/rooms/ExploreComponent.qml:48
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "ابحث عن الغرف"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "اعثر على أصدقائك"
 
-#: src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
 msgstr "أنشئ غرفة"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "امسح رمز الاستجابة السريعة"
@@ -4324,134 +4338,134 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "حرّر الحساب"
 
-#: src/settings/AccountEditorPage.qml:62
+#: src/settings/AccountEditorPage.qml:66
 #, kde-format
 msgid "Upload new avatar"
 msgstr "ارفع صورة رمزية جديدة"
 
-#: src/settings/AccountEditorPage.qml:79
+#: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
 msgstr "أزل الصورة الرمزية الحالية"
 
-#: src/settings/AccountEditorPage.qml:102
+#: src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "معلومات مستخدم"
 
-#: src/settings/AccountEditorPage.qml:107
+#: src/settings/AccountEditorPage.qml:111
 #, kde-format
 msgid "Display Name:"
 msgstr "اسم العرض:"
 
-#: src/settings/AccountEditorPage.qml:113
+#: src/settings/AccountEditorPage.qml:117
 #, kde-format
 msgid "Label:"
 msgstr "التسمية:"
 
-#: src/settings/AccountEditorPage.qml:114
+#: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
 msgstr "العمل"
 
-#: src/settings/AccountEditorPage.qml:137
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:141
+#: src/settings/AccountEditorPage.qml:197
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "احفظ"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:158
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "كلمة السّر"
 
-#: src/settings/AccountEditorPage.qml:159
+#: src/settings/AccountEditorPage.qml:163
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "لا يتيح خادمك تغيير كلمة سرك"
 
-#: src/settings/AccountEditorPage.qml:166
+#: src/settings/AccountEditorPage.qml:170
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "كلمة السرّ الحاليّة:"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:177
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "كلمة السرّ الجديدة:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:184
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "أكد كلمة السر الجديدة:"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:189
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "كلمات السر لم تتطابق"
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:209
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "عنوان البريد الإلكتروني"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "أرقام الهاتف"
 
-#: src/settings/AccountEditorPage.qml:216
+#: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "خادم الهوية"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "معلومات الخادم"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgid "Homeserver url"
 msgstr "رابط الخادم المنزل"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:254
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "إدارة الحساب"
 
-#: src/settings/AccountEditorPage.qml:255
+#: src/settings/AccountEditorPage.qml:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "عطّل الحساب…"
 
-#: src/settings/AccountEditorPage.qml:272
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
-#: src/settings/AccountEditorPage.qml:275
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "كلمة السر غير صحيحة"
 
-#: src/settings/AccountEditorPage.qml:278
+#: src/settings/AccountEditorPage.qml:282
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 12:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -215,7 +215,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Abrir NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -515,7 +515,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Atopar as súas amizades"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
@@ -942,11 +942,17 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Seleccionar un ficheiro"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Escanear un código QR"
+
+#: src/app/qml/QrScannerPage.qml:41
+#, kde-format
+msgctxt "@info"
+msgid "No Camera Connected"
+msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, fuzzy, kde-format
@@ -1033,34 +1039,41 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: src/app/qml/RoomPage.qml:81
+#: src/app/qml/RoomPage.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:93
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat non ten conexión. Revise a conexión de rede."
 
-#: src/app/qml/RoomPage.qml:160
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Mensaxes fixadas"
+
+#: src/app/qml/RoomPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Benvida a NeoChat"
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:225
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Seleccione ou únase a unha sala para comezar."
 
-#: src/app/qml/RoomPage.qml:228
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -3212,12 +3225,12 @@ msgstr "A creación da sala fallou: %1"
 msgid "Space creation failed: %1"
 msgstr "A creación do espazo fallou: %1"
 
-#: src/libneochat/neochatroom.cpp:1237
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O informe enviouse correctamente."
 
-#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
+#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3347,6 +3360,14 @@ msgstr "Atopar unha sala…"
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
+msgstr "Non se atoparon salas públicas."
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No public rooms found"
+msgctxt "@info:label"
+msgid "No public rooms"
 msgstr "Non se atoparon salas públicas."
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
@@ -3545,47 +3566,47 @@ msgstr "Confirmar o contrasinal:"
 msgid "The passwords do not match."
 msgstr "Os contrasinais non coinciden."
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:339
 #, kde-format
 msgid "No server."
 msgstr "Non hai servidor."
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Comprobando a dispoñibilidade do servidor."
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Non é un servidor válido."
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Este servidor desactivou o rexistro."
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "No username."
 msgstr "Non hai nome de persoa usuaria."
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "Checking username availability."
 msgstr "Comprobando a dispoñibilidade do nome de persoa usuaria."
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "This username is not available."
 msgstr "Este nome de persoa usuaria non está dispoñíbel."
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/login/registration.cpp:357
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Working"
 msgstr "Traballando"
@@ -3693,7 +3714,7 @@ msgid "Copy to clipboard"
 msgstr "Copiar no portapapeis"
 
 #: src/messagecontent/CodeComponent.qml:172
-#: src/messagecontent/VideoComponent.qml:373
+#: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3766,14 +3787,14 @@ msgstr "Hora de rexistro: %1"
 msgid "Check-out time: %1"
 msgstr "Hora de saída: %1"
 
-#: src/messagecontent/ImageComponent.qml:54
-#: src/messagecontent/VideoComponent.qml:182
+#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Agochar a imaxe"
 
-#: src/messagecontent/ImageComponent.qml:135
+#: src/messagecontent/ImageComponent.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -3813,7 +3834,7 @@ msgid "Loading URL preview"
 msgstr "Cargando a vista previa do URL"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
@@ -3832,7 +3853,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Abrir a pantalla completa"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:233
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3842,7 +3863,7 @@ msgstr ""
 "Ou non se atopou a mensaxe, ou non ten permiso para vela, ou enviouna unha "
 "persoa que está ignorando."
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
@@ -3935,18 +3956,18 @@ msgstr "Responder"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:210
+#: src/messagecontent/VideoComponent.qml:211
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/messagecontent/VideoComponent.qml:249
+#: src/messagecontent/VideoComponent.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Amosar o vídeo"
 
-#: src/messagecontent/VideoComponent.qml:290
+#: src/messagecontent/VideoComponent.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4029,13 +4050,6 @@ msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Mensaxes fixadas"
 
-#: src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Mensaxes fixadas"
-
 #: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
@@ -4113,35 +4127,35 @@ msgstr "Escriba algo para comezar a busca."
 msgid "No messages found"
 msgstr "Non se atoparon mensaxes."
 
-#: src/rooms/ExploreComponent.qml:31
+#: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Salas"
 
-#: src/rooms/ExploreComponent.qml:43
+#: src/rooms/ExploreComponent.qml:48
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Buscar nas salas"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Amosar o menú"
 
-#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Atopar as súas amizades"
 
-#: src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
 msgstr "Crear unha sala"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Escanear un código QR"
@@ -4439,135 +4453,135 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Editar a conta"
 
-#: src/settings/AccountEditorPage.qml:62
+#: src/settings/AccountEditorPage.qml:66
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Enviar un novo avatar"
 
-#: src/settings/AccountEditorPage.qml:79
+#: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Retirar o avatar actual"
 
-#: src/settings/AccountEditorPage.qml:102
+#: src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Información da persoa usuaria"
 
-#: src/settings/AccountEditorPage.qml:107
+#: src/settings/AccountEditorPage.qml:111
 #, kde-format
 msgid "Display Name:"
 msgstr "Nome visual:"
 
-#: src/settings/AccountEditorPage.qml:113
+#: src/settings/AccountEditorPage.qml:117
 #, kde-format
 msgid "Label:"
 msgstr "Etiqueta:"
 
-#: src/settings/AccountEditorPage.qml:114
+#: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
 msgstr "Traballo"
 
-#: src/settings/AccountEditorPage.qml:137
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:141
+#: src/settings/AccountEditorPage.qml:197
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Gardar"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:158
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Contrasinal"
 
-#: src/settings/AccountEditorPage.qml:159
+#: src/settings/AccountEditorPage.qml:163
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "O seu servidor non permite cambiar o contrasinal."
 
-#: src/settings/AccountEditorPage.qml:166
+#: src/settings/AccountEditorPage.qml:170
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Contrasinal actual:"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:177
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Novo contrasinal:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:184
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirmar o novo contrasinal:"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:189
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Os contrasinais non se corresponden."
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:209
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Enderezos de correo electrónico"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Números de teléfono"
 
-#: src/settings/AccountEditorPage.qml:216
+#: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Servidor de identidade"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Información do servidor"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL do servidor"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:254
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Xestión de contas"
 
-#: src/settings/AccountEditorPage.qml:255
+#: src/settings/AccountEditorPage.qml:259
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Desactivar a conta"
 
-#: src/settings/AccountEditorPage.qml:272
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "´Cambiado correctamente o contrasinal."
 
-#: src/settings/AccountEditorPage.qml:275
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "O contrasinal é incorrecto."
 
-#: src/settings/AccountEditorPage.qml:278
+#: src/settings/AccountEditorPage.qml:282
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2025-07-31 09:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -214,7 +214,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Avaa NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -506,7 +506,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr "Etsi kavereita"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
@@ -928,11 +928,17 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Valitse tiedosto"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Lue QR-koodi"
+
+#: src/app/qml/QrScannerPage.qml:41
+#, kde-format
+msgctxt "@info"
+msgid "No Camera Connected"
+msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, fuzzy, kde-format
@@ -1019,34 +1025,41 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Sivuuta"
 
-#: src/app/qml/RoomPage.qml:81
+#: src/app/qml/RoomPage.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:93
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChatillä ei ole yhteyttä. Tarkista verkkoyhteytesi."
 
-#: src/app/qml/RoomPage.qml:160
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, kde-format
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "Kiinnitetyt viestit"
+
+#: src/app/qml/RoomPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Tervetuloa NeoChatiin"
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:225
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Aloita valitsemalla huone tai liittymällä huoneeseen"
 
-#: src/app/qml/RoomPage.qml:228
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -3177,12 +3190,12 @@ msgstr "Huoneen luominen epäonnistui: %1"
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/libneochat/neochatroom.cpp:1237
+#: src/libneochat/neochatroom.cpp:1248
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
+#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3312,6 +3325,14 @@ msgstr "Etsi huonetta…"
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
+msgstr "Julkisia huoneita ei löytynyt"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "No public rooms found"
+msgctxt "@info:label"
+msgid "No public rooms"
 msgstr "Julkisia huoneita ei löytynyt"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
@@ -3510,47 +3531,47 @@ msgstr "Vahvista salasana:"
 msgid "The passwords do not match."
 msgstr "Salasanat eivät täsmää."
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:339
 #, kde-format
 msgid "No server."
 msgstr "Ei palvelinta."
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "Checking Server availability."
 msgstr "Tarkistetaan palvelimen saatavuutta."
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "This is not a valid server."
 msgstr "Tämä ei ole kelvollinen palvelin."
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr "Palvelin on poistanut rekisteröitymisen käytöstä."
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:347
 #, kde-format
 msgid "No username."
 msgstr "Ei käyttäjätunnusta."
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "Checking username availability."
 msgstr "Tarkistetaan käyttäjätunnuksen saatavuutta."
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:351
 #, kde-format
 msgid "This username is not available."
 msgstr "Tämä käyttäjätunnus ei ole käytettävissä."
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:353
 #, kde-format
 msgid "Continue"
 msgstr "Jatka"
 
-#: src/login/registration.cpp:357
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Working"
 msgstr "Työskennellään"
@@ -3658,7 +3679,7 @@ msgid "Copy to clipboard"
 msgstr "Kopioi leikepöydälle"
 
 #: src/messagecontent/CodeComponent.qml:172
-#: src/messagecontent/VideoComponent.qml:373
+#: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3730,14 +3751,14 @@ msgstr "Sisäänkirjautumisaika: %1"
 msgid "Check-out time: %1"
 msgstr "Uloskirjautumisaika: %1"
 
-#: src/messagecontent/ImageComponent.qml:54
-#: src/messagecontent/VideoComponent.qml:182
+#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/VideoComponent.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Piilota kuva"
 
-#: src/messagecontent/ImageComponent.qml:135
+#: src/messagecontent/ImageComponent.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -3777,7 +3798,7 @@ msgid "Loading URL preview"
 msgstr "Ladataan verkko-osoitteen esikatselua"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
@@ -3796,7 +3817,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Avaa koko näytölle"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:233
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3806,7 +3827,7 @@ msgstr ""
 "Viestiä ei joko löytynyt, sen näyttämiseen ei ole käyttöoikeutta tai sen "
 "lähetti sivuutettu käyttäjä"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
@@ -3897,18 +3918,18 @@ msgstr "Vastaa"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:210
+#: src/messagecontent/VideoComponent.qml:211
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:249
+#: src/messagecontent/VideoComponent.qml:250
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Näytä video"
 
-#: src/messagecontent/VideoComponent.qml:290
+#: src/messagecontent/VideoComponent.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -3991,13 +4012,6 @@ msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Kiinnitetyt viestit"
 
-#: src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
-#, kde-format
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "Kiinnitetyt viestit"
-
 #: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
@@ -4071,35 +4085,35 @@ msgstr "Aloita haku kirjoittamalla jotakin"
 msgid "No messages found"
 msgstr "Viestejä ei löytynyt"
 
-#: src/rooms/ExploreComponent.qml:31
+#: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Huoneet"
 
-#: src/rooms/ExploreComponent.qml:43
+#: src/rooms/ExploreComponent.qml:48
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Etsi huoneita"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Näytä valikko"
 
-#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Etsi kavereita"
 
-#: src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
 msgstr "Luo huone"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Lue QR-koodi"
@@ -4389,134 +4403,134 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "Muokkaa tiliä"
 
-#: src/settings/AccountEditorPage.qml:62
+#: src/settings/AccountEditorPage.qml:66
 #, kde-format
 msgid "Upload new avatar"
 msgstr "Lähetä uusi avatar"
 
-#: src/settings/AccountEditorPage.qml:79
+#: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Poista nykyinen avatar"
 
-#: src/settings/AccountEditorPage.qml:102
+#: src/settings/AccountEditorPage.qml:106
 #, kde-format
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "Käyttäjän tiedot"
 
-#: src/settings/AccountEditorPage.qml:107
+#: src/settings/AccountEditorPage.qml:111
 #, kde-format
 msgid "Display Name:"
 msgstr "Näyttönimi:"
 
-#: src/settings/AccountEditorPage.qml:113
+#: src/settings/AccountEditorPage.qml:117
 #, kde-format
 msgid "Label:"
 msgstr "Nimiö:"
 
-#: src/settings/AccountEditorPage.qml:114
+#: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
 msgstr "Työ"
 
-#: src/settings/AccountEditorPage.qml:137
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:141
+#: src/settings/AccountEditorPage.qml:197
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Tallenna"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:158
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Salasana"
 
-#: src/settings/AccountEditorPage.qml:159
+#: src/settings/AccountEditorPage.qml:163
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Palvelin ei tue salasanan vaihtamista"
 
-#: src/settings/AccountEditorPage.qml:166
+#: src/settings/AccountEditorPage.qml:170
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Nykyinen salasana:"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:177
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Uusi salasana:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:184
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Vahvista uusi salasana:"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:189
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Salasanat eivät täsmää"
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:209
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Sähköpostiosoitteet"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Puhelinnumerot"
 
-#: src/settings/AccountEditorPage.qml:216
+#: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Henkilöyspalvelin"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Palvelintiedot"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:233
 #, kde-format
 msgid "Homeserver url"
 msgstr "Kotipalvelimen verkko-osoite"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:254
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Tilihallinta"
 
-#: src/settings/AccountEditorPage.qml:255
+#: src/settings/AccountEditorPage.qml:259
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Passivoi tili…"
 
-#: src/settings/AccountEditorPage.qml:272
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
-#: src/settings/AccountEditorPage.qml:275
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Virheellinen salasana"
 
-#: src/settings/AccountEditorPage.qml:278
+#: src/settings/AccountEditorPage.qml:282
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"

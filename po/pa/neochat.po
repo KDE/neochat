@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-11 00:42+0000\n"
+"POT-Creation-Date: 2025-09-12 00:43+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -222,7 +222,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:119
+#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
@@ -542,7 +542,7 @@ msgctxt "@action:inmenu"
 msgid "Find your Friends"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:82
+#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
 #: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
 #: src/rooms/RoomListPage.qml:246
 #, kde-format
@@ -995,10 +995,16 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "ਸਭ ਚੁਣੋ"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:107
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
+msgstr ""
+
+#: src/app/qml/QrScannerPage.qml:41
+#, kde-format
+msgctxt "@info"
+msgid "No Camera Connected"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
@@ -1084,34 +1090,42 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "ਅਣਡਿ਼ੱਠਾ"
 
-#: src/app/qml/RoomPage.qml:81
+#: src/app/qml/RoomPage.qml:82
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:92
+#: src/app/qml/RoomPage.qml:93
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/app/qml/RoomPage.qml:160
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
+#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Pinned Messages"
+msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#: src/app/qml/RoomPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "ਮੈਟਰਿਕਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ"
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:225
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
 
-#: src/app/qml/RoomPage.qml:228
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -3379,13 +3393,13 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1237
+#: src/libneochat/neochatroom.cpp:1248
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/libneochat/neochatroom.cpp:1602 src/libneochat/neochatroom.cpp:1610
+#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3533,6 +3547,13 @@ msgstr "ਰੂਮ ਲੱਭੋ..."
 #| msgid "No rooms found"
 msgctxt "@info:label"
 msgid "No public rooms found"
+msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No public rooms"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
@@ -3747,52 +3768,52 @@ msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 msgid "The passwords do not match."
 msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
 
-#: src/login/registration.cpp:341
+#: src/login/registration.cpp:339
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "No server."
 msgstr "ਹੋਮ-ਸਰਵਰ:"
 
-#: src/login/registration.cpp:343
+#: src/login/registration.cpp:341
 #, kde-format
 msgid "Checking Server availability."
 msgstr ""
 
-#: src/login/registration.cpp:345
+#: src/login/registration.cpp:343
 #, kde-format
 msgid "This is not a valid server."
 msgstr ""
 
-#: src/login/registration.cpp:347
+#: src/login/registration.cpp:345
 #, kde-format
 msgid "Registration for this server is disabled."
 msgstr ""
 
-#: src/login/registration.cpp:349
+#: src/login/registration.cpp:347
 #, fuzzy, kde-format
 #| msgid "No name"
 msgid "No username."
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
 
-#: src/login/registration.cpp:351
+#: src/login/registration.cpp:349
 #, kde-format
 msgid "Checking username availability."
 msgstr ""
 
-#: src/login/registration.cpp:353
+#: src/login/registration.cpp:351
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "This username is not available."
 msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: src/login/registration.cpp:355
+#: src/login/registration.cpp:353
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Continue"
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
-#: src/login/registration.cpp:357
+#: src/login/registration.cpp:355
 #, kde-format
 msgid "Working"
 msgstr ""
@@ -3912,7 +3933,7 @@ msgid "Copy to clipboard"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
 #: src/messagecontent/CodeComponent.qml:172
-#: src/messagecontent/VideoComponent.qml:373
+#: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3983,15 +4004,15 @@ msgstr ""
 msgid "Check-out time: %1"
 msgstr ""
 
-#: src/messagecontent/ImageComponent.qml:54
-#: src/messagecontent/VideoComponent.qml:182
+#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/VideoComponent.qml:183
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/messagecontent/ImageComponent.qml:135
+#: src/messagecontent/ImageComponent.qml:136
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgctxt "@action:button"
@@ -4034,7 +4055,7 @@ msgid "Loading URL preview"
 msgstr ""
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@info Loading this message"
@@ -4056,7 +4077,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ ਉੱਤੇ ਜਾਓ"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:241
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:233
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4064,7 +4085,7 @@ msgid ""
 "it was sent by an ignored user"
 msgstr ""
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:260
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:252
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgctxt "@info"
@@ -4154,19 +4175,19 @@ msgstr "ਜਵਾਬ ਦਿਓ"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:210
+#: src/messagecontent/VideoComponent.qml:211
 #, kde-format
 msgid "Video"
 msgstr "ਵੀਡੀਓ"
 
-#: src/messagecontent/VideoComponent.qml:249
+#: src/messagecontent/VideoComponent.qml:250
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "ਵੀਡੀਓ"
 
-#: src/messagecontent/VideoComponent.qml:290
+#: src/messagecontent/VideoComponent.qml:291
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4262,14 +4283,6 @@ msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@title"
-msgid "Pinned Messages"
-msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
-
 #: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgid "Create a Room"
@@ -4355,38 +4368,38 @@ msgstr ""
 msgid "No messages found"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/rooms/ExploreComponent.qml:31
+#: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@title"
 msgid "Rooms"
 msgstr "ਰੂਮ"
 
-#: src/rooms/ExploreComponent.qml:43
+#: src/rooms/ExploreComponent.qml:48
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/rooms/ExploreComponent.qml:60
+#: src/rooms/ExploreComponent.qml:65
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/rooms/ExploreComponent.qml:77 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:87
+#: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:107
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
@@ -4692,48 +4705,48 @@ msgctxt "@title:window"
 msgid "Edit Account"
 msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/settings/AccountEditorPage.qml:62
+#: src/settings/AccountEditorPage.qml:66
 #, fuzzy, kde-format
 #| msgid "Update avatar"
 msgid "Upload new avatar"
 msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
 
-#: src/settings/AccountEditorPage.qml:79
+#: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:102
+#: src/settings/AccountEditorPage.qml:106
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:group"
 msgid "User Information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/settings/AccountEditorPage.qml:107
+#: src/settings/AccountEditorPage.qml:111
 #, fuzzy, kde-format
 #| msgid "Displays action"
 msgid "Display Name:"
 msgstr "ਕਾਰਵਾਈ ਦਿਖਾਓ"
 
-#: src/settings/AccountEditorPage.qml:113
+#: src/settings/AccountEditorPage.qml:117
 #, kde-format
 msgid "Label:"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:114
+#: src/settings/AccountEditorPage.qml:118
 #, kde-format
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:137
-#: src/settings/AccountEditorPage.qml:193
+#: src/settings/AccountEditorPage.qml:141
+#: src/settings/AccountEditorPage.qml:197
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/settings/AccountEditorPage.qml:154
+#: src/settings/AccountEditorPage.qml:158
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -4741,41 +4754,41 @@ msgctxt "@title:group"
 msgid "Password"
 msgstr "ਪਾਸਵਰਡ"
 
-#: src/settings/AccountEditorPage.qml:159
+#: src/settings/AccountEditorPage.qml:163
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:166
+#: src/settings/AccountEditorPage.qml:170
 #, fuzzy, kde-format
 #| msgid "Current Password:"
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ:"
 
-#: src/settings/AccountEditorPage.qml:173
+#: src/settings/AccountEditorPage.qml:177
 #, fuzzy, kde-format
 #| msgid "New Password:"
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "ਨਵਾਂ ਪਾਸਵਰਡ:"
 
-#: src/settings/AccountEditorPage.qml:180
+#: src/settings/AccountEditorPage.qml:184
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 
-#: src/settings/AccountEditorPage.qml:185
+#: src/settings/AccountEditorPage.qml:189
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ"
 
-#: src/settings/AccountEditorPage.qml:205
+#: src/settings/AccountEditorPage.qml:209
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
@@ -4783,34 +4796,34 @@ msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/settings/AccountEditorPage.qml:211
+#: src/settings/AccountEditorPage.qml:215
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "ਮੈਂਬਰ"
 
-#: src/settings/AccountEditorPage.qml:216
+#: src/settings/AccountEditorPage.qml:220
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "ਹੋਮ-ਸਰਵਰ:"
 
-#: src/settings/AccountEditorPage.qml:225
+#: src/settings/AccountEditorPage.qml:229
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:233
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"
 msgstr "ਹੋਮ-ਸਰਵਰ:"
 
-#: src/settings/AccountEditorPage.qml:250
+#: src/settings/AccountEditorPage.qml:254
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -4818,28 +4831,28 @@ msgctxt "@title:group"
 msgid "Account Management"
 msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
 
-#: src/settings/AccountEditorPage.qml:255
+#: src/settings/AccountEditorPage.qml:259
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/settings/AccountEditorPage.qml:272
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/settings/AccountEditorPage.qml:275
+#: src/settings/AccountEditorPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "ਆਪਣਾ ਪਾਸਵਰਡ ਦਿਓ"
 
-#: src/settings/AccountEditorPage.qml:278
+#: src/settings/AccountEditorPage.qml:282
 #, fuzzy, kde-format
 #| msgid "Unknown problem while trying to change password"
 msgctxt "@info"
