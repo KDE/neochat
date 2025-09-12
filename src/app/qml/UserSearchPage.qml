@@ -53,6 +53,16 @@ SearchPage {
             root.closeDialog();
         }
 
+        QQC2.ContextMenu.menu: QQC2.Menu {
+            QQC2.MenuItem {
+                text: i18nc("@action:inmenu", "Copy User ID")
+                icon.name: "username-copy"
+                onTriggered: {
+                    Clipboard.saveText(userDelegate.userId)
+                }
+            }
+        }
+
         contentItem: RowLayout {
             spacing: Kirigami.Units.smallSpacing
 
