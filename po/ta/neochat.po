@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-12 00:43+0000\n"
+"POT-Creation-Date: 2025-09-13 00:49+0000\n"
 "PO-Revision-Date: 2025-08-10 21:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1440,34 +1440,42 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
-#: src/app/qml/UserSearchPage.qml:74
+#: src/app/qml/UserSearchPage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@action:inmenu"
+msgid "Copy User ID"
+msgstr "பயனர் அடையாளம்"
+
+#: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
 #| msgid "Friends"
 msgctxt "@info"
 msgid "Friends"
 msgstr "நண்பர்கள்"
 
-#: src/app/qml/UserSearchPage.qml:81
+#: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "Find your friends…"
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "உங்கள் நண்பர்களைக் கண்டுபிடியுங்கள்…"
 
-#: src/app/qml/UserSearchPage.qml:82
+#: src/app/qml/UserSearchPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Enter text to start searching for your friends"
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "நண்பர்களைத் தேடுவதற்கு எதையாவது உள்ளிடுங்கள்"
 
-#: src/app/qml/UserSearchPage.qml:83
+#: src/app/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "யாரும் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-12 00:43+0000\n"
-"PO-Revision-Date: 2025-09-08 05:32+0200\n"
+"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"PO-Revision-Date: 2025-09-12 05:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -924,7 +924,7 @@ msgstr "QR კოდის სკანირება"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "კამერა მიერთებული არაა"
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -1377,31 +1377,39 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
-#: src/app/qml/UserSearchPage.qml:74
+#: src/app/qml/UserSearchPage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@action:inmenu"
+msgid "Copy User ID"
+msgstr "მომხმარებლის ID"
+
+#: src/app/qml/UserSearchPage.qml:84
 #, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "მეგობრები"
 
-#: src/app/qml/UserSearchPage.qml:81
+#: src/app/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "იპოვეთ თქვენი მეგობრები…"
 
-#: src/app/qml/UserSearchPage.qml:82
+#: src/app/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "მეგობრების ძებნის დასაწყებად შეიყვანეთ ტექსტი"
 
-#: src/app/qml/UserSearchPage.qml:83
+#: src/app/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "არაფერი მოიძებნა"
 
-#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
@@ -3263,12 +3271,10 @@ msgid "No public rooms found"
 msgstr "საჯარო ოთახი ვერ ვიპოვე"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No public rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
-msgstr "საჯარო ოთახი ვერ ვიპოვე"
+msgstr "საჯარო ოთახების გარეშე"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
 #: src/timeline/TimelineEndDelegate.qml:69

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-12 00:43+0000\n"
+"POT-Creation-Date: 2025-09-13 00:49+0000\n"
 "PO-Revision-Date: 2025-08-21 14:56+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -1388,34 +1388,42 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Atrast draugus"
 
-#: src/app/qml/UserSearchPage.qml:74
+#: src/app/qml/UserSearchPage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@action:inmenu"
+msgid "Copy User ID"
+msgstr "Lietotāja ID"
+
+#: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
 #| msgid "Friends"
 msgctxt "@info"
 msgid "Friends"
 msgstr "Draugi"
 
-#: src/app/qml/UserSearchPage.qml:81
+#: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "Find your friends…"
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Atrast draugus..."
 
-#: src/app/qml/UserSearchPage.qml:82
+#: src/app/qml/UserSearchPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Enter text to start searching for your friends"
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
 
-#: src/app/qml/UserSearchPage.qml:83
+#: src/app/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Atbilsmes nav atrastas"
 
-#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"

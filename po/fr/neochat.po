@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-12 00:43+0000\n"
-"PO-Revision-Date: 2025-09-03 16:51+0200\n"
+"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"PO-Revision-Date: 2025-09-09 11:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1385,31 +1385,39 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Rechercher vos personnes amies"
 
-#: src/app/qml/UserSearchPage.qml:74
+#: src/app/qml/UserSearchPage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@action:inmenu"
+msgid "Copy User ID"
+msgstr "Identifiant utilisateur"
+
+#: src/app/qml/UserSearchPage.qml:84
 #, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "Personnes amies"
 
-#: src/app/qml/UserSearchPage.qml:81
+#: src/app/qml/UserSearchPage.qml:91
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Rechercher vos personnes amies..."
 
-#: src/app/qml/UserSearchPage.qml:82
+#: src/app/qml/UserSearchPage.qml:92
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Saisissez un texte pour démarrer la recherche de vos personnes amies"
 
-#: src/app/qml/UserSearchPage.qml:83
+#: src/app/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Aucune correspondance n'a été trouvée."
 
-#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
@@ -1594,7 +1602,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "Terminé"
 
 #: src/app/roommanager.cpp:208
 #, kde-format
@@ -1604,10 +1612,9 @@ msgstr ""
 "correct."
 
 #: src/app/roommanager.cpp:425
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "Impossible de rejoindre le salon<br />%1"
+msgstr "Impossible de rejoindre %1<br />%2"
 
 #: src/app/roommanager.cpp:449
 #, kde-format
@@ -1841,12 +1848,10 @@ msgid "This includes state events"
 msgstr "Ceci inclut les évènements de modifications d'état"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
-msgstr "Toujours autoriser une session de vérification de périphériques"
+msgstr "Toujours autoriser la vérification de périphérique"
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
@@ -3845,9 +3850,7 @@ msgstr[0] "%2 a réagi à %3"
 msgstr[1] "%2 a réagi à %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3855,9 +3858,7 @@ msgstr[0] "Vote %1"
 msgstr[1] "%1 votes"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"

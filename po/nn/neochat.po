@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-12 00:43+0000\n"
+"POT-Creation-Date: 2025-09-13 00:49+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1433,34 +1433,42 @@ msgctxt "@action:title"
 msgid "Find Your Friends"
 msgstr "Finn vennane dine"
 
-#: src/app/qml/UserSearchPage.qml:74
+#: src/app/qml/UserSearchPage.qml:58
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@action:inmenu"
+msgid "Copy User ID"
+msgstr "Brukar-ID"
+
+#: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
 #| msgid "Friends"
 msgctxt "@info"
 msgid "Friends"
 msgstr "Vennar"
 
-#: src/app/qml/UserSearchPage.qml:81
+#: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
 #| msgid "Find your friends…"
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "Finn vennane dine …"
 
-#: src/app/qml/UserSearchPage.qml:82
+#: src/app/qml/UserSearchPage.qml:92
 #, fuzzy, kde-format
 #| msgid "Enter text to start searching for your friends"
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "Skriv inn tekst for å starta søk etter vennane dine"
 
-#: src/app/qml/UserSearchPage.qml:83
+#: src/app/qml/UserSearchPage.qml:93
 #, kde-format
 msgctxt "@info:label"
 msgid "No matches found"
 msgstr "Fann ikkje nokon treff"
 
-#: src/app/qml/UserSearchPage.qml:89 src/libneochat/qml/InviteUserPage.qml:46
+#: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
 #, fuzzy, kde-format
 #| msgid "Enter a user ID"
 msgctxt "@action:button"
