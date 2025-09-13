@@ -375,7 +375,9 @@ QQC2.Control {
                         id: actionDelegate
                         required property BusyAction modelData
                         icon.name: modelData.isBusy ? "" : (modelData.icon.name.length > 0 ? modelData.icon.name : modelData.icon.source)
-                        onClicked: modelData.trigger()
+                        onClicked: if (!pieProgress.visible) {
+                            modelData.trigger()
+                        }
 
                         padding: Kirigami.Units.smallSpacing
 
@@ -383,7 +385,9 @@ QQC2.Control {
                         QQC2.ToolTip.text: modelData.tooltip
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-                        contentItem: PieProgressBar {
+                        PieProgressBar {
+                            id: pieProgress
+                            anchors.fill: parent
                             visible: actionDelegate.modelData.isBusy
                             progress: root.currentRoom.fileUploadingProgress
                         }
