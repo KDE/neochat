@@ -325,6 +325,7 @@ if(ANDROID)
         "kt-restore-defaults-symbolic"
         "user-symbolic"
         "mark-location-symbolic"
+        "amarok_playcount"
 
         ${KIRIGAMI_ADDONS_ICONS}
     )
