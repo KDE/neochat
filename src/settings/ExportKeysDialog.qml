@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
+import QtCore
 import QtQuick
-import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs
 
@@ -65,7 +65,7 @@ FormCard.FormCardPage {
         id: saveDialog
         FileDialog {
             fileMode: FileDialog.SaveFile
-            currentFolder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+            currentFolder: NeoChatConfig.lastSaveDirectory.length > 0 ? NeoChatConfig.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
         }
     }
 }
