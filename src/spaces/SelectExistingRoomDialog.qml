@@ -38,7 +38,7 @@ Kirigami.Dialog {
             visible: !chosenRoomDelegate.visible
             text: i18nc("@action:button", "Pick Room")
             onClicked: {
-                let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'ExploreRoomsPage'), {
+                let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'ExploreRoomsPage'), {
                     connection: root.connection
                 }, {
                     title: i18nc("@title", "Explore Rooms")
