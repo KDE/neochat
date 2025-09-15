@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -23,8 +25,9 @@ ColumnLayout {
         Repeater {
             model: root.connection.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
+                required property string modelData
                 text: modelData
-                onClicked: root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+                onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.connection.accountDataJsonString(modelData)
                 }, {
                     title: i18nc("@title:window", "Event Source"),
