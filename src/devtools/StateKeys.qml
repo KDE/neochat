@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Window
 
 import org.kde.kirigami as Kirigami
@@ -30,14 +31,15 @@ FormCard.FormCardPage {
             }
 
             delegate: FormCard.FormButtonDelegate {
-                text: model.stateKey
-                onClicked: openEventSource(model.stateKey)
+                required property string stateKey
+                text: stateKey
+                onClicked: root.openEventSource(stateKey)
             }
         }
     }
 
     function openEventSource(stateKey: string): void {
-        root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+        (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
             model: stateKeysModel,
             allowEdit: true,
             room: root.room,

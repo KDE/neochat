@@ -17,6 +17,8 @@ ecm_add_qml_module(Devtools GENERATE_PLUGIN_SOURCE
         models/statefiltermodel.cpp
         models/statekeysmodel.cpp
         models/statemodel.cpp
+    DEPENDENCIES
+        QtCore
 )
 
 target_include_directories(Devtools PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
