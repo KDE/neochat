@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtCore as Core
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -21,13 +23,13 @@ Components.AlbumMaximizeComponent {
      */
     required property NeoChatRoom currentRoom
 
-    readonly property string currentEventId: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.EventIdRole)
+    readonly property string currentEventId: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.EventIdRole)
 
-    readonly property var currentAuthor: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.AuthorRole)
+    readonly property var currentAuthor: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.AuthorRole)
 
-    readonly property var currentTime: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.TimeRole)
+    readonly property var currentTime: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.TimeRole)
 
-    readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
+    readonly property var currentProgressInfo: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
 
     actions: [
         ShareAction {
@@ -59,28 +61,28 @@ Components.AlbumMaximizeComponent {
 
     downloadAction: Components.DownloadAction {
         onTriggered: {
-            currentRoom.downloadFile(root.currentEventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId));
+            root.currentRoom.downloadFile(root.currentEventId, Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.currentRoom.fileNameToDownload(root.currentEventId));
         }
     }
 
     playAction: Kirigami.Action {
         onTriggered: {
             MediaManager.startPlayback();
-            currentItem.play();
+            (root.currentItem as Components.VideoMaximizeDelegate).play();
         }
     }
 
     Connections {
         target: MediaManager
         function onPlaybackStarted() {
-            if (currentItem.playbackState === MediaPlayer.PlayingState) {
-                currentItem.pause();
+            if ((root.currentItem as Components.VideoMaximizeDelegate).playbackState === MediaPlayer.PlayingState) {
+                (root.currentItem as Components.VideoMaximizeDelegate).pause();
             }
         }
     }
 
     Connections {
-        target: currentRoom
+        target: root.currentRoom
 
         function onFileTransferProgress(id, progress, total) {
             if (id == root.currentEventId) {
@@ -123,7 +125,7 @@ Components.AlbumMaximizeComponent {
     onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentRoom)
 
     onSaveItem: {
-        var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay);
+        var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
         dialog.selectedFile = currentRoom.fileNameToDownload(root.currentEventId);
         dialog.open();
     }
@@ -146,7 +148,7 @@ Components.AlbumMaximizeComponent {
                 if (!selectedFile) {
                     return;
                 }
-                currentRoom.downloadFile(root.currentEventId, selectedFile);
+                root.currentRoom.downloadFile(root.currentEventId, selectedFile);
             }
         }
     }
