@@ -1,13 +1,14 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
-import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
@@ -21,8 +22,8 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
 
     Component.onCompleted: {
-        header.background.children[0].visible = true
-        footer.background.children[0].visible = true
+        (header as QQC2.Control).background.children[0].visible = true
+        (footer as QQC2.Control).background.children[0].visible = true
     }
 
     onAccepted: {
@@ -109,7 +110,7 @@ Kirigami.Dialog {
                 text: i18nc("@action:button", "Add parameter")
                 icon.name: "list-add"
 
-                onClicked: addParameterDialogComponent.createObject(root).open()
+                onClicked: (addParameterDialogComponent.createObject(root) as Kirigami.Dialog).open()
             }
         }
     }
@@ -127,37 +128,36 @@ Kirigami.Dialog {
             standardButtons: Kirigami.Dialog.Cancel
 
             Component.onCompleted: {
-                header.background.children[0].visible = true
-                footer.background.children[0].visible = true
+                (header as QQC2.Control).background.children[0].visible = true
+                (footer as QQC2.Control).background.children[0].visible = true
             }
 
             contentItem: QQC2.ScrollView {
                 clip: true
 
                 ListView {
-                    id: listView
                     implicitHeight: contentHeight
                     currentIndex: -1
 
                     model: roomSortParameterModel.allParameterModel()
 
                     delegate: Delegates.RoundedItemDelegate {
-                        id: parameterDelegate
+                        id: addParameterDelegate
                         required property string name
                         required property string description
                         required property int index
 
                         width: parent?.width ?? 0
 
-                        text: parameterDelegate.name
+                        text: addParameterDelegate.name
 
                         contentItem: Delegates.SubtitleContentItem {
-                            itemDelegate: parameterDelegate
-                            subtitle: parameterDelegate.description
+                            itemDelegate: addParameterDelegate
+                            subtitle: addParameterDelegate.description
                         }
 
                         onClicked: {
-                            roomSortParameterModel.addParameter(parameterDelegate.index)
+                            roomSortParameterModel.addParameter(addParameterDelegate.index)
                             addParameterDialog.close()
                         }
                     }
