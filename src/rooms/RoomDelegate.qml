@@ -40,7 +40,7 @@ Delegates.RoundedItemDelegate {
     onClicked: {
         if (root.openOnClick) {
             RoomManager.resolveResource(currentRoom.id);
-            pageStack.currentIndex = 1;
+            root.Kirigami.PageStack.pageStack.currentIndex = 1;
         }
     }
 
@@ -72,7 +72,7 @@ Delegates.RoundedItemDelegate {
         repeat: false
         onTriggered: {
             RoomManager.resolveResource(root.currentRoom.id);
-            pageStack.currentIndex = 1;
+            Kirigami.PageStack.pageStack.currentIndex = 1;
         }
     }
 
