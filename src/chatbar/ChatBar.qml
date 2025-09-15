@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -87,9 +89,15 @@ QQC2.Control {
             displayHint: Kirigami.DisplayHint.IconOnly
 
             onTriggered: {
-                let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(root.QQC2.Overlay.overlay);
-                dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
-                dialog.open();
+                if (Clipboard.hasImage) {
+                    let dialog = attachDialog.createObject(root.QQC2.Overlay.overlay) as AttachDialog;
+                    dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
+                    dialog.open();
+                } else {
+                    let dialog = openFileDialog.createObject(root.QQC2.Overlay.overlay) as OpenFileDialog;
+                    dialog.chosen.connect(path => _private.chatBarCache.attachmentPath = path);
+                    dialog.open();
+                }
             }
 
             tooltip: text
@@ -122,9 +130,9 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                locationChooser.createObject(QQC2.Overlay.overlay, {
+                (locationChooser.createObject(QQC2.Overlay.overlay, {
                     room: root.currentRoom
-                }).open();
+                }) as LocationChooser).open();
             }
             tooltip: text
         },
@@ -136,9 +144,9 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                newPollDialog.createObject(QQC2.Overlay.overlay, {
+                (newPollDialog.createObject(QQC2.Overlay.overlay, {
                     room: root.currentRoom
-                }).open();
+                }) as NewPollDialog).open();
             }
             tooltip: text
         },
@@ -402,7 +410,7 @@ QQC2.Control {
             ReplyComponent {
                 id: replyComponent
                 replyContentModel: ContentProvider.contentModelForEvent(root.currentRoom, _private.chatBarCache.replyId, true)
-                Message.maxContentWidth: replyLoader.item.width
+                Message.maxContentWidth: (replyLoader.item as Item).width
 
                 // When the user replies to a message and the preview is loaded, make sure the text field is focused again
                 Component.onCompleted: textField.forceActiveFocus(Qt.OtherFocusReason)
