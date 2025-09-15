@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2021-2022 Bart De Vries <bart@mogwai.be>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -62,7 +64,7 @@ QQC2.Control {
 
                     activeFocusOnTab: true
 
-                    onSelected: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
+                    onSelected: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                         connection: root.connection
                     }, {
                         title: i18nc("@title", "Notifications"),
@@ -99,7 +101,7 @@ QQC2.Control {
                             height: Kirigami.Units.iconSizes.smallMedium
 
                             text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
-                            visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || root.showDirectChats === true)
+                            visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || RoomManager.currentSpace !== "DM")
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
@@ -307,13 +309,13 @@ QQC2.Control {
         let context = spaceListContextMenu.createObject(root, {
             room: room,
             connection: root.connection
-        });
+        }) as SpaceListContextMenu;
         context.popup();
     }
     Component {
         id: spaceListContextMenu
         SpaceListContextMenu {
-            window: root.QQC2.ApplicationWindow.window
+            window: root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
         }
     }
 }
