@@ -5,6 +5,7 @@ import QtQuick
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
+import io.github.quotient_im.libquotient
 
 import org.kde.neochat
 

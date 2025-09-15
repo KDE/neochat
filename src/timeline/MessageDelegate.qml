@@ -1,16 +1,15 @@
 // SPDX-FileCopyrightText: 2020 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
-import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
-import org.kde.neochat.libneochat as LibNeoChat
 
 /**
  * @brief The base delegate for all messages in the timeline.

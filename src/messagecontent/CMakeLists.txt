@@ -43,6 +43,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         ThreadBodyComponent.qml
         VideoComponent.qml
     SOURCES
+        messageattached.cpp
         contentprovider.cpp
         mediasizehelper.cpp
         pollhandler.cpp
@@ -53,6 +54,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         models/reactionmodel.cpp
         models/threadmodel.cpp
         models/eventmessagecontentmodel.cpp
+        models/messagecontentfiltermodel.cpp
     RESOURCES
         images/bike.svg
         images/bus.svg
@@ -81,6 +83,9 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         images/walk.svg
     DEPENDENCIES
         QtQuick
+    IMPORTS
+        org.kde.neochat.libneochat
+        io.github.quotient_im.libquotient
 )
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)

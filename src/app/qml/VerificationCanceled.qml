@@ -5,6 +5,7 @@ import QtQuick
 import QtQml
 
 import org.kde.neochat
+import io.github.quotient_im.libquotient
 
 VerificationMessage {
     id: root

@@ -23,12 +23,10 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         TypingPane.qml
         DelegateContextMenu.qml
     SOURCES
-        messageattached.cpp
         messagedelegate.cpp
         timelinedelegate.cpp
         enums/delegatetype.h
         models/mediamessagefiltermodel.cpp
-        models/messagecontentfiltermodel.cpp
         models/messagefiltermodel.cpp
         models/messagemodel.cpp
         models/pinnedmessagemodel.cpp
@@ -39,6 +37,8 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         models/webshortcutmodel.cpp
     DEPENDENCIES
         QtQuick
+        org.kde.neochat.libneochat
+        io.github.quotient_im.libquotient
 )
 
 target_include_directories(Timeline PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/enums ${CMAKE_CURRENT_SOURCE_DIR}/models)
