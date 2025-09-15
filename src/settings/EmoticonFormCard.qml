@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -38,14 +40,19 @@ FormCard.FormCard {
             delegate: FormCard.AbstractFormDelegate {
                 id: stickerDelegate
 
+                required property string body
+                required property string url
+                required property string shortcode
+                required property int index
+
                 width: stickerFlow.width / 4
                 height: width
 
-                onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(emoticonEditorPage, {
-                    description: model.body ?? "",
-                    index: model.index,
-                    url: model.url,
-                    shortcode: model.shortcode,
+                onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(emoticonEditorPage, {
+                    description: stickerDelegate.body ?? "",
+                    index: stickerDelegate.index,
+                    url: stickerDelegate.url,
+                    shortcode: stickerDelegate.shortcode,
                     model: stickerModel,
                     proxyModel: emoticonFilterModel,
                     emoticonType: root.emoticonType
@@ -55,7 +62,7 @@ FormCard.FormCard {
 
                 contentItem: ColumnLayout {
                     Image {
-                        source: model.url
+                        source: stickerDelegate.url
                         Layout.fillWidth: true
                         sourceSize.height: parent.width * 0.8
                         fillMode: Image.PreserveAspectFit
@@ -68,7 +75,7 @@ FormCard.FormCard {
                     }
                     QQC2.Label {
                         id: descriptionLabel
-                        text: model.body ?? i18nc("As in 'This sticker/emoji has no description'", "No Description")
+                        text: stickerDelegate.body ?? i18nc("As in 'This sticker/emoji has no description'", "No Description")
                         horizontalAlignment: Qt.AlignHCenter
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
@@ -82,7 +89,7 @@ FormCard.FormCard {
                     anchors.right: parent.right
                     anchors.margins: Kirigami.Units.smallSpacing
                     z: 2
-                    onClicked: stickerModel.deleteEmoticon(emoticonFilterModel.mapToSource(emoticonFilterModel.index(model.index, 0)).row)
+                    onClicked: stickerModel.deleteEmoticon(emoticonFilterModel.mapToSource(emoticonFilterModel.index(stickerDelegate.index, 0)).row)
                 }
             }
         }
@@ -90,7 +97,7 @@ FormCard.FormCard {
             width: stickerFlow.width / 4
             height: width
 
-            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(emoticonEditorPage, {
+            onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(emoticonEditorPage, {
                 description: "",
                 index: -1,
                 url: "",
@@ -115,5 +122,9 @@ FormCard.FormCard {
                 }
             }
         }
+    }
+    Component {
+        id: emoticonEditorPage
+        EmoticonEditorPage {}
     }
 }

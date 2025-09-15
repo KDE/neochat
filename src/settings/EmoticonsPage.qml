@@ -30,9 +30,4 @@ FormCard.FormCardPage {
         emoticonType: EmoticonFormCard.Stickers
         connection: root.connection
     }
-
-    property Component emoticonEditorPage: Component {
-        id: emoticonEditorPage
-        EmoticonEditorPage {}
-    }
 }
