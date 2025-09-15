@@ -165,7 +165,7 @@ Kirigami.Page {
                 }
             }
             isDone: root.session.state === KeyVerificationSession.DONE
-            onDone: root.closeDialog()
+            onDone: root.Kirigami.PageStack.closeDialog()
         }
     }
 
