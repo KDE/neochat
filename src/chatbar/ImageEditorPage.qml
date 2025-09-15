@@ -3,14 +3,13 @@
 
 import QtQuick
 import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 import QtCore as Core
 
 import org.kde.kirigami as Kirigami
 import org.kde.kquickimageeditor as KQuickImageEditor
 
 Kirigami.Page {
-    id: rootEditorView
+    id: root
 
     property bool resizing: false
     required property string imagePath
@@ -26,7 +25,7 @@ Kirigami.Page {
     function crop() {
         const ratioX = editImage.paintedWidth / editImage.nativeWidth;
         const ratioY = editImage.paintedHeight / editImage.nativeHeight;
-        rootEditorView.resizing = false;
+        root.resizing = false;
         imageDoc.crop(selectionTool.selectionX / ratioX, selectionTool.selectionY / ratioY, selectionTool.selectionWidth / ratioX, selectionTool.selectionHeight / ratioY);
     }
 
@@ -43,9 +42,9 @@ Kirigami.Page {
             text: i18nc("@action:button Accept image modification", "Accept")
             icon.name: "dialog-ok"
             onTriggered: {
-                let newPath = Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + imagePath.split('.').pop();
+                let newPath = Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + root.imagePath.split('.').pop();
                 if (imageDoc.saveAs(newPath)) {
-                    newPathChanged(newPath);
+                    root.newPathChanged(newPath);
                 } else {
                     msg.type = Kirigami.MessageType.Error;
                     msg.text = i18n("Unable to save file. Check if you have the correct permission to edit the cache directory.");
@@ -80,12 +79,12 @@ Kirigami.Page {
 
         KQuickImageEditor.ImageDocument {
             id: imageDoc
-            path: rootEditorView.imagePath
+            path: root.imagePath
         }
 
         KQuickImageEditor.SelectionTool {
             id: selectionTool
-            visible: rootEditorView.resizing
+            visible: root.resizing
             width: editImage.paintedWidth
             height: editImage.paintedHeight
             x: editImage.horizontalPadding
@@ -101,7 +100,7 @@ Kirigami.Page {
             Connections {
                 target: selectionTool.selectionArea
                 function onDoubleClicked() {
-                    rootEditorView.crop();
+                    root.crop();
                 }
             }
         }
@@ -119,8 +118,8 @@ Kirigami.Page {
             display: QQC2.Button.TextBesideIcon
             actions: [
                 Kirigami.Action {
-                    icon.name: rootEditorView.resizing ? "dialog-cancel" : "transform-crop"
-                    text: rootEditorView.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop")
+                    icon.name: root.resizing ? "dialog-cancel" : "transform-crop"
+                    text: root.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop")
                     onTriggered: {
                         resizeRectangle.width = editImage.paintedWidth;
                         resizeRectangle.height = editImage.paintedHeight;
@@ -130,38 +129,38 @@ Kirigami.Page {
                         resizeRectangle.insideY = 100;
                         resizeRectangle.insideWidth = 100;
                         resizeRectangle.insideHeight = 100;
-                        rootEditorView.resizing = !rootEditorView.resizing;
+                        root.resizing = !root.resizing;
                     }
                 },
                 Kirigami.Action {
                     icon.name: "dialog-ok"
-                    visible: rootEditorView.resizing
+                    visible: root.resizing
                     text: i18nc("@action:button Crop an image", "Crop")
-                    onTriggered: rootEditorView.crop()
+                    onTriggered: root.crop()
                 },
                 Kirigami.Action {
                     icon.name: "object-rotate-left"
                     text: i18nc("@action:button Rotate an image to the left", "Rotate left")
                     onTriggered: imageDoc.rotate(-90)
-                    visible: !rootEditorView.resizing
+                    visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-rotate-right"
                     text: i18nc("@action:button Rotate an image to the right", "Rotate right")
                     onTriggered: imageDoc.rotate(90)
-                    visible: !rootEditorView.resizing
+                    visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-flip-vertical"
                     text: i18nc("@action:button Mirror an image vertically", "Flip")
                     onTriggered: imageDoc.mirror(false, true)
-                    visible: !rootEditorView.resizing
+                    visible: !root.resizing
                 },
                 Kirigami.Action {
                     icon.name: "object-flip-horizontal"
                     text: i18nc("@action:button Mirror an image horizontally", "Mirror")
                     onTriggered: imageDoc.mirror(true, false)
-                    visible: !rootEditorView.resizing
+                    visible: !root.resizing
                 }
             ]
         }
