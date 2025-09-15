@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat.libneochat
+import org.kde.neochat
 
 /**
  * @brief Component for visualising the room information.
@@ -68,7 +69,7 @@ QQC2.ScrollView {
 
             Kirigami.ListSectionHeader {
                 visible: !root.room.isSpace
-                label: i18nc("Room actions", "Actions")
+                text: i18nc("Room actions", "Actions")
                 activeFocusOnTab: false
 
                 Layout.fillWidth: true
@@ -84,7 +85,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
+                    ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
                         room: root.room
                     }, {
                         title: i18nc("@action:title", "Search")
@@ -122,7 +123,7 @@ QQC2.ScrollView {
                 text: i18n("Show locations for this room")
                 activeFocusOnTab: true
 
-                onClicked: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
+                onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
                     room: root.room
                 }, {
                     title: i18nc("Locations on a map", "Locations")
@@ -141,7 +142,7 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
+                    ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
                         room: root.room
                     }, {
                         title: i18nc("@title", "Pinned Messages")
@@ -158,14 +159,14 @@ QQC2.ScrollView {
                 Layout.fillWidth: true
 
                 onClicked: {
-                    Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
+                    (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                         room: root.room
-                    }).open();
+                    }) as ConfirmLeaveDialog).open();
                 }
             }
 
             Kirigami.ListSectionHeader {
-                label: i18n("Members")
+                text: i18n("Members")
                 activeFocusOnTab: false
                 spacing: 0
                 visible: !root.room.isDirectChat()
@@ -177,7 +178,7 @@ QQC2.ScrollView {
                     icon.name: "list-add-user"
 
                     onClicked: {
-                        pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
+                        ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'InviteUserPage'), {
                             room: root.room
                         }, {
                             title: i18nc("@title", "Invite a User")
@@ -191,7 +192,7 @@ QQC2.ScrollView {
 
                 QQC2.Label {
                     Layout.alignment: Qt.AlignRight
-                    text: root.room ? i18np("%1 member", "%1 members", root.room.joinedCount) : i18n("No member count")
+                    text: root.room ? i18ncp("@info", "%1 member", "%1 members", root.room.joinedCount) : i18n("No member count")
                 }
             }
 
