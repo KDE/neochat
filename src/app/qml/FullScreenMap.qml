@@ -17,7 +17,7 @@ ApplicationWindow {
     property real longitude: NaN
     property string asset
     property var author
-    property QtObject liveLocationModel: null
+    property LiveLocationsModel liveLocationModel: null
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
     visibility: Qt.WindowFullScreen
@@ -59,7 +59,7 @@ ApplicationWindow {
 
         Connections {
             target: mapView.map
-            function onCopyrightLinkActivated() {
+            function onCopyrightLinkActivated(link: string) {
                 Qt.openUrlExternally(link);
             }
         }
