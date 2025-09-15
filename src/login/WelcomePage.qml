@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -121,6 +123,8 @@ Kirigami.Page {
                     delegate: FormCard.AbstractFormDelegate {
                         id: loadingDelegate
 
+                        required property string modelData
+
                         topPadding: Kirigami.Units.smallSpacing
                         bottomPadding: Kirigami.Units.smallSpacing
 
@@ -130,7 +134,7 @@ Kirigami.Page {
 
                             QQC2.Label {
                                 Layout.fillWidth: true
-                                text: i18nc("As in 'this account is still loading'", "%1 (loading)", modelData)
+                                text: i18nc("As in 'this account is still loading'", "%1 (loading)", loadingDelegate.modelData)
                                 elide: Text.ElideRight
                                 wrapMode: Text.Wrap
                                 maximumLineCount: 2
@@ -141,7 +145,7 @@ Kirigami.Page {
                             QQC2.ToolButton {
                                 text: i18nc("@action:button", "Log out of this account")
                                 icon.name: "im-kick-user"
-                                onClicked: Controller.removeConnection(modelData)
+                                onClicked: Controller.removeConnection(loadingDelegate.modelData)
                                 display: QQC2.Button.IconOnly
                                 QQC2.ToolTip.text: text
                                 QQC2.ToolTip.visible: hovered
@@ -159,7 +163,7 @@ Kirigami.Page {
                         }
                     }
                     onCountChanged: {
-                        if (loadingAccounts.count === 0 && loadedAccounts.count === 1 && showExisting) {
+                        if (loadingAccounts.count === 0 && loadedAccounts.count === 1 && root.showExisting) {
                             Controller.activeConnection = AccountRegistry.data(AccountRegistry.index(0, 0), 257);
                             root.connectionChosen();
                         }
@@ -181,15 +185,15 @@ Kirigami.Page {
 
                     Connections {
                         id: stepConnections
-                        target: currentStep
+                        target: root.currentStep
 
                         function onProcessed(nextStep: string): void {
                             module.source = nextStep + ".qml";
                             root.currentStepString = nextStep;
                             headerMessage.text = "";
                             headerMessage.visible = false;
-                            if (!module.item.noControls) {
-                                module.item.forceActiveFocus();
+                            if (!(root.currentStep as LoginStep).noControls) {
+                                (root.currentStep as LoginStep).forceActiveFocus();
                             } else {
                                 continueButton.forceActiveFocus();
                             }
@@ -242,24 +246,24 @@ Kirigami.Page {
 
                 FormCard.FormDelegateSeparator {
                     below: continueButton
-                    visible: root.currentStep.nextAction
+                    visible: (root.currentStep as LoginStep).nextAction
                 }
 
                 FormCard.FormButtonDelegate {
                     id: continueButton
-                    text: root.currentStep.nextAction && root.currentStep.nextAction.text ? root.currentStep.nextAction.text : i18nc("@action:button", "Continue")
-                    visible: root.currentStep.nextAction
-                    onClicked: root.currentStep.nextAction.trigger()
+                    text: (root.currentStep as LoginStep).nextAction && (root.currentStep as LoginStep).nextAction.text ? (root.currentStep as LoginStep).nextAction.text : i18nc("@action:button", "Continue")
+                    visible: (root.currentStep as LoginStep).nextAction
+                    onClicked: (root.currentStep as LoginStep).nextAction.trigger()
                     icon.name: "arrow-right-symbolic"
-                    enabled: root.currentStep.nextAction ? root.currentStep.nextAction.enabled : false
+                    enabled: (root.currentStep as LoginStep).nextAction ? (root.currentStep as LoginStep).nextAction.enabled : false
                 }
 
                 FormCard.FormButtonDelegate {
                     text: i18nc("@action:button", "Go back")
-                    visible: root.currentStep.previousAction
-                    onClicked: root.currentStep.previousAction.trigger()
+                    visible: (root.currentStep as LoginStep).previousAction
+                    onClicked: (root.currentStep as LoginStep).previousAction.trigger()
                     icon.name: "arrow-left-symbolic"
-                    enabled: root.currentStep.previousAction ? root.currentStep.previousAction.enabled : false
+                    enabled: (root.currentStep as LoginStep).previousAction ? (root.currentStep as LoginStep).previousAction.enabled : false
                 }
             }
 
@@ -278,7 +282,7 @@ Kirigami.Page {
 
     Component.onCompleted: {
         LoginHelper.init();
-        module.item.forceActiveFocus();
+        (root.currentStep as LoginStep).forceActiveFocus();
         Registration.username = "";
         Registration.password = "";
         Registration.email = "";

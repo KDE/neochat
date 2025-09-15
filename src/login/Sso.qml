@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -22,7 +21,7 @@ LoginStep {
             UrlHelper.openUrl(LoginHelper.ssoUrl);
         }
         function onConnected() {
-            processed("Loading");
+            root.processed("Loading");
         }
     }
 
@@ -31,7 +30,7 @@ LoginStep {
     }
 
     previousAction: Kirigami.Action {
-        onTriggered: processed("Login")
+        onTriggered: root.processed("Login")
     }
 
     nextAction: Kirigami.Action {

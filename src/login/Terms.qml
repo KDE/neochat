@@ -22,8 +22,11 @@ LoginStep {
     Repeater {
         model: Registration.terms
         delegate: FormCard.FormTextDelegate {
-            text: "<a href=\"" + modelData.url + "\">" + modelData.title + "</a>"
-            onLinkActivated: Qt.openUrlExternally(modelData.url)
+            required property string url
+            required property string title
+
+            text: "<a href=\"" + url + "\">" + title + "</a>"
+            onLinkActivated: Qt.openUrlExternally(url)
         }
     }
 

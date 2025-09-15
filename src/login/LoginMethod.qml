@@ -18,12 +18,12 @@ LoginStep {
     FormCard.FormButtonDelegate {
         id: loginPasswordButton
         text: i18nc("@action:button", "Login with password")
-        onClicked: processed("Password")
+        onClicked: root.processed("Password")
     }
 
     FormCard.FormButtonDelegate {
         id: loginSsoButton
         text: i18nc("@action:button", "Login with single sign-on")
-        onClicked: processed("Sso")
+        onClicked: root.processed("Sso")
     }
 }

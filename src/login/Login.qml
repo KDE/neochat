@@ -39,11 +39,11 @@ LoginStep {
         text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
-                processed("LoginMethod");
+                root.processed("LoginMethod");
             } else if (LoginHelper.supportsSso) {
-                processed("Sso");
+                root.processed("Sso");
             } else {
-                processed("Password");
+                root.processed("Password");
             }
         }
         enabled: LoginHelper.homeserverReachable
