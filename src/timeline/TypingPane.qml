@@ -4,11 +4,12 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.neochat
 
 Loader {
     id: root
@@ -41,6 +42,9 @@ Loader {
                     model: 3
                     delegate: Rectangle {
                         id: dot
+
+                        required property int index
+
                         color: Kirigami.Theme.textColor
                         radius: height / 2
                         implicitWidth: fontMetrics.xHeight
@@ -55,7 +59,7 @@ Loader {
                         SequentialAnimation {
                             running: true
                             PauseAnimation {
-                                duration: dotRow.duration * index / 2
+                                duration: dotRow.duration * dot.index / 2
                             }
                             SequentialAnimation {
                                 loops: Animation.Infinite
@@ -109,9 +113,9 @@ Loader {
             }
         }
 
-        leftInset: !mirrored ? 0 : -background.radius
-        rightInset: mirrored ? 0 : -background.radius
-        bottomInset: -background.radius
+        leftInset: !mirrored ? 0 : -(background as Rectangle).radius
+        rightInset: mirrored ? 0 : -(background as Rectangle).radius
+        bottomInset: -(background as Rectangle).radius
         background: Rectangle {
             radius: Kirigami.Units.cornerRadius
             color: Kirigami.Theme.backgroundColor
