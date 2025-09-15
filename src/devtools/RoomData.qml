@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2022 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Window
@@ -25,7 +27,7 @@ ColumnLayout {
             description: i18nc("@info", "Click to choose a room");
 
             onClicked: {
-                let dialog = root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
+                let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
                     connection: root.connection,
                 }, {
                     title: i18nc("@title:dialog", "Choose Room"),
@@ -49,8 +51,9 @@ ColumnLayout {
             id: roomAccountData
             model: root.room.accountDataEventTypes
             delegate: FormCard.FormButtonDelegate {
+                required property string modelData
                 text: modelData
-                onClicked: root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+                onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
                     sourceText: root.room.roomAcountDataJson(text)
                 }, {
                     title: i18n("Event Source"),
@@ -74,15 +77,18 @@ ColumnLayout {
             }
 
             delegate: FormCard.FormButtonDelegate {
-                text: model.type
-                description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", model.eventCount)
+                required property string type
+                required property int eventCount
+                required property string stateKey
+                text: type
+                description: i18ncp("'Event' being some JSON data, not something physically happening.", "%1 event of this type", "%1 events of this type", eventCount)
                 onClicked: {
-                    if (model.eventCount === 1) {
-                        openEventSource(model.type, model.stateKey);
+                    if (eventCount === 1) {
+                        root.openEventSource(type, stateKey);
                     } else {
-                        root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'StateKeys'), {
+                        (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'StateKeys'), {
                             room: root.room,
-                            eventType: model.type
+                            eventType: type
                         }, {
                             title: i18nc("'Event' being some JSON data, not something physically happening.", "Event Information")
                         });
@@ -92,7 +98,7 @@ ColumnLayout {
         }
     }
     function openEventSource(type: string, stateKey: string): void {
-        onClicked: root.Window.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
+        onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'MessageSourceSheet'), {
             model: stateModel,
             allowEdit: true,
             room: root.room,
