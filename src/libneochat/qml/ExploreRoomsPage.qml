@@ -2,10 +2,11 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
@@ -129,8 +130,8 @@ SearchPage {
         function openManualRoomDialog() {
             let dialog = manualRoomDialog.createObject(root.QQC2.Overlay.overlay, {
                 connection: root.connection
-            });
-            dialog.parent = root.Window.window.overlay;
+            }) as ManualRoomDialog;
+            dialog.parent = root.QQC2.Overlay.overlay;
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
                 root.closeDialog();
