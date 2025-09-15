@@ -65,7 +65,7 @@ QQC2.ItemDelegate {
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-            onClicked: root.treeView.toggleExpanded(row)
+            onClicked: root.treeView.toggleExpanded(root.row)
         }
     }
 }
