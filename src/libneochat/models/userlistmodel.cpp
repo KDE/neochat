@@ -136,9 +136,13 @@ bool UserListModel::event(QEvent *event)
 
 void UserListModel::memberJoined(const Quotient::RoomMember &member)
 {
-    auto pos = findUserPos(member);
-    beginInsertRows(QModelIndex(), pos, pos);
-    m_members.insert(pos, member.id());
+    if (m_members.contains(member.id())) {
+        return;
+    }
+
+    const int row = m_members.size();
+    beginInsertRows(QModelIndex(), row, row);
+    m_members.append(member.id());
     endInsertRows();
 }
 
@@ -158,8 +162,6 @@ void UserListModel::refreshMember(const Quotient::RoomMember &member, const QLis
 {
     auto pos = findUserPos(member);
     if (pos != m_members.size()) {
-        // The update will have changed the state event so we need to insert the updated member object.
-        m_members.insert(pos, member.id());
         Q_EMIT dataChanged(index(pos), index(pos), roles);
     } else {
         qWarning() << "Trying to access a room member not in the user list";
