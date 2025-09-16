@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
-"PO-Revision-Date: 2025-09-01 19:46+0400\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"PO-Revision-Date: 2025-09-15 12:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -31,7 +31,7 @@ msgstr "تلقي إشعارات بالرسائل الجديدة"
 msgid "Receiving push notifications"
 msgstr "تلقي إشعارات"
 
-#: src/app/main.cpp:150 src/login/WelcomePage.qml:75
+#: src/app/main.cpp:150 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "نيوتشات"
@@ -339,7 +339,7 @@ msgstr "ابدأ دردشة"
 msgid "Attachment:"
 msgstr "المرفق:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
 #: src/timeline/DelegateContextMenu.qml:186
 #, kde-format
 msgid "Edit"
@@ -529,7 +529,7 @@ msgstr "استكشف الغرف"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -804,8 +804,8 @@ msgstr "يجب أن تبدأ معرفات المستخدم بـ @"
 msgid "The input is not a valid user ID"
 msgstr "ليس النص المُدخَل ليس رقم مستخدم صالح"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:56
-#: src/devtools/RoomData.qml:102
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
+#: src/devtools/RoomData.qml:108
 #, kde-format
 msgid "Event Source"
 msgstr "مصدر الحدث"
@@ -888,7 +888,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "أضف خيارًا"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:68
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
 #: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
@@ -923,7 +923,7 @@ msgstr "امسح رمز الاستجابة السريعة"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "لا توجد كاميرا موصولة"
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -973,7 +973,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "لم يعثر على غرفة"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:283
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1015,8 +1015,8 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "نيوتشات غير متصل: الرجاء التأكد من اتصالك بالشبكة"
 
-#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
@@ -1041,15 +1041,13 @@ msgid "Message Source"
 msgstr "مصدر الرّسالة"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "أضف خادماً جديداً"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "خادم المنزل"
@@ -1073,22 +1071,19 @@ msgid "Add server"
 msgstr "أضف خادمًا"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "ليس النص المُدخَل رابطا صالحا"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "لا يمكن التحقق من الخادم أو أنه مضاف فعلا"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "مسار الخادم:"
@@ -1354,7 +1349,7 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "بحث في الغرفة عن رسائل %1"
 
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1384,30 +1379,25 @@ msgid "Find Your Friends"
 msgstr "اعثر على أصدقائك"
 
 #: src/app/qml/UserSearchPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "User ID"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy User ID"
-msgstr "هوية مستخدم"
+msgstr "انسخ معرف المستخدم"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "الأصدقاء"
 
 #: src/app/qml/UserSearchPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "اعثر على أصدقائك…"
 
 #: src/app/qml/UserSearchPage.qml:92
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "ادخل نص لتبدأ البحث عن أصدقائك"
@@ -1575,7 +1565,7 @@ msgstr "جلسة التَثَبّت ألغيت لخطأ مجهول."
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "تمّ"
 
 #: src/app/roommanager.cpp:208
 #, kde-format
@@ -1583,10 +1573,9 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "معرف ماتركس مشوه أو فارغ<br />معرف ماتركس %1 غير صحيح"
 
 #: src/app/roommanager.cpp:425
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "أخفق في الانضمام إلى غرفة<br />%1"
+msgstr "أخفق في الانضمام إلى %1:<br />%2"
 
 #: src/app/roommanager.cpp:449
 #, kde-format
@@ -1620,61 +1609,61 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "صورة الحافظة"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
+#: src/chatbar/ChatBar.qml:88 src/messagecontent/ChatBarComponent.qml:165
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "أرفق صورة أو ملف"
 
-#: src/chatbar/ChatBar.qml:104
+#: src/chatbar/ChatBar.qml:112
 #, kde-format
 msgctxt "@action:button"
 msgid "Emojis & Stickers"
 msgstr "الصور التعبيرية والملصقات"
 
-#: src/chatbar/ChatBar.qml:121
+#: src/chatbar/ChatBar.qml:129
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "أرسل موقعاً جغرافياً"
 
-#: src/chatbar/ChatBar.qml:135
+#: src/chatbar/ChatBar.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "أنشئ استفتاء"
 
-#: src/chatbar/ChatBar.qml:151
+#: src/chatbar/ChatBar.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "أرسل رسالة"
 
-#: src/chatbar/ChatBar.qml:212
+#: src/chatbar/ChatBar.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "The user you're replying to has left the room, and can't be notified."
 msgstr "المستخدم الذي ترد عليه غادر الغرفة، ولا يمكن إشعاره."
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "أرسل رسالة معماة…"
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "ضع اسم للمرفق…"
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "أرسل رسالة…"
 
-#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1704,19 +1693,19 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "الملصقات"
 
-#: src/chatbar/ImageEditorPage.qml:36
+#: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "تراجع"
 
-#: src/chatbar/ImageEditorPage.qml:43
+#: src/chatbar/ImageEditorPage.qml:42
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "اقبل"
 
-#: src/chatbar/ImageEditorPage.qml:51
+#: src/chatbar/ImageEditorPage.qml:50
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -1724,60 +1713,60 @@ msgid ""
 msgstr ""
 "تعذر حفظ الملف. تحقق مما إذا كان لديك الإذن الصحيح لتحرير دليل الخبيئة."
 
-#: src/chatbar/ImageEditorPage.qml:123
+#: src/chatbar/ImageEditorPage.qml:122
 #, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: src/chatbar/ImageEditorPage.qml:123 src/chatbar/ImageEditorPage.qml:139
+#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "اقتصّ"
 
-#: src/chatbar/ImageEditorPage.qml:144
+#: src/chatbar/ImageEditorPage.qml:143
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "دوّر لليسار"
 
-#: src/chatbar/ImageEditorPage.qml:150
+#: src/chatbar/ImageEditorPage.qml:149
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "دوّر لليمين"
 
-#: src/chatbar/ImageEditorPage.qml:156
+#: src/chatbar/ImageEditorPage.qml:155
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "اعكس"
 
-#: src/chatbar/ImageEditorPage.qml:162
+#: src/chatbar/ImageEditorPage.qml:161
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "اعكس"
 
-#: src/devtools/AccountData.qml:20
+#: src/devtools/AccountData.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Data"
 msgstr "بيانات الحساب"
 
-#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
+#: src/devtools/AccountData.qml:33 src/devtools/StateKeys.qml:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "مصدر الحدث"
 
-#: src/devtools/AccountData.qml:39
+#: src/devtools/AccountData.qml:42
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
 msgstr "أظهر رمز الوصول"
 
-#: src/devtools/AccountData.qml:40
+#: src/devtools/AccountData.qml:43
 #, kde-format
 msgid ""
 "This should not be shared with anyone, even other users. This token gives "
@@ -1786,13 +1775,13 @@ msgstr ""
 "لا ينبغي مشاركة هذه المعلومات مع أي شخص، حتى المستخدمين الآخرين. يمنح هذا "
 "الرمز إمكانية الوصول الكامل إلى حسابك."
 
-#: src/devtools/AccountData.qml:43
+#: src/devtools/AccountData.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Access Token"
 msgstr "رمز الوصول"
 
-#: src/devtools/AccountData.qml:48
+#: src/devtools/AccountData.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy access token to clipboard"
@@ -1817,12 +1806,10 @@ msgid "This includes state events"
 msgstr "هذا يشمل أحداث الحالة"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
-msgstr "السماح دائمًا بالتحقق من الجهاز"
+msgstr "اسمح دائمًا بالتحقق من الجهاز"
 
 #: src/devtools/DebugOptions.qml:33
 #, kde-format
@@ -1899,46 +1886,46 @@ msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr "الاتصال"
 
-#: src/devtools/RoomData.qml:20
+#: src/devtools/RoomData.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "اختر غرفة"
 
-#: src/devtools/RoomData.qml:24
+#: src/devtools/RoomData.qml:26
 #, kde-format
 msgctxt "@info"
 msgid "No room selected"
 msgstr "لم تحدد أي غرفة"
 
-#: src/devtools/RoomData.qml:25
+#: src/devtools/RoomData.qml:27
 #, kde-format
 msgctxt "@info"
 msgid "Click to choose a room"
 msgstr "انقر لتختار غرفة"
 
-#: src/devtools/RoomData.qml:31
+#: src/devtools/RoomData.qml:33
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "اختر غرفة"
 
-#: src/devtools/RoomData.qml:39
+#: src/devtools/RoomData.qml:41
 #, kde-format
 msgid "Room Id: %1"
 msgstr "رقم الغرفة: %1"
 
-#: src/devtools/RoomData.qml:43
+#: src/devtools/RoomData.qml:45
 #, kde-format
 msgid "Room Account Data"
 msgstr "بيانات حساب الغرفة"
 
-#: src/devtools/RoomData.qml:64
+#: src/devtools/RoomData.qml:67
 #, kde-format
 msgid "Room State"
 msgstr "حالة الغرفة"
 
-#: src/devtools/RoomData.qml:78
+#: src/devtools/RoomData.qml:84
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -1950,7 +1937,7 @@ msgstr[3] "%1 أحداث من هذا النوع"
 msgstr[4] "%1 حدثًا من هذا النوع"
 msgstr[5] "%1 حدث من هذا النوع"
 
-#: src/devtools/RoomData.qml:87
+#: src/devtools/RoomData.qml:93
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "Event Information"
@@ -1976,7 +1963,7 @@ msgstr "إصدارة الغرفة المبدئية"
 msgid "Available Room Versions"
 msgstr "إصدارات الغرفة المتوفرة"
 
-#: src/devtools/StateKeys.qml:22
+#: src/devtools/StateKeys.qml:23
 #, kde-format
 msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
@@ -3235,46 +3222,44 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "اجعل هذا فضاء رئيس بشكل رسمي"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "استكشف الغرف"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "أظهر الفضاءات فقط"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#: src/libneochat/qml/ExploreRoomsPage.qml:98
 #, kde-format
 msgid "Enter a Room Manually"
 msgstr "ادخل الغرفة يدويًا"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#: src/libneochat/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr "إذا كنت تعرف فعلًا عنوان الغرفة أو اسمها المستعار، ولم تعرض هنا."
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
 #, kde-format
 msgid "Find a room…"
 msgstr "اعثر على غرفة…"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "لم يعثر على غرف عامة"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No public rooms found"
+#: src/libneochat/qml/ExploreRoomsPage.qml:121
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
-msgstr "لم يعثر على غرف عامة"
+msgstr "لا توجد غرف عامة"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
 #: src/timeline/TimelineEndDelegate.qml:69
@@ -3336,17 +3321,17 @@ msgstr "ابحث"
 msgid "<i>This event does not have any content.</i>"
 msgstr "<i>هذا الحدث لا يحتوي على أي محتوى.</i>"
 
-#: src/login/Email.qml:21
+#: src/login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
 msgstr "أضف عنوان البريد الإلكترونيّ:"
 
-#: src/login/Email.qml:33
+#: src/login/Email.qml:32
 #, kde-format
 msgid "Confirm e-mail address"
 msgstr "أكد عنوان البريد الإلكتروني "
 
-#: src/login/Email.qml:35
+#: src/login/Email.qml:34
 #, kde-format
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
@@ -3355,34 +3340,34 @@ msgstr ""
 "أرسلت رسالة تأكيد بالبريد الإلكتروني إلى عنوان بريدك الإلكتروني. يرجى "
 "المتابعة هنا <b>بعد</b> النقر على رابط التأكيد الموجود في البريد الإلكتروني"
 
-#: src/login/Email.qml:40
+#: src/login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
 msgstr "أعد إرسال رسالة البريد الإلكتروني الخاصة بالتأكيد"
 
-#: src/login/Homeserver.qml:21
+#: src/login/Homeserver.qml:20
 #, kde-format
 msgid "Server Url:"
 msgstr "عنوان الخادم:"
 
-#: src/login/Homeserver.qml:26
+#: src/login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
 msgstr "التسجيل معطل على هذا الخادم."
 
-#: src/login/Homeserver.qml:48 src/login/Username.qml:38
+#: src/login/Homeserver.qml:47 src/login/Username.qml:38
 #, kde-format
 msgid "Loading"
 msgstr "يحمّل"
 
-#: src/login/Homeserver.qml:48
+#: src/login/Homeserver.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr "تابع في المتصفح"
 
-#: src/login/Loading.qml:17
+#: src/login/Loading.qml:16
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -3409,7 +3394,7 @@ msgstr "معرف ماتركس:"
 msgid "Matrix ID"
 msgstr "معرف ماتركس"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:250
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3433,7 +3418,7 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "الولوج بواسطة تسجيل مفرد"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
@@ -3445,18 +3430,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "سجّل"
 
-#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/login/Password.qml:27 src/login/RegisterPassword.qml:20
 #: src/settings/DevicesPage.qml:103
 #, kde-format
 msgid "Password:"
 msgstr "كلمة السر:"
 
-#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:31 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "كلمة السّر"
 
-#: src/login/Password.qml:33
+#: src/login/Password.qml:32
 #, kde-format
 msgid "Invalid username or password"
 msgstr "اسم المستخدم أو كلمة السر غير صالحة"
@@ -3516,12 +3501,12 @@ msgstr "تابع"
 msgid "Working"
 msgstr "يعمل"
 
-#: src/login/Sso.qml:30
+#: src/login/Sso.qml:29
 #, kde-format
 msgid "Continue the login process in your browser."
 msgstr "أكمل خطوات الولوج في متصفحك"
 
-#: src/login/Sso.qml:38
+#: src/login/Sso.qml:37
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
@@ -3549,42 +3534,42 @@ msgstr "اسم المستخدم:"
 msgid "Username unavailable"
 msgstr "اسم المستخدم غير متوفّر"
 
-#: src/login/WelcomePage.qml:27
+#: src/login/WelcomePage.qml:29
 #, kde-format
 msgid "Welcome"
 msgstr "مرحباً"
 
-#: src/login/WelcomePage.qml:83
+#: src/login/WelcomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "تابع بحساب موجود"
 
-#: src/login/WelcomePage.qml:133
+#: src/login/WelcomePage.qml:137
 #, kde-format
 msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "%1 (يحمّل)"
 
-#: src/login/WelcomePage.qml:142
+#: src/login/WelcomePage.qml:146
 #, kde-format
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "اخرج من هذا الحساب"
 
-#: src/login/WelcomePage.qml:171
+#: src/login/WelcomePage.qml:175
 #, kde-format
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "لج إلى حساب موجود أو أنشئ حسابا جديدا"
 
-#: src/login/WelcomePage.qml:258
+#: src/login/WelcomePage.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "عُد"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:275
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
@@ -3814,9 +3799,7 @@ msgstr[4] "‏%2 تفاعلوا بـ %3"
 msgstr[5] "‏%2 تفاعلوا بـ %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3828,9 +3811,7 @@ msgstr[4] "%1 صوتًا"
 msgstr[5] "%1 صوت"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -3859,7 +3840,7 @@ msgctxt "@button"
 msgid "React"
 msgstr "تفاعل"
 
-#: src/messagecontent/ReplyButtonComponent.qml:34
+#: src/messagecontent/ReplyButtonComponent.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
@@ -3888,7 +3869,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "الصوت"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3915,86 +3896,89 @@ msgstr "معلومات"
 msgid "Media"
 msgstr "الوسائط"
 
-#: src/roominfo/RoomInformation.qml:41
+#: src/roominfo/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "أعضاء الفضاء"
 
-#: src/roominfo/RoomInformation.qml:41
+#: src/roominfo/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "معلومات الغرفة"
 
-#: src/roominfo/RoomInformation.qml:71
+#: src/roominfo/RoomInformation.qml:72
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "الإجراءات"
 
-#: src/roominfo/RoomInformation.qml:81
+#: src/roominfo/RoomInformation.qml:82
 #, kde-format
 msgid "Search in this room"
 msgstr "ابحث في هذه الغرفة"
 
-#: src/roominfo/RoomInformation.qml:98
+#: src/roominfo/RoomInformation.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "تَثَبّت من المستخدم"
 
-#: src/roominfo/RoomInformation.qml:109
+#: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "أزل الغرفة من المفضلة"
 
-#: src/roominfo/RoomInformation.qml:109
+#: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgid "Favorite this room"
 msgstr "فضّل هذه الغرفة"
 
-#: src/roominfo/RoomInformation.qml:122
+#: src/roominfo/RoomInformation.qml:123
 #, kde-format
 msgid "Show locations for this room"
 msgstr "اعرض المواقع لهذه الغرفة"
 
-#: src/roominfo/RoomInformation.qml:138
+#: src/roominfo/RoomInformation.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "الرسائل المثبتة"
 
-#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "غادر هذا الفضاء…"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:156
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this room…"
 msgstr "غادر هذه الغرفة…"
 
-#: src/roominfo/RoomInformation.qml:168
+#: src/roominfo/RoomInformation.qml:169
 #, kde-format
 msgid "Members"
 msgstr "الأعضاء"
 
-#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "أدعو مستخدم"
 
-#: src/roominfo/RoomInformation.qml:187
+#: src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgid "Invite user to room"
 msgstr "أدعُ مستخدم إلى غرفة"
 
-#: src/roominfo/RoomInformation.qml:194
-#, kde-format
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "لا يوجد أعضاء"
@@ -4004,7 +3988,7 @@ msgstr[3] "%1 أعضاء"
 msgstr[4] "%1 عضواً"
 msgstr[5] "%1 عضو"
 
-#: src/roominfo/RoomInformation.qml:194
+#: src/roominfo/RoomInformation.qml:195
 #, kde-format
 msgid "No member count"
 msgstr "بلا عدد أعضاء"
@@ -4015,7 +3999,7 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "وسائط الغرفة"
 
-#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#: src/roominfo/RoomPinnedMessagesPage.qml:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
@@ -4265,17 +4249,17 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "وسع %1"
 
-#: src/rooms/SpaceDrawer.qml:58
+#: src/rooms/SpaceDrawer.qml:60
 #, kde-format
 msgid "View notifications"
 msgstr "اعرض الإشعارات"
 
-#: src/rooms/SpaceDrawer.qml:87
+#: src/rooms/SpaceDrawer.qml:89
 #, kde-format
 msgid "Home"
 msgstr "المنزل"
 
-#: src/rooms/SpaceDrawer.qml:137
+#: src/rooms/SpaceDrawer.qml:139
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends (%1 notification)"
@@ -4287,19 +4271,19 @@ msgstr[3] "الأصدقاء (%1 إشعارات)"
 msgstr[4] "الأصدقاء (%1 إشعارًا)"
 msgstr[5] "الأصدقاء (%1 إشعار)"
 
-#: src/rooms/SpaceDrawer.qml:140
+#: src/rooms/SpaceDrawer.qml:142
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr "الأصدقاء"
 
-#: src/rooms/SpaceDrawer.qml:222
+#: src/rooms/SpaceDrawer.qml:224
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "انضم إلى %1"
 
-#: src/rooms/SpaceDrawer.qml:264
+#: src/rooms/SpaceDrawer.qml:266
 #, kde-format
 msgid "Create a space"
 msgstr "أنشئ فضاء"
@@ -4808,42 +4792,42 @@ msgstr "الرمز القصير:"
 msgid "Description:"
 msgstr "الوصف:"
 
-#: src/settings/EmoticonFormCard.qml:53
+#: src/settings/EmoticonFormCard.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "حرر صورة تعبيرية"
 
-#: src/settings/EmoticonFormCard.qml:53
+#: src/settings/EmoticonFormCard.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr "حرر ملصقاً"
 
-#: src/settings/EmoticonFormCard.qml:71
+#: src/settings/EmoticonFormCard.qml:78
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "لا يوجد وصف"
 
-#: src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonFormCard.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
 msgstr "أضف صورة تعبيرية"
 
-#: src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonFormCard.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "أضف ملصقاً"
 
-#: src/settings/EmoticonFormCard.qml:112
+#: src/settings/EmoticonFormCard.qml:119
 #, kde-format
 msgid "Add Emoji"
 msgstr "أضف صورة تعبيرية"
 
-#: src/settings/EmoticonFormCard.qml:112
+#: src/settings/EmoticonFormCard.qml:119
 #, kde-format
 msgid "Add Sticker"
 msgstr "أضف ملصقاً"
@@ -6245,50 +6229,50 @@ msgctxt "@title"
 msgid "Advanced"
 msgstr "متقدّم"
 
-#: src/settings/RoomSortParameterDialog.qml:16
+#: src/settings/RoomSortParameterDialog.qml:17
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "ترتيب فرز الغرف المخصص"
 
-#: src/settings/RoomSortParameterDialog.qml:60
+#: src/settings/RoomSortParameterDialog.qml:61
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
 msgstr "الأول:"
 
-#: src/settings/RoomSortParameterDialog.qml:60
+#: src/settings/RoomSortParameterDialog.qml:61
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
 msgstr "ثم:"
 
-#: src/settings/RoomSortParameterDialog.qml:76
+#: src/settings/RoomSortParameterDialog.qml:77
 #, kde-format
 msgctxt "@button"
 msgid "Up"
 msgstr "أعلى"
 
-#: src/settings/RoomSortParameterDialog.qml:86
+#: src/settings/RoomSortParameterDialog.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "Down"
 msgstr "أسفل"
 
-#: src/settings/RoomSortParameterDialog.qml:96
+#: src/settings/RoomSortParameterDialog.qml:97
 #: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "أزل"
 
-#: src/settings/RoomSortParameterDialog.qml:109
+#: src/settings/RoomSortParameterDialog.qml:110
 #, kde-format
 msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "أضف معامل"
 
-#: src/settings/RoomSortParameterDialog.qml:122
+#: src/settings/RoomSortParameterDialog.qml:123
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"

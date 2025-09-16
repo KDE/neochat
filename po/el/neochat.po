@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-13 00:49+0000\n"
+"POT-Creation-Date: 2025-09-16 00:41+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr "Αποστολή πληκτρολογημένων ειδοποιήσεω
 msgid "Receiving push notifications"
 msgstr "Αποστολή πληκτρολογημένων ειδοποιήσεων"
 
-#: src/app/main.cpp:150 src/login/WelcomePage.qml:75
+#: src/app/main.cpp:150 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -356,7 +356,7 @@ msgstr "Έναρξη συνομιλίας"
 msgid "Attachment:"
 msgstr "Συνημμένο:"
 
-#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:20
+#: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
 #: src/timeline/DelegateContextMenu.qml:186
 #, kde-format
 msgid "Edit"
@@ -563,7 +563,7 @@ msgstr "Εξερεύνηση αιθουσών"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:295 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -857,8 +857,8 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr "Το δοσμένο κείμενο δεν είναι έγκυρο url"
 
-#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:56
-#: src/devtools/RoomData.qml:102
+#: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
+#: src/devtools/RoomData.qml:108
 #, kde-format
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
@@ -956,7 +956,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Προσθήκη εμότζι"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:68
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
 #: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
@@ -1043,7 +1043,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Δεν βρέθηκε αίθουσα"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:283
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -1086,8 +1086,8 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
 
-#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:147
-#: src/roominfo/RoomPinnedMessagesPage.qml:23
+#: src/app/qml/RoomPage.qml:153 src/roominfo/RoomInformation.qml:148
+#: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@title"
@@ -1444,7 +1444,7 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Αναζήτηση στα μηνύματα"
 
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:90
+#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1741,69 +1741,69 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Εικόνα πρόχειρου"
 
-#: src/chatbar/ChatBar.qml:86 src/messagecontent/ChatBarComponent.qml:165
+#: src/chatbar/ChatBar.qml:88 src/messagecontent/ChatBarComponent.qml:165
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Επισύναψη εικόνας ή αρχείου"
 
-#: src/chatbar/ChatBar.qml:104
+#: src/chatbar/ChatBar.qml:112
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
 msgctxt "@action:button"
 msgid "Emojis & Stickers"
 msgstr "Εμότζι και αυτοκόλλητα"
 
-#: src/chatbar/ChatBar.qml:121
+#: src/chatbar/ChatBar.qml:129
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Αποστολή πρόσκλησης"
 
-#: src/chatbar/ChatBar.qml:135
+#: src/chatbar/ChatBar.qml:143
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Δημιουργία μιας αίθουσας"
 
-#: src/chatbar/ChatBar.qml:151
+#: src/chatbar/ChatBar.qml:159
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Αποστολή μηνύματος"
 
-#: src/chatbar/ChatBar.qml:212
+#: src/chatbar/ChatBar.qml:220
 #, kde-format
 msgctxt "@info"
 msgid "The user you're replying to has left the room, and can't be notified."
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Αποστολή κρυπτογραφημένου μηνύματος…"
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Ορίστε μια λεζάντα συνημμένου…"
 
-#: src/chatbar/ChatBar.qml:253
+#: src/chatbar/ChatBar.qml:261
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/chatbar/ChatBar.qml:417 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1837,19 +1837,19 @@ msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Αυτοκόλλητα"
 
-#: src/chatbar/ImageEditorPage.qml:36
+#: src/chatbar/ImageEditorPage.qml:35
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: src/chatbar/ImageEditorPage.qml:43
+#: src/chatbar/ImageEditorPage.qml:42
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/chatbar/ImageEditorPage.qml:51
+#: src/chatbar/ImageEditorPage.qml:50
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -1858,68 +1858,68 @@ msgstr ""
 "Αδυναμία αποθήκευσης του αρχείου. Έλεγξε αν έχεις το δικαίωμα επεξεργασίας "
 "στον κατάλογο της προσωρινής μνήμης."
 
-#: src/chatbar/ImageEditorPage.qml:123
+#: src/chatbar/ImageEditorPage.qml:122
 #, kde-format
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/chatbar/ImageEditorPage.qml:123 src/chatbar/ImageEditorPage.qml:139
+#: src/chatbar/ImageEditorPage.qml:122 src/chatbar/ImageEditorPage.qml:138
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Περικοπή"
 
-#: src/chatbar/ImageEditorPage.qml:144
+#: src/chatbar/ImageEditorPage.qml:143
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Περιστροφή αριστερά"
 
-#: src/chatbar/ImageEditorPage.qml:150
+#: src/chatbar/ImageEditorPage.qml:149
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Περιστροφή δεξιά"
 
-#: src/chatbar/ImageEditorPage.qml:156
+#: src/chatbar/ImageEditorPage.qml:155
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Αναστροφή"
 
-#: src/chatbar/ImageEditorPage.qml:162
+#: src/chatbar/ImageEditorPage.qml:161
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Καθρεπτισμός"
 
-#: src/devtools/AccountData.qml:20
+#: src/devtools/AccountData.qml:22
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@title:group"
 msgid "Account Data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/devtools/AccountData.qml:30 src/devtools/StateKeys.qml:47
+#: src/devtools/AccountData.qml:33 src/devtools/StateKeys.qml:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Event Source"
 msgstr "Πηγή γεγονότος"
 
-#: src/devtools/AccountData.qml:39
+#: src/devtools/AccountData.qml:42
 #, kde-format
 msgctxt "@info"
 msgid "Show Access Token"
 msgstr ""
 
-#: src/devtools/AccountData.qml:40
+#: src/devtools/AccountData.qml:43
 #, kde-format
 msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
 
-#: src/devtools/AccountData.qml:43
+#: src/devtools/AccountData.qml:46
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Access"
@@ -1927,7 +1927,7 @@ msgctxt "@info"
 msgid "Access Token"
 msgstr "Πρόσβαση"
 
-#: src/devtools/AccountData.qml:48
+#: src/devtools/AccountData.qml:51
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
@@ -2044,14 +2044,14 @@ msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
 msgstr ""
 
-#: src/devtools/RoomData.qml:20
+#: src/devtools/RoomData.qml:22
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgctxt "@title"
 msgid "Choose Room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/devtools/RoomData.qml:24
+#: src/devtools/RoomData.qml:26
 #, fuzzy, kde-format
 #| msgctxt "Placeholder message"
 #| msgid "No room found"
@@ -2059,38 +2059,38 @@ msgctxt "@info"
 msgid "No room selected"
 msgstr "Δεν βρέθηκε αίθουσα"
 
-#: src/devtools/RoomData.qml:25
+#: src/devtools/RoomData.qml:27
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgctxt "@info"
 msgid "Click to choose a room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/devtools/RoomData.qml:31
+#: src/devtools/RoomData.qml:33
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgctxt "@title:dialog"
 msgid "Choose Room"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/devtools/RoomData.qml:39
+#: src/devtools/RoomData.qml:41
 #, fuzzy, kde-format
 #| msgid "Room ID"
 msgid "Room Id: %1"
 msgstr "Room ID"
 
-#: src/devtools/RoomData.qml:43
+#: src/devtools/RoomData.qml:45
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgid "Room Account Data"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/devtools/RoomData.qml:64
+#: src/devtools/RoomData.qml:67
 #, kde-format
 msgid "Room State"
 msgstr "Κατάσταση αίθουσας"
 
-#: src/devtools/RoomData.qml:78
+#: src/devtools/RoomData.qml:84
 #, kde-format
 msgctxt "'Event' being some JSON data, not something physically happening."
 msgid "%1 event of this type"
@@ -2098,7 +2098,7 @@ msgid_plural "%1 events of this type"
 msgstr[0] "%1 γεγονός αυτού του τύπου"
 msgstr[1] "%1 γεγονότα αυτού του τύπου"
 
-#: src/devtools/RoomData.qml:87
+#: src/devtools/RoomData.qml:93
 #, fuzzy, kde-format
 #| msgid "Server Information"
 msgctxt "'Event' being some JSON data, not something physically happening."
@@ -2128,7 +2128,7 @@ msgstr "Προκαθορισμένα δικαιώματα"
 msgid "Available Room Versions"
 msgstr "Έκδοση αίθουσας"
 
-#: src/devtools/StateKeys.qml:22
+#: src/devtools/StateKeys.qml:23
 #, kde-format
 msgctxt ""
 "The name of one instance of a state of configuration. Unless you really know "
@@ -3471,41 +3471,41 @@ msgctxt ""
 msgid "Make this parent official"
 msgstr "Να γίνει αυτό το συνώνυμο το κανονικό συνώνυμο της αίθουσας"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:52
+#: src/libneochat/qml/ExploreRoomsPage.qml:53
 #, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
 msgstr "Εξερεύνηση αιθουσών"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:64
+#: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr ""
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:97
+#: src/libneochat/qml/ExploreRoomsPage.qml:98
 #, kde-format
 msgid "Enter a Room Manually"
 msgstr ""
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:106
+#: src/libneochat/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr ""
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:118
+#: src/libneochat/qml/ExploreRoomsPage.qml:119
 #, kde-format
 msgid "Find a room…"
 msgstr "Εύρεση αίθουσας…"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#: src/libneochat/qml/ExploreRoomsPage.qml:120
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#: src/libneochat/qml/ExploreRoomsPage.qml:121
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info:label"
@@ -3574,18 +3574,18 @@ msgstr "Αναζήτηση"
 msgid "<i>This event does not have any content.</i>"
 msgstr ""
 
-#: src/login/Email.qml:21
+#: src/login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
 msgstr "Προσθήκη μιας διεύθυνση ηλ. ταχυδρομείου:"
 
-#: src/login/Email.qml:33
+#: src/login/Email.qml:32
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgid "Confirm e-mail address"
 msgstr "Επιβεβαίωση νέου ονόματος"
 
-#: src/login/Email.qml:35
+#: src/login/Email.qml:34
 #, kde-format
 msgid ""
 "A confirmation e-mail has been sent to your address. Please continue here "
@@ -3595,34 +3595,34 @@ msgstr ""
 "Παρακαλώ συνεχίστε <b>εδώ</b> αφού κάνετε κλικ στο σύνδεσμο επιβεβαίωσης στο "
 "ηλ. μήνυμα."
 
-#: src/login/Email.qml:40
+#: src/login/Email.qml:39
 #, kde-format
 msgctxt "@button"
 msgid "Re-send confirmation e-mail"
 msgstr "Επαναποστολή μηνύματος επιβεβαίωσης"
 
-#: src/login/Homeserver.qml:21
+#: src/login/Homeserver.qml:20
 #, kde-format
 msgid "Server Url:"
 msgstr "URL εξυπηρετητή:"
 
-#: src/login/Homeserver.qml:26
+#: src/login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
 msgstr "Η εγγραφή είναι απενεργοποιημένη σε αυτόν τον διακομιστή."
 
-#: src/login/Homeserver.qml:48 src/login/Username.qml:38
+#: src/login/Homeserver.qml:47 src/login/Username.qml:38
 #, kde-format
 msgid "Loading"
 msgstr "Φορτώνει"
 
-#: src/login/Homeserver.qml:48
+#: src/login/Homeserver.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr ""
 
-#: src/login/Loading.qml:17
+#: src/login/Loading.qml:16
 #, fuzzy, kde-format
 #| msgid "Please wait. This might take a little while."
 msgid ""
@@ -3650,7 +3650,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:250
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3674,7 +3674,7 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Σύνδεση με γενικό κωδικό"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:41
+#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
@@ -3686,18 +3686,18 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Εγγραφή"
 
-#: src/login/Password.qml:28 src/login/RegisterPassword.qml:20
+#: src/login/Password.qml:27 src/login/RegisterPassword.qml:20
 #: src/settings/DevicesPage.qml:103
 #, kde-format
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/login/Password.qml:32 src/settings/NetworkProxyPage.qml:122
+#: src/login/Password.qml:31 src/settings/NetworkProxyPage.qml:122
 #, kde-format
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
-#: src/login/Password.qml:33
+#: src/login/Password.qml:32
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgid "Invalid username or password"
@@ -3764,13 +3764,13 @@ msgstr "Συνέχεια"
 msgid "Working"
 msgstr ""
 
-#: src/login/Sso.qml:30
+#: src/login/Sso.qml:29
 #, fuzzy, kde-format
 #| msgid "Complete the authentication steps in your browser"
 msgid "Continue the login process in your browser."
 msgstr "Συμπλήρωσε τα βήματα ταυτοποίησης στον περιηγητή ιστού"
 
-#: src/login/Sso.qml:38
+#: src/login/Sso.qml:37
 #, kde-format
 msgctxt "@action:button"
 msgid "Re-open SSO URL"
@@ -3802,19 +3802,19 @@ msgstr "Χρήστης"
 msgid "Username unavailable"
 msgstr "Δεν υπάρχουν διαθέσιμοι χρήστες"
 
-#: src/login/WelcomePage.qml:27
+#: src/login/WelcomePage.qml:29
 #, kde-format
 msgid "Welcome"
 msgstr "Καλώς ήρθατε"
 
-#: src/login/WelcomePage.qml:83
+#: src/login/WelcomePage.qml:85
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Continue with an existing account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/login/WelcomePage.qml:133
+#: src/login/WelcomePage.qml:137
 #, fuzzy, kde-format
 #| msgctxt "Job heading, like 'Copying'"
 #| msgid "Uploading"
@@ -3822,27 +3822,27 @@ msgctxt "As in 'this account is still loading'"
 msgid "%1 (loading)"
 msgstr "Γίνεται αποστολή"
 
-#: src/login/WelcomePage.qml:142
+#: src/login/WelcomePage.qml:146
 #, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:button"
 msgid "Log out of this account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
-#: src/login/WelcomePage.qml:171
+#: src/login/WelcomePage.qml:175
 #, fuzzy, kde-format
 #| msgid "Log in to an existing account"
 msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/login/WelcomePage.qml:258
+#: src/login/WelcomePage.qml:262
 #, kde-format
 msgctxt "@action:button"
 msgid "Go back"
 msgstr "Μετάβαση πίσω"
 
-#: src/login/WelcomePage.qml:271
+#: src/login/WelcomePage.qml:275
 #, fuzzy, kde-format
 #| msgid "Room Settings"
 msgctxt "@action:button"
@@ -4115,7 +4115,7 @@ msgctxt "@button"
 msgid "React"
 msgstr "Αντίδραση"
 
-#: src/messagecontent/ReplyButtonComponent.qml:34
+#: src/messagecontent/ReplyButtonComponent.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
@@ -4145,7 +4145,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:128
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -4174,62 +4174,62 @@ msgstr "Πληροφορίες"
 msgid "Media"
 msgstr ""
 
-#: src/roominfo/RoomInformation.qml:41
+#: src/roominfo/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
 msgstr "Μέλη του χώρου"
 
-#: src/roominfo/RoomInformation.qml:41
+#: src/roominfo/RoomInformation.qml:42
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Πληροφορίες αίθουσας"
 
-#: src/roominfo/RoomInformation.qml:71
+#: src/roominfo/RoomInformation.qml:72
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Ειδοποιήσεις"
 
-#: src/roominfo/RoomInformation.qml:81
+#: src/roominfo/RoomInformation.qml:82
 #, kde-format
 msgid "Search in this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/roominfo/RoomInformation.qml:98
+#: src/roominfo/RoomInformation.qml:99
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/roominfo/RoomInformation.qml:109
+#: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Αφαίρεση αίθουσας από τις προτιμώμενες"
 
-#: src/roominfo/RoomInformation.qml:109
+#: src/roominfo/RoomInformation.qml:110
 #, fuzzy, kde-format
 #| msgid "Leaving this room."
 msgid "Favorite this room"
 msgstr "Εξέρχεται από αυτήν την αίθουσα."
 
-#: src/roominfo/RoomInformation.qml:122
+#: src/roominfo/RoomInformation.qml:123
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/roominfo/RoomInformation.qml:138
+#: src/roominfo/RoomInformation.qml:139
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@action:button"
 msgid "Pinned messages"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/roominfo/RoomInformation.qml:155 src/spaces/SpaceHomePage.qml:99
+#: src/roominfo/RoomInformation.qml:156 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4237,7 +4237,7 @@ msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "Αποχώρηση από τον χώρο"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:156
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Leave this room"
@@ -4245,30 +4245,33 @@ msgctxt "@action:button"
 msgid "Leave this room…"
 msgstr "Αποχώρηση από την αίθουσα"
 
-#: src/roominfo/RoomInformation.qml:168
+#: src/roominfo/RoomInformation.qml:169
 #, kde-format
 msgid "Members"
 msgstr "Μέλη"
 
-#: src/roominfo/RoomInformation.qml:183 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:184 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Πρόσκληση σε χρήστη"
 
-#: src/roominfo/RoomInformation.qml:187
+#: src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgid "Invite user to room"
 msgstr "Πρόσκληση χρήστη στην αίθουσα"
 
-#: src/roominfo/RoomInformation.qml:194
-#, kde-format
+#: src/roominfo/RoomInformation.qml:195
+#, fuzzy, kde-format
+#| msgid "%1 member"
+#| msgid_plural "%1 members"
+msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 μέλος"
 msgstr[1] "%1 μέλη"
 
-#: src/roominfo/RoomInformation.qml:194
+#: src/roominfo/RoomInformation.qml:195
 #, kde-format
 msgid "No member count"
 msgstr "Δεν καταμετρήθηκαν μέλη"
@@ -4280,7 +4283,7 @@ msgctxt "@action:title"
 msgid "Room Media"
 msgstr "Έκδοση αίθουσας"
 
-#: src/roominfo/RoomPinnedMessagesPage.qml:46
+#: src/roominfo/RoomPinnedMessagesPage.qml:45
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -4559,17 +4562,17 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "αναιρέθηκε ο αποκλεισμός για %1"
 
-#: src/rooms/SpaceDrawer.qml:58
+#: src/rooms/SpaceDrawer.qml:60
 #, kde-format
 msgid "View notifications"
 msgstr "Εμφάνιση ειδοποιήσεων"
 
-#: src/rooms/SpaceDrawer.qml:87
+#: src/rooms/SpaceDrawer.qml:89
 #, kde-format
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:137
+#: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats with your friends."
@@ -4578,19 +4581,19 @@ msgid_plural "Friends (%1 notifications)"
 msgstr[0] "Εμφάνιση ειδοποιήσεων"
 msgstr[1] "Εμφάνιση ειδοποιήσεων"
 
-#: src/rooms/SpaceDrawer.qml:140
+#: src/rooms/SpaceDrawer.qml:142
 #, kde-format
 msgctxt "@button View all one-on-one chats with your friends."
 msgid "Friends"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:222
+#: src/rooms/SpaceDrawer.qml:224
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Είσοδος σε %1"
 
-#: src/rooms/SpaceDrawer.qml:264
+#: src/rooms/SpaceDrawer.qml:266
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -5131,20 +5134,20 @@ msgstr ""
 msgid "Description:"
 msgstr "Προορισμός"
 
-#: src/settings/EmoticonFormCard.qml:53
+#: src/settings/EmoticonFormCard.qml:60
 #, fuzzy, kde-format
 #| msgid "Add Emoji..."
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "Προσθήκη εμότζι..."
 
-#: src/settings/EmoticonFormCard.qml:53
+#: src/settings/EmoticonFormCard.qml:60
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr ""
 
-#: src/settings/EmoticonFormCard.qml:71
+#: src/settings/EmoticonFormCard.qml:78
 #, fuzzy, kde-format
 #| msgctxt "The location being downloaded to"
 #| msgid "Destination"
@@ -5152,25 +5155,25 @@ msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Προορισμός"
 
-#: src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonFormCard.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
 msgstr "Προσθήκη εμότζι"
 
-#: src/settings/EmoticonFormCard.qml:103
+#: src/settings/EmoticonFormCard.qml:110
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "Προσθήκη λέξης κλειδιού"
 
-#: src/settings/EmoticonFormCard.qml:112
+#: src/settings/EmoticonFormCard.qml:119
 #, kde-format
 msgid "Add Emoji"
 msgstr "Προσθήκη εμότζι"
 
-#: src/settings/EmoticonFormCard.qml:112
+#: src/settings/EmoticonFormCard.qml:119
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgid "Add Sticker"
@@ -6700,32 +6703,32 @@ msgctxt "@title"
 msgid "Advanced"
 msgstr ""
 
-#: src/settings/RoomSortParameterDialog.qml:16
+#: src/settings/RoomSortParameterDialog.qml:17
 #, fuzzy, kde-format
 #| msgid "<room alias or id>"
 msgctxt "@title:dialog"
 msgid "Custom Room Sort Order"
 msgstr "<ψευδώνυμο ή αναγνωριστικό αίθουσας>"
 
-#: src/settings/RoomSortParameterDialog.qml:60
+#: src/settings/RoomSortParameterDialog.qml:61
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
 msgstr ""
 
-#: src/settings/RoomSortParameterDialog.qml:60
+#: src/settings/RoomSortParameterDialog.qml:61
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
 msgstr ""
 
-#: src/settings/RoomSortParameterDialog.qml:76
+#: src/settings/RoomSortParameterDialog.qml:77
 #, kde-format
 msgctxt "@button"
 msgid "Up"
 msgstr ""
 
-#: src/settings/RoomSortParameterDialog.qml:86
+#: src/settings/RoomSortParameterDialog.qml:87
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to download its file"
@@ -6734,14 +6737,14 @@ msgctxt "@button"
 msgid "Down"
 msgstr "Λήψη"
 
-#: src/settings/RoomSortParameterDialog.qml:96
+#: src/settings/RoomSortParameterDialog.qml:97
 #: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/settings/RoomSortParameterDialog.qml:109
+#: src/settings/RoomSortParameterDialog.qml:110
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add server"
@@ -6749,7 +6752,7 @@ msgctxt "@action:button"
 msgid "Add parameter"
 msgstr "Προσθήκη εξυπηρετητή"
 
-#: src/settings/RoomSortParameterDialog.qml:122
+#: src/settings/RoomSortParameterDialog.qml:123
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Select Parameter to Add"
