@@ -31,7 +31,7 @@ bool MessageModel::m_threadsEnabled = false;
 MessageModel::MessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects);
+    connect(this, &MessageModel::newEventAdded, this, &MessageModel::createEventObjects, Qt::QueuedConnection);
 
     connect(this, &MessageModel::modelAboutToReset, this, [this]() {
         m_resetting = true;
