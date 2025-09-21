@@ -9,7 +9,6 @@
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
-#include "enums/messagecomponenttype.h"
 #include "neochatconnection.h"
 #include "texthandler.h"
 

@@ -9,7 +9,6 @@
 #include "neochatroom.h"
 #include "spacehierarchycache.h"
 
-#include <Quotient/connection.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/quotient_common.h>
 #include <qt6keychain/keychain.h>

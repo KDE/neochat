@@ -8,8 +8,6 @@
 #include <KWindowSystem>
 
 #include "controller.h"
-#include "models/roomlistmodel.h"
-#include "models/sortfilterroomlistmodel.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
 

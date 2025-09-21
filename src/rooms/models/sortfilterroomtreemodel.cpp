@@ -8,7 +8,6 @@
 #include "enums/roomsortparameter.h"
 #include "models/roomtreemodel.h"
 #include "neochatconnection.h"
-#include "neochatroom.h"
 #include "spacehierarchycache.h"
 
 #include <Quotient/eventstats.h>

@@ -17,7 +17,6 @@
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/settings.h>
 
-#include "accountmanager.h"
 #include "enums/roomsortparameter.h"
 #include "general_logging.h"
 #include "mediasizehelper.h"
@@ -26,9 +25,7 @@
 #include "models/roomlistmodel.h"
 #include "models/roomtreemodel.h"
 #include "neochatconfig.h"
-#include "neochatconnection.h"
 #include "neochatroom.h"
-#include "notificationsmanager.h"
 #include "proxycontroller.h"
 #include "roommanager.h"
 

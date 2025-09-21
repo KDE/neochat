@@ -3,8 +3,6 @@
 
 #include "sortfilterroomlistmodel.h"
 
-#include "models/roomlistmodel.h"
-
 #include "neochatconnection.h"
 
 using namespace Qt::StringLiterals;

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "pollevent.h"
-#include <Quotient/converters.h>
 
 using namespace Quotient;
 

@@ -10,7 +10,6 @@
 
 #include <Quotient/events/encryptionevent.h>
 #include <Quotient/events/event.h>
-#include <Quotient/events/eventcontent.h>
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roomavatarevent.h>

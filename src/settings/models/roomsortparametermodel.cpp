@@ -3,8 +3,6 @@
 
 #include "roomsortparametermodel.h"
 
-#include "enums/roomsortparameter.h"
-
 using namespace Qt::StringLiterals;
 
 RoomSortParameterModel::RoomSortParameterModel(QObject *parent)

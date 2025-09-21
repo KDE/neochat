@@ -12,7 +12,6 @@
 #include "contentprovider.h"
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
-#include "messagecontentmodel.h"
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)

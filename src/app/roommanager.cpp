@@ -9,8 +9,6 @@
 #include "controller.h"
 #include "eventhandler.h"
 #include "models/actionsmodel.h"
-#include "models/messagefiltermodel.h"
-#include "models/sortfilterroomtreemodel.h"
 #include "neochatconfig.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"

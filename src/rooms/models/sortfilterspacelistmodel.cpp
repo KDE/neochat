@@ -3,8 +3,6 @@
 
 #include "sortfilterspacelistmodel.h"
 
-#include "models/roomlistmodel.h"
-
 using namespace Qt::StringLiterals;
 
 SortFilterSpaceListModel::SortFilterSpaceListModel(RoomListModel *sourceModel, QObject *parent)

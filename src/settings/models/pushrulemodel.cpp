@@ -10,8 +10,6 @@
 #include <Quotient/csapi/pushrules.h>
 #include <Quotient/jobs/basejob.h>
 
-#include "enums/pushrule.h"
-
 #include <KLazyLocalizedString>
 
 // Alternate name text for default rules.

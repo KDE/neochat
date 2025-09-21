@@ -4,15 +4,12 @@
 #include "server.h"
 
 #include <QFile>
-#include <QHttpServer>
 #include <QHttpServerResponder>
 #include <QJsonArray>
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkReply>
 #include <QSslCertificate>
 #include <QSslKey>
-#include <QSslServer>
 #include <QUuid>
 
 #include <Quotient/networkaccessmanager.h>
