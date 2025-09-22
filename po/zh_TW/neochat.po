@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-16 00:41+0000\n"
-"PO-Revision-Date: 2025-08-08 02:11+0900\n"
+"PO-Revision-Date: 2025-09-22 04:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -307,8 +307,7 @@ msgid "Add Account"
 msgstr "新增帳號"
 
 #: src/app/qml/AccountSwitchDialog.qml:58
-#, fuzzy, kde-format
-#| msgid "Log in or create a new account"
+#, kde-format
 msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "登入或建立新帳號"
@@ -326,8 +325,7 @@ msgid "Start a chat"
 msgstr "開始私人聊天"
 
 #: src/app/qml/AskDirectChatConfirmation.qml:21
-#, fuzzy, kde-format
-#| msgid "Do you want to start a chat with %1?"
+#, kde-format
 msgctxt "@info"
 msgid "Do you want to start a chat with %1?"
 msgstr "您要與 %1 開始私人聊天嗎？"
@@ -350,8 +348,7 @@ msgid "Edit"
 msgstr "編輯"
 
 #: src/app/qml/AttachmentPane.qml:61
-#, fuzzy, kde-format
-#| msgid "Cancel sending attachment"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel sending attachment"
 msgstr "取消傳送附件"
@@ -684,16 +681,14 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "來自裝置 **%1** 的金鑰驗證請求"
 
 #: src/app/qml/KeyVerificationDialog.qml:163
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to send us keys."
-msgstr "正在等待對方驗證。"
+msgstr "正在等待對方給予我們金鑰。"
 
 #: src/app/qml/KeyVerificationDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to confirm our keys."
-msgstr "正在等待對方驗證。"
+msgstr "正在等待對方確認我們的金鑰。"
 
 #: src/app/qml/KeyVerificationDialog.qml:167
 #, kde-format
@@ -836,43 +831,37 @@ msgid "Create Poll"
 msgstr "建立投票"
 
 #: src/app/qml/NewPollDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Poll type:"
+#, kde-format
 msgctxt "@label"
 msgid "Poll type:"
 msgstr "投票類型："
 
 #: src/app/qml/NewPollDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "Open poll"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "開放投票"
 
 #: src/app/qml/NewPollDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Closed poll"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "封閉投票"
 
 #: src/app/qml/NewPollDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Voters can see the result as soon as they have voted"
+#, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr "投票者可以在投票之後馬上看到結果"
 
 #: src/app/qml/NewPollDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Results are revealed only after the poll has closed"
+#, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr "結果只在投票結束之後才揭露"
 
 #: src/app/qml/NewPollDialog.qml:60
-#, fuzzy, kde-format
-#| msgid "Question:"
+#, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "問題："
@@ -884,8 +873,7 @@ msgid "Option %1:"
 msgstr "選項 %1："
 
 #: src/app/qml/NewPollDialog.qml:119
-#, fuzzy, kde-format
-#| msgid "Enter option"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "輸入選項"
@@ -922,8 +910,7 @@ msgid "No Notifications"
 msgstr "沒有通知"
 
 #: src/app/qml/OpenFileDialog.qml:12
-#, fuzzy, kde-format
-#| msgid "Select a File"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "選擇檔案"
@@ -938,53 +925,46 @@ msgstr "掃描 QR 碼"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "沒有連接相機"
 
 #: src/app/qml/QuickFormatBar.qml:22
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "粗體"
 
 #: src/app/qml/QuickFormatBar.qml:41
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "斜體"
 
 #: src/app/qml/QuickFormatBar.qml:60
-#, fuzzy, kde-format
-#| msgid "Strikethrough"
+#, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
 msgstr "刪除線"
 
 #: src/app/qml/QuickFormatBar.qml:79
-#, fuzzy, kde-format
-#| msgid "Spoiler"
+#, kde-format
 msgctxt "@action:button"
 msgid "Spoiler"
 msgstr "暴雷"
 
 #: src/app/qml/QuickFormatBar.qml:98
-#, fuzzy, kde-format
-#| msgid "Code block"
+#, kde-format
 msgctxt "@action:button"
 msgid "Code block"
 msgstr "程式碼區塊"
 
 #: src/app/qml/QuickFormatBar.qml:117
-#, fuzzy, kde-format
-#| msgid "Quote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Quote"
 msgstr "引言"
 
 #: src/app/qml/QuickFormatBar.qml:136
-#, fuzzy, kde-format
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
 msgstr "插入連結"
@@ -1029,7 +1009,7 @@ msgstr "忽略"
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
-msgstr ""
+msgstr "這個聊天室包含您的家伺服器的官方訊息。"
 
 #: src/app/qml/RoomPage.qml:93
 #, kde-format
@@ -1066,15 +1046,13 @@ msgid "Message Source"
 msgstr "訊息原始碼"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "新增伺服器"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "家伺服器"
@@ -1098,29 +1076,25 @@ msgid "Add server"
 msgstr "新增伺服器"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
 msgstr "輸入的文字不是有效的網址"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "無法解析這個伺服器，或是已經加入"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "伺服器網址："
 
 #: src/app/qml/ServerComboBox.qml:190
-#, fuzzy, kde-format
-#| msgid "OK"
+#, kde-format
 msgctxt "@action:button"
 msgid "OK"
 msgstr "確定"
@@ -1132,22 +1106,19 @@ msgid "Share"
 msgstr "分享"
 
 #: src/app/qml/ShareAction.qml:25
-#, fuzzy, kde-format
-#| msgid "Share the selected media"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Share the selected media"
 msgstr "分享選取的媒體"
 
 #: src/app/qml/ShareDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Sharing failed"
+#, kde-format
 msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "分享失敗"
 
 #: src/app/qml/ShareDialog.qml:58
-#, fuzzy, kde-format
-#| msgid "Shared url for image is <a href='%1'>%1</a>"
+#, kde-format
 msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "影像分享後的網址是 <a href='%1'>%1</a>"
@@ -1266,8 +1237,7 @@ msgid "Ignore this user"
 msgstr "忽略這個使用者"
 
 #: src/app/qml/UserDetailDialog.qml:157
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Kick this user"
 msgstr "踢出這個使用者"
@@ -1291,15 +1261,13 @@ msgid "Kick"
 msgstr "踢出"
 
 #: src/app/qml/UserDetailDialog.qml:180
-#, fuzzy, kde-format
-#| msgid "Invite this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Invite this user"
 msgstr "邀請這個使用者"
 
 #: src/app/qml/UserDetailDialog.qml:191
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban this user"
 msgstr "封鎖這個使用者"
@@ -1323,15 +1291,13 @@ msgid "Ban"
 msgstr "封鎖"
 
 #: src/app/qml/UserDetailDialog.qml:214
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgctxt "@action:button"
 msgid "Unban this user"
 msgstr "解除封鎖使用者"
 
 #: src/app/qml/UserDetailDialog.qml:225
-#, fuzzy, kde-format
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button"
 msgid "Set user power level"
 msgstr "設定使用者能力等級"
@@ -1378,12 +1344,10 @@ msgid "Invite to private chat"
 msgstr "邀請到私人聊天室"
 
 #: src/app/qml/UserDetailDialog.qml:278
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
-msgstr "搜尋訊息"
+msgstr "在聊天室中搜尋 %1 的訊息"
 
 #: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
 #, kde-format
@@ -1415,30 +1379,25 @@ msgid "Find Your Friends"
 msgstr "尋找您的朋友"
 
 #: src/app/qml/UserSearchPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "User ID"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy User ID"
-msgstr "使用者 ID"
+msgstr "複製使用者 ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "好友"
 
 #: src/app/qml/UserSearchPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
 msgstr "尋找您的朋友…"
 
 #: src/app/qml/UserSearchPage.qml:92
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
 msgstr "輸入文字開始搜尋朋友"
@@ -1450,11 +1409,10 @@ msgid "No matches found"
 msgstr "沒有相符項目"
 
 #: src/app/qml/UserSearchPage.qml:99 src/libneochat/qml/InviteUserPage.qml:46
-#, fuzzy, kde-format
-#| msgid "Enter a user ID"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enter a User ID"
-msgstr "輸入一個使用者 ID"
+msgstr "輸入使用者 ID"
 
 #: src/app/qml/VerificationCanceled.qml:18
 #, kde-format
@@ -1605,7 +1563,7 @@ msgstr "工作階段驗證由於不明錯誤而取消。"
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: src/app/roommanager.cpp:208
 #, kde-format
@@ -1613,10 +1571,9 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "格式不正確或空白的 Matrix ID<br />%1 不是一個正確的 Matrix ID"
 
 #: src/app/roommanager.cpp:425
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "加入聊天室失敗<br />%1"
+msgstr "加入 %1 失敗：<br />%2"
 
 #: src/app/roommanager.cpp:449
 #, kde-format
@@ -1639,15 +1596,13 @@ msgid "Quit"
 msgstr "離開"
 
 #: src/chatbar/AttachDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose local file"
 msgstr "選擇本機檔案"
 
 #: src/chatbar/AttachDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Clipboard image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "剪貼簿影像"
@@ -1659,15 +1614,13 @@ msgid "Attach an image or file"
 msgstr "附加影像或檔案"
 
 #: src/chatbar/ChatBar.qml:112
-#, fuzzy, kde-format
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis & Stickers"
 msgstr "表情符號與貼圖"
 
 #: src/chatbar/ChatBar.qml:129
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "傳送位置"
@@ -1679,8 +1632,7 @@ msgid "Create a Poll"
 msgstr "建立投票"
 
 #: src/chatbar/ChatBar.qml:159
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "傳送訊息"
@@ -1692,22 +1644,19 @@ msgid "The user you're replying to has left the room, and can't be notified."
 msgstr "您正在回覆的使用者已離開聊天室而不會被通知。"
 
 #: src/chatbar/ChatBar.qml:261
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "傳送已加密訊息…"
 
 #: src/chatbar/ChatBar.qml:261
-#, fuzzy, kde-format
-#| msgid "Set an attachment caption…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "設定附件說明…"
 
 #: src/chatbar/ChatBar.qml:261
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "傳送訊息…"
@@ -1719,29 +1668,25 @@ msgid "Cancel reply"
 msgstr "取消回覆"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No stickers"
+#, kde-format
 msgctxt "@info"
 msgid "No stickers"
 msgstr "無貼圖"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "@info"
 msgid "No emojis"
 msgstr "無表情符號"
 
 #: src/chatbar/EmojiPicker.qml:56
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "表情符號"
 
 #: src/chatbar/EmojiPicker.qml:63
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "貼圖"
@@ -1858,9 +1803,7 @@ msgid "This includes state events"
 msgstr "這包含狀態事件"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "總是允許裝置驗證"
@@ -2075,11 +2018,10 @@ msgid "Spaces"
 msgstr "聊天空間"
 
 #: src/libneochat/enums/neochatroomtype.h:77
-#, fuzzy, kde-format
-#| msgid "Server Capabilities"
+#, kde-format
 msgctxt "@info Meaning: official information messages from your server"
 msgid "Server Notices"
-msgstr "伺服器功能"
+msgstr "伺服器公告"
 
 #: src/libneochat/enums/powerlevel.cpp:10
 #, kde-format
@@ -3303,12 +3245,10 @@ msgid "No public rooms found"
 msgstr "沒有找到公開聊天室"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No public rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
-msgstr "沒有找到公開聊天室"
+msgstr "沒有公開聊天室"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
 #: src/timeline/TimelineEndDelegate.qml:69
@@ -3335,11 +3275,10 @@ msgid "No users found"
 msgstr "找不到使用者"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "輸入文字開始搜尋朋友"
+msgstr "輸入文字開始搜尋使用者"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
@@ -3772,8 +3711,7 @@ msgstr "正在載入網址預覽"
 
 #: src/messagecontent/LoadComponent.qml:30
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:252
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "載入中…"
@@ -3800,11 +3738,10 @@ msgstr ""
 "這個訊息找不到，或是您沒有閱讀它的權限，或者它是由已忽略的使用者所送出的"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:252
-#, fuzzy, kde-format
-#| msgid "Loading reply"
+#, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr "載入回覆中"
+msgstr "載入回覆中…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:68
 #, kde-format
@@ -3839,18 +3776,14 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 用 %3 反應"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
 msgstr[0] "%1 張票"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -4009,9 +3942,7 @@ msgid "Invite user to room"
 msgstr "邀請使用者到聊天室"
 
 #: src/roominfo/RoomInformation.qml:195
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -4104,15 +4035,13 @@ msgid "Create New"
 msgstr "建立新的"
 
 #: src/rooms/ExploreComponentMobile.qml:145
-#, fuzzy, kde-format
-#| msgid "Create a Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "建立聊天室"
 
 #: src/rooms/ExploreComponentMobile.qml:161
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "建立一個聊天空間"
@@ -4130,8 +4059,7 @@ msgid "%1 invited you"
 msgstr "%1 邀請了您"
 
 #: src/rooms/RoomContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "標記為已讀"
@@ -4169,39 +4097,34 @@ msgid "Off"
 msgstr "關閉"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
 msgstr "從最愛中移除"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
 msgstr "加入最愛"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Reprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
 msgstr "重新給予優先權"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Deprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "降低優先權"
 
 #: src/rooms/RoomContextMenu.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Room Link"
-msgstr "複製連結"
+msgstr "複製聊天室連結"
 
 #: src/rooms/RoomContextMenu.qml:142
 #, kde-format
@@ -4210,8 +4133,7 @@ msgid "Room Settings"
 msgstr "聊天室設定"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "離開聊天室…"
@@ -4227,59 +4149,50 @@ msgid "Configure room"
 msgstr "設定聊天室"
 
 #: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
-#, fuzzy, kde-format
-#| msgid "Find your friends"
+#, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
 #: src/rooms/RoomListPage.qml:216
-#, fuzzy, kde-format
-#| msgid "No friends found"
+#, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "找不到朋友"
 
 #: src/rooms/RoomListPage.qml:216
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
 #: src/rooms/RoomListPage.qml:218
-#, fuzzy, kde-format
-#| msgid ""
-#| "You haven't added any of your friends yet, click below to search for them."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "您尚未加入任何朋友，點擊下方以搜尋您的朋友。"
 
 #: src/rooms/RoomListPage.qml:218
-#, fuzzy, kde-format
-#| msgid "Join some rooms to get started"
+#, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "先加入一些聊天室吧"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Search in room directory"
+#, kde-format
 msgctxt "@action"
 msgid "Search in room directory"
 msgstr "在聊天室目錄裡搜尋"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action"
 msgid "Explore rooms"
 msgstr "瀏覽聊天室"
 
 #: src/rooms/RoomListPage.qml:242
-#, fuzzy, kde-format
-#| msgid "Search in friend directory"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "在朋友目錄裡搜尋"
@@ -4539,8 +4452,7 @@ msgid "Appearance"
 msgstr "外觀"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:group"
 msgid "General"
 msgstr "一般"
@@ -4550,16 +4462,11 @@ msgstr "一般"
 msgid "Use compact room list"
 msgstr "使用簡潔聊天室列表"
 
-# sourceText: root.currentRoom.getEventJsonSource(eventId)
-# 應該確實是原始碼吧
-# --Kisaragi
 #: src/settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
-msgstr "訊息原始碼"
+msgstr "訊息佈局"
 
 #: src/settings/AppearanceSettingsPage.qml:143
 #, kde-format
@@ -4592,15 +4499,13 @@ msgid "Show your messages on the right"
 msgstr "將您的訊息顯示於右邊"
 
 #: src/settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
-msgstr "在聊天訊息中顯示連結預覽"
+msgstr "在訊息中顯示連結預覽"
 
 #: src/settings/AppearanceSettingsPage.qml:320
-#, fuzzy, kde-format
-#| msgid "Show Avatar"
+#, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "顯示大頭貼"
@@ -4701,15 +4606,13 @@ msgid "Confirm new display name"
 msgstr "確認新的顯示名稱"
 
 #: src/settings/DeviceDelegate.qml:89
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit device name"
 msgstr "編輯裝置名稱"
 
 #: src/settings/DeviceDelegate.qml:99
-#, fuzzy, kde-format
-#| msgid "Verify device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Verify device"
 msgstr "驗證裝置"
@@ -4721,8 +4624,7 @@ msgid "Verified"
 msgstr "已驗證"
 
 #: src/settings/DeviceDelegate.qml:124
-#, fuzzy, kde-format
-#| msgid "Logout device"
+#, kde-format
 msgctxt "@action:button"
 msgid "Logout device"
 msgstr "登出裝置"
@@ -5781,43 +5683,37 @@ msgid "Password:"
 msgstr "密碼："
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Users"
 msgstr "有權力的使用者"
 
 #: src/settings/Permissions.qml:233
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Default permissions"
 msgstr "預設權限"
 
 #: src/settings/Permissions.qml:273
-#, fuzzy, kde-format
-#| msgid "Basic permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Basic permissions"
 msgstr "基本權限"
 
 #: src/settings/Permissions.qml:313
-#, fuzzy, kde-format
-#| msgid "Event permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Event permissions"
-msgstr "事件fm0vu0"
+msgstr "事件權限"
 
 #: src/settings/Permissions.qml:360
-#, fuzzy, kde-format
-#| msgid "Event Type…"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "事件類型…"
 
 #: src/settings/Permissions.qml:386
-#, fuzzy, kde-format
-#| msgid "Add keyword"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "新增關鍵字"
@@ -5905,15 +5801,13 @@ msgid "Confirm"
 msgstr "確認"
 
 #: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "一般"
 
 #: src/settings/RoomGeneralPage.qml:39
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgctxt "@action:button"
 msgid "Update avatar"
 msgstr "更新大頭貼"
@@ -5931,85 +5825,73 @@ msgid "Topic:"
 msgstr "主題："
 
 #: src/settings/RoomGeneralPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "儲存"
 
 #: src/settings/RoomGeneralPage.qml:103
-#, fuzzy, kde-format
-#| msgid "Aliases"
+#, kde-format
 msgctxt "@title"
 msgid "Aliases"
 msgstr "別名"
 
 #: src/settings/RoomGeneralPage.qml:108
-#, fuzzy, kde-format
-#| msgid "No canonical alias set"
+#, kde-format
 msgctxt "@info"
 msgid "No canonical alias set"
 msgstr "未設定主要別名"
 
 #: src/settings/RoomGeneralPage.qml:125
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Make this alias the room's canonical alias"
 msgstr "將此別名設為聊天室主要別名"
 
 #: src/settings/RoomGeneralPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Delete alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete alias"
 msgstr "刪除別名"
 
 #: src/settings/RoomGeneralPage.qml:160
-#, fuzzy, kde-format
-#| msgid "#new_alias:server.org"
+#, kde-format
 msgctxt "The new alias (room address) to be added to a room"
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
 #: src/settings/RoomGeneralPage.qml:177
-#, fuzzy, kde-format
-#| msgid "Add new alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add new alias"
 msgstr "新增別名"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "URL Previews"
 msgstr "網址預覽"
 
 #: src/settings/RoomGeneralPage.qml:198
-#, fuzzy, kde-format
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable URL previews by default for room members"
 msgstr "預設為聊天室成員啟用網址預覽"
 
 #: src/settings/RoomGeneralPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Enable URL previews"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable URL previews"
 msgstr "啟用網址預覽"
 
 #: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "URL previews are enabled by default in this room"
 msgstr "這個聊天室預設為啟用網址預覽"
 
 #: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "URL previews are disabled by default in this room"
 msgstr "這個聊天室預設已停用網址預覽"
@@ -6023,43 +5905,37 @@ msgid "URL previews are currently disabled for your account"
 msgstr "網址預覽目前已為您的帳號關閉"
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button"
 msgid "Enable"
 msgstr "啟用"
 
 #: src/settings/RoomGeneralPage.qml:233
-#, fuzzy, kde-format
-#| msgid "Official Parent Spaces"
+#, kde-format
 msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "官方上層聊天空間"
 
 #: src/settings/RoomGeneralPage.qml:266
-#, fuzzy, kde-format
-#| msgid "Canonical"
+#, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
 msgstr "主要"
 
 #: src/settings/RoomGeneralPage.qml:271
-#, fuzzy, kde-format
-#| msgid "Make canonical parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "標記為主要上層"
 
 #: src/settings/RoomGeneralPage.qml:282
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "移除上層"
 
 #: src/settings/RoomGeneralPage.qml:295
-#, fuzzy, kde-format
-#| msgid "This room has no official parent spaces."
+#, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "此聊天室沒有任何官方上層聊天空間。"
@@ -6071,29 +5947,25 @@ msgid "Add new official parent"
 msgstr "新增官方上層項目"
 
 #: src/settings/RoomGeneralPage.qml:316
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "這個聊天室接續了另一個對話。"
 
 #: src/settings/RoomGeneralPage.qml:320
-#, fuzzy, kde-format
-#| msgid "See older messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "檢視更舊的訊息…"
 
 #: src/settings/RoomGeneralPage.qml:332
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "這個聊天室已被取代。"
 
 #: src/settings/RoomGeneralPage.qml:336
-#, fuzzy, kde-format
-#| msgid "See new room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See new room…"
 msgstr "查看新聊天室…"
@@ -6123,9 +5995,7 @@ msgid "Reset to Default"
 msgstr "重設為預設值"
 
 #: src/settings/RoomSecurityPage.qml:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "You need to upgrade this room to a newer version to enable this setting."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -6174,8 +6044,7 @@ msgid "Private (invite only)"
 msgstr "私人（只接收邀請）"
 
 #: src/settings/RoomSecurityPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Only invited people can join."
+#, kde-format
 msgctxt "@info"
 msgid "Only invited people can join."
 msgstr "只有受邀請的使用者才能加入。"
@@ -6187,15 +6056,13 @@ msgid "Space members"
 msgstr "聊天空間成員"
 
 #: src/settings/RoomSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Anyone in the selected spaces can find and join."
+#, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr "所選聊天空間內的任何人都可以搜尋到或加入。"
 
 #: src/settings/RoomSecurityPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Select spaces"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "選取聊天空間"
@@ -6207,8 +6074,7 @@ msgid "Knock"
 msgstr "敲門"
 
 #: src/settings/RoomSecurityPage.qml:104
-#, fuzzy, kde-format
-#| msgid "People not in the room need to request an invite to join the room."
+#, kde-format
 msgctxt "@info"
 msgid "People not in the room need to request an invite to join the room."
 msgstr "不在聊天室的人必須要請求加入聊天室的邀請。"
@@ -6296,8 +6162,7 @@ msgid "Room Settings"
 msgstr "聊天室設定"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "權限"
@@ -6651,16 +6516,13 @@ msgid "Add to Space"
 msgstr "加入聊天空間"
 
 #: src/timeline/DelegateContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "回覆"
 
 #: src/timeline/DelegateContextMenu.qml:173
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
@@ -6825,15 +6687,13 @@ msgid "Report Message"
 msgstr "檢舉訊息"
 
 #: src/timeline/DelegateContextMenu.qml:342
-#, fuzzy, kde-format
-#| msgid "Search for '%1'"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "搜尋 '%1'"
 
 #: src/timeline/DelegateContextMenu.qml:365
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "設定網頁捷徑…"
@@ -6863,8 +6723,7 @@ msgid "Pin"
 msgstr "釘選"
 
 #: src/timeline/DelegateContextMenu.qml:408
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "檢視原始碼"
@@ -6931,32 +6790,28 @@ msgid ""
 msgstr "這是此聊天的開頭。沒有比這更早的歷史訊息。"
 
 #: src/timeline/TimelineView.qml:219
-#, fuzzy, kde-format
-#| msgid "Jump to first unread message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "跳到第一個未讀訊息"
 
 #: src/timeline/TimelineView.qml:219
-#, fuzzy, kde-format
-#| msgid "Jump to oldest loaded message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "跳到已載入的最舊的訊息"
 
 #: src/timeline/TimelineView.qml:250
-#, fuzzy, kde-format
-#| msgid "Jump to latest message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "跳到最新訊息"
 
 #: src/timeline/TimelineView.qml:285
-#, fuzzy, kde-format
-#| msgid "Drag items here to share them"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
-msgstr "拖曳項目至此來分享它"
+msgstr "將項目拖曳至此來分享它們"
 
 #: src/timeline/TimelineView.qml:310
 #, kde-format
