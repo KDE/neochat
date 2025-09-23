@@ -389,7 +389,7 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 
 #ifdef HAVE_KIO
         auto openAction = notification->addAction(i18n("Open NeoChat"));
-        connect(openAction, &KNotificationAction::activated, this, [=]() {
+        connect(openAction, &KNotificationAction::activated, notification, [=]() {
             QString properId = roomId;
             properId = properId.replace(u"#"_s, QString());
             properId = properId.replace(u"!"_s, QString());
@@ -403,8 +403,6 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
         connect(notification, &KNotification::closed, qGuiApp, &QGuiApplication::quit);
 
         notification->sendEvent();
-
-        m_notifications.insert(roomId, {json["ts"_L1].toVariant().toLongLong(), notification});
     } else {
         qWarning() << "Skipping unsupported push notification" << type;
     }
