@@ -219,8 +219,14 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {
-        // We want to be replaceable by the main client
-        KDBusService service(KDBusService::Replace);
+#ifdef HAVE_KDBUSADDONS
+        // We *don't* want to use KDBusService here. I don't know why, but it makes activation super unreliable. We don't really need it anyway.
+        if (!QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.neochat"))) {
+            // Gracefully fail if NeoChat is already running
+            qWarning() << "NeoChat already running, not sending push notifications.";
+            return 0;
+        }
+#endif
 
 #ifdef HAVE_RUNNER
         // If we are built with KRunner and KUnifiedPush support, we need to do something special.
