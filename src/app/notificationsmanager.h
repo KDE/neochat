@@ -53,7 +53,7 @@ public:
     /**
      * @brief Display a native notification for the given push notification.
      */
-    void postPushNotification(const QByteArray &message);
+    static void postPushNotification(const QByteArray &message);
 
     /**
      * @brief Handle the notifications for the given connection.

@@ -306,8 +306,7 @@ void Controller::listenForNotifications()
     connect(timer, &QTimer::timeout, qGuiApp, &QGuiApplication::quit);
 
     connect(connector, &KUnifiedPush::Connector::messageReceived, [timer](const QByteArray &data) {
-        instance().m_notificationsManager.postPushNotification(data);
-        timer->stop();
+        NotificationsManager::postPushNotification(data);
     });
 
     // Wait five seconds to see if we received any messages or this happened to be an erroneous activation.
