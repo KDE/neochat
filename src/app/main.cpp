@@ -205,7 +205,7 @@ int main(int argc, char *argv[])
     parser.addOption(testOption);
 
 #ifdef HAVE_KUNIFIEDPUSH
-    QCommandLineOption dbusActivatedOption(u"dbus-activated"_s, i18n("Internal usage only."));
+    QCommandLineOption dbusActivatedOption(u"dbus-activated"_s);
     dbusActivatedOption.setFlags(QCommandLineOption::Flag::HiddenFromHelp);
     parser.addOption(dbusActivatedOption);
 #endif
