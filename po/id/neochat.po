@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-16 00:41+0000\n"
+"POT-Creation-Date: 2025-09-24 00:43+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: src/app/controller.cpp:175
+#: src/app/controller.cpp:172
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgctxt ""
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Kirim notifikasi pengetikan"
 
-#: src/app/controller.cpp:320
+#: src/app/controller.cpp:317
 #, fuzzy, kde-format
 #| msgid "Send typing notifications"
 msgid "Receiving push notifications"
@@ -1729,24 +1729,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:208
+#: src/app/roommanager.cpp:206
 #, fuzzy, kde-format
 #| msgid "%1 is not a correct Matrix identifier"
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 bukan pengenal Matrix yang benar"
 
-#: src/app/roommanager.cpp:425
+#: src/app/roommanager.cpp:423
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgid "Failed to join %1:<br />%2"
 msgstr "Gagal bergabung dengan ruangan"
 
-#: src/app/roommanager.cpp:449
+#: src/app/roommanager.cpp:447
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Anda meminta untuk bergabung ke '%1'"
 
-#: src/app/roommanager.cpp:453
+#: src/app/roommanager.cpp:451
 #, fuzzy, kde-format
 #| msgid "Failed to request joining room"
 msgid "Failed to request joining room<br />%1"
@@ -2362,263 +2362,263 @@ msgctxt "@info"
 msgid "Rooms with the newer messages are higher"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:216 src/libneochat/eventhandler.cpp:289
-#: src/libneochat/eventhandler.cpp:518
+#: src/libneochat/eventhandler.cpp:215 src/libneochat/eventhandler.cpp:288
+#: src/libneochat/eventhandler.cpp:517
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Pesan ini telah dihapus]</i>"
 
-#: src/libneochat/eventhandler.cpp:216 src/libneochat/eventhandler.cpp:289
+#: src/libneochat/eventhandler.cpp:215 src/libneochat/eventhandler.cpp:288
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Pesan ini telah dihapus: %1]</i>"
 
-#: src/libneochat/eventhandler.cpp:323
+#: src/libneochat/eventhandler.cpp:322
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "mengundang ulang %1 ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:325
+#: src/libneochat/eventhandler.cpp:324
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:334
+#: src/libneochat/eventhandler.cpp:333
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "bergabung ke ruangan ini (lagi)"
 
-#: src/libneochat/eventhandler.cpp:336
+#: src/libneochat/eventhandler.cpp:335
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "mengundang %1 ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:336
+#: src/libneochat/eventhandler.cpp:335
 #, kde-format
 msgid "joined the room"
 msgstr "bergabung ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:340
+#: src/libneochat/eventhandler.cpp:339
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/libneochat/eventhandler.cpp:347
+#: src/libneochat/eventhandler.cpp:346
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "menghapus nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:350
+#: src/libneochat/eventhandler.cpp:349
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/libneochat/eventhandler.cpp:356
+#: src/libneochat/eventhandler.cpp:355
 #, kde-format
 msgid " and "
 msgstr " dan "
 
-#: src/libneochat/eventhandler.cpp:359
+#: src/libneochat/eventhandler.cpp:358
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "menghapus avatarnya"
 
-#: src/libneochat/eventhandler.cpp:361
+#: src/libneochat/eventhandler.cpp:360
 #, kde-format
 msgid "set an avatar"
 msgstr "menetapkan sebuah avatar"
 
-#: src/libneochat/eventhandler.cpp:363
+#: src/libneochat/eventhandler.cpp:362
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "memperbarui avatarnya"
 
-#: src/libneochat/eventhandler.cpp:367
+#: src/libneochat/eventhandler.cpp:366
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "tidak mengubah apa pun"
 
-#: src/libneochat/eventhandler.cpp:373
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "membatalkan undangannya %1"
 
-#: src/libneochat/eventhandler.cpp:373
+#: src/libneochat/eventhandler.cpp:372
 #, kde-format
 msgid "rejected the invitation"
 msgstr "menolak undangannya"
 
-#: src/libneochat/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "unbanned %1"
 msgstr "menghilangkan cekalannya %1"
 
-#: src/libneochat/eventhandler.cpp:377
+#: src/libneochat/eventhandler.cpp:376
 #, kde-format
 msgid "self-unbanned"
 msgstr "menghilangkan cekalannya sendiri"
 
-#: src/libneochat/eventhandler.cpp:380
+#: src/libneochat/eventhandler.cpp:379
 #, kde-format
 msgid "left the room"
 msgstr "keluar dari ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:383
+#: src/libneochat/eventhandler.cpp:382
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "mengeluarkan %1 dari ruangan: %2"
 
-#: src/libneochat/eventhandler.cpp:385
+#: src/libneochat/eventhandler.cpp:384
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "has put %1 out of the room"
 msgstr "mengeluarkan %1 dari ruangan: %2"
 
-#: src/libneochat/eventhandler.cpp:389
+#: src/libneochat/eventhandler.cpp:388
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "mencekal %1 dari ruangan"
 
-#: src/libneochat/eventhandler.cpp:391
+#: src/libneochat/eventhandler.cpp:390
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "mencekal %1 dari ruangan ini: %2"
 
-#: src/libneochat/eventhandler.cpp:394
+#: src/libneochat/eventhandler.cpp:393
 #, kde-format
 msgid "self-banned from the room"
 msgstr "mencekal dirinya dari ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:397
 #, kde-format
 msgid "requested an invite"
 msgstr "meminta sebuah undangan"
 
-#: src/libneochat/eventhandler.cpp:398
+#: src/libneochat/eventhandler.cpp:397
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "meminta sebuah undangan dengan alasan: %1"
 
-#: src/libneochat/eventhandler.cpp:402
+#: src/libneochat/eventhandler.cpp:401
 #, kde-format
 msgid "made something unknown"
 msgstr "membuat sebuah hal yang tidak diketahui"
 
-#: src/libneochat/eventhandler.cpp:405
+#: src/libneochat/eventhandler.cpp:404
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "menghapus alias utama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:405
+#: src/libneochat/eventhandler.cpp:404
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "menetapkan alias utama ruangan ini ke: %1"
 
-#: src/libneochat/eventhandler.cpp:408
+#: src/libneochat/eventhandler.cpp:407
 #, kde-format
 msgid "cleared the room name"
 msgstr "menghapus nama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:408
+#: src/libneochat/eventhandler.cpp:407
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "menetapkan nama ruangan ini ke: %1"
 
-#: src/libneochat/eventhandler.cpp:411
+#: src/libneochat/eventhandler.cpp:410
 #, kde-format
 msgid "cleared the topic"
 msgstr "menghapus topiknya"
 
-#: src/libneochat/eventhandler.cpp:412
+#: src/libneochat/eventhandler.cpp:411
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "menetapkan topiknya ke: %1"
 
-#: src/libneochat/eventhandler.cpp:418
+#: src/libneochat/eventhandler.cpp:417
 #, kde-format
 msgid "changed the room avatar"
 msgstr "mengubah avatar ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:421
+#: src/libneochat/eventhandler.cpp:420
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "diaktifkan Enkripsi Ujung ke Ujung"
 
-#: src/libneochat/eventhandler.cpp:425
+#: src/libneochat/eventhandler.cpp:424
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "meningkatkan ruangan ini ke versi %1"
 
-#: src/libneochat/eventhandler.cpp:426
+#: src/libneochat/eventhandler.cpp:425
 #, kde-format
 msgid "created the room, version %1"
 msgstr "membuat ruangan ini, versi %1"
 
-#: src/libneochat/eventhandler.cpp:429
+#: src/libneochat/eventhandler.cpp:428
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "mengubah tingkat daya untuk ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:435
+#: src/libneochat/eventhandler.cpp:434
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "mengubah daftar kontrol pengaksesan server untuk ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:439
+#: src/libneochat/eventhandler.cpp:438
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "menambahkan widget %1"
 
-#: src/libneochat/eventhandler.cpp:442
+#: src/libneochat/eventhandler.cpp:441
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "menghapus widget %1"
 
-#: src/libneochat/eventhandler.cpp:444
+#: src/libneochat/eventhandler.cpp:443
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "mengatur widget %1"
 
-#: src/libneochat/eventhandler.cpp:449
+#: src/libneochat/eventhandler.cpp:448
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:451
+#: src/libneochat/eventhandler.cpp:450
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:454
+#: src/libneochat/eventhandler.cpp:453
 #, kde-format
 msgid "updated %1 state"
 msgstr "memperbarui status %1"
 
-#: src/libneochat/eventhandler.cpp:455
+#: src/libneochat/eventhandler.cpp:454
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "memperbarui status %1 untuk %2"
 
-#: src/libneochat/eventhandler.cpp:461
+#: src/libneochat/eventhandler.cpp:460
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "Pesan Terenkripsi"
 
-#: src/libneochat/eventhandler.cpp:464
+#: src/libneochat/eventhandler.cpp:463
 #, fuzzy, kde-format
 #| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 #| msgid "%2 reacted with %3"
@@ -2627,134 +2627,134 @@ msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr "%2 bereaksi dengan %3"
 
-#: src/libneochat/eventhandler.cpp:466 src/libneochat/eventhandler.cpp:672
+#: src/libneochat/eventhandler.cpp:465 src/libneochat/eventhandler.cpp:671
 #, kde-format
 msgid "Unknown event"
 msgstr "Peristiwa tidak diketahui"
 
-#: src/libneochat/eventhandler.cpp:481
+#: src/libneochat/eventhandler.cpp:480
 #, kde-format
 msgid "a file"
 msgstr "sebuah berkas"
 
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:526
 #, fuzzy, kde-format
 #| msgid "sent a message"
 msgid "%1 sent a message"
 msgstr "mengirim pesan"
 
-#: src/libneochat/eventhandler.cpp:530
+#: src/libneochat/eventhandler.cpp:529
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgid "%1 sent a sticker"
 msgstr "mengirim stiker"
 
-#: src/libneochat/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:535
 #, fuzzy, kde-format
 #| msgid "reinvited someone to the room"
 msgid "%1 reinvited someone to the room"
 msgstr "mengundang ulang seseorang ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:542
+#: src/libneochat/eventhandler.cpp:541
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgid "%1 joined the room (repeated)"
 msgstr "bergabung ke ruangan ini (lagi)"
 
-#: src/libneochat/eventhandler.cpp:544
+#: src/libneochat/eventhandler.cpp:543
 #, fuzzy, kde-format
 #| msgid "invited someone to the room"
 msgid "%1 invited someone to the room"
 msgstr "mengundang seseorang ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:545
+#: src/libneochat/eventhandler.cpp:544
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgid "%1 joined the room"
 msgstr "bergabung ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:571
+#: src/libneochat/eventhandler.cpp:570
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:573
+#: src/libneochat/eventhandler.cpp:572
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "memperbarui avatarnya"
 
-#: src/libneochat/eventhandler.cpp:575
+#: src/libneochat/eventhandler.cpp:574
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "menghapus avatarnya"
 
-#: src/libneochat/eventhandler.cpp:577
+#: src/libneochat/eventhandler.cpp:576
 #, fuzzy, kde-format
 #| msgid "Changes your display name in this room"
 msgid "%1 set a display name for this room"
 msgstr "Mengubah nama tampilan di ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:579
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and set an avatar"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:581
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:583
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:585
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name"
 msgid "%1 changed their display name"
 msgstr "mengubah nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:588
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "menghapus nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:590
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "menghapus nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:592
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "menghapus nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:594
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name"
 msgstr "menghapus nama tampilannya"
 
-#: src/libneochat/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:597
 #, fuzzy, kde-format
 #| msgctxt "<user> changed nothing"
 #| msgid "changed nothing"
@@ -2762,127 +2762,127 @@ msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "tidak mengubah apa pun"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:601
 #, fuzzy, kde-format
 #| msgid "withdrew a user's invitation"
 msgid "%1 withdrew a user's invitation"
 msgstr "membatalkan undangan pengguna"
 
-#: src/libneochat/eventhandler.cpp:603
+#: src/libneochat/eventhandler.cpp:602
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "%1 rejected the invitation"
 msgstr "menolak undangannya"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:606
 #, fuzzy, kde-format
 #| msgid "unbanned a user"
 msgid "%1 unbanned a user"
 msgstr "menghilangkan cekalan pengguna"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:606
 #, fuzzy, kde-format
 #| msgid "self-unbanned"
 msgid "%1 self-unbanned"
 msgstr "menghilangkan cekalannya sendiri"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:608
 #, fuzzy, kde-format
 #| msgid "put a user out of the room"
 msgid "%1 put a user out of the room"
 msgstr "mengeluarkan pengguna dari ruangan"
 
-#: src/libneochat/eventhandler.cpp:609
+#: src/libneochat/eventhandler.cpp:608
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 left the room"
 msgstr "keluar dari ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:611
 #, fuzzy, kde-format
 #| msgid "banned a user from the room"
 msgid "%1 banned a user from the room"
 msgstr "mencekal pengguna dari ruangan"
 
-#: src/libneochat/eventhandler.cpp:614
+#: src/libneochat/eventhandler.cpp:613
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgid "%1 self-banned from the room"
 msgstr "mencekal dirinya dari ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:617
+#: src/libneochat/eventhandler.cpp:616
 #, fuzzy, kde-format
 #| msgid "requested an invite"
 msgid "%1 requested an invite"
 msgstr "meminta sebuah undangan"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:620
 #, fuzzy, kde-format
 #| msgid "made something unknown"
 msgid "%1 made something unknown"
 msgstr "membuat sebuah hal yang tidak diketahui"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:623
 #, fuzzy, kde-format
 #| msgid "cleared the room main alias"
 msgid "%1 cleared the room main alias"
 msgstr "menghapus alias utama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:624
+#: src/libneochat/eventhandler.cpp:623
 #, fuzzy, kde-format
 #| msgid "set the room main alias"
 msgid "%1 set the room main alias"
 msgstr "menetapkan alias utama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:626
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "%1 cleared the room name"
 msgstr "menghapus nama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:627
+#: src/libneochat/eventhandler.cpp:626
 #, fuzzy, kde-format
 #| msgid "set the room name"
 msgid "%1 set the room name"
 msgstr "menetapkan nama ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:629
 #, fuzzy, kde-format
 #| msgid "cleared the topic"
 msgid "%1 cleared the topic"
 msgstr "menghapus topiknya"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:629
 #, fuzzy, kde-format
 #| msgid "set the topic"
 msgid "%1 set the topic"
 msgstr "menetapkan topiknya"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:632
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "%1 changed the room avatar"
 msgstr "mengubah avatar ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:635
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgid "%1 activated End-to-End Encryption"
 msgstr "diaktifkan Enkripsi Ujung ke Ujung"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:638
 #, fuzzy, kde-format
 #| msgid "upgraded the room version"
 msgid "%1 upgraded the room version"
 msgstr "meningkatkan versi ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:638
 #, fuzzy, kde-format
 #| msgid "created the room"
 msgid "%1 created the room"
 msgstr "membuat ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:641
 #, fuzzy, kde-format
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
@@ -2890,56 +2890,56 @@ msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "mengubah tingkat daya untuk ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:644
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:647
 #, fuzzy, kde-format
 #| msgid "changed the server access control lists for this room"
 msgid "%1 changed the server access control lists for this room"
 msgstr "mengubah daftar kontrol pengaksesan server untuk ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:652
+#: src/libneochat/eventhandler.cpp:651
 #, fuzzy, kde-format
 #| msgid "added a widget"
 msgid "%1 added a widget"
 msgstr "menambahkan widget"
 
-#: src/libneochat/eventhandler.cpp:655
+#: src/libneochat/eventhandler.cpp:654
 #, fuzzy, kde-format
 #| msgid "removed a widget"
 msgid "%1 removed a widget"
 msgstr "menghapus widget"
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:656
 #, fuzzy, kde-format
 #| msgid "configured a widget"
 msgid "%1 configured a widget"
 msgstr "mengatur widget"
 
-#: src/libneochat/eventhandler.cpp:662
+#: src/libneochat/eventhandler.cpp:661
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "keluar dari ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:664
+#: src/libneochat/eventhandler.cpp:663
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "bergabung ke ruangan ini"
 
-#: src/libneochat/eventhandler.cpp:667
+#: src/libneochat/eventhandler.cpp:666
 #, fuzzy, kde-format
 #| msgid "updated the state"
 msgid "%1 updated the state"
 msgstr "memperbarui keadaan"
 
-#: src/libneochat/eventhandler.cpp:670
+#: src/libneochat/eventhandler.cpp:669
 #, fuzzy, kde-format
 #| msgid "started a poll"
 msgid "%1 started a poll"
@@ -3374,7 +3374,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Buat space"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:71
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -3382,28 +3382,28 @@ msgid ""
 "for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:354
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Pembuatan ruangan gagal: %1"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:383
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Pembuatan space gagal: %1"
 
-#: src/libneochat/neochatroom.cpp:1248
+#: src/libneochat/neochatroom.cpp:1247
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/libneochat/neochatroom.cpp:1613 src/libneochat/neochatroom.cpp:1621
+#: src/libneochat/neochatroom.cpp:1612 src/libneochat/neochatroom.cpp:1620
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4100,14 +4100,14 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Memuat..."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:68
+#: src/messagecontent/models/messagecontentmodel.cpp:67
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Berkas terlalu besar untuk diunduh."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:71
+#: src/messagecontent/models/messagecontentmodel.cpp:70
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4160,7 +4160,7 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Berakhir)"
 
-#: src/messagecontent/pollhandler.cpp:296
+#: src/messagecontent/pollhandler.cpp:295
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
@@ -5680,87 +5680,87 @@ msgstr ""
 "Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
 "sini"
 
-#: src/settings/models/pushrulemodel.cpp:19
+#: src/settings/models/pushrulemodel.cpp:17
 #, fuzzy
 #| msgid "Enable notifications for this account"
 msgctxt "Notification type"
 msgid "Enable notifications for this account"
 msgstr "Aktifkan notifikasi untuk akun ini"
 
-#: src/settings/models/pushrulemodel.cpp:20
+#: src/settings/models/pushrulemodel.cpp:18
 #, fuzzy
 #| msgid "Messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Messages in one-to-one chats"
 msgstr "Pesan dalam obrolan satu ke satu"
 
-#: src/settings/models/pushrulemodel.cpp:21
+#: src/settings/models/pushrulemodel.cpp:19
 #, fuzzy
 #| msgid "Encrypted messages in one-to-one chats"
 msgctxt "Notification type"
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Pesan terenkripsi dalam obrolan satu ke satu"
 
-#: src/settings/models/pushrulemodel.cpp:22
+#: src/settings/models/pushrulemodel.cpp:20
 #, fuzzy
 #| msgid "Messages in group chats"
 msgctxt "Notification type"
 msgid "Messages in group chats"
 msgstr "Pesan dalam obrolan grup"
 
-#: src/settings/models/pushrulemodel.cpp:23
+#: src/settings/models/pushrulemodel.cpp:21
 #, fuzzy
 #| msgid "Messages in encrypted group chats"
 msgctxt "Notification type"
 msgid "Messages in encrypted group chats"
 msgstr "Pesan dalam obrolan grup terenkripsi"
 
-#: src/settings/models/pushrulemodel.cpp:24
+#: src/settings/models/pushrulemodel.cpp:22
 #, fuzzy
 #| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Pesan peningkatan ruangan"
 
-#: src/settings/models/pushrulemodel.cpp:25
+#: src/settings/models/pushrulemodel.cpp:23
 #, fuzzy
 #| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing my display name"
 msgstr "Pesan berisi nama tampilan saya"
 
-#: src/settings/models/pushrulemodel.cpp:26
+#: src/settings/models/pushrulemodel.cpp:24
 msgctxt "Notification type"
 msgid "Messages which mention my Matrix user ID"
 msgstr ""
 
-#: src/settings/models/pushrulemodel.cpp:27
+#: src/settings/models/pushrulemodel.cpp:25
 msgctxt "Notification type"
 msgid "Messages which mention a room"
 msgstr ""
 
-#: src/settings/models/pushrulemodel.cpp:28
+#: src/settings/models/pushrulemodel.cpp:26
 #, fuzzy
 #| msgid "Messages containing my display name"
 msgctxt "Notification type"
 msgid "Messages containing the local part of my Matrix ID"
 msgstr "Pesan berisi nama tampilan saya"
 
-#: src/settings/models/pushrulemodel.cpp:29
+#: src/settings/models/pushrulemodel.cpp:27
 #, fuzzy
 #| msgid "Whole room (@room) notifications"
 msgctxt "Notification type"
 msgid "Whole room (@room) notifications"
 msgstr "Notifikasi seluruh ruangan (@room)"
 
-#: src/settings/models/pushrulemodel.cpp:30
+#: src/settings/models/pushrulemodel.cpp:28
 #, fuzzy
 #| msgid "Invites to a room"
 msgctxt "Notification type"
 msgid "Invites to a room"
 msgstr "Mengundang ke ruangan"
 
-#: src/settings/models/pushrulemodel.cpp:31
+#: src/settings/models/pushrulemodel.cpp:29
 #, fuzzy
 #| msgid "Call invitation"
 msgctxt "Notification type"
