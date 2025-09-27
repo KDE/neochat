@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:43+0000\n"
-"PO-Revision-Date: 2025-08-30 16:35+0300\n"
-"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"POT-Creation-Date: 2025-09-27 00:42+0000\n"
+"PO-Revision-Date: 2025-09-24 16:09+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -25,9 +25,9 @@ msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "Saņem jaunu ziņu paziņojumus"
+msgstr "Saņem paziņojumus par jaunām ziņām"
 
-#: src/app/controller.cpp:317
+#: src/app/controller.cpp:316
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Saņem pašpiegādes ziņojumus"
@@ -141,11 +141,6 @@ msgstr "Aizvietot pastāvošu instanci"
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Izmantots tikai automātiskajiem testiem"
-
-#: src/app/main.cpp:208
-#, kde-format
-msgid "Internal usage only."
-msgstr "Tikai iekšējai lietošanai."
 
 #: src/app/main.cpp:213
 #, kde-format
@@ -926,7 +921,7 @@ msgstr "Skenēt kvadrātkodu"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "Kamera nav pieslēgta"
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -1044,15 +1039,13 @@ msgid "Message Source"
 msgstr "Ziņas avots"
 
 #: src/app/qml/ServerComboBox.qml:47
-#, fuzzy, kde-format
-#| msgid "Add New Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add New Server"
 msgstr "Pievienot jaunu serveri"
 
 #: src/app/qml/ServerComboBox.qml:63
-#, fuzzy, kde-format
-#| msgid "Home Server"
+#, kde-format
 msgctxt "@info"
 msgid "Home Server"
 msgstr "Mājas serveris"
@@ -1076,22 +1069,19 @@ msgid "Add server"
 msgstr "Pievienot serveri"
 
 #: src/app/qml/ServerComboBox.qml:141
-#, fuzzy, kde-format
-#| msgid "The entered text is not a valid url"
+#, kde-format
 msgctxt "@info"
 msgid "The entered text is not a valid url"
-msgstr "Ievadītais teksts nav derīga URL adrese"
+msgstr "Ierakstītais teksts nav derīga URL adrese"
 
 #: src/app/qml/ServerComboBox.qml:145
-#, fuzzy, kde-format
-#| msgid "This server cannot be resolved or has already been added"
+#, kde-format
 msgctxt "@info"
 msgid "This server cannot be resolved or has already been added"
 msgstr "Vai nu serveri nevar atrisināt, vai arī tas ir jau pievienots"
 
 #: src/app/qml/ServerComboBox.qml:156
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgctxt "@label"
 msgid "Server URL:"
 msgstr "Servera URL:"
@@ -1351,12 +1341,10 @@ msgid "Invite to private chat"
 msgstr "Uzaicināt uz privātu tērzēšanu"
 
 #: src/app/qml/UserDetailDialog.qml:278
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
-msgstr "Meklēt ziņas"
+msgstr "Meklēt istabā ziņas, ko rakstīja %1"
 
 #: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
 #, kde-format
@@ -1388,33 +1376,28 @@ msgid "Find Your Friends"
 msgstr "Atrast draugus"
 
 #: src/app/qml/UserSearchPage.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "User ID"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy User ID"
-msgstr "Lietotāja ID"
+msgstr "Kopēt lietotāja ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgid "Friends"
+#, kde-format
 msgctxt "@info"
 msgid "Friends"
 msgstr "Draugi"
 
 #: src/app/qml/UserSearchPage.qml:91
-#, fuzzy, kde-format
-#| msgid "Find your friends…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Find your friends…"
-msgstr "Atrast draugus..."
+msgstr "Atrodi draugus…"
 
 #: src/app/qml/UserSearchPage.qml:92
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter text to start searching for your friends"
-msgstr "Ievadiet tekstu, lai sāktu meklēt draugus"
+msgstr "Lai meklētu draugus, raksti tekstu"
 
 #: src/app/qml/UserSearchPage.qml:93
 #, kde-format
@@ -1587,7 +1570,7 @@ msgstr "Sesijas verifikācija ir atcelta nezināmas kļūdas dēļ."
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "Pabeigts"
 
 #: src/app/roommanager.cpp:206
 #, kde-format
@@ -1597,10 +1580,9 @@ msgstr ""
 "„Matrix“ identifikators"
 
 #: src/app/roommanager.cpp:423
-#, fuzzy, kde-format
-#| msgid "Failed to join room<br />%1"
+#, kde-format
 msgid "Failed to join %1:<br />%2"
-msgstr "Neizdevās pievienoties istabai<br />%1"
+msgstr "Neizdevās pievienoties „%1“<br />%2"
 
 #: src/app/roommanager.cpp:447
 #, kde-format
@@ -1696,29 +1678,25 @@ msgid "Cancel reply"
 msgstr "Atcelt atbildi"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No stickers"
+#, kde-format
 msgctxt "@info"
 msgid "No stickers"
 msgstr "Nav uzlīmju"
 
 #: src/chatbar/EmojiGrid.qml:88
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "@info"
 msgid "No emojis"
 msgstr "Nav emocijzīmju"
 
 #: src/chatbar/EmojiPicker.qml:56
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "@action:button"
 msgid "Emojis"
 msgstr "Emocijzīmes"
 
 #: src/chatbar/EmojiPicker.qml:63
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@action:button"
 msgid "Stickers"
 msgstr "Uzlīmes"
@@ -1837,9 +1815,7 @@ msgid "This includes state events"
 msgstr "Tostarp statusa notikumi"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Vienmēr atļaut ierīces verifikāciju"
@@ -2038,7 +2014,7 @@ msgstr "Uzaicināts"
 #: src/libneochat/enums/neochatroomtype.h:67
 #, kde-format
 msgid "Favorite"
-msgstr "Iecienīts"
+msgstr "Izlase"
 
 #: src/libneochat/enums/neochatroomtype.h:69
 #, kde-format
@@ -3290,12 +3266,10 @@ msgid "No public rooms found"
 msgstr "Nav atrastas publiskas istabas"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "No public rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
-msgstr "Nav atrastas publiskas istabas"
+msgstr "Nav publisku istabu"
 
 #: src/libneochat/qml/GroupChatDrawerHeader.qml:72
 #: src/timeline/TimelineEndDelegate.qml:69
@@ -3760,8 +3734,7 @@ msgstr "Ielādē URL priekšskatījumu"
 
 #: src/messagecontent/LoadComponent.qml:30
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:252
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
 msgstr "Ielādē…"
@@ -3789,11 +3762,10 @@ msgstr ""
 "ignorēts lietotājs"
 
 #: src/messagecontent/models/eventmessagecontentmodel.cpp:252
-#, fuzzy, kde-format
-#| msgid "Loading reply"
+#, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr "Ielādē atbildi"
+msgstr "Ielādē atbildi…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:67
 #, kde-format
@@ -3832,9 +3804,7 @@ msgstr[1] "%2 reaģēja ar %3"
 msgstr[2] "%2 reaģēja ar %3"
 
 #: src/messagecontent/PollComponent.qml:114
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -3843,13 +3813,11 @@ msgstr[1] "%1 balsis"
 msgstr[2] "%1 balsu"
 
 #: src/messagecontent/PollComponent.qml:130
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] "Balstoties uz %1 lietotāja balsīm"
+msgstr[0] "Balstoties uz %1 lietotāja balsi"
 msgstr[1] "Balstoties uz %1 lietotāju balsīm"
 msgstr[2] "Balstoties uz %1 lietotāju balsīm"
 
@@ -3959,12 +3927,12 @@ msgstr "Verificēt lietotāju"
 #: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgid "Remove room from favorites"
-msgstr "Noņemt istabu no iecienītajām"
+msgstr "Noņemt istabu no izlases"
 
 #: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgid "Favorite this room"
-msgstr "Pievienot istabu iecienītajām"
+msgstr "Pievienot istabu izlasei"
 
 #: src/roominfo/RoomInformation.qml:123
 #, kde-format
@@ -4006,9 +3974,7 @@ msgid "Invite user to room"
 msgstr "Uzaicināt lietotāju istabā"
 
 #: src/roominfo/RoomInformation.qml:195
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -4127,8 +4093,7 @@ msgid "%1 invited you"
 msgstr "%1 jūs uzaicināja"
 
 #: src/rooms/RoomContextMenu.qml:47
-#, fuzzy, kde-format
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark as Read"
 msgstr "Atzīmēt kā lasītu"
@@ -4166,29 +4131,25 @@ msgid "Off"
 msgstr "Izslēgti"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Favorites"
-msgstr "Noņemt no iecienītajām"
+msgstr "Noņemt no izlases"
 
 #: src/rooms/RoomContextMenu.qml:111
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Add to Favorites"
-msgstr "Pievienot iecienītajām"
+msgstr "Pievienot izlasei"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Reprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reprioritize"
-msgstr "Palielināt prioritāti"
+msgstr "Mainīt prioritāti"
 
 #: src/rooms/RoomContextMenu.qml:117
-#, fuzzy, kde-format
-#| msgid "Deprioritize"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deprioritize"
 msgstr "Samazināt prioritāti"
@@ -4206,8 +4167,7 @@ msgid "Room Settings"
 msgstr "Istabas iestatījumi"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
 msgstr "Pamest istabu…"
@@ -4528,8 +4488,7 @@ msgid "Appearance"
 msgstr "Izskats"
 
 #: src/settings/AppearanceSettingsPage.qml:21
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:group"
 msgid "General"
 msgstr "Pamata"
@@ -4540,9 +4499,7 @@ msgid "Use compact room list"
 msgstr "Izmantot kompaktu istabu sarakstu"
 
 #: src/settings/AppearanceSettingsPage.qml:49
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Message Source"
+#, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
 msgstr "Ziņas avots"
@@ -4578,18 +4535,16 @@ msgid "Show your messages on the right"
 msgstr "Jūsu ziņas rādīt labajā pusē"
 
 #: src/settings/AppearanceSettingsPage.qml:310
-#, fuzzy, kde-format
-#| msgid "Show links preview in the chat messages"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
-msgstr "Tērzēšanas ziņās rādī saišu priekšskatījumus"
+msgstr "Ziņās rādīt saišu priekšskatījumus"
 
 #: src/settings/AppearanceSettingsPage.qml:320
-#, fuzzy, kde-format
-#| msgid "Show Avatar"
+#, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
-msgstr "Rādīt profila attēlu"
+msgstr "Rādīt profila attēlus"
 
 #: src/settings/AppearanceSettingsPage.qml:324
 #, kde-format
@@ -6942,6 +6897,9 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgid "Internal usage only."
+#~ msgstr "Tikai iekšējai lietošanai."
 
 #~ msgctxt "@title:group"
 #~ msgid "General Theme"
