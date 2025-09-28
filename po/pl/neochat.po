@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-27 02:37+0000\n"
-"PO-Revision-Date: 2025-09-13 12:06+0200\n"
+"PO-Revision-Date: 2025-09-27 07:02+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -135,7 +135,7 @@ msgstr "Pomijaj wszystkie błędy SSL, np. o niepodpisanych certyfikatach."
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Zastąp istniejące wystąpienie"
 
 #: src/app/main.cpp:203
 #, kde-format
@@ -271,13 +271,13 @@ msgstr "Sprawdź to urządzenie"
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
-msgstr ""
+msgstr "Wysłano prośbę o sprawdzenie"
 
 #: src/app/qml/AccountMenu.qml:98
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
-msgstr ""
+msgstr "Aby przejść dalej, potwierdź prośbę o sprawdzenie na innym urządzeniu."
 
 #: src/app/qml/AccountMenu.qml:109 src/settings/AccountsPage.qml:88
 #, kde-format
@@ -869,7 +869,7 @@ msgstr "Stan edycji"
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
-msgstr ""
+msgstr "Wyślij"
 
 #: src/app/qml/NewPollDialog.qml:38
 #, kde-format
@@ -880,7 +880,7 @@ msgstr "Utwórz ankietę"
 #: src/app/qml/NewPollDialog.qml:46
 #, kde-format
 msgid "Poll type:"
-msgstr ""
+msgstr "Rodzaj głosowania:"
 
 #: src/app/qml/NewPollDialog.qml:51
 #, kde-format
@@ -895,12 +895,12 @@ msgstr "Zamknięto ankietę"
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
+msgstr "Po oddaniu głosu wyniki głosowania są widoczne od razu"
 
 #: src/app/qml/NewPollDialog.qml:57
 #, kde-format
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
+msgstr "Wyniki głosowania są widoczne dopiero po zakończeniu głosowania"
 
 #: src/app/qml/NewPollDialog.qml:61
 #, kde-format
@@ -1840,7 +1840,7 @@ msgstr "Dodaj numery telefonów jako 3PID"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Rozmowy"
 
 #: src/devtools/RoomData.qml:21
 #, kde-format
@@ -2324,13 +2324,13 @@ msgstr "ustawił %1 element interfejsu"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "opuścił(a) rozmowę"
 
 #: src/libneochat/eventhandler.cpp:442
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "dołączył(a) do rozmowy"
 
 #: src/libneochat/eventhandler.cpp:445
 #, kde-format
@@ -3070,13 +3070,13 @@ msgstr "Utwórz"
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Prywatny"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:48
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
-msgstr ""
+msgstr "Do tego pokoju można dołączyć dopiero po zaproszeniu."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:54
 #, kde-format
@@ -3088,7 +3088,7 @@ msgstr "Publiczny"
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
-msgstr ""
+msgstr "Ten pokój każdy może odnaleźć i do niego dołączyć."
 
 #: src/libneochat/qml/CreateRoomDialog.qml:62
 #, kde-format
@@ -3276,7 +3276,7 @@ msgstr "Wczytywanie"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "Dokończ w przeglądarce"
 
 #: src/login/Loading.qml:17
 #, kde-format
@@ -3655,11 +3655,10 @@ msgid "Open Fullscreen"
 msgstr "Otwórz na całym ekranie"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:116
-#, fuzzy, kde-format
-#| msgid "File too large to download."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
-msgstr "Plik jest zbyt duży do pobrania."
+msgstr "Nie udało się pobrać pliku."
 
 #: src/messagecontent/models/messagecontentmodel.cpp:119
 #, kde-format
@@ -3680,7 +3679,7 @@ msgstr ""
 #: src/messagecontent/models/messagecontentmodel.cpp:571
 #, kde-format
 msgid "<i>This event does not have any content.</i>"
-msgstr ""
+msgstr "<i>To wydarzenie nie zawiera żadnej treści.</i>"
 
 #: src/messagecontent/models/reactionmodel.cpp:69
 #, kde-format
@@ -3710,9 +3709,9 @@ msgstr[2] "%2 zareagował %3"
 #, kde-format
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 głos"
+msgstr[1] "%1 głosy"
+msgstr[2] "%1 głosów"
 
 #: src/messagecontent/PollComponent.qml:129
 #, kde-format
@@ -3732,7 +3731,7 @@ msgstr "(Zakończone)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "Głosowanie dobiegło końca. Najczęściej wybierana odpowiedź: %1"
 
 #: src/messagecontent/ReactionComponent.qml:89
 #, kde-format
@@ -4055,12 +4054,10 @@ msgid "Deprioritize"
 msgstr "Obniż priorytet"
 
 #: src/rooms/RoomContextMenu.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy user's Matrix ID to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID"
-msgstr "Skopiuj ID użytkownika Matriksa do schowka"
+msgstr "Skopiuj ID użytkownika Matriksa"
 
 #: src/rooms/RoomContextMenu.qml:126
 #, kde-format
@@ -4753,16 +4750,17 @@ msgstr "Włącz powiadomienia dla tego konta"
 #, kde-format
 msgid "Notifications can appear even when NeoChat isn't running."
 msgstr ""
+"Powiadomienia mogą się pojawiać, nawet gdy NeoChat nie będzie uruchomiony."
 
 #: src/settings/GlobalNotificationsPage.qml:34
 #, kde-format
 msgid "Push notifications are available but could not be enabled."
-msgstr ""
+msgstr "Powiadomienia Push są dostępne, ale nie można ich włączyć."
 
 #: src/settings/GlobalNotificationsPage.qml:37
 #, kde-format
 msgid "Notifications will only appear when NeoChat is running."
-msgstr ""
+msgstr "Powiadomienia będą się pojawiać, tylko gdy będzie uruchomiony NeoChat."
 
 #: src/settings/GlobalNotificationsPage.qml:49
 #, kde-format
@@ -5170,12 +5168,12 @@ msgstr "Oś czasu"
 #: src/settings/NeoChatGeneralPage.qml:142
 #, kde-format
 msgid "Mark messages as read when:"
-msgstr ""
+msgstr "Oznacz wiadomości jako przeczytane gdy:"
 
 #: src/settings/NeoChatGeneralPage.qml:147
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: src/settings/NeoChatGeneralPage.qml:151
 #, kde-format
@@ -5191,7 +5189,7 @@ msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
 "room and all messages are visible on screen"
 msgid "Entering the room and all unread messages are visible"
-msgstr ""
+msgstr "Wejście do pokoju i wszystkie nieodczytane wiadomości są widoczne"
 
 #: src/settings/NeoChatGeneralPage.qml:159
 #, kde-format
@@ -6016,7 +6014,7 @@ msgstr "Profil"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
-msgstr ""
+msgstr "Rozszerzone"
 
 #: src/settings/RoomSortParameterDialog.qml:16
 #, kde-format
@@ -6309,6 +6307,8 @@ msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
 msgstr ""
+"Kanoniczna przestrzeń nadrzędna jest domyślną, jeśli pokój ma wiele "
+"nadrzędnych przestrzeni."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -6451,13 +6451,13 @@ msgstr "Zgłoś wiadomość"
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
-msgstr ""
+msgstr "Odepnij"
 
 #: src/timeline/DelegateContextMenu.qml:149
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
-msgstr ""
+msgstr "Przypnij"
 
 #: src/timeline/FileDelegateContextMenu.qml:50
 #, kde-format
@@ -6570,13 +6570,13 @@ msgstr "Skopiuj odnośnik do wiadomości"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
-msgstr ""
+msgstr "Odczytaj tekst na głos"
 
 #: src/timeline/MessageDelegateContextMenu.qml:97
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
-msgstr ""
+msgstr "%1 powiedział %2"
 
 #: src/timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
