@@ -62,6 +62,12 @@ void PollHandler::checkLoadRelations(const QString &nextBatch)
 
 void PollHandler::handleEvent(Quotient::RoomEvent *event)
 {
+    if (auto encEvent = eventCast<const EncryptedEvent>(event)) {
+        const auto decrypted = room()->decryptMessage(*encEvent);
+        handleEvent(decrypted.get());
+        return;
+    }
+
     auto pollStartEvent = eventCast<const PollStartEvent>(m_room->getEvent(m_pollStartId).first);
     if (pollStartEvent == nullptr) {
         return;
