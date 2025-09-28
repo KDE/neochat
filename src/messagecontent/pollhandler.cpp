@@ -41,16 +41,21 @@ void PollHandler::updatePoll(Quotient::RoomEventsRange events)
     }
 }
 
-void PollHandler::checkLoadRelations()
+void PollHandler::checkLoadRelations(const QString &nextBatch)
 {
     const auto pollStartEvent = m_room->getEvent(m_pollStartId).first;
     if (pollStartEvent == nullptr) {
         return;
     }
 
-    m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id()).onResult([this](const auto &job) {
+    m_room->connection()->callApi<GetRelatingEventsJob>(m_room->id(), pollStartEvent->id(), nextBatch).onResult([this](const auto &job) {
         for (const auto &event : job->chunk()) {
             handleEvent(event.get());
+        }
+
+        // This is paginated API. If it indicates that there's more data, run again starting from the supplied pagination token.
+        if (!job->nextBatch().isEmpty()) {
+            checkLoadRelations(job->nextBatch());
         }
     });
 }

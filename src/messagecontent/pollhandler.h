@@ -128,7 +128,7 @@ private:
 
     void updatePoll(Quotient::RoomEventsRange events);
 
-    void checkLoadRelations();
+    void checkLoadRelations(const QString &nextBatch = {});
     void handleEvent(Quotient::RoomEvent *event);
     void handleResponse(const Quotient::PollResponseEvent *event);
     QHash<QString, QDateTime> m_selectionTimestamps;
