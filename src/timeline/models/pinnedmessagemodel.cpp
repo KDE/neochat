@@ -55,7 +55,11 @@ void PinnedMessageModel::fill()
     for (const auto &event : std::as_const(events)) {
         m_room->connection()->callApi<GetOneRoomEventJob>(m_room->id(), event).then([this](const auto &job) {
             beginInsertRows({}, m_pinnedEvents.size(), m_pinnedEvents.size());
-            m_pinnedEvents.push_back(std::move(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData())));
+            auto ev = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+            if (auto encEv = eventCast<EncryptedEvent>(ev.get())) {
+                ev = room()->decryptMessage(*encEv);
+            }
+            m_pinnedEvents.push_back(std::move(ev));
             Q_EMIT newEventAdded(m_pinnedEvents.back().get());
             endInsertRows();
         });
