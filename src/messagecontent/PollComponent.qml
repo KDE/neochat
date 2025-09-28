@@ -92,23 +92,31 @@ ColumnLayout {
                     Layout.fillWidth: true
 
                     QQC2.CheckBox {
+                        Layout.alignment: Qt.AlignTop
+
                         enabled: !root.pollHandler.hasEnded
                         checked: answerDelegate.localChoice
 
                         onClicked: answerDelegate.clicked()
                     }
                     QQC2.Label {
+                        Layout.alignment: Qt.AlignTop
                         Layout.fillWidth: true
 
                         text: answerDelegate.answerText
+                        wrapMode: QQC2.Label.WordWrap
                     }
                     Kirigami.Icon {
+                        Layout.alignment: Qt.AlignTop
+
                         implicitWidth: Kirigami.Units.iconSizes.small
                         implicitHeight: implicitWidth
                         visible: answerDelegate.isWinner
                         source: "favorite-favorited"
                     }
                     QQC2.Label {
+                        Layout.alignment: Qt.AlignTop
+
                         visible: root.pollHandler.kind == PollKind.Disclosed || root.pollHandler.hasEnded
                         horizontalAlignment: Text.AlignRight
                         text: i18ncp("@info", "%1 Vote", "%1 Votes", answerDelegate.count)
