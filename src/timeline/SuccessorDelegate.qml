@@ -27,7 +27,10 @@ TimelineDelegate {
         type: Kirigami.MessageType.Information
         actions: Kirigami.Action {
             text: i18n("See new room…")
-            onTriggered: RoomManager.resolveResource(root.room.successorId)
+
+            // We want to skip the join confirmation check here,
+            // Not only because the user is intentionally tapping this button but the room is trusted to be the successor already
+            onTriggered: RoomManager.resolveResource(root.room.successorId, "join_confirmed")
         }
     }
 }
