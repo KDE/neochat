@@ -426,14 +426,8 @@ void MessageModel::createEventObjects(const Quotient::RoomEvent *event)
     }
 
     auto eventId = event->id();
-    auto senderId = event->senderId();
     if (eventId.isEmpty()) {
         eventId = event->transactionId();
-    }
-    // A pending event might not have a sender ID set yet but in that case it must
-    // be the local member.
-    if (senderId.isEmpty()) {
-        senderId = m_room->localMember().id();
     }
 
     // ReadMarkerModel handles updates to add and remove markers, we only need to
