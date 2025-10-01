@@ -118,6 +118,11 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
+    if (!m_room) {
+        qWarning() << "MessageContentModel::data called without room";
+        return {};
+    }
+
     const auto component = m_components[index.row()];
 
     if (role == DisplayRole) {
