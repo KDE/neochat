@@ -39,7 +39,7 @@ Quotient::AccountRegistry *AccountManager::accounts()
 
 void AccountManager::loadAccountsFromCache()
 {
-    for (const auto &accountId : Quotient::SettingsGroup("Accounts"_L1).childGroups()) {
+    for (const auto &accountId : Quotient::AccountSettingsGroup().childGroups()) {
         Quotient::AccountSettings account{accountId};
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
