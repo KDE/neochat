@@ -39,6 +39,7 @@ include(ECMCheckOutboundLicense)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddAndroidApk)
 include(ECMQmlModule)
+include(ECMDeprecationSettings)
 include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 if (NOT ANDROID)
@@ -50,6 +51,8 @@ if(NEOCHAT_FLATPAK)
 endif()
 
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
+
+ecm_set_disabled_deprecation_versions(Qt 6.9.0 KF 6.17.0)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT

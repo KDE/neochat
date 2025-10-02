@@ -204,6 +204,7 @@ target_link_libraries(neochat PUBLIC
     KF6::SonnetCore
     KF6::IconThemes
     KF6::ItemModels
+    KF6::I18nQml
     QuotientQt6
     Login
     Rooms

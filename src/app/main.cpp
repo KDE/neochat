@@ -38,7 +38,7 @@
 #endif
 
 #include <KIconTheme>
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 
 #include "neochat-version.h"
@@ -285,7 +285,7 @@ int main(int argc, char *argv[])
                     });
 #endif
 
-    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    KLocalization::setupLocalizedContext(&engine);
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
     if (parser.isSet("ignore-ssl-errors"_L1)) {
