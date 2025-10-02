@@ -15,6 +15,7 @@
 #include "general_logging.h"
 
 using namespace Qt::StringLiterals;
+using namespace Quotient;
 
 AccountManager::AccountManager(bool testMode, QObject *parent)
     : QObject(parent)
@@ -39,8 +40,11 @@ Quotient::AccountRegistry *AccountManager::accounts()
 
 void AccountManager::loadAccountsFromCache()
 {
-    const auto accounts = Quotient::SettingsGroup("Accounts"_L1).childGroups();
-    for (const auto &accountId : accounts) {
+#if Quotient_VERSION_MINOR > 9
+    for (const auto &accountId : AccountSettingsGroup().childGroups()) {
+#else
+    for (const auto &accountId : Quotient::SettingsGroup("Accounts"_L1).childGroups()) {
+#endif
         Quotient::AccountSettings account{accountId};
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
