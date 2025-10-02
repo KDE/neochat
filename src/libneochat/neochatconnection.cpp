@@ -226,7 +226,7 @@ void NeoChatConnection::setKeywordPushRuleDefault(PushRuleAction::Action default
 
 void NeoChatConnection::logout(bool serverSideLogout)
 {
-    SettingsGroup(u"Accounts"_s).remove(userId());
+    AccountSettingsGroup().remove(userId());
 
     QKeychain::DeletePasswordJob job(qAppName());
     job.setAutoDelete(true);
