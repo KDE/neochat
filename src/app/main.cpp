@@ -33,13 +33,10 @@
 #include <KWindowSystem>
 #endif
 
-#if __has_include("KCrash")
-#include <KCrash>
-#endif
-
 #include <KIconTheme>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
+#include <KirigamiApp>
 
 #include "neochat-version.h"
 
@@ -104,7 +101,6 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
-    KIconTheme::initTheme();
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
 #ifdef HAVE_WEBVIEW
@@ -113,24 +109,10 @@ int main(int argc, char *argv[])
     QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
 #endif
 
-#ifdef Q_OS_ANDROID
-    QGuiApplication app(argc, argv);
-    QQuickStyle::setStyle(u"org.kde.breeze"_s);
-#else
-    QIcon::setFallbackThemeName("breeze"_L1);
-    QApplication app(argc, argv);
-    // Default to org.kde.desktop style unless the user forces another style
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-        QQuickStyle::setStyle(u"org.kde.desktop"_s);
-    }
-#endif
+    KirigamiApp::App app(argc, argv);
+    KirigamiApp kirigamiApp;
 
 #ifdef Q_OS_WINDOWS
-    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
-    }
-
     QApplication::setStyle(u"breeze"_s);
     QFont font(u"Segoe UI Emoji"_s);
     font.setPointSize(10);
@@ -176,10 +158,6 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(u"org.kde.neochat"_s));
-
-#if __has_include("KCrash")
-    KCrash::initialize();
-#endif
 
     Connection::setEncryptionDefault(true);
     Connection::setDirectChatEncryptionDefault(true);
@@ -300,7 +278,9 @@ int main(int argc, char *argv[])
 
     engine.addImageProvider(u"blurhash"_s, new BlurhashImageProvider);
 
-    engine.loadFromModule("org.kde.neochat", "Main");
+    if (!kirigamiApp.start("org.kde.neochat", "Main", &engine)) {
+        return -1;
+    }
 
     if (!parser.positionalArguments().isEmpty() && !parser.isSet("share"_L1)) {
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
