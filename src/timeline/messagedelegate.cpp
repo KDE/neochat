@@ -146,6 +146,10 @@ qreal MessageDelegateBase::maxContentWidth() const
 
 void MessageDelegateBase::cleanupIncubator(MessageObjectIncubator *incubator)
 {
+    if (!incubator) {
+        return;
+    }
+
     incubator->clear();
     const auto it = std::find(m_activeIncubators.begin(), m_activeIncubators.end(), incubator);
     if (it != m_activeIncubators.end()) {
@@ -471,35 +475,40 @@ void MessageDelegateBase::setQuickActionComponent(QQmlComponent *quickActionComp
 
 void MessageDelegateBase::updateQuickAction()
 {
-    if (m_quickActionComponent && !m_compactMode && m_hovered && !m_quickActionItem && !m_quickActionIncubating) {
-        const auto quickActionIncubator = new MessageObjectIncubator(
-            m_objectInitialCallback,
-            [this](MessageObjectIncubator *incubator) {
-                if (!incubator) {
-                    return;
-                }
-
-                const auto quickActionObject = qobject_cast<QQuickItem *>(incubator->object());
-                if (quickActionObject) {
-                    if (!m_compactMode) {
-                        m_quickActionItem = quickActionObject;
-                        connect(m_quickActionItem, SIGNAL(reactingChanged()), this, SLOT(updateQuickAction()));
-                    } else {
-                        cleanupItem(quickActionObject);
-                    }
-                    markAsDirty();
-                }
-                m_quickActionIncubating = false;
-                cleanupIncubator(incubator);
-            },
-            m_errorCallback);
-        m_activeIncubators.push_back(quickActionIncubator);
-        m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
-        m_quickActionIncubating = true;
-    } else if (m_quickActionItem && !m_hovered && !m_quickActionItem->property("reacting").toBool()) {
-        cleanupItem(m_quickActionItem);
-        markAsDirty();
+    if (!m_hovered || m_compactMode) {
+        if (m_quickActionItem && (!m_quickActionItem->property("reacting").toBool() || m_compactMode)) {
+            cleanupItem(m_quickActionItem);
+            markAsDirty();
+        }
+        return;
     }
+    if (!m_quickActionComponent || m_quickActionItem || m_quickActionIncubating) {
+        return;
+    }
+
+    m_quickActionIncubating = true;
+    const auto quickActionIncubator = new MessageObjectIncubator(
+        m_objectInitialCallback,
+        [this](MessageObjectIncubator *incubator) {
+            if (!incubator) {
+                return;
+            }
+
+            if (const auto quickActionObject = qobject_cast<QQuickItem *>(incubator->object())) {
+                if (!m_compactMode) {
+                    m_quickActionItem = quickActionObject;
+                    connect(m_quickActionItem, SIGNAL(reactingChanged()), this, SLOT(updateQuickAction()));
+                } else {
+                    cleanupItem(quickActionObject);
+                }
+                markAsDirty();
+            }
+            cleanupIncubator(incubator);
+            m_quickActionIncubating = false;
+        },
+        m_errorCallback);
+    m_activeIncubators.push_back(quickActionIncubator);
+    m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
 }
 
 bool MessageDelegateBase::showLocalMessagesOnRight() const

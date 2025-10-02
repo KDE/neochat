@@ -33,6 +33,7 @@ RowLayout {
         icon.name: "preferences-desktop-emoticons"
         display: QQC2.ToolButton.IconOnly
         onClicked: {
+            root.reacting = true;
             var dialog = emojiDialog.createObject(reactButton);
             dialog.chosen.connect(emoji => {
                 root.reacting = false;
@@ -44,7 +45,6 @@ RowLayout {
             dialog.closed.connect(() => {
                 root.reacting = false;
             })
-            root.reacting = true;
             dialog.open();
         }
 
