@@ -59,11 +59,33 @@ Kirigami.Page {
      */
     property MediaMessageFilterModel mediaMessageFilterModel: RoomManager.mediaMessageFilterModel
 
+    /**
+     * @brief The WidgetModel to use.
+     *
+     * This model has the list of widgets available in the current room.
+     *
+     * @note For loading a room in a different window, override this with a new
+     *       WidgetModel.
+     *
+     * @sa WidgetModel
+     */
+    property WidgetModel widgetModel: RoomManager.widgetModel
+
     title: root.currentRoom ? root.currentRoom.displayName : ""
     focus: true
     padding: 0
 
     actions: [
+        Kirigami.Action {
+            tooltip: i18nc("@action:button", "Open Jitsi Meet in browser")
+            icon.name: "camera-video-symbolic"
+            visible: root.widgetModel.jitsiIndex >= 0
+            onTriggered: {
+                let idx = root.widgetModel.index(root.widgetModel.jitsiIndex, 0);
+                let url = root.widgetModel.data(idx, WidgetModel.UrlRole);
+                Qt.openUrlExternally(url);
+            }
+        },
         Kirigami.Action {
             visible: Kirigami.Settings.isMobile || !(root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode
             icon.name: "view-right-new"

@@ -41,6 +41,7 @@ RoomManager::RoomManager(QObject *parent)
     , m_messageFilterModel(new MessageFilterModel(this, m_timelineModel))
     , m_mediaMessageFilterModel(new MediaMessageFilterModel(this, m_messageFilterModel))
     , m_userListModel(new UserListModel(this))
+    , m_widgetModel(new WidgetModel(this))
 {
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS) || defined(UBUNTU_TOUCH)
     m_isMobile = true;
@@ -53,6 +54,7 @@ RoomManager::RoomManager(QObject *parent)
 #endif
 
     connect(this, &RoomManager::currentRoomChanged, this, [this]() {
+        m_widgetModel->setRoom(m_currentRoom);
         m_userListModel->setRoom(m_currentRoom);
         m_timelineModel->setRoom(m_currentRoom);
         m_sortFilterRoomTreeModel->setCurrentRoom(m_currentRoom);
@@ -193,6 +195,11 @@ UserListModel *RoomManager::userListModel() const
 void RoomManager::activateUserModel()
 {
     m_userListModel->activate();
+}
+
+WidgetModel *RoomManager::widgetModel() const
+{
+    return m_widgetModel;
 }
 
 void RoomManager::resolveResource(const QString &idOrUri, const QString &action)
