@@ -24,6 +24,7 @@ Kirigami.ScrollablePage {
         currentIndex: -1
 
         model: WidgetModel {
+            id: widgetModel
             room: root.room
         }
 
@@ -33,18 +34,34 @@ Kirigami.ScrollablePage {
             required text
             required property url url
             required property string type
+            required property int index
 
             // Can we actually use the jitsi logo without being infringing any
             // trademarks?
             icon.name: type === "jitsi" ? "meeting-attending"
                         : type === "m.etherpad" ? "document-share"
                         : ""
+            icon.width: Kirigami.Units.iconSizes.smallMedium
+            icon.height: Kirigami.Units.iconSizes.smallMedium
 
-            contentItem: Delegates.SubtitleContentItem {
-                iconItem.visible: true
-                itemDelegate: del
-                subtitle: del.url
-                labelItem.textFormat: Text.PlainText
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Delegates.SubtitleContentItem {
+                    Layout.fillWidth: true
+
+                    iconItem.visible: true
+                    itemDelegate: del
+                    subtitle: del.url
+                    labelItem.textFormat: Text.PlainText
+                }
+
+                QQC2.ToolButton {
+                    action: Kirigami.Action {
+                        icon.name: "delete-symbolic"
+                        tooltip: i18nc("@action:button", "Remove widget")
+                        onTriggered: widgetModel.removeWidget(del.index)
+                    }
+                }
             }
 
             onClicked: Qt.openUrlExternally(url)

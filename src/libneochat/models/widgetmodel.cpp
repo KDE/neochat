@@ -316,3 +316,41 @@ int WidgetModel::jitsiIndex() const
 
     return d->jitsiIndex;
 }
+
+QUrl WidgetModel::addJitsiConference()
+{
+    // URL is not spec-compliant, but this is what Element does as well.
+    const auto conferenceId = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    // clang-format off
+    const QJsonObject content{
+        {"name"_L1, "Jitsi Meet"_L1},
+        {"type"_L1, "jitsi"_L1},
+        {"url"_L1, "https://scalar.vector.im/api/widgets/jitsi.html"_L1},
+        {"data"_L1, QJsonObject{
+            {"conferenceId"_L1, conferenceId},
+            {"domain"_L1, "meet.element.io"_L1},  // TODO: make domain configurable
+            {"isAudioOnly"_L1, false},
+            {"roomName"_L1, room()->displayName()},
+        }},
+    };
+    // clang-format on
+
+    // Re-use conferenceId as state_key
+    room()->setState(WidgetEvent::MetaType.matrixId, conferenceId, content);
+
+    return buildWidgetUrl(JitsiMeetUrlTemplate, room(), content["data"_L1].toObject());
+}
+
+bool WidgetModel::removeWidget(int index)
+{
+    Q_D(const WidgetModel);
+
+    if (index < 0 || index >= rowCount()) {
+        return false;
+    }
+
+    const auto stateKey = std::next(d->state.begin(), index).value()->stateKey();
+    room()->setState(WidgetEvent::MetaType.matrixId, stateKey, QJsonObject{});
+
+    return true;
+}

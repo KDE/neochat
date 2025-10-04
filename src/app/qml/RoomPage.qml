@@ -79,10 +79,14 @@ Kirigami.Page {
         Kirigami.Action {
             tooltip: i18nc("@action:button", "Open Jitsi Meet in browser")
             icon.name: "camera-video-symbolic"
-            visible: root.widgetModel.jitsiIndex >= 0
             onTriggered: {
-                let idx = root.widgetModel.index(root.widgetModel.jitsiIndex, 0);
-                let url = root.widgetModel.data(idx, WidgetModel.UrlRole);
+                let url
+                if (root.widgetModel.jitsiIndex < 0) {
+                    url = root.widgetModel.addJitsiConference();
+                } else {
+                    let idx = root.widgetModel.index(root.widgetModel.jitsiIndex, 0);
+                    url = root.widgetModel.data(idx, WidgetModel.UrlRole);
+                }
                 Qt.openUrlExternally(url);
             }
         },

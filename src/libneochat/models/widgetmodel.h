@@ -51,6 +51,17 @@ public:
 
     int jitsiIndex() const;
 
+    /**
+     * @brief Adds a new Jitsi widget
+     * @return The URL of the newly added Jitsi conference
+     */
+    Q_INVOKABLE QUrl addJitsiConference();
+    /**
+     * @brief Removes the widget at @p index
+     * @return `true` on success, `false` otherwise
+     */
+    Q_INVOKABLE bool removeWidget(int index);
+
 Q_SIGNALS:
     void roomChanged();
     void jitsiIndexChanged();
