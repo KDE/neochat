@@ -117,6 +117,22 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
+                id: widgetsButton
+                visible: !root.room.isSpace
+                icon.name: "extension-symbolic"
+                text: i18nc("@action:button", "Extensions for this room")
+                activeFocusOnTab: true
+
+                onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'WidgetsPage'), {
+                    room: root.room
+                }, {
+                    title: i18nc("@title:window", "Extensions")
+                })
+
+                Layout.fillWidth: true
+            }
+
+            Delegates.RoundedItemDelegate {
                 id: locationsButton
                 visible: !root.room.isSpace
                 icon.name: "map-flat"

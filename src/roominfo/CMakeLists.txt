@@ -14,6 +14,7 @@ ecm_add_qml_module(RoomInfo GENERATE_PLUGIN_SOURCE
         LocationsPage.qml
         RoomPinnedMessagesPage.qml
         RoomSearchPage.qml
+        WidgetsPage.qml
     SOURCES
         locationhelper.cpp
 )
