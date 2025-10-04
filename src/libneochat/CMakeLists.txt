@@ -45,6 +45,8 @@ target_sources(LibNeoChat PRIVATE
     models/stickermodel.cpp
     models/userfiltermodel.cpp
     models/userlistmodel.cpp
+    models/widgetmodel.cpp
+    models/widgetmodel.h
 )
 
 if (TARGET KF6::KIOWidgets)
