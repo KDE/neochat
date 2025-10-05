@@ -576,7 +576,8 @@ void RoomManager::setCurrentRoom(const QString &roomId)
         return;
     }
     if (m_currentRoom->isDirectChat()) {
-        if (m_currentSpaceId != "DM"_L1) {
+        const auto roomsInSpace = SpaceHierarchyCache::instance().getRoomListForSpace(m_currentSpaceId, false);
+        if (!roomsInSpace.contains(m_currentRoom->id()) && m_currentSpaceId != "DM"_L1) {
             setCurrentSpace("DM"_L1, false);
         }
         return;
