@@ -173,6 +173,10 @@ QVariant SpaceChildrenModel::data(const QModelIndex &index, int role) const
 
     SpaceTreeItem *child = getItem(index);
     if (role == DisplayNameRole) {
+        if (const auto room = static_cast<NeoChatRoom *>(m_space->connection()->room(child->id()))) {
+            return room->displayName();
+        }
+
         auto displayName = child->name();
         if (!displayName.isEmpty()) {
             return displayName;
