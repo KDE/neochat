@@ -113,6 +113,7 @@ KirigamiComponents.ConvergentContextMenu {
                     Layout.fillWidth: true
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2.5
                     Layout.fillHeight: true
+                    visible: emojiAction.visible
 
                     contentItem: Kirigami.Heading {
                         id: emojiText
@@ -155,9 +156,11 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         separator: true
+        visible: emojiAction.visible
     }
 
     Kirigami.Action {
+        id: replyAction
         visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
         text: i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
@@ -169,6 +172,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        id: replyThreadAction
         visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
@@ -182,6 +186,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        id: editAction
         visible: !root.hasFileContent && root.author.isLocalMember && root.messageComponentType === MessageComponentType.Text
         text: i18n("Edit")
         icon.name: "document-edit"
@@ -193,6 +198,7 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        id: removeAction
         visible: (root.author.isLocalMember || root.room.canSendState("redact")) && root.messageComponentType !== MessageComponentType.Other
         text: i18nc("@action:button", "Remove…")
         icon.name: "edit-delete-remove"
@@ -215,6 +221,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         separator: true
+        visible: replyAction.visible || replyThreadAction.visible || editAction.visible || removeAction.visible
     }
 
     Kirigami.Action {
