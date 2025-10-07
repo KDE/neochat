@@ -460,6 +460,9 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                     return i18nc("[User] joined a [voice/video] call", "joined a call");
                 }
             }
+            if (e.matrixType() == "io.element.integrations.installations"_L1) {
+                return i18nc("[User] configured an extension", "configured an extension");
+            }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), prettyPrint ? e.stateKey().toHtmlEscaped() : e.stateKey());
         },
@@ -672,6 +675,9 @@ QString EventHandler::genericBody(const NeoChatRoom *room, const Quotient::RoomE
                 } else {
                     return i18nc("[User] joined a [voice/video] call", "%1 joined a call", senderString);
                 }
+            }
+            if (e.matrixType() == "io.element.integrations.installations"_L1) {
+                return i18nc("[User] configured an extension", "%1 configured an extension", senderString);
             }
             return i18n("%1 updated the state", senderString);
         },
