@@ -366,55 +366,42 @@ void EventMessageContentModel::updateReplyModel()
 
 QList<MessageComponent> EventMessageContentModel::componentsForType(MessageComponentType::Type type)
 {
-    const auto event = m_room->getEvent(m_eventId);
-    if (event.first == nullptr) {
+    const auto [event, _] = m_room->getEvent(m_eventId);
+    if (event == nullptr) {
         return {};
     }
+    const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event);
 
     switch (type) {
     case MessageComponentType::Verification: {
         return {MessageComponent{MessageComponentType::Verification, QString(), {}}};
     }
     case MessageComponentType::Text: {
-        if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first)) {
-            return TextHandler().textComponents(EventHandler::rawMessageBody(*roomMessageEvent),
-                                                EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                m_room,
-                                                roomMessageEvent,
-                                                roomMessageEvent->isReplaced());
-        } else {
-            return TextHandler().textComponents(EventHandler::plainBody(m_room, event.first), Qt::TextFormat::PlainText, m_room, event.first, false);
-        }
-
-        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-        return TextHandler().textComponents(EventHandler::rawMessageBody(*roomMessageEvent),
-                                            EventHandler::messageBodyInputFormat(*roomMessageEvent),
+        return TextHandler().textComponents(EventHandler::rawMessageBody(*event),
+                                            EventHandler::messageBodyInputFormat(*event),
                                             m_room,
-                                            roomMessageEvent,
-                                            roomMessageEvent->isReplaced());
+                                            event,
+                                            roomMessageEvent ? roomMessageEvent->isReplaced() : false);
     }
     case MessageComponentType::File: {
         QList<MessageComponent> components;
-        components += MessageComponent{MessageComponentType::File, {}, EventHandler::mediaInfo(m_room, event.first)};
-        const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-        auto body = EventHandler::rawMessageBody(*roomMessageEvent);
+        components += MessageComponent{MessageComponentType::File, {}, EventHandler::mediaInfo(m_room, event)};
+        auto body = EventHandler::rawMessageBody(*event);
         if (!body.isEmpty()) {
             components += TextHandler().textComponents(body,
-                                                    EventHandler::messageBodyInputFormat(*roomMessageEvent),
-                                                    m_room,
-                                                    roomMessageEvent,
-                                                    roomMessageEvent->isReplaced());
+                                                       EventHandler::messageBodyInputFormat(*event),
+                                                       m_room,
+                                                       event,
+                                                       roomMessageEvent ? roomMessageEvent->isReplaced() : false);
         }
         return components;
     }
     case MessageComponentType::Image:
     case MessageComponentType::Audio:
     case MessageComponentType::Video: {
-        QList<MessageComponent> components = {
-            MessageComponent{type, EventHandler::richBody(m_room, event.first), EventHandler::mediaInfo(m_room, event.first)}};
+        QList<MessageComponent> components = {MessageComponent{type, EventHandler::richBody(m_room, event), EventHandler::mediaInfo(m_room, event)}};
 
-        if (!event.first->is<StickerEvent>()) {
-            const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
+        if (!event->is<StickerEvent>() && roomMessageEvent) {
             const auto fileContent = roomMessageEvent->get<EventContent::FileContentBase>();
             if (fileContent != nullptr) {
                 const auto fileInfo = fileContent->commonInfo();
@@ -433,11 +420,11 @@ QList<MessageComponent> EventMessageContentModel::componentsForType(MessageCompo
     }
     case MessageComponentType::Location:
         return {MessageComponent{type,
-                                 EventHandler::plainBody(m_room, event.first),
+                                 EventHandler::plainBody(m_room, event),
                                  {
-                                     {u"latitude"_s, EventHandler::latitude(event.first)},
-                                     {u"longitude"_s, EventHandler::longitude(event.first)},
-                                     {u"asset"_s, EventHandler::locationAssetType(event.first)},
+                                     {u"latitude"_s, EventHandler::latitude(event)},
+                                     {u"longitude"_s, EventHandler::longitude(event)},
+                                     {u"asset"_s, EventHandler::locationAssetType(event)},
                                  }}};
     default:
         return {MessageComponent{type, QString(), {}}};

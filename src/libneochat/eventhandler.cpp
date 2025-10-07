@@ -195,20 +195,25 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
     return false;
 }
 
-Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomMessageEvent &event)
+Qt::TextFormat EventHandler::messageBodyInputFormat(const Quotient::RoomEvent &event)
 {
     if (event.isRedacted() && !event.isStateEvent()) {
         return Qt::RichText;
     }
 
-    if (event.mimeType().name() == "text/plain"_L1) {
+    auto msgEvent = eventCast<const Quotient::RoomMessageEvent>(&event);
+    if (!msgEvent) {
+        return Qt::PlainText;
+    }
+
+    if (msgEvent->mimeType().name() == "text/plain"_L1) {
         return Qt::PlainText;
     } else {
         return Qt::RichText;
     }
 }
 
-QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
+QString EventHandler::rawMessageBody(const RoomEvent &event)
 {
     if (event.isRedacted() && !event.isStateEvent()) {
         auto reason = event.redactedBecause()->reason();
@@ -217,21 +222,26 @@ QString EventHandler::rawMessageBody(const Quotient::RoomMessageEvent &event)
 
     QString body;
 
-    if (event.has<EventContent::FileContent>()) {
+    auto msgEvent = eventCast<const Quotient::RoomMessageEvent>(&event);
+    if (!msgEvent) {
+        return body;
+    }
+
+    if (msgEvent->has<EventContent::FileContent>()) {
         // if filename is given or body is equal to filename,
         // then body is a caption
-        QString filename = event.get<EventContent::FileContent>()->originalName;
-        QString body = event.plainBody();
+        QString filename = msgEvent->get<EventContent::FileContent>()->originalName;
+        QString body = msgEvent->plainBody();
         if (filename.isEmpty() || filename == body) {
             return QString();
         }
         return body;
     }
 
-    if (event.has<EventContent::TextContent>() && event.content()) {
-        body = event.get<EventContent::TextContent>()->body;
+    if (msgEvent->has<EventContent::TextContent>() && msgEvent->content()) {
+        body = msgEvent->get<EventContent::TextContent>()->body;
     } else {
-        body = event.plainBody();
+        body = msgEvent->plainBody();
     }
     return body;
 }

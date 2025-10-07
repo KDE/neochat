@@ -122,15 +122,15 @@ public:
      * I.e. if the message has only a body the format will be Qt::PlainText, if it
      * has a formatted body it will be Qt::RichText.
      */
-    static Qt::TextFormat messageBodyInputFormat(const Quotient::RoomMessageEvent &event);
+    static Qt::TextFormat messageBodyInputFormat(const Quotient::RoomEvent &event);
 
     /**
-     * @brief Output a string for the room message content without any formatting.
+     * @brief Output a string for the message content without any formatting.
      *
      * This is the content of the formatted_body key if present or the body key if
      * not.
      */
-    static QString rawMessageBody(const Quotient::RoomMessageEvent &event);
+    static QString rawMessageBody(const Quotient::RoomEvent &event);
 
     /**
      * @brief Output a string for the message content ready for display in a rich text field.
