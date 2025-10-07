@@ -19,9 +19,14 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: extView
-        visible: extView.count !== 0
 
         currentIndex: -1
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            text: i18nc("@placeholder", "This room does not use any extensions")
+            visible: extView.count === 0
+        }
 
         model: WidgetModel {
             id: widgetModel
@@ -66,11 +71,5 @@ Kirigami.ScrollablePage {
 
             onClicked: Qt.openUrlExternally(url)
         }
-    }
-
-    Kirigami.PlaceholderMessage {
-        text: i18nc("@info:placeholder", "There are no extensions in this room.")
-        visible: extView.count === 0
-        anchors.centerIn: parent
     }
 }
