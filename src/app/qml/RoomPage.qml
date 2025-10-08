@@ -252,12 +252,6 @@ Kirigami.Page {
         }
     }
 
-    background: Rectangle {
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        Kirigami.Theme.inherit: false
-        color: NeoChatConfig.compactLayout ? Kirigami.Theme.backgroundColor : "transparent"
-    }
-
     footer: Loader {
         id: chatBarLoader
         height: active ? (item as ChatBar).implicitHeight : 0
