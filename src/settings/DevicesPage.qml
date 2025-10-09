@@ -33,6 +33,7 @@ FormCard.FormCardPage {
         title: i18nc("@info:group", "This Device")
         type: DevicesModel.This
         showVerifyButton: false
+        devicesModel: root.devicesModel
 
         FormCard.FormButtonDelegate {
             icon.name: "security-low"
@@ -57,16 +58,19 @@ FormCard.FormCardPage {
         title: i18nc("@info:group", "Verified Devices")
         type: DevicesModel.Verified
         showVerifyButton: true
+        devicesModel: root.devicesModel
     }
     DevicesCard {
         title: i18nc("@info:group", "Unverified Devices")
         type: DevicesModel.Unverified
         showVerifyButton: true
+        devicesModel: root.devicesModel
     }
     DevicesCard {
         title: i18nc("@info:group", "Devices without Encryption Support")
         type: DevicesModel.Unencrypted
         showVerifyButton: false
+        devicesModel: root.devicesModel
     }
 
     FormCard.AbstractFormDelegate {
@@ -82,38 +86,5 @@ FormCard.FormCardPage {
         text: i18n("Please login to view the signed-in devices for your account.")
         type: Kirigami.MessageType.Information
         visible: !root.connection
-    }
-
-    property Kirigami.Dialog passwordSheet: Kirigami.Dialog {
-        id: passwordSheet
-
-        property string deviceId
-
-        preferredWidth: Kirigami.Units.gridUnit * 24
-
-        title: i18n("Remove device")
-
-        standardButtons: QQC2.Dialog.Cancel
-
-        Component.onCompleted: passwordField.forceActiveFocus()
-
-        FormCard.FormCard {
-            FormCard.FormTextFieldDelegate {
-                id: passwordField
-                label: i18n("Password:")
-                echoMode: TextInput.Password
-            }
-        }
-        customFooterActions: [
-            Kirigami.Action {
-                text: i18nc("As in 'Remove this device'", "Remove")
-                icon.name: "delete"
-                onTriggered: {
-                    devicesModel.logout(passwordSheet.deviceId, passwordField.text);
-                    passwordField.text = "";
-                    passwordSheet.close();
-                }
-            }
-        ]
     }
 }

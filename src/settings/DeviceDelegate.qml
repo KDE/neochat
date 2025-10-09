@@ -19,6 +19,8 @@ FormCard.AbstractFormDelegate {
     required property string displayName
     required property int type
 
+    required property DevicesModel devicesModel
+
     property bool editDeviceName: false
     property bool showVerifyButton
 
@@ -77,12 +79,12 @@ FormCard.AbstractFormDelegate {
                     icon.name: "checkmark"
                     visible: nameField.text !== root.displayName
                     onTriggered: {
-                        devicesModel.setName(root.id, nameField.text);
+                        root.devicesModel.setName(root.id, nameField.text);
                     }
                 }
             ]
 
-            onAccepted: devicesModel.setName(root.id, nameField.text)
+            onAccepted: root.devicesModel.setName(root.id, nameField.text)
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
@@ -98,7 +100,7 @@ FormCard.AbstractFormDelegate {
             visible: root.showVerifyButton && (root.type !== DevicesModel.Verified || NeoChatConfig.alwaysVerifyDevice)
             text: i18nc("@action:button", "Verify device")
             icon.name: "security-low-symbolic"
-            onClicked: devicesModel.connection.startKeyVerificationSession(devicesModel.connection.localUserId, root.id)
+            onClicked: root.devicesModel.connection.startKeyVerificationSession(root.devicesModel.connection.localUserId, root.id)
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -132,5 +134,36 @@ FormCard.AbstractFormDelegate {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             QQC2.ToolTip.visible: hovered
         }
+    }
+
+    Kirigami.Dialog {
+        id: passwordSheet
+
+        property string deviceId
+
+        preferredWidth: Kirigami.Units.gridUnit * 24
+
+        title: i18nc("@title:dialog", "Remove device")
+
+        standardButtons: QQC2.Dialog.Cancel
+
+        Component.onCompleted: passwordField.forceActiveFocus()
+
+        contentItem: FormCard.FormTextFieldDelegate {
+            id: passwordField
+            label: i18n("Password:")
+            echoMode: TextInput.Password
+        }
+        customFooterActions: [
+            Kirigami.Action {
+                text: i18nc("@action:button As in 'Remove this device'", "Remove")
+                icon.name: "delete"
+                onTriggered: {
+                    root.devicesModel.logout(passwordSheet.deviceId, passwordField.text);
+                    passwordField.text = "";
+                    passwordSheet.close();
+                }
+            }
+        ]
     }
 }
