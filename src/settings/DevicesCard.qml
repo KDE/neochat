@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2022 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 
@@ -17,6 +19,7 @@ ColumnLayout {
     required property string title
     required property var type
     required property bool showVerifyButton
+    required property DevicesModel devicesModel
 
     visible: deviceRepeater.count > 0
 
@@ -30,17 +33,13 @@ ColumnLayout {
         Repeater {
             id: deviceRepeater
             model: DevicesProxyModel {
-                sourceModel: devicesModel
+                sourceModel: root.devicesModel
                 type: root.type
-            }
-
-            Kirigami.LoadingPlaceholder {
-                visible: deviceModel.count === 0 // We can assume 0 means loading since there is at least one device
-                anchors.centerIn: parent
             }
 
             delegate: DeviceDelegate {
                 showVerifyButton: root.showVerifyButton
+                devicesModel: root.devicesModel
             }
         }
     }
