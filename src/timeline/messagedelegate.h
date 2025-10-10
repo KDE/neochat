@@ -235,12 +235,20 @@ private:
     void hoverLeaveEvent(QHoverEvent *event) override;
 
     std::function<void(QQuickItem *)> m_objectInitialCallback = [this](QQuickItem *object) {
+        if (!object) {
+            return;
+        }
+
         object->setParentItem(this);
         connect(object, &QQuickItem::implicitWidthChanged, this, &MessageDelegateBase::markAsDirty);
         connect(object, &QQuickItem::implicitHeightChanged, this, &MessageDelegateBase::markAsDirty);
         connect(object, &QQuickItem::visibleChanged, this, &MessageDelegateBase::markAsDirty);
     };
     std::function<void(MessageObjectIncubator *)> m_errorCallback = [this](MessageObjectIncubator *incubator) {
+        if (!incubator) {
+            return;
+        }
+
         if (incubator->object()) {
             incubator->object()->deleteLater();
         }

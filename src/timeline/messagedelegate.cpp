@@ -52,6 +52,9 @@ MessageDelegateBase::~MessageDelegateBase()
 {
     for (const auto &incubator : m_activeIncubators) {
         incubator->clear();
+        if (const auto object = qobject_cast<QQuickItem *>(incubator->object())) {
+            cleanupItem(object);
+        }
         delete incubator;
     }
 }
