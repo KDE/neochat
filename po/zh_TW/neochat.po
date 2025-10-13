@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
+"POT-Creation-Date: 2025-10-13 00:42+0000\n"
 "PO-Revision-Date: 2025-09-22 04:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2146,7 +2146,7 @@ msgid "Rooms with the newer messages are higher"
 msgstr "有較新訊息的聊天室會排在上面"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:530
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[此訊息已被刪除]</i>"
@@ -2383,283 +2383,297 @@ msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr "已加入通話"
 
-#: src/libneochat/eventhandler.cpp:463
+#: src/libneochat/eventhandler.cpp:464
+#, fuzzy, kde-format
+#| msgid "%1 configured a widget"
+msgctxt "[User] configured an extension"
+msgid "configured an extension"
+msgstr "%1 設定了一個元件"
+
+#: src/libneochat/eventhandler.cpp:466
 #, kde-format
 msgid "updated %1 state"
 msgstr "更新了 %1 狀態"
 
-#: src/libneochat/eventhandler.cpp:464
+#: src/libneochat/eventhandler.cpp:467
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "為 %2 更新了 %1 狀態"
 
-#: src/libneochat/eventhandler.cpp:470
+#: src/libneochat/eventhandler.cpp:473
 #, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "已加密事件"
 
-#: src/libneochat/eventhandler.cpp:473
+#: src/libneochat/eventhandler.cpp:476
 #, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr "用 %1 反應"
 
-#: src/libneochat/eventhandler.cpp:475 src/libneochat/eventhandler.cpp:681
+#: src/libneochat/eventhandler.cpp:478 src/libneochat/eventhandler.cpp:687
 #, kde-format
 msgid "Unknown event"
 msgstr "未知事件"
 
-#: src/libneochat/eventhandler.cpp:490
+#: src/libneochat/eventhandler.cpp:493
 #, kde-format
 msgid "a file"
 msgstr "一個檔案"
 
-#: src/libneochat/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:539
 #, kde-format
 msgid "%1 sent a message"
 msgstr "%1 傳送了訊息"
 
-#: src/libneochat/eventhandler.cpp:539
+#: src/libneochat/eventhandler.cpp:542
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr "%1 傳送了貼圖"
 
-#: src/libneochat/eventhandler.cpp:545
+#: src/libneochat/eventhandler.cpp:548
 #, kde-format
 msgid "%1 reinvited someone to the room"
 msgstr "%1 重新邀請了某人到聊天室裡"
 
-#: src/libneochat/eventhandler.cpp:551
+#: src/libneochat/eventhandler.cpp:554
 #, kde-format
 msgid "%1 joined the room (repeated)"
 msgstr "%1 已加入聊天室（重複）"
 
-#: src/libneochat/eventhandler.cpp:553
+#: src/libneochat/eventhandler.cpp:556
 #, kde-format
 msgid "%1 invited someone to the room"
 msgstr "%1 已邀請某人到聊天室裡"
 
-#: src/libneochat/eventhandler.cpp:554
+#: src/libneochat/eventhandler.cpp:557
 #, kde-format
 msgid "%1 joined the room"
 msgstr "%1 已加入聊天室"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:583
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr "%1 設定了顯示名稱和頭貼"
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr "%1 設定了顯示名稱並更新了他的頭貼"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr "%1 設定了顯示名稱並將其頭貼清除了"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr "%1 設定了這個聊天室的顯示名稱"
 
-#: src/libneochat/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr "%1 變更了他的顯示名稱並設定了頭貼"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr "%1 變更了他的顯示名稱並更新了頭貼"
 
-#: src/libneochat/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:596
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "%1 變更了他的顯示名稱並清除了頭貼"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:598
 #, kde-format
 msgid "%1 changed their display name"
 msgstr "%1 變更了他的顯示名稱"
 
-#: src/libneochat/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:601
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr "%1 清除了他的顯示名稱並設定了頭貼"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:603
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "%1 清除了他的顯示名稱並更新了頭貼"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "%1 清除了他的顯示名稱與頭貼"
 
-#: src/libneochat/eventhandler.cpp:604
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr "%1 將其顯示名稱清除了"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:610
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr "%1 什麼都沒改"
 
-#: src/libneochat/eventhandler.cpp:611
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 撤回了一個使用者的邀請"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr "%1 拒絕了邀請"
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 unbanned a user"
 msgstr "%1 已解除封鎖一個使用者"
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr "%1 已自我解除封鎖"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 put a user out of the room"
 msgstr "%1 已將一個使用者移出聊天室"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, kde-format
 msgid "%1 left the room"
 msgstr "%1 已離開聊天室"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:624
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr "%1 已從聊天室封鎖一個使用者"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr "%1 已從聊天室自行封鎖"
 
-#: src/libneochat/eventhandler.cpp:626
+#: src/libneochat/eventhandler.cpp:629
 #, kde-format
 msgid "%1 requested an invite"
 msgstr "%1 請求了邀請"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 made something unknown"
 msgstr "%1 做了不明的東西"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, kde-format
 msgid "%1 cleared the room main alias"
 msgstr "%1 清除了聊天室的主別名"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, kde-format
 msgid "%1 set the room main alias"
 msgstr "%1 設定了聊天室的主別名"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, kde-format
 msgid "%1 cleared the room name"
 msgstr "%1 清除了聊天室名稱"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, kde-format
 msgid "%1 set the room name"
 msgstr "%1 設定了聊天室名稱"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, kde-format
 msgid "%1 cleared the topic"
 msgstr "%1 清除了主題"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, kde-format
 msgid "%1 set the topic"
 msgstr "%1 設定了主題"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:645
 #, kde-format
 msgid "%1 changed the room avatar"
 msgstr "%1 變更了聊天室頭貼"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:648
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr "%1 啟用了端對端加密"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, kde-format
 msgid "%1 upgraded the room version"
 msgstr "%1 更新了聊天室版本"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, kde-format
 msgid "%1 created the room"
 msgstr "%1 建立了聊天室"
 
-#: src/libneochat/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:654
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 變更了這個聊天室的能力等級"
 
-#: src/libneochat/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:657
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr "%1 傳送即時位置信標"
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:660
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr "%1 變更了這個聊天室的伺服器存取控制清單 (ACL)"
 
-#: src/libneochat/eventhandler.cpp:661
+#: src/libneochat/eventhandler.cpp:664
 #, kde-format
 msgid "%1 added a widget"
 msgstr "%1 新增了一個元件"
 
-#: src/libneochat/eventhandler.cpp:664
+#: src/libneochat/eventhandler.cpp:667
 #, kde-format
 msgid "%1 removed a widget"
 msgstr "%1 移除了一個元件"
 
-#: src/libneochat/eventhandler.cpp:666
+#: src/libneochat/eventhandler.cpp:669
 #, kde-format
 msgid "%1 configured a widget"
 msgstr "%1 設定了一個元件"
 
-#: src/libneochat/eventhandler.cpp:671
+#: src/libneochat/eventhandler.cpp:674
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "%1 已離開通話"
 
-#: src/libneochat/eventhandler.cpp:673
+#: src/libneochat/eventhandler.cpp:676
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "%1 已加入通話"
 
-#: src/libneochat/eventhandler.cpp:676
+#: src/libneochat/eventhandler.cpp:680
+#, fuzzy, kde-format
+#| msgid "%1 configured a widget"
+msgctxt "[User] configured an extension"
+msgid "%1 configured an extension"
+msgstr "%1 設定了一個元件"
+
+#: src/libneochat/eventhandler.cpp:682
 #, kde-format
 msgid "%1 updated the state"
 msgstr "%1 更新了狀態"
 
-#: src/libneochat/eventhandler.cpp:679
+#: src/libneochat/eventhandler.cpp:685
 #, kde-format
 msgid "%1 started a poll"
 msgstr "%1 開始了投票"

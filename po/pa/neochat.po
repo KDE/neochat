@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
+"POT-Creation-Date: 2025-10-13 00:42+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -2313,7 +2313,7 @@ msgid "Rooms with the newer messages are higher"
 msgstr ""
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:530
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ਇਹ ਸੁਨੇਹਾ ਹਟਾਇਆ ਗਿਆ ਸੀ]</i>"
@@ -2553,335 +2553,349 @@ msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:463
+#: src/libneochat/eventhandler.cpp:464
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "[User] configured an extension"
+msgid "configured an extension"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/libneochat/eventhandler.cpp:466
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
 
-#: src/libneochat/eventhandler.cpp:464
+#: src/libneochat/eventhandler.cpp:467
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 ਲਈ %1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
 
-#: src/libneochat/eventhandler.cpp:470
+#: src/libneochat/eventhandler.cpp:473
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/libneochat/eventhandler.cpp:473
+#: src/libneochat/eventhandler.cpp:476
 #, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:475 src/libneochat/eventhandler.cpp:681
+#: src/libneochat/eventhandler.cpp:478 src/libneochat/eventhandler.cpp:687
 #, kde-format
 msgid "Unknown event"
 msgstr "ਅਣਪਛਾਤਾ ਈਵੈਂਟ"
 
-#: src/libneochat/eventhandler.cpp:490
+#: src/libneochat/eventhandler.cpp:493
 #, kde-format
 msgid "a file"
 msgstr "ਫਾਇਲ"
 
-#: src/libneochat/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:539
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "%1 sent a message"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/libneochat/eventhandler.cpp:539
+#: src/libneochat/eventhandler.cpp:542
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:545
+#: src/libneochat/eventhandler.cpp:548
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 reinvited someone to the room"
 msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/libneochat/eventhandler.cpp:551
+#: src/libneochat/eventhandler.cpp:554
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgid "%1 joined the room (repeated)"
 msgstr "ਰੂਮ ਜੁਆਇੰਨ ਕੀਤਾ (ਦੁਹਰਾਇਆ)"
 
-#: src/libneochat/eventhandler.cpp:553
+#: src/libneochat/eventhandler.cpp:556
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 invited someone to the room"
 msgstr "%1 ਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/libneochat/eventhandler.cpp:554
+#: src/libneochat/eventhandler.cpp:557
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgid "%1 joined the room"
 msgstr "ਰੂਮ 'ਚ ਦਾਖਲ ਹੋਏ"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:583
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:585
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "updated their avatar"
 msgid "%1 set a display name and updated their avatar"
 msgstr "ਆਪਣੇ ਅਵਤਾਰ ਅੱਪਡੇਟ ਕੀਤੇ"
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:587
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their avatar"
 msgid "%1 set a display name and cleared their avatar"
 msgstr "ਉਹਨਾਂ ਦੇ ਅਵਤਾਰ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:589
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "%1 set a display name for this room"
 msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
 
-#: src/libneochat/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:592
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 changed their display name and set an avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:594
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 changed their display name and updated their avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:596
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 changed their display name and cleared their avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:598
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 changed their display name"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:601
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and set an avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:603
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and updated their avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:605
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:604
+#: src/libneochat/eventhandler.cpp:607
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "%1 cleared their display name"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:610
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:611
+#: src/libneochat/eventhandler.cpp:614
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "%1 withdrew a user's invitation"
 msgstr "%1 ਲਈ ਸੱਦਾ ਵਾਪਸ ਲਵੋ"
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:615
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "%1 rejected the invitation"
 msgstr "ਸੱਦੇ ਲਈ ਨਾਂਹ ਕੀਤੀ"
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "%1 unbanned a user"
 msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "%1 put a user out of the room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 left the room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:624
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "%1 banned a user from the room"
 msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:626
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "%1 self-banned from the room"
 msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
 
-#: src/libneochat/eventhandler.cpp:626
+#: src/libneochat/eventhandler.cpp:629
 #, fuzzy, kde-format
 #| msgid "requested an invite"
 msgid "%1 requested an invite"
 msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 made something unknown"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "%1 cleared the room main alias"
 msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "%1 set the room main alias"
 msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "%1 cleared the room name"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "%1 set the room name"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, fuzzy, kde-format
 #| msgid "cleared the topic"
 msgid "%1 cleared the topic"
 msgstr "ਵਿਸ਼ੇ ਨੂੰ ਮਿਟਾਇਆ"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, fuzzy, kde-format
 #| msgid "set the topic to: %1"
 msgid "%1 set the topic"
 msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:645
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "%1 changed the room avatar"
 msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:648
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgid "%1 activated End-to-End Encryption"
 msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, fuzzy, kde-format
 #| msgid "upgraded the room to version %1"
 msgid "%1 upgraded the room version"
 msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "%1 created the room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/libneochat/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:654
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/libneochat/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:657
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:660
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:661
+#: src/libneochat/eventhandler.cpp:664
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 added a widget"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/libneochat/eventhandler.cpp:664
+#: src/libneochat/eventhandler.cpp:667
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 removed a widget"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/libneochat/eventhandler.cpp:666
+#: src/libneochat/eventhandler.cpp:669
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 configured a widget"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/libneochat/eventhandler.cpp:671
+#: src/libneochat/eventhandler.cpp:674
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/libneochat/eventhandler.cpp:673
+#: src/libneochat/eventhandler.cpp:676
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "ਰੂਮ 'ਚ ਦਾਖਲ ਹੋਏ"
 
-#: src/libneochat/eventhandler.cpp:676
+#: src/libneochat/eventhandler.cpp:680
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "[User] configured an extension"
+msgid "%1 configured an extension"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/libneochat/eventhandler.cpp:682
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "%1 updated the state"
 msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
 
-#: src/libneochat/eventhandler.cpp:679
+#: src/libneochat/eventhandler.cpp:685
 #, kde-format
 msgid "%1 started a poll"
 msgstr ""

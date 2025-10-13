@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-09 00:43+0000\n"
+"POT-Creation-Date: 2025-10-13 00:42+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -2250,7 +2250,7 @@ msgid "Rooms with the newer messages are higher"
 msgstr ""
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
-#: src/libneochat/eventhandler.cpp:527
+#: src/libneochat/eventhandler.cpp:530
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ijo ni li weka.]</i>"
@@ -2488,306 +2488,320 @@ msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:463
+#: src/libneochat/eventhandler.cpp:464
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "[User] configured an extension"
+msgid "configured an extension"
+msgstr "o ante e toki"
+
+#: src/libneochat/eventhandler.cpp:466
 #, kde-format
 msgid "updated %1 state"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:464
+#: src/libneochat/eventhandler.cpp:467
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:470
+#: src/libneochat/eventhandler.cpp:473
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@info In room list"
 msgid "Encrypted event"
 msgstr "o ante e toki"
 
-#: src/libneochat/eventhandler.cpp:473
+#: src/libneochat/eventhandler.cpp:476
 #, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:475 src/libneochat/eventhandler.cpp:681
+#: src/libneochat/eventhandler.cpp:478 src/libneochat/eventhandler.cpp:687
 #, kde-format
 msgid "Unknown event"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:490
+#: src/libneochat/eventhandler.cpp:493
 #, kde-format
 msgid "a file"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:536
+#: src/libneochat/eventhandler.cpp:539
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "%1 sent a message"
 msgstr "o pana e toki"
 
-#: src/libneochat/eventhandler.cpp:539
+#: src/libneochat/eventhandler.cpp:542
 #, kde-format
 msgid "%1 sent a sticker"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:545
+#: src/libneochat/eventhandler.cpp:548
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "%1 reinvited someone to the room"
 msgstr "li pana sin e wile lon tawa %1"
 
-#: src/libneochat/eventhandler.cpp:551
+#: src/libneochat/eventhandler.cpp:554
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgid "%1 joined the room (repeated)"
 msgstr "li kama lon tomo (tenpo mute)"
 
-#: src/libneochat/eventhandler.cpp:553
+#: src/libneochat/eventhandler.cpp:556
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "%1 invited someone to the room"
 msgstr "li pana sin e wile lon tawa %1"
 
-#: src/libneochat/eventhandler.cpp:554
+#: src/libneochat/eventhandler.cpp:557
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgid "%1 joined the room"
 msgstr "li kama lon tomo (tenpo mute)"
 
-#: src/libneochat/eventhandler.cpp:580
+#: src/libneochat/eventhandler.cpp:583
 #, kde-format
 msgid "%1 set a display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:582
+#: src/libneochat/eventhandler.cpp:585
 #, kde-format
 msgid "%1 set a display name and updated their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:584
+#: src/libneochat/eventhandler.cpp:587
 #, kde-format
 msgid "%1 set a display name and cleared their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:586
+#: src/libneochat/eventhandler.cpp:589
 #, kde-format
 msgid "%1 set a display name for this room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:589
+#: src/libneochat/eventhandler.cpp:592
 #, kde-format
 msgid "%1 changed their display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:591
+#: src/libneochat/eventhandler.cpp:594
 #, kde-format
 msgid "%1 changed their display name and updated their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:593
+#: src/libneochat/eventhandler.cpp:596
 #, kde-format
 msgid "%1 changed their display name and cleared their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:595
+#: src/libneochat/eventhandler.cpp:598
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 changed their display name"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:598
+#: src/libneochat/eventhandler.cpp:601
 #, kde-format
 msgid "%1 cleared their display name and set an avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:600
+#: src/libneochat/eventhandler.cpp:603
 #, kde-format
 msgid "%1 cleared their display name and updated their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:602
+#: src/libneochat/eventhandler.cpp:605
 #, kde-format
 msgid "%1 cleared their display name and cleared their avatar"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:604
+#: src/libneochat/eventhandler.cpp:607
 #, kde-format
 msgid "%1 cleared their display name"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:607
+#: src/libneochat/eventhandler.cpp:610
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "%1 changed nothing"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:611
+#: src/libneochat/eventhandler.cpp:614
 #, kde-format
 msgid "%1 withdrew a user's invitation"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:612
+#: src/libneochat/eventhandler.cpp:615
 #, kde-format
 msgid "%1 rejected the invitation"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgid "%1 unbanned a user"
 msgstr "o weka e weka pi jan ni"
 
-#: src/libneochat/eventhandler.cpp:616
+#: src/libneochat/eventhandler.cpp:619
 #, kde-format
 msgid "%1 self-unbanned"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "%1 put a user out of the room"
 msgstr "li pana sin e wile lon tawa %1"
 
-#: src/libneochat/eventhandler.cpp:618
+#: src/libneochat/eventhandler.cpp:621
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 left the room"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:621
+#: src/libneochat/eventhandler.cpp:624
 #, kde-format
 msgid "%1 banned a user from the room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:623
+#: src/libneochat/eventhandler.cpp:626
 #, kde-format
 msgid "%1 self-banned from the room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:626
+#: src/libneochat/eventhandler.cpp:629
 #, kde-format
 msgid "%1 requested an invite"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:630
+#: src/libneochat/eventhandler.cpp:633
 #, kde-format
 msgid "%1 made something unknown"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 cleared the room main alias"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:633
+#: src/libneochat/eventhandler.cpp:636
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 set the room main alias"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 cleared the room name"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:636
+#: src/libneochat/eventhandler.cpp:639
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 set the room name"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 cleared the topic"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:639
+#: src/libneochat/eventhandler.cpp:642
 #, kde-format
 msgid "%1 set the topic"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:642
+#: src/libneochat/eventhandler.cpp:645
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 changed the room avatar"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:645
+#: src/libneochat/eventhandler.cpp:648
 #, kde-format
 msgid "%1 activated End-to-End Encryption"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 upgraded the room version"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:648
+#: src/libneochat/eventhandler.cpp:651
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "%1 created the room"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:651
+#: src/libneochat/eventhandler.cpp:654
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:654
+#: src/libneochat/eventhandler.cpp:657
 #, kde-format
 msgid "%1 sent a live location beacon"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:657
+#: src/libneochat/eventhandler.cpp:660
 #, kde-format
 msgid "%1 changed the server access control lists for this room"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:661
+#: src/libneochat/eventhandler.cpp:664
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 added a widget"
 msgstr "o ante e toki"
 
-#: src/libneochat/eventhandler.cpp:664
+#: src/libneochat/eventhandler.cpp:667
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 removed a widget"
 msgstr "o ante e toki"
 
-#: src/libneochat/eventhandler.cpp:666
+#: src/libneochat/eventhandler.cpp:669
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "%1 configured a widget"
 msgstr "o ante e toki"
 
-#: src/libneochat/eventhandler.cpp:671
+#: src/libneochat/eventhandler.cpp:674
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
 msgstr "o pali e tomo toki"
 
-#: src/libneochat/eventhandler.cpp:673
+#: src/libneochat/eventhandler.cpp:676
 #, fuzzy, kde-format
 #| msgid "joined the room (repeated)"
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
 msgstr "li kama lon tomo (tenpo mute)"
 
-#: src/libneochat/eventhandler.cpp:676
+#: src/libneochat/eventhandler.cpp:680
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "[User] configured an extension"
+msgid "%1 configured an extension"
+msgstr "o ante e toki"
+
+#: src/libneochat/eventhandler.cpp:682
 #, kde-format
 msgid "%1 updated the state"
 msgstr ""
 
-#: src/libneochat/eventhandler.cpp:679
+#: src/libneochat/eventhandler.cpp:685
 #, kde-format
 msgid "%1 started a poll"
 msgstr ""
