@@ -43,6 +43,30 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            above: fontSizeSpinBoxDelegate
+            below: compactRoomListDelegate
+        }
+
+        FormCard.FormSpinBoxDelegate {
+            id: fontSizeSpinBoxDelegate
+            label: i18n("Font scale")
+            from: 5 // 0.5 * 10
+            to: 30 // 3.0 * 10
+            stepSize: 1
+            textFromValue: function (value, locale) {
+                return Number(value / 10).toLocaleString(locale, 'f', 1);
+            }
+            valueFromText: function (text, locale) {
+                return Number.fromLocaleString(locale, text) * 10;
+            }
+            value: NeoChatConfig.fontScale * 10
+            onValueChanged: {
+                NeoChatConfig.fontScale = value / 10;
+                NeoChatConfig.save();
+            }
+        }
     }
 
     FormCard.FormHeader {

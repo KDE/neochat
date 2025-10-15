@@ -14,6 +14,8 @@ import org.kde.neochat.settings
 Kirigami.ApplicationWindow {
     id: root
 
+    font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+
     property NeoChatConnection connection: Controller.activeConnection
     readonly property HoverLinkIndicator hoverLinkIndicator: linkIndicator
 
