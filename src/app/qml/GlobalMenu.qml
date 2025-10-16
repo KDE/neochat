@@ -22,12 +22,12 @@ Labs.MenuBar {
 
         Labs.MenuItem {
             icon.name: "list-add-user"
-            text: i18nc("@action:inmenu", "Find your Friends")
+            text: i18nc("@action:inmenu", "Find User")
             enabled: root.connection
             onTriggered: root.appWindow.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                 connection: root.connection
             }, {
-                title: i18nc("@title", "Find your friends")
+                title: i18nc("@title", "Find User")
             })
         }
         Labs.MenuItem {

@@ -30,7 +30,7 @@ SearchPage {
      */
     required property NeoChatConnection connection
 
-    title: i18nc("@action:title", "Find Your Friends")
+    title: i18nc("@action:title", "Find User")
 
     Component.onCompleted: focusSearch()
 
@@ -81,7 +81,7 @@ SearchPage {
             }
             QQC2.Label {
                 visible: userDelegate.directChatExists
-                text: i18nc("@info", "Friends")
+                text: i18nc("@info", "Direct Messages")
                 textFormat: Text.PlainText
                 color: Kirigami.Theme.positiveTextColor
             }
