@@ -519,7 +519,14 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
 
     // This need to happen before the signal so TreeView.expandRecursively() can work nicely.
     m_sortFilterRoomTreeModel->setActiveSpaceId(m_currentSpaceId);
-    m_sortFilterRoomTreeModel->setMode(m_currentSpaceId == u"DM"_s ? SortFilterRoomTreeModel::DirectChats : SortFilterRoomTreeModel::All);
+
+    if (m_currentSpaceId == u"DM") {
+        m_sortFilterRoomTreeModel->setMode(SortFilterRoomTreeModel::DirectChats);
+    } else if (m_currentSpaceId.isEmpty()) {
+        m_sortFilterRoomTreeModel->setMode(SortFilterRoomTreeModel::Rooms);
+    } else {
+        m_sortFilterRoomTreeModel->setMode(SortFilterRoomTreeModel::All);
+    }
 
     Q_EMIT currentSpaceChanged();
     if (m_connection) {
