@@ -136,10 +136,10 @@ QQC2.Control {
 
                     text: {
                         if (directChatButton.hasCountableNotifications) {
-                            return i18ncp("@button View all one-on-one chats with your friends.", "Friends (%1 notification)", "Friends (%1 notifications)", root.connection.directChatNotifications + root.connection.directChatInvites);
+                            return i18ncp("@button View all one-on-one chats.", "Direct Messages (%1 notification)", "Direct Messages (%1 notifications)", root.connection.directChatNotifications + root.connection.directChatInvites);
                         }
 
-                        return i18nc("@button View all one-on-one chats with your friends.", "Friends");
+                        return i18nc("@button View all one-on-one chats.", "Direct Messages");
                     }
                     contentItem: Kirigami.Icon {
                         source: "system-users-symbolic"

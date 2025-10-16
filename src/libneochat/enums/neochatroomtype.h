@@ -30,7 +30,7 @@ public:
         ServerNotice, /**< Official messages from the server. */
         Deprioritized, /**< The room is set as low priority. */
         Space, /**< The room is a space. */
-        AddDirect, /**< So we can show the add friend delegate. */
+        AddDirect, /**< So we can show the add direct message delegate. */
         TypesCount, /**< Number of different types (this should always be last). */
     };
     Q_ENUM(Types);
@@ -66,7 +66,7 @@ public:
         case NeoChatRoomType::Favorite:
             return i18n("Favorite");
         case NeoChatRoomType::Direct:
-            return i18n("Friends");
+            return i18n("Direct Messages");
         case NeoChatRoomType::Normal:
             return i18n("Normal");
         case NeoChatRoomType::Deprioritized:
