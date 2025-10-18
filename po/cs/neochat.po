@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-13 00:42+0000\n"
+"POT-Creation-Date: 2025-10-18 00:42+0000\n"
 "PO-Revision-Date: 2024-09-17 15:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -268,13 +268,13 @@ msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:45
+#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
@@ -3417,7 +3417,7 @@ msgid "Register"
 msgstr "Registrovat"
 
 #: src/login/Password.qml:27 src/login/RegisterPassword.qml:20
-#: src/settings/DevicesPage.qml:103
+#: src/settings/DeviceDelegate.qml:154
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
@@ -4018,12 +4018,10 @@ msgid "This room does not use any extensions"
 msgstr ""
 
 #: src/roominfo/WidgetsPage.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Child"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
-msgstr "Odstranit potomka"
+msgstr ""
 
 #: src/rooms/ExploreComponent.qml:36
 #, kde-format
@@ -4624,50 +4622,65 @@ msgstr ""
 msgid "Activate Encryption"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:51
+#: src/settings/DeviceDelegate.qml:53
 #, kde-format
 msgctxt "@label"
 msgid "%1, Last activity: %2"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:60
+#: src/settings/DeviceDelegate.qml:62
 #, kde-format
 msgid "New device name"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:69
+#: src/settings/DeviceDelegate.qml:71
 #, kde-format
 msgid "Cancel editing display name"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:76
+#: src/settings/DeviceDelegate.qml:78
 #, kde-format
 msgid "Confirm new display name"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:89
+#: src/settings/DeviceDelegate.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit device name"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:99
+#: src/settings/DeviceDelegate.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify device"
 msgstr ""
 
-#: src/settings/DeviceDelegate.qml:117
+#: src/settings/DeviceDelegate.qml:119
 #, kde-format
 msgctxt "This device is verified"
 msgid "Verified"
 msgstr "Ověřeno"
 
-#: src/settings/DeviceDelegate.qml:124
+#: src/settings/DeviceDelegate.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Logout device"
 msgstr ""
+
+#: src/settings/DeviceDelegate.qml:146
+#, fuzzy, kde-format
+#| msgid "Remove device"
+msgctxt "@title:dialog"
+msgid "Remove device"
+msgstr "Odstranit zařízení"
+
+#: src/settings/DeviceDelegate.qml:159
+#, fuzzy, kde-format
+#| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+#| msgid "Remove"
+msgctxt "@action:button As in 'Remove this device'"
+msgid "Remove"
+msgstr "Odstranit"
 
 #: src/settings/DevicesPage.qml:17
 #, kde-format
@@ -4681,13 +4694,13 @@ msgctxt "@info:group"
 msgid "This Device"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:39
+#: src/settings/DevicesPage.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify This Device"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:40
+#: src/settings/DevicesPage.qml:41
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -4695,39 +4708,28 @@ msgid ""
 "It's recommended to verify as soon as possible."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:57
+#: src/settings/DevicesPage.qml:58
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:62
+#: src/settings/DevicesPage.qml:64
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:67
+#: src/settings/DevicesPage.qml:70
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr ""
 
-#: src/settings/DevicesPage.qml:82
+#: src/settings/DevicesPage.qml:86
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
-
-#: src/settings/DevicesPage.qml:94
-#, kde-format
-msgid "Remove device"
-msgstr "Odstranit zařízení"
-
-#: src/settings/DevicesPage.qml:109
-#, kde-format
-msgctxt "As in 'Remove this device'"
-msgid "Remove"
-msgstr "Odstranit"
 
 #: src/settings/EmoticonEditorPage.qml:27
 #, kde-format
@@ -6865,3 +6867,7 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píší"
 msgstr[2] "%2 píší"
+
+#~ msgctxt "As in 'Remove this device'"
+#~ msgid "Remove"
+#~ msgstr "Odstranit"
