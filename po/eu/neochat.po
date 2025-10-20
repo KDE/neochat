@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 17:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -495,18 +495,20 @@ msgid "File"
 msgstr "Fitxategia"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Aurkitu zure lagunak"
+msgid "Find User"
+msgstr "Debekua erabiltzaileari"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Aurkitu zure lagunak"
+msgid "Find User"
+msgstr "Debekua erabiltzaileari"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1376,10 +1378,12 @@ msgid "Mention"
 msgstr "Aipamena"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Aurkitu zure lagunak"
+msgid "Find User"
+msgstr "Debekua erabiltzaileari"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1388,10 +1392,12 @@ msgid "Copy User ID"
 msgstr "Kopiatu erabiltzaile ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Lagunak"
+msgid "Direct Messages"
+msgstr "Iltzatutako mezuak"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2041,9 +2047,11 @@ msgid "Favorite"
 msgstr "Gogokoak"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Lagunak"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Iltzatutako mezuak"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4112,6 +4120,13 @@ msgstr "Erakutsi menua"
 msgid "Find your friends"
 msgstr "Aurkitu zure lagunak"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Aurkitu zure lagunak"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4325,18 +4340,23 @@ msgid "Home"
 msgstr "Etxea"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Lagunak (jakinarazpen %1)"
 msgstr[1] "Lagunak (%1 jakinarazpen)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Lagunak"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Iltzatutako mezuak"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6968,6 +6988,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Aurkitu zure lagunak"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Aurkitu zure lagunak"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Lagunak"
+
+#~ msgid "Friends"
+#~ msgstr "Lagunak"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Lagunak"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Kendu"
@@ -7272,10 +7311,6 @@ msgstr[1] "%2 tekleatzen ari dira"
 
 #~ msgid "No users available"
 #~ msgstr "Ez dago erabiltzaile erabilgarririk"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Debekua erabiltzaileari"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

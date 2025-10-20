@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -505,18 +505,19 @@ msgstr "Dosiero"
 
 #: src/app/qml/GlobalMenu.qml:25
 #, fuzzy, kde-format
-#| msgid "Find your friends"
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Trovu viajn amikojn"
+msgid "Find User"
+msgstr "Malpermesi Uzanton"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Trovu viajn amikojn"
+msgid "Find User"
+msgstr "Malpermesi Uzanton"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, fuzzy, kde-format
@@ -1439,10 +1440,12 @@ msgid "Mention"
 msgstr "@Mencioj"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Trovu Viajn Amikojn"
+msgid "Find User"
+msgstr "Malpermesi Uzanton"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1454,10 +1457,11 @@ msgstr "Uzant-ID"
 
 #: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
-#| msgid "Friends"
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Amikoj"
+msgid "Direct Messages"
+msgstr "Pinglitaj Mesaĝojn"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
@@ -2109,9 +2113,11 @@ msgid "Favorite"
 msgstr "Ŝatata"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Amikoj"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Pinglitaj Mesaĝojn"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4227,6 +4233,13 @@ msgstr "Montri Menuon"
 msgid "Find your friends"
 msgstr "Trovu viajn amikojn"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Trovu viajn amikojn"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4461,17 +4474,19 @@ msgstr "Hejmo"
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Rigardi sciigojn"
 msgstr[1] "Rigardi sciigojn"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Amikoj"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Pinglitaj Mesaĝojn"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7220,6 +7235,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
+
+#, fuzzy
+#~| msgid "Find your friends"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Trovu viajn amikojn"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Trovu Viajn Amikojn"
+
+#, fuzzy
+#~| msgid "Friends"
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Amikoj"
+
+#~ msgid "Friends"
+#~ msgstr "Amikoj"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Amikoj"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

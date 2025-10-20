@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -505,18 +505,19 @@ msgstr "फ़ाइल"
 
 #: src/app/qml/GlobalMenu.qml:25
 #, fuzzy, kde-format
-#| msgid "Find your friends"
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "अपने दोस्तों को खोजें"
+msgid "Find User"
+msgstr "उपयोगकर्ता प्रतिबंधित करें"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "अपने दोस्तों को खोजें"
+msgid "Find User"
+msgstr "उपयोगकर्ता प्रतिबंधित करें"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, fuzzy, kde-format
@@ -1452,10 +1453,12 @@ msgid "Mention"
 msgstr "@उल्लेख"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "अपने दोस्तों को खोजें"
+msgid "Find User"
+msgstr "उपयोगकर्ता प्रतिबंधित करें"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1467,10 +1470,10 @@ msgstr "उपयोगकर्ता पहचान"
 
 #: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
-#| msgid "Friends"
+#| msgid "Find messages…"
 msgctxt "@info"
-msgid "Friends"
-msgstr "दोस्त"
+msgid "Direct Messages"
+msgstr "संदेश खोजें…"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
@@ -2116,9 +2119,10 @@ msgid "Favorite"
 msgstr "पसंदीदा"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "दोस्त"
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgid "Direct Messages"
+msgstr "संदेश खोजें…"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4237,6 +4241,13 @@ msgstr "मेनू दिखाओ"
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "अपने दोस्तों को खोजें"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4472,17 +4483,18 @@ msgstr "घर"
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "सूचनाएं देखें"
 msgstr[1] "सूचनाएं देखें"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "दोस्त"
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "संदेश खोजें…"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7242,6 +7254,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#, fuzzy
+#~| msgid "Find your friends"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "अपने दोस्तों को खोजें"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "अपने दोस्तों को खोजें"
+
+#, fuzzy
+#~| msgid "Friends"
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "दोस्त"
+
+#~ msgid "Friends"
+#~ msgstr "दोस्त"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "दोस्त"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

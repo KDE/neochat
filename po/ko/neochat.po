@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -490,18 +490,20 @@ msgid "File"
 msgstr "파일"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "친구 찾기"
+msgid "Find User"
+msgstr "사용자 차단"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "친구 찾기"
+msgid "Find User"
+msgstr "사용자 차단"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1368,10 +1370,12 @@ msgid "Mention"
 msgstr "멘션"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "친구 찾기"
+msgid "Find User"
+msgstr "사용자 차단"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1380,10 +1384,12 @@ msgid "Copy User ID"
 msgstr "사용자 ID 복사"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "친구"
+msgid "Direct Messages"
+msgstr "고정된 메시지"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1997,9 +2003,11 @@ msgid "Favorite"
 msgstr "책갈피"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "친구"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "고정된 메시지"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4067,6 +4075,13 @@ msgstr "메뉴 표시"
 msgid "Find your friends"
 msgstr "친구 찾기"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "친구 찾기"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4280,17 +4295,22 @@ msgid "Home"
 msgstr "홈"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "친구(알림 %1개)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "친구"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "고정된 메시지"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6904,6 +6924,25 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "친구 찾기"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "친구 찾기"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "친구"
+
+#~ msgid "Friends"
+#~ msgstr "친구"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "친구"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "삭제"
@@ -7211,10 +7250,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "No users available"
 #~ msgstr "사용자를 찾을 수 없음"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "사용자 차단"
 
 #, fuzzy
 #~| msgid "Accept Invitation"

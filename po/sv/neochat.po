@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-13 22:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -490,18 +490,20 @@ msgid "File"
 msgstr "Arkiv"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Sök efter dina vänner"
+msgid "Find User"
+msgstr "Bannlys användare"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Sök efter dina vänner"
+msgid "Find User"
+msgstr "Bannlys användare"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1372,10 +1374,12 @@ msgid "Mention"
 msgstr "Omnämnande"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Sök efter dina vänner"
+msgid "Find User"
+msgstr "Bannlys användare"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1384,10 +1388,12 @@ msgid "Copy User ID"
 msgstr "Kopiera användaridentifikation"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Vänner"
+msgid "Direct Messages"
+msgstr "Uppsatta meddelanden"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2027,9 +2033,11 @@ msgid "Favorite"
 msgstr "Favorit"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Vänner"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Uppsatta meddelanden"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4096,6 +4104,13 @@ msgstr "Visa meny"
 msgid "Find your friends"
 msgstr "Sök efter dina vänner"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Sök efter dina vänner"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4309,18 +4324,23 @@ msgid "Home"
 msgstr "Hem"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Vänner (%1 underrättelse)"
 msgstr[1] "Vänner (%1 underrättelser)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Vänner"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Uppsatta meddelanden"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6961,6 +6981,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Sök efter dina vänner"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Sök efter dina vänner"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Vänner"
+
+#~ msgid "Friends"
+#~ msgstr "Vänner"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Vänner"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Ta bort"
@@ -7264,10 +7303,6 @@ msgstr[1] "%2 skriver"
 
 #~ msgid "No users available"
 #~ msgstr "Inga användare tillgängliga"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Bannlys användare"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

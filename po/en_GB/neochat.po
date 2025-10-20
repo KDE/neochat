@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:05+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -506,18 +506,19 @@ msgstr "File"
 
 #: src/app/qml/GlobalMenu.qml:25
 #, fuzzy, kde-format
-#| msgid "Find your friends"
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Find your friends"
+msgid "Find User"
+msgstr "Ban User"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Find your friends"
+msgid "Find User"
+msgstr "Ban User"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, fuzzy, kde-format
@@ -1453,10 +1454,12 @@ msgid "Mention"
 msgstr "@Mentions"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Find Your Friends"
+msgid "Find User"
+msgstr "Ban User"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1468,10 +1471,10 @@ msgstr "User ID"
 
 #: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
-#| msgid "Friends"
+#| msgid "Direct Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Friends"
+msgid "Direct Messages"
+msgstr "Direct Messages"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
@@ -2146,9 +2149,10 @@ msgid "Favorite"
 msgstr "Favourite"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Friends"
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgid "Direct Messages"
+msgstr "Direct Messages"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4284,6 +4288,13 @@ msgstr "Show Menu"
 msgid "Find your friends"
 msgstr "Find your friends"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Find your friends"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4520,17 +4531,18 @@ msgstr "Home"
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "View notifications"
 msgstr[1] "View notifications"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Friends"
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Direct Messages"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7351,6 +7363,29 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is typing"
 msgstr[1] "%2 are typing"
 
+#, fuzzy
+#~| msgid "Find your friends"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Find your friends"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Find Your Friends"
+
+#, fuzzy
+#~| msgid "Friends"
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Friends"
+
+#~ msgid "Friends"
+#~ msgstr "Friends"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Friends"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Remove"
@@ -7666,10 +7701,6 @@ msgstr[1] "%2 are typing"
 
 #~ msgid "No users available"
 #~ msgstr "No users available"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Ban User"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

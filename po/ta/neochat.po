@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-09-21 12:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -492,18 +492,20 @@ msgid "File"
 msgstr "கோப்பு"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "நண்பர்களைக் கண்டுபிடி"
+msgid "Find User"
+msgstr "பயனரை தடை செய்வது"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
+msgid "Find User"
+msgstr "பயனரை தடை செய்வது"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1377,10 +1379,12 @@ msgid "Mention"
 msgstr "சுட்டு"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
+msgid "Find User"
+msgstr "பயனரை தடை செய்வது"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1389,10 +1393,12 @@ msgid "Copy User ID"
 msgstr "பயனரின் அடையாளப்பெயரை நகலெடு"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "நண்பர்கள்"
+msgid "Direct Messages"
+msgstr "தக்கவைத்த செய்திகள்"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2022,9 +2028,11 @@ msgid "Favorite"
 msgstr "பிடித்தவை"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "நண்பர்கள்"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "தக்கவைத்த செய்திகள்"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4099,6 +4107,13 @@ msgstr "பட்டியைக் காட்டு"
 msgid "Find your friends"
 msgstr "நண்பர்களைக் கண்டுபிடி"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4323,17 +4338,19 @@ msgstr "முகப்பு"
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "அறிவிப்புகளைக் காட்டு"
 msgstr[1] "அறிவிப்புகளைக் காட்டு"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "நண்பர்கள்"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "தக்கவைத்த செய்திகள்"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7071,6 +7088,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "நண்பர்களைக் கண்டுபிடி"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "நண்பர்கள்"
+
+#~ msgid "Friends"
+#~ msgstr "நண்பர்கள்"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "நண்பர்கள்"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "நீக்கு"
@@ -7377,10 +7413,6 @@ msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
 #~ msgid "No users available"
 #~ msgstr "எந்த பயனர்களும் கிடைக்கவில்லை"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "பயனரை தடை செய்வது"
 
 #~| msgid "Accept Invitation"
 #~ msgctxt "@title:group"

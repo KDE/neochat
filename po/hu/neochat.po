@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-07-12 22:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -503,18 +503,20 @@ msgid "File"
 msgstr "Fájl"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Barátok keresése"
+msgid "Find User"
+msgstr "Felhasználó kitiltása"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Barátok keresése"
+msgid "Find User"
+msgstr "Felhasználó kitiltása"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1430,10 +1432,12 @@ msgid "Mention"
 msgstr "Említés"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Barátok keresése"
+msgid "Find User"
+msgstr "Felhasználó kitiltása"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1445,10 +1449,11 @@ msgstr "Felhasználóazonosító"
 
 #: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
-#| msgid "Friends"
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Barátok"
+msgid "Direct Messages"
+msgstr "Kitűzött üzenetek"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
@@ -2109,9 +2114,11 @@ msgid "Favorite"
 msgstr "Kedvenc"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Barátok"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Kitűzött üzenetek"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4211,6 +4218,13 @@ msgstr "Menü megjelenítése"
 msgid "Find your friends"
 msgstr "Barátok keresése"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Barátok keresése"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4443,18 +4457,23 @@ msgid "Home"
 msgstr "Kezdőlap"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Barátok (%1 értesítés)"
 msgstr[1] "Barátok (%1 értesítés)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Barátok"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Kitűzött üzenetek"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7172,6 +7191,27 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 gépel"
 msgstr[1] "%2 gépel"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Barátok keresése"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Barátok keresése"
+
+#, fuzzy
+#~| msgid "Friends"
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Barátok"
+
+#~ msgid "Friends"
+#~ msgstr "Barátok"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Barátok"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Eltávolítás"
@@ -7478,10 +7518,6 @@ msgstr[1] "%2 gépel"
 
 #~ msgid "No users available"
 #~ msgstr "Nem érhetők el felhasználók"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Felhasználó kitiltása"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

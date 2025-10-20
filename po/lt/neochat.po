@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-15 23:13+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -492,18 +492,18 @@ msgid "File"
 msgstr "Failas"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Naudotojas"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgid "User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr ""
+msgid "Find User"
+msgstr "Naudotojas"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1372,10 +1372,11 @@ msgid "Mention"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Naudotojas"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1384,10 +1385,12 @@ msgid "Copy User ID"
 msgstr "Kopijuoti naudotojo ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Draugai"
+msgid "Direct Messages"
+msgstr "Šalinti žinutes"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1994,9 +1997,11 @@ msgid "Favorite"
 msgstr ""
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Messages"
+msgid "Direct Messages"
+msgstr "Šalinti žinutes"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4060,6 +4065,13 @@ msgstr "Rodyti meniu"
 msgid "Find your friends"
 msgstr ""
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr ""
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4271,20 +4283,23 @@ msgid "Home"
 msgstr ""
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+#, fuzzy, kde-format
+#| msgid "Disable notifications"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
+msgstr[0] "Išjungti pranešimus"
+msgstr[1] "Išjungti pranešimus"
+msgstr[2] "Išjungti pranešimus"
+msgstr[3] "Išjungti pranešimus"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr ""
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Šalinti žinutes"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6883,6 +6898,10 @@ msgstr[0] "%2 rašo"
 msgstr[1] "%2 rašo"
 msgstr[2] "%2 rašo"
 msgstr[3] "%2 rašo"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Draugai"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

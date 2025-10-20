@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -492,18 +492,20 @@ msgid "File"
 msgstr "文件"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "封禁用户"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "查找好友"
+msgid "Find User"
+msgstr "封禁用户"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1368,10 +1370,12 @@ msgid "Mention"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "查找好友"
+msgid "Find User"
+msgstr "封禁用户"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1380,10 +1384,12 @@ msgid "Copy User ID"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr ""
+msgid "Direct Messages"
+msgstr "搜索消息"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1990,9 +1996,11 @@ msgid "Favorite"
 msgstr "收藏夹"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "好友"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgid "Direct Messages"
+msgstr "搜索消息"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4054,6 +4062,13 @@ msgstr "显示菜单"
 msgid "Find your friends"
 msgstr "查找好友"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "查找好友"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4265,17 +4280,20 @@ msgid "Home"
 msgstr "主页"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
-msgstr[0] ""
+#, fuzzy, kde-format
+#| msgid "Disable notifications"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
+msgstr[0] "禁用通知"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "好友"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "搜索消息"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6864,6 +6882,17 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "查找好友"
+
+#~ msgid "Friends"
+#~ msgstr "好友"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "好友"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

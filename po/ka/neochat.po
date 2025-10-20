@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 05:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -492,18 +492,20 @@ msgid "File"
 msgstr "ფაილი"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "იპოვეთ თქვენი მეგობრები"
+msgid "Find User"
+msgstr "მომხმარებლის ბანი"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "იპოვეთ თქვენი მეგობრები"
+msgid "Find User"
+msgstr "მომხმარებლის ბანი"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1373,10 +1375,12 @@ msgid "Mention"
 msgstr "ხსენება"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "იპოვეთ თქვენი მეგობრები"
+msgid "Find User"
+msgstr "მომხმარებლის ბანი"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1385,10 +1389,12 @@ msgid "Copy User ID"
 msgstr "მომხმარებლის ID-ის კოპირება"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "მეგობრები"
+msgid "Direct Messages"
+msgstr "მიმაგრებული შეტყობინებები"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2019,9 +2025,11 @@ msgid "Favorite"
 msgstr "რჩეული"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "მეგობრები"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "მიმაგრებული შეტყობინებები"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4089,6 +4097,13 @@ msgstr "მენიუს ჩვენება"
 msgid "Find your friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "იპოვეთ თქვენი მეგობრები"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4301,18 +4316,23 @@ msgid "Home"
 msgstr "საწყისი"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "მეგობრები (%1 გაფრთხილება)"
 msgstr[1] "მეგობრები (%1 გაფრთხილება)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "მეგობრები"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "მიმაგრებული შეტყობინებები"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6945,6 +6965,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "იპოვეთ თქვენი მეგობრები"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "იპოვეთ თქვენი მეგობრები"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "მეგობრები"
+
+#~ msgid "Friends"
+#~ msgstr "მეგობრები"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "მეგობრები"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "წაშლა"
@@ -7248,10 +7287,6 @@ msgstr[1] "%2 კრეფს"
 
 #~ msgid "No users available"
 #~ msgstr "მომხმარებლები ხელმისაწვდომი არაა"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "მომხმარებლის ბანი"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -504,18 +504,19 @@ msgstr "Fil"
 
 #: src/app/qml/GlobalMenu.qml:25
 #, fuzzy, kde-format
-#| msgid "Find your friends"
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Finn vennane dine"
+msgid "Find User"
+msgstr "Utesteng brukar"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Finn vennane dine"
+msgid "Find User"
+msgstr "Utesteng brukar"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, fuzzy, kde-format
@@ -1429,10 +1430,12 @@ msgid "Mention"
 msgstr "@-nemning"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Finn vennane dine"
+msgid "Find User"
+msgstr "Utesteng brukar"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1444,10 +1447,9 @@ msgstr "Brukar-ID"
 
 #: src/app/qml/UserSearchPage.qml:84
 #, fuzzy, kde-format
-#| msgid "Friends"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Vennar"
+msgid "Direct Messages"
+msgstr "Finn meldingar …"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, fuzzy, kde-format
@@ -2096,9 +2098,9 @@ msgid "Favorite"
 msgstr "Favorittar"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Vennar"
+#, fuzzy, kde-format
+msgid "Direct Messages"
+msgstr "Finn meldingar …"
 
 # Vanlege rom, og bør derfor vera i fleirtal.
 #: src/libneochat/enums/neochatroomtype.h:71
@@ -4208,6 +4210,13 @@ msgstr "Vis meny"
 msgid "Find your friends"
 msgstr "Finn vennane dine"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Finn vennane dine"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4442,17 +4451,17 @@ msgstr "Heim"
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "View notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Vis varslingar"
 msgstr[1] "Vis varslingar"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Vennar"
+#, fuzzy, kde-format
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Finn meldingar …"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7181,6 +7190,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
+
+#, fuzzy
+#~| msgid "Find your friends"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Finn vennane dine"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Finn vennane dine"
+
+#, fuzzy
+#~| msgid "Friends"
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Vennar"
+
+#~ msgid "Friends"
+#~ msgstr "Vennar"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Vennar"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

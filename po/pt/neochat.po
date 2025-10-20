@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -539,18 +539,19 @@ msgid "File"
 msgstr "Ficheiro"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Banir o Utilizador"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr ""
+msgid "Find User"
+msgstr "Banir o Utilizador"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, fuzzy, kde-format
@@ -1518,10 +1519,11 @@ msgid "Mention"
 msgstr "@Menções"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Banir o Utilizador"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1531,10 +1533,11 @@ msgid "Copy User ID"
 msgstr "Utilizador"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr ""
+msgid "Direct Messages"
+msgstr "Mensagens Directas"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2222,9 +2225,10 @@ msgid "Favorite"
 msgstr "Favorito"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgid "Direct Messages"
+msgstr "Mensagens Directas"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4470,6 +4474,13 @@ msgstr "Mudar de Utilizador"
 msgid "Find your friends"
 msgstr ""
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr ""
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4708,17 +4719,18 @@ msgstr ""
 #: src/rooms/SpaceDrawer.qml:139
 #, fuzzy, kde-format
 #| msgid "Mute notifications"
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Silenciar as notificações"
 msgstr[1] "Silenciar as notificações"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Mensagens Directas"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, fuzzy, kde-format
@@ -7984,10 +7996,6 @@ msgstr[1] "%2 estão a escrever"
 
 #~ msgid "No users available"
 #~ msgstr "Sem utilizadores disponíveis"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Banir o Utilizador"
 
 #, fuzzy
 #~| msgid "Accept Invitation"

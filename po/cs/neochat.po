@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2024-09-17 15:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -488,18 +488,20 @@ msgid "File"
 msgstr "Soubor"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Zablokovat uživatele"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr ""
+msgid "Find User"
+msgstr "Zablokovat uživatele"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1364,10 +1366,12 @@ msgid "Mention"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr ""
+msgid "Find User"
+msgstr "Zablokovat uživatele"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1376,10 +1380,12 @@ msgid "Copy User ID"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr ""
+msgid "Direct Messages"
+msgstr "Hledat zprávy"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1985,9 +1991,11 @@ msgid "Favorite"
 msgstr "Oblíbené"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Přátelé"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgid "Direct Messages"
+msgstr "Hledat zprávy"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4046,6 +4054,13 @@ msgstr "Zobrazovat nabídku"
 msgid "Find your friends"
 msgstr ""
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr ""
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4257,19 +4272,22 @@ msgid "Home"
 msgstr "Domů"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+#, fuzzy, kde-format
+#| msgid "Disable notifications"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
+msgstr[0] "Zakázat upozornění"
+msgstr[1] "Zakázat upozornění"
+msgstr[2] "Zakázat upozornění"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Přátelé"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Hledat zprávy"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6867,6 +6885,13 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píší"
 msgstr[2] "%2 píší"
+
+#~ msgid "Friends"
+#~ msgstr "Přátelé"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Přátelé"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

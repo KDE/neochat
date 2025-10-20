@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-09-02 17:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -498,18 +498,20 @@ msgid "File"
 msgstr "File"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Trova tu Amicos"
+msgid "Find User"
+msgstr "Prohibi usator"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Trova tu amicos"
+msgid "Find User"
+msgstr "Prohibi usator"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1393,10 +1395,12 @@ msgid "Mention"
 msgstr "Mention"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Trova tu amicos"
+msgid "Find User"
+msgstr "Prohibi usator"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, fuzzy, kde-format
@@ -1407,10 +1411,12 @@ msgid "Copy User ID"
 msgstr "ID de usator"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Amicos"
+msgid "Direct Messages"
+msgstr "Messages appunctate"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2068,9 +2074,11 @@ msgid "Favorite"
 msgstr "Favorito"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Amicos"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Messages appunctate"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4166,6 +4174,13 @@ msgstr "Monstra menu"
 msgid "Find your friends"
 msgstr "Trova tu amicos"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Trova tu amicos"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4383,18 +4398,23 @@ msgid "Home"
 msgstr "Domo o initio"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Amicos (%1 notificationes)"
 msgstr[1] "Amicos (%1 notificationes)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Amicos"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Messages appunctate"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7058,6 +7078,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 es typante"
 msgstr[1] "%2 es typante"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Trova tu Amicos"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Trova tu amicos"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Amicos"
+
+#~ msgid "Friends"
+#~ msgstr "Amicos"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Amicos"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Remove"
@@ -7361,10 +7400,6 @@ msgstr[1] "%2 es typante"
 
 #~ msgid "No users available"
 #~ msgstr "Nulle usatores disponibile"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Prohibi usator"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

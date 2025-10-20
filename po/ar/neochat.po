@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-15 20:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -491,18 +491,20 @@ msgid "File"
 msgstr "ملف"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "اعثر على أصدقائك"
+msgid "Find User"
+msgstr "احظر مستخدم"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "اعثر على أصدقائك"
+msgid "Find User"
+msgstr "احظر مستخدم"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1374,10 +1376,12 @@ msgid "Mention"
 msgstr "أذكر"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "اعثر على أصدقائك"
+msgid "Find User"
+msgstr "احظر مستخدم"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1386,10 +1390,12 @@ msgid "Copy User ID"
 msgstr "انسخ معرف المستخدم"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "الأصدقاء"
+msgid "Direct Messages"
+msgstr "الرسائل المثبتة"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2009,9 +2015,11 @@ msgid "Favorite"
 msgstr "المفضّلة"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "الأصدقاء"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "الرسائل المثبتة"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4090,6 +4098,13 @@ msgstr "أظهر القائمة"
 msgid "Find your friends"
 msgstr "اعثر على أصدقائك"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "اعثر على أصدقائك"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4301,10 +4316,13 @@ msgid "Home"
 msgstr "المنزل"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "الأصدقاء (لا يوجد إشعارات)"
 msgstr[1] "الأصدقاء (إشعار واحد)"
 msgstr[2] "الأصدقاء (إشعاران)"
@@ -4313,10 +4331,12 @@ msgstr[4] "الأصدقاء (%1 إشعارًا)"
 msgstr[5] "الأصدقاء (%1 إشعار)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "الأصدقاء"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "الرسائل المثبتة"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6944,6 +6964,25 @@ msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "اعثر على أصدقائك"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "اعثر على أصدقائك"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "الأصدقاء"
+
+#~ msgid "Friends"
+#~ msgstr "الأصدقاء"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "الأصدقاء"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "أزل"
@@ -7255,10 +7294,6 @@ msgstr[5] "‏%2 يكتبون"
 
 #~ msgid "No users available"
 #~ msgstr "لا يوجد مستخدمين"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "احظر مستخدم"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

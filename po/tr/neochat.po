@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 17:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -494,18 +494,20 @@ msgid "File"
 msgstr "Dosya"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Arkadaşlarını Bul"
+msgid "Find User"
+msgstr "Kullanıcıyı Yasakla"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Arkadaşlarını Bul"
+msgid "Find User"
+msgstr "Kullanıcıyı Yasakla"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1375,10 +1377,12 @@ msgid "Mention"
 msgstr "Söz Et"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Arkadaşlarını Bul"
+msgid "Find User"
+msgstr "Kullanıcıyı Yasakla"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1387,10 +1391,12 @@ msgid "Copy User ID"
 msgstr "Kullanıcı Kimliğini Kopyala"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Arkadaşlar"
+msgid "Direct Messages"
+msgstr "Sabitlenmiş İletiler"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2032,9 +2038,11 @@ msgid "Favorite"
 msgstr "Sık Kullanılanlar"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Arkadaşlar"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Sabitlenmiş İletiler"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4098,6 +4106,13 @@ msgstr "Menüyü göster"
 msgid "Find your friends"
 msgstr "Arkadaşlarını Bul"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Arkadaşlarını Bul"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4311,18 +4326,23 @@ msgid "Home"
 msgstr "Ana sayfa"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Arkadaşlar (%1 Bildirim)"
 msgstr[1] "Arkadaşlar (%1 Bildirim)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Arkadaşlar"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Sabitlenmiş İletiler"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6951,6 +6971,25 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Arkadaşlarını Bul"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Arkadaşlarını Bul"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Arkadaşlar"
+
+#~ msgid "Friends"
+#~ msgstr "Arkadaşlar"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Arkadaşlar"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

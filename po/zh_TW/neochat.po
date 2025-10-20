@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-09-22 04:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -493,18 +493,20 @@ msgid "File"
 msgstr "檔案"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "尋找您的朋友"
+msgid "Find User"
+msgstr "封鎖使用者"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "尋找您的朋友"
+msgid "Find User"
+msgstr "封鎖使用者"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1376,10 +1378,12 @@ msgid "Mention"
 msgstr "提及"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "尋找您的朋友"
+msgid "Find User"
+msgstr "封鎖使用者"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1388,10 +1392,12 @@ msgid "Copy User ID"
 msgstr "複製使用者 ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "好友"
+msgid "Direct Messages"
+msgstr "置頂訊息"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2001,9 +2007,11 @@ msgid "Favorite"
 msgstr "最愛"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "好友"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "置頂訊息"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4064,6 +4072,13 @@ msgstr "顯示選單"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "尋找您的朋友"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4275,17 +4290,22 @@ msgid "Home"
 msgstr "首頁"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "好友（%1 個通知）"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "好友"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "置頂訊息"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6879,6 +6899,25 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 人正在輸入訊息"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "尋找您的朋友"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "尋找您的朋友"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "好友"
+
+#~ msgid "Friends"
+#~ msgstr "好友"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "好友"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "移除"
@@ -7177,10 +7216,6 @@ msgstr[0] "%2 人正在輸入訊息"
 
 #~ msgid "No users available"
 #~ msgstr "沒有可用的使用者"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "封鎖使用者"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

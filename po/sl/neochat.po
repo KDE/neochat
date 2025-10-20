@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 07:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -496,18 +496,20 @@ msgid "File"
 msgstr "Datoteka"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Poišči vaše prijatelje"
+msgid "Find User"
+msgstr "Prepovej uporabnika"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
+msgid "Find User"
+msgstr "Prepovej uporabnika"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1380,10 +1382,12 @@ msgid "Mention"
 msgstr "Omeni"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Poišči vaše prijatelje"
+msgid "Find User"
+msgstr "Prepovej uporabnika"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1392,10 +1396,12 @@ msgid "Copy User ID"
 msgstr "Kopiraj določilnik uporabnika"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Prijatelji"
+msgid "Direct Messages"
+msgstr "Pripeta sporočila"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2039,9 +2045,11 @@ msgid "Favorite"
 msgstr "Priljubljeno"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Prijatelji"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Pripeta sporočila"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4114,6 +4122,13 @@ msgstr "Prikaži meni"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4327,20 +4342,25 @@ msgid "Home"
 msgstr "Domov"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Prijatelji (%1 obvestil)"
 msgstr[1] "Prijatelji (%1 obvestilo)"
 msgstr[2] "Prijatelji (%1 obvestili)"
 msgstr[3] "Prijatelji (%1 obvestila)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Prijatelji"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Pripeta sporočila"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6976,6 +6996,25 @@ msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Poišči vaše prijatelje"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Poišči vaše prijatelje"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
+
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Prijatelji"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Odstrani"
@@ -7280,10 +7319,6 @@ msgstr[3] "%2 tipkajo"
 
 #~ msgid "No users available"
 #~ msgstr "Nobenega uporabnika ni na voljo"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Prepovej uporabnika"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

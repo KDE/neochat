@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-09-27 07:02+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -494,18 +494,20 @@ msgid "File"
 msgstr "Plik"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Poszukaj swoich znajomych"
+msgid "Find User"
+msgstr "Zbanuj użytkownika"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Poszukaj swoich znajomych"
+msgid "Find User"
+msgstr "Zbanuj użytkownika"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1378,10 +1380,12 @@ msgid "Mention"
 msgstr "Wzmianki"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Poszukaj swoich znajomych"
+msgid "Find User"
+msgstr "Zbanuj użytkownika"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1390,10 +1394,12 @@ msgid "Copy User ID"
 msgstr "Skopiuj ID użytkownika"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Przyjaciele"
+msgid "Direct Messages"
+msgstr "Przypięte wiadomości"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2039,9 +2045,11 @@ msgid "Favorite"
 msgstr "Ulubione"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Znajomi"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Przypięte wiadomości"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4119,6 +4127,13 @@ msgstr "Pokaż menu"
 msgid "Find your friends"
 msgstr "Poszukaj swoich znajomych"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Poszukaj swoich znajomych"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4332,19 +4347,24 @@ msgid "Home"
 msgstr "Dom"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Przyjaciele (%1 powiadomienie)"
 msgstr[1] "Przyjaciele (%1 powiadomienia)"
 msgstr[2] "Przyjaciele (%1 powiadomień)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Znajomi"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Przypięte wiadomości"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6994,6 +7014,25 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Poszukaj swoich znajomych"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Poszukaj swoich znajomych"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Przyjaciele"
+
+#~ msgid "Friends"
+#~ msgstr "Znajomi"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Znajomi"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Usuń"
@@ -7304,10 +7343,6 @@ msgstr[2] "%2 pisze"
 
 #~ msgid "No users available"
 #~ msgstr "Brak dostępnych użytkowników"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Zbanuj użytkownika"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

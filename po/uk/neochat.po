@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 16:00+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -497,18 +497,20 @@ msgid "File"
 msgstr "Файл"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Знайти ваших друзів"
+msgid "Find User"
+msgstr "Блокування користувача"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Знайдіть ваших друзів"
+msgid "Find User"
+msgstr "Заблокувати користувача"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1386,10 +1388,12 @@ msgid "Mention"
 msgstr "Згадування"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Знайдіть ваших друзів"
+msgid "Find User"
+msgstr "Блокування користувача"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1398,10 +1402,12 @@ msgid "Copy User ID"
 msgstr "Копіювати ідентифікатор користувача"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Друзі"
+msgid "Direct Messages"
+msgstr "Пришпилені повідомлення"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2048,9 +2054,11 @@ msgid "Favorite"
 msgstr "Улюблене"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Друзі"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Пришпилені повідомлення"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4127,6 +4135,13 @@ msgstr "Показати меню"
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Знайдіть ваших друзів"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4339,20 +4354,25 @@ msgid "Home"
 msgstr "Домівка"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Друзі (%1 сповіщення)"
 msgstr[1] "Друзі (%1 сповіщення)"
 msgstr[2] "Друзі (%1 сповіщень)"
 msgstr[3] "Друзі (%1 сповіщення)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Друзі"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Пришпилені повідомлення"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -7013,6 +7033,25 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Знайти ваших друзів"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Знайдіть ваших друзів"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Друзі"
+
+#~ msgid "Friends"
+#~ msgstr "Друзі"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Друзі"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Вилучити"
@@ -7321,10 +7360,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "No users available"
 #~ msgstr "Немає доступних користувачів"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Заблокувати користувача"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

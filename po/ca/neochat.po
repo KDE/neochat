@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-18 10:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -497,18 +497,20 @@ msgid "File"
 msgstr "Fitxer"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Cerqueu els vostres amics"
+msgid "Find User"
+msgstr "Bandeja l'usuari"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Cerca d'amics"
+msgid "Find User"
+msgstr "Bandeja l'usuari"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1384,10 +1386,12 @@ msgid "Mention"
 msgstr "Menció"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Cerca d'amics"
+msgid "Find User"
+msgstr "Bandeja l'usuari"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1396,10 +1400,12 @@ msgid "Copy User ID"
 msgstr "Copia l'ID d'usuari"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Amics"
+msgid "Direct Messages"
+msgstr "Missatges fixats"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2050,9 +2056,11 @@ msgid "Favorite"
 msgstr "Preferida"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Amics"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Missatges fixats"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4122,6 +4130,13 @@ msgstr "Mostra el menú"
 msgid "Find your friends"
 msgstr "Cerqueu els vostres amics"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Cerca d'amics"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4335,18 +4350,23 @@ msgid "Home"
 msgstr "Inici"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Amics (%1 notificació)"
 msgstr[1] "Amics (%1 notificacions)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Amics"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Missatges fixats"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6997,6 +7017,25 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Cerqueu els vostres amics"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Cerca d'amics"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Amics"
+
+#~ msgid "Friends"
+#~ msgstr "Amics"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Amics"
 
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"

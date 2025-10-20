@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
-"PO-Revision-Date: 2025-10-14 00:17+0200\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"PO-Revision-Date: 2025-10-18 10:48+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -494,18 +494,20 @@ msgid "File"
 msgstr "Bestand"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Zoek uw vrienden"
+msgid "Find User"
+msgstr "Gebruiker verbannen"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Zoek uw vrienden"
+msgid "Find User"
+msgstr "Gebruiker verbannen"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1378,10 +1380,12 @@ msgid "Mention"
 msgstr "Vermelding"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Zoek uw vrienden"
+msgid "Find User"
+msgstr "Gebruiker verbannen"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1390,10 +1394,12 @@ msgid "Copy User ID"
 msgstr "Gebruikers-ID kopiëren"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Vrienden"
+msgid "Direct Messages"
+msgstr "Vast gepinde berichten"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2043,9 +2049,11 @@ msgid "Favorite"
 msgstr "Favoriet"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Vrienden"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Vast gepinde berichten"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4113,6 +4121,13 @@ msgstr "Menu tonen"
 msgid "Find your friends"
 msgstr "Zoek uw vrienden"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Zoek uw vrienden"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4326,18 +4341,23 @@ msgid "Home"
 msgstr "Home"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Vrienden (%1 melding)"
 msgstr[1] "Vrienden (%1 meldingen)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Vrienden"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Vast gepinde berichten"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -4741,16 +4761,13 @@ msgid "Logout device"
 msgstr "Afmeldapparaat"
 
 #: src/settings/DeviceDelegate.qml:146
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "Apparaat verwijderen"
 
 #: src/settings/DeviceDelegate.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
 msgstr "Verwijderen"
@@ -6984,6 +7001,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Zoek uw vrienden"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Zoek uw vrienden"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Vrienden"
+
+#~ msgid "Friends"
+#~ msgstr "Vrienden"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Vrienden"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Verwijderen"
@@ -7287,10 +7323,6 @@ msgstr[1] "%2 zijn bezig met het typen"
 
 #~ msgid "No users available"
 #~ msgstr "Geen gebruikers beschikbaar"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Gebruiker verbannen"
 
 #~ msgctxt "@title:group"
 #~ msgid "Invitations"

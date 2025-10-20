@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:42+0000\n"
+"POT-Creation-Date: 2025-10-20 00:42+0000\n"
 "PO-Revision-Date: 2025-10-17 14:27+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -493,18 +493,20 @@ msgid "File"
 msgstr "Tiedosto"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:inmenu"
-msgid "Find your Friends"
-msgstr "Etsi kavereita"
+msgid "Find User"
+msgstr "Estä käyttäjä"
 
-#: src/app/qml/GlobalMenu.qml:30 src/rooms/ExploreComponent.qml:87
-#: src/rooms/ExploreComponentMobile.qml:72 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:246
-#, kde-format
+#: src/app/qml/GlobalMenu.qml:30
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Ban User"
 msgctxt "@title"
-msgid "Find your friends"
-msgstr "Etsi kavereita"
+msgid "Find User"
+msgstr "Torju käyttäjä"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -1373,10 +1375,12 @@ msgid "Mention"
 msgstr "Mainitse"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Ban User"
 msgctxt "@action:title"
-msgid "Find Your Friends"
-msgstr "Etsi kavereita"
+msgid "Find User"
+msgstr "Estä käyttäjä"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1385,10 +1389,12 @@ msgid "Copy User ID"
 msgstr "Kopioi käyttäjätunniste"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@info"
-msgid "Friends"
-msgstr "Kaverit"
+msgid "Direct Messages"
+msgstr "Kiinnitetyt viestit"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2025,9 +2031,11 @@ msgid "Favorite"
 msgstr "Suosikki"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, kde-format
-msgid "Friends"
-msgstr "Kaverit"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgid "Direct Messages"
+msgstr "Kiinnitetyt viestit"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -4089,6 +4097,13 @@ msgstr "Näytä valikko"
 msgid "Find your friends"
 msgstr "Etsi kavereita"
 
+#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Etsi kavereita"
+
 #: src/rooms/ExploreComponent.qml:92
 #, kde-format
 msgid "Create a Room"
@@ -4300,18 +4315,23 @@ msgid "Home"
 msgstr "Koti"
 
 #: src/rooms/SpaceDrawer.qml:139
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends (%1 notification)"
-msgid_plural "Friends (%1 notifications)"
+#, fuzzy, kde-format
+#| msgctxt "@button View all one-on-one chats with your friends."
+#| msgid "Friends (%1 notification)"
+#| msgid_plural "Friends (%1 notifications)"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages (%1 notification)"
+msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Kaverit (%1 ilmoitus)"
 msgstr[1] "Kaverit (%1 ilmoitusta)"
 
 #: src/rooms/SpaceDrawer.qml:142
-#, kde-format
-msgctxt "@button View all one-on-one chats with your friends."
-msgid "Friends"
-msgstr "Kaverit"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
+msgctxt "@button View all one-on-one chats."
+msgid "Direct Messages"
+msgstr "Kiinnitetyt viestit"
 
 #: src/rooms/SpaceDrawer.qml:224
 #, kde-format
@@ -6934,6 +6954,25 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
 
+#~ msgctxt "@action:inmenu"
+#~ msgid "Find your Friends"
+#~ msgstr "Etsi kavereita"
+
+#~ msgctxt "@action:title"
+#~ msgid "Find Your Friends"
+#~ msgstr "Etsi kavereita"
+
+#~ msgctxt "@info"
+#~ msgid "Friends"
+#~ msgstr "Kaverit"
+
+#~ msgid "Friends"
+#~ msgstr "Kaverit"
+
+#~ msgctxt "@button View all one-on-one chats with your friends."
+#~ msgid "Friends"
+#~ msgstr "Kaverit"
+
 #~ msgctxt "As in 'Remove this device'"
 #~ msgid "Remove"
 #~ msgstr "Poista"
@@ -7234,10 +7273,6 @@ msgstr[1] "%2 kirjoittavat"
 
 #~ msgid "No users available"
 #~ msgstr "Käyttäjiä ei ole saatavilla"
-
-#~ msgctxt "@title"
-#~ msgid "Ban User"
-#~ msgstr "Torju käyttäjä"
 
 #, fuzzy
 #~| msgid "Accept Invitation"
