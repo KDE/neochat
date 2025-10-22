@@ -40,6 +40,8 @@ Kirigami.ApplicationWindow {
     visible: false // Will be overridden in Component.onCompleted
     wideScreen: width > Kirigami.Units.gridUnit * 65
 
+    font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+
     pageStack {
         initialPage: WelcomePage {
             showExisting: true

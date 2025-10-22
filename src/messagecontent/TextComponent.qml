@@ -67,7 +67,9 @@ TextEdit {
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
     font {
-        pointSize: !root.isReply && QmlUtils.isEmoji(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+        pointSize: !root.isReply && QmlUtils.isEmoji(display)
+                   ? Kirigami.Theme.defaultFont.pointSize * 4 * NeoChatConfig.fontScale
+                   : Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
         family: QmlUtils.isEmoji(display) ? 'emoji' : Kirigami.Theme.defaultFont.family
     }
     selectByMouse: !Kirigami.Settings.isMobile

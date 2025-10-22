@@ -43,6 +43,36 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            above: fontScaleSpinBoxDelegate
+            below: compactRoomListDelegate
+        }
+
+        /*!
+        Font scale setting allows user to adjust the font size used in the app.
+
+        SpinBox doesn't support decimal values, so we multiply or divide our values by 10 to
+        simulate decimal steps (0.1) for a more fine-grained control over font scaling.
+        */
+        FormCard.FormSpinBoxDelegate {
+            id: fontScaleSpinBoxDelegate
+            label: i18n("Font scale")
+            from: 5 // 0.5x
+            to: 30 // 3.0x
+            stepSize: 1 // 0.1x
+            textFromValue: function (value, locale) {
+                return Number(value / 10).toLocaleString(locale, 'f', 1);
+            }
+            valueFromText: function (text, locale) {
+                return Number.fromLocaleString(locale, text) * 10;
+            }
+            value: NeoChatConfig.fontScale * 10
+            onValueChanged: {
+                NeoChatConfig.fontScale = value / 10;
+                NeoChatConfig.save();
+            }
+        }
     }
 
     FormCard.FormHeader {
