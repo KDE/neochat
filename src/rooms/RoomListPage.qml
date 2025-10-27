@@ -78,11 +78,11 @@ Kirigami.Page {
     }
 
     function goToNextUnreadRoom() {
-        goToNextRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnread));
+        goToNextRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnreadMessages));
     }
 
     function goToPreviousUnreadRoom() {
-        goToPreviousRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnread));
+        goToPreviousRoomFiltered(item => (item && item instanceof RoomDelegate && item.hasUnreadMessages));
     }
 
     titleDelegate: Loader {
