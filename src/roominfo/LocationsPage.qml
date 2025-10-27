@@ -7,7 +7,7 @@ import QtPositioning
 
 import org.kde.kirigami as Kirigami
 
-import org.kde.neochat.libneochat
+import org.kde.neochat
 
 Kirigami.Page {
     id: root
