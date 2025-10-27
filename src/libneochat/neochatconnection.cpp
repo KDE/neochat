@@ -574,4 +574,9 @@ bool NeoChatConnection::isVerifiedSession() const
     return isVerifiedDevice(userId(), deviceId());
 }
 
+void NeoChatConnection::reportUser(const QString &userId, const QString &reason)
+{
+    callApi<NeochatReportUserJob>(userId, reason);
+}
+
 #include "moc_neochatconnection.cpp"
