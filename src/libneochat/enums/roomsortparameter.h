@@ -89,7 +89,7 @@ public:
         case Parameter::MostHighlights:
             return i18nc("@info", "Rooms with the most highlighted messages are higher");
         case Parameter::LastActive:
-            return i18nc("@info", "Rooms with the newer messages are higher");
+            return i18nc("@info", "Rooms with newer events are higher");
         default:
             return {};
         }

@@ -91,9 +91,15 @@ FormCard.FormCardPage {
         title: i18nc("@title:group", "Room List Sort Order")
     }
     FormCard.FormCard {
+        FormCard.FormTextDelegate {
+            text: i18nc("@info:label", "Hidden events are not considered as recent activity when sorting rooms.")
+        }
+
+        FormCard.FormDelegateSeparator {}
+
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'sort something based on last activity'", "Activity")
-            description: i18nc("@info", "Rooms with unread notifications will be shown first")
+            text: i18nc("As in 'sort something based on last activity'", "Importance")
+            description: i18nc("@info", "Rooms with unread notifications will be shown first.")
             checked: NeoChatConfig.sortOrder === 1
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
@@ -113,8 +119,8 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormRadioDelegate {
-            text: i18nc("As in 'sort something based on the last message'", "Last Message Activity")
-            description: i18nc("@info", "Rooms with the newest activity will be shown first")
+            text: i18nc("As in 'sort something based on the last event'", "Newest Events")
+            description: i18nc("@info", "Rooms with the newest events will be shown first.")
             checked: NeoChatConfig.sortOrder === 2
             enabled: !NeoChatConfig.isSortOrderImmutable
             onToggled: {
