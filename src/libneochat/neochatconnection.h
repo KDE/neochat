@@ -224,6 +224,11 @@ public:
 
     Q_INVOKABLE void unlockSSSS(const QString &secret);
 
+    /**
+      * @brief Report a user.
+      */
+    Q_INVOKABLE void reportUser(const QString &userId, const QString &reason);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();
