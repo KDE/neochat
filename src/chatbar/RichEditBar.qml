@@ -37,7 +37,6 @@ QQC2.ToolBar {
     readonly property real uncompressedImplicitWidth: textFormatRow.implicitWidth +
                                                       listRow.implicitWidth +
                                                       styleButton.implicitWidth +
-                                                      codeButton.implicitWidth +
                                                       emojiButton.implicitWidth +
                                                       linkButton.implicitWidth +
                                                       sendRow.implicitWidth +
@@ -48,7 +47,6 @@ QQC2.ToolBar {
     readonly property real listCompressedImplicitWidth: textFormatRow.implicitWidth +
                                                         compressedListButton.implicitWidth +
                                                         styleButton.implicitWidth +
-                                                        codeButton.implicitWidth +
                                                         emojiButton.implicitWidth +
                                                         linkButton.implicitWidth +
                                                         sendRow.implicitWidth +
@@ -59,7 +57,6 @@ QQC2.ToolBar {
     readonly property real textFormatCompressedImplicitWidth: compressedTextFormatButton.implicitWidth +
                                                               compressedListButton.implicitWidth +
                                                               styleButton.implicitWidth +
-                                                              codeButton.implicitWidth +
                                                               emojiButton.implicitWidth +
                                                               linkButton.implicitWidth +
                                                               sendRow.implicitWidth +
@@ -348,85 +345,23 @@ QQC2.ToolBar {
             checkable: true
             checked: styleMenu.visible
             onClicked: {
+                if (styleMenu.visible) {
+                    styleMenu.close();
+                    return;
+                }
                 styleMenu.open()
             }
 
-            QQC2.Menu {
+            StylePicker {
                 id: styleMenu
-                y: -implicitHeight
+                chatContentModel: root.contentModel
 
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu no heading", "Paragraph")
-                    onTriggered: root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Text);
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 1 (largest)", "Heading 1")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style = LibNeoChat.ChatDocumentHandler.Heading1;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 2", "Heading 2")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style = LibNeoChat.ChatDocumentHandler.Heading2;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 3", "Heading 3")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style = LibNeoChat.ChatDocumentHandler.Heading3;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 4", "Heading 4")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style = LibNeoChat.ChatDocumentHandler.Heading4;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 5", "Heading 5")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style = LibNeoChat.ChatDocumentHandler.Heading5;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu heading level 6 (smallest)", "Heading 6")
-                    onTriggered: {
-                        root.focusedDocumentHandler.style  = LibNeoChat.ChatDocumentHandler.Heading6;
-                        root.clicked();
-                    }
-                }
-                QQC2.MenuItem {
-                    text: i18nc("@item:inmenu", "Quote")
-                    onTriggered: {
-                        root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Quote);
-                        root.clicked();
-                    }
-                }
+                onClosed: root.clicked()
             }
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-        QQC2.ToolButton {
-            id: codeButton
-            icon.name: "format-text-code"
-            text: i18n("Code")
-            display: QQC2.AbstractButton.IconOnly
-
-            onClicked: {
-                root.contentModel.insertComponentAtCursor(LibNeoChat.MessageComponentType.Code);
-                root.clicked();
-            }
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.text: text
         }
         Kirigami.Separator {
             Layout.fillHeight: true
