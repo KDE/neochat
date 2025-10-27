@@ -602,4 +602,9 @@ void NeoChatConnection::unlockSSSS(const QString &secret)
     }
 }
 
+void NeoChatConnection::reportUser(const QString &userId, const QString &reason)
+{
+    callApi<NeochatReportUserJob>(userId, reason);
+}
+
 #include "moc_neochatconnection.cpp"
