@@ -167,6 +167,25 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
+                text: i18nc("@action:inmenu", "Inspect Room Data")
+                icon.name: "tools"
+                visible: NeoChatConfig.developerTools
+                activeFocusOnTab: true
+
+                Layout.fillWidth: true
+
+                onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.devtools', 'DevtoolsPage'), {
+                    connection: root.room.connection,
+                    currentTabIndex: 1, // Room data tab
+                    room: root.room
+                }, {
+                    title: i18nc("@title:window", "Developer Tools"),
+                    width: Kirigami.Units.gridUnit * 50,
+                    height: Kirigami.Units.gridUnit * 42
+                })
+            }
+
+            Delegates.RoundedItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
                 text: root.room.isSpace ? i18nc("@action:button", "Leave Space…") : i18nc("@action:button", "Leave Room…")

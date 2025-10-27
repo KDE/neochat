@@ -17,6 +17,7 @@ Kirigami.ScrollablePage {
 
     property NeoChatRoom room
     required property NeoChatConnection connection
+    property alias currentTabIndex: tabBar.currentIndex
 
     title: i18nc("@title", "Developer Tools")
 
