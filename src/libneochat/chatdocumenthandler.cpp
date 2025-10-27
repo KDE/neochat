@@ -29,6 +29,7 @@
 #include "chatbartype.h"
 #include "chatdocumenthandler_logging.h"
 #include "eventhandler.h"
+#include "textstyle.h"
 
 using namespace Qt::StringLiterals;
 
@@ -1027,12 +1028,12 @@ int ChatDocumentHandler::currentListStyle() const
     return -textCursor().currentList()->format().style();
 }
 
-ChatDocumentHandler::Style ChatDocumentHandler::style() const
+TextStyle::Style ChatDocumentHandler::style() const
 {
-    return static_cast<Style>(textCursor().blockFormat().headingLevel());
+    return static_cast<TextStyle::Style>(textCursor().blockFormat().headingLevel());
 }
 
-void ChatDocumentHandler::setStyle(ChatDocumentHandler::Style style)
+void ChatDocumentHandler::setStyle(TextStyle::Style style)
 {
     const int headingLevel = style <= 6 ? style : 0;
     // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and

@@ -12,6 +12,7 @@
 
 #include "chatbarcache.h"
 #include "enums/chatbartype.h"
+#include "enums/textstyle.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
 #include "nestedlisthelper_p.h"
@@ -110,7 +111,7 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY formatChanged)
     Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY formatChanged)
 
-    Q_PROPERTY(ChatDocumentHandler::Style style READ style WRITE setStyle NOTIFY styleChanged)
+    Q_PROPERTY(TextStyle::Style style READ style WRITE setStyle NOTIFY styleChanged)
 
     // Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
     // Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
@@ -131,25 +132,6 @@ public:
         Start,
         End,
     };
-
-    /**
-     * @brief Enum to define available styles.
-     *
-     * @note The Paragraph and Heading values are intentially fixed to match heading
-     *       level values returned by QTextBlockFormat::headingLevel().
-     *
-     * @sa QTextBlockFormat::headingLevel()
-     */
-    enum Style {
-        Paragraph = 0,
-        Heading1 = 1,
-        Heading2 = 2,
-        Heading3 = 3,
-        Heading4 = 4,
-        Heading5 = 5,
-        Heading6 = 6,
-    };
-    Q_ENUM(Style);
 
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
@@ -218,8 +200,8 @@ public:
     bool canDedentList() const;
     int currentListStyle() const;
 
-    Style style() const;
-    void setStyle(Style style);
+    TextStyle::Style style() const;
+    void setStyle(TextStyle::Style style);
 
     // bool list() const;
     // void setList(bool list);

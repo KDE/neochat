@@ -9,6 +9,7 @@
 #include "chatdocumenthandler.h"
 #include "enums/chatbartype.h"
 #include "enums/messagecomponenttype.h"
+#include "enums/textstyle.h"
 #include "messagecontentmodel.h"
 
 ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
@@ -277,11 +278,28 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
     return it;
 }
 
+void ChatBarMessageContentModel::insertStyleAtCursor(TextStyle::Style style)
+{
+    switch (style) {
+    case TextStyle::Paragraph:
+        insertComponentAtCursor(MessageComponentType::Text);
+        return;
+    case TextStyle::Code:
+        insertComponentAtCursor(MessageComponentType::Code);
+        return;
+    case TextStyle::Quote:
+        insertComponentAtCursor(MessageComponentType::Quote);
+        return;
+    default:
+        return;
+    }
+}
+
 void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::Type type)
 {
     if (m_components[m_currentFocusComponent.row()].type == type) {
         if (type == MessageComponentType::Text && focusedDocumentHandler()) {
-            focusedDocumentHandler()->setStyle(ChatDocumentHandler::Paragraph);
+            focusedDocumentHandler()->setStyle(TextStyle::Paragraph);
         }
         return;
     }

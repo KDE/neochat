@@ -16,6 +16,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         EmojiPicker.qml
         EmojiDialog.qml
         EmojiTonesPicker.qml
+        StylePicker.qml
         ImageEditorPage.qml
         VoiceMessageDialog.qml
         ImageDialog.qml
@@ -23,4 +24,15 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         LocationChooser.qml
         NewPollDialog.qml
         TableDialog.qml
+    SOURCES
+        styledelegatehelper.cpp
+)
+
+target_include_directories(Chatbar PRIVATE ${CMAKE_BINARY_DIR})
+target_link_libraries(Chatbar PRIVATE
+    Qt::Core
+    Qt::Quick
+    Qt::QuickControls2
+    KF6::Kirigami
+    LibNeoChat
 )

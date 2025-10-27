@@ -9,6 +9,7 @@
 
 #include "chatdocumenthandler.h"
 #include "enums/messagecomponenttype.h"
+#include "enums/textstyle.h"
 #include "messagecomponent.h"
 #include "models/messagecontentmodel.h"
 
@@ -54,6 +55,8 @@ public:
     void setFocusIndex(const QModelIndex &index, bool mouse = false);
     Q_INVOKABLE void refocusCurrentComponent() const;
     ChatDocumentHandler *focusedDocumentHandler() const;
+
+    Q_INVOKABLE void insertStyleAtCursor(TextStyle::Style style);
 
     Q_INVOKABLE void insertComponentAtCursor(MessageComponentType::Type type);
 
