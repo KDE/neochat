@@ -119,6 +119,18 @@ Kirigami.Page {
         }
     ]
 
+    Kirigami.Action {
+        enabled: root.currentRoom && !root.currentRoom.isSpace
+        shortcut: "Ctrl+F"
+        onTriggered: {
+            ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
+                room: root.currentRoom
+            }, {
+                title: i18nc("@action:title", "Search")
+            });
+        }
+    }
+
     KeyNavigation.left: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).get(0)
 
     onCurrentRoomChanged: {

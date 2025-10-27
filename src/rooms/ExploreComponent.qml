@@ -46,10 +46,6 @@ RowLayout {
         onClicked: root.search();
         icon.name: "search"
         text: i18nc("@action", "Search Rooms")
-        Shortcut {
-            sequence: "Ctrl+F"
-            onActivated: searchButton.clicked()
-        }
 
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.text: text
