@@ -41,7 +41,12 @@ QQC2.Control {
      */
     property var defaultHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.largeSpacing * 2
 
-    property bool truncated: linkPreviewDescription.truncated || !linkPreviewDescription.visible
+    /**
+     * @brief Whether the link preview description is truncated.
+     *
+     * This is only applicable if there *is* a text description, and is never true for images.
+     */
+    property bool truncated: linkPreviewDescription.truncated && linkPreviewDescription.visible
 
     /**
      * @brief Request for this delegate to be removed.
@@ -72,7 +77,7 @@ QQC2.Control {
             id: previewImage
             Layout.preferredWidth: root.defaultHeight
             Layout.preferredHeight: root.defaultHeight
-            Layout.fillWidth: true
+            Layout.maximumWidth: root.defaultHeight
             Layout.fillHeight: true
             visible: root.linkPreviewer.imageSource.toString().length > 0
             source: root.linkPreviewer.imageSource
@@ -82,9 +87,9 @@ QQC2.Control {
         }
         ColumnLayout {
             id: column
-            implicitWidth: Math.max(linkPreviewTitle.implicitWidth, linkPreviewDescription.implicitWidth)
+            Layout.preferredWidth: Math.max(linkPreviewTitle.implicitWidth, linkPreviewDescription.implicitWidth)
+            Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
-            visible: root.linkPreviewer.title.length > 0 || root.linkPreviewer.description.length > 0
             Kirigami.Heading {
                 id: linkPreviewTitle
                 Layout.fillWidth: true
@@ -121,10 +126,11 @@ QQC2.Control {
             acceptedButtons: Qt.LeftButton
             onTapped: RoomManager.resolveResource(root.linkPreviewer.url, "join")
         }
-    }
 
-    HoverHandler {
-        cursorShape: Qt.PointingHandCursor
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
+            onHoveredChanged: (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hovered ? root.linkPreviewer.url : ""
+        }
     }
 
     QQC2.Button {
