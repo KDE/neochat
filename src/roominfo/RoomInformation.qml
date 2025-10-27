@@ -79,7 +79,7 @@ QQC2.ScrollView {
                 id: searchButton
                 visible: !root.room.isSpace
                 icon.name: "search"
-                text: i18n("Search in this room")
+                text: i18nc("@action:button", "Search Messages")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
@@ -107,7 +107,7 @@ QQC2.ScrollView {
                 id: favouriteButton
                 visible: !root.room.isSpace
                 icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
-                text: root.room && root.room.isFavourite ? i18n("Remove room from favorites") : i18n("Favorite this room")
+                text: root.room && root.room.isFavourite ? i18nc("@action:button", "Remove from Favorites") : i18nc("@action:button", "Add to Favorites")
 
                 onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
 
@@ -120,7 +120,7 @@ QQC2.ScrollView {
                 id: widgetsButton
                 visible: !root.room.isSpace
                 icon.name: "extension-symbolic"
-                text: i18nc("@action:button", "Extensions for this room")
+                text: i18nc("@action:button", "Extensions")
                 activeFocusOnTab: true
 
                 onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'WidgetsPage'), {
@@ -136,7 +136,7 @@ QQC2.ScrollView {
                 id: locationsButton
                 visible: !root.room.isSpace
                 icon.name: "map-flat"
-                text: i18n("Show locations for this room")
+                text: i18nc("@action:button", "Shared Locations")
                 activeFocusOnTab: true
 
                 onClicked: ((QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'LocationsPage'), {
@@ -152,7 +152,7 @@ QQC2.ScrollView {
                 id: pinnedMessagesButton
                 visible: !root.room.isSpace
                 icon.name: "pin-symbolic"
-                text: i18nc("@action:button", "Pinned messages")
+                text: i18nc("@action:button", "Pinned Messages")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
@@ -169,7 +169,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 id: leaveButton
                 icon.name: "arrow-left-symbolic"
-                text: root.room.isSpace ? i18nc("@action:button", "Leave this space…") : i18nc("@action:button", "Leave this room…")
+                text: root.room.isSpace ? i18nc("@action:button", "Leave Space…") : i18nc("@action:button", "Leave Room…")
                 activeFocusOnTab: true
 
                 Layout.fillWidth: true
