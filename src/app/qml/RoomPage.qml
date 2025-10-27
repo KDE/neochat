@@ -77,11 +77,33 @@ Kirigami.Page {
 
     actions: [
         Kirigami.Action {
-            tooltip: i18nc("@action:button", "Open Jitsi Meet in browser")
-            icon.name: "camera-video-symbolic"
+            id: jitsiMeetingAction
+
+            readonly property bool hasExistingMeeting: root.widgetModel.jitsiIndex >= 0
+            readonly property bool canStartNewMeeting: root.currentRoom.canSendState("im.vector.modular.widgets")
+
+            tooltip: {
+                if (hasExistingMeeting) {
+                    return i18nc("@action:button", "Join Jitsi meeting…");
+                }
+
+                return canStartNewMeeting ? i18nc("@action:button", "Start Jitsi meeting…") : i18nc("@action:button", "You do not have permissions to start Jitsi meetings")
+            }
+            icon {
+                name: "camera-video-symbolic"
+                color: hasExistingMeeting ? Kirigami.Theme.highlightColor : "transparent"
+            }
+            enabled: hasExistingMeeting || canStartNewMeeting
+            visible: root.currentRoom && !root.currentRoom.isSpace
             onTriggered: {
-                let url
-                if (root.widgetModel.jitsiIndex < 0) {
+                const dialog = Qt.createComponent("org.kde.neochat", "MeetingDialog").createObject(QQC2.Overlay.overlay, { hasExistingMeeting });
+                dialog.onAccepted.connect(doAction);
+                dialog.open();
+            }
+
+            function doAction(): void {
+                let url;
+                if (!hasExistingMeeting) {
                     url = root.widgetModel.addJitsiConference();
                 } else {
                     let idx = root.widgetModel.index(root.widgetModel.jitsiIndex, 0);
