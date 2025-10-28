@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -252,7 +252,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Malfermi Programistajn Ilojn"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -828,6 +828,48 @@ msgstr "Uzant-ID-oj Devas komenciĝi per @"
 msgid "The input is not a valid user ID"
 msgstr "La enigo ne estas valida uzant-ID"
 
+#: src/app/qml/MeetingDialog.qml:13
+#, kde-format
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "Komenci Babiladon"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "Aliĝis"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "Komenci Babiladon"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, kde-format
@@ -943,7 +985,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Elekti Dosieron"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1039,47 +1081,67 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignori"
 
-#: src/app/qml/RoomPage.qml:80
+#: src/app/qml/RoomPage.qml:87
 #, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
+msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, fuzzy, kde-format
+#| msgid "You do not have the privileges to complete this action"
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Pinglitaj Mesaĝojn"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bonvenon al NeoChat"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Elekti aŭ aliĝi al ĉambro por komenciĝi"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1409,12 +1471,6 @@ msgstr "Inviti al privata babilejo"
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Serĉi Mesaĝojn"
-
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Serĉi"
 
 #: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
@@ -1758,7 +1814,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Sendi mesaĝon…"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1931,38 +1987,38 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Montri fokuson en fenestrokapo"
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Iloj por programistoj"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Sencimigaj Elektebloj"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "Ĉambro-Datumoj"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "Servila Informo"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Datumoj pri Konto"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -3849,19 +3905,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Sendi al KDE-Itinero"
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Forigi antaŭrigardon"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "Malgrandigi antaŭrigardon"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "Vastigi antaŭrigardon"
@@ -4061,9 +4117,12 @@ msgid "Actions"
 msgstr "Agoj"
 
 #: src/roominfo/RoomInformation.qml:82
-#, kde-format
-msgid "Search in this room"
-msgstr "Serĉi en ĉi tiu ĉambro"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "Serĉi Mesaĝojn"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -4072,21 +4131,26 @@ msgid "Verify user"
 msgstr "Konfirmi uzanton"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Forigi ĉambron el plej ŝatataj"
+#, fuzzy, kde-format
+#| msgid "Remove from Favorites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "Forigi el Ŝatatoj"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Favorite this room"
-msgstr "Plejŝatigi ĉi tiun ĉambron"
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "Aldoni al Ŝatatoj"
 
 #: src/roominfo/RoomInformation.qml:123
 #, fuzzy, kde-format
-#| msgid "Show locations for this room"
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "Montri lokojn por ĉi tiu ĉambro"
+msgid "Extensions"
+msgstr "@Mencioj"
 
 #: src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
@@ -4097,49 +4161,60 @@ msgid "Extensions"
 msgstr "@Mencioj"
 
 #: src/roominfo/RoomInformation.qml:139
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Montri lokojn por ĉi tiu ĉambro"
+#, fuzzy, kde-format
+#| msgid "Send a Location"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "Sendi Lokon"
 
 #: src/roominfo/RoomInformation.qml:155
-#, kde-format
-msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "Pinglitaj mesaĝoj"
-
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "Forlasi ĉi spacon"
+msgid "Pinned Messages"
+msgstr "Pinglitaj Mesaĝojn"
 
-#: src/roominfo/RoomInformation.qml:172
+#: src/roominfo/RoomInformation.qml:170
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
-msgctxt "@action:button"
-msgid "Leave this room…"
-msgstr "Forlasi ĉi tiun ĉambron"
+#| msgctxt "@title:tab"
+#| msgid "Room Data"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "Ĉambro-Datumoj"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@action:button"
+msgid "Leave Space…"
+msgstr "Forlasi Spacon"
+
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room…"
+msgstr "Forlasi Ĉambron"
+
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "Membroj"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviti Uzanton"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviti uzanton al ĉambro"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4149,7 +4224,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membroj"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
@@ -4222,30 +4297,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Serĉi Ĉambrojn"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Montri Menuon"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Trovu viajn amikojn"
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Trovu viajn amikojn"
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "Krei Ĉambron"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Skani QR-Kodon"
@@ -6895,6 +6970,14 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Aldoni al Ŝatatoj"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space"
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "Forlasi ĉi spacon"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, fuzzy, kde-format
 #| msgid "Reply"
@@ -7235,6 +7318,35 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
+
+#~ msgid "Search in this room"
+#~ msgstr "Serĉi en ĉi tiu ĉambro"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "Forigi ĉambron el plej ŝatataj"
+
+#~ msgid "Favorite this room"
+#~ msgstr "Plejŝatigi ĉi tiun ĉambron"
+
+#, fuzzy
+#~| msgid "Show locations for this room"
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "Montri lokojn por ĉi tiu ĉambro"
+
+#~ msgid "Show locations for this room"
+#~ msgstr "Montri lokojn por ĉi tiu ĉambro"
+
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "Pinglitaj mesaĝoj"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Leave this room"
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "Forlasi ĉi tiun ĉambron"
 
 #, fuzzy
 #~| msgid "Find your friends"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -254,7 +254,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "डेवलपर टूल खोलें"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -830,6 +830,48 @@ msgstr "उपयोगकर्ता आईडी @ से शुरू हो
 msgid "The input is not a valid user ID"
 msgstr "इनपुट वैध उपयोगकर्ता आईडी नहीं है"
 
+#: src/app/qml/MeetingDialog.qml:13
+#, kde-format
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "चैट शुरू करें"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "जोड़ना"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "चैट शुरू करें"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, kde-format
@@ -952,7 +994,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "किसी फाइल का चयन करें"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1049,26 +1091,46 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: src/app/qml/RoomPage.qml:80
+#: src/app/qml/RoomPage.qml:87
 #, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
+msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, fuzzy, kde-format
+#| msgid "You do not have the privileges to complete this action"
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr "आपके पास यह कार्य पूरा करने का विशेषाधिकार नहीं है"
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "खोज"
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "नियोचैट ऑफ़लाइन है। कृपया अपना नेटवर्क कनेक्शन जांचें।"
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Find messages…"
@@ -1076,21 +1138,21 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "संदेश खोजें…"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "नियोचैट में आपका स्वागत है"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "आरंभ करने के लिए कोई कमरा चुनें या उसमें शामिल हों"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1422,12 +1484,6 @@ msgstr "निजी चैट के लिए आमंत्रित कर�
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "संदेश खोजें"
-
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "खोज"
 
 #: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
@@ -1768,7 +1824,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "एक संदेश भेजो…"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1939,38 +1995,38 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "विंडो हेडर में फ़ोकस दिखाएँ"
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "डेवलपर उपकरण"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "डीबग विकल्प"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "कक्ष डेटा"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "सर्वर जानकारी"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "खाता डेटा"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -3852,19 +3908,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "केडीई यात्रा कार्यक्रम को भेजें"
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "पूर्वावलोकन हटाएं"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "पूर्वावलोकन सिकोड़ें"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "पूर्वावलोकन विस्तृत करें"
@@ -4066,9 +4122,12 @@ msgid "Actions"
 msgstr "कार्रवाई"
 
 #: src/roominfo/RoomInformation.qml:82
-#, kde-format
-msgid "Search in this room"
-msgstr "इस कमरे में खोजें"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "संदेश खोजें"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -4077,21 +4136,26 @@ msgid "Verify user"
 msgstr "उपयोगकर्ता सत्यापित करें"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "पसंदीदा से कमरा हटाएँ"
+#, fuzzy, kde-format
+#| msgid "Remove from Favorites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "पसंदीदा से हटाएं"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Favorite this room"
-msgstr "इस कमरे को पसंदीदा बनाएं"
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "पसंदीदा में जोड़े"
 
 #: src/roominfo/RoomInformation.qml:123
 #, fuzzy, kde-format
-#| msgid "Show locations for this room"
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "इस कमरे के लिए स्थान दिखाएँ"
+msgid "Extensions"
+msgstr "@उल्लेख"
 
 #: src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
@@ -4102,50 +4166,59 @@ msgid "Extensions"
 msgstr "@उल्लेख"
 
 #: src/roominfo/RoomInformation.qml:139
-#, kde-format
-msgid "Show locations for this room"
-msgstr "इस कमरे के लिए स्थान दिखाएँ"
+#, fuzzy, kde-format
+#| msgid "Send a Location"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "स्थान भेजें"
 
 #: src/roominfo/RoomInformation.qml:155
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@action:button"
-msgid "Pinned messages"
+msgid "Pinned Messages"
 msgstr "संदेश खोजें…"
 
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
+#: src/roominfo/RoomInformation.qml:170
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
-msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "यह स्थान छोड़ दें"
+#| msgctxt "@title:tab"
+#| msgid "Room Data"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "कक्ष डेटा"
 
-#: src/roominfo/RoomInformation.qml:172
+#: src/roominfo/RoomInformation.qml:191
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this room"
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
 msgctxt "@action:button"
-msgid "Leave this room…"
-msgstr "यह कमरा छोड़ो"
+msgid "Leave Space…"
+msgstr "जगह छोड़ें"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room…"
+msgstr "कमरा छोड़ें"
+
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "सदस्यों"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "किसी उपयोगकर्ता को आमंत्रित करें"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, kde-format
 msgid "Invite user to room"
 msgstr "उपयोगकर्ता को कमरे में आमंत्रित करें"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4155,7 +4228,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 सदस्य"
 msgstr[1] "%1 सदस्य"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgid "No member count"
 msgstr "कोई सदस्य संख्या नहीं"
@@ -4230,30 +4303,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कमरे खोजें"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "मेनू दिखाओ"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "अपने दोस्तों को खोजें"
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "एक कमरा बनाएँ"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR कोड स्कैन करें"
@@ -6911,6 +6984,14 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "पसंदीदा में जोड़े"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space"
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "यह स्थान छोड़ दें"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, fuzzy, kde-format
 #| msgid "Reply"
@@ -7254,6 +7335,37 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#~ msgid "Search in this room"
+#~ msgstr "इस कमरे में खोजें"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "पसंदीदा से कमरा हटाएँ"
+
+#~ msgid "Favorite this room"
+#~ msgstr "इस कमरे को पसंदीदा बनाएं"
+
+#, fuzzy
+#~| msgid "Show locations for this room"
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "इस कमरे के लिए स्थान दिखाएँ"
+
+#~ msgid "Show locations for this room"
+#~ msgstr "इस कमरे के लिए स्थान दिखाएँ"
+
+#, fuzzy
+#~| msgid "Find messages…"
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "संदेश खोजें…"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Leave this room"
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "यह कमरा छोड़ो"
 
 #, fuzzy
 #~| msgid "Find your friends"

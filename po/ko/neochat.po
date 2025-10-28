@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -244,7 +244,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "개발자 도구 열기"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -800,6 +800,49 @@ msgstr "사용자 ID는 @으로 시작해야 함"
 msgid "The input is not a valid user ID"
 msgstr "입력한 텍스트가 올바른 사용자 ID가 아님"
 
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgid "Join existing chat"
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr "기존 대화에 참가"
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "대화 시작"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "입장"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "대화 시작"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, kde-format
@@ -909,7 +952,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "파일 선택"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -999,44 +1042,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "무시"
 
-#: src/app/qml/RoomPage.qml:80
+#: src/app/qml/RoomPage.qml:87
 #, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
-msgstr "브라우저에서 Jitsi Meet 열기"
+msgid "Join Jitsi meeting…"
+msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, fuzzy, kde-format
+#| msgid "You do not have the privileges to complete this action"
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr "이 작업을 수행하기에 충분한 권한이 없음"
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "검색"
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "이 대화방에는 홈 서버에서 전송한 공식 메시지가 포함되어 있습니다."
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "시작하려면 대화방을 선택하거나 입장하십시오"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1345,12 +1408,6 @@ msgstr "개인 대화로 초대"
 msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "대화방에서 %1 님의 메시지 검색"
-
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "검색"
 
 #: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
@@ -1663,7 +1720,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1825,37 +1882,37 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "창 헤더에 포커스 표시"
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "개발자 도구"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "디버그 옵션"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "대화방 데이터"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "서버 정보"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "계정 데이터"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -3712,19 +3769,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "KDE 여행 정보로 전송"
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "미리 보기 삭제"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "미리 보기 축소"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "미리 보기 확장"
@@ -3913,9 +3970,12 @@ msgid "Actions"
 msgstr "동작"
 
 #: src/roominfo/RoomInformation.qml:82
-#, kde-format
-msgid "Search in this room"
-msgstr "이 대화방에서 검색"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "메시지 검색"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -3924,20 +3984,28 @@ msgid "Verify user"
 msgstr "사용자 확인"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "책갈피에서 대화방 삭제"
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Remove from Favorites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "책갈피에서 삭제"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Favorite this room"
-msgstr "책갈피에 대화방 추가"
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add to Favorites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "책갈피에 추가"
 
 #: src/roominfo/RoomInformation.qml:123
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "이 대화방의 확장 기능"
+msgid "Extensions"
+msgstr "@멘션"
 
 #: src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
@@ -3948,52 +4016,69 @@ msgid "Extensions"
 msgstr "@멘션"
 
 #: src/roominfo/RoomInformation.qml:139
-#, kde-format
-msgid "Show locations for this room"
-msgstr "이 대화방에서 위치 표시"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send a Location"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "위치 보내기"
 
 #: src/roominfo/RoomInformation.qml:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@action:button"
-msgid "Pinned messages"
+msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "이 스페이스 떠나기…"
+#: src/roominfo/RoomInformation.qml:170
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Room Data"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "대화방 데이터"
 
-#: src/roominfo/RoomInformation.qml:172
-#, kde-format
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space…"
 msgctxt "@action:button"
-msgid "Leave this room…"
-msgstr "이 대화방 떠나기…"
+msgid "Leave Space…"
+msgstr "스페이스 떠나기…"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Leave Room…"
+msgctxt "@action:button"
+msgid "Leave Room…"
+msgstr "대화방 떠나기…"
+
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
@@ -4064,30 +4149,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "대화방 검색"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "메뉴 표시"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "친구 찾기"
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "친구 찾기"
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "대화방 만들기"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR 코드 스캔"
@@ -6619,6 +6704,12 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "스페이스에 추가"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "이 스페이스 떠나기…"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, kde-format
 msgctxt "@action:inmenu"
@@ -6923,6 +7014,34 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Jitsi Meet in browser"
+#~ msgstr "브라우저에서 Jitsi Meet 열기"
+
+#~ msgid "Search in this room"
+#~ msgstr "이 대화방에서 검색"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "책갈피에서 대화방 삭제"
+
+#~ msgid "Favorite this room"
+#~ msgstr "책갈피에 대화방 추가"
+
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "이 대화방의 확장 기능"
+
+#~ msgid "Show locations for this room"
+#~ msgstr "이 대화방에서 위치 표시"
+
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "고정된 메시지"
+
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "이 대화방 떠나기…"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Find your Friends"
@@ -7498,9 +7617,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "Chat"
 #~ msgstr "채팅"
-
-#~ msgid "Join existing chat"
-#~ msgstr "기존 대화에 참가"
 
 #~ msgid "Create new chat"
 #~ msgstr "새 대화 만들기"

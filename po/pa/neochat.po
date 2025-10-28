@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -258,7 +258,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
@@ -863,6 +863,45 @@ msgstr ""
 msgid "The input is not a valid user ID"
 msgstr ""
 
+#: src/app/qml/MeetingDialog.qml:13
+#, kde-format
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "ਜੁਆਇੰਨ"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Start a Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, fuzzy, kde-format
@@ -990,7 +1029,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "ਸਭ ਚੁਣੋ"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1085,26 +1124,45 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "ਅਣਡਿ਼ੱਠਾ"
 
-#: src/app/qml/RoomPage.qml:80
+#: src/app/qml/RoomPage.qml:87
 #, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
+msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "ਨਿਓਚੈਟ ਆਫ਼ਲਾਈਨ ਹੈ। ਆਪਣੇ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
@@ -1112,21 +1170,21 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "ਮੈਟਰਿਕਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1463,12 +1521,6 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr ""
-
 #: src/app/qml/UserDetailDialog.qml:292
 #, fuzzy, kde-format
 #| msgid "Copy"
@@ -1795,7 +1847,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -1966,42 +2018,42 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr ""
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "ਚੋਣਾਂ:"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "ਰੂਮ"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "ਕੋਈ ਰੂਮ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -4050,7 +4102,7 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr ""
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, fuzzy, kde-format
 #| msgid "Remove device"
@@ -4058,12 +4110,12 @@ msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr ""
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr ""
@@ -4273,9 +4325,10 @@ msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
 #: src/roominfo/RoomInformation.qml:82
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "Search in this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+#| msgid "Direct Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
 
 #: src/roominfo/RoomInformation.qml:99
 #, fuzzy, kde-format
@@ -4285,22 +4338,25 @@ msgid "Verify user"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "ਪਸੰਦ ਵਿੱਚੋਂ ਰੂਮ ਹਟਾਓ"
+#, fuzzy, kde-format
+#| msgid "Remove from Favourites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
 
 #: src/roominfo/RoomInformation.qml:110
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "Favorite this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+#| msgid "Add to Favourites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
 #: src/roominfo/RoomInformation.qml:123
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#| msgid "Options:"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+msgid "Extensions"
+msgstr "ਚੋਣਾਂ:"
 
 #: src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
@@ -4311,50 +4367,58 @@ msgstr "ਚੋਣਾਂ:"
 
 #: src/roominfo/RoomInformation.qml:139
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "Show locations for this room"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+#| msgid "Send invitation"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "ਸੱਦਾ ਭੇਜੋ"
 
 #: src/roominfo/RoomInformation.qml:155
 #, fuzzy, kde-format
-#| msgid "Send message"
+#| msgid "Direct Messages"
 msgctxt "@action:button"
-msgid "Pinned messages"
-msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+msgid "Pinned Messages"
+msgstr "ਸਿੱਧਾ ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
+#: src/roominfo/RoomInformation.qml:170
 #, fuzzy, kde-format
-#| msgid "Create a Room"
-msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "ਰੂਮ ਬਣਾਓ"
+#| msgid "Rooms"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "ਰੂਮ"
 
-#: src/roominfo/RoomInformation.qml:172
+#: src/roominfo/RoomInformation.qml:191
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#| msgid "View Source"
 msgctxt "@action:button"
-msgid "Leave this room…"
-msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+msgid "Leave Space…"
+msgstr "ਸਰੋਤ ਵੇਖੋ"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgid "Leave Room"
+msgctxt "@action:button"
+msgid "Leave Room…"
+msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
+
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "ਮੈਂਬਰ"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੱਦਾ ਦਿਓ"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4364,7 +4428,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -4443,31 +4507,31 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "ਰੂਮ ਬਣਾਓ"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr ""
@@ -7268,6 +7332,13 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "ਰੂਮ ਬਣਾਓ"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, fuzzy, kde-format
 #| msgid "Reply"
@@ -7617,6 +7688,42 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgid "Search in this room"
+#~ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "ਪਸੰਦ ਵਿੱਚੋਂ ਰੂਮ ਹਟਾਓ"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgid "Favorite this room"
+#~ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgid "Show locations for this room"
+#~ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
+
+#, fuzzy
+#~| msgid "Send message"
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 
 #, fuzzy
 #~| msgid "Remove"

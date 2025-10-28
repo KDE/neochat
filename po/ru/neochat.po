@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -252,7 +252,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Открыть инструменты разработчика"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -819,6 +819,48 @@ msgstr "Идентификатор пользователя должен нач�
 msgid "The input is not a valid user ID"
 msgstr "Введённый текст не является допустимым идентификатором пользователя"
 
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr "Войти в существующую учётную запись"
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "Начать чат"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "Присоединиться"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "Начать чат"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, kde-format
@@ -936,7 +978,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Выбор файла"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1033,21 +1075,39 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/app/qml/RoomPage.qml:80
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Continue in Browser"
+#: src/app/qml/RoomPage.qml:87
+#, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
-msgstr "Продолжить в браузере"
+msgid "Join Jitsi meeting…"
+msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, fuzzy, kde-format
+#| msgid "You do not have the privileges to complete this action"
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr "У вас нет привилегий для завершения этого действия"
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "Поиск"
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
@@ -1055,28 +1115,28 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "NeoChat находится в автономном режиме. Проверьте своё сетевое подключение."
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Добро пожаловать в NeoChat"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Чтобы начать, выберите комнату или присоединитесь к ней"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1414,12 +1474,6 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "Поиск сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "Поиск"
-
 #: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
@@ -1752,7 +1806,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Введите текст сообщения…"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1924,37 +1978,37 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "Показывать фокус в заголовке окна"
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "Инструменты разработчика"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "Отладка"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "Данные комнаты"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "Сведения о сервере"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "Данные учётной записи"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -3829,19 +3883,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Передать в KDE Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Удалить область предварительного просмотра"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "Уменьшить область предварительного просмотра"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "Увеличить область предварительного просмотра"
@@ -4049,9 +4103,12 @@ msgid "Actions"
 msgstr "Действия"
 
 #: src/roominfo/RoomInformation.qml:82
-#, kde-format
-msgid "Search in this room"
-msgstr "Искать в этой комнате"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "Поиск сообщений"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -4060,21 +4117,26 @@ msgid "Verify user"
 msgstr "Проверить пользователя"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "Убрать комнату из избранного"
+#, fuzzy, kde-format
+#| msgid "Remove from Favorites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "Убрать из избранного"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Favorite this room"
-msgstr "Добавить эту комнату в избранное"
+#, fuzzy, kde-format
+#| msgid "Add to Favorites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "Добавить в избранное"
 
 #: src/roominfo/RoomInformation.qml:123
 #, fuzzy, kde-format
-#| msgid "Show locations for this room"
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "Показать местоположения для этой комнаты"
+msgid "Extensions"
+msgstr "Упоминания (@)"
 
 #: src/roominfo/RoomInformation.qml:129
 #, fuzzy, kde-format
@@ -4085,45 +4147,57 @@ msgid "Extensions"
 msgstr "Упоминания (@)"
 
 #: src/roominfo/RoomInformation.qml:139
-#, kde-format
-msgid "Show locations for this room"
-msgstr "Показать местоположения для этой комнаты"
+#, fuzzy, kde-format
+#| msgid "Send a Location"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "Отправить местоположение"
 
 #: src/roominfo/RoomInformation.qml:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@action:button"
-msgid "Pinned messages"
+msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
+#: src/roominfo/RoomInformation.qml:170
 #, fuzzy, kde-format
-msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "Покинуть это пространство"
+#| msgctxt "@title:tab"
+#| msgid "Room Data"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "Данные комнаты"
 
-#: src/roominfo/RoomInformation.qml:172
+#: src/roominfo/RoomInformation.qml:191
 #, fuzzy, kde-format
 msgctxt "@action:button"
-msgid "Leave this room…"
+msgid "Leave Space…"
+msgstr "Покинуть пространство"
+
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Leave Room…"
 msgstr "Покинуть комнату"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "Участники"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Приглашение пользователя"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, kde-format
 msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4135,7 +4209,7 @@ msgstr[1] "%1 участника"
 msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgid "No member count"
 msgstr "Количество участников не подсчитывается"
@@ -4208,30 +4282,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Найти комнаты"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Показать меню"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Поиск друзей"
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Поиск друзей"
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "Создать комнату"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Сканировать QR-код"
@@ -6875,6 +6949,12 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "Добавить в пространство"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "Покинуть это пространство"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, fuzzy, kde-format
 #| msgid "Reply"
@@ -7195,6 +7275,40 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#, fuzzy
+#~| msgctxt "@action:button"
+#~| msgid "Continue in Browser"
+#~ msgctxt "@action:button"
+#~ msgid "Open Jitsi Meet in browser"
+#~ msgstr "Продолжить в браузере"
+
+#~ msgid "Search in this room"
+#~ msgstr "Искать в этой комнате"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "Убрать комнату из избранного"
+
+#~ msgid "Favorite this room"
+#~ msgstr "Добавить эту комнату в избранное"
+
+#, fuzzy
+#~| msgid "Show locations for this room"
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "Показать местоположения для этой комнаты"
+
+#~ msgid "Show locations for this room"
+#~ msgstr "Показать местоположения для этой комнаты"
+
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "Закреплённые сообщения"
+
+#, fuzzy
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "Покинуть комнату"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Find your Friends"
@@ -7765,10 +7879,6 @@ msgstr[3] "%2 набирает сообщение"
 
 #~ msgid "Chat"
 #~ msgstr "Чат"
-
-#, fuzzy
-#~ msgid "Join existing chat"
-#~ msgstr "Войти в существующую учётную запись"
 
 #, fuzzy
 #~ msgid "Create new chat"

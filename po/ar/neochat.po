@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-20 00:42+0000\n"
+"POT-Creation-Date: 2025-10-28 00:42+0000\n"
 "PO-Revision-Date: 2025-10-23 09:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -245,7 +245,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "افتح أدوات المطوّر"
 
-#: src/app/qml/AccountMenu.qml:73
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -797,6 +797,49 @@ msgstr "يجب أن تبدأ معرفات المستخدم بـ @"
 msgid "The input is not a valid user ID"
 msgstr "ليس النص المُدخَل ليس رقم مستخدم صالح"
 
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgid "Join existing chat"
+msgctxt "@title"
+msgid "Join Meeting"
+msgstr "انضم إلى دردشة موجودة"
+
+#: src/app/qml/MeetingDialog.qml:13
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@title"
+msgid "Start Meeting"
+msgstr "ابدأ دردشة"
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to join a Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:14
+#, kde-format
+msgctxt "@info:label"
+msgid "You are about to start a new Jitsi meeting in your web browser."
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join the Jitsi meeting"
+msgid "Join"
+msgstr "انضم"
+
+#: src/app/qml/MeetingDialog.qml:19
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Start Chat"
+msgctxt "@action:button Start a new Jitsi meeting"
+msgid "Start"
+msgstr "ابدأ دردشة"
+
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
 #, kde-format
@@ -906,7 +949,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "اختر ملف"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:113
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -996,44 +1039,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: src/app/qml/RoomPage.qml:80
+#: src/app/qml/RoomPage.qml:87
 #, kde-format
 msgctxt "@action:button"
-msgid "Open Jitsi Meet in browser"
-msgstr "افتح Jitsi Meet في المتصفح"
+msgid "Join Jitsi meeting…"
+msgstr ""
 
-#: src/app/qml/RoomPage.qml:108
+#: src/app/qml/RoomPage.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Start Jitsi meeting…"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:90
+#, fuzzy, kde-format
+#| msgid "You do not have the privileges to complete this action"
+msgctxt "@action:button"
+msgid "You do not have permissions to start Jitsi meetings"
+msgstr "ليست لديك صلاحيات لتنفيذ هذا الفعل"
+
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:91
+#, kde-format
+msgctxt "@action:title"
+msgid "Search"
+msgstr "ابحث"
+
+#: src/app/qml/RoomPage.qml:142
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "تحتوي هذه الغرفة على رسائل رسمية من خادم منزلك."
 
-#: src/app/qml/RoomPage.qml:119
+#: src/app/qml/RoomPage.qml:153
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "نيوتشات غير متصل: الرجاء التأكد من اتصالك بالشبكة"
 
-#: src/app/qml/RoomPage.qml:179 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "الرسائل المثبتة"
 
-#: src/app/qml/RoomPage.qml:250
+#: src/app/qml/RoomPage.qml:284
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "أهلا في نيوتشات"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:285
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "حدد أو انضم لغرفة لتبدأ"
 
-#: src/app/qml/RoomPage.qml:312
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1348,12 +1411,6 @@ msgctxt "@action:button %1 is the name of the user."
 msgid "Search room for %1's messages"
 msgstr "بحث في الغرفة عن رسائل %1"
 
-#: src/app/qml/UserDetailDialog.qml:285 src/roominfo/RoomInformation.qml:91
-#, kde-format
-msgctxt "@action:title"
-msgid "Search"
-msgstr "ابحث"
-
 #: src/app/qml/UserDetailDialog.qml:292
 #, kde-format
 msgid "Copy link"
@@ -1662,7 +1719,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "أرسل رسالة…"
 
-#: src/chatbar/ChatBar.qml:425 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1823,37 +1880,37 @@ msgctxt "@option:check"
 msgid "Show focus in window header"
 msgstr "أظهر التركيز في رأس النافذة"
 
-#: src/devtools/DevtoolsPage.qml:21
+#: src/devtools/DevtoolsPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Developer Tools"
 msgstr "أدوات المطوّر"
 
-#: src/devtools/DevtoolsPage.qml:32
+#: src/devtools/DevtoolsPage.qml:33
 #, kde-format
 msgctxt "@title:tab"
 msgid "Debug Options"
 msgstr "خيارات التّنقيح"
 
-#: src/devtools/DevtoolsPage.qml:37
+#: src/devtools/DevtoolsPage.qml:38
 #, kde-format
 msgctxt "@title:tab"
 msgid "Room Data"
 msgstr "بيانات الغرفة"
 
-#: src/devtools/DevtoolsPage.qml:42
+#: src/devtools/DevtoolsPage.qml:43
 #, kde-format
 msgctxt "@title:tab"
 msgid "Server Info"
 msgstr "معلومات الخادم"
 
-#: src/devtools/DevtoolsPage.qml:47
+#: src/devtools/DevtoolsPage.qml:48
 #, kde-format
 msgctxt "@title:tab"
 msgid "Account Data"
 msgstr "بيانات الحساب"
 
-#: src/devtools/DevtoolsPage.qml:52
+#: src/devtools/DevtoolsPage.qml:53
 #, kde-format
 msgctxt "@title:tab"
 msgid "Feature Flags"
@@ -3705,19 +3762,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "أرسل إلى كِيدِي Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:135
+#: src/messagecontent/LinkPreviewComponent.qml:141
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "أزل المعاينة"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
 msgstr "صغر المعاينة"
 
-#: src/messagecontent/LinkPreviewComponent.qml:153
+#: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
 msgstr "وسع المعاينة"
@@ -3926,9 +3983,12 @@ msgid "Actions"
 msgstr "الإجراءات"
 
 #: src/roominfo/RoomInformation.qml:82
-#, kde-format
-msgid "Search in this room"
-msgstr "ابحث في هذه الغرفة"
+#, fuzzy, kde-format
+#| msgctxt "@action:title"
+#| msgid "Search Messages"
+msgctxt "@action:button"
+msgid "Search Messages"
+msgstr "ابحث في الرسائل"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -3937,20 +3997,28 @@ msgid "Verify user"
 msgstr "تَثَبّت من المستخدم"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Remove room from favorites"
-msgstr "أزل الغرفة من المفضلة"
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Remove from Favorites"
+msgctxt "@action:button"
+msgid "Remove from Favorites"
+msgstr "أزل من المفضّلة"
 
 #: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgid "Favorite this room"
-msgstr "فضّل هذه الغرفة"
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Add to Favorites"
+msgctxt "@action:button"
+msgid "Add to Favorites"
+msgstr "أضف إلى المفضّلة"
 
 #: src/roominfo/RoomInformation.qml:123
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Extensions"
 msgctxt "@action:button"
-msgid "Extensions for this room"
-msgstr "امتدادات لهذه الغرفة"
+msgid "Extensions"
+msgstr "الامتدادات"
 
 #: src/roominfo/RoomInformation.qml:129
 #, kde-format
@@ -3959,45 +4027,62 @@ msgid "Extensions"
 msgstr "الامتدادات"
 
 #: src/roominfo/RoomInformation.qml:139
-#, kde-format
-msgid "Show locations for this room"
-msgstr "اعرض المواقع لهذه الغرفة"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send a Location"
+msgctxt "@action:button"
+msgid "Shared Locations"
+msgstr "أرسل موقعاً جغرافياً"
 
 #: src/roominfo/RoomInformation.qml:155
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Pinned Messages"
 msgctxt "@action:button"
-msgid "Pinned messages"
+msgid "Pinned Messages"
 msgstr "الرسائل المثبتة"
 
-#: src/roominfo/RoomInformation.qml:172 src/spaces/SpaceHomePage.qml:99
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave this space…"
-msgstr "غادر هذا الفضاء…"
+#: src/roominfo/RoomInformation.qml:170
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Room Data"
+msgctxt "@action:inmenu"
+msgid "Inspect Room Data"
+msgstr "بيانات الغرفة"
 
-#: src/roominfo/RoomInformation.qml:172
-#, kde-format
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space…"
 msgctxt "@action:button"
-msgid "Leave this room…"
-msgstr "غادر هذه الغرفة…"
+msgid "Leave Space…"
+msgstr "غادر الفضاء…"
 
-#: src/roominfo/RoomInformation.qml:185
+#: src/roominfo/RoomInformation.qml:191
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Leave Room…"
+msgctxt "@action:button"
+msgid "Leave Room…"
+msgstr "غادر الغرفة…"
+
+#: src/roominfo/RoomInformation.qml:204
 #, kde-format
 msgid "Members"
 msgstr "الأعضاء"
 
-#: src/roominfo/RoomInformation.qml:200 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "أدعو مستخدم"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:223
 #, kde-format
 msgid "Invite user to room"
 msgstr "أدعُ مستخدم إلى غرفة"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4009,7 +4094,7 @@ msgstr[3] "%1 أعضاء"
 msgstr[4] "%1 عضواً"
 msgstr[5] "%1 عضو"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:230
 #, kde-format
 msgid "No member count"
 msgstr "بلا عدد أعضاء"
@@ -4077,30 +4162,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "ابحث عن الغرف"
 
-#: src/rooms/ExploreComponent.qml:65
+#: src/rooms/ExploreComponent.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "أظهر القائمة"
 
-#: src/rooms/ExploreComponent.qml:82 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "اعثر على أصدقائك"
 
-#: src/rooms/ExploreComponent.qml:87 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "اعثر على أصدقائك"
 
-#: src/rooms/ExploreComponent.qml:92
+#: src/rooms/ExploreComponent.qml:88
 #, kde-format
 msgid "Create a Room"
 msgstr "أنشئ غرفة"
 
-#: src/rooms/ExploreComponent.qml:107
+#: src/rooms/ExploreComponent.qml:103
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "امسح رمز الاستجابة السريعة"
@@ -6631,6 +6716,12 @@ msgctxt "@button"
 msgid "Add to Space"
 msgstr "أضف فضاء"
 
+#: src/spaces/SpaceHomePage.qml:99
+#, kde-format
+msgctxt "@action:button"
+msgid "Leave this space…"
+msgstr "غادر هذا الفضاء…"
+
 #: src/timeline/DelegateContextMenu.qml:165
 #, kde-format
 msgctxt "@action:inmenu"
@@ -6945,6 +7036,34 @@ msgstr[2] "‏%2 يكتبان"
 msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Jitsi Meet in browser"
+#~ msgstr "افتح Jitsi Meet في المتصفح"
+
+#~ msgid "Search in this room"
+#~ msgstr "ابحث في هذه الغرفة"
+
+#~ msgid "Remove room from favorites"
+#~ msgstr "أزل الغرفة من المفضلة"
+
+#~ msgid "Favorite this room"
+#~ msgstr "فضّل هذه الغرفة"
+
+#~ msgctxt "@action:button"
+#~ msgid "Extensions for this room"
+#~ msgstr "امتدادات لهذه الغرفة"
+
+#~ msgid "Show locations for this room"
+#~ msgstr "اعرض المواقع لهذه الغرفة"
+
+#~ msgctxt "@action:button"
+#~ msgid "Pinned messages"
+#~ msgstr "الرسائل المثبتة"
+
+#~ msgctxt "@action:button"
+#~ msgid "Leave this room…"
+#~ msgstr "غادر هذه الغرفة…"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Find your Friends"
@@ -7520,9 +7639,6 @@ msgstr[5] "‏%2 يكتبون"
 
 #~ msgid "Chat"
 #~ msgstr "دردشة"
-
-#~ msgid "Join existing chat"
-#~ msgstr "انضم إلى دردشة موجودة"
 
 #~ msgid "Create new chat"
 #~ msgstr "أنشئ دردشة جديدة"
