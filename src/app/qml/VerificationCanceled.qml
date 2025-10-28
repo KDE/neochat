@@ -11,7 +11,19 @@ VerificationMessage {
 
     required property int reason
 
-    icon: "security-low"
+    icon: {
+        switch (root.reason) {
+            case KeyVerificationSession.TIMEOUT:
+            case KeyVerificationSession.REMOTE_TIMEOUT:
+            case KeyVerificationSession.USER:
+            case KeyVerificationSession.REMOTE_USER:
+            case KeyVerificationSession.SESSION_ACCEPTED:
+            case KeyVerificationSession.REMOTE_SESSION_ACCEPTED:
+                return "dialog-information";
+            default:
+                return "security-low";
+        }
+    }
     text: {
         switch (root.reason) {
         case KeyVerificationSession.NONE:
