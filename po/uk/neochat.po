@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
-"PO-Revision-Date: 2025-10-20 17:11+0300\n"
+"POT-Creation-Date: 2025-10-29 00:43+0000\n"
+"PO-Revision-Date: 2025-10-28 17:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -804,47 +804,42 @@ msgid "The input is not a valid user ID"
 msgstr "Введений рядок не є коректним ідентифікатором користувача"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgid "Join existing chat"
+#, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr "Долучитися до наявного обговорення"
+msgstr "Долучитися до зустрічі"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Почати спілкування"
+msgstr "Почати зустріч"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
+"Ви долучаєтеся до зустрічі Jitsi у вашій програмі для навігації інтернетом."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
+"Ви розпочинаєте зустріч Jitsi у вашій програмі для навігації інтернетом."
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Долучитися"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Почати спілкування"
+msgstr "Почати"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -1049,20 +1044,19 @@ msgstr "Ігнорувати"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Долучитися до зустрічі Jitsi…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Розпочати зустріч Jitsi…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr "У вас недостатні привілеї для виконання цієї дії"
+msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:91
@@ -1482,32 +1476,32 @@ msgctxt "@action:button"
 msgid "Enter a User ID"
 msgstr "Введіть ідентифікатор користувача"
 
-#: src/app/qml/VerificationCanceled.qml:18
+#: src/app/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "Перевірку сеансу скасовано через невідому причину."
 
-#: src/app/qml/VerificationCanceled.qml:20
+#: src/app/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid "The session verification timed out."
 msgstr "Перевищено час очікування на підтвердження сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:22
+#: src/app/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "Перевищено час очікування на підтвердження з боку іншого пристрою."
 
-#: src/app/qml/VerificationCanceled.qml:24
+#: src/app/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Вами скасовано перевірку сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:26
+#: src/app/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "Перевірку сеансу скасовано на боці іншого пристрою."
 
-#: src/app/qml/VerificationCanceled.qml:28
+#: src/app/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1515,7 +1509,7 @@ msgid ""
 msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано неочікуване повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:30
+#: src/app/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1524,7 +1518,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "неочікуване повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:32
+#: src/app/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1533,7 +1527,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки отримано повідомлення з невідомого "
 "сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:34
+#: src/app/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1542,7 +1536,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "повідомлення з невідомого сеансу."
 
-#: src/app/qml/VerificationCanceled.qml:36
+#: src/app/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1551,7 +1545,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки NeoChat не може обробити цей спосіб "
 "перевірки."
 
-#: src/app/qml/VerificationCanceled.qml:38
+#: src/app/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1560,12 +1554,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки обробка ним "
 "цього способу перевірки неможлива."
 
-#: src/app/qml/VerificationCanceled.qml:40
+#: src/app/qml/VerificationCanceled.qml:52
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr "Перевірку сеансу скасовано, оскільки ключі є помилковими."
 
-#: src/app/qml/VerificationCanceled.qml:42
+#: src/app/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1579,7 +1573,7 @@ msgstr ""
 "**Будь ласка, вийдіть з облікового запису і увійдіть знову. Дані вашого "
 "сеансу пошкоджено.**"
 
-#: src/app/qml/VerificationCanceled.qml:44
+#: src/app/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
@@ -1587,7 +1581,7 @@ msgstr ""
 "Перевірку сеансу скасовано, оскільки у ній виконується перевірка "
 "неочікуваного користувача."
 
-#: src/app/qml/VerificationCanceled.qml:46
+#: src/app/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -1596,13 +1590,13 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки у ній "
 "виконується перевірка неочікуваного користувача."
 
-#: src/app/qml/VerificationCanceled.qml:48
+#: src/app/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr "Перевірку сеансу скасовано, оскільки отримано некоректне повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:50
+#: src/app/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1611,18 +1605,18 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ним отримано "
 "некоректне повідомлення."
 
-#: src/app/qml/VerificationCanceled.qml:52
-#: src/app/qml/VerificationCanceled.qml:54
+#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:66
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "Сеанс було прийнято на іншому пристрої"
 
-#: src/app/qml/VerificationCanceled.qml:56
+#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:58
+#: src/app/qml/VerificationCanceled.qml:70
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -1631,12 +1625,12 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою через невідповідність "
 "ключів."
 
-#: src/app/qml/VerificationCanceled.qml:60
+#: src/app/qml/VerificationCanceled.qml:72
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr "Перевірку сеансу скасовано, оскільки ключі не збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:62
+#: src/app/qml/VerificationCanceled.qml:74
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -1645,7 +1639,7 @@ msgstr ""
 "Перевірку сеансу скасовано на боці іншого пристрою, оскільки ключі не "
 "збігаються."
 
-#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:76
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "Перевірку сеансу скасовано через невідому помилку."
@@ -4022,12 +4016,10 @@ msgid "Actions"
 msgstr "Дії"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
-msgstr "Пошук повідомлень"
+msgstr "Шукати повідомлення"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -4036,25 +4028,19 @@ msgid "Verify user"
 msgstr "Перевірити користувача"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
-msgstr "Вилучити з улюблених"
+msgstr "Вилучити з улюбленого"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
-msgstr "Додати до улюблених"
+msgstr "Додати до улюбленого"
 
 #: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Розширення"
@@ -4066,41 +4052,31 @@ msgid "Extensions"
 msgstr "Розширення"
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Надіслати дані місця"
+msgstr "Спільні місця"
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Пришпилені повідомлення"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Дані кімнати"
+msgstr "Інспектувати дані кімнати"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Полишити простір…"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Полишити кімнату…"
@@ -4284,13 +4260,14 @@ msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Типові параметри"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:39
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
+#, fuzzy, kde-format
+#| msgid "All messages"
 msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Усі"
+msgid "All Messages"
+msgstr "Усі повідомлення"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:47
+#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -4298,11 +4275,12 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Згадки і ключові слова"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:55
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
+#, fuzzy, kde-format
+#| msgid "None"
 msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Вимкнено"
+msgid "None"
+msgstr "Немає"
 
 #: src/rooms/RoomContextMenu.qml:111
 #, kde-format
@@ -5111,20 +5089,20 @@ msgid "@Mentions"
 msgstr "@Згадування"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#: src/settings/PushNotification.qml:65
+#: src/settings/PushNotification.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Ключові слова"
 
 #: src/settings/GlobalNotificationsPage.qml:127
-#: src/settings/PushNotification.qml:100
+#: src/settings/PushNotification.qml:104
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:123
 #, kde-format
 msgid "Add keyword"
 msgstr "Додати ключове слово"
@@ -5228,6 +5206,65 @@ msgstr "Некоректний пароль"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Некоректні дані резервної копії ключів"
+
+#: src/settings/KeyboardShortcutsPage.qml:12
+#, kde-format
+msgctxt "@title:window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:18
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@info:label"
+msgid "Open Quick Switcher"
+msgstr "Відкрити «Швидкий перемикач»"
+
+#: src/settings/KeyboardShortcutsPage.qml:23
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@info:label"
+msgid "Open Account Switcher"
+msgstr "Відкрити «Швидкий перемикач»"
+
+#: src/settings/KeyboardShortcutsPage.qml:28
+#, fuzzy, kde-format
+#| msgid "Search user in room"
+msgctxt "@info:label"
+msgid "Search Messages in Current Room"
+msgstr "Шукати користувача у кімнаті"
+
+#: src/settings/KeyboardShortcutsPage.qml:33
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Previous Room"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@info:label"
+msgid "Go to Next Room"
+msgstr "Виберіть кімнату"
+
+#: src/settings/KeyboardShortcutsPage.qml:43
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Previous Unread Room"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:48
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Next Unread Room"
+msgstr ""
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5798,17 +5835,22 @@ msgstr "Пристрої"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/settings/NeoChatSettingsView.qml:108
+#, kde-format
 msgid "About NeoChat"
 msgstr "Про NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:105
-#: src/settings/NeoChatSettingsView.qml:112
+#: src/settings/NeoChatSettingsView.qml:111
+#: src/settings/NeoChatSettingsView.qml:118
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Відомості"
 
-#: src/settings/NeoChatSettingsView.qml:109
+#: src/settings/NeoChatSettingsView.qml:115
 #, kde-format
 msgid "About KDE"
 msgstr "Про KDE"
@@ -5976,12 +6018,13 @@ msgid "Confirm"
 msgstr "Підтвердити"
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:group"
-msgid "Room notifications setting"
-msgstr "Параметр сповіщень кімнати"
+msgid "Send Notifications For"
+msgstr "Сповіщення"
 
-#: src/settings/PushNotification.qml:31
+#: src/settings/PushNotification.qml:32
 #, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
@@ -7109,6 +7152,18 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "As in 'notify for all messages'"
+#~ msgid "All"
+#~ msgstr "Усі"
+
+#~ msgctxt "As in 'do not notify for any messages'"
+#~ msgid "Off"
+#~ msgstr "Вимкнено"
+
+#~ msgctxt "@title:group"
+#~ msgid "Room notifications setting"
+#~ msgstr "Параметр сповіщень кімнати"
+
 #~ msgctxt "@action:button"
 #~ msgid "Open Jitsi Meet in browser"
 #~ msgstr "Відкрити Jitsi Meet у браузері"
@@ -7289,12 +7344,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgctxt "menu"
 #~ msgid "Browse Chats…"
 #~ msgstr "Навігація спілкуваннями…"
-
-#~ msgctxt ""
-#~ "menu item that opens a UI element called the 'Quick Switcher', which "
-#~ "offers a fast keyboard-based interface for switching in between chats."
-#~ msgid "Open Quick Switcher"
-#~ msgstr "Відкрити «Швидкий перемикач»"
 
 #~ msgctxt "menu"
 #~ msgid "About Matrix"
@@ -7569,9 +7618,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgid "Selected default language:"
 #~ msgstr "Вибрана типова мова:"
 
-#~ msgid "None"
-#~ msgstr "Немає"
-
 #~ msgid "Additional spell checking languages"
 #~ msgstr "Додаткові мови перевірки правопису"
 
@@ -7784,9 +7830,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgid "Room information"
 #~ msgstr "Відомості щодо кімнати"
 
-#~ msgid "Search user in room"
-#~ msgstr "Шукати користувача у кімнаті"
-
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"
 #~ msgstr "Виберіть домашній сервер"
@@ -7955,9 +7998,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "Image View - %1"
 #~ msgstr "Перегляд зображення — %1"
-
-#~ msgid "All messages"
-#~ msgstr "Усі повідомлення"
 
 #~ msgid "Write your message..."
 #~ msgstr "Напишіть ваше повідомлення…"

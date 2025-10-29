@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-28 00:42+0000\n"
-"PO-Revision-Date: 2025-10-20 11:15-0300\n"
+"POT-Creation-Date: 2025-10-29 00:43+0000\n"
+"PO-Revision-Date: 2025-10-28 07:06-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -808,43 +808,41 @@ msgstr "A entrada não é um ID de usuário válido"
 #, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr ""
+msgstr "Entrar na reunião"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Iniciar bate-papo"
+msgstr "Iniciar reunião"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
+"Você está prestes a participar de uma reunião do Jitsi no seu navegador da "
+"web."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
+"Você está prestes a iniciar uma nova reunião do Jitsi no seu navegador da "
+"web."
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Entrar"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Iniciar bate-papo"
+msgstr "Iniciar"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -1049,20 +1047,19 @@ msgstr "Ignorar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Entrar na reunião no Jitsi…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Iniciar reunião no Jitsi…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr "Você não tem privilégios para concluir esta ação"
+msgstr "Você não tem permissão para iniciar reuniões no Jitsi"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:91
@@ -1474,32 +1471,32 @@ msgctxt "@action:button"
 msgid "Enter a User ID"
 msgstr "Digite um ID de usuário"
 
-#: src/app/qml/VerificationCanceled.qml:18
+#: src/app/qml/VerificationCanceled.qml:30
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
 msgstr "A verificação da sessão foi cancelada por motivo desconhecido."
 
-#: src/app/qml/VerificationCanceled.qml:20
+#: src/app/qml/VerificationCanceled.qml:32
 #, kde-format
 msgid "The session verification timed out."
 msgstr "A verificação da sessão expirou."
 
-#: src/app/qml/VerificationCanceled.qml:22
+#: src/app/qml/VerificationCanceled.qml:34
 #, kde-format
 msgid "The session verification timed out for remote party."
 msgstr "O tempo de verificação da sessão expirou para a parte remota."
 
-#: src/app/qml/VerificationCanceled.qml:24
+#: src/app/qml/VerificationCanceled.qml:36
 #, kde-format
 msgid "You canceled the session verification."
 msgstr "Você cancelou a verificação da sessão."
 
-#: src/app/qml/VerificationCanceled.qml:26
+#: src/app/qml/VerificationCanceled.qml:38
 #, kde-format
 msgid "The remote party canceled the session verification."
 msgstr "A parte remota cancelou a verificação da sessão."
 
-#: src/app/qml/VerificationCanceled.qml:28
+#: src/app/qml/VerificationCanceled.qml:40
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an unexpected "
@@ -1508,7 +1505,7 @@ msgstr ""
 "A verificação da sessão foi cancelada porque recebemos uma mensagem "
 "inesperada."
 
-#: src/app/qml/VerificationCanceled.qml:30
+#: src/app/qml/VerificationCanceled.qml:42
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1517,7 +1514,7 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque recebeu uma mensagem "
 "inesperada."
 
-#: src/app/qml/VerificationCanceled.qml:32
+#: src/app/qml/VerificationCanceled.qml:44
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
@@ -1526,7 +1523,7 @@ msgstr ""
 "A verificação da sessão foi cancelada porque recebeu uma mensagem para uma "
 "sessão desconhecida."
 
-#: src/app/qml/VerificationCanceled.qml:34
+#: src/app/qml/VerificationCanceled.qml:46
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received a "
@@ -1535,7 +1532,7 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque recebeu uma mensagem "
 "para uma sessão desconhecida."
 
-#: src/app/qml/VerificationCanceled.qml:36
+#: src/app/qml/VerificationCanceled.qml:48
 #, kde-format
 msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
@@ -1544,7 +1541,7 @@ msgstr ""
 "A verificação da sessão foi cancelada porque o NeoChat não consegue lidar "
 "com este método de verificação."
 
-#: src/app/qml/VerificationCanceled.qml:38
+#: src/app/qml/VerificationCanceled.qml:50
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it is unable to "
@@ -1553,13 +1550,13 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque não consegue lidar "
 "com este método de verificação."
 
-#: src/app/qml/VerificationCanceled.qml:40
+#: src/app/qml/VerificationCanceled.qml:52
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
 "A verificação da sessão foi cancelada porque as chaves estão incorretas."
 
-#: src/app/qml/VerificationCanceled.qml:42
+#: src/app/qml/VerificationCanceled.qml:54
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
@@ -1572,14 +1569,14 @@ msgstr ""
 "\n"
 "**Faça logout e login novamente, sua sessão foi corrompida/interrompida.**"
 
-#: src/app/qml/VerificationCanceled.qml:44
+#: src/app/qml/VerificationCanceled.qml:56
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
 "A verificação da sessão foi cancelada porque verificou um usuário inesperado."
 
-#: src/app/qml/VerificationCanceled.qml:46
+#: src/app/qml/VerificationCanceled.qml:58
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it verifies an "
@@ -1588,14 +1585,14 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque verificou um usuário "
 "inesperado."
 
-#: src/app/qml/VerificationCanceled.qml:48
+#: src/app/qml/VerificationCanceled.qml:60
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
 "A verificação da sessão foi cancelada porque recebemos uma mensagem inválida."
 
-#: src/app/qml/VerificationCanceled.qml:50
+#: src/app/qml/VerificationCanceled.qml:62
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because it received an "
@@ -1604,18 +1601,18 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque recebeu uma mensagem "
 "inválida."
 
-#: src/app/qml/VerificationCanceled.qml:52
-#: src/app/qml/VerificationCanceled.qml:54
+#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:66
 #, kde-format
 msgid "The session was accepted on a different device"
 msgstr "A sessão foi aceita em um dispositivo diferente"
 
-#: src/app/qml/VerificationCanceled.qml:56
+#: src/app/qml/VerificationCanceled.qml:68
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr "A verificação da sessão foi cancelada devido a uma chave incompatível."
 
-#: src/app/qml/VerificationCanceled.qml:58
+#: src/app/qml/VerificationCanceled.qml:70
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
@@ -1624,13 +1621,13 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão devido a uma chave "
 "incompatível."
 
-#: src/app/qml/VerificationCanceled.qml:60
+#: src/app/qml/VerificationCanceled.qml:72
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
 "A verificação da sessão foi cancelada porque as chaves não correspondem."
 
-#: src/app/qml/VerificationCanceled.qml:62
+#: src/app/qml/VerificationCanceled.qml:74
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
@@ -1639,7 +1636,7 @@ msgstr ""
 "A parte remota cancelou a verificação da sessão porque as chaves não "
 "correspondem."
 
-#: src/app/qml/VerificationCanceled.qml:64
+#: src/app/qml/VerificationCanceled.qml:76
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr "A verificação da sessão foi cancelada devido a um erro desconhecido."
@@ -4005,9 +4002,7 @@ msgid "Actions"
 msgstr "Ações"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Pesquisar mensagens"
@@ -4019,25 +4014,19 @@ msgid "Verify user"
 msgstr "Usuário verificado"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "Remover dos favoritos"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "Adicionar aos favoritos"
 
 #: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Extensões"
@@ -4049,41 +4038,31 @@ msgid "Extensions"
 msgstr "Extensões"
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Enviar uma localização"
+msgstr "Localizações compartilhadas"
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Mensagens fixadas"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Dados da sala"
+msgstr "Inspecionar dados da sala"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Sair do espaço..."
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Sair da sala..."
@@ -4265,13 +4244,14 @@ msgctxt "@action:inmenu Notification 'Default Settings'"
 msgid "Default Settings"
 msgstr "Configurações padrão"
 
-#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:39
-#, kde-format
+#: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
+#, fuzzy, kde-format
+#| msgid "Send message"
 msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Todos"
+msgid "All Messages"
+msgstr "Enviar mensagem"
 
-#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:47
+#: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -4279,11 +4259,11 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Menções e Palavras-Chave"
 
-#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:55
+#: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Desligado"
+msgid "None"
+msgstr ""
 
 #: src/rooms/RoomContextMenu.qml:111
 #, kde-format
@@ -5090,20 +5070,20 @@ msgid "@Mentions"
 msgstr "@Menções"
 
 #: src/settings/GlobalNotificationsPage.qml:103
-#: src/settings/PushNotification.qml:65
+#: src/settings/PushNotification.qml:69
 #, kde-format
 msgctxt "@title:group"
 msgid "Keywords"
 msgstr "Palavras-chave"
 
 #: src/settings/GlobalNotificationsPage.qml:127
-#: src/settings/PushNotification.qml:100
+#: src/settings/PushNotification.qml:104
 #, kde-format
 msgid "Keyword…"
 msgstr "Palavra-chave…"
 
 #: src/settings/GlobalNotificationsPage.qml:146
-#: src/settings/PushNotification.qml:119
+#: src/settings/PushNotification.qml:123
 #, kde-format
 msgid "Add keyword"
 msgstr "Adiciona palavra-chave"
@@ -5207,6 +5187,65 @@ msgstr "Frase-senha inválida"
 msgctxt "@info"
 msgid "Invalid key backup data"
 msgstr "Chave inválida para backup de dados"
+
+#: src/settings/KeyboardShortcutsPage.qml:12
+#, kde-format
+msgctxt "@title:window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:18
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@info:label"
+msgid "Open Quick Switcher"
+msgstr "Abrir o Trocador instantâneo"
+
+#: src/settings/KeyboardShortcutsPage.qml:23
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "menu item that opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Open Quick Switcher"
+msgctxt "@info:label"
+msgid "Open Account Switcher"
+msgstr "Abrir o Trocador instantâneo"
+
+#: src/settings/KeyboardShortcutsPage.qml:28
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@info:label"
+msgid "Search Messages in Current Room"
+msgstr "Abrir o NeoChat nesta sala"
+
+#: src/settings/KeyboardShortcutsPage.qml:33
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Previous Room"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:38
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Choose Room"
+msgctxt "@info:label"
+msgid "Go to Next Room"
+msgstr "Escolher Sala"
+
+#: src/settings/KeyboardShortcutsPage.qml:43
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Previous Unread Room"
+msgstr ""
+
+#: src/settings/KeyboardShortcutsPage.qml:48
+#, kde-format
+msgctxt "@info:label"
+msgid "Go to Next Unread Room"
+msgstr ""
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5773,17 +5812,22 @@ msgstr "Dispositivos"
 
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/settings/NeoChatSettingsView.qml:108
+#, kde-format
 msgid "About NeoChat"
 msgstr "Sobre o NeoChat"
 
-#: src/settings/NeoChatSettingsView.qml:105
-#: src/settings/NeoChatSettingsView.qml:112
+#: src/settings/NeoChatSettingsView.qml:111
+#: src/settings/NeoChatSettingsView.qml:118
 #, kde-format
 msgctxt "@title:group"
 msgid "About"
 msgstr "Sobre"
 
-#: src/settings/NeoChatSettingsView.qml:109
+#: src/settings/NeoChatSettingsView.qml:115
 #, kde-format
 msgid "About KDE"
 msgstr "Sobre o KDE"
@@ -5951,12 +5995,13 @@ msgid "Confirm"
 msgstr "Confirmar"
 
 #: src/settings/PushNotification.qml:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Notifications"
 msgctxt "@title:group"
-msgid "Room notifications setting"
-msgstr "Configurações de notificações de sala"
+msgid "Send Notifications For"
+msgstr "Notificações"
 
-#: src/settings/PushNotification.qml:31
+#: src/settings/PushNotification.qml:32
 #, kde-format
 msgctxt "As in the default notification setting"
 msgid "Default Settings"
@@ -7066,6 +7111,18 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 está digitando"
 msgstr[1] "%2 estão digitando"
 
+#~ msgctxt "As in 'notify for all messages'"
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgctxt "As in 'do not notify for any messages'"
+#~ msgid "Off"
+#~ msgstr "Desligado"
+
+#~ msgctxt "@title:group"
+#~ msgid "Room notifications setting"
+#~ msgstr "Configurações de notificações de sala"
+
 #~ msgctxt "@action:button"
 #~ msgid "Open Jitsi Meet in browser"
 #~ msgstr "Abra o Jitsi Meet no navegador"
@@ -7246,12 +7303,6 @@ msgstr[1] "%2 estão digitando"
 #~ msgctxt "menu"
 #~ msgid "Browse Chats…"
 #~ msgstr "Navegar nos bate-papos..."
-
-#~ msgctxt ""
-#~ "menu item that opens a UI element called the 'Quick Switcher', which "
-#~ "offers a fast keyboard-based interface for switching in between chats."
-#~ msgid "Open Quick Switcher"
-#~ msgstr "Abrir o Trocador instantâneo"
 
 #, fuzzy
 #~| msgid "About NeoChat"
@@ -7754,11 +7805,6 @@ msgstr[1] "%2 estão digitando"
 #~ msgid "Room information"
 #~ msgstr "Informação da sala"
 
-#, fuzzy
-#~| msgid "Open NeoChat in this room"
-#~ msgid "Search user in room"
-#~ msgstr "Abrir o NeoChat nesta sala"
-
 #~ msgctxt "@title"
 #~ msgid "Select a Homeserver"
 #~ msgstr "Selecionar um servidor doméstico"
@@ -7911,11 +7957,6 @@ msgstr[1] "%2 estão digitando"
 
 #~ msgid "Image View - %1"
 #~ msgstr "Visualização de imagem - %1"
-
-#, fuzzy
-#~| msgid "Send message"
-#~ msgid "All messages"
-#~ msgstr "Enviar mensagem"
 
 #~ msgid "Write your message..."
 #~ msgstr "Escreva sua mensagem..."
