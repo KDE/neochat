@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2316,9 +2316,11 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "सबसे ज़्यादा हाइलाइट किए गए संदेशों वाले कमरे ज़्यादा बेहतर होते हैं"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newer messages are higher"
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
+msgid "Rooms with newer events are higher"
 msgstr "नए संदेशों वाले कमरे अधिक ऊंचे हैं"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
@@ -5664,59 +5666,72 @@ msgstr "कक्ष सूची क्रम"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "गतिविधि"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
+msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Import Keys"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "कुंजियाँ आयात करें"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
 msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgid "Rooms with unread notifications will be shown first."
 msgstr "बिना पढ़े गए नोटिफ़िकेशन वाले कमरे पहले दिखाए जाएंगे"
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "वर्णमाला"
 
-#: src/settings/NeoChatGeneralPage.qml:116
-#, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr "अंतिम संदेश गतिविधि"
+#: src/settings/NeoChatGeneralPage.qml:122
+#, fuzzy, kde-format
+#| msgid "Show state events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "राज्य की घटनाएँ दिखाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:117
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:123
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr "सबसे नई गतिविधि वाले कमरे सबसे पहले दिखाए जाएंगे"
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "रिवाज़"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, fuzzy, kde-format
 #| msgid "Timeline Events"
 msgctxt "@title"
 msgid "Timeline"
 msgstr "समयरेखा घटनाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -5725,7 +5740,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "कमरे में शामिल हो गए"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5733,7 +5748,7 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -5741,7 +5756,7 @@ msgctxt ""
 msgid "Exiting the room"
 msgstr "कमरे में शामिल हो गए"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Rooms with the most unread message are higher"
@@ -5751,86 +5766,86 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "सबसे अधिक अपठित संदेश वाले कमरे अधिक हैं"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
 msgstr "हटाए गए संदेश दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
 msgstr "राज्य की घटनाएँ दिखाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "छोड़ें और शामिल हों ईवेंट दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
 msgstr "नाम परिवर्तन की घटनाएँ दिखाएँ"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
 msgstr "अवतार अपडेट ईवेंट दिखाएं"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "संपादक"
 
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Enter के साथ संदेश भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Ctrl+Enter से संदेश भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "अपने अंतिम संदेश को संपादित करने के लिए s/text/replacement सिंटैक्स का उपयोग करें"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgid "Send typing notifications"
 msgstr "टाइपिंग सूचनाएं भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgid "Developer Settings"
 msgstr "डेवलपर सेटिंग्स"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr "डेवलपर टूल सक्षम करें"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "डेवलपर टूल खोलें"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "डेवलपर उपकरण"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "न्यूनता समायोजन"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
@@ -5838,7 +5853,7 @@ msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "सभी कॉन्फ़िगरेशन मानों को उनके डिफ़ॉल्ट पर रीसेट करें"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Re-send confirmation e-mail"
@@ -5846,7 +5861,7 @@ msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "पुष्टिकरण ई-मेल पुनः भेजें"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7402,6 +7417,14 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
+
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "गतिविधि"
+
+#~ msgctxt "As in 'sort something based on the last message'"
+#~ msgid "Last Message Activity"
+#~ msgstr "अंतिम संदेश गतिविधि"
 
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"

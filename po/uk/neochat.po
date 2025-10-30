@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
-"PO-Revision-Date: 2025-10-28 17:59+0200\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"PO-Revision-Date: 2025-10-29 11:14+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2236,9 +2236,11 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Кімнати із більшою кількістю підсвічених повідомлень будуть вище"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newer messages are higher"
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
+msgid "Rooms with newer events are higher"
 msgstr "Кімнати із новішими повідомленнями будуть вище"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
@@ -4261,8 +4263,7 @@ msgid "Default Settings"
 msgstr "Типові параметри"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
 msgstr "Усі повідомлення"
@@ -4276,8 +4277,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Згадки і ключові слова"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Немає"
@@ -5211,60 +5211,49 @@ msgstr "Некоректні дані резервної копії ключів
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Клавіатурні скорочення"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "Відкрити «Швидкий перемикач»"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Відкрити «Швидкий перемикач»"
+msgstr "Відкрити засіб перемикання облікових записів"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Search user in room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Шукати користувача у кімнаті"
+msgstr "Шукати повідомлення у поточній кімнаті"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Перейти до попередньої кімнати"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Виберіть кімнату"
+msgstr "Перейти до наступної кімнати"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Перейти до попередньої непрочитаної кімнати"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Перейти до наступної непрочитаної кімнати"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5499,57 +5488,70 @@ msgstr "Порядок сортування списку кімнат"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "За простором дій"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
+msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Import Keys"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "Імпортування ключів"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
 msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgid "Rooms with unread notifications will be shown first."
 msgstr "Кімнати із непрочитаними сповіщеннями буде показано першими"
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "За абеткою"
 
-#: src/settings/NeoChatGeneralPage.qml:116
-#, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr "Останні дії щодо повідомлень"
+#: src/settings/NeoChatGeneralPage.qml:122
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "Події розкладу"
 
-#: src/settings/NeoChatGeneralPage.qml:117
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:123
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr "Кімнати із свіжими діями буде показано першими"
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Нетиповий"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Розклад"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr "Позначати повідомлення як прочитані після:"
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr "Ніколи"
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5557,7 +5559,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "Входу до кімнати"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5565,14 +5567,14 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr "Усі повідомлення стануть видимим після входу до кімнати"
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
 msgstr "Виходу з кімнати"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -5580,100 +5582,100 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "Усі повідомлення стануть видимим після виходу з кімнати"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Показувати вилучені повідомлення"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
 msgstr "Показувати події стану"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Показувати події з виходу і приєднання"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
 msgstr "Показувати події зі зміни імені"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Показувати події з оновлення аватарів"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Надсилати повідомлення клавішею Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Надсилати повідомлення клавішами Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Для редагування вашого останнього повідомлення скористайтеся синтаксисом s/"
 "текст/заміна"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Надсилати сповіщення щодо введення"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgid "Developer Settings"
 msgstr "Параметри розробки"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Увімкнути інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Типові параметри"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Скинути усі значення налаштувань до типових…"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Скидання налаштувань"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -5836,7 +5838,7 @@ msgstr "Пристрої"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Клавіатурні скорочення"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6018,11 +6020,10 @@ msgid "Confirm"
 msgstr "Підтвердити"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Сповіщення"
+msgstr "Надсилати сповіщення щодо"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -7152,6 +7153,14 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "За простором дій"
+
+#~ msgctxt "As in 'sort something based on the last message'"
+#~ msgid "Last Message Activity"
+#~ msgstr "Останні дії щодо повідомлень"
+
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"
 #~ msgstr "Усі"
@@ -7302,9 +7311,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "Follow global setting"
 #~ msgstr "Використовувати загальні параметри"
-
-#~ msgid "Timeline Events"
-#~ msgstr "Події розкладу"
 
 #~ msgid "Switch User"
 #~ msgstr "Змінити користувача"

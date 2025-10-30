@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -2351,10 +2351,11 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr ""
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Send message"
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
-msgstr ""
+msgid "Rooms with newer events are higher"
+msgstr "Odoslať správu"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -5966,59 +5967,67 @@ msgstr "<alias miestnosti alebo jej id>"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "Aktivita"
-
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "aktivoval End-to-End šifrovanie"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread notifications will be shown first."
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:112
 #, fuzzy, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabeticky"
 
-#: src/settings/NeoChatGeneralPage.qml:116
-#, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr ""
+#: src/settings/NeoChatGeneralPage.qml:122
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:117
+#: src/settings/NeoChatGeneralPage.qml:123
 #, kde-format
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Vlastné"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, fuzzy, kde-format
 #| msgid "Timeline:"
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Časová os:"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -6027,7 +6036,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "vstúpil(a) do miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -6035,7 +6044,7 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -6043,7 +6052,7 @@ msgctxt ""
 msgid "Exiting the room"
 msgstr "vstúpil(a) do miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt ""
@@ -6052,88 +6061,88 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "Odoslať správu"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Show deleted messages"
 msgstr "Odoslať správu"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show state events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show name change events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Show avatar update events"
 msgstr "Zobraziť udalosti príchodu a odchodu"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Odoslať správu"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Na úpravu svojej poslednej správy použite syntax s/text/náhrada"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Send typing notifications"
 msgstr "Zobraziť upozornenia"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgid "Open Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Default Settings"
@@ -6141,20 +6150,20 @@ msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Štandardné nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Informácie o miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7735,6 +7744,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
+
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "Aktivita"
 
 #, fuzzy
 #~ msgctxt "As in 'notify for all messages'"

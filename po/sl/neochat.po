@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
-"PO-Revision-Date: 2025-10-28 07:02+0100\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"PO-Revision-Date: 2025-10-29 06:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2225,9 +2225,11 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Sobe z največ označenimi sporočili so višje"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newer messages are higher"
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
+msgid "Rooms with newer events are higher"
 msgstr "Sobe z novejšimi sporočili so višje"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
@@ -4246,11 +4248,10 @@ msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "Neposredna sporočila"
+msgstr "Vsa sporočila"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4261,8 +4262,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Omembe in ključne besede"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Noben"
@@ -5192,61 +5192,49 @@ msgstr "Neveljavni ključ podatkov varovalne kopije"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Bližnjice tipkovnice"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "Odpri hitri preklopnik"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Odpri hitri preklopnik"
+msgstr "Odpri preklopnik računa"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Išči sporočila"
+msgstr "Išči sporočila v trenutni sobi"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Pojdi v prejšnjo sobo"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Izberi sobo"
+msgstr "Pojdi v naslednjo sobo"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Pojdi v prejšnjo neprebrano sobo"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Pojdi v naslednjo neprebrano sobo"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5476,57 +5464,70 @@ msgstr "Vrstni red seznama sob"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "Dejavnost"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
+msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Import Keys"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "Uvozi ključe"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
 msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgid "Rooms with unread notifications will be shown first."
 msgstr "Sobe z neprebranimi obvestili bodo prikazane najprej"
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Abecedni"
 
-#: src/settings/NeoChatGeneralPage.qml:116
-#, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr "Zadnja aktivnost sporočila"
+#: src/settings/NeoChatGeneralPage.qml:122
+#, fuzzy, kde-format
+#| msgid "Show state events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "Prikaži dogodke stanj"
 
-#: src/settings/NeoChatGeneralPage.qml:117
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:123
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr "Sobe z najnovejšo dejavnostjo bodo prikazane najprej"
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Časovnica"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr "Označi sporočila kot prebrana ko:"
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr "Nikoli"
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5534,7 +5535,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "Vstopite v sobo"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5542,14 +5543,14 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr "Vstopite v sobo in vsa neprebrana sporočila so vidna"
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
 msgstr "Izstopite iz sobe"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -5557,99 +5558,99 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "Izstopite iz sobe in vsa neprebrana sporočila so vidna"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
 msgstr "Prikaži dogodke stanj"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Prikaži dogodke odhodov in prihodov"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
 msgstr "Prikaži dogodke spremembe imen"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Pošiljaj sporočila s tipko Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "Pošiljaj sporočila s tipko Ctrl+Enter"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji obvestila tipkanja"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Odpri razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Ponastavi vse vrednosti konfiguracije na privzete…"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Ponovno nastavi konfihuracijo"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -5812,7 +5813,7 @@ msgstr "Naprave"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Bližnjice tipkovnice"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -5994,11 +5995,10 @@ msgid "Confirm"
 msgstr "Potrdi"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Obvestila"
+msgstr "Pošlji obvestila za"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -7113,6 +7113,14 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "Dejavnost"
+
+#~ msgctxt "As in 'sort something based on the last message'"
+#~ msgid "Last Message Activity"
+#~ msgstr "Zadnja aktivnost sporočila"
 
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"

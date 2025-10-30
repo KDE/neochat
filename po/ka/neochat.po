@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
-"PO-Revision-Date: 2025-10-28 05:28+0100\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"PO-Revision-Date: 2025-10-29 04:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2207,9 +2207,11 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "ყველაზე მეტი გამოკვეთილი შეტყობინების მქონე ოთახები ყველაზე მაღლაა"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newer messages are higher"
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
+msgid "Rooms with newer events are higher"
 msgstr "უახლესი შეტყობინებების მქონე ოთახები უფრო მაღლაა"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
@@ -4221,11 +4223,10 @@ msgid "Default Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "პირდაპირი შეტყობინებები"
+msgstr "ყველა შეტყობინება"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4236,11 +4237,10 @@ msgid "@Mentions and Keywords"
 msgstr "@ხსენებები და საკვანძო სიტყვები"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
-msgstr "არაფერი"
+msgstr "არცერთი"
 
 #: src/rooms/RoomContextMenu.qml:111
 #, kde-format
@@ -5168,60 +5168,49 @@ msgstr "არასწორი გასაღების მარქაფ�
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "კლავიატურის მალსახმობები"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "სწრაფი გადამრთველის გახსნა"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "სწრაფი გადამრთველის გახსნა"
+msgstr "ანგარიშების გადამრთველის გახსნა"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Search user in room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "ოთახში მომხმარებლის ძებნა"
+msgstr "შეტყობინებების ძებნა მიმდინარე ოთახში"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "გადასვლა წინა ოთახზე"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "აირჩიეთ ოთახი"
+msgstr "გადასვლა წაუკითხავ ოთახზე"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "გადასვლა წინა წაუკითხავ ოთახზე"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "გადასვლა შემდეგ წაუკითხავ ოთახზე"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5453,57 +5442,70 @@ msgstr "ოთახების სიის დალაგების მი
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "აქტივობა"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
+msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Import Keys"
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "გასაღებების შემოტანა"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with unread notifications will be shown first"
 msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgid "Rooms with unread notifications will be shown first."
 msgstr "წაუკითხავი შეტყობინებების მქონე ოთახების პირველი ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "ანბანით დალაგებული"
 
-#: src/settings/NeoChatGeneralPage.qml:116
-#, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr "ბოლო შეტყობინებების აქტივობა"
+#: src/settings/NeoChatGeneralPage.qml:122
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "დროის ხაზის მოვლენები"
 
-#: src/settings/NeoChatGeneralPage.qml:117
-#, kde-format
+#: src/settings/NeoChatGeneralPage.qml:123
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Rooms with the newest activity will be shown first"
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr "უახლესი აქტივობების მქონე ოთახების პირველი ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "ხელით"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "დროის ხაზი"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr "შეტყობინებების მონიშვნა წაკითხულად, როცა:"
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr "არასდროს"
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5511,7 +5513,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "შედიხართ ოთახში"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5519,14 +5521,14 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr "შედიხართ ოთახში და ყველა წაუკითხავი შეტყობინება ხილულია"
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the room"
 msgid "Exiting the room"
 msgstr "გადიხართ ოთახიდან"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -5534,98 +5536,98 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "გადიხართ ოთახიდან და ყველა წაუკითხავი შეტყობინება ხილულია"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
 msgstr "წაშლილი შეტყობინებების ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
 msgstr "მდგომარეობის მოვლენების ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "შემოსვლის და გასვლის მოვლენების ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
 msgstr "სახელის ცვლილების მოვლენების ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
 msgstr "ავატარის განახლების მოვლენების ჩვენება"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "რედაქტორი"
 
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "შეტყობინებების გაგზავნა Enter-ით"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr "შეტყობინებების გაგზავნა Ctrl+Enter-ით"
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "ბოლო შეტყობინების ჩასასწორებლად s/text/replacement სინტაქსი გამოიყენეთ"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgid "Developer Settings"
 msgstr "დეველოპერის პარამეტრები"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr "პროგრამირების ხელსაწყოების ჩართვა"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "პროგრამისტის ხელსაწყოების გახსნა"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "პროგრამირება"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "ნაგულისხმევი პარამეტრები"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "ყველა კონფიგურაციის მნიშვნელობის ნაგულისხმევზე ჩამოყრა…"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "კონფიგურაციის ჩამოყრა"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -5789,7 +5791,7 @@ msgstr "მოწყობილობები"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "კლავიატურის მალსახმობები"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -5971,11 +5973,10 @@ msgid "Confirm"
 msgstr "დადასტურება"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "გაფრთხილებები"
+msgstr "გაფრთხილებების გაგზავნა ვისთვის"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -7082,6 +7083,14 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "აქტივობა"
+
+#~ msgctxt "As in 'sort something based on the last message'"
+#~ msgid "Last Message Activity"
+#~ msgstr "ბოლო შეტყობინებების აქტივობა"
+
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"
 #~ msgstr "ყველა"
@@ -7231,9 +7240,6 @@ msgstr[1] "%2 კრეფს"
 
 #~ msgid "Follow global setting"
 #~ msgstr "გლობალური პარამეტრის მიყოლა"
-
-#~ msgid "Timeline Events"
-#~ msgstr "დროის ხაზის მოვლენები"
 
 #~ msgid "Switch User"
 #~ msgstr "მომხმარებლის გადართვა"

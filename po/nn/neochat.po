@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-29 00:43+0000\n"
+"POT-Creation-Date: 2025-10-30 00:42+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -2296,10 +2296,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr ""
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
-msgid "Rooms with the newer messages are higher"
-msgstr ""
+msgid "Rooms with newer events are higher"
+msgstr "Meldingar om romoppgradering"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -5615,58 +5615,65 @@ msgstr "Sortering for romliste"
 
 #: src/settings/NeoChatGeneralPage.qml:95
 #, kde-format
-msgctxt "As in 'sort something based on last activity'"
-msgid "Activity"
-msgstr "Aktivitet"
-
-#: src/settings/NeoChatGeneralPage.qml:96
-#, kde-format
-msgctxt "@info"
-msgid "Rooms with unread notifications will be shown first"
+msgctxt "@info:label"
+msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:106
+#: src/settings/NeoChatGeneralPage.qml:101
+#, fuzzy, kde-format
+msgctxt "As in 'sort something based on last activity'"
+msgid "Importance"
+msgstr "Importer nøklar"
+
+#: src/settings/NeoChatGeneralPage.qml:102
+#, kde-format
+msgctxt "@info"
+msgid "Rooms with unread notifications will be shown first."
+msgstr ""
+
+#: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
 msgctxt "As in 'sort something alphabetically'"
 msgid "Alphabetical"
 msgstr "Alfabetisk"
 
-#: src/settings/NeoChatGeneralPage.qml:116
+#: src/settings/NeoChatGeneralPage.qml:122
 #, fuzzy, kde-format
-msgctxt "As in 'sort something based on the last message'"
-msgid "Last Message Activity"
-msgstr "%1 – siste aktivitet: %2"
+#| msgid "Show state events"
+msgctxt "As in 'sort something based on the last event'"
+msgid "Newest Events"
+msgstr "Vis tilstandshendingar"
 
-#: src/settings/NeoChatGeneralPage.qml:117
+#: src/settings/NeoChatGeneralPage.qml:123
 #, kde-format
 msgctxt "@info"
-msgid "Rooms with the newest activity will be shown first"
+msgid "Rooms with the newest events will be shown first."
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:128
+#: src/settings/NeoChatGeneralPage.qml:134
 #, fuzzy, kde-format
 msgctxt "@option:radio"
 msgid "Custom"
 msgstr "Tilpassa"
 
-#: src/settings/NeoChatGeneralPage.qml:137
+#: src/settings/NeoChatGeneralPage.qml:143
 #, fuzzy, kde-format
 #| msgid "Timeline Events"
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Tidslinje-hendingar"
 
-#: src/settings/NeoChatGeneralPage.qml:142
+#: src/settings/NeoChatGeneralPage.qml:148
 #, kde-format
 msgid "Mark messages as read when:"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:147
+#: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:151
+#: src/settings/NeoChatGeneralPage.qml:157
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -5675,7 +5682,7 @@ msgctxt ""
 msgid "Entering the room"
 msgstr "kom inn i rommet"
 
-#: src/settings/NeoChatGeneralPage.qml:155
+#: src/settings/NeoChatGeneralPage.qml:161
 #, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when entering the "
@@ -5683,7 +5690,7 @@ msgctxt ""
 msgid "Entering the room and all unread messages are visible"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:159
+#: src/settings/NeoChatGeneralPage.qml:165
 #, fuzzy, kde-format
 #| msgid "joined the room"
 msgctxt ""
@@ -5691,7 +5698,7 @@ msgctxt ""
 msgid "Exiting the room"
 msgstr "kom inn i rommet"
 
-#: src/settings/NeoChatGeneralPage.qml:163
+#: src/settings/NeoChatGeneralPage.qml:169
 #, fuzzy, kde-format
 msgctxt ""
 "@item:inlistbox As in mark messages in the room as read when exiting the "
@@ -5699,93 +5706,93 @@ msgctxt ""
 msgid "Exiting the room and all unread messages are visible"
 msgstr "Meldingar om romoppgradering"
 
-#: src/settings/NeoChatGeneralPage.qml:178
+#: src/settings/NeoChatGeneralPage.qml:184
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Vis sletta meldingar"
 
-#: src/settings/NeoChatGeneralPage.qml:194
+#: src/settings/NeoChatGeneralPage.qml:200
 #, kde-format
 msgid "Show state events"
 msgstr "Vis tilstandshendingar"
 
-#: src/settings/NeoChatGeneralPage.qml:212
+#: src/settings/NeoChatGeneralPage.qml:218
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Vis at personar har komme og gått"
 
-#: src/settings/NeoChatGeneralPage.qml:230
+#: src/settings/NeoChatGeneralPage.qml:236
 #, kde-format
 msgid "Show name change events"
 msgstr "Vis endringar av namn"
 
-#: src/settings/NeoChatGeneralPage.qml:248
+#: src/settings/NeoChatGeneralPage.qml:254
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Vis avataroppdateringar"
 
-#: src/settings/NeoChatGeneralPage.qml:258
+#: src/settings/NeoChatGeneralPage.qml:264
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Tekstredigering"
 
 # Namn på «send»-knappen i skrivefeltet.
-#: src/settings/NeoChatGeneralPage.qml:262
+#: src/settings/NeoChatGeneralPage.qml:268
 #, fuzzy, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Enter"
 msgstr "Send meldinga"
 
-#: src/settings/NeoChatGeneralPage.qml:273
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgctxt "@option:radio"
 msgid "Send messages with Ctrl+Enter"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:289
+#: src/settings/NeoChatGeneralPage.qml:295
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Bruk «s/tekst/erstatning»-syntaks for å redigera førre melding"
 
-#: src/settings/NeoChatGeneralPage.qml:303
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Send varsling om skriving"
 
-#: src/settings/NeoChatGeneralPage.qml:313
+#: src/settings/NeoChatGeneralPage.qml:319
 #, kde-format
 msgid "Developer Settings"
 msgstr "Utviklarinnstillingar"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:324
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Vis utviklarverktøy"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:340
 #, fuzzy, kde-format
 msgid "Open Developer Tools"
 msgstr "Opna utviklarverktøy"
 
-#: src/settings/NeoChatGeneralPage.qml:338
+#: src/settings/NeoChatGeneralPage.qml:344
 #, kde-format
 msgid "Developer Tools"
 msgstr "Utviklarverktøy"
 
-#: src/settings/NeoChatGeneralPage.qml:343
+#: src/settings/NeoChatGeneralPage.qml:349
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Standardinnstillingar"
 
-#: src/settings/NeoChatGeneralPage.qml:348
+#: src/settings/NeoChatGeneralPage.qml:354
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Nullstill alle innstillingane til standardverdiar"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:360
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Re-send confirmation e-mail"
@@ -5793,7 +5800,7 @@ msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Send stadfestingsmeldinga på nytt"
 
-#: src/settings/NeoChatGeneralPage.qml:355
+#: src/settings/NeoChatGeneralPage.qml:361
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7329,6 +7336,15 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
+
+#~ msgctxt "As in 'sort something based on last activity'"
+#~ msgid "Activity"
+#~ msgstr "Aktivitet"
+
+#, fuzzy
+#~ msgctxt "As in 'sort something based on the last message'"
+#~ msgid "Last Message Activity"
+#~ msgstr "%1 – siste aktivitet: %2"
 
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"
