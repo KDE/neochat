@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:42+0000\n"
-"PO-Revision-Date: 2025-10-28 09:16+0200\n"
+"PO-Revision-Date: 2025-10-30 08:43+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2189,12 +2189,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "חדרים עם הכי הרבה הודעות מודגשות יופיעו גבוה יותר"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "חדרים עם ההודעות החדשות יותר שלא נקראו יופיעו גבוה יותר"
+msgstr "החדרים עם האירועים החדשים יותר יופיעו גבוה יותר"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -4208,11 +4206,10 @@ msgid "Default Settings"
 msgstr "הגדרות ברירת מחדל"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "הודעות ישירות"
+msgstr "כל ההודעות"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4226,7 +4223,7 @@ msgstr "@אזכורים ומילות מפתח"
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
-msgstr ""
+msgstr "ללא"
 
 #: src/rooms/RoomContextMenu.qml:111
 #, kde-format
@@ -5149,61 +5146,49 @@ msgstr "נתוני גיבוי מפתח שגויים"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "קיצורי מקשים"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "פתיחת מחליף מהיר"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "פתיחת מחליף מהיר"
+msgstr "פתיחת בורר החשבונות"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "חיפוש הודעות"
+msgstr "חיפוש הודעות בחדר הנוכחי"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "מעבר לחדר הקודם"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "בחירת חדר"
+msgstr "מעבר לחדר הבא"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "מעבר לחדר הקודם שלא נקרא"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "מעבר לחדר הבא שלא נקרא"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5433,23 +5418,19 @@ msgstr "סדר מיון רשימת חדרים"
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
-msgstr ""
+msgstr "אירועים מוסתרים לא נחשבים לפעילות עדכנית בהקשר של מיון סדר החדרים."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "ייבוא מפתחות"
+msgstr "חשיבות"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "חדרים עם התראות שלא נקראו יופיעו למעלה"
+msgstr "חדרים עם התראות שלא נקראו יופיעו בהתחלה."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5458,19 +5439,16 @@ msgid "Alphabetical"
 msgstr "אלפבתית"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "הצגת אירועי מצב"
+msgstr "האירועים העדכניים ביותר"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "חדרים עם הפעילות החדשה ביותר יופיעו בהתחלה"
+msgstr "החדרים עם האירועים החדשים ביותר יופיעו בהתחלה."
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -5773,7 +5751,7 @@ msgstr "מכשירים"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "קיצורי מקשים"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -5955,11 +5933,10 @@ msgid "Confirm"
 msgstr "אישור"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "התראות"
+msgstr "שליחת התראות על"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format

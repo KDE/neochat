@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:42+0000\n"
-"PO-Revision-Date: 2025-10-28 10:11+0100\n"
+"PO-Revision-Date: 2025-10-30 13:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2237,12 +2237,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Les sales amb més missatges ressaltats estan més amunt"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "Les sales amb els missatges més nous estan més amunt"
+msgstr "Les sales amb els esdeveniments més nous estan més amunt"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -4259,11 +4257,10 @@ msgid "Default Settings"
 msgstr "Configuració predeterminada"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "Missatges directes"
+msgstr "Tots els missatges"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4277,7 +4274,7 @@ msgstr "@mencions i paraules clau"
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 #: src/rooms/RoomContextMenu.qml:111
 #, kde-format
@@ -5209,54 +5206,49 @@ msgstr "Dades de còpia de seguretat de la clau no vàlides"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Dreceres de teclat"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
 #, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
-msgstr ""
+msgstr "Obri el commutador ràpid"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Editor de comptes"
+msgstr "Obri el commutador de comptes"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Busca missatges"
+msgstr "Busca missatges a la sala actual"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Ves fins a la sala anterior"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Trieu una sala"
+msgstr "Ves fins a la sala següent"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Ves fins a la sala anterior sense llegir"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Ves fins a la sala següent sense llegir"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5495,22 +5487,20 @@ msgstr "Criteri d'ordenació de la llista de sales"
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
+"Els esdeveniments ocults no es consideren una activitat recent en ordenar "
+"sales."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "Importació de claus"
+msgstr "Importància"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "Primer es mostraran les sales amb notificacions sense llegir"
+msgstr "Primer es mostraran les sales amb notificacions sense llegir."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5519,19 +5509,16 @@ msgid "Alphabetical"
 msgstr "Alfabètic"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "Mostra els esdeveniments d'estat"
+msgstr "Esdeveniments més nous"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "Les sales amb l'activitat més recent es mostraran primer"
+msgstr "Les sales amb els esdeveniments més nous es mostraran primer."
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -5841,7 +5828,7 @@ msgstr "Dispositius"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Dreceres de teclat"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6023,11 +6010,10 @@ msgid "Confirm"
 msgstr "Confirma"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Notificacions"
+msgstr "Envia les notificacions per a"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -7145,23 +7131,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt "As in 'sort something based on last activity'"
-#~ msgid "Activity"
-#~ msgstr "Activitat"
-
-#~ msgctxt "As in 'sort something based on the last message'"
-#~ msgid "Last Message Activity"
-#~ msgstr "Activitat de l'últim missatge"
-
-#~ msgctxt "As in 'notify for all messages'"
-#~ msgid "All"
-#~ msgstr "Totes"
-
-#~ msgctxt "As in 'do not notify for any messages'"
-#~ msgid "Off"
-#~ msgstr "Desactivades"
-
-#~ msgctxt "@title:group"
-#~ msgid "Room notifications setting"
-#~ msgstr "Configureu les notificacions de sala"

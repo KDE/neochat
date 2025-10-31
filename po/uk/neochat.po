@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:42+0000\n"
-"PO-Revision-Date: 2025-10-29 11:14+0200\n"
+"PO-Revision-Date: 2025-10-30 14:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2236,12 +2236,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Кімнати із більшою кількістю підсвічених повідомлень будуть вище"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "Кімнати із новішими повідомленнями будуть вище"
+msgstr "Кімнати із новішими подіями будуть вище"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -5491,22 +5489,19 @@ msgstr "Порядок сортування списку кімнат"
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
+"Приховані події не вважаються нещодавніми діями при упорядковуванні кімнат."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "Імпортування ключів"
+msgstr "Важливість"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "Кімнати із непрочитаними сповіщеннями буде показано першими"
+msgstr "Кімнати із непрочитаними сповіщеннями буде показано першими."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5515,19 +5510,16 @@ msgid "Alphabetical"
 msgstr "За абеткою"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "Події розкладу"
+msgstr "Найновіші події"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "Кімнати із свіжими діями буде показано першими"
+msgstr "Кімнати із свіжими подіями буде показано першими"
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
