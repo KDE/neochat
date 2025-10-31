@@ -263,6 +263,7 @@ QQC2.Control {
                     wrapMode: TextEdit.Wrap
                     // This has to stay PlainText or else formatting starts breaking in strange ways
                     textFormat: TextEdit.PlainText
+                    font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
 
                     Accessible.description: placeholderText
 
