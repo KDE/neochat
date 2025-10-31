@@ -58,6 +58,7 @@ QQC2.Control {
         selectionColor: Kirigami.Theme.highlightColor
 
         font.italic: true
+        font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
 
         onSelectedTextChanged: root.selectedTextChanged(selectedText)
 

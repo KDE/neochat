@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.neochat
 
 QQC2.ItemDelegate {
     id: root
@@ -29,6 +30,7 @@ QQC2.ItemDelegate {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "emoji"
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
 
             Kirigami.Icon {
                 width: Kirigami.Units.gridUnit * 0.5

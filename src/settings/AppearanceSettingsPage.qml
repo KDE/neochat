@@ -43,6 +43,40 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+
+        FormCard.FormDelegateSeparator {
+            above: fontScaleSliderDelegate
+            below: compactRoomListDelegate
+        }
+
+        /*!
+        Font scale setting allows user to adjust the font size used in the app.
+        */
+        FormCard.AbstractFormDelegate {
+            id: fontScaleSliderDelegate
+            background: Item {}
+            contentItem: ColumnLayout {
+                QQC2.Label {
+                    text: i18nc("@label Font size for text in the chat pane", "Chat font scaling")
+                    Layout.fillWidth: true
+                }
+                QQC2.Label {
+                    text: i18nc("@label:slider Current font scale percentage. %1 is the numeric percentage value, the second % is the symbol e.g. 120%", "%1%", Math.round(NeoChatConfig.fontScale * 100))
+                    Layout.fillWidth: true
+                }
+                QQC2.Slider {
+                    from: 0.5
+                    to: 3.0
+                    stepSize: 0.1
+                    value: NeoChatConfig.fontScale
+                    onMoved: {
+                        NeoChatConfig.fontScale = value;
+                        NeoChatConfig.save();
+                    }
+                    Layout.fillWidth: true
+                }
+            }
+        }
     }
 
     FormCard.FormHeader {

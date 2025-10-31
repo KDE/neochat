@@ -91,6 +91,7 @@ Components.AbstractMaximizeComponent {
             color: Kirigami.Theme.textColor
 
             font.family: "monospace"
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
 
             Kirigami.SpellCheck.enabled: false
 

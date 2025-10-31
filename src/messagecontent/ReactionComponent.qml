@@ -51,6 +51,7 @@ Flow {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 text: reactionDelegate.textContent
+                font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
                 background: null
                 wrapMode: TextEdit.NoWrap
                 textFormat: Text.RichText
