@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"POT-Creation-Date: 2025-11-04 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1720,7 +1720,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:430 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3673,12 +3673,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/messagecontent/CodeComponent.qml:160
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "클립보드에 복사"
 
-#: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/CodeComponent.qml:173
 #: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
@@ -3891,7 +3891,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "투표가 종료되었습니다. 최대 응답: %1"
 
-#: src/messagecontent/ReactionComponent.qml:89
+#: src/messagecontent/ReactionComponent.qml:90
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4631,63 +4631,79 @@ msgstr "일반"
 msgid "Use compact room list"
 msgstr "간략한 대화방 목록 사용"
 
-#: src/settings/AppearanceSettingsPage.qml:49
+#: src/settings/AppearanceSettingsPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Chat on Matrix"
+msgctxt "@label Font size for text in the chat pane"
+msgid "Chat font scaling"
+msgstr "Matrix에서 대화하기"
+
+#: src/settings/AppearanceSettingsPage.qml:64
+#, fuzzy, kde-format
+#| msgid "%1: %2"
+msgctxt ""
+"@label:slider Current font scale percentage. %1 is the numeric percentage "
+"value, the second % is the symbol e.g. 120%"
+msgid "%1%"
+msgstr "%1: %2"
+
+#: src/settings/AppearanceSettingsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:group"
 msgid "Message Layout"
 msgstr "메시지 소스"
 
-#: src/settings/AppearanceSettingsPage.qml:143
+#: src/settings/AppearanceSettingsPage.qml:177
 #, kde-format
 msgid "Bubbles"
 msgstr "거품"
 
-#: src/settings/AppearanceSettingsPage.qml:212
+#: src/settings/AppearanceSettingsPage.qml:246
 #, kde-format
 msgid "Compact"
 msgstr "간략함"
 
-#: src/settings/AppearanceSettingsPage.qml:235
+#: src/settings/AppearanceSettingsPage.qml:269
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "투명 대화 페이지 사용"
 
-#: src/settings/AppearanceSettingsPage.qml:258
+#: src/settings/AppearanceSettingsPage.qml:292
 #, kde-format
 msgid "Transparency"
 msgstr "투명도"
 
-#: src/settings/AppearanceSettingsPage.qml:277
+#: src/settings/AppearanceSettingsPage.qml:311
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "투명 대화 페이지가 활성화되어 있을 때에만 적용됩니다."
 
-#: src/settings/AppearanceSettingsPage.qml:293
+#: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "오른쪽에 내 메시지 표시"
 
-#: src/settings/AppearanceSettingsPage.qml:310
+#: src/settings/AppearanceSettingsPage.qml:344
 #, fuzzy, kde-format
 #| msgid "Show links preview in the chat messages"
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
 msgstr "대화 메시지에 링크 미리 보기 표시"
 
-#: src/settings/AppearanceSettingsPage.qml:320
+#: src/settings/AppearanceSettingsPage.qml:354
 #, fuzzy, kde-format
 #| msgid "Show Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "아바타 표시"
 
-#: src/settings/AppearanceSettingsPage.qml:324
+#: src/settings/AppearanceSettingsPage.qml:358
 #, kde-format
 msgid "In chat"
 msgstr "대화에"
 
-#: src/settings/AppearanceSettingsPage.qml:334
+#: src/settings/AppearanceSettingsPage.qml:368
 #, kde-format
 msgid "In sidebar"
 msgstr "사이드바에"

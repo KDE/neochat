@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"POT-Creation-Date: 2025-11-04 00:42+0000\n"
 "PO-Revision-Date: 2025-09-21 12:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1739,7 +1739,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:430 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3696,12 +3696,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: src/messagecontent/CodeComponent.qml:160
+#: src/messagecontent/CodeComponent.qml:161
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "பிடிப்புப்பலகைக்கு நகலெடு"
 
-#: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/CodeComponent.qml:173
 #: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
@@ -3917,7 +3917,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "கருத்தாய்வு முடிந்துள்ளது. அதிகமான வாக்குகளைப் பெற்ற பதில்: %1"
 
-#: src/messagecontent/ReactionComponent.qml:89
+#: src/messagecontent/ReactionComponent.qml:90
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4675,63 +4675,79 @@ msgstr "பொதுவானவை"
 msgid "Use compact room list"
 msgstr "சுருக்கமான அரங்குப்பட்டியலைப் பயன்படுத்து"
 
-#: src/settings/AppearanceSettingsPage.qml:49
+#: src/settings/AppearanceSettingsPage.qml:60
+#, fuzzy, kde-format
+#| msgid "Chat on Matrix"
+msgctxt "@label Font size for text in the chat pane"
+msgid "Chat font scaling"
+msgstr "Matrix-இல் உரையாடு"
+
+#: src/settings/AppearanceSettingsPage.qml:64
+#, fuzzy, kde-format
+#| msgid "%1: %2"
+msgctxt ""
+"@label:slider Current font scale percentage. %1 is the numeric percentage "
+"value, the second % is the symbol e.g. 120%"
+msgid "%1%"
+msgstr "%1: %2"
+
+#: src/settings/AppearanceSettingsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:group"
 msgid "Message Layout"
 msgstr "செய்தியின் மூலம்"
 
-#: src/settings/AppearanceSettingsPage.qml:143
+#: src/settings/AppearanceSettingsPage.qml:177
 #, kde-format
 msgid "Bubbles"
 msgstr "குமிழிகள்"
 
-#: src/settings/AppearanceSettingsPage.qml:212
+#: src/settings/AppearanceSettingsPage.qml:246
 #, kde-format
 msgid "Compact"
 msgstr "சுருக்கமானது"
 
-#: src/settings/AppearanceSettingsPage.qml:235
+#: src/settings/AppearanceSettingsPage.qml:269
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "ஒளிபுகும் உரையாடல் பக்கத்தைப் பயன்படுத்து"
 
-#: src/settings/AppearanceSettingsPage.qml:258
+#: src/settings/AppearanceSettingsPage.qml:292
 #, kde-format
 msgid "Transparency"
 msgstr "ஒளிபுகுமை"
 
-#: src/settings/AppearanceSettingsPage.qml:277
+#: src/settings/AppearanceSettingsPage.qml:311
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "ஒளிபுகும் உரையாடல் பக்கம் இயக்கப்பட்டிருந்தால் மட்டும் இயங்கும்."
 
-#: src/settings/AppearanceSettingsPage.qml:293
+#: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "உங்கள் செய்திகளை வலது பக்கத்தில் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:310
+#: src/settings/AppearanceSettingsPage.qml:344
 #, fuzzy, kde-format
 #| msgid "Show links preview in the chat messages"
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
 msgstr "உரையாடல்களில் இணைப்புகளின் முன்னோட்டத்தைக் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:320
+#: src/settings/AppearanceSettingsPage.qml:354
 #, fuzzy, kde-format
 #| msgid "Show Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "சின்னத்தைக் காட்டு"
 
-#: src/settings/AppearanceSettingsPage.qml:324
+#: src/settings/AppearanceSettingsPage.qml:358
 #, kde-format
 msgid "In chat"
 msgstr "உரையாடலில்"
 
-#: src/settings/AppearanceSettingsPage.qml:334
+#: src/settings/AppearanceSettingsPage.qml:368
 #, kde-format
 msgid "In sidebar"
 msgstr "ஓரப்பட்டையில்"

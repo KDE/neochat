@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:42+0000\n"
+"POT-Creation-Date: 2025-11-04 00:42+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1807,7 +1807,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/chatbar/ChatBar.qml:429 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:430 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3874,14 +3874,14 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Anullar"
 
-#: src/messagecontent/CodeComponent.qml:160
+#: src/messagecontent/CodeComponent.qml:161
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
 msgid "Copy to clipboard"
 msgstr "Copiar li adresse al Paperiere"
 
-#: src/messagecontent/CodeComponent.qml:172
+#: src/messagecontent/CodeComponent.qml:173
 #: src/messagecontent/VideoComponent.qml:374
 #, kde-format
 msgctxt "@action:button"
@@ -4098,7 +4098,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr ""
 
-#: src/messagecontent/ReactionComponent.qml:89
+#: src/messagecontent/ReactionComponent.qml:90
 #, fuzzy, kde-format
 #| msgid "React"
 msgctxt "@button"
@@ -4875,63 +4875,79 @@ msgstr "General"
 msgid "Use compact room list"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:49
+#: src/settings/AppearanceSettingsPage.qml:60
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@label Font size for text in the chat pane"
+msgid "Chat font scaling"
+msgstr "Pri NeoChat"
+
+#: src/settings/AppearanceSettingsPage.qml:64
+#, fuzzy, kde-format
+#| msgid "%1: %2"
+msgctxt ""
+"@label:slider Current font scale percentage. %1 is the numeric percentage "
+"value, the second % is the symbol e.g. 120%"
+msgid "%1%"
+msgstr "%1: %2"
+
+#: src/settings/AppearanceSettingsPage.qml:83
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Message Layout"
 msgstr "_Missage..."
 
-#: src/settings/AppearanceSettingsPage.qml:143
+#: src/settings/AppearanceSettingsPage.qml:177
 #, kde-format
 msgid "Bubbles"
 msgstr "Bules"
 
-#: src/settings/AppearanceSettingsPage.qml:212
+#: src/settings/AppearanceSettingsPage.qml:246
 #, kde-format
 msgid "Compact"
 msgstr "Compact"
 
-#: src/settings/AppearanceSettingsPage.qml:235
+#: src/settings/AppearanceSettingsPage.qml:269
 #, fuzzy, kde-format
 msgid "Use transparent chat page"
 msgstr "Usar li actual págine quam Hem-págine"
 
-#: src/settings/AppearanceSettingsPage.qml:258
+#: src/settings/AppearanceSettingsPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Transparentie:"
 
-#: src/settings/AppearanceSettingsPage.qml:277
+#: src/settings/AppearanceSettingsPage.qml:311
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:293
+#: src/settings/AppearanceSettingsPage.qml:327
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Monstrar vor missages al dextri"
 
-#: src/settings/AppearanceSettingsPage.qml:310
+#: src/settings/AppearanceSettingsPage.qml:344
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@label:checkbox"
 msgid "Show link previews in messages"
 msgstr "Inviar li missage"
 
-#: src/settings/AppearanceSettingsPage.qml:320
+#: src/settings/AppearanceSettingsPage.qml:354
 #, fuzzy, kde-format
 #| msgid "Show Avatar:"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Monstrar li avatar"
 
-#: src/settings/AppearanceSettingsPage.qml:324
+#: src/settings/AppearanceSettingsPage.qml:358
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:334
+#: src/settings/AppearanceSettingsPage.qml:368
 #, fuzzy, kde-format
 #| msgid "In Sidebar"
 msgid "In sidebar"
