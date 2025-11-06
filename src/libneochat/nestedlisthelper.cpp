@@ -219,11 +219,16 @@ void NestedListHelper::handleOnIndentLess(const QTextCursor &textCursor)
     }
 }
 
-void NestedListHelper::handleOnBulletType(int styleIndex, const QTextCursor &textCursor)
+void NestedListHelper::handleOnBulletType(QTextListFormat::Style style, QTextCursor cursor)
 {
-    QTextCursor cursor = textCursor;
-    if (styleIndex != 0) {
-        auto style = static_cast<QTextListFormat::Style>(styleIndex);
+    if (cursor.isNull()) {
+        return;
+    }
+    QTextListFormat::Style currentListStyle = QTextListFormat::ListStyleUndefined;
+    if (cursor.currentList()) {
+        currentListStyle = cursor.currentList()->format().style();
+    }
+    if (style != currentListStyle && style != QTextListFormat::ListStyleUndefined) {
         QTextList *currentList = cursor.currentList();
         QTextListFormat listFmt;
 
@@ -245,5 +250,5 @@ void NestedListHelper::handleOnBulletType(int styleIndex, const QTextCursor &tex
         cursor.setBlockFormat(bfmt);
     }
 
-    reformatList(textCursor.block());
+    reformatList(cursor.block());
 }

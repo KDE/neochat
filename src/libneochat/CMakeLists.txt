@@ -10,6 +10,7 @@ target_sources(LibNeoChat PRIVATE
     accountmanager.cpp
     chatbarcache.cpp
     chatdocumenthandler.cpp
+    chatmarkdownhelper.cpp
     clipboard.cpp
     delegatesizehelper.cpp
     emojitones.cpp
@@ -31,9 +32,9 @@ target_sources(LibNeoChat PRIVATE
     enums/messagetype.h
     enums/powerlevel.cpp
     enums/pushrule.h
+    enums/richformat.cpp
     enums/roomsortparameter.cpp
     enums/roomsortorder.h
-    enums/textstyle.h
     enums/timelinemarkreadcondition.h
     events/imagepackevent.cpp
     events/pollevent.cpp

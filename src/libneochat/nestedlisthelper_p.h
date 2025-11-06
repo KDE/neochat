@@ -8,10 +8,11 @@
 
 #pragma once
 
+#include <QTextList>
+
 class QKeyEvent;
 class QTextCursor;
 class QTextBlock;
-class QTextList;
 
 /**
  *
@@ -73,7 +74,7 @@ public:
      *
      * @param styleIndex The QTextListStyle of the list.
      */
-    void handleOnBulletType(int styleIndex, const QTextCursor &textCursor);
+    void handleOnBulletType(QTextListFormat::Style style, QTextCursor cursor);
 
     /**
      * @brief Check whether the current item in the list may be indented.

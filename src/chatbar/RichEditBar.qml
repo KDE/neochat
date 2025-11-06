@@ -84,7 +84,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.bold
                 onClicked: {
-                    root.focusedDocumentHandler.bold = checked;
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Bold);
                     root.clicked()
                 }
 
@@ -105,7 +105,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.italic
                 onClicked: {
-                    root.focusedDocumentHandler.italic = checked;
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Italic);
                     root.clicked()
                 }
 
@@ -126,7 +126,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.underline
                 onClicked: {
-                    root.focusedDocumentHandler.underline = checked;
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Underline);
                     root.clicked();
                 }
 
@@ -142,7 +142,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.strikethrough
                 onClicked: {
-                    root.focusedDocumentHandler.strikethrough = checked;
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Strikethrough);
                     root.clicked()
                 }
 
@@ -174,7 +174,7 @@ QQC2.ToolBar {
                     checkable: true
                     checked: root.focusedDocumentHandler.bold
                     onTriggered: {
-                        root.focusedDocumentHandler.bold = checked;
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Bold);
                         root.clicked();
                     }
                 }
@@ -184,7 +184,7 @@ QQC2.ToolBar {
                     checkable: true
                     checked: root.focusedDocumentHandler.italic
                     onTriggered: {
-                        root.focusedDocumentHandler.italic = checked;
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Italic);
                         root.clicked();
                     }
                 }
@@ -194,7 +194,7 @@ QQC2.ToolBar {
                     checkable: true
                     checked: root.focusedDocumentHandler.underline
                     onTriggered: {
-                        root.focusedDocumentHandler.underline = checked;
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Underline);
                         root.clicked();
                     }
                 }
@@ -204,7 +204,7 @@ QQC2.ToolBar {
                     checkable: true
                     checked: root.focusedDocumentHandler.strikethrough
                     onTriggered: {
-                        root.focusedDocumentHandler.strikethrough = checked;
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Strikethrough);
                         root.clicked();
                     }
                 }
@@ -229,7 +229,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.currentListStyle === 1
                 onClicked: {
-                    root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 1 ? 0 : 1);
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.UnorderedList);
                     root.clicked();
                 }
 
@@ -245,7 +245,7 @@ QQC2.ToolBar {
                 checkable: true
                 checked: root.focusedDocumentHandler.currentListStyle === 4
                 onClicked: {
-                    root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 4 ? 0 : 4);
+                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.OrderedList);
                     root.clicked();
                 }
 
@@ -303,7 +303,7 @@ QQC2.ToolBar {
                     icon.name: "format-list-unordered"
                     text: i18nc("@action:button", "Unordered List")
                     onTriggered: {
-                        root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 1 ? 0 : 1);
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.UnorderedList);
                         root.clicked();
                     }
                 }
@@ -311,7 +311,7 @@ QQC2.ToolBar {
                     icon.name: "format-list-ordered"
                     text: i18nc("@action:button", "Ordered List")
                     onTriggered: {
-                        root.focusedDocumentHandler.setListStyle(root.focusedDocumentHandler.currentListStyle === 4 ? 0 : 4);
+                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.OrderedList);
                         root.clicked();
                     }
                 }
