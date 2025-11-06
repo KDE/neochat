@@ -90,6 +90,11 @@ TextEdit {
         }
     }
 
+    Keys.onTabPressed: (event) => {
+        event.accepted = true;
+        chatDocumentHandler.tab();
+    }
+
     Keys.onDeletePressed: (event) => {
         event.accepted = true;
         chatDocumentHandler.deleteChar();
@@ -102,6 +107,15 @@ TextEdit {
             return;
         }
         event.accepted = false;
+    }
+
+    Keys.onEnterPressed:  (event) => {
+        event.accepted = true;
+        chatDocumentHandler.insertReturn();
+    }
+    Keys.onReturnPressed:  (event) => {
+        event.accepted = true;
+        chatDocumentHandler.insertReturn();
     }
 
     onFocusChanged: if (focus && !root.currentFocus) {
