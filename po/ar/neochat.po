@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-04 00:42+0000\n"
-"PO-Revision-Date: 2025-10-30 11:12+0400\n"
+"PO-Revision-Date: 2025-11-05 18:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2195,12 +2195,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "الغرف التي تحتوي على أكثر رسائل مبرزة تكون في أعلى"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "الغرف التي تحتوي على أحدث رسائل تكون في أعلى"
+msgstr "الغرف ذات آخر الأحداث تكون في أعلى"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -4615,20 +4613,18 @@ msgid "Use compact room list"
 msgstr "استخدم قائمة المتراصة للغرف"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "دردش على ماتركس"
+msgstr "مقياس خط الدردشة"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "‏%1: ‏%2"
+msgstr "%1٪"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -5455,23 +5451,19 @@ msgstr "ترتيب فرز قائمة الغرفة"
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
-msgstr ""
+msgstr "لا تعتبر الأحداث المخفية نشاطًا حديثًا عند فرز الغرف."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "استورد مفاتيح"
+msgstr "الأهمية"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "ستعرض الغرف التي تحتوي على إشعارات غير مقروءة أولاً"
+msgstr "ستعرض الغرف التي تحتوي على إشعارات غير مقروءة أولاً."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5480,19 +5472,16 @@ msgid "Alphabetical"
 msgstr "أبجديّ"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "الخط الزمني للأحداث"
+msgstr "آخر الأحداث"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "ستعرض الغرف ذات النشاط الأحدث أولاً"
+msgstr "ستعرض الغرف ذات آخر الأحدث أولاً"
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
