@@ -7,7 +7,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 
-#include "enums/textstyle.h"
+#include "enums/richformat.h"
 
 StyleDelegateHelper::StyleDelegateHelper(QObject *parent)
     : QObject(parent)
@@ -59,8 +59,8 @@ void StyleDelegateHelper::formatDocument()
     cursor.beginEditBlock();
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
-    const auto style = static_cast<TextStyle::Style>(m_textItem->property("index").toInt());
-    const auto string = TextStyle::styleString(style);
+    const auto style = static_cast<RichFormat::Format>(m_textItem->property("index").toInt());
+    const auto string = RichFormat::styleString(style);
 
     const int headingLevel = style <= 6 ? style : 0;
     // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
@@ -74,9 +74,9 @@ void StyleDelegateHelper::formatDocument()
     QTextCharFormat chrfmt;
     chrfmt.setFontWeight(headingLevel > 0 ? QFont::Bold : QFont::Normal);
     chrfmt.setProperty(QTextFormat::FontSizeAdjustment, sizeAdjustment / 2);
-    if (style == TextStyle::Code) {
+    if (style == RichFormat::Code) {
         chrfmt.setFontFamilies({u"monospace"_s});
-    } else if (style == TextStyle::Quote) {
+    } else if (style == RichFormat::Quote) {
         chrfmt.setFontItalic(true);
     }
 

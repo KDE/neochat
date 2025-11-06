@@ -11,8 +11,9 @@
 #include <qtextdocumentfragment.h>
 
 #include "chatbarcache.h"
+#include "chatmarkdownhelper.h"
 #include "enums/chatbartype.h"
-#include "enums/textstyle.h"
+#include "enums/richformat.h"
 #include "models/completionmodel.h"
 #include "neochatroom.h"
 #include "nestedlisthelper_p.h"
@@ -103,24 +104,18 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(bool atLastLine READ atLastLine NOTIFY atLastLineChanged)
 
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-    Q_PROPERTY(QString fontFamily READ fontFamily WRITE setFontFamily NOTIFY fontFamilyChanged)
-    Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment NOTIFY alignmentChanged)
 
-    Q_PROPERTY(bool bold READ bold WRITE setBold NOTIFY formatChanged)
-    Q_PROPERTY(bool italic READ italic WRITE setItalic NOTIFY formatChanged)
-    Q_PROPERTY(bool underline READ underline WRITE setUnderline NOTIFY formatChanged)
-    Q_PROPERTY(bool strikethrough READ strikethrough WRITE setStrikethrough NOTIFY formatChanged)
+    Q_PROPERTY(bool bold READ bold NOTIFY formatChanged)
+    Q_PROPERTY(bool italic READ italic NOTIFY formatChanged)
+    Q_PROPERTY(bool underline READ underline NOTIFY formatChanged)
+    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY formatChanged)
 
-    Q_PROPERTY(TextStyle::Style style READ style WRITE setStyle NOTIFY styleChanged)
+    Q_PROPERTY(RichFormat::Format style READ style NOTIFY styleChanged)
 
     // Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
     // Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
     // Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
-
-    // Q_PROPERTY(bool list READ list WRITE setList NOTIFY listChanged)
-
-    Q_PROPERTY(int fontSize READ fontSize WRITE setFontSize NOTIFY fontSizeChanged)
 
     Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
     Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
@@ -176,45 +171,33 @@ public:
      */
     Q_INVOKABLE void updateMentions(const QString &editId);
 
-    QString fontFamily() const;
-    void setFontFamily(const QString &family);
-
     QColor textColor() const;
     void setTextColor(const QColor &color);
 
-    Qt::Alignment alignment() const;
-    void setAlignment(Qt::Alignment alignment);
-
     bool bold() const;
-    void setBold(bool bold);
     bool italic() const;
-    void setItalic(bool italic);
-
     bool underline() const;
-    void setUnderline(bool underline);
-
     bool strikethrough() const;
-    void setStrikethrough(bool strikethrough);
+
+    Q_INVOKABLE void setFormat(RichFormat::Format format);
+    void setFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
 
     bool canIndentList() const;
     bool canDedentList() const;
     int currentListStyle() const;
+    Q_INVOKABLE void indentListLess();
+    Q_INVOKABLE void indentListMore();
 
-    TextStyle::Style style() const;
-    void setStyle(TextStyle::Style style);
-
-    // bool list() const;
-    // void setList(bool list);
-
-    int fontSize() const;
-    void setFontSize(int size);
+    RichFormat::Format style() const;
 
     QString fileName() const;
     QString fileType() const;
     QUrl fileUrl() const;
 
+    Q_INVOKABLE void tab();
     Q_INVOKABLE void deleteChar();
     Q_INVOKABLE void backspace();
+    Q_INVOKABLE void insertReturn();
     Q_INVOKABLE void insertText(const QString &text);
     void insertFragment(const QTextDocumentFragment fragment, InsertPosition position = Cursor, bool keepPosition = false);
     Q_INVOKABLE QString currentLinkUrl() const;
@@ -222,11 +205,6 @@ public:
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);
-
-    Q_INVOKABLE void indentListLess();
-    Q_INVOKABLE void indentListMore();
-
-    Q_INVOKABLE void setListStyle(int styleIndex);
 
     Q_INVOKABLE void dumpHtml();
     Q_INVOKABLE QString htmlText() const;
@@ -239,17 +217,10 @@ Q_SIGNALS:
     void atFirstLineChanged();
     void atLastLineChanged();
 
-    void fontFamilyChanged();
     void textColorChanged();
-    void alignmentChanged();
 
-    void boldChanged();
-    void italicChanged();
-    void underlineChanged();
     void checkableChanged();
-    void strikethroughChanged();
     void currentListStyleChanged();
-    void fontSizeChanged();
     void fileUrlChanged();
 
     void formatChanged();
@@ -262,6 +233,7 @@ Q_SIGNALS:
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
+    QPointer<NeoChatRoom> m_room;
     QPointer<QQuickItem> m_textItem;
     QTextDocument *document() const;
 
@@ -273,22 +245,26 @@ private:
     QString m_initialText = {};
     void initializeChars();
 
-    int completionStartIndex() const;
-
-    QPointer<NeoChatRoom> m_room;
-
     int cursorPosition() const;
     int selectionStart() const;
     int selectionEnd() const;
+    QTextCursor textCursor() const;
 
+    void setTextFormat(RichFormat::Format format);
+    void setStyleFormat(RichFormat::Format format);
+    void setListFormat(RichFormat::Format format);
+
+    QPointer<ChatMarkdownHelper> m_markdownHelper;
+    QTextCharFormat m_pendingFormat = {};
+
+    SyntaxHighlighter *m_highlighter = nullptr;
+
+    int completionStartIndex() const;
+
+    CompletionModel *m_completionModel = nullptr;
     QString getText() const;
     void pushMention(const Mention mention) const;
 
-    SyntaxHighlighter *m_highlighter = nullptr;
-    QQuickItem *m_textArea;
-
-    CompletionModel *m_completionModel = nullptr;
-    QTextCursor textCursor() const;
     std::optional<Qt::TextFormat> textFormat() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
     void selectLinkText(QTextCursor *cursor) const;
