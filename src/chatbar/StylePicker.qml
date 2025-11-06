@@ -36,18 +36,18 @@ QQC2.Popup {
                 leftPadding: lineRow.visible ? lineRow.width + lineRow.anchors.leftMargin + Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
                 verticalAlignment: Text.AlignVCenter
 
-                enabled: root.chatContentModel.focusType !== LibNeoChat.MessageComponentType.Code || styleDelegate.index === LibNeoChat.TextStyle.Paragraph || styleDelegate.index === LibNeoChat.TextStyle.Quote
+                enabled: root.chatContentModel.focusType !== LibNeoChat.MessageComponentType.Code || styleDelegate.index === LibNeoChat.RichFormat.Paragraph || styleDelegate.index === LibNeoChat.RichFormat.Quote
                 readOnly: true
                 selectByMouse: false
 
                 onPressed: (event) => {
-                    if (styleDelegate.index === LibNeoChat.TextStyle.Paragraph ||
-                        styleDelegate.index === LibNeoChat.TextStyle.Code ||
-                        styleDelegate.index === LibNeoChat.TextStyle.Quote
+                    if (styleDelegate.index === LibNeoChat.RichFormat.Paragraph ||
+                        styleDelegate.index === LibNeoChat.RichFormat.Code ||
+                        styleDelegate.index === LibNeoChat.RichFormat.Quote
                     ) {
                         root.chatContentModel.insertStyleAtCursor(styleDelegate.index);
                     } else {
-                        root.focusedDocumentHandler.style = styleDelegate.index;
+                        root.focusedDocumentHandler.setFormat(styleDelegate.index);
                     }
                     root.close();
                 }
@@ -61,7 +61,7 @@ QQC2.Popup {
                         leftMargin: Kirigami.Units.smallSpacing
                     }
 
-                    visible: styleDelegate.index === LibNeoChat.TextStyle.Code
+                    visible: styleDelegate.index === LibNeoChat.RichFormat.Code
 
                     QQC2.Label {
                         horizontalAlignment: Text.AlignRight
@@ -82,7 +82,7 @@ QQC2.Popup {
 
                 background: Rectangle {
                     color: Kirigami.Theme.backgroundColor
-                    Kirigami.Theme.colorSet: styleDelegate.index === LibNeoChat.TextStyle.Quote ? Kirigami.Theme.Window : Kirigami.Theme.View
+                    Kirigami.Theme.colorSet: styleDelegate.index === LibNeoChat.RichFormat.Quote ? Kirigami.Theme.Window : Kirigami.Theme.View
                     Kirigami.Theme.inherit: false
                     radius: Kirigami.Units.cornerRadius
                     border {
