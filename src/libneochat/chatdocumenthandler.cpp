@@ -21,6 +21,7 @@
 
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
+#include <qfont.h>
 #include <qlogging.h>
 #include <qnamespace.h>
 #include <qtextcursor.h>
@@ -28,8 +29,8 @@
 
 #include "chatbartype.h"
 #include "chatdocumenthandler_logging.h"
+#include "chatmarkdownhelper.h"
 #include "eventhandler.h"
-#include "textstyle.h"
 
 using namespace Qt::StringLiterals;
 
@@ -130,6 +131,8 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     , m_highlighter(new SyntaxHighlighter(this))
     , m_completionModel(new CompletionModel(this))
 {
+    m_markdownHelper = new ChatMarkdownHelper(this);
+    connect(this, &ChatDocumentHandler::formatChanged, m_markdownHelper, &ChatMarkdownHelper::handleExternalFormatChange);
 }
 
 int ChatDocumentHandler::completionStartIndex() const
@@ -162,6 +165,22 @@ void ChatDocumentHandler::setType(ChatBarType::Type type)
     Q_EMIT typeChanged();
 }
 
+NeoChatRoom *ChatDocumentHandler::room() const
+{
+    return m_room;
+}
+
+void ChatDocumentHandler::setRoom(NeoChatRoom *room)
+{
+    if (m_room == room) {
+        return;
+    }
+
+    m_room = room;
+    m_completionModel->setRoom(m_room);
+    Q_EMIT roomChanged();
+}
+
 QQuickItem *ChatDocumentHandler::textItem() const
 {
     return m_textItem;
@@ -187,9 +206,17 @@ void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCursor()));
         if (document()) {
             connect(document(), &QTextDocument::contentsChanged, this, &ChatDocumentHandler::contentsChanged);
-            connect(document(), &QTextDocument::contentsChanged, this, [this]() {
-                if (m_room) {
-                    updateCursor();
+            connect(document(), &QTextDocument::contentsChanged, this, &ChatDocumentHandler::updateCursor);
+            connect(document(), &QTextDocument::contentsChange, this, [this](int position) {
+                auto cursor = textCursor();
+                if (cursor.isNull()) {
+                    return;
+                }
+                cursor.setPosition(position);
+                cursor.select(QTextCursor::WordUnderCursor);
+                if (!cursor.selectedText().isEmpty()) {
+                    cursor.mergeCharFormat(m_pendingFormat);
+                    m_pendingFormat = {};
                 }
             });
             initializeChars();
@@ -308,7 +335,6 @@ void ChatDocumentHandler::updateCursor()
     int start = completionStartIndex();
     m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
 
-    Q_EMIT formatChanged();
     Q_EMIT atFirstLineChanged();
     Q_EMIT atLastLineChanged();
 }
@@ -329,20 +355,20 @@ int ChatDocumentHandler::selectionEnd() const
     return m_textItem->property("selectionEnd").toInt();
 }
 
-NeoChatRoom *ChatDocumentHandler::room() const
+QTextCursor ChatDocumentHandler::textCursor() const
 {
-    return m_room;
-}
-
-void ChatDocumentHandler::setRoom(NeoChatRoom *room)
-{
-    if (m_room == room) {
-        return;
+    if (!document()) {
+        return QTextCursor();
     }
 
-    m_room = room;
-    m_completionModel->setRoom(m_room);
-    Q_EMIT roomChanged();
+    QTextCursor cursor = QTextCursor(document());
+    if (selectionStart() != selectionEnd()) {
+        cursor.setPosition(selectionStart());
+        cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
+    } else {
+        cursor.setPosition(cursorPosition());
+    }
+    return cursor;
 }
 
 bool ChatDocumentHandler::isEmpty() const
@@ -647,58 +673,12 @@ void ChatDocumentHandler::updateMentions(const QString &editId)
     }
 }
 
-void ChatDocumentHandler::setFontSize(int size)
-{
-    if (size <= 0)
-        return;
-
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return;
-
-    if (!cursor.hasSelection())
-        cursor.select(QTextCursor::WordUnderCursor);
-
-    if (cursor.charFormat().property(QTextFormat::FontPointSize).toInt() == size)
-        return;
-
-    QTextCharFormat format;
-    format.setFontPointSize(size);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontSizeChanged();
-}
-
-void ChatDocumentHandler::setStrikethrough(bool strikethrough)
-{
-    QTextCharFormat format;
-    format.setFontStrikeOut(strikethrough);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT formatChanged();
-}
-
 void ChatDocumentHandler::setTextColor(const QColor &color)
 {
     QTextCharFormat format;
     format.setForeground(QBrush(color));
     mergeFormatOnWordOrSelection(format);
     Q_EMIT textColorChanged();
-}
-
-Qt::Alignment ChatDocumentHandler::alignment() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return Qt::AlignLeft;
-    return textCursor().blockFormat().alignment();
-}
-
-void ChatDocumentHandler::setAlignment(Qt::Alignment alignment)
-{
-    QTextBlockFormat format;
-    format.setAlignment(alignment);
-    QTextCursor cursor = textCursor();
-    cursor.mergeBlockFormat(format);
-    Q_EMIT alignmentChanged();
 }
 
 bool ChatDocumentHandler::bold() const
@@ -710,28 +690,12 @@ bool ChatDocumentHandler::bold() const
     return textCursor().charFormat().fontWeight() == QFont::Bold;
 }
 
-void ChatDocumentHandler::setBold(bool bold)
-{
-    QTextCharFormat format;
-    format.setFontWeight(bold ? QFont::Bold : QFont::Normal);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT formatChanged();
-}
-
 bool ChatDocumentHandler::italic() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
         return false;
     return textCursor().charFormat().fontItalic();
-}
-
-void ChatDocumentHandler::setItalic(bool italic)
-{
-    QTextCharFormat format;
-    format.setFontItalic(italic);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT formatChanged();
 }
 
 bool ChatDocumentHandler::underline() const
@@ -742,37 +706,12 @@ bool ChatDocumentHandler::underline() const
     return textCursor().charFormat().fontUnderline();
 }
 
-void ChatDocumentHandler::setUnderline(bool underline)
-{
-    QTextCharFormat format;
-    format.setFontUnderline(underline);
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT formatChanged();
-}
-
 bool ChatDocumentHandler::strikethrough() const
 {
     QTextCursor cursor = textCursor();
     if (cursor.isNull())
         return false;
     return textCursor().charFormat().fontStrikeOut();
-}
-
-QString ChatDocumentHandler::fontFamily() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return QString();
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().family();
-}
-
-void ChatDocumentHandler::setFontFamily(const QString &family)
-{
-    QTextCharFormat format;
-    format.setFontFamilies({family});
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT fontFamilyChanged();
 }
 
 QColor ChatDocumentHandler::textColor() const
@@ -782,22 +721,6 @@ QColor ChatDocumentHandler::textColor() const
         return QColor(Qt::black);
     QTextCharFormat format = cursor.charFormat();
     return format.foreground().color();
-}
-
-QTextCursor ChatDocumentHandler::textCursor() const
-{
-    if (!document()) {
-        return QTextCursor();
-    }
-
-    QTextCursor cursor = QTextCursor(document());
-    if (selectionStart() != selectionEnd()) {
-        cursor.setPosition(selectionStart());
-        cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
-    } else {
-        cursor.setPosition(cursorPosition());
-    }
-    return cursor;
 }
 
 std::optional<Qt::TextFormat> ChatDocumentHandler::textFormat() const
@@ -812,9 +735,14 @@ std::optional<Qt::TextFormat> ChatDocumentHandler::textFormat() const
 void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
 {
     QTextCursor cursor = textCursor();
-    if (!cursor.hasSelection())
+    if (!cursor.hasSelection()) {
         cursor.select(QTextCursor::WordUnderCursor);
-    cursor.mergeCharFormat(format);
+    }
+    if (cursor.hasSelection()) {
+        cursor.mergeCharFormat(format);
+    } else {
+        m_pendingFormat = format.toCharFormat();
+    }
 }
 
 QString ChatDocumentHandler::currentLinkText() const
@@ -993,19 +921,38 @@ void ChatDocumentHandler::regenerateColorScheme()
     // TODO update existing link
 }
 
+void ChatDocumentHandler::setFormat(RichFormat::Format format)
+{
+    switch (RichFormat::typeForFormat(format)) {
+    case RichFormat::Text:
+        setTextFormat(format);
+        return;
+    case RichFormat::List:
+        setListFormat(format);
+        return;
+    case RichFormat::Style:
+        setStyleFormat(format);
+        return;
+    default:
+        return;
+    }
+}
+
 void ChatDocumentHandler::indentListMore()
 {
     m_nestedListHelper.handleOnIndentMore(textCursor());
+    Q_EMIT currentListStyleChanged();
 }
 
 void ChatDocumentHandler::indentListLess()
 {
     m_nestedListHelper.handleOnIndentLess(textCursor());
+    Q_EMIT currentListStyleChanged();
 }
 
-void ChatDocumentHandler::setListStyle(int styleIndex)
+void ChatDocumentHandler::setListFormat(RichFormat::Format format)
 {
-    m_nestedListHelper.handleOnBulletType(-styleIndex, textCursor());
+    m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), textCursor());
     Q_EMIT currentListStyleChanged();
 }
 
@@ -1028,28 +975,38 @@ int ChatDocumentHandler::currentListStyle() const
     return -textCursor().currentList()->format().style();
 }
 
-TextStyle::Style ChatDocumentHandler::style() const
+void ChatDocumentHandler::setTextFormat(RichFormat::Format format)
 {
-    return static_cast<TextStyle::Style>(textCursor().blockFormat().headingLevel());
+    if (RichFormat::typeForFormat(format) != RichFormat::Text) {
+        return;
+    }
+    mergeFormatOnWordOrSelection(RichFormat::charFormatForFormat(format, RichFormat::hasFormat(textCursor(), format)));
+    Q_EMIT formatChanged();
 }
 
-void ChatDocumentHandler::setStyle(TextStyle::Style style)
+RichFormat::Format ChatDocumentHandler::style() const
 {
-    const int headingLevel = style <= 6 ? style : 0;
-    // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
-    // level=2 look the same
-    const int sizeAdjustment = headingLevel > 0 ? 5 - headingLevel : 0;
+    return static_cast<RichFormat::Format>(textCursor().blockFormat().headingLevel());
+}
+
+void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
+{
+    // Paragraph is special because it is normally a Block format but if we're already
+    // in a Paragraph it clears any existing style.
+    if (!(RichFormat::typeForFormat(format) == RichFormat::Style || format == RichFormat::Paragraph)) {
+        return;
+    }
+
+    qWarning() << format;
 
     QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
     cursor.beginEditBlock();
 
-    QTextBlockFormat blkfmt;
-    blkfmt.setHeadingLevel(headingLevel);
-    cursor.mergeBlockFormat(blkfmt);
+    cursor.mergeBlockFormat(RichFormat::blockFormatForFormat(format));
 
-    QTextCharFormat chrfmt;
-    chrfmt.setFontWeight(headingLevel > 0 ? QFont::Bold : QFont::Normal);
-    chrfmt.setProperty(QTextFormat::FontSizeAdjustment, sizeAdjustment);
     // Applying style to the current line or selection
     QTextCursor selectCursor = cursor;
     if (selectCursor.hasSelection()) {
@@ -1066,21 +1023,14 @@ void ChatDocumentHandler::setStyle(TextStyle::Style style)
     } else {
         selectCursor.select(QTextCursor::BlockUnderCursor);
     }
-    selectCursor.mergeCharFormat(chrfmt);
 
+    const auto chrfmt = RichFormat::charFormatForFormat(format);
+    selectCursor.mergeCharFormat(chrfmt);
     cursor.mergeBlockCharFormat(chrfmt);
     cursor.endEditBlock();
 
+    Q_EMIT formatChanged();
     Q_EMIT styleChanged();
-}
-
-int ChatDocumentHandler::fontSize() const
-{
-    QTextCursor cursor = textCursor();
-    if (cursor.isNull())
-        return 0;
-    QTextCharFormat format = cursor.charFormat();
-    return format.font().pointSize();
 }
 
 QString ChatDocumentHandler::fileName() const
@@ -1100,6 +1050,19 @@ QString ChatDocumentHandler::fileType() const
 QUrl ChatDocumentHandler::fileUrl() const
 {
     return m_fileUrl;
+}
+
+void ChatDocumentHandler::tab()
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    if (cursor.currentList()) {
+        indentListMore();
+        return;
+    }
+    insertText(u"	"_s);
 }
 
 void ChatDocumentHandler::deleteChar()
@@ -1124,6 +1087,11 @@ void ChatDocumentHandler::backspace()
         return;
     }
     if (cursor.position() <= m_fixedStartChars.length()) {
+        qWarning() << "unhandled backspace";
+        if (cursor.currentList()) {
+            indentListLess();
+            return;
+        }
         if (const auto previousHandler = previousDocumentHandler()) {
             previousHandler->insertFragment(takeFirstBlock(), End, true);
         } else {
@@ -1132,6 +1100,15 @@ void ChatDocumentHandler::backspace()
         return;
     }
     cursor.deletePreviousChar();
+}
+
+void ChatDocumentHandler::insertReturn()
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    cursor.insertBlock();
 }
 
 void ChatDocumentHandler::insertText(const QString &text)
