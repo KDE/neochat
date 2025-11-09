@@ -346,6 +346,10 @@ void NeoChatRoom::forget()
 
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
+    // During the chatbar setup sequence, this may get called while we're still initializing
+    if (localMember().isEmpty()) {
+        return;
+    }
     connection()->callApi<SetTypingJob>(BackgroundRequest, localMember().id(), id(), isTyping, 10000);
 }
 
