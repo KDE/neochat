@@ -81,12 +81,15 @@ QQC2.Control {
                 AvatarTabButton {
                     id: allRoomButton
 
+                    readonly property int countedNotifications: root.connection.homeNotifications + root.connection.roomInvites
+                    readonly property bool hasCountableNotifications: countedNotifications > 0
+
                     Layout.fillWidth: true
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
                     Layout.topMargin: Kirigami.Units.smallSpacing / 2
 
-                    text: i18n("Home")
+                    text: hasCountableNotifications ? i18ncp("Home space for the uncategorized rooms", "Home (%1 notification)", "Home (%1 notifications)", countedNotifications) : i18nc("Home space for the uncategorized rooms", "Home")
                     contentItem: Kirigami.Icon {
                         source: "user-home-symbolic"
 
@@ -100,15 +103,15 @@ QQC2.Control {
                             width: Math.max(homeNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
                             height: Kirigami.Units.iconSizes.smallMedium
 
-                            text: root.connection.homeNotifications > 0 ? root.connection.homeNotifications : ""
-                            visible: root.connection.homeNotifications > 0 && (RoomManager.currentSpace.length > 0 || RoomManager.currentSpace !== "DM")
+                            text: allRoomButton.countedNotifications
+                            visible: allRoomButton.hasCountableNotifications && (RoomManager.currentSpace.length > 0 || RoomManager.currentSpace !== "DM")
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
                             background: Rectangle {
                                 visible: true
                                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                                 Kirigami.Theme.inherit: false
-                                color: root.connection.homeHaveHighlightNotifications ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                                color: root.connection.homeHaveHighlightNotifications || root.connection.roomInvites > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                 radius: height / 2
                             }
 
@@ -127,7 +130,8 @@ QQC2.Control {
                 AvatarTabButton {
                     id: directChatButton
 
-                    readonly property bool hasCountableNotifications: root.connection.directChatNotifications > 0 || root.connection.directChatInvites > 0
+                    readonly property int countedNotifications: root.connection.directChatNotifications + root.connection.directChatInvites
+                    readonly property bool hasCountableNotifications: countedNotifications > 0
 
                     Layout.fillWidth: true
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
@@ -136,7 +140,7 @@ QQC2.Control {
 
                     text: {
                         if (directChatButton.hasCountableNotifications) {
-                            return i18ncp("@button View all one-on-one chats.", "Direct Messages (%1 notification)", "Direct Messages (%1 notifications)", root.connection.directChatNotifications + root.connection.directChatInvites);
+                            return i18ncp("@button View all one-on-one chats.", "Direct Messages (%1 notification)", "Direct Messages (%1 notifications)", directChatButton.countedNotifications);
                         }
 
                         return i18nc("@button View all one-on-one chats.", "Direct Messages");
@@ -162,7 +166,7 @@ QQC2.Control {
                                 visible: true
                                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                                 Kirigami.Theme.inherit: false
-                                color: root.connection.directChatsHaveHighlightNotifications || root.connection.directChatInvites ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                                color: root.connection.directChatsHaveHighlightNotifications || root.connection.directChatInvites > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                                 radius: height / 2
                             }
 

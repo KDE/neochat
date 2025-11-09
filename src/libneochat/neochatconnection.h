@@ -66,9 +66,14 @@ class NeoChatConnection : public Quotient::Connection
     Q_PROPERTY(bool homeHaveHighlightNotifications READ homeHaveHighlightNotifications NOTIFY homeHaveHighlightNotificationsChanged)
 
     /**
-     * @brief Whether there is at least one invite to a direct chat.
+     * @brief The number of invites to 1-on-1 direct chats.
      */
-    Q_PROPERTY(bool directChatInvites READ directChatInvites NOTIFY directChatInvitesChanged)
+    Q_PROPERTY(qsizetype directChatInvites READ directChatInvites NOTIFY directChatInvitesChanged)
+
+    /**
+     * @brief The number of pending, normal room invites.
+     */
+    Q_PROPERTY(qsizetype roomInvites READ roomInvites NOTIFY roomInvitesChanged)
 
     /**
      * @brief Whether the server supports querying a user's mutual rooms.
@@ -200,7 +205,8 @@ public:
      */
     static void setKeywordPushRuleDefault(PushRuleAction::Action defaultAction);
 
-    bool directChatInvites() const;
+    qsizetype directChatInvites() const;
+    qsizetype roomInvites() const;
 
     // note: this is intentionally a copied QString because
     // the reference could be destroyed before the task is finished
@@ -225,6 +231,7 @@ Q_SIGNALS:
     void homeNotificationsChanged();
     void homeHaveHighlightNotificationsChanged();
     void directChatInvitesChanged();
+    void roomInvitesChanged();
     void passwordStatus(NeoChatConnection::PasswordStatus status);
     void userConsentRequired(QUrl url);
     void badgeNotificationCountChanged(int count);
