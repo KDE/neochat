@@ -246,7 +246,10 @@ void Controller::initActiveConnection(NeoChatConnection *oldConnection, NeoChatC
     if (newConnection) {
         connect(newConnection, &NeoChatConnection::errorOccured, this, &Controller::errorOccured);
         connect(newConnection, &NeoChatConnection::badgeNotificationCountChanged, this, &Controller::updateBadgeNotificationCount);
+
+        // Refresh and update manually, in case we init too late for the badge count to actually change.
         newConnection->refreshBadgeNotificationCount();
+        updateBadgeNotificationCount(newConnection->badgeNotificationCount());
     }
     Q_EMIT activeConnectionChanged(newConnection);
 }
