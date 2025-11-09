@@ -95,6 +95,7 @@ void NeoChatConnection::connectSignals()
                 Q_EMIT directChatsHaveHighlightNotificationsChanged();
             });
         }
+        Q_EMIT roomInvitesChanged();
         connect(room, &Room::unreadStatsChanged, this, [this]() {
             refreshBadgeNotificationCount();
             Q_EMIT homeNotificationsChanged();
@@ -456,15 +457,20 @@ bool NeoChatConnection::homeHaveHighlightNotifications() const
     return false;
 }
 
-bool NeoChatConnection::directChatInvites() const
+qsizetype NeoChatConnection::directChatInvites() const
 {
-    auto inviteRooms = rooms(JoinState::Invite);
-    for (const auto inviteRoom : inviteRooms) {
-        if (inviteRoom->isDirectChat()) {
-            return true;
-        }
-    }
-    return false;
+    const auto inviteRooms = rooms(JoinState::Invite);
+    return std::ranges::count_if(inviteRooms, [](const auto room) {
+        return room->isDirectChat();
+    });
+}
+
+qsizetype NeoChatConnection::roomInvites() const
+{
+    const auto inviteRooms = rooms(JoinState::Invite);
+    return std::ranges::count_if(inviteRooms, [](const auto room) {
+        return !room->isDirectChat();
+    });
 }
 
 QCoro::Task<void> NeoChatConnection::setupPushNotifications(QString endpoint)
