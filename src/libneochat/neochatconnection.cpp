@@ -159,6 +159,10 @@ void NeoChatConnection::refreshBadgeNotificationCount()
     for (const auto &r : allRooms()) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             count += room->contextAwareNotificationCount();
+
+            if (room->joinState() == JoinState::Invite) {
+                count++;
+            }
         }
     }
 
