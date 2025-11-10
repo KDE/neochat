@@ -79,7 +79,6 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         text: i18nc("@action:inmenu", "Open Secret Backup")
         icon.name: "unlock"
-        visible: NeoChatConfig.secretBackup
         onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
             title: i18nc("@title:window", "Open Key Backup")
         })
