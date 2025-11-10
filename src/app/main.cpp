@@ -162,12 +162,6 @@ int main(int argc, char *argv[])
     Connection::setEncryptionDefault(true);
     Connection::setDirectChatEncryptionDefault(true);
 
-#ifdef NEOCHAT_FLATPAK
-    // Copy over the included FontConfig configuration to the
-    // app's config dir:
-    QFile::copy(u"/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf"_s, u"/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"_s);
-#endif
-
     ColorSchemer colorScheme;
 
     QCommandLineParser parser;

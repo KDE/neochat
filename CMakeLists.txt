@@ -46,10 +46,6 @@ if (NOT ANDROID)
     include(KDEClangFormat)
 endif()
 
-if(NEOCHAT_FLATPAK)
-    include(cmake/Flatpak.cmake)
-endif()
-
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES TRUE)
 
 ecm_set_disabled_deprecation_versions(Qt 6.9.0 KF 6.17.0)
