@@ -11,6 +11,8 @@ import org.kde.neochat
 FormCard.FormCardPage {
     id: root
 
+    property bool processing: false
+
     title: i18nc("@title:window", "Load your encrypted messages")
 
     topPadding: Kirigami.Units.gridUnit
@@ -25,75 +27,42 @@ FormCard.FormCardPage {
         position: Kirigami.InlineMessage.Position.Header
     }
 
-    property SSSSHandler ssssHandler: SSSSHandler {
-        id: ssssHandler
+    Connections {
+        target: Controller.activeConnection
+        function onKeyBackupError(): void {
+            securityKeyField.clear()
+            root.processing = false
+            banner.text = i18nc("@info:status", "The security key or backup passphrase was not correct.")
+            banner.visible = true
+        }
 
-        property bool processing: false
-
-        connection: Controller.activeConnection
-        onKeyBackupUnlocked: {
-            ssssHandler.processing = false
+        function onKeyBackupUnlocked(): void {
+            root.processing = false
             banner.text = i18nc("@info:status", "Encryption keys restored.")
             banner.type = Kirigami.MessageType.Positive
             banner.visible = true
         }
-        onError: error => {
-            if (error !== SSSSHandler.WrongKeyError) {
-                banner.text = error
-                banner.visible = true
-                return;
-            }
-            passwordField.clear()
-            ssssHandler.processing = false
-            banner.text = i18nc("@info:status", "The security phrase was not correct.")
-            banner.visible = true
-        }
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock using Passphrase")
+        title: i18nc("@title", "Unlock using Security Key or Backup Passphrase")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            description: i18nc("@info", "If you have a backup passphrase for this account, enter it below.")
-        }
-        FormCard.FormTextFieldDelegate {
-            id: passwordField
-            label: i18nc("@label:textbox", "Backup Password:")
-            echoMode: TextInput.Password
-        }
-        FormCard.FormButtonDelegate {
-            id: unlockButton
-            text: i18nc("@action:button", "Unlock")
-            icon.name: "unlock"
-            enabled: passwordField.text.length > 0 && !ssssHandler.processing
-            onClicked: {
-                ssssHandler.processing = true
-                banner.visible = false
-                ssssHandler.unlockSSSSWithPassphrase(passwordField.text)
-            }
-        }
-    }
-
-    FormCard.FormHeader {
-        title: i18nc("@title", "Unlock using Security Key")
-    }
-    FormCard.FormCard {
-        FormCard.FormTextDelegate {
-            description: i18nc("@info", "If you have a security key for this account, enter it below or upload it as a file.")
+            description: i18nc("@info", "If you have a security key or backup passphrase for this account, enter it below or upload it as a file.")
         }
         FormCard.FormTextFieldDelegate {
             id: securityKeyField
-            label: i18nc("@label:textbox", "Security Key:")
+            label: i18nc("@label:textbox", "Security Key or Backup Passphrase:")
             echoMode: TextInput.Password
         }
         FormCard.FormButtonDelegate {
             id: uploadSecurityKeyButton
             text: i18nc("@action:button", "Upload from File")
             icon.name: "cloud-upload"
-            enabled: !ssssHandler.processing
+            enabled: !root.processing
             onClicked: {
-                ssssHandler.processing = true
+                root.processing = true
                 openFileDialog.open()
             }
         }
@@ -101,10 +70,10 @@ FormCard.FormCardPage {
             id: unlockSecurityKeyButton
             text: i18nc("@action:button", "Unlock")
             icon.name: "unlock"
-            enabled: securityKeyField.text.length > 0 && !ssssHandler.processing
+            enabled: securityKeyField.text.length > 0 && !root.processing
             onClicked: {
-                ssssHandler.processing = true
-                ssssHandler.unlockSSSSFromSecurityKey(securityKeyField.text)
+                root.processing = true
+                Controller.activeConnection.unlockSSSS(securityKeyField.text)
             }
         }
     }
@@ -120,10 +89,10 @@ FormCard.FormCardPage {
             id: unlockCrossSigningButton
             icon.name: "emblem-shared-symbolic"
             text: i18nc("@action:button", "Request from other Devices")
-            enabled: !ssssHandler.processing
+            enabled: !root.processing
             onClicked: {
-                ssssHandler.processing = true
-                ssssHandler.unlockSSSSFromCrossSigning()
+                root.processing = true
+                Controller.activeConnection.unlockSSSS("")
             }
         }
     }

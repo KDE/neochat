@@ -19,6 +19,7 @@
 #include <Quotient/csapi/profile.h>
 #include <Quotient/csapi/registration.h>
 #include <Quotient/csapi/versions.h>
+#include <Quotient/e2ee/sssshandler.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
 #include <Quotient/room.h>
@@ -572,6 +573,33 @@ bool NeoChatConnection::enablePushNotifications() const
 bool NeoChatConnection::isVerifiedSession() const
 {
     return isVerifiedDevice(userId(), deviceId());
+}
+
+void NeoChatConnection::unlockSSSS(const QString &secret)
+{
+    auto handler = new SSSSHandler();
+    handler->setConnection(this);
+    connect(handler, &SSSSHandler::error, this, [secret, handler, this]() {
+        disconnect(handler, &SSSSHandler::error, this, nullptr);
+        if (!secret.isEmpty()) {
+            connect(handler, &SSSSHandler::error, this, [handler, this]() {
+                Q_EMIT keyBackupError();
+                delete handler;
+            });
+            handler->unlockSSSSWithPassphrase(secret);
+        } else {
+            Q_EMIT keyBackupError();
+        }
+    });
+    connect(handler, &SSSSHandler::keyBackupUnlocked, this, [handler, this]() {
+        Q_EMIT keyBackupUnlocked();
+        connect(handler, &SSSSHandler::finished, handler, &SSSSHandler::deleteLater);
+    });
+    if (secret.isEmpty()) {
+        handler->unlockSSSSFromCrossSigning();
+    } else {
+        handler->unlockSSSSFromSecurityKey(secret);
+    }
 }
 
 #include "moc_neochatconnection.cpp"

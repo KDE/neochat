@@ -222,6 +222,8 @@ public:
      */
     bool isVerifiedSession() const;
 
+    Q_INVOKABLE void unlockSSSS(const QString &secret);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();
@@ -258,6 +260,9 @@ Q_SIGNALS:
      * @brief When the connection's own verification state changes.
      */
     void ownSessionVerified();
+
+    void keyBackupUnlocked();
+    void keyBackupError();
 
 private:
     static bool m_globalUrlPreviewDefault;
