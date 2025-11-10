@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 02:42+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -560,7 +560,7 @@ msgstr "Εξερεύνηση αιθουσών"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -1083,7 +1083,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Δεν βρέθηκε αίθουσα"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3412,18 +3412,18 @@ msgid ""
 "for support."
 msgstr "Επικοινωνήστε με τον διαχειριστή του διακομιστή matrix για υποστήριξη."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Δεν έχει ρυθμιστεί διακομιστής ταυτότητας"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:384
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -4708,12 +4708,22 @@ msgstr "αναιρέθηκε ο αποκλεισμός για %1"
 msgid "View notifications"
 msgstr "Εμφάνιση ειδοποιήσεων"
 
-#: src/rooms/SpaceDrawer.qml:89
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "Επαναφορά ήχου στις ειδοποιήσεις"
+msgstr[1] "Επαναφορά ήχου στις ειδοποιήσεις"
+
+#: src/rooms/SpaceDrawer.qml:92
 #, kde-format
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4722,20 +4732,20 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Εμφάνιση ειδοποιήσεων"
 msgstr[1] "Εμφάνιση ειδοποιήσεων"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Άμεσα μηνύματα"
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Είσοδος σε %1"
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"

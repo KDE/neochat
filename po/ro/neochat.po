@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 02:42+0000\n"
 "PO-Revision-Date: 2025-10-20 11:56+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -524,7 +524,7 @@ msgstr "Explorează camere"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -1010,7 +1010,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nicio cameră găsită"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3148,18 +3148,18 @@ msgid ""
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -4339,12 +4339,23 @@ msgstr ""
 msgid "View notifications"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:89
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "No Notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "Nicio notificare"
+msgstr[1] "Nicio notificare"
+msgstr[2] "Nicio notificare"
+
+#: src/rooms/SpaceDrawer.qml:92
 #, kde-format
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4352,19 +4363,19 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
 msgstr ""

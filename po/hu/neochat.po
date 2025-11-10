@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 02:42+0000\n"
 "PO-Revision-Date: 2025-07-12 22:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -538,7 +538,7 @@ msgstr "Szobák felfedezése"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -1047,7 +1047,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nem található szoba"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3292,18 +3292,18 @@ msgstr ""
 "A fájl túl nagy a letöltéshez.<br />Támogatásért forduljon a matrix "
 "kiszolgáló rendszergazdájához."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nincs beállítva identitáskiszolgáló"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Nem sikerült létrehozni a szobát: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Nem sikerült létrehozni a teret: %1"
@@ -4530,12 +4530,23 @@ msgstr "%1 kibontása"
 msgid "View notifications"
 msgstr "Értesítések megtekintése"
 
-#: src/rooms/SpaceDrawer.qml:89
-#, kde-format
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "Értesítések némításának feloldása"
+msgstr[1] "Értesítések némításának feloldása"
+
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Kezdőlap"
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgctxt "@button View all one-on-one chats with your friends."
 #| msgid "Friends (%1 notification)"
@@ -4546,7 +4557,7 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Barátok (%1 értesítés)"
 msgstr[1] "Barátok (%1 értesítés)"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4554,13 +4565,13 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Kitűzött üzenetek"
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Csatlakozás ehhez: %1"
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
 msgstr "Tér létrehozása"

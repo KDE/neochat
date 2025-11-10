@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 02:42+0000\n"
 "PO-Revision-Date: 2025-09-21 12:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -527,7 +527,7 @@ msgstr "அரங்குப்பட்டியலில் உலாவு"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -1014,7 +1014,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "எந்த அரங்கும் கிடைக்கவில்லை"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3198,18 +3198,18 @@ msgstr ""
 "கோப்பு பதிவிறக்கக்கூடியதைவிட பெரிதாக உள்ளது.<br />உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக "
 "நிர்வாகியை தொடர்புகொள்ளவும்."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:324
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:355
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:384
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
@@ -4415,12 +4415,23 @@ msgstr "%1 தனை விரி"
 msgid "View notifications"
 msgstr "அறிவிப்புகளைக் காட்டு"
 
-#: src/rooms/SpaceDrawer.qml:89
-#, kde-format
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "அறிவிப்புகளின் ஒலியை இயக்கு"
+msgstr[1] "அறிவிப்புகளின் ஒலியை இயக்கு"
+
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "முகப்பு"
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4429,7 +4440,7 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "அறிவிப்புகளைக் காட்டு"
 msgstr[1] "அறிவிப்புகளைக் காட்டு"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4437,13 +4448,13 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "தக்கவைத்த செய்திகள்"
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 தனில் சேர்"
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
 msgstr "இடத்தை உருவாக்கு"
