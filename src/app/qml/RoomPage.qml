@@ -253,7 +253,6 @@ Kirigami.Page {
             id: timelineView
             messageFilterModel: root.messageFilterModel
             compactLayout: NeoChatConfig.compactLayout
-            fileDropEnabled: !Controller.isFlatpak
             markReadCondition: NeoChatConfig.markReadCondition
         }
     }

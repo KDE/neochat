@@ -3,6 +3,10 @@
 
 #include "chatbarcache.h"
 
+#include <QMimeData>
+
+#include <KUrlMimeData>
+
 #include <Quotient/roommember.h>
 
 #include "eventhandler.h"
@@ -293,6 +297,19 @@ void ChatBarCache::clearCache()
     m_mentions.clear();
     m_savedText = QString();
     clearRelations();
+}
+
+void ChatBarCache::drop(QList<QUrl> u, const QString &transferPortal)
+{
+    QMimeData mimeData;
+    mimeData.setUrls(u);
+    if (!transferPortal.isEmpty()) {
+        mimeData.setData(u"application/vnd.portal.filetransfer"_s, transferPortal.toLatin1());
+    }
+    auto urls = KUrlMimeData::urlsFromMimeData(&mimeData);
+    if (urls.size() > 0) {
+        setAttachmentPath(urls[0].toString());
+    }
 }
 
 #include "moc_chatbarcache.cpp"
