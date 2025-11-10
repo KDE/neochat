@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:43+0000\n"
 "PO-Revision-Date: 2025-10-18 17:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Mezu berrietarako jakinarazpenak jasotzea"
 
-#: src/app/controller.cpp:316
+#: src/app/controller.cpp:319
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "push jakinarazpenak jasotzea"
@@ -530,7 +530,7 @@ msgstr "Esploratu gelak"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -606,31 +606,31 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1(e)k gela honetara gonbidatu zaitu %2(e)tan."
 
-#: src/app/qml/InvitationView.qml:97
+#: src/app/qml/InvitationView.qml:98
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Erabiltzaile honek berriketara gonbidatzen zaizu %1(e)tan."
 
-#: src/app/qml/InvitationView.qml:112
+#: src/app/qml/InvitationView.qml:113
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Onartu gonbidapena"
 
-#: src/app/qml/InvitationView.qml:127
+#: src/app/qml/InvitationView.qml:128
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Errefusatu gonbidapena"
 
-#: src/app/qml/InvitationView.qml:141
+#: src/app/qml/InvitationView.qml:142
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr "Oztopatu %1"
 
-#: src/app/qml/InvitationView.qml:180
+#: src/app/qml/InvitationView.qml:181
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1017,7 +1017,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
@@ -3217,28 +3217,28 @@ msgstr ""
 "Zama-jaisteko fitxategi handiegia.<br />Jar zaitez zure matrix "
 "zerbitzariaren administratzailearekin harremanean, laguntza lortzeko."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:328
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ez da nortasun zerbitzaririk konfiguratu"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:359
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Gela sortzea huts egin du: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Tokia sortzea huts egin du: %1"
 
-#: src/libneochat/neochatroom.cpp:1250
+#: src/libneochat/neochatroom.cpp:1254
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
 
-#: src/libneochat/neochatroom.cpp:1615 src/libneochat/neochatroom.cpp:1623
+#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4423,12 +4423,23 @@ msgstr "Zabaldu %1"
 msgid "View notifications"
 msgstr "Ikusi jakinarazpenak"
 
-#: src/rooms/SpaceDrawer.qml:89
-#, kde-format
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "Ozendu jakinarazpenak"
+msgstr[1] "Ozendu jakinarazpenak"
+
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Etxea"
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgctxt "@button View all one-on-one chats with your friends."
 #| msgid "Friends (%1 notification)"
@@ -4439,7 +4450,7 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Lagunak (jakinarazpen %1)"
 msgstr[1] "Lagunak (%1 jakinarazpen)"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4447,13 +4458,13 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Iltzatutako mezuak"
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Elkartu %1(e)ra"
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
 msgstr "Sortu toki bat"

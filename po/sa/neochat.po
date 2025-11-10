@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "नूतनसन्देशानां सूचनां प्राप्य"
 
-#: src/app/controller.cpp:316
+#: src/app/controller.cpp:319
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "पुश सूचनाः प्राप्य"
@@ -542,7 +542,7 @@ msgstr "कक्षेषु अन्वेषणं कुर्वन्त�
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, kde-format
@@ -623,21 +623,21 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 अस्मिन् कक्षे आमन्त्रितः आसीत् ।"
 
-#: src/app/qml/InvitationView.qml:97
+#: src/app/qml/InvitationView.qml:98
 #, fuzzy, kde-format
 #| msgid "Invite to private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "निजी गपशपं आमन्त्रयन्तु"
 
-#: src/app/qml/InvitationView.qml:112
+#: src/app/qml/InvitationView.qml:113
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "स्वीकरोतु"
 
-#: src/app/qml/InvitationView.qml:127
+#: src/app/qml/InvitationView.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:button The thing being rejected is an invitation to chat"
 #| msgid "Reject"
@@ -645,13 +645,13 @@ msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "अस्वीकार"
 
-#: src/app/qml/InvitationView.qml:141
+#: src/app/qml/InvitationView.qml:142
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:180
+#: src/app/qml/InvitationView.qml:181
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You can reject invitations from unknown users under Security settings."
@@ -1060,7 +1060,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button"
@@ -3289,28 +3289,28 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:328
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:359
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatroom.cpp:1250
+#: src/libneochat/neochatroom.cpp:1254
 #, kde-format
 msgid "Report sent successfully."
 msgstr "प्रतिवेदनं सफलतया प्रेषितम्।"
 
-#: src/libneochat/neochatroom.cpp:1615 src/libneochat/neochatroom.cpp:1623
+#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4541,12 +4541,23 @@ msgstr "%1 विस्तारयन्तु"
 msgid "View notifications"
 msgstr "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:89
-#, kde-format
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "सूचनां म्यूटं कुर्वन्तु"
+msgstr[1] "सूचनां म्यूटं कुर्वन्तु"
+
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "गृहम्‌"
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4555,20 +4566,20 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "सूचनाः पश्यन्तु"
 msgstr[1] "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 सह सम्मिलितं कुर्वन्तु"
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
 msgstr "एकं रिक्तस्थानं रचयन्तु"

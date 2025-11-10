@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-04 00:42+0000\n"
+"POT-Creation-Date: 2025-11-10 00:43+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Receiving push notifications"
 
-#: src/app/controller.cpp:316
+#: src/app/controller.cpp:319
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Receiving push notifications"
@@ -547,7 +547,7 @@ msgstr "o pali e tomo toki"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
 #: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:297 src/settings/SelectParentDialog.qml:142
+#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
 #, fuzzy, kde-format
@@ -629,32 +629,32 @@ msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "li pana sin e wile lon tawa %1"
 
-#: src/app/qml/InvitationView.qml:97
+#: src/app/qml/InvitationView.qml:98
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "o open e tomo toki pi sina tu taso"
 
-#: src/app/qml/InvitationView.qml:112
+#: src/app/qml/InvitationView.qml:113
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:127
+#: src/app/qml/InvitationView.qml:128
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:141
+#: src/app/qml/InvitationView.qml:142
 #, kde-format
 msgctxt "@action:button Block the user"
 msgid "Block %1"
 msgstr ""
 
-#: src/app/qml/InvitationView.qml:180
+#: src/app/qml/InvitationView.qml:181
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1052,7 +1052,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "o pana e toki"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:285
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -3313,28 +3313,28 @@ msgid ""
 "for support."
 msgstr "o toki tawa lawa sina pi ilo Matrix."
 
-#: src/libneochat/neochatconnection.cpp:323
+#: src/libneochat/neochatconnection.cpp:328
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:354
+#: src/libneochat/neochatconnection.cpp:359
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:383
+#: src/libneochat/neochatconnection.cpp:388
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatroom.cpp:1250
+#: src/libneochat/neochatroom.cpp:1254
 #, kde-format
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/libneochat/neochatroom.cpp:1615 src/libneochat/neochatroom.cpp:1623
+#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4579,12 +4579,24 @@ msgstr ""
 msgid "View notifications"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:89
+#: src/rooms/SpaceDrawer.qml:92
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgctxt "Home space for the uncategorized rooms"
+msgid "Home (%1 notification)"
+msgid_plural "Home (%1 notifications)"
+msgstr[0] "nimi tomo"
+msgstr[1] "nimi tomo"
+msgstr[2] "nimi tomo"
+msgstr[3] "nimi tomo"
+
+#: src/rooms/SpaceDrawer.qml:92
 #, kde-format
+msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:139
+#: src/rooms/SpaceDrawer.qml:143
 #, fuzzy, kde-format
 #| msgid "Receiving push notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4595,20 +4607,20 @@ msgstr[1] "Receiving push notifications"
 msgstr[2] "Receiving push notifications"
 msgstr[3] "Receiving push notifications"
 
-#: src/rooms/SpaceDrawer.qml:142
+#: src/rooms/SpaceDrawer.qml:146
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "o pana e toki"
 
-#: src/rooms/SpaceDrawer.qml:224
+#: src/rooms/SpaceDrawer.qml:228
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:266
+#: src/rooms/SpaceDrawer.qml:270
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgid "Create a space"
