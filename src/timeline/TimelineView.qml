@@ -32,11 +32,6 @@ QQC2.ScrollView {
     required property bool compactLayout
 
     /**
-     * @brief Whether the compact message layout is to be used.
-     */
-    property bool fileDropEnabled: true
-
-    /**
      * @brief The TimelineMarkReadCondition to use for when messages should be marked as read automatically.
      */
     required property int markReadCondition
@@ -268,8 +263,7 @@ QQC2.ScrollView {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: drop => { _private.room.mainCache.attachmentPath = drop.urls[0] }
-            enabled: root.fileDropEnabled
+            onDropped: drop => _private.room.mainCache.drop(drop.urls, drop.getDataAsString("application/vnd.portal.filetransfer"))
         }
 
         QQC2.Pane {

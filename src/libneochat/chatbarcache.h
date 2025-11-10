@@ -198,6 +198,8 @@ public:
      */
     Q_INVOKABLE void postMessage();
 
+    Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
+
 Q_SIGNALS:
     void textChanged();
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);
