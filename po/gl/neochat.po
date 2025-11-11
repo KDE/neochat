@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-10 00:43+0000\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 12:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -115,33 +115,33 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (sobre %2)"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:168
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente do protocolo de comunicación Matrix."
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:169
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Permite o esquema de URL «matrix:»."
 
-#: src/app/main.cpp:176
+#: src/app/main.cpp:170
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorar todos os erros de SSL, p. ex. certificados sen asinar."
 
-#: src/app/main.cpp:178
+#: src/app/main.cpp:172
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Substituír unha instancia existente."
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Só se usa para probas automáticas."
 
-#: src/app/main.cpp:191
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Compartir un URL en Matrix"
@@ -263,32 +263,32 @@ msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Abrir a salvagarda do segredo"
 
-#: src/app/qml/AccountMenu.qml:84
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Abrir a salvagarda da chave"
 
-#: src/app/qml/AccountMenu.qml:89
+#: src/app/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verificar o dispositivo"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Enviouse a solicitude de verificación"
 
-#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 "Para continuar, acepte a solicitude de verificación noutro dispositivo."
 
-#: src/app/qml/AccountMenu.qml:107
+#: src/app/qml/AccountMenu.qml:106
 #, fuzzy, kde-format
 #| msgid "Logout"
 msgctxt "@action:inmenu"
@@ -2038,12 +2038,6 @@ msgstr "Fíos"
 
 #: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr "Salvagarda secreta"
-
-#: src/devtools/FeatureFlagPage.qml:31
-#, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
@@ -2051,7 +2045,7 @@ msgid "Add phone numbers as 3PIDs"
 msgstr ""
 "Engadir os números de teléfono como identificadores de terceiras partes."
 
-#: src/devtools/FeatureFlagPage.qml:40
+#: src/devtools/FeatureFlagPage.qml:34
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -7385,6 +7379,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribindo."
 msgstr[1] "%2 están escribindo."
+
+#~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
+#~ msgid "Secret Backup"
+#~ msgstr "Salvagarda secreta"
 
 #~ msgctxt "As in 'sort something based on last activity'"
 #~ msgid "Activity"

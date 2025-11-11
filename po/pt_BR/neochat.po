@@ -10,16 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-10 00:43+0000\n"
-"PO-Revision-Date: 2025-11-08 21:10-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
+"PO-Revision-Date: 2025-11-10 08:32-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -119,34 +119,34 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilado com %2)"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:168
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente para o protocolo de comunicação Matrix"
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:169
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Suporte ao Matrix: esquema url"
 
-#: src/app/main.cpp:176
+#: src/app/main.cpp:170
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
 "Ignorar todos os erros de SSL, por exemplo, certificados não assinados."
 
-#: src/app/main.cpp:178
+#: src/app/main.cpp:172
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Substituir uma instância existente"
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Apenas usado para testes autônomos"
 
-#: src/app/main.cpp:191
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Compartilhar uma URL para o Matrix"
@@ -262,32 +262,32 @@ msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Abrir cópia de segurança secreta"
 
-#: src/app/qml/AccountMenu.qml:84
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Abertura de Chave de Cópia de Segurança"
 
-#: src/app/qml/AccountMenu.qml:89
+#: src/app/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verificar este dispositivo"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Envio de Pedido de Verificação"
 
-#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 "Para prosseguir, aceite a solicitação de verificação em outro dispositivo."
 
-#: src/app/qml/AccountMenu.qml:107
+#: src/app/qml/AccountMenu.qml:106
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
@@ -1956,19 +1956,13 @@ msgstr "Cabeçalhos"
 
 #: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr "Backup secreto"
-
-#: src/devtools/FeatureFlagPage.qml:31
-#, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
 msgstr "Adicionar números de telefone como 3PIDs"
 
-#: src/devtools/FeatureFlagPage.qml:40
+#: src/devtools/FeatureFlagPage.qml:34
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -4384,20 +4378,18 @@ msgid "View notifications"
 msgstr "Mostrar notificações"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Remover silêncio das notificações"
-msgstr[1] "Remover silêncio das notificações"
+msgstr[0] "Início (%1 notificação)"
+msgstr[1] "Início (%1 notificações)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
-msgstr "Casa"
+msgstr "Início"
 
 #: src/rooms/SpaceDrawer.qml:143
 #, kde-format
@@ -7131,6 +7123,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está digitando"
 msgstr[1] "%2 estão digitando"
+
+#~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
+#~ msgid "Secret Backup"
+#~ msgstr "Backup secreto"
 
 #~ msgctxt "As in 'sort something based on last activity'"
 #~ msgid "Activity"

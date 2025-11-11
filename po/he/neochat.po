@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-10 00:43+0000\n"
-"PO-Revision-Date: 2025-11-04 09:55+0200\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
+"PO-Revision-Date: 2025-11-10 13:46+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -115,33 +115,33 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (נבנה כנגד %2)"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:168
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "לקוח לפרוטוקול התקשורת matrix"
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:169
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "תומך בסכמת כתובות מסוג matrix:‎"
 
-#: src/app/main.cpp:176
+#: src/app/main.cpp:170
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "התעלמות משגיאות SSL, למשל: אישורים לא חתומים."
 
-#: src/app/main.cpp:178
+#: src/app/main.cpp:172
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "החלפת עותק קיים"
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Only used for autotests"
 msgstr "משמש לבדיקות אוטומטיות בלבד"
 
-#: src/app/main.cpp:191
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "שיתוף כתובת ל־Matrix"
@@ -257,31 +257,31 @@ msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "פתיחת גיבוי סודי"
 
-#: src/app/qml/AccountMenu.qml:84
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "פתיחת גיבוי מפתחות"
 
-#: src/app/qml/AccountMenu.qml:89
+#: src/app/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "אימות המכשיר הזה"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "נשלחה בקשת אימות"
 
-#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "כדי להמשיך, יש לקבל את בקשת האימות במכשיר השני."
 
-#: src/app/qml/AccountMenu.qml:107
+#: src/app/qml/AccountMenu.qml:106
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
@@ -1913,19 +1913,13 @@ msgstr "תהליכונים"
 
 #: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr "גיבוי סודי"
-
-#: src/devtools/FeatureFlagPage.qml:31
-#, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
 msgstr "הוספת מספרי טלפון כמזהי צד־שלישי"
 
-#: src/devtools/FeatureFlagPage.qml:40
+#: src/devtools/FeatureFlagPage.qml:34
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -4344,19 +4338,17 @@ msgid "View notifications"
 msgstr "הצגת התראות"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "ביטול השתקת התראות"
-msgstr[1] "ביטול השתקת התראות"
-msgstr[2] "ביטול השתקת התראות"
-msgstr[3] "ביטול השתקת התראות"
+msgstr[0] "בית (התראה)"
+msgstr[1] "בית (שתי התראות)"
+msgstr[2] "בית (%1 התראות)"
+msgstr[3] "בית (%1 התראות)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "בית"
@@ -7066,6 +7058,10 @@ msgstr[0] "הקלדה מצד %2"
 msgstr[1] "הקלדה מצד %2"
 msgstr[2] "הקלדה מצד %2"
 msgstr[3] "הקלדה מצד %2"
+
+#~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
+#~ msgid "Secret Backup"
+#~ msgstr "גיבוי סודי"
 
 #~ msgctxt "As in 'sort something based on last activity'"
 #~ msgid "Activity"

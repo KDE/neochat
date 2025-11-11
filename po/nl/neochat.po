@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-10 00:43+0000\n"
-"PO-Revision-Date: 2025-11-04 13:44+0100\n"
+"POT-Creation-Date: 2025-11-11 00:42+0000\n"
+"PO-Revision-Date: 2025-11-11 00:31+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -115,33 +115,33 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (gebouwd tegen %2)"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:168
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:169
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ondersteunt matrix: url schema"
 
-#: src/app/main.cpp:176
+#: src/app/main.cpp:170
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Negeer alle SSL fouten, bijv. niet ondertekende certificaten."
 
-#: src/app/main.cpp:178
+#: src/app/main.cpp:172
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Een bestaand exemplaar vervangen"
 
-#: src/app/main.cpp:181
+#: src/app/main.cpp:175
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Alleen gebruikt voor autotests"
 
-#: src/app/main.cpp:191
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Een URL delen op Matrix"
@@ -257,32 +257,32 @@ msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Reservekopie van geheim openen"
 
-#: src/app/qml/AccountMenu.qml:84
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Reservekopie van sleutel openen"
 
-#: src/app/qml/AccountMenu.qml:89
+#: src/app/qml/AccountMenu.qml:88
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Dit apparaat verifiëren"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Verificatieverzoek verzonden"
 
-#: src/app/qml/AccountMenu.qml:96 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 "Om door te gaan, accepteer het verificatieverzoek op een ander apparaat."
 
-#: src/app/qml/AccountMenu.qml:107
+#: src/app/qml/AccountMenu.qml:106
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
@@ -1956,19 +1956,13 @@ msgstr "Threads"
 
 #: src/devtools/FeatureFlagPage.qml:25
 #, kde-format
-msgctxt "@option:check Enable the matrix 'secret backup' feature"
-msgid "Secret Backup"
-msgstr "Reservekopie van geheim"
-
-#: src/devtools/FeatureFlagPage.qml:31
-#, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
 "party ID"
 msgid "Add phone numbers as 3PIDs"
 msgstr "Telefoonnummers als 3PID's toevoegen"
 
-#: src/devtools/FeatureFlagPage.qml:40
+#: src/devtools/FeatureFlagPage.qml:34
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -4388,17 +4382,15 @@ msgid "View notifications"
 msgstr "Meldingen bekijken"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Meldingen inschakelen"
-msgstr[1] "Meldingen inschakelen"
+msgstr[0] "Home (%1 melding)"
+msgstr[1] "Home (%1 meldingen)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Home"
@@ -7139,6 +7131,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
+
+#~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
+#~ msgid "Secret Backup"
+#~ msgstr "Reservekopie van geheim"
 
 #~ msgctxt "As in 'sort something based on last activity'"
 #~ msgid "Activity"
