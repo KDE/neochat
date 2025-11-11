@@ -121,7 +121,9 @@ void PollHandler::handleResponse(const Quotient::PollResponseEvent *event)
             return;
         }
 
-        m_selections[event->senderId()] = event->selections().size() > 0 ? event->selections().first(pollStartEvent->maxSelections()) : event->selections();
+        m_selections[event->senderId()] = event->selections().size() > 0
+            ? event->selections().first(std::min(pollStartEvent->maxSelections(), (int)event->selections().size()))
+            : event->selections();
         if (m_selections.contains(event->senderId()) && m_selections[event->senderId()].isEmpty()) {
             m_selections.remove(event->senderId());
         }
