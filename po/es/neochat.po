@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:42+0000\n"
+"POT-Creation-Date: 2025-11-17 00:42+0000\n"
 "PO-Revision-Date: 2025-11-10 02:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1179,85 +1179,73 @@ msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "El URL compartido para la imagen es <a href='%1'>%1</a>"
 
-#: src/app/qml/UnlockSSSSDialog.qml:14
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Cargar mensajes cifrados…"
 
-#: src/app/qml/UnlockSSSSDialog.qml:36
+#: src/app/qml/UnlockSSSSDialog.qml:35
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security phrase was not correct."
+msgctxt "@info:status"
+msgid "The security key or backup passphrase was not correct."
+msgstr "La frase de seguridad no es correcta."
+
+#: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
 msgstr "Claves de cifrado restauradas."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, kde-format
-msgctxt "@info:status"
-msgid "The security phrase was not correct."
-msgstr "La frase de seguridad no es correcta."
-
-#: src/app/qml/UnlockSSSSDialog.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Security Key"
 msgctxt "@title"
-msgid "Unlock using Passphrase"
-msgstr "Desbloquear usando contraseña larga"
-
-#: src/app/qml/UnlockSSSSDialog.qml:58
-#, kde-format
-msgctxt "@info"
-msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
-"Si dispone de una contraseña de respaldo para esta cuenta, introdúzcala a "
-"continuación."
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Backup Password:"
-msgstr "Contraseña de respaldo:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:67 src/app/qml/UnlockSSSSDialog.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr "Desbloquear"
-
-#: src/app/qml/UnlockSSSSDialog.qml:79
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Security Key"
+msgid "Unlock using Security Key or Backup Passphrase"
 msgstr "Desbloquear usando clave de seguridad"
 
-#: src/app/qml/UnlockSSSSDialog.qml:83
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:52
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key for this account, enter it below or upload it "
+#| "as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key for this account, enter it below or upload it as "
-"a file."
+"If you have a security key or backup passphrase for this account, enter it "
+"below or upload it as a file."
 msgstr ""
 "Si dispone de una clave de seguridad para esta cuenta, introdúzcala a "
 "continuación o envíela como archivo."
 
-#: src/app/qml/UnlockSSSSDialog.qml:87
+#: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Security Key:"
-msgstr "Clave de seguridad:"
+msgid "Security Key or Backup Passphrase:"
+msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:92
+#: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr "Enviar un archivo"
 
-#: src/app/qml/UnlockSSSSDialog.qml:113
+#: src/app/qml/UnlockSSSSDialog.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#: src/app/qml/UnlockSSSSDialog.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr "Desbloquear con firmado cruzado"
 
-#: src/app/qml/UnlockSSSSDialog.qml:117
+#: src/app/qml/UnlockSSSSDialog.qml:86
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1267,7 +1255,7 @@ msgstr ""
 "Si ya había verificado este dispositivo anteriormente, puede probar a cargar "
 "la clave de respaldo desde otros dispositivos pulsando el botón inferior."
 
-#: src/app/qml/UnlockSSSSDialog.qml:122
+#: src/app/qml/UnlockSSSSDialog.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -3192,7 +3180,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Creador"
 
-#: src/libneochat/neochatconnection.cpp:71
+#: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3201,18 +3189,18 @@ msgstr ""
 "Archivo demasiado grande para descargarlo.<br />Póngase en contacto con el "
 "administrador del servidor matrix para obtener asistencia."
 
-#: src/libneochat/neochatconnection.cpp:328
+#: src/libneochat/neochatconnection.cpp:329
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No se ha configurado ningún servidor de identidades"
 
-#: src/libneochat/neochatconnection.cpp:359
+#: src/libneochat/neochatconnection.cpp:360
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "La creación de la sala ha fallado: %1"
 
-#: src/libneochat/neochatconnection.cpp:388
+#: src/libneochat/neochatconnection.cpp:389
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "La creación del espacio ha fallado: %1"
@@ -7140,6 +7128,24 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
+
+#~ msgctxt "@title"
+#~ msgid "Unlock using Passphrase"
+#~ msgstr "Desbloquear usando contraseña larga"
+
+#~ msgctxt "@info"
+#~ msgid "If you have a backup passphrase for this account, enter it below."
+#~ msgstr ""
+#~ "Si dispone de una contraseña de respaldo para esta cuenta, introdúzcala a "
+#~ "continuación."
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Backup Password:"
+#~ msgstr "Contraseña de respaldo:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key:"
+#~ msgstr "Clave de seguridad:"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

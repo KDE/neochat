@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:42+0000\n"
+"POT-Creation-Date: 2025-11-17 00:42+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1249,13 +1249,19 @@ msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:14
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Load your encrypted messages"
 msgstr "Ciffrat missage"
 
-#: src/app/qml/UnlockSSSSDialog.qml:36
+#: src/app/qml/UnlockSSSSDialog.qml:35
+#, kde-format
+msgctxt "@info:status"
+msgid "The security key or backup passphrase was not correct."
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:41
 #, fuzzy, kde-format
 msgctxt "@info:status"
 msgid "Encryption keys restored."
@@ -1263,69 +1269,43 @@ msgstr "Fine de vive"
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
-msgctxt "@info:status"
-msgid "The security phrase was not correct."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:54
-#, kde-format
 msgctxt "@title"
-msgid "Unlock using Passphrase"
+msgid "Unlock using Security Key or Backup Passphrase"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:58
-#, kde-format
-msgctxt "@info"
-msgid "If you have a backup passphrase for this account, enter it below."
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:62
-#, fuzzy, kde-format
-#| msgid "Password:"
-msgctxt "@label:textbox"
-msgid "Backup Password:"
-msgstr "Contrasigne:"
-
-#: src/app/qml/UnlockSSSSDialog.qml:67 src/app/qml/UnlockSSSSDialog.qml:102
-#, kde-format
-msgctxt "@action:button"
-msgid "Unlock"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:79
-#, kde-format
-msgctxt "@title"
-msgid "Unlock using Security Key"
-msgstr ""
-
-#: src/app/qml/UnlockSSSSDialog.qml:83
+#: src/app/qml/UnlockSSSSDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid ""
-"If you have a security key for this account, enter it below or upload it as "
-"a file."
+"If you have a security key or backup passphrase for this account, enter it "
+"below or upload it as a file."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:87
-#, fuzzy, kde-format
-#| msgid "Security"
+#: src/app/qml/UnlockSSSSDialog.qml:56
+#, kde-format
 msgctxt "@label:textbox"
-msgid "Security Key:"
-msgstr "Securitá"
+msgid "Security Key or Backup Passphrase:"
+msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:92
+#: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:113
+#: src/app/qml/UnlockSSSSDialog.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Unlock"
+msgstr ""
+
+#: src/app/qml/UnlockSSSSDialog.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Unlock from Cross-Signing"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:117
+#: src/app/qml/UnlockSSSSDialog.qml:86
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1333,7 +1313,7 @@ msgid ""
 "key from other devices by clicking the button below."
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:122
+#: src/app/qml/UnlockSSSSDialog.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Request from other Devices"
@@ -3334,25 +3314,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Chambres e privat conversationes:"
 
-#: src/libneochat/neochatconnection.cpp:71
+#: src/libneochat/neochatconnection.cpp:72
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:328
+#: src/libneochat/neochatconnection.cpp:329
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:359
+#: src/libneochat/neochatconnection.cpp:360
 #, fuzzy, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/libneochat/neochatconnection.cpp:388
+#: src/libneochat/neochatconnection.cpp:389
 #, fuzzy, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ne successat crear un contextu OpenGL"
@@ -7525,6 +7505,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgctxt "@label:textbox"
+#~ msgid "Backup Password:"
+#~ msgstr "Contrasigne:"
+
+#, fuzzy
+#~| msgid "Security"
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key:"
+#~ msgstr "Securitá"
 
 #~ msgctxt "As in 'notify for all messages'"
 #~ msgid "All"
