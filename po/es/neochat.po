@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-11-10 02:43+0100\n"
+"PO-Revision-Date: 2025-11-19 00:57+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1186,12 +1186,10 @@ msgid "Load your encrypted messages"
 msgstr "Cargar mensajes cifrados…"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "La frase de seguridad no es correcta."
+msgstr "La clave de seguridad o la contraseña de respaldo no eran correctas."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1200,32 +1198,26 @@ msgid "Encryption keys restored."
 msgstr "Claves de cifrado restauradas."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Desbloquear usando clave de seguridad"
+msgstr "Desbloquear mediante clave de seguridad o contraseña de respaldo"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Si dispone de una clave de seguridad para esta cuenta, introdúzcala a "
-"continuación o envíela como archivo."
+"Si dispone de una clave de seguridad o de una contraseña de respaldo para "
+"esta cuenta, introdúzcala a continuación o envíela como archivo."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Clave de seguridad o contraseña de respaldo:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -7128,25 +7120,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "Desbloquear usando contraseña larga"
-
-#~ msgctxt "@info"
-#~ msgid "If you have a backup passphrase for this account, enter it below."
-#~ msgstr ""
-#~ "Si dispone de una contraseña de respaldo para esta cuenta, introdúzcala a "
-#~ "continuación."
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Backup Password:"
-#~ msgstr "Contraseña de respaldo:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "Clave de seguridad:"
-
-#~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
-#~ msgid "Secret Backup"
-#~ msgstr "Copia de seguridad secreta"

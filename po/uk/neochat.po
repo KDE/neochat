@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-11-10 08:50+0200\n"
+"PO-Revision-Date: 2025-11-17 13:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1190,12 +1190,10 @@ msgid "Load your encrypted messages"
 msgstr "Завантаження ваших зашифрованих повідомлень"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "Пароль захисту є неправильним."
+msgstr "Пароль захисту або резервний пароль є неправильним."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1204,32 +1202,26 @@ msgid "Encryption keys restored."
 msgstr "Ключі шифрування відновлено."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Розблокування за допомогою ключа захисту"
+msgstr "Розблокування за допомогою ключа захисту або резервного пароля"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Якщо у вас є ключ захисту від вашого облікового запису, введіть його нижче "
-"або вивантажте його як файл."
+"Якщо у вас є ключ захисту або резервний пароль від вашого облікового запису, "
+"введіть його нижче або вивантажте його як файл."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Ключ захисту або резервний пароль:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format

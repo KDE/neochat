@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-11-10 13:46+0200\n"
+"PO-Revision-Date: 2025-11-17 09:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -1179,12 +1179,10 @@ msgid "Load your encrypted messages"
 msgstr "לטעון את ההודעות המוצפנות שלך"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "ביטוי האבטחה היה שגוי."
+msgstr "מפתח האבטחה או ביטוי הצופן לגיבוי היו שגויים."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1193,30 +1191,26 @@ msgid "Encryption keys restored."
 msgstr "מפתחות ההצפנה שוחזרו."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "שחרור נעילה עם מפתח אבטחה"
+msgstr "אפשר לשחרר נעילה עם מפתח אבטחה או ביטוי צופן לגיבוי"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
-msgstr "אם יש לך מפתח אבטחה לחשבון הזה, יש למלא אותו כאן או להעלות אותו כקובץ."
+msgstr ""
+"אם יש לך מפתח אבטחה או ביטוי צופן לגיבוי לחשבון הזה, יש למלא אותו כאן או "
+"להעלות אותו כקובץ."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "מפתח אבטחה או ביטוי צופן לגיבוי:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
