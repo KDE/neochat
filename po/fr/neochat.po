@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-11-11 17:47+0100\n"
+"PO-Revision-Date: 2025-11-18 12:32+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.11.80\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -1190,12 +1190,10 @@ msgid "Load your encrypted messages"
 msgstr "Charger vos messages chiffrés"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "La phrase de sécurité était incorrecte."
+msgstr "La clé de sécurité ou la phrase de passe d'archivage était incorrecte."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1204,32 +1202,28 @@ msgid "Encryption keys restored."
 msgstr "Les clés de chiffrement ont été restaurées."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Déverrouiller à l'aide de la clé de sécurité"
+msgstr ""
+"Déverrouiller par utilisation de la clé de sécurité ou la phrase de passe "
+"d'archivage"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Si vous avez une clé de sécurité pour ce compte, veuillez la saisir ci-"
-"dessous ou l'envoyer sous forme de fichier."
+"Si vous avez une clé de sécurité ou une phrase de passe d'archivage pour ce "
+"compte, veuillez la saisir ci-dessous ou l'envoyer sous forme de fichier."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Clé de sécurité ou phrase de passe d'archivage :"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
