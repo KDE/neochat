@@ -33,7 +33,6 @@
 #include <KWindowSystem>
 #endif
 
-#include <KIconTheme>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #include <KirigamiApp>
