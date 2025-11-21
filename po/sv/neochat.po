@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-10-22 20:19+0200\n"
+"PO-Revision-Date: 2025-11-20 15:08+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -797,47 +797,40 @@ msgid "The input is not a valid user ID"
 msgstr "Indata är inte en giltig användaridentifikation"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgid "Join existing chat"
+#, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr "Gå med i befintlig chatt"
+msgstr "Gå med i möte"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Starta chatt"
+msgstr "Starta möte"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Du är på väg att gå med i ett Jitsi-möte i webbläsaren."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Du är på väg att starta ett nytt Jitsi-möte i webbläsaren."
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Gå med"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Starta chatt"
+msgstr "Starta"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -1042,20 +1035,19 @@ msgstr "Ignorera"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Gå med i Jitsi-möte…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Starta Jitsi-möte…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr "Du har inte rättigheter att slutföra åtgärden"
+msgstr "Du har inte rättigheter att starta Jitsi-möten"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:91
@@ -2221,12 +2213,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Rum med flest färglagda meddelanden är först"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "Rum med nyaste meddelanden är först"
+msgstr "Rum med nyare händelser är högre"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -3995,9 +3985,7 @@ msgid "Actions"
 msgstr "Åtgärder"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Sök meddelanden"
@@ -4009,25 +3997,19 @@ msgid "Verify user"
 msgstr "Verifiera användare"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "Ta bort från favoriter"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "Lägg till i favoriter"
 
 #: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Utökningar"
@@ -4039,41 +4021,31 @@ msgid "Extensions"
 msgstr "Utökningar"
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Skicka en plats"
+msgstr "Delade platser"
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Uppsatta meddelanden"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Rumsdata"
+msgstr "Inspektera rumsdata"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Lämna utrymme…"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Lämna rum…"
@@ -4256,11 +4228,10 @@ msgid "Default Settings"
 msgstr "Standardinställningar"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "Skicka meddelande"
+msgstr "Alla meddelanden"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4271,8 +4242,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Omnämnanden och nyckelord"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Inget"
@@ -4398,17 +4368,15 @@ msgid "View notifications"
 msgstr "Visa underrättelser"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Tysta inte underrättelser"
-msgstr[1] "Tysta inte underrättelser"
+msgstr[0] "Hem (%1 underrättelse)"
+msgstr[1] "Hem (%1 underrättelser)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Hem"
@@ -4658,20 +4626,18 @@ msgid "Use compact room list"
 msgstr "Använd kompakt rumslista"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Chatta på Matrix"
+msgstr "Skalning av chatteckensnitt"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1 %"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -5227,60 +5193,49 @@ msgstr "Ogiltig data i nyckelsäkerhetskopia"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Snabbtangenter"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "Öppna Snabbyte"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Öppna Snabbyte"
+msgstr "Öppna Kontobyte"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Search user in room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Sök användare i rummet"
+msgstr "Sök efter meddelanden i nuvarande rum"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Gå till föregående rum"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Välj rum"
+msgstr "Gå till nästa rum"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Gå till föregående olästa rum"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Gå till nästa olästa rum"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5514,23 +5469,19 @@ msgstr "Rumslistans sorteringsordning"
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
-msgstr ""
+msgstr "Dolda händelser anses inte vara senaste aktivitet när rum sorteras."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "Importera nycklar"
+msgstr "Viktighet"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "Rum med olästa underrättelser visas först"
+msgstr "Rum med olästa underrättelser visas först."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5539,19 +5490,16 @@ msgid "Alphabetical"
 msgstr "Alfabetisk"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "Tidslinjehändelser"
+msgstr "Senaste händelser"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "Rum med senaste aktivitet visas först"
+msgstr "Rum med senaste händelser visas först."
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -5860,7 +5808,7 @@ msgstr "Enheter"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Snabbtangenter"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6042,11 +5990,10 @@ msgid "Confirm"
 msgstr "Bekräfta"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Underrättelser"
+msgstr "Skicka underrättelser för"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format

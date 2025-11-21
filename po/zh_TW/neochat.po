@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-09-22 04:30+0900\n"
+"PO-Revision-Date: 2025-11-20 21:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -493,20 +493,16 @@ msgid "File"
 msgstr "檔案"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find User"
-msgstr "封鎖使用者"
+msgstr "尋找使用者"
 
 #: src/app/qml/GlobalMenu.qml:30
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@title"
 msgid "Find User"
-msgstr "封鎖使用者"
+msgstr "尋找使用者"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -804,47 +800,40 @@ msgid "The input is not a valid user ID"
 msgstr "輸入值不是有效的使用者 ID"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgid "Join existing chat"
+#, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr "加入現有的聊天"
+msgstr "加入會議"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "開始私人聊天"
+msgstr "開始會議"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
-msgstr ""
+msgstr "您即將在網頁瀏覽器中加入一個 Jitsi 會議。"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
-msgstr ""
+msgstr "您即將在網頁瀏覽器中開始新的 Jitsi 會議。"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "加入"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "開始私人聊天"
+msgstr "開始"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -1049,20 +1038,19 @@ msgstr "忽略"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "加入 Jitsi 會議…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "開始進行 Jitsi 會議…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr "您沒有足夠權限以完成此動作"
+msgstr "您沒有權限開始進行 Jitsi 會議"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:91
@@ -1433,12 +1421,10 @@ msgid "Mention"
 msgstr "提及"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@action:title"
 msgid "Find User"
-msgstr "封鎖使用者"
+msgstr "尋找使用者"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1447,12 +1433,10 @@ msgid "Copy User ID"
 msgstr "複製使用者 ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@info"
 msgid "Direct Messages"
-msgstr "置頂訊息"
+msgstr "私訊"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2062,11 +2046,9 @@ msgid "Favorite"
 msgstr "最愛"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgid "Direct Messages"
-msgstr "置頂訊息"
+msgstr "私訊"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -2203,12 +2185,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "有最多已突顯的訊息的聊天室會排在上面"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "有較新訊息的聊天室會排在上面"
+msgstr "有較新事件的聊天室會排在上面"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -2449,11 +2429,10 @@ msgid "joined a call"
 msgstr "已加入通話"
 
 #: src/libneochat/eventhandler.cpp:464
-#, fuzzy, kde-format
-#| msgid "%1 configured a widget"
+#, kde-format
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
-msgstr "%1 設定了一個元件"
+msgstr "設定了一個擴充功能"
 
 #: src/libneochat/eventhandler.cpp:466
 #, kde-format
@@ -2727,11 +2706,10 @@ msgid "%1 joined a call"
 msgstr "%1 已加入通話"
 
 #: src/libneochat/eventhandler.cpp:680
-#, fuzzy, kde-format
-#| msgid "%1 configured a widget"
+#, kde-format
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
-msgstr "%1 設定了一個元件"
+msgstr "%1 設定了一個擴充功能"
 
 #: src/libneochat/eventhandler.cpp:682
 #, kde-format
@@ -3964,9 +3942,7 @@ msgid "Actions"
 msgstr "動作"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "搜尋訊息"
@@ -3978,73 +3954,55 @@ msgid "Verify user"
 msgstr "驗證使用者"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "從最愛中移除"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "加入最愛"
 
 #: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
-msgstr "@Mention 提及"
+msgstr "擴充功能"
 
 #: src/roominfo/RoomInformation.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
-msgstr "@Mention 提及"
+msgstr "擴充功能"
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "傳送位置"
+msgstr "已分享的位置"
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "置頂訊息"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "聊天室資料"
+msgstr "檢閱聊天室資料"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "離開聊天空間…"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "離開聊天室…"
@@ -4111,27 +4069,22 @@ msgid "No messages found"
 msgstr "找不到訊息"
 
 #: src/roominfo/WidgetsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title"
 msgid "Extensions"
-msgstr "@Mention 提及"
+msgstr "擴充功能"
 
 #: src/roominfo/WidgetsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@placeholder"
 msgid "This room does not use any extensions"
-msgstr "這個聊天室接續了另一個對話。"
+msgstr "這個聊天室沒有使用任何擴充功能"
 
 #: src/roominfo/WidgetsPage.qml:66
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
-msgstr "移除了 %1 元件"
+msgstr "移除元件"
 
 #: src/rooms/ExploreComponent.qml:36
 #, kde-format
@@ -4231,12 +4184,10 @@ msgid "Default Settings"
 msgstr "預設設定值"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "置頂訊息"
+msgstr "所有訊息"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4247,8 +4198,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Mention 提及與關鍵字"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "無"
@@ -4372,37 +4322,30 @@ msgid "View notifications"
 msgstr "檢視通知"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "取消通知靜音"
+msgstr[0] "首頁（%1 個通知）"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "首頁"
 
 #: src/rooms/SpaceDrawer.qml:143
-#, fuzzy, kde-format
-#| msgctxt "@button View all one-on-one chats with your friends."
-#| msgid "Friends (%1 notification)"
-#| msgid_plural "Friends (%1 notifications)"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
-msgstr[0] "好友（%1 個通知）"
+msgstr[0] "私訊（%1 個通知）"
 
 #: src/rooms/SpaceDrawer.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
-msgstr "置頂訊息"
+msgstr "私訊"
 
 #: src/rooms/SpaceDrawer.qml:228
 #, kde-format
@@ -4635,20 +4578,18 @@ msgid "Use compact room list"
 msgstr "使用簡潔聊天室列表"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "在 Matrix 上聊天"
+msgstr "聊天字型大小調整"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1%"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -4818,16 +4759,13 @@ msgid "Logout device"
 msgstr "登出裝置"
 
 #: src/settings/DeviceDelegate.qml:146
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "移除裝置"
 
 #: src/settings/DeviceDelegate.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
 msgstr "移除"
@@ -5205,61 +5143,49 @@ msgstr "無效金鑰備份資料"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "鍵盤快捷鍵"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "開啟快速切換器"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "開啟快速切換器"
+msgstr "開啟帳號切換器"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "搜尋訊息"
+msgstr "在目前聊天室中搜尋訊息"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "前往上一個聊天室"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "選擇聊天室"
+msgstr "前往下一個聊天室"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "前往上一個未讀的聊天室"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "前往下一個未讀的聊天室"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5489,23 +5415,19 @@ msgstr "聊天室列表排序方式"
 #, kde-format
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
-msgstr ""
+msgstr "為聊天室排序時，隱藏事件不會被當作是最近的活動。"
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "匯入金鑰"
+msgstr "重要程度"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "有未讀通知的聊天室會顯示在上方"
+msgstr "有未讀通知的聊天室會先顯示。"
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5514,19 +5436,16 @@ msgid "Alphabetical"
 msgstr "按字母順序"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "顯示狀態事件"
+msgstr "最新的事件"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "有最新活動的聊天室會顯示在上方"
+msgstr "有最新事件的聊天室會先顯示。"
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -5829,7 +5748,7 @@ msgstr "裝置"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "鍵盤快捷鍵"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6011,11 +5930,10 @@ msgid "Confirm"
 msgstr "確認"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "通知"
+msgstr "為誰傳送通知"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
