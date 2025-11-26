@@ -389,9 +389,9 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                     return i18n("left the room");
                 }
                 if (const auto &reason = e.contentJson()["reason"_L1].toString().toHtmlEscaped(); !reason.isEmpty()) {
-                    return i18n("has put %1 out of the room: %2", subjectName, reason);
+                    return i18n("has removed %1 from the room: %2", subjectName, reason);
                 }
-                return i18n("has put %1 out of the room", subjectName);
+                return i18n("has removed %1 from the room", subjectName);
             case Membership::Ban:
                 if (e.senderId() != e.userId()) {
                     if (e.reason().isEmpty()) {
