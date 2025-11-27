@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2025-09-21 12:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -2323,14 +2323,16 @@ msgid "left the room"
 msgstr "அரங்கைவிட்டு வெளியேறினார்"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "has removed %1 from the room: %2"
+msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, kde-format
-msgid "has put %1 out of the room"
-msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "has removed %1 from the room"
+msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -7267,6 +7269,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
+
+#~ msgid "has put %1 out of the room: %2"
+#~ msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
+
+#~ msgid "has put %1 out of the room"
+#~ msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்"
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Passphrase"

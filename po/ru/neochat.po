@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2401,14 +2401,16 @@ msgid "left the room"
 msgstr "покинул(а) комнату"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "выгнал(а) %1 из комнаты: %2"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "has removed %1 from the room: %2"
+msgstr "заблокировал(а) %1 в комнате: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, kde-format
-msgid "has put %1 out of the room"
-msgstr "выгнал(а) %1 из комнаты"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "has removed %1 from the room"
+msgstr "заблокировал(а) %1 в этой комнате"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -7367,6 +7369,12 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#~ msgid "has put %1 out of the room: %2"
+#~ msgstr "выгнал(а) %1 из комнаты: %2"
+
+#~ msgid "has put %1 out of the room"
+#~ msgstr "выгнал(а) %1 из комнаты"
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Passphrase"

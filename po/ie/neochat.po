@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -2401,15 +2401,14 @@ msgid "left the room"
 msgstr "forlassat li chambre"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr ""
+#, fuzzy, kde-format
+msgid "has removed %1 from the room: %2"
+msgstr "Obtenente %1 de %2…"
 
 #: src/libneochat/eventhandler.cpp:394
 #, fuzzy, kde-format
-#| msgid "Invites the user to this room"
-msgid "has put %1 out of the room"
-msgstr "Invitar li usator al ti chambre"
+msgid "has removed %1 from the room"
+msgstr "Obtenente %1 de %2…"
 
 #: src/libneochat/eventhandler.cpp:398
 #, fuzzy, kde-format
@@ -7505,6 +7504,11 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
+
+#, fuzzy
+#~| msgid "Invites the user to this room"
+#~ msgid "has put %1 out of the room"
+#~ msgstr "Invitar li usator al ti chambre"
 
 #, fuzzy
 #~| msgid "Password:"

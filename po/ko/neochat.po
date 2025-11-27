@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2301,14 +2301,16 @@ msgid "left the room"
 msgstr "님이 대화방을 떠남"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "님이 %1 님을 대화방에서 추방함: %2"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "has removed %1 from the room: %2"
+msgstr "님이 %1 님을 대화방에서 차단함: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, kde-format
-msgid "has put %1 out of the room"
-msgstr "님이 %1 님을 대화방에서 추방함"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "has removed %1 from the room"
+msgstr "님이 %1 님을 대화방에서 차단함"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -7106,6 +7108,12 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgid "has put %1 out of the room: %2"
+#~ msgstr "님이 %1 님을 대화방에서 추방함: %2"
+
+#~ msgid "has put %1 out of the room"
+#~ msgstr "님이 %1 님을 대화방에서 추방함"
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Passphrase"

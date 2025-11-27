@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2472,14 +2472,16 @@ msgid "left the room"
 msgstr "έφυγε από την αίθουσα"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "έχει θέσει %1 εκτός αιθούσης: %2"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "has removed %1 from the room: %2"
+msgstr "αποκλείστηκε %1 από την αίθουσα: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, kde-format
-msgid "has put %1 out of the room"
-msgstr "έχει θέσει %1 εκτός αιθούσης"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "has removed %1 from the room"
+msgstr "αποκλείστηκε %1 από την αίθουσα"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -7646,6 +7648,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
+
+#~ msgid "has put %1 out of the room: %2"
+#~ msgstr "έχει θέσει %1 εκτός αιθούσης: %2"
+
+#~ msgid "has put %1 out of the room"
+#~ msgstr "έχει θέσει %1 εκτός αιθούσης"
 
 #, fuzzy
 #~| msgid "Password:"

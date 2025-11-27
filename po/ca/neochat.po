@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-26 00:43+0000\n"
+"POT-Creation-Date: 2025-11-27 00:43+0000\n"
 "PO-Revision-Date: 2025-11-17 10:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2327,14 +2327,16 @@ msgid "left the room"
 msgstr "ha/n deixat la sala"
 
 #: src/libneochat/eventhandler.cpp:392
-#, kde-format
-msgid "has put %1 out of the room: %2"
-msgstr "ha posat %1 fora de la sala: %2"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "has removed %1 from the room: %2"
+msgstr "s'ha bandejat %1 de la sala: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, kde-format
-msgid "has put %1 out of the room"
-msgstr "ha posat %1 fora de la sala"
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "has removed %1 from the room"
+msgstr "s'ha bandejat %1 de la sala"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -7129,6 +7131,12 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
+
+#~ msgid "has put %1 out of the room: %2"
+#~ msgstr "ha posat %1 fora de la sala: %2"
+
+#~ msgid "has put %1 out of the room"
+#~ msgstr "ha posat %1 fora de la sala"
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Passphrase"
