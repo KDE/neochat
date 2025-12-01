@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1516,6 +1516,41 @@ msgstr "Birbaşa İsmarıclar"
 #| msgid "Copy"
 msgid "Copy link"
 msgstr "Kopyalamaq"
+
+#: src/app/qml/UserDetailDialog.qml:298
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report…"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:303
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title:dialog"
+msgid "Report User"
+msgstr "İsmarıca düzəliş etmək"
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this user"
+msgstr "Bu istifadəçini əngəlləmək"
+
+#: src/app/qml/UserDetailDialog.qml:306
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:308
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report User"
+msgstr "İsmarıca düzəliş etmək"
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -3466,26 +3501,26 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Otaqlar və məxfi söhbətlər:"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:329
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:360
+#: src/libneochat/neochatconnection.cpp:361
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
@@ -4687,6 +4722,41 @@ msgid "Room Settings"
 msgstr "Otaq ayarları"
 
 #: src/rooms/RoomContextMenu.qml:154
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report…"
+msgstr ""
+
+#: src/rooms/RoomContextMenu.qml:159
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title:dialog"
+msgid "Report Room"
+msgstr "Otaqlara baxış"
+
+#: src/rooms/RoomContextMenu.qml:160
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this room"
+msgstr "Bu istifadəçini əngəlləmək"
+
+#: src/rooms/RoomContextMenu.qml:162
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: src/rooms/RoomContextMenu.qml:164
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt "@title"
+msgid "Report Room"
+msgstr "Otaqlara baxış"
+
+#: src/rooms/RoomContextMenu.qml:174
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:inmenu"

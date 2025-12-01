@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1479,6 +1479,50 @@ msgstr "सन्देशान् अन्वेष्टुम्"
 #, kde-format
 msgid "Copy link"
 msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन्तु"
+
+#: src/app/qml/UserDetailDialog.qml:298
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report…"
+msgstr "वृत्तान्तः"
+
+#: src/app/qml/UserDetailDialog.qml:303
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Report Message"
+msgctxt "@title:dialog"
+msgid "Report User"
+msgstr "रिपोर्ट् सन्देशः"
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this user"
+msgstr "अस्य सन्देशस्य निवेदनस्य कारणम्"
+
+#: src/app/qml/UserDetailDialog.qml:306
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report"
+msgstr "वृत्तान्तः"
+
+#: src/app/qml/UserDetailDialog.qml:308
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Report User"
+msgstr "रिपोर्ट् सन्देशः"
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -3266,7 +3310,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "New रचयतु"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3275,18 +3319,18 @@ msgstr ""
 "सञ्चिका अतीव विशाला डाउनलोड् कर्तुं।<br /> समर्थनार्थं स्वस्य matrix server प्रशासकेन सह "
 "सम्पर्कं कुर्वन्तु ।"
 
-#: src/libneochat/neochatconnection.cpp:329
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "कोऽपि परिचयसर्वरः विन्यस्तः नास्ति"
 
-#: src/libneochat/neochatconnection.cpp:360
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "कक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
@@ -4436,6 +4480,52 @@ msgid "Room Settings"
 msgstr "कक्षस्य सेटिंग्स्"
 
 #: src/rooms/RoomContextMenu.qml:154
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report…"
+msgstr "वृत्तान्तः"
+
+#: src/rooms/RoomContextMenu.qml:159
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title:dialog"
+msgid "Report Room"
+msgstr "वृत्तान्तः"
+
+#: src/rooms/RoomContextMenu.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this room"
+msgstr "अस्य सन्देशस्य निवेदनस्य कारणम्"
+
+#: src/rooms/RoomContextMenu.qml:162
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report"
+msgstr "वृत्तान्तः"
+
+#: src/rooms/RoomContextMenu.qml:164
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title"
+msgid "Report Room"
+msgstr "वृत्तान्तः"
+
+#: src/rooms/RoomContextMenu.qml:174
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:inmenu"

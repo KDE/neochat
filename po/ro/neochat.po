@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2025-10-20 11:56+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -1395,6 +1395,52 @@ msgstr ""
 #, kde-format
 msgid "Copy link"
 msgstr "Copiază legătura"
+
+#: src/app/qml/UserDetailDialog.qml:298
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report…"
+msgstr "Raport"
+
+#: src/app/qml/UserDetailDialog.qml:303
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title:dialog"
+msgid "Report User"
+msgstr "Raport"
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for kicking this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this user"
+msgstr "Motivul pentru care utilizatorul e dat afară"
+
+#: src/app/qml/UserDetailDialog.qml:306
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report"
+msgstr "Raport"
+
+#: src/app/qml/UserDetailDialog.qml:308
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title"
+msgid "Report User"
+msgstr "Raport"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3121,25 +3167,25 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Creator"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
 "for support."
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:329
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:360
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -4238,6 +4284,52 @@ msgid "Room Settings"
 msgstr ""
 
 #: src/rooms/RoomContextMenu.qml:154
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report…"
+msgstr "Raport"
+
+#: src/rooms/RoomContextMenu.qml:159
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title:dialog"
+msgid "Report Room"
+msgstr "Raport"
+
+#: src/rooms/RoomContextMenu.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for kicking this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this room"
+msgstr "Motivul pentru care utilizatorul e dat afară"
+
+#: src/rooms/RoomContextMenu.qml:162
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report"
+msgstr "Raport"
+
+#: src/rooms/RoomContextMenu.qml:164
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title"
+msgid "Report Room"
+msgstr "Raport"
+
+#: src/rooms/RoomContextMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"

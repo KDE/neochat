@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2025-11-27 01:46-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1400,6 +1400,50 @@ msgstr "Pesquisar sala por mensagens de %1"
 #, kde-format
 msgid "Copy link"
 msgstr "Copiar link"
+
+#: src/app/qml/UserDetailDialog.qml:298
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report…"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report…"
+msgstr "Reportar…"
+
+#: src/app/qml/UserDetailDialog.qml:303
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Report Message"
+msgctxt "@title:dialog"
+msgid "Report User"
+msgstr "Reportar mensagem"
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this user"
+msgstr "Razão para reportar esta mensagem"
+
+#: src/app/qml/UserDetailDialog.qml:306
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report"
+msgstr "Reportar"
+
+#: src/app/qml/UserDetailDialog.qml:308
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Report User"
+msgstr "Reportar mensagem"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3167,7 +3211,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Criador"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:73
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3176,18 +3220,18 @@ msgstr ""
 "Arquivo muito grande para baixar.<br />Entre em contato com o administrador "
 "do seu servidor Matrix para obter suporte."
 
-#: src/libneochat/neochatconnection.cpp:329
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Nenhuma identidade de servidor configurada"
 
-#: src/libneochat/neochatconnection.cpp:360
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Criação de sala falhou: %1"
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Criação de espaço falhou: %1"
@@ -4279,6 +4323,52 @@ msgid "Room Settings"
 msgstr "Configurações da sala"
 
 #: src/rooms/RoomContextMenu.qml:154
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report…"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report…"
+msgstr "Reportar…"
+
+#: src/rooms/RoomContextMenu.qml:159
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title:dialog"
+msgid "Report Room"
+msgstr "Reportar"
+
+#: src/rooms/RoomContextMenu.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this room"
+msgstr "Razão para reportar esta mensagem"
+
+#: src/rooms/RoomContextMenu.qml:162
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report"
+msgstr "Reportar"
+
+#: src/rooms/RoomContextMenu.qml:164
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title"
+msgid "Report Room"
+msgstr "Reportar"
+
+#: src/rooms/RoomContextMenu.qml:174
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"

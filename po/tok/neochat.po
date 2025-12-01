@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:43+0000\n"
+"POT-Creation-Date: 2025-12-01 00:42+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1463,6 +1463,41 @@ msgstr "o ante e toki"
 #| msgid "Copy"
 msgid "Copy link"
 msgstr "o tu e lipu tawa lipu jo"
+
+#: src/app/qml/UserDetailDialog.qml:298
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report…"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:303
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title:dialog"
+msgid "Report User"
+msgstr "o ante e toki"
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this user"
+msgstr "o weka e weka pi jan ni"
+
+#: src/app/qml/UserDetailDialog.qml:306
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this user to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:308
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report User"
+msgstr "o ante e toki"
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -3281,7 +3316,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "o open e tomo toki pi sina tu taso"
 
-#: src/libneochat/neochatconnection.cpp:72
+#: src/libneochat/neochatconnection.cpp:73
 #, fuzzy, kde-format
 #| msgid "Contact your matrix server administrator for support."
 msgid ""
@@ -3289,18 +3324,18 @@ msgid ""
 "for support."
 msgstr "o toki tawa lawa sina pi ilo Matrix."
 
-#: src/libneochat/neochatconnection.cpp:329
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:360
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:389
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr ""
@@ -4470,6 +4505,41 @@ msgid "Room Settings"
 msgstr "nimi tomo"
 
 #: src/rooms/RoomContextMenu.qml:154
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report…"
+msgstr ""
+
+#: src/rooms/RoomContextMenu.qml:159
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title:dialog"
+msgid "Report Room"
+msgstr "o pali e tomo toki"
+
+#: src/rooms/RoomContextMenu.qml:160
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for reporting this room"
+msgstr "o weka e weka pi jan ni"
+
+#: src/rooms/RoomContextMenu.qml:162
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this room to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: src/rooms/RoomContextMenu.qml:164
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Report Room"
+msgstr "o pali e tomo toki"
+
+#: src/rooms/RoomContextMenu.qml:174
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:inmenu"
