@@ -227,6 +227,8 @@ Kirigami.Page {
             // Used to keep track of messages so we can hide the right one at the right time
             property string messageId
 
+            Layout.fillWidth: true
+
             showCloseButton: true
             visible: false
             position: Kirigami.InlineMessage.Position.Header
