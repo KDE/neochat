@@ -352,7 +352,8 @@ endif()
 install(TARGETS neochat-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
+    # krunner plugin must be the same as the app id for flatpak to export it
+    install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins RENAME org.kde.neochat.desktop)
 endif()
 
 if (APPLE)
