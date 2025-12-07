@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-01 00:42+0000\n"
-"PO-Revision-Date: 2025-11-01 10:47+0100\n"
+"PO-Revision-Date: 2025-12-06 15:25+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -1184,12 +1184,10 @@ msgid "Load your encrypted messages"
 msgstr "Wczytaj swoje zaszyfrowane wiadomości"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "Wyrażenie zabezpieczające jest niepoprawne."
+msgstr "Nie wpisano poprawnego klucza zabezpieczającego lub hasła zapasowego."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1198,32 +1196,26 @@ msgid "Encryption keys restored."
 msgstr "Przywrócono klucze szyfrujące."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Odblokuj przy użyciu klucza zabezpieczającego"
+msgstr "Odblokuj przy użyciu klucza zabezpieczającego lub hasła zapasowego"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Jeśli masz klucz zabezpieczający dla tego konta, wpisz go poniżej lub wyślij "
-"jako plik."
+"Jeśli masz klucz zabezpieczający lub hasło zapasowe dla tego konta, to wpisz "
+"go poniżej lub wyślij jako plik."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Klucz zabezpieczający lub hasło zapasowe:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -1403,48 +1395,36 @@ msgid "Copy link"
 msgstr "Skopiuj odnośnik"
 
 #: src/app/qml/UserDetailDialog.qml:298
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Zgłoś…"
 
 #: src/app/qml/UserDetailDialog.qml:303
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr "Zgłoś wiadomość"
+msgstr "Zgłoś użytkownika"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
-msgstr "Powód zgłoszenia tej wiadomości"
+msgstr "Powód zgłoszenia tego użytkownika"
 
 #: src/app/qml/UserDetailDialog.qml:306
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Zgłoś"
 
 #: src/app/qml/UserDetailDialog.qml:308
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr "Zgłoś wiadomość"
+msgstr "Zgłoś użytkownika"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2366,16 +2346,14 @@ msgid "left the room"
 msgstr "opuścił(a) pokój"
 
 #: src/libneochat/eventhandler.cpp:392
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "has removed %1 from the room: %2"
-msgstr "zbanował %1 w pokoju: %2"
+msgstr "usunął/usunęła %1 z pokoju: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "has removed %1 from the room"
-msgstr "zbanował %1 w tym pokoju"
+msgstr "usunął/usunęła %1 z pokoju"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -4327,50 +4305,36 @@ msgid "Room Settings"
 msgstr "Ustawienia pokoju"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
 msgstr "Zgłoś…"
 
 #: src/rooms/RoomContextMenu.qml:159
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Zgłoś"
+msgstr "Zgłoś pokój"
 
 #: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this room"
-msgstr "Powód zgłoszenia tej wiadomości"
+msgstr "Powód zgłoszenia tego pokoju"
 
 #: src/rooms/RoomContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
 msgstr "Zgłoś"
 
 #: src/rooms/RoomContextMenu.qml:164
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title"
 msgid "Report Room"
-msgstr "Zgłoś"
+msgstr "Zgłoś pokój"
 
 #: src/rooms/RoomContextMenu.qml:174
 #, kde-format
@@ -4457,18 +4421,16 @@ msgid "View notifications"
 msgstr "Obejrzyj powiadomienia"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Usuń wyciszenie powiadomień"
-msgstr[1] "Usuń wyciszenie powiadomień"
-msgstr[2] "Usuń wyciszenie powiadomień"
+msgstr[0] "Dom (%1 powiadomienie)"
+msgstr[1] "Dom (%1 powiadomienia)"
+msgstr[2] "Dom (%1 powiadomień)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Dom"
@@ -4719,20 +4681,18 @@ msgid "Use compact room list"
 msgstr "Użyj zwartego spisu pokojów"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Rozmawiaj na Matriksie"
+msgstr "Skalowanie czcionki okna rozmowy"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1%"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
