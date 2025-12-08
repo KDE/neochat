@@ -78,6 +78,7 @@
             "name": "olm",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
                 "-DOLM_TESTS=OFF"
             ],
             "sources": [
