@@ -23,13 +23,45 @@ Components.AlbumMaximizeComponent {
      */
     required property NeoChatRoom currentRoom
 
-    readonly property string currentEventId: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.EventIdRole)
+    readonly property string currentEventId: {
+        const idx = (content as ListView).currentIndex;
 
-    readonly property var currentAuthor: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.AuthorRole)
+        if (idx === -1) {
+            return ""
+        }
 
-    readonly property var currentTime: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.TimeRole)
+        return model.data(model.index(idx, 0), TimelineMessageModel.EventIdRole)
+    }
 
-    readonly property var currentProgressInfo: model.data(model.index((content as ListView).currentIndex, 0), TimelineMessageModel.ProgressInfoRole)
+    readonly property var currentAuthor: {
+        const idx = (content as ListView).currentIndex;
+
+        if (idx === -1) {
+            return {}
+        }
+
+        return model.data(model.index(idx, 0), TimelineMessageModel.AuthorRole)
+    }
+
+    readonly property var currentTime: {
+
+        const idx = (content as ListView).currentIndex;
+
+        if (idx === -1) {
+            return {}
+        }
+
+        model.data(model.index(idx, 0), TimelineMessageModel.TimeRole)
+    }
+
+    readonly property var currentProgressInfo: {
+        const idx = (content as ListView).currentIndex;
+
+        if (idx === -1) {
+            return {}
+        }
+        model.data(model.index(idx, 0), TimelineMessageModel.ProgressInfoRole)
+    }
 
     actions: [
         ShareAction {
