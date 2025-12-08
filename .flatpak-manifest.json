@@ -32,19 +32,6 @@
     ],
     "modules": [
         {
-            "name": "kirigamiaddons",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF"
-            ],
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/kirigami-addons.git"
-                }
-            ]
-        },
-        {
             "name": "opencv",
             "config-opts": [
                 "-DBUILD_TESTS=OFF",
