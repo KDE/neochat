@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:43+0000\n"
-"PO-Revision-Date: 2025-10-18 17:34+0200\n"
+"PO-Revision-Date: 2025-12-08 19:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -469,7 +469,7 @@ msgstr "Ez datoz bat"
 #, kde-format
 msgctxt "@info:label A matrix space"
 msgid "Space"
-msgstr "Tokia"
+msgstr "Espazioa"
 
 #: src/app/qml/ExplorerDelegate.qml:77 src/settings/SelectParentDialog.qml:106
 #: src/spaces/SelectExistingRoomDialog.qml:93
@@ -495,20 +495,16 @@ msgid "File"
 msgstr "Fitxategia"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find User"
-msgstr "Debekua erabiltzaileari"
+msgstr "Aurkitu erabiltzailea"
 
 #: src/app/qml/GlobalMenu.qml:30
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@title"
 msgid "Find User"
-msgstr "Debekua erabiltzaileari"
+msgstr "Aurkitu erabiltzailea"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -806,47 +802,40 @@ msgid "The input is not a valid user ID"
 msgstr "Sarrera ez da erabiltzaile ID balioduna"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgid "Join existing chat"
+#, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
-msgstr "Batu dagoen berriketa batera"
+msgstr "Elkartu bilerara"
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Hasi berriketa"
+msgstr "Hasi bilera"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Zure web arakatzailean Jitsi bilera batera elkartzera zoaz."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Zure web arakatzailean Jitsi bilera berri bat hastera zoaz."
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Elkartu"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Hasi berriketa"
+msgstr "Hasi"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -1051,20 +1040,19 @@ msgstr "Ezikusi"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Elkartu Jitsi bilerara…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Hasi Jitsi bilera…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr "Ez dituzu ekintza hori osatzeko pribilegioak"
+msgstr "Ez duzu Jitsi bilerak hasteko baimenik"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:91
@@ -1195,12 +1183,10 @@ msgid "Load your encrypted messages"
 msgstr "Zamatu zifratutako zure mezuak"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "Segurtasun-esaldia ez zen zuzena."
+msgstr "Segurtasun-gakoa edo babeserako pasaesaldia ez da zuzena."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1209,32 +1195,27 @@ msgid "Encryption keys restored."
 msgstr "Zifratzeko gakoak lehengoratu dira."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Giltzapetik askatu gako sekretua erabiliz"
+msgstr ""
+"Giltzapetik askatu segurtasun-gakoa edo babeserako pasaesaldia erabiliz"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Kontu honetarako segurtasun gako bat baduzu, sar ezazu behean edo zama-igo "
-"fitxategi gisa."
+"Kontu honetarako segurtasun-gako bat edo babeserako pasaesaldi bat baduzu, "
+"sar ezazu behean edo zama-igo fitxategi gisa."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Segurtasun-gakoa edo babeserako pasaesaldia:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -1413,48 +1394,36 @@ msgid "Copy link"
 msgstr "Kopiatu esteka"
 
 #: src/app/qml/UserDetailDialog.qml:298
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Salatu…"
 
 #: src/app/qml/UserDetailDialog.qml:303
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr "Salatu mezua"
+msgstr "Salatu erabiltzailea"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
-msgstr "Mezu hau salatzeko arrazoia"
+msgstr "Erabiltzaile hau salatzeko arrazoia"
 
 #: src/app/qml/UserDetailDialog.qml:306
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Salatu"
 
 #: src/app/qml/UserDetailDialog.qml:308
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr "Salatu mezua"
+msgstr "Salatu erabiltzailea"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1469,12 +1438,10 @@ msgid "Mention"
 msgstr "Aipamena"
 
 #: src/app/qml/UserSearchPage.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Ban User"
+#, kde-format
 msgctxt "@action:title"
 msgid "Find User"
-msgstr "Debekua erabiltzaileari"
+msgstr "Aurkitu erabiltzailea"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1483,12 +1450,10 @@ msgid "Copy User ID"
 msgstr "Kopiatu erabiltzaile ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@info"
 msgid "Direct Messages"
-msgstr "Iltzatutako mezuak"
+msgstr "Zuzeneko mezuak"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -2132,11 +2097,9 @@ msgid "Favorite"
 msgstr "Gogokoak"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgid "Direct Messages"
-msgstr "Iltzatutako mezuak"
+msgstr "Zuzeneko mezuak"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -2151,7 +2114,7 @@ msgstr "Lehentasun txikia"
 #: src/libneochat/enums/neochatroomtype.h:75
 #, kde-format
 msgid "Spaces"
-msgstr "Tokiak"
+msgstr "Espazioak"
 
 #: src/libneochat/enums/neochatroomtype.h:77
 #, kde-format
@@ -2273,12 +2236,10 @@ msgid "Rooms with the most highlighted messages are higher"
 msgstr "Nabarmendutako mezu gehien dituzten gelak gorago daude"
 
 #: src/libneochat/enums/roomsortparameter.h:92
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newer messages are higher"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with newer events are higher"
-msgstr "Mezu berrienak dituzten gelak gorago daude"
+msgstr "Mezu berriagoak dituzten gelak gorago daude"
 
 #: src/libneochat/eventhandler.cpp:220 src/libneochat/eventhandler.cpp:298
 #: src/libneochat/eventhandler.cpp:530
@@ -2388,16 +2349,14 @@ msgid "left the room"
 msgstr "gela utzi du"
 
 #: src/libneochat/eventhandler.cpp:392
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "has removed %1 from the room: %2"
-msgstr "%1(e)ri gelarako debekua ipini zaio: %2"
+msgstr "%1 gelatik kendu du: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "has removed %1 from the room"
-msgstr "%1(e)ri gelarako debekua ipini zaio"
+msgstr "%1 gelatik kendu du"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -3261,7 +3220,7 @@ msgstr "Gela sortzea huts egin du: %1"
 #: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
-msgstr "Tokia sortzea huts egin du: %1"
+msgstr "Espazioa sortzea huts egin du: %1"
 
 #: src/libneochat/neochatroom.cpp:1254
 #, kde-format
@@ -3338,7 +3297,7 @@ msgstr "gela-berria"
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Sortu toki bat"
+msgstr "Sortu espazio bat"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:30
 #, kde-format
@@ -3356,7 +3315,7 @@ msgstr "Izena:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Toki berria"
+msgstr "Espazio berria"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:58
 #: src/spaces/SelectExistingRoomDialog.qml:149
@@ -3377,7 +3336,7 @@ msgstr "Esploratu gelak"
 #, kde-format
 msgctxt "@action:button"
 msgid "Only show spaces"
-msgstr "Erakutsi tokiak besterik ez"
+msgstr "Erakutsi espazioak bakarrik"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:98
 #, kde-format
@@ -4036,7 +3995,7 @@ msgstr "Hedabideak"
 #, kde-format
 msgctxt "@action:title"
 msgid "Space Members"
-msgstr "Tokiko kideak"
+msgstr "Espazioko kideak"
 
 #: src/roominfo/RoomInformation.qml:42
 #, kde-format
@@ -4051,9 +4010,7 @@ msgid "Actions"
 msgstr "Ekintzak"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Bilatu mezuak"
@@ -4065,25 +4022,19 @@ msgid "Verify user"
 msgstr "Egiaztatu erabiltzailea"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove from Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "Kendu gogokoetatik"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "Gehitu gogokoetara"
 
 #: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Hedapenak"
@@ -4095,41 +4046,31 @@ msgid "Extensions"
 msgstr "Hedapenak"
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Bidali kokapen bat"
+msgstr "Partekatutako kokapenak"
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Iltzatutako mezuak"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Gelaren datuak"
+msgstr "Ikuskatu gelako datuak"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
-msgstr "Utzi tokia…"
+msgstr "Utzi espazioa…"
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Utzi gela…"
@@ -4184,7 +4125,7 @@ msgstr "Bilatu mezuak"
 #: src/roominfo/RoomSearchPage.qml:43
 #, kde-format
 msgid "Find messages…"
-msgstr "Bidali mezuak…"
+msgstr "Aurkitu mezuak…"
 
 #: src/roominfo/RoomSearchPage.qml:44
 #, kde-format
@@ -4279,7 +4220,7 @@ msgstr "Sortu gela bat"
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
-msgstr "Sortu toki bat"
+msgstr "Sortu espazio bat"
 
 #: src/rooms/models/roomtreemodel.cpp:364
 #, kde-format
@@ -4312,8 +4253,7 @@ msgid "Default Settings"
 msgstr "Ezarpen lehenetsiak"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
 msgstr "Mezu guztiak"
@@ -4327,8 +4267,7 @@ msgid "@Mentions and Keywords"
 msgstr "@aipamenak eta gako-hitzak"
 
 #: src/rooms/RoomContextMenu.qml:98 src/settings/PushNotification.qml:59
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "None"
 msgstr "Bat ere ez"
@@ -4370,50 +4309,36 @@ msgid "Room Settings"
 msgstr "Gelaren ezarpenak"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
 msgstr "Salatu…"
 
 #: src/rooms/RoomContextMenu.qml:159
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Salatu"
+msgstr "Salatu gela"
 
 #: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this room"
-msgstr "Mezu hau salatzeko arrazoia"
+msgstr "Gela hau salatzeko arrazoia"
 
 #: src/rooms/RoomContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
 msgstr "Salatu"
 
 #: src/rooms/RoomContextMenu.qml:164
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title"
 msgid "Report Room"
-msgstr "Salatu"
+msgstr "Salatu gela"
 
 #: src/rooms/RoomContextMenu.qml:174
 #, kde-format
@@ -4500,39 +4425,32 @@ msgid "View notifications"
 msgstr "Ikusi jakinarazpenak"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Ozendu jakinarazpenak"
-msgstr[1] "Ozendu jakinarazpenak"
+msgstr[0] "Etxea (jakinarazpen %1)"
+msgstr[1] "Etxea (%1 jakinarazpen)"
 
 #: src/rooms/SpaceDrawer.qml:92
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Etxea"
 
 #: src/rooms/SpaceDrawer.qml:143
-#, fuzzy, kde-format
-#| msgctxt "@button View all one-on-one chats with your friends."
-#| msgid "Friends (%1 notification)"
-#| msgid_plural "Friends (%1 notifications)"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
-msgstr[0] "Lagunak (jakinarazpen %1)"
-msgstr[1] "Lagunak (%1 jakinarazpen)"
+msgstr[0] "Zuzeneko mezuak (jakinarazpen %1)"
+msgstr[1] "Zuzeneko mezuak (%1 jakinarazpen)"
 
 #: src/rooms/SpaceDrawer.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
-msgstr "Iltzatutako mezuak"
+msgstr "Zuzeneko mezuak"
 
 #: src/rooms/SpaceDrawer.qml:228
 #, kde-format
@@ -4543,31 +4461,31 @@ msgstr "Elkartu %1(e)ra"
 #: src/rooms/SpaceDrawer.qml:270
 #, kde-format
 msgid "Create a space"
-msgstr "Sortu toki bat"
+msgstr "Sortu espazio bat"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Ikusi tokia"
+msgstr "Ikusi espazioa"
 
 #: src/rooms/SpaceListContextMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Kopiatu tokiaren helbidea"
+msgstr "Kopiatu espazioaren helbidea"
 
 #: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Tokien ezarpenak"
+msgstr "Espazioaren ezarpenak"
 
 #: src/rooms/SpaceListContextMenu.qml:72
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
-msgstr "Utzi tokia…"
+msgstr "Utzi espazioa…"
 
 #: src/rooms/UserInfo.qml:43
 #, kde-format
@@ -4765,20 +4683,18 @@ msgid "Use compact room list"
 msgstr "Erabili gela-zerrenda trinkoa"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Berriketa Matrix-en"
+msgstr "Berriketaren letra-tipoa eskalatzea"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%%1"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -5336,60 +5252,49 @@ msgstr "Gako babeskopia datu baliogabeak"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Teklatuko lasterbideak"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "Ireki aldatzaile azkarra"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Ireki aldatzaile azkarra"
+msgstr "Ireki kontu-aldatzailea"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Search user in room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Bilatu erabiltzailea gelan"
+msgstr "Bilatu uneko gelako mezuak"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Room"
-msgstr ""
+msgstr "Joan aurreko gelara"
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Hautatu gela"
+msgstr "Joan hurrengo gelara"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Previous Unread Room"
-msgstr ""
+msgstr "Joan irakurri gabeko aurreko gelara"
 
 #: src/settings/KeyboardShortcutsPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Unread Room"
-msgstr ""
+msgstr "Joan irakurri gabeko hurrengo gelara"
 
 #: src/settings/models/permissionsmodel.cpp:57
 msgctxt "Room permission type"
@@ -5489,12 +5394,12 @@ msgstr "Gelako zerbitzarira sartzeko kontrol-zerrenda (ACL) ezartzea"
 #: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Set the children of this space"
-msgstr "Toki honen haurrak ezartzea"
+msgstr "Ezarri espazio honen haurrak"
 
 #: src/settings/models/permissionsmodel.cpp:77
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
-msgstr "Gela honen guraso tokia ezartzea"
+msgstr "Ezarri gela honen guraso espazioa"
 
 #: src/settings/models/permissionsmodel.cpp:82
 msgctxt "Room permission type"
@@ -5623,22 +5528,20 @@ msgstr "Gela-zerrenda sailkatzeko hurrenkera"
 msgctxt "@info:label"
 msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
+"Ezkutuko gertaerak ez dira azkenaldiko jardueratzat hartzen gelak sailkatzek "
+"orduan."
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "Inportatu gakoak"
+msgstr "Garrantzia"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "Irakurri gabeko jakinarazpenak dituzten gelak aurrena erakutsiko dira"
+msgstr "Irakurri gabeko jakinarazpenak dituzten gelak aurrena erakutsiko dira."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -5647,19 +5550,16 @@ msgid "Alphabetical"
 msgstr "Alfabetikoki"
 
 #: src/settings/NeoChatGeneralPage.qml:122
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgctxt "As in 'sort something based on the last event'"
 msgid "Newest Events"
-msgstr "Denbora-lerroko gertaerak"
+msgstr "Gertaera berrienak"
 
 #: src/settings/NeoChatGeneralPage.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with the newest activity will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with the newest events will be shown first."
-msgstr "Jarduera berrienak dituzten gelak aurrena erakutsiko dira"
+msgstr "Gertaera berrienak dituzten gelak aurrena erakutsiko dira."
 
 #: src/settings/NeoChatGeneralPage.qml:134
 #, kde-format
@@ -5969,7 +5869,7 @@ msgstr "Gailuak"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Teklatuko lasterbideak"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6151,11 +6051,10 @@ msgid "Confirm"
 msgstr "Berretsi"
 
 #: src/settings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:group"
 msgid "Send Notifications For"
-msgstr "Jakinarazpenak"
+msgstr "Bidali jakinarazpenak honetarako"
 
 #: src/settings/PushNotification.qml:32
 #, kde-format
@@ -6325,7 +6224,7 @@ msgstr "Gaitu"
 #, kde-format
 msgctxt "@title"
 msgid "Official Parent Spaces"
-msgstr "Guraso toki ofizialak"
+msgstr "Guraso espazio ofizialak"
 
 #: src/settings/RoomGeneralPage.qml:266
 #, kde-format
@@ -6349,7 +6248,7 @@ msgstr "Kendu gurasoa"
 #, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
-msgstr "Gela honek ez du guraso toki ofizialik."
+msgstr "Gela honek ez du guraso espazio ofizialik."
 
 #: src/settings/RoomGeneralPage.qml:299
 #, kde-format
@@ -6466,19 +6365,19 @@ msgstr "Gonbidatutako jendea bakarrik batu daiteke."
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
-msgstr "Tokiko kideak"
+msgstr "Espazioko kideak"
 
 #: src/settings/RoomSecurityPage.qml:76
 #, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
-msgstr "Aukeratutako tokietako edonork bilatu eta batu daiteke."
+msgstr "Aukeratutako espazioetako edonork aurkitu eta batu daiteke."
 
 #: src/settings/RoomSecurityPage.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
-msgstr "Aukeratu tokiak"
+msgstr "Aukeratu espazioak"
 
 #: src/settings/RoomSecurityPage.qml:103
 #, kde-format
@@ -6570,7 +6469,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Space Settings"
-msgstr "Tokien ezarpenak"
+msgstr "Espazioaren ezarpenak"
 
 #: src/settings/RoomSettingsView.qml:28
 #, kde-format
@@ -6661,12 +6560,12 @@ msgstr "Hautatu gela"
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
-msgstr "Aukeratu guraso-tokia"
+msgstr "Aukeratu guraso-espazioa"
 
 #: src/settings/SelectParentDialog.qml:159
 #, kde-format
 msgid "Set this room as a child of the space %1"
-msgstr "Ezarri gela hau %1 tokiaren haur gisa"
+msgstr "Ezarri gela hau %1 espazioaren haur gisa"
 
 #: src/settings/SelectParentDialog.qml:166
 #, kde-format
@@ -6678,7 +6577,7 @@ msgstr ""
 #: src/settings/SelectParentDialog.qml:166
 #, kde-format
 msgid "The selected room is not a space"
-msgstr "Hautatutako gela ez da toki bat"
+msgstr "Hautatutako gela ez da espazio bat"
 
 #: src/settings/SelectParentDialog.qml:166
 #, kde-format
@@ -6688,13 +6587,13 @@ msgstr "Ez dituzu ekintza hori osatzeko pribilegioak"
 #: src/settings/SelectParentDialog.qml:171
 #, kde-format
 msgid "Make this space the canonical parent"
-msgstr "Egin toki hori guraso kanonikoa"
+msgstr "Egin espazio hau guraso kanonikoa"
 
 #: src/settings/SelectSpacesDialog.qml:35
 #, kde-format
 msgctxt "@title"
 msgid "Select Spaces"
-msgstr "Aukeratu tokiak"
+msgstr "Aukeratu espazioak"
 
 #: src/settings/threepidbindhelper.cpp:178
 #, kde-format
@@ -6828,7 +6727,7 @@ msgstr "Kendu haurra"
 #: src/spaces/RemoveChildDialog.qml:39
 #, kde-format
 msgid "The child %1 will be removed from the space %2"
-msgstr "%1 haurra, %2 tokitik kenduko da"
+msgstr "%1 haurra, %2 espaziotik kenduko da"
 
 #: src/spaces/RemoveChildDialog.qml:46
 #, kde-format
@@ -6836,7 +6735,8 @@ msgid ""
 "The current space is the official parent of this room, should this be "
 "cleared?"
 msgstr ""
-"Uneko tokia gela horren guraso ofiziala da, hori garbitu beharko litzateke?"
+"Uneko espazioa gela horren guraso ofiziala da, hori garbitu beharko "
+"litzateke?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
 #, kde-format
@@ -6869,7 +6769,7 @@ msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
 "parent spaces."
 msgid "Make this space the canonical parent"
-msgstr "Egin toki hori guraso kanonikoa"
+msgstr "Egin espazio hau guraso kanonikoa"
 
 #: src/spaces/SelectExistingRoomDialog.qml:174
 #, kde-format
@@ -6877,7 +6777,7 @@ msgctxt "@info:description"
 msgid ""
 "The canonical parent is the default one if a room has multiple parent spaces."
 msgstr ""
-"Guraso kanonikoa lehenetsitakoa da, gela batek guraso-toki anizkoitzak "
+"Guraso kanonikoa lehenetsitakoa da, gela batek guraso-espazio anizkoitzak "
 "baditu."
 
 #: src/spaces/SpaceHierarchyDelegate.qml:94
@@ -6929,7 +6829,7 @@ msgstr "Gela berria…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Toki berria…"
+msgstr "Espazio berria…"
 
 #: src/spaces/SpaceHomePage.qml:46
 #, kde-format
@@ -6941,19 +6841,19 @@ msgstr "Dagoen gela…"
 #, kde-format
 msgctxt "@button"
 msgid "Invite user to space"
-msgstr "Gonbidatu erabiltzailea tokira"
+msgstr "Gonbidatu erabiltzailea espaziora"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, kde-format
 msgctxt "@button"
 msgid "Add to Space"
-msgstr "Gehitu tokietara"
+msgstr "Gehitu espaziora"
 
 #: src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave this space…"
-msgstr "Utzi toki hau…"
+msgstr "Utzi espazio hau…"
 
 #: src/timeline/DelegateContextMenu.qml:165
 #, kde-format
