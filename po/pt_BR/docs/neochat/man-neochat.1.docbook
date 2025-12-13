@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Manual do Usuário do NeoChat</title>
+<author
+><firstname
+>Carl</firstname
+><surname
+>Schwan</surname
+> <contrib
+>NeoChat man page.</contrib
+> <email
+>carl@carlschwan.eu</email
+></author>
+<date
+>01/11/2022</date>
+<releaseinfo
+>22.09</releaseinfo>
+<productname
+>NeoChat</productname>
+</refentryinfo>
+
+<refmeta>
+  <refentrytitle>
+    <command
+>neochat</command>
+  </refentrytitle>
+  <manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+  <refname
+>neochat</refname>
+  <refpurpose
+>Cliente para interação com o protocolo de mensagens Matrix.</refpurpose>
+  </refnamediv>
+  <!-- body begins here -->
+  <refsynopsisdiv id='synopsis'>
+  <cmdsynopsis
+><command
+>neochat</command
+> <arg choice="opt"
+><replaceable
+>URI</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Descrição</title>
+  <para
+>O <command
+>neochat</command
+> é um aplicativo de bate-papo para o protocolo Matrix. Ele funciona tanto em computadores quanto em dispositivos móveis. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Opções</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>URI</option
+></term>
+  <listitem>
+    <para
+>O URI da matriz para um usuário ou uma sala. Por exemplo, matrix:u/usuário:exemplo.org e matrix:r/root:exemplo.org. Isso fará com que o NeoChat tente abrir a sala ou conversa especificada. </para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="bug">
+  <title
+>Relatar bugs</title>
+  <para
+>Você pode reportar erros e solicitar novas funcionalidades em <ulink url="https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General"
+>https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General</ulink
+></para>
+</refsect1>
+
+<refsect1>
+  <title
+>Veja também</title>
+  <simplelist>
+    <member
+>Lista de perguntas frequentes sobre o Matrix <ulink url="https://matrix.org/faq/"
+>https://matrix.org/faq/</ulink
+> </member>
+    <member
+>kf5options(7)</member>
+    <member
+>qt5options(7)</member>
+  </simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Direitos autorais</title>
+<para
+>Direitos autorais &copy; 2020-2022 Tobias Fella </para>
+<para
+>Direitos autorais &copy; 2020-2022 Carl Schwan </para>
+<para
+>Licença: GNU General Public Versão 3 ou posterior <ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
