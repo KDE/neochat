@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2020-2021 Tobias Fella <tobias.fella@kde.org>
 # SPDX-License-Identifier: BSD-2-Clause
 
-add_library(neochat STATIC
+qt_add_library(neochat STATIC
     controller.cpp
     controller.h
     roommanager.cpp
@@ -140,9 +140,16 @@ if(WIN32)
     set_target_properties(neochat PROPERTIES OUTPUT_NAME "neochatlib")
 endif()
 
-add_executable(neochat-app
+qt_add_executable(neochat-app
     main.cpp
 )
+
+if(ANDROID)
+    set_target_properties(neochat-app PROPERTIES
+        OUTPUT_NAME "neochat-app"
+        PREFIX "lib"
+    )
+endif()
 
 if(TARGET Qt::WebView)
     target_link_libraries(neochat-app PUBLIC Qt::WebView)
@@ -183,7 +190,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
-target_link_libraries(neochat PRIVATE Loginplugin Roomsplugin RoomInfoplugin MessageContentplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
+target_link_libraries(neochat PRIVATE neochatplugin Loginplugin Roomsplugin RoomInfoplugin MessageContentplugin Timelineplugin Spacesplugin Chatbarplugin Settingsplugin Devtoolsplugin)
 target_link_libraries(neochat PUBLIC
     LibNeoChat
     Timeline
