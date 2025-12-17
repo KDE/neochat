@@ -286,6 +286,8 @@ QQC2.Control {
                             quickFormatBar.selectionStart = selectionStart;
                             quickFormatBar.selectionEnd = selectionEnd;
                             quickFormatBar.open();
+                        } else if (quickFormatBar.visible) {
+                            quickFormatBar.close();
                         }
                     }
 
