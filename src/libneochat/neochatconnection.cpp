@@ -135,9 +135,9 @@ void NeoChatConnection::connectSignals()
         [this] {
             auto job = callApi<GetVersionsJob>(BackgroundRequest);
             connect(job, &GetVersionsJob::success, this, [this, job] {
-                m_canCheckMutualRooms = job->unstableFeatures().contains("uk.half-shot.msc2666.query_mutual_rooms"_L1);
+                m_canCheckMutualRooms = job->unstableFeatures().value("uk.half-shot.msc2666.query_mutual_rooms"_L1, false);
                 Q_EMIT canCheckMutualRoomsChanged();
-                m_canEraseData = job->unstableFeatures().contains("org.matrix.msc4025"_L1) || job->versions().count("v1.10"_L1);
+                m_canEraseData = job->unstableFeatures().value("org.matrix.msc4025"_L1, false) || job->versions().count("v1.10"_L1);
                 Q_EMIT canEraseDataChanged();
             });
         },
