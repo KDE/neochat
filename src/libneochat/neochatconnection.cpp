@@ -608,4 +608,9 @@ void NeoChatConnection::reportUser(const QString &userId, const QString &reason)
     callApi<NeochatReportUserJob>(userId, reason);
 }
 
+bool NeoChatConnection::supportsMatrixSpecVersion(const QString &version)
+{
+    return supportedMatrixSpecVersions().contains(version);
+}
+
 #include "moc_neochatconnection.cpp"

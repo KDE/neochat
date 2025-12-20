@@ -229,6 +229,11 @@ public:
       */
     Q_INVOKABLE void reportUser(const QString &userId, const QString &reason);
 
+    /**
+     * @return True if this connection supports the given spec version (e.g. "v1.11").
+     */
+    Q_INVOKABLE bool supportsMatrixSpecVersion(const QString &version);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();
