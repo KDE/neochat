@@ -146,7 +146,7 @@ ColumnLayout {
             id: quickReactions
             Layout.fillWidth: true
 
-            model: ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"]
+            model: ["👍", "👎", "😄", "🎉", "😕", "❤️", "🚀", "👀"]
 
             delegate: EmojiDelegate {
                 emoji: modelData
