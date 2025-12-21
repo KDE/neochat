@@ -35,6 +35,8 @@ qt_add_library(neochat STATIC
     models/commonroomsmodel.h
     texttospeechhelper.h
     texttospeechhelper.cpp
+    models/limitermodel.cpp
+    models/limitermodel.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES

@@ -5,6 +5,7 @@
 #include "jobs/neochatgetcommonroomsjob.h"
 
 #include <QGuiApplication>
+#include <Quotient/room.h>
 
 using namespace Quotient;
 
@@ -39,8 +40,22 @@ void CommonRoomsModel::setUserId(const QString &userId)
 
 QVariant CommonRoomsModel::data(const QModelIndex &index, int roleName) const
 {
-    Q_UNUSED(index)
-    Q_UNUSED(roleName)
+    auto roomId = m_commonRooms[index.row()];
+    auto room = connection()->room(roomId);
+    if (!room) {
+        return {};
+    }
+
+    switch (roleName) {
+    case Qt::DisplayRole:
+    case RoomNameRole:
+        return room->displayName();
+    case RoomAvatarRole:
+        return room->avatarUrl();
+    case RoomIdRole:
+        return roomId;
+    }
+
     return {};
 }
 
@@ -48,6 +63,15 @@ int CommonRoomsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
     return m_commonRooms.size();
+}
+
+QHash<int, QByteArray> CommonRoomsModel::roleNames() const
+{
+    return {
+        {RoomIdRole, "roomId"},
+        {RoomNameRole, "roomName"},
+        {RoomAvatarRole, "roomAvatar"},
+    };
 }
 
 void CommonRoomsModel::reload()

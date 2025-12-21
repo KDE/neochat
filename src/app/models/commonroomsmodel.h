@@ -24,7 +24,9 @@ class CommonRoomsModel : public QAbstractListModel
 
 public:
     enum Roles {
-        RoomIdRole = Qt::DisplayRole,
+        RoomIdRole = Qt::UserRole,
+        RoomNameRole,
+        RoomAvatarRole,
     };
     Q_ENUM(Roles)
 
@@ -38,6 +40,8 @@ public:
 
     [[nodiscard]] QVariant data(const QModelIndex &index, int roleName) const override;
     [[nodiscard]] Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
+
+    QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void connectionChanged();
