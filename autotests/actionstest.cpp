@@ -63,7 +63,7 @@ void ActionsTest::testActions_data()
     QTest::addColumn<std::optional<QString>>("resultText");
     QTest::addColumn<std::optional<Quotient::RoomMessageEvent::MsgType>>("type");
 
-    QTest::newRow("shrug") << u"/shrug Hello"_s << std::make_optional(u"¯\\\\_(ツ)_/¯ Hello"_s)
+    QTest::newRow("shrug") << u"/shrug Hello"_s << std::make_optional(u"¯\\\\\\_(ツ)\\_/¯ Hello"_s)
                            << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
     QTest::newRow("lenny") << u"/lenny Hello"_s << std::make_optional(u"( ͡° ͜ʖ ͡°) Hello"_s) << std::make_optional(Quotient::RoomMessageEvent::MsgType::Text);
     QTest::newRow("tableflip") << u"/tableflip Hello"_s << std::make_optional(u"(╯°□°）╯︵ ┻━┻ Hello"_s)
