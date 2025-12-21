@@ -59,7 +59,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"shrug"_s,
         [](const QString &message, NeoChatRoom *, ChatBarCache *) {
-            return u"¯\\\\_(ツ)_/¯ %1"_s.arg(message);
+            return u"¯\\\\\\_(ツ)\\_/¯ %1"_s.arg(message);
         },
         Quotient::RoomMessageEvent::MsgType::Text,
         kli18n("<message>"),
