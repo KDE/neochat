@@ -697,6 +697,9 @@ QString EventHandler::subtitleText(const NeoChatRoom *room, const Quotient::Room
         qCWarning(EventHandling) << "subtitleText called with event set to nullptr.";
         return {};
     }
+    if (room->isDirectChat()) {
+        return plainBody(room, event, true);
+    }
     return singleLineAuthorDisplayname(room, event) + (event->isStateEvent() ? u" "_s : u": "_s) + plainBody(room, event, true);
 }
 
