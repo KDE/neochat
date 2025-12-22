@@ -1033,25 +1033,6 @@ void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
     Q_EMIT styleChanged();
 }
 
-QString ChatDocumentHandler::fileName() const
-{
-    const QString filePath = QQmlFile::urlToLocalFileOrQrc(m_fileUrl);
-    const QString fileName = QFileInfo(filePath).fileName();
-    if (fileName.isEmpty())
-        return QStringLiteral("untitled.txt");
-    return fileName;
-}
-
-QString ChatDocumentHandler::fileType() const
-{
-    return QFileInfo(fileName()).suffix();
-}
-
-QUrl ChatDocumentHandler::fileUrl() const
-{
-    return m_fileUrl;
-}
-
 void ChatDocumentHandler::tab()
 {
     QTextCursor cursor = textCursor();

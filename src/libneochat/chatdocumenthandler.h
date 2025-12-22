@@ -94,7 +94,7 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(CompletionModel *completionModel READ completionModel CONSTANT)
 
     /**
-     * @brief Whether the cursor is cuurently on the first line.
+     * @brief Whether the cursor is currently on the first line.
      */
     Q_PROPERTY(bool atFirstLine READ atFirstLine NOTIFY atFirstLineChanged)
 
@@ -112,14 +112,7 @@ class ChatDocumentHandler : public QObject
 
     Q_PROPERTY(RichFormat::Format style READ style NOTIFY styleChanged)
 
-    // Q_PROPERTY(bool canIndentList READ canIndentList NOTIFY cursorPositionChanged)
-    // Q_PROPERTY(bool canDedentList READ canDedentList NOTIFY cursorPositionChanged)
     Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
-    // Q_PROPERTY(int currentHeadingLevel READ currentHeadingLevel NOTIFY cursorPositionChanged)
-
-    Q_PROPERTY(QString fileName READ fileName NOTIFY fileUrlChanged)
-    Q_PROPERTY(QString fileType READ fileType NOTIFY fileUrlChanged)
-    Q_PROPERTY(QUrl fileUrl READ fileUrl NOTIFY fileUrlChanged)
 
 public:
     enum InsertPosition {
@@ -190,10 +183,6 @@ public:
 
     RichFormat::Format style() const;
 
-    QString fileName() const;
-    QString fileType() const;
-    QUrl fileUrl() const;
-
     Q_INVOKABLE void tab();
     Q_INVOKABLE void deleteChar();
     Q_INVOKABLE void backspace();
@@ -221,7 +210,6 @@ Q_SIGNALS:
 
     void checkableChanged();
     void currentListStyleChanged();
-    void fileUrlChanged();
 
     void formatChanged();
     void styleChanged();
@@ -272,7 +260,6 @@ private:
     QColor linkColor();
     QColor mLinkColor;
     void regenerateColorScheme();
-    QUrl m_fileUrl;
 
     QString trim(QString string) const;
 
