@@ -178,7 +178,7 @@ add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
 
 if (BUILD_TESTING)
-    find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test HttpServer)
+    find_package(Qt6 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test HttpServer QuickTest)
     add_subdirectory(autotests)
     # add_subdirectory(appiumtests)
     if (NOT ANDROID)
