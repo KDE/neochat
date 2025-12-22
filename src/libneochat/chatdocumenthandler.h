@@ -243,7 +243,8 @@ private:
     void setListFormat(RichFormat::Format format);
 
     QPointer<ChatMarkdownHelper> m_markdownHelper;
-    QTextCharFormat m_pendingFormat = {};
+    std::optional<QTextCharFormat> m_pendingFormat = std::nullopt;
+    std::optional<QTextCharFormat> m_pendingOverrideFormat = std::nullopt;
 
     SyntaxHighlighter *m_highlighter = nullptr;
 

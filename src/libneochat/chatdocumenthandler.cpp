@@ -213,10 +213,16 @@ void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
                     return;
                 }
                 cursor.setPosition(position);
-                cursor.select(QTextCursor::WordUnderCursor);
+                cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
                 if (!cursor.selectedText().isEmpty()) {
-                    cursor.mergeCharFormat(m_pendingFormat);
-                    m_pendingFormat = {};
+                    if (m_pendingFormat) {
+                        cursor.mergeCharFormat(*m_pendingFormat);
+                        m_pendingFormat = std::nullopt;
+                    }
+                    if (m_pendingOverrideFormat) {
+                        cursor.setCharFormat(*m_pendingOverrideFormat);
+                        m_pendingOverrideFormat = std::nullopt;
+                    }
                 }
             });
             initializeChars();
@@ -866,7 +872,8 @@ void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &link
         cursor.select(QTextCursor::WordUnderCursor);
     }
 
-    QTextCharFormat format = cursor.charFormat();
+    const auto originalFormat = cursor.charFormat();
+    auto format = cursor.charFormat();
     // Save original format to create an extra space with the existing char
     // format for the block
     if (!linkUrl.isEmpty()) {
@@ -902,8 +909,9 @@ void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &link
         _linkText = linkUrl;
     }
     cursor.insertText(_linkText, format);
-
     cursor.endEditBlock();
+
+    m_pendingOverrideFormat = originalFormat;
 }
 
 QColor ChatDocumentHandler::linkColor()
