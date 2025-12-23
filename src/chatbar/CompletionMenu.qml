@@ -16,12 +16,7 @@ import org.kde.neochat
 QQC2.Popup {
     id: root
 
-    required property NeoChatConnection connection
     required property var chatDocumentHandler
-    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
-        chatDocumentHandler.completionModel.roomListModel = RoomManager.roomListModel;
-        chatDocumentHandler.completionModel.userListModel = RoomManager.userListModel;
-    }
 
     visible: completions.count > 0
 
@@ -38,7 +33,7 @@ QQC2.Popup {
     }
 
     function complete() {
-        root.chatDocumentHandler.complete(completions.currentIndex);
+        root.chatDocumentHandler.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef)
     }
 
     leftPadding: 0
@@ -65,7 +60,11 @@ QQC2.Popup {
             ListView {
                 id: completions
 
-                model: root.chatDocumentHandler.completionModel
+                model: CompletionModel {
+                    textItem: root.chatDocumentHandler.textItem
+                    roomListModel: RoomManager.roomListModel
+                    userListModel: RoomManager.userListModel
+                }
                 currentIndex: 0
                 keyNavigationWraps: true
                 highlightMoveDuration: 100
@@ -77,6 +76,8 @@ QQC2.Popup {
                     required property string displayName
                     required property string subtitle
                     required property string iconName
+                    required property string replacedText
+                    required property url hRef
 
                     text: displayName
 
@@ -96,7 +97,7 @@ QQC2.Popup {
                             subtitleItem.textFormat: Text.PlainText
                         }
                     }
-                    onClicked: root.chatDocumentHandler.complete(completionDelegate.index)
+                    onClicked: root.chatDocumentHandler.insertCompletion(replacedText, hRef)
                 }
             }
         }

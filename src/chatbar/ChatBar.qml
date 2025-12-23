@@ -150,7 +150,6 @@ QQC2.Control {
     CompletionMenu {
         id: completionMenu
         chatDocumentHandler: contentModel.focusedDocumentHandler
-        connection: root.connection
 
         x: 1
         y: -height

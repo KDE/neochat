@@ -10,6 +10,7 @@
 #include <QStringBuilder>
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
+#include <QTextBoundaryFinder>
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 #include <QTextList>
@@ -84,6 +85,7 @@ public:
                 setFormat(error.first, error.second.size(), errorFormat);
             }
         }
+
         auto handler = dynamic_cast<ChatDocumentHandler *>(parent());
         auto room = handler->room();
         if (!room) {
@@ -109,6 +111,7 @@ public:
                                                mention.cursor.setPosition(mention.cursor.anchor() + mention.text.size(), QTextCursor::KeepAnchor);
                                            }
 
+                                           qWarning() << mention.cursor.selectedText() << mention.text;
                                            if (mention.cursor.selectedText() != mention.text) {
                                                return true;
                                            }
@@ -128,27 +131,10 @@ private:
 
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     : QObject(parent)
+    , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_highlighter(new SyntaxHighlighter(this))
-    , m_completionModel(new CompletionModel(this))
 {
-    m_markdownHelper = new ChatMarkdownHelper(this);
     connect(this, &ChatDocumentHandler::formatChanged, m_markdownHelper, &ChatMarkdownHelper::handleExternalFormatChange);
-}
-
-int ChatDocumentHandler::completionStartIndex() const
-{
-    const qsizetype cursor = cursorPosition();
-    const auto &text = getText();
-
-    auto start = std::min(cursor, text.size()) - 1;
-    while (start > -1) {
-        if (text.at(start) == QLatin1Char(' ')) {
-            start++;
-            break;
-        }
-        start--;
-    }
-    return start;
 }
 
 ChatBarType::Type ChatDocumentHandler::type() const
@@ -177,7 +163,6 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
     }
 
     m_room = room;
-    m_completionModel->setRoom(m_room);
     Q_EMIT roomChanged();
 }
 
@@ -200,8 +185,8 @@ void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
     }
 
     m_textItem = textItem;
-
     m_highlighter->setDocument(document());
+
     if (m_textItem) {
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCursor()));
         if (document()) {
@@ -338,9 +323,6 @@ int ChatDocumentHandler::cursorPosition() const
 
 void ChatDocumentHandler::updateCursor()
 {
-    int start = completionStartIndex();
-    m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
-
     Q_EMIT atFirstLineChanged();
     Q_EMIT atLastLineChanged();
 }
@@ -557,71 +539,6 @@ void ChatDocumentHandler::insertFragment(const QTextDocumentFragment fragment, I
     if (textItem()) {
         textItem()->setProperty("cursorPosition", cursor.position());
     }
-}
-
-void ChatDocumentHandler::complete(int index)
-{
-    if (document() == nullptr) {
-        qCWarning(ChatDocumentHandling) << "complete called with m_document set to nullptr.";
-        return;
-    }
-    if (m_completionModel->autoCompletionType() == CompletionModel::None) {
-        qCWarning(ChatDocumentHandling) << "complete called with m_completionModel->autoCompletionType() == CompletionModel::None.";
-        return;
-    }
-
-    // Ensure we only search for the beginning of the current completion identifier
-    const auto fromIndex = qMax(completionStartIndex(), 0);
-
-    if (m_completionModel->autoCompletionType() == CompletionModel::User) {
-        auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::DisplayNameRole).toString();
-        auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('@'), fromIndex);
-        QTextCursor cursor(document());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(name + u" "_s);
-        cursor.setPosition(at);
-        cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
-        cursor.setKeepPositionOnInsert(true);
-        pushMention({cursor, name, 0, 0, id});
-        m_highlighter->rehighlight();
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Command) {
-        auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('/'), fromIndex);
-        QTextCursor cursor(document());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(u"/%1 "_s.arg(command));
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
-        auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char('#'), fromIndex);
-        QTextCursor cursor(document());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(alias + u" "_s);
-        cursor.setPosition(at);
-        cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
-        cursor.setKeepPositionOnInsert(true);
-        pushMention({cursor, alias, 0, 0, alias});
-        m_highlighter->rehighlight();
-    } else if (m_completionModel->autoCompletionType() == CompletionModel::Emoji) {
-        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
-        auto text = getText();
-        auto at = text.indexOf(QLatin1Char(':'), fromIndex);
-        QTextCursor cursor(document());
-        cursor.setPosition(at);
-        cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(shortcode);
-    }
-}
-
-CompletionModel *ChatDocumentHandler::completionModel() const
-{
-    return m_completionModel;
 }
 
 QString ChatDocumentHandler::getText() const
@@ -859,6 +776,39 @@ void ChatDocumentHandler::insertTable(int rows, int columns)
         }
     }
     return;
+}
+
+void ChatDocumentHandler::insertCompletion(const QString &text, const QUrl &link)
+{
+    QTextCursor cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    cursor.beginEditBlock();
+    while (!cursor.selectedText().startsWith(u' ') && !cursor.atBlockStart()) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+    if (cursor.selectedText().startsWith(u' ')) {
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    }
+    cursor.removeSelectedText();
+
+    const int start = cursor.position();
+    const auto insertString = u"%1 %2"_s.arg(text, link.isEmpty() ? QString() : u" "_s);
+    cursor.insertText(insertString);
+    cursor.setPosition(start);
+    cursor.setPosition(start + text.size(), QTextCursor::KeepAnchor);
+    cursor.setKeepPositionOnInsert(true);
+    cursor.endEditBlock();
+    if (!link.isEmpty()) {
+        pushMention({
+            .cursor = cursor,
+            .text = text,
+            .id = link.toString(),
+        });
+    }
+    m_highlighter->rehighlight();
 }
 
 void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
