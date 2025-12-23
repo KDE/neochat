@@ -20,6 +20,7 @@ target_sources(LibNeoChat PRIVATE
     linkpreviewer.cpp
     nestedlisthelper_p.h
     nestedlisthelper.cpp
+    qmltextitemwrapper.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp
