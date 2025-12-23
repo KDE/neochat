@@ -108,7 +108,6 @@ QQC2.Control {
                         height: implicitHeight
                         y: -height - 5
                         z: 10
-                        connection: root.Message.room.connection
                         chatDocumentHandler: documentHandler
                         margins: 0
                         Behavior on height {
