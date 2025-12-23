@@ -46,12 +46,6 @@ ecm_add_test(
 )
 
 ecm_add_test(
-    chatdocumenthandlertest.cpp
-    LINK_LIBRARIES neochat Qt::Test
-    TEST_NAME chatdocumenthandlertest
-)
-
-ecm_add_test(
     timelinemessagemodeltest.cpp
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME timelinemessagemodeltest

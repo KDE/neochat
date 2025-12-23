@@ -5,13 +5,14 @@
 
 #include <QConcatenateTablesProxyModel>
 #include <QQmlEngine>
+#include <QQuickItem>
 #include <QSortFilterProxyModel>
 
 #include "roomlistmodel.h"
 
 class CompletionProxyModel;
 class UserListModel;
-class NeoChatRoom;
+class QmlTextItemWrapper;
 class RoomListModel;
 
 /**
@@ -28,14 +29,9 @@ class CompletionModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
-     * @brief The current text to search for completions.
+     * @brief The QML text Item that completions are being provided for.
      */
-    Q_PROPERTY(QString text READ text NOTIFY textChanged)
-
-    /**
-     * @brief The current room that the model is getting completions for.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
      * @brief The current type of completion being done on the entered text.
@@ -72,13 +68,17 @@ public:
      */
     enum Roles {
         DisplayNameRole = Qt::DisplayRole, /**< The main text to show. */
-        SubtitleRole, /**< The subtitle text to show. */
+        SubtitleRole = Qt::UserRole, /**< The subtitle text to show. */
         IconNameRole, /**< The icon to show. */
         ReplacedTextRole, /**< The text to replace the input text with for the completion. */
+        HRefRole, /**< The hyperlink if applicable for the completion. */
     };
     Q_ENUM(Roles)
 
     explicit CompletionModel(QObject *parent = nullptr);
+
+    QQuickItem *textItem() const;
+    void setTextItem(QQuickItem *textItem);
 
     /**
      * @brief Get the given role value at the given index.
@@ -101,12 +101,6 @@ public:
      */
     QHash<int, QByteArray> roleNames() const override;
 
-    QString text() const;
-    void setText(const QString &text, const QString &fullText);
-
-    NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
-
     RoomListModel *roomListModel() const;
     void setRoomListModel(RoomListModel *roomListModel);
 
@@ -117,17 +111,20 @@ public:
     void setAutoCompletionType(AutoCompletionType autoCompletionType);
 
 Q_SIGNALS:
-    void textChanged();
+    void textItemChanged();
+
     void roomChanged();
     void autoCompletionTypeChanged();
     void roomListModelChanged();
     void userListModelChanged();
 
 private:
-    QString m_text;
-    QString m_fullText;
+    QPointer<QmlTextItemWrapper> m_textItem;
+
+    int m_textStart = 0;
+    void updateTextStart();
+
     CompletionProxyModel *m_filterModel;
-    QPointer<NeoChatRoom> m_room;
     AutoCompletionType m_autoCompletionType = None;
 
     void updateCompletion();

@@ -14,14 +14,13 @@ TestCase {
     }
 
     TextEdit {
-        id: TextEdit
+        id: textEdit
     }
 
     function test_empty(): void {
         compare(documentHandler.type, LibNeoChat.ChatBarType.None);
         compare(documentHandler.room, null);
         compare(documentHandler.textItem, null);
-        compare(documentHandler.completionModel instanceof LibNeoChat.CompletionModel, true);
         compare(documentHandler.atFirstLine, false);
         compare(documentHandler.atLastLine, false);
         compare(documentHandler.bold, false);

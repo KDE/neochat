@@ -14,7 +14,6 @@
 #include "chatmarkdownhelper.h"
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"
-#include "models/completionmodel.h"
 #include "neochatroom.h"
 #include "nestedlisthelper_p.h"
 
@@ -86,14 +85,6 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
-     * @brief The current CompletionModel.
-     *
-     * This is typically provided to a qml component to visualise the current
-     * completion results.
-     */
-    Q_PROPERTY(CompletionModel *completionModel READ completionModel CONSTANT)
-
-    /**
      * @brief Whether the cursor is currently on the first line.
      */
     Q_PROPERTY(bool atFirstLine READ atFirstLine NOTIFY atFirstLineChanged)
@@ -155,10 +146,6 @@ public:
     QTextDocumentFragment takeFirstBlock();
     void fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment);
 
-    Q_INVOKABLE void complete(int index);
-
-    CompletionModel *completionModel() const;
-
     /**
      * @brief Update the mentions in @p document when editing a message.
      */
@@ -194,6 +181,7 @@ public:
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertImage(const QUrl &imagePath);
     Q_INVOKABLE void insertTable(int rows, int columns);
+    Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
     Q_INVOKABLE void dumpHtml();
     Q_INVOKABLE QString htmlText() const;
@@ -248,9 +236,6 @@ private:
 
     SyntaxHighlighter *m_highlighter = nullptr;
 
-    int completionStartIndex() const;
-
-    CompletionModel *m_completionModel = nullptr;
     QString getText() const;
     void pushMention(const Mention mention) const;
 
