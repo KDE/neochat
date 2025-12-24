@@ -6,8 +6,9 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
+import org.kde.neochat
 import org.kde.neochat.libneochat
 
 ColumnLayout {
@@ -29,34 +30,30 @@ ColumnLayout {
         Layout.preferredHeight: Kirigami.Units.largeSpacing * 2
     }
 
-    QQC2.AbstractButton {
+    KirigamiComponents.AvatarButton {
+        name: root.room ? root.room.displayName : ""
+        source: root.room ? root.room.avatarMediaUrl : ""
+
         Layout.preferredWidth: Math.round(Kirigami.Units.gridUnit * 3.5)
         Layout.preferredHeight: Math.round(Kirigami.Units.gridUnit * 3.5)
         Layout.alignment: Qt.AlignHCenter
 
-        onClicked: {
-            root.resolveResource(root.room.directChatRemoteMember.uri, "")
-        }
+        onClicked: RoomManager.resolveResource(root.room.directChatRemoteMember.id)
 
-        contentItem: KirigamiComponents.Avatar {
-            name: root.room ? root.room.displayName : ""
-            source: root.room ? root.room.avatarMediaUrl : ""
+        Rectangle {
+            visible: root.room.usesEncryption
+            color: Kirigami.Theme.backgroundColor
 
-            Rectangle {
-                visible: root.room.usesEncryption
-                color: Kirigami.Theme.backgroundColor
+            width: Kirigami.Units.gridUnit
+            height: Kirigami.Units.gridUnit
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
 
-                width: Kirigami.Units.gridUnit
-                height: Kirigami.Units.gridUnit
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
+            radius: Math.round(width / 2)
 
-                radius: Math.round(width / 2)
-
-                Kirigami.Icon {
-                    source: "channel-secure-symbolic"
-                    anchors.fill: parent
-                }
+            Kirigami.Icon {
+                source: "channel-secure-symbolic"
+                anchors.fill: parent
             }
         }
     }
