@@ -156,7 +156,7 @@ ColumnLayout {
             id: ignoreUserDelegate
 
             icon.name: "list-remove-symbolic"
-            text: i18nc("@action:button Block the user", "Block %1", root.invitingMember.displayName)
+            text: i18nc("@action:button Ignore the user", "Ignore %1 and Reject Invite", root.invitingMember.displayName)
 
             onClicked: {
                 root.currentRoom.forget()
