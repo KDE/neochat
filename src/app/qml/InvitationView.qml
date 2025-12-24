@@ -27,16 +27,17 @@ ColumnLayout {
         Layout.fillHeight: true
     }
 
-    KirigamiComponents.Avatar {
+    KirigamiComponents.AvatarButton {
         id: avatar
         Layout.preferredWidth: Kirigami.Units.iconSizes.huge
         Layout.preferredHeight: Kirigami.Units.iconSizes.huge
         Layout.alignment: Qt.AlignHCenter
-        Layout.fillWidth: true
 
         name: root.invitingMember.displayName
         source: NeoChatConfig.hideImages ? undefined : root.invitingMember.avatarUrl
         color: root.invitingMember.color
+
+        onClicked: RoomManager.resolveResource(root.currentRoom.invitingUserId)
     }
 
     Loader {
@@ -138,6 +139,22 @@ ColumnLayout {
         Layout.fillWidth: true
 
         FormCard.FormButtonDelegate {
+            id: viewProfileDelegate
+
+            icon.name: "user-properties-symbolic"
+            text: i18nc("@action:button View this user's profile", "View %1's Profile", root.invitingMember.displayName)
+
+            onClicked: RoomManager.resolveResource(root.currentRoom.invitingUserId)
+        }
+
+        FormCard.FormDelegateSeparator {
+            above: viewProfileDelegate
+            below: ignoreUserDelegate
+        }
+
+        FormCard.FormButtonDelegate {
+            id: ignoreUserDelegate
+
             icon.name: "list-remove-symbolic"
             text: i18nc("@action:button Block the user", "Block %1", root.invitingMember.displayName)
 
