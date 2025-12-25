@@ -191,42 +191,41 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "URL Previews")
-    }
-    FormCard.FormCard {
-        FormCard.FormCheckDelegate {
-            text: i18nc("@label:checkbox", "Enable URL previews by default for room members")
-            checked: root.room.defaultUrlPreviewState
-            visible: root.room.canSendState("org.matrix.room.preview_urls")
-            onToggled: {
-                root.room.defaultUrlPreviewState = checked;
-            }
-        }
-        FormCard.FormCheckDelegate {
-            enabled: NeoChatConfig.showLinkPreview
-            text: i18nc("@label:checkbox", "Enable URL previews")
-            // Most users won't see the above setting so tell them the default.
-            description: root.room.defaultUrlPreviewState ? i18nc("@info", "URL previews are enabled by default in this room") : i18nc("@info", "URL previews are disabled by default in this room")
-            checked: root.room.urlPreviewEnabled
-            onToggled: {
-                root.room.urlPreviewEnabled = checked;
-            }
-        }
+        title: i18nc("@title", "Link Previews")
     }
     Kirigami.InlineMessage {
         Layout.fillWidth: true
         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
-        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.bottomMargin: Kirigami.Units.largeSpacing
         Layout.alignment: Qt.AlignHCenter
-        text: i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "URL previews are currently disabled for your account")
+        text: i18nc("As in the user has switched off showing previews of hyperlinks in timeline messages", "Link previews are disabled globally in Appearance settings")
         type: Kirigami.MessageType.Information
         visible: !NeoChatConfig.showLinkPreview
         actions: Kirigami.Action {
-            text: i18nc("@action:button", "Enable")
+            icon.name: "checkmark-symbolic"
+            text: i18nc("@action:button Enable link previews globally", "Enable")
             onTriggered: {
                 NeoChatConfig.showLinkPreview = true;
                 NeoChatConfig.save();
             }
+        }
+    }
+    FormCard.FormCard {
+        visible: NeoChatConfig.showLinkPreview || root.room.canSendState("org.matrix.room.preview_urls")
+
+        FormCard.FormCheckDelegate {
+            visible: NeoChatConfig.showLinkPreview
+            text: i18nc("@label:checkbox", "Enable link previews for this room")
+            // Most users won't see the above setting so tell them the default.
+            description: root.room.defaultUrlPreviewState ? i18nc("@info", "Link previews were enabled by default by the room admins.") : i18nc("@info", "Link previews were disabled by default by the room admins.")
+            checked: root.room.urlPreviewEnabled
+            onToggled: root.room.urlPreviewEnabled = checked
+        }
+        FormCard.FormCheckDelegate {
+            text: i18nc("@label:checkbox", "Enable link previews by default")
+            checked: root.room.defaultUrlPreviewState
+            visible: root.room.canSendState("org.matrix.room.preview_urls")
+            onToggled: root.room.defaultUrlPreviewState = checked
         }
     }
     FormCard.FormHeader {

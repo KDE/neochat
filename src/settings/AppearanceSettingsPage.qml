@@ -341,7 +341,8 @@ FormCard.FormCardPage {
 
         FormCard.FormCheckDelegate {
             id: showLinkPreviewDelegate
-            text: i18nc("@label:checkbox", "Show link previews in messages")
+            text: i18nc("@label:checkbox", "Show link previews")
+            description: i18nc("@info:label", "You can customize this per-room under room settings. If unchecked, disables link previews in every room.")
             checked: NeoChatConfig.showLinkPreview
             onToggled: {
                 NeoChatConfig.showLinkPreview = checked;
