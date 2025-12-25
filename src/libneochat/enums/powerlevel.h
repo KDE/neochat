@@ -31,10 +31,12 @@ public:
     enum Level {
         Member, /**< A basic member. */
         Moderator, /**< A moderator with enhanced powers. */
-        Admin, /**< The highest power level in the room. */
+        Admin, /**< Power level 100. */
+        Owner, /**< Power level 150. */
         Mute, /**< The level to remove posting privileges. */
         NUMLevels,
         Custom, /**< A non-standard value. Intentionally after NUMLevels so it doesn't appear in the model. */
+        Creator, /**< The user creating the (co-)creating the room. */
     };
     Q_ENUM(Level);
 

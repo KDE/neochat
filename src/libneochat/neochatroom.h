@@ -615,7 +615,7 @@ public:
     /**
      * @brief Whether this user is considered a creator of this room. Only applies to post-v12 rooms.
      */
-    bool isCreator(const QString &userId) const;
+    Q_INVOKABLE bool isCreator(const QString &userId) const;
 
     /**
      * @return The most recent pinned message in the room.

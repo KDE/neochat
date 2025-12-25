@@ -12,6 +12,10 @@ QString PowerLevel::nameForLevel(Level level)
         return i18n("Moderator");
     case PowerLevel::Admin:
         return i18n("Admin");
+    case PowerLevel::Owner:
+        return i18nc("The person that owns a room", "Owner");
+    case PowerLevel::Creator:
+        return i18nc("The person that created a room", "Creator");
     case PowerLevel::Mute:
         return i18n("Mute");
     case PowerLevel::Custom:
@@ -30,6 +34,8 @@ int PowerLevel::valueForLevel(Level level)
         return 50;
     case PowerLevel::Admin:
         return 100;
+    case PowerLevel::Owner:
+        return 150;
     case PowerLevel::Mute:
         return -1;
     default:
@@ -46,8 +52,12 @@ PowerLevel::Level PowerLevel::levelForValue(int value)
         return PowerLevel::Moderator;
     case 100:
         return PowerLevel::Admin;
+    case 150:
+        return PowerLevel::Owner;
     case -1:
         return PowerLevel::Mute;
+    case std::numeric_limits<int>::max():
+        return PowerLevel::Creator;
     default:
         return PowerLevel::Custom;
     }

@@ -300,7 +300,7 @@ Kirigami.Dialog {
             }
 
             QQC2.Button {
-                visible: root.room.canSendState("m.room.power_levels")
+                visible: root.room.canSendState("m.room.power_levels") && !(root.room.roomCreatorHasUltimatePowerLevel() && root.room.isCreator(root.user.id))
                 text: i18nc("@action:button Set the power level (such as 'Admin') for this user", "Set Power Level")
                 icon.name: "document-edit-symbolic"
                 display: QQC2.AbstractButton.IconOnly
