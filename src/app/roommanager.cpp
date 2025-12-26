@@ -554,6 +554,45 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool setRoom)
     setCurrentRoom({});
 }
 
+QString RoomManager::findSpaceIdForCurrentRoom() const
+{
+    if (!m_currentRoom) {
+        return m_currentSpaceId;
+    }
+    if (m_currentRoom->isDirectChat()) {
+        const auto roomsInSpace = SpaceHierarchyCache::instance().getRoomListForSpace(m_currentSpaceId, false);
+        if (roomsInSpace.contains(m_currentRoom->id())) {
+            return m_currentSpaceId;
+        }
+        return "DM"_L1;
+    }
+    const auto &parentSpaces = SpaceHierarchyCache::instance().parentSpaces(m_currentRoom->id());
+    if (parentSpaces.contains(m_currentSpaceId)) {
+        return m_currentSpaceId;
+    }
+    static auto config = NeoChatConfig::self();
+    if (config->allRoomsInHome()) {
+        return {};
+    }
+    if (const auto &parent = m_connection->room(m_currentRoom->canonicalParent())) {
+        for (const auto &parentParent : SpaceHierarchyCache::instance().parentSpaces(parent->id())) {
+            if (SpaceHierarchyCache::instance().parentSpaces(parentParent).isEmpty()) {
+                return parentParent;
+            }
+        }
+        return parent->id();
+    }
+    for (const auto &space : parentSpaces) {
+        if (SpaceHierarchyCache::instance().parentSpaces(space).isEmpty()) {
+            return space;
+        }
+    }
+    if (m_currentRoom->isSpace()) {
+        return m_currentSpaceId;
+    }
+    return {};
+}
+
 void RoomManager::setCurrentRoom(const QString &roomId)
 {
     if (m_currentRoom != nullptr) {
@@ -571,57 +610,23 @@ void RoomManager::setCurrentRoom(const QString &roomId)
     }
 
     Q_EMIT currentRoomChanged();
-    if (m_connection) {
-        if (roomId.isEmpty()) {
-            m_lastRoomConfig.deleteEntry(m_currentSpaceId);
-        } else {
-            // We can't have empty keys in KConfig, so name it "Home"
-            if (m_currentSpaceId.isEmpty()) {
-                m_lastRoomConfig.writeEntry(u"Home"_s, roomId);
-            } else {
-                m_lastRoomConfig.writeEntry(m_currentSpaceId, roomId);
-            }
-        }
-    }
+
     if (roomId.isEmpty()) {
+        m_lastRoomConfig.deleteEntry(m_currentSpaceId);
         return;
     }
-    if (m_currentRoom->isSpace()) {
-        return;
+
+    const auto spaceIdForRoom = findSpaceIdForCurrentRoom();
+    // We can't have empty keys in KConfig, so name it "Home"
+    if (spaceIdForRoom.isEmpty()) {
+        m_lastRoomConfig.writeEntry(u"Home"_s, roomId);
+    } else {
+        m_lastRoomConfig.writeEntry(spaceIdForRoom, roomId);
     }
-    if (m_currentRoom->isDirectChat()) {
-        const auto roomsInSpace = SpaceHierarchyCache::instance().getRoomListForSpace(m_currentSpaceId, false);
-        if (!roomsInSpace.contains(m_currentRoom->id()) && m_currentSpaceId != "DM"_L1) {
-            setCurrentSpace("DM"_L1, false);
-        }
-        return;
+
+    if (m_currentSpaceId != spaceIdForRoom) {
+        setCurrentSpace(spaceIdForRoom, false);
     }
-    const auto &parentSpaces = SpaceHierarchyCache::instance().parentSpaces(roomId);
-    if (parentSpaces.contains(m_currentSpaceId)) {
-        return;
-    }
-    static auto config = NeoChatConfig::self();
-    if (config->allRoomsInHome()) {
-        setCurrentSpace({}, false);
-        return;
-    }
-    if (const auto &parent = m_connection->room(m_currentRoom->canonicalParent())) {
-        for (const auto &parentParent : SpaceHierarchyCache::instance().parentSpaces(parent->id())) {
-            if (SpaceHierarchyCache::instance().parentSpaces(parentParent).isEmpty()) {
-                setCurrentSpace(parentParent, false);
-                return;
-            }
-        }
-        setCurrentSpace(parent->id(), false);
-        return;
-    }
-    for (const auto &space : parentSpaces) {
-        if (SpaceHierarchyCache::instance().parentSpaces(space).isEmpty()) {
-            setCurrentSpace(space, false);
-            return;
-        }
-    }
-    setCurrentSpace({}, false);
 }
 
 void RoomManager::clearCurrentRoom()
