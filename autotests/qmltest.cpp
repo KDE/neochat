@@ -6,4 +6,4 @@
 
 #include <quicktest.h>
 
-QUICK_TEST_MAIN(Kirigami)
+QUICK_TEST_MAIN(NeoChat)
