@@ -23,7 +23,10 @@ void SearchModel::setSearchText(const QString &searchText)
 
 void SearchModel::search()
 {
-    Q_ASSERT(m_room);
+    if (!m_room) {
+        qWarning() << "SearchModel: No room";
+        return;
+    }
 
     if (m_job) {
         m_job->abandon();

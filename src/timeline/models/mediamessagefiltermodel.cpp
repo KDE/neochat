@@ -75,7 +75,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
 {
-    auto roles = sourceModel()->roleNames();
+    auto roles = sourceModel() ? sourceModel()->roleNames() : QHash<int, QByteArray>();
     roles[SourceRole] = "source";
     roles[TempSourceRole] = "tempSource";
     roles[TypeRole] = "type";

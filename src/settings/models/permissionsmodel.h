@@ -29,7 +29,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        NameRole = Qt::DisplayRole, /**< The permission name. */
+        NameRole = Qt::UserRole, /**< The permission name. */
         SubtitleRole, /**< The description of the permission. */
         TypeRole, /**< The base type of the permission, normally the event type id except for ban, kick, etc. */
         LevelRole, /**< The current power level for the permission. */

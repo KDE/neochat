@@ -28,7 +28,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        TypeRole = 0, /**< The type of the state event. */
+        TypeRole = Qt::UserRole, /**< The type of the state event. */
         EventCountRole, /**< Number of events of this type. */
         StateKeyRole, /**<State key. Only valid if there's exactly one event of this type. */
     };
