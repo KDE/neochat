@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:43+0000\n"
+"POT-Creation-Date: 2025-12-26 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -595,37 +595,47 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "Par KDE"
 
-#: src/app/qml/InvitationView.qml:52
+#: src/app/qml/InvitationView.qml:53
 #, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "%1 ir uzaicināts šajā istabā %2."
 
-#: src/app/qml/InvitationView.qml:98
+#: src/app/qml/InvitationView.qml:99
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Šis lietotājs jūs aicina tērzēt %1."
 
-#: src/app/qml/InvitationView.qml:113
+#: src/app/qml/InvitationView.qml:114
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Pieņemt uzaicinājumu"
 
-#: src/app/qml/InvitationView.qml:128
+#: src/app/qml/InvitationView.qml:129
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Noraidīt uzaicinājumu"
 
-#: src/app/qml/InvitationView.qml:142
-#, kde-format
-msgctxt "@action:button Block the user"
-msgid "Block %1"
-msgstr "Bloķēt %1"
+#: src/app/qml/InvitationView.qml:145
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Profile"
+msgctxt "@action:button View this user's profile"
+msgid "View %1's Profile"
+msgstr "Atvērt profilu"
 
-#: src/app/qml/InvitationView.qml:181
+#: src/app/qml/InvitationView.qml:159
+#, fuzzy, kde-format
+#| msgctxt "@action:button Reject this invite"
+#| msgid "Reject Invite"
+msgctxt "@action:button Ignore the user"
+msgid "Ignore %1 and Reject Invite"
+msgstr "Noraidīt uzaicinājumu"
+
+#: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1053,7 +1063,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jums nav nepieciešamo privilēģiju, lai uzsāktu „Jitsi“ sapulces."
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1257,150 +1267,59 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Pieprasījums no citas ierīces"
 
-#: src/app/qml/UserDetailDialog.qml:34
+#: src/app/qml/UserDetailDialog.qml:49
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Konta informācija"
 
-#: src/app/qml/UserDetailDialog.qml:93
-#, kde-format
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "%1 kopīga istaba"
-msgstr[1] "%1 kopīgas istabas"
-msgstr[2] "%1 kopīgu istabu"
+#: src/app/qml/UserDetailDialog.qml:109
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@action:intoolbar Message this user directly"
+msgid "Message"
+msgstr "<ziņa>"
 
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Unignore this user"
-msgstr "Beigt ignorēt šo lietotāju"
+#: src/app/qml/UserDetailDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Unignore or 'unblock' this user"
+msgid "Unignore"
+msgstr "Ignorēt"
 
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Ignore this user"
-msgstr "Ignorēt šo lietotāju"
+#: src/app/qml/UserDetailDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Ignore or 'block' this user"
+msgid "Ignore"
+msgstr "Ignorēt"
 
-#: src/app/qml/UserDetailDialog.qml:157
-#, kde-format
-msgctxt "@action:button"
-msgid "Kick this user"
-msgstr "Izmest šo lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:161 src/app/qml/UserDetailDialog.qml:166
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "Izmest lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:162
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "Iemesls lietotāja izmešanai"
-
-#: src/app/qml/UserDetailDialog.qml:163
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "Izmest"
-
-#: src/app/qml/UserDetailDialog.qml:180
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this user"
-msgstr "Uzaicināt šo lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:191
-#, kde-format
-msgctxt "@action:button"
-msgid "Ban this user"
-msgstr "Aizliegt šo lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:196 src/app/qml/UserDetailDialog.qml:201
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "Aizliegt lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:197
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "Iemesls lietotāja aizliegšanai"
-
-#: src/app/qml/UserDetailDialog.qml:198
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Aizliegt"
-
-#: src/app/qml/UserDetailDialog.qml:214
-#, kde-format
-msgctxt "@action:button"
-msgid "Unban this user"
-msgstr "Beigt aizliegt lietotāju"
-
-#: src/app/qml/UserDetailDialog.qml:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Set user power level"
-msgstr "Iestatīt privilēģiju līmeni"
-
-#: src/app/qml/UserDetailDialog.qml:247
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "Noņemt šī lietotāja nesenās ziņas"
-
-#: src/app/qml/UserDetailDialog.qml:252
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Noņemt ziņas"
-
-#: src/app/qml/UserDetailDialog.qml:253
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "Iemesls šī lietotāja pēdējo ziņu noņemšanai"
-
-#: src/app/qml/UserDetailDialog.qml:254
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Noņemt"
-
-#: src/app/qml/UserDetailDialog.qml:257
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Noņemt ziņas"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "Tērzēt ar %1"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, kde-format
-msgid "Invite to private chat"
-msgstr "Uzaicināt uz privātu tērzēšanu"
-
-#: src/app/qml/UserDetailDialog.qml:278
-#, kde-format
-msgctxt "@action:button %1 is the name of the user."
-msgid "Search room for %1's messages"
-msgstr "Meklēt istabā ziņas, ko rakstīja %1"
-
-#: src/app/qml/UserDetailDialog.qml:292
-#, kde-format
-msgid "Copy link"
+#: src/app/qml/UserDetailDialog.qml:127
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:intoolbar Copy shareable link for this user"
+msgid "Copy Link"
 msgstr "Kopēt saiti"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:133
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Search Messages"
+msgctxt "@action:intoolbar Search for this user's messages."
+msgid "Search Messages…"
+msgstr "Meklēt ziņas"
+
+#: src/app/qml/UserDetailDialog.qml:147
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show QR Code"
+msgctxt "@action:intoolbar"
+msgid "Show QR Code"
+msgstr "Rādīt kvadrātkodu"
+
+#: src/app/qml/UserDetailDialog.qml:163
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1410,7 +1329,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Ziņot…"
 
-#: src/app/qml/UserDetailDialog.qml:303
+#: src/app/qml/UserDetailDialog.qml:169
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report Message"
@@ -1418,7 +1337,7 @@ msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Ziņot par ziņu"
 
-#: src/app/qml/UserDetailDialog.qml:304
+#: src/app/qml/UserDetailDialog.qml:170
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -1426,7 +1345,7 @@ msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
-#: src/app/qml/UserDetailDialog.qml:306
+#: src/app/qml/UserDetailDialog.qml:172
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1436,13 +1355,146 @@ msgctxt ""
 msgid "Report"
 msgstr "Ziņot"
 
-#: src/app/qml/UserDetailDialog.qml:308
+#: src/app/qml/UserDetailDialog.qml:174
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
 msgctxt "@title"
 msgid "Report User"
 msgstr "Ziņot par ziņu"
+
+#: src/app/qml/UserDetailDialog.qml:188
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@title Moderation actions for this user"
+msgid "Moderation"
+msgstr "Moderators"
+
+#: src/app/qml/UserDetailDialog.qml:208
+#, fuzzy, kde-format
+#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+#| msgid "Kick"
+msgctxt "@action:button Kick the user from the room"
+msgid "Kick…"
+msgstr "Izmest"
+
+#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Izmest lietotāju"
+
+#: src/app/qml/UserDetailDialog.qml:213
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "Iemesls lietotāja izmešanai"
+
+#: src/app/qml/UserDetailDialog.qml:214
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "Izmest"
+
+#: src/app/qml/UserDetailDialog.qml:229
+#, kde-format
+msgctxt "@action:button Ban this user from the room"
+msgid "Ban…"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "Aizliegt lietotāju"
+
+#: src/app/qml/UserDetailDialog.qml:235
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Iemesls lietotāja aizliegšanai"
+
+#: src/app/qml/UserDetailDialog.qml:236
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Aizliegt"
+
+#: src/app/qml/UserDetailDialog.qml:251
+#, kde-format
+msgctxt "@action:button Unban the user from this room"
+msgid "Unban"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Messages"
+msgctxt "@action:button Remove messages from the user in this room"
+msgid "Remove Messages…"
+msgstr "Noņemt ziņas"
+
+#: src/app/qml/UserDetailDialog.qml:267
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Noņemt ziņas"
+
+#: src/app/qml/UserDetailDialog.qml:268
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Iemesls šī lietotāja pēdējo ziņu noņemšanai"
+
+#: src/app/qml/UserDetailDialog.qml:269
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Noņemt"
+
+#: src/app/qml/UserDetailDialog.qml:272
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Noņemt ziņas"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
+msgid "Role"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
+msgctxt "@action:button Set the power level (such as 'Admin') for this user"
+msgid "Set Power Level"
+msgstr "Iestatīt privilēģiju līmeni"
+
+#: src/app/qml/UserDetailDialog.qml:331
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "One mutual room"
+#| msgid_plural "%1 mutual rooms"
+msgctxt ""
+"@title The set of common rooms between your current user and the one shown"
+msgid "Mutual Rooms"
+msgstr "%1 kopīga istaba"
+
+#: src/app/qml/UserDetailDialog.qml:370
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of other users"
+#| msgid " and %1 other"
+#| msgid_plural " and %1 others"
+msgctxt ""
+"@info:label And '%1' more rooms you have in common with this user, but are "
+"not shown"
+msgid "and 1 more…"
+msgid_plural "and %1 more…"
+msgstr[0] " un vēl %1"
+msgstr[1] " un vēl %1"
+msgstr[2] " un vēl %1"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -4749,23 +4801,32 @@ msgid "Show your messages on the right"
 msgstr "Jūsu ziņas rādīt labajā pusē"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shrink preview"
 msgctxt "@label:checkbox"
-msgid "Show link previews in messages"
-msgstr "Ziņās rādīt saišu priekšskatījumus"
+msgid "Show link previews"
+msgstr "Samazināt priekšskatījumu"
 
-#: src/settings/AppearanceSettingsPage.qml:354
+#: src/settings/AppearanceSettingsPage.qml:345
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Rādīt profila attēlus"
 
-#: src/settings/AppearanceSettingsPage.qml:358
+#: src/settings/AppearanceSettingsPage.qml:359
 #, kde-format
 msgid "In chat"
 msgstr "Tērzētavā"
 
-#: src/settings/AppearanceSettingsPage.qml:368
+#: src/settings/AppearanceSettingsPage.qml:369
 #, kde-format
 msgid "In sidebar"
 msgstr "Sānu joslā"
@@ -6187,104 +6248,118 @@ msgid "Add new alias"
 msgstr "Pievienot jaunu aizstājējvārdu"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "URL Previews"
 msgctxt "@title"
-msgid "URL Previews"
+msgid "Link Previews"
 msgstr "URL priekšskatījumi"
 
-#: src/settings/RoomGeneralPage.qml:198
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Enable URL previews by default for room members"
-msgstr "Ieslēgt URL priekšskatīšanu pēc noklusējuma istabas dalībniekiem"
-
-#: src/settings/RoomGeneralPage.qml:207
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Enable URL previews"
-msgstr "Ieslēgt URL priekšskatījumus"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, kde-format
-msgctxt "@info"
-msgid "URL previews are enabled by default in this room"
-msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir ieslēgti"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, kde-format
-msgctxt "@info"
-msgid "URL previews are disabled by default in this room"
-msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
-
-#: src/settings/RoomGeneralPage.qml:221
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:201
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are disabled by default in this room"
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
-msgid "URL previews are currently disabled for your account"
-msgstr "URL priekšskatījumi jūsu kontam šobrīd ir izslēgti"
+msgid "Link previews are disabled globally in Appearance settings"
+msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
 
-#: src/settings/RoomGeneralPage.qml:225
-#, kde-format
-msgctxt "@action:button"
+#: src/settings/RoomGeneralPage.qml:206
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enable"
+msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Ieslēgt"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:218
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Enable encryption for the room"
+msgctxt "@label:checkbox"
+msgid "Enable link previews for this room"
+msgstr "Ieslēgt šifrēšanu istabai"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
+msgid "Link previews were enabled by default by the room admins."
+msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir ieslēgti"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
+msgid "Link previews were disabled by default by the room admins."
+msgstr "URL priekšskatījumi šai istabai pēc noklusējuma ir izslēgti"
+
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgctxt "@label:checkbox"
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
+msgid "Enable link previews by default"
+msgstr "Ieslēgt URL priekšskatīšanu pēc noklusējuma istabas dalībniekiem"
+
+#: src/settings/RoomGeneralPage.qml:232
 #, kde-format
 msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "Oficiālās vecākobjektu telpas"
 
-#: src/settings/RoomGeneralPage.qml:266
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Kanonisks"
 
-#: src/settings/RoomGeneralPage.qml:271
+#: src/settings/RoomGeneralPage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Izveidot kanonisku vecākobjektu"
 
-#: src/settings/RoomGeneralPage.qml:282
+#: src/settings/RoomGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Noņemt vecākobjektu"
 
-#: src/settings/RoomGeneralPage.qml:295
+#: src/settings/RoomGeneralPage.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Šai telpai nav oficiālas vecākobjekta telpas."
 
-#: src/settings/RoomGeneralPage.qml:299
+#: src/settings/RoomGeneralPage.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Pievienot jaunu oficiālo vecākobjektu"
 
-#: src/settings/RoomGeneralPage.qml:316
+#: src/settings/RoomGeneralPage.qml:315
 #, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Šī istaba turpina citu sarunu."
 
-#: src/settings/RoomGeneralPage.qml:320
+#: src/settings/RoomGeneralPage.qml:319
 #, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Skatīt vecākas ziņas…"
 
-#: src/settings/RoomGeneralPage.qml:332
+#: src/settings/RoomGeneralPage.qml:331
 #, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Šī istaba ir aizstāta."
 
-#: src/settings/RoomGeneralPage.qml:336
+#: src/settings/RoomGeneralPage.qml:335
 #, kde-format
 msgctxt "@action:button"
 msgid "See new room…"
@@ -7177,6 +7252,61 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgctxt "@action:button Block the user"
+#~ msgid "Block %1"
+#~ msgstr "Bloķēt %1"
+
+#~ msgid "Unignore this user"
+#~ msgstr "Beigt ignorēt šo lietotāju"
+
+#~ msgid "Ignore this user"
+#~ msgstr "Ignorēt šo lietotāju"
+
+#~ msgctxt "@action:button"
+#~ msgid "Kick this user"
+#~ msgstr "Izmest šo lietotāju"
+
+#~ msgctxt "@action:button"
+#~ msgid "Invite this user"
+#~ msgstr "Uzaicināt šo lietotāju"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ban this user"
+#~ msgstr "Aizliegt šo lietotāju"
+
+#~ msgctxt "@action:button"
+#~ msgid "Unban this user"
+#~ msgstr "Beigt aizliegt lietotāju"
+
+#~ msgctxt "@action:button"
+#~ msgid "Remove recent messages by this user"
+#~ msgstr "Noņemt šī lietotāja nesenās ziņas"
+
+#~ msgctxt "%1 is the name of the user."
+#~ msgid "Chat with %1"
+#~ msgstr "Tērzēt ar %1"
+
+#~ msgid "Invite to private chat"
+#~ msgstr "Uzaicināt uz privātu tērzēšanu"
+
+#~ msgctxt "@action:button %1 is the name of the user."
+#~ msgid "Search room for %1's messages"
+#~ msgstr "Meklēt istabā ziņas, ko rakstīja %1"
+
+#~ msgctxt "@label:checkbox"
+#~ msgid "Show link previews in messages"
+#~ msgstr "Ziņās rādīt saišu priekšskatījumus"
+
+#~ msgctxt "@label:checkbox"
+#~ msgid "Enable URL previews"
+#~ msgstr "Ieslēgt URL priekšskatījumus"
+
+#~ msgctxt ""
+#~ "As in the user has switched off showing previews of hyperlinks in "
+#~ "timeline messages"
+#~ msgid "URL previews are currently disabled for your account"
+#~ msgstr "URL priekšskatījumi jūsu kontam šobrīd ir izslēgti"
 
 #~ msgid "has put %1 out of the room: %2"
 #~ msgstr "izlika %1 no istabas: %2"

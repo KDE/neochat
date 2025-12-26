@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:43+0000\n"
+"POT-Creation-Date: 2025-12-26 00:43+0000\n"
 "PO-Revision-Date: 2025-12-01 15:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -598,37 +598,47 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "Про KDE"
 
-#: src/app/qml/InvitationView.qml:52
+#: src/app/qml/InvitationView.qml:53
 #, kde-format
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "Вас запрошено до спілкування %1 у цій кімнаті о %2."
 
-#: src/app/qml/InvitationView.qml:98
+#: src/app/qml/InvitationView.qml:99
 #, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Вас запрошено до спілкування цим користувачем о %1."
 
-#: src/app/qml/InvitationView.qml:113
+#: src/app/qml/InvitationView.qml:114
 #, kde-format
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Прийняти запрошення"
 
-#: src/app/qml/InvitationView.qml:128
+#: src/app/qml/InvitationView.qml:129
 #, kde-format
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Відкинути запрошення"
 
-#: src/app/qml/InvitationView.qml:142
-#, kde-format
-msgctxt "@action:button Block the user"
-msgid "Block %1"
-msgstr "Заблокувати %1"
+#: src/app/qml/InvitationView.qml:145
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Profile"
+msgctxt "@action:button View this user's profile"
+msgid "View %1's Profile"
+msgstr "Відкрити профіль"
 
-#: src/app/qml/InvitationView.qml:181
+#: src/app/qml/InvitationView.qml:159
+#, fuzzy, kde-format
+#| msgctxt "@action:button Reject this invite"
+#| msgid "Reject Invite"
+msgctxt "@action:button Ignore the user"
+msgid "Ignore %1 and Reject Invite"
+msgstr "Відкинути запрошення"
+
+#: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1058,7 +1068,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1258,181 +1268,221 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Запит з інших пристроїв"
 
-#: src/app/qml/UserDetailDialog.qml:34
+#: src/app/qml/UserDetailDialog.qml:49
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Параметри облікового запису"
 
-#: src/app/qml/UserDetailDialog.qml:93
-#, kde-format
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "%1 взаємна кімната"
-msgstr[1] "%1 взаємних кімнати"
-msgstr[2] "%1 взаємних кімнат"
-msgstr[3] "Одна взаємна кімната"
+#: src/app/qml/UserDetailDialog.qml:109
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@action:intoolbar Message this user directly"
+msgid "Message"
+msgstr "<повідомлення>"
 
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Unignore this user"
-msgstr "Скасувати ігнорування цього користувача"
+#: src/app/qml/UserDetailDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Unignore or 'unblock' this user"
+msgid "Unignore"
+msgstr "Ігнорувати"
 
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Ignore this user"
-msgstr "Ігнорувати цього користувача"
+#: src/app/qml/UserDetailDialog.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Ignore or 'block' this user"
+msgid "Ignore"
+msgstr "Ігнорувати"
 
-#: src/app/qml/UserDetailDialog.qml:157
-#, kde-format
-msgctxt "@action:button"
-msgid "Kick this user"
-msgstr "Викинути цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:161 src/app/qml/UserDetailDialog.qml:166
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "Викидання користувача"
-
-#: src/app/qml/UserDetailDialog.qml:162
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "Причина викидання цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:163
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "Викинути"
-
-#: src/app/qml/UserDetailDialog.qml:180
-#, kde-format
-msgctxt "@action:button"
-msgid "Invite this user"
-msgstr "Запросити цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:191
-#, kde-format
-msgctxt "@action:button"
-msgid "Ban this user"
-msgstr "Заблокувати цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:196 src/app/qml/UserDetailDialog.qml:201
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "Блокування користувача"
-
-#: src/app/qml/UserDetailDialog.qml:197
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "Причина блокування цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:198
-#, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Заблокувати"
-
-#: src/app/qml/UserDetailDialog.qml:214
-#, kde-format
-msgctxt "@action:button"
-msgid "Unban this user"
-msgstr "Розблокувати цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Set user power level"
-msgstr "Встановити рівень можливостей користувача"
-
-#: src/app/qml/UserDetailDialog.qml:247
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "Вилучити нещодавні повідомлення від цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:252
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Вилучення повідомлень"
-
-#: src/app/qml/UserDetailDialog.qml:253
-#, kde-format
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "Причина вилучення нещодавніх повідомлень цього користувача"
-
-#: src/app/qml/UserDetailDialog.qml:254
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Вилучити"
-
-#: src/app/qml/UserDetailDialog.qml:257
-#, kde-format
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Вилучення повідомлень"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "Поспілкуватися з %1"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, kde-format
-msgid "Invite to private chat"
-msgstr "Запросити до особистого спілкування"
-
-#: src/app/qml/UserDetailDialog.qml:278
-#, kde-format
-msgctxt "@action:button %1 is the name of the user."
-msgid "Search room for %1's messages"
-msgstr "Шукати у кімнаті повідомлення від %1"
-
-#: src/app/qml/UserDetailDialog.qml:292
-#, kde-format
-msgid "Copy link"
+#: src/app/qml/UserDetailDialog.qml:127
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgctxt "@action:intoolbar Copy shareable link for this user"
+msgid "Copy Link"
 msgstr "Копіювати посилання"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:133
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Search Messages"
+msgctxt "@action:intoolbar Search for this user's messages."
+msgid "Search Messages…"
+msgstr "Шукати повідомлення"
+
+#: src/app/qml/UserDetailDialog.qml:147
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show QR Code"
+msgctxt "@action:intoolbar"
+msgid "Show QR Code"
+msgstr "Показати QR-код"
+
+#: src/app/qml/UserDetailDialog.qml:163
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Поскаржитися…"
 
-#: src/app/qml/UserDetailDialog.qml:303
+#: src/app/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Скарга на користувача"
 
-#: src/app/qml/UserDetailDialog.qml:304
+#: src/app/qml/UserDetailDialog.qml:170
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Причина скарги щодо цього користувача"
 
-#: src/app/qml/UserDetailDialog.qml:306
+#: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Поскаржитися"
 
-#: src/app/qml/UserDetailDialog.qml:308
+#: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Скарга на користувача"
+
+#: src/app/qml/UserDetailDialog.qml:188
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@title Moderation actions for this user"
+msgid "Moderation"
+msgstr "Модератор"
+
+#: src/app/qml/UserDetailDialog.qml:208
+#, fuzzy, kde-format
+#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+#| msgid "Kick"
+msgctxt "@action:button Kick the user from the room"
+msgid "Kick…"
+msgstr "Викинути"
+
+#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Викидання користувача"
+
+#: src/app/qml/UserDetailDialog.qml:213
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "Причина викидання цього користувача"
+
+#: src/app/qml/UserDetailDialog.qml:214
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "Викинути"
+
+#: src/app/qml/UserDetailDialog.qml:229
+#, kde-format
+msgctxt "@action:button Ban this user from the room"
+msgid "Ban…"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "Блокування користувача"
+
+#: src/app/qml/UserDetailDialog.qml:235
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Причина блокування цього користувача"
+
+#: src/app/qml/UserDetailDialog.qml:236
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Заблокувати"
+
+#: src/app/qml/UserDetailDialog.qml:251
+#, kde-format
+msgctxt "@action:button Unban the user from this room"
+msgid "Unban"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Messages"
+msgctxt "@action:button Remove messages from the user in this room"
+msgid "Remove Messages…"
+msgstr "Вилучення повідомлень"
+
+#: src/app/qml/UserDetailDialog.qml:267
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Вилучення повідомлень"
+
+#: src/app/qml/UserDetailDialog.qml:268
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Причина вилучення нещодавніх повідомлень цього користувача"
+
+#: src/app/qml/UserDetailDialog.qml:269
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Вилучити"
+
+#: src/app/qml/UserDetailDialog.qml:272
+#, kde-format
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Вилучення повідомлень"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
+msgid "Role"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
+msgctxt "@action:button Set the power level (such as 'Admin') for this user"
+msgid "Set Power Level"
+msgstr "Встановити рівень можливостей користувача"
+
+#: src/app/qml/UserDetailDialog.qml:331
+#, fuzzy, kde-format
+#| msgid "All Rooms"
+msgctxt ""
+"@title The set of common rooms between your current user and the one shown"
+msgid "Mutual Rooms"
+msgstr "Усі кімнати"
+
+#: src/app/qml/UserDetailDialog.qml:370
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of other users"
+#| msgid " and %1 other"
+#| msgid_plural " and %1 others"
+msgctxt ""
+"@info:label And '%1' more rooms you have in common with this user, but are "
+"not shown"
+msgid "and 1 more…"
+msgid_plural "and %1 more…"
+msgstr[0] " і %1 інший"
+msgstr[1] " і %1 інші"
+msgstr[2] " і %1 інших"
+msgstr[3] " і %1 інший"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -4750,23 +4800,32 @@ msgid "Show your messages on the right"
 msgstr "Показати ваші повідомлення праворуч"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Shrink preview"
 msgctxt "@label:checkbox"
-msgid "Show link previews in messages"
-msgstr "Показувати попередній перегляд посилань у повідомленнях"
+msgid "Show link previews"
+msgstr "Стиснути попередній перегляд"
 
-#: src/settings/AppearanceSettingsPage.qml:354
+#: src/settings/AppearanceSettingsPage.qml:345
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Показувати аватари"
 
-#: src/settings/AppearanceSettingsPage.qml:358
+#: src/settings/AppearanceSettingsPage.qml:359
 #, kde-format
 msgid "In chat"
 msgstr "У спілкуванні"
 
-#: src/settings/AppearanceSettingsPage.qml:368
+#: src/settings/AppearanceSettingsPage.qml:369
 #, kde-format
 msgid "In sidebar"
 msgstr "На бічній панелі"
@@ -6201,105 +6260,119 @@ msgid "Add new alias"
 msgstr "Додати новий псевдонім"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "URL Previews"
 msgctxt "@title"
-msgid "URL Previews"
+msgid "Link Previews"
 msgstr "Перегляд вмісту адрес"
 
-#: src/settings/RoomGeneralPage.qml:198
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Enable URL previews by default for room members"
-msgstr ""
-"Увімкнути типовий попередній перегляд вмісту адрес для учасників кімнати"
-
-#: src/settings/RoomGeneralPage.qml:207
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Enable URL previews"
-msgstr "Увімкнути перегляд вмісту адрес"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, kde-format
-msgctxt "@info"
-msgid "URL previews are enabled by default in this room"
-msgstr "У цій кімнаті типово увімкнено попередній перегляд вмісту адрес"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, kde-format
-msgctxt "@info"
-msgid "URL previews are disabled by default in this room"
-msgstr "У цій кімнаті типово вимкнено попередній перегляд вмісту адрес"
-
-#: src/settings/RoomGeneralPage.qml:221
-#, kde-format
+#: src/settings/RoomGeneralPage.qml:201
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are disabled by default in this room"
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
-msgid "URL previews are currently disabled for your account"
-msgstr "Зараз для вашого облікового запису попередній перегляд адрес вимкнено"
+msgid "Link previews are disabled globally in Appearance settings"
+msgstr "У цій кімнаті типово вимкнено попередній перегляд вмісту адрес"
 
-#: src/settings/RoomGeneralPage.qml:225
-#, kde-format
-msgctxt "@action:button"
+#: src/settings/RoomGeneralPage.qml:206
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Enable"
+msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:218
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Enable encryption for the room"
+msgctxt "@label:checkbox"
+msgid "Enable link previews for this room"
+msgstr "Вмикання шифрування для кімнати"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are enabled by default in this room"
+msgctxt "@info"
+msgid "Link previews were enabled by default by the room admins."
+msgstr "У цій кімнаті типово увімкнено попередній перегляд вмісту адрес"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "URL previews are disabled by default in this room"
+msgctxt "@info"
+msgid "Link previews were disabled by default by the room admins."
+msgstr "У цій кімнаті типово вимкнено попередній перегляд вмісту адрес"
+
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgctxt "@label:checkbox"
+#| msgid "Enable URL previews by default for room members"
+msgctxt "@label:checkbox"
+msgid "Enable link previews by default"
+msgstr ""
+"Увімкнути типовий попередній перегляд вмісту адрес для учасників кімнати"
+
+#: src/settings/RoomGeneralPage.qml:232
 #, kde-format
 msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "Офіційні батьківські простори"
 
-#: src/settings/RoomGeneralPage.qml:266
+#: src/settings/RoomGeneralPage.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Канонічний"
 
-#: src/settings/RoomGeneralPage.qml:271
+#: src/settings/RoomGeneralPage.qml:270
 #, kde-format
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Зробити канонічним батьківським"
 
-#: src/settings/RoomGeneralPage.qml:282
+#: src/settings/RoomGeneralPage.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Вилучити батьківський"
 
-#: src/settings/RoomGeneralPage.qml:295
+#: src/settings/RoomGeneralPage.qml:294
 #, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "У цієї кімнати немає офіційних батьківських просторів."
 
-#: src/settings/RoomGeneralPage.qml:299
+#: src/settings/RoomGeneralPage.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Додати новий офіційний батьківський простір"
 
-#: src/settings/RoomGeneralPage.qml:316
+#: src/settings/RoomGeneralPage.qml:315
 #, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "У цій кімнаті продовжується інше спілкування."
 
-#: src/settings/RoomGeneralPage.qml:320
+#: src/settings/RoomGeneralPage.qml:319
 #, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Переглянути старі повідомлення…"
 
-#: src/settings/RoomGeneralPage.qml:332
+#: src/settings/RoomGeneralPage.qml:331
 #, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Цю кімнат було замінено."
 
-#: src/settings/RoomGeneralPage.qml:336
+#: src/settings/RoomGeneralPage.qml:335
 #, kde-format
 msgctxt "@action:button"
 msgid "See new room…"
@@ -7208,6 +7281,70 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "@action:button Block the user"
+#~ msgid "Block %1"
+#~ msgstr "Заблокувати %1"
+
+#~ msgctxt "@info"
+#~ msgid "One mutual room"
+#~ msgid_plural "%1 mutual rooms"
+#~ msgstr[0] "%1 взаємна кімната"
+#~ msgstr[1] "%1 взаємних кімнати"
+#~ msgstr[2] "%1 взаємних кімнат"
+#~ msgstr[3] "Одна взаємна кімната"
+
+#~ msgid "Unignore this user"
+#~ msgstr "Скасувати ігнорування цього користувача"
+
+#~ msgid "Ignore this user"
+#~ msgstr "Ігнорувати цього користувача"
+
+#~ msgctxt "@action:button"
+#~ msgid "Kick this user"
+#~ msgstr "Викинути цього користувача"
+
+#~ msgctxt "@action:button"
+#~ msgid "Invite this user"
+#~ msgstr "Запросити цього користувача"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ban this user"
+#~ msgstr "Заблокувати цього користувача"
+
+#~ msgctxt "@action:button"
+#~ msgid "Unban this user"
+#~ msgstr "Розблокувати цього користувача"
+
+#~ msgctxt "@action:button"
+#~ msgid "Remove recent messages by this user"
+#~ msgstr "Вилучити нещодавні повідомлення від цього користувача"
+
+#~ msgctxt "%1 is the name of the user."
+#~ msgid "Chat with %1"
+#~ msgstr "Поспілкуватися з %1"
+
+#~ msgid "Invite to private chat"
+#~ msgstr "Запросити до особистого спілкування"
+
+#~ msgctxt "@action:button %1 is the name of the user."
+#~ msgid "Search room for %1's messages"
+#~ msgstr "Шукати у кімнаті повідомлення від %1"
+
+#~ msgctxt "@label:checkbox"
+#~ msgid "Show link previews in messages"
+#~ msgstr "Показувати попередній перегляд посилань у повідомленнях"
+
+#~ msgctxt "@label:checkbox"
+#~ msgid "Enable URL previews"
+#~ msgstr "Увімкнути перегляд вмісту адрес"
+
+#~ msgctxt ""
+#~ "As in the user has switched off showing previews of hyperlinks in "
+#~ "timeline messages"
+#~ msgid "URL previews are currently disabled for your account"
+#~ msgstr ""
+#~ "Зараз для вашого облікового запису попередній перегляд адрес вимкнено"
+
 #~ msgid "has put %1 out of the room: %2"
 #~ msgstr "викинуто %1 з кімнати: %2"
 
@@ -7823,9 +7960,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "Show room account data"
 #~ msgstr "Показати дані облікового запису кімнати"
-
-#~ msgid "All Rooms"
-#~ msgstr "Усі кімнати"
 
 #~ msgctxt "@title"
 #~ msgid "Start a Chat"

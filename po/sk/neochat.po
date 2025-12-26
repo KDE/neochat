@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-18 00:43+0000\n"
+"POT-Creation-Date: 2025-12-26 00:43+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -636,41 +636,52 @@ msgctxt "menu"
 msgid "About KDE"
 msgstr "Informácie o KDE"
 
-#: src/app/qml/InvitationView.qml:52
+#: src/app/qml/InvitationView.qml:53
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgctxt "@info:label 'Username' has invited you to this room at 'timestamp'."
 msgid "%1 has invited you to this room at %2."
 msgstr "pozval %1 do miestnosti"
 
-#: src/app/qml/InvitationView.qml:98
+#: src/app/qml/InvitationView.qml:99
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
 msgstr "Otvoriť súkromný chat"
 
-#: src/app/qml/InvitationView.qml:113
+#: src/app/qml/InvitationView.qml:114
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button Accept this invite"
 msgid "Accept Invite"
 msgstr "Prijať"
 
-#: src/app/qml/InvitationView.qml:128
+#: src/app/qml/InvitationView.qml:129
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button Reject this invite"
 msgid "Reject Invite"
 msgstr "Odmietnuť"
 
-#: src/app/qml/InvitationView.qml:142
-#, kde-format
-msgctxt "@action:button Block the user"
-msgid "Block %1"
-msgstr ""
+#: src/app/qml/InvitationView.qml:145
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button View this user's profile"
+msgid "View %1's Profile"
+msgstr "Otvoriť súbor"
 
-#: src/app/qml/InvitationView.qml:181
+#: src/app/qml/InvitationView.qml:159
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "@action:button Ignore the user"
+msgid "Ignore %1 and Reject Invite"
+msgstr "Odmietnuť"
+
+#: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
@@ -1135,7 +1146,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1342,196 +1353,224 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:34
+#: src/app/qml/UserDetailDialog.qml:49
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Detaily účtu"
 
-#: src/app/qml/UserDetailDialog.qml:93
+#: src/app/qml/UserDetailDialog.qml:109
 #, fuzzy, kde-format
-#| msgid "invited %1 to the room"
-msgctxt "@info"
-msgid "One mutual room"
-msgid_plural "%1 mutual rooms"
-msgstr[0] "pozval %1 do miestnosti"
-msgstr[1] "pozval %1 do miestnosti"
-msgstr[2] "pozval %1 do miestnosti"
+#| msgid "Send message"
+msgctxt "@action:intoolbar Message this user directly"
+msgid "Message"
+msgstr "Odoslať správu"
 
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Unignore this user"
-msgstr "Prestať ignorovať tohto požívateľa"
-
-#: src/app/qml/UserDetailDialog.qml:146
-#, kde-format
-msgid "Ignore this user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/app/qml/UserDetailDialog.qml:157
+#: src/app/qml/UserDetailDialog.qml:119
 #, fuzzy, kde-format
-#| msgid "Kick this user"
-msgctxt "@action:button"
-msgid "Kick this user"
-msgstr "Vyhodiť tohto používateľa"
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Unignore or 'unblock' this user"
+msgid "Unignore"
+msgstr "Ignorovať"
 
-#: src/app/qml/UserDetailDialog.qml:161 src/app/qml/UserDetailDialog.qml:166
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Kick User"
-msgstr "Vyradiť používateľa"
-
-#: src/app/qml/UserDetailDialog.qml:162
+#: src/app/qml/UserDetailDialog.qml:119
 #, fuzzy, kde-format
-#| msgid "Unban this user"
-msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
-msgstr "Povoliť tomuto používateľovi prístup"
+#| msgctxt "@action:button"
+#| msgid "Ignore"
+msgctxt "@action:intoolbar Ignore or 'block' this user"
+msgid "Ignore"
+msgstr "Ignorovať"
 
-#: src/app/qml/UserDetailDialog.qml:163
-#, kde-format
-msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-msgid "Kick"
-msgstr "Vykopnúť"
-
-#: src/app/qml/UserDetailDialog.qml:180
+#: src/app/qml/UserDetailDialog.qml:127
 #, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@action:button"
-msgid "Invite this user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/app/qml/UserDetailDialog.qml:191
-#, fuzzy, kde-format
-#| msgid "Ban this user"
-msgctxt "@action:button"
-msgid "Ban this user"
-msgstr "Zakázať tomuto používateľovi prístup"
-
-#: src/app/qml/UserDetailDialog.qml:196 src/app/qml/UserDetailDialog.qml:201
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Ban User"
-msgstr "Zakázať používateľa"
-
-#: src/app/qml/UserDetailDialog.qml:197
-#, fuzzy, kde-format
-#| msgid "Unban this user"
-msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
-msgstr "Povoliť tomuto používateľovi prístup"
-
-#: src/app/qml/UserDetailDialog.qml:198
-#, fuzzy, kde-format
-msgctxt "@action:button 'Ban' as in 'Ban this user'"
-msgid "Ban"
-msgstr "Baní"
-
-#: src/app/qml/UserDetailDialog.qml:214
-#, fuzzy, kde-format
-#| msgid "Unban this user"
-msgctxt "@action:button"
-msgid "Unban this user"
-msgstr "Povoliť tomuto používateľovi prístup"
-
-#: src/app/qml/UserDetailDialog.qml:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Set user power level"
-msgstr ""
-
-#: src/app/qml/UserDetailDialog.qml:247
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@action:button"
-msgid "Remove recent messages by this user"
-msgstr "Ignorovať tohto používateľa"
-
-#: src/app/qml/UserDetailDialog.qml:252
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Upraviť správu"
-
-#: src/app/qml/UserDetailDialog.qml:253
-#, fuzzy, kde-format
-#| msgid "Unban this user"
-msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
-msgstr "Povoliť tomuto používateľovi prístup"
-
-#: src/app/qml/UserDetailDialog.qml:254
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Odstrániť"
-
-#: src/app/qml/UserDetailDialog.qml:257
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgctxt "@title"
-msgid "Remove Messages"
-msgstr "Upraviť správu"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, kde-format
-msgctxt "%1 is the name of the user."
-msgid "Chat with %1"
-msgstr "Rozhovor s %1"
-
-#: src/app/qml/UserDetailDialog.qml:269
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
-msgid "Invite to private chat"
-msgstr "Otvoriť súkromný chat"
-
-#: src/app/qml/UserDetailDialog.qml:278
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
-msgctxt "@action:button %1 is the name of the user."
-msgid "Search room for %1's messages"
-msgstr "Priame správy"
-
-#: src/app/qml/UserDetailDialog.qml:292
-#, kde-format
-msgid "Copy link"
+#| msgid "Copy link"
+msgctxt "@action:intoolbar Copy shareable link for this user"
+msgid "Copy Link"
 msgstr "Kopírovať odkaz"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:133
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:intoolbar Search for this user's messages."
+msgid "Search Messages…"
+msgstr "Priame správy"
+
+#: src/app/qml/UserDetailDialog.qml:147
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show QR Code"
+msgctxt "@action:intoolbar"
+msgid "Show QR Code"
+msgstr "Zobraziť QR kód"
+
+#: src/app/qml/UserDetailDialog.qml:163
 #, fuzzy, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Výkaz"
 
-#: src/app/qml/UserDetailDialog.qml:303
+#: src/app/qml/UserDetailDialog.qml:169
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Upraviť správu"
 
-#: src/app/qml/UserDetailDialog.qml:304
+#: src/app/qml/UserDetailDialog.qml:170
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Povoliť tomuto používateľovi prístup"
 
-#: src/app/qml/UserDetailDialog.qml:306
+#: src/app/qml/UserDetailDialog.qml:172
 #, fuzzy, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Výkaz"
 
-#: src/app/qml/UserDetailDialog.qml:308
+#: src/app/qml/UserDetailDialog.qml:174
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Report User"
 msgstr "Upraviť správu"
+
+#: src/app/qml/UserDetailDialog.qml:188
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title Moderation actions for this user"
+msgid "Moderation"
+msgstr "Voľby"
+
+#: src/app/qml/UserDetailDialog.qml:208
+#, fuzzy, kde-format
+#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+#| msgid "Kick"
+msgctxt "@action:button Kick the user from the room"
+msgid "Kick…"
+msgstr "Vykopnúť"
+
+#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Kick User"
+msgstr "Vyradiť používateľa"
+
+#: src/app/qml/UserDetailDialog.qml:213
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for kicking this user"
+msgstr "Povoliť tomuto používateľovi prístup"
+
+#: src/app/qml/UserDetailDialog.qml:214
+#, kde-format
+msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
+msgid "Kick"
+msgstr "Vykopnúť"
+
+#: src/app/qml/UserDetailDialog.qml:229
+#, kde-format
+msgctxt "@action:button Ban this user from the room"
+msgid "Ban…"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Ban User"
+msgstr "Zakázať používateľa"
+
+#: src/app/qml/UserDetailDialog.qml:235
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for banning this user"
+msgstr "Povoliť tomuto používateľovi prístup"
+
+#: src/app/qml/UserDetailDialog.qml:236
+#, fuzzy, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr "Baní"
+
+#: src/app/qml/UserDetailDialog.qml:251
+#, kde-format
+msgctxt "@action:button Unban the user from this room"
+msgid "Unban"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:262
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@action:button Remove messages from the user in this room"
+msgid "Remove Messages…"
+msgstr "Upraviť správu"
+
+#: src/app/qml/UserDetailDialog.qml:267
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Upraviť správu"
+
+#: src/app/qml/UserDetailDialog.qml:268
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Reason for removing this user's recent messages"
+msgstr "Povoliť tomuto používateľovi prístup"
+
+#: src/app/qml/UserDetailDialog.qml:269
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: src/app/qml/UserDetailDialog.qml:272
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "Upraviť správu"
+
+#: src/app/qml/UserDetailDialog.qml:285
+#, kde-format
+msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
+msgid "Role"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:304
+#, kde-format
+msgctxt "@action:button Set the power level (such as 'Admin') for this user"
+msgid "Set Power Level"
+msgstr ""
+
+#: src/app/qml/UserDetailDialog.qml:331
+#, fuzzy, kde-format
+#| msgid "Explore Rooms"
+msgctxt ""
+"@title The set of common rooms between your current user and the one shown"
+msgid "Mutual Rooms"
+msgstr "Prehliadať miestnosti"
+
+#: src/app/qml/UserDetailDialog.qml:370
+#, fuzzy, kde-format
+#| msgctxt "%1 is the number of other users"
+#| msgid " and %1 other"
+#| msgid_plural " and %1 others"
+msgctxt ""
+"@info:label And '%1' more rooms you have in common with this user, but are "
+"not shown"
+msgid "and 1 more…"
+msgid_plural "and %1 more…"
+msgstr[0] " a %1 ďalší"
+msgstr[1] " a %1 ďalší"
+msgstr[2] " a %1 ďalších"
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -5154,22 +5193,30 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@label:checkbox"
-msgid "Show link previews in messages"
+msgid "Show link previews"
 msgstr "Odoslať správu"
 
-#: src/settings/AppearanceSettingsPage.qml:354
+#: src/settings/AppearanceSettingsPage.qml:345
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/AppearanceSettingsPage.qml:355
 #, fuzzy, kde-format
 #| msgid "Show User Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Zobraziť avatara používateľa"
 
-#: src/settings/AppearanceSettingsPage.qml:358
+#: src/settings/AppearanceSettingsPage.qml:359
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:368
+#: src/settings/AppearanceSettingsPage.qml:369
 #, kde-format
 msgid "In sidebar"
 msgstr ""
@@ -6746,116 +6793,116 @@ msgstr "Pridať nový alias"
 #, fuzzy, kde-format
 #| msgid "URL Previews"
 msgctxt "@title"
-msgid "URL Previews"
+msgid "Link Previews"
 msgstr "Náhľady odkazov"
 
-#: src/settings/RoomGeneralPage.qml:198
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "@label:checkbox"
-msgid "Enable URL previews by default for room members"
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/settings/RoomGeneralPage.qml:207
-#, fuzzy, kde-format
-#| msgid "Enable URL previews"
-msgctxt "@label:checkbox"
-msgid "Enable URL previews"
-msgstr "Povoliť náhľady odkazov"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "@info"
-msgid "URL previews are enabled by default in this room"
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/settings/RoomGeneralPage.qml:209
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgctxt "@info"
-msgid "URL previews are disabled by default in this room"
-msgstr "Otvoriť NeoChat v tejto miestnosti"
-
-#: src/settings/RoomGeneralPage.qml:221
+#: src/settings/RoomGeneralPage.qml:201
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
-msgid "URL previews are currently disabled for your account"
+msgid "Link previews are disabled globally in Appearance settings"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/settings/RoomGeneralPage.qml:225
+#: src/settings/RoomGeneralPage.qml:206
 #, kde-format
-msgctxt "@action:button"
+msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr ""
 
-#: src/settings/RoomGeneralPage.qml:233
+#: src/settings/RoomGeneralPage.qml:218
+#, fuzzy, kde-format
+#| msgid "Enable encryption for the room"
+msgctxt "@label:checkbox"
+msgid "Enable link previews for this room"
+msgstr "Povoliť šifrovanie pre túto miestnosť"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@info"
+msgid "Link previews were enabled by default by the room admins."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/settings/RoomGeneralPage.qml:220
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@info"
+msgid "Link previews were disabled by default by the room admins."
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/settings/RoomGeneralPage.qml:225
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "@label:checkbox"
+msgid "Enable link previews by default"
+msgstr "Otvoriť NeoChat v tejto miestnosti"
+
+#: src/settings/RoomGeneralPage.qml:232
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@title"
 msgid "Official Parent Spaces"
 msgstr "Vytvoriť miestnosť"
 
-#: src/settings/RoomGeneralPage.qml:266
+#: src/settings/RoomGeneralPage.qml:265
 #, fuzzy, kde-format
 #| msgid "Canonical Alias:"
 msgctxt "@action:button"
 msgid "Canonical"
 msgstr "Kanonický alias:"
 
-#: src/settings/RoomGeneralPage.qml:271
+#: src/settings/RoomGeneralPage.qml:270
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
 msgctxt "@action:button"
 msgid "Make canonical parent"
 msgstr "Žiadny kanonický alias"
 
-#: src/settings/RoomGeneralPage.qml:282
+#: src/settings/RoomGeneralPage.qml:281
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Upraviť správu"
 
-#: src/settings/RoomGeneralPage.qml:295
+#: src/settings/RoomGeneralPage.qml:294
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Táto miestnosť bola nahradená."
 
-#: src/settings/RoomGeneralPage.qml:299
+#: src/settings/RoomGeneralPage.qml:298
 #, fuzzy, kde-format
 #| msgid "No Canonical Alias"
 msgctxt "@action:button"
 msgid "Add new official parent"
 msgstr "Žiadny kanonický alias"
 
-#: src/settings/RoomGeneralPage.qml:316
+#: src/settings/RoomGeneralPage.qml:315
 #, fuzzy, kde-format
 #| msgid "This room continues another conversation."
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Táto miestnosť pokračuje v ďalšej konverzácii."
 
-#: src/settings/RoomGeneralPage.qml:320
+#: src/settings/RoomGeneralPage.qml:319
 #, fuzzy, kde-format
 #| msgid "See older messages..."
 msgctxt "@action:button"
 msgid "See older messages…"
 msgstr "Zobraziť staršie správy"
 
-#: src/settings/RoomGeneralPage.qml:332
+#: src/settings/RoomGeneralPage.qml:331
 #, fuzzy, kde-format
 #| msgid "This room has been replaced."
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Táto miestnosť bola nahradená."
 
-#: src/settings/RoomGeneralPage.qml:336
+#: src/settings/RoomGeneralPage.qml:335
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgctxt "@action:button"
@@ -7815,6 +7862,80 @@ msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
+#, fuzzy
+#~| msgid "invited %1 to the room"
+#~ msgctxt "@info"
+#~ msgid "One mutual room"
+#~ msgid_plural "%1 mutual rooms"
+#~ msgstr[0] "pozval %1 do miestnosti"
+#~ msgstr[1] "pozval %1 do miestnosti"
+#~ msgstr[2] "pozval %1 do miestnosti"
+
+#~ msgid "Unignore this user"
+#~ msgstr "Prestať ignorovať tohto požívateľa"
+
+#~ msgid "Ignore this user"
+#~ msgstr "Ignorovať tohto používateľa"
+
+#, fuzzy
+#~| msgid "Kick this user"
+#~ msgctxt "@action:button"
+#~ msgid "Kick this user"
+#~ msgstr "Vyhodiť tohto používateľa"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@action:button"
+#~ msgid "Invite this user"
+#~ msgstr "Ignorovať tohto používateľa"
+
+#, fuzzy
+#~| msgid "Ban this user"
+#~ msgctxt "@action:button"
+#~ msgid "Ban this user"
+#~ msgstr "Zakázať tomuto používateľovi prístup"
+
+#, fuzzy
+#~| msgid "Unban this user"
+#~ msgctxt "@action:button"
+#~ msgid "Unban this user"
+#~ msgstr "Povoliť tomuto používateľovi prístup"
+
+#, fuzzy
+#~| msgid "Ignore this user"
+#~ msgctxt "@action:button"
+#~ msgid "Remove recent messages by this user"
+#~ msgstr "Ignorovať tohto používateľa"
+
+#~ msgctxt "%1 is the name of the user."
+#~ msgid "Chat with %1"
+#~ msgstr "Rozhovor s %1"
+
+#, fuzzy
+#~| msgid "Open a private chat"
+#~ msgid "Invite to private chat"
+#~ msgstr "Otvoriť súkromný chat"
+
+#, fuzzy
+#~| msgid "Direct Messages"
+#~ msgctxt "@action:button %1 is the name of the user."
+#~ msgid "Search room for %1's messages"
+#~ msgstr "Priame správy"
+
+#, fuzzy
+#~| msgid "Enable URL previews"
+#~ msgctxt "@label:checkbox"
+#~ msgid "Enable URL previews"
+#~ msgstr "Povoliť náhľady odkazov"
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgctxt ""
+#~ "As in the user has switched off showing previews of hyperlinks in "
+#~ "timeline messages"
+#~ msgid "URL previews are currently disabled for your account"
+#~ msgstr "Otvoriť NeoChat v tejto miestnosti"
+
 #~ msgid "has put %1 out of the room: %2"
 #~ msgstr "odstránil(a) %1 z miestnosti: %2"
 
@@ -8383,11 +8504,6 @@ msgstr[2] "%2 píšu"
 #~| msgid "No rooms found"
 #~ msgid "Show room account data"
 #~ msgstr "Žiadne miestnosti neboli nájdené"
-
-#, fuzzy
-#~| msgid "Explore Rooms"
-#~ msgid "All Rooms"
-#~ msgstr "Prehliadať miestnosti"
 
 #, fuzzy
 #~| msgid "Start a Chat"
