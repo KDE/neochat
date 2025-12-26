@@ -32,6 +32,7 @@
 #include "chatdocumenthandler_logging.h"
 #include "chatmarkdownhelper.h"
 #include "eventhandler.h"
+#include "qmltextitemwrapper.h"
 
 using namespace Qt::StringLiterals;
 
@@ -131,6 +132,7 @@ private:
 
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     : QObject(parent)
+    , m_textItem(new QmlTextItemWrapper(this))
     , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_highlighter(new SyntaxHighlighter(this))
 {
@@ -168,53 +170,45 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
 
 QQuickItem *ChatDocumentHandler::textItem() const
 {
-    return m_textItem;
+    return m_textItem->textItem();
 }
 
 void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
 {
-    if (textItem == m_textItem) {
-        return;
-    }
+    m_textItem->setTextItem(textItem);
+}
 
-    if (m_textItem) {
-        m_textItem->disconnect(this);
-        if (const auto textDoc = document()) {
-            textDoc->disconnect(this);
+void ChatDocumentHandler::connectTextItem()
+{
+    Q_ASSERT(m_textItem);
+    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, [this]() {
+        m_highlighter->setDocument(m_textItem->document());
+        initializeChars();
+    });
+    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatDocumentHandler::textItemChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::contentsChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::atFirstLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::atLastLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentCursorPositionChanged, this, &ChatDocumentHandler::atFirstLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentCursorPositionChanged, this, &ChatDocumentHandler::atLastLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChange, this, [this](int position) {
+        auto cursor = m_textItem->textCursor();
+        if (cursor.isNull()) {
+            return;
         }
-    }
-
-    m_textItem = textItem;
-    m_highlighter->setDocument(document());
-
-    if (m_textItem) {
-        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(updateCursor()));
-        if (document()) {
-            connect(document(), &QTextDocument::contentsChanged, this, &ChatDocumentHandler::contentsChanged);
-            connect(document(), &QTextDocument::contentsChanged, this, &ChatDocumentHandler::updateCursor);
-            connect(document(), &QTextDocument::contentsChange, this, [this](int position) {
-                auto cursor = textCursor();
-                if (cursor.isNull()) {
-                    return;
-                }
-                cursor.setPosition(position);
-                cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
-                if (!cursor.selectedText().isEmpty()) {
-                    if (m_pendingFormat) {
-                        cursor.mergeCharFormat(*m_pendingFormat);
-                        m_pendingFormat = std::nullopt;
-                    }
-                    if (m_pendingOverrideFormat) {
-                        cursor.setCharFormat(*m_pendingOverrideFormat);
-                        m_pendingOverrideFormat = std::nullopt;
-                    }
-                }
-            });
-            initializeChars();
+        cursor.setPosition(position);
+        cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
+        if (!cursor.selectedText().isEmpty()) {
+            if (m_pendingFormat) {
+                cursor.mergeCharFormat(*m_pendingFormat);
+                m_pendingFormat = std::nullopt;
+            }
+            if (m_pendingOverrideFormat) {
+                cursor.setCharFormat(*m_pendingOverrideFormat);
+                m_pendingOverrideFormat = std::nullopt;
+            }
         }
-    }
-
-    Q_EMIT textItemChanged();
+    });
 }
 
 ChatDocumentHandler *ChatDocumentHandler::previousDocumentHandler() const
@@ -279,7 +273,7 @@ void ChatDocumentHandler::setInitialText(const QString &text)
 
 void ChatDocumentHandler::initializeChars()
 {
-    const auto doc = document();
+    const auto doc = m_textItem->document();
     if (!doc) {
         return;
     }
@@ -304,61 +298,6 @@ void ChatDocumentHandler::initializeChars()
     }
 }
 
-QTextDocument *ChatDocumentHandler::document() const
-{
-    if (!m_textItem) {
-        return nullptr;
-    }
-    const auto quickDocument = qvariant_cast<QQuickTextDocument *>(m_textItem->property("textDocument"));
-    return quickDocument ? quickDocument->textDocument() : nullptr;
-}
-
-int ChatDocumentHandler::cursorPosition() const
-{
-    if (!m_textItem) {
-        return -1;
-    }
-    return m_textItem->property("cursorPosition").toInt();
-}
-
-void ChatDocumentHandler::updateCursor()
-{
-    Q_EMIT atFirstLineChanged();
-    Q_EMIT atLastLineChanged();
-}
-
-int ChatDocumentHandler::selectionStart() const
-{
-    if (!m_textItem) {
-        return -1;
-    }
-    return m_textItem->property("selectionStart").toInt();
-}
-
-int ChatDocumentHandler::selectionEnd() const
-{
-    if (!m_textItem) {
-        return -1;
-    }
-    return m_textItem->property("selectionEnd").toInt();
-}
-
-QTextCursor ChatDocumentHandler::textCursor() const
-{
-    if (!document()) {
-        return QTextCursor();
-    }
-
-    QTextCursor cursor = QTextCursor(document());
-    if (selectionStart() != selectionEnd()) {
-        cursor.setPosition(selectionStart());
-        cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
-    } else {
-        cursor.setPosition(cursorPosition());
-    }
-    return cursor;
-}
-
 bool ChatDocumentHandler::isEmpty() const
 {
     return htmlText().length() == 0;
@@ -366,7 +305,7 @@ bool ChatDocumentHandler::isEmpty() const
 
 bool ChatDocumentHandler::atFirstLine() const
 {
-    const auto cursor = textCursor();
+    const auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
@@ -375,8 +314,8 @@ bool ChatDocumentHandler::atFirstLine() const
 
 bool ChatDocumentHandler::atLastLine() const
 {
-    const auto cursor = textCursor();
-    const auto doc = document();
+    const auto cursor = m_textItem->textCursor();
+    const auto doc = m_textItem->document();
     if (cursor.isNull() || !doc) {
         return false;
     }
@@ -386,31 +325,30 @@ bool ChatDocumentHandler::atLastLine() const
 
 void ChatDocumentHandler::setCursorFromDocumentHandler(ChatDocumentHandler *previousDocumentHandler, bool infront, int defaultPosition)
 {
-    const auto doc = document();
-    const auto item = textItem();
-    if (!doc || !item) {
+    const auto doc = m_textItem->document();
+    if (!doc) {
         return;
     }
 
-    item->forceActiveFocus();
+    m_textItem->forceActiveFocus();
 
     if (!previousDocumentHandler) {
         const auto docLastBlockLayout = doc->lastBlock().layout();
-        item->setProperty("cursorPosition", infront ? defaultPosition : docLastBlockLayout->lineAt(docLastBlockLayout->lineCount() - 1).textStart());
-        item->setProperty("cursorVisible", true);
+        m_textItem->setCursorPosition(infront ? defaultPosition : docLastBlockLayout->lineAt(docLastBlockLayout->lineCount() - 1).textStart());
+        m_textItem->setCursorVisible(true);
         return;
     }
 
     const auto previousLinePosition = previousDocumentHandler->cursorPositionInLine();
     const auto newMaxLineLength = lineLength(infront ? 0 : lineCount() - 1);
-    item->setProperty("cursorPosition",
-                      std::min(previousLinePosition, newMaxLineLength ? *newMaxLineLength : defaultPosition) + (infront ? 0 : doc->lastBlock().position()));
-    item->setProperty("cursorVisible", true);
+    m_textItem->setCursorPosition(std::min(previousLinePosition, newMaxLineLength ? *newMaxLineLength : defaultPosition)
+                                  + (infront ? 0 : doc->lastBlock().position()));
+    m_textItem->setCursorVisible(true);
 }
 
 int ChatDocumentHandler::lineCount() const
 {
-    if (const auto doc = document()) {
+    if (const auto doc = m_textItem->document()) {
         return doc->lineCount();
     }
     return 0;
@@ -418,7 +356,7 @@ int ChatDocumentHandler::lineCount() const
 
 std::optional<int> ChatDocumentHandler::lineLength(int lineNumber) const
 {
-    const auto doc = document();
+    const auto doc = m_textItem->document();
     if (!doc || lineNumber < 0 || lineNumber >= doc->lineCount()) {
         return std::nullopt;
     }
@@ -429,7 +367,7 @@ std::optional<int> ChatDocumentHandler::lineLength(int lineNumber) const
 
 int ChatDocumentHandler::cursorPositionInLine() const
 {
-    const auto cursor = textCursor();
+    const auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
@@ -438,7 +376,7 @@ int ChatDocumentHandler::cursorPositionInLine() const
 
 QTextDocumentFragment ChatDocumentHandler::takeFirstBlock()
 {
-    auto cursor = textCursor();
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return {};
     }
@@ -446,14 +384,14 @@ QTextDocumentFragment ChatDocumentHandler::takeFirstBlock()
     cursor.movePosition(QTextCursor::Start);
     cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, m_fixedStartChars.length());
     cursor.movePosition(QTextCursor::EndOfBlock, QTextCursor::KeepAnchor);
-    if (document()->blockCount() <= 1) {
+    if (m_textItem->document()->blockCount() <= 1) {
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
     }
 
     const auto block = cursor.selection();
     cursor.removeSelectedText();
     cursor.endEditBlock();
-    if (document()->characterCount() - 1 <= (m_fixedStartChars.length() + m_fixedEndChars.length())) {
+    if (m_textItem->document()->characterCount() - 1 <= (m_fixedStartChars.length() + m_fixedEndChars.length())) {
         Q_EMIT removeMe(this);
     }
     return block;
@@ -461,7 +399,7 @@ QTextDocumentFragment ChatDocumentHandler::takeFirstBlock()
 
 void ChatDocumentHandler::fillFragments(bool &hasBefore, QTextDocumentFragment &midFragment, std::optional<QTextDocumentFragment> &afterFragment)
 {
-    auto cursor = textCursor();
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -469,7 +407,7 @@ void ChatDocumentHandler::fillFragments(bool &hasBefore, QTextDocumentFragment &
     if (cursor.blockNumber() > 0) {
         hasBefore = true;
     }
-    auto afterBlock = cursor.blockNumber() < document()->blockCount() - 1;
+    auto afterBlock = cursor.blockNumber() < m_textItem->document()->blockCount() - 1;
 
     cursor.beginEditBlock();
     cursor.movePosition(QTextCursor::StartOfBlock);
@@ -496,7 +434,7 @@ void ChatDocumentHandler::fillFragments(bool &hasBefore, QTextDocumentFragment &
 
 void ChatDocumentHandler::insertFragment(const QTextDocumentFragment fragment, InsertPosition position, bool keepPosition)
 {
-    auto cursor = textCursor();
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -507,7 +445,7 @@ void ChatDocumentHandler::insertFragment(const QTextDocumentFragment fragment, I
         currentPosition = 0;
         break;
     case End:
-        currentPosition = document()->characterCount() - 1;
+        currentPosition = m_textItem->document()->characterCount() - 1;
         break;
     case Cursor:
         currentPosition = cursor.position();
@@ -536,18 +474,16 @@ void ChatDocumentHandler::insertFragment(const QTextDocumentFragment fragment, I
     if (keepPosition) {
         cursor.setPosition(currentPosition);
     }
-    if (textItem()) {
-        textItem()->setProperty("cursorPosition", cursor.position());
-    }
+    m_textItem->setCursorPosition(cursor.position());
 }
 
 QString ChatDocumentHandler::getText() const
 {
-    if (!document()) {
+    if (!m_textItem->document()) {
         qCWarning(ChatDocumentHandling) << "getText called with no QQuickTextDocument available.";
         return {};
     }
-    return document()->toPlainText();
+    return m_textItem->document()->toPlainText();
 }
 
 void ChatDocumentHandler::pushMention(const Mention mention) const
@@ -584,7 +520,7 @@ void ChatDocumentHandler::updateMentions(const QString &editId)
                     const int end = position + name.length();
                     linkSize += match.capturedLength(0) - name.length();
 
-                    QTextCursor cursor(document());
+                    QTextCursor cursor(m_textItem->document());
                     cursor.setPosition(position);
                     cursor.setPosition(end, QTextCursor::KeepAnchor);
                     cursor.setKeepPositionOnInsert(true);
@@ -606,40 +542,40 @@ void ChatDocumentHandler::setTextColor(const QColor &color)
 
 bool ChatDocumentHandler::bold() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    return textCursor().charFormat().fontWeight() == QFont::Bold;
+    return cursor.charFormat().fontWeight() == QFont::Bold;
 }
 
 bool ChatDocumentHandler::italic() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull())
         return false;
-    return textCursor().charFormat().fontItalic();
+    return cursor.charFormat().fontItalic();
 }
 
 bool ChatDocumentHandler::underline() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull())
         return false;
-    return textCursor().charFormat().fontUnderline();
+    return cursor.charFormat().fontUnderline();
 }
 
 bool ChatDocumentHandler::strikethrough() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull())
         return false;
-    return textCursor().charFormat().fontStrikeOut();
+    return cursor.charFormat().fontStrikeOut();
 }
 
 QColor ChatDocumentHandler::textColor() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull())
         return QColor(Qt::black);
     QTextCharFormat format = cursor.charFormat();
@@ -657,7 +593,7 @@ std::optional<Qt::TextFormat> ChatDocumentHandler::textFormat() const
 
 void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &format)
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (!cursor.hasSelection()) {
         cursor.select(QTextCursor::WordUnderCursor);
     }
@@ -670,7 +606,7 @@ void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &fo
 
 QString ChatDocumentHandler::currentLinkText() const
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     selectLinkText(&cursor);
     return cursor.selectedText();
 }
@@ -717,70 +653,9 @@ void ChatDocumentHandler::selectLinkText(QTextCursor *cursor) const
     }
 }
 
-void ChatDocumentHandler::insertImage(const QUrl &url)
-{
-    if (!url.isLocalFile()) {
-        return;
-    }
-
-    QImage image;
-    if (!image.load(url.path())) {
-        return;
-    }
-
-    // Ensure we are putting the image in a new line and not in a list has it
-    // breaks the Qt rendering
-    textCursor().insertHtml(QStringLiteral("<br />"));
-
-    while (canDedentList()) {
-        m_nestedListHelper.handleOnIndentLess(textCursor());
-    }
-
-    textCursor().insertHtml(QStringLiteral("<img width=\"500\" src=\"") + url.path() + QStringLiteral("\"\\>"));
-}
-
-void ChatDocumentHandler::insertTable(int rows, int columns)
-{
-    QString htmlText;
-
-    QTextCursor cursor = textCursor();
-    QTextTableFormat tableFormat;
-    tableFormat.setBorder(1);
-    const int numberOfColumns(columns);
-    QList<QTextLength> constrains;
-    constrains.reserve(numberOfColumns);
-    const QTextLength::Type type = QTextLength::PercentageLength;
-    const int length = 100; // 100% of window width
-
-    const QTextLength textlength(type, length / numberOfColumns);
-    for (int i = 0; i < numberOfColumns; ++i) {
-        constrains.append(textlength);
-    }
-    tableFormat.setColumnWidthConstraints(constrains);
-    tableFormat.setAlignment(Qt::AlignLeft);
-    tableFormat.setCellSpacing(0);
-    tableFormat.setCellPadding(4);
-    tableFormat.setBorderCollapse(true);
-    tableFormat.setBorder(0.5);
-    tableFormat.setTopMargin(20);
-
-    Q_ASSERT(cursor.document());
-    QTextTable *table = cursor.insertTable(rows, numberOfColumns, tableFormat);
-
-    // fill table with whitespace
-    for (int i = 0, rows = table->rows(); i < rows; i++) {
-        for (int j = 0, columns = table->columns(); j < columns; j++) {
-            auto cell = table->cellAt(i, j);
-            Q_ASSERT(cell.isValid());
-            cell.firstCursorPosition().insertText(QStringLiteral(" "));
-        }
-    }
-    return;
-}
-
 void ChatDocumentHandler::insertCompletion(const QString &text, const QUrl &link)
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -813,7 +688,7 @@ void ChatDocumentHandler::insertCompletion(const QString &text, const QUrl &link
 
 void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
 {
-    auto cursor = textCursor();
+    auto cursor = m_textItem->textCursor();
     selectLinkText(&cursor);
 
     cursor.beginEditBlock();
@@ -898,39 +773,39 @@ void ChatDocumentHandler::setFormat(RichFormat::Format format)
 
 void ChatDocumentHandler::indentListMore()
 {
-    m_nestedListHelper.handleOnIndentMore(textCursor());
+    m_nestedListHelper.handleOnIndentMore(m_textItem->textCursor());
     Q_EMIT currentListStyleChanged();
 }
 
 void ChatDocumentHandler::indentListLess()
 {
-    m_nestedListHelper.handleOnIndentLess(textCursor());
+    m_nestedListHelper.handleOnIndentLess(m_textItem->textCursor());
     Q_EMIT currentListStyleChanged();
 }
 
 void ChatDocumentHandler::setListFormat(RichFormat::Format format)
 {
-    m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), textCursor());
+    m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), m_textItem->textCursor());
     Q_EMIT currentListStyleChanged();
 }
 
 bool ChatDocumentHandler::canIndentList() const
 {
-    return m_nestedListHelper.canIndent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
+    return m_nestedListHelper.canIndent(m_textItem->textCursor()) && m_textItem->textCursor().blockFormat().headingLevel() == 0;
 }
 
 bool ChatDocumentHandler::canDedentList() const
 {
-    return m_nestedListHelper.canDedent(textCursor()) && textCursor().blockFormat().headingLevel() == 0;
+    return m_nestedListHelper.canDedent(m_textItem->textCursor()) && m_textItem->textCursor().blockFormat().headingLevel() == 0;
 }
 
 int ChatDocumentHandler::currentListStyle() const
 {
-    if (!textCursor().currentList()) {
+    if (!m_textItem->textCursor().currentList()) {
         return 0;
     }
 
-    return -textCursor().currentList()->format().style();
+    return -m_textItem->textCursor().currentList()->format().style();
 }
 
 void ChatDocumentHandler::setTextFormat(RichFormat::Format format)
@@ -938,13 +813,13 @@ void ChatDocumentHandler::setTextFormat(RichFormat::Format format)
     if (RichFormat::typeForFormat(format) != RichFormat::Text) {
         return;
     }
-    mergeFormatOnWordOrSelection(RichFormat::charFormatForFormat(format, RichFormat::hasFormat(textCursor(), format)));
+    mergeFormatOnWordOrSelection(RichFormat::charFormatForFormat(format, RichFormat::hasFormat(m_textItem->textCursor(), format)));
     Q_EMIT formatChanged();
 }
 
 RichFormat::Format ChatDocumentHandler::style() const
 {
-    return static_cast<RichFormat::Format>(textCursor().blockFormat().headingLevel());
+    return static_cast<RichFormat::Format>(m_textItem->textCursor().blockFormat().headingLevel());
 }
 
 void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
@@ -955,9 +830,7 @@ void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
         return;
     }
 
-    qWarning() << format;
-
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -993,7 +866,7 @@ void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
 
 void ChatDocumentHandler::tab()
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -1006,11 +879,11 @@ void ChatDocumentHandler::tab()
 
 void ChatDocumentHandler::deleteChar()
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
-    if (cursor.position() >= document()->characterCount() - m_fixedEndChars.length() - 1) {
+    if (cursor.position() >= m_textItem->document()->characterCount() - m_fixedEndChars.length() - 1) {
         if (const auto nextHandler = nextDocumentHandler()) {
             insertFragment(nextHandler->takeFirstBlock(), Cursor, true);
         }
@@ -1021,7 +894,7 @@ void ChatDocumentHandler::deleteChar()
 
 void ChatDocumentHandler::backspace()
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -1043,7 +916,7 @@ void ChatDocumentHandler::backspace()
 
 void ChatDocumentHandler::insertReturn()
 {
-    QTextCursor cursor = textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -1052,12 +925,12 @@ void ChatDocumentHandler::insertReturn()
 
 void ChatDocumentHandler::insertText(const QString &text)
 {
-    textCursor().insertText(text);
+    m_textItem->textCursor().insertText(text);
 }
 
 QString ChatDocumentHandler::currentLinkUrl() const
 {
-    return textCursor().charFormat().anchorHref();
+    return m_textItem->textCursor().charFormat().anchorHref();
 }
 
 void ChatDocumentHandler::dumpHtml()
@@ -1067,7 +940,7 @@ void ChatDocumentHandler::dumpHtml()
 
 QString ChatDocumentHandler::htmlText() const
 {
-    const auto doc = document();
+    const auto doc = m_textItem->document();
     if (!doc) {
         return {};
     }

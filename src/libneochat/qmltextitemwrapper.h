@@ -13,7 +13,7 @@ class QTextDocument;
  *
  * A class to wrap around a QQuickItem that is a QML TextEdit (or inherited from it) and provide easy acess to its properties.
  *
- * This basically exists because Qt does not give us access to the cpp headers of
+ * @note This basically exists because Qt does not give us access to the cpp headers of
  * most QML items.
  *
  * @sa QQuickItem, TextEdit
@@ -31,9 +31,15 @@ public:
     QTextDocument *document() const;
 
     QTextCursor textCursor() const;
+    void setCursorPosition(int pos);
+    void setCursorVisible(bool visible);
+
+    void forceActiveFocus() const;
 
 Q_SIGNALS:
     void textItemChanged();
+
+    void textDocumentContentsChange(int position, int charsRemoved, int charsAdded);
 
     void textDocumentContentsChanged();
 
