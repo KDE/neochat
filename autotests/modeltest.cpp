@@ -68,6 +68,8 @@ private:
     NeoChatConnection *connection = nullptr;
     NeoChatRoom *room = nullptr;
 
+    QString eventId;
+
     Server server;
 
 private Q_SLOTS:
@@ -136,6 +138,26 @@ void ModelTest::initTestCase()
     QSignalSpy spy(accountManager, &AccountManager::connectionAdded);
     connection = dynamic_cast<NeoChatConnection *>(accountManager->accounts()->front());
     const auto roomId = server.createRoom(u"@user:localhost:1234"_s);
+    eventId = server.sendEvent(roomId,
+                               u"m.room.message"_s,
+                               QJsonObject{
+                                   {u"body"_s, u"foo"_s},
+                                   {u"msgtype"_s, u"m.text"_s},
+                               });
+
+    server.sendEvent(roomId,
+                     u"m.room.message"_s,
+                     QJsonObject{
+                         {u"body"_s, u"asdf"_s},
+                         {u"m.relates_to"_s,
+                          QJsonObject{
+                              {u"event_id"_s, u"$GEucSt3TfVl6DVpKEyeOlRsXzjLv2ZCVgSQuQclFg1o"_s},
+                              {u"is_falling_back"_s, true},
+                              {u"m.in_reply_to"_s, QJsonObject{{u"event_id"_s, u"$GEucSt3TfVl6DVpKEyeOlRsXzjLv2ZCVgSQuQclFg1o"_s}}},
+                              {u"rel_type"_s, u"m.thread"_s},
+                          }},
+                         {u"msgtype"_s, u"m.text"_s},
+                     });
 
     QSignalSpy syncSpy(connection, &Connection::syncDone);
     // We need to wait for two syncs, as the next one won't have the changes yet
@@ -156,46 +178,45 @@ void ModelTest::testRoomTreeModel()
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = new MessageContentModel(room, nullptr, QString(/* TODO: use a proper event id here*/));
+    auto contentModel = new MessageContentModel(room, nullptr, eventId);
     auto tester = new QAbstractItemModelTester(contentModel);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testEventMessageContentModel()
 {
-    auto model = new EventMessageContentModel(room, QString(/* TODO */));
+    auto model = new EventMessageContentModel(room, eventId);
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadModel()
 {
-    auto model = new ThreadModel(QString(/* TODO */), room);
+    auto model = new ThreadModel(eventId, room);
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadFetchModel()
 {
-    auto model = new ThreadFetchModel(new ThreadModel(QString(/* TODO */), room));
+    auto model = new ThreadFetchModel(new ThreadModel(eventId, room));
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
-    // TODO
 }
 
 void ModelTest::testThreadChatBarModel()
 {
-    auto model = new ThreadChatBarModel(new ThreadModel(QString(/* TODO */), room), room);
+    auto model = new ThreadChatBarModel(new ThreadModel(eventId, room), room);
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testReactionModel()
 {
-    auto model = new ReactionModel(new MessageContentModel(room), QString(/* TODO */), room);
+    auto model = new ReactionModel(new MessageContentModel(room), eventId, room);
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
-    // TODO add data
+    // TODO add some reactions to that event
 }
 
 void ModelTest::testPollAnswerModel()
@@ -245,8 +266,10 @@ void ModelTest::testMessageFilterModel()
 {
     auto model = new MessageFilterModel();
     auto tester = new QAbstractItemModelTester(model);
+    auto timelineModel = new TimelineModel();
+    model->setSourceModel(timelineModel);
+    timelineModel->setRoom(room);
     tester->setUseFetchMore(true);
-    // TODO
 }
 
 void ModelTest::testThreePIdModel()
@@ -564,7 +587,7 @@ void ModelTest::testUserFilterModel()
     auto userListModel = new UserListModel();
     model->setSourceModel(userListModel);
     userListModel->setRoom(room);
-    // TODO open room with some )users
+    // TODO open room with some users
 }
 
 void ModelTest::testEmoticonFilterModel()
