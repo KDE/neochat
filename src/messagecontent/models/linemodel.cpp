@@ -8,12 +8,7 @@ LineModel::LineModel(QObject *parent)
 {
 }
 
-QQuickTextDocument *LineModel::document() const
-{
-    return m_document;
-}
-
-void LineModel::setDocument(QQuickTextDocument *document)
+void LineModel::setDocument(QTextDocument *document)
 {
     if (document == m_document) {
         return;
@@ -23,6 +18,11 @@ void LineModel::setDocument(QQuickTextDocument *document)
     Q_EMIT documentChanged();
 
     resetModel();
+}
+
+void LineModel::setDocument(QQuickTextDocument *document)
+{
+    setDocument(document->textDocument());
 }
 
 QVariant LineModel::data(const QModelIndex &index, int role) const
@@ -37,8 +37,7 @@ QVariant LineModel::data(const QModelIndex &index, int role) const
     }
 
     if (role == LineHeightRole) {
-        auto textDoc = m_document->textDocument();
-        return int(textDoc->documentLayout()->blockBoundingRect(textDoc->findBlockByNumber(row)).height());
+        return int(m_document->documentLayout()->blockBoundingRect(m_document->findBlockByNumber(row)).height());
     }
     return {};
 }
@@ -49,7 +48,7 @@ int LineModel::rowCount(const QModelIndex &parent) const
     if (m_document == nullptr) {
         return 0;
     }
-    return m_document->textDocument()->blockCount();
+    return m_document->blockCount();
 }
 
 QHash<int, QByteArray> LineModel::roleNames() const
