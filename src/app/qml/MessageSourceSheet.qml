@@ -103,7 +103,7 @@ Kirigami.Page {
                     id: repeater
                     model: LineModel {
                         id: lineModel
-                        document: sourceTextArea.textDocument
+                        Component.onCompleted: setDocument(sourceTextArea.textDocument)
                     }
                     delegate: QQC2.Label {
                         id: label

@@ -104,7 +104,7 @@ QQC2.Control {
                     id: repeater
                     model: LineModel {
                         id: lineModel
-                        document: codeText.textDocument
+                        Component.onCompleted: setDocument(codeText.textDocument)
                     }
                     delegate: QQC2.Label {
                         id: label

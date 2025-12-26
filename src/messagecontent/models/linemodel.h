@@ -8,7 +8,7 @@
 #include <QQmlEngine>
 #include <QQuickTextDocument>
 #include <QTextBlock>
-#include <qtmetamacros.h>
+#include <QTextDocument>
 
 /**
  * @class LineModel
@@ -22,11 +22,6 @@ class LineModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
-    /**
-     * @brief The QQuickTextDocument that is being handled.
-     */
-    Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
-
 public:
     /**
      * @brief Defines the model roles.
@@ -38,8 +33,8 @@ public:
 
     explicit LineModel(QObject *parent = nullptr);
 
-    [[nodiscard]] QQuickTextDocument *document() const;
-    void setDocument(QQuickTextDocument *document);
+    void setDocument(QTextDocument *document);
+    Q_INVOKABLE void setDocument(QQuickTextDocument *document);
 
     /**
      * @brief Get the given role value at the given index.
@@ -76,5 +71,5 @@ Q_SIGNALS:
     void documentChanged();
 
 private:
-    QPointer<QQuickTextDocument> m_document = nullptr;
+    QPointer<QTextDocument> m_document = nullptr;
 };

@@ -212,10 +212,8 @@ void ModelTest::testLineModel()
     auto model = new LineModel();
     auto tester = new QAbstractItemModelTester(model);
     tester->setUseFetchMore(true);
-    auto quickDocument = new QQuickTextDocument(new QQuickItem());
     auto document = new QTextDocument();
-    quickDocument->setTextDocument(document);
-    model->setDocument(quickDocument);
+    model->setDocument(document);
     document->setPlainText(u"foo\nbar\n\nbaz"_s);
 }
 
