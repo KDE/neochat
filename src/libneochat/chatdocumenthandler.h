@@ -19,6 +19,7 @@
 
 class QTextDocument;
 
+class QmlTextItemWrapper;
 class NeoChatRoom;
 class SyntaxHighlighter;
 
@@ -179,8 +180,6 @@ public:
     Q_INVOKABLE QString currentLinkUrl() const;
     Q_INVOKABLE QString currentLinkText() const;
     Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
-    Q_INVOKABLE void insertImage(const QUrl &imagePath);
-    Q_INVOKABLE void insertTable(int rows, int columns);
     Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
     Q_INVOKABLE void dumpHtml();
@@ -210,8 +209,8 @@ Q_SIGNALS:
 private:
     ChatBarType::Type m_type = ChatBarType::None;
     QPointer<NeoChatRoom> m_room;
-    QPointer<QQuickItem> m_textItem;
-    QTextDocument *document() const;
+    QPointer<QmlTextItemWrapper> m_textItem;
+    void connectTextItem();
 
     QPointer<ChatDocumentHandler> m_previousDocumentHandler;
     QPointer<ChatDocumentHandler> m_nextDocumentHandler;
@@ -220,11 +219,6 @@ private:
     QString m_fixedEndChars = {};
     QString m_initialText = {};
     void initializeChars();
-
-    int cursorPosition() const;
-    int selectionStart() const;
-    int selectionEnd() const;
-    QTextCursor textCursor() const;
 
     void setTextFormat(RichFormat::Format format);
     void setStyleFormat(RichFormat::Format format);
@@ -248,7 +242,4 @@ private:
     void regenerateColorScheme();
 
     QString trim(QString string) const;
-
-private Q_SLOTS:
-    void updateCursor();
 };
