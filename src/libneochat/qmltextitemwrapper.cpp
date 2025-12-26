@@ -35,6 +35,7 @@ void QmlTextItemWrapper::setTextItem(QQuickItem *textItem)
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(textDocCursorChanged()));
         if (document()) {
             connect(document(), &QTextDocument::contentsChanged, this, &QmlTextItemWrapper::textDocumentContentsChanged);
+            connect(document(), &QTextDocument::contentsChange, this, &QmlTextItemWrapper::textDocumentContentsChange);
         }
     }
 
@@ -90,9 +91,33 @@ QTextCursor QmlTextItemWrapper::textCursor() const
     return cursor;
 }
 
+void QmlTextItemWrapper::setCursorPosition(int pos)
+{
+    if (!m_textItem) {
+        return;
+    }
+    m_textItem->setProperty("cursorPosition", pos);
+}
+
+void QmlTextItemWrapper::setCursorVisible(bool visible)
+{
+    if (!m_textItem) {
+        return;
+    }
+    m_textItem->setProperty("cursorVisible", visible);
+}
+
 void QmlTextItemWrapper::textDocCursorChanged()
 {
     Q_EMIT textDocumentCursorPositionChanged();
+}
+
+void QmlTextItemWrapper::forceActiveFocus() const
+{
+    if (!m_textItem) {
+        return;
+    }
+    m_textItem->forceActiveFocus();
 }
 
 #include "moc_qmltextitemwrapper.cpp"
