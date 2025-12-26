@@ -373,6 +373,15 @@ private:
 
     void setCurrentRoom(const QString &roomId);
 
+    /**
+     * @brief Find the most appropriate space for the currently selected room
+     *
+     * Should be used to figure out what space to switch to after a room change.
+     *
+     * @return The Space ID that the currently set room should be displayed as part of. (or "DM" for DM and "" for Home)
+     */
+    QString findSpaceIdForCurrentRoom() const;
+
     // Space ID, "DM", or empty string
     void setCurrentSpace(const QString &spaceId, bool setRoom = true);
 
