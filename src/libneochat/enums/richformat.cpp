@@ -6,7 +6,6 @@
 #include <QTextBlockFormat>
 #include <QTextCharFormat>
 #include <QTextCursor>
-#include <qtextformat.h>
 
 QString RichFormat::styleString(Format format)
 {
@@ -68,7 +67,7 @@ QTextListFormat::Style RichFormat::listStyleForFormat(Format format)
     }
 }
 
-QTextCharFormat RichFormat::charFormatForFormat(Format format, bool invert)
+QTextCharFormat RichFormat::charFormatForFormat(Format format, bool invert, const QColor &highlightColor)
 {
     QTextCharFormat charFormat;
     if (format == Bold || headingLevelForFormat(format) > 0) {
@@ -83,6 +82,16 @@ QTextCharFormat RichFormat::charFormatForFormat(Format format, bool invert)
     }
     if (format == Strikethrough) {
         charFormat.setFontStrikeOut(!invert);
+    }
+    if (format == InlineCode) {
+        if (invert) {
+            charFormat.setFont({});
+            charFormat.setBackground({});
+        } else {
+            charFormat.setFontFamilies({u"monospace"_s});
+            charFormat.setFontFixedPitch(!invert);
+            charFormat.setBackground(highlightColor);
+        }
     }
     if (headingLevelForFormat(format) > 0) {
         // Apparently, 4 is maximum for FontSizeAdjustment; otherwise level=1 and
@@ -144,6 +153,8 @@ bool RichFormat::hasFormat(QTextCursor cursor, Format format)
         return cursor.charFormat().fontStrikeOut();
     case Underline:
         return cursor.charFormat().fontUnderline();
+    case InlineCode:
+        return cursor.charFormat().fontFixedPitch();
     default:
         return false;
     }
@@ -166,6 +177,9 @@ QList<RichFormat::Format> RichFormat::formatsAtCursor(const QTextCursor &cursor)
     }
     if (cursor.charFormat().fontStrikeOut()) {
         formats += Strikethrough;
+    }
+    if (cursor.charFormat().fontFixedPitch()) {
+        formats += InlineCode;
     }
     if (cursor.blockFormat().headingLevel() > 0 && cursor.blockFormat().headingLevel() <= 6) {
         formats += formatForHeadingLevel(cursor.blockFormat().headingLevel());
