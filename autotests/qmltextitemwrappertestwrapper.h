@@ -61,6 +61,11 @@ public:
         return posSame && startSame && endSame;
     }
 
+    Q_INVOKABLE int cursorPosition() const
+    {
+        return m_textItemWrapper->cursorPosition();
+    }
+
     Q_INVOKABLE void setCursorPosition(int pos)
     {
         m_textItemWrapper->setCursorPosition(pos);

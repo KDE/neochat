@@ -70,6 +70,7 @@ TestCase {
         spyCursor.clear();
         // We can't get to the QTextCursor from QML so we have to use a helper function.
         compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
         textEdit.insert(0, "test text")
         compare(spyContentsChange.count, 1);
         compare(spyContentsChange.signalArguments[0][0], 0);
@@ -78,10 +79,12 @@ TestCase {
         compare(spyContentsChanged.count, 1);
         compare(spyCursor.count, 1);
         compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
         textEdit.selectAll();
         compare(spyContentsChanged.count, 1);
         compare(spyCursor.count, 1);
         compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
         textEdit.clear();
         compare(spyContentsChange.count, 2);
         compare(spyContentsChange.signalArguments[1][0], 0);

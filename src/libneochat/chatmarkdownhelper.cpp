@@ -3,11 +3,15 @@
 
 #include "chatmarkdownhelper.h"
 
+#include <QTextCursor>
 #include <QTextDocument>
 #include <qtextcursor.h>
 
-#include "chatdocumenthandler.h"
+#include "qmltextitemwrapper.h"
+#include "richformat.h"
 
+namespace
+{
 struct MarkdownSyntax {
     QLatin1String sequence;
     bool closable = false;
@@ -15,7 +19,7 @@ struct MarkdownSyntax {
     RichFormat::Format format;
 };
 
-static const QList<MarkdownSyntax> syntax = {
+const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "*"_L1, .closable = true, .format = RichFormat::Italic},
     MarkdownSyntax{.sequence = "**"_L1, .closable = true, .format = RichFormat::Bold},
     MarkdownSyntax{.sequence = "# "_L1, .lineStart = true, .format = RichFormat::Heading1},
@@ -35,7 +39,7 @@ static const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "__"_L1, .closable = true, .format = RichFormat::Underline},
 };
 
-static std::optional<bool> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)
+std::optional<bool> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)
 {
     QList<MarkdownSyntax> partialMatches;
     std::optional<MarkdownSyntax> fullMatch = std::nullopt;
@@ -65,7 +69,7 @@ static std::optional<bool> checkSequence(const QString &currentString, const QSt
     return std::nullopt;
 }
 
-static std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
+std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
 {
     const auto it = std::find_if(syntax.cbegin(), syntax.cend(), [sequence](const MarkdownSyntax &syntax) {
         return syntax.sequence == sequence;
@@ -75,55 +79,41 @@ static std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
     }
     return *it;
 }
+}
 
-ChatMarkdownHelper::ChatMarkdownHelper(ChatDocumentHandler *parent)
+ChatMarkdownHelper::ChatMarkdownHelper(QObject *parent)
     : QObject(parent)
+    , m_textItem(new QmlTextItemWrapper(this))
 {
-    Q_ASSERT(parent);
-
-    connectDocument();
-    connect(parent, &ChatDocumentHandler::textItemChanged, this, &ChatMarkdownHelper::connectDocument);
+    connectTextItem();
 }
 
-QTextDocument *ChatMarkdownHelper::document() const
+QQuickItem *ChatMarkdownHelper::textItem() const
 {
-    const auto documentHandler = qobject_cast<ChatDocumentHandler *>(parent());
-    if (!documentHandler) {
-        return nullptr;
-    }
-
-    if (!documentHandler->textItem()) {
-        return nullptr;
-    }
-
-    const auto quickDocument = qvariant_cast<QQuickTextDocument *>(documentHandler->textItem()->property("textDocument"));
-    return quickDocument ? quickDocument->textDocument() : nullptr;
+    return m_textItem->textItem();
 }
 
-void ChatMarkdownHelper::connectDocument()
+void ChatMarkdownHelper::setTextItem(QQuickItem *textItem)
 {
-    disconnect();
+    m_textItem->setTextItem(textItem);
+}
 
-    if (document()) {
-        m_startPos = qobject_cast<ChatDocumentHandler *>(parent())->textItem()->property("cursorPosition").toInt();
+void ChatMarkdownHelper::connectTextItem()
+{
+    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, [this]() {
+        m_startPos = m_textItem->cursorPosition();
         m_endPos = m_startPos;
         if (m_startPos == 0) {
             m_currentState = Pre;
         }
-
-        connect(document(), &QTextDocument::contentsChange, this, &ChatMarkdownHelper::checkMarkdown);
-    }
+    });
+    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChange, this, &ChatMarkdownHelper::checkMarkdown);
 }
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
 {
-    qWarning() << "1" << m_currentState << m_startPos << m_endPos;
-
-    if (!document()) {
-        return;
-    }
-
-    auto cursor = QTextCursor(document());
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
@@ -137,7 +127,6 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
         cursor.setPosition(m_endPos + (cursor.atBlockEnd() ? 0 : 1), QTextCursor::KeepAnchor);
         const auto nextChar = cursor.selectedText();
         m_currentState = m_startPos == 0 || nextChar == u' ' ? Pre : None;
-        qWarning() << "2" << m_currentState << m_startPos << m_endPos;
         return;
     }
 
@@ -151,7 +140,7 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
         cursor.setPosition(m_startPos);
 
         const auto result = checkSequence(currentMarkdown, nextChar, cursor.atBlockStart());
-        qWarning() << result;
+        qWarning() << m_startPos << m_endPos << result;
 
         switch (m_currentState) {
         case None:
@@ -186,16 +175,15 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
             break;
         }
     }
-
-    qWarning() << "2" << m_currentState << m_startPos << m_endPos;
 }
 
 void ChatMarkdownHelper::complete()
 {
-    auto cursor = QTextCursor(document());
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
+    cursor.beginEditBlock();
     cursor.setPosition(m_startPos);
     cursor.setPosition(m_endPos, QTextCursor::KeepAnchor);
     const auto syntax = syntaxForSequence(cursor.selectedText());
@@ -207,29 +195,38 @@ void ChatMarkdownHelper::complete()
         m_currentFormats.insert(syntax->format, m_startPos);
     }
 
-    ++m_startPos;
+    cursor.setPosition(m_startPos);
+    cursor.setPosition(m_startPos + 1, QTextCursor::KeepAnchor);
+    const auto nextChar = cursor.selectedText();
+    const auto result = checkSequence({}, nextChar, cursor.atBlockStart());
+    m_currentState = result ? Started : Pre;
 
-    const auto documentHandler = qobject_cast<ChatDocumentHandler *>(parent());
+    // cursor.setPosition(m_startPos + 1);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
     if (syntax) {
-        documentHandler->textItem()->setProperty("cursorPosition", m_startPos);
-        documentHandler->setFormat(syntax->format);
+        const auto formatType = RichFormat::typeForFormat(syntax->format);
+        if (formatType == RichFormat::Block) {
+            Q_EMIT unhandledBlockFormat(syntax->format);
+        } else {
+            m_textItem->mergeFormatOnCursor(syntax->format, cursor);
+        }
     }
 
-    m_currentState = Pre;
-    m_endPos = m_startPos;
+    m_startPos = result ? m_startPos : m_startPos + 1;
+    m_endPos = result ? m_startPos + 1 : m_startPos;
 
-    documentHandler->textItem()->setProperty("cursorPosition", m_startPos);
+    cursor.endEditBlock();
+    qWarning() << m_currentState << m_startPos << m_endPos << m_textItem->cursorPosition();
 }
 
 void ChatMarkdownHelper::handleExternalFormatChange()
 {
-    auto cursor = QTextCursor(document());
+    auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
     cursor.setPosition(m_startPos);
     m_currentState = RichFormat::formatsAtCursor(cursor).length() > 0 ? Pre : None;
-    qWarning() << "3" << m_currentState << m_startPos << m_endPos;
 }
 
 #include "moc_chatmarkdownhelper.cpp"

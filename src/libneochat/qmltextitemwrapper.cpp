@@ -6,6 +6,8 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include <Kirigami/Platform/PlatformTheme>
+
 QmlTextItemWrapper::QmlTextItemWrapper(QObject *parent)
     : QObject(parent)
 {
@@ -110,6 +112,133 @@ void QmlTextItemWrapper::setCursorVisible(bool visible)
 void QmlTextItemWrapper::textDocCursorChanged()
 {
     Q_EMIT textDocumentCursorPositionChanged();
+}
+
+void QmlTextItemWrapper::mergeFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor)
+{
+    if (cursor.isNull()) {
+        return;
+    }
+    switch (RichFormat::typeForFormat(format)) {
+    case RichFormat::Text:
+        mergeTextFormatOnCursor(format, cursor);
+        return;
+    case RichFormat::List:
+        mergeListFormatOnCursor(format, cursor);
+        return;
+    case RichFormat::Style:
+        mergeStyleFormatOnCursor(format, cursor);
+        return;
+    default:
+        return;
+    }
+}
+
+void QmlTextItemWrapper::mergeTextFormatOnCursor(RichFormat::Format format, QTextCursor cursor)
+{
+    if (RichFormat::typeForFormat(format) != RichFormat::Text) {
+        return;
+    }
+
+    const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+    const auto charFormat = RichFormat::charFormatForFormat(format, RichFormat::hasFormat(cursor, format), theme->alternateBackgroundColor());
+    if (!cursor.hasSelection()) {
+        cursor.select(QTextCursor::WordUnderCursor);
+    }
+    cursor.mergeCharFormat(charFormat);
+    Q_EMIT formatChanged();
+    Q_EMIT textFormatChanged();
+}
+
+void QmlTextItemWrapper::mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor)
+{
+    // Paragraph is special because it is normally a Block format but if we're already
+    // in a Paragraph it clears any existing style.
+    if (!(RichFormat::typeForFormat(format) == RichFormat::Style || format == RichFormat::Paragraph)) {
+        return;
+    }
+
+    cursor.beginEditBlock();
+    cursor.mergeBlockFormat(RichFormat::blockFormatForFormat(format));
+
+    // Applying style to the current line or selection
+    QTextCursor selectCursor = cursor;
+    if (selectCursor.hasSelection()) {
+        QTextCursor top = selectCursor;
+        top.setPosition(qMin(top.anchor(), top.position()));
+        top.movePosition(QTextCursor::StartOfBlock);
+
+        QTextCursor bottom = selectCursor;
+        bottom.setPosition(qMax(bottom.anchor(), bottom.position()));
+        bottom.movePosition(QTextCursor::EndOfBlock);
+
+        selectCursor.setPosition(top.position(), QTextCursor::MoveAnchor);
+        selectCursor.setPosition(bottom.position(), QTextCursor::KeepAnchor);
+    } else {
+        selectCursor.select(QTextCursor::BlockUnderCursor);
+    }
+
+    const auto chrfmt = RichFormat::charFormatForFormat(format);
+    selectCursor.mergeCharFormat(chrfmt);
+    cursor.mergeBlockCharFormat(chrfmt);
+    cursor.endEditBlock();
+
+    Q_EMIT formatChanged();
+    Q_EMIT styleChanged();
+}
+
+void QmlTextItemWrapper::mergeListFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor)
+{
+    m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), cursor);
+    Q_EMIT formatChanged();
+    Q_EMIT listChanged();
+}
+
+int QmlTextItemWrapper::currentListStyle() const
+{
+    auto cursor = textCursor();
+    if (cursor.isNull() || !textCursor().currentList()) {
+        return 0;
+    }
+    return -cursor.currentList()->format().style();
+}
+
+bool QmlTextItemWrapper::canIndentListMore() const
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return m_nestedListHelper.canIndent(cursor) && cursor.blockFormat().headingLevel() == 0;
+}
+
+bool QmlTextItemWrapper::canIndentListLess() const
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return m_nestedListHelper.canDedent(cursor) && cursor.blockFormat().headingLevel() == 0;
+}
+
+void QmlTextItemWrapper::indentListMore()
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    m_nestedListHelper.handleOnIndentMore(cursor);
+    Q_EMIT listChanged();
+}
+
+void QmlTextItemWrapper::indentListLess()
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    m_nestedListHelper.handleOnIndentLess(cursor);
+    Q_EMIT listChanged();
 }
 
 void QmlTextItemWrapper::forceActiveFocus() const
