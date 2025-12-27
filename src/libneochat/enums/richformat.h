@@ -91,7 +91,7 @@ public:
      *
      * @sa Format, QTextCharFormat
      */
-    static QTextCharFormat charFormatForFormat(Format format, bool invert = false);
+    static QTextCharFormat charFormatForFormat(Format format, bool invert = false, const QColor &highlightColor = {});
 
     /**
      * @brief Return the QTextBlockFormat for the Format.

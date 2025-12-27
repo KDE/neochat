@@ -136,6 +136,8 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_highlighter(new SyntaxHighlighter(this))
 {
+    connectTextItem();
+
     connect(this, &ChatDocumentHandler::formatChanged, m_markdownHelper, &ChatMarkdownHelper::handleExternalFormatChange);
 }
 
@@ -176,6 +178,7 @@ QQuickItem *ChatDocumentHandler::textItem() const
 void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
 {
     m_textItem->setTextItem(textItem);
+    m_markdownHelper->setTextItem(textItem);
 }
 
 void ChatDocumentHandler::connectTextItem()
@@ -209,6 +212,10 @@ void ChatDocumentHandler::connectTextItem()
             }
         }
     });
+    connect(m_textItem, &QmlTextItemWrapper::formatChanged, this, &ChatDocumentHandler::formatChanged);
+    connect(m_textItem, &QmlTextItemWrapper::textFormatChanged, this, &ChatDocumentHandler::textFormatChanged);
+    connect(m_textItem, &QmlTextItemWrapper::styleChanged, this, &ChatDocumentHandler::styleChanged);
+    connect(m_textItem, &QmlTextItemWrapper::listChanged, this, &ChatDocumentHandler::listChanged);
 }
 
 ChatDocumentHandler *ChatDocumentHandler::previousDocumentHandler() const
@@ -756,112 +763,41 @@ void ChatDocumentHandler::regenerateColorScheme()
 
 void ChatDocumentHandler::setFormat(RichFormat::Format format)
 {
-    switch (RichFormat::typeForFormat(format)) {
-    case RichFormat::Text:
-        setTextFormat(format);
-        return;
-    case RichFormat::List:
-        setListFormat(format);
-        return;
-    case RichFormat::Style:
-        setStyleFormat(format);
-        return;
-    default:
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
         return;
     }
-}
-
-void ChatDocumentHandler::indentListMore()
-{
-    m_nestedListHelper.handleOnIndentMore(m_textItem->textCursor());
-    Q_EMIT currentListStyleChanged();
-}
-
-void ChatDocumentHandler::indentListLess()
-{
-    m_nestedListHelper.handleOnIndentLess(m_textItem->textCursor());
-    Q_EMIT currentListStyleChanged();
-}
-
-void ChatDocumentHandler::setListFormat(RichFormat::Format format)
-{
-    m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), m_textItem->textCursor());
-    Q_EMIT currentListStyleChanged();
-}
-
-bool ChatDocumentHandler::canIndentList() const
-{
-    return m_nestedListHelper.canIndent(m_textItem->textCursor()) && m_textItem->textCursor().blockFormat().headingLevel() == 0;
-}
-
-bool ChatDocumentHandler::canDedentList() const
-{
-    return m_nestedListHelper.canDedent(m_textItem->textCursor()) && m_textItem->textCursor().blockFormat().headingLevel() == 0;
+    m_textItem->mergeFormatOnCursor(format, cursor);
 }
 
 int ChatDocumentHandler::currentListStyle() const
 {
-    if (!m_textItem->textCursor().currentList()) {
-        return 0;
-    }
-
-    return -m_textItem->textCursor().currentList()->format().style();
+    return m_textItem->currentListStyle();
 }
 
-void ChatDocumentHandler::setTextFormat(RichFormat::Format format)
+bool ChatDocumentHandler::canIndentListMore() const
 {
-    if (RichFormat::typeForFormat(format) != RichFormat::Text) {
-        return;
-    }
-    mergeFormatOnWordOrSelection(RichFormat::charFormatForFormat(format, RichFormat::hasFormat(m_textItem->textCursor(), format)));
-    Q_EMIT formatChanged();
+    return m_textItem->canIndentListMore();
+}
+
+bool ChatDocumentHandler::canIndentListLess() const
+{
+    return m_textItem->canIndentListLess();
+}
+
+void ChatDocumentHandler::indentListMore()
+{
+    m_textItem->indentListMore();
+}
+
+void ChatDocumentHandler::indentListLess()
+{
+    m_textItem->indentListLess();
 }
 
 RichFormat::Format ChatDocumentHandler::style() const
 {
     return static_cast<RichFormat::Format>(m_textItem->textCursor().blockFormat().headingLevel());
-}
-
-void ChatDocumentHandler::setStyleFormat(RichFormat::Format format)
-{
-    // Paragraph is special because it is normally a Block format but if we're already
-    // in a Paragraph it clears any existing style.
-    if (!(RichFormat::typeForFormat(format) == RichFormat::Style || format == RichFormat::Paragraph)) {
-        return;
-    }
-
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return;
-    }
-    cursor.beginEditBlock();
-
-    cursor.mergeBlockFormat(RichFormat::blockFormatForFormat(format));
-
-    // Applying style to the current line or selection
-    QTextCursor selectCursor = cursor;
-    if (selectCursor.hasSelection()) {
-        QTextCursor top = selectCursor;
-        top.setPosition(qMin(top.anchor(), top.position()));
-        top.movePosition(QTextCursor::StartOfBlock);
-
-        QTextCursor bottom = selectCursor;
-        bottom.setPosition(qMax(bottom.anchor(), bottom.position()));
-        bottom.movePosition(QTextCursor::EndOfBlock);
-
-        selectCursor.setPosition(top.position(), QTextCursor::MoveAnchor);
-        selectCursor.setPosition(bottom.position(), QTextCursor::KeepAnchor);
-    } else {
-        selectCursor.select(QTextCursor::BlockUnderCursor);
-    }
-
-    const auto chrfmt = RichFormat::charFormatForFormat(format);
-    selectCursor.mergeCharFormat(chrfmt);
-    cursor.mergeBlockCharFormat(chrfmt);
-    cursor.endEditBlock();
-
-    Q_EMIT formatChanged();
-    Q_EMIT styleChanged();
 }
 
 void ChatDocumentHandler::tab()
