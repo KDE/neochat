@@ -4,23 +4,29 @@
 #pragma once
 
 #include <QObject>
-#include <QQmlEngine>
 
 #include "enums/richformat.h"
 
+class QQuickItem;
 class QTextDocument;
 
-class ChatDocumentHandler;
+class QmlTextItemWrapper;
 
 class ChatMarkdownHelper : public QObject
 {
     Q_OBJECT
-    QML_ELEMENT
 
 public:
-    explicit ChatMarkdownHelper(ChatDocumentHandler *parent);
+    explicit ChatMarkdownHelper(QObject *parent = nullptr);
+
+    QQuickItem *textItem() const;
+    void setTextItem(QQuickItem *textItem);
 
     void handleExternalFormatChange();
+
+Q_SIGNALS:
+    void textItemChanged();
+    void unhandledBlockFormat(RichFormat::Format format);
 
 private:
     enum State {
@@ -29,8 +35,8 @@ private:
         Started,
     };
 
-    QTextDocument *document() const;
-    void connectDocument();
+    QPointer<QmlTextItemWrapper> m_textItem;
+    void connectTextItem();
 
     State m_currentState = None;
     int m_startPos = 0;
