@@ -6,12 +6,15 @@
 #include <QObject>
 #include <QQuickItem>
 
+#include "enums/richformat.h"
+#include "nestedlisthelper_p.h"
+
 class QTextDocument;
 
 /**
  * @class QmlTextItemWrapper
  *
- * A class to wrap around a QQuickItem that is a QML TextEdit (or inherited from it) and provide easy acess to its properties.
+ * A class to wrap around a QQuickItem that is a QML TextEdit (or inherited from it).
  *
  * @note This basically exists because Qt does not give us access to the cpp headers of
  * most QML items.
@@ -31,8 +34,17 @@ public:
     QTextDocument *document() const;
 
     QTextCursor textCursor() const;
+    int cursorPosition() const;
     void setCursorPosition(int pos);
     void setCursorVisible(bool visible);
+
+    void mergeFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
+
+    int currentListStyle() const;
+    bool canIndentListMore() const;
+    bool canIndentListLess() const;
+    void indentListMore();
+    void indentListLess();
 
     void forceActiveFocus() const;
 
@@ -45,12 +57,21 @@ Q_SIGNALS:
 
     void textDocumentCursorPositionChanged();
 
+    void formatChanged();
+    void textFormatChanged();
+    void styleChanged();
+    void listChanged();
+
 private:
     QPointer<QQuickItem> m_textItem;
 
-    int cursorPosition() const;
     int selectionStart() const;
     int selectionEnd() const;
+
+    void mergeTextFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
+    void mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
+    void mergeListFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
+    NestedListHelper m_nestedListHelper;
 
 private Q_SLOTS:
     void textDocCursorChanged();

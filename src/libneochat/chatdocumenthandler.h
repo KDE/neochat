@@ -97,14 +97,14 @@ class ChatDocumentHandler : public QObject
 
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
 
-    Q_PROPERTY(bool bold READ bold NOTIFY formatChanged)
-    Q_PROPERTY(bool italic READ italic NOTIFY formatChanged)
-    Q_PROPERTY(bool underline READ underline NOTIFY formatChanged)
-    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY formatChanged)
+    Q_PROPERTY(bool bold READ bold NOTIFY textFormatChanged)
+    Q_PROPERTY(bool italic READ italic NOTIFY textFormatChanged)
+    Q_PROPERTY(bool underline READ underline NOTIFY textFormatChanged)
+    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY textFormatChanged)
 
     Q_PROPERTY(RichFormat::Format style READ style NOTIFY styleChanged)
 
-    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY currentListStyleChanged)
+    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY listChanged)
 
 public:
     enum InsertPosition {
@@ -161,11 +161,10 @@ public:
     bool strikethrough() const;
 
     Q_INVOKABLE void setFormat(RichFormat::Format format);
-    void setFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
 
-    bool canIndentList() const;
-    bool canDedentList() const;
     int currentListStyle() const;
+    bool canIndentListMore() const;
+    bool canIndentListLess() const;
     Q_INVOKABLE void indentListLess();
     Q_INVOKABLE void indentListMore();
 
@@ -195,11 +194,12 @@ Q_SIGNALS:
 
     void textColorChanged();
 
-    void checkableChanged();
     void currentListStyleChanged();
 
     void formatChanged();
+    void textFormatChanged();
     void styleChanged();
+    void listChanged();
 
     void contentsChanged();
 
@@ -220,10 +220,6 @@ private:
     QString m_initialText = {};
     void initializeChars();
 
-    void setTextFormat(RichFormat::Format format);
-    void setStyleFormat(RichFormat::Format format);
-    void setListFormat(RichFormat::Format format);
-
     QPointer<ChatMarkdownHelper> m_markdownHelper;
     std::optional<QTextCharFormat> m_pendingFormat = std::nullopt;
     std::optional<QTextCharFormat> m_pendingOverrideFormat = std::nullopt;
@@ -236,7 +232,6 @@ private:
     std::optional<Qt::TextFormat> textFormat() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
     void selectLinkText(QTextCursor *cursor) const;
-    NestedListHelper m_nestedListHelper;
     QColor linkColor();
     QColor mLinkColor;
     void regenerateColorScheme();
