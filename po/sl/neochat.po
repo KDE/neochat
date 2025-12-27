@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:43+0000\n"
-"PO-Revision-Date: 2025-12-01 07:26+0100\n"
+"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"PO-Revision-Date: 2025-12-26 07:05+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -622,20 +622,16 @@ msgid "Reject Invite"
 msgstr "Zavrni povabilo"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Odpri profil"
+msgstr "Ogled profila %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Zavrni povabilo"
+msgstr "Prezri %1 in zavrni povabilo"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -666,53 +662,53 @@ msgstr "Pridruži se sobi"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:100
 #, kde-format
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:106
 #, kde-format
 msgid "Decline"
 msgstr "Odkloni"
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:150
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Čakanje na napravo, da sprejme verifikacijo."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:152
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Prejet zahtevek verifikacije ključa iz naprave **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:163
+#: src/app/qml/KeyVerificationDialog.qml:154
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Čakanje na pošiljanje ključev druge stranke."
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:156
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Čakanje na drugo stranko za potrditev naših ključev."
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Čakanje na verifikacijo druge stranke."
 
-#: src/app/qml/KeyVerificationDialog.qml:169
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Uspešno verificirana naprava **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:186
+#: src/app/qml/KeyVerificationDialog.qml:177
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Izberite metodo preverjanja za nadaljevanje"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1269,47 +1265,37 @@ msgid "Account Details"
 msgstr "Podrobnosti računa"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<sporočilo>"
+msgstr "Sporočilo"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Prezri"
+msgstr "Odprezri"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Prezri"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopiraj povezavo"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Išči sporočila"
+msgstr "Išči sporočila…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Prikaži kodo QR"
@@ -1347,19 +1333,16 @@ msgid "Report User"
 msgstr "Prijavi uporabnika"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Moderator"
+msgstr "Moderiranje"
 
 #: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Brcni"
+msgstr "Brcni…"
 
 #: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1383,7 +1366,7 @@ msgstr "Brcni"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Prepovej…"
 
 #: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
@@ -1407,15 +1390,13 @@ msgstr "Prepoved"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Odprepovej"
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Odstrani sporočila"
+msgstr "Odstrani sporočila…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1445,40 +1426,32 @@ msgstr "Odstrani sporočila"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "Vloga"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "Uredi raven moči uporabnika"
+msgstr "Uredi raven moči"
 
 #: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "One mutual room"
-#| msgid_plural "%1 mutual rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "%1 skupnih sob"
+msgstr "Vzajemne sobe"
 
 #: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " in %1 drugih"
-msgstr[1] " in %1 drug"
-msgstr[2] " in %1 druga"
-msgstr[3] " in %1 drugi"
+msgstr[0] " in %1 drugih…"
+msgstr[1] " in %1 drug…"
+msgstr[2] " in %1 druga…"
+msgstr[3] " in %1 drugi…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2188,15 +2161,29 @@ msgstr "Skrbnik"
 
 #: src/libneochat/enums/powerlevel.cpp:16
 #, kde-format
+msgctxt "The person that owns a room"
+msgid "Owner"
+msgstr ""
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@info the person that created this room"
+#| msgid "Creator"
+msgctxt "The person that created a room"
+msgid "Creator"
+msgstr "Ustvarjalec"
+
+#: src/libneochat/enums/powerlevel.cpp:20
+#, kde-format
 msgid "Mute"
 msgstr "Utišan"
 
-#: src/libneochat/enums/powerlevel.cpp:18
+#: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
@@ -3757,7 +3744,7 @@ msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
 #: src/messagecontent/CodeComponent.qml:173
-#: src/messagecontent/VideoComponent.qml:374
+#: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3777,16 +3764,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Pridobi več dogodkov"
 
-#: src/messagecontent/FileComponent.qml:84
-#: src/messagecontent/FileComponent.qml:167
+#: src/messagecontent/FileComponent.qml:80
+#: src/messagecontent/FileComponent.qml:155
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Prenos"
 
-#: src/messagecontent/FileComponent.qml:100
-#: src/messagecontent/FileComponent.qml:157
+#: src/messagecontent/FileComponent.qml:93
+#: src/messagecontent/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -3794,13 +3781,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/messagecontent/FileComponent.qml:115
+#: src/messagecontent/FileComponent.qml:103
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:120
+#: src/messagecontent/FileComponent.qml:107
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -3830,7 +3817,7 @@ msgid "Check-out time: %1"
 msgstr "Check-out time: %1"
 
 #: src/messagecontent/ImageComponent.qml:55
-#: src/messagecontent/VideoComponent.qml:183
+#: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -3998,18 +3985,18 @@ msgstr "Odgovor"
 msgid "Pl. %1"
 msgstr "Pl. %1"
 
-#: src/messagecontent/VideoComponent.qml:211
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:250
+#: src/messagecontent/VideoComponent.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Prikaži video"
 
-#: src/messagecontent/VideoComponent.qml:291
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4790,11 +4777,10 @@ msgid "Show your messages on the right"
 msgstr "Pokaži lastna sporočila na desni strani"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Skrči predogled"
+msgstr "Prikaži predoglede povezav"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4803,6 +4789,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"To lahko prilagodite za vsako sobo posebej v nastavitvah sobe. Če ni "
+"označeno, so predogledi povezav v vsaki sobi onemogočeni."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -6239,62 +6227,48 @@ msgid "Add new alias"
 msgstr "Dodaj novi vzdevek"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "Predogledi URL"
+msgstr "Predogledi povezave"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "Predogledi URL so privzeto onemogočeni v tej sobi"
+msgstr "Predogledi povezav so globalno onemogočeni v nastavitvah videza"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Omogoči"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "Omogoči šifriranje za sobo"
+msgstr "Omogoči predogled povezav za to sobo"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr "Predogledi URL so privzeto omogočeni v tej sobi"
+msgstr "Predogled povezav so skrbniki sobe privzeto omogočili."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr "Predogledi URL so privzeto onemogočeni v tej sobi"
+msgstr "Predogled povezav so skrbniki sobe privzeto onemogočili."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "Privzeto omogoči predoglede URL za člane sobe"
+msgstr "Privzeto omogoči predogled povezav"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format

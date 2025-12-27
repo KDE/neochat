@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-27 00:42+0000\n"
 "PO-Revision-Date: 2025-12-08 19:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -665,53 +665,53 @@ msgstr "Elkartu gelara"
 msgid "Session Verification"
 msgstr "Saioaren egiaztapena"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:100
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:106
 #, kde-format
 msgid "Decline"
 msgstr "Uko egin"
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:150
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Gailuak egiaztapena onartzeko zain."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:152
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Gakoa egiaztatzeko **%1** gailuaren sarrerako eskaera"
 
-#: src/app/qml/KeyVerificationDialog.qml:163
+#: src/app/qml/KeyVerificationDialog.qml:154
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "Beste aldeak guri gakoak bidaltzeko zain."
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:156
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "Beste aldeak gure gakoak baieztatzeko zain."
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Beste aldea egiaztatzeko zain."
 
-#: src/app/qml/KeyVerificationDialog.qml:169
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
-#: src/app/qml/KeyVerificationDialog.qml:186
+#: src/app/qml/KeyVerificationDialog.qml:177
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Aukeratu egiaztapen metodo bat jarraitzeko"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -2188,16 +2188,31 @@ msgid "Admin"
 msgstr "Administratzailea"
 
 #: src/libneochat/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgctxt "The person that owns a room"
+msgid "Owner"
+msgstr "Jabea"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@info the person that created this room"
+#| msgid "Creator"
+msgctxt "The person that created a room"
+msgid "Creator"
+msgstr "Sortzailea"
+
+#: src/libneochat/enums/powerlevel.cpp:20
 #, kde-format
 msgid "Mute"
 msgstr "Isilarazi"
 
-#: src/libneochat/enums/powerlevel.cpp:18
+#: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
 msgid "Custom"
 msgstr "Neurrira"
 
-#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
@@ -3764,7 +3779,7 @@ msgid "Copy to clipboard"
 msgstr "Kopiatu arbelera"
 
 #: src/messagecontent/CodeComponent.qml:173
-#: src/messagecontent/VideoComponent.qml:374
+#: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3784,16 +3799,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Eskuratu gertaera gehiago"
 
-#: src/messagecontent/FileComponent.qml:84
-#: src/messagecontent/FileComponent.qml:167
+#: src/messagecontent/FileComponent.qml:80
+#: src/messagecontent/FileComponent.qml:155
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Zama-jaitsi"
 
-#: src/messagecontent/FileComponent.qml:100
-#: src/messagecontent/FileComponent.qml:157
+#: src/messagecontent/FileComponent.qml:93
+#: src/messagecontent/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -3801,13 +3816,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Ireki fitxategia"
 
-#: src/messagecontent/FileComponent.qml:115
+#: src/messagecontent/FileComponent.qml:103
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:120
+#: src/messagecontent/FileComponent.qml:107
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -3837,7 +3852,7 @@ msgid "Check-out time: %1"
 msgstr "Ordaindu eta irtete ordua: %1"
 
 #: src/messagecontent/ImageComponent.qml:55
-#: src/messagecontent/VideoComponent.qml:183
+#: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -3997,18 +4012,18 @@ msgstr "Erantzun"
 msgid "Pl. %1"
 msgstr "%1 Na."
 
-#: src/messagecontent/VideoComponent.qml:211
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "Bideoa"
 
-#: src/messagecontent/VideoComponent.qml:250
+#: src/messagecontent/VideoComponent.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Erakutsi bideoa"
 
-#: src/messagecontent/VideoComponent.qml:291
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -8082,9 +8097,6 @@ msgstr[1] "%2 tekleatzen ari dira"
 
 #~ msgid "Editing message:"
 #~ msgstr "Mezua editatzea:"
-
-#~ msgid "Owner"
-#~ msgstr "Jabea"
 
 #~ msgid "Mod"
 #~ msgstr "Moderatzailea"

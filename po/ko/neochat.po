@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-27 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -664,53 +664,53 @@ msgstr "대화방 입장"
 msgid "Session Verification"
 msgstr "세션 확인"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:100
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:106
 #, kde-format
 msgid "Decline"
 msgstr "거절"
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:150
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "장치에서 확인을 수락하기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:152
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "**%1** 장치에서 들어오는 키 확인 요청을 받음"
 
-#: src/app/qml/KeyVerificationDialog.qml:163
+#: src/app/qml/KeyVerificationDialog.qml:154
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "다른 쪽에서 키를 보내기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:156
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "다른 쪽에서 우리 키를 확인하기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "다른 쪽에서 확인 작업을 완료하기를 기다리고 있습니다."
 
-#: src/app/qml/KeyVerificationDialog.qml:169
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** 장치를 성공적으로 확인함"
 
-#: src/app/qml/KeyVerificationDialog.qml:186
+#: src/app/qml/KeyVerificationDialog.qml:177
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "계속 진행하려면 확인 방법을 선택하십시오"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -2181,16 +2181,31 @@ msgid "Admin"
 msgstr "관리자"
 
 #: src/libneochat/enums/powerlevel.cpp:16
+#, fuzzy, kde-format
+#| msgid "Owner"
+msgctxt "The person that owns a room"
+msgid "Owner"
+msgstr "소유자"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@info the person that created this room"
+#| msgid "Creator"
+msgctxt "The person that created a room"
+msgid "Creator"
+msgstr "생성자"
+
+#: src/libneochat/enums/powerlevel.cpp:20
 #, kde-format
 msgid "Mute"
 msgstr "뮤트"
 
-#: src/libneochat/enums/powerlevel.cpp:18
+#: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
 msgid "Custom"
 msgstr "사용자 정의"
 
-#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
@@ -3759,7 +3774,7 @@ msgid "Copy to clipboard"
 msgstr "클립보드에 복사"
 
 #: src/messagecontent/CodeComponent.qml:173
-#: src/messagecontent/VideoComponent.qml:374
+#: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3780,16 +3795,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "더 많은 이벤트 가져오기"
 
-#: src/messagecontent/FileComponent.qml:84
-#: src/messagecontent/FileComponent.qml:167
+#: src/messagecontent/FileComponent.qml:80
+#: src/messagecontent/FileComponent.qml:155
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "다운로드"
 
-#: src/messagecontent/FileComponent.qml:100
-#: src/messagecontent/FileComponent.qml:157
+#: src/messagecontent/FileComponent.qml:93
+#: src/messagecontent/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -3797,13 +3812,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "파일 열기"
 
-#: src/messagecontent/FileComponent.qml:115
+#: src/messagecontent/FileComponent.qml:103
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:120
+#: src/messagecontent/FileComponent.qml:107
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -3833,7 +3848,7 @@ msgid "Check-out time: %1"
 msgstr "체크아웃 시간: %1"
 
 #: src/messagecontent/ImageComponent.qml:55
-#: src/messagecontent/VideoComponent.qml:183
+#: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -3989,18 +4004,18 @@ msgstr "답장"
 msgid "Pl. %1"
 msgstr "%1번"
 
-#: src/messagecontent/VideoComponent.qml:211
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "비디오"
 
-#: src/messagecontent/VideoComponent.qml:250
+#: src/messagecontent/VideoComponent.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "비디오 보기"
 
-#: src/messagecontent/VideoComponent.qml:291
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -8132,9 +8147,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "Editing message:"
 #~ msgstr "메시지 편집:"
-
-#~ msgid "Owner"
-#~ msgstr "소유자"
 
 #~ msgid "Mod"
 #~ msgstr "중재자"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:43+0000\n"
-"PO-Revision-Date: 2025-12-01 09:31+0200\n"
+"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"PO-Revision-Date: 2025-12-26 09:15+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -24,12 +24,12 @@ msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
 "used for] Receiving notifications for new messages'"
 msgid "Receiving notifications for new messages"
-msgstr "מתקבלות התראות על הודעות חדשות"
+msgstr "קבלת התראות על הודעות חדשות"
 
 #: src/app/controller.cpp:319
 #, kde-format
 msgid "Receiving push notifications"
-msgstr "התראות בדחיפה מתקבלות"
+msgstr "קבלת התראות בדחיפה"
 
 #: src/app/main.cpp:131 src/login/WelcomePage.qml:77
 #, kde-format
@@ -617,20 +617,16 @@ msgid "Reject Invite"
 msgstr "דחיית ההזמנה"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "פתיחת פרופיל"
+msgstr "הצגת הפרופיל של %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "דחיית ההזמנה"
+msgstr "התעלמות מ־%1 ודחיית ההזמנה"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -661,53 +657,53 @@ msgstr "הצטרפות לחדר"
 msgid "Session Verification"
 msgstr "אימות פגישה"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:100
 #, kde-format
 msgid "Accept"
 msgstr "קבלה"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:106
 #, kde-format
 msgid "Decline"
 msgstr "דחייה"
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:150
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "בהמתנה למכשיר לקבל את האימות."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:152
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "בקשת אימות מפתח נכנסת מהמכשיר **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:163
+#: src/app/qml/KeyVerificationDialog.qml:154
 #, kde-format
 msgid "Waiting for other party to send us keys."
 msgstr "בהמתנה לשליחת מפתחות מהצד השני."
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:156
 #, kde-format
 msgid "Waiting for other party to confirm our keys."
 msgstr "בהמתנה לאישור המפתחות על ידי הצד השני."
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "בהמתנה לאישור מהצד השני."
 
-#: src/app/qml/KeyVerificationDialog.qml:169
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "המכשיר **%1** אומת בהצלחה"
 
-#: src/app/qml/KeyVerificationDialog.qml:186
+#: src/app/qml/KeyVerificationDialog.qml:177
 #, kde-format
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "נא לבחור שיטת אימות כדי להמשיך"
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:181
 #, kde-format
 msgctxt "@action:button"
 msgid "Emoji Verification"
@@ -1263,47 +1259,37 @@ msgid "Account Details"
 msgstr "פרטי חשבון"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<הודעה>"
+msgstr "הודעה"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "התעלמות"
+msgstr "ביטול התעלמות"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "התעלמות"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "העתקת קישור"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "חיפוש הודעות"
+msgstr "חיפוש הודעות…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "הצגת קוד QR"
@@ -1341,19 +1327,16 @@ msgid "Report User"
 msgstr "דיווח על משתמש"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "משגיח/ה"
+msgstr "השגחה"
 
 #: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "בעיטה"
+msgstr "בעיטה…"
 
 #: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1377,7 +1360,7 @@ msgstr "בעיטה"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "חסימה…"
 
 #: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
@@ -1401,15 +1384,13 @@ msgstr "חסימה"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "הסרת חסימה"
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "הסרת הודעות"
+msgstr "הסרת הודעות…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1439,40 +1420,32 @@ msgstr "הסרת הודעות"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "תפקיד"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "הגדרת רמת העוצמה של המשתמש"
+msgstr "הגדרת רמת העוצמה"
 
 #: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "One mutual room"
-#| msgid_plural "%1 mutual rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "חדר משותף"
+msgstr "חדרים משותפים"
 
 #: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " ועוד אחד/ת"
-msgstr[1] " ועוד שניים או שתיים"
-msgstr[2] " ועוד %1"
-msgstr[3] " ועוד %1"
+msgstr[0] "ועוד אחד…"
+msgstr[1] "ועוד שניים…"
+msgstr[2] " ועוד %1…"
+msgstr[3] "ועוד %1…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2154,15 +2127,29 @@ msgstr "מנהל/ת"
 
 #: src/libneochat/enums/powerlevel.cpp:16
 #, kde-format
+msgctxt "The person that owns a room"
+msgid "Owner"
+msgstr ""
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@info the person that created this room"
+#| msgid "Creator"
+msgctxt "The person that created a room"
+msgid "Creator"
+msgstr "יוצר/ת"
+
+#: src/libneochat/enums/powerlevel.cpp:20
+#, kde-format
 msgid "Mute"
 msgstr "השתקה"
 
-#: src/libneochat/enums/powerlevel.cpp:18
+#: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
 msgid "Custom"
 msgstr "מותאם אישית"
 
-#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, kde-format
@@ -3721,7 +3708,7 @@ msgid "Copy to clipboard"
 msgstr "העתקה ללוח הגזירים"
 
 #: src/messagecontent/CodeComponent.qml:173
-#: src/messagecontent/VideoComponent.qml:374
+#: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Maximize"
@@ -3740,16 +3727,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "משיכת אירועים נוספים"
 
-#: src/messagecontent/FileComponent.qml:84
-#: src/messagecontent/FileComponent.qml:167
+#: src/messagecontent/FileComponent.qml:80
+#: src/messagecontent/FileComponent.qml:155
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "הורדה"
 
-#: src/messagecontent/FileComponent.qml:100
-#: src/messagecontent/FileComponent.qml:157
+#: src/messagecontent/FileComponent.qml:93
+#: src/messagecontent/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -3757,13 +3744,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "פתיחת קובץ"
 
-#: src/messagecontent/FileComponent.qml:115
+#: src/messagecontent/FileComponent.qml:103
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:120
+#: src/messagecontent/FileComponent.qml:107
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -3793,7 +3780,7 @@ msgid "Check-out time: %1"
 msgstr "שעת מסירה: %1"
 
 #: src/messagecontent/ImageComponent.qml:55
-#: src/messagecontent/VideoComponent.qml:183
+#: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
@@ -3960,18 +3947,18 @@ msgstr "תגובה"
 msgid "Pl. %1"
 msgstr "רציף %1"
 
-#: src/messagecontent/VideoComponent.qml:211
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "סרטון"
 
-#: src/messagecontent/VideoComponent.qml:250
+#: src/messagecontent/VideoComponent.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "הצגת סרטון"
 
-#: src/messagecontent/VideoComponent.qml:291
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -4750,11 +4737,10 @@ msgid "Show your messages on the right"
 msgstr "הצגת ההודעות שלך משמאל"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "צמצום תצוגה מקדימה"
+msgstr "הצגת תצוגות מקדימות של קישורים"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4763,6 +4749,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"אפשר להתאים את זה לפי חדר תחת הגדרות החדר. אם האפשרות לא מסומנת, תצוגות "
+"הקישורים המקדימות יושבתו בכל החדרים."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -6187,62 +6175,48 @@ msgid "Add new alias"
 msgstr "הוספת כינוי חדש"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "תצוגות מקדימות של כתובות"
+msgstr "תצוגות מקדימות של קישורים"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "תצוגות מקדימות של כתובות כבויות כברירת מחדל בחדר הזה"
+msgstr "תצוגות מקדימות של כתובות כבויות באופן מקיף בהגדרות המראה"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "הפעלה"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "הפעלת הצפנה לחדר"
+msgstr "הפעלת תצוגות מקדימות של קישורים בחדר הזה"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr "תצוגות מקדימות של כתובות פעילות כברירת מחדל בחדר הזה"
+msgstr "תצוגות מקדימות של קישורים הופעלו כברירת מחדל על ידי מנהלי החדר."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr "תצוגות מקדימות של כתובות כבויות כברירת מחדל בחדר הזה"
+msgstr "תצוגות מקדימות של קישורים הושבתו כברירת מחדל על ידי מנהלי החדר."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "הפעלת תצוגות מקדימות של כתובות כברירת מחדל לחברי החדר"
+msgstr "הפעלת תצוגות מקדימות של קישורים כברירת מחדל"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format

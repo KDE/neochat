@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-26 00:43+0000\n"
+"POT-Creation-Date: 2025-12-27 00:42+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -728,56 +728,56 @@ msgstr "Bergabung ke ruangan %1."
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/app/qml/KeyVerificationDialog.qml:109
+#: src/app/qml/KeyVerificationDialog.qml:100
 #, kde-format
 msgid "Accept"
 msgstr "Terima"
 
-#: src/app/qml/KeyVerificationDialog.qml:115
+#: src/app/qml/KeyVerificationDialog.qml:106
 #, kde-format
 msgid "Decline"
 msgstr "Tolak"
 
-#: src/app/qml/KeyVerificationDialog.qml:159
+#: src/app/qml/KeyVerificationDialog.qml:150
 #, kde-format
 msgid "Waiting for device to accept verification."
 msgstr "Menunggu peranti untuk menerima verifikasi."
 
-#: src/app/qml/KeyVerificationDialog.qml:161
+#: src/app/qml/KeyVerificationDialog.qml:152
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
 msgstr "Permintaan verifikasi kunci dari peranti **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:163
+#: src/app/qml/KeyVerificationDialog.qml:154
 #, fuzzy, kde-format
 #| msgid "Waiting for other party to verify."
 msgid "Waiting for other party to send us keys."
 msgstr "Menunggu pihak lain untuk memverifikasi."
 
-#: src/app/qml/KeyVerificationDialog.qml:165
+#: src/app/qml/KeyVerificationDialog.qml:156
 #, fuzzy, kde-format
 #| msgid "Waiting for other party to verify."
 msgid "Waiting for other party to confirm our keys."
 msgstr "Menunggu pihak lain untuk memverifikasi."
 
-#: src/app/qml/KeyVerificationDialog.qml:167
+#: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
 msgid "Waiting for other party to verify."
 msgstr "Menunggu pihak lain untuk memverifikasi."
 
-#: src/app/qml/KeyVerificationDialog.qml:169
+#: src/app/qml/KeyVerificationDialog.qml:160
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Berhasil memverifikasi peranti **%1**"
 
-#: src/app/qml/KeyVerificationDialog.qml:186
+#: src/app/qml/KeyVerificationDialog.qml:177
 #, fuzzy, kde-format
 #| msgid "The session verification timed out."
 msgctxt "@info"
 msgid "Choose a verification method to continue"
 msgstr "Verifikasi sesi kehabisan waktu."
 
-#: src/app/qml/KeyVerificationDialog.qml:190
+#: src/app/qml/KeyVerificationDialog.qml:181
 #, fuzzy, kde-format
 #| msgid "Session Verification"
 msgctxt "@action:button"
@@ -2361,16 +2361,30 @@ msgstr "Admin (100)"
 
 #: src/libneochat/enums/powerlevel.cpp:16
 #, fuzzy, kde-format
+#| msgid "Owner"
+msgctxt "The person that owns a room"
+msgid "Owner"
+msgstr "Pemilik"
+
+#: src/libneochat/enums/powerlevel.cpp:18
+#, fuzzy, kde-format
+#| msgid "Create space"
+msgctxt "The person that created a room"
+msgid "Creator"
+msgstr "Buat space"
+
+#: src/libneochat/enums/powerlevel.cpp:20
+#, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Mute"
 msgstr "Dibisukan"
 
-#: src/libneochat/enums/powerlevel.cpp:18
+#: src/libneochat/enums/powerlevel.cpp:22
 #, kde-format
 msgid "Custom"
 msgstr "Kustom"
 
-#: src/libneochat/enums/powerlevel.cpp:88
+#: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
 #: src/settings/models/permissionsmodel.cpp:185
 #, fuzzy, kde-format
@@ -4063,7 +4077,7 @@ msgid "Copy to clipboard"
 msgstr "Salin ID ruangan ke papan klip"
 
 #: src/messagecontent/CodeComponent.qml:173
-#: src/messagecontent/VideoComponent.qml:374
+#: src/messagecontent/VideoComponent.qml:341
 #, fuzzy, kde-format
 #| msgid "Maximize"
 msgctxt "@action:button"
@@ -4084,16 +4098,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr ""
 
-#: src/messagecontent/FileComponent.qml:84
-#: src/messagecontent/FileComponent.qml:167
+#: src/messagecontent/FileComponent.qml:80
+#: src/messagecontent/FileComponent.qml:155
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Unduh"
 
-#: src/messagecontent/FileComponent.qml:100
-#: src/messagecontent/FileComponent.qml:157
+#: src/messagecontent/FileComponent.qml:93
+#: src/messagecontent/FileComponent.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -4101,13 +4115,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Buka Berkas"
 
-#: src/messagecontent/FileComponent.qml:115
+#: src/messagecontent/FileComponent.qml:103
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:120
+#: src/messagecontent/FileComponent.qml:107
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -4137,7 +4151,7 @@ msgid "Check-out time: %1"
 msgstr ""
 
 #: src/messagecontent/ImageComponent.qml:55
-#: src/messagecontent/VideoComponent.qml:183
+#: src/messagecontent/VideoComponent.qml:150
 #, fuzzy, kde-format
 #| msgid "Set Image"
 msgctxt "@action:button"
@@ -4310,19 +4324,19 @@ msgstr "Balas"
 msgid "Pl. %1"
 msgstr ""
 
-#: src/messagecontent/VideoComponent.qml:211
+#: src/messagecontent/VideoComponent.qml:178
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:250
+#: src/messagecontent/VideoComponent.qml:217
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:button"
 msgid "Show Video"
 msgstr "Video"
 
-#: src/messagecontent/VideoComponent.qml:291
+#: src/messagecontent/VideoComponent.qml:258
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
@@ -8828,9 +8842,6 @@ msgstr[1] "%2 sedang mengetik"
 
 #~ msgid "Editing message:"
 #~ msgstr "Menyunting pesan:"
-
-#~ msgid "Owner"
-#~ msgstr "Pemilik"
 
 #~ msgid "Mod"
 #~ msgstr "Mod"
