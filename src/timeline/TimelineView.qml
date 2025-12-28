@@ -193,9 +193,7 @@ QQC2.ScrollView {
             room: _private.room
         }
 
-        KirigamiComponents.FloatingButton {
-            id: goReadMarkerFab
-
+        ColumnLayout {
             anchors {
                 right: parent.right
                 top: parent.top
@@ -203,28 +201,59 @@ QQC2.ScrollView {
                 rightMargin: Kirigami.Units.largeSpacing
             }
 
-            implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
-            implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+            spacing: Kirigami.Units.largeSpacing
 
-            padding: Kirigami.Units.largeSpacing
+            KirigamiComponents.FloatingButton {
+                id: goReadMarkerFab
 
-            z: 2
-            visible: !_private.room?.partiallyReadStats.empty()
+                implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+                implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
 
-            text: _private.room.readMarkerLoaded ? i18nc("@action:button", "Jump to first unread message") : i18nc("@action:button", "Jump to oldest loaded message")
-            icon.name: "go-up"
-            onClicked: {
-                goReadMarkerFab.textChanged()
-                root.goToEvent(_private.room.lastFullyReadEventId);
+                padding: Kirigami.Units.largeSpacing
+
+                z: 2
+                visible: !_private.room?.partiallyReadStats.empty()
+
+                text: _private.room.readMarkerLoaded ? i18nc("@action:button", "Jump to first unread message") : i18nc("@action:button", "Jump to oldest loaded message")
+                icon.name: "go-up"
+                onClicked: {
+                    goReadMarkerFab.textChanged()
+                    root.goToEvent(_private.room.lastFullyReadEventId);
+                }
+                Kirigami.Action {
+                    shortcut: "Shift+PgUp"
+                    onTriggered: goReadMarkerFab.clicked()
+                }
+
+                QQC2.ToolTip.text: goReadMarkerFab.text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: goReadMarkerFab.hovered
             }
-            Kirigami.Action {
-                shortcut: "Shift+PgUp"
-                onTriggered: goReadMarkerFab.clicked()
-            }
+            KirigamiComponents.FloatingButton {
+                id: goUnreadHighlightFab
 
-            QQC2.ToolTip.text: goReadMarkerFab.text
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: goReadMarkerFab.hovered
+                implicitWidth: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+                implicitHeight: Kirigami.Settings.hasTransientTouchInput ? Kirigami.Units.gridUnit * 3 : Kirigami.Units.gridUnit * 2
+
+                padding: Kirigami.Units.largeSpacing
+
+                z: 2
+                visible: _private.room?.highlightCount > 0
+
+                text: _private.room?.highlightCycleStarted ? i18nc("@action:button", "Jump to next unread highlight") : i18nc("@action:button", "Jump to first unread message")
+                icon.name: "mail-unread-symbolic"
+                onClicked: {
+                    const eventId = _private.room.findNextUnreadHighlightId();
+                    if (eventId !== "") {
+                        goUnreadHighlightFab.textChanged();
+                        root.goToEvent(eventId);
+                    }
+                }
+
+                QQC2.ToolTip.text: goUnreadHighlightFab.text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: goUnreadHighlightFab.hovered
+            }
         }
         KirigamiComponents.FloatingButton {
             id: goMarkAsReadFab

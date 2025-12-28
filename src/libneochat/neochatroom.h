@@ -208,6 +208,11 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(QString pinnedMessage READ pinnedMessage NOTIFY pinnedMessageChanged)
 
+    /**
+     * @brief Whether the highlight finding cycle has started.
+     */
+    Q_PROPERTY(bool highlightCycleStarted READ highlightCycleStarted NOTIFY highlightCycleStartedChanged)
+
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -627,6 +632,19 @@ public:
      */
     Q_INVOKABLE void report(const QString &reason);
 
+    /**
+     * @brief Returns the ID of the next unread highlight in the room.
+     *
+     * Each call advances the internal highlight cursor. Once the last unread highlight
+     * is reached, the cycle is reset.
+     */
+    Q_INVOKABLE QString findNextUnreadHighlightId();
+
+    /**
+     * @brief Whether the highlight finding cycle has started.
+     */
+    bool highlightCycleStarted() const;
+
 private:
     bool m_visible = false;
 
@@ -662,10 +680,14 @@ private:
     QString m_pinnedMessage;
     void loadPinnedMessage();
 
+    QString m_lastUnreadHighlightId;
+
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
 
     void cacheLastEvent();
+
+    void invalidateLastUnreadHighlightId(const QString &fromEventId, const QString &toEventId);
 
 Q_SIGNALS:
     void cachedInputChanged();
@@ -692,6 +714,7 @@ Q_SIGNALS:
     void extraEventNotFound(const QString &eventId);
     void inviteTimestampChanged();
     void pinnedMessageChanged();
+    void highlightCycleStartedChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.

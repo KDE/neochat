@@ -169,6 +169,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     const auto neochatconnection = static_cast<NeoChatConnection *>(connection);
     Q_ASSERT(neochatconnection);
     connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
+    connect(this, &Room::fullyReadMarkerMoved, this, &NeoChatRoom::invalidateLastUnreadHighlightId);
 }
 
 bool NeoChatRoom::visible() const
@@ -1841,6 +1842,54 @@ QString NeoChatRoom::pinnedMessage() const
 void NeoChatRoom::report(const QString &reason)
 {
     connection()->callApi<NeochatReportRoomJob>(id(), reason);
+}
+
+QString NeoChatRoom::findNextUnreadHighlightId()
+{
+    const QString startEventId = !m_lastUnreadHighlightId.isEmpty() ? m_lastUnreadHighlightId : lastFullyReadEventId();
+    const auto startIt = findInTimeline(startEventId);
+    if (startIt == historyEdge()) {
+        return {};
+    }
+
+    for (auto it = startIt.base(); it != messageEvents().cend(); ++it) {
+        const RoomEvent *ev = it->event();
+        if (highlights.contains(ev)) {
+            m_lastUnreadHighlightId = ev->id();
+            Q_EMIT highlightCycleStartedChanged();
+            return m_lastUnreadHighlightId;
+        }
+    }
+
+    if (!m_lastUnreadHighlightId.isEmpty()) {
+        m_lastUnreadHighlightId.clear();
+        Q_EMIT highlightCycleStartedChanged();
+        return findNextUnreadHighlightId();
+    }
+    return {};
+}
+
+bool NeoChatRoom::highlightCycleStarted() const
+{
+    return !m_lastUnreadHighlightId.isEmpty();
+}
+
+void NeoChatRoom::invalidateLastUnreadHighlightId(const QString &fromEventId, const QString &toEventId)
+{
+    Q_UNUSED(fromEventId);
+
+    if (m_lastUnreadHighlightId.isEmpty()) {
+        return;
+    }
+
+    const auto lastIt = findInTimeline(m_lastUnreadHighlightId);
+    const auto newReadIt = findInTimeline(toEventId);
+
+    // opposite comparision because both are reverse iterators :p
+    if (newReadIt <= lastIt) {
+        m_lastUnreadHighlightId.clear();
+        Q_EMIT highlightCycleStartedChanged();
+    }
 }
 
 #include "moc_neochatroom.cpp"
