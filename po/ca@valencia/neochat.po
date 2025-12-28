@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-27 00:42+0000\n"
-"PO-Revision-Date: 2025-12-01 11:35+0100\n"
+"PO-Revision-Date: 2025-12-27 10:22+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -624,20 +624,16 @@ msgid "Reject Invite"
 msgstr "Rebutja la invitació"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Obri el perfil"
+msgstr "Visualitza el perfil de %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Rebutja la invitació"
+msgstr "Ignora %1 i rebutja la invitació"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -1278,47 +1274,37 @@ msgid "Account Details"
 msgstr "Detalls del compte"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<missatge>"
+msgstr "Missatge"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Ignora"
+msgstr "Deixa d'ignorar"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignora"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Copia l'enllaç"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Busca missatges"
+msgstr "Busca missatges…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Mostra el codi QR"
@@ -1356,19 +1342,16 @@ msgid "Report User"
 msgstr "Informa d'un usuari"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Moderador"
+msgstr "Moderació"
 
 #: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Expulsa"
+msgstr "Expulsa…"
 
 #: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1392,7 +1375,7 @@ msgstr "Expulsa"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Bandeja…"
 
 #: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
@@ -1416,15 +1399,13 @@ msgstr "Bandeja"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Desbandeja"
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Eliminació de missatges"
+msgstr "Elimina missatges…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1454,38 +1435,30 @@ msgstr "Eliminació de missatges"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "Rol"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "Establix el nivell de permisos d'usuari"
+msgstr "Establix el nivell de permisos"
 
 #: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "One mutual room"
-#| msgid_plural "%1 mutual rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "Una sala col·lectiva"
+msgstr "Sales en comú"
 
 #: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " i %1 altre"
-msgstr[1] " i %1 altres"
+msgstr[0] "i 1 altra…"
+msgstr[1] "i %1 altres…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2204,12 +2177,10 @@ msgstr "Administrador"
 #, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
-msgstr ""
+msgstr "Propietari"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Creador"
@@ -4813,11 +4784,10 @@ msgid "Show your messages on the right"
 msgstr "Mostra els vostres missatges a la dreta"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Encull la vista prèvia"
+msgstr "Mostra la vista prèvia dels enllaços"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4826,6 +4796,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"Podeu personalitzar açò a cada sala des de la configuració de la sala. Si no "
+"està marcada, desactiva la vista prèvia d'enllaços cap a totes les sales."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -5958,7 +5930,7 @@ msgstr "Adhesius i emoji"
 #: src/settings/NeoChatSettingsView.qml:84
 #, kde-format
 msgid "Network Proxy"
-msgstr "Servidor intermediari de la xarxa"
+msgstr "Amfitrió intermediari de la xarxa"
 
 #: src/settings/NeoChatSettingsView.qml:90
 #, kde-format
@@ -5991,7 +5963,7 @@ msgstr "Quant a KDE"
 #, kde-format
 msgctxt "@title:window"
 msgid "Proxy"
-msgstr "Servidor intermediari"
+msgstr "Amfitrió intermediari"
 
 #: src/settings/NetworkProxyPage.qml:23
 #, kde-format
@@ -6001,7 +5973,7 @@ msgstr "Predeterminada del sistema"
 #: src/settings/NetworkProxyPage.qml:35
 #, kde-format
 msgid "No Proxy"
-msgstr "Sense servidor intermediari"
+msgstr "Sense amfitrió intermediari"
 
 #: src/settings/NetworkProxyPage.qml:47
 #, kde-format
@@ -6016,12 +5988,12 @@ msgstr "Socks5"
 #: src/settings/NetworkProxyPage.qml:69
 #, kde-format
 msgid "Proxy Settings"
-msgstr "Configureu el servidor intermediari"
+msgstr "Configureu l'amfitrió intermediari"
 
 #: src/settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Host"
-msgstr "Màquina"
+msgstr "Amfitrió"
 
 #: src/settings/NetworkProxyPage.qml:91
 #, kde-format
@@ -6276,70 +6248,54 @@ msgid "Add new alias"
 msgstr "Afig un àlies nou"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "Vistes prèvies dels URL"
+msgstr "Vistes prèvies dels enllaços"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
 msgstr ""
-"Les vistes prèvies dels URL estan desactivades de manera predeterminada en "
-"esta sala"
+"Les vistes prèvies d'enllaços estan desactivades globalment a la "
+"configuració de l'aparença"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Activa"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "Activar l'encriptació de la sala"
+msgstr "Activa la vista prèvia d'enllaços cap a esta sala"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
 msgstr ""
-"Les vistes prèvies dels URL estan activades de manera predeterminada en esta "
-"sala"
+"Les vistes prèvies d'enllaços estan activades en esta sala per part dels "
+"seus administradors."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
 msgstr ""
-"Les vistes prèvies dels URL estan desactivades de manera predeterminada en "
-"esta sala"
+"Les vistes prèvies d'enllaços estan desactivades en esta sala per part dels "
+"seus administradors."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr ""
-"Activa les vistes prèvies dels URL de manera predeterminada per als membres "
-"de la sala"
+msgstr "Activa les vistes prèvies d'enllaços de manera predeterminada"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format
@@ -7287,58 +7243,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt "@action:button Block the user"
-#~ msgid "Block %1"
-#~ msgstr "Bloqueja %1"
-
-#~ msgid "Unignore this user"
-#~ msgstr "No ignores este usuari"
-
-#~ msgid "Ignore this user"
-#~ msgstr "Ignora este usuari"
-
-#~ msgctxt "@action:button"
-#~ msgid "Kick this user"
-#~ msgstr "Expulsa este usuari"
-
-#~ msgctxt "@action:button"
-#~ msgid "Invite this user"
-#~ msgstr "Convida a este usuari"
-
-#~ msgctxt "@action:button"
-#~ msgid "Ban this user"
-#~ msgstr "Bandeja este usuari"
-
-#~ msgctxt "@action:button"
-#~ msgid "Unban this user"
-#~ msgstr "Desbandeja este usuari"
-
-#~ msgctxt "@action:button"
-#~ msgid "Remove recent messages by this user"
-#~ msgstr "Elimina els missatges recents d'este usuari"
-
-#~ msgctxt "%1 is the name of the user."
-#~ msgid "Chat with %1"
-#~ msgstr "Xat amb %1"
-
-#~ msgid "Invite to private chat"
-#~ msgstr "Convida a un xat privat"
-
-#~ msgctxt "@action:button %1 is the name of the user."
-#~ msgid "Search room for %1's messages"
-#~ msgstr "Busca missatges de %1 a la sala"
-
-#~ msgctxt "@label:checkbox"
-#~ msgid "Show link previews in messages"
-#~ msgstr "Mostra la vista prèvia dels enllaços en els missatges"
-
-#~ msgctxt "@label:checkbox"
-#~ msgid "Enable URL previews"
-#~ msgstr "Activa les vistes prèvies dels URL"
-
-#~ msgctxt ""
-#~ "As in the user has switched off showing previews of hyperlinks in "
-#~ "timeline messages"
-#~ msgid "URL previews are currently disabled for your account"
-#~ msgstr "Les vistes prèvies dels URL estan desactivades al vostre compte"

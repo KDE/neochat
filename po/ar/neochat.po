@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-27 00:42+0000\n"
-"PO-Revision-Date: 2025-12-03 16:50+0400\n"
+"PO-Revision-Date: 2025-12-27 10:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -617,20 +617,16 @@ msgid "Reject Invite"
 msgstr "ارفض الدعوة"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "افتح  الملف الشخصي"
+msgstr "اعرض الملف الشخصي لـ %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "ارفض الدعوة"
+msgstr "تجاهل %1 وارفض الدعوة"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -1263,47 +1259,37 @@ msgid "Account Details"
 msgstr "تفاصيل الحساب"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<رسالة>"
+msgstr "الرسالة"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "تجاهل"
+msgstr "أزل التجاهل"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "تجاهل"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "انسخ الرابط"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "ابحث في الرسائل"
+msgstr "ابحث في الرسائل…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "أظهر رمز الاستجابة السريعة"
@@ -1341,19 +1327,16 @@ msgid "Report User"
 msgstr "بلّغ عن المستخدم"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "المشرف"
+msgstr "الإشراف"
 
 #: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "اطرد"
+msgstr "اطرد…"
 
 #: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1377,7 +1360,7 @@ msgstr "اطرد"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "احظر…"
 
 #: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
@@ -1401,15 +1384,13 @@ msgstr "احظر"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "ألغ الحظر"
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "أزل الرسائل"
+msgstr "أزل الرسائل…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1439,40 +1420,34 @@ msgstr "أزل الرسائل"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "الدّور"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "عيّن مستوى قدرة المستخدم"
+msgstr "عيّن مستوى القدرة"
 
 #: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgid "All Rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "كل الغرف"
+msgstr " غرفة مشتركة"
 
 #: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " و واحد أخر"
-msgstr[1] " و واحد أخر"
-msgstr[2] " واثنين آخرين"
-msgstr[3] " و%1 أخرى"
-msgstr[4] " و%1 أخرى"
-msgstr[5] " و%1 أخرى"
+msgstr[0] "و …"
+msgstr[1] "وغرفة أخرى…"
+msgstr[2] "وغرفتان أخريتان…"
+msgstr[3] "و %1 غرف أخرى…"
+msgstr[4] "و %1 غرفة أخرى…"
+msgstr[5] "و %1 غرفة أخرى…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -4783,11 +4758,10 @@ msgid "Show your messages on the right"
 msgstr "أظهر رسائلك في اليمين"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "صغر المعاينة"
+msgstr "أظهر معاينات الروابط"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4796,6 +4770,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"يمكنك تخصيص هذا لكل غرفة على حدة من خلال إعدادات الغرفة. إذا لم تُحدد هذه "
+"الخانة؛ ستُعطّل معاينة الروابط في كل غرفة."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -6224,62 +6200,48 @@ msgid "Add new alias"
 msgstr "أضف اسماً بديلاً جديداً"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
 msgstr "معاينة الرابط"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "عطلت معاينة الروابط بشكل مبدئي في هذه الغرفة"
+msgstr "معاينات الروابط معطلة بشكل عام في إعدادات المظهر"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "مكّن"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "تمكين التعمية للغرفة"
+msgstr "مكّن معاينة الروابط لهذه الغرفة"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr "مكّن معاينة الروابط بشكل مبدئي في هذه الغرفة"
+msgstr "مكن مسؤولو الغرفة معاينة الروابط مبدئيًا."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr "عطلت معاينة الروابط بشكل مبدئي في هذه الغرفة"
+msgstr "عطل مسؤولو الغرفة معاينة الروابط مبدئيًا."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "مكّن معاينة الروابط بشكل مبدئي لأعضاء الغرفة"
+msgstr "مكّن معاينة الروابط مبدئيًا"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format
