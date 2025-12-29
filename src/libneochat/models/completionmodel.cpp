@@ -20,8 +20,8 @@ CompletionModel::CompletionModel(QObject *parent)
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &CompletionModel::textItemChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentCursorPositionChanged, this, &CompletionModel::updateTextStart);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &CompletionModel::updateCompletion);
+    connect(m_textItem, &QmlTextItemWrapper::cursorPositionChanged, this, &CompletionModel::updateTextStart);
+    connect(m_textItem, &QmlTextItemWrapper::contentsChanged, this, &CompletionModel::updateCompletion);
 
     m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
     m_emojiModel->addSourceModel(&EmojiModel::instance());

@@ -112,7 +112,6 @@ public:
                                                mention.cursor.setPosition(mention.cursor.anchor() + mention.text.size(), QTextCursor::KeepAnchor);
                                            }
 
-                                           qWarning() << mention.cursor.selectedText() << mention.text;
                                            if (mention.cursor.selectedText() != mention.text) {
                                                return true;
                                            }
@@ -133,12 +132,9 @@ private:
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     : QObject(parent)
     , m_textItem(new QmlTextItemWrapper(this))
-    , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_highlighter(new SyntaxHighlighter(this))
 {
     connectTextItem();
-
-    connect(this, &ChatDocumentHandler::formatChanged, m_markdownHelper, &ChatMarkdownHelper::handleExternalFormatChange);
 }
 
 ChatBarType::Type ChatDocumentHandler::type() const
@@ -178,7 +174,6 @@ QQuickItem *ChatDocumentHandler::textItem() const
 void ChatDocumentHandler::setTextItem(QQuickItem *textItem)
 {
     m_textItem->setTextItem(textItem);
-    m_markdownHelper->setTextItem(textItem);
 }
 
 void ChatDocumentHandler::connectTextItem()
@@ -189,33 +184,14 @@ void ChatDocumentHandler::connectTextItem()
         initializeChars();
     });
     connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatDocumentHandler::textItemChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::contentsChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::atFirstLineChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChanged, this, &ChatDocumentHandler::atLastLineChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentCursorPositionChanged, this, &ChatDocumentHandler::atFirstLineChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentCursorPositionChanged, this, &ChatDocumentHandler::atLastLineChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChange, this, [this](int position) {
-        auto cursor = m_textItem->textCursor();
-        if (cursor.isNull()) {
-            return;
-        }
-        cursor.setPosition(position);
-        cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
-        if (!cursor.selectedText().isEmpty()) {
-            if (m_pendingFormat) {
-                cursor.mergeCharFormat(*m_pendingFormat);
-                m_pendingFormat = std::nullopt;
-            }
-            if (m_pendingOverrideFormat) {
-                cursor.setCharFormat(*m_pendingOverrideFormat);
-                m_pendingOverrideFormat = std::nullopt;
-            }
-        }
-    });
+    connect(m_textItem, &QmlTextItemWrapper::contentsChanged, this, &ChatDocumentHandler::contentsChanged);
+    connect(m_textItem, &QmlTextItemWrapper::contentsChanged, this, &ChatDocumentHandler::atFirstLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::contentsChanged, this, &ChatDocumentHandler::atLastLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::cursorPositionChanged, this, &ChatDocumentHandler::atFirstLineChanged);
+    connect(m_textItem, &QmlTextItemWrapper::cursorPositionChanged, this, &ChatDocumentHandler::atLastLineChanged);
     connect(m_textItem, &QmlTextItemWrapper::formatChanged, this, &ChatDocumentHandler::formatChanged);
     connect(m_textItem, &QmlTextItemWrapper::textFormatChanged, this, &ChatDocumentHandler::textFormatChanged);
     connect(m_textItem, &QmlTextItemWrapper::styleChanged, this, &ChatDocumentHandler::styleChanged);
-    connect(m_textItem, &QmlTextItemWrapper::listChanged, this, &ChatDocumentHandler::listChanged);
 }
 
 ChatDocumentHandler *ChatDocumentHandler::previousDocumentHandler() const
@@ -539,56 +515,6 @@ void ChatDocumentHandler::updateMentions(const QString &editId)
     }
 }
 
-void ChatDocumentHandler::setTextColor(const QColor &color)
-{
-    QTextCharFormat format;
-    format.setForeground(QBrush(color));
-    mergeFormatOnWordOrSelection(format);
-    Q_EMIT textColorChanged();
-}
-
-bool ChatDocumentHandler::bold() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return false;
-    }
-    return cursor.charFormat().fontWeight() == QFont::Bold;
-}
-
-bool ChatDocumentHandler::italic() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull())
-        return false;
-    return cursor.charFormat().fontItalic();
-}
-
-bool ChatDocumentHandler::underline() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull())
-        return false;
-    return cursor.charFormat().fontUnderline();
-}
-
-bool ChatDocumentHandler::strikethrough() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull())
-        return false;
-    return cursor.charFormat().fontStrikeOut();
-}
-
-QColor ChatDocumentHandler::textColor() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull())
-        return QColor(Qt::black);
-    QTextCharFormat format = cursor.charFormat();
-    return format.foreground().color();
-}
-
 std::optional<Qt::TextFormat> ChatDocumentHandler::textFormat() const
 {
     if (!m_textItem) {
@@ -606,57 +532,6 @@ void ChatDocumentHandler::mergeFormatOnWordOrSelection(const QTextCharFormat &fo
     }
     if (cursor.hasSelection()) {
         cursor.mergeCharFormat(format);
-    } else {
-        m_pendingFormat = format.toCharFormat();
-    }
-}
-
-QString ChatDocumentHandler::currentLinkText() const
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    selectLinkText(&cursor);
-    return cursor.selectedText();
-}
-
-void ChatDocumentHandler::selectLinkText(QTextCursor *cursor) const
-{
-    // If the cursor is on a link, select the text of the link.
-    if (cursor->charFormat().isAnchor()) {
-        const QString aHref = cursor->charFormat().anchorHref();
-
-        // Move cursor to start of link
-        while (cursor->charFormat().anchorHref() == aHref) {
-            if (cursor->atStart()) {
-                break;
-            }
-            cursor->setPosition(cursor->position() - 1);
-        }
-        if (cursor->charFormat().anchorHref() != aHref) {
-            cursor->setPosition(cursor->position() + 1, QTextCursor::KeepAnchor);
-        }
-
-        // Move selection to the end of the link
-        while (cursor->charFormat().anchorHref() == aHref) {
-            if (cursor->atEnd()) {
-                break;
-            }
-            const int oldPosition = cursor->position();
-            cursor->movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
-            // Wordaround Qt Bug. when we have a table.
-            // FIXME selection url
-            if (oldPosition == cursor->position()) {
-                break;
-            }
-        }
-        if (cursor->charFormat().anchorHref() != aHref) {
-            cursor->setPosition(cursor->position() - 1, QTextCursor::KeepAnchor);
-        }
-    } else if (cursor->hasSelection()) {
-        // Nothing to do. Using the currently selected text as the link text.
-    } else {
-        // Select current word
-        cursor->movePosition(QTextCursor::StartOfWord);
-        cursor->movePosition(QTextCursor::EndOfWord, QTextCursor::KeepAnchor);
     }
 }
 
@@ -693,113 +568,6 @@ void ChatDocumentHandler::insertCompletion(const QString &text, const QUrl &link
     m_highlighter->rehighlight();
 }
 
-void ChatDocumentHandler::updateLink(const QString &linkUrl, const QString &linkText)
-{
-    auto cursor = m_textItem->textCursor();
-    selectLinkText(&cursor);
-
-    cursor.beginEditBlock();
-
-    if (!cursor.hasSelection()) {
-        cursor.select(QTextCursor::WordUnderCursor);
-    }
-
-    const auto originalFormat = cursor.charFormat();
-    auto format = cursor.charFormat();
-    // Save original format to create an extra space with the existing char
-    // format for the block
-    if (!linkUrl.isEmpty()) {
-        // Add link details
-        format.setAnchor(true);
-        format.setAnchorHref(linkUrl);
-        // Workaround for QTBUG-1814:
-        // Link formatting does not get applied immediately when setAnchor(true)
-        // is called.  So the formatting needs to be applied manually.
-        format.setUnderlineStyle(QTextCharFormat::SingleUnderline);
-        format.setUnderlineColor(linkColor());
-        format.setForeground(linkColor());
-    } else {
-        // Remove link details
-        format.setAnchor(false);
-        format.setAnchorHref(QString());
-        // Workaround for QTBUG-1814:
-        // Link formatting does not get removed immediately when setAnchor(false)
-        // is called. So the formatting needs to be applied manually.
-        QTextDocument defaultTextDocument;
-        QTextCharFormat defaultCharFormat = defaultTextDocument.begin().charFormat();
-
-        format.setUnderlineStyle(defaultCharFormat.underlineStyle());
-        format.setUnderlineColor(defaultCharFormat.underlineColor());
-        format.setForeground(defaultCharFormat.foreground());
-    }
-
-    // Insert link text specified in dialog, otherwise write out url.
-    QString _linkText;
-    if (!linkText.isEmpty()) {
-        _linkText = linkText;
-    } else {
-        _linkText = linkUrl;
-    }
-    cursor.insertText(_linkText, format);
-    cursor.endEditBlock();
-
-    m_pendingOverrideFormat = originalFormat;
-}
-
-QColor ChatDocumentHandler::linkColor()
-{
-    if (mLinkColor.isValid()) {
-        return mLinkColor;
-    }
-    regenerateColorScheme();
-    return mLinkColor;
-}
-
-void ChatDocumentHandler::regenerateColorScheme()
-{
-    mLinkColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground(KColorScheme::LinkText).color();
-    // TODO update existing link
-}
-
-void ChatDocumentHandler::setFormat(RichFormat::Format format)
-{
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return;
-    }
-    m_textItem->mergeFormatOnCursor(format, cursor);
-}
-
-int ChatDocumentHandler::currentListStyle() const
-{
-    return m_textItem->currentListStyle();
-}
-
-bool ChatDocumentHandler::canIndentListMore() const
-{
-    return m_textItem->canIndentListMore();
-}
-
-bool ChatDocumentHandler::canIndentListLess() const
-{
-    return m_textItem->canIndentListLess();
-}
-
-void ChatDocumentHandler::indentListMore()
-{
-    m_textItem->indentListMore();
-}
-
-void ChatDocumentHandler::indentListLess()
-{
-    m_textItem->indentListLess();
-}
-
-RichFormat::Format ChatDocumentHandler::style() const
-{
-    return static_cast<RichFormat::Format>(m_textItem->textCursor().blockFormat().headingLevel());
-}
-
 void ChatDocumentHandler::tab()
 {
     QTextCursor cursor = m_textItem->textCursor();
@@ -807,10 +575,10 @@ void ChatDocumentHandler::tab()
         return;
     }
     if (cursor.currentList()) {
-        indentListMore();
+        m_textItem->indentListMoreAtCursor();
         return;
     }
-    insertText(u"	"_s);
+    cursor.insertText(u"	"_s);
 }
 
 void ChatDocumentHandler::deleteChar()
@@ -835,9 +603,8 @@ void ChatDocumentHandler::backspace()
         return;
     }
     if (cursor.position() <= m_fixedStartChars.length()) {
-        qWarning() << "unhandled backspace";
         if (cursor.currentList()) {
-            indentListLess();
+            m_textItem->indentListLessAtCursor();
             return;
         }
         if (const auto previousHandler = previousDocumentHandler()) {
@@ -857,16 +624,6 @@ void ChatDocumentHandler::insertReturn()
         return;
     }
     cursor.insertBlock();
-}
-
-void ChatDocumentHandler::insertText(const QString &text)
-{
-    m_textItem->textCursor().insertText(text);
-}
-
-QString ChatDocumentHandler::currentLinkUrl() const
-{
-    return m_textItem->textCursor().charFormat().anchorHref();
 }
 
 void ChatDocumentHandler::dumpHtml()
