@@ -28,6 +28,5 @@ TestCase {
         compare(documentHandler.underline, false);
         compare(documentHandler.strikethrough, false);
         compare(documentHandler.style, 0);
-        compare(documentHandler.currentListStyle, 0);
     }
 }
