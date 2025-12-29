@@ -95,17 +95,6 @@ class ChatDocumentHandler : public QObject
      */
     Q_PROPERTY(bool atLastLine READ atLastLine NOTIFY atLastLineChanged)
 
-    Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged)
-
-    Q_PROPERTY(bool bold READ bold NOTIFY textFormatChanged)
-    Q_PROPERTY(bool italic READ italic NOTIFY textFormatChanged)
-    Q_PROPERTY(bool underline READ underline NOTIFY textFormatChanged)
-    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY textFormatChanged)
-
-    Q_PROPERTY(RichFormat::Format style READ style NOTIFY styleChanged)
-
-    Q_PROPERTY(int currentListStyle READ currentListStyle NOTIFY listChanged)
-
 public:
     enum InsertPosition {
         Cursor,
@@ -152,33 +141,11 @@ public:
      */
     Q_INVOKABLE void updateMentions(const QString &editId);
 
-    QColor textColor() const;
-    void setTextColor(const QColor &color);
-
-    bool bold() const;
-    bool italic() const;
-    bool underline() const;
-    bool strikethrough() const;
-
-    Q_INVOKABLE void setFormat(RichFormat::Format format);
-
-    int currentListStyle() const;
-    bool canIndentListMore() const;
-    bool canIndentListLess() const;
-    Q_INVOKABLE void indentListLess();
-    Q_INVOKABLE void indentListMore();
-
-    RichFormat::Format style() const;
-
     Q_INVOKABLE void tab();
     Q_INVOKABLE void deleteChar();
     Q_INVOKABLE void backspace();
     Q_INVOKABLE void insertReturn();
-    Q_INVOKABLE void insertText(const QString &text);
     void insertFragment(const QTextDocumentFragment fragment, InsertPosition position = Cursor, bool keepPosition = false);
-    Q_INVOKABLE QString currentLinkUrl() const;
-    Q_INVOKABLE QString currentLinkText() const;
-    Q_INVOKABLE void updateLink(const QString &linkUrl, const QString &linkText);
     Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
     Q_INVOKABLE void dumpHtml();
@@ -192,14 +159,11 @@ Q_SIGNALS:
     void atFirstLineChanged();
     void atLastLineChanged();
 
-    void textColorChanged();
-
     void currentListStyleChanged();
 
     void formatChanged();
     void textFormatChanged();
     void styleChanged();
-    void listChanged();
 
     void contentsChanged();
 
@@ -220,10 +184,6 @@ private:
     QString m_initialText = {};
     void initializeChars();
 
-    QPointer<ChatMarkdownHelper> m_markdownHelper;
-    std::optional<QTextCharFormat> m_pendingFormat = std::nullopt;
-    std::optional<QTextCharFormat> m_pendingOverrideFormat = std::nullopt;
-
     SyntaxHighlighter *m_highlighter = nullptr;
 
     QString getText() const;
@@ -231,10 +191,6 @@ private:
 
     std::optional<Qt::TextFormat> textFormat() const;
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
-    void selectLinkText(QTextCursor *cursor) const;
-    QColor linkColor();
-    QColor mLinkColor;
-    void regenerateColorScheme();
 
     QString trim(QString string) const;
 };

@@ -34,11 +34,13 @@ public:
 
     QQuickItem *textItem() const
     {
-        return m_chatMarkdownHelper->textItem();
+        return m_chatMarkdownHelper->textItem()->textItem();
     }
     void setTextItem(QQuickItem *textItem)
     {
-        m_chatMarkdownHelper->setTextItem(textItem);
+        auto textItemWrapper = new QmlTextItemWrapper(this);
+        textItemWrapper->setTextItem(textItem);
+        m_chatMarkdownHelper->setTextItem(textItemWrapper);
         m_textItem->setTextItem(textItem);
     }
 

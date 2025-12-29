@@ -32,19 +32,19 @@ TestCase {
     SignalSpy {
         id: spyContentsChanged
         target: qmlTextItemWrapper
-        signalName: "textDocumentContentsChanged"
+        signalName: "contentsChanged"
     }
 
     SignalSpy {
         id: spyContentsChange
         target: qmlTextItemWrapper
-        signalName: "textDocumentContentsChange"
+        signalName: "contentsChange"
     }
 
     SignalSpy {
         id: spyCursor
         target: qmlTextItemWrapper
-        signalName: "textDocumentCursorPositionChanged"
+        signalName: "cursorPositionChanged"
     }
 
     function test_item(): void {

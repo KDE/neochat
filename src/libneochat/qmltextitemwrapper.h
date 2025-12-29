@@ -38,24 +38,24 @@ public:
     void setCursorPosition(int pos);
     void setCursorVisible(bool visible);
 
-    void mergeFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor);
+    QList<RichFormat::Format> formatsAtCursor(QTextCursor cursor = {}) const;
+    void mergeFormatOnCursor(RichFormat::Format format, QTextCursor cursor = {});
 
-    int currentListStyle() const;
-    bool canIndentListMore() const;
-    bool canIndentListLess() const;
-    void indentListMore();
-    void indentListLess();
+    bool canIndentListMoreAtCursor(QTextCursor cursor = {}) const;
+    bool canIndentListLessAtCursor(QTextCursor cursor = {}) const;
+    void indentListMoreAtCursor(QTextCursor cursor = {});
+    void indentListLessAtCursor(QTextCursor cursor = {});
 
     void forceActiveFocus() const;
 
 Q_SIGNALS:
     void textItemChanged();
 
-    void textDocumentContentsChange(int position, int charsRemoved, int charsAdded);
+    void contentsChange(int position, int charsRemoved, int charsAdded);
 
-    void textDocumentContentsChanged();
+    void contentsChanged();
 
-    void textDocumentCursorPositionChanged();
+    void cursorPositionChanged();
 
     void formatChanged();
     void textFormatChanged();
@@ -74,5 +74,5 @@ private:
     NestedListHelper m_nestedListHelper;
 
 private Q_SLOTS:
-    void textDocCursorChanged();
+    void itemCursorPositionChanged();
 };

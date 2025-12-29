@@ -12,6 +12,7 @@
 #include "enums/richformat.h"
 #include "messagecomponent.h"
 #include "models/messagecontentmodel.h"
+#include "qmltextitemwrapper.h"
 
 /**
  * @class ChatBarMessageContentModel
@@ -39,6 +40,16 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(MessageComponentType::Type focusType READ focusType NOTIFY focusRowChanged)
 
     /**
+     * @brief The text item that the helper is interfacing with.
+     *
+     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a QmlTextItemWrapper
+     * to provide easy access to properties and basic QTextDocument manipulation.
+     *
+     * @sa TextEdit, QTextDocument, QmlTextItemWrapper
+     */
+    Q_PROPERTY(QmlTextItemWrapper *currentTextItem READ currentTextItem NOTIFY focusRowChanged)
+
+    /**
      * @brief The ChatDocumentHandler of the model component that currently has focus.
      */
     Q_PROPERTY(ChatDocumentHandler *focusedDocumentHandler READ focusedDocumentHandler NOTIFY focusRowChanged)
@@ -54,6 +65,7 @@ public:
     Q_INVOKABLE void setFocusRow(int focusRow, bool mouse = false);
     void setFocusIndex(const QModelIndex &index, bool mouse = false);
     Q_INVOKABLE void refocusCurrentComponent() const;
+    QmlTextItemWrapper *currentTextItem() const;
     ChatDocumentHandler *focusedDocumentHandler() const;
 
     Q_INVOKABLE void insertStyleAtCursor(RichFormat::Format style);
@@ -78,6 +90,10 @@ private:
     void initializeModel();
 
     std::optional<QString> getReplyEventId() override;
+
+    QPointer<QmlTextItemWrapper> m_currentTextItem;
+    void connectCurentTextItem();
+    QPointer<ChatMarkdownHelper> m_markdownHelper;
 
     void connectHandler(ChatDocumentHandler *handler);
     ChatDocumentHandler *documentHandlerForComponent(const MessageComponent &component) const;

@@ -19,8 +19,8 @@ class ChatMarkdownHelper : public QObject
 public:
     explicit ChatMarkdownHelper(QObject *parent = nullptr);
 
-    QQuickItem *textItem() const;
-    void setTextItem(QQuickItem *textItem);
+    QmlTextItemWrapper *textItem() const;
+    void setTextItem(QmlTextItemWrapper *textItem);
 
     void handleExternalFormatChange();
 
@@ -36,7 +36,6 @@ private:
     };
 
     QPointer<QmlTextItemWrapper> m_textItem;
-    void connectTextItem();
 
     State m_currentState = None;
     int m_startPos = 0;

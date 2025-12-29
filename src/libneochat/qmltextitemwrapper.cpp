@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "qmltextitemwrapper.h"
+#include "richformat.h"
 
 #include <QQuickTextDocument>
 #include <QTextCursor>
@@ -34,14 +35,18 @@ void QmlTextItemWrapper::setTextItem(QQuickItem *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(textDocCursorChanged()));
+        connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(itemCursorPositionChanged()));
         if (document()) {
-            connect(document(), &QTextDocument::contentsChanged, this, &QmlTextItemWrapper::textDocumentContentsChanged);
-            connect(document(), &QTextDocument::contentsChange, this, &QmlTextItemWrapper::textDocumentContentsChange);
+            connect(document(), &QTextDocument::contentsChanged, this, &QmlTextItemWrapper::contentsChanged);
+            connect(document(), &QTextDocument::contentsChange, this, &QmlTextItemWrapper::contentsChange);
         }
     }
 
     Q_EMIT textItemChanged();
+    Q_EMIT formatChanged();
+    Q_EMIT textFormatChanged();
+    Q_EMIT styleChanged();
+    Q_EMIT listChanged();
 }
 
 QTextDocument *QmlTextItemWrapper::document() const
@@ -109,15 +114,33 @@ void QmlTextItemWrapper::setCursorVisible(bool visible)
     m_textItem->setProperty("cursorVisible", visible);
 }
 
-void QmlTextItemWrapper::textDocCursorChanged()
+void QmlTextItemWrapper::itemCursorPositionChanged()
 {
-    Q_EMIT textDocumentCursorPositionChanged();
+    Q_EMIT cursorPositionChanged();
+    Q_EMIT formatChanged();
+    Q_EMIT textFormatChanged();
+    Q_EMIT styleChanged();
+    Q_EMIT listChanged();
 }
 
-void QmlTextItemWrapper::mergeFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor)
+QList<RichFormat::Format> QmlTextItemWrapper::formatsAtCursor(QTextCursor cursor) const
 {
     if (cursor.isNull()) {
-        return;
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return {};
+        }
+    }
+    return RichFormat::formatsAtCursor(cursor);
+}
+
+void QmlTextItemWrapper::mergeFormatOnCursor(RichFormat::Format format, QTextCursor cursor)
+{
+    if (cursor.isNull()) {
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return;
+        }
     }
     switch (RichFormat::typeForFormat(format)) {
     case RichFormat::Text:
@@ -126,6 +149,10 @@ void QmlTextItemWrapper::mergeFormatOnCursor(RichFormat::Format format, const QT
     case RichFormat::List:
         mergeListFormatOnCursor(format, cursor);
         return;
+    case RichFormat::Block:
+        if (format != RichFormat::Paragraph) {
+            return;
+        }
     case RichFormat::Style:
         mergeStyleFormatOnCursor(format, cursor);
         return;
@@ -194,48 +221,47 @@ void QmlTextItemWrapper::mergeListFormatOnCursor(RichFormat::Format format, cons
     Q_EMIT listChanged();
 }
 
-int QmlTextItemWrapper::currentListStyle() const
+bool QmlTextItemWrapper::canIndentListMoreAtCursor(QTextCursor cursor) const
 {
-    auto cursor = textCursor();
-    if (cursor.isNull() || !textCursor().currentList()) {
-        return 0;
-    }
-    return -cursor.currentList()->format().style();
-}
-
-bool QmlTextItemWrapper::canIndentListMore() const
-{
-    auto cursor = textCursor();
     if (cursor.isNull()) {
-        return false;
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return false;
+        }
     }
     return m_nestedListHelper.canIndent(cursor) && cursor.blockFormat().headingLevel() == 0;
 }
 
-bool QmlTextItemWrapper::canIndentListLess() const
+bool QmlTextItemWrapper::canIndentListLessAtCursor(QTextCursor cursor) const
 {
-    auto cursor = textCursor();
     if (cursor.isNull()) {
-        return false;
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return false;
+        }
     }
     return m_nestedListHelper.canDedent(cursor) && cursor.blockFormat().headingLevel() == 0;
 }
 
-void QmlTextItemWrapper::indentListMore()
+void QmlTextItemWrapper::indentListMoreAtCursor(QTextCursor cursor)
 {
-    auto cursor = textCursor();
     if (cursor.isNull()) {
-        return;
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return;
+        }
     }
     m_nestedListHelper.handleOnIndentMore(cursor);
     Q_EMIT listChanged();
 }
 
-void QmlTextItemWrapper::indentListLess()
+void QmlTextItemWrapper::indentListLessAtCursor(QTextCursor cursor)
 {
-    auto cursor = textCursor();
     if (cursor.isNull()) {
-        return;
+        cursor = textCursor();
+        if (cursor.isNull()) {
+            return;
+        }
     }
     m_nestedListHelper.handleOnIndentLess(cursor);
     Q_EMIT listChanged();

@@ -16,6 +16,7 @@ QQC2.Popup {
     id: root
 
     required property MessageContent.ChatBarMessageContentModel chatContentModel
+    required property ChatButtonHelper chatButtonHelper
     readonly property LibNeoChat.ChatDocumentHandler focusedDocumentHandler: chatContentModel.focusedDocumentHandler
 
     y: -implicitHeight
@@ -47,7 +48,7 @@ QQC2.Popup {
                     ) {
                         root.chatContentModel.insertStyleAtCursor(styleDelegate.index);
                     } else {
-                        root.focusedDocumentHandler.setFormat(styleDelegate.index);
+                        root.chatButtonHelper.setFormat(styleDelegate.index);
                     }
                     root.close();
                 }
