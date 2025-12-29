@@ -64,6 +64,10 @@ QQC2.ToolBar {
                                                               buttonRow.spacing * 9 +
                                                               3
 
+    readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
+        textItem: contentModel.currentTextItem
+    }
+
     signal clicked
 
     RowLayout {
@@ -82,9 +86,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Bold")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.bold
+                checked: root.chatButtonHelper.bold
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Bold);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Bold);
                     root.clicked()
                 }
 
@@ -103,9 +107,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Italic")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.italic
+                checked: root.chatButtonHelper.italic
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Italic);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Italic);
                     root.clicked()
                 }
 
@@ -124,9 +128,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Underline")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.underline
+                checked: root.chatButtonHelper.underline
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Underline);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Underline);
                     root.clicked();
                 }
 
@@ -140,9 +144,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Strikethrough")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.strikethrough
+                checked: root.chatButtonHelper.strikethrough
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Strikethrough);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Strikethrough);
                     root.clicked()
                 }
 
@@ -172,9 +176,9 @@ QQC2.ToolBar {
                     icon.name: "format-text-bold"
                     text: i18nc("@action:button", "Bold")
                     checkable: true
-                    checked: root.focusedDocumentHandler.bold
+                    checked: root.chatButtonHelper.bold
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Bold);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Bold);
                         root.clicked();
                     }
                 }
@@ -182,9 +186,9 @@ QQC2.ToolBar {
                     icon.name: "format-text-italic"
                     text: i18nc("@action:button", "Italic")
                     checkable: true
-                    checked: root.focusedDocumentHandler.italic
+                    checked: root.chatButtonHelper.italic
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Italic);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Italic);
                         root.clicked();
                     }
                 }
@@ -192,9 +196,9 @@ QQC2.ToolBar {
                     icon.name: "format-text-underline"
                     text: i18nc("@action:button", "Underline")
                     checkable: true
-                    checked: root.focusedDocumentHandler.underline
+                    checked: root.chatButtonHelper.underline
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Underline);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Underline);
                         root.clicked();
                     }
                 }
@@ -202,9 +206,9 @@ QQC2.ToolBar {
                     icon.name: "format-text-strikethrough"
                     text: i18nc("@action:button", "Strikethrough")
                     checkable: true
-                    checked: root.focusedDocumentHandler.strikethrough
+                    checked: root.chatButtonHelper.strikethrough
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.Strikethrough);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.Strikethrough);
                         root.clicked();
                     }
                 }
@@ -227,9 +231,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Unordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.currentListStyle === 1
+                checked: root.chatButtonHelper.unorderedList
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.UnorderedList);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.UnorderedList);
                     root.clicked();
                 }
 
@@ -243,9 +247,9 @@ QQC2.ToolBar {
                 text: i18nc("@action:button", "Ordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
-                checked: root.focusedDocumentHandler.currentListStyle === 4
+                checked: root.chatButtonHelper.orderedlist
                 onClicked: {
-                    root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.OrderedList);
+                    root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.OrderedList);
                     root.clicked();
                 }
 
@@ -256,10 +260,11 @@ QQC2.ToolBar {
             QQC2.ToolButton {
                 id: indentAction
                 icon.name: "format-indent-more"
+                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code && root.chatButtonHelper.canIndentListMore
                 text: i18nc("@action:button", "Increase List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
-                    root.focusedDocumentHandler.indentListMore();
+                    root.chatButtonHelper.indentListMore();
                     root.clicked();
                 }
 
@@ -270,10 +275,11 @@ QQC2.ToolBar {
             QQC2.ToolButton {
                 id: dedentAction
                 icon.name: "format-indent-less"
+                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code && root.chatButtonHelper.canIndentListLess
                 text: i18nc("@action:button", "Decrease List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
-                    root.focusedDocumentHandler.indentListLess();
+                    root.chatButtonHelper.indentListLess();
                     root.clicked();
                 }
 
@@ -303,7 +309,7 @@ QQC2.ToolBar {
                     icon.name: "format-list-unordered"
                     text: i18nc("@action:button", "Unordered List")
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.UnorderedList);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.UnorderedList);
                         root.clicked();
                     }
                 }
@@ -311,7 +317,7 @@ QQC2.ToolBar {
                     icon.name: "format-list-ordered"
                     text: i18nc("@action:button", "Ordered List")
                     onTriggered: {
-                        root.focusedDocumentHandler.setFormat(LibNeoChat.RichFormat.OrderedList);
+                        root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.OrderedList);
                         root.clicked();
                     }
                 }
@@ -319,7 +325,7 @@ QQC2.ToolBar {
                     icon.name: "format-indent-more"
                     text: i18nc("@action:button", "Increase List Level")
                     onTriggered: {
-                        root.focusedDocumentHandler.indentListMore();
+                        root.chatButtonHelper.indentListMore();
                         root.clicked();
                     }
                 }
@@ -327,7 +333,7 @@ QQC2.ToolBar {
                     icon.name: "format-indent-less"
                     text: i18nc("@action:button", "Decrease List Level")
                     onTriggered: {
-                        root.focusedDocumentHandler.indentListLess();
+                        root.chatButtonHelper.indentListLess();
                         root.clicked();
                     }
                 }
@@ -355,6 +361,7 @@ QQC2.ToolBar {
             StylePicker {
                 id: styleMenu
                 chatContentModel: root.contentModel
+                chatButtonHelper: root.chatButtonHelper
 
                 onClosed: root.clicked()
             }
@@ -392,11 +399,11 @@ QQC2.ToolBar {
             display: QQC2.AbstractButton.IconOnly
             onClicked: {
                 let dialog = linkDialog.createObject(QQC2.Overlay.overlay, {
-                    linkText: root.focusedDocumentHandler.currentLinkText(),
-                    linkUrl: root.focusedDocumentHandler.currentLinkUrl()
+                    linkText: root.chatButtonHelper.currentLinkText,
+                    linkUrl: root.chatButtonHelper.currentLinkUrl
                 })
                 dialog.onAccepted.connect(() => {
-                    root.focusedDocumentHandler.updateLink(dialog.linkUrl, dialog.linkText)
+                    root.chatButtonHelper.updateLink(dialog.linkUrl, dialog.linkText)
                     root.clicked();
                 });
                 dialog.open();
@@ -583,7 +590,7 @@ QQC2.ToolBar {
             currentRoom: root.room
 
             onChosen: emoji => {
-                root.focusedDocumentHandler.insertText(emoji);
+                root.chatButtonHelper.insertText(emoji);
                 close();
             }
             onClosed: if (emojiButton.checked) {

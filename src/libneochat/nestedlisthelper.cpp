@@ -39,39 +39,30 @@ bool NestedListHelper::handleBeforeKeyPressEvent(QKeyEvent *event, const QTextCu
 
 bool NestedListHelper::canIndent(const QTextCursor &textCursor) const
 {
-    if ((textCursor.block().isValid())
-        //            && (  textEdit->textCursor().block().previous().isValid() )
-    ) {
-        const QTextBlock block = textCursor.block();
-        const QTextBlock prevBlock = textCursor.block().previous();
-        if (block.textList()) {
-            if (prevBlock.textList()) {
-                return block.textList()->format().indent() <= prevBlock.textList()->format().indent();
-            }
-        } else {
-            return true;
-        }
+    const auto block = textCursor.block();
+    if (textCursor.isNull() || !block.isValid()) {
+        return false;
     }
-    return false;
+
+    if (!block.textList()) {
+        return true;
+    }
+
+    return block.textList()->format().indent() < 3;
 }
 
 bool NestedListHelper::canDedent(const QTextCursor &textCursor) const
 {
-    QTextBlock thisBlock = textCursor.block();
-    QTextBlock nextBlock = thisBlock.next();
-    if (thisBlock.isValid()) {
-        int nextBlockIndent = 0;
-        if (nextBlock.isValid() && nextBlock.textList()) {
-            nextBlockIndent = nextBlock.textList()->format().indent();
-        }
-        if (thisBlock.textList()) {
-            const int thisBlockIndent = thisBlock.textList()->format().indent();
-            if (thisBlockIndent >= nextBlockIndent) {
-                return thisBlockIndent > 0;
-            }
-        }
+    const auto block = textCursor.block();
+    if (textCursor.isNull() || !block.isValid()) {
+        return false;
     }
-    return false;
+
+    if (!block.textList()) {
+        return false;
+    }
+
+    return block.textList()->format().indent() > 0;
 }
 
 bool NestedListHelper::handleAfterKeyPressEvent(QKeyEvent *event, const QTextCursor &cursor)

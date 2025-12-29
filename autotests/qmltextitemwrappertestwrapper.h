@@ -27,12 +27,9 @@ public:
     {
         Q_ASSERT(m_textItemWrapper);
         connect(m_textItemWrapper, &QmlTextItemWrapper::textItemChanged, this, &QmlTextItemWrapperTestWrapper::textItemChanged);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::textDocumentContentsChange, this, &QmlTextItemWrapperTestWrapper::textDocumentContentsChange);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::textDocumentContentsChanged, this, &QmlTextItemWrapperTestWrapper::textDocumentContentsChanged);
-        connect(m_textItemWrapper,
-                &QmlTextItemWrapper::textDocumentCursorPositionChanged,
-                this,
-                &QmlTextItemWrapperTestWrapper::textDocumentCursorPositionChanged);
+        connect(m_textItemWrapper, &QmlTextItemWrapper::contentsChange, this, &QmlTextItemWrapperTestWrapper::contentsChange);
+        connect(m_textItemWrapper, &QmlTextItemWrapper::contentsChanged, this, &QmlTextItemWrapperTestWrapper::contentsChanged);
+        connect(m_textItemWrapper, &QmlTextItemWrapper::cursorPositionChanged, this, &QmlTextItemWrapperTestWrapper::cursorPositionChanged);
     }
 
     QQuickItem *textItem() const
@@ -83,9 +80,9 @@ public:
 
 Q_SIGNALS:
     void textItemChanged();
-    void textDocumentContentsChange(int position, int charsRemoved, int charsAdded);
-    void textDocumentContentsChanged();
-    void textDocumentCursorPositionChanged();
+    void contentsChange(int position, int charsRemoved, int charsAdded);
+    void contentsChanged();
+    void cursorPositionChanged();
 
 private:
     QPointer<QmlTextItemWrapper> m_textItemWrapper;
