@@ -9,12 +9,17 @@
 #include "chatdocumenthandler.h"
 #include "enums/chatbartype.h"
 #include "enums/messagecomponenttype.h"
+#include "enums/richformat.h"
 #include "messagecontentmodel.h"
+#include "qmltextitemwrapper.h"
 
 ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     : MessageContentModel(parent)
+    , m_currentTextItem(new QmlTextItemWrapper(this))
+    , m_markdownHelper(new ChatMarkdownHelper(this))
 {
     m_editableActive = true;
+    connectCurentTextItem();
     initializeModel();
 
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
@@ -64,6 +69,19 @@ void ChatBarMessageContentModel::initializeModel()
     endInsertRows();
 
     Q_EMIT focusRowChanged();
+}
+
+void ChatBarMessageContentModel::connectCurentTextItem()
+{
+    if (const auto docHandler = focusedDocumentHandler()) {
+        m_currentTextItem->setTextItem(docHandler->textItem());
+    }
+    connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
+        if (const auto docHandler = focusedDocumentHandler()) {
+            m_currentTextItem->setTextItem(docHandler->textItem());
+            m_markdownHelper->setTextItem(m_currentTextItem);
+        }
+    });
 }
 
 void ChatBarMessageContentModel::connectHandler(ChatDocumentHandler *handler)
@@ -176,7 +194,6 @@ void ChatBarMessageContentModel::setFocusIndex(const QModelIndex &index, bool mo
         }
     }
 
-    Q_EMIT focusRowChanged();
     emitFocusChangeSignals();
 }
 
@@ -200,6 +217,11 @@ void ChatBarMessageContentModel::refocusCurrentComponent() const
     chatDocumentHandler->textItem()->forceActiveFocus();
 }
 
+QmlTextItemWrapper *ChatBarMessageContentModel::currentTextItem() const
+{
+    return m_currentTextItem;
+}
+
 ChatDocumentHandler *ChatBarMessageContentModel::focusedDocumentHandler() const
 {
     if (!m_currentFocusComponent.isValid()) {
@@ -214,6 +236,7 @@ ChatDocumentHandler *ChatBarMessageContentModel::focusedDocumentHandler() const
 
 void ChatBarMessageContentModel::emitFocusChangeSignals()
 {
+    Q_EMIT focusRowChanged();
     Q_EMIT dataChanged(index(0), index(rowCount() - 1), {CurrentFocusRole});
 }
 
@@ -298,7 +321,7 @@ void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::T
 {
     if (m_components[m_currentFocusComponent.row()].type == type) {
         if (type == MessageComponentType::Text && focusedDocumentHandler()) {
-            focusedDocumentHandler()->setFormat(RichFormat::Paragraph);
+            currentTextItem()->mergeFormatOnCursor(RichFormat::Paragraph);
         }
         return;
     }
@@ -324,7 +347,6 @@ void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::T
             insertChatDocumentHandler->insertFragment(midFragment);
         }
         m_currentFocusComponent = QPersistentModelIndex(index(insertIt - m_components.begin()));
-        Q_EMIT focusRowChanged();
         emitFocusChangeSignals();
     }
 

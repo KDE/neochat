@@ -83,32 +83,39 @@ std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
 
 ChatMarkdownHelper::ChatMarkdownHelper(QObject *parent)
     : QObject(parent)
-    , m_textItem(new QmlTextItemWrapper(this))
 {
-    connectTextItem();
 }
 
-QQuickItem *ChatMarkdownHelper::textItem() const
+QmlTextItemWrapper *ChatMarkdownHelper::textItem() const
 {
-    return m_textItem->textItem();
+    return m_textItem;
 }
 
-void ChatMarkdownHelper::setTextItem(QQuickItem *textItem)
+void ChatMarkdownHelper::setTextItem(QmlTextItemWrapper *textItem)
 {
-    m_textItem->setTextItem(textItem);
-}
+    if (textItem == m_textItem) {
+        return;
+    }
 
-void ChatMarkdownHelper::connectTextItem()
-{
-    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
-    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, [this]() {
-        m_startPos = m_textItem->cursorPosition();
-        m_endPos = m_startPos;
-        if (m_startPos == 0) {
-            m_currentState = Pre;
-        }
-    });
-    connect(m_textItem, &QmlTextItemWrapper::textDocumentContentsChange, this, &ChatMarkdownHelper::checkMarkdown);
+    if (m_textItem) {
+        m_textItem->disconnect(this);
+    }
+
+    m_textItem = textItem;
+
+    if (m_textItem) {
+        connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
+        connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, [this]() {
+            m_startPos = m_textItem->cursorPosition();
+            m_endPos = m_startPos;
+            if (m_startPos == 0) {
+                m_currentState = Pre;
+            }
+        });
+        connect(m_textItem, &QmlTextItemWrapper::contentsChange, this, &ChatMarkdownHelper::checkMarkdown);
+    }
+
+    Q_EMIT textItemChanged();
 }
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
@@ -140,7 +147,6 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
         cursor.setPosition(m_startPos);
 
         const auto result = checkSequence(currentMarkdown, nextChar, cursor.atBlockStart());
-        qWarning() << m_startPos << m_endPos << result;
 
         switch (m_currentState) {
         case None:
@@ -216,7 +222,6 @@ void ChatMarkdownHelper::complete()
     m_endPos = result ? m_startPos + 1 : m_startPos;
 
     cursor.endEditBlock();
-    qWarning() << m_currentState << m_startPos << m_endPos << m_textItem->cursorPosition();
 }
 
 void ChatMarkdownHelper::handleExternalFormatChange()

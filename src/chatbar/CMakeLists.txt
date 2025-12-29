@@ -24,6 +24,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         NewPollDialog.qml
         TableDialog.qml
     SOURCES
+        chatbuttonhelper.cpp
         styledelegatehelper.cpp
 )
 
