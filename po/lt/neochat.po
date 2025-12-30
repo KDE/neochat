@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-27 00:42+0000\n"
-"PO-Revision-Date: 2025-10-15 23:13+0300\n"
+"PO-Revision-Date: 2025-12-29 16:49+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -492,18 +492,16 @@ msgid "File"
 msgstr "Failas"
 
 #: src/app/qml/GlobalMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Find User"
-msgstr "Naudotojas"
+msgstr "Rasti naudotoją"
 
 #: src/app/qml/GlobalMenu.qml:30
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgctxt "@title"
 msgid "Find User"
-msgstr "Naudotojas"
+msgstr "Rasti naudotoją"
 
 #: src/app/qml/GlobalMenu.qml:35
 #, kde-format
@@ -620,20 +618,16 @@ msgid "Reject Invite"
 msgstr "Atmesti pakvietimą"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Atverti profilį"
+msgstr "Rodyti naudotojo %1 profilį"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Atmesti pakvietimą"
+msgstr "Nepaisyti naudotojo %1 ir atmesti pakvietimą"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -740,7 +734,7 @@ msgstr "Nustatyti vietą"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Room Information"
-msgstr ""
+msgstr "Rodyti kambario informaciją"
 
 #: src/app/qml/Main.qml:177
 #, kde-format
@@ -815,12 +809,10 @@ msgid "Join Meeting"
 msgstr ""
 
 #: src/app/qml/MeetingDialog.qml:13
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
-msgstr "Pradėti pokalbį"
+msgstr "Pradėti susitikimą"
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
@@ -835,20 +827,16 @@ msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Prisijungti"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Pradėti pokalbį"
+msgstr "Pradėti"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -908,31 +896,31 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
-msgstr ""
+msgstr "Klausimas:"
 
 #: src/app/qml/NewPollDialog.qml:103
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
-msgstr ""
+msgstr "Variantas %1:"
 
 #: src/app/qml/NewPollDialog.qml:119
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
-msgstr ""
+msgstr "Įveskite variantą"
 
 #: src/app/qml/NewPollDialog.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
-msgstr ""
+msgstr "Šalinti variantą"
 
 #: src/app/qml/NewPollDialog.qml:146
 #, kde-format
 msgctxt "@action:button"
 msgid "Add option"
-msgstr ""
+msgstr "Pridėti variantą"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
 #: src/settings/RoomSettingsView.qml:71
@@ -969,7 +957,7 @@ msgstr "Nuskenuokite QR kodą"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "Neprijungta jokia kamera"
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -993,19 +981,19 @@ msgstr "Perbrauktas"
 #, kde-format
 msgctxt "@action:button"
 msgid "Spoiler"
-msgstr ""
+msgstr "„Spoileris“"
 
 #: src/app/qml/QuickFormatBar.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Code block"
-msgstr ""
+msgstr "Kodo blokas"
 
 #: src/app/qml/QuickFormatBar.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Quote"
-msgstr ""
+msgstr "Citata"
 
 #: src/app/qml/QuickFormatBar.qml:136
 #, kde-format
@@ -1023,7 +1011,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore rooms"
-msgstr ""
+msgstr "Naršyti kambarius"
 
 #: src/app/qml/ReasonDialog.qml:60
 #, kde-format
@@ -1053,19 +1041,19 @@ msgstr "Nepaisyti"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Prisijungti prie Jitsi susitikimo…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Pradėti Jitsi susitikimą…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr ""
+msgstr "Jūs neturite leidimo pradėti Jitsi susitikimą"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
 #: src/roominfo/RoomInformation.qml:91
@@ -1084,14 +1072,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
-msgstr ""
+msgstr "NeoChat neprisijungusi prie interneto. Patikrinkite tinklo ryšį."
 
 #: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
-msgstr ""
+msgstr "Prisegtos žinutės"
 
 #: src/app/qml/RoomPage.qml:285
 #, kde-format
@@ -1196,12 +1184,10 @@ msgid "Load your encrypted messages"
 msgstr "Įkelti jūsų šifruotas žinutes"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "Saugumo frazė buvo neteisinga."
+msgstr "Saugumo raktas arba atsarginės kopijos slaptafrazė buvo neteisingi."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1210,32 +1196,26 @@ msgid "Encryption keys restored."
 msgstr "Šifravimo raktai atkurti."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Atrakinti naudojant saugumo raktą"
+msgstr "Atrakinti naudojant saugumo raktą ar atsarginės kopijos slaptafrazę"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
 msgstr ""
-"Jei turite šios paskyros saugumo raktą, įveskite jį žemiau arba išsiųskite "
-"jį kaip failą."
+"Jei turite šios paskyros saugumo raktą arba atsarginės kopijos slaptafrazę, "
+"įveskite juos žemiau arba išsiųskite juos kaip failą."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Saugumo raktas ar atsarginės kopijos slaptafrazė:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -1276,48 +1256,37 @@ msgid "Account Details"
 msgstr "Informacija apie paskyrą"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "Šalinti žinutes"
+msgstr "Rašyti žinutę"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Nepaisyti"
+msgstr "Nustoti nepaisyti"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Nepaisyti"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopijuoti nuorodą"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Šalinti žinutes"
+msgstr "Ieškoti žinučių…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Rodyti QR kodą"
@@ -1333,35 +1302,32 @@ msgstr ""
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr ""
+msgstr "Pranešti apie naudotoją"
 
 #: src/app/qml/UserDetailDialog.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
-msgstr "Priežastis, dėl kurios ši žinutė pašalinama"
+msgstr "Priežastis, dėl kurios pranešama apie šį naudotoją"
 
 #: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "Pranešti"
 
 #: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr ""
+msgstr "Pranešti apie naudotoją"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Informacija"
+msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:208
 #, kde-format
@@ -1418,12 +1384,10 @@ msgid "Unban"
 msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Šalinti žinutes"
+msgstr "Šalinti žinutes…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1453,7 +1417,7 @@ msgstr "Šalinti žinutes"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "Vaidmuo"
 
 #: src/app/qml/UserDetailDialog.qml:304
 #, kde-format
@@ -1493,11 +1457,10 @@ msgid "Mention"
 msgstr ""
 
 #: src/app/qml/UserSearchPage.qml:33
-#, fuzzy, kde-format
-#| msgid "User"
+#, kde-format
 msgctxt "@action:title"
 msgid "Find User"
-msgstr "Naudotojas"
+msgstr "Rasti naudotoją"
 
 #: src/app/qml/UserSearchPage.qml:58
 #, kde-format
@@ -1506,12 +1469,10 @@ msgid "Copy User ID"
 msgstr "Kopijuoti naudotojo ID"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@info"
 msgid "Direct Messages"
-msgstr "Šalinti žinutes"
+msgstr "Tiesioginės žinutės"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1993,7 +1954,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Skambučiai"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -2032,7 +1993,7 @@ msgstr ""
 #: src/devtools/RoomData.qml:67
 #, kde-format
 msgid "Room State"
-msgstr ""
+msgstr "Kambario būsena"
 
 #: src/devtools/RoomData.qml:84
 #, kde-format
@@ -2063,12 +2024,12 @@ msgstr ""
 #: src/devtools/ServerData.qml:28
 #, kde-format
 msgid "Default Room Version"
-msgstr ""
+msgstr "Numatytoji kambario versija"
 
 #: src/devtools/ServerData.qml:36
 #, kde-format
 msgid "Available Room Versions"
-msgstr ""
+msgstr "Prieinamos kambario versijos"
 
 #: src/devtools/StateKeys.qml:23
 #, kde-format
@@ -2112,11 +2073,9 @@ msgid "Favorite"
 msgstr ""
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgid "Direct Messages"
-msgstr "Šalinti žinutes"
+msgstr "Tiesioginės žinutės"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -2158,12 +2117,10 @@ msgstr ""
 #, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
-msgstr ""
+msgstr "Savininkas"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Kūrėjas"
@@ -2952,7 +2909,7 @@ msgstr ""
 
 #: src/libneochat/models/actionsmodel.cpp:209
 msgid "Invites the user to this room"
-msgstr ""
+msgstr "Pakviečia naudotoją į šį kambarį"
 
 #: src/libneochat/models/actionsmodel.cpp:220
 #: src/libneochat/models/actionsmodel.cpp:260
@@ -2969,7 +2926,7 @@ msgstr ""
 #: src/libneochat/models/actionsmodel.cpp:226
 #: src/libneochat/models/actionsmodel.cpp:266
 msgid "Joins the given room"
-msgstr ""
+msgstr "Prisijungia prie nurodyto kambario"
 
 #: src/libneochat/models/actionsmodel.cpp:238
 #, kde-format
@@ -3330,13 +3287,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
-msgstr ""
+msgstr "Sukurti"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:45
 #, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:46
 #, kde-format
@@ -3357,7 +3314,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:title"
 msgid "Explore Rooms"
-msgstr ""
+msgstr "Naršyti kambarius"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
@@ -3483,7 +3440,7 @@ msgstr ""
 #: src/login/Homeserver.qml:25
 #, kde-format
 msgid "Registration is disabled on this server."
-msgstr ""
+msgstr "Registracija šiame serveryje yra išjungta."
 
 #: src/login/Homeserver.qml:47 src/login/Username.qml:38
 #, kde-format
@@ -3666,7 +3623,7 @@ msgstr "Naudotojo vardas neprieinamas"
 #: src/login/WelcomePage.qml:29
 #, kde-format
 msgid "Welcome"
-msgstr ""
+msgstr "Sveiki,"
 
 #: src/login/WelcomePage.qml:85
 #, kde-format
@@ -3833,12 +3790,12 @@ msgstr "Šalinti peržiūrą"
 #: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Suskleisti peržiūrą"
 
 #: src/messagecontent/LinkPreviewComponent.qml:159
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "Išskleisti peržiūrą"
 
 #: src/messagecontent/LinkPreviewLoadComponent.qml:63
 #, kde-format
@@ -3855,7 +3812,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
-msgstr ""
+msgstr "Įkeliama…"
 
 #: src/messagecontent/LocationComponent.qml:88
 #, kde-format
@@ -3881,7 +3838,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
-msgstr ""
+msgstr "Įkeliamas atsakymas…"
 
 #: src/messagecontent/models/messagecontentmodel.cpp:67
 #, kde-format
@@ -3926,10 +3883,10 @@ msgstr[3] ""
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 balsas"
+msgstr[1] "%1 balsai"
+msgstr[2] "%1 balsų"
+msgstr[3] "%1 balsas"
 
 #: src/messagecontent/PollComponent.qml:138
 #, kde-format
@@ -3957,13 +3914,13 @@ msgstr ""
 #, kde-format
 msgctxt "@button"
 msgid "React"
-msgstr ""
+msgstr "Reaguoti"
 
 #: src/messagecontent/ReplyButtonComponent.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr ""
+msgstr "Atsakyti"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
@@ -4025,7 +3982,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:title"
 msgid "Room Information"
-msgstr ""
+msgstr "Informacija apie kambarį"
 
 #: src/roominfo/RoomInformation.qml:72
 #, kde-format
@@ -4034,12 +3991,10 @@ msgid "Actions"
 msgstr ""
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
-msgstr "Šalinti žinutes"
+msgstr "Ieškoti žinučių"
 
 #: src/roominfo/RoomInformation.qml:99
 #, kde-format
@@ -4048,12 +4003,10 @@ msgid "Verify user"
 msgstr ""
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "As in remove the link preview so it's no longer shown"
-#| msgid "Remove preview"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
-msgstr "Šalinti peržiūrą"
+msgstr ""
 
 #: src/roominfo/RoomInformation.qml:110
 #, kde-format
@@ -4074,40 +4027,31 @@ msgid "Extensions"
 msgstr ""
 
 #: src/roominfo/RoomInformation.qml:139
-#, fuzzy, kde-format
-#| msgid "View Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Rodyti vietą"
+msgstr ""
 
 #: src/roominfo/RoomInformation.qml:155
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
-msgstr "Šalinti žinutes"
+msgstr "Prisegtos žinutės"
 
 #: src/roominfo/RoomInformation.qml:170
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Kambario duomenys"
+msgstr ""
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
-msgstr "Išeiti iš kambario…"
+msgstr ""
 
 #: src/roominfo/RoomInformation.qml:191
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Leave Room…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Išeiti iš kambario…"
@@ -4247,7 +4191,7 @@ msgstr ""
 #: src/rooms/ExploreComponentMobile.qml:78
 #, kde-format
 msgid "Create New"
-msgstr ""
+msgstr "Sukurti naują"
 
 #: src/rooms/ExploreComponentMobile.qml:145
 #, kde-format
@@ -4357,20 +4301,16 @@ msgid "Report…"
 msgstr ""
 
 #: src/rooms/RoomContextMenu.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Naršyti kambarius"
+msgstr "Pranešti apie kambarį"
 
 #: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this room"
-msgstr "Priežastis, dėl kurios ši žinutė pašalinama"
+msgstr "Priežastis, dėl kurios pranešama apie šį kambarį"
 
 #: src/rooms/RoomContextMenu.qml:162
 #, kde-format
@@ -4380,12 +4320,10 @@ msgid "Report"
 msgstr ""
 
 #: src/rooms/RoomContextMenu.qml:164
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Explore Rooms"
+#, kde-format
 msgctxt "@title"
 msgid "Report Room"
-msgstr "Naršyti kambarius"
+msgstr "Pranešti apie kambarį"
 
 #: src/rooms/RoomContextMenu.qml:174
 #, kde-format
@@ -4498,12 +4436,10 @@ msgstr[2] "Išjungti pranešimus"
 msgstr[3] "Išjungti pranešimus"
 
 #: src/rooms/SpaceDrawer.qml:146
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
-msgstr "Šalinti žinutes"
+msgstr "Tiesioginės žinutės"
 
 #: src/rooms/SpaceDrawer.qml:228
 #, kde-format
@@ -4636,25 +4572,25 @@ msgstr "Slaptažodžiai nesutampa"
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
-msgstr ""
+msgstr "El. pašto adresai"
 
 #: src/settings/AccountEditorPage.qml:215
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
-msgstr ""
+msgstr "Telefono numeriai"
 
 #: src/settings/AccountEditorPage.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
-msgstr ""
+msgstr "Tapatybės serveris"
 
 #: src/settings/AccountEditorPage.qml:229
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
-msgstr ""
+msgstr "Informacija apie serverį"
 
 #: src/settings/AccountEditorPage.qml:233
 #, kde-format
@@ -4683,7 +4619,7 @@ msgstr "Slaptažodis sėkmingai pakeistas"
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
-msgstr ""
+msgstr "Neteisingas slaptažodis"
 
 #: src/settings/AccountEditorPage.qml:282
 #, kde-format
@@ -4742,13 +4678,12 @@ msgid "Chat font scaling"
 msgstr ""
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1%"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, kde-format
@@ -4922,16 +4857,13 @@ msgid "Logout device"
 msgstr ""
 
 #: src/settings/DeviceDelegate.qml:146
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "Šalinti įrenginį"
 
 #: src/settings/DeviceDelegate.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
 msgstr "Šalinti"
@@ -5316,19 +5248,16 @@ msgid "Open Quick Switcher"
 msgstr ""
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Account editor"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Paskyros redaktorius"
+msgstr "Atverti paskyros perjungiklį"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Šalinti žinutes"
+msgstr "Ieškoti žinučių dabartiniame kambaryje"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
@@ -5337,12 +5266,10 @@ msgid "Go to Previous Room"
 msgstr ""
 
 #: src/settings/KeyboardShortcutsPage.qml:38
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Choose Room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Go to Next Room"
-msgstr "Pasirinkite kambarį"
+msgstr "Eiti į kitą kambarį"
 
 #: src/settings/KeyboardShortcutsPage.qml:43
 #, kde-format
@@ -5631,7 +5558,7 @@ msgid "Timeline"
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:148
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mark messages as read when:"
 msgstr "Žymėti žinutes kaip skaitytas, kai:"
 
@@ -6242,9 +6169,7 @@ msgid "Link previews are disabled globally in Appearance settings"
 msgstr ""
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Įjungti"
