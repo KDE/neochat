@@ -8,28 +8,28 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
-#include "qmltextitemwrapper.h"
+#include "chattextitemhelper.h"
 
-class QmlTextItemWrapperTestWrapper : public QObject
+class ChatTextItemHelperTestWrapper : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
 
     /**
-     * @brief The QML text Item the ChatDocumentHandler is handling.
+     * @brief The QML text Item the TextItemHelper is handling.
      */
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
 public:
-    explicit QmlTextItemWrapperTestWrapper(QObject *parent = nullptr)
+    explicit ChatTextItemHelperTestWrapper(QObject *parent = nullptr)
         : QObject(parent)
-        , m_textItemWrapper(new QmlTextItemWrapper(this))
+        , m_textItemWrapper(new ChatTextItemHelper(this))
     {
         Q_ASSERT(m_textItemWrapper);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::textItemChanged, this, &QmlTextItemWrapperTestWrapper::textItemChanged);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::contentsChange, this, &QmlTextItemWrapperTestWrapper::contentsChange);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::contentsChanged, this, &QmlTextItemWrapperTestWrapper::contentsChanged);
-        connect(m_textItemWrapper, &QmlTextItemWrapper::cursorPositionChanged, this, &QmlTextItemWrapperTestWrapper::cursorPositionChanged);
+        connect(m_textItemWrapper, &ChatTextItemHelper::textItemChanged, this, &ChatTextItemHelperTestWrapper::textItemChanged);
+        connect(m_textItemWrapper, &ChatTextItemHelper::contentsChange, this, &ChatTextItemHelperTestWrapper::contentsChange);
+        connect(m_textItemWrapper, &ChatTextItemHelper::contentsChanged, this, &ChatTextItemHelperTestWrapper::contentsChanged);
+        connect(m_textItemWrapper, &ChatTextItemHelper::cursorPositionChanged, this, &ChatTextItemHelperTestWrapper::cursorPositionChanged);
     }
 
     QQuickItem *textItem() const
@@ -85,5 +85,5 @@ Q_SIGNALS:
     void cursorPositionChanged();
 
 private:
-    QPointer<QmlTextItemWrapper> m_textItemWrapper;
+    QPointer<ChatTextItemHelper> m_textItemWrapper;
 };

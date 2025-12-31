@@ -108,7 +108,9 @@ QQC2.Control {
                         height: implicitHeight
                         y: -height - 5
                         z: 10
-                        chatDocumentHandler: documentHandler
+                        room: root.Message.room
+                        type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
+                        // textItem: textArea
                         margins: 0
                         Behavior on height {
                             NumberAnimation {
@@ -121,13 +123,6 @@ QQC2.Control {
 
                     // opt-out of whatever spell checker a styled TextArea might come with
                     Kirigami.SpellCheck.enabled: false
-
-                    ChatDocumentHandler {
-                        id: documentHandler
-                        type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
-                        textItem: textArea
-                        room: root.Message.room
-                    }
 
                     TextMetrics {
                         id: textMetrics
