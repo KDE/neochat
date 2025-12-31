@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include "qmltextitemwrapper.h"
+#include "chattextitemhelper.h"
 
 class ChatButtonHelper : public QObject
 {
@@ -16,12 +16,12 @@ class ChatButtonHelper : public QObject
     /**
      * @brief The text item that the helper is interfacing with.
      *
-     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a QmlTextItemWrapper
+     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a ChatTextItemHelper
      * to provide easy access to properties and basic QTextDocument manipulation.
      *
-     * @sa TextEdit, QTextDocument, QmlTextItemWrapper
+     * @sa TextEdit, QTextDocument, ChatTextItemHelper
      */
-    Q_PROPERTY(QmlTextItemWrapper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
+    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
      * @brief Whether the text format at the current cursor is bold.
@@ -54,6 +54,11 @@ class ChatButtonHelper : public QObject
     Q_PROPERTY(bool orderedList READ orderedList NOTIFY listChanged)
 
     /**
+     * @brief The current style at the cursor.
+     */
+    Q_PROPERTY(RichFormat::Format currentStyle READ currentStyle NOTIFY styleChanged)
+
+    /**
      * @brief Whether the list at the current cursor can be indented one level more.
      */
     Q_PROPERTY(bool canIndentListMore READ canIndentListMore NOTIFY listChanged)
@@ -76,8 +81,8 @@ class ChatButtonHelper : public QObject
 public:
     explicit ChatButtonHelper(QObject *parent = nullptr);
 
-    QmlTextItemWrapper *textItem() const;
-    void setTextItem(QmlTextItemWrapper *textItem);
+    ChatTextItemHelper *textItem() const;
+    void setTextItem(ChatTextItemHelper *textItem);
 
     bool bold() const;
     bool italic() const;
@@ -85,6 +90,7 @@ public:
     bool strikethrough() const;
     bool unorderedList() const;
     bool orderedList() const;
+    RichFormat::Format currentStyle() const;
 
     /**
      * @brief Apply the given format at the current cursor position.
@@ -129,7 +135,7 @@ Q_SIGNALS:
     void linkChanged();
 
 private:
-    QPointer<QmlTextItemWrapper> m_textItem;
+    QPointer<ChatTextItemHelper> m_textItem;
 
     void selectLinkText(QTextCursor &cursor) const;
 };

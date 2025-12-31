@@ -49,11 +49,9 @@ TextEdit {
      * @brief The attributes of the component.
      */
     required property var componentAttributes
-    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
-    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
-        chatDocumentHandler.type = ChatBarType.Room;
-        chatDocumentHandler.room = root.Message.room;
-        chatDocumentHandler.textItem = root;
+    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
+    onChatTextItemHelperChanged: if (chatTextItemHelper) {
+        chatTextItemHelper.textItem = root;
     }
 
     /**
@@ -78,32 +76,28 @@ TextEdit {
     Layout.maximumWidth: Message.maxContentWidth
 
     Keys.onUpPressed: (event) => {
-        event.accepted = false;
-        if (chatDocumentHandler.atFirstLine) {
-            Message.contentModel.focusRow = root.index - 1
-        }
+        event.accepted = true;
+        Message.contentModel.keyHelper.up();
     }
     Keys.onDownPressed: (event) => {
-        event.accepted = false;
-        if (chatDocumentHandler.atLastLine) {
-            Message.contentModel.focusRow = root.index + 1
-        }
+        event.accepted = true;
+        Message.contentModel.keyHelper.down();
     }
 
     Keys.onTabPressed: (event) => {
         event.accepted = true;
-        chatDocumentHandler.tab();
+        Message.contentModel.keyHelper.tab();
     }
 
     Keys.onDeletePressed: (event) => {
         event.accepted = true;
-        chatDocumentHandler.deleteChar();
+        Message.contentModel.keyHelper.deleteChar();
     }
 
     Keys.onPressed: (event) => {
         if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
             event.accepted = true;
-            chatDocumentHandler.backspace();
+            Message.contentModel.keyHelper.backspace();
             return;
         }
         event.accepted = false;
@@ -111,11 +105,11 @@ TextEdit {
 
     Keys.onEnterPressed:  (event) => {
         event.accepted = true;
-        chatDocumentHandler.insertReturn();
+        Message.contentModel.keyHelper.insertReturn();
     }
     Keys.onReturnPressed:  (event) => {
         event.accepted = true;
-        chatDocumentHandler.insertReturn();
+        Message.contentModel.keyHelper.insertReturn();
     }
 
     onFocusChanged: if (focus && !root.currentFocus) {
