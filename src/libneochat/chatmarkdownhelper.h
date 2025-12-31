@@ -10,7 +10,7 @@
 class QQuickItem;
 class QTextDocument;
 
-class QmlTextItemWrapper;
+class ChatTextItemHelper;
 
 class ChatMarkdownHelper : public QObject
 {
@@ -19,13 +19,20 @@ class ChatMarkdownHelper : public QObject
 public:
     explicit ChatMarkdownHelper(QObject *parent = nullptr);
 
-    QmlTextItemWrapper *textItem() const;
-    void setTextItem(QmlTextItemWrapper *textItem);
+    ChatTextItemHelper *textItem() const;
+    void setTextItem(ChatTextItemHelper *textItem);
 
     void handleExternalFormatChange();
 
 Q_SIGNALS:
     void textItemChanged();
+
+    /**
+     * @brief There is an unhandled block format request.
+     *
+     * i.e. the markdown for as new block (e.g. code or quote) has been typed which
+     * ChatMarkdownHelper cannot resolve.
+     */
     void unhandledBlockFormat(RichFormat::Format format);
 
 private:
@@ -35,7 +42,7 @@ private:
         Started,
     };
 
-    QPointer<QmlTextItemWrapper> m_textItem;
+    QPointer<ChatTextItemHelper> m_textItem;
 
     State m_currentState = None;
     int m_startPos = 0;

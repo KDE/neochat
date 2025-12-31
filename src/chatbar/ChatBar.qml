@@ -149,7 +149,9 @@ QQC2.Control {
 
     CompletionMenu {
         id: completionMenu
-        chatDocumentHandler: contentModel.focusedDocumentHandler
+        room: root.currentRoom
+        type: LibNeoChat.ChatBarType.Room
+        textItem: chatContentView.model.focusedTextItem
 
         x: 1
         y: -height

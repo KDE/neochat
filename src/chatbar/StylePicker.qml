@@ -17,7 +17,6 @@ QQC2.Popup {
 
     required property MessageContent.ChatBarMessageContentModel chatContentModel
     required property ChatButtonHelper chatButtonHelper
-    readonly property LibNeoChat.ChatDocumentHandler focusedDocumentHandler: chatContentModel.focusedDocumentHandler
 
     y: -implicitHeight
 
@@ -88,7 +87,7 @@ QQC2.Popup {
                     radius: Kirigami.Units.cornerRadius
                     border {
                         width: 1
-                        color: styleDelegate.hovered || (root.focusedDocumentHandler?.style ?? false) === styleDelegate.index ?
+                        color: styleDelegate.hovered || root.chatButtonHelper.currentStyle === styleDelegate.index ?
                                Kirigami.Theme.highlightColor :
                                Kirigami.ColorUtils.linearInterpolation(
                                    Kirigami.Theme.backgroundColor,
