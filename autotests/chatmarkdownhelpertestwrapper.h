@@ -9,8 +9,8 @@
 #include <qtextcursor.h>
 
 #include "chatmarkdownhelper.h"
+#include "chattextitemhelper.h"
 #include "enums/richformat.h"
-#include "qmltextitemwrapper.h"
 
 class ChatMarkdownHelperTestWrapper : public QObject
 {
@@ -18,7 +18,7 @@ class ChatMarkdownHelperTestWrapper : public QObject
     QML_ELEMENT
 
     /**
-     * @brief The QML text Item the ChatDocumentHandler is handling.
+     * @brief The QML text Item the ChatMerkdownHelper is handling.
      */
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
@@ -26,7 +26,7 @@ public:
     explicit ChatMarkdownHelperTestWrapper(QObject *parent = nullptr)
         : QObject(parent)
         , m_chatMarkdownHelper(new ChatMarkdownHelper(this))
-        , m_textItem(new QmlTextItemWrapper(this))
+        , m_textItem(new ChatTextItemHelper(this))
     {
         connect(m_chatMarkdownHelper, &ChatMarkdownHelper::textItemChanged, this, &ChatMarkdownHelperTestWrapper::textItemChanged);
         connect(m_chatMarkdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatMarkdownHelperTestWrapper::unhandledBlockFormat);
@@ -38,7 +38,7 @@ public:
     }
     void setTextItem(QQuickItem *textItem)
     {
-        auto textItemWrapper = new QmlTextItemWrapper(this);
+        auto textItemWrapper = new ChatTextItemHelper(this);
         textItemWrapper->setTextItem(textItem);
         m_chatMarkdownHelper->setTextItem(textItemWrapper);
         m_textItem->setTextItem(textItem);
@@ -82,5 +82,5 @@ Q_SIGNALS:
 
 private:
     QPointer<ChatMarkdownHelper> m_chatMarkdownHelper;
-    QPointer<QmlTextItemWrapper> m_textItem;
+    QPointer<ChatTextItemHelper> m_textItem;
 };

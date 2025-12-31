@@ -7,7 +7,7 @@ import QtTest
 import NeoChatTestUtils
 
 TestCase {
-    name: "QmlTextItemWrapperTest"
+    name: "ChatTextItemHelperTest"
 
     TextEdit {
         id: textEdit
@@ -17,51 +17,51 @@ TestCase {
         id: textEdit2
     }
 
-    QmlTextItemWrapperTestWrapper {
-        id: qmlTextItemWrapper
+    ChatTextItemHelperTestWrapper {
+        id: chatTextItemHelper
 
         textItem: textEdit
     }
 
     SignalSpy {
         id: spyItem
-        target: qmlTextItemWrapper
+        target: chatTextItemHelper
         signalName: "textItemChanged"
     }
 
     SignalSpy {
         id: spyContentsChanged
-        target: qmlTextItemWrapper
+        target: chatTextItemHelper
         signalName: "contentsChanged"
     }
 
     SignalSpy {
         id: spyContentsChange
-        target: qmlTextItemWrapper
+        target: chatTextItemHelper
         signalName: "contentsChange"
     }
 
     SignalSpy {
         id: spyCursor
-        target: qmlTextItemWrapper
+        target: chatTextItemHelper
         signalName: "cursorPositionChanged"
     }
 
     function test_item(): void {
         spyItem.clear();
-        compare(qmlTextItemWrapper.textItem, textEdit);
+        compare(chatTextItemHelper.textItem, textEdit);
         compare(spyItem.count, 0);
-        qmlTextItemWrapper.textItem = textEdit2;
-        compare(qmlTextItemWrapper.textItem, textEdit2);
+        chatTextItemHelper.textItem = textEdit2;
+        compare(chatTextItemHelper.textItem, textEdit2);
         compare(spyItem.count, 1);
-        qmlTextItemWrapper.textItem = textEdit;
-        compare(qmlTextItemWrapper.textItem, textEdit);
+        chatTextItemHelper.textItem = textEdit;
+        compare(chatTextItemHelper.textItem, textEdit);
         compare(spyItem.count, 2);
     }
 
     function test_document(): void {
         // We can't get to the QTextDocument from QML so we have to use a helper function.
-        compare(qmlTextItemWrapper.compareDocuments(textEdit.textDocument), true);
+        compare(chatTextItemHelper.compareDocuments(textEdit.textDocument), true);
     }
 
     function test_cursor(): void {
@@ -69,8 +69,8 @@ TestCase {
         spyContentsChanged.clear();
         spyCursor.clear();
         // We can't get to the QTextCursor from QML so we have to use a helper function.
-        compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
-        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
+        compare(chatTextItemHelper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, chatTextItemHelper.cursorPosition());
         textEdit.insert(0, "test text")
         compare(spyContentsChange.count, 1);
         compare(spyContentsChange.signalArguments[0][0], 0);
@@ -78,13 +78,13 @@ TestCase {
         compare(spyContentsChange.signalArguments[0][2], 9);
         compare(spyContentsChanged.count, 1);
         compare(spyCursor.count, 1);
-        compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
-        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
+        compare(chatTextItemHelper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, chatTextItemHelper.cursorPosition());
         textEdit.selectAll();
         compare(spyContentsChanged.count, 1);
         compare(spyCursor.count, 1);
-        compare(qmlTextItemWrapper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
-        compare(textEdit.cursorPosition, qmlTextItemWrapper.cursorPosition());
+        compare(chatTextItemHelper.compareCursor(textEdit.cursorPosition, textEdit.selectionStart, textEdit.selectionEnd), true);
+        compare(textEdit.cursorPosition, chatTextItemHelper.cursorPosition());
         textEdit.clear();
         compare(spyContentsChange.count, 2);
         compare(spyContentsChange.signalArguments[1][0], 0);
@@ -100,18 +100,18 @@ TestCase {
         textEdit.insert(0, "test text");
         compare(textEdit.cursorPosition, 9);
         compare(spyCursor.count, 1);
-        qmlTextItemWrapper.setCursorPosition(5);
+        chatTextItemHelper.setCursorPosition(5);
         compare(textEdit.cursorPosition, 5);
         compare(spyCursor.count, 2);
-        qmlTextItemWrapper.setCursorPosition(1);
+        chatTextItemHelper.setCursorPosition(1);
         compare(textEdit.cursorPosition, 1);
         compare(spyCursor.count, 3);
 
         textEdit.cursorVisible = false;
         compare(textEdit.cursorVisible, false);
-        qmlTextItemWrapper.setCursorVisible(true);
+        chatTextItemHelper.setCursorVisible(true);
         compare(textEdit.cursorVisible, true);
-        qmlTextItemWrapper.setCursorVisible(false);
+        chatTextItemHelper.setCursorVisible(false);
         compare(textEdit.cursorVisible, false);
 
         textEdit.clear();
@@ -121,7 +121,7 @@ TestCase {
     function test_forceActiveFocus(): void {
         textEdit2.forceActiveFocus();
         compare(textEdit.activeFocus, false);
-        qmlTextItemWrapper.forceActiveFocus();
+        chatTextItemHelper.forceActiveFocus();
         compare(textEdit.activeFocus, true);
     }
 }

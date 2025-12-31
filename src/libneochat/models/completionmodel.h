@@ -8,11 +8,13 @@
 #include <QQuickItem>
 #include <QSortFilterProxyModel>
 
-#include "roomlistmodel.h"
+#include "chatbarcache.h"
+#include "chattextitemhelper.h"
+#include "enums/chatbartype.h"
+#include "neochatroom.h"
 
 class CompletionProxyModel;
 class UserListModel;
-class QmlTextItemWrapper;
 class RoomListModel;
 
 /**
@@ -29,9 +31,19 @@ class CompletionModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
+     * @brief The current room that the text document is being handled for.
+     */
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+
+    /**
+     * @brief The QQuickTextDocument that is being handled.
+     */
+    Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
+
+    /**
      * @brief The QML text Item that completions are being provided for.
      */
-    Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
+    Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
      * @brief The current type of completion being done on the entered text.
@@ -77,8 +89,14 @@ public:
 
     explicit CompletionModel(QObject *parent = nullptr);
 
-    QQuickItem *textItem() const;
-    void setTextItem(QQuickItem *textItem);
+    NeoChatRoom *room() const;
+    void setRoom(NeoChatRoom *room);
+
+    ChatBarType::Type type() const;
+    void setType(ChatBarType::Type type);
+
+    ChatTextItemHelper *textItem() const;
+    void setTextItem(ChatTextItemHelper *textItem);
 
     /**
      * @brief Get the given role value at the given index.
@@ -110,16 +128,20 @@ public:
     AutoCompletionType autoCompletionType() const;
     void setAutoCompletionType(AutoCompletionType autoCompletionType);
 
-Q_SIGNALS:
-    void textItemChanged();
+    Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
+Q_SIGNALS:
     void roomChanged();
+    void typeChanged();
+    void textItemChanged();
     void autoCompletionTypeChanged();
     void roomListModelChanged();
     void userListModelChanged();
 
 private:
-    QPointer<QmlTextItemWrapper> m_textItem;
+    QPointer<NeoChatRoom> m_room;
+    ChatBarType::Type m_type = ChatBarType::None;
+    QPointer<ChatTextItemHelper> m_textItem;
 
     int m_textStart = 0;
     void updateTextStart();
@@ -132,5 +154,6 @@ private:
     UserListModel *m_userListModel;
     RoomListModel *m_roomListModel;
     QConcatenateTablesProxyModel *m_emojiModel;
+
+    void pushMention(const Mention mention) const;
 };
-Q_DECLARE_METATYPE(CompletionModel::AutoCompletionType);

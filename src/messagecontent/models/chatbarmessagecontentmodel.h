@@ -5,14 +5,14 @@
 
 #include <QAbstractListModel>
 #include <QQmlEngine>
-#include <qabstractitemmodel.h>
 
-#include "chatdocumenthandler.h"
+#include "chatkeyhelper.h"
+#include "chatmarkdownhelper.h"
+#include "chattextitemhelper.h"
 #include "enums/messagecomponenttype.h"
 #include "enums/richformat.h"
 #include "messagecomponent.h"
 #include "models/messagecontentmodel.h"
-#include "qmltextitemwrapper.h"
 
 /**
  * @class ChatBarMessageContentModel
@@ -42,31 +42,34 @@ class ChatBarMessageContentModel : public MessageContentModel
     /**
      * @brief The text item that the helper is interfacing with.
      *
-     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a QmlTextItemWrapper
+     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a ChatTextItemHelper
      * to provide easy access to properties and basic QTextDocument manipulation.
      *
-     * @sa TextEdit, QTextDocument, QmlTextItemWrapper
+     * @sa TextEdit, QTextDocument, ChatTextItemHelper
      */
-    Q_PROPERTY(QmlTextItemWrapper *currentTextItem READ currentTextItem NOTIFY focusRowChanged)
+    Q_PROPERTY(ChatKeyHelper *keyHelper READ keyHelper CONSTANT)
 
     /**
-     * @brief The ChatDocumentHandler of the model component that currently has focus.
+     * @brief The text item that the helper is interfacing with.
+     *
+     * This is a QQuickItem that is a TextEdit (or inherited from) wrapped in a ChatTextItemHelper
+     * to provide easy access to properties and basic QTextDocument manipulation.
+     *
+     * @sa TextEdit, QTextDocument, ChatTextItemHelper
      */
-    Q_PROPERTY(ChatDocumentHandler *focusedDocumentHandler READ focusedDocumentHandler NOTIFY focusRowChanged)
+    Q_PROPERTY(ChatTextItemHelper *focusedTextItem READ focusedTextItem NOTIFY focusRowChanged)
 
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
     ChatBarType::Type type() const;
     void setType(ChatBarType::Type type);
-
+    ChatKeyHelper *keyHelper() const;
     int focusRow() const;
     MessageComponentType::Type focusType() const;
     Q_INVOKABLE void setFocusRow(int focusRow, bool mouse = false);
-    void setFocusIndex(const QModelIndex &index, bool mouse = false);
     Q_INVOKABLE void refocusCurrentComponent() const;
-    QmlTextItemWrapper *currentTextItem() const;
-    ChatDocumentHandler *focusedDocumentHandler() const;
+    ChatTextItemHelper *focusedTextItem() const;
 
     Q_INVOKABLE void insertStyleAtCursor(RichFormat::Format style);
 
@@ -91,22 +94,22 @@ private:
 
     std::optional<QString> getReplyEventId() override;
 
-    QPointer<QmlTextItemWrapper> m_currentTextItem;
-    void connectCurentTextItem();
-    QPointer<ChatMarkdownHelper> m_markdownHelper;
+    void setFocusIndex(const QModelIndex &index, bool mouse = false);
+    void focusCurrentComponent(const QModelIndex &previousIndex, bool down);
+    void emitFocusChangeSignals();
 
-    void connectHandler(ChatDocumentHandler *handler);
-    ChatDocumentHandler *documentHandlerForComponent(const MessageComponent &component) const;
-    ChatDocumentHandler *documentHandlerForIndex(const QModelIndex &index) const;
-    QModelIndex indexForDocumentHandler(ChatDocumentHandler *handler) const;
-    void updateDocumentHandlerRefs(const ComponentIt &it);
+    void connectTextItem(ChatTextItemHelper *chattextitemhelper);
+    ChatTextItemHelper *textItemForComponent(const MessageComponent &component) const;
+    ChatTextItemHelper *textItemForIndex(const QModelIndex &index) const;
+    QModelIndex indexForTextItem(ChatTextItemHelper *textItem) const;
+
+    QPointer<ChatMarkdownHelper> m_markdownHelper;
+    QPointer<ChatKeyHelper> m_keyHelper;
+    void connectKeyHelper();
 
     ComponentIt insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes = {}, const QString &intialText = {});
     ComponentIt removeComponent(ComponentIt it);
-    void removeComponent(ChatDocumentHandler *handler);
-
-    void focusCurrentComponent(const QModelIndex &previousIndex, bool down);
-    void emitFocusChangeSignals();
+    void removeComponent(ChatTextItemHelper *textItem);
 
     void updateCache() const;
     QString messageText() const;

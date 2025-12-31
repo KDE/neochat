@@ -51,11 +51,9 @@ QQC2.Control {
      * @brief The attributes of the component.
      */
     required property var componentAttributes
-    readonly property ChatDocumentHandler chatDocumentHandler: componentAttributes?.chatDocumentHandler ?? null
-    onChatDocumentHandlerChanged: if (chatDocumentHandler) {
-        chatDocumentHandler.type = ChatBarType.Room;
-        chatDocumentHandler.room = root.Message.room;
-        chatDocumentHandler.textItem = codeText;
+    readonly property ChatTextItemHelper chatTextItemHelper: componentAttributes?.chatTextItemHelper ?? null
+    onChatTextItemHelperChanged: if (chatTextItemHelper) {
+        chatTextItemHelper.textItem = codeText;
     }
 
     /**
@@ -94,27 +92,23 @@ QQC2.Control {
             id: codeText
 
             Keys.onUpPressed: (event) => {
-                event.accepted = false;
-                if (root.chatDocumentHandler.atFirstLine) {
-                    Message.contentModel.focusRow = root.index - 1
-                }
+                event.accepted = true;
+                Message.contentModel.keyHelper.up();
             }
             Keys.onDownPressed: (event) => {
-                event.accepted = false;
-                if (root.chatDocumentHandler.atLastLine) {
-                    Message.contentModel.focusRow = root.index + 1
-                }
+                event.accepted = true;
+                Message.contentModel.keyHelper.down();
             }
 
             Keys.onDeletePressed: (event) => {
                 event.accepted = true;
-                root.chatDocumentHandler.deleteChar();
+                root.Message.contentModel.keyHelper.deleteChar();
             }
 
             Keys.onPressed: (event) => {
                 if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
                     event.accepted = true;
-                    root.chatDocumentHandler.backspace();
+                    root.Message.contentModel.keyHelper.backspace();
                     return;
                 }
                 event.accepted = false;

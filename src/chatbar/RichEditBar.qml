@@ -22,7 +22,6 @@ QQC2.ToolBar {
     property LibNeoChat.ChatBarCache chatBarCache
 
     required property MessageContent.ChatBarMessageContentModel contentModel
-    readonly property LibNeoChat.ChatDocumentHandler focusedDocumentHandler: contentModel.focusedDocumentHandler
 
     Connections {
         target: contentModel
@@ -65,7 +64,7 @@ QQC2.ToolBar {
                                                               3
 
     readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
-        textItem: contentModel.currentTextItem
+        textItem: contentModel.focusedTextItem
     }
 
     signal clicked

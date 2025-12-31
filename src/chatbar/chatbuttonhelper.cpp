@@ -12,12 +12,12 @@ ChatButtonHelper::ChatButtonHelper(QObject *parent)
 {
 }
 
-QmlTextItemWrapper *ChatButtonHelper::textItem() const
+ChatTextItemHelper *ChatButtonHelper::textItem() const
 {
     return m_textItem;
 }
 
-void ChatButtonHelper::setTextItem(QmlTextItemWrapper *textItem)
+void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
 {
     if (textItem == m_textItem) {
         return;
@@ -30,11 +30,10 @@ void ChatButtonHelper::setTextItem(QmlTextItemWrapper *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatButtonHelper::textItemChanged);
-        connect(m_textItem, &QmlTextItemWrapper::formatChanged, this, &ChatButtonHelper::linkChanged);
-        connect(m_textItem, &QmlTextItemWrapper::textFormatChanged, this, &ChatButtonHelper::textFormatChanged);
-        connect(m_textItem, &QmlTextItemWrapper::styleChanged, this, &ChatButtonHelper::styleChanged);
-        connect(m_textItem, &QmlTextItemWrapper::listChanged, this, &ChatButtonHelper::listChanged);
+        connect(m_textItem, &ChatTextItemHelper::formatChanged, this, &ChatButtonHelper::linkChanged);
+        connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::textFormatChanged);
+        connect(m_textItem, &ChatTextItemHelper::styleChanged, this, &ChatButtonHelper::styleChanged);
+        connect(m_textItem, &ChatTextItemHelper::listChanged, this, &ChatButtonHelper::listChanged);
     }
 
     Q_EMIT textItemChanged();
@@ -86,6 +85,14 @@ bool ChatButtonHelper::orderedList() const
         return false;
     }
     return m_textItem->formatsAtCursor().contains(RichFormat::OrderedList);
+}
+
+RichFormat::Format ChatButtonHelper::currentStyle() const
+{
+    if (!m_textItem) {
+        return RichFormat::Paragraph;
+    }
+    return static_cast<RichFormat::Format>(m_textItem->textCursor().blockFormat().headingLevel());
 }
 
 void ChatButtonHelper::setFormat(RichFormat::Format format)

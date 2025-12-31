@@ -12,11 +12,25 @@ import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
 import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
 
 QQC2.Popup {
     id: root
 
-    required property var chatDocumentHandler
+    /**
+     * @brief The current room that user is viewing.
+     */
+    required property LibNeoChat.NeoChatRoom room
+
+    /**
+     * @brief The chatbar type
+     */
+    required property int type
+
+    /**
+     * @brief The chatbar type
+     */
+    required property LibNeoChat.ChatTextItemHelper textItem
 
     visible: completions.count > 0
 
@@ -33,7 +47,7 @@ QQC2.Popup {
     }
 
     function complete() {
-        root.chatDocumentHandler.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef)
+        completionModel.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef)
     }
 
     leftPadding: 0
@@ -60,8 +74,11 @@ QQC2.Popup {
             ListView {
                 id: completions
 
-                model: CompletionModel {
-                    textItem: root.chatDocumentHandler.textItem
+                model: LibNeoChat.CompletionModel {
+                    id: completionModel
+                    room: root.room
+                    type: root.type
+                    textItem: root.textItem
                     roomListModel: RoomManager.roomListModel
                     userListModel: RoomManager.userListModel
                 }
@@ -97,7 +114,7 @@ QQC2.Popup {
                             subtitleItem.textFormat: Text.PlainText
                         }
                     }
-                    onClicked: root.chatDocumentHandler.insertCompletion(replacedText, hRef)
+                    onClicked: completionModel.insertCompletion(replacedText, hRef)
                 }
             }
         }

@@ -15,7 +15,7 @@ class StyleDelegateHelper : public QObject
     QML_ELEMENT
 
     /**
-     * @brief The QML text Item the ChatDocumentHandler is handling.
+     * @brief The QML text Item the StyleDelegateHelper is handling.
      */
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 

@@ -9,8 +9,10 @@ target_sources(LibNeoChat PRIVATE
     neochatroommember.cpp
     accountmanager.cpp
     chatbarcache.cpp
-    chatdocumenthandler.cpp
+    chatbarsyntaxhighlighter.cpp
+    chatkeyhelper.cpp
     chatmarkdownhelper.cpp
+    chattextitemhelper.cpp
     clipboard.cpp
     delegatesizehelper.cpp
     emojitones.cpp
@@ -21,7 +23,6 @@ target_sources(LibNeoChat PRIVATE
     neochatdatetime.cpp
     nestedlisthelper_p.h
     nestedlisthelper.cpp
-    qmltextitemwrapper.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp
@@ -89,13 +90,6 @@ ecm_qt_declare_logging_category(LibNeoChat
     HEADER "eventhandler_logging.h"
     IDENTIFIER "EventHandling"
     CATEGORY_NAME "org.kde.neochat.eventhandler"
-    DEFAULT_SEVERITY Info
-)
-
-ecm_qt_declare_logging_category(LibNeoChat
-    HEADER "chatdocumenthandler_logging.h"
-    IDENTIFIER "ChatDocumentHandling"
-    CATEGORY_NAME "org.kde.neochat.chatdocumenthandler"
     DEFAULT_SEVERITY Info
 )
 
