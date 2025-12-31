@@ -7,7 +7,7 @@
 #include <QTextDocument>
 #include <qtextcursor.h>
 
-#include "qmltextitemwrapper.h"
+#include "chattextitemhelper.h"
 #include "richformat.h"
 
 namespace
@@ -86,12 +86,12 @@ ChatMarkdownHelper::ChatMarkdownHelper(QObject *parent)
 {
 }
 
-QmlTextItemWrapper *ChatMarkdownHelper::textItem() const
+ChatTextItemHelper *ChatMarkdownHelper::textItem() const
 {
     return m_textItem;
 }
 
-void ChatMarkdownHelper::setTextItem(QmlTextItemWrapper *textItem)
+void ChatMarkdownHelper::setTextItem(ChatTextItemHelper *textItem)
 {
     if (textItem == m_textItem) {
         return;
@@ -104,15 +104,15 @@ void ChatMarkdownHelper::setTextItem(QmlTextItemWrapper *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
-        connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, [this]() {
+        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
+        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, [this]() {
             m_startPos = m_textItem->cursorPosition();
             m_endPos = m_startPos;
             if (m_startPos == 0) {
                 m_currentState = Pre;
             }
         });
-        connect(m_textItem, &QmlTextItemWrapper::contentsChange, this, &ChatMarkdownHelper::checkMarkdown);
+        connect(m_textItem, &ChatTextItemHelper::contentsChange, this, &ChatMarkdownHelper::checkMarkdown);
     }
 
     Q_EMIT textItemChanged();

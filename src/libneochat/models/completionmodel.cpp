@@ -6,35 +6,75 @@
 #include <QDebug>
 #include <QTextCursor>
 
+#include "chattextitemhelper.h"
 #include "completionproxymodel.h"
 #include "models/actionsmodel.h"
 #include "models/customemojimodel.h"
 #include "models/emojimodel.h"
-#include "qmltextitemwrapper.h"
+#include "models/roomlistmodel.h"
 #include "userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_textItem(new QmlTextItemWrapper(this))
+    , m_textItem(new ChatTextItemHelper(this))
     , m_filterModel(new CompletionProxyModel(this))
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
-    connect(m_textItem, &QmlTextItemWrapper::textItemChanged, this, &CompletionModel::textItemChanged);
-    connect(m_textItem, &QmlTextItemWrapper::cursorPositionChanged, this, &CompletionModel::updateTextStart);
-    connect(m_textItem, &QmlTextItemWrapper::contentsChanged, this, &CompletionModel::updateCompletion);
-
     m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
     m_emojiModel->addSourceModel(&EmojiModel::instance());
 }
 
-QQuickItem *CompletionModel::textItem() const
+NeoChatRoom *CompletionModel::room() const
 {
-    return m_textItem->textItem();
+    return m_room;
 }
 
-void CompletionModel::setTextItem(QQuickItem *textItem)
+void CompletionModel::setRoom(NeoChatRoom *room)
 {
-    m_textItem->setTextItem(textItem);
+    if (m_room == room) {
+        return;
+    }
+
+    m_room = room;
+    Q_EMIT roomChanged();
+}
+
+ChatBarType::Type CompletionModel::type() const
+{
+    return m_type;
+}
+
+void CompletionModel::setType(ChatBarType::Type type)
+{
+    if (type == m_type) {
+        return;
+    }
+    m_type = type;
+    Q_EMIT typeChanged();
+}
+
+ChatTextItemHelper *CompletionModel::textItem() const
+{
+    return m_textItem;
+}
+
+void CompletionModel::setTextItem(ChatTextItemHelper *textItem)
+{
+    if (textItem == m_textItem) {
+        return;
+    }
+
+    if (m_textItem) {
+        m_textItem->disconnect(this);
+    }
+
+    m_textItem = textItem;
+
+    if (m_textItem) {
+        connect(m_textItem, &ChatTextItemHelper::cursorPositionChanged, this, &CompletionModel::updateTextStart);
+        connect(m_textItem, &ChatTextItemHelper::contentsChanged, this, &CompletionModel::updateCompletion);
+    }
+    Q_EMIT textItemChanged();
 }
 
 void CompletionModel::updateTextStart()
@@ -237,6 +277,47 @@ void CompletionModel::setUserListModel(UserListModel *userListModel)
 
     m_userListModel = userListModel;
     Q_EMIT userListModelChanged();
+}
+
+void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
+{
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    cursor.beginEditBlock();
+    while (!cursor.selectedText().startsWith(u' ') && !cursor.atBlockStart()) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+    if (cursor.selectedText().startsWith(u' ')) {
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    }
+    cursor.removeSelectedText();
+
+    const int start = cursor.position();
+    const auto insertString = u"%1 %2"_s.arg(text, link.isEmpty() ? QString() : u" "_s);
+    cursor.insertText(insertString);
+    cursor.setPosition(start);
+    cursor.setPosition(start + text.size(), QTextCursor::KeepAnchor);
+    cursor.setKeepPositionOnInsert(true);
+    cursor.endEditBlock();
+    if (!link.isEmpty()) {
+        pushMention({
+            .cursor = cursor,
+            .text = text,
+            .id = link.toString(),
+        });
+    }
+    m_textItem->rehighlight();
+}
+
+void CompletionModel::pushMention(const Mention mention) const
+{
+    if (!m_room || m_type == ChatBarType::None) {
+        return;
+    }
+    m_room->cacheForType(m_type)->mentions()->push_back(mention);
 }
 
 #include "moc_completionmodel.cpp"

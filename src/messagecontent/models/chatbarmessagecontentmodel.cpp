@@ -6,20 +6,26 @@
 #include <QTextDocumentFragment>
 
 #include "chatbarcache.h"
-#include "chatdocumenthandler.h"
+#include "chatkeyhelper.h"
+#include "chatmarkdownhelper.h"
+#include "chattextitemhelper.h"
 #include "enums/chatbartype.h"
 #include "enums/messagecomponenttype.h"
 #include "enums/richformat.h"
 #include "messagecontentmodel.h"
-#include "qmltextitemwrapper.h"
+
+namespace
+{
+constexpr auto TextItemKey = "chatTextItemHelper"_L1;
+}
 
 ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     : MessageContentModel(parent)
-    , m_currentTextItem(new QmlTextItemWrapper(this))
     , m_markdownHelper(new ChatMarkdownHelper(this))
+    , m_keyHelper(new ChatKeyHelper(this))
 {
     m_editableActive = true;
-    connectCurentTextItem();
+    connectKeyHelper();
     initializeModel();
 
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
@@ -53,102 +59,43 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
 
         Q_EMIT focusRowChanged();
     });
+    connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
+        m_markdownHelper->setTextItem(focusedTextItem());
+        m_keyHelper->setTextItem(focusedTextItem());
+    });
+    connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
+        for (const auto &component : m_components) {
+            if (const auto textItem = textItemForComponent(component)) {
+                textItem->setRoom(m_room);
+            }
+        }
+    });
+    connect(this, &ChatBarMessageContentModel::typeChanged, this, [this]() {
+        for (const auto &component : m_components) {
+            if (const auto textItem = textItemForComponent(component)) {
+                textItem->setType(m_type);
+            }
+        }
+    });
+    connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
 }
 
 void ChatBarMessageContentModel::initializeModel()
 {
     beginInsertRows({}, rowCount(), rowCount());
-    const auto documentHandler = new ChatDocumentHandler();
-    connectHandler(documentHandler);
+    const auto textItem = new ChatTextItemHelper(this);
+    textItem->setRoom(m_room);
+    textItem->setType(m_type);
+    connectTextItem(textItem);
     m_components += MessageComponent{
         .type = MessageComponentType::Text,
         .display = {},
-        .attributes = {{"chatDocumentHandler"_L1, QVariant::fromValue<ChatDocumentHandler *>(documentHandler)}},
+        .attributes = {{TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItem)}},
     };
     m_currentFocusComponent = QPersistentModelIndex(index(0));
     endInsertRows();
 
     Q_EMIT focusRowChanged();
-}
-
-void ChatBarMessageContentModel::connectCurentTextItem()
-{
-    if (const auto docHandler = focusedDocumentHandler()) {
-        m_currentTextItem->setTextItem(docHandler->textItem());
-    }
-    connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
-        if (const auto docHandler = focusedDocumentHandler()) {
-            m_currentTextItem->setTextItem(docHandler->textItem());
-            m_markdownHelper->setTextItem(m_currentTextItem);
-        }
-    });
-}
-
-void ChatBarMessageContentModel::connectHandler(ChatDocumentHandler *handler)
-{
-    connect(handler, &ChatDocumentHandler::contentsChanged, this, &ChatBarMessageContentModel::updateCache);
-    connect(handler, &ChatDocumentHandler::unhandledBackspaceAtBeginning, this, [this](ChatDocumentHandler *handler) {
-        const auto index = indexForDocumentHandler(handler);
-        if (index.isValid()) {
-            if (index.row() > 0 && MessageComponentType::isFileType(m_components[index.row() - 1].type)) {
-                removeAttachment();
-            } else if (m_components[index.row()].type == MessageComponentType::Code || m_components[index.row()].type == MessageComponentType::Quote) {
-                insertComponentAtCursor(MessageComponentType::Text);
-            }
-        }
-    });
-    connect(handler, &ChatDocumentHandler::removeMe, this, [this](ChatDocumentHandler *handler) {
-        removeComponent(handler);
-    });
-}
-
-ChatDocumentHandler *ChatBarMessageContentModel::documentHandlerForComponent(const MessageComponent &component) const
-{
-    if (const auto chatDocumentHandler = qvariant_cast<ChatDocumentHandler *>(component.attributes["chatDocumentHandler"_L1])) {
-        return chatDocumentHandler;
-    }
-    return nullptr;
-}
-
-ChatDocumentHandler *ChatBarMessageContentModel::documentHandlerForIndex(const QModelIndex &index) const
-{
-    return documentHandlerForComponent(m_components[index.row()]);
-}
-
-QModelIndex ChatBarMessageContentModel::indexForDocumentHandler(ChatDocumentHandler *handler) const
-{
-    for (auto it = m_components.begin(); it != m_components.end(); ++it) {
-        const auto currentIndex = index(it - m_components.begin());
-        if (documentHandlerForIndex(currentIndex) == handler) {
-            return currentIndex;
-        }
-    }
-    return {};
-}
-
-void ChatBarMessageContentModel::updateDocumentHandlerRefs(const ComponentIt &it)
-{
-    if (it == m_components.end()) {
-        return;
-    }
-
-    const auto handler = documentHandlerForComponent(*it);
-    if (!handler) {
-        return;
-    }
-
-    if (it != m_components.begin()) {
-        if (const auto beforeHandler = documentHandlerForComponent(*(it - 1))) {
-            beforeHandler->setNextDocumentHandler(handler);
-            handler->setPreviousDocumentHandler(beforeHandler);
-        }
-    }
-    if (it + 1 != m_components.end()) {
-        if (const auto afterHandler = documentHandlerForComponent(*(it + 1))) {
-            afterHandler->setPreviousDocumentHandler(handler);
-            handler->setNextDocumentHandler(afterHandler);
-        }
-    }
 }
 
 ChatBarType::Type ChatBarMessageContentModel::type() const
@@ -163,6 +110,46 @@ void ChatBarMessageContentModel::setType(ChatBarType::Type type)
     }
     m_type = type;
     Q_EMIT typeChanged();
+}
+
+ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
+{
+    return m_keyHelper;
+}
+
+void ChatBarMessageContentModel::connectKeyHelper()
+{
+    connect(m_keyHelper, &ChatKeyHelper::unhandledUp, this, [this]() {
+        setFocusRow(m_currentFocusComponent.row() - 1);
+    });
+    connect(m_keyHelper, &ChatKeyHelper::unhandledDown, this, [this]() {
+        setFocusRow(m_currentFocusComponent.row() + 1);
+    });
+    connect(m_keyHelper, &ChatKeyHelper::unhandledDelete, this, [this]() {
+        const auto currentRow = m_currentFocusComponent.row();
+        if (currentRow < m_components.size() - 1) {
+            if (const auto nextTextItem = textItemForComponent(m_components[currentRow + 1])) {
+                focusedTextItem()->insertFragment(nextTextItem->takeFirstBlock(), ChatTextItemHelper::Cursor, true);
+            }
+        }
+    });
+    connect(m_keyHelper, &ChatKeyHelper::unhandledBackspace, this, [this]() {
+        const auto currentRow = m_currentFocusComponent.row();
+        if (currentRow > 0) {
+            const auto previousRow = currentRow - 1;
+            if (MessageComponentType::isFileType(m_components[previousRow].type)) {
+                removeAttachment();
+                return;
+            }
+            if (const auto previousTextItem = textItemForComponent(m_components[previousRow])) {
+                previousTextItem->insertFragment(focusedTextItem()->takeFirstBlock(), ChatTextItemHelper::End, true);
+                return;
+            }
+        }
+        if (m_components[currentRow].type == MessageComponentType::Code || m_components[currentRow].type == MessageComponentType::Quote) {
+            insertComponentAtCursor(MessageComponentType::Text);
+        }
+    });
 }
 
 int ChatBarMessageContentModel::focusRow() const
@@ -199,45 +186,75 @@ void ChatBarMessageContentModel::setFocusIndex(const QModelIndex &index, bool mo
 
 void ChatBarMessageContentModel::focusCurrentComponent(const QModelIndex &previousIndex, bool down)
 {
-    const auto chatDocumentHandler = focusedDocumentHandler();
-    if (!chatDocumentHandler) {
+    const auto textItem = focusedTextItem();
+    if (!textItem) {
         return;
     }
 
-    chatDocumentHandler->setCursorFromDocumentHandler(documentHandlerForIndex(previousIndex), down, MessageComponentType::Quote ? 1 : 0);
+    textItem->setCursorFromTextItem(textItemForIndex(previousIndex), down, MessageComponentType::Quote ? 1 : 0);
 }
 
 void ChatBarMessageContentModel::refocusCurrentComponent() const
 {
-    const auto chatDocumentHandler = focusedDocumentHandler();
-    if (!chatDocumentHandler) {
+    const auto textItem = focusedTextItem();
+    if (!textItem) {
         return;
     }
 
-    chatDocumentHandler->textItem()->forceActiveFocus();
-}
-
-QmlTextItemWrapper *ChatBarMessageContentModel::currentTextItem() const
-{
-    return m_currentTextItem;
-}
-
-ChatDocumentHandler *ChatBarMessageContentModel::focusedDocumentHandler() const
-{
-    if (!m_currentFocusComponent.isValid()) {
-        return nullptr;
-    }
-
-    if (const auto chatDocumentHandler = documentHandlerForIndex(m_currentFocusComponent)) {
-        return chatDocumentHandler;
-    }
-    return nullptr;
+    textItem->forceActiveFocus();
 }
 
 void ChatBarMessageContentModel::emitFocusChangeSignals()
 {
     Q_EMIT focusRowChanged();
     Q_EMIT dataChanged(index(0), index(rowCount() - 1), {CurrentFocusRole});
+}
+
+ChatTextItemHelper *ChatBarMessageContentModel::focusedTextItem() const
+{
+    if (!m_currentFocusComponent.isValid()) {
+        return nullptr;
+    }
+    if (const auto textItem = textItemForIndex(m_currentFocusComponent)) {
+        return textItem;
+    }
+    return nullptr;
+}
+
+void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextitemhelper)
+{
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::updateCache);
+    connect(chattextitemhelper, &ChatTextItemHelper::cleared, this, [this](ChatTextItemHelper *helper) {
+        removeComponent(helper);
+    });
+}
+
+ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(const MessageComponent &component) const
+{
+    if (const auto textItem = qvariant_cast<ChatTextItemHelper *>(component.attributes[TextItemKey])) {
+        return textItem;
+    }
+    return nullptr;
+}
+
+ChatTextItemHelper *ChatBarMessageContentModel::textItemForIndex(const QModelIndex &index) const
+{
+    return textItemForComponent(m_components[index.row()]);
+}
+
+QModelIndex ChatBarMessageContentModel::indexForTextItem(ChatTextItemHelper *textItem) const
+{
+    if (!textItem) {
+        return {};
+    }
+
+    for (auto it = m_components.begin(); it != m_components.end(); ++it) {
+        const auto currentIndex = index(it - m_components.begin());
+        if (textItemForIndex(currentIndex) == textItem) {
+            return currentIndex;
+        }
+    }
+    return {};
 }
 
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
@@ -278,15 +295,16 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
     }
 
     if (MessageComponentType::isTextType(type)) {
-        const auto documentHandler = new ChatDocumentHandler();
-        documentHandler->setInitialText(intialText);
+        const auto textItemWrapper = new ChatTextItemHelper(this);
+        textItemWrapper->setInitialText(intialText);
+        textItemWrapper->setRoom(m_room);
+        textItemWrapper->setType(m_type);
         if (type == MessageComponentType::Quote) {
-            documentHandler->setFixedStartChars(u"\""_s);
-            documentHandler->setFixedEndChars(u"\""_s);
+            textItemWrapper->setFixedChars(u"\""_s, u"\""_s);
         }
 
-        attributes.insert("chatDocumentHandler"_L1, QVariant::fromValue<ChatDocumentHandler *>(documentHandler));
-        connectHandler(documentHandler);
+        attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
+        connectTextItem(textItemWrapper);
     }
     beginInsertRows({}, row, row);
     const auto it = m_components.insert(row,
@@ -295,7 +313,6 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
                                             .display = {},
                                             .attributes = attributes,
                                         });
-    updateDocumentHandlerRefs(it);
     endInsertRows();
     return it;
 }
@@ -320,8 +337,8 @@ void ChatBarMessageContentModel::insertStyleAtCursor(RichFormat::Format style)
 void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::Type type)
 {
     if (m_components[m_currentFocusComponent.row()].type == type) {
-        if (type == MessageComponentType::Text && focusedDocumentHandler()) {
-            currentTextItem()->mergeFormatOnCursor(RichFormat::Paragraph);
+        if (type == MessageComponentType::Text && focusedTextItem()) {
+            focusedTextItem()->mergeFormatOnCursor(RichFormat::Paragraph);
         }
         return;
     }
@@ -330,8 +347,8 @@ void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::T
     QTextDocumentFragment midFragment;
     std::optional<QTextDocumentFragment> afterFragment = std::nullopt;
 
-    if (const auto currentChatDocumentHandler = focusedDocumentHandler()) {
-        currentChatDocumentHandler->fillFragments(hasBefore, midFragment, afterFragment);
+    if (const auto currentTextItem = focusedTextItem()) {
+        currentTextItem->fillFragments(hasBefore, midFragment, afterFragment);
     }
 
     const auto currentType = m_components[m_currentFocusComponent.row()].type;
@@ -343,8 +360,8 @@ void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::T
 
     const auto insertIt = insertComponent(insertRow, type);
     if (insertIt != m_components.end()) {
-        if (const auto insertChatDocumentHandler = documentHandlerForComponent(*insertIt)) {
-            insertChatDocumentHandler->insertFragment(midFragment);
+        if (const auto insertTextItem = textItemForComponent(*insertIt)) {
+            insertTextItem->insertFragment(midFragment);
         }
         m_currentFocusComponent = QPersistentModelIndex(index(insertIt - m_components.begin()));
         emitFocusChangeSignals();
@@ -353,8 +370,8 @@ void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::T
     if (afterFragment) {
         const auto afterIt = insertComponent(insertRow + 1, currentType);
         if (afterIt != m_components.end()) {
-            if (const auto afterChatDocumentHandler = documentHandlerForComponent(*afterIt)) {
-                afterChatDocumentHandler->insertFragment(*afterFragment);
+            if (const auto afterTextItem = textItemForComponent(*afterIt)) {
+                afterTextItem->insertFragment(*afterFragment);
             }
         }
     }
@@ -405,21 +422,10 @@ ChatBarMessageContentModel::ComponentIt ChatBarMessageContentModel::removeCompon
         setFocusRow(newFocusRow);
     }
 
-    if (const auto chatDocumentHandler = documentHandlerForIndex(index(row))) {
-        const auto beforeHandler = chatDocumentHandler->previousDocumentHandler();
-        const auto afterHandler = chatDocumentHandler->nextDocumentHandler();
-        if (beforeHandler && afterHandler) {
-            beforeHandler->setNextDocumentHandler(afterHandler);
-            afterHandler->setPreviousDocumentHandler(beforeHandler);
-        } else if (beforeHandler) {
-            beforeHandler->setNextDocumentHandler(nullptr);
-        } else if (afterHandler) {
-            afterHandler->setPreviousDocumentHandler(nullptr);
-        }
-
-        m_components[row].attributes.remove("chatDocumentHandler"_L1);
-        chatDocumentHandler->disconnect(this);
-        chatDocumentHandler->deleteLater();
+    if (const auto textItem = textItemForIndex(index(row))) {
+        m_components[row].attributes.remove(TextItemKey);
+        textItem->disconnect(this);
+        textItem->deleteLater();
     }
     it = m_components.erase(it);
     endRemoveRows();
@@ -427,9 +433,9 @@ ChatBarMessageContentModel::ComponentIt ChatBarMessageContentModel::removeCompon
     return it;
 }
 
-void ChatBarMessageContentModel::removeComponent(ChatDocumentHandler *handler)
+void ChatBarMessageContentModel::removeComponent(ChatTextItemHelper *textItem)
 {
-    const auto index = indexForDocumentHandler(handler);
+    const auto index = indexForTextItem(textItem);
     if (index.isValid()) {
         removeComponent(index.row());
     }
@@ -479,8 +485,8 @@ QString ChatBarMessageContentModel::messageText() const
     QString text;
     for (const auto &component : m_components) {
         if (MessageComponentType::isTextType(component.type)) {
-            if (const auto chatDocumentHandler = documentHandlerForComponent(component)) {
-                auto newText = chatDocumentHandler->htmlText();
+            if (const auto textItem = textItemForComponent(component)) {
+                auto newText = textItem->markdownText();
                 if (component.type == MessageComponentType::Quote) {
                     newText = formatQuote(newText);
                 } else if (component.type == MessageComponentType::Code) {
@@ -517,9 +523,9 @@ void ChatBarMessageContentModel::clearModel()
 {
     beginResetModel();
     for (const auto &component : m_components) {
-        if (const auto chatDocumentHandler = documentHandlerForComponent(component)) {
-            chatDocumentHandler->disconnect(this);
-            chatDocumentHandler->deleteLater();
+        if (const auto textItem = textItemForComponent(component)) {
+            textItem->disconnect(this);
+            textItem->deleteLater();
         }
     }
     m_components.clear();
