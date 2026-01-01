@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3285,12 +3285,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/libneochat/neochatroom.cpp:1254
+#: src/libneochat/neochatroom.cpp:1255
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
+#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -7255,31 +7255,39 @@ msgid ""
 "this point."
 msgstr "대화의 최초입니다. 이 지점보다 더 오래된 메시지가 없습니다."
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "첫 읽지 않은 메시지로 이동"
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "불러온 메시지 중 가장 오래된 메시지로 이동"
 
-#: src/timeline/TimelineView.qml:245
+#: src/timeline/TimelineView.qml:243
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
+msgid "Jump to next unread highlight"
+msgstr "첫 읽지 않은 메시지로 이동"
+
+#: src/timeline/TimelineView.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "최신 메시지로 이동"
 
-#: src/timeline/TimelineView.qml:279
+#: src/timeline/TimelineView.qml:308
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "공유할 항목을 여기에 드래그"
 
-#: src/timeline/TimelineView.qml:304
+#: src/timeline/TimelineView.qml:333
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

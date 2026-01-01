@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
 "PO-Revision-Date: 2025-12-01 09:14+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3292,12 +3292,12 @@ msgstr "Huoneen luominen epäonnistui: %1"
 msgid "Space creation failed: %1"
 msgstr "Tilan luominen epäonnistui: %1"
 
-#: src/libneochat/neochatroom.cpp:1254
+#: src/libneochat/neochatroom.cpp:1255
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
+#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -7219,31 +7219,39 @@ msgid ""
 "this point."
 msgstr "Tämä on keskustelun alku. Tästä edemmäs keskusteluhistoriaa ei ole."
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Hyppää ensimmäiseen lukematta olevaan viestiin"
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Siirry vanhimpaan ladattuun viestiin"
 
-#: src/timeline/TimelineView.qml:245
+#: src/timeline/TimelineView.qml:243
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
+msgid "Jump to next unread highlight"
+msgstr "Hyppää ensimmäiseen lukematta olevaan viestiin"
+
+#: src/timeline/TimelineView.qml:274
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Hyppää viimeisimpään viestiin"
 
-#: src/timeline/TimelineView.qml:279
+#: src/timeline/TimelineView.qml:308
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Jaa kohteita vetämällä ne tähän"
 
-#: src/timeline/TimelineView.qml:304
+#: src/timeline/TimelineView.qml:333
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

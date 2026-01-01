@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-27 00:42+0000\n"
+"POT-Creation-Date: 2026-01-01 00:42+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -3529,13 +3529,13 @@ msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "ਰੂਮ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1254
+#: src/libneochat/neochatroom.cpp:1255
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਹੈ"
 
-#: src/libneochat/neochatroom.cpp:1619 src/libneochat/neochatroom.cpp:1627
+#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -7855,34 +7855,41 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: src/timeline/TimelineView.qml:214
+#: src/timeline/TimelineView.qml:217
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: src/timeline/TimelineView.qml:245
+#: src/timeline/TimelineView.qml:243
+#, fuzzy, kde-format
+#| msgid "Jump to first unread message"
+msgctxt "@action:button"
+msgid "Jump to next unread highlight"
+msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
+
+#: src/timeline/TimelineView.qml:274
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: src/timeline/TimelineView.qml:279
+#: src/timeline/TimelineView.qml:308
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr ""
 
-#: src/timeline/TimelineView.qml:304
+#: src/timeline/TimelineView.qml:333
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
