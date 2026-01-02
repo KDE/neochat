@@ -47,6 +47,7 @@ private:
     State m_currentState = None;
     int m_startPos = 0;
     int m_endPos = 0;
+    void updateStart();
 
     QHash<RichFormat::Format, int> m_currentFormats;
 

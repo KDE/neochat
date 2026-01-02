@@ -71,20 +71,6 @@ QQC2.TextArea {
         event.accepted = true;
         Message.contentModel.keyHelper.down();
     }
-    Keys.onLeftPressed: (event) => {
-        if (cursorPosition == 1) {
-            event.accepted = true;
-        } else {
-            event.accepted = false;
-        }
-    }
-    Keys.onRightPressed: (event) => {
-        if (cursorPosition == (length - 1)) {
-            event.accepted = true;
-            return;
-        }
-        event.accepted = false;
-    }
 
     Keys.onDeletePressed: (event) => {
         event.accepted = true;
@@ -121,12 +107,6 @@ QQC2.TextArea {
 
     onFocusChanged: if (focus && !currentFocus) {
         Message.contentModel.setFocusRow(root.index, true)
-    }
-
-    onCursorPositionChanged: if (cursorPosition == 0) {
-        cursorPosition = 1;
-    } else if (cursorPosition == length) {
-        cursorPosition = length - 1;
     }
 
     TapHandler {
