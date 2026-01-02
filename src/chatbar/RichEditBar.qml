@@ -23,14 +23,6 @@ QQC2.ToolBar {
 
     required property MessageContent.ChatBarMessageContentModel contentModel
 
-    Connections {
-        target: contentModel
-
-        function onFocusRowChanged() {
-            console.warn("focus changed", contentModel.focusRow, contentModel.focusType)
-        }
-    }
-
     required property real maxAvailableWidth
 
     readonly property real uncompressedImplicitWidth: textFormatRow.implicitWidth +

@@ -44,7 +44,11 @@ bool ChatButtonHelper::bold() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::Bold);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::Bold);
 }
 
 bool ChatButtonHelper::italic() const
@@ -52,7 +56,11 @@ bool ChatButtonHelper::italic() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::Italic);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::Italic);
 }
 
 bool ChatButtonHelper::underline() const
@@ -60,7 +68,11 @@ bool ChatButtonHelper::underline() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::Underline);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::Underline);
 }
 
 bool ChatButtonHelper::strikethrough() const
@@ -68,7 +80,11 @@ bool ChatButtonHelper::strikethrough() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::Strikethrough);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::Strikethrough);
 }
 
 bool ChatButtonHelper::unorderedList() const
@@ -76,7 +92,11 @@ bool ChatButtonHelper::unorderedList() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::UnorderedList);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::UnorderedList);
 }
 
 bool ChatButtonHelper::orderedList() const
@@ -84,7 +104,11 @@ bool ChatButtonHelper::orderedList() const
     if (!m_textItem) {
         return false;
     }
-    return m_textItem->formatsAtCursor().contains(RichFormat::OrderedList);
+    const auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    return RichFormat::formatsAtCursor(cursor).contains(RichFormat::OrderedList);
 }
 
 RichFormat::Format ChatButtonHelper::currentStyle() const

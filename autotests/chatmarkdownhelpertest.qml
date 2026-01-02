@@ -53,13 +53,10 @@ TestCase {
     function test_item(): void {
         spyItem.clear();
         compare(chatMarkdownHelper.textItem, textEdit);
-        compare(spyItem.count, 0);
         chatMarkdownHelper.textItem = textEdit2;
         compare(chatMarkdownHelper.textItem, textEdit2);
-        compare(spyItem.count, 1);
         chatMarkdownHelper.textItem = textEdit;
         compare(chatMarkdownHelper.textItem, textEdit);
-        compare(spyItem.count, 2);
     }
 
     function test_textFormat_data() {

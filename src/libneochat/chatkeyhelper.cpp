@@ -73,7 +73,7 @@ void ChatKeyHelper::tab()
     if (cursor.isNull()) {
         return;
     }
-    if (cursor.currentList()) {
+    if (cursor.currentList() && m_textItem->canIndentListMoreAtCursor()) {
         m_textItem->indentListMoreAtCursor();
         return;
     }
@@ -100,7 +100,7 @@ void ChatKeyHelper::backspace()
         return;
     }
     if (cursor.position() <= m_textItem->fixedStartChars().length()) {
-        if (cursor.currentList()) {
+        if (cursor.currentList() && m_textItem->canIndentListLessAtCursor()) {
             m_textItem->indentListLessAtCursor();
             return;
         }

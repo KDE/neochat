@@ -53,6 +53,9 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(itemCursorPositionChanged()));
         if (const auto doc = document()) {
             connect(doc, &QTextDocument::contentsChanged, this, &ChatTextItemHelper::contentsChanged);
+            connect(doc, &QTextDocument::contentsChange, this, [this]() {
+                m_contentsJustChanged = true;
+            });
             connect(doc, &QTextDocument::contentsChange, this, &ChatTextItemHelper::contentsChange);
             m_highlighter->setDocument(doc);
         }
@@ -122,19 +125,30 @@ void ChatTextItemHelper::initializeChars()
         return;
     }
 
+    m_initializingChars = true;
+
+    cursor.beginEditBlock();
+    int finalCursorPos = cursor.position();
     if (doc->isEmpty() && !m_initialText.isEmpty()) {
         cursor.insertText(m_initialText);
+        finalCursorPos = cursor.position();
     }
 
     if (!m_fixedStartChars.isEmpty() && doc->characterAt(0) != m_fixedStartChars) {
         cursor.movePosition(QTextCursor::Start);
-        cursor.insertText(m_fixedEndChars);
+        cursor.insertText(m_fixedStartChars);
+        finalCursorPos += m_fixedStartChars.length();
     }
 
     if (!m_fixedStartChars.isEmpty() && doc->characterAt(doc->characterCount()) != m_fixedStartChars) {
         cursor.movePosition(QTextCursor::End);
+        cursor.keepPositionOnInsert();
         cursor.insertText(m_fixedEndChars);
     }
+    setCursorPosition(finalCursorPos);
+    cursor.endEditBlock();
+
+    m_initializingChars = false;
 }
 
 QTextDocument *ChatTextItemHelper::document() const
@@ -186,6 +200,10 @@ QTextDocumentFragment ChatTextItemHelper::takeFirstBlock()
 
     const auto block = cursor.selection();
     cursor.removeSelectedText();
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    if (cursor.selectedText() == QChar::ParagraphSeparator) {
+        cursor.removeSelectedText();
+    }
     cursor.endEditBlock();
     if (document()->characterCount() - 1 <= (m_fixedStartChars.length() + m_fixedEndChars.length())) {
         Q_EMIT cleared(this);
@@ -214,18 +232,29 @@ void ChatTextItemHelper::fillFragments(bool &hasBefore, QTextDocumentFragment &m
     if (!afterBlock) {
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
     }
-    cursor.endEditBlock();
 
     midFragment = cursor.selection();
     if (!midFragment.isEmpty()) {
         cursor.removeSelectedText();
     }
-    cursor.deletePreviousChar();
+
+    cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    if (cursor.selectedText() == QChar::ParagraphSeparator) {
+        cursor.removeSelectedText();
+    } else {
+        cursor.movePosition(QTextCursor::NextCharacter);
+    }
+
     if (afterBlock) {
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+        if (cursor.selectedText() == QChar::ParagraphSeparator) {
+            cursor.removeSelectedText();
+        }
         cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
         afterFragment = cursor.selection();
         cursor.removeSelectedText();
     }
+    cursor.endEditBlock();
 }
 
 void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, InsertPosition position, bool keepPosition)
@@ -257,16 +286,9 @@ void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, In
 
     cursor.setPosition(currentPosition);
     if (textFormat() && textFormat() == Qt::PlainText) {
-        const auto wasEmpty = isEmpty();
         auto text = fragment.toPlainText();
         text = trim(text);
         cursor.insertText(text);
-        if (wasEmpty) {
-            cursor.movePosition(QTextCursor::StartOfBlock);
-            cursor.deletePreviousChar();
-            cursor.movePosition(QTextCursor::EndOfBlock);
-            cursor.deleteChar();
-        }
     } else {
         cursor.insertMarkdown(trim(fragment.toMarkdown()));
     }
@@ -276,10 +298,10 @@ void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, In
     setCursorPosition(cursor.position());
 }
 
-int ChatTextItemHelper::cursorPosition() const
+std::optional<int> ChatTextItemHelper::cursorPosition() const
 {
     if (!m_textItem) {
-        return -1;
+        return std::nullopt;
     }
     return m_textItem->property("cursorPosition").toInt();
 }
@@ -311,7 +333,7 @@ QTextCursor ChatTextItemHelper::textCursor() const
         cursor.setPosition(selectionStart());
         cursor.setPosition(selectionEnd(), QTextCursor::KeepAnchor);
     } else {
-        cursor.setPosition(cursorPosition());
+        cursor.setPosition(*cursorPosition());
     }
     return cursor;
 }
@@ -332,7 +354,7 @@ void ChatTextItemHelper::setCursorVisible(bool visible)
     m_textItem->setProperty("cursorVisible", visible);
 }
 
-void ChatTextItemHelper::setCursorFromTextItem(ChatTextItemHelper *textItem, bool infront, int defaultPosition)
+void ChatTextItemHelper::setCursorFromTextItem(ChatTextItemHelper *textItem, bool infront)
 {
     const auto doc = document();
     if (!doc) {
@@ -343,35 +365,38 @@ void ChatTextItemHelper::setCursorFromTextItem(ChatTextItemHelper *textItem, boo
 
     if (!textItem) {
         const auto docLastBlockLayout = doc->lastBlock().layout();
-        setCursorPosition(infront ? defaultPosition : docLastBlockLayout->lineAt(docLastBlockLayout->lineCount() - 1).textStart());
+        setCursorPosition(infront ? 0 : docLastBlockLayout->lineAt(docLastBlockLayout->lineCount() - 1).textStart());
         setCursorVisible(true);
         return;
     }
 
     const auto previousLinePosition = textItem->textCursor().positionInBlock();
     const auto newMaxLineLength = lineLength(infront ? 0 : lineCount() - 1);
-    setCursorPosition(std::min(previousLinePosition, newMaxLineLength ? *newMaxLineLength : defaultPosition) + (infront ? 0 : doc->lastBlock().position()));
+    setCursorPosition(std::min(previousLinePosition, newMaxLineLength ? *newMaxLineLength : 0) + (infront ? 0 : doc->lastBlock().position()));
     setCursorVisible(true);
 }
 
 void ChatTextItemHelper::itemCursorPositionChanged()
 {
-    Q_EMIT cursorPositionChanged();
+    if (m_initializingChars) {
+        return;
+    }
+    const auto currentCursorPosition = cursorPosition();
+    if (!currentCursorPosition) {
+        return;
+    }
+    if (*currentCursorPosition < m_fixedStartChars.length() || *currentCursorPosition > document()->characterCount() - 1 - m_fixedEndChars.length()) {
+        setCursorPosition(
+            std::min(std::max(*currentCursorPosition, int(m_fixedStartChars.length())), int(document()->characterCount() - 1 - m_fixedEndChars.length())));
+        return;
+    }
+
+    Q_EMIT cursorPositionChanged(m_contentsJustChanged);
+    m_contentsJustChanged = false;
     Q_EMIT formatChanged();
     Q_EMIT textFormatChanged();
     Q_EMIT styleChanged();
     Q_EMIT listChanged();
-}
-
-QList<RichFormat::Format> ChatTextItemHelper::formatsAtCursor(QTextCursor cursor) const
-{
-    if (cursor.isNull()) {
-        cursor = textCursor();
-        if (cursor.isNull()) {
-            return {};
-        }
-    }
-    return RichFormat::formatsAtCursor(cursor);
 }
 
 void ChatTextItemHelper::mergeFormatOnCursor(RichFormat::Format format, QTextCursor cursor)
