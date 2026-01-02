@@ -65,12 +65,11 @@ public:
     void insertFragment(const QTextDocumentFragment fragment, InsertPosition position = Cursor, bool keepPosition = false);
 
     QTextCursor textCursor() const;
-    int cursorPosition() const;
+    std::optional<int> cursorPosition() const;
     void setCursorPosition(int pos);
     void setCursorVisible(bool visible);
-    void setCursorFromTextItem(ChatTextItemHelper *textItem, bool infront, int defaultPosition = 0);
+    void setCursorFromTextItem(ChatTextItemHelper *textItem, bool infront);
 
-    QList<RichFormat::Format> formatsAtCursor(QTextCursor cursor = {}) const;
     void mergeFormatOnCursor(RichFormat::Format format, QTextCursor cursor = {});
 
     bool canIndentListMoreAtCursor(QTextCursor cursor = {}) const;
@@ -93,7 +92,7 @@ Q_SIGNALS:
 
     void cleared(ChatTextItemHelper *self);
 
-    void cursorPositionChanged();
+    void cursorPositionChanged(bool fromContentsChange);
 
     void formatChanged();
     void textFormatChanged();
@@ -104,12 +103,14 @@ private:
     QPointer<QQuickItem> m_textItem;
     QPointer<ChatBarSyntaxHighlighter> m_highlighter;
 
+    bool m_contentsJustChanged = false;
     std::optional<Qt::TextFormat> textFormat() const;
 
     QString m_fixedStartChars = {};
     QString m_fixedEndChars = {};
     QString m_initialText = {};
     void initializeChars();
+    bool m_initializingChars = false;
 
     bool isEmpty() const;
     std::optional<int> lineLength(int lineNumber) const;

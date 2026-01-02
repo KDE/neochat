@@ -28,19 +28,18 @@ public:
         , m_chatMarkdownHelper(new ChatMarkdownHelper(this))
         , m_textItem(new ChatTextItemHelper(this))
     {
+        m_chatMarkdownHelper->setTextItem(m_textItem);
+
         connect(m_chatMarkdownHelper, &ChatMarkdownHelper::textItemChanged, this, &ChatMarkdownHelperTestWrapper::textItemChanged);
         connect(m_chatMarkdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatMarkdownHelperTestWrapper::unhandledBlockFormat);
     }
 
     QQuickItem *textItem() const
     {
-        return m_chatMarkdownHelper->textItem()->textItem();
+        return m_textItem->textItem();
     }
     void setTextItem(QQuickItem *textItem)
     {
-        auto textItemWrapper = new ChatTextItemHelper(this);
-        textItemWrapper->setTextItem(textItem);
-        m_chatMarkdownHelper->setTextItem(textItemWrapper);
         m_textItem->setTextItem(textItem);
     }
 
@@ -50,7 +49,6 @@ public:
         if (!doc) {
             return false;
         }
-        qWarning() << text << doc->toPlainText();
         return text == doc->toPlainText();
     }
 
@@ -60,7 +58,6 @@ public:
         if (cursor.isNull()) {
             return false;
         }
-        qWarning() << RichFormat::formatsAtCursor(cursor) << formats;
         return RichFormat::formatsAtCursor(cursor) == formats;
     }
 

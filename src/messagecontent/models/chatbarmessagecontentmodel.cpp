@@ -191,7 +191,7 @@ void ChatBarMessageContentModel::focusCurrentComponent(const QModelIndex &previo
         return;
     }
 
-    textItem->setCursorFromTextItem(textItemForIndex(previousIndex), down, MessageComponentType::Quote ? 1 : 0);
+    textItem->setCursorFromTextItem(textItemForIndex(previousIndex), down);
 }
 
 void ChatBarMessageContentModel::refocusCurrentComponent() const
