@@ -36,7 +36,7 @@ const QList<MarkdownSyntax> syntax = {
     MarkdownSyntax{.sequence = "`"_L1, .closable = true, .format = RichFormat::InlineCode},
     MarkdownSyntax{.sequence = "```"_L1, .lineStart = true, .format = RichFormat::Code},
     MarkdownSyntax{.sequence = "~~"_L1, .closable = true, .format = RichFormat::Strikethrough},
-    MarkdownSyntax{.sequence = "__"_L1, .closable = true, .format = RichFormat::Underline},
+    MarkdownSyntax{.sequence = "_"_L1, .closable = true, .format = RichFormat::Underline},
 };
 
 std::optional<bool> checkSequence(const QString &currentString, const QString &nextChar, bool lineStart = false)
@@ -104,18 +104,25 @@ void ChatMarkdownHelper::setTextItem(ChatTextItemHelper *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, &ChatMarkdownHelper::textItemChanged);
-        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, [this]() {
-            m_startPos = m_textItem->cursorPosition();
-            m_endPos = m_startPos;
-            if (m_startPos == 0) {
-                m_currentState = Pre;
+        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, &ChatMarkdownHelper::updateStart);
+        connect(m_textItem, &ChatTextItemHelper::cursorPositionChanged, this, [this](bool fromContentsChange) {
+            if (!fromContentsChange) {
+                updateStart();
             }
         });
         connect(m_textItem, &ChatTextItemHelper::contentsChange, this, &ChatMarkdownHelper::checkMarkdown);
     }
 
     Q_EMIT textItemChanged();
+}
+
+void ChatMarkdownHelper::updateStart()
+{
+    m_startPos = *m_textItem->cursorPosition();
+    m_endPos = m_startPos;
+    if (m_startPos == 0) {
+        m_currentState = Pre;
+    }
 }
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
