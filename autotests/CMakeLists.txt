@@ -115,8 +115,9 @@ macro(add_qml_tests)
 endmacro()
 
 add_executable(qmltest qmltest.cpp
+    chatkeyhelpertesthelper.h
     chatmarkdownhelpertestwrapper.h
-    chattextitemhelpertestwrapper.h
+    chattextitemhelpertesthelper.h
 )
 qt_add_qml_module(qmltest URI NeoChatTestUtils)
 
@@ -131,4 +132,5 @@ target_link_libraries(qmltest
 add_qml_tests(
     chattextitemhelpertest.qml
     chatmarkdownhelpertest.qml
+    chatkeyhelpertest.qml
 )
