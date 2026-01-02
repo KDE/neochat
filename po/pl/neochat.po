@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 # Karol Kosek <krkk@krkk.ct8.pl>, 2020.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 00:42+0000\n"
-"PO-Revision-Date: 2025-12-06 15:25+0100\n"
+"PO-Revision-Date: 2026-01-01 12:40+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -620,20 +620,16 @@ msgid "Reject Invite"
 msgstr "Odrzuć zaproszenie"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Otwórz profil"
+msgstr "Obejrzyj profil %1"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Odrzuć zaproszenie"
+msgstr "Zablokuj %1 i odrzuć zaproszenie"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -1268,50 +1264,40 @@ msgid "Account Details"
 msgstr "Szczegóły konta"
 
 #: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<wiadomość>"
+msgstr "Wiadomość"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Pomiń"
+msgstr "Wycofaj blokowanie"
 
 #: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
-msgstr "Pomiń"
+msgstr "Zablokuj"
 
 #: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Skopiuj odnośnik"
 
 #: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Poszukaj wiadomości"
+msgstr "Poszukaj wiadomości…"
 
 #: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
-msgstr "Zeskanuj kod QR"
+msgstr "Pokaż kod QR"
 
 #: src/app/qml/UserDetailDialog.qml:163
 #, kde-format
@@ -1346,19 +1332,16 @@ msgid "Report User"
 msgstr "Zgłoś użytkownika"
 
 #: src/app/qml/UserDetailDialog.qml:188
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Moderator"
+msgstr "Moderacja"
 
 #: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Wyrzuć"
+msgstr "Wykop…"
 
 #: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1382,7 +1365,7 @@ msgstr "Wyrzuć"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Zbanuj…"
 
 #: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
@@ -1406,15 +1389,13 @@ msgstr "Zbanuj"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Odbanuj"
 
 #: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Usuń wiadomości"
+msgstr "Usuń wiadomości…"
 
 #: src/app/qml/UserDetailDialog.qml:267
 #, kde-format
@@ -1444,37 +1425,31 @@ msgstr "Usuń wiadomości"
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "Rola"
 
 #: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "Ustaw poziom uprawnień użytkownika"
+msgstr "Ustaw poziom uprawnień"
 
 #: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgid "All Rooms"
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "Wszystkie pokoje"
+msgstr "Wspólne pokoje"
 
 #: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " i %1 inny"
-msgstr[1] " i %1 innych"
-msgstr[2] " i %1 innych"
+msgstr[0] "i 1 więcej…"
+msgstr[1] "i %1 więcej…"
+msgstr[2] "i %1 więcej…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2185,16 +2160,13 @@ msgid "Admin"
 msgstr "Administrator"
 
 #: src/libneochat/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
 msgstr "Właściciel"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Twórca"
@@ -4796,11 +4768,10 @@ msgid "Show your messages on the right"
 msgstr "Pokaż swoje wiadomości po prawej"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Skurcz podgląd"
+msgstr "Pokaż podgląd odnośnika"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4809,6 +4780,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"Możesz to dostosować osobno dla każdego pokoju w jego ustawieniach. Po "
+"odznaczeniu, wyłącza podglądy odnośników w każdym pokoju."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -5278,19 +5251,19 @@ msgstr "Usuń serwer tożsamości"
 #, kde-format
 msgctxt "@title:window"
 msgid "Ignored Users"
-msgstr "Pomijani użytkownicy"
+msgstr "Blokowani użytkownicy"
 
 #: src/settings/IgnoredUsersDialog.qml:25
 #, kde-format
 msgctxt "Placeholder message when no user is ignored"
 msgid "No ignored users"
-msgstr "Nie pomijasz żadnych użytkowników"
+msgstr "Nie blokujesz żadnych użytkowników"
 
 #: src/settings/IgnoredUsersDialog.qml:55
 #, kde-format
 msgctxt "@action:button"
 msgid "Unignore this user"
-msgstr "Nie pomijaj tego użytkownika"
+msgstr "Nie blokuj tego użytkownika"
 
 #: src/settings/ImportKeysDialog.qml:21
 #, kde-format
@@ -5802,7 +5775,7 @@ msgstr "Zabezpieczenia i bezpieczeństwo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignored Users"
-msgstr "Pomijani użytkownicy"
+msgstr "Blokowani użytkownicy"
 
 #: src/settings/NeoChatSecurityPage.qml:44
 #, kde-format
@@ -6257,62 +6230,50 @@ msgid "Add new alias"
 msgstr "Dodaj nowy alias"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "Podglądy adresów URL"
+msgstr "Podglądy odnośników"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
+msgstr "Podglądy odnośników są wyłączone globalnie w ustawieniach wyglądu"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Włącz"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "Włącz szyfrowanie pokoju"
+msgstr "Włącz podglądy odnośników dla tego pokoju"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr "Podglądy URL są domyślnie włączone w tym pokoju"
+msgstr ""
+"Podglądy odnośników zostały domyślnie włączone przez administratorów pokoju."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
+msgstr ""
+"Podglądy odnośników zostały domyślnie wyłączone przez administratorów pokoju."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "Domyślnie włącz podglądy URL dla członków pokoju"
+msgstr "Domyślnie włącz podglądy odnośników"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format
@@ -7245,12 +7206,10 @@ msgid "Jump to oldest loaded message"
 msgstr "Przeskocz do najstarszej wczytanej wiadomości"
 
 #: src/timeline/TimelineView.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Jump to first unread message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
-msgstr "Przeskocz do pierwszej nieprzeczytanej wiadomości"
+msgstr "Przeskocz do następnej, nieprzeczytanej, podświetlonej wiadomości"
 
 #: src/timeline/TimelineView.qml:274
 #, kde-format
