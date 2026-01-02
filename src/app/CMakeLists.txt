@@ -153,6 +153,7 @@ target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
 
 target_link_libraries(neochat-app PRIVATE
     neochat
+    KF6::IconThemes
 )
 
 ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)

@@ -33,6 +33,7 @@
 #include <KWindowSystem>
 #endif
 
+#include <KIconTheme>
 #include <KLocalizedQmlContext>
 #include <KLocalizedString>
 #include <KirigamiApp>
@@ -101,6 +102,10 @@ Q_DECL_EXPORT
 int main(int argc, char *argv[])
 {
     QNetworkProxyFactory::setUseSystemConfiguration(true);
+
+    // We currently need to do this ourselves,
+    // KirigamiApp currently called this after constructing the app which breaks icons on Windows.
+    KIconTheme::initTheme();
 
 #ifdef HAVE_WEBVIEW
     QtWebView::initialize();
