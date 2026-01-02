@@ -54,19 +54,31 @@ RowLayout {
 
     QQC2.ToolButton {
         id: menuButton
-        Accessible.role: Accessible.ButtonMenu
-        Accessible.onPressAction: menuButton.action.trigger()
-        display: QQC2.AbstractButton.IconOnly
-        checkable: true
-        text: i18nc("@action:button", "Show Menu")
-        icon.name: "application-menu-symbolic"
-        onClicked: {
-            const item = menu.createObject(menuButton) as QQC2.Menu;
-            item.closed.connect(menuButton.toggle);
-            item.open();
+
+        property QQC2.Menu menuItem: undefined
+
+        function openMenu(): void {
+            if (!menuItem || !menuItem.visible) {
+                menuItem = menu.createObject(menuButton) as QQC2.Menu;
+                menuItem.closed.connect(menuButton.toggle);
+                menuItem.open();
+            } else {
+                menuItem.dismiss()
+            }
         }
 
-        QQC2.ToolTip.visible: hovered
+        Accessible.role: Accessible.ButtonMenu
+        display: QQC2.AbstractButton.IconOnly
+        down: pressed || menuItem.visible
+        text: i18nc("@action:button", "Show Menu")
+        icon.name: "application-menu-symbolic"
+
+        onPressed: openMenu()
+        Keys.onReturnPressed: openMenu()
+        Keys.onEnterPressed: openMenu()
+        Accessible.onPressAction: openMenu()
+
+        QQC2.ToolTip.visible: hovered && !menuItem.visible
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
@@ -74,6 +86,8 @@ RowLayout {
     Component {
         id: menu
         QQC2.Menu {
+            y: menuButton.height
+
             QQC2.MenuItem {
                 text: i18n("Find your friends")
                 icon.name: "list-add-user"
