@@ -75,31 +75,37 @@ void NeoChatConnection::connectSignals()
         Q_EMIT directChatInvitesChanged();
         for (const auto &chatId : additions) {
             if (const auto chat = room(chatId)) {
-                connect(chat, &Room::unreadStatsChanged, this, [this]() {
-                    refreshBadgeNotificationCount();
-                    Q_EMIT directChatNotificationsChanged();
-                    Q_EMIT directChatsHaveHighlightNotificationsChanged();
+                connect(chat, &Room::changed, this, [this](Room::Changes changes) {
+                    if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
+                        refreshBadgeNotificationCount();
+                        Q_EMIT directChatNotificationsChanged();
+                        Q_EMIT directChatsHaveHighlightNotificationsChanged();
+                    }
                 });
             }
         }
         for (const auto &chatId : removals) {
             if (const auto chat = room(chatId)) {
-                disconnect(chat, &Room::unreadStatsChanged, this, nullptr);
+                disconnect(chat, &Room::changed, this, nullptr);
             }
         }
     });
     connect(this, &NeoChatConnection::joinedRoom, this, [this](Room *room) {
         if (room->isDirectChat()) {
-            connect(room, &Room::unreadStatsChanged, this, [this]() {
-                Q_EMIT directChatNotificationsChanged();
-                Q_EMIT directChatsHaveHighlightNotificationsChanged();
+            connect(room, &Room::changed, this, [this](Room::Changes changes) {
+                if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
+                    Q_EMIT directChatNotificationsChanged();
+                    Q_EMIT directChatsHaveHighlightNotificationsChanged();
+                }
             });
         }
         Q_EMIT roomInvitesChanged();
-        connect(room, &Room::unreadStatsChanged, this, [this]() {
-            refreshBadgeNotificationCount();
-            Q_EMIT homeNotificationsChanged();
-            Q_EMIT homeHaveHighlightNotificationsChanged();
+        connect(room, &Room::changed, this, [this](Room::Changes changes) {
+            if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
+                refreshBadgeNotificationCount();
+                Q_EMIT homeNotificationsChanged();
+                Q_EMIT homeHaveHighlightNotificationsChanged();
+            }
         });
     });
     connect(this, &NeoChatConnection::leftRoom, this, [this](Room *room, Room *prev) {

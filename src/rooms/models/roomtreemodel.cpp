@@ -170,10 +170,12 @@ void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::displaynameChanged, this, [this, room] {
         refreshRoomRoles(room, {DisplayNameRole});
     });
-    connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
-        if (room->isServerNoticeRoom()) {
-            Q_EMIT invalidateSort();
+    connect(room, &Room::changed, this, [this, room](Room::Changes changes) {
+        if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
+            refreshRoomRoles(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
+            if (room->isServerNoticeRoom()) {
+                Q_EMIT invalidateSort();
+            }
         }
     });
     connect(room, &Room::avatarChanged, this, [this, room] {

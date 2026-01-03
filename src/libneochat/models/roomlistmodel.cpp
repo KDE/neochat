@@ -118,8 +118,10 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::displaynameChanged, this, [this, room] {
         refresh(room, {DisplayNameRole});
     });
-    connect(room, &Room::unreadStatsChanged, this, [this, room] {
-        refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
+    connect(room, &Room::changed, this, [this, room](Room::Changes changes) {
+        if (changes & (Room::Change::UnreadStats | Room::Change::Highlights)) {
+            refresh(room, {ContextNotificationCountRole, HasHighlightNotificationsRole, NotificationCountRole});
+        }
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
