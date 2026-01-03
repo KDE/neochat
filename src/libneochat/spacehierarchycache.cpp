@@ -43,8 +43,8 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
                 Qt::SingleShotConnection);
         }
 
-        connect(neoChatRoom, &NeoChatRoom::unreadStatsChanged, this, [this, neoChatRoom]() {
-            if (neoChatRoom != nullptr) {
+        connect(neoChatRoom, &NeoChatRoom::changed, this, [this, neoChatRoom](NeoChatRoom::Changes changes) {
+            if (neoChatRoom != nullptr && (changes & (NeoChatRoom::Change::UnreadStats | NeoChatRoom::Change::Highlights))) {
                 const auto parents = parentSpaces(neoChatRoom->id());
                 if (parents.count() > 0) {
                     Q_EMIT spaceNotifcationCountChanged(parents);
