@@ -240,6 +240,8 @@ void CompletionModel::updateCompletion()
     }
     beginResetModel();
     endResetModel();
+
+    m_textItem->isCompleting = rowCount() > 0;
 }
 
 CompletionModel::AutoCompletionType CompletionModel::autoCompletionType() const
