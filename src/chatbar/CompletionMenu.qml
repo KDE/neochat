@@ -46,8 +46,12 @@ QQC2.Popup {
         completions.decrementCurrentIndex();
     }
 
-    function complete() {
-        completionModel.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef)
+    function complete(text: string, hRef: string) {
+        completionModel.insertCompletion(text, hRef);
+    }
+
+    function completeCurrent() {
+        completionModel.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef);
     }
 
     leftPadding: 0

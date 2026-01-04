@@ -75,7 +75,7 @@ QQC2.Control {
 
                     Keys.onEnterPressed: event => {
                         if (completionMenu.visible) {
-                            completionMenu.complete();
+                            completionMenu.completeCurrent();
                         } else if (event.modifiers & Qt.ShiftModifier) {
                             textArea.insert(cursorPosition, "\n");
                         } else {
@@ -84,7 +84,7 @@ QQC2.Control {
                     }
                     Keys.onReturnPressed: event => {
                         if (completionMenu.visible) {
-                            completionMenu.complete();
+                            completionMenu.completeCurrent();
                         } else if (event.modifiers & Qt.ShiftModifier) {
                             textArea.insert(cursorPosition, "\n");
                         } else {
@@ -93,7 +93,7 @@ QQC2.Control {
                     }
                     Keys.onTabPressed: {
                         if (completionMenu.visible) {
-                            completionMenu.complete();
+                            completionMenu.completeCurrent();
                         }
                     }
                     Keys.onPressed: event => {

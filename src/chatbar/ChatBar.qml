@@ -40,9 +40,42 @@ QQC2.Control {
     onCurrentRoomChanged: {
         _private.chatBarCache = currentRoom.mainCache
         if (ShareHandler.text.length > 0 && ShareHandler.room === root.currentRoom.id) {
+            contentModel.focusedTextItem.
             textField.text = ShareHandler.text;
             ShareHandler.text = "";
             ShareHandler.room = "";
+        }
+    }
+
+    Connections {
+        target: contentModel.keyHelper
+
+        function onUnhandledUp(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            completionMenu.decrementIndex();
+        }
+
+        function onUnhandledDown(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            completionMenu.incrementIndex();
+        }
+
+        function onUnhandledTab(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            completionMenu.completeCurrent();
+        }
+
+        function onUnhandledReturn(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            completionMenu.completeCurrent();
         }
     }
 
@@ -60,13 +93,10 @@ QQC2.Control {
     Connections {
         target: root.currentRoom.mainCache
 
-        function onMentionAdded(mention: string): void {
-            // add mention text
-            textField.append(mention + " ");
-            // move cursor to the end
-            textField.cursorPosition = textField.text.length;
+        function onMentionAdded(text: string, hRef: string): void {
+            completionMenu.complete(text, hRef);
             // move the focus back to the chat bar
-            textField.forceActiveFocus(Qt.OtherFocusReason);
+            contentModel.refocusCurrentComponent();
         }
     }
 
@@ -93,30 +123,39 @@ QQC2.Control {
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
 
-    contentItem: QQC2.ScrollView {
-        id: chatScrollView
-        ColumnLayout {
-            spacing: Kirigami.Units.smallSpacing
+    contentItem: ColumnLayout {
+        QQC2.ScrollView {
+            id: chatScrollView
+            Layout.fillWidth: true
+            Layout.maximumHeight: Kirigami.Units.gridUnit * 8
 
-            Repeater {
-                id: chatContentView
-                model: ChatBarMessageContentModel {
-                    id: contentModel
-                    type: ChatBarType.Room
-                    room: root.currentRoom
+            clip: true
+
+            ColumnLayout {
+                width: chatScrollView.width
+                spacing: Kirigami.Units.smallSpacing
+
+                Repeater {
+                    id: chatContentView
+                    model: ChatBarMessageContentModel {
+                        id: contentModel
+                        type: ChatBarType.Room
+                        room: root.currentRoom
+                    }
+
+                    delegate: MessageComponentChooser {}
                 }
-
-                delegate: MessageComponentChooser {}
             }
-            RichEditBar {
-                id: richEditBar
-                maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
+        }
+        RichEditBar {
+            id: richEditBar
+            Layout.alignment: Qt.AlignCenter
+            maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
 
-                room: root.currentRoom
-                contentModel: chatContentView.model
+            room: root.currentRoom
+            contentModel: chatContentView.model
 
-                onClicked: contentModel.refocusCurrentComponent()
-            }
+            onClicked: contentModel.refocusCurrentComponent()
         }
     }
 
@@ -151,7 +190,7 @@ QQC2.Control {
         id: completionMenu
         room: root.currentRoom
         type: LibNeoChat.ChatBarType.Room
-        textItem: chatContentView.model.focusedTextItem
+        textItem: contentModel.focusedTextItem
 
         x: 1
         y: -height

@@ -205,7 +205,7 @@ Q_SIGNALS:
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);
     void threadIdChanged(const QString &oldThreadId, const QString &newThreadId);
     void attachmentPathChanged();
-    void mentionAdded(const QString &mention);
+    void mentionAdded(const QString &text, const QString &hRef);
     void relationAuthorIsPresentChanged();
 
 private:

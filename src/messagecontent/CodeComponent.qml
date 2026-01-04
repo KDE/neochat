@@ -91,27 +91,8 @@ QQC2.Control {
         QQC2.TextArea {
             id: codeText
 
-            Keys.onUpPressed: (event) => {
-                event.accepted = true;
-                Message.contentModel.keyHelper.up();
-            }
-            Keys.onDownPressed: (event) => {
-                event.accepted = true;
-                Message.contentModel.keyHelper.down();
-            }
-
-            Keys.onDeletePressed: (event) => {
-                event.accepted = true;
-                root.Message.contentModel.keyHelper.deleteChar();
-            }
-
             Keys.onPressed: (event) => {
-                if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
-                    event.accepted = true;
-                    root.Message.contentModel.keyHelper.backspace();
-                    return;
-                }
-                event.accepted = false;
+                event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
             }
 
             onFocusChanged: if (focus && !root.currentFocus) {

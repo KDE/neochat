@@ -6,8 +6,18 @@
 #include <QObject>
 #include <QQmlEngine>
 
-#include "chattextitemhelper.h"
+class NeoChatRoom;
+class ChatTextItemHelper;
 
+/**
+ * @class ChatKeyHelper
+ *
+ * A class to handle some key presses on behalf of a ChatTextItemHelper.
+ *
+ * This is used to manage complex rich text interactions.
+ *
+ * @sa ChatTextItemHelper
+ */
 class ChatKeyHelper : public QObject
 {
     Q_OBJECT
@@ -16,72 +26,94 @@ class ChatKeyHelper : public QObject
 public:
     explicit ChatKeyHelper(QObject *parent = nullptr);
 
-    ChatTextItemHelper *textItem() const;
-    void setTextItem(ChatTextItemHelper *textItem);
+    /**
+     * @brief The ChatTextItemHelper that ChatKeyHelper is handling key presses for.
+     *
+     * @sa ChatTextItemHelper
+     */
+    QPointer<NeoChatRoom> room;
 
     /**
-     * @brief Handle up key at current cursor location.
+     * @brief The ChatTextItemHelper that ChatKeyHelper is handling key presses for.
+     *
+     * @sa ChatTextItemHelper
      */
-    Q_INVOKABLE void up();
+    QPointer<ChatTextItemHelper> textItem;
 
-    /**
-     * @brief Handle down key at current cursor location.
-     */
-    Q_INVOKABLE void down();
-
-    /**
-     * @brief Handle tab key at current cursor location.
-     */
-    Q_INVOKABLE void tab();
-
-    /**
-     * @brief Handle delete key at current cursor location.
-     */
-    Q_INVOKABLE void deleteChar();
-
-    /**
-     * @brief Handle backspace key at current cursor location.
-     */
-    Q_INVOKABLE void backspace();
-
-    /**
-     * @brief Handle return key at current cursor location.
-     */
-    Q_INVOKABLE void insertReturn();
+    Q_INVOKABLE bool handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers);
 
 Q_SIGNALS:
-    void textItemChanged();
-
     /**
      * @brief There is an unhandled up key press.
      *
-     * i.e. up is pressed on the first line of the first block of the text item.
+     * Current trigger conditions:
+     *  - Up is pressed on the first line of the first block of the text item.
+     *  - Return clicked when a completion has been started.
      */
-    void unhandledUp();
+    void unhandledUp(bool isCompleting);
 
     /**
      * @brief There is an unhandled down key press.
      *
-     * i.e. down is pressed on the last line of the last block of the text item.
+     * Current trigger conditions:
+     *  - Down is pressed on the last line of the last block of the text item.
+     *  - Return clicked when a completion has been started.
      */
-    void unhandledDown();
+    void unhandledDown(bool isCompleting);
+
+    /**
+     * @brief There is an unhandled tab key press.
+     *
+     * Current trigger conditions:
+     *  - Tab clicked when a completion has been started.
+     */
+    void unhandledTab(bool isCompleting);
 
     /**
      * @brief There is an unhandled delete key press.
      *
-     * i.e. delete is pressed at the end of the last line of the last block of the
-     * text item.
+     * Current trigger conditions:
+     *  - Delete is pressed at the end of the last line of the last block of the
+     *    text item.
      */
     void unhandledDelete();
 
     /**
      * @brief There is an unhandled backspace key press.
      *
-     * i.e. backspace is pressed at the beginning of the first line of the first
-     * block of the text item.
+     * Current trigger conditions:
+     *  - Backspace is pressed at the beginning of the first line of the first
+     *    block of the text item.
      */
     void unhandledBackspace();
 
+    /**
+     * @brief There is an unhandled return key press.
+     *
+     * Current trigger conditions:
+     *  - Return clicked when a completion has been started.
+     */
+    void unhandledReturn(bool isCompleting);
+
+    /**
+     * @brief An image has been pasted.
+     */
+    void imagePasted(const QString &filePath);
+
 private:
-    QPointer<ChatTextItemHelper> m_textItem;
+    bool vKey(Qt::KeyboardModifiers modifiers);
+
+    bool up(Qt::KeyboardModifiers modifiers);
+
+    bool down();
+
+    bool tab();
+
+    bool deleteChar();
+
+    bool backspace();
+
+    bool insertReturn();
+
+    bool pasteImage();
 };

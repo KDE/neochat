@@ -25,8 +25,6 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     , m_keyHelper(new ChatKeyHelper(this))
 {
     m_editableActive = true;
-    connectKeyHelper();
-    initializeModel();
 
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
         if (m_type == ChatBarType::None || !m_room) {
@@ -34,15 +32,23 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         }
 
         connect(m_room->cacheForType(m_type), &ChatBarCache::relationIdChanged, this, &ChatBarMessageContentModel::updateReplyModel);
-        clearModel();
-
-        beginResetModel();
+        connect(m_room->cacheForType(m_type), &ChatBarCache::attachmentPathChanged, this, [this]() {
+            if (m_room->cacheForType(m_type)->attachmentPath().length() > 0) {
+                addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
+            }
+        });
 
         if (m_room->cacheForType(m_type)->attachmentPath().length() > 0) {
             addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
         }
 
         const auto textSections = m_room->cacheForType(m_type)->text().split(u"\n\n"_s);
+        if (textSections.length() == 1 && textSections[0].isEmpty()) {
+            return;
+        }
+
+        clearModel();
+        beginResetModel();
         for (const auto &section : textSections) {
             const auto type = MessageComponentType::typeForString(section);
             auto cleanText = section;
@@ -54,14 +60,14 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
             }
             insertComponent(rowCount(), type, {}, cleanText);
         }
-        m_currentFocusComponent = QPersistentModelIndex(index(rowCount() - 1));
         endResetModel();
 
+        m_currentFocusComponent = QPersistentModelIndex(index(rowCount() - 1));
         Q_EMIT focusRowChanged();
     });
     connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
         m_markdownHelper->setTextItem(focusedTextItem());
-        m_keyHelper->setTextItem(focusedTextItem());
+        m_keyHelper->textItem = focusedTextItem();
     });
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
         for (const auto &component : m_components) {
@@ -69,6 +75,7 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
                 textItem->setRoom(m_room);
             }
         }
+        m_keyHelper->room = m_room;
     });
     connect(this, &ChatBarMessageContentModel::typeChanged, this, [this]() {
         for (const auto &component : m_components) {
@@ -78,6 +85,9 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         }
     });
     connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
+
+    connectKeyHelper();
+    initializeModel();
 }
 
 void ChatBarMessageContentModel::initializeModel()
@@ -92,9 +102,9 @@ void ChatBarMessageContentModel::initializeModel()
         .display = {},
         .attributes = {{TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItem)}},
     };
-    m_currentFocusComponent = QPersistentModelIndex(index(0));
     endInsertRows();
 
+    m_currentFocusComponent = QPersistentModelIndex(index(0));
     Q_EMIT focusRowChanged();
 }
 
@@ -119,10 +129,16 @@ ChatKeyHelper *ChatBarMessageContentModel::keyHelper() const
 
 void ChatBarMessageContentModel::connectKeyHelper()
 {
-    connect(m_keyHelper, &ChatKeyHelper::unhandledUp, this, [this]() {
+    connect(m_keyHelper, &ChatKeyHelper::unhandledUp, this, [this](bool isCompleting) {
+        if (isCompleting) {
+            return;
+        }
         setFocusRow(m_currentFocusComponent.row() - 1);
     });
-    connect(m_keyHelper, &ChatKeyHelper::unhandledDown, this, [this]() {
+    connect(m_keyHelper, &ChatKeyHelper::unhandledDown, this, [this](bool isCompleting) {
+        if (isCompleting) {
+            return;
+        }
         setFocusRow(m_currentFocusComponent.row() + 1);
     });
     connect(m_keyHelper, &ChatKeyHelper::unhandledDelete, this, [this]() {
@@ -149,6 +165,9 @@ void ChatBarMessageContentModel::connectKeyHelper()
         if (m_components[currentRow].type == MessageComponentType::Code || m_components[currentRow].type == MessageComponentType::Quote) {
             insertComponentAtCursor(MessageComponentType::Text);
         }
+    });
+    connect(m_keyHelper, &ChatKeyHelper::imagePasted, this, [this](const QString &filePath) {
+        m_room->cacheForType(m_type)->setAttachmentPath(filePath);
     });
 }
 
@@ -508,7 +527,6 @@ void ChatBarMessageContentModel::postMessage()
         return;
     }
 
-    qWarning() << m_room->cacheForType(m_type)->text();
     m_room->cacheForType(m_type)->postMessage();
     clearModel();
     initializeModel();

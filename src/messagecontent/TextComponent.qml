@@ -75,41 +75,8 @@ TextEdit {
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
 
-    Keys.onUpPressed: (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.up();
-    }
-    Keys.onDownPressed: (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.down();
-    }
-
-    Keys.onTabPressed: (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.tab();
-    }
-
-    Keys.onDeletePressed: (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.deleteChar();
-    }
-
     Keys.onPressed: (event) => {
-        if (event.key == Qt.Key_Backspace && cursorPosition == 0) {
-            event.accepted = true;
-            Message.contentModel.keyHelper.backspace();
-            return;
-        }
-        event.accepted = false;
-    }
-
-    Keys.onEnterPressed:  (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.insertReturn();
-    }
-    Keys.onReturnPressed:  (event) => {
-        event.accepted = true;
-        Message.contentModel.keyHelper.insertReturn();
+        event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
     }
 
     onFocusChanged: if (focus && !root.currentFocus) {

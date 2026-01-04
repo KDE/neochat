@@ -68,7 +68,7 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:button", "Mention")
         icon.name: "username-copy-symbolic"
         onTriggered: {
-            RoomManager.currentRoom.mainCache.mentionAdded(root.author.id);
+            RoomManager.currentRoom.mainCache.mentionAdded(root.author.disambiguatedName, "https://matrix.to/#/" + root.author.id);
         }
     }
 }

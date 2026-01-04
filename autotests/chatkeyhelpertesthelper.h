@@ -39,7 +39,7 @@ public:
             return;
         }
         m_textItem = textItem;
-        m_keyHelper->setTextItem(textItem);
+        m_keyHelper->textItem = textItem;
         Q_EMIT textItemChanged();
     }
 
