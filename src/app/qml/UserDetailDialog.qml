@@ -20,6 +20,8 @@ Kirigami.Dialog {
     // Make sure that code is prepared to deal with this property being null
     property NeoChatRoom room
     property var user
+    // Used for the "View Main Profile" feature so you can toggle back to the room profile.
+    property NeoChatRoom oldRoom
 
     property NeoChatConnection connection
 
@@ -66,7 +68,7 @@ Kirigami.Dialog {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
                 name: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
-                source: root.room ? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
+                source: root.room ? root.room.member(root.user.id).avatarUrl : root.connection.makeMediaUrl(root.user.avatarUrl)
                 color: root.room ? root.room.member(root.user.id).color : QmlUtils.getUserColor(root.user.hueF)
             }
 
@@ -177,6 +179,26 @@ Kirigami.Dialog {
                                 dialog.accepted.connect(reason => {
                                     root.connection.reportUser(root.user.id, reason);
                                 });
+                            }
+                        },
+                        Kirigami.Action {
+                            visible: root.room
+
+                            text: i18nc("@action:button", "View Main Profile")
+                            icon.name: "user-properties-symbolic"
+                            onTriggered: {
+                                root.oldRoom = root.room;
+                                root.room = null;
+                            }
+                        },
+                        Kirigami.Action {
+                            visible: !root.room && root.oldRoom
+
+                            text: i18nc("@action:button", "View Room Profile")
+                            icon.name: "user-properties-symbolic"
+                            onTriggered: {
+                                root.room = root.oldRoom;
+                                root.oldRoom = null;
                             }
                         }
                     ]
