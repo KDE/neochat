@@ -65,6 +65,11 @@ public:
     void setTextItem(QQuickItem *textItem);
 
     /**
+     * @brief Whether a completion has started based on recent text entry.
+     */
+    bool isCompleting = false;
+
+    /**
      * @brief The fixed characters that will always be at the beginning of the text item.
      */
     QString fixedStartChars() const;
@@ -97,6 +102,13 @@ public:
      * @sa QTextDocument
      */
     QTextDocument *document() const;
+
+    /**
+     * @brief Whetehr the underlying QTextDocument is empty.
+     *
+     * @sa QTextDocument
+     */
+    bool isEmpty() const;
 
     /**
      * @brief The line count of the text item.
@@ -238,7 +250,6 @@ private:
     void initializeChars();
     bool m_initializingChars = false;
 
-    bool isEmpty() const;
     std::optional<int> lineLength(int lineNumber) const;
 
     int selectionStart() const;
