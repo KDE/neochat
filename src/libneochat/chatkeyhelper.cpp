@@ -3,120 +3,191 @@
 
 #include "chatkeyhelper.h"
 
+#include "chattextitemhelper.h"
+#include "clipboard.h"
+#include "neochatroom.h"
+
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
 {
 }
 
-ChatTextItemHelper *ChatKeyHelper::textItem() const
+bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
 {
-    return m_textItem;
+    switch (key) {
+    case Qt::Key_V:
+        return vKey(modifiers);
+    case Qt::Key_Up:
+        return up(modifiers);
+    case Qt::Key_Down:
+        return down();
+    case Qt::Key_Tab:
+        return tab();
+    case Qt::Key_Delete:
+        return deleteChar();
+    case Qt::Key_Backspace:
+        return backspace();
+    case Qt::Key_Enter:
+    case Qt::Key_Return:
+        return insertReturn();
+    default:
+        return false;
+    }
 }
 
-void ChatKeyHelper::setTextItem(ChatTextItemHelper *textItem)
+bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 {
-    if (textItem == m_textItem) {
-        return;
+    if (!textItem) {
+        return false;
     }
 
-    if (m_textItem) {
-        m_textItem->disconnect(this);
+    if (modifiers.testFlag(Qt::ControlModifier)) {
+        return pasteImage();
     }
-
-    m_textItem = textItem;
-
-    if (m_textItem) {
-        connect(m_textItem, &ChatTextItemHelper::textItemChanged, this, &ChatKeyHelper::textItemChanged);
-    }
-
-    Q_EMIT textItemChanged();
+    return false;
 }
 
-void ChatKeyHelper::up()
+bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
 {
-    if (!m_textItem) {
-        return;
+    if (!textItem) {
+        return false;
     }
-    QTextCursor cursor = m_textItem->textCursor();
+
+    if (modifiers.testFlag(Qt::ControlModifier)) {
+        room->replyLastMessage();
+        return true;
+    }
+
+    if (textItem->isEmpty()) {
+        room->editLastMessage();
+        return true;
+    }
+
+    if (textItem->isCompleting) {
+        Q_EMIT unhandledUp(true);
+        return true;
+    }
+
+    QTextCursor cursor = textItem->textCursor();
     if (cursor.isNull()) {
-        return;
+        return false;
     }
     if (cursor.blockNumber() == 0 && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == 0) {
-        Q_EMIT unhandledUp();
-        return;
+        Q_EMIT unhandledUp(false);
+        return true;
     }
-    cursor.movePosition(QTextCursor::Up);
-    m_textItem->setCursorPosition(cursor.position());
+    return false;
 }
 
-void ChatKeyHelper::down()
+bool ChatKeyHelper::down()
 {
-    if (!m_textItem) {
-        return;
+    if (!textItem) {
+        return false;
     }
-    QTextCursor cursor = m_textItem->textCursor();
+    if (textItem->isCompleting) {
+        Q_EMIT unhandledDown(true);
+        return true;
+    }
+
+    QTextCursor cursor = textItem->textCursor();
     if (cursor.isNull()) {
-        return;
+        return false;
     }
     if (cursor.blockNumber() == cursor.document()->blockCount() - 1
         && cursor.block().layout()->lineForTextPosition(cursor.positionInBlock()).lineNumber() == (cursor.block().layout()->lineCount() - 1)) {
-        Q_EMIT unhandledDown();
-        return;
+        Q_EMIT unhandledDown(false);
+        return true;
     }
-    cursor.movePosition(QTextCursor::Down);
-    m_textItem->setCursorPosition(cursor.position());
+    return false;
 }
 
-void ChatKeyHelper::tab()
+bool ChatKeyHelper::tab()
 {
-    QTextCursor cursor = m_textItem->textCursor();
+    if (!textItem) {
+        return false;
+    }
+    if (textItem->isCompleting) {
+        Q_EMIT unhandledTab(true);
+        return true;
+    }
+
+    QTextCursor cursor = textItem->textCursor();
     if (cursor.isNull()) {
-        return;
+        return false;
     }
-    if (cursor.currentList() && m_textItem->canIndentListMoreAtCursor()) {
-        m_textItem->indentListMoreAtCursor();
-        return;
+    if (cursor.currentList() && textItem->canIndentListMoreAtCursor()) {
+        textItem->indentListMoreAtCursor();
+        return true;
     }
-    cursor.insertText(u"	"_s);
+    return false;
 }
 
-void ChatKeyHelper::deleteChar()
+bool ChatKeyHelper::deleteChar()
 {
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return;
+    if (!textItem) {
+        return false;
     }
-    if (cursor.position() >= m_textItem->document()->characterCount() - m_textItem->fixedEndChars().length() - 1) {
+
+    QTextCursor cursor = textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    if (cursor.position() >= textItem->document()->characterCount() - textItem->fixedEndChars().length() - 1) {
         Q_EMIT unhandledDelete();
-        return;
+        return true;
     }
-    cursor.deleteChar();
+    return false;
 }
 
-void ChatKeyHelper::backspace()
+bool ChatKeyHelper::backspace()
 {
-    QTextCursor cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return;
+    if (!textItem) {
+        return false;
     }
-    if (cursor.position() <= m_textItem->fixedStartChars().length()) {
-        if (cursor.currentList() && m_textItem->canIndentListLessAtCursor()) {
-            m_textItem->indentListLessAtCursor();
-            return;
+
+    QTextCursor cursor = textItem->textCursor();
+    if (cursor.isNull()) {
+        return false;
+    }
+    if (cursor.position() <= textItem->fixedStartChars().length()) {
+        if (cursor.currentList() && textItem->canIndentListLessAtCursor()) {
+            textItem->indentListLessAtCursor();
+            return true;
         }
         Q_EMIT unhandledBackspace();
-        return;
+        return true;
     }
-    cursor.deletePreviousChar();
+    return false;
 }
 
-void ChatKeyHelper::insertReturn()
+bool ChatKeyHelper::insertReturn()
 {
-    QTextCursor cursor = m_textItem->textCursor();
+    if (!textItem) {
+        return false;
+    }
+    if (textItem->isCompleting) {
+        Q_EMIT unhandledReturn(true);
+        return true;
+    }
+
+    QTextCursor cursor = textItem->textCursor();
     if (cursor.isNull()) {
-        return;
+        return false;
     }
     cursor.insertBlock();
+    return true;
+}
+
+bool ChatKeyHelper::pasteImage()
+{
+    if (!textItem) {
+        return false;
+    }
+    const auto savePath = Clipboard().saveImage();
+    if (!savePath.isEmpty()) {
+        Q_EMIT imagePasted(savePath);
+    }
+    return false;
 }
 
 #include "moc_chatkeyhelper.cpp"

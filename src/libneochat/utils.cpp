@@ -55,6 +55,10 @@ QString QmlUtils::nameForPowerLevelValue(const int value)
 
 bool Utils::isEmoji(const QString &text)
 {
+    if (text.isEmpty()) {
+        return false;
+    }
+
 #ifdef HAVE_ICU
     QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
     int from = 0;
