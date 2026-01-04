@@ -50,7 +50,7 @@ SearchPage {
      */
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
-    title: i18nc("@action:title", "Explore Rooms")
+    title: i18nc("@action:title Explore public rooms and spaces", "Explore")
     customPlaceholderText: publicRoomListModel.redirectedText
     customPlaceholderIcon: "data-warning"
 

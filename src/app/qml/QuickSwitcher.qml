@@ -30,15 +30,13 @@ Kirigami.SearchDialog {
     emptyText: i18nc("Placeholder message", "No room found")
     Kirigami.Action {
         id: exploreRoomAction
-        text: i18nc("@action:button", "Explore rooms")
+        text: i18nc("@action:button Explore public rooms and spaces", "Explore")
         icon.name: "compass"
         onTriggered: {
             root.close()
             let dialog = root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                 connection: root.connection
-            }, {
-                title: i18nc("@title", "Explore Rooms")
-            });
+            }, {});
             dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                 RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
             });

@@ -286,7 +286,7 @@ QQC2.Control {
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
-                    text: i18nc("@action:button", "Explore rooms")
+                    text: i18nc("@action:button Explore public rooms and spaces", "Explore")
                     contentItem: Kirigami.Icon {
                         source: "compass"
                     }
@@ -297,9 +297,7 @@ QQC2.Control {
                         let dialog = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                             connection: root.connection,
                             keyword: RoomManager.sortFilterRoomTreeModel.filterText
-                        }, {
-                            title: i18nc("@title", "Explore Rooms")
-                        });
+                        }, {});
                         dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                             RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
                         });

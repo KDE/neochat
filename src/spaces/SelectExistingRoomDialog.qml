@@ -41,7 +41,7 @@ Kirigami.Dialog {
                 let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'ExploreRoomsPage'), {
                     connection: root.connection
                 }, {
-                    title: i18nc("@title", "Explore Rooms")
+                    title: i18nc("@title Explore public rooms and spaces", "Explore")
                 });
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
@@ -123,9 +123,7 @@ Kirigami.Dialog {
             onClicked: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection
-                }, {
-                    title: i18nc("@title", "Explore Rooms")
-                });
+                }, {});
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;

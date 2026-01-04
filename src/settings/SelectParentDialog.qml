@@ -138,9 +138,7 @@ Kirigami.Dialog {
                     connection: root.room.connection,
                     showOnlySpaces: true,
                     showOnlySpacesButton: false
-                }, {
-                    title: i18nc("@title", "Explore Rooms")
-                });
+                }, {});
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     chosenRoomDelegate.roomId = roomId;
                     chosenRoomDelegate.displayName = displayName;

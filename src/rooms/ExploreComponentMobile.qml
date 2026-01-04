@@ -46,15 +46,13 @@ Kirigami.NavigationTabBar {
             }
         },
         Kirigami.Action {
-            text: i18n("Explore rooms")
+            text: i18nc("@action:inmenu Explore public rooms and spaces", "Explore")
             icon.name: "compass"
             onTriggered: {
                 explorePopup.close();
                 let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
                     connection: root.connection
-                }, {
-                    title: i18nc("@title", "Explore Rooms")
-                });
+                }, {});
                 dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
                     RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
                 });
