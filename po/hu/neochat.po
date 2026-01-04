@@ -3,13 +3,13 @@
 #
 # Kristóf Kiszel <kiszel.kristof@gmail.com>, 2020, 2021.
 # aronkvh <aronkvh@gmail.com>, 2021, 2023.
-# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-03 00:43+0000\n"
-"PO-Revision-Date: 2025-11-10 22:37+0100\n"
+"PO-Revision-Date: 2026-01-03 22:36+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -637,10 +637,7 @@ msgid "Ignore %1 and Reject Invite"
 msgstr "Meghívás elutasítása"
 
 #: src/app/qml/InvitationView.qml:198
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:label"
-#| msgid ""
-#| "You can reject invitations from unknown users under Security settings."
+#, kde-kuit-format
 msgctxt ""
 "@info:label Ensure you are referring to the same translation used for that "
 "settings page"
@@ -648,8 +645,8 @@ msgid ""
 "You can reject invitations from unknown users under the <interface>Security "
 "& Safety</interface> settings."
 msgstr ""
-"Az ismeretlen felhasználók meghívásait a Biztonság lapon utasíthatja el a "
-"beállításokban."
+"Az ismeretlen felhasználók meghívásait a <interface>Biztonság és védelem</"
+"interface> lapon utasíthatja el a beállításokban."
 
 #: src/app/qml/JoinRoomDialog.qml:28
 #, kde-format
@@ -689,16 +686,14 @@ msgid "Incoming key verification request from device **%1**"
 msgstr "Bejövő kulcs-ellenőrzési kérés erről az eszközről: **%1**"
 
 #: src/app/qml/KeyVerificationDialog.qml:154
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to send us keys."
-msgstr "Várakozás a másik fél megerősítésére."
+msgstr "Várjuk, hogy a másik fél elküldje nekünk a kulcsokat."
 
 #: src/app/qml/KeyVerificationDialog.qml:156
-#, fuzzy, kde-format
-#| msgid "Waiting for other party to verify."
+#, kde-format
 msgid "Waiting for other party to confirm our keys."
-msgstr "Várakozás a másik fél megerősítésére."
+msgstr "Várjuk, hogy a másik fél megerősítse a kulcsainkat."
 
 #: src/app/qml/KeyVerificationDialog.qml:158
 #, kde-format
@@ -834,13 +829,13 @@ msgstr "Értekezlet kezdése"
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Ön hamarosan csatlakozik egy Jitsi értekezlethez a böngészőjében."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
-msgstr ""
+msgstr "Ön hamarosan egy új Jitsi értekezletet indít a böngészőjében."
 
 #: src/app/qml/MeetingDialog.qml:19
 #, kde-format
@@ -973,7 +968,7 @@ msgstr "QR-kód beolvasása"
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
-msgstr ""
+msgstr "Nincs csatlakoztatott kamera"
 
 #: src/app/qml/QuickFormatBar.qml:22
 #, kde-format
@@ -1057,21 +1052,19 @@ msgstr "Mellőzés"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Csatlakozás Jitsi értekezlethez…"
 
 #: src/app/qml/RoomPage.qml:90
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Jitsi értekezlet indítása…"
 
 #: src/app/qml/RoomPage.qml:90
-#, fuzzy, kde-format
-#| msgid "You do not have the privileges to complete this action"
+#, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
-msgstr ""
-"Ön nem rendelkezik a művelet végrehajtásához szükséges jogosultságokkal"
+msgstr "Ön nem jogosult Jitsi értekezletek indítására"
 
 #: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
 #: src/roominfo/RoomInformation.qml:91
@@ -3557,12 +3550,12 @@ msgstr "<i>Ennek az eseménynek nincs tartalma.</i>"
 #: src/login/Email.qml:20
 #, kde-format
 msgid "Add an e-mail address:"
-msgstr "E-mail cím hozzáadása:"
+msgstr "E-mail-cím hozzáadása:"
 
 #: src/login/Email.qml:32
 #, kde-format
 msgid "Confirm e-mail address"
-msgstr "E-mail cím megerősítése"
+msgstr "E-mail-cím megerősítése"
 
 #: src/login/Email.qml:34
 #, kde-format
@@ -6108,7 +6101,7 @@ msgstr "Eszközök"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Gyorsbillentyűk"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
