@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-03 00:43+0000\n"
+"POT-Creation-Date: 2026-01-05 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 12:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -30,118 +30,118 @@ msgstr "Recibindo notificacións de novas mensaxes."
 msgid "Receiving push notifications"
 msgstr "Recibindo notificacións levadas"
 
-#: src/app/main.cpp:131 src/login/WelcomePage.qml:77
+#: src/app/main.cpp:136 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/app/main.cpp:133
+#: src/app/main.cpp:138
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Charle en Matrix"
 
-#: src/app/main.cpp:135
+#: src/app/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2025 Comunidade KDE"
 
-#: src/app/main.cpp:136
+#: src/app/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/app/main.cpp:136 src/app/main.cpp:137 src/app/main.cpp:138
-#: src/app/main.cpp:140
+#: src/app/main.cpp:141 src/app/main.cpp:142 src/app/main.cpp:143
+#: src/app/main.cpp:145
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantemento."
 
-#: src/app/main.cpp:137
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/app/main.cpp:138
+#: src/app/main.cpp:143
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/app/main.cpp:139
+#: src/app/main.cpp:144
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Autoría orixinal de Spectral."
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mantemento de libQuotient."
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Adrián Chaves (Gallaecio)"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.gal"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr ""
 "Unha biblioteca de Qt para escribir clientes multiplataforma de Matrix."
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (sobre %2)"
 
-#: src/app/main.cpp:167
+#: src/app/main.cpp:172
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente do protocolo de comunicación Matrix."
 
-#: src/app/main.cpp:168
+#: src/app/main.cpp:173
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Permite o esquema de URL «matrix:»."
 
-#: src/app/main.cpp:169
+#: src/app/main.cpp:174
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorar todos os erros de SSL, p. ex. certificados sen asinar."
 
-#: src/app/main.cpp:171
+#: src/app/main.cpp:176
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Substituír unha instancia existente."
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:179
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Só se usa para probas automáticas."
 
-#: src/app/main.cpp:184
+#: src/app/main.cpp:189
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Compartir un URL en Matrix"
@@ -532,41 +532,32 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Crear unha sala"
 
-#: src/app/qml/GlobalMenu.qml:48
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Explore Rooms"
+#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:inmenu Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Examinar as salas"
 
-#: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
-#: src/spaces/SelectExistingRoomDialog.qml:44
-#: src/spaces/SelectExistingRoomDialog.qml:127
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Examinar as salas"
-
-#: src/app/qml/GlobalMenu.qml:62
+#: src/app/qml/GlobalMenu.qml:60
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Configurar NeoChat…"
 
-#: src/app/qml/GlobalMenu.qml:68
+#: src/app/qml/GlobalMenu.qml:66
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Saír de NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:76
+#: src/app/qml/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vista"
 
-#: src/app/qml/GlobalMenu.qml:81
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
@@ -574,37 +565,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "Buscar nas salas"
 
-#: src/app/qml/GlobalMenu.qml:86
+#: src/app/qml/GlobalMenu.qml:84
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Xanela"
 
-#: src/app/qml/GlobalMenu.qml:90
+#: src/app/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Saír da pantalla completa"
 
-#: src/app/qml/GlobalMenu.qml:90
+#: src/app/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Poñer a pantalla completa"
 
-#: src/app/qml/GlobalMenu.qml:95
+#: src/app/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Axuda"
 
-#: src/app/qml/GlobalMenu.qml:99
+#: src/app/qml/GlobalMenu.qml:97
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "Sobre NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -1058,10 +1049,12 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Non se atopou ningunha sala."
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
-#, kde-format
-msgctxt "@action:button"
-msgid "Explore rooms"
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
+#: src/rooms/SpaceDrawer.qml:289
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Examinar as salas"
 
 #: src/app/qml/ReasonDialog.qml:60
@@ -3384,18 +3377,18 @@ msgstr ""
 "O ficheiro é grande de máis para descargar.<br /> Solicite asistencia á "
 "administración do seu servidor de Matrix."
 
-#: src/libneochat/neochatconnection.cpp:330
+#: src/libneochat/neochatconnection.cpp:336
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Non hai configurado ningún servidor de identidade."
 
-#: src/libneochat/neochatconnection.cpp:361
+#: src/libneochat/neochatconnection.cpp:367
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "A creación da sala fallou: %1"
 
-#: src/libneochat/neochatconnection.cpp:390
+#: src/libneochat/neochatconnection.cpp:396
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "A creación do espazo fallou: %1"
@@ -3496,7 +3489,7 @@ msgid "New Space"
 msgstr "Novo espazo"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:58
-#: src/spaces/SelectExistingRoomDialog.qml:149
+#: src/spaces/SelectExistingRoomDialog.qml:147
 #, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
@@ -3505,9 +3498,10 @@ msgid "Make this parent official"
 msgstr "Facer un espazo oficial."
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:title Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Examinar as salas"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
@@ -4380,13 +4374,13 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Amosar o menú"
 
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:63
 #, kde-format
 msgid "Find your friends"
 msgstr "Atopar as súas amizades"
 
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:70
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -4407,38 +4401,33 @@ msgstr "Escanear un código QR"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/rooms/ExploreComponentMobile.qml:49
-#, kde-format
-msgid "Explore rooms"
-msgstr "Examinar as salas"
-
-#: src/rooms/ExploreComponentMobile.qml:78
+#: src/rooms/ExploreComponentMobile.qml:76
 #, kde-format
 msgid "Create New"
 msgstr "Crear unha nova"
 
-#: src/rooms/ExploreComponentMobile.qml:145
+#: src/rooms/ExploreComponentMobile.qml:143
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Crear unha sala"
 
-#: src/rooms/ExploreComponentMobile.qml:161
+#: src/rooms/ExploreComponentMobile.qml:159
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Crear un espazo"
 
-#: src/rooms/models/roomtreemodel.cpp:364
+#: src/rooms/models/roomtreemodel.cpp:366
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Convidoulle a conversar."
 
 # skip-rule: trasno-file-a_reverse
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:368
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4591,7 +4580,7 @@ msgstr "Sala silenciada"
 msgid "Configure room"
 msgstr "Configurar a sala"
 
-#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:240
 #, fuzzy, kde-format
 #| msgid "Find your friends"
 msgctxt "@action:button"
@@ -4632,19 +4621,15 @@ msgstr "Únase a algunhas salas para comezar."
 
 #: src/rooms/RoomListPage.qml:225
 #, fuzzy, kde-format
-#| msgid "Search in room directory"
-msgctxt "@action"
-msgid "Search in room directory"
-msgstr "Buscar no directorio de salas"
+#| msgctxt ""
+#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Search Rooms"
+msgctxt "@action:button Search public directory for this room"
+msgid "Search for Room"
+msgstr "Buscar nas salas"
 
-#: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
-msgctxt "@action"
-msgid "Explore rooms"
-msgstr "Examinar as salas"
-
-#: src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:240
 #, fuzzy, kde-format
 #| msgid "Search in friend directory"
 msgctxt "@action:button"
@@ -6920,29 +6905,29 @@ msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Escoller o espazo superior"
 
-#: src/settings/SelectParentDialog.qml:159
+#: src/settings/SelectParentDialog.qml:157
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Facer esta sala subordinada do espazo %1"
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 "Non ten o nivel de privilexios necesario no espazo para definir o estado."
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "A sala seleccionada non é un espazo."
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Non tes os privilexios para completar esta acción."
 
-#: src/settings/SelectParentDialog.qml:171
+#: src/settings/SelectParentDialog.qml:169
 #, kde-format
 msgid "Make this space the canonical parent"
 msgstr "Facer este espazo o canónico."
@@ -7104,14 +7089,21 @@ msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Escoller unha sala"
 
-#: src/spaces/SelectExistingRoomDialog.qml:150
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@title Explore public rooms and spaces"
+msgid "Explore"
+msgstr "Examinar as salas"
+
+#: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
 "Ten o nivel de privilexios necesario na sala aniñada para definir o estado."
 
-#: src/spaces/SelectExistingRoomDialog.qml:150
+#: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
@@ -7119,7 +7111,7 @@ msgstr ""
 "Non ten o nivel de privilexios necesario na sala aniñada para definir o "
 "estado."
 
-#: src/spaces/SelectExistingRoomDialog.qml:173
+#: src/spaces/SelectExistingRoomDialog.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
@@ -7127,7 +7119,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Facer este espazo o canónico."
 
-#: src/spaces/SelectExistingRoomDialog.qml:174
+#: src/spaces/SelectExistingRoomDialog.qml:172
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -7537,6 +7529,34 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribindo."
 msgstr[1] "%2 están escribindo."
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Explore Rooms"
+#~ msgstr "Examinar as salas"
+
+#~ msgctxt "@title"
+#~ msgid "Explore Rooms"
+#~ msgstr "Examinar as salas"
+
+#~ msgctxt "@action:button"
+#~ msgid "Explore rooms"
+#~ msgstr "Examinar as salas"
+
+#~ msgctxt "@action:title"
+#~ msgid "Explore Rooms"
+#~ msgstr "Examinar as salas"
+
+#, fuzzy
+#~| msgid "Search in room directory"
+#~ msgctxt "@action"
+#~ msgid "Search in room directory"
+#~ msgstr "Buscar no directorio de salas"
+
+#, fuzzy
+#~| msgid "Explore rooms"
+#~ msgctxt "@action"
+#~ msgid "Explore rooms"
+#~ msgstr "Examinar as salas"
 
 #~ msgctxt "@action:button Block the user"
 #~ msgid "Block %1"

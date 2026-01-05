@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-03 00:43+0000\n"
+"POT-Creation-Date: 2026-01-05 00:42+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -30,117 +30,117 @@ msgstr "Skicka skrivunderrättelser för nya meddelanden"
 msgid "Receiving push notifications"
 msgstr "Tar emot utskickade underrättelser"
 
-#: src/app/main.cpp:131 src/login/WelcomePage.qml:77
+#: src/app/main.cpp:136 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/app/main.cpp:133
+#: src/app/main.cpp:138
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Chatta på Matrix"
 
-#: src/app/main.cpp:135
+#: src/app/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2025 KDE-gemenskapen"
 
-#: src/app/main.cpp:136
+#: src/app/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/app/main.cpp:136 src/app/main.cpp:137 src/app/main.cpp:138
-#: src/app/main.cpp:140
+#: src/app/main.cpp:141 src/app/main.cpp:142 src/app/main.cpp:143
+#: src/app/main.cpp:145
 #, kde-format
 msgid "Maintainer"
 msgstr "Underhållsansvarig"
 
-#: src/app/main.cpp:137
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/app/main.cpp:138
+#: src/app/main.cpp:143
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/app/main.cpp:139
+#: src/app/main.cpp:144
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Ursprunglig upphovsman till Spectral"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Underhållsansvarig för libQuotient"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Att Qt-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (byggd med %2)"
 
-#: src/app/main.cpp:167
+#: src/app/main.cpp:172
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/app/main.cpp:168
+#: src/app/main.cpp:173
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Stöder matrix: webbadresschema"
 
-#: src/app/main.cpp:169
+#: src/app/main.cpp:174
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorera alla SSL-fel, t.ex. osignerade certifikat."
 
-#: src/app/main.cpp:171
+#: src/app/main.cpp:176
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Ersätt en befintlig instans"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:179
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Bara använd för automatiska tester"
 
-#: src/app/main.cpp:184
+#: src/app/main.cpp:189
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Dela en webbadress med Matrix"
@@ -513,41 +513,32 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Skapa ett rum"
 
-#: src/app/qml/GlobalMenu.qml:48
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Explore Rooms"
+#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:inmenu Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Utforska rum"
 
-#: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
-#: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
-#: src/spaces/SelectExistingRoomDialog.qml:44
-#: src/spaces/SelectExistingRoomDialog.qml:127
-#, kde-format
-msgctxt "@title"
-msgid "Explore Rooms"
-msgstr "Utforska rum"
-
-#: src/app/qml/GlobalMenu.qml:62
+#: src/app/qml/GlobalMenu.qml:60
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat…"
 msgstr "Anpassa NeoChat…"
 
-#: src/app/qml/GlobalMenu.qml:68
+#: src/app/qml/GlobalMenu.qml:66
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Avsluta NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:76
+#: src/app/qml/GlobalMenu.qml:74
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Visa"
 
-#: src/app/qml/GlobalMenu.qml:81
+#: src/app/qml/GlobalMenu.qml:79
 #, kde-format
 msgctxt ""
 "@action:inmenu opens a UI element called the 'Quick Switcher', which offers "
@@ -555,37 +546,37 @@ msgctxt ""
 msgid "Search Rooms"
 msgstr "Sök rum"
 
-#: src/app/qml/GlobalMenu.qml:86
+#: src/app/qml/GlobalMenu.qml:84
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Fönster"
 
-#: src/app/qml/GlobalMenu.qml:90
+#: src/app/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Avsluta fullskärm"
 
-#: src/app/qml/GlobalMenu.qml:90
+#: src/app/qml/GlobalMenu.qml:88
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Gå till fullskärm"
 
-#: src/app/qml/GlobalMenu.qml:95
+#: src/app/qml/GlobalMenu.qml:93
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/app/qml/GlobalMenu.qml:99
+#: src/app/qml/GlobalMenu.qml:97
 #, kde-format
 msgctxt "menu"
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/app/qml/GlobalMenu.qml:104
+#: src/app/qml/GlobalMenu.qml:102
 #, kde-format
 msgctxt "menu"
 msgid "About KDE"
@@ -1018,10 +1009,12 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Inget rum hittades"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/SpaceDrawer.qml:289
-#, kde-format
-msgctxt "@action:button"
-msgid "Explore rooms"
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
+#: src/rooms/SpaceDrawer.qml:289
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:button Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Utforska rum"
 
 #: src/app/qml/ReasonDialog.qml:60
@@ -3286,18 +3279,18 @@ msgstr ""
 "Filen är för stor för att ladda ner.<br />Kontakta matrix-"
 "serveradministratören för support."
 
-#: src/libneochat/neochatconnection.cpp:330
+#: src/libneochat/neochatconnection.cpp:336
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetsserver inställd"
 
-#: src/libneochat/neochatconnection.cpp:361
+#: src/libneochat/neochatconnection.cpp:367
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/libneochat/neochatconnection.cpp:390
+#: src/libneochat/neochatconnection.cpp:396
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
@@ -3398,7 +3391,7 @@ msgid "New Space"
 msgstr "Nytt utrymme"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:58
-#: src/spaces/SelectExistingRoomDialog.qml:149
+#: src/spaces/SelectExistingRoomDialog.qml:147
 #, kde-format
 msgctxt ""
 "@option:check As in make the space from which this dialog was created an "
@@ -3407,9 +3400,10 @@ msgid "Make this parent official"
 msgstr "Gör överliggande objekt officiellt"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, kde-format
-msgctxt "@action:title"
-msgid "Explore Rooms"
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@action:title Explore public rooms and spaces"
+msgid "Explore"
 msgstr "Utforska rum"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
@@ -4271,13 +4265,13 @@ msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Visa meny"
 
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:63
 #, kde-format
 msgid "Find your friends"
 msgstr "Sök efter dina vänner"
 
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:70
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -4298,35 +4292,30 @@ msgstr "Läs av en QR-kod"
 msgid "Search"
 msgstr "Sök"
 
-#: src/rooms/ExploreComponentMobile.qml:49
-#, kde-format
-msgid "Explore rooms"
-msgstr "Utforska rum"
-
-#: src/rooms/ExploreComponentMobile.qml:78
+#: src/rooms/ExploreComponentMobile.qml:76
 #, kde-format
 msgid "Create New"
 msgstr "Skapa ny"
 
-#: src/rooms/ExploreComponentMobile.qml:145
+#: src/rooms/ExploreComponentMobile.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Skapa ett rum"
 
-#: src/rooms/ExploreComponentMobile.qml:161
+#: src/rooms/ExploreComponentMobile.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Skapa ett utrymme"
 
-#: src/rooms/models/roomtreemodel.cpp:364
+#: src/rooms/models/roomtreemodel.cpp:366
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Bjud in till chatt"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:368
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4470,7 +4459,7 @@ msgstr "Tystat rum"
 msgid "Configure room"
 msgstr "Anpassa rum"
 
-#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
@@ -4504,18 +4493,16 @@ msgid "Join some rooms to get started"
 msgstr "Gå med i några rum för att komma igång"
 
 #: src/rooms/RoomListPage.qml:225
-#, kde-format
-msgctxt "@action"
-msgid "Search in room directory"
-msgstr "Sök i rumskatalog"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
+#| "offers a fast keyboard-based interface for switching in between chats."
+#| msgid "Search Rooms"
+msgctxt "@action:button Search public directory for this room"
+msgid "Search for Room"
+msgstr "Sök rum"
 
-#: src/rooms/RoomListPage.qml:225
-#, kde-format
-msgctxt "@action"
-msgid "Explore rooms"
-msgstr "Utforska rum"
-
-#: src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
@@ -6724,12 +6711,12 @@ msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Välj överliggande utrymme"
 
-#: src/settings/SelectParentDialog.qml:159
+#: src/settings/SelectParentDialog.qml:157
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Ställ in rummet att vara underliggande objekt till utrymmet %1"
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
@@ -6737,17 +6724,17 @@ msgstr ""
 "Du har inte tillräckligt hög rättighetsnivå i överliggande objekt för att "
 "ställa in tillståndet"
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "Det valda rummet är inte ett utrymme"
 
-#: src/settings/SelectParentDialog.qml:166
+#: src/settings/SelectParentDialog.qml:164
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Du har inte rättigheter att slutföra åtgärden"
 
-#: src/settings/SelectParentDialog.qml:171
+#: src/settings/SelectParentDialog.qml:169
 #, kde-format
 msgid "Make this space the canonical parent"
 msgstr "Gör utrymmet till kanonisk överliggande objekt"
@@ -6911,7 +6898,14 @@ msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Välj rum"
 
-#: src/spaces/SelectExistingRoomDialog.qml:150
+#: src/spaces/SelectExistingRoomDialog.qml:44
+#, fuzzy, kde-format
+#| msgid "Explore rooms"
+msgctxt "@title Explore public rooms and spaces"
+msgid "Explore"
+msgstr "Utforska rum"
+
+#: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
@@ -6919,7 +6913,7 @@ msgstr ""
 "Du har nödvändiga rättighetsnivå i underliggande objekt för att ställa in "
 "tillståndet"
 
-#: src/spaces/SelectExistingRoomDialog.qml:150
+#: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
@@ -6927,7 +6921,7 @@ msgstr ""
 "Du har inte tillräckligt hög rättighetsnivå i underliggande objekt för att "
 "ställa in tillståndet"
 
-#: src/spaces/SelectExistingRoomDialog.qml:173
+#: src/spaces/SelectExistingRoomDialog.qml:171
 #, kde-format
 msgctxt ""
 "@option:check The canonical parent is the default one if a room has multiple "
@@ -6935,7 +6929,7 @@ msgctxt ""
 msgid "Make this space the canonical parent"
 msgstr "Gör utrymmet till kanonisk överliggande objekt"
 
-#: src/spaces/SelectExistingRoomDialog.qml:174
+#: src/spaces/SelectExistingRoomDialog.qml:172
 #, kde-format
 msgctxt "@info:description"
 msgid ""
@@ -7335,6 +7329,30 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Explore Rooms"
+#~ msgstr "Utforska rum"
+
+#~ msgctxt "@title"
+#~ msgid "Explore Rooms"
+#~ msgstr "Utforska rum"
+
+#~ msgctxt "@action:button"
+#~ msgid "Explore rooms"
+#~ msgstr "Utforska rum"
+
+#~ msgctxt "@action:title"
+#~ msgid "Explore Rooms"
+#~ msgstr "Utforska rum"
+
+#~ msgctxt "@action"
+#~ msgid "Search in room directory"
+#~ msgstr "Sök i rumskatalog"
+
+#~ msgctxt "@action"
+#~ msgid "Explore rooms"
+#~ msgstr "Utforska rum"
 
 #~ msgctxt "@action:button Block the user"
 #~ msgid "Block %1"
