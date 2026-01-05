@@ -41,6 +41,10 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         QtQuick
 )
 
+if(NOT TARGET Olm::Olm)
+    target_compile_definitions(Timeline PRIVATE -DRUST_CRYPTO)
+endif()
+
 target_include_directories(Timeline PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/enums ${CMAKE_CURRENT_SOURCE_DIR}/models)
 target_link_libraries(Timeline PRIVATE
     Qt::Core
