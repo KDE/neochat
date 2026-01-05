@@ -4,6 +4,17 @@
     "runtime": "org.kde.Platform",
     "runtime-version": "6.10",
     "sdk": "org.kde.Sdk",
+    "sdk-extensions" : [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
+    "build-options": {
+        "append-path": "/usr/lib/sdk/rust-stable/bin",
+        "env": {
+            "RUST_BACKTRACE": "1",
+            "CARGO_NET_OFFLINE": "true",
+            "RUSTFLAGS": "--remap-path-prefix =../"
+        }
+    },
     "command": "neochat",
     "tags": [
         "nightly"
@@ -62,26 +73,6 @@
             ]
         },
         {
-            "name": "olm",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
-                "-DOLM_TESTS=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.matrix.org/matrix-org/olm.git",
-                    "tag": "3.2.16",
-                    "x-checker-data": {
-                        "type": "git",
-                        "tag-pattern": "^([\\d.]+)$"
-                    },
-                    "commit": "7e0c8277032e40308987257b711b38af8d77cc69"
-                }
-            ]
-        },
-        {
             "name": "libsecret",
             "buildsystem": "meson",
             "config-opts": [
@@ -129,21 +120,36 @@
             ]
         },
         {
-            "name": "libQuotient",
+            "name": "corrosion",
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/quotient-im/libQuotient.git",
-                    "branch": "dev",
-                    "disable-submodules": true
+                    "url": "https://github.com/corrosion-rs/corrosion"
+                }
+            ]
+        },
+        {
+            "name": "libQuotient",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                "generated-sources.json",
+                {
+                    "type": "git",
+                    "url": "https://github.com/quotient-im/libquotient",
+                    "branch": "tobias/rust-sdk-crypto"
                 }
             ],
             "config-opts": [
                 "-DBUILD_WITH_QT6=ON",
                 "-DQuotient_ENABLE_E2EE=ON",
                 "-DBUILD_TESTING=OFF"
-            ]
+            ],
+            "build-options": {
+                "env": {
+                    "CARGO_HOME": "/run/build/libQuotient/cargo"
+                }
+            }
         },
         {
             "name": "cmark",
