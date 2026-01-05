@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 02:34+0000\n"
+"POT-Creation-Date: 2026-01-05 02:56+0000\n"
 "PO-Revision-Date: 2025-11-10 11:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -33,117 +33,117 @@ msgstr "Rebre les notificacions dels missatges nous"
 msgid "Receiving push notifications"
 msgstr "Rebre les notificacions automàtiques"
 
-#: src/app/main.cpp:131 src/login/WelcomePage.qml:77
+#: src/app/main.cpp:136 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/app/main.cpp:133
+#: src/app/main.cpp:138
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "Xat a Matrix"
 
-#: src/app/main.cpp:135
+#: src/app/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2025 la comunitat KDE"
 
-#: src/app/main.cpp:136
+#: src/app/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/app/main.cpp:136 src/app/main.cpp:137 src/app/main.cpp:138
-#: src/app/main.cpp:140
+#: src/app/main.cpp:141 src/app/main.cpp:142 src/app/main.cpp:143
+#: src/app/main.cpp:145
 #, kde-format
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: src/app/main.cpp:137
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/app/main.cpp:138
+#: src/app/main.cpp:143
 #, kde-format
 msgid "James Graham"
 msgstr "Nate Graham"
 
-#: src/app/main.cpp:139
+#: src/app/main.cpp:144
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Autor original de Spectral"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "Mantenidor de la libQuotient"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Josep M. Ferrer"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "Una biblioteca Qt per a escriure clients multiplataforma per a Matrix"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (construïda amb %2)"
 
-#: src/app/main.cpp:173
+#: src/app/main.cpp:178
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client per al protocol de comunicacions Matrix"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:179
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Implementa l'esquema d'URL «matrix:»"
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:180
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignora tots els errors d'SSL, p. ex., certificats sense signar."
 
-#: src/app/main.cpp:177
+#: src/app/main.cpp:182
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"
 
-#: src/app/main.cpp:180
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Only used for autotests"
 msgstr "Només s'utilitza en les proves automàtiques"
 
-#: src/app/main.cpp:190
+#: src/app/main.cpp:195
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "Compartix un URL a Matrix"
@@ -950,7 +950,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Trieu un fitxer"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -3210,18 +3210,18 @@ msgstr ""
 "El fitxer és massa gran per a baixar.<br />Contacteu amb l'administrador del "
 "servidor Matrix per ajuda."
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "No s'ha configurat cap servidor d'identitats"
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "No s'ha pogut crear la sala: %1"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "No s'ha pogut crear l'espai: %1"
@@ -4171,30 +4171,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Busca sales"
 
-#: src/rooms/ExploreComponent.qml:61
+#: src/rooms/ExploreComponent.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Mostra el menú"
 
-#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Busqueu els vostres amics"
 
-#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Busca d'amics"
 
-#: src/rooms/ExploreComponent.qml:88
+#: src/rooms/ExploreComponent.qml:102
 #, kde-format
 msgid "Create a Room"
 msgstr "Crea una sala"
 
-#: src/rooms/ExploreComponent.qml:103
+#: src/rooms/ExploreComponent.qml:117
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Escaneja un codi QR"
@@ -4226,13 +4226,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Crea un espai"
 
-#: src/rooms/models/roomtreemodel.cpp:364
+#: src/rooms/models/roomtreemodel.cpp:366
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Vos ha convidat al xat"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:368
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 02:34+0000\n"
+"POT-Creation-Date: 2026-01-05 02:56+0000\n"
 "PO-Revision-Date: 2026-01-02 07:37+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -33,117 +33,117 @@ msgstr "正在接收新訊息的通知"
 msgid "Receiving push notifications"
 msgstr "正在接收推送通知"
 
-#: src/app/main.cpp:131 src/login/WelcomePage.qml:77
+#: src/app/main.cpp:136 src/login/WelcomePage.qml:77
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/app/main.cpp:133
+#: src/app/main.cpp:138
 #, kde-format
 msgid "Chat on Matrix"
 msgstr "在 Matrix 上聊天"
 
-#: src/app/main.cpp:135
+#: src/app/main.cpp:140
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2025 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2025 KDE 社群"
 
-#: src/app/main.cpp:136
+#: src/app/main.cpp:141
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/app/main.cpp:136 src/app/main.cpp:137 src/app/main.cpp:138
-#: src/app/main.cpp:140
+#: src/app/main.cpp:141 src/app/main.cpp:142 src/app/main.cpp:143
+#: src/app/main.cpp:145
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: src/app/main.cpp:137
+#: src/app/main.cpp:142
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/app/main.cpp:138
+#: src/app/main.cpp:143
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/app/main.cpp:139
+#: src/app/main.cpp:144
 #, kde-format
 msgid "Joshua Goins"
 msgstr "Joshua Goins"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/app/main.cpp:144
+#: src/app/main.cpp:149
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原始作者"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/app/main.cpp:145
+#: src/app/main.cpp:150
 #, kde-format
 msgid "Maintainer of libQuotient"
 msgstr "libQuotient 的維護者"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kisaragi Hiu"
 
-#: src/app/main.cpp:146
+#: src/app/main.cpp:151
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mail@kisaragi-hiu.com"
 
-#: src/app/main.cpp:150
+#: src/app/main.cpp:155
 #, kde-format
 msgid "A Qt library to write cross-platform clients for Matrix"
 msgstr "撰寫跨平台 Matrix 用戶端用的 Qt 函式庫"
 
-#: src/app/main.cpp:152
+#: src/app/main.cpp:157
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (建置於 %2 上)"
 
-#: src/app/main.cpp:173
+#: src/app/main.cpp:178
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通訊協定的用戶端"
 
-#: src/app/main.cpp:174
+#: src/app/main.cpp:179
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支援 matrix: 網址機制"
 
-#: src/app/main.cpp:175
+#: src/app/main.cpp:180
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "忽略所有 SSL 錯誤，例如未簽署的憑證。"
 
-#: src/app/main.cpp:177
+#: src/app/main.cpp:182
 #, kde-format
 msgctxt "command line description"
 msgid "Replace an existing instance"
 msgstr "取代現存實體"
 
-#: src/app/main.cpp:180
+#: src/app/main.cpp:185
 #, kde-format
 msgid "Only used for autotests"
 msgstr "僅 autotest 用。"
 
-#: src/app/main.cpp:190
+#: src/app/main.cpp:195
 #, kde-format
 msgid "Share a URL to Matrix"
 msgstr "將網址分享到 Matrix"
@@ -944,7 +944,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "選擇檔案"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:109
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -3151,18 +3151,18 @@ msgid ""
 "for support."
 msgstr "檔案超過下載大小上限。請聯絡您的 matrix 伺服器管理員以求支援。"
 
-#: src/libneochat/neochatconnection.cpp:324
+#: src/libneochat/neochatconnection.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "未設定身份伺服器"
 
-#: src/libneochat/neochatconnection.cpp:355
+#: src/libneochat/neochatconnection.cpp:361
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "聊天室建立失敗：%1"
 
-#: src/libneochat/neochatconnection.cpp:384
+#: src/libneochat/neochatconnection.cpp:390
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "聊天空間建立失敗：%1"
@@ -4098,30 +4098,30 @@ msgctxt "@action"
 msgid "Search Rooms"
 msgstr "搜尋聊天室"
 
-#: src/rooms/ExploreComponent.qml:61
+#: src/rooms/ExploreComponent.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "顯示選單"
 
-#: src/rooms/ExploreComponent.qml:78 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/rooms/ExploreComponent.qml:83 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "尋找您的朋友"
 
-#: src/rooms/ExploreComponent.qml:88
+#: src/rooms/ExploreComponent.qml:102
 #, kde-format
 msgid "Create a Room"
 msgstr "建立聊天室"
 
-#: src/rooms/ExploreComponent.qml:103
+#: src/rooms/ExploreComponent.qml:117
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "掃描 QR 碼"
@@ -4153,13 +4153,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "建立一個聊天空間"
 
-#: src/rooms/models/roomtreemodel.cpp:364
+#: src/rooms/models/roomtreemodel.cpp:366
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "邀請您聊天"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:368
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
