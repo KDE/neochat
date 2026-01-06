@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:42+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2026-01-01 12:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1052,7 +1052,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jitsi toplantıları başlatmak için izniniz yok"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1248,190 +1248,206 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Başka Aygıtlardan İste"
 
-#: src/app/qml/UserDetailDialog.qml:49
+#: src/app/qml/UserDetailDialog.qml:51
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Hesap Ayrıntıları"
 
-#: src/app/qml/UserDetailDialog.qml:109
+#: src/app/qml/UserDetailDialog.qml:111
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "İleti"
 
-#: src/app/qml/UserDetailDialog.qml:119
+#: src/app/qml/UserDetailDialog.qml:121
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Yok Saymayı Bırak"
 
-#: src/app/qml/UserDetailDialog.qml:119
+#: src/app/qml/UserDetailDialog.qml:121
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: src/app/qml/UserDetailDialog.qml:127
+#: src/app/qml/UserDetailDialog.qml:129
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Bağlantıyı Kopyala"
 
-#: src/app/qml/UserDetailDialog.qml:133
+#: src/app/qml/UserDetailDialog.qml:135
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "İletileri Ara…"
 
-#: src/app/qml/UserDetailDialog.qml:147
+#: src/app/qml/UserDetailDialog.qml:149
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Kare Kodu Göster"
 
-#: src/app/qml/UserDetailDialog.qml:163
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Bildir…"
 
-#: src/app/qml/UserDetailDialog.qml:169
+#: src/app/qml/UserDetailDialog.qml:171
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Kullanıcıyı Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:170
+#: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Bu kullanıcıyı bildirme gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:176
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Kullanıcıyı Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:188
+#: src/app/qml/UserDetailDialog.qml:187
+#, fuzzy, kde-format
+#| msgctxt "@action:button View this user's profile"
+#| msgid "View %1's Profile"
+msgctxt "@action:button"
+msgid "View Main Profile"
+msgstr "%1 Profilini Görüntüle"
+
+#: src/app/qml/UserDetailDialog.qml:197
+#, fuzzy, kde-format
+#| msgctxt "@action:button View this user's profile"
+#| msgid "View %1's Profile"
+msgctxt "@action:button"
+msgid "View Room Profile"
+msgstr "%1 Profilini Görüntüle"
+
+#: src/app/qml/UserDetailDialog.qml:210
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderasyon"
 
-#: src/app/qml/UserDetailDialog.qml:208
+#: src/app/qml/UserDetailDialog.qml:230
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Kov…"
 
-#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Kullanıcıyı Kov"
 
-#: src/app/qml/UserDetailDialog.qml:213
+#: src/app/qml/UserDetailDialog.qml:235
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Kullanıcıyı kovma gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:214
+#: src/app/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Kov"
 
-#: src/app/qml/UserDetailDialog.qml:229
+#: src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Yasakla…"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Kullanıcıyı Yasakla"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Kullanıcıyı yasaklama gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Yasakla"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:273
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Yasağı Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:262
+#: src/app/qml/UserDetailDialog.qml:284
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "İletileri Kaldır…"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:289
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İletileri Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:290
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Bu kullanıcının son iletilerini kaldırma gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:272
+#: src/app/qml/UserDetailDialog.qml:294
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İletileri Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/UserDetailDialog.qml:307
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr "Rol"
 
-#: src/app/qml/UserDetailDialog.qml:304
+#: src/app/qml/UserDetailDialog.qml:326
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Güç Düzeyini Ayarla"
 
-#: src/app/qml/UserDetailDialog.qml:331
+#: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Ortak Odalar"
 
-#: src/app/qml/UserDetailDialog.qml:370
+#: src/app/qml/UserDetailDialog.qml:392
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "

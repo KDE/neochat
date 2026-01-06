@@ -1,16 +1,16 @@
 # Translation for neochat.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2025 This file is copyright:
+# Copyright (C) 2020-2026 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023, 2024, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:42+0000\n"
-"PO-Revision-Date: 2025-12-08 19:56+0100\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"PO-Revision-Date: 2026-01-05 11:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -519,11 +519,10 @@ msgid "Create a Room"
 msgstr "Sortu gela bat"
 
 #: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esploratu gelak"
+msgstr "Esploratu"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -612,20 +611,16 @@ msgid "Reject Invite"
 msgstr "Errefusatu gonbidapena"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Ireki profila"
+msgstr "Ikusi %1(e)ren profila"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Errefusatu gonbidapena"
+msgstr "Ezikusi %1 eta errefusatu gonbidapena"
 
 #: src/app/qml/InvitationView.qml:198
 #, kde-kuit-format
@@ -1009,11 +1004,10 @@ msgstr "Ez da gelarik aurkitu"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
 #: src/rooms/SpaceDrawer.qml:289
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esploratu gelak"
+msgstr "Esploratu"
 
 #: src/app/qml/ReasonDialog.qml:60
 #, kde-format
@@ -1057,7 +1051,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Ez duzu Jitsi bilerak hasteko baimenik"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1254,219 +1248,214 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Eskatu beste gailuetatik"
 
-#: src/app/qml/UserDetailDialog.qml:49
+#: src/app/qml/UserDetailDialog.qml:51
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Kontuaren xehetasuna"
 
-#: src/app/qml/UserDetailDialog.qml:109
-#, fuzzy, kde-format
-#| msgid "<message>"
+#: src/app/qml/UserDetailDialog.qml:111
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<mezua>"
+msgstr "Mezua"
 
-#: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#: src/app/qml/UserDetailDialog.qml:121
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Ezikusi"
+msgstr "Ez-ikusteari utzi"
 
-#: src/app/qml/UserDetailDialog.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#: src/app/qml/UserDetailDialog.qml:121
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ezikusi"
 
-#: src/app/qml/UserDetailDialog.qml:127
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#: src/app/qml/UserDetailDialog.qml:129
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopiatu esteka"
 
-#: src/app/qml/UserDetailDialog.qml:133
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#: src/app/qml/UserDetailDialog.qml:135
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Bilatu mezuak"
+msgstr "Bilatu mezuak…"
 
-#: src/app/qml/UserDetailDialog.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#: src/app/qml/UserDetailDialog.qml:149
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Erakutsi QR kodea"
 
-#: src/app/qml/UserDetailDialog.qml:163
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Salatu…"
 
-#: src/app/qml/UserDetailDialog.qml:169
+#: src/app/qml/UserDetailDialog.qml:171
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Salatu erabiltzailea"
 
-#: src/app/qml/UserDetailDialog.qml:170
+#: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Erabiltzaile hau salatzeko arrazoia"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Salatu"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:176
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Salatu erabiltzailea"
 
-#: src/app/qml/UserDetailDialog.qml:188
+#: src/app/qml/UserDetailDialog.qml:187
 #, fuzzy, kde-format
-#| msgid "Moderator"
+#| msgctxt "@action:button View this user's profile"
+#| msgid "View %1's Profile"
+msgctxt "@action:button"
+msgid "View Main Profile"
+msgstr "Ikusi %1(e)ren profila"
+
+#: src/app/qml/UserDetailDialog.qml:197
+#, fuzzy, kde-format
+#| msgctxt "@action:button View this user's profile"
+#| msgid "View %1's Profile"
+msgctxt "@action:button"
+msgid "View Room Profile"
+msgstr "Ikusi %1(e)ren profila"
+
+#: src/app/qml/UserDetailDialog.qml:210
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Moderatzailea"
+msgstr "Moderazioa"
 
-#: src/app/qml/UserDetailDialog.qml:208
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#: src/app/qml/UserDetailDialog.qml:230
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Kanporatu"
+msgstr "Kanporatu…"
 
-#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Kanporatu erabiltzailea"
 
-#: src/app/qml/UserDetailDialog.qml:213
+#: src/app/qml/UserDetailDialog.qml:235
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Erabiltzailea kanporatzeko arrazoia"
 
-#: src/app/qml/UserDetailDialog.qml:214
+#: src/app/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Kanporatu"
 
-#: src/app/qml/UserDetailDialog.qml:229
+#: src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Debekua…"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Debekua erabiltzaileari"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:257
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Erabiltzaile honi debekua ezartzeko arrazoia"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Debekua"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:273
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Kendu debekua"
 
-#: src/app/qml/UserDetailDialog.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#: src/app/qml/UserDetailDialog.qml:284
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Kendu mezuak"
+msgstr "Kendu mezuak…"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:289
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:290
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Erabiltzaile horren azken aldiko mezuak kentzeko arrazoia"
 
-#: src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/app/qml/UserDetailDialog.qml:272
+#: src/app/qml/UserDetailDialog.qml:294
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/UserDetailDialog.qml:307
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
-msgstr ""
+msgstr "Eginkizuna"
 
-#: src/app/qml/UserDetailDialog.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#: src/app/qml/UserDetailDialog.qml:326
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "Ezarri erabiltzailearen ahalmen maila"
+msgstr "Ezarri ahalmen maila"
 
-#: src/app/qml/UserDetailDialog.qml:331
-#, fuzzy, kde-format
-#| msgid "All Rooms"
+#: src/app/qml/UserDetailDialog.qml:353
+#, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "Gela guztiak"
+msgstr "Elkarrekiko gelak"
 
-#: src/app/qml/UserDetailDialog.qml:370
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#: src/app/qml/UserDetailDialog.qml:392
+#, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] " eta beste %1"
-msgstr[1] " eta beste %1"
+msgstr[0] "eta beste 1…"
+msgstr[1] "eta beste %1…"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2181,16 +2170,13 @@ msgid "Admin"
 msgstr "Administratzailea"
 
 #: src/libneochat/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
 msgstr "Jabea"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Sortzailea"
@@ -3385,11 +3371,10 @@ msgid "Make this parent official"
 msgstr "Egin guraso hori ofiziala"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esploratu gelak"
+msgstr "Esploratu"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
@@ -4444,14 +4429,10 @@ msgid "Join some rooms to get started"
 msgstr "Hasteko, batu gela batzuetara"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Bilatu gelak"
+msgstr "Bilatu gela"
 
 #: src/rooms/RoomListPage.qml:240
 #, kde-format
@@ -4785,11 +4766,10 @@ msgid "Show your messages on the right"
 msgstr "Erakutsi zure mezuak eskuinean"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Txikiagotu aurreikuspegia"
+msgstr "Erakutsi esteken aurreikuspegiak"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -4798,6 +4778,8 @@ msgid ""
 "You can customize this per-room under room settings. If unchecked, disables "
 "link previews in every room."
 msgstr ""
+"Hau gelako neurrira ipin dezakezu gela ezarpenetatik. Marka kenduta badago, "
+"gela guztietan esteken aurreikuspegia ezgaitzen du."
 
 #: src/settings/AppearanceSettingsPage.qml:355
 #, kde-format
@@ -6238,62 +6220,52 @@ msgid "Add new alias"
 msgstr "Gehitu ezizen berria"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "URL aurreikuspegiak"
+msgstr "Esteken aurreikuspegiak"
 
 #: src/settings/RoomGeneralPage.qml:201
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt ""
 "As in the user has switched off showing previews of hyperlinks in timeline "
 "messages"
 msgid "Link previews are disabled globally in Appearance settings"
-msgstr "URL aurreikuspegiak gela honetan, era lehenetsian, ezgaituta daude"
+msgstr "Esteken aurreikuspegiak globalki ezgaituta daude Itxura ezarpenetan"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Gaitu"
 
 #: src/settings/RoomGeneralPage.qml:218
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Enable encryption for the room"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews for this room"
-msgstr "Gelaren zifratzea gaitzea"
+msgstr "Gaitu esteken aurreikuspegiak gela honetarako"
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are enabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were enabled by default by the room admins."
-msgstr "URL aurreikuspegiak gela honetan, era lehenetsian, gaituta daude"
+msgstr ""
+"Esteken aurreikuspegiak gaitu dituzte era lehenetsian gelako "
+"administratzaileek."
 
 #: src/settings/RoomGeneralPage.qml:220
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "URL previews are disabled by default in this room"
+#, kde-format
 msgctxt "@info"
 msgid "Link previews were disabled by default by the room admins."
-msgstr "URL aurreikuspegiak gela honetan, era lehenetsian, ezgaituta daude"
+msgstr ""
+"Esteken aurreikuspegiak ezgaitu dituzte era lehenetsian gelako "
+"administratzaileek."
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt "@label:checkbox"
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako kideentzat"
+msgstr "Gaitu esteken aurreikuspegiak era lehenetsian"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, kde-format
@@ -6826,11 +6798,10 @@ msgid "Pick Room"
 msgstr "Hautatu gela bat"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esploratu gelak"
+msgstr "Esploratu"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
@@ -7227,12 +7198,10 @@ msgid "Jump to oldest loaded message"
 msgstr "Jauzi zamatutako mezu zaharrenera"
 
 #: src/timeline/TimelineView.qml:243
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Jump to first unread message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
-msgstr "Jauzi irakurri gabeko lehenengo mezura"
+msgstr "Jauzi hurrengo irakurri gabeko nabarmendutakora"
 
 #: src/timeline/TimelineView.qml:274
 #, kde-format

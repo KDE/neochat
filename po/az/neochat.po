@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:42+0000\n"
+"POT-Creation-Date: 2026-01-06 00:43+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1150,7 +1150,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:141
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1357,7 +1357,7 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:49
+#: src/app/qml/UserDetailDialog.qml:51
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -1365,7 +1365,7 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
-#: src/app/qml/UserDetailDialog.qml:109
+#: src/app/qml/UserDetailDialog.qml:111
 #, fuzzy, kde-format
 #| msgctxt "@label Parameter of a command"
 #| msgid "<message>"
@@ -1373,189 +1373,209 @@ msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "<ismarıc>"
 
-#: src/app/qml/UserDetailDialog.qml:119
+#: src/app/qml/UserDetailDialog.qml:121
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "İmtina"
 
-#: src/app/qml/UserDetailDialog.qml:119
+#: src/app/qml/UserDetailDialog.qml:121
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "İmtina"
 
-#: src/app/qml/UserDetailDialog.qml:127
+#: src/app/qml/UserDetailDialog.qml:129
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopyalamaq"
 
-#: src/app/qml/UserDetailDialog.qml:133
+#: src/app/qml/UserDetailDialog.qml:135
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/app/qml/UserDetailDialog.qml:147
+#: src/app/qml/UserDetailDialog.qml:149
 #, fuzzy, kde-format
 #| msgid "Video"
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Video"
 
-#: src/app/qml/UserDetailDialog.qml:163
+#: src/app/qml/UserDetailDialog.qml:165
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:169
+#: src/app/qml/UserDetailDialog.qml:171
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:170
+#: src/app/qml/UserDetailDialog.qml:172
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:174
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:176
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Report User"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:188
+#: src/app/qml/UserDetailDialog.qml:187
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "View Main Profile"
+msgstr "Faylı Açın"
+
+#: src/app/qml/UserDetailDialog.qml:197
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "@action:button"
+msgid "View Room Profile"
+msgstr "Faylı Açın"
+
+#: src/app/qml/UserDetailDialog.qml:210
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Seçimlər:"
 
-#: src/app/qml/UserDetailDialog.qml:208
+#: src/app/qml/UserDetailDialog.qml:230
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:212 src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
 #, fuzzy, kde-format
 #| msgid "Kick this user"
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Bu istifadəçini vurmaq"
 
-#: src/app/qml/UserDetailDialog.qml:213
+#: src/app/qml/UserDetailDialog.qml:235
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:214
+#: src/app/qml/UserDetailDialog.qml:236
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:229
+#: src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:257
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:273
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:262
+#: src/app/qml/UserDetailDialog.qml:284
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:267
+#: src/app/qml/UserDetailDialog.qml:289
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:290
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:269
+#: src/app/qml/UserDetailDialog.qml:291
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/app/qml/UserDetailDialog.qml:272
+#: src/app/qml/UserDetailDialog.qml:294
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/UserDetailDialog.qml:307
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:304
+#: src/app/qml/UserDetailDialog.qml:326
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:331
+#: src/app/qml/UserDetailDialog.qml:353
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt ""
@@ -1563,7 +1583,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Otaqlara baxış"
 
-#: src/app/qml/UserDetailDialog.qml:370
+#: src/app/qml/UserDetailDialog.qml:392
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
