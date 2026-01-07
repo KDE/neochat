@@ -216,12 +216,12 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         }
     });
 
+    notification->setTitle(room->displayName());
+
     QString entry;
-    if (sender == room->displayName()) {
-        notification->setTitle(sender);
+    if (room->isDirectChat()) {
         entry = text.toHtmlEscaped();
     } else {
-        notification->setTitle(room->displayName());
         entry = i18n("%1: %2", sender, text.toHtmlEscaped());
     }
 
@@ -253,7 +253,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         notification->setReplyAction(std::move(replyAction));
     }
 
-    notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
+    if (Controller::instance().accounts()->rowCount() > 1) {
+        notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
+    }
     notification->sendEvent();
 }
 
@@ -347,7 +349,9 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
         m_invitations.remove(room->id());
     });
 
-    notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
+    if (Controller::instance().accounts()->rowCount() > 1) {
+        notification->setHint(u"x-kde-origin-name"_s, room->localMember().id());
+    }
 
     notification->sendEvent();
 }
