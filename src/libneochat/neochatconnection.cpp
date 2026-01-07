@@ -619,4 +619,21 @@ bool NeoChatConnection::supportsMatrixSpecVersion(const QString &version)
     return supportedMatrixSpecVersions().contains(version);
 }
 
+QString NeoChatConnection::noteForUser(const QString &userId)
+{
+    const auto object = accountDataJson(QStringLiteral("org.kde.neochat.user_note"));
+    return object[userId].toString();
+}
+
+void NeoChatConnection::setNoteForUser(const QString &userId, const QString &note)
+{
+    auto object = accountDataJson(QStringLiteral("org.kde.neochat.user_note"));
+    if (note.isEmpty()) {
+        object.remove(userId);
+    } else {
+        object[userId] = note;
+    }
+    setAccountData(QStringLiteral("org.kde.neochat.user_note"), object);
+}
+
 #include "moc_neochatconnection.cpp"

@@ -234,6 +234,16 @@ public:
      */
     Q_INVOKABLE bool supportsMatrixSpecVersion(const QString &version);
 
+    /**
+     * @return The private note for this user, if set.
+     */
+    Q_INVOKABLE QString noteForUser(const QString &userId);
+
+    /**
+     * @brief Sets the private note for this user.
+     */
+    Q_INVOKABLE void setNoteForUser(const QString &userId, const QString &note);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();

@@ -401,5 +401,34 @@ Kirigami.Dialog {
                 color: Kirigami.Theme.disabledTextColor
             }
         }
+
+        Kirigami.Heading {
+            text: i18nc("@title Private note for this user", "Private Note")
+            level: 4
+
+            Layout.topMargin: Kirigami.Units.largeSpacing
+        }
+
+        QQC2.TextArea {
+            id: noteText
+
+            text: root.connection.noteForUser(root.user.id)
+            textFormat: TextEdit.PlainText
+            wrapMode: TextEdit.Wrap
+            placeholderText: i18nc("@info:placeholder", "Only visible to you")
+
+            onTextEdited: editTimer.restart()
+
+            Layout.fillWidth: true
+            Layout.topMargin: Kirigami.Units.smallSpacing
+
+            // Prevent unnecessary edits by waiting 1 second
+            Timer {
+                id: editTimer
+
+                interval: 1000
+                onTriggered: root.connection.setNoteForUser(root.user.id, noteText.text)
+            }
+        }
     }
 }
