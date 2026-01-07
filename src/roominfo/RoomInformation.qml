@@ -104,19 +104,6 @@ QQC2.ScrollView {
             }
 
             Delegates.RoundedItemDelegate {
-                id: favouriteButton
-                visible: !root.room.isSpace
-                icon.name: root.room && root.room.isFavourite ? "rating" : "rating-unrated"
-                text: root.room && root.room.isFavourite ? i18nc("@action:button", "Remove from Favorites") : i18nc("@action:button", "Add to Favorites")
-
-                onClicked: root.room.isFavourite ? root.room.removeTag("m.favourite") : root.room.addTag("m.favourite", 1.0)
-
-                activeFocusOnTab: true
-
-                Layout.fillWidth: true
-            }
-
-            Delegates.RoundedItemDelegate {
                 id: widgetsButton
                 visible: !root.room.isSpace
                 icon.name: "extension-symbolic"
@@ -150,7 +137,8 @@ QQC2.ScrollView {
 
             Delegates.RoundedItemDelegate {
                 id: pinnedMessagesButton
-                visible: !root.room.isSpace
+                // On mobile the pinned message at the top is hidden, so we need this button in that case.
+                visible: !root.room.isSpace && Kirigami.Settings.isMobile
                 icon.name: "pin-symbolic"
                 text: i18nc("@action:button", "Pinned Messages")
                 activeFocusOnTab: true
