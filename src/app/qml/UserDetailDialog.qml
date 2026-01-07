@@ -68,7 +68,14 @@ Kirigami.Dialog {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
                 name: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
-                source: root.room ? root.room.member(root.user.id).avatarUrl : root.connection.makeMediaUrl(root.user.avatarUrl)
+                source: {
+                    if (root.room) {
+                        return root.room.member(root.user.id).avatarUrl;
+                    } else if(root.user.avatarUrl.toString() !== '') {
+                        return root.connection.makeMediaUrl(root.user.avatarUrl);
+                    }
+                    return "";
+                }
                 color: root.room ? root.room.member(root.user.id).color : QmlUtils.getUserColor(root.user.hueF)
             }
 
