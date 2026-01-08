@@ -43,12 +43,11 @@ slots:
 parts:
   kde-snap-setup:
     plugin: nil
-    override-pull:
-      craftctl
     build-snaps:
       - core24
       - kde-qt6-core24-sdk
       - kf6-core24-sdk
+  
   olm:
     source: https://gitlab.matrix.org/matrix-org/olm.git
     source-depth: 1
