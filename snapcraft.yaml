@@ -59,7 +59,7 @@ parts:
     after:
       - olm
     source: https://github.com/quotient-im/libQuotient.git
-    source-tag: 0.9.5
+    source-branch: 0.9.5
     source-depth: 1
     plugin: cmake
     build-environment:
@@ -68,12 +68,16 @@ parts:
       - cmake
     build-packages:
       - libssl-dev
+      - curl
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING=OFF
       - -DQuotient_ENABLE_E2EE=ON
       - -DBUILD_WITH_QT6=ON
+    override-pull: |
+      craftctl default
+      curl https://github.com/quotient-im/libQuotient/commit/ea83157eed37ff97ab275a5d14c971f0a5a70595.diff | patch -p1
     prime:
       - -usr/include
       - -usr/lib/*/pkgconfig
@@ -81,10 +85,10 @@ parts:
 
   kquickimageeditor:
     source: https://invent.kde.org/libraries/kquickimageeditor.git
-    source-tag: 'v0.3.0'
+    source-tag: 'v0.6.0'
     source-depth: 1
     plugin: cmake
-    build-environment: &buildenvironment
+    build-environment: &build-environment
       - LD_LIBRARY_PATH: "/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:/snap/kde-qt6-core24-sdk/current/usr/lib:/snap/kf6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kf6-core24-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       - PATH: /snap/kde-qt6-core24-sdk/current/usr/bin${PATH:+:$PATH}
       - PKG_CONFIG_PATH: /snap/kde-qt6-core24-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
@@ -108,7 +112,7 @@ parts:
     source: https://invent.kde.org/libraries/kunifiedpush.git
     source-branch: release/24.12
     plugin: cmake
-    build-environment: *buildenvironment
+    build-environment: *build-environment
     cmake-parameters: *cmake-parameters
     prime: *prime
 
@@ -121,7 +125,7 @@ parts:
       - usr/share/metainfo/org.kde.neochat.appdata.xml
     source: .
     plugin: cmake
-    build-environment: *buildenvironment
+    build-environment: *build-environment
     build-packages:
       - cmark
       - duktape-dev
