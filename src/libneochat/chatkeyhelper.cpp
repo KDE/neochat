@@ -3,6 +3,7 @@
 
 #include "chatkeyhelper.h"
 
+#include "chatbarcache.h"
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
@@ -55,11 +56,6 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
 
     if (modifiers.testFlag(Qt::ControlModifier)) {
         room->replyLastMessage();
-        return true;
-    }
-
-    if (textItem->isEmpty()) {
-        room->editLastMessage();
         return true;
     }
 

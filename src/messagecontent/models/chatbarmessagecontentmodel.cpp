@@ -4,6 +4,7 @@
 #include "chatbarmessagecontentmodel.h"
 
 #include <QTextDocumentFragment>
+#include <qlogging.h>
 
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
@@ -133,13 +134,17 @@ void ChatBarMessageContentModel::connectKeyHelper()
         if (isCompleting) {
             return;
         }
-        setFocusRow(m_currentFocusComponent.row() - 1);
+        if (!m_room->editCache()->isEditing() && m_currentFocusComponent.row() <= 0 && focusedTextItem()->isEmpty()) {
+            m_room->editLastMessage();
+            return;
+        }
+        handleBlockTransition(true);
     });
     connect(m_keyHelper, &ChatKeyHelper::unhandledDown, this, [this](bool isCompleting) {
         if (isCompleting) {
             return;
         }
-        setFocusRow(m_currentFocusComponent.row() + 1);
+        handleBlockTransition(false);
     });
     connect(m_keyHelper, &ChatKeyHelper::unhandledDelete, this, [this]() {
         const auto currentRow = m_currentFocusComponent.row();
@@ -457,6 +462,33 @@ void ChatBarMessageContentModel::removeComponent(ChatTextItemHelper *textItem)
     const auto index = indexForTextItem(textItem);
     if (index.isValid()) {
         removeComponent(index.row());
+    }
+}
+
+void ChatBarMessageContentModel::handleBlockTransition(bool up)
+{
+    const auto currentRow = m_currentFocusComponent.row();
+    const auto insertRow = currentRow + (up ? 0 : 1);
+    const auto atEdge = up ? currentRow <= 0 : currentRow >= rowCount() - 1;
+    const auto notText = focusType() != MessageComponentType::Text;
+    if (atEdge && notText) {
+        insertComponent(insertRow, MessageComponentType::Text);
+        setFocusRow(insertRow);
+        return;
+    }
+
+    const auto nextRow = currentRow + (up ? -1 : 1);
+    const auto nextNotText = m_components[nextRow].type != MessageComponentType::Text;
+    if (notText && nextNotText) {
+        insertComponent(insertRow, MessageComponentType::Text);
+        setFocusRow(insertRow);
+        return;
+    }
+
+    const auto currentItemEmptyText = focusedTextItem()->isEmpty() && focusType() == MessageComponentType::Text;
+    setFocusRow(nextRow);
+    if (currentItemEmptyText && !atEdge) {
+        removeComponent(currentRow);
     }
 }
 

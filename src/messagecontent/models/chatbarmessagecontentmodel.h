@@ -111,6 +111,8 @@ private:
     ComponentIt removeComponent(ComponentIt it);
     void removeComponent(ChatTextItemHelper *textItem);
 
+    void handleBlockTransition(bool up);
+
     void updateCache() const;
     QString messageText() const;
 
