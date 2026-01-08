@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
 "PO-Revision-Date: 2026-01-03 22:36+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -148,7 +148,7 @@ msgstr "Csak automatikus tesztekhez használt"
 msgid "Share a URL to Matrix"
 msgstr "URL megosztása Matrixon"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
@@ -173,40 +173,40 @@ msgstr "Válasz"
 msgid "Reply…"
 msgstr "Válasz…"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 meghívta Önt egy szobába"
 
-#: src/app/notificationsmanager.cpp:307
+#: src/app/notificationsmanager.cpp:309
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Meghívás megnyitása NeoChatben"
 
-#: src/app/notificationsmanager.cpp:317
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:322
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Elutasítás és felhasználó mellőzése"
 
-#: src/app/notificationsmanager.cpp:379
+#: src/app/notificationsmanager.cpp:383
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:394
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat megnyitása"
@@ -247,7 +247,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Fejlesztői eszközök megnyitása"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -1059,7 +1059,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Ön nem jogosult Jitsi értekezletek indítására"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1079,7 +1079,7 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "A NeoChat offline állapotban van. Kérjük, ellenőrizze a hálózati kapcsolatot."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1270,14 +1270,14 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Fiókadatok"
 
-#: src/app/qml/UserDetailDialog.qml:111
+#: src/app/qml/UserDetailDialog.qml:118
 #, fuzzy, kde-format
 #| msgid "<message>"
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "<üzenet>"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -1285,7 +1285,7 @@ msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Mellőzés"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -1293,14 +1293,14 @@ msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: src/app/qml/UserDetailDialog.qml:129
+#: src/app/qml/UserDetailDialog.qml:136
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Hivatkozás másolása"
 
-#: src/app/qml/UserDetailDialog.qml:135
+#: src/app/qml/UserDetailDialog.qml:142
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -1308,7 +1308,7 @@ msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Üzenetek keresése"
 
-#: src/app/qml/UserDetailDialog.qml:149
+#: src/app/qml/UserDetailDialog.qml:156
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show QR Code"
@@ -1316,7 +1316,7 @@ msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "QR-kód megjelenítése"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:172
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1326,7 +1326,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Jelentés…"
 
-#: src/app/qml/UserDetailDialog.qml:171
+#: src/app/qml/UserDetailDialog.qml:178
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report Message"
@@ -1334,7 +1334,7 @@ msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Üzenet jelentése"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:179
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -1342,7 +1342,7 @@ msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Az üzenet jelentésének oka"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:181
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1352,7 +1352,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Jelentés"
 
-#: src/app/qml/UserDetailDialog.qml:176
+#: src/app/qml/UserDetailDialog.qml:183
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -1360,7 +1360,7 @@ msgctxt "@title"
 msgid "Report User"
 msgstr "Üzenet jelentése"
 
-#: src/app/qml/UserDetailDialog.qml:187
+#: src/app/qml/UserDetailDialog.qml:194
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1368,7 +1368,7 @@ msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Profil megnyitása"
 
-#: src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:204
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1376,14 +1376,14 @@ msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Profil megnyitása"
 
-#: src/app/qml/UserDetailDialog.qml:210
+#: src/app/qml/UserDetailDialog.qml:217
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderátor"
 
-#: src/app/qml/UserDetailDialog.qml:230
+#: src/app/qml/UserDetailDialog.qml:237
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1391,55 +1391,55 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Kirúgás"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Felhasználó kirúgása"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "A felhasználó kirúgásának oka"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:243
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Kirúgás"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Felhasználó kitiltása"
 
-#: src/app/qml/UserDetailDialog.qml:257
+#: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Kitiltás oka"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Kitiltás"
 
-#: src/app/qml/UserDetailDialog.qml:273
+#: src/app/qml/UserDetailDialog.qml:280
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:291
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1447,37 +1447,37 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Üzenetek eltávolítása"
 
-#: src/app/qml/UserDetailDialog.qml:289
+#: src/app/qml/UserDetailDialog.qml:296
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Üzenetek eltávolítása"
 
-#: src/app/qml/UserDetailDialog.qml:290
+#: src/app/qml/UserDetailDialog.qml:297
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "A felhasználó legutóbbi üzenetei eltávolításának oka"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/app/qml/UserDetailDialog.qml:294
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Üzenetek eltávoltása"
 
-#: src/app/qml/UserDetailDialog.qml:307
+#: src/app/qml/UserDetailDialog.qml:314
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:333
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1485,7 +1485,7 @@ msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Jogosultsági szint beállítása"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:360
 #, fuzzy, kde-format
 #| msgid "All Rooms"
 msgctxt ""
@@ -1493,7 +1493,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Minden szoba"
 
-#: src/app/qml/UserDetailDialog.qml:392
+#: src/app/qml/UserDetailDialog.qml:399
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -4101,7 +4101,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Hangerő"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -4162,27 +4162,13 @@ msgstr "Felhasználó ellenőrzése"
 
 #: src/roominfo/RoomInformation.qml:110
 #, fuzzy, kde-format
-#| msgid "Remove from Favorites"
-msgctxt "@action:button"
-msgid "Remove from Favorites"
-msgstr "Eltávolítás a kedvencek közül"
-
-#: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
-msgctxt "@action:button"
-msgid "Add to Favorites"
-msgstr "Hozzáadás a kedvencekhez"
-
-#: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "@Említések"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4190,14 +4176,14 @@ msgctxt "@title:window"
 msgid "Extensions"
 msgstr "@Említések"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:126
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Hely küldése"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:143
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4205,7 +4191,7 @@ msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Kitűzött üzenetek"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:158
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Room Data"
@@ -4213,7 +4199,7 @@ msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Szobaadatok"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4221,30 +4207,30 @@ msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Tér elhagyása"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Szoba elhagyása"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:192
 #, kde-format
 msgid "Members"
 msgstr "Tagok"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Felhasználó meghívása"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:211
 #, kde-format
 msgid "Invite user to room"
 msgstr "Felhasználó meghívása s szobába"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4254,7 +4240,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 tag"
 msgstr[1] "%1 tag"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgid "No member count"
 msgstr "Nincs tagszám"
@@ -7432,6 +7418,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 gépel"
 msgstr[1] "%2 gépel"
+
+#, fuzzy
+#~| msgid "Remove from Favorites"
+#~ msgctxt "@action:button"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Eltávolítás a kedvencek közül"
+
+#, fuzzy
+#~| msgid "Add to Favorites"
+#~ msgctxt "@action:button"
+#~ msgid "Add to Favorites"
+#~ msgstr "Hozzáadás a kedvencekhez"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Explore Rooms"

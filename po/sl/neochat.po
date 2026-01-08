@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
 "PO-Revision-Date: 2026-01-06 06:51+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -149,7 +149,7 @@ msgstr "Se uporablja samo za avtotestiranja"
 msgid "Share a URL to Matrix"
 msgstr "Deli URL z Matrixom"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
@@ -174,40 +174,40 @@ msgstr "Odgovori"
 msgid "Reply…"
 msgstr "Odgovori…"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vas je povabil v sobo"
 
-#: src/app/notificationsmanager.cpp:307
+#: src/app/notificationsmanager.cpp:309
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Odprite to povabilo v NeoChat"
 
-#: src/app/notificationsmanager.cpp:317
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:322
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Zavrni in prezri uporabnika"
 
-#: src/app/notificationsmanager.cpp:379
+#: src/app/notificationsmanager.cpp:383
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:394
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Odpri NeoChat"
@@ -248,7 +248,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Odpri razvojna orodja"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -1052,7 +1052,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Nimate pravic za začetek Jitsi sestankov"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1071,7 +1071,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite vašo omrežno povezavo."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1255,196 +1255,196 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Podrobnosti računa"
 
-#: src/app/qml/UserDetailDialog.qml:111
+#: src/app/qml/UserDetailDialog.qml:118
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "Sporočilo"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Odprezri"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: src/app/qml/UserDetailDialog.qml:129
+#: src/app/qml/UserDetailDialog.qml:136
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopiraj povezavo"
 
-#: src/app/qml/UserDetailDialog.qml:135
+#: src/app/qml/UserDetailDialog.qml:142
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: src/app/qml/UserDetailDialog.qml:149
+#: src/app/qml/UserDetailDialog.qml:156
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Prikaži kodo QR"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Prijavi…"
 
-#: src/app/qml/UserDetailDialog.qml:171
+#: src/app/qml/UserDetailDialog.qml:178
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Prijavi uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:179
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Razlog za prijavo tega uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:181
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Prijavi"
 
-#: src/app/qml/UserDetailDialog.qml:176
+#: src/app/qml/UserDetailDialog.qml:183
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Prijavi uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:187
+#: src/app/qml/UserDetailDialog.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Ogled glavnega profila"
 
-#: src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:204
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Ogled profila sobe"
 
-#: src/app/qml/UserDetailDialog.qml:210
+#: src/app/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderiranje"
 
-#: src/app/qml/UserDetailDialog.qml:230
+#: src/app/qml/UserDetailDialog.qml:237
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Brcni…"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Brcni uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Razlog za brco za tega uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:243
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Brcni"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Prepovej…"
 
-#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Prepovej uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:257
+#: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Razlog za prepoved za tega uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Prepoved"
 
-#: src/app/qml/UserDetailDialog.qml:273
+#: src/app/qml/UserDetailDialog.qml:280
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Odprepovej"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Odstrani sporočila…"
 
-#: src/app/qml/UserDetailDialog.qml:289
+#: src/app/qml/UserDetailDialog.qml:296
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/app/qml/UserDetailDialog.qml:290
+#: src/app/qml/UserDetailDialog.qml:297
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/app/qml/UserDetailDialog.qml:294
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/app/qml/UserDetailDialog.qml:307
+#: src/app/qml/UserDetailDialog.qml:314
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr "Vloga"
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Uredi raven moči"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:360
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Vzajemne sobe"
 
-#: src/app/qml/UserDetailDialog.qml:392
+#: src/app/qml/UserDetailDialog.qml:399
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -4003,7 +4003,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Glasnost"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -4063,74 +4063,62 @@ msgstr "Verificiraj uporabnika"
 #: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgctxt "@action:button"
-msgid "Remove from Favorites"
-msgstr "Odstrani iz priljubljenih"
-
-#: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Add to Favorites"
-msgstr "Dodaj med priljubljene"
-
-#: src/roominfo/RoomInformation.qml:123
-#, kde-format
-msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Razširitve"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Razširitve"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Deljene lokacije"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Pripeta sporočila"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:158
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Pregled podatkov sobe"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Zapusti prostor…"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Zapusti sobo…"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:192
 #, kde-format
 msgid "Members"
 msgstr "Člani"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Povabi uporabnika"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:211
 #, kde-format
 msgid "Invite user to room"
 msgstr "Povabite uporabnika v sobo"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4140,7 +4128,7 @@ msgstr[1] "%1 član"
 msgstr[2] "%1 člana"
 msgstr[3] "%1 člani"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgid "No member count"
 msgstr "Ni števila članov"
@@ -7221,6 +7209,14 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "@action:button"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Odstrani iz priljubljenih"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add to Favorites"
+#~ msgstr "Dodaj med priljubljene"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Explore Rooms"

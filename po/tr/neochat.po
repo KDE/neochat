@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
-"PO-Revision-Date: 2026-01-01 12:13+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"PO-Revision-Date: 2026-01-07 20:26+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -147,7 +147,7 @@ msgstr "Yalnızca kendiliğinden sınamalar için kullanılır"
 msgid "Share a URL to Matrix"
 msgstr "Matrix’e URL Paylaş"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
@@ -172,40 +172,40 @@ msgstr "Yanıtla"
 msgid "Reply…"
 msgstr "Yanıtla…"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1, sizi bir odaya davet etti"
 
-#: src/app/notificationsmanager.cpp:307
+#: src/app/notificationsmanager.cpp:309
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Bu daveti NeoChat’te aç"
 
-#: src/app/notificationsmanager.cpp:317
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:322
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Kullanıcı Reddet ve Yok Say"
 
-#: src/app/notificationsmanager.cpp:379
+#: src/app/notificationsmanager.cpp:383
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:394
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Aç: NeoChat"
@@ -246,7 +246,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Geliştirici Araçlarını Aç"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -518,11 +518,10 @@ msgid "Create a Room"
 msgstr "Oda Oluştur"
 
 #: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Odaları keşfet"
+msgstr "Keşfet"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -1004,11 +1003,10 @@ msgstr "Oda bulunamadı"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
 #: src/rooms/SpaceDrawer.qml:289
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Odaları keşfet"
+msgstr "Keşfet"
 
 #: src/app/qml/ReasonDialog.qml:60
 #, kde-format
@@ -1052,7 +1050,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jitsi toplantıları başlatmak için izniniz yok"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1071,7 +1069,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1254,200 +1252,196 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Hesap Ayrıntıları"
 
-#: src/app/qml/UserDetailDialog.qml:111
+#: src/app/qml/UserDetailDialog.qml:118
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "İleti"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Yok Saymayı Bırak"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: src/app/qml/UserDetailDialog.qml:129
+#: src/app/qml/UserDetailDialog.qml:136
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Bağlantıyı Kopyala"
 
-#: src/app/qml/UserDetailDialog.qml:135
+#: src/app/qml/UserDetailDialog.qml:142
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "İletileri Ara…"
 
-#: src/app/qml/UserDetailDialog.qml:149
+#: src/app/qml/UserDetailDialog.qml:156
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Kare Kodu Göster"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:172
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Bildir…"
 
-#: src/app/qml/UserDetailDialog.qml:171
+#: src/app/qml/UserDetailDialog.qml:178
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Kullanıcıyı Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:179
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Bu kullanıcıyı bildirme gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:181
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:176
+#: src/app/qml/UserDetailDialog.qml:183
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Kullanıcıyı Bildir"
 
-#: src/app/qml/UserDetailDialog.qml:187
-#, fuzzy, kde-format
-#| msgctxt "@action:button View this user's profile"
-#| msgid "View %1's Profile"
+#: src/app/qml/UserDetailDialog.qml:194
+#, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
-msgstr "%1 Profilini Görüntüle"
+msgstr "Ana Profili Görüntüle"
 
-#: src/app/qml/UserDetailDialog.qml:197
-#, fuzzy, kde-format
-#| msgctxt "@action:button View this user's profile"
-#| msgid "View %1's Profile"
+#: src/app/qml/UserDetailDialog.qml:204
+#, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
-msgstr "%1 Profilini Görüntüle"
+msgstr "Oda Profilini Görüntüle"
 
-#: src/app/qml/UserDetailDialog.qml:210
+#: src/app/qml/UserDetailDialog.qml:217
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderasyon"
 
-#: src/app/qml/UserDetailDialog.qml:230
+#: src/app/qml/UserDetailDialog.qml:237
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Kov…"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Kullanıcıyı Kov"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Kullanıcıyı kovma gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:243
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Kov"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Yasakla…"
 
-#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Kullanıcıyı Yasakla"
 
-#: src/app/qml/UserDetailDialog.qml:257
+#: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Kullanıcıyı yasaklama gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Yasakla"
 
-#: src/app/qml/UserDetailDialog.qml:273
+#: src/app/qml/UserDetailDialog.qml:280
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Yasağı Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:291
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "İletileri Kaldır…"
 
-#: src/app/qml/UserDetailDialog.qml:289
+#: src/app/qml/UserDetailDialog.qml:296
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İletileri Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:290
+#: src/app/qml/UserDetailDialog.qml:297
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Bu kullanıcının son iletilerini kaldırma gerekçesi"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:294
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İletileri Kaldır"
 
-#: src/app/qml/UserDetailDialog.qml:307
+#: src/app/qml/UserDetailDialog.qml:314
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr "Rol"
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Güç Düzeyini Ayarla"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:360
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Ortak Odalar"
 
-#: src/app/qml/UserDetailDialog.qml:392
+#: src/app/qml/UserDetailDialog.qml:399
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -3361,11 +3355,10 @@ msgid "Make this parent official"
 msgstr "Bu üst ögeyi resmi yap"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Odaları keşfet"
+msgstr "Keşfet"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
@@ -3996,7 +3989,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Ses Düzeyi"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -4056,74 +4049,62 @@ msgstr "Kullanıcıyı Doğrula"
 #: src/roominfo/RoomInformation.qml:110
 #, kde-format
 msgctxt "@action:button"
-msgid "Remove from Favorites"
-msgstr "Sık Kullanılanlardan Kaldır"
-
-#: src/roominfo/RoomInformation.qml:110
-#, kde-format
-msgctxt "@action:button"
-msgid "Add to Favorites"
-msgstr "Sık Kullanılanlara Ekle"
-
-#: src/roominfo/RoomInformation.qml:123
-#, kde-format
-msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Genişletmeler"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Genişletmeler"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Paylaşılan Konumlar"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Sabitlenmiş İletiler"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:158
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Oda Verisini Denetle"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Alandan Ayrıl…"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Odadan Ayrıl…"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:192
 #, kde-format
 msgid "Members"
 msgstr "Üyeler"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Kullanıcıyı Davet Et"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:211
 #, kde-format
 msgid "Invite user to room"
 msgstr "Kullanıcıyı Odaya Davet Et"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4131,7 +4112,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 üye"
 msgstr[1] "%1 üye"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgid "No member count"
 msgstr "Üye sayısı yok"
@@ -4417,14 +4398,10 @@ msgid "Join some rooms to get started"
 msgstr "Başlamak için odalara katılın"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Odalar Ara"
+msgstr "Oda Ara"
 
 #: src/rooms/RoomListPage.qml:240
 #, kde-format
@@ -6785,11 +6762,10 @@ msgid "Pick Room"
 msgstr "Oda Seç"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Odaları keşfet"
+msgstr "Keşfet"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
@@ -7209,6 +7185,14 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
+
+#~ msgctxt "@action:button"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Sık Kullanılanlardan Kaldır"
+
+#~ msgctxt "@action:button"
+#~ msgid "Add to Favorites"
+#~ msgstr "Sık Kullanılanlara Ekle"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Explore Rooms"

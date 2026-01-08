@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:43+0000\n"
+"POT-Creation-Date: 2026-01-08 00:42+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -147,7 +147,7 @@ msgstr "Nur uzata por aŭtomataj testoj"
 msgid "Share a URL to Matrix"
 msgstr "Kundividi URL al Matrix"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:386
+#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Ĉifrita Mesaĝo"
@@ -172,40 +172,40 @@ msgstr "Respondi"
 msgid "Reply…"
 msgstr "Respondi…"
 
-#: src/app/notificationsmanager.cpp:304
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 invitis vin al ĉambro"
 
-#: src/app/notificationsmanager.cpp:307
+#: src/app/notificationsmanager.cpp:309
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Malfermu ĉi tiun inviton en NeoChat"
 
-#: src/app/notificationsmanager.cpp:317
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Akcepti"
 
-#: src/app/notificationsmanager.cpp:318
+#: src/app/notificationsmanager.cpp:320
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:322
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Malakcepti kaj Ignori Uzanton"
 
-#: src/app/notificationsmanager.cpp:379
+#: src/app/notificationsmanager.cpp:383
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:394
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Malfermi NeoChat"
@@ -252,7 +252,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Malfermi Programistajn Ilojn"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -1103,7 +1103,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:143
+#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
@@ -1123,7 +1123,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1327,14 +1327,14 @@ msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Detaloj pri Konto"
 
-#: src/app/qml/UserDetailDialog.qml:111
+#: src/app/qml/UserDetailDialog.qml:118
 #, fuzzy, kde-format
 #| msgid "<message>"
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "<mesaĝo>"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -1342,7 +1342,7 @@ msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Ignori"
 
-#: src/app/qml/UserDetailDialog.qml:121
+#: src/app/qml/UserDetailDialog.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Ignore"
@@ -1350,14 +1350,14 @@ msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignori"
 
-#: src/app/qml/UserDetailDialog.qml:129
+#: src/app/qml/UserDetailDialog.qml:136
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Kopii ligilon"
 
-#: src/app/qml/UserDetailDialog.qml:135
+#: src/app/qml/UserDetailDialog.qml:142
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -1365,7 +1365,7 @@ msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Serĉi Mesaĝojn"
 
-#: src/app/qml/UserDetailDialog.qml:149
+#: src/app/qml/UserDetailDialog.qml:156
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show QR Code"
@@ -1373,7 +1373,7 @@ msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Montri QR-Kodon"
 
-#: src/app/qml/UserDetailDialog.qml:165
+#: src/app/qml/UserDetailDialog.qml:172
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1383,7 +1383,7 @@ msgctxt ""
 msgid "Report…"
 msgstr "Raporti"
 
-#: src/app/qml/UserDetailDialog.qml:171
+#: src/app/qml/UserDetailDialog.qml:178
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Report Message"
@@ -1391,7 +1391,7 @@ msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Raporti Mesaĝon"
 
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:179
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
@@ -1399,7 +1399,7 @@ msgctxt "@info:placeholder"
 msgid "Reason for reporting this user"
 msgstr "Kialo por raporti ĉi tiun mesaĝon"
 
-#: src/app/qml/UserDetailDialog.qml:174
+#: src/app/qml/UserDetailDialog.qml:181
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -1409,7 +1409,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Raporti"
 
-#: src/app/qml/UserDetailDialog.qml:176
+#: src/app/qml/UserDetailDialog.qml:183
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -1417,7 +1417,7 @@ msgctxt "@title"
 msgid "Report User"
 msgstr "Raporti Mesaĝon"
 
-#: src/app/qml/UserDetailDialog.qml:187
+#: src/app/qml/UserDetailDialog.qml:194
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1427,7 +1427,7 @@ msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Malfermu Dosieron"
 
-#: src/app/qml/UserDetailDialog.qml:197
+#: src/app/qml/UserDetailDialog.qml:204
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1437,14 +1437,14 @@ msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Malfermu Dosieron"
 
-#: src/app/qml/UserDetailDialog.qml:210
+#: src/app/qml/UserDetailDialog.qml:217
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Kunvenestro"
 
-#: src/app/qml/UserDetailDialog.qml:230
+#: src/app/qml/UserDetailDialog.qml:237
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1452,55 +1452,55 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Piedbati"
 
-#: src/app/qml/UserDetailDialog.qml:234 src/app/qml/UserDetailDialog.qml:239
+#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Piedbati Uzantojn"
 
-#: src/app/qml/UserDetailDialog.qml:235
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Kialo por piedbati ĉi tiun uzanton"
 
-#: src/app/qml/UserDetailDialog.qml:236
+#: src/app/qml/UserDetailDialog.qml:243
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Piedbati"
 
-#: src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:258
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:256 src/app/qml/UserDetailDialog.qml:261
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Malpermesi Uzanton"
 
-#: src/app/qml/UserDetailDialog.qml:257
+#: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Kialo por malpermesi ĉi tiun uzanton"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Malpermeso"
 
-#: src/app/qml/UserDetailDialog.qml:273
+#: src/app/qml/UserDetailDialog.qml:280
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:291
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1508,44 +1508,44 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Forigi Mesaĝojn"
 
-#: src/app/qml/UserDetailDialog.qml:289
+#: src/app/qml/UserDetailDialog.qml:296
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Forigi Mesaĝojn"
 
-#: src/app/qml/UserDetailDialog.qml:290
+#: src/app/qml/UserDetailDialog.qml:297
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Kialo por forigi la lastatempajn mesaĝojn de ĉi tiu uzanto"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:298
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/app/qml/UserDetailDialog.qml:294
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Forigi Mesaĝojn"
 
-#: src/app/qml/UserDetailDialog.qml:307
+#: src/app/qml/UserDetailDialog.qml:314
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Role"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:326
+#: src/app/qml/UserDetailDialog.qml:333
 #, fuzzy, kde-format
 #| msgid "Set user power level"
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Agordi uzantpotencnivelon"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:360
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "One mutual room"
@@ -1555,7 +1555,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Unu ambaŭflanka ĉambro"
 
-#: src/app/qml/UserDetailDialog.qml:392
+#: src/app/qml/UserDetailDialog.qml:399
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -4174,7 +4174,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Laŭteco"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -4235,27 +4235,13 @@ msgstr "Konfirmi uzanton"
 
 #: src/roominfo/RoomInformation.qml:110
 #, fuzzy, kde-format
-#| msgid "Remove from Favorites"
-msgctxt "@action:button"
-msgid "Remove from Favorites"
-msgstr "Forigi el Ŝatatoj"
-
-#: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
-msgctxt "@action:button"
-msgid "Add to Favorites"
-msgstr "Aldoni al Ŝatatoj"
-
-#: src/roominfo/RoomInformation.qml:123
-#, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "@Mencioj"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:116
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4263,14 +4249,14 @@ msgctxt "@title:window"
 msgid "Extensions"
 msgstr "@Mencioj"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:126
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Sendi Lokon"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:143
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4278,7 +4264,7 @@ msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Pinglitaj Mesaĝojn"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:158
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Room Data"
@@ -4286,7 +4272,7 @@ msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Ĉambro-Datumoj"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4294,30 +4280,30 @@ msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Forlasi Spacon"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:179
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Forlasi Ĉambron"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:192
 #, kde-format
 msgid "Members"
 msgstr "Membroj"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Inviti Uzanton"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:211
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviti uzanton al ĉambro"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, fuzzy, kde-format
 #| msgid "%1 member"
 #| msgid_plural "%1 members"
@@ -4327,7 +4313,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membroj"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:218
 #, kde-format
 msgid "No member count"
 msgstr "Neniu membrokalkulo"
@@ -7588,6 +7574,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 estas tajpanta"
 msgstr[1] "%2 estas tajpantaj"
+
+#, fuzzy
+#~| msgid "Remove from Favorites"
+#~ msgctxt "@action:button"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Forigi el Ŝatatoj"
+
+#, fuzzy
+#~| msgid "Add to Favorites"
+#~ msgctxt "@action:button"
+#~ msgid "Add to Favorites"
+#~ msgstr "Aldoni al Ŝatatoj"
 
 #, fuzzy
 #~| msgctxt "@title"
