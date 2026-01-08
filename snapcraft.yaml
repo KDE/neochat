@@ -55,51 +55,9 @@ parts:
       - -usr/lib/*/pkgconfig
       - -usr/lib/*/cmake
 
-  libsecret:
-    source: https://gitlab.gnome.org/GNOME/libsecret.git
-    source-tag: '0.21.4'
-    source-depth: 1
-    plugin: meson
-    meson-parameters:
-      - --prefix=/usr
-      - -Doptimization=3
-      - -Ddebug=true
-      - -Dmanpage=false
-      - -Dvapi=false
-      - -Dintrospection=false
-      - -Dcrypto=disabled
-      - -Dgtk_doc=false
-    build-packages:
-      - meson
-      - libglib2.0-dev
-      - libgcrypt20-dev
-    prime:
-      - -usr/include
-      - -usr/lib/*/pkgconfig
-
-  qtkeychain:
-    after: [libsecret]
-    source: https://github.com/frankosterfeld/qtkeychain.git
-    source-tag: 0.15.0
-    source-depth: 1
-    plugin: cmake
-    build-environment:
-      - PATH: /snap/bin:${PATH}
-      - PKG_CONFIG_PATH: "$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig:$PKG_CONFIG_PATH"
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_TRANSLATIONS=NO
-      - -DBUILD_WITH_QT6=ON
-    prime:
-      - -usr/include
-      - -usr/lib/*/pkgconfig
-      - -usr/lib/*/cmake
-
   libquotient:
     after:
       - olm
-      - qtkeychain
     source: https://github.com/quotient-im/libQuotient.git
     source-tag: 0.9.5
     source-depth: 1
@@ -154,7 +112,6 @@ parts:
 
   neochat:
     after:
-      - qtkeychain
       - libquotient
       - kquickimageeditor
       - kunifiedpush
