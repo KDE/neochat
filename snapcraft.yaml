@@ -10,7 +10,7 @@ confinement: strict
 apps:
   neochat:
     extensions:
-      - kde-neon-6/latest/edge
+      - kde-neon-6
     command: usr/bin/neochat
     common-id: org.kde.neochat
     desktop: usr/share/applications/org.kde.neochat.desktop
@@ -198,3 +198,18 @@ parts:
       ${CRAFT_PART_SRC}/bin/gpu-2404-cleanup mesa-2404
     prime:
       - bin/gpu-2404-wrapper
+    
+  cleanup:
+    after:
+      - gwenview
+    plugin: nil
+    build-snaps:
+      - core24
+      - kde-qt6-core24-sdk/latest/edge
+      - kf6-core24-sdk/latest/edge
+    override-prime: |
+      set -eux
+      for snap in "core24" "kf6-core24"; do
+      cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
+      done
+
