@@ -41,6 +41,14 @@ slots:
     bus: session
 
 parts:
+  kde-snap-setup:
+    plugin: nil
+    override-pull:
+      craftctl
+     build-snaps:
+      - core24
+      - kde-qt6-core24-sdk
+      - kf6-core24-sdk
   olm:
     source: https://gitlab.matrix.org/matrix-org/olm.git
     source-depth: 1
@@ -162,10 +170,6 @@ parts:
     after:
       - neochat
     plugin: nil
-    build-snaps:
-      - core24
-      - kde-qt6-core24-sdk/$KDE_SNAP_CHANNEL
-      - kf6-core24-sdk/$KDE_SNAP_CHANNEL
     override-prime: |
       set -eux
       for snap in "core24" "kf6-core24"; do
