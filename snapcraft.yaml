@@ -168,6 +168,7 @@ parts:
       - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
     build-packages:
       - cmark
+      - duktape-dev
       - libcmark-dev
       - libsqlite3-dev
       - libvulkan-dev
