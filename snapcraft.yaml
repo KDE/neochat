@@ -164,8 +164,8 @@ parts:
     plugin: nil
     build-snaps:
       - core24
-      - kde-qt6-core24-sdk/latest/edge
-      - kf6-core24-sdk/latest/edge
+      - kde-qt6-core24-sdk/$KDE_SNAP_CHANNEL
+      - kf6-core24-sdk/$KDE_SNAP_CHANNEL
     override-prime: |
       set -eux
       for snap in "core24" "kf6-core24"; do
