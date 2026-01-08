@@ -25,7 +25,7 @@ apps:
       - password-manager-service
       - accounts-service
     environment:
-      QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/plugins/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins"
+      QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/plugins:/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins"
       QML_IMPORT_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml:/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml"
 
 compression: lzo
@@ -84,31 +84,33 @@ parts:
     source-tag: 'v0.3.0'
     source-depth: 1
     plugin: cmake
-    build-environment:
-      - PATH: /snap/bin:${PATH}
+    build-environment: &buildenvironment
+      - LD_LIBRARY_PATH: "/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:/snap/kde-qt6-core24-sdk/current/usr/lib:/snap/kf6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kf6-core24-sdk/current/usr/lib:$CRAFT_STAGE/usr/lib:$CRAFT_STAGE/lib/:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+      - PATH: /snap/kde-qt6-core24-sdk/current/usr/bin${PATH:+:$PATH}
+      - PKG_CONFIG_PATH: /snap/kde-qt6-core24-sdk/current/usr/lib/${CRAFT_ARCH_TRIPLET_BUILD_FOR}/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
       - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
-      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
-    cmake-parameters:
+      - XDG_DATA_DIRS: $CRAFT_STAGE/usr/share:/snap/kde-qt6-core24-sdk/current/usr/share:/usr/share${XDG_DATA_DIRS:+:$XDG_DATA_DIRS}
+      - XDG_CONFIG_HOME: $CRAFT_STAGE/etc/xdg:/snap/kde-qt6-core24-sdk/current/etc/xdg:/etc/xdg${XDG_CONFIG_HOME:+:$XDG_CONFIG_HOME}
+    cmake-parameters: &cmake-parameters
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
+      - -DQT_MAJOR_VERSION=6
       - -DBUILD_WITH_QT6=ON
       - -DBUILD_TESTING=OFF
-    prime:
+      - "-DCMAKE_FIND_ROOT_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-core24-sdk/current\\;/snap/kf6-core24-sdk/current/usr"
+      - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE\\;/snap/kde-qt6-core24-sdk/current\\;/snap/kf6-core24-sdk/current/usr"
+    prime: &prime
       - -usr/include
       - -usr/lib/*/pkgconfig
       - -usr/lib/*/cmake
 
   kunifiedpush:
     source: https://invent.kde.org/libraries/kunifiedpush.git
+    source-branch: release/24.12
     plugin: cmake
-    build-environment:
-      - PATH: /snap/bin:${PATH}
-      - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
-      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_TESTING=OFF
+    build-environment: *buildenvironment
+    cmake-parameters: *cmake-parameters
+    prime: *prime
 
   neochat:
     after:
@@ -119,10 +121,7 @@ parts:
       - usr/share/metainfo/org.kde.neochat.appdata.xml
     source: .
     plugin: cmake
-    build-environment:
-      - PATH: /snap/bin:${PATH}
-      - PYTHONPATH: ${CRAFT_STAGE}/lib/python3.12/site-packages:${CRAFT_STAGE}/usr/lib/python3/dist-packages
-      - LD_LIBRARY_PATH: "/snap/mesa-2404/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:/snap/kde-qt6-core24-sdk/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:$LD_LIBRARY_PATH"
+    build-environment: *buildenvironment
     build-packages:
       - cmark
       - duktape-dev
@@ -132,12 +131,8 @@ parts:
       - libxkbcommon-dev
       - libicu-dev
       - libpulse0
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBUILD_TESTING=OFF
-    prime:
-      - -usr/share/man
+    cmake-parameters: *cmake-parameters
+    prime: *prime
 
   deps:
     after: [neochat]
