@@ -40,6 +40,9 @@ public:
      */
     QPointer<ChatTextItemHelper> textItem;
 
+    /**
+     * @brief handle the given key and modifiers.
+     */
     Q_INVOKABLE bool handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers);
 
 Q_SIGNALS:
