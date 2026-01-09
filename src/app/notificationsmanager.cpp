@@ -11,6 +11,7 @@
 #include <KNotification>
 #include <KNotificationPermission>
 #include <KNotificationReplyAction>
+#include <KirigamiAddons/Components/NameUtils>
 
 #include <QPainter>
 #include <Quotient/accountregistry.h>
@@ -144,16 +145,9 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
             body = notification["event"_L1]["content"_L1]["body"_L1].toString();
         }
 
-        QImage avatar_image;
-        if (!sender.avatarUrl().isEmpty()) {
-            avatar_image = room->member(sender.id()).avatar(128, 128, {});
-        } else {
-            avatar_image = room->avatar(128);
-        }
         postNotification(dynamic_cast<NeoChatRoom *>(room),
-                         sender.displayName(),
+                         room->member(sender.id()),
                          body,
-                         avatar_image,
                          notification["event"_L1].toObject()["event_id"_L1].toString(),
                          true,
                          pair.first);
@@ -195,9 +189,8 @@ bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> co
 }
 
 void NotificationsManager::postNotification(NeoChatRoom *room,
-                                            const QString &sender,
+                                            const RoomMember &member,
                                             const QString &text,
-                                            const QImage &icon,
                                             const QString &replyEventId,
                                             bool canReply,
                                             qint64 timestamp)
@@ -222,11 +215,11 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     if (room->isDirectChat()) {
         entry = text.toHtmlEscaped();
     } else {
-        entry = i18n("%1: %2", sender, text.toHtmlEscaped());
+        entry = i18n("%1: %2", member.displayName(), text.toHtmlEscaped());
     }
 
     notification->setText(entry);
-    notification->setPixmap(createNotificationImage(icon, room));
+    notification->setPixmap(createNotificationImage(member, room));
 
     auto defaultAction = notification->addDefaultAction(i18n("Open NeoChat in this room"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
@@ -294,18 +287,10 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
     }
     const auto sender = room->member(roomMemberEvent->senderId());
 
-    QImage avatar_image;
-    if (roomMemberEvent && !room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
-        avatar_image = room->member(roomMemberEvent->senderId()).avatar(128, 128, {});
-    } else {
-        qWarning() << "using this room's avatar";
-        avatar_image = room->avatar(128);
-    }
-
     KNotification *notification = new KNotification(u"invite"_s);
     notification->setText(i18n("%1 invited you to a room", sender.htmlSafeDisplayName()));
     notification->setTitle(room->displayName());
-    notification->setPixmap(createNotificationImage(avatar_image, nullptr));
+    notification->setPixmap(createNotificationImage(sender, room));
     auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         if (!room) {
@@ -411,41 +396,125 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
     }
 }
 
-QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoChatRoom *room)
+QPixmap NotificationsManager::createNotificationImage(const Quotient::RoomMember &member, NeoChatRoom *room)
+{
+    QImage senderIcon = member.avatar(avatarDimension, avatarDimension, {});
+    bool senderIconIsPlaceholder = false;
+    if (senderIcon.isNull()) {
+        senderIcon = createPlaceholderImage(member.displayName());
+        senderIconIsPlaceholder = true;
+    }
+
+    QImage icon;
+    if (room->isDirectChat()) {
+        icon = senderIcon;
+    } else {
+        QImage roomIcon = room->avatar(avatarDimension, avatarDimension);
+        bool roomIconIsPlaceholder = false;
+        if (roomIcon.isNull()) {
+            roomIcon = createPlaceholderImage(room->displayName());
+            roomIconIsPlaceholder = true;
+        }
+
+        icon = createCombinedNotificationImage(senderIcon, senderIconIsPlaceholder, roomIcon, roomIconIsPlaceholder);
+    }
+
+    return QPixmap::fromImage(icon);
+}
+
+QImage NotificationsManager::createCombinedNotificationImage(const QImage &senderIcon,
+                                                             const bool senderIconIsPlaceholder,
+                                                             const QImage &roomIcon,
+                                                             const bool roomIconIsPlaceholder)
 {
     // Handle avatars that are lopsided in one dimension
-    const int biggestDimension = std::max(icon.width(), icon.height());
-    const QRect imageRect{0, 0, biggestDimension, biggestDimension};
+    const int biggestDimension = std::max(senderIcon.width(), senderIcon.height());
+    const QRectF imageRect = QRect{0, 0, biggestDimension, biggestDimension}.toRectF();
 
-    QImage roundedImage(imageRect.size(), QImage::Format_ARGB32);
+    QImage roundedImage(imageRect.size().toSize(), QImage::Format_ARGB32);
     roundedImage.fill(Qt::transparent);
 
     QPainter painter(&roundedImage);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.setPen(Qt::NoPen);
 
-    // Fill background for transparent avatars
-    painter.setBrush(Qt::white);
-    painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
+    if (senderIconIsPlaceholder) {
+        painter.drawImage(imageRect, senderIcon);
+    } else {
+        // Fill background for transparent non-placeholder avatars
+        painter.setBrush(Qt::white);
+        painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
 
-    QBrush brush(icon.scaledToHeight(biggestDimension));
-    painter.setBrush(brush);
-    painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
-
-    if (room != nullptr) {
-        const QImage roomAvatar = room->avatar(imageRect.width(), imageRect.height());
-        if (!roomAvatar.isNull() && icon != roomAvatar) {
-            const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
-
-            painter.setBrush(Qt::white);
-            painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
-
-            painter.setBrush(roomAvatar.scaled(lowerQuarter.size()));
-            painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
-        }
+        painter.setBrush(senderIcon.scaledToHeight(biggestDimension));
+        painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
     }
 
-    return QPixmap::fromImage(roundedImage);
+    const QRectF lowerQuarter{imageRect.center(), imageRect.size() / 2.0};
+
+    if (roomIconIsPlaceholder) {
+        // Ditto for room icons, but we also want to "carve out" the transparent area for readability
+        painter.setCompositionMode(QPainter::CompositionMode_Clear);
+        painter.setBrush(Qt::transparent);
+        painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
+
+        painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+        painter.drawImage(lowerQuarter, roomIcon);
+    } else {
+        painter.setBrush(Qt::white);
+        painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
+
+        painter.setBrush(roomIcon.scaled(lowerQuarter.size().toSize()));
+        painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
+    }
+
+    return roundedImage;
+}
+
+QImage NotificationsManager::createPlaceholderImage(const QString &name)
+{
+    const QColor color = NameUtils().colorsFromString(name);
+
+    QImage image(avatarDimension, avatarDimension, QImage::Format_ARGB32);
+    image.fill(Qt::transparent);
+
+    QPainter painter(&image);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    // Draw background
+    QColor backgroundColor = color;
+    backgroundColor.setAlphaF(0.07); // Same as in Kirigami Add-ons.
+
+    painter.setBrush(backgroundColor);
+    painter.setPen(Qt::transparent);
+    painter.drawRoundedRect(image.rect(), image.width(), image.height());
+
+    constexpr float borderWidth = 3.0; // Slightly bigger than in Add-ons so it renders better with QPainter at these dimensions.
+
+    // Draw border
+    painter.setBrush(Qt::transparent);
+    painter.setPen(QPen(color, borderWidth));
+    painter.drawRoundedRect(image.rect().toRectF().marginsRemoved(QMarginsF(borderWidth, borderWidth, borderWidth, borderWidth)),
+                            image.width(),
+                            image.height());
+
+    const QString initials = NameUtils().initialsFromString(name);
+
+    QTextOption option;
+    option.setAlignment(Qt::AlignCenter);
+
+    // Calculation similar to the one found in Kirigami Add-ons.
+    constexpr int largeSpacing = 8; // Same as what's defined in kirigami.
+    constexpr int padding = std::max(0, std::min(largeSpacing, avatarDimension - largeSpacing * 2));
+
+    QFont font;
+    font.setPixelSize((avatarDimension - padding) / 2);
+
+    painter.setBrush(color);
+    painter.setPen(color);
+    painter.setFont(font);
+    painter.drawText(image.rect(), initials, option);
+
+    return image;
 }
 
 #include "moc_notificationsmanager.cpp"

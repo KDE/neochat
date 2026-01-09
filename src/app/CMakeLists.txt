@@ -220,6 +220,7 @@ target_link_libraries(neochat PUBLIC
     KF6::ItemModels
     KF6::I18nQml
     KirigamiApp
+    KirigamiAddonsComponents
     QuotientQt6
     Login
     Rooms
