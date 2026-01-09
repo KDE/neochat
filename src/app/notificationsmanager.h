@@ -13,6 +13,11 @@
 #include <Quotient/csapi/notifications.h>
 #include <Quotient/jobs/basejob.h>
 
+namespace Quotient
+{
+class RoomMember;
+}
+
 class NeoChatConnection;
 class KNotification;
 class NeoChatRoom;
@@ -67,15 +72,24 @@ private:
     QStringList m_connActiveJob;
     void startNotificationJob(QPointer<NeoChatConnection> connection);
 
-    QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
+    /**
+     * @return A combined image of the sender and room's avatar.
+     */
+    static QPixmap createNotificationImage(const Quotient::RoomMember &member, NeoChatRoom *room);
+
+    /**
+     * @return The sender and room icon combined together into one image. Used internally by createNotificationImage.
+     */
+    static QImage createCombinedNotificationImage(const QImage &senderIcon, bool senderIconIsPlaceholder, const QImage &roomIcon, bool roomIconIsPlaceholder);
+
+    /**
+     * @return A placeholder avatar image, similar to the one found in Kirigami Add-ons.
+     */
+    static QImage createPlaceholderImage(const QString &name);
+
     bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
-    void postNotification(NeoChatRoom *room,
-                          const QString &sender,
-                          const QString &text,
-                          const QImage &icon,
-                          const QString &replyEventId,
-                          bool canReply,
-                          qint64 timestamp);
+    void
+    postNotification(NeoChatRoom *room, const Quotient::RoomMember &member, const QString &text, const QString &replyEventId, bool canReply, qint64 timestamp);
 
     void doPostInviteNotification(QPointer<NeoChatRoom> room);
 
@@ -83,6 +97,8 @@ private:
     QHash<QString, QPointer<KNotification>> m_invitations;
 
     bool permissionAsked = false;
+
+    static constexpr int avatarDimension = 128;
 
 private Q_SLOTS:
     void processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization);
