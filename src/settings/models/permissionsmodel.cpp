@@ -50,12 +50,16 @@ static const QStringList knownPermissions = {
     u"m.room.server_acl"_s,
     u"m.space.child"_s,
     u"m.space.parent"_s,
+    u"org.matrix.msc3672.beacon_info"_s,
+    u"org.matrix.msc3381.poll.start"_s,
+    u"org.matrix.msc3381.poll.response"_s,
+    u"org.matrix.msc3381.poll.end"_s,
 };
 
 // Alternate name text for default permissions.
 static const QHash<QString, KLazyLocalizedString> permissionNames = {
-    {UsersDefaultKey, kli18nc("Room permission type", "Default user power level")},
-    {StateDefaultKey, kli18nc("Room permission type", "Default power level to set the room state")},
+    {UsersDefaultKey, kli18nc("Room permission type", "Default power level")},
+    {StateDefaultKey, kli18nc("Room permission type", "Default power level to change room state")},
     {EventsDefaultKey, kli18nc("Room permission type", "Default power level to send messages")},
     {InviteKey, kli18nc("Room permission type", "Invite users")},
     {KickKey, kli18nc("Room permission type", "Kick users")},
@@ -70,25 +74,58 @@ static const QHash<QString, KLazyLocalizedString> permissionNames = {
     {u"m.room.topic"_s, kli18nc("Room permission type", "Change the room topic")},
     {u"m.room.encryption"_s, kli18nc("Room permission type", "Enable encryption for the room")},
     {u"m.room.history_visibility"_s, kli18nc("Room permission type", "Change the room history visibility")},
-    {u"m.room.pinned_events"_s, kli18nc("Room permission type", "Set pinned events")},
+    {u"m.room.pinned_events"_s, kli18nc("Room permission type", "Pin and unpin messages")},
     {u"m.room.tombstone"_s, kli18nc("Room permission type", "Upgrade the room")},
     {u"m.room.server_acl"_s, kli18nc("Room permission type", "Set the room server access control list (ACL)")},
     {u"m.space.child"_s, kli18nc("Room permission type", "Set the children of this space")},
     {u"m.space.parent"_s, kli18nc("Room permission type", "Set the parent space of this room")},
+    {u"org.matrix.msc3672.beacon_info"_s, kli18nc("Room permission type", "Send live location updates")},
+    {u"org.matrix.msc3381.poll.start"_s, kli18nc("Room permission type", "Start polls")},
+    {u"org.matrix.msc3381.poll.response"_s, kli18nc("Room permission type", "Vote in polls")},
+    {u"org.matrix.msc3381.poll.end"_s, kli18nc("Room permission type", "Close polls")},
 };
 
 // Subtitles for the default values.
 static const QHash<QString, KLazyLocalizedString> permissionSubtitles = {
-    {UsersDefaultKey, kli18nc("Room permission type", "This is the power level for all new users when joining the room")},
-    {StateDefaultKey, kli18nc("Room permission type", "This is used for all state events that do not have their own entry here")},
-    {EventsDefaultKey, kli18nc("Room permission type", "This is used for all message events that do not have their own entry here")},
+    {UsersDefaultKey, kli18nc("Room permission type", "This is the power level for all new users when joining the room.")},
+    {StateDefaultKey, kli18nc("Room permission type", "This is used for all state-type events that do not have their own entry.")},
+    {EventsDefaultKey, kli18nc("Room permission type", "This is used for all message-type events that do not have their own entry.")},
 };
 
-// Permissions that should use the event default.
+// Permissions that should use the message event default.
 static const QStringList eventPermissions = {
     u"m.room.message"_s,
     u"m.reaction"_s,
     u"m.room.redaction"_s,
+    u"org.matrix.msc3381.poll.start"_s,
+    u"org.matrix.msc3381.poll.response"_s,
+    u"org.matrix.msc3381.poll.end"_s,
+};
+
+// Permissions related to messaging.
+static const QStringList messagingPermissions = {
+    u"m.reaction"_s,
+    u"m.room.redaction"_s,
+    u"org.matrix.msc3672.beacon_info"_s,
+    u"org.matrix.msc3381.poll.start"_s,
+    u"org.matrix.msc3381.poll.response"_s,
+    u"org.matrix.msc3381.poll.end"_s,
+};
+
+// Permissions related to general room management.
+static const QStringList generalPermissions = {
+    u"m.room.power_levels"_s,
+    u"m.room.name"_s,
+    u"m.room.avatar"_s,
+    u"m.room.canonical_alias"_s,
+    u"m.room.topic"_s,
+    u"m.room.encryption"_s,
+    u"m.room.history_visibility"_s,
+    u"m.room.pinned_events"_s,
+    u"m.room.tombstone"_s,
+    u"m.room.server_acl"_s,
+    u"m.space.child"_s,
+    u"m.space.parent"_s,
 };
 };
 
@@ -194,6 +231,12 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
     if (role == IsBasicPermissionRole) {
         return basicPermissions.contains(permission);
     }
+    if (role == IsMessagePermissionRole) {
+        return messagingPermissions.contains(permission);
+    }
+    if (role == IsGeneralPermissionRole) {
+        return generalPermissions.contains(permission);
+    }
     return {};
 }
 
@@ -213,6 +256,8 @@ QHash<int, QByteArray> PermissionsModel::roleNames() const
     roles[LevelNameRole] = "levelName";
     roles[IsDefaultValueRole] = "isDefaultValue";
     roles[IsBasicPermissionRole] = "isBasicPermission";
+    roles[IsMessagePermissionRole] = "isMessagePermission";
+    roles[IsGeneralPermissionRole] = "isGeneralPermission";
     return roles;
 }
 
