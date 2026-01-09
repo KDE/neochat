@@ -74,7 +74,7 @@ set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED
     PURPOSE "Kirigami application UI framework"
 )
-find_package(KF6KirigamiAddons 1.10.0 REQUIRED)
+find_package(KF6KirigamiAddons 1.12.0 REQUIRED)
 
 if (UNIX AND NOT APPLE AND NOT ANDROID AND NOT NEOCHAT_FLATPAK AND NOT NEOCHAT_APPIMAGE)
     find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS Purpose)
