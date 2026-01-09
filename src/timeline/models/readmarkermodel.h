@@ -26,13 +26,6 @@ class ReadMarkerModel : public QAbstractListModel
      */
     Q_PROPERTY(QString readMarkersString READ readMarkersString NOTIFY reactionUpdated)
 
-    /**
-     * @brief Returns the number of excess user read markers for the event.
-     *
-     * This returns a string in the form "+ x" ready for use in the UI.
-     */
-    Q_PROPERTY(QString excessReadMarkersString READ excessReadMarkersString NOTIFY reactionUpdated)
-
 public:
     /**
      * @brief Defines the model roles.
@@ -41,12 +34,12 @@ public:
         DisplayNameRole = Qt::DisplayRole, /**< The display name of the member in the room. */
         AvatarUrlRole, /**< The avatar for the member in the room. */
         ColorRole, /**< The color for the member. */
+        UserIdRole, /** The user ID for the member. */
     };
 
     explicit ReadMarkerModel(const QString &eventId, NeoChatRoom *room);
 
     QString readMarkersString();
-    QString excessReadMarkersString();
 
     /**
      * @brief Get the given role value at the given index.

@@ -106,6 +106,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/NewPollDialog.qml
         qml/UserMenu.qml
         qml/MeetingDialog.qml
+        qml/SeenByDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick

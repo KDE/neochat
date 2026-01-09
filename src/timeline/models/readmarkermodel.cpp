@@ -7,8 +7,6 @@
 
 #include <Quotient/roommember.h>
 
-#define MAXMARKERS 5
-
 using namespace Qt::StringLiterals;
 
 ReadMarkerModel::ReadMarkerModel(const QString &eventId, NeoChatRoom *room)
@@ -85,13 +83,17 @@ QVariant ReadMarkerModel::data(const QModelIndex &index, int role) const
         return member.color();
     }
 
+    if (role == UserIdRole) {
+        return member.id();
+    }
+
     return {};
 }
 
 int ReadMarkerModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return std::min(int(m_markerIds.size()), MAXMARKERS);
+    return m_markerIds.size();
 }
 
 QHash<int, QByteArray> ReadMarkerModel::roleNames() const
@@ -100,6 +102,7 @@ QHash<int, QByteArray> ReadMarkerModel::roleNames() const
         {DisplayNameRole, "displayName"},
         {AvatarUrlRole, "avatarUrl"},
         {ColorRole, "memberColor"},
+        {UserIdRole, "userId"},
     };
 }
 
@@ -120,19 +123,6 @@ QString ReadMarkerModel::readMarkersString()
     }
     readMarkersString.chop(2);
     return readMarkersString;
-}
-
-QString ReadMarkerModel::excessReadMarkersString()
-{
-    if (m_room == nullptr) {
-        return {};
-    }
-
-    if (m_markerIds.size() > MAXMARKERS) {
-        return u"+ "_s + QString::number(m_markerIds.size() - MAXMARKERS);
-    } else {
-        return QString();
-    }
 }
 
 #include "moc_readmarkermodel.cpp"

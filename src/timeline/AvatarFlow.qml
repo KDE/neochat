@@ -8,16 +8,24 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
+import org.kde.neochat
+
 RowLayout {
     id: root
 
     property var avatarSize: Kirigami.Units.iconSizes.small
-    property alias model: avatarFlowRepeater.model
+    property alias model: root.limiterModel.sourceModel
     property string toolTipText
+
+    property LimiterModel limiterModel: LimiterModel {
+        maximumCount: 5
+    }
 
     spacing: -avatarSize / 2
     Repeater {
         id: avatarFlowRepeater
+        model: root.limiterModel
+
         delegate: KirigamiComponents.Avatar {
             required property string displayName
             required property url avatarUrl
@@ -39,11 +47,11 @@ RowLayout {
         Layout.preferredHeight: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
         Layout.fillHeight: true
 
-        visible: text !== ""
+        visible: root.limiterModel.extraCount > 0
         color: Kirigami.Theme.textColor
         horizontalAlignment: Text.AlignHCenter
 
-        text: root.model?.excessReadMarkersString ?? ""
+        text: "+ " + root.limiterModel.extraCount
 
         background: Kirigami.ShadowedRectangle {
             color: Kirigami.Theme.backgroundColor

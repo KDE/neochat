@@ -208,6 +208,15 @@ MessageDelegateBase {
 
     readMarkerComponent: AvatarFlow {
         model: root.readMarkers
+
+        TapHandler {
+            onTapped: {
+                const dialog = Qt.createComponent("org.kde.neochat", "SeenByDialog").createObject(root, {
+                    model: root.readMarkers
+                }) as SeenByDialog;
+                dialog.open();
+            }
+        }
     }
 
     compactBackgroundComponent: Rectangle {
