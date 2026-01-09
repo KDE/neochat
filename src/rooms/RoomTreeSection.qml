@@ -46,6 +46,8 @@ QQC2.ItemDelegate {
             topPadding: 0
             bottomPadding: 0
             text: root.collapsed ? "" : root.displayName
+
+            onClicked: root.treeView.toggleExpanded(row)
         }
         QQC2.ToolButton {
             id: collapseButton
