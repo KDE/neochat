@@ -236,7 +236,7 @@ Kirigami.Dialog {
                         if (root.room) {
                             return !root.isSelf && root.room.canSendState("kick") && root.room.containsUser(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId);
                         }
-                        return !root.isSelf;
+                        return false;
                     }
 
                     text: i18nc("@action:button Kick the user from the room", "Kick…")
@@ -262,7 +262,7 @@ Kirigami.Dialog {
                         if (root.room) {
                             return !root.isSelf && root.room.canSendState("ban") && !root.room.isUserBanned(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId);
                         }
-                        return !root.isSelf;
+                        return false;
                     }
 
                     text: i18nc("@action:button Ban this user from the room", "Ban…")
@@ -289,7 +289,7 @@ Kirigami.Dialog {
                         if (root.room) {
                             return !root.isSelf && root.room.canSendState("ban") && root.room.isUserBanned(root.user.id);
                         }
-                        return !root.isSelf;
+                        return false;
                     }
 
                     text: i18nc("@action:button Unban the user from this room", "Unban")
@@ -326,7 +326,7 @@ Kirigami.Dialog {
         }
 
         Kirigami.Heading {
-            text: i18nc("@title Role such as 'Admin' or 'Moderator' for this user", "Role")
+            text: i18nc("@title Role such as 'Admin' or 'Moderator' for this user", "Power Level")
             level: 2
             visible: root.isRoomProfile
 
