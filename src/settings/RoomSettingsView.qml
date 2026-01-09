@@ -56,6 +56,17 @@ KirigamiSettings.ConfigurationView {
             }
         },
         KirigamiSettings.ConfigurationModule {
+            moduleId: "members"
+            text: i18nc("@title", "Members")
+            icon.name: "system-users-symbolic"
+            page: () => Qt.createComponent("org.kde.neochat.settings", "Members")
+            initialProperties: () => {
+                return {
+                    room: root._room
+                };
+            }
+        },
+        KirigamiSettings.ConfigurationModule {
             moduleId: "permissions"
             text: i18nc("@title", "Permissions")
             icon.name: "visibility"

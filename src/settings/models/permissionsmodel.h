@@ -36,6 +36,8 @@ public:
         LevelNameRole, /**< The current power level for the permission as a string. */
         IsDefaultValueRole, /**< Whether the permission is a default value, e.g. for users. */
         IsBasicPermissionRole, /**< Whether the permission is one of the basic ones, e.g. kick, ban, etc. */
+        IsMessagePermissionRole, /** Permissions related to messaging. */
+        IsGeneralPermissionRole, /** Permissions related to general room management. */
     };
     Q_ENUM(Roles)
 
