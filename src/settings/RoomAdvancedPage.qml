@@ -28,7 +28,6 @@ FormCard.FormCardPage {
             description: root.room.id
 
             contentItem.children: QQC2.Button {
-                visible: roomIdDelegate.hovered
                 text: i18nc("@action:button", "Copy room ID to clipboard")
                 icon.name: "edit-copy"
                 display: QQC2.AbstractButton.IconOnly
@@ -42,14 +41,19 @@ FormCard.FormCardPage {
                 QQC2.ToolTip.visible: hovered
             }
         }
+        FormCard.FormDelegateSeparator {
+            above: roomIdDelegate
+            below: roomVersionDelegate
+        }
         FormCard.FormTextDelegate {
+            id: roomVersionDelegate
             text: i18nc("@info:label", "Room Version")
             description: root.room.version
 
             contentItem.children: QQC2.Button {
                 visible: root.room.canSwitchVersions()
                 enabled: root.room.version < root.room.maxRoomVersion
-                text: i18nc("@action:button", "Upgrade Room")
+                text: i18nc("@action:button", "Upgrade Room…")
                 icon.name: "arrow-up-double"
 
                 onClicked: {
