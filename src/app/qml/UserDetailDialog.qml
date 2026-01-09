@@ -232,7 +232,12 @@ Kirigami.Dialog {
 
             actions: [
                 Kirigami.Action {
-                    visible: !root.isSelf && root.room.canSendState("kick") && root.room.containsUser(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId)
+                    visible: {
+                        if (root.room) {
+                            return !root.isSelf && root.room.canSendState("kick") && root.room.containsUser(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId);
+                        }
+                        return !root.isSelf;
+                    }
 
                     text: i18nc("@action:button Kick the user from the room", "Kick…")
                     icon.name: "im-kick-user"
@@ -253,7 +258,12 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
-                    visible: !root.isSelf && root.room.canSendState("ban") && !root.room.isUserBanned(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId)
+                    visible: {
+                        if (root.room) {
+                            return !root.isSelf && root.room.canSendState("ban") && !root.room.isUserBanned(root.user.id) && root.room.memberEffectivePowerLevel(root.user.id) < root.room.memberEffectivePowerLevel(root.connection.localUserId);
+                        }
+                        return !root.isSelf;
+                    }
 
                     text: i18nc("@action:button Ban this user from the room", "Ban…")
                     icon.name: "im-ban-user"
@@ -275,7 +285,12 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
-                    visible: !root.isSelf && root.room.canSendState("ban") && root.room.isUserBanned(root.user.id)
+                    visible: {
+                        if (root.room) {
+                            return !root.isSelf && root.room.canSendState("ban") && root.room.isUserBanned(root.user.id);
+                        }
+                        return !root.isSelf;
+                    }
 
                     text: i18nc("@action:button Unban the user from this room", "Unban")
                     icon.name: "im-irc"
@@ -286,7 +301,7 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
-                    visible: (root.user.id === root.connection.localUserId || root.room.canSendState("redact"))
+                    visible: (root.user.id === root.connection.localUserId || (root.room?.canSendState("redact") ?? false))
 
                     text: i18nc("@action:button Remove messages from the user in this room", "Remove Messages…")
                     icon.name: "delete"
@@ -329,7 +344,12 @@ Kirigami.Dialog {
             }
 
             QQC2.Button {
-                visible: root.room.canSendState("m.room.power_levels") && !(root.room.roomCreatorHasUltimatePowerLevel() && root.room.isCreator(root.user.id))
+                visible: {
+                    if (root.room) {
+                        return root.room.canSendState("m.room.power_levels") && !(root.room.roomCreatorHasUltimatePowerLevel() && root.room.isCreator(root.user.id));
+                    }
+                    return false;
+                }
                 text: i18nc("@action:button Set the power level (such as 'Admin') for this user", "Set Power Level")
                 icon.name: "document-edit-symbolic"
                 display: QQC2.AbstractButton.IconOnly
