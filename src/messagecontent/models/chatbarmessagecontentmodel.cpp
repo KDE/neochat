@@ -543,7 +543,7 @@ inline QString formatQuote(const QString &input)
             string.removeLast();
         }
         if (!stringOut.isEmpty()) {
-            stringOut += u"\n\n"_s;
+            stringOut += u"\n"_s;
         }
         stringOut += u"> "_s + string;
     }
@@ -562,6 +562,7 @@ QString ChatBarMessageContentModel::messageText() const
         if (MessageComponentType::isTextType(component.type)) {
             if (const auto textItem = textItemForComponent(component)) {
                 auto newText = textItem->markdownText();
+                newText.replace(QRegularExpression(u"(?<!\n)\n(?!\n)"_s), u" "_s);
                 if (component.type == MessageComponentType::Quote) {
                     newText = formatQuote(newText);
                 } else if (component.type == MessageComponentType::Code) {

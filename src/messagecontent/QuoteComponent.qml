@@ -75,7 +75,6 @@ QQC2.TextArea {
 
     text: root.editable ? "" : root.display
     selectByMouse: true
-    persistentSelection: true
     readOnly: !root.editable
     textFormat: TextEdit.RichText
     wrapMode: TextEdit.Wrap

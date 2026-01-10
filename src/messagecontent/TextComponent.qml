@@ -87,7 +87,6 @@ TextEdit {
 
     leftPadding: Kirigami.Units.smallSpacing
     rightPadding: Kirigami.Units.smallSpacing
-    persistentSelection: true
 
     text: root.editable ? "" : display
 
