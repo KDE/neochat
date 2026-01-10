@@ -1186,7 +1186,10 @@ void NeoChatRoom::loadPinnedMessage()
         connection()->callApi<GetOneRoomEventJob>(id(), mostRecentEventId).then([this](const auto &job) {
             auto event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
             if (auto encEv = eventCast<EncryptedEvent>(event.get())) {
-                event = decryptMessage(*encEv);
+                auto decryptedMessage = decryptMessage(*encEv);
+                if (decryptedMessage) {
+                    event = std::move(decryptedMessage);
+                }
             }
             m_pinnedMessage = EventHandler::richBody(this, event.get());
             Q_EMIT pinnedMessageChanged();
