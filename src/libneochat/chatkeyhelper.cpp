@@ -3,7 +3,6 @@
 
 #include "chatkeyhelper.h"
 
-#include "chatbarcache.h"
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
