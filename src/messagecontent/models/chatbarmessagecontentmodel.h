@@ -59,6 +59,13 @@ class ChatBarMessageContentModel : public MessageContentModel
      */
     Q_PROPERTY(ChatTextItemHelper *focusedTextItem READ focusedTextItem NOTIFY focusRowChanged)
 
+    /**
+     * @brief Whether there is any rich formatting in any of the model components.
+     *
+     * If true the contents of the model will change if an attachment is added.
+     */
+    Q_PROPERTY(bool hasRichFormatting READ hasRichFormatting NOTIFY hasRichFormattingChanged)
+
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
@@ -75,6 +82,7 @@ public:
 
     Q_INVOKABLE void insertComponentAtCursor(MessageComponentType::Type type);
 
+    bool hasRichFormatting() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
 
     Q_INVOKABLE void removeComponent(int row, bool removeLast = false);
@@ -86,11 +94,12 @@ public:
 Q_SIGNALS:
     void typeChanged();
     void focusRowChanged();
+    void hasRichFormattingChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
 
-    void initializeModel();
+    void initializeModel(const QString &initialText = {});
 
     std::optional<QString> getReplyEventId() override;
 

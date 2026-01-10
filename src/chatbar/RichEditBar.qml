@@ -73,7 +73,7 @@ QQC2.ToolBar {
                     onActivated: boldButton.clicked()
                 }
                 icon.name: "format-text-bold"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Bold")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -94,7 +94,7 @@ QQC2.ToolBar {
                     onActivated: italicButton.clicked()
                 }
                 icon.name: "format-text-italic"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Italic")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -115,7 +115,7 @@ QQC2.ToolBar {
                     onActivated: underlineButton.clicked()
                 }
                 icon.name: "format-text-underline"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Underline")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -131,7 +131,7 @@ QQC2.ToolBar {
             }
             QQC2.ToolButton {
                 icon.name: "format-text-strikethrough"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Strikethrough")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -150,7 +150,7 @@ QQC2.ToolBar {
             id: compressedTextFormatButton
             visible: root.maxAvailableWidth < root.listCompressedImplicitWidth
             icon.name: "dialog-text-and-font"
-            enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+            enabled: chatButtonHelper.richFormatEnabled
             text: i18nc("@action:button", "Format Text")
             display: QQC2.AbstractButton.IconOnly
             checkable: true
@@ -218,7 +218,7 @@ QQC2.ToolBar {
             visible: root.maxAvailableWidth > root.uncompressedImplicitWidth
             QQC2.ToolButton {
                 icon.name: "format-list-unordered"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Unordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -234,7 +234,7 @@ QQC2.ToolBar {
             }
             QQC2.ToolButton {
                 icon.name: "format-list-ordered"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+                enabled: chatButtonHelper.richFormatEnabled
                 text: i18nc("@action:button", "Ordered List")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
@@ -251,7 +251,7 @@ QQC2.ToolBar {
             QQC2.ToolButton {
                 id: indentAction
                 icon.name: "format-indent-more"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code && root.chatButtonHelper.canIndentListMore
+                enabled: chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListMore
                 text: i18nc("@action:button", "Increase List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
@@ -266,7 +266,7 @@ QQC2.ToolBar {
             QQC2.ToolButton {
                 id: dedentAction
                 icon.name: "format-indent-less"
-                enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code && root.chatButtonHelper.canIndentListLess
+                enabled: chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListLess
                 text: i18nc("@action:button", "Decrease List Level")
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
@@ -281,7 +281,7 @@ QQC2.ToolBar {
         }
         QQC2.ToolButton {
             id: compressedListButton
-            enabled: root.contentModel.focusType !== LibNeoChat.MessageComponentType.Code
+            enabled: chatButtonHelper.richFormatEnabled
             visible: root.maxAvailableWidth < root.uncompressedImplicitWidth
             icon.name: "format-list-unordered"
             text: i18nc("@action:button", "List Style")
@@ -315,6 +315,7 @@ QQC2.ToolBar {
                 QQC2.MenuItem {
                     icon.name: "format-indent-more"
                     text: i18nc("@action:button", "Increase List Level")
+                    enabled: root.chatButtonHelper.canIndentListMore
                     onTriggered: {
                         root.chatButtonHelper.indentListMore();
                         root.clicked();
@@ -323,6 +324,7 @@ QQC2.ToolBar {
                 QQC2.MenuItem {
                     icon.name: "format-indent-less"
                     text: i18nc("@action:button", "Decrease List Level")
+                    enabled: root.chatButtonHelper.canIndentListLess
                     onTriggered: {
                         root.chatButtonHelper.indentListLess();
                         root.clicked();
@@ -338,6 +340,7 @@ QQC2.ToolBar {
             id: styleButton
             icon.name: "typewriter"
             text: i18nc("@action:button", "Text Style")
+            enabled: root.chatButtonHelper.styleFormatEnabled
             display: QQC2.AbstractButton.IconOnly
             checkable: true
             checked: styleMenu.visible
@@ -422,10 +425,29 @@ QQC2.ToolBar {
                 display: QQC2.AbstractButton.IconOnly
 
                 onClicked: {
+                    if (!root.contentModel.hasRichFormatting) {
+                        fileDialog();
+                        return;
+                    }
+
+                    let warningDialog = Qt.createComponent('org.kde.kirigami', 'PromptDialog').createObject(QQC2.Overlay.overlay, {
+                        dialogType: Kirigami.PromptDialog.Warning,
+                        title: i18n("Attach an image or file?"),
+                        subtitle: i18n("Attachments can only have plain text captions, all rich formatting will be removed"),
+                        standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+                    });
+                    warningDialog.onAccepted.connect(() => {
+                        attachmentButton.fileDialog();
+                    });
+                    warningDialog.open();
+                }
+
+                function fileDialog(): void {
                     let dialog = (LibNeoChat.Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay);
                     dialog.chosen.connect(path => root.contentModel.addAttachment(path));
                     dialog.open();
                 }
+
                 QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 QQC2.ToolTip.text: text

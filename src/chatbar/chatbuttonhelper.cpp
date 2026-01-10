@@ -5,7 +5,11 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
+#include "chatbarcache.h"
+#include "chattextitemhelper.h"
+#include "enums/chatbartype.h"
 #include "enums/richformat.h"
+#include "neochatroom.h"
 
 ChatButtonHelper::ChatButtonHelper(QObject *parent)
     : QObject(parent)
@@ -30,13 +34,51 @@ void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, &ChatTextItemHelper::formatChanged, this, &ChatButtonHelper::linkChanged);
-        connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::textFormatChanged);
+        connect(m_textItem, &ChatTextItemHelper::roomChanged, this, [this]() {
+            if (m_textItem->room() && m_textItem->type() != ChatBarType::None) {
+                const auto cache = m_textItem->room()->cacheForType(m_textItem->type());
+                connect(cache, &ChatBarCache::attachmentPathChanged, this, &ChatButtonHelper::richFormatEnabledChanged);
+            }
+        });
+        connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::richFormatEnabledChanged);
+        connect(m_textItem, &ChatTextItemHelper::charFormatChanged, this, &ChatButtonHelper::charFormatChanged);
         connect(m_textItem, &ChatTextItemHelper::styleChanged, this, &ChatButtonHelper::styleChanged);
         connect(m_textItem, &ChatTextItemHelper::listChanged, this, &ChatButtonHelper::listChanged);
     }
 
     Q_EMIT textItemChanged();
+    Q_EMIT richFormatEnabledChanged();
+}
+
+bool ChatButtonHelper::richFormatEnabled() const
+{
+    if (!m_textItem) {
+        return false;
+    }
+    const auto styleAvailable = styleFormatEnabled();
+    if (!styleAvailable) {
+        return false;
+    }
+    const auto format = m_textItem->textFormat();
+    if (format) {
+        return format != Qt::PlainText;
+    }
+    return false;
+}
+
+bool ChatButtonHelper::styleFormatEnabled() const
+{
+    if (!m_textItem) {
+        return false;
+    }
+    const auto room = m_textItem->room();
+    if (!room) {
+        return false;
+    }
+    if (const auto cache = room->cacheForType(m_textItem->type())) {
+        return cache->attachmentPath().isEmpty();
+    }
+    return true;
 }
 
 bool ChatButtonHelper::bold() const
