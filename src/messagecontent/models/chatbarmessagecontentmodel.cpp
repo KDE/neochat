@@ -91,12 +91,15 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     initializeModel();
 }
 
-void ChatBarMessageContentModel::initializeModel()
+void ChatBarMessageContentModel::initializeModel(const QString &initialText)
 {
+    updateReplyModel();
+
     beginInsertRows({}, rowCount(), rowCount());
     const auto textItem = new ChatTextItemHelper(this);
     textItem->setRoom(m_room);
     textItem->setType(m_type);
+    textItem->setInitialText(initialText);
     connectTextItem(textItem);
     m_components += MessageComponent{
         .type = MessageComponentType::Text,
@@ -248,6 +251,10 @@ ChatTextItemHelper *ChatBarMessageContentModel::focusedTextItem() const
 void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextitemhelper)
 {
     connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::updateCache);
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::hasRichFormattingChanged);
+    connect(chattextitemhelper, &ChatTextItemHelper::charFormatChanged, this, &ChatBarMessageContentModel::hasRichFormattingChanged);
+    connect(chattextitemhelper, &ChatTextItemHelper::styleChanged, this, &ChatBarMessageContentModel::hasRichFormattingChanged);
+    connect(chattextitemhelper, &ChatTextItemHelper::listChanged, this, &ChatBarMessageContentModel::hasRichFormattingChanged);
     connect(chattextitemhelper, &ChatTextItemHelper::cleared, this, [this](ChatTextItemHelper *helper) {
         removeComponent(helper);
     });
@@ -281,11 +288,36 @@ QModelIndex ChatBarMessageContentModel::indexForTextItem(ChatTextItemHelper *tex
     return {};
 }
 
+bool ChatBarMessageContentModel::hasRichFormatting() const
+{
+    for (const auto &component : m_components) {
+        if (component.type != MessageComponentType::Text) {
+            return true;
+        }
+        if (const auto textItem = textItemForComponent(component)) {
+            if (textItem->hasRichFormatting()) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 {
     if (m_type == ChatBarType::None || !m_room) {
         return;
     }
+
+    QString plainText;
+    for (const auto &component : m_components) {
+        if (const auto textItem = textItemForComponent(component)) {
+            plainText += u"%1%2"_s.arg(plainText.isEmpty() ? u""_s : u"\n"_s, textItem->plainText());
+        }
+    }
+
+    clearModel();
+    initializeModel(plainText);
 
     auto it = insertComponent(m_components.first().type == MessageComponentType::Reply ? 1 : 0,
                               MessageComponentType::typeForPath(path),
@@ -295,19 +327,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
                                   {"animated"_L1, false},
                               });
     it->display = path.fileName();
-    ++it;
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {DisplayRole});
-
-    bool textKept = false;
-    while (it != m_components.end()) {
-        if (it->type != MessageComponentType::Text || textKept) {
-            it = removeComponent(it);
-        } else {
-            textKept = true;
-            ++it;
-        }
-    }
-
     m_room->cacheForType(m_type)->setAttachmentPath(path.toString());
 }
 
@@ -338,6 +358,8 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
                                             .attributes = attributes,
                                         });
     endInsertRows();
+    Q_EMIT hasRichFormattingChanged();
+
     return it;
 }
 
@@ -454,6 +476,8 @@ ChatBarMessageContentModel::ComponentIt ChatBarMessageContentModel::removeCompon
     it = m_components.erase(it);
     endRemoveRows();
 
+    Q_EMIT hasRichFormattingChanged();
+
     return it;
 }
 
@@ -566,6 +590,9 @@ void ChatBarMessageContentModel::postMessage()
 
 std::optional<QString> ChatBarMessageContentModel::getReplyEventId()
 {
+    if (!m_room) {
+        return std::nullopt;
+    }
     return m_room->mainCache()->isReplying() ? std::make_optional(m_room->mainCache()->replyId()) : std::nullopt;
 }
 

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "chattextitemhelper.h"
+#include "chatbartype.h"
 #include "richformat.h"
 
 #include <QQuickTextDocument>
@@ -13,20 +14,50 @@
 #include "chatbarsyntaxhighlighter.h"
 #include "neochatroom.h"
 
+// Because we can't get access to the private header we foward declare this so the SIGNAL() macro works in setTextItem.
+namespace QQuickTextEdit
+{
+enum TextFormat : unsigned int;
+}
+
 ChatTextItemHelper::ChatTextItemHelper(QObject *parent)
     : QObject(parent)
     , m_highlighter(new ChatBarSyntaxHighlighter(this))
 {
 }
 
+NeoChatRoom *ChatTextItemHelper::room() const
+{
+    if (!m_highlighter) {
+        return nullptr;
+    }
+    return m_highlighter->room;
+}
+
 void ChatTextItemHelper::setRoom(NeoChatRoom *room)
 {
+    if (!m_highlighter) {
+        return;
+    }
     m_highlighter->room = room;
+    Q_EMIT roomChanged();
+}
+
+ChatBarType::Type ChatTextItemHelper::type() const
+{
+    if (!m_highlighter) {
+        return ChatBarType::None;
+    }
+    return m_highlighter->type;
 }
 
 void ChatTextItemHelper::setType(ChatBarType::Type type)
 {
+    if (!m_highlighter) {
+        return;
+    }
     m_highlighter->type = type;
+    Q_EMIT typeChanged();
 }
 
 QQuickItem *ChatTextItemHelper::textItem() const
@@ -51,6 +82,7 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
 
     if (m_textItem) {
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(itemCursorPositionChanged()));
+        connect(m_textItem, SIGNAL(textFormatChanged(QQuickTextEdit::TextFormat)), this, SLOT(itemTextFormatChanged()));
         if (const auto doc = document()) {
             connect(doc, &QTextDocument::contentsChanged, this, &ChatTextItemHelper::contentsChanged);
             connect(doc, &QTextDocument::contentsChange, this, [this]() {
@@ -63,8 +95,8 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
     }
 
     Q_EMIT textItemChanged();
-    Q_EMIT formatChanged();
     Q_EMIT textFormatChanged();
+    Q_EMIT charFormatChanged();
     Q_EMIT styleChanged();
     Q_EMIT listChanged();
 }
@@ -74,8 +106,12 @@ std::optional<Qt::TextFormat> ChatTextItemHelper::textFormat() const
     if (!m_textItem) {
         return std::nullopt;
     }
-
     return static_cast<Qt::TextFormat>(m_textItem->property("textFormat").toInt());
+}
+
+void ChatTextItemHelper::itemTextFormatChanged()
+{
+    Q_EMIT textFormatChanged();
 }
 
 QString ChatTextItemHelper::fixedStartChars() const
@@ -393,8 +429,8 @@ void ChatTextItemHelper::itemCursorPositionChanged()
 
     Q_EMIT cursorPositionChanged(m_contentsJustChanged);
     m_contentsJustChanged = false;
-    Q_EMIT formatChanged();
     Q_EMIT textFormatChanged();
+    Q_EMIT charFormatChanged();
     Q_EMIT styleChanged();
     Q_EMIT listChanged();
 }
@@ -438,8 +474,7 @@ void ChatTextItemHelper::mergeTextFormatOnCursor(RichFormat::Format format, QTex
         cursor.select(QTextCursor::WordUnderCursor);
     }
     cursor.mergeCharFormat(charFormat);
-    Q_EMIT formatChanged();
-    Q_EMIT textFormatChanged();
+    Q_EMIT charFormatChanged();
 }
 
 void ChatTextItemHelper::mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor)
@@ -475,14 +510,12 @@ void ChatTextItemHelper::mergeStyleFormatOnCursor(RichFormat::Format format, QTe
     cursor.mergeBlockCharFormat(chrfmt);
     cursor.endEditBlock();
 
-    Q_EMIT formatChanged();
     Q_EMIT styleChanged();
 }
 
 void ChatTextItemHelper::mergeListFormatOnCursor(RichFormat::Format format, const QTextCursor &cursor)
 {
     m_nestedListHelper.handleOnBulletType(RichFormat::listStyleForFormat(format), cursor);
-    Q_EMIT formatChanged();
     Q_EMIT listChanged();
 }
 
@@ -545,6 +578,11 @@ void ChatTextItemHelper::rehighlight() const
     m_highlighter->rehighlight();
 }
 
+bool ChatTextItemHelper::hasRichFormatting() const
+{
+    return markdownText() != plainText();
+}
+
 QString ChatTextItemHelper::markdownText() const
 {
     const auto doc = document();
@@ -552,6 +590,15 @@ QString ChatTextItemHelper::markdownText() const
         return {};
     }
     return trim(doc->toMarkdown());
+}
+
+QString ChatTextItemHelper::plainText() const
+{
+    const auto doc = document();
+    if (!doc) {
+        return {};
+    }
+    return trim(doc->toPlainText());
 }
 
 QString ChatTextItemHelper::trim(QString string) const

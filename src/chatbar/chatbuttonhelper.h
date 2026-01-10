@@ -26,22 +26,32 @@ class ChatButtonHelper : public QObject
     /**
      * @brief Whether the text format at the current cursor is bold.
      */
-    Q_PROPERTY(bool bold READ bold NOTIFY textFormatChanged)
+    Q_PROPERTY(bool richFormatEnabled READ richFormatEnabled NOTIFY richFormatEnabledChanged)
+
+    /**
+     * @brief Whether the text format at the current cursor is bold.
+     */
+    Q_PROPERTY(bool styleFormatEnabled READ styleFormatEnabled NOTIFY richFormatEnabledChanged)
+
+    /**
+     * @brief Whether the text format at the current cursor is bold.
+     */
+    Q_PROPERTY(bool bold READ bold NOTIFY charFormatChanged)
 
     /**
      * @brief Whether the text format at the current cursor is italic.
      */
-    Q_PROPERTY(bool italic READ italic NOTIFY textFormatChanged)
+    Q_PROPERTY(bool italic READ italic NOTIFY charFormatChanged)
 
     /**
      * @brief Whether the text format at the current cursor is underlined.
      */
-    Q_PROPERTY(bool underline READ underline NOTIFY textFormatChanged)
+    Q_PROPERTY(bool underline READ underline NOTIFY charFormatChanged)
 
     /**
      * @brief Whether the text format at the current cursor is struckthrough.
      */
-    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY textFormatChanged)
+    Q_PROPERTY(bool strikethrough READ strikethrough NOTIFY charFormatChanged)
 
     /**
      * @brief Whether the format at the current cursor includes RichFormat::UnorderedList.
@@ -71,12 +81,12 @@ class ChatButtonHelper : public QObject
     /**
      * @brief The link url at the current cursor position.
      */
-    Q_PROPERTY(QString currentLinkUrl READ currentLinkUrl NOTIFY linkChanged)
+    Q_PROPERTY(QString currentLinkUrl READ currentLinkUrl NOTIFY charFormatChanged)
 
     /**
      * @brief The link url at the current cursor position.
      */
-    Q_PROPERTY(QString currentLinkText READ currentLinkText NOTIFY linkChanged)
+    Q_PROPERTY(QString currentLinkText READ currentLinkText NOTIFY charFormatChanged)
 
 public:
     explicit ChatButtonHelper(QObject *parent = nullptr);
@@ -84,6 +94,8 @@ public:
     ChatTextItemHelper *textItem() const;
     void setTextItem(ChatTextItemHelper *textItem);
 
+    bool richFormatEnabled() const;
+    bool styleFormatEnabled() const;
     bool bold() const;
     bool italic() const;
     bool underline() const;
@@ -128,11 +140,10 @@ public:
 
 Q_SIGNALS:
     void textItemChanged();
-    void formatChanged();
-    void textFormatChanged();
+    void richFormatEnabledChanged();
+    void charFormatChanged();
     void styleChanged();
     void listChanged();
-    void linkChanged();
 
 private:
     QPointer<ChatTextItemHelper> m_textItem;
