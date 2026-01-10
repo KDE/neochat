@@ -48,11 +48,25 @@ public:
     explicit ChatTextItemHelper(QObject *parent = nullptr);
 
     /**
+     * @brief Get the NeoChatRoom used by the syntax highlighter.
+     *
+     * @sa NeoChatRoom
+     */
+    NeoChatRoom *room() const;
+
+    /**
      * @brief Set the NeoChatRoom required by the syntax highlighter.
      *
      * @sa NeoChatRoom
      */
     void setRoom(NeoChatRoom *room);
+
+    /**
+     * @brief Get the ChatBarType::Type used by the syntax highlighter.
+     *
+     * @sa ChatBarType::Type
+     */
+    ChatBarType::Type type() const;
 
     /**
      * @brief Set the ChatBarType::Type required by the syntax highlighter.
@@ -63,6 +77,11 @@ public:
 
     QQuickItem *textItem() const;
     void setTextItem(QQuickItem *textItem);
+
+    /**
+     * @brief The text format of the wrapped item.
+     */
+    std::optional<Qt::TextFormat> textFormat() const;
 
     /**
      * @brief Whether a completion has started based on recent text entry.
@@ -206,15 +225,51 @@ public:
     void rehighlight() const;
 
     /**
+     * @brief Whether there is any rich formatting in the item text.
+     */
+    bool hasRichFormatting() const;
+
+    /**
      * @brief Output the text in the text item in markdown format.
      */
     QString markdownText() const;
 
+    /**
+     * @brief Output the text in the text item in plain text format.
+     */
+    QString plainText() const;
+
 Q_SIGNALS:
+    /**
+     * @brief Emitted when the NeoChatRoom used by the syntax highlighter is changed.
+     */
+    void roomChanged();
+
+    /**
+     * @brief Emitted when the ChatBarType::Type used by the syntax highlighter is changed.
+     */
+    void typeChanged();
+
     void textItemChanged();
-    void formatChanged();
+
+    /**
+     * @brief Emitted when the textFormat property of the underlying text item is changed.
+     */
     void textFormatChanged();
+
+    /**
+     * @brief Emitted when the char format at the current cursor is changed.
+     */
+    void charFormatChanged();
+
+    /**
+     * @brief Emitted when the style at the current cursor is changed.
+     */
     void styleChanged();
+
+    /**
+     * @brief Emitted when the list format at the current cursor is changed.
+     */
     void listChanged();
 
     /**
@@ -242,7 +297,6 @@ private:
     QPointer<ChatBarSyntaxHighlighter> m_highlighter;
 
     bool m_contentsJustChanged = false;
-    std::optional<Qt::TextFormat> textFormat() const;
 
     QString m_fixedStartChars = {};
     QString m_fixedEndChars = {};
@@ -263,5 +317,6 @@ private:
     QString trim(QString string) const;
 
 private Q_SLOTS:
+    void itemTextFormatChanged();
     void itemCursorPositionChanged();
 };
