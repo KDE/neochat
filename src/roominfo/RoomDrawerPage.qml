@@ -9,6 +9,7 @@ import org.kde.kitemmodels
 
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline as Timeline
+import org.kde.neochat.settings as Settings
 
 /**
  * @brief Page for holding a room drawer component.
@@ -50,7 +51,7 @@ Kirigami.Page {
             text: i18nc("@action:button", "Room settings")
             icon.name: 'settings-configure-symbolic'
             onTriggered: {
-                RoomSettingsView.openRoomSettings(root.room, RoomSettingsView.Room);
+                Settings.RoomSettingsView.openRoomSettings(root.room, Settings.RoomSettingsView.Room);
             }
         }
     ]
