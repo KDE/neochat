@@ -77,8 +77,8 @@ TestCase {
             {tag: "inline code", input: "`c` ", outText: ["`", "c", "c`", "c "], outFormats: [[], [RichFormat.InlineCode], [RichFormat.InlineCode], []], unhandled: 0},
             {tag: "code", input: "``` ", outText: ["`", "``", "```", " "], outFormats: [[], [], [], []], unhandled: 1},
             {tag: "strikethrough", input: "~~s~~ ", outText: ["~", "~~", "s", "s~", "s~~", "s "], outFormats: [[], [], [RichFormat.Strikethrough], [RichFormat.Strikethrough], [RichFormat.Strikethrough], []], unhandled: 0},
-            {tag: "underline", input: "__u__ ", outText: ["_", "__", "u", "u_", "u__", "u "], outFormats: [[], [], [RichFormat.Underline], [RichFormat.Underline], [RichFormat.Underline], []], unhandled: 0},
-            {tag: "multiple closable", input: "***__~~t~~__*** ", outText: ["*", "**", "*", "_", "__", "~", "~~", "t", "t~", "t~~", "t_", "t__", "t*", "t**", "t*", "t "], outFormats: [[], [], [RichFormat.Bold], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Italic], []], unhandled: 0},
+            {tag: "underline", input: "_u_ ", outText: ["_", "u", "u_", "u "], outFormats: [[], [RichFormat.Underline], [RichFormat.Underline], []], unhandled: 0},
+            {tag: "multiple closable", input: "***_~~t~~_*** ", outText: ["*", "**", "*", "_", "~", "~~", "t", "t~", "t~~", "t_", "t*", "t**", "t*", "t "], outFormats: [[], [], [RichFormat.Bold], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline, RichFormat.Strikethrough], [RichFormat.Bold, RichFormat.Italic, RichFormat.Underline], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Bold, RichFormat.Italic], [RichFormat.Italic], []], unhandled: 0},
             {tag: "nonclosable closable", input: "* **b** ", outText: ["*", "* ", "*", "**", "b", "b*", "b**", "b "], outFormats: [[], [], [RichFormat.UnorderedList], [RichFormat.UnorderedList], [RichFormat.Bold, RichFormat.UnorderedList], [RichFormat.Bold, RichFormat.UnorderedList], [RichFormat.Bold, RichFormat.UnorderedList], [RichFormat.UnorderedList]], unhandled: 0},
             {tag: "not at line start", input: " 1) ", outText: [" ", " 1", " 1)", " 1) "], outFormats: [[], [], [], []], unhandled: 0},
         ]
@@ -95,5 +95,78 @@ TestCase {
         }
 
         compare(spyUnhandledFormat.count, data.unhandled);
+    }
+
+    function test_backspace(): void {
+        keyClick("*");
+        compare(chatMarkdownHelper.checkText("*"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick("*");
+        compare(chatMarkdownHelper.checkText("**"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick("b");
+        compare(chatMarkdownHelper.checkText("b"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick("o");
+        compare(chatMarkdownHelper.checkText("bo"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick("l");
+        compare(chatMarkdownHelper.checkText("bol"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick("d");
+        compare(chatMarkdownHelper.checkText("bold"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick(Qt.Key_Backspace);
+        compare(chatMarkdownHelper.checkText("bol"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick(Qt.Key_Backspace);
+        compare(chatMarkdownHelper.checkText("bo"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick("*");
+        compare(chatMarkdownHelper.checkText("bo*"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick("*");
+        compare(chatMarkdownHelper.checkText("bo**"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        keyClick(" ");
+        compare(chatMarkdownHelper.checkText("bo "), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+    }
+
+    function test_cursorMove(): void {
+        keyClick("t");
+        keyClick("e");
+        keyClick("s");
+        keyClick("t");
+        compare(chatMarkdownHelper.checkText("test"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        keyClick("*");
+        keyClick("*");
+        keyClick("b");
+        compare(chatMarkdownHelper.checkText("testb"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        textEdit.cursorPosition = 2;
+        keyClick("*");
+        keyClick("*");
+        keyClick("b");
+        compare(chatMarkdownHelper.checkText("tebstb"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+    }
+
+    function test_insertText(): void {
+        textEdit.insert(0, "test");
+        compare(chatMarkdownHelper.checkText("test"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        textEdit.insert(4, "**b");
+        compare(chatMarkdownHelper.checkText("testb"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+
+        textEdit.clear();
+        textEdit.insert(0, "test");
+        compare(chatMarkdownHelper.checkText("test"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
+        textEdit.insert(2, "**b");
+        compare(chatMarkdownHelper.checkText("tebst"), true);
+        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
     }
 }
