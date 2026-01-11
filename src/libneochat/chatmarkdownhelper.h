@@ -22,8 +22,6 @@ public:
     ChatTextItemHelper *textItem() const;
     void setTextItem(ChatTextItemHelper *textItem);
 
-    void handleExternalFormatChange();
-
 Q_SIGNALS:
     void textItemChanged();
 
@@ -36,21 +34,14 @@ Q_SIGNALS:
     void unhandledBlockFormat(RichFormat::Format format);
 
 private:
-    enum State {
-        None,
-        Pre,
-        Started,
-    };
-
     QPointer<ChatTextItemHelper> m_textItem;
 
-    State m_currentState = None;
     int m_startPos = 0;
     int m_endPos = 0;
     void updateStart();
 
-    QHash<RichFormat::Format, int> m_currentFormats;
-
     void checkMarkdown(int position, int charsRemoved, int charsAdded);
+    void updatePosition(int position);
+    void checkMarkdownForward(int charsAdded);
     void complete();
 };

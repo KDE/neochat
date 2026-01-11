@@ -160,6 +160,14 @@ bool RichFormat::hasFormat(QTextCursor cursor, Format format)
     }
 }
 
+bool RichFormat::hasAnyFormat(QTextCursor cursor, QList<Format> formats)
+{
+    for (const auto &format : formats) {
+        return hasFormat(cursor, format);
+    }
+    return false;
+}
+
 QList<RichFormat::Format> RichFormat::formatsAtCursor(const QTextCursor &cursor)
 {
     QList<Format> formats;

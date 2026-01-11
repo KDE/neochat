@@ -108,6 +108,13 @@ public:
     static bool hasFormat(QTextCursor cursor, Format format);
 
     /**
+     * @brief Whether the given QTextCursor has any of the given Formats.
+     *
+     * @sa Format, QTextCursor
+     */
+    static bool hasAnyFormat(QTextCursor cursor, QList<Format> formats);
+
+    /**
      * @brief A lsit of Formats on the given QTextCursor.
      *
      * @sa Format, QTextCursor

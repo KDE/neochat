@@ -69,6 +69,20 @@ std::optional<bool> checkSequence(const QString &currentString, const QString &n
     return std::nullopt;
 }
 
+bool checkSequenceBackwards(const QString &currentString)
+{
+    auto it = syntax.cbegin();
+    while ((it = std::find_if(it,
+                              syntax.cend(),
+                              [currentString](const MarkdownSyntax &syntax) {
+                                  return syntax.sequence.endsWith(currentString);
+                              }))
+           != syntax.cend()) {
+        return true;
+    }
+    return false;
+}
+
 std::optional<MarkdownSyntax> syntaxForSequence(const QString &sequence)
 {
     const auto it = std::find_if(syntax.cbegin(), syntax.cend(), [sequence](const MarkdownSyntax &syntax) {
@@ -118,75 +132,93 @@ void ChatMarkdownHelper::setTextItem(ChatTextItemHelper *textItem)
 
 void ChatMarkdownHelper::updateStart()
 {
-    m_startPos = *m_textItem->cursorPosition();
-    m_endPos = m_startPos;
-    if (m_startPos == 0) {
-        m_currentState = Pre;
+    if (!m_textItem) {
+        return;
+    }
+    const auto newCursorPosition = m_textItem->cursorPosition();
+    if (newCursorPosition) {
+        updatePosition(*newCursorPosition);
     }
 }
 
 void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int charsAdded)
 {
+    updatePosition(position);
+
+    // This can happen when formatting is applied.
+    if (charsAdded == charsRemoved) {
+        return;
+    }
     auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
 
-    if (charsRemoved - charsAdded > 0) {
-        if (position < m_startPos) {
-            m_startPos = position;
-        }
-        m_endPos -= charsRemoved;
-        cursor.setPosition(m_endPos);
-        cursor.setPosition(m_endPos + (cursor.atBlockEnd() ? 0 : 1), QTextCursor::KeepAnchor);
-        const auto nextChar = cursor.selectedText();
-        m_currentState = m_startPos == 0 || nextChar == u' ' ? Pre : None;
+    if (charsRemoved > charsAdded) {
+        updatePosition(std::max(0, position - charsRemoved + charsAdded));
+    }
+
+    checkMarkdownForward(charsAdded - charsRemoved);
+}
+
+void ChatMarkdownHelper::updatePosition(int position)
+{
+    if (position == m_endPos) {
         return;
     }
 
-    for (auto i = 1; i <= charsAdded - charsRemoved; ++i) {
+    m_startPos = position;
+    m_endPos = position;
+
+    if (m_startPos <= 0) {
+        return;
+    }
+
+    auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    cursor.setPosition(m_startPos);
+    cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    while (checkSequenceBackwards(cursor.selectedText()) && m_startPos > 0) {
+        --m_startPos;
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+}
+
+void ChatMarkdownHelper::checkMarkdownForward(int charsAdded)
+{
+    if (charsAdded <= 0) {
+        return;
+    }
+    auto cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    for (auto i = 1; i <= charsAdded; ++i) {
         cursor.setPosition(m_startPos);
+        const auto atBlockStart = cursor.atBlockStart();
         cursor.setPosition(m_endPos, QTextCursor::KeepAnchor);
         const auto currentMarkdown = cursor.selectedText();
         cursor.setPosition(m_endPos);
         cursor.setPosition(m_endPos + 1, QTextCursor::KeepAnchor);
         const auto nextChar = cursor.selectedText();
-        cursor.setPosition(m_startPos);
 
-        const auto result = checkSequence(currentMarkdown, nextChar, cursor.atBlockStart());
-
-        switch (m_currentState) {
-        case None:
-            if (nextChar == u' ' || cursor.atBlockEnd()) {
-                m_currentState = Pre;
-            }
+        const auto result = checkSequence(currentMarkdown, nextChar, atBlockStart);
+        if (!result) {
             ++m_startPos;
             m_endPos = m_startPos;
-            break;
-        case Pre:
-            if (!result && RichFormat::formatsAtCursor(cursor).length() == 0) {
-                m_currentState = None;
-            } else if (result && !*result) {
-                m_currentState = Started;
-                ++m_endPos;
-                break;
-            }
-            ++m_startPos;
-            m_endPos = m_startPos;
-            break;
-        case Started:
-            if (!result) {
-                m_currentState = Pre;
-                ++m_startPos;
-                m_endPos = m_startPos;
-                break;
-            } else if (!*result) {
-                ++m_endPos;
-                break;
-            }
-            complete();
-            break;
+            continue;
+            ;
         }
+        if (!*result) {
+            ++m_endPos;
+            continue;
+            ;
+        }
+
+        complete();
     }
 }
 
@@ -200,45 +232,30 @@ void ChatMarkdownHelper::complete()
     cursor.setPosition(m_startPos);
     cursor.setPosition(m_endPos, QTextCursor::KeepAnchor);
     const auto syntax = syntaxForSequence(cursor.selectedText());
+    if (!syntax) {
+        return;
+    }
     cursor.removeSelectedText();
 
-    if (m_currentFormats.contains(syntax->format)) {
-        m_currentFormats.remove(syntax->format);
-    } else if (syntax->closable) {
-        m_currentFormats.insert(syntax->format, m_startPos);
-    }
-
     cursor.setPosition(m_startPos);
-    cursor.setPosition(m_startPos + 1, QTextCursor::KeepAnchor);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
     const auto nextChar = cursor.selectedText();
     const auto result = checkSequence({}, nextChar, cursor.atBlockStart());
-    m_currentState = result ? Started : Pre;
 
-    // cursor.setPosition(m_startPos + 1);
-    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
-    if (syntax) {
-        const auto formatType = RichFormat::typeForFormat(syntax->format);
-        if (formatType == RichFormat::Block) {
-            Q_EMIT unhandledBlockFormat(syntax->format);
-        } else {
-            m_textItem->mergeFormatOnCursor(syntax->format, cursor);
-        }
+    cursor.setPosition(m_startPos);
+    cursor.movePosition(QTextCursor::NextWord, QTextCursor::KeepAnchor);
+
+    const auto formatType = RichFormat::typeForFormat(syntax->format);
+    if (formatType == RichFormat::Block) {
+        Q_EMIT unhandledBlockFormat(syntax->format);
+    } else {
+        m_textItem->mergeFormatOnCursor(syntax->format, cursor);
     }
 
     m_startPos = result ? m_startPos : m_startPos + 1;
     m_endPos = result ? m_startPos + 1 : m_startPos;
 
     cursor.endEditBlock();
-}
-
-void ChatMarkdownHelper::handleExternalFormatChange()
-{
-    auto cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
-        return;
-    }
-    cursor.setPosition(m_startPos);
-    m_currentState = RichFormat::formatsAtCursor(cursor).length() > 0 ? Pre : None;
 }
 
 #include "moc_chatmarkdownhelper.cpp"
