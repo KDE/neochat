@@ -38,7 +38,7 @@ RowLayout {
         Layout.fillHeight: true
 
         implicitWidth: Kirigami.Units.smallSpacing
-        color: root.replyContentModel.author.color
+        color: root.replyContentModel.author?.color ?? Kirigami.Theme.highlightColor
         radius: Kirigami.Units.cornerRadius
     }
     ColumnLayout {

@@ -87,7 +87,6 @@ QDateTime MessageContentModel::time() const
 QString MessageContentModel::timeString() const
 {
     return time().toLocalTime().toString(u"hh:mm"_s);
-    ;
 }
 
 QString MessageContentModel::authorId() const
