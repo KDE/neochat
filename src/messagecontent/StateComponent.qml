@@ -91,7 +91,7 @@ RowLayout {
                 return;
             }
             const event = root.Message.room.findEvent(root.modelData.eventId);
-            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.author, "", "");
+            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.author);
         }
     }
 }
