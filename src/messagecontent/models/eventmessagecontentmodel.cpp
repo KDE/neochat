@@ -269,6 +269,8 @@ void EventMessageContentModel::resetModel()
     updateItineraryModel();
 
     Q_EMIT componentsUpdated();
+    // We need QML to re-evaluate author (for example, reply colors) if it was previously null.
+    Q_EMIT authorChanged();
 }
 
 void EventMessageContentModel::resetContent(bool isEditing, bool isThreading)
