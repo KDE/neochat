@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2025-11-29 21:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -1110,6 +1110,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
 msgctxt "@action:button"
@@ -1388,7 +1394,7 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "நடுவர்"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1396,55 +1402,55 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "வெளியேற்று"
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "பயனரை வெளியேற்றுவது"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "இப்பயனரை வெளியேற்றுவதற்கான காரணம்"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "வெளியேற்று"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "பயனரை தடை செய்வது"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "இப்பயனரை தடைசெய்வதற்கான காரணம்"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "தடை செய்"
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1452,37 +1458,39 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "செய்திகளை நீக்குவது"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "செய்திகளை நீக்குவது"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "இப்பயனரின் சமீபத்திய செய்திகளை நீக்குவதற்கான காரணம்"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "நீக்கு"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "செய்திகளை நீக்குவது"
 
-#: src/app/qml/UserDetailDialog.qml:314
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:329
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
-msgstr ""
+msgid "Power Level"
+msgstr "பயனரின் உரிமையளவை அமை"
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1490,7 +1498,7 @@ msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "பயனரின் உரிமையளவை அமை"
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, fuzzy, kde-format
 #| msgid "All Rooms"
 msgctxt ""
@@ -1498,7 +1506,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "அனைத்து அரங்குகள்"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1510,6 +1518,20 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " மற்றும் %1 பயனர்"
 msgstr[1] " மற்றும் %1 பயனர்கள்"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Private"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "தனிப்பட்டது"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3315,12 +3337,12 @@ msgstr "அரங்கு உருவாக்கம் தோல்விய�
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4511,13 +4533,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "நண்பர்களின் பட்டியலில் தேடு"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 தனை சுருக்கு"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -6207,42 +6229,42 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "அரங்கின் அடையாள எண்"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, fuzzy, kde-format
 #| msgid "Copy room ID to clipboard"
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "அரங்கின் முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, fuzzy, kde-format
 #| msgid "Room version"
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "அரங்கின் பதிப்பு"
 
-#: src/settings/RoomAdvancedPage.qml:52
+#: src/settings/RoomAdvancedPage.qml:56
 #, fuzzy, kde-format
 #| msgid "Upgrade Room"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, fuzzy, kde-format
 #| msgid "Upgrade the Room"
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, fuzzy, kde-format
 #| msgid "Select new version"
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "புதிய பதிப்பைத் தேர்ந்தெடுங்கள்"
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
@@ -7283,20 +7305,20 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "மூலத்தைப் பார்"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "தெரியாத உறுப்பினர்"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
 msgctxt "list separator"
 msgid ", "

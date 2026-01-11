@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1108,6 +1108,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "메시지 소스"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
 msgctxt "@action:button"
@@ -1385,7 +1391,7 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "중재자"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1393,55 +1399,55 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "추방"
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "사용자 추방"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "사용자를 추방하는 이유"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "추방"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "사용자 차단"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "사용자를 차단하는 이유"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "차단"
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1449,37 +1455,39 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "메시지 삭제"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "메시지 삭제"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "이 사용자의 최근 메시지를 삭제하는 이유"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "메시지 삭제"
 
-#: src/app/qml/UserDetailDialog.qml:314
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:329
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
-msgstr ""
+msgid "Power Level"
+msgstr "사용자 권한 수준 설정"
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1487,7 +1495,7 @@ msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "사용자 권한 수준 설정"
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, fuzzy, kde-format
 #| msgid "All Rooms"
 msgctxt ""
@@ -1495,7 +1503,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "모든 대화방"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1506,6 +1514,20 @@ msgctxt ""
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " 그리고 %1명 더"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Private"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "개인"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3294,12 +3316,12 @@ msgstr "대화방 생성 실패: %1"
 msgid "Space creation failed: %1"
 msgstr "스페이스 생성 실패: %1"
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, kde-format
 msgid "Report sent successfully."
 msgstr "신고했습니다."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4489,13 +4511,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "친구 디렉터리에서 검색"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 접기"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -6184,37 +6206,39 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "대화방 ID"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "클립보드에 대화방 ID 복사"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "대화방 버전"
 
-#: src/settings/RoomAdvancedPage.qml:52
-#, kde-format
+#: src/settings/RoomAdvancedPage.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upgrade Room"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "대화방 업그레이드"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "대화방 업그레이드"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "새 버전 선택"
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
@@ -7188,19 +7212,19 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "소스 보기"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "사용자 %1명: "
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "알 수 없는 구성원"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
 msgctxt "list separator"
 msgid ", "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1182,6 +1182,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Πηγή μηνύματος"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, fuzzy, kde-format
 #| msgid "Add New Server"
@@ -1464,62 +1470,62 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Διαχειριστής"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Εκδίωξη χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, fuzzy, kde-format
 #| msgid "Reason for banning this user"
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Αιτία αποκλεισμού αυτού του χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Αποκλεισμός χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Αιτία αποκλεισμού αυτού του χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Αποκλεισμός"
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1527,44 +1533,45 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Αφαίρεση μηνυμάτων"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Αφαίρεση μηνυμάτων"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Αιτία αφαίρεσης των πρόσφατων μηνυμάτων αυτού του χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Αφαίρεση μηνυμάτων"
 
-#: src/app/qml/UserDetailDialog.qml:314
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:329
+#, fuzzy, kde-format
+#| msgid "Set user power level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
-msgstr ""
+msgid "Power Level"
+msgstr "Ορισμός επιπέδου δικαιωμάτων του χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, fuzzy, kde-format
 #| msgid "Set user power level"
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Ορισμός επιπέδου δικαιωμάτων του χρήστη"
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show All Rooms"
@@ -1573,7 +1580,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Εμφάνιση όλων των αιθουσών"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1585,6 +1592,20 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " και %1 ακόμη"
 msgstr[1] " και %1 ακόμη"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "Αποχώρηση από τον χώρο"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -3512,12 +3533,12 @@ msgstr "Αποτυχία δημιουργίας αίθουσας: %1"
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4795,13 +4816,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -6583,7 +6604,7 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Room ID"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
@@ -6591,35 +6612,35 @@ msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, fuzzy, kde-format
 #| msgid "Room version"
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Έκδοση αίθουσας"
 
-#: src/settings/RoomAdvancedPage.qml:52
+#: src/settings/RoomAdvancedPage.qml:56
 #, fuzzy, kde-format
 #| msgid "Upgrade Room"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "Αναβάθμιση αίθουσας"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, fuzzy, kde-format
 #| msgid "Upgrade the Room"
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Αναβάθμιση της αίθουσας"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, fuzzy, kde-format
 #| msgid "Select new version"
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Επιλογή νέας έκδοσης"
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
@@ -7695,21 +7716,21 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Προβολή πηγής"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 χρήστης: "
 msgstr[1] "%1 χρήστες: "
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, fuzzy, kde-format
 #| msgid "Unknown event"
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "Άγνωστο γεγονός"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
 msgctxt "list separator"
 msgid ", "

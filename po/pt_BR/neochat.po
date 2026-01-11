@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2026-01-06 07:01-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1103,6 +1103,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Origem da mensagem"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
 msgctxt "@action:button"
@@ -1348,110 +1354,112 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderação"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Expulsar…"
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Remover usuário"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Razão para remover este usuário"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Remover"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Banir…"
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Banir usuário"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Razão para banir este usuário"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Banir"
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Desbanir"
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Remover mensagens…"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Excluir mensagens"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Razão para excluir as mensagens recentes deste usuário"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Excluir"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Excluir mensagens"
 
-#: src/app/qml/UserDetailDialog.qml:314
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:329
+#, fuzzy, kde-format
+#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
+#| msgid "Set Power Level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
-msgstr "Função"
+msgid "Power Level"
+msgstr "Definir nível de poder"
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Definir nível de poder"
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Salas mútuas"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1460,6 +1468,20 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] "e 1 mais…"
 msgstr[1] "e %1 mais…"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Private"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "Privada"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3264,12 +3286,12 @@ msgstr "Criação de sala falhou: %1"
 msgid "Space creation failed: %1"
 msgstr "Criação de espaço falhou: %1"
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Relatório enviado com sucesso."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4424,13 +4446,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Pesquisar no diretório de amigos"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Recolher %1"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -6106,37 +6128,39 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Id da sala"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Copiar ID da sala para a área de transferência"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Versão da sala"
 
-#: src/settings/RoomAdvancedPage.qml:52
-#, kde-format
+#: src/settings/RoomAdvancedPage.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upgrade Room"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "Atualizar sala"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Atualizar a sala"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Selecione nova versão"
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
@@ -7115,20 +7139,20 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Exibir origem"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 usuário: "
 msgstr[1] "%1 usuários: "
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "membro desconhecido"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -7215,6 +7239,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está digitando"
 msgstr[1] "%2 estão digitando"
+
+#~ msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
+#~ msgid "Role"
+#~ msgstr "Função"
 
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"

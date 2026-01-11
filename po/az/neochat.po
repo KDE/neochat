@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1199,6 +1199,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "İsmarıc mənbəyi"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
@@ -1470,112 +1476,112 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Seçimlər:"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, fuzzy, kde-format
 #| msgid "Kick this user"
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Bu istifadəçini vurmaq"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, fuzzy, kde-format
 #| msgid "Unban this user"
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Silmək"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/qml/UserDetailDialog.qml:314
+#: src/app/qml/UserDetailDialog.qml:329
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
+msgid "Power Level"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt ""
@@ -1583,7 +1589,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Otaqlara baxış"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1595,6 +1601,19 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " və %1 başqası"
 msgstr[1] " və %1 başqaları"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "Otaqlar və məxfi söhbətlər:"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, fuzzy, kde-format
@@ -3584,13 +3603,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4861,13 +4880,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Otaq kataloqunda axtarın"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -6752,7 +6771,7 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Otaqlar"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
@@ -6760,35 +6779,35 @@ msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Otaq haqqında"
 
-#: src/settings/RoomAdvancedPage.qml:52
+#: src/settings/RoomAdvancedPage.qml:56
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "Otaqlara baxış"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "otağı tərk edin"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, fuzzy, kde-format
 #| msgid "See new room..."
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Yeni otağa baxın..."
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
@@ -7852,21 +7871,21 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, fuzzy, kde-format
 #| msgid "Unknown event"
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "Naməlum hal"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "

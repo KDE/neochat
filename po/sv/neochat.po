@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:42+0000\n"
+"POT-Creation-Date: 2026-01-11 00:43+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1104,6 +1104,12 @@ msgctxt "@title:dialog"
 msgid "Message Source"
 msgstr "Meddelandekälla"
 
+#: src/app/qml/SeenByDialog.qml:23
+#, kde-format
+msgctxt "@title:menu Seen by/read marker dialog"
+msgid "Seen By"
+msgstr ""
+
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
 msgctxt "@action:button"
@@ -1384,7 +1390,7 @@ msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderator"
 
-#: src/app/qml/UserDetailDialog.qml:237
+#: src/app/qml/UserDetailDialog.qml:242
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1392,55 +1398,55 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Kasta ut"
 
-#: src/app/qml/UserDetailDialog.qml:241 src/app/qml/UserDetailDialog.qml:246
+#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Kasta ut användare"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:247
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for kicking this user"
 msgstr "Anledning att kasta ut användaren"
 
-#: src/app/qml/UserDetailDialog.qml:243
+#: src/app/qml/UserDetailDialog.qml:248
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Kasta ut"
 
-#: src/app/qml/UserDetailDialog.qml:258
+#: src/app/qml/UserDetailDialog.qml:268
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bannlys användare"
 
-#: src/app/qml/UserDetailDialog.qml:264
+#: src/app/qml/UserDetailDialog.qml:274
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for banning this user"
 msgstr "Anledning att bannlysa användaren"
 
-#: src/app/qml/UserDetailDialog.qml:265
+#: src/app/qml/UserDetailDialog.qml:275
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Bannlys"
 
-#: src/app/qml/UserDetailDialog.qml:280
+#: src/app/qml/UserDetailDialog.qml:295
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:291
+#: src/app/qml/UserDetailDialog.qml:306
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1448,37 +1454,39 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Ta bort meddelanden"
 
-#: src/app/qml/UserDetailDialog.qml:296
+#: src/app/qml/UserDetailDialog.qml:311
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Ta bort meddelanden"
 
-#: src/app/qml/UserDetailDialog.qml:297
+#: src/app/qml/UserDetailDialog.qml:312
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reason for removing this user's recent messages"
 msgstr "Anledning att ta bort användarens senaste meddelanden"
 
-#: src/app/qml/UserDetailDialog.qml:298
+#: src/app/qml/UserDetailDialog.qml:313
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Ta bort meddelanden"
 
-#: src/app/qml/UserDetailDialog.qml:314
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:329
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-msgid "Role"
-msgstr ""
+msgid "Power Level"
+msgstr "Ställ in användarens maktnivå"
 
-#: src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/UserDetailDialog.qml:353
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1486,7 +1494,7 @@ msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Ställ in användarens maktnivå"
 
-#: src/app/qml/UserDetailDialog.qml:360
+#: src/app/qml/UserDetailDialog.qml:380
 #, fuzzy, kde-format
 #| msgid "All Rooms"
 msgctxt ""
@@ -1494,7 +1502,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Alla rum"
 
-#: src/app/qml/UserDetailDialog.qml:399
+#: src/app/qml/UserDetailDialog.qml:419
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1506,6 +1514,20 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " och %1 annan"
 msgstr[1] " och %1 andra"
+
+#: src/app/qml/UserDetailDialog.qml:426
+#, fuzzy, kde-format
+#| msgctxt "@info:label"
+#| msgid "Private"
+msgctxt "@title Private note for this user"
+msgid "Private Note"
+msgstr "Privat"
+
+#: src/app/qml/UserDetailDialog.qml:438
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Only visible to you"
+msgstr ""
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -3311,12 +3333,12 @@ msgstr "Misslyckades skapa rum: \"%1"
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
 
-#: src/libneochat/neochatroom.cpp:1255
+#: src/libneochat/neochatroom.cpp:1258
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport skickades med lyckat resultat."
 
-#: src/libneochat/neochatroom.cpp:1620 src/libneochat/neochatroom.cpp:1628
+#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4508,13 +4530,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Sök i vänkatalog"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Dra ihop %1"
 
-#: src/rooms/RoomTreeSection.qml:59
+#: src/rooms/RoomTreeSection.qml:61
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -6203,37 +6225,39 @@ msgctxt "@info:label"
 msgid "Room ID"
 msgstr "Rumsidentifierare"
 
-#: src/settings/RoomAdvancedPage.qml:32
+#: src/settings/RoomAdvancedPage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy room ID to clipboard"
 msgstr "Kopiera rumsidentifierare till klippbordet"
 
-#: src/settings/RoomAdvancedPage.qml:46
+#: src/settings/RoomAdvancedPage.qml:50
 #, kde-format
 msgctxt "@info:label"
 msgid "Room Version"
 msgstr "Rumsversion"
 
-#: src/settings/RoomAdvancedPage.qml:52
-#, kde-format
+#: src/settings/RoomAdvancedPage.qml:56
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upgrade Room"
 msgctxt "@action:button"
-msgid "Upgrade Room"
+msgid "Upgrade Room…"
 msgstr "Uppgradera rum"
 
-#: src/settings/RoomAdvancedPage.qml:77
+#: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
 msgctxt "@title"
 msgid "Upgrade the Room"
 msgstr "Uppgradera rummet"
 
-#: src/settings/RoomAdvancedPage.qml:81
+#: src/settings/RoomAdvancedPage.qml:85
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Select new version"
 msgstr "Välj ny version"
 
-#: src/settings/RoomAdvancedPage.qml:89
+#: src/settings/RoomAdvancedPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm"
@@ -7226,20 +7250,20 @@ msgctxt "@action:inmenu"
 msgid "View Source"
 msgstr "Visa källa"
 
-#: src/timeline/models/readmarkermodel.cpp:112
+#: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 användare: "
 msgstr[1] "%1 användare: "
 
-#: src/timeline/models/readmarkermodel.cpp:117
+#: src/timeline/models/readmarkermodel.cpp:120
 #, kde-format
 msgctxt "A member who is not in the room has been requested."
 msgid "unknown member"
 msgstr "okänd medlem"
 
-#: src/timeline/models/readmarkermodel.cpp:119
+#: src/timeline/models/readmarkermodel.cpp:122
 #, kde-format
 msgctxt "list separator"
 msgid ", "
