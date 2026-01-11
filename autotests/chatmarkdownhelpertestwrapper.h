@@ -49,6 +49,7 @@ public:
         if (!doc) {
             return false;
         }
+        // qWarning() << doc->toPlainText() <<text;
         return text == doc->toPlainText();
     }
 
@@ -58,6 +59,7 @@ public:
         if (cursor.isNull()) {
             return false;
         }
+        // qWarning() << RichFormat::formatsAtCursor(cursor) <<formats;
         return RichFormat::formatsAtCursor(cursor) == formats;
     }
 

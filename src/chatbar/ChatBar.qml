@@ -119,7 +119,7 @@ QQC2.Control {
 
     height: Math.max(Math.min(chatScrollView.contentHeight + bottomPadding + topPadding, Kirigami.Units.gridUnit * 10), Kirigami.Units.gridUnit * 5)
     leftPadding: rightPadding
-    rightPadding: (root.width - chatBarSizeHelper.availableWidth) / 2
+    rightPadding: (root.width - chatBarSizeHelper.availableWidth) / 2 + Kirigami.Units.largeSpacing
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
 
