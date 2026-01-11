@@ -351,16 +351,21 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 
 QModelIndex MessageModel::indexForEventId(const QString &eventId) const
 {
-    if (m_room == nullptr) {
-        return {};
-    }
-
-    const auto it = m_room->findInTimeline(eventId);
-    if (it == m_room->historyEdge()) {
+    const auto matches = match(index(0, 0), EventIdRole, eventId);
+    if (matches.isEmpty()) {
         qWarning() << "Trying to find non-existent event:" << eventId;
         return {};
     }
-    return index(it - m_room->messageEvents().rbegin() + timelineServerIndex());
+    return matches.constFirst();
+}
+
+const RoomEvent *MessageModel::findEvent(const QString &eventId) const
+{
+    const auto index = indexForEventId(eventId);
+    if (const auto event = getEventForIndex(index)) {
+        return &event.value().get();
+    }
+    return nullptr;
 }
 
 void MessageModel::fullEventRefresh(int row)

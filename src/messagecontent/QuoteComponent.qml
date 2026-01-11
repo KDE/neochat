@@ -66,7 +66,10 @@ QQC2.Control {
             enabled: !quoteText.hoveredLink
             acceptedDevices: PointerDevice.TouchScreen
             acceptedButtons: Qt.LeftButton
-            onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+            onLongPressed: {
+                const event = root.Message.room.findEvent(root.eventId);
+                RoomManager.viewEventMenu(event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+            }
         }
     }
 

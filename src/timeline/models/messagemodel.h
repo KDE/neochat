@@ -115,8 +115,12 @@ public:
     /**
      * @brief Get the QModelIndex of the given event ID in the model, returning an invalid QModelIndex if no matches were found.
      */
-    Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
     Q_INVOKABLE QModelIndex indexForEventId(const QString &eventId) const;
+
+    /**
+     * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
+     */
+    Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 

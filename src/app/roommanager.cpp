@@ -282,26 +282,20 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const QString &eventId, NeoChatRoom *room, const QString &selectedText, const QString &hoveredLink)
+void RoomManager::viewEventMenu(const RoomEvent *event, NeoChatRoom *room, const QString &selectedText, const QString &hoveredLink)
 {
-    if (eventId.isEmpty()) {
-        qWarning() << "Tried to open event menu with empty event id";
+    if (!event) {
+        qWarning() << "Tried to open event menu with empty event";
         return;
     }
 
-    const auto it = room->findInTimeline(eventId);
-    if (it == room->historyEdge()) {
-        // This is probably a pending event
-        return;
-    }
-    const auto &event = **it;
-    Q_EMIT showDelegateMenu(eventId,
-                            room->qmlSafeMember(event.senderId()),
-                            MessageComponentType::typeForEvent(event),
-                            EventHandler::plainBody(room, &event),
-                            EventHandler::richBody(room, &event),
-                            EventHandler::mediaInfo(room, &event)["mimeType"_L1].toString(),
-                            room->fileTransferInfo(eventId),
+    Q_EMIT showDelegateMenu(event->id(),
+                            room->qmlSafeMember(event->senderId()),
+                            MessageComponentType::typeForEvent(*event),
+                            EventHandler::plainBody(room, event),
+                            EventHandler::richBody(room, event),
+                            EventHandler::mediaInfo(room, event)["mimeType"_L1].toString(),
+                            room->fileTransferInfo(event->id()),
                             selectedText,
                             hoveredLink);
 }

@@ -97,12 +97,18 @@ TextEdit {
         enabled: !root.hoveredLink
         acceptedButtons: Qt.LeftButton
         acceptedDevices: PointerDevice.TouchScreen
-        onLongPressed: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+        onLongPressed: {
+            const event = root.Message.room.findEvent(root.eventId);
+            RoomManager.viewEventMenu(event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+        }
     }
     TapHandler {
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
         gesturePolicy: TapHandler.WithinBounds
-        onTapped: RoomManager.viewEventMenu(root.eventId, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+        onTapped: {
+            const event = root.Message.room.findEvent(root.eventId);
+            RoomManager.viewEventMenu(event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+        }
     }
 }

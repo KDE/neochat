@@ -1694,6 +1694,11 @@ std::pair<const Quotient::RoomEvent *, bool> NeoChatRoom::getEvent(const QString
     return std::make_pair(extraIt != m_extraEvents.end() ? extraIt->get() : nullptr, false);
 }
 
+const RoomEvent *NeoChatRoom::findEvent(const QString &eventId) const
+{
+    return getEvent(eventId).first;
+}
+
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
 #if Quotient_VERSION_MINOR > 9

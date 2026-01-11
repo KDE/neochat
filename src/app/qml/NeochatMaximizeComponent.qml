@@ -154,7 +154,10 @@ Components.AlbumMaximizeComponent {
 
     onOpened: forceActiveFocus()
 
-    onItemRightClicked: RoomManager.viewEventMenu(root.currentEventId, root.currentRoom)
+    onItemRightClicked: {
+        const event = root.currentRoom.findEvent(root.currentEventId);
+        RoomManager.viewEventMenu(event, root.currentRoom)
+    }
 
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;

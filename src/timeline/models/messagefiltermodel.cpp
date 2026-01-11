@@ -152,6 +152,23 @@ QModelIndex MessageFilterModel::indexForEventId(const QString &eventId) const
     return mapFromSource(eventIndex);
 }
 
+const Quotient::RoomEvent *MessageFilterModel::findEvent(const QString &eventId) const
+{
+    // Check if sourceModel is a message model.
+    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
+    // See if it's a timeline model.
+    if (!messageModel) {
+        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
+            messageModel = timelineModel->timelineMessageModel();
+            if (!messageModel) {
+                return nullptr;
+            }
+        }
+    }
+
+    return messageModel->findEvent(eventId);
+}
+
 bool MessageFilterModel::showAuthor(QModelIndex index) const
 {
     for (auto r = index.row() + 1; r < rowCount(); ++r) {

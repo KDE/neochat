@@ -92,8 +92,10 @@ TimelineDelegate {
 
     QtObject {
         id: _private
-        function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, "");
+
+        function showMessageMenu(): void {
+            let event = root.Message.room.findEvent(root.eventId);
+            RoomManager.viewEventMenu(event, root.room, "");
         }
     }
 }

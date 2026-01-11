@@ -67,8 +67,12 @@ public:
     /**
      * @brief Get the QModelIndex the given event ID in the model.
      */
-    Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
     Q_INVOKABLE QModelIndex indexForEventId(const QString &eventId) const;
+
+    /**
+     * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
+     */
+    Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
 
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);

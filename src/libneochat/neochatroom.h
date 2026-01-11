@@ -539,6 +539,13 @@ public:
     std::pair<const Quotient::RoomEvent *, bool> getEvent(const QString &eventId) const;
 
     /**
+     * @brief Returns the event object with the given ID if available.
+     *
+     * This function works identically to getEvent, except this is usable from QML.
+     */
+    Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
+
+    /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.
      */
     const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;

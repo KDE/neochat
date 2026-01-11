@@ -86,11 +86,12 @@ RowLayout {
     QtObject {
         id: _private
 
-        function showMessageMenu() {
+        function showMessageMenu(): void {
             if (!NeoChatConfig.developerTools) {
                 return;
             }
-            RoomManager.viewEventMenu(root.modelData.eventId, root.Message.room, root.author, "", "");
+            const event = root.Message.room.findEvent(root.modelData.eventId);
+            RoomManager.viewEventMenu(event, root.Message.room, root.author, "", "");
         }
     }
 }

@@ -232,8 +232,9 @@ MessageDelegateBase {
     QtObject {
         id: _private
 
-        function showMessageMenu() {
-            RoomManager.viewEventMenu(root.eventId, root.room, root.Message.selectedText, root.Message.hoveredLink);
+        function showMessageMenu(): void {
+            let event = root.ListView.view.model.findEvent(root.eventId);
+            RoomManager.viewEventMenu(event, root.room, root.Message.selectedText, root.Message.hoveredLink);
         }
     }
 }
