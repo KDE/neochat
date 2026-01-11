@@ -1649,6 +1649,12 @@ void NeoChatRoom::downloadEventFromServer(const QString &eventId)
                 }
 
                 event_ptr_tt<RoomEvent> event = fromJson<event_ptr_tt<RoomEvent>>(job->jsonData());
+                if (auto encEv = eventCast<EncryptedEvent>(event.get())) {
+                    auto decryptedEvent = decryptMessage(*encEv);
+                    if (decryptedEvent) {
+                        event = std::move(decryptedEvent);
+                    }
+                }
                 m_extraEvents.push_back(std::move(event));
                 Q_EMIT extraEventLoaded(eventId);
             },
