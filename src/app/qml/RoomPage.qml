@@ -349,8 +349,8 @@ Kirigami.Page {
             });
         }
 
-        function onShowDelegateMenu(eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
-            (delegateContextMenu.createObject(root, {
+        function onShowDelegateMenu(parent: QtObject, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
+            (delegateContextMenu.createObject(parent, {
                 author: author,
                 eventId: eventId,
                 plainText: plainText,

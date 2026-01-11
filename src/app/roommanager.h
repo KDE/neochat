@@ -233,7 +233,8 @@ public:
     /**
      * @brief Show a context menu for the given event.
      */
-    Q_INVOKABLE void viewEventMenu(const RoomEvent *event, NeoChatRoom *room, const QString &selectedText = {}, const QString &hoveredLink = {});
+    Q_INVOKABLE void
+    viewEventMenu(QObject *parent, const RoomEvent *event, NeoChatRoom *room, const QString &selectedText = {}, const QString &hoveredLink = {});
 
     /**
      * @brief Set a URL to be loaded as the initial room.
@@ -306,7 +307,8 @@ Q_SIGNALS:
     /**
      * @brief Request to show a menu for the given event.
      */
-    void showDelegateMenu(const QString &eventId,
+    void showDelegateMenu(QObject *parent,
+                          const QString &eventId,
                           const NeochatRoomMember *author,
                           MessageComponentType::Type messageComponentType,
                           const QString &plainText,

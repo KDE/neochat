@@ -95,7 +95,7 @@ TimelineDelegate {
 
         function showMessageMenu(): void {
             let event = root.Message.room.findEvent(root.eventId);
-            RoomManager.viewEventMenu(event, root.room, "");
+            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.room, "");
         }
     }
 }

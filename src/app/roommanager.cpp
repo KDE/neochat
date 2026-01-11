@@ -282,14 +282,15 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(const RoomEvent *event, NeoChatRoom *room, const QString &selectedText, const QString &hoveredLink)
+void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChatRoom *room, const QString &selectedText, const QString &hoveredLink)
 {
     if (!event) {
         qWarning() << "Tried to open event menu with empty event";
         return;
     }
 
-    Q_EMIT showDelegateMenu(event->id(),
+    Q_EMIT showDelegateMenu(parent,
+                            event->id(),
                             room->qmlSafeMember(event->senderId()),
                             MessageComponentType::typeForEvent(*event),
                             EventHandler::plainBody(room, event),

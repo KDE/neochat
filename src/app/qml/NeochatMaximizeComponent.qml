@@ -156,7 +156,7 @@ Components.AlbumMaximizeComponent {
 
     onItemRightClicked: {
         const event = root.currentRoom.findEvent(root.currentEventId);
-        RoomManager.viewEventMenu(event, root.currentRoom)
+        RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.currentRoom)
     }
 
     onSaveItem: {

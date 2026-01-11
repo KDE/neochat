@@ -234,7 +234,7 @@ MessageDelegateBase {
 
         function showMessageMenu(): void {
             let event = root.ListView.view.model.findEvent(root.eventId);
-            RoomManager.viewEventMenu(event, root.room, root.Message.selectedText, root.Message.hoveredLink);
+            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.room, root.Message.selectedText, root.Message.hoveredLink);
         }
     }
 }

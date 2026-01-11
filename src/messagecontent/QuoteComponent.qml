@@ -68,7 +68,7 @@ QQC2.Control {
             acceptedButtons: Qt.LeftButton
             onLongPressed: {
                 const event = root.Message.room.findEvent(root.eventId);
-                RoomManager.viewEventMenu(event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+                RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
             }
         }
     }
