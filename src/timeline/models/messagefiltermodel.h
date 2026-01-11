@@ -68,6 +68,7 @@ public:
      * @brief Get the QModelIndex the given event ID in the model.
      */
     Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
+    Q_INVOKABLE QModelIndex indexForEventId(const QString &eventId) const;
 
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);

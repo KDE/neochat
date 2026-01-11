@@ -40,7 +40,7 @@ QQC2.ScrollView {
      * @brief Shift the view to the given event ID.
      */
     function goToEvent(eventId) {
-        const index = messageListView.model.indexforEventId(eventId)
+        const index = messageListView.model.indexForEventId(eventId)
         if (!index.valid) {
             messageListView.positionViewAtEnd();
             return;

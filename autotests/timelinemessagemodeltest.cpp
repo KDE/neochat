@@ -208,7 +208,7 @@ void TimelineMessageModelTest::idToRow()
     auto room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-min-sync.json"_s);
     model->setRoom(room);
 
-    QCOMPARE(model->indexforEventId(u"$153456789:example.org"_s).row(), 0);
+    QCOMPARE(model->indexForEventId(u"$153456789:example.org"_s).row(), 0);
 }
 
 void TimelineMessageModelTest::cleanup()

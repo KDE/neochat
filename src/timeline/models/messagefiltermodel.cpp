@@ -125,7 +125,7 @@ QHash<int, QByteArray> MessageFilterModel::roleNames() const
     return roles;
 }
 
-QModelIndex MessageFilterModel::indexforEventId(const QString &eventId) const
+QModelIndex MessageFilterModel::indexForEventId(const QString &eventId) const
 {
     // Check if sourceModel is a message model.
     auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
@@ -141,7 +141,7 @@ QModelIndex MessageFilterModel::indexforEventId(const QString &eventId) const
         }
     }
 
-    auto eventIndex = messageModel->indexforEventId(eventId);
+    auto eventIndex = messageModel->indexForEventId(eventId);
     if (!eventIndex.isValid()) {
         return {};
     }

@@ -113,9 +113,10 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * @brief Get the QModelIndex of the given event ID in the model.
+     * @brief Get the QModelIndex of the given event ID in the model, returning an invalid QModelIndex if no matches were found.
      */
     Q_INVOKABLE QModelIndex indexforEventId(const QString &eventId) const;
+    Q_INVOKABLE QModelIndex indexForEventId(const QString &eventId) const;
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 

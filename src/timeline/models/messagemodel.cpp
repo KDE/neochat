@@ -349,7 +349,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     return roles;
 }
 
-QModelIndex MessageModel::indexforEventId(const QString &eventId) const
+QModelIndex MessageModel::indexForEventId(const QString &eventId) const
 {
     if (m_room == nullptr) {
         return {};
