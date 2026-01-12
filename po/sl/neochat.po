@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-11 00:43+0000\n"
-"PO-Revision-Date: 2026-01-06 06:51+0100\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"PO-Revision-Date: 2026-01-11 08:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1100,7 +1100,7 @@ msgstr "Vir sporočila"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Videl"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1432,12 +1432,10 @@ msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "Uredi raven moči"
+msgstr "Raven moči"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1465,18 +1463,16 @@ msgstr[2] "in %1 druga…"
 msgstr[3] "in %1 drugi…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Zasebna"
+msgstr "Zasebna zabeležka"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Vidno samo vam"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1711,17 +1707,17 @@ msgstr ""
 "Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
 "Matrix"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:425
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Pridružitev %1 ni uspela:<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev v »%1«"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:453
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
@@ -3761,12 +3757,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/messagecontent/CodeComponent.qml:161
+#: src/messagecontent/CodeComponent.qml:164
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
-#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/CodeComponent.qml:176
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4036,18 +4032,18 @@ msgstr "Lokacije"
 msgid "There are no locations shared in this room."
 msgstr "Ni deljenih lokacij v tej sobi."
 
-#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Nastavitve sobe"
 
-#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:92
 #, kde-format
 msgid "Information"
 msgstr "Informacije"
 
-#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:97
 #, kde-format
 msgid "Media"
 msgstr "Mediji"
@@ -6137,12 +6133,10 @@ msgid "Room Version"
 msgstr "Različica sobe"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "Nadgradi sobo"
+msgstr "Nadgradi sobo…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-11 00:43+0000\n"
-"PO-Revision-Date: 2026-01-06 09:09+0100\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"PO-Revision-Date: 2026-01-11 05:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1096,7 +1096,7 @@ msgstr "შეტყობინების წყარო"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "ნახა ვინ"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1427,12 +1427,10 @@ msgid "Remove Messages"
 msgstr "შეტყობინებების წაშლა"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "მომხმარებლის წვდომის დონის დაყენება"
+msgstr "წვდომის დონე"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1458,18 +1456,16 @@ msgstr[0] "და კიდევ 1…"
 msgstr[1] "და კიდევ %1…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "პირადი"
+msgstr "პირადი შენიშვნა"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "ხილულია, მხოლოდ, თქვენთვის"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1693,17 +1689,17 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "არასწორი ან ცარიელი Matrix id<br />%1 Matrix-ის არასწორი იდენტიფიკატორია"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:425
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1-ში გაწევრების შეცდომა:<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "მოითხოვეთ '%1'-ზე შესვლა"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:453
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "ოთახში შესვლის მოთხოვნის შეცდომა<br />%1"
@@ -3745,12 +3741,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/messagecontent/CodeComponent.qml:161
+#: src/messagecontent/CodeComponent.qml:164
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "ბუფერში კოპირება"
 
-#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/CodeComponent.qml:176
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4013,18 +4009,18 @@ msgstr "მდებარეობები"
 msgid "There are no locations shared in this room."
 msgstr "ამ ოთახში მდებარეობები გაზიარებული არაა."
 
-#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "ოთახის მორგება"
 
-#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:92
 #, kde-format
 msgid "Information"
 msgstr "ინფორმაცია"
 
-#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:97
 #, kde-format
 msgid "Media"
 msgstr "მედია"
@@ -6113,12 +6109,10 @@ msgid "Room Version"
 msgstr "ოთახის ვერსია"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "ოთახის გაუმჯობესება"
+msgstr "ოთახის გაუმჯობესება…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format

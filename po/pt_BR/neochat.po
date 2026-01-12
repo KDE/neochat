@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-11 00:43+0000\n"
-"PO-Revision-Date: 2026-01-06 07:01-0300\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"PO-Revision-Date: 2026-01-11 06:58-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1107,7 +1107,7 @@ msgstr "Origem da mensagem"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Visto por"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1439,12 +1439,10 @@ msgid "Remove Messages"
 msgstr "Excluir mensagens"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "Definir nível de poder"
+msgstr "Nível de poder"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1470,18 +1468,16 @@ msgstr[0] "e 1 mais…"
 msgstr[1] "e %1 mais…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Privada"
+msgstr "Nota privada"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Somente visível por você"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1720,17 +1716,17 @@ msgstr ""
 "ID de Matrix malformado ou vazio<br />%1 não é um identificador Matrix "
 "correto"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:425
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Falha ao entrar em %1:<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Você solicitou entrar em '%1'"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:453
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Falha ao solicitar entrar na sala<br />%1"
@@ -3771,12 +3767,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/messagecontent/CodeComponent.qml:161
+#: src/messagecontent/CodeComponent.qml:164
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Copiar para a área de transferência"
 
-#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/CodeComponent.qml:176
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4039,18 +4035,18 @@ msgstr "Localizações"
 msgid "There are no locations shared in this room."
 msgstr "Não há locais compartilhados nesta sala."
 
-#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Configurações da sala"
 
-#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:92
 #, kde-format
 msgid "Information"
 msgstr "Informações"
 
-#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:97
 #, kde-format
 msgid "Media"
 msgstr "Mídia"
@@ -6141,12 +6137,10 @@ msgid "Room Version"
 msgstr "Versão da sala"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "Atualizar sala"
+msgstr "Atualizar sala…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format

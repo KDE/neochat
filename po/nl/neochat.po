@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-11 00:43+0000\n"
-"PO-Revision-Date: 2026-01-06 12:45+0100\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"PO-Revision-Date: 2026-01-11 14:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1101,7 +1101,7 @@ msgstr "Berichtinhoud"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Gezien door"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1434,12 +1434,10 @@ msgid "Remove Messages"
 msgstr "Berichten verwijderen"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "Niveau van macht instellen"
+msgstr "Energieniveau"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1465,18 +1463,16 @@ msgstr[0] "en 1 meer…"
 msgstr[1] "en %1 meer…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Privé"
+msgstr "Privé notitie"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Alleen voor u zichtbaar"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1719,17 +1715,17 @@ msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Onjuist gevormde of lege Matrix-id<br />%1 is geen juiste Matrix-identifier"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:425
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Deelnemen aan %1 is mislukt<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:449
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "U verzocht om mee te doen met '%1'"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:453
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Verzoek om mee te doen met room is mislukt<br />%1"
@@ -3771,12 +3767,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/messagecontent/CodeComponent.qml:161
+#: src/messagecontent/CodeComponent.qml:164
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Naar klembord kopiëren"
 
-#: src/messagecontent/CodeComponent.qml:173
+#: src/messagecontent/CodeComponent.qml:176
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4039,18 +4035,18 @@ msgstr "Locaties"
 msgid "There are no locations shared in this room."
 msgstr "Er worden geen locaties in deze room gedeeld."
 
-#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:49
+#: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Room settings"
 msgstr "Roominstellingen"
 
-#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:91
+#: src/roominfo/RoomDrawer.qml:171 src/roominfo/RoomDrawerPage.qml:92
 #, kde-format
 msgid "Information"
 msgstr "Informatie"
 
-#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:96
+#: src/roominfo/RoomDrawer.qml:176 src/roominfo/RoomDrawerPage.qml:97
 #, kde-format
 msgid "Media"
 msgstr "Media"
@@ -6145,12 +6141,10 @@ msgid "Room Version"
 msgstr "Versie van room"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "Room opwaarderen"
+msgstr "Room opwaarderen…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
