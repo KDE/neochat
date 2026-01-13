@@ -31,7 +31,7 @@ Kirigami.Page {
         Keys.onReturnPressed: event => {
             if (event.modifiers & Qt.ControlModifier) {
                 root.accepted(reason.text);
-                root.closeDialog();
+                root.Kirigami.PageStack.closeDialog();
             }
         }
 
@@ -52,14 +52,14 @@ Kirigami.Page {
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
                 onClicked: {
                     root.accepted(reason.text);
-                    root.closeDialog();
+                    root.Kirigami.PageStack.closeDialog();
                 }
             }
             QQC2.Button {
                 icon.name: "dialog-cancel-symbolic"
                 text: i18nc("@action", "Cancel")
                 QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
-                onClicked: root.closeDialog()
+                onClicked: root.Kirigami.PageStack.closeDialog()
             }
         }
     }
