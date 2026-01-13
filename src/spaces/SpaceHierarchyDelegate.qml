@@ -120,7 +120,7 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.canRemove
-                text: i18nc("@button", "Remove")
+                text: i18nc("@button", "Remove…")
                 icon.name: "list-remove"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: {
