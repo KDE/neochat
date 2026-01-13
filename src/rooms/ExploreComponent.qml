@@ -33,7 +33,17 @@ RowLayout {
     Kirigami.Heading {
         Layout.fillWidth: true
         visible: !root.collapsed
-        text: i18nc("@title", "Rooms")
+        text: {
+            if (Kirigami.Settings.isMobile) {
+                if (RoomManager.currentSpace === '') {
+                    return i18nc("@title Home space", "Home");
+                } else if(RoomManager.currentSpace === 'DM') {
+                    return i18nc("@title", "Direct Messages");
+                }
+                return root.connection.room(RoomManager.currentSpace).displayName;
+            }
+            return i18nc("@title List of rooms", "Rooms");
+        }
     }
     Item {
         Layout.fillWidth: true

@@ -61,6 +61,7 @@ QQC2.Control {
                     contentItem: Kirigami.Icon {
                         source: "notifications"
                     }
+                    visible: !Kirigami.Settings.isMobile // Shows up in the mobile bar instead
 
                     activeFocusOnTab: true
 
@@ -73,6 +74,8 @@ QQC2.Control {
                 }
 
                 Kirigami.Separator {
+                    visible: notificationsButton.visible
+
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.smallSpacing
                     Layout.rightMargin: Kirigami.Units.smallSpacing
