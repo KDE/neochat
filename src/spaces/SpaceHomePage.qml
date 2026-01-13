@@ -77,7 +77,7 @@ ColumnLayout {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 QQC2.Button {
                     visible: root.room.canSendState("invite")
-                    text: i18nc("@button", "Invite user to space")
+                    text: i18nc("@button Invite user to this space", "Invite to Space…")
                     icon.name: "list-add-user"
                     onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.libneochat', 'InviteUserPage'), {
                         room: root.room
@@ -89,14 +89,14 @@ ColumnLayout {
                     id: addNewButton
 
                     visible: root.room.canSendState("m.space.child")
-                    text: i18nc("@button", "Add to Space")
+                    text: i18nc("@button", "Add to Space…")
                     icon.name: "list-add"
                     onClicked: {
                         (roomMenuComponent.createObject(addNewButton) as KirigamiComponents.ConvergentContextMenu).popup();
                     }
                 }
                 QQC2.Button {
-                    text: i18nc("@action:button", "Leave this space…")
+                    text: i18nc("@action:button", "Leave this Space…")
                     icon.name: "go-previous"
                     onClicked: (Qt.createComponent('org.kde.neochat', 'ConfirmLeaveDialog').createObject(root.QQC2.ApplicationWindow.window, {
                         room: root.room
