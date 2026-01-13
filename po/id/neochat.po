@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2023-06-16 19:31+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1013,7 +1013,7 @@ msgid "Add option"
 msgstr "Tambahkan Emoji"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -2416,7 +2416,7 @@ msgstr "Kustom"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -5846,147 +5846,175 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Anggota"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Pengguna Berizin"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Tidak ada ruangan yang ditemukan"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Memuat..."
+
+#: src/settings/models/permissionsmodel.cpp:61
 #, fuzzy
 #| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "Tingkat daya pengguna bawaan"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
 #, fuzzy
 #| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 #, fuzzy
 #| msgid "Default power level to send messages"
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Tingkat daya bawaan untuk mengirim pesan"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 #, fuzzy
 #| msgid "Invite users"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Undang pengguna"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 #, fuzzy
 #| msgid "Kick users"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Keluarkan pengguna"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 #, fuzzy
 #| msgid "Ban users"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Cekal pengguna"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 #, fuzzy
 #| msgid "Remove message sent by other users"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Hapus pesan dari pengguna lain"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 #, fuzzy
 #| msgid "Send a Location"
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Kirim Lokasi"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 #, fuzzy
 #| msgid "Remove Messages"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Hapus Pesan"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 #, fuzzy
 #| msgid "Change user permissions"
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Ubah perizinan pengguna"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 #, fuzzy
 #| msgid "Change the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Ubah nama ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 #, fuzzy
 #| msgid "Change the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Ubah avatar ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 #, fuzzy
 #| msgid "Change the room canonical alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Ubah alias kanonik ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 #, fuzzy
 #| msgid "Change the room topic"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Ubah topik ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 #, fuzzy
 #| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Aktifkan enkripsi untuk ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 #, fuzzy
 #| msgid "Change the room history visibility"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Ubah keterlihatan riwayat ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
 #, fuzzy
-#| msgid "Set pinned events"
+#| msgid "Send a message…"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Tetapkan peristiwa yang disematkan"
+msgid "Pin and unpin messages"
+msgstr "Kirim pesan…"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 #, fuzzy
 #| msgid "Upgrade the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Tingkatkan ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 #, fuzzy
 #| msgid "Set the room server access control list (ACL)"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 #, fuzzy
 #| msgid "Set the children of this space"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Tetapkan anak dari space ini"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 #, fuzzy
 #| msgid "Set the parent space of this room"
 msgctxt "Room permission type"
@@ -5995,29 +6023,61 @@ msgstr "Tetapkan space induk dari ruangan ini"
 
 #: src/settings/models/permissionsmodel.cpp:82
 #, fuzzy
+#| msgid "Send this location"
+msgctxt "Room permission type"
+msgid "Send live location updates"
+msgstr "Kirim lokasi ini"
+
+#: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "started a poll"
+msgctxt "Room permission type"
+msgid "Start polls"
+msgstr "memulai pemungutan suara"
+
+#: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Buka Berkas"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Tutup"
+
+#: src/settings/models/permissionsmodel.cpp:90
+#, fuzzy
 #| msgid "This is power level for all new users when joining the room"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
+msgid "This is the power level for all new users when joining the room."
 msgstr ""
 "Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
 
-#: src/settings/models/permissionsmodel.cpp:83
+#: src/settings/models/permissionsmodel.cpp:91
 #, fuzzy
 #| msgid ""
 #| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
+msgid ""
+"This is used for all state-type events that do not have their own entry."
 msgstr ""
 "Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
 "sendiri di sini"
 
-#: src/settings/models/permissionsmodel.cpp:84
+#: src/settings/models/permissionsmodel.cpp:92
 #, fuzzy
 #| msgid ""
 #| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 "Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
 "sini"
@@ -6645,51 +6705,52 @@ msgstr "Kata sandi:"
 
 #: src/settings/Permissions.qml:36
 #, fuzzy, kde-format
-#| msgid "Privileged Users"
+#| msgid "Set user power level"
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Pengguna Berizin"
+msgid "Power Levels"
+msgstr "Tetapkan tingkat daya pengguna"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
-#| msgid "Default permissions"
+#| msgid "<message>"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "Perizinan bawaan"
+msgid "Messages"
+msgstr "<pesan>"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:114
 #, fuzzy, kde-format
-#| msgid "Basic permissions"
+#| msgid "Moderator (50)"
 msgctxt "@title"
-msgid "Basic permissions"
-msgstr "Perizinan dasar"
+msgid "Moderation"
+msgstr "Moderator (50)"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, fuzzy, kde-format
-#| msgid "Event permissions"
+#| msgid "General"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "Perizinan peristiwa"
+msgid "General"
+msgstr "Umum"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgid "Timeline Events"
+msgctxt "@title"
+msgid "Other Events"
+msgstr "Peristiwa Lini Masa"
+
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Tambahkan kata kunci"
-
-#: src/settings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Memuat..."
 
 #: src/settings/PowerLevelDialog.qml:15
 #, fuzzy, kde-format
@@ -6777,13 +6838,6 @@ msgstr "Pilih versi baru"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Konfirmasi"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Umum"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
@@ -7196,19 +7250,26 @@ msgstr "Pengaturan Rsuangan"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Anggota"
+
+#: src/settings/RoomSettingsView.qml:71
+#, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Perizinan"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, fuzzy, kde-format
 #| msgid "a file"
 msgctxt "@title"
 msgid "Profile"
 msgstr "sebuah berkas"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7967,6 +8028,30 @@ msgstr[0] "%2 sedang mengetik"
 msgstr[1] "%2 sedang mengetik"
 
 #, fuzzy
+#~| msgid "Set pinned events"
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Tetapkan peristiwa yang disematkan"
+
+#, fuzzy
+#~| msgid "Default permissions"
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Perizinan bawaan"
+
+#, fuzzy
+#~| msgid "Basic permissions"
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "Perizinan dasar"
+
+#, fuzzy
+#~| msgid "Event permissions"
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Perizinan peristiwa"
+
+#, fuzzy
 #~| msgid "Remove from Favourites"
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
@@ -8149,12 +8234,6 @@ msgstr[1] "%2 sedang mengetik"
 #~| msgid "Search in this room"
 #~ msgid "Show locations for this room"
 #~ msgstr "Cari di ruangan ini"
-
-#, fuzzy
-#~| msgid "Send a message…"
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Kirim pesan…"
 
 #, fuzzy
 #~| msgid "Leaving this room."

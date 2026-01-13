@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -970,7 +970,7 @@ msgid "Add option"
 msgstr "इमोजी जोड़ें"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2343,7 +2343,7 @@ msgstr "रिवाज़"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5610,127 +5610,207 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "सदस्यों"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "विशेषाधिकार प्राप्त उपयोगकर्ता"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "No users found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "कोई उपयोगकर्ता नहीं मिला"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "लोड हो रहा है…"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "डिफ़ॉल्ट उपयोगकर्ता पावर स्तर"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "कमरे की स्थिति निर्धारित करने के लिए डिफ़ॉल्ट पावर स्तर"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "संदेश भेजने के लिए डिफ़ॉल्ट पावर स्तर"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "उपयोगकर्ताओं को आमंत्रित करें"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "किक उपयोगकर्ता"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "उपयोगकर्ताओं पर प्रतिबंध लगाएँ"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "अन्य उपयोगकर्ताओं द्वारा भेजे गए संदेश हटाएं"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "प्रतिक्रियाएँ भेजें"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "अपने स्वयं के संदेश हटाएँ"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "उपयोगकर्ता अनुमतियाँ बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "कमरे का नाम बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "कमरे का अवतार बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "कमरे का विहित उपनाम बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "कमरे का विषय बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "कमरे के लिए एन्क्रिप्शन सक्षम करें"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "कमरे के इतिहास की दृश्यता बदलें"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgid "Find messages…"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "पिन किए गए ईवेंट सेट करें"
+msgid "Pin and unpin messages"
+msgstr "संदेश खोजें…"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "कमरे को अपग्रेड करें"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "रूम सर्वर एक्सेस नियंत्रण सूची (ACL) सेट करें"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "इस स्थान के बच्चों को सेट करें"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "इस कमरे का मूल स्थान सेट करें"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "यह रूम में शामिल होने वाले सभी नए उपयोगकर्ताओं के लिए पावर लेवल है"
+msgid "Send live location updates"
+msgstr "यह स्थान भेजें"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "%1 started a poll"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
+msgid "Start polls"
+msgstr "%1 ने मतदान शुरू किया"
+
+#: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "खुली फाइल"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "बंद करना"
+
+#: src/settings/models/permissionsmodel.cpp:90
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "This is the power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr "यह रूम में शामिल होने वाले सभी नए उपयोगकर्ताओं के लिए पावर लेवल है"
+
+#: src/settings/models/permissionsmodel.cpp:91
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all state-type events that do not have their own entry."
 msgstr ""
 "इसका उपयोग उन सभी राज्य कार्यक्रमों के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं "
 "है"
 
-#: src/settings/models/permissionsmodel.cpp:84
+#: src/settings/models/permissionsmodel.cpp:92
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 "इसका उपयोग उन सभी संदेश घटनाओं के लिए किया जाता है जिनकी यहां अपनी प्रविष्टि नहीं है"
 
@@ -6320,52 +6400,53 @@ msgstr "पासवर्ड:"
 
 #: src/settings/Permissions.qml:36
 #, fuzzy, kde-format
-#| msgid "Privileged Users"
+#| msgid "Set user power level"
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "विशेषाधिकार प्राप्त उपयोगकर्ता"
+msgid "Power Levels"
+msgstr "उपयोगकर्ता पावर स्तर सेट करें"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
-#| msgid "Default permissions"
+#| msgid "<message>"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "डिफ़ॉल्ट अनुमतियाँ"
+msgid "Messages"
+msgstr "<संदेश>"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:114
 #, fuzzy, kde-format
-#| msgid "Basic permissions"
+#| msgid "Moderator"
 msgctxt "@title"
-msgid "Basic permissions"
-msgstr "बुनियादी अनुमतियाँ"
+msgid "Moderation"
+msgstr "मध्यस्थ"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, fuzzy, kde-format
-#| msgid "Event permissions"
+#| msgid "General"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "इवेंट अनुमतियाँ"
+msgid "General"
+msgstr "सामान्य"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgid "Show state events"
+msgctxt "@title"
+msgid "Other Events"
+msgstr "राज्य की घटनाएँ दिखाएँ"
+
+#: src/settings/Permissions.qml:250
 #, fuzzy, kde-format
 #| msgid "Event Type…"
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "इवेंट प्रकार…"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "कीवर्ड जोड़ें"
-
-#: src/settings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "लोड हो रहा है…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6452,13 +6533,6 @@ msgstr "नया संस्करण चुनें"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "पुष्टि करना"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "सामान्य"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
@@ -6858,19 +6932,26 @@ msgstr "कमरे की सेटिंग"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "सदस्यों"
+
+#: src/settings/RoomSettingsView.qml:71
+#, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title"
 msgid "Permissions"
 msgstr "अनुमतियां"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, fuzzy, kde-format
 #| msgid "a file"
 msgctxt "@title"
 msgid "Profile"
 msgstr "एक फ़ाइल"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7606,6 +7687,28 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 टाइप कर रहे हैं"
 msgstr[1] "%2 टाइप कर रहे हैं"
 
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "पिन किए गए ईवेंट सेट करें"
+
+#, fuzzy
+#~| msgid "Default permissions"
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "डिफ़ॉल्ट अनुमतियाँ"
+
+#, fuzzy
+#~| msgid "Basic permissions"
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "बुनियादी अनुमतियाँ"
+
+#, fuzzy
+#~| msgid "Event permissions"
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "इवेंट अनुमतियाँ"
+
 #, fuzzy
 #~| msgid "Remove from Favorites"
 #~ msgctxt "@action:button"
@@ -7782,12 +7885,6 @@ msgstr[1] "%2 टाइप कर रहे हैं"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "इस कमरे के लिए स्थान दिखाएँ"
-
-#, fuzzy
-#~| msgid "Find messages…"
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "संदेश खोजें…"
 
 #, fuzzy
 #~| msgctxt "@action:button"

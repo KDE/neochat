@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -929,7 +929,7 @@ msgid "Add option"
 msgstr "옵션 추가"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2238,7 +2238,7 @@ msgstr "사용자 정의"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5428,125 +5428,205 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "구성원"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "상위 권한 사용자"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "No users found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "사용자를 찾을 수 없음"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, kde-format
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "불러오는 중…"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "기본 사용자 권한 수준"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "대화방 상태를 설정할 수 있는 기본 권한 수준"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "메시지를 보낼 수 있는 기본 권한 수준"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "사용자 초대"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "사용자 추방"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "사용자 차단"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "다른 사용자가 보낸 메시지 삭제"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "반응 보내기"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "자기 자신의 메시지 삭제"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "사용자 권한 변경"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "대화방 이름 변경"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "대화방 아바타 변경"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "대화방 주 별명 변경"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "대화방 주제 변경"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "대화방 암호화 활성화"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "대화방 과거 기록 표시 여부 변경"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Pinned messages"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "고정된 이벤트 설정"
+msgid "Pin and unpin messages"
+msgstr "고정된 메시지"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "대화방 업그레이드"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "대화방 서버 접근 권한 목록(ACL) 설정"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "이 스페이스의 하위 항목 설정"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "이 대화방의 상위 스페이스 설정"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "대화방에 새로 입장한 모든 사용자의 권한 수준입니다"
+msgid "Send live location updates"
+msgstr "이 위치 보내기"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "%1 started a poll"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr "여기에 항목이 없는 모든 상태 이벤트에 적용됩니다"
+msgid "Start polls"
+msgstr "%1 님이 투표를 시작함"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Open poll"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "개방형 투표"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Closed poll"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "폐쇄형 투표"
+
+#: src/settings/models/permissionsmodel.cpp:90
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "This is the power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr "대화방에 새로 입장한 모든 사용자의 권한 수준입니다"
+
+#: src/settings/models/permissionsmodel.cpp:91
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr "여기에 항목이 없는 모든 상태 이벤트에 적용됩니다"
+
+#: src/settings/models/permissionsmodel.cpp:92
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr "여기에 항목이 없는 모든 메시지 이벤트에 적용됩니다"
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6124,46 +6204,53 @@ msgid "Password:"
 msgstr "암호:"
 
 #: src/settings/Permissions.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
+msgctxt "@title"
+msgid "Power Levels"
+msgstr "사용자 권한 수준 설정"
+
+#: src/settings/Permissions.qml:75
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title"
+msgid "Messages"
+msgstr "<메시지>"
+
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "중재자"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, kde-format
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "상위 권한 사용자"
+msgid "General"
+msgstr "일반"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Fetch More Events"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "기본 권한"
+msgid "Other Events"
+msgstr "더 많은 이벤트 가져오기"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
-msgctxt "@title"
-msgid "Basic permissions"
-msgstr "기본 권한"
-
-#: src/settings/Permissions.qml:313
-#, kde-format
-msgctxt "@title"
-msgid "Event permissions"
-msgstr "이벤트 권한"
-
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "이벤트 형식…"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "키워드 추가"
-
-#: src/settings/Permissions.qml:412
-#, kde-format
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "불러오는 중…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6243,12 +6330,6 @@ msgstr "새 버전 선택"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "확인"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "일반"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, kde-format
@@ -6622,18 +6703,25 @@ msgid "Room Settings"
 msgstr "대화방 설정"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "구성원"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "권한"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Profile"
 msgstr "프로필"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7312,6 +7400,22 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "고정된 이벤트 설정"
+
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "기본 권한"
+
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "기본 권한"
+
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "이벤트 권한"
+
 #, fuzzy
 #~| msgctxt "@action:inmenu"
 #~| msgid "Remove from Favorites"
@@ -7477,10 +7581,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "이 대화방에서 위치 표시"
-
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "고정된 메시지"
 
 #~ msgctxt "@action:button"
 #~ msgid "Leave this room…"

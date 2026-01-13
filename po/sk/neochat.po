@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -992,7 +992,7 @@ msgid "Add option"
 msgstr "Pridať do slovníka"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title"
@@ -2349,7 +2349,7 @@ msgstr "Vlastné"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -5825,137 +5825,165 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Členovia"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Ignorovať tohto používateľa"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Načítava sa…"
+
+#: src/settings/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 #, fuzzy
 #| msgid "Invite a User"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Pozvať používateľa"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 #, fuzzy
 #| msgid "Kick this user"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Vyhodiť tohto používateľa"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 #, fuzzy
 #| msgid "Ban this user"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Zakázať tomuto používateľovi prístup"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 #, fuzzy
 #| msgid "Ignore this user"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 #, fuzzy
 #| msgid "Send invitation"
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Odoslať pozvanie"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 #, fuzzy
 #| msgid "Edit Message"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Upraviť správu"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 #, fuzzy
 #| msgid "cleared the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "vyčistil názov miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "zmenil avatara miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 #, fuzzy
 #| msgid "cleared the room main alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "vyčistil hlavný alias miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "zmenil avatara miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 #, fuzzy
 #| msgid "Enable encryption for the room"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Povoliť šifrovanie pre túto miestnosť"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "zmenil avatara miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
 #, fuzzy
-#| msgid "Show leave and join events"
+#| msgid "Send message"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Zobraziť udalosti príchodu a odchodu"
+msgid "Pin and unpin messages"
+msgstr "Nájsť správy"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 #, fuzzy
 #| msgid "left the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "opustil miestnosť"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 #, fuzzy
 #| msgid "invited %1 to the room"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "pozval %1 do miestnosti"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 #, fuzzy
 #| msgid "invited %1 to the room"
 msgctxt "Room permission type"
@@ -5963,19 +5991,51 @@ msgid "Set the parent space of this room"
 msgstr "pozval %1 do miestnosti"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Show notifications"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgid "Send live location updates"
+msgstr "Zobraziť upozornenia"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "Start a Chat"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgid "Start polls"
+msgstr "Začať rozhovor"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Otvoriť súbor"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Zatvoriť"
+
+#: src/settings/models/permissionsmodel.cpp:90
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:92
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6599,50 +6659,53 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Ignorovať tohto používateľa"
+msgid "Power Levels"
+msgstr ""
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
+#| msgid "Send message"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "Základné oprávnenia"
+msgid "Messages"
+msgstr "Odoslať správu"
 
-#: src/settings/Permissions.qml:273
+#: src/settings/Permissions.qml:114
 #, fuzzy, kde-format
+#| msgid "Options"
 msgctxt "@title"
-msgid "Basic permissions"
-msgstr "Základné oprávnenia"
+msgid "Moderation"
+msgstr "Voľby"
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, fuzzy, kde-format
+#| msgid "General"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "Práva"
+msgid "General"
+msgstr "Všeobecné"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgid "Show leave and join events"
+msgctxt "@title"
+msgid "Other Events"
+msgstr "Zobraziť udalosti príchodu a odchodu"
+
+#: src/settings/Permissions.qml:250
 #, fuzzy, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Typ udalosti"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Delete"
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Vymazať"
-
-#: src/settings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Načítava sa…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6728,13 +6791,6 @@ msgstr "Zobraziť novú miestnosť..."
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Potvrdiť"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Všeobecné"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
@@ -7134,18 +7190,25 @@ msgstr "Nastavenia miestnosti"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Členovia"
+
+#: src/settings/RoomSettingsView.qml:71
+#, fuzzy, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Práva"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, fuzzy, kde-format
 #| msgid "a file"
 msgctxt "@title"
 msgid "Profile"
 msgstr "súbor"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7895,6 +7958,27 @@ msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
 #, fuzzy
+#~| msgid "Show leave and join events"
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Zobraziť udalosti príchodu a odchodu"
+
+#, fuzzy
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Základné oprávnenia"
+
+#, fuzzy
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "Základné oprávnenia"
+
+#, fuzzy
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Práva"
+
+#, fuzzy
 #~| msgid "Remove from Favorites"
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
@@ -8075,12 +8159,6 @@ msgstr[2] "%2 píšu"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "Otvoriť miesta v tejto miestnosti"
-
-#, fuzzy
-#~| msgid "Send message"
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Nájsť správy"
 
 #, fuzzy
 #~| msgid "Open NeoChat in this room"

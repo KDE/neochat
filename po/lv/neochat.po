@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -922,7 +922,7 @@ msgid "Add option"
 msgstr "Pievienot opciju"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2247,7 +2247,7 @@ msgstr "Pielāgots"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5397,128 +5397,208 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr "Iet uz nākamo nelasīto istabu"
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Dalībnieki"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Priviliģētie lietotāji"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "No users found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Lietotāji nav atrasti"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, kde-format
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Ielādē…"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "Lietotāju noklusējuma privilēģiju līmenis"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "Noklusējuma privilēģiju līmenis, lai mainītu istabas statusu"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Noklusējuma privilēģiju līmenis, lai sūtītu ziņas"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Uzaicināt lietotājus"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Izmest lietotājus"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Aizliegt lietotājus"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Noņemt citu lietotāju sūtītas ziņas"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Sūtīt reakcijas"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Noņemt viņu pašu ziņas"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Mainīt lietotāja atļaujas"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Mainīt istabas nosaukumu"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Mainīt istabas attēlu"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Mainīt istabas kanonisko aizstājējvārdu"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Mainīt istabas tēmu"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Ieslēgt šifrēšanu istabai"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Mainīt istabas vēstures redzamību"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Pinned messages"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Iestatīt piespraustos notikumus"
+msgid "Pin and unpin messages"
+msgstr "Piespraustās ziņas"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Atjaunināt istabu"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Iestatīt istabas servera piekļuves kontrole sarakstu (ACL)"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Šīs telpas bērnobjekti"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Iestatīt istabai vecākobjekta telpu"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
+msgid "Send live location updates"
+msgstr "Nosūtīt šo atrašanās vietu"
+
+#: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "%1 started a poll"
+msgctxt "Room permission type"
+msgid "Start polls"
+msgstr "%1 uzsāka aptauju"
+
+#: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Open poll"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Atvērt aptauju"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Closed poll"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Aizvērt aptauju"
+
+#: src/settings/models/permissionsmodel.cpp:90
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "This is the power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
 msgstr ""
 "Šis ir privilēģiju līmenis visiem jaunajiem lietotājiem, pievienojoties "
 "istabai"
 
-#: src/settings/models/permissionsmodel.cpp:83
+#: src/settings/models/permissionsmodel.cpp:91
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
+msgid ""
+"This is used for all state-type events that do not have their own entry."
 msgstr ""
 "Šo vērtību lieto visiem statusa notikumiem, kuriem te nav sava ieraksta"
 
-#: src/settings/models/permissionsmodel.cpp:84
+#: src/settings/models/permissionsmodel.cpp:92
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all message-type events that do not have their own entry."
 msgstr "Šo vērtību lieto visiem ziņu notikumiem, kuriem te nav sava ieraksta"
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6091,46 +6171,53 @@ msgid "Password:"
 msgstr "Parole:"
 
 #: src/settings/Permissions.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
+msgctxt "@title"
+msgid "Power Levels"
+msgstr "Iestatīt privilēģiju līmeni"
+
+#: src/settings/Permissions.qml:75
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title"
+msgid "Messages"
+msgstr "<ziņa>"
+
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "Moderators"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, kde-format
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Priviliģētie lietotāji"
+msgid "General"
+msgstr "Pamata"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Fetch More Events"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "Noklusējuma atļaujas"
+msgid "Other Events"
+msgstr "Izgūt vairāk notikumu"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
-msgctxt "@title"
-msgid "Basic permissions"
-msgstr "Pamata atļaujas"
-
-#: src/settings/Permissions.qml:313
-#, kde-format
-msgctxt "@title"
-msgid "Event permissions"
-msgstr "Notikuma atļaujas"
-
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Notikuma tips…"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Pievienot atslēgvārdu"
-
-#: src/settings/Permissions.qml:412
-#, kde-format
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Ielādē…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6209,12 +6296,6 @@ msgstr "Atlasiet jauno versiju"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Apstiprināt"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "Pamata"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, kde-format
@@ -6593,18 +6674,25 @@ msgid "Room Settings"
 msgstr "Istabas iestatījumi"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Dalībnieki"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Atļaujas"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Profile"
 msgstr "Profils"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7297,6 +7385,22 @@ msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
 
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Iestatīt piespraustos notikumus"
+
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Noklusējuma atļaujas"
+
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "Pamata atļaujas"
+
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Notikuma atļaujas"
+
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
 #~ msgstr "Noņemt no izlases"
@@ -7454,10 +7558,6 @@ msgstr[2] "%2 raksta"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "Parādīt šīs istabas atrašanās vietas"
-
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Piespraustās ziņas"
 
 #~ msgctxt "@action:button"
 #~ msgid "Leave this room…"

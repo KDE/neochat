@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2026-01-11 08:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -919,7 +919,7 @@ msgid "Add option"
 msgstr "Dodaj možnost"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2204,7 +2204,7 @@ msgstr "Po meri"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5344,125 +5344,205 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr "Pojdi v naslednjo neprebrano sobo"
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Člani"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Uporabniki s prednostjo"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "No users found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Ni najdenih uporabnikov"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, kde-format
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Nalaganje…"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "Raven moči privzetega uporabnika"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "Privzeta raven moči za nastavitev sobe"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Privzeta raven moči za pošiljanje sporočil"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Povabi uporabnike"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Brcni uporabnike"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Prepovej uporabnike"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Odstrani sporočila poslana od drugih uporabnikov"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Pošlji reakcije"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Odstrani njihova lastna sporočila"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Spremeni dovoljenja uporabnikov"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Spremeni ime sobe"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Spremeni avatarja sobe"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Spremeni kanonični vzdevek sobe"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Spremeni temo sobe"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Omogoči šifriranje za sobo"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Spremeni vidnost zgodovine sobe"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgctxt "@action:button"
+#| msgid "Pinned messages"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Nastavi pripete dogodke"
+msgid "Pin and unpin messages"
+msgstr "Pripeta sporočila"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Nadgradi sobo"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Nastavi seznam nadzora dostopa do strežnika te sobe"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Nastavi otroke tega prostora"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Nastavi prostor staršev te sobe"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr "To je raven moči za vse nove uporabnike, ko se pridružijo v sobi"
+msgid "Send live location updates"
+msgstr "Pošlji to lokacijo"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "%1 started a poll"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr "To je uporabljeno za vse dogodke, ki nimajo lastnega vnosa tukaj"
+msgid "Start polls"
+msgstr "%1 je začel glasovanje"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Open poll"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Odprto glasovanje"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Closed poll"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Zaprto glasovanje"
+
+#: src/settings/models/permissionsmodel.cpp:90
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "This is the power level for all new users when joining the room"
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr "To je raven moči za vse nove uporabnike, ko se pridružijo v sobi"
+
+#: src/settings/models/permissionsmodel.cpp:91
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr "To je uporabljeno za vse dogodke, ki nimajo lastnega vnosa tukaj"
+
+#: src/settings/models/permissionsmodel.cpp:92
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid ""
+#| "This is used for all message events that do not have their own entry here"
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 "To je uporabljeno za vse sporočilne dogodke, ki nimajo lastnega vnosa tukaj"
 
@@ -6039,46 +6119,55 @@ msgid "Password:"
 msgstr "Geslo:"
 
 #: src/settings/Permissions.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
+#| msgid "Power Level"
+msgctxt "@title"
+msgid "Power Levels"
+msgstr "Raven moči"
+
+#: src/settings/Permissions.qml:75
+#, fuzzy, kde-format
+#| msgctxt "@action:intoolbar Message this user directly"
+#| msgid "Message"
+msgctxt "@title"
+msgid "Messages"
+msgstr "Sporočilo"
+
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@title Moderation actions for this user"
+#| msgid "Moderation"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "Moderiranje"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, kde-format
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Uporabniki s prednostjo"
+msgid "General"
+msgstr "Splošno"
 
-#: src/settings/Permissions.qml:233
-#, kde-format
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Fetch More Events"
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "Privzeta dovoljenja"
+msgid "Other Events"
+msgstr "Pridobi več dogodkov"
 
-#: src/settings/Permissions.qml:273
-#, kde-format
-msgctxt "@title"
-msgid "Basic permissions"
-msgstr "Osnovna dovoljenja"
-
-#: src/settings/Permissions.qml:313
-#, kde-format
-msgctxt "@title"
-msgid "Event permissions"
-msgstr "Dovoljenja dogodkov"
-
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Vrsta dogodka…"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Dodaj ključno besedo"
-
-#: src/settings/Permissions.qml:412
-#, kde-format
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Nalaganje…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6155,12 +6244,6 @@ msgstr "Izberi novo različico"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Potrdi"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "Splošno"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, kde-format
@@ -6527,18 +6610,25 @@ msgid "Room Settings"
 msgstr "Nastavitve sobe"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Člani"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Dovoljenja"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7228,6 +7318,22 @@ msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
 
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Nastavi pripete dogodke"
+
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Privzeta dovoljenja"
+
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "Osnovna dovoljenja"
+
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Dovoljenja dogodkov"
+
 #~ msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 #~ msgid "Role"
 #~ msgstr "Vloga"
@@ -7385,10 +7491,6 @@ msgstr[3] "%2 tipkajo"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "Pokaži mesta za to sobo"
-
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Pripeta sporočila"
 
 #~ msgctxt "@action:button"
 #~ msgid "Leave this room…"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2025-12-15 22:01+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -935,7 +935,7 @@ msgid "Add option"
 msgstr "Antwort hinzufügen"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -2267,7 +2267,7 @@ msgstr "Benutzerdefiniert"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5454,20 +5454,51 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr ""
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Mitglieder"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Privilegierte Benutzer"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "No users found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Keine Benutzer gefunden"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, kde-format
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Wird geladen …"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgid "New power level"
+msgctxt "Room permission type"
+msgid "Default power level"
+msgstr "Neu Berechtigungsstufe"
+
+#: src/settings/models/permissionsmodel.cpp:62
 #, fuzzy
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "Die Berechtigungsstufen des Raumes wurden geändert"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 #, fuzzy
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
@@ -5475,114 +5506,145 @@ msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "Die Berechtigungsstufen des Raumes wurden geändert"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Benutzer einladen"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Benutzer rauswerfen"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Benutzer verbannen"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 #, fuzzy
 #| msgid "Remove recent messages by this user"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Reaktionen senden"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Eigene Nachrichten löschen"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "Benutzerrechte ändern"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Raumnamen ändern"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Raumbild ändern"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "Hauptklarkennung des Raumes ändern"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Thema des Raumes ändern"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Verschlüsselung des Raumes aktivieren"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Sichtbarkeit des Nachrichtenverlaufs ändern"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
 #, fuzzy
-#| msgid "Timeline Events"
+#| msgid "Find messages…"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Zeitleisten-Ereignisse"
+msgid "Pin and unpin messages"
+msgstr "Nachrichten suchen …"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "Raum aktualisieren"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Server-Zugangskontrollliste des Raumes ändern"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Nachgeordnete Elemente dieser Umgebung festlegen"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "Die übergeordnete Umgebung dieses Raumes festlegen"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgid "Send live location updates"
+msgstr "Diesen Standort senden"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "%1 started a poll"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgid "Start polls"
+msgstr "%1 haben eine Abstimmung gestartet"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Open poll"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Offene Abstimmung"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgctxt "@item:inlistbox"
+#| msgid "Closed poll"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Geschlossene Abstimmung"
+
+#: src/settings/models/permissionsmodel.cpp:90
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:92
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6170,47 +6232,53 @@ msgid "Password:"
 msgstr "Passwort:"
 
 #: src/settings/Permissions.qml:36
-#, kde-format
-msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Privilegierte Benutzer"
-
-#: src/settings/Permissions.qml:233
-#, kde-format
-msgctxt "@title"
-msgid "Default permissions"
-msgstr "Standard-Berechtigungen"
-
-#: src/settings/Permissions.qml:273
-#, kde-format
-msgctxt "@title"
-msgid "Basic permissions"
-msgstr "Einfache Berechtigungen"
-
-#: src/settings/Permissions.qml:313
 #, fuzzy, kde-format
-#| msgid "Event permissions"
+#| msgctxt "@action:button"
+#| msgid "Set user power level"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "Ereignisberechtigungen"
+msgid "Power Levels"
+msgstr "Berechtigungsstufe des Benutzers festlegen"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:75
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title"
+msgid "Messages"
+msgstr "<Nachricht>"
+
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Moderator"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "Moderator"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
+#, kde-format
+msgctxt "@title"
+msgid "General"
+msgstr "Allgemein"
+
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgctxt "As in 'sort something based on the last event'"
+#| msgid "Newest Events"
+msgctxt "@title"
+msgid "Other Events"
+msgstr "Neueste Ereignisse"
+
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr "Ereignistyp …"
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Schlüsselwort hinzufügen"
-
-#: src/settings/Permissions.qml:412
-#, kde-format
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Wird geladen …"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6290,12 +6358,6 @@ msgstr "Neue Version auswählen"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Bestätigen"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "Allgemein"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, kde-format
@@ -6690,18 +6752,25 @@ msgstr "Raumeinstellungen"
 
 #: src/settings/RoomSettingsView.qml:60
 #, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Mitglieder"
+
+#: src/settings/RoomSettingsView.qml:71
+#, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Berechtigungen"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7402,6 +7471,26 @@ msgstr[0] "%2 schreibt gerade"
 msgstr[1] "%2 schreiben gerade"
 
 #, fuzzy
+#~| msgid "Timeline Events"
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Zeitleisten-Ereignisse"
+
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Standard-Berechtigungen"
+
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "Einfache Berechtigungen"
+
+#, fuzzy
+#~| msgid "Event permissions"
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Ereignisberechtigungen"
+
+#, fuzzy
 #~| msgid "Remove from Favorites"
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
@@ -7568,12 +7657,6 @@ msgstr[1] "%2 schreiben gerade"
 
 #~ msgid "Show locations for this room"
 #~ msgstr "Orte für diesen Raum anzeigen"
-
-#, fuzzy
-#~| msgid "Find messages…"
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Nachrichten suchen …"
 
 #, fuzzy
 #~| msgctxt "@action:button"

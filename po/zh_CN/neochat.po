@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -913,7 +913,7 @@ msgid "Add option"
 msgstr "添加选项"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1423,11 +1423,10 @@ msgid "Remove Messages"
 msgstr "移除消息"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgid "New power level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "新建权力等级"
+msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1452,11 +1451,10 @@ msgid_plural "and %1 more…"
 msgstr[0] ""
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "新建"
+msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
@@ -2158,7 +2156,7 @@ msgstr "自定义"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, kde-format
 msgctxt ""
 "%1 is the name of the power level, e.g. admin and %2 is the value that "
@@ -5259,125 +5257,187 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "成员"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Privileged Users"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "特权用户"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "没有找到聊天室"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, kde-format
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "加载中…"
+
+#: src/settings/models/permissionsmodel.cpp:61
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default user power level"
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr "默认用户权力等级"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "Room permission type"
+#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr "可调整聊天室状态的默认权力等级"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "可发送消息的默认权力等级"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "邀请用户"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "移除用户"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "封禁用户"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr "更改用户权限"
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "更改聊天室名称"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "更改聊天室头像"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "更改聊天室主别名"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "更改聊天室话题"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "为此聊天室启用加密"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "更改聊天室历史可见性"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
+#, fuzzy
+#| msgid "Find messages…"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "设置置顶事件"
+msgid "Pin and unpin messages"
+msgstr "查找消息..."
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "升级聊天室版本"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "设置聊天室服务器访问控制列表 (ACL)"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "设置为此空间的子聊天室"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 msgctxt "Room permission type"
 msgid "Set the parent space of this room"
 msgstr "设置此聊天室的父空间"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send this location"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgid "Send live location updates"
+msgstr "发送此位置"
 
 #: src/settings/models/permissionsmodel.cpp:83
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
+msgid "Start polls"
 msgstr ""
 
 #: src/settings/models/permissionsmodel.cpp:84
 msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "关闭"
+
+#: src/settings/models/permissionsmodel.cpp:90
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:91
+msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:92
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -5944,46 +6004,51 @@ msgid "Password:"
 msgstr "密码："
 
 #: src/settings/Permissions.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Edit User Power Level"
+msgctxt "@title"
+msgid "Power Levels"
+msgstr "编辑用户权力等级"
+
+#: src/settings/Permissions.qml:75
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title"
+msgid "Messages"
+msgstr "<消息内容>"
+
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Information"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "信息"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
 #, kde-format
 msgctxt "@title"
-msgid "Privileged Users"
-msgstr "特权用户"
+msgid "General"
+msgstr "常规"
 
-#: src/settings/Permissions.qml:233
+#: src/settings/Permissions.qml:192
 #, kde-format
 msgctxt "@title"
-msgid "Default permissions"
-msgstr "默认权限"
+msgid "Other Events"
+msgstr ""
 
-#: src/settings/Permissions.qml:273
-#, kde-format
-msgctxt "@title"
-msgid "Basic permissions"
-msgstr "基本权限"
-
-#: src/settings/Permissions.qml:313
-#, kde-format
-msgctxt "@title"
-msgid "Event permissions"
-msgstr "事件权限"
-
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "添加关键词"
-
-#: src/settings/Permissions.qml:412
-#, kde-format
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "加载中…"
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6038,12 +6103,10 @@ msgid "Room Version"
 msgstr ""
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "升级聊天室"
+msgstr ""
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
@@ -6062,12 +6125,6 @@ msgstr "选择新版本"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "确认"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, kde-format
-msgctxt "@title"
-msgid "General"
-msgstr "常规"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, kde-format
@@ -6425,18 +6482,25 @@ msgid "Room Settings"
 msgstr "聊天室设置"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "成员"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "权限"
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, kde-format
 msgctxt "@title"
 msgid "Profile"
 msgstr ""
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7100,3 +7164,19 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
+
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "设置置顶事件"
+
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "默认权限"
+
+#~ msgctxt "@title"
+#~ msgid "Basic permissions"
+#~ msgstr "基本权限"
+
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "事件权限"

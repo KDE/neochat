@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1008,7 +1008,7 @@ msgid "Add option"
 msgstr "Sözlüyə əlavə edin"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title"
@@ -2373,7 +2373,7 @@ msgstr "Xüsusi"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -5894,20 +5894,51 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
-msgctxt "Room permission type"
-msgid "Default user power level"
-msgstr ""
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Üzvlər"
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Bu istifadəçini gözardı etmək"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info"
+msgid "No users found."
+msgstr "Otaqlar tapılmadı"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Yüklənir..."
+
+#: src/settings/models/permissionsmodel.cpp:61
 #, fuzzy
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level"
 msgstr "bu otaq üçün enerji səviyyəsi dəyişdirildi"
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:62
+#, fuzzy
+#| msgctxt "'power level' means permission level"
+#| msgid "changed the power levels for this room"
+msgctxt "Room permission type"
+msgid "Default power level to change room state"
+msgstr "bu otaq üçün enerji səviyyəsi dəyişdirildi"
+
+#: src/settings/models/permissionsmodel.cpp:63
 #, fuzzy
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
@@ -5915,124 +5946,124 @@ msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr "bu otaq üçün enerji səviyyəsi dəyişdirildi"
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 #, fuzzy
 #| msgid "Invite a User"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "İstifadəçi dəvət etmək"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 #, fuzzy
 #| msgid "Kick this user"
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Bu istifadəçini vurmaq"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 #, fuzzy
 #| msgid "Ban this user"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Bu istifadəçini əngəlləmək"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 #, fuzzy
 #| msgid "Delete recent messages by this user"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Bu istifadəçinin az əvvəlki məktublarını silin"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 #, fuzzy
 #| msgid "Send invitation"
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Dəvət göndərmək"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 #, fuzzy
 #| msgid "Edit Message"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 #, fuzzy
 #| msgid "cleared the room name"
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "otağın adını silmək"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "otaq avatarını dəyişmək"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 #, fuzzy
 #| msgid "cleared the room main alias"
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "otağın əsas ləqəbi dəyişdirildi"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "otaq avatarını dəyişmək"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 #, fuzzy
 #| msgid "Show notifications"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 #, fuzzy
 #| msgid "changed the room avatar"
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "otaq avatarını dəyişmək"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
 #, fuzzy
-#| msgid "Show name change events"
+#| msgid "Send a message…"
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Ad dəyişdirilməsi halını göstərmək"
+msgid "Pin and unpin messages"
+msgstr "İsmarıcı göndərin..."
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 #, fuzzy
 #| msgid "left the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "otağı tərk edin"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 #, fuzzy
 #| msgid "changed the server access control lists for this room"
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr "Bu otaq üçün xidmətə girişə nəzarət siyahıları dəyişdirildi"
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 #, fuzzy
 #| msgid "%1 invited you to a room"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 #, fuzzy
 #| msgid "%1 invited you to a room"
 msgctxt "Room permission type"
@@ -6040,19 +6071,51 @@ msgid "Set the parent space of this room"
 msgstr "%1,sizi otağa dəvət etdi"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send Typing Notifications"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgid "Send live location updates"
+msgstr "\"Yazır\" bildirişi göndərilsin"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "Start a Chat"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgid "Start polls"
+msgstr "Söhbətə başlayın"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Faylı Açın"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Bağlamaq"
+
+#: src/settings/models/permissionsmodel.cpp:90
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:92
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6681,52 +6744,54 @@ msgid "Password:"
 msgstr "Şifrə:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Bu istifadəçini gözardı etmək"
-
-#: src/settings/Permissions.qml:233
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@title"
-msgid "Default permissions"
-msgstr "Otaq haqqında"
-
-#: src/settings/Permissions.qml:273
 #, kde-format
 msgctxt "@title"
-msgid "Basic permissions"
+msgid "Power Levels"
 msgstr ""
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
-#| msgid "Room information"
+#| msgctxt "@label Parameter of a command"
+#| msgid "<message>"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "Otaq haqqında"
+msgid "Messages"
+msgstr "<ismarıc>"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Options:"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "Seçimlər:"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "Əsas"
+
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+#| msgid "Show avatar update events"
+msgctxt "@title"
+msgid "Other Events"
+msgstr "Avatraın yenilənməsi halını göstərmək"
+
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Söz əlavə edin"
-
-#: src/settings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Yüklənir..."
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6813,13 +6878,6 @@ msgstr "Yeni otağa baxın..."
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Təsdiq etmək"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "Əsas"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
@@ -7220,19 +7278,26 @@ msgid "Room Settings"
 msgstr "Otaq ayarları"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Üzvlər"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr ""
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, fuzzy, kde-format
 #| msgid "a file"
 msgctxt "@title"
 msgid "Profile"
 msgstr "fayl"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7983,6 +8048,24 @@ msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
 
 #, fuzzy
+#~| msgid "Show name change events"
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Ad dəyişdirilməsi halını göstərmək"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Otaq haqqında"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Otaq haqqında"
+
+#, fuzzy
 #~| msgid "Remove from Favourites"
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
@@ -8142,12 +8225,6 @@ msgstr[1] "%2 yazırlar"
 #~| msgid "Open NeoChat in this room"
 #~ msgid "Show locations for this room"
 #~ msgstr "NeoChatı bu otaqla açın"
-
-#, fuzzy
-#~| msgid "Send a message…"
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "İsmarıcı göndərin..."
 
 #, fuzzy
 #~| msgid "Open NeoChat in this room"

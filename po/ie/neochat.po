@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-01-13 08:41+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -981,7 +981,7 @@ msgid "Add option"
 msgstr "Adjunter un emoji..."
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
-#: src/settings/RoomSettingsView.qml:71
+#: src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title"
@@ -2313,7 +2313,7 @@ msgstr "Nonstandard"
 
 #: src/libneochat/enums/powerlevel.cpp:98
 #: src/libneochat/models/userlistmodel.cpp:120
-#: src/settings/models/permissionsmodel.cpp:185
+#: src/settings/models/permissionsmodel.cpp:222
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -5656,130 +5656,157 @@ msgctxt "@info:label"
 msgid "Go to Next Unread Room"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:57
+#: src/settings/Members.qml:23
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title:window"
+msgid "Members"
+msgstr "Membres"
+
+#: src/settings/Members.qml:32
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgctxt "@title"
+msgid "Privileged Members"
+msgstr "Ignorar ti usator"
+
+#: src/settings/Members.qml:169
+#, fuzzy, kde-format
+msgctxt "@info"
+msgid "No users found."
+msgstr "Chambres"
+
+#: src/settings/Members.qml:244 src/settings/Permissions.qml:302
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@placeholder"
+msgid "Loading…"
+msgstr "Cargante..."
+
+#: src/settings/models/permissionsmodel.cpp:61
 msgctxt "Room permission type"
-msgid "Default user power level"
+msgid "Default power level"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:58
+#: src/settings/models/permissionsmodel.cpp:62
 msgctxt "Room permission type"
-msgid "Default power level to set the room state"
+msgid "Default power level to change room state"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:59
+#: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:60
+#: src/settings/models/permissionsmodel.cpp:64
 #, fuzzy
 #| msgid "Invite a User"
 msgctxt "Room permission type"
 msgid "Invite users"
 msgstr "Invitar un usator"
 
-#: src/settings/models/permissionsmodel.cpp:61
+#: src/settings/models/permissionsmodel.cpp:65
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Kick users"
 msgstr "Remover"
 
-#: src/settings/models/permissionsmodel.cpp:62
+#: src/settings/models/permissionsmodel.cpp:66
 #, fuzzy
 #| msgid "Ban this user"
 msgctxt "Room permission type"
 msgid "Ban users"
 msgstr "Bannir ti usator"
 
-#: src/settings/models/permissionsmodel.cpp:63
+#: src/settings/models/permissionsmodel.cpp:67
 #, fuzzy
 #| msgid "Delete recent messages by this user"
 msgctxt "Room permission type"
 msgid "Remove messages sent by other users"
 msgstr "Remover recent missages de ti usator"
 
-#: src/settings/models/permissionsmodel.cpp:64
+#: src/settings/models/permissionsmodel.cpp:68
 #, fuzzy
 #| msgid "Send invitation"
 msgctxt "Room permission type"
 msgid "Send reactions"
 msgstr "Inviar un invitation"
 
-#: src/settings/models/permissionsmodel.cpp:65
+#: src/settings/models/permissionsmodel.cpp:69
 #, fuzzy
 #| msgid "Report Message"
 msgctxt "Room permission type"
 msgid "Remove their own messages"
 msgstr "Raportar li missage"
 
-#: src/settings/models/permissionsmodel.cpp:66
+#: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
 msgid "Change user permissions"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:67
+#: src/settings/models/permissionsmodel.cpp:71
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Change the room name"
 msgstr "Nómine del chambre"
 
-#: src/settings/models/permissionsmodel.cpp:68
+#: src/settings/models/permissionsmodel.cpp:72
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Change the room avatar"
 msgstr "Avatar:"
 
-#: src/settings/models/permissionsmodel.cpp:69
+#: src/settings/models/permissionsmodel.cpp:73
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Change the room canonical alias"
 msgstr "[<chambre-pseudonim-o-ID>]"
 
-#: src/settings/models/permissionsmodel.cpp:70
+#: src/settings/models/permissionsmodel.cpp:74
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Change the room topic"
 msgstr "Avatar:"
 
-#: src/settings/models/permissionsmodel.cpp:71
+#: src/settings/models/permissionsmodel.cpp:75
 #, fuzzy
 #| msgid "Show notifications"
 msgctxt "Room permission type"
 msgid "Enable encryption for the room"
 msgstr "Monstrar notificationes"
 
-#: src/settings/models/permissionsmodel.cpp:72
+#: src/settings/models/permissionsmodel.cpp:76
 #, fuzzy
 msgctxt "Room permission type"
 msgid "Change the room history visibility"
 msgstr "Avatar:"
 
-#: src/settings/models/permissionsmodel.cpp:73
+#: src/settings/models/permissionsmodel.cpp:77
 #, fuzzy
 msgctxt "Room permission type"
-msgid "Set pinned events"
-msgstr "Modificar li volúmine de audio e son-evenimentes"
+msgid "Pin and unpin messages"
+msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/settings/models/permissionsmodel.cpp:74
+#: src/settings/models/permissionsmodel.cpp:78
 #, fuzzy
 #| msgid "left the room"
 msgctxt "Room permission type"
 msgid "Upgrade the room"
 msgstr "forlassat li chambre"
 
-#: src/settings/models/permissionsmodel.cpp:75
+#: src/settings/models/permissionsmodel.cpp:79
 msgctxt "Room permission type"
 msgid "Set the room server access control list (ACL)"
 msgstr ""
 
-#: src/settings/models/permissionsmodel.cpp:76
+#: src/settings/models/permissionsmodel.cpp:80
 #, fuzzy
 #| msgid "Invites the user to this room"
 msgctxt "Room permission type"
 msgid "Set the children of this space"
 msgstr "Invitar li usator al ti chambre"
 
-#: src/settings/models/permissionsmodel.cpp:77
+#: src/settings/models/permissionsmodel.cpp:81
 #, fuzzy
 #| msgid "Invites the user to this room"
 msgctxt "Room permission type"
@@ -5787,19 +5814,51 @@ msgid "Set the parent space of this room"
 msgstr "Invitar li usator al ti chambre"
 
 #: src/settings/models/permissionsmodel.cpp:82
+#, fuzzy
+#| msgid "Send Typing Notifications"
 msgctxt "Room permission type"
-msgid "This is the power level for all new users when joining the room"
-msgstr ""
+msgid "Send live location updates"
+msgstr "Inviar notificationes pri li tippada"
 
 #: src/settings/models/permissionsmodel.cpp:83
+#, fuzzy
+#| msgid "Start a Chat"
 msgctxt "Room permission type"
-msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgid "Start polls"
+msgstr "Iniciar conversation"
 
 #: src/settings/models/permissionsmodel.cpp:84
+#, fuzzy
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
+msgctxt "Room permission type"
+msgid "Vote in polls"
+msgstr "Aperter li file"
+
+#: src/settings/models/permissionsmodel.cpp:85
+#, fuzzy
+#| msgid "Close"
+msgctxt "Room permission type"
+msgid "Close polls"
+msgstr "Cluder"
+
+#: src/settings/models/permissionsmodel.cpp:90
+msgctxt "Room permission type"
+msgid "This is the power level for all new users when joining the room."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:91
 msgctxt "Room permission type"
 msgid ""
-"This is used for all message events that do not have their own entry here"
+"This is used for all state-type events that do not have their own entry."
+msgstr ""
+
+#: src/settings/models/permissionsmodel.cpp:92
+msgctxt "Room permission type"
+msgid ""
+"This is used for all message-type events that do not have their own entry."
 msgstr ""
 
 #: src/settings/models/pushrulemodel.cpp:17
@@ -6402,52 +6461,52 @@ msgid "Password:"
 msgstr "Contrasigne:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
-msgctxt "@title"
-msgid "Privileged Users"
-msgstr "Ignorar ti usator"
-
-#: src/settings/Permissions.qml:233
-#, fuzzy, kde-format
-#| msgid "Room information"
-msgctxt "@title"
-msgid "Default permissions"
-msgstr "Information pri li chambre"
-
-#: src/settings/Permissions.qml:273
 #, kde-format
 msgctxt "@title"
-msgid "Basic permissions"
+msgid "Power Levels"
 msgstr ""
 
-#: src/settings/Permissions.qml:313
+#: src/settings/Permissions.qml:75
 #, fuzzy, kde-format
-#| msgid "Room information"
+#| msgid "<message>"
 msgctxt "@title"
-msgid "Event permissions"
-msgstr "Information pri li chambre"
+msgid "Messages"
+msgstr "<missage>"
 
-#: src/settings/Permissions.qml:360
+#: src/settings/Permissions.qml:114
+#, fuzzy, kde-format
+#| msgid "Options:"
+msgctxt "@title"
+msgid "Moderation"
+msgstr "Optiones:"
+
+#: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
+#: src/settings/RoomSettingsView.qml:37
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title"
+msgid "General"
+msgstr "General"
+
+#: src/settings/Permissions.qml:192
+#, fuzzy, kde-format
+msgctxt "@title"
+msgid "Other Events"
+msgstr "Monstrar li avatar"
+
+#: src/settings/Permissions.qml:250
 #, kde-format
 msgctxt "@placeholder"
 msgid "Event Type…"
 msgstr ""
 
-#: src/settings/Permissions.qml:386
+#: src/settings/Permissions.qml:276
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
 msgctxt "@action:button"
 msgid "Add keyword"
 msgstr "Adjunter un parol"
-
-#: src/settings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Loading…"
-msgctxt "@placeholder"
-msgid "Loading…"
-msgstr "Cargante..."
 
 #: src/settings/PowerLevelDialog.qml:15
 #, kde-format
@@ -6532,13 +6591,6 @@ msgstr "Vu have un nov invitation a un chambre"
 msgctxt "@action:button"
 msgid "Confirm"
 msgstr "Confirmar"
-
-#: src/settings/RoomGeneralPage.qml:24 src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
-msgctxt "@title"
-msgid "General"
-msgstr "General"
 
 #: src/settings/RoomGeneralPage.qml:39
 #, fuzzy, kde-format
@@ -6921,19 +6973,26 @@ msgid "Room Settings"
 msgstr "Parametres del chambre"
 
 #: src/settings/RoomSettingsView.qml:60
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@title"
+msgid "Members"
+msgstr "Membres"
+
+#: src/settings/RoomSettingsView.qml:71
 #, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr ""
 
-#: src/settings/RoomSettingsView.qml:82
+#: src/settings/RoomSettingsView.qml:93
 #, fuzzy, kde-format
 #| msgid "a file"
 msgctxt "@title"
 msgid "Profile"
 msgstr "un file"
 
-#: src/settings/RoomSettingsView.qml:93
+#: src/settings/RoomSettingsView.qml:104
 #, kde-format
 msgctxt "@title"
 msgid "Advanced"
@@ -7667,6 +7726,23 @@ msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
 
 #, fuzzy
+#~ msgctxt "Room permission type"
+#~ msgid "Set pinned events"
+#~ msgstr "Modificar li volúmine de audio e son-evenimentes"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Default permissions"
+#~ msgstr "Information pri li chambre"
+
+#, fuzzy
+#~| msgid "Room information"
+#~ msgctxt "@title"
+#~ msgid "Event permissions"
+#~ msgstr "Information pri li chambre"
+
+#, fuzzy
 #~ msgctxt "@action:button"
 #~ msgid "Remove from Favorites"
 #~ msgstr "Li preferet"
@@ -7822,11 +7898,6 @@ msgstr[1] "%2 tippa"
 #, fuzzy
 #~ msgid "Show locations for this room"
 #~ msgstr "Saliente Cinnamon"
-
-#, fuzzy
-#~ msgctxt "@action:button"
-#~ msgid "Pinned messages"
-#~ msgstr "Ne successat inviar un missage D-Bus"
 
 #, fuzzy
 #~ msgctxt "@action:button"
