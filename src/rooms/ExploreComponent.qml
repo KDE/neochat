@@ -55,7 +55,7 @@ RowLayout {
     QQC2.ToolButton {
         id: menuButton
 
-        property QQC2.Menu menuItem: undefined
+        property QQC2.Menu menuItem: null
 
         function openMenu(): void {
             if (!menuItem || !menuItem.visible) {
@@ -69,7 +69,7 @@ RowLayout {
 
         Accessible.role: Accessible.ButtonMenu
         display: QQC2.AbstractButton.IconOnly
-        down: pressed || menuItem.visible
+        down: pressed || menuItem?.visible
         text: i18nc("@action:button", "Show Menu")
         icon.name: "application-menu-symbolic"
 
@@ -78,7 +78,7 @@ RowLayout {
         Keys.onEnterPressed: openMenu()
         Accessible.onPressAction: openMenu()
 
-        QQC2.ToolTip.visible: hovered && !menuItem.visible
+        QQC2.ToolTip.visible: hovered && !menuItem?.visible
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }

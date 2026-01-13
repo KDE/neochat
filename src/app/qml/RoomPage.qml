@@ -113,7 +113,7 @@ Kirigami.Page {
             }
         },
         Kirigami.Action {
-            visible: Kirigami.Settings.isMobile || !(root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode
+            visible: Kirigami.Settings.isMobile || !(root.Kirigami.PageStack.pageStack as Kirigami.PageRow)?.wideMode
             icon.name: "view-right-new"
             onTriggered: (root.QQC2.ApplicationWindow.window as Main).openRoomDrawer()
         }
@@ -289,7 +289,7 @@ Kirigami.Page {
 
     footer: Loader {
         id: chatBarLoader
-        height: active ? (item as ChatBar).implicitHeight : 0
+        height: active ? (item as ChatBar)?.implicitHeight : 0
         active: timelineViewLoader.active && !root.currentRoom.readOnly
         sourceComponent: ChatBar {
             id: chatBar
