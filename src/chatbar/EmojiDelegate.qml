@@ -30,7 +30,7 @@ QQC2.ItemDelegate {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "emoji"
-            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.5
 
             Kirigami.Icon {
                 width: Kirigami.Units.gridUnit * 0.5
