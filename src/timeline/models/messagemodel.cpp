@@ -135,25 +135,35 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return {};
     }
 
+    // Figure out the correct room for this event.
+    // This is unusual for a timeline model, but not for our search model which can span multiple room versions.
+    NeoChatRoom *eventRoom = m_room;
+    if (event->get().roomId() != m_room->id()) {
+        // Grab the associated room *if* we can find it.
+        if (const auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(event->get().roomId()))) {
+            eventRoom = room;
+        }
+    }
+
     if (role == Qt::DisplayRole) {
-        return EventHandler::richBody(m_room, &event.value().get());
+        return EventHandler::richBody(eventRoom, &event.value().get());
     }
 
     if (role == ContentModelRole) {
         if (event->get().is<EncryptedEvent>() || event->get().is<PollStartEvent>() || event->get().is<StickerEvent>()) {
-            return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, event->get().id()));
+            return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(eventRoom, event->get().id()));
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
         if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded()) {
             return QVariant::fromValue<EventMessageContentModel *>(
-                ContentProvider::self().contentModelForEvent(m_room, roomMessageEvent->threadRootEventId()));
+                ContentProvider::self().contentModelForEvent(eventRoom, roomMessageEvent->threadRootEventId()));
         }
-        return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(m_room, &event->get()));
+        return QVariant::fromValue<EventMessageContentModel *>(ContentProvider::self().contentModelForEvent(eventRoom, &event->get()));
     }
 
     if (role == GenericDisplayRole) {
-        return EventHandler::genericBody(m_room, &event.value().get());
+        return EventHandler::genericBody(eventRoom, &event.value().get());
     }
 
     if (role == DelegateTypeRole) {
@@ -163,16 +173,16 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     if (role == AuthorRole) {
         QString mId;
         if (isPending) {
-            mId = m_room->localMember().id();
+            mId = eventRoom->localMember().id();
         } else {
             mId = event.value().get().senderId();
         }
 
-        return QVariant::fromValue<NeochatRoomMember *>(m_room->qmlSafeMember(mId));
+        return QVariant::fromValue<NeochatRoomMember *>(eventRoom->qmlSafeMember(mId));
     }
 
     if (role == HighlightRole) {
-        return EventHandler::isHighlighted(m_room, &event.value().get());
+        return EventHandler::isHighlighted(eventRoom, &event.value().get());
     }
 
     if (role == SpecialMarksRole) {
@@ -182,20 +192,20 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             if (event.value().get().contentJson().contains("m.new_content"_L1)) {
                 return EventStatus::Hidden;
             }
-            const auto pendingIt = m_room->findPendingEvent(event->get().transactionId());
-            if (pendingIt == m_room->pendingEvents().end()) {
+            const auto pendingIt = eventRoom->findPendingEvent(event->get().transactionId());
+            if (pendingIt == eventRoom->pendingEvents().end()) {
                 return EventStatus::Hidden;
             }
             return pendingIt->deliveryStatus();
         }
 
-        if (EventHandler::isHidden(m_room, &event.value().get(), m_hiddenFilter)) {
+        if (EventHandler::isHidden(eventRoom, &event.value().get(), m_hiddenFilter)) {
             return EventStatus::Hidden;
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || m_room->threads().contains(event.value().get().id()))) {
-            const auto &thread = m_room->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
+        if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || eventRoom->threads().contains(event.value().get().id()))) {
+            const auto &thread = eventRoom->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
             if (thread.latestEventId != event.value().get().id()) {
                 return EventStatus::Hidden;
             }
@@ -211,21 +221,21 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         if (auto e = eventCast<const RoomMessageEvent>(&event.value().get())) {
             if (e->has<EventContent::FileContent>() || e->has<EventContent::ImageContent>() || e->has<EventContent::VideoContent>()
                 || e->has<EventContent::AudioContent>()) {
-                return QVariant::fromValue(m_room->cachedFileTransferInfo(&event.value().get()));
+                return QVariant::fromValue(eventRoom->cachedFileTransferInfo(&event.value().get()));
             }
         }
         if (eventCast<const StickerEvent>(&event.value().get())) {
-            return QVariant::fromValue(m_room->cachedFileTransferInfo(&event.value().get()));
+            return QVariant::fromValue(eventRoom->cachedFileTransferInfo(&event.value().get()));
         }
         return {};
     }
 
     if (role == TimeRole) {
-        return EventHandler::time(m_room, &event.value().get(), isPending);
+        return EventHandler::time(eventRoom, &event.value().get(), isPending);
     }
 
     if (role == SectionRole) {
-        return EventHandler::timeString(m_room, &event.value().get(), true, QLocale::ShortFormat, isPending);
+        return EventHandler::timeString(eventRoom, &event.value().get(), true, QLocale::ShortFormat, isPending);
     }
 
     if (role == IsThreadedRole) {
@@ -282,13 +292,13 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         if (event.value().get().originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(event.value().get().originalEvent());
             Q_ASSERT(encrypted);
-            return m_room->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
+            return eventRoom->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
         return false;
     }
 
     if (role == AuthorDisplayNameRole) {
-        return EventHandler::authorDisplayName(m_room, &event.value().get(), isPending);
+        return EventHandler::authorDisplayName(eventRoom, &event.value().get(), isPending);
     }
 
     if (role == IsRedactedRole) {
@@ -296,16 +306,16 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsPendingRole) {
-        return row < static_cast<int>(m_room->pendingEvents().size());
+        return row < static_cast<int>(eventRoom->pendingEvents().size());
     }
 
     if (role == MediaInfoRole) {
-        return EventHandler::mediaInfo(m_room, &event.value().get());
+        return EventHandler::mediaInfo(eventRoom, &event.value().get());
     }
 
     if (role == IsEditableRole) {
         return MessageComponentType::typeForEvent(event.value().get()) == MessageComponentType::Text
-            && event.value().get().senderId() == m_room->localMember().id();
+            && event.value().get().senderId() == eventRoom->localMember().id();
     }
 
     if (role == ShowAuthorRole) {
