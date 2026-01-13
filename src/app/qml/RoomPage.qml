@@ -349,7 +349,7 @@ Kirigami.Page {
             });
         }
 
-        function onShowDelegateMenu(parent: QtObject, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
+        function onShowDelegateMenu(parent: QtObject, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
             (delegateContextMenu.createObject(parent, {
                 author: author,
                 eventId: eventId,
@@ -357,6 +357,8 @@ Kirigami.Page {
                 mimeType: mimeType,
                 progressInfo: progressInfo,
                 messageComponentType: messageComponentType,
+                selectedText,
+                hoveredLink,
             }) as DelegateContextMenu).popup();
         }
 
