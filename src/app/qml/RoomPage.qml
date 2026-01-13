@@ -348,7 +348,7 @@ Kirigami.Page {
             });
         }
 
-        function onShowDelegateMenu(eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, isThread: bool, selectedText: string, hoveredLink: string) {
+        function onShowDelegateMenu(eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
             (delegateContextMenu.createObject(root, {
                 author: author,
                 eventId: eventId,
@@ -356,6 +356,8 @@ Kirigami.Page {
                 mimeType: mimeType,
                 progressInfo: progressInfo,
                 messageComponentType: messageComponentType,
+                selectedText,
+                hoveredLink,
             }) as DelegateContextMenu).popup();
         }
 
