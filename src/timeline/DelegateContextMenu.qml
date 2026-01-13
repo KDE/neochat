@@ -204,7 +204,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "edit-delete-remove"
         icon.color: "red"
         onTriggered: {
-            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+            let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Remove Message"),
                 placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
                 actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
@@ -229,7 +229,7 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu As in 'Forward this message'", "Forward…")
         icon.name: "mail-forward-symbolic"
         onTriggered: {
-            let page = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
+            let page = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ChooseRoomDialog'), {
                 connection: root.connection
             }, {
                 title: i18nc("@title", "Forward Message"),
@@ -328,7 +328,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "dialog-warning-symbolic"
         visible: !root.author.isLocalMember
         onTriggered: {
-            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+            let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Report Message"),
                 placeholder: i18nc("@info:placeholder", "Reason for reporting this message"),
                 icon: "dialog-warning-symbolic",
