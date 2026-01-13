@@ -87,7 +87,7 @@ Kirigami.Page {
 
     titleDelegate: Loader {
         Layout.fillWidth: true
-        sourceComponent: Kirigami.Settings.isMobile ? userInfo : exploreComponent
+        sourceComponent: exploreComponent
     }
 
     padding: 0
