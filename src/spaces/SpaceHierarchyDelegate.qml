@@ -140,8 +140,8 @@ Item {
             }
             QQC2.ToolButton {
                 visible: root.parentRoom?.canSendState("m.space.child") ?? false
-                text: root.isSuggested ? i18nc("@button", "Don't Make Suggested") : i18nc("@button", "Make Suggested")
-                icon.name: root.isSuggested ? "edit-delete-remove" : "checkmark"
+                text: root.isSuggested ? i18nc("@button", "Don't Suggest") : i18nc("@button", "Make Suggested")
+                icon.name: root.isSuggested ? "window-unpin-symbolic" : "window-pin-symbolic"
                 display: QQC2.AbstractButton.IconOnly
                 onClicked: root.parentRoom.toggleChildSuggested(root.roomId)
 
