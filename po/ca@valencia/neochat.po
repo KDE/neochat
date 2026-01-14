@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-11 09:38+0100\n"
+"PO-Revision-Date: 2026-01-13 14:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -5361,27 +5361,22 @@ msgid "Go to Next Unread Room"
 msgstr "Ves fins a la sala següent sense llegir"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Membres"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "Usuaris amb privilegis"
+msgstr "Membres amb privilegis"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "No s'ha trobat cap usuari"
+msgstr "No s'ha trobat cap usuari."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5390,20 +5385,14 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Nivell predeterminat de permisos d'usuari"
+msgstr "Nivell predeterminat de permisos"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Nivell predeterminat de permisos per a establir l'estat de la sala"
+msgstr "Nivell predeterminat de permisos per a canviar l'estat de la sala"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5476,12 +5465,9 @@ msgid "Change the room history visibility"
 msgstr "Canviar la visibilitat de l'historial de la sala"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Missatges fixats"
+msgstr "Fixar i deixar de fixar missatges"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5504,68 +5490,47 @@ msgid "Set the parent space of this room"
 msgstr "Establir l'espai pare d'esta sala"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Envia esta ubicació"
+msgstr "Enviar actualitzacions d'ubicació en directe"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 ha començat una votació"
+msgstr "Iniciar votacions"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Votació oberta"
+msgstr "Votar en votacions"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Votació tancada"
+msgstr "Tancar votacions"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
 "Este és el nivell de permisos de tots els usuaris nous quan s'unisquen a la "
-"sala"
+"sala."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"Açò s'utilitza per a tots els esdeveniments d'estat que no tenen la seua "
-"pròpia entrada ací"
+"Açò s'utilitza per a tots els esdeveniments de tipus d'estat que no tenen "
+"ací la seua entrada pròpia."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
-"Açò s'utilitza per a tots els esdeveniments de missatge que no tenen la seua "
-"pròpia entrada ací"
+"Açò s'utilitza per a tots els esdeveniments de tipus de missatge que no "
+"tenen ací la seua entrada pròpia."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6142,25 +6107,19 @@ msgid "Password:"
 msgstr "Contrasenya:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Nivell de permisos"
+msgstr "Nivells de permisos"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "Missatge"
+msgstr "Missatges"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Moderació"
@@ -6173,12 +6132,10 @@ msgid "General"
 msgstr "General"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Recupera més esdeveniments"
+msgstr "Altres esdeveniments"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6639,8 +6596,7 @@ msgid "Room Settings"
 msgstr "Configureu la sala"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Membres"
@@ -7343,19 +7299,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt "Room permission type"
-#~ msgid "Set pinned events"
-#~ msgstr "Establir esdeveniments fixats"
-
-#~ msgctxt "@title"
-#~ msgid "Default permissions"
-#~ msgstr "Permisos predeterminats"
-
-#~ msgctxt "@title"
-#~ msgid "Basic permissions"
-#~ msgstr "Permisos bàsics"
-
-#~ msgctxt "@title"
-#~ msgid "Event permissions"
-#~ msgstr "Permisos d'esdeveniment"

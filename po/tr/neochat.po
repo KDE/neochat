@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-11 12:59+0300\n"
+"PO-Revision-Date: 2026-01-13 17:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5327,27 +5327,22 @@ msgid "Go to Next Unread Room"
 msgstr "Sonraki Okunmamış Odaya Git"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Üyeler"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
 msgstr "Ayrıcalıklı Kullanıcılar"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "Kullanıcı bulunamadı"
+msgstr "Bulunan kullanıcı yok."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5356,20 +5351,14 @@ msgid "Loading…"
 msgstr "Yükleniyor…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Öntanımlı kullanıcı güç düzeyi"
+msgstr "Öntanımlı güç düzeyi"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Oda durumunu ayarlamak için öntanımlı güç düzeyi"
+msgstr "Oda durumunu değiştirmek için öntanımlı güç düzeyi"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5442,12 +5431,9 @@ msgid "Change the room history visibility"
 msgstr "Oda geçmişi görünürlüğünü değiştir"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Sabitlenmiş İletiler"
+msgstr "İletileri sabitle ve sabitlemeyi kaldır"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5470,64 +5456,41 @@ msgid "Set the parent space of this room"
 msgstr "Odanın üst alanını ayarla"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Bu konumu gönder"
+msgstr "Canlı konum güncellemeleri gönder"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 bir anket başlattı"
+msgstr "Anketler başlat"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Açık anket"
+msgstr "Anketlerde oy kullan"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Kapalı anket"
+msgstr "Anketleri kapat"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
-msgstr "Bu, odaya katılan tüm yeni kullanıcıların güç düzeyidir"
+msgstr "Bu, odaya katılan tüm yeni kullanıcıların güç düzeyidir."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
-msgstr ""
-"Bu, burada kendi özel girdisi olmayan tüm durum olayları için kullanılır"
+msgstr "Bu, kendi özel girdisi olmayan tüm durum türü olaylar için kullanılır."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
-msgstr ""
-"Bu, burada kendi özel girdisi olmayan tüm ileti olayları için kullanılır"
+msgstr "Bu, kendi özel girdisi olmayan tüm ileti türü olaylar için kullanılır."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6101,25 +6064,19 @@ msgid "Password:"
 msgstr "Parola:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Güç Düzeyi"
+msgstr "Güç Düzeyleri"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "İleti"
+msgstr "İletiler"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Moderasyon"
@@ -6132,12 +6089,10 @@ msgid "General"
 msgstr "Genel"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Daha Fazla Olay Getir"
+msgstr "Diğer Olaylar"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6594,8 +6549,7 @@ msgid "Room Settings"
 msgstr "Oda Ayarları"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Üyeler"
