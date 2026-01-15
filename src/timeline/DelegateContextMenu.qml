@@ -373,7 +373,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         text: i18nc("@action:inmenu", "Configure Web Shortcuts…")
         icon.name: "configure"
-        visible: !Controller.isFlatpak && webShortcutModel.enabled
+        visible: !Controller.isFlatpak && webShortcutModel.enabled && webShortcutModelAction.visible
         onTriggered: webShortcutModel.configureWebShortcuts()
     }
 
