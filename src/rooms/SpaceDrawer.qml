@@ -159,7 +159,7 @@ QQC2.Control {
                             width: Math.max(directChatNotificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
                             height: Kirigami.Units.iconSizes.smallMedium
 
-                            text: visible ? root.connection.directChatNotifications + root.connection.directChatInvites : ""
+                            text: visible ? directChatButton.countedNotifications : ""
                             visible: directChatButton.hasCountableNotifications && RoomManager.currentSpace !== "DM"
                             color: Kirigami.Theme.textColor
                             horizontalAlignment: Text.AlignHCenter
