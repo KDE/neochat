@@ -9,6 +9,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 
@@ -263,21 +264,46 @@ QQC2.Control {
                 }
 
                 AvatarTabButton {
+                    id: createNewButton
+
                     Layout.fillWidth: true
                     Layout.preferredHeight: width - Kirigami.Units.smallSpacing
                     Layout.maximumHeight: width - Kirigami.Units.smallSpacing
 
-                    text: i18n("Create a space")
+                    text: i18nc("@action:button Create a new room or space", "Create")
                     contentItem: Kirigami.Icon {
                         source: "list-add"
                     }
 
                     activeFocusOnTab: true
+                    down: menu.opened
 
-                    onSelected: {
-                        (Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
-                            connection: root.connection
-                        }) as CreateSpaceDialog).open();
+                    onSelected: menu.popup(root.QQC2.Overlay.overlay, createNewButton.mapToGlobal(Qt.point(createNewButton.width, 0)))
+
+                    KirigamiComponents.ConvergentContextMenu {
+                        id: menu
+
+                        Kirigami.Action {
+                            text: i18nc("@action:button Create a new room", "New Room…")
+                            icon.name: "list-add-symbolic"
+
+                            onTriggered: {
+                                (Qt.createComponent('org.kde.neochat', 'CreateRoomDialog').createObject(root, {
+                                    connection: root.connection
+                                }) as CreateRoomDialog).open();
+                            }
+                        }
+
+                        Kirigami.Action {
+                            text: i18nc("@action:button Create a new room", "New Space…")
+                            icon.name: "list-add-symbolic"
+
+                            onTriggered: {
+                                (Qt.createComponent('org.kde.neochat', 'CreateSpaceDialog').createObject(root, {
+                                    connection: root.connection
+                                }) as CreateSpaceDialog).open();
+                            }
+                        }
                     }
                 }
 

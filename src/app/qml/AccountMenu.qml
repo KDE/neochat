@@ -5,6 +5,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtMultimedia
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
@@ -18,6 +19,10 @@ KirigamiComponents.ConvergentContextMenu {
     required property NeoChatConnection connection
     required property Kirigami.ApplicationWindow window
 
+    data: MediaDevices {
+        id: devices
+    }
+
     Kirigami.Action {
         text: i18nc("@action:button", "Show QR Code")
         icon.name: "view-barcode-qr-symbolic"
@@ -30,6 +35,17 @@ KirigamiComponents.ConvergentContextMenu {
                 avatarSource: root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : ""
             }) as QrCodeMaximizeComponent).open();
         }
+    }
+
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Scan a QR Code")
+        icon.name: "document-scan-symbolic"
+        visible: devices.videoInputs.length > 0
+        onTriggered: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent("org.kde.neochat", "QrScannerPage"), {
+            connection: root.connection
+        }, {
+            title: i18nc("@title", "Scan a QR Code")
+        })
     }
 
     Kirigami.Action {

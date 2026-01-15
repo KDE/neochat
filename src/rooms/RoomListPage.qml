@@ -270,9 +270,7 @@ Kirigami.Page {
     Component {
         id: exploreComponent
         ExploreComponent {
-            desiredWidth: root.width - Kirigami.Units.largeSpacing
             collapsed: root.collapsed
-            connection: root.connection
 
             onSearch: root.search()
 
