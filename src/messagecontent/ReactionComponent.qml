@@ -52,6 +52,7 @@ Flow {
                 verticalAlignment: Text.AlignVCenter
                 text: reactionDelegate.textContent
                 font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale
+                font.wordSpacing: Kirigami.Units.smallSpacing
                 background: null
                 wrapMode: TextEdit.NoWrap
                 textFormat: Text.RichText
@@ -59,19 +60,17 @@ Flow {
 
             padding: Kirigami.Units.smallSpacing
 
-            background: Kirigami.ShadowedRectangle {
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: NeoChatConfig.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
-                color: reactionDelegate.hasLocalMember ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
-                radius: height / 2
-                shadow {
-                    size: Kirigami.Units.smallSpacing
-                    color: !reactionDelegate.hasLocalMember ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+            background: Rectangle {
+                color: reactionDelegate.hasLocalMember ? Qt.tint(Kirigami.Theme.backgroundColor, Qt.alpha(Kirigami.Theme.highlightColor, 0.4)) : Kirigami.Theme.backgroundColor
+                radius: Kirigami.Units.cornerRadius
+                border {
+                    width: reactionDelegate.hovered ? 1 : 0
+                    color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
                 }
             }
 
             onClicked: {
-                root.Message.room.toggleReaction(root.eventId, reactionDelegate.reaction)
+                root.Message.room.toggleReaction(root.eventId, reactionDelegate.reaction);
             }
 
             hoverEnabled: true
@@ -90,14 +89,14 @@ Flow {
         text: i18nc("@button", "React")
 
         contentItem: Kirigami.Icon {
-            source: "list-add"
+            source: "smiley-add-symbolic"
         }
 
         padding: Kirigami.Units.smallSpacing
 
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
-            radius: height / 2
+            radius: Kirigami.Units.cornerRadius
             border {
                 width: reactButton.hovered ? 1 : 0
                 color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
