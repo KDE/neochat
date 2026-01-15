@@ -290,6 +290,7 @@ void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChat
     }
 
     Q_EMIT showDelegateMenu(parent,
+                            room,
                             event->id(),
                             room->qmlSafeMember(event->senderId()),
                             MessageComponentType::typeForEvent(*event),

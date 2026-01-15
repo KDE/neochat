@@ -349,8 +349,9 @@ Kirigami.Page {
             });
         }
 
-        function onShowDelegateMenu(parent: QtObject, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
+        function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, messageComponentType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
             (delegateContextMenu.createObject(parent, {
+                room: room,
                 author: author,
                 eventId: eventId,
                 plainText: plainText,

@@ -159,7 +159,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: replyAction
-        visible: root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent
+        visible: !root.room.readOnly && (root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent)
         text: i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {

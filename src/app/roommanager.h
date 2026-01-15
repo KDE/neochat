@@ -308,6 +308,7 @@ Q_SIGNALS:
      * @brief Request to show a menu for the given event.
      */
     void showDelegateMenu(QObject *parent,
+                          NeoChatRoom *room,
                           const QString &eventId,
                           const NeochatRoomMember *author,
                           MessageComponentType::Type messageComponentType,
