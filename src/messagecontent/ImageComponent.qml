@@ -69,7 +69,10 @@ Item {
             z: 10
 
             QQC2.Button {
-                visible: !root.mediaHidden && !root.editable
+                id: hideButton
+
+                // For tiny images, having the button looks super buggy at their size
+                visible: !root.mediaHidden && !root.editable && root.width >= hideButton.width && root.height >= hideButton.height
                 icon.name: "view-hidden"
                 text: i18nc("@action:button", "Hide Image")
                 display: QQC2.Button.IconOnly
