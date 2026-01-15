@@ -227,6 +227,7 @@ MessageDelegateBase {
     quickActionComponent: QuickActions {
         room: root.room
         eventId: root.eventId
+        author: root.author
     }
 
     QtObject {

@@ -150,9 +150,9 @@ Quotient::RoomMember ChatBarCache::relationAuthor() const
     if (m_relationId.isEmpty()) {
         return room->member(QString());
     }
-    const auto evtIt = room->findInTimeline(m_relationId);
-    if (evtIt != room->messageEvents().rend()) {
-        return room->member((*evtIt)->senderId());
+    const auto [event, _] = room->getEvent(m_relationId);
+    if (event != nullptr) {
+        return room->member(event->senderId());
     }
     qWarning() << "Failed to find relation" << m_relationId << "in timeline?";
     return room->member(QString());
@@ -178,8 +178,8 @@ QString ChatBarCache::relationMessage() const
         return {};
     }
 
-    if (auto event = room->findInTimeline(m_relationId); event != room->historyEdge()) {
-        return EventHandler::markdownBody(&**event);
+    if (auto [event, _] = room->getEvent(m_relationId); event != nullptr) {
+        return EventHandler::markdownBody(event);
     }
     return {};
 }
@@ -283,11 +283,6 @@ void ChatBarCache::postMessage()
 
     if (sendText.length() == 0) {
         return;
-    }
-
-    const auto replyIt = room->findInTimeline(replyId());
-    if (replyIt == room->historyEdge()) {
-        isReply = false;
     }
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);

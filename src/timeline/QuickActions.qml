@@ -22,6 +22,15 @@ RowLayout {
      */
     required property string eventId
 
+    /**
+     * @brief The message author.
+     *
+     * A Quotient::RoomMember object.
+     *
+     * @sa Quotient::RoomMember
+     */
+    required property var author
+
     property real availableWidth: 0.0
 
     property bool reacting: false

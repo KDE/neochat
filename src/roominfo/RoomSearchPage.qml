@@ -3,6 +3,8 @@
 
 import QtQuick
 
+import org.kde.kirigami as Kirigami
+
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
 
@@ -45,4 +47,15 @@ SearchPage {
     noResultPlaceholderMessage: i18n("No messages found")
 
     listVerticalLayoutDirection: ListView.BottomToTop
+
+    Connections {
+        target: root.room.mainCache
+
+        function onRelationIdChanged(oldEventId: string, newEventId: string): void {
+            // If we start replying/editing an event, we need to close the search dialog so the user can type.
+            if (newEventId.length > 0) {
+                root.Kirigami.PageStack.closeDialog();
+            }
+        }
+    }
 }
