@@ -125,7 +125,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/corrosion-rs/corrosion"
+                    "url": "https://github.com/corrosion-rs/corrosion",
+                    "tag": "v0.6.0"
                 }
             ]
         },
@@ -133,7 +134,7 @@
             "name": "libQuotient",
             "buildsystem": "cmake-ninja",
             "sources": [
-                "generated-sources.json",
+                "flatpak/generated-sources.json",
                 {
                     "type": "git",
                     "url": "https://github.com/quotient-im/libquotient",
