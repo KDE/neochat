@@ -36,9 +36,10 @@ FormCard.FormCardPage {
         devicesModel: root.devicesModel
 
         FormCard.FormButtonDelegate {
-            icon.name: "security-low"
+            icon.name: !root.connection.isVerifiedSession ? "security-low" : "security-high"
             text: i18nc("@action:button", "Verify This Device")
-            description: i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
+            description: !root.connection.isVerifiedSession ? i18nc("@info:description", "This device is marked as insecure until it's verified by another device. It's recommended to verify as soon as possible.")
+                            : i18nc("@info:description", "This device is marked as secure.")
             visible: !root.connection.isVerifiedSession || NeoChatConfig.alwaysVerifyDevice
             onClicked: {
                 root.connection.startSelfVerification();
