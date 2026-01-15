@@ -21,16 +21,12 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.State
-        delegate: StateDelegate {
-            room: root.room
-        }
+        delegate: StateDelegate {}
     }
 
     DelegateChoice {
         roleValue: DelegateType.Message
-        delegate: MessageDelegate {
-            room: root.room
-        }
+        delegate: MessageDelegate {}
     }
 
     DelegateChoice {
@@ -45,23 +41,17 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Predecessor
-        delegate: PredecessorDelegate {
-            room: root.room
-        }
+        delegate: PredecessorDelegate {}
     }
 
     DelegateChoice {
         roleValue: DelegateType.Successor
-        delegate: SuccessorDelegate {
-            room: root.room
-        }
+        delegate: SuccessorDelegate {}
     }
 
     DelegateChoice {
         roleValue: DelegateType.TimelineEnd
-        delegate: TimelineEndDelegate {
-            room: root.room
-        }
+        delegate: TimelineEndDelegate {}
     }
 
     DelegateChoice {
@@ -75,9 +65,7 @@ DelegateChooser {
 
         Component {
             id: hiddenDelegate
-            HiddenDelegate {
-                room: root.room
-            }
+            HiddenDelegate {}
         }
         Component {
             id: emptyDelegate

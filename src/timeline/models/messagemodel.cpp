@@ -326,6 +326,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return event.value().get().matrixType();
     }
 
+    if (role == RoomRole) {
+        return QVariant::fromValue(eventRoom);
+    }
+
     return {};
 }
 
@@ -356,6 +360,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[IsEditableRole] = "isEditable";
     roles[ShowAuthorRole] = "showAuthor";
     roles[EventTypeRole] = "eventType";
+    roles[RoomRole] = "room";
     return roles;
 }
 

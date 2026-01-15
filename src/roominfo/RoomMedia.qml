@@ -52,7 +52,6 @@ QQC2.ScrollView {
                 delegate: Timeline.MessageDelegate {
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.room
                 }
             }
 
@@ -61,7 +60,6 @@ QQC2.ScrollView {
                 delegate: Timeline.MessageDelegate {
                     alwaysFillWidth: true
                     cardBackground: false
-                    room: root.room
                 }
             }
         }

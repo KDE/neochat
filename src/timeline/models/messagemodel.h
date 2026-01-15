@@ -87,6 +87,7 @@ public:
         IsEditableRole, /**< Whether the event can be edited by the user. */
         ShowAuthorRole, /**< Whether the author of a message should be shown. */
         EventTypeRole, /**< The matrix event type of this message. */
+        RoomRole, /**< The room this event is from. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
