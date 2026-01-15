@@ -150,7 +150,12 @@ Quotient::RoomMember ChatBarCache::relationAuthor() const
     if (m_relationId.isEmpty()) {
         return room->member(QString());
     }
-    return room->member((*room->findInTimeline(m_relationId))->senderId());
+    const auto evtIt = room->findInTimeline(m_relationId);
+    if (evtIt != room->messageEvents().rend()) {
+        return room->member((*evtIt)->senderId());
+    }
+    qWarning() << "Failed to find relation" << m_relationId << "in timeline?";
+    return room->member(QString());
 }
 
 bool ChatBarCache::relationAuthorIsPresent() const
