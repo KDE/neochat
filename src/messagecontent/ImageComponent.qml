@@ -47,10 +47,13 @@ Item {
     implicitHeight: mediaSizeHelper.currentSize.height
 
     QQC2.Button {
+        id: hideButton
+
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.margins: Kirigami.Units.smallSpacing
-        visible: !_private.hideImage
+        // For tiny images, having the button looks super buggy at their size
+        visible: !_private.hideImage && root.width >= hideButton.width && root.height >= hideButton.height
         icon.name: "view-hidden"
         text: i18nc("@action:button", "Hide Image")
         display: QQC2.Button.IconOnly
