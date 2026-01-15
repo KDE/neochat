@@ -37,6 +37,8 @@ qt_add_library(neochat STATIC
     texttospeechhelper.cpp
     models/limitermodel.cpp
     models/limitermodel.h
+    supportcontroller.cpp
+    supportcontroller.h
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -107,6 +109,7 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/UserMenu.qml
         qml/MeetingDialog.qml
         qml/SeenByDialog.qml
+        qml/SupportDialog.qml
     DEPENDENCIES
         QtCore
         QtQuick

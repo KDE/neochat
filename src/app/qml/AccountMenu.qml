@@ -119,6 +119,16 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        text: i18nc("@action:inmenu Open support dialog", "Support")
+        icon.name: "help-contents-symbolic"
+        onTriggered: {
+            Qt.createComponent("org.kde.neochat", "SupportDialog").createObject(QQC2.Overlay.overlay, {
+                connection: root.connection,
+            }).open();
+        }
+    }
+
+    Kirigami.Action {
         text: i18nc("@action:inmenu", "Logout…")
         icon.name: "im-kick-user"
         onTriggered: (Qt.createComponent("org.kde.neochat", "ConfirmLogoutDialog").createObject(QQC2.Overlay.overlay, {
