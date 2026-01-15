@@ -176,9 +176,11 @@ Kirigami.Dialog {
                             onTriggered: {
                                 let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                                 title: i18nc("@title:dialog", "Report User"),
-                                placeholder: i18nc("@info:placeholder", "Reason for reporting this user"),
+                                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this user"),
                                 icon: "dialog-warning-symbolic",
-                                actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report")
+                                actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report"),
+                                reporting: true,
+                                connection: root.connection,
                             }, {
                                 title: i18nc("@title", "Report User"),
                                 width: Kirigami.Units.gridUnit * 25
@@ -244,9 +246,11 @@ Kirigami.Dialog {
                     onTriggered: {
                         let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                             title: i18nc("@title:dialog", "Kick User"),
-                            placeholder: i18nc("@info:placeholder", "Reason for kicking this user"),
+                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for kicking this user"),
                             actionText: i18nc("@action:button 'Kick' as in 'Kick this user from the room'", "Kick"),
-                            icon: "im-kick-user"
+                            icon: "im-kick-user",
+                            reporting: false,
+                            connection: root.connection,
                         }, {
                             title: i18nc("@title:dialog", "Kick User"),
                             width: Kirigami.Units.gridUnit * 25
@@ -271,9 +275,11 @@ Kirigami.Dialog {
                     onTriggered: {
                         let dialog = (root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                             title: i18nc("@title:dialog", "Ban User"),
-                            placeholder: i18nc("@info:placeholder", "Reason for banning this user"),
+                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for banning this user"),
                             actionText: i18nc("@action:button 'Ban' as in 'Ban this user'", "Ban"),
-                            icon: "im-ban-user"
+                            icon: "im-ban-user",
+                            reporting: false,
+                            connection: root.connection,
                         }, {
                             title: i18nc("@title:dialog", "Ban User"),
                             width: Kirigami.Units.gridUnit * 25
@@ -309,9 +315,11 @@ Kirigami.Dialog {
                     onTriggered: {
                         let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                             title: i18nc("@title:dialog", "Remove Messages"),
-                            placeholder: i18nc("@info:placeholder", "Reason for removing this user's recent messages"),
+                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing this user's recent messages"),
                             actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
-                            icon: "delete"
+                            icon: "delete",
+                            reporting: false,
+                            connection: root.connection,
                         }, {
                             title: i18nc("@title", "Remove Messages"),
                             width: Kirigami.Units.gridUnit * 25

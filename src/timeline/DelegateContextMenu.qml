@@ -206,9 +206,11 @@ KirigamiComponents.ConvergentContextMenu {
         onTriggered: {
             let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Remove Message"),
-                placeholder: i18nc("@info:placeholder", "Reason for removing this message"),
+                placeholder: i18nc("@info:placeholder", "Optionally give a reason for removing this message"),
                 actionText: i18nc("@action:button 'Remove' as in 'Remove this message'", "Remove"),
-                icon: "delete"
+                icon: "delete",
+                reporting: false,
+                connection: root.connection,
             }, {
                 title: i18nc("@title:dialog", "Remove Message"),
                 width: Kirigami.Units.gridUnit * 25
@@ -330,9 +332,11 @@ KirigamiComponents.ConvergentContextMenu {
         onTriggered: {
             let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                 title: i18nc("@title:dialog", "Report Message"),
-                placeholder: i18nc("@info:placeholder", "Reason for reporting this message"),
+                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this message"),
                 icon: "dialog-warning-symbolic",
-                actionText: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
+                actionText: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report"),
+                reporting: true,
+                connection: root.connection,
             }, {
                 title: i18nc("@title", "Report Message"),
                 width: Kirigami.Units.gridUnit * 25

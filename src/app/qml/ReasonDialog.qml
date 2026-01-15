@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.neochat
 
 Kirigami.Page {
     id: root
@@ -13,6 +14,8 @@ Kirigami.Page {
     required property string placeholder
     required property string actionText
     required property string icon
+    required property bool reporting
+    required property NeoChatConnection connection
 
     signal accepted(reason: string)
 
@@ -20,6 +23,15 @@ Kirigami.Page {
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
+
+    header: Kirigami.InlineMessage {
+        showCloseButton: false
+        visible: root.reporting
+        type: Kirigami.MessageType.Information
+        position: Kirigami.InlineMessage.Position.Header
+
+        text: xi18n("This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection.domain)
+    }
 
     QQC2.TextArea {
         id: reason
