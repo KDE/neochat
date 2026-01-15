@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-01 23:01+0100\n"
+"PO-Revision-Date: 2026-01-13 15:29+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -517,11 +517,10 @@ msgid "Create a Room"
 msgstr "Crea una stanza"
 
 #: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esplora le stanze"
+msgstr "Esplora"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -1003,11 +1002,10 @@ msgstr "Nessuna stanza trovata"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
 #: src/rooms/SpaceDrawer.qml:289
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esplora le stanze"
+msgstr "Esplora"
 
 #: src/app/qml/ReasonDialog.qml:60
 #, kde-format
@@ -1099,7 +1097,7 @@ msgstr "Sorgente del messaggio"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Visto da"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1330,20 +1328,16 @@ msgid "Report User"
 msgstr "Segnala utente"
 
 #: src/app/qml/UserDetailDialog.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@action:button View this user's profile"
-#| msgid "View %1's Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
-msgstr "Visualizza il profilo di %1"
+msgstr "Visualizza il profilo principale"
 
 #: src/app/qml/UserDetailDialog.qml:204
-#, fuzzy, kde-format
-#| msgctxt "@action:button View this user's profile"
-#| msgid "View %1's Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
-msgstr "Visualizza il profilo di %1"
+msgstr "Visualizza il profilo della stanza"
 
 #: src/app/qml/UserDetailDialog.qml:217
 #, kde-format
@@ -1436,12 +1430,10 @@ msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "Imposta il livello di potere"
+msgstr "Livello di potere"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1467,18 +1459,16 @@ msgstr[0] "e 1 altro…"
 msgstr[1] "e %1 altri…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Privato"
+msgstr "Nota privata"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Visibile solo a te"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -2517,7 +2507,7 @@ msgstr "ha creato la stanza, versione %1"
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
-msgstr "ha modificato i livelli di potenza per questa stanza"
+msgstr "ha modificato i livelli di potere per questa stanza"
 
 #: src/libneochat/eventhandler.cpp:444
 #, kde-format
@@ -2792,7 +2782,7 @@ msgstr "%1 ha creato la stanza"
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "%1 changed the power levels for this room"
-msgstr "%1 ha modificato i livelli di potenza per questa stanza"
+msgstr "%1 ha modificato i livelli di potere per questa stanza"
 
 #: src/libneochat/eventhandler.cpp:657
 #, kde-format
@@ -3403,11 +3393,10 @@ msgid "Make this parent official"
 msgstr "Rendi ufficiale questa genitore"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esplora le stanze"
+msgstr "Esplora"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
@@ -4451,14 +4440,10 @@ msgid "Join some rooms to get started"
 msgstr "Entra in qualche stanza per iniziare"
 
 #: src/rooms/RoomListPage.qml:225
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Cerca stanze"
+msgstr "Cerca stanza"
 
 #: src/rooms/RoomListPage.qml:240
 #, kde-format
@@ -5372,27 +5357,22 @@ msgid "Go to Next Unread Room"
 msgstr "Vai alla stanza non letta successiva"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Membri"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "Utenti privilegiati"
+msgstr "Membri privilegiati"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "Nessun utente trovato"
+msgstr "Nessun utente trovato."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5401,25 +5381,19 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Livello predefinito di potenza dell'utente"
+msgstr "Livello predefinito di potere"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Livello di potenza predefinito da impostare lo stato della stanza"
+msgstr "Livello di potere predefinito da impostare lo stato della stanza"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
 msgid "Default power level to send messages"
-msgstr "Livello di potenza predefinito per inviare messaggi"
+msgstr "Livello di potere predefinito per inviare messaggi"
 
 #: src/settings/models/permissionsmodel.cpp:64
 msgctxt "Room permission type"
@@ -5487,12 +5461,9 @@ msgid "Change the room history visibility"
 msgstr "Cambia la visibilità della cronologia della stanza"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Messaggi appuntati"
+msgstr "Messaggi appuntati e rimossi"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5515,68 +5486,47 @@ msgid "Set the parent space of this room"
 msgstr "Imposta lo spazio principale di questa stanza"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Invia questa posizione"
+msgstr "Invia aggiornamenti sulla posizione in diretta"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 ha avviato un sondaggio"
+msgstr "Avvia sondaggi"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Sondaggio aperto"
+msgstr "Vota nei sondaggi"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Sondaggio chiuso"
+msgstr "Chiudi sondaggi"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
-"Questo è il livello di potenza per tutti i nuovi utenti quando si uniscono "
-"alla stanza"
+"Questo è il livello di potere per tutti i nuovi utenti quando si uniscono "
+"alla stanza."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"Viene utilizzato per tutti gli eventi di stato che non hanno una propria "
-"voce qui"
+"Viene utilizzato per tutti gli eventi di tipo stato che non hanno una "
+"propria voce."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
-"Viene utilizzato per tutti gli eventi di segnalazione che non dispongono di "
-"una propria voce qui"
+"Viene utilizzato per tutti gli eventi di tipo messaggio che non hanno una "
+"propria voce."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6153,25 +6103,19 @@ msgid "Password:"
 msgstr "Password:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Imposta il livello di potere"
+msgstr "Livelli di potere"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "Messaggio"
+msgstr "Messaggi"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Moderazione"
@@ -6184,12 +6128,10 @@ msgid "General"
 msgstr "Generale"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Recupera altri eventi"
+msgstr "Altri eventi"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6256,12 +6198,10 @@ msgid "Room Version"
 msgstr "Versione della stanza"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "Aggiorna stanza"
+msgstr "Aggiorna stanza…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
@@ -6655,8 +6595,7 @@ msgid "Room Settings"
 msgstr "Impostazioni della stanza"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Membri"
@@ -6934,11 +6873,10 @@ msgid "Pick Room"
 msgstr "Scegli la stanza"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Esplora le stanze"
+msgstr "Esplora"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format

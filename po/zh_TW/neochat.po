@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-13 01:07+0900\n"
+"PO-Revision-Date: 2026-01-15 01:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -5274,27 +5274,22 @@ msgid "Go to Next Unread Room"
 msgstr "前往下一個未讀的聊天室"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "成員"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "有權力的使用者"
+msgstr "有權力的成員"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "找不到使用者"
+msgstr "找不到使用者。"
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5303,20 +5298,14 @@ msgid "Loading…"
 msgstr "載入中…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "預設使用者能力等級"
+msgstr "預設能力等級"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "設定聊天室狀態的預設能力等級"
+msgstr "變更聊天室狀態的預設能力等級"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5389,12 +5378,9 @@ msgid "Change the room history visibility"
 msgstr "變更聊天室歷史可見度"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "置頂訊息"
+msgstr "置頂或取消置頂訊息"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5417,62 +5403,41 @@ msgid "Set the parent space of this room"
 msgstr "設定這個聊天室的親聊天空間"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "傳送這個位置"
+msgstr "傳送即時位置更新"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 開始了投票"
+msgstr "開始投票"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "開放投票"
+msgstr "進行投票"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "封閉投票"
+msgstr "關閉投票"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
-msgstr "這是所有新使用者加入聊天室時的能力等級"
+msgstr "這是所有新使用者加入聊天室時的能力等級。"
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
-msgstr "這會用於在此沒有自己的項目的狀態事件"
+msgstr "這會用於沒有自己的項目的狀態類事件。"
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
-msgstr "這會用於在此沒有自己的項目的訊息事件"
+msgstr "這會用於沒有自己的項目的訊息類事件。"
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6038,25 +6003,19 @@ msgid "Password:"
 msgstr "密碼："
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
 msgstr "能力等級"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "傳訊息"
+msgstr "訊息"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "內容管理"
@@ -6069,12 +6028,10 @@ msgid "General"
 msgstr "一般"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "取得更多事件"
+msgstr "其他事件"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6520,8 +6477,7 @@ msgid "Room Settings"
 msgstr "聊天室設定"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "成員"

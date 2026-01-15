@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-11 05:34+0100\n"
+"PO-Revision-Date: 2026-01-14 05:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5319,27 +5319,22 @@ msgid "Go to Next Unread Room"
 msgstr "გადასვლა შემდეგ წაუკითხავ ოთახზე"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "წევრები"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
 msgstr "პრივილეგირებული მომხმარებლები"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "მომხმარებლები ვერ მოიძებნა"
+msgstr "მომხმარებლები ვერ მოიძებნა."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5348,20 +5343,14 @@ msgid "Loading…"
 msgstr "მიმდინარეობს ჩატვირთვა…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "მომხმარებლის წვდომის ნაგულისხმევი დონე"
+msgstr "წვდომის ნაგულისხმევი დონე"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმევი დონე"
+msgstr "უფლებების ნაგულისხმევი დონე ოთახის მდგომარეობის შესაცვლელად"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5434,12 +5423,9 @@ msgid "Change the room history visibility"
 msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "მიმაგრებული შეტყობინებები"
+msgstr "შეტყობინებების მიმაგრება და მოხსნა"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5462,66 +5448,45 @@ msgid "Set the parent space of this room"
 msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "ამ მდებარეობის გაგზავნა"
+msgstr "ცოცხალი მდებარეობის განახლებების გაგზავნა"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1-მა დაიწყო გამოკითხვა"
+msgstr "გამოკითხვების დაწყება"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "გამოკითხვის გახსნა"
+msgstr "ხმის მიცემა გამოკითხვებში"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "დახურული გამოკითხვა"
+msgstr "გამოკითხვების დახურვა"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
-msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
+msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
+"გამოიყენება ყველა მდგომარეობის ტიპის მოვლენისთვის, რომელსაც აქ საკუთარი "
+"ჩანაწერი არ გააჩნია."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
-"გამოიყენება ყველა შეტყობინების მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
-"არ გააჩნია"
+"გამოიყენება ყველა შეტყობინების ტიპის მოვლენისთვის, რომელსაც აქ საკუთარი "
+"ჩანაწერი არ გააჩნია."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6095,25 +6060,19 @@ msgid "Password:"
 msgstr "პაროლი:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "წვდომის დონე"
+msgstr "წვდომის დონეები"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "შეტყობინება"
+msgstr "შეტყობინებები"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "მოდერაცია"
@@ -6126,12 +6085,10 @@ msgid "General"
 msgstr "ზოგადი"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "მეტი მოვლენის მიღება"
+msgstr "სხვა მოვლენები"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6585,8 +6542,7 @@ msgid "Room Settings"
 msgstr "ოთახის მორგება"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "წევრები"

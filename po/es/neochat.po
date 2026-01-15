@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-11 11:58+0100\n"
+"PO-Revision-Date: 2026-01-14 18:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -5347,27 +5347,22 @@ msgid "Go to Next Unread Room"
 msgstr "Ir a la siguiente sala sin leer"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Miembros"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "Usuarios con privilegios"
+msgstr "Miembros con privilegios"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "No se ha encontrado ningún usuario"
+msgstr "No se ha encontrado ningún usuario."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5376,20 +5371,14 @@ msgid "Loading…"
 msgstr "Cargando…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Nivel de poder predeterminado del usuario"
+msgstr "Nivel de poder predeterminado"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Nivel de poder predeterminado para establecer el estado de la sala"
+msgstr "Nivel de poder predeterminado para cambiar el estado de la sala"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5462,12 +5451,9 @@ msgid "Change the room history visibility"
 msgstr "Cambiar la visibilidad del historial de la sala"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Mensajes fijados"
+msgstr "Fijar y liberar mensajes"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5490,68 +5476,46 @@ msgid "Set the parent space of this room"
 msgstr "Definir el espacio padre de esta sala"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Enviar esta ubicación"
+msgstr "Enviar actualizaciones de ubicación en vivo"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 ha iniciado una encuesta"
+msgstr "Iniciar encuestas"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Encuesta abierta"
+msgstr "Votar en encuestas"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Encuesta cerrada"
+msgstr "Cerrar encuestas"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
 "Este es el nivel de poder para todos los nuevos usuarios que se unan a la "
-"sala"
+"sala."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"Esto se usa para todos los eventos de estado que no poseen su propia entrada "
-"aquí"
+"Esto se usa para todos los eventos de estado que no poseen su propia entrada."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
 "Esto se usa para todos los eventos de mensaje que no poseen su propia "
-"entrada aquí"
+"entrada."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6128,25 +6092,19 @@ msgid "Password:"
 msgstr "Contraseña:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Nivel de poder"
+msgstr "Niveles de poder"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "Mensaje"
+msgstr "Mensajes"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Moderación"
@@ -6159,12 +6117,10 @@ msgid "General"
 msgstr "General"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Obtener más eventos"
+msgstr "Otros eventos"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6626,8 +6582,7 @@ msgid "Room Settings"
 msgstr "Preferencias de la sala"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Miembros"
@@ -7330,19 +7285,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt "Room permission type"
-#~ msgid "Set pinned events"
-#~ msgstr "Definir eventos fijados"
-
-#~ msgctxt "@title"
-#~ msgid "Default permissions"
-#~ msgstr "Permisos predeterminados"
-
-#~ msgctxt "@title"
-#~ msgid "Basic permissions"
-#~ msgstr "Permisos básicos"
-
-#~ msgctxt "@title"
-#~ msgid "Event permissions"
-#~ msgstr "Permisos de eventos"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-08 12:13+0400\n"
+"PO-Revision-Date: 2026-01-14 08:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1095,7 +1095,7 @@ msgstr "مصدر الرّسالة"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "شوهد من قبل"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1426,12 +1426,10 @@ msgid "Remove Messages"
 msgstr "أزل الرسائل"
 
 #: src/app/qml/UserDetailDialog.qml:329
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "عيّن مستوى القدرة"
+msgstr "مستوى القدرة"
 
 #: src/app/qml/UserDetailDialog.qml:353
 #, kde-format
@@ -1461,18 +1459,16 @@ msgstr[4] "و %1 غرفة أخرى…"
 msgstr[5] "و %1 غرفة أخرى…"
 
 #: src/app/qml/UserDetailDialog.qml:426
-#, fuzzy, kde-format
-#| msgctxt "@info:label"
-#| msgid "Private"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "خاص"
+msgstr "ملاحظة خاصّة"
 
 #: src/app/qml/UserDetailDialog.qml:438
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "لا يظهر إلا لك"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -5328,27 +5324,22 @@ msgid "Go to Next Unread Room"
 msgstr "انتقل إلى الغرفة غير المقروءة التالية"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "الأعضاء"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
 msgstr "المستخدمين المميزين"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "لم يعثر على مستخدمين"
+msgstr "لم يعثر على مستخدمين."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5357,20 +5348,14 @@ msgid "Loading…"
 msgstr "يحمّل..."
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "مستوى قوة المستخدم المبدئية"
+msgstr "مستوى قوة المبدئية"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "مستوى القوة المبدئي لتعيين حالة الغرفة"
+msgstr "مستوى القوة المبدئي لتغيير حالة الغرفة"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5443,12 +5428,9 @@ msgid "Change the room history visibility"
 msgstr "تغيير قدرة عرض الرسائل القديمة"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "الرسائل المثبتة"
+msgstr "تثبيت أو إلغاء تثبيت الرسائل"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5471,62 +5453,41 @@ msgid "Set the parent space of this room"
 msgstr "تعيين الفضاء الرئيس لهذه الغرفة"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "أرسل هذا الموقع"
+msgstr "إرسال تحديثات الموقع الحية"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 بدأ استفتاء"
+msgstr "يبدأ استفتاء"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "افتح استفتاء"
+msgstr "يصوت في استفتاء"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "استفتاء مغلق"
+msgstr "يغلق استفتاء"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
-msgstr "هذه مستوى القوة لجميع المستخدمين الجدد عندما ينضموا للغرفة"
+msgstr "هذه مستوى القدرة لجميع المستخدمين الجدد عندما ينضموا للغرفة."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
-msgstr "سيستخدم هذا لجميع أحداث الحالة التي لا تملك مدخلات خاص بها هنا"
+msgstr "يستخدم هذا لجميع الأحداث من نوع الحالة التي ليس لها إدخال خاص بها."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
-msgstr "سيستخدم هذا لجميع أحداث الرسائل التي لا تملك مدخلات خاص بها هنا"
+msgstr "يستخدم هذا لجميع الأحداث من نوع الرسائل التي ليس لها إدخال خاص بها."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6095,25 +6056,19 @@ msgid "Password:"
 msgstr "كلمة السر:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Set the power level (such as 'Admin') for this user"
-#| msgid "Set Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "عيّن مستوى القدرة"
+msgstr "مستويات القدرة"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "الرسالة"
+msgstr "الرسائل"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "الإشراف"
@@ -6126,12 +6081,10 @@ msgid "General"
 msgstr "عام"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "اجلب أحداث أكثر"
+msgstr "أحداث أخرى"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6198,12 +6151,10 @@ msgid "Room Version"
 msgstr "إصدارة الغرفة"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "رقّ الغرفة"
+msgstr "رقّ الغرفة…"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
@@ -6580,8 +6531,7 @@ msgid "Room Settings"
 msgstr "إعدادات الغرفة"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "الأعضاء"

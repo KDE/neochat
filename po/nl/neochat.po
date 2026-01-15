@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-13 08:41+0000\n"
-"PO-Revision-Date: 2026-01-11 14:27+0100\n"
+"PO-Revision-Date: 2026-01-14 17:07+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -5346,27 +5346,22 @@ msgid "Go to Next Unread Room"
 msgstr "Ga naar volgende ongelezen room"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Leden"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
 msgstr "Gebruikers met privileges"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "Geen gebruikers gevonden"
+msgstr "Geen gebruikers gevonden."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5375,20 +5370,14 @@ msgid "Loading…"
 msgstr "Laden…"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Standaard niveau van macht van gebruiker"
+msgstr "Standaard niveau van macht"
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Standaard niveau van macht om de status van de room in te stellen"
+msgstr "Standaard niveau van macht om de status van de room te wijzigen"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5461,12 +5450,9 @@ msgid "Change the room history visibility"
 msgstr "Zichtbaarheid van geschiedenis van de room wijzigen"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Vast gepinde berichten"
+msgstr "Berichten vastpinnen of dat ongedaan maken"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5489,39 +5475,26 @@ msgid "Set the parent space of this room"
 msgstr "De ouderruimte van deze room instellen"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Deze locatie verzenden"
+msgstr "Wijzigingen in live-locatie verzenden"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 heeft een raadpleging (poll) gestart"
+msgstr "Enquête starten"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Opiniepeiling openen"
+msgstr "Stemmen in enquêtes"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Gesloten opiniepeiling"
+msgstr "Enquêtes sluiten"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
@@ -5529,28 +5502,20 @@ msgstr ""
 "room"
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
 msgstr ""
-"Dit wordt gebruikt voor alle statusgebeurtenissen die niet hun eigen ingang "
-"hier hebben"
+"Dit wordt gebruikt voor alle statustypegebeurtenissen die niet hun eigen "
+"ingang hier hebben"
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
-"Dit wordt gebruikt voor alle berichtgebeurtenissen die niet hun eigen ingang "
-"hier hebben"
+"Dit wordt gebruikt voor alle berichttypegebeurtenissen die niet hun eigen "
+"ingang hebben"
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6127,25 +6092,19 @@ msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Energieniveau"
+msgstr "Niveaus van macht"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "Bericht"
+msgstr "Berichten"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Moderatie"
@@ -6158,12 +6117,10 @@ msgid "General"
 msgstr "Algemeen"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Meer gebeurtenissen ophalen"
+msgstr "Overige gebeurtenissen"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6626,8 +6583,7 @@ msgid "Room Settings"
 msgstr "Room-instellingen"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Leden"
