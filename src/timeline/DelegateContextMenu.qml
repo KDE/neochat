@@ -132,14 +132,12 @@ KirigamiComponents.ConvergentContextMenu {
                                 root.room.toggleReaction(root.eventId, emoji);
                                 root.close();
                             });
-                            dialog.closed.connect(() => {
-                                root.close();
-                            });
                             dialog.open();
                             return;
                         }
 
                         root.room.toggleReaction(root.eventId, modelData);
+                        root.close();
                     }
                 }
             }
