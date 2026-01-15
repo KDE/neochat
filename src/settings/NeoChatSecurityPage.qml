@@ -86,6 +86,19 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
+            id: secretBackupDelegate
+            text: i18nc("@action:inmenu", "Manage Secret Backup")
+            description: i18nc("@info", "Import or unlock encryption keys from other devices.")
+            icon.name: "unlock"
+            onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
+                title: i18nc("@title:window", "Manage Secret Backup")
+            })
+        }
+        FormCard.FormDelegateSeparator {
+            above: secretBackupDelegate
+            below: importKeysDelegate
+        }
+        FormCard.FormButtonDelegate {
             id: importKeysDelegate
             text: i18nc("@action:button", "Import Keys")
             description: i18nc("@info", "Import encryption keys from a backup.")

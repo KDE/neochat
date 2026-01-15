@@ -13,7 +13,7 @@ FormCard.FormCardPage {
 
     property bool processing: false
 
-    title: i18nc("@title:window", "Load your encrypted messages")
+    title: i18nc("@title:window", "Manage Secret Backup")
 
     topPadding: Kirigami.Units.gridUnit
     leftPadding: 0

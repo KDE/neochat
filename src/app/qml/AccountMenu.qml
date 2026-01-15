@@ -49,15 +49,6 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Switch Account")
-        icon.name: "system-switch-user"
-        shortcut: "Ctrl+U"
-        onTriggered: (Qt.createComponent("org.kde.neochat", "AccountSwitchDialog").createObject(QQC2.Overlay.overlay, {
-            connection: root.connection
-        }) as Kirigami.Dialog).open();
-    }
-
-    Kirigami.Action {
         text: i18nc("@action:inmenu", "Edit This Account")
         icon.name: "document-edit"
         onTriggered: NeoChatSettingsView.openWithInitialProperties("accounts", {initialAccount: root.connection});
@@ -72,14 +63,6 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Devices")
-        icon.name: "computer-symbolic"
-        onTriggered: {
-            NeoChatSettingsView.open('devices');
-        }
-    }
-
-    Kirigami.Action {
         text: i18nc("@action:inmenu", "Open Developer Tools")
         icon.name: "tools"
         visible: NeoChatConfig.developerTools
@@ -89,14 +72,6 @@ KirigamiComponents.ConvergentContextMenu {
             title: i18nc("@title:window", "Developer Tools"),
             width: Kirigami.Units.gridUnit * 50,
             height: Kirigami.Units.gridUnit * 42
-        })
-    }
-
-    Kirigami.Action {
-        text: i18nc("@action:inmenu", "Open Secret Backup")
-        icon.name: "unlock"
-        onTriggered: root.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
-            title: i18nc("@title:window", "Open Key Backup")
         })
     }
 
@@ -129,10 +104,15 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Logout…")
-        icon.name: "im-kick-user"
-        onTriggered: (Qt.createComponent("org.kde.neochat", "ConfirmLogoutDialog").createObject(QQC2.Overlay.overlay, {
+        separator: true
+    }
+
+    Kirigami.Action {
+        text: i18nc("@action:inmenu", "Switch Account")
+        icon.name: "system-switch-user"
+        shortcut: "Ctrl+U"
+        onTriggered: (Qt.createComponent("org.kde.neochat", "AccountSwitchDialog").createObject(QQC2.Overlay.overlay, {
             connection: root.connection
-        }) as Kirigami.Dialog).open()
+        }) as Kirigami.Dialog).open();
     }
 }
