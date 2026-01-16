@@ -30,7 +30,7 @@ Kirigami.Dialog {
             id: explanationTextDelegate
 
             text: root.hasSupportResources ?
-                i18nc("@info:label %1 is the domain of the server", "Offical support resources provided by %1:", root.connection.domain)
+                i18nc("@info:label %1 is the domain of the server", "Official support resources provided by %1:", root.connection.domain)
                 : i18nc("@info:label %1 is the domain of the server", "%1 has no support resources.", root.connection.domain)
         }
 
