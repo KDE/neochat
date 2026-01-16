@@ -85,11 +85,29 @@ QQC2.ScrollView {
 
     QQC2.ScrollBar.vertical.interactive: false
 
+    /**
+     * @brief Tell the view to resettle again as needed.
+     */
+    function resetViewSettling() {
+        _private.viewHasSettled = false;
+    }
+
     ListView {
         id: messageListView
 
         // HACK: Use this instead of atYEnd to handle cases like -643.2 at height of 643 not being counted as "at the beginning"
         readonly property bool closeToYEnd: -Math.round(contentY) >= height
+
+        onHeightChanged: {
+            // HACK: Fix a bug where Qt doesn't resettle the view properly when the pinned messages changes our height
+            // We basically want to resettle back at the start if:
+            // * The user hasn't scrolled before (obviously) *and* that scroll is actually somewhere other than the beginning
+            // * This is the first height change
+            if (!_private.viewHasSettled && (!_private.hasScrolledUpBefore || closeToYEnd)) {
+                positionViewAtBeginning();
+                _private.viewHasSettled = true;
+            }
+        }
 
         /**
          * @brief Whether all unread messages in the timeline are visible.
@@ -146,19 +164,13 @@ QQC2.ScrollView {
             }
         }
 
-        Component.onCompleted: {
-            positionViewAtBeginning();
-        }
         Connections {
             target: messageListView.model.sourceModel.timelineMessageModel
 
             function onModelAboutToBeReset() {
                 (root.QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
                 _private.hasScrolledUpBefore = false;
-            }
-
-            function onModelResetComplete() {
-                messageListView.positionViewAtBeginning();
+                _private.viewHasSettled = false;
             }
 
             function onReadMarkerAdded() {
@@ -187,13 +199,20 @@ QQC2.ScrollView {
             }
         }
 
-        onCloseToYEndChanged: if (closeToYEnd && _private.hasScrolledUpBefore) {
-            if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
-                _private.room.markAllMessagesAsRead();
+        onAtYEndChanged: {
+            // Don't care about this until the view has settled first.
+            if (!_private.viewHasSettled) {
+                return;
             }
-            _private.hasScrolledUpBefore = false;
-        } else if (!closeToYEnd) {
-            _private.hasScrolledUpBefore = true;
+
+            if (closeToYEnd && _private.hasScrolledUpBefore) {
+                if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
+                    _private.room.markAllMessagesAsRead();
+                }
+                _private.hasScrolledUpBefore = false;
+            } else if (!closeToYEnd) {
+                _private.hasScrolledUpBefore = true;
+            }
         }
 
         model: root.messageFilterModel
@@ -348,5 +367,8 @@ QQC2.ScrollView {
 
         // Used to determine if scrolling to the bottom should mark the message as unread
         property bool hasScrolledUpBefore: false
+
+        // Used to determine if the view has settled and should stop moving
+        property bool viewHasSettled: false
     }
 }
