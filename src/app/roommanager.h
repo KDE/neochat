@@ -340,6 +340,11 @@ Q_SIGNALS:
 
     void currentSpaceChanged();
 
+protected:
+    bool m_dontUpdateLastRoom = false; // Don't set directly, use LastRoomBlocker.
+
+    friend class LastRoomBlocker;
+
 private:
     bool m_isMobile = false;
 
@@ -385,8 +390,13 @@ private:
      */
     QString findSpaceIdForCurrentRoom() const;
 
-    // Space ID, "DM", or empty string
-    void setCurrentSpace(const QString &spaceId, bool setRoom = true);
+    /**
+     * @brief Sets the current space.
+     *
+     * @param spaceId The ID of the space, "DM" for direct messages or an empty string for Home.
+     * @param goToLastUsedRoom If true, we will navigate to the last opened room in this space.
+     */
+    void setCurrentSpace(const QString &spaceId, bool goToLastUsedRoom = true);
 
     /**
      * @brief Resolve a user URI.
