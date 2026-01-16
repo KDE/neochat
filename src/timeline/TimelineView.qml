@@ -83,6 +83,9 @@ QQC2.ScrollView {
     ListView {
         id: messageListView
 
+        // HACK: Use this instead of atYEnd to handle cases like -643.2 at height of 643 not being counted as "at the beginning"
+        readonly property bool closeToYEnd: -Math.round(contentY) >= height
+
         /**
          * @brief Whether all unread messages in the timeline are visible.
          */
@@ -130,7 +133,7 @@ QQC2.ScrollView {
         Shortcut {
             sequences: [ StandardKey.Cancel ]
             onActivated: {
-                if (!messageListView.atYEnd || !_private.room.partiallyReadStats.empty()) {
+                if (!messageListView.closeToYEnd || !_private.room.partiallyReadStats.empty()) {
                     messageListView.positionViewAtBeginning();
                 } else {
                     (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).get(0).forceActiveFocus();
@@ -179,12 +182,12 @@ QQC2.ScrollView {
             }
         }
 
-        onAtYEndChanged: if (atYEnd && _private.hasScrolledUpBefore) {
+        onCloseToYEndChanged: if (closeToYEnd && _private.hasScrolledUpBefore) {
             if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
                 _private.room.markAllMessagesAsRead();
             }
             _private.hasScrolledUpBefore = false;
-        } else if (!atYEnd) {
+        } else if (!closeToYEnd) {
             _private.hasScrolledUpBefore = true;
         }
 
@@ -269,7 +272,7 @@ QQC2.ScrollView {
             padding: Kirigami.Units.largeSpacing
 
             z: 2
-            visible: !messageListView.atYEnd
+            visible: !messageListView.closeToYEnd
 
             text: i18nc("@action:button", "Jump to latest message")
 
