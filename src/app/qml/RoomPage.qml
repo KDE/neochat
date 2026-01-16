@@ -75,6 +75,12 @@ Kirigami.Page {
     focus: true
     padding: 0
 
+    onHeightChanged: {
+        // HACK: See TimelineView for the hack details.
+        // We get the height change here *first* so we are informed this is because of a window resize and not due to the pinned message.
+        (timelineViewLoader.item as TimelineView).resetViewSettling();
+    }
+
     actions: [
         Kirigami.Action {
             id: jitsiMeetingAction
