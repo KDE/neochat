@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:41+0000\n"
+"POT-Creation-Date: 2026-01-16 00:43+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -212,83 +212,105 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Открыть NeoChat"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
+#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Показать QR-код"
 
-#: src/app/qml/AccountMenu.qml:36
+#: src/app/qml/AccountMenu.qml:41
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:inmenu"
+msgid "Scan a QR Code"
+msgstr "Сканировать QR-код"
+
+#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "Сканирование QR-кода"
+
+#: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Сменить учётную запись"
 
-#: src/app/qml/AccountMenu.qml:45
+#: src/app/qml/AccountMenu.qml:61
 #, fuzzy, kde-format
 #| msgid "Edit This Account"
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Изменить эту учётную запись"
 
-#: src/app/qml/AccountMenu.qml:51
+#: src/app/qml/AccountMenu.qml:67
 #, fuzzy, kde-format
 #| msgid "Notification Settings"
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Параметры уведомлений"
 
-#: src/app/qml/AccountMenu.qml:59
+#: src/app/qml/AccountMenu.qml:75
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Устройства"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:83
 #, fuzzy, kde-format
 #| msgid "Open Developer Tools"
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Открыть инструменты разработчика"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Инструменты разработчика"
 
-#: src/app/qml/AccountMenu.qml:80
+#: src/app/qml/AccountMenu.qml:96
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Открыть резервную копию регистрационных данных"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:99
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Открытие резервной копии ключей"
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:104
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Проверить это устройство"
 
-#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Успешная отправка запроса на проверку"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Для продолжения примите запрос на проверку на другом устройстве."
 
-#: src/app/qml/AccountMenu.qml:106
+#: src/app/qml/AccountMenu.qml:122
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@action:inmenu Open support dialog"
+msgid "Support"
+msgstr "Пожаловаться"
+
+#: src/app/qml/AccountMenu.qml:132
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
@@ -344,7 +366,7 @@ msgid "Attachment:"
 msgstr "Вложение:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:191
+#: src/timeline/DelegateContextMenu.qml:189
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
@@ -953,7 +975,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Добавить вариант"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
 #: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
@@ -978,12 +1000,6 @@ msgstr "Уведомлений нет"
 msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Выбор файла"
-
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "Сканирование QR-кода"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -1047,14 +1063,21 @@ msgid "No room found"
 msgstr "Не найдено ни одной комнаты"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:315
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Просмотреть комнаты"
 
-#: src/app/qml/ReasonDialog.qml:60
+#: src/app/qml/ReasonDialog.qml:33
+#, kde-kuit-format
+msgid ""
+"This report will <strong>only</strong> be sent to the administrators of "
+"<link>%1</link> (your server)."
+msgstr ""
+
+#: src/app/qml/ReasonDialog.qml:72
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -1242,6 +1265,60 @@ msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
 
+#: src/app/qml/SupportDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title Support information"
+msgid "Support"
+msgstr "Пожаловаться"
+
+#: src/app/qml/SupportDialog.qml:33
+#, kde-format
+msgctxt "@info:label %1 is the domain of the server"
+msgid "Offical support resources provided by %1:"
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:34
+#, kde-format
+msgctxt "@info:label %1 is the domain of the server"
+msgid "%1 has no support resources."
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:47
+#, fuzzy, kde-format
+#| msgid "Open poll"
+msgctxt "@action:button Open support webpage"
+msgid "Open Support"
+msgstr "Открытое голосование"
+
+#: src/app/qml/SupportDialog.qml:82
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgctxt "@info:label Adminstrator contact"
+msgid "Admin"
+msgstr "Администратор"
+
+#: src/app/qml/SupportDialog.qml:84
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@info:label Security contact"
+msgid "Security"
+msgstr "Безопасность"
+
+#: src/app/qml/SupportDialog.qml:104
+#, kde-format
+msgctxt "@info:tooltip %1 is a Matrix ID"
+msgid "Contact via Matrix (%1)"
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:115
+#, kde-format
+msgctxt "@info:tooltip %1 is an e-mail address"
+msgid "Contact via e-mail (%1)"
+msgstr ""
+
 #: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
@@ -1396,7 +1473,7 @@ msgstr "Жалоба на сообщение"
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this user"
+msgid "Optionally give a reason for reporting this user"
 msgstr "Причина жалобы на это сообщение"
 
 #: src/app/qml/UserDetailDialog.qml:181
@@ -1409,7 +1486,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Пожаловаться"
 
-#: src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/UserDetailDialog.qml:185
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -1417,7 +1494,7 @@ msgctxt "@title"
 msgid "Report User"
 msgstr "Жалоба на сообщение"
 
-#: src/app/qml/UserDetailDialog.qml:194
+#: src/app/qml/UserDetailDialog.qml:196
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1425,7 +1502,7 @@ msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Открыть профиль"
 
-#: src/app/qml/UserDetailDialog.qml:204
+#: src/app/qml/UserDetailDialog.qml:206
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1433,14 +1510,14 @@ msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Открыть профиль"
 
-#: src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Модератор"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:244
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1448,55 +1525,59 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Выгнать"
 
-#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:248 src/app/qml/UserDetailDialog.qml:255
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Выгон пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:247
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:249
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for kicking this user"
 msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
+msgid "Optionally give a reason for kicking this user"
 msgstr "Причина (почему пришлось выгнать этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:248
+#: src/app/qml/UserDetailDialog.qml:250
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Выгнать"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:272
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
+#: src/app/qml/UserDetailDialog.qml:277 src/app/qml/UserDetailDialog.qml:284
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Блокировка пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:274
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for banning this user"
 msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
+msgid "Optionally give a reason for banning this user"
 msgstr "Причина (почему пришлось заблокировать этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:275
+#: src/app/qml/UserDetailDialog.qml:279
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Заблокировать"
 
-#: src/app/qml/UserDetailDialog.qml:295
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:306
+#: src/app/qml/UserDetailDialog.qml:312
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1504,53 +1585,55 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Удаление сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:311
+#: src/app/qml/UserDetailDialog.qml:317
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Удаление сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:312
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this user's recent messages"
 msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
+msgid "Optionally give a reason for removing this user's recent messages"
 msgstr ""
 "Причина (почему пришлось удалить последние сообщения этого пользователя)"
 
-#: src/app/qml/UserDetailDialog.qml:313
+#: src/app/qml/UserDetailDialog.qml:319
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/app/qml/UserDetailDialog.qml:316
+#: src/app/qml/UserDetailDialog.qml:324
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Удаление сообщений"
 
-#: src/app/qml/UserDetailDialog.qml:329
+#: src/app/qml/UserDetailDialog.qml:337
 #, fuzzy, kde-format
 #| msgid "Set user power level"
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "Установить уровень возможностей пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:361
 #, fuzzy, kde-format
 #| msgid "Set user power level"
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Установить уровень возможностей пользователя"
 
-#: src/app/qml/UserDetailDialog.qml:380
+#: src/app/qml/UserDetailDialog.qml:388
 #, fuzzy, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Показать все комнаты"
 
-#: src/app/qml/UserDetailDialog.qml:419
+#: src/app/qml/UserDetailDialog.qml:427
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1565,7 +1648,7 @@ msgstr[1] " и ещё %1"
 msgstr[2] " и ещё %1"
 msgstr[3] " и ещё %1"
 
-#: src/app/qml/UserDetailDialog.qml:426
+#: src/app/qml/UserDetailDialog.qml:434
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "Private"
@@ -1573,7 +1656,7 @@ msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Закрытая"
 
-#: src/app/qml/UserDetailDialog.qml:438
+#: src/app/qml/UserDetailDialog.qml:446
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1806,18 +1889,18 @@ msgstr ""
 "Неверно сформированный или пустой идентификатор Matrix<br />%1 — "
 "некорректный идентификатор Matrix"
 
-#: src/app/roommanager.cpp:425
+#: src/app/roommanager.cpp:426
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Не удалось присоединиться к комнате<br />%1"
 
-#: src/app/roommanager.cpp:449
+#: src/app/roommanager.cpp:450
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
-#: src/app/roommanager.cpp:453
+#: src/app/roommanager.cpp:454
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не удалось отправить запрос на присоединение к комнате<br />%1"
@@ -4368,50 +4451,34 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "удалил(а) виджет %1"
 
-#: src/rooms/ExploreComponent.qml:36
+#: src/rooms/ExploreComponent.qml:30
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Комнаты"
 
-#: src/rooms/ExploreComponent.qml:48
+#: src/rooms/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Найти комнаты"
 
-#: src/rooms/ExploreComponent.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Показать меню"
-
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "Поиск друзей"
-
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:70
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Поиск друзей"
-
-#: src/rooms/ExploreComponent.qml:102
-#, kde-format
-msgid "Create a Room"
-msgstr "Создать комнату"
-
-#: src/rooms/ExploreComponent.qml:117
-#, kde-format
-msgid "Scan a QR Code"
-msgstr "Сканировать QR-код"
-
 #: src/rooms/ExploreComponentMobile.qml:33
 #, kde-format
 msgid "Search"
 msgstr "Поиск"
+
+#: src/rooms/ExploreComponentMobile.qml:63
+#, kde-format
+msgid "Find your friends"
+msgstr "Поиск друзей"
+
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Поиск друзей"
 
 #: src/rooms/ExploreComponentMobile.qml:76
 #, kde-format
@@ -4546,7 +4613,7 @@ msgstr "Пожаловаться"
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this room"
+msgid "Optionally give a reason for reporting this room"
 msgstr "Причина жалобы на это сообщение"
 
 #: src/rooms/RoomContextMenu.qml:162
@@ -4559,7 +4626,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Пожаловаться"
 
-#: src/rooms/RoomContextMenu.qml:164
+#: src/rooms/RoomContextMenu.qml:166
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4568,7 +4635,7 @@ msgctxt "@title"
 msgid "Report Room"
 msgstr "Пожаловаться"
 
-#: src/rooms/RoomContextMenu.qml:174
+#: src/rooms/RoomContextMenu.qml:176
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
@@ -4650,12 +4717,12 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Развернуть %1"
 
-#: src/rooms/SpaceDrawer.qml:60
+#: src/rooms/SpaceDrawer.qml:61
 #, kde-format
 msgid "View notifications"
 msgstr "Просмотреть уведомления"
 
-#: src/rooms/SpaceDrawer.qml:92
+#: src/rooms/SpaceDrawer.qml:93
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4666,14 +4733,14 @@ msgstr[1] "Включить звук уведомлений"
 msgstr[2] "Включить звук уведомлений"
 msgstr[3] "Включить звук уведомлений"
 
-#: src/rooms/SpaceDrawer.qml:92
+#: src/rooms/SpaceDrawer.qml:93
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Домашняя страница"
 
-#: src/rooms/SpaceDrawer.qml:143
+#: src/rooms/SpaceDrawer.qml:144
 #, fuzzy, kde-format
 #| msgctxt "@button View all one-on-one chats with your friends."
 #| msgid "Friends (%1 notification)"
@@ -4686,7 +4753,7 @@ msgstr[1] "Друзья (%1 уведомления)"
 msgstr[2] "Друзья (%1 уведомлений)"
 msgstr[3] "Друзья (%1 уведомление)"
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:147
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4694,16 +4761,35 @@ msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/rooms/SpaceDrawer.qml:228
+#: src/rooms/SpaceDrawer.qml:229
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Присоединиться к %1"
 
-#: src/rooms/SpaceDrawer.qml:270
-#, kde-format
-msgid "Create a space"
-msgstr "Создать пространство"
+#: src/rooms/SpaceDrawer.qml:273
+#, fuzzy, kde-format
+#| msgctxt "@action:button Create new room"
+#| msgid "Create"
+msgctxt "@action:button Create a new room or space"
+msgid "Create"
+msgstr "Создать"
+
+#: src/rooms/SpaceDrawer.qml:287
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Room…"
+msgctxt "@action:button Create a new room"
+msgid "New Room…"
+msgstr "Новая комната…"
+
+#: src/rooms/SpaceDrawer.qml:298
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Space…"
+msgctxt "@action:button Create a new room"
+msgid "New Space…"
+msgstr "Новое пространство…"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
@@ -5169,25 +5255,31 @@ msgid ""
 "It's recommended to verify as soon as possible."
 msgstr ""
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:42
+#, kde-format
+msgctxt "@info:description"
+msgid "This device is marked as secure."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:59
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Проверенные устройства"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:65
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Непроверенные устройства"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:71
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Устройства без поддержки шифрования"
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:87
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
@@ -7293,14 +7385,14 @@ msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "Покинуть это пространство"
 
-#: src/timeline/DelegateContextMenu.qml:165
+#: src/timeline/DelegateContextMenu.qml:163
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Ответить"
 
-#: src/timeline/DelegateContextMenu.qml:177
+#: src/timeline/DelegateContextMenu.qml:175
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reply in Thread"
@@ -7308,26 +7400,28 @@ msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
 
-#: src/timeline/DelegateContextMenu.qml:203
+#: src/timeline/DelegateContextMenu.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Удалить…"
 
-#: src/timeline/DelegateContextMenu.qml:208
+#: src/timeline/DelegateContextMenu.qml:206
 #: src/timeline/DelegateContextMenu.qml:213
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Удаление сообщения"
 
-#: src/timeline/DelegateContextMenu.qml:209
-#, kde-format
+#: src/timeline/DelegateContextMenu.qml:207
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
 msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
+msgid "Optionally give a reason for removing this message"
 msgstr "Причина удаления этого сообщения"
 
-#: src/timeline/DelegateContextMenu.qml:210
+#: src/timeline/DelegateContextMenu.qml:208
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
@@ -7449,9 +7543,11 @@ msgid "Report Message"
 msgstr "Жалоба на сообщение"
 
 #: src/timeline/DelegateContextMenu.qml:333
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
+msgid "Optionally give a reason for reporting this message"
 msgstr "Причина жалобы на это сообщение"
 
 #: src/timeline/DelegateContextMenu.qml:335
@@ -7461,51 +7557,51 @@ msgctxt ""
 msgid "Report"
 msgstr "Пожаловаться"
 
-#: src/timeline/DelegateContextMenu.qml:337
+#: src/timeline/DelegateContextMenu.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Жалоба на сообщение"
 
-#: src/timeline/DelegateContextMenu.qml:349
+#: src/timeline/DelegateContextMenu.qml:351
 #, fuzzy, kde-format
 #| msgid "Search for '%1'"
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Поиск «%1»"
 
-#: src/timeline/DelegateContextMenu.qml:372
+#: src/timeline/DelegateContextMenu.qml:374
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts…"
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Настроить веб-сокращения…"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Зачитать текст вслух"
 
-#: src/timeline/DelegateContextMenu.qml:383
+#: src/timeline/DelegateContextMenu.qml:385
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 сказал(а) %2"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:404
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Открепить"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:404
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Закрепить"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:417
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -7620,6 +7716,16 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Menu"
+#~ msgstr "Показать меню"
+
+#~ msgid "Create a Room"
+#~ msgstr "Создать комнату"
+
+#~ msgid "Create a space"
+#~ msgstr "Создать пространство"
 
 #~ msgctxt "Room permission type"
 #~ msgid "Set pinned events"
@@ -7880,9 +7986,6 @@ msgstr[3] "%2 набирает сообщение"
 #~ msgctxt "@action:button"
 #~ msgid "Ok"
 #~ msgstr "ОК"
-
-#~ msgid "Security"
-#~ msgstr "Безопасность"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "Настроить NeoChat…"

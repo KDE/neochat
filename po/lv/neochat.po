@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:41+0000\n"
+"POT-Creation-Date: 2026-01-16 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -210,79 +210,101 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Atvērt „NeoChat“"
 
-#: src/app/qml/AccountMenu.qml:22 src/settings/AccountEditorPage.qml:123
+#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Show QR Code"
 msgstr "Rādīt kvadrātkodu"
 
-#: src/app/qml/AccountMenu.qml:36
+#: src/app/qml/AccountMenu.qml:41
+#, fuzzy, kde-format
+#| msgid "Scan a QR Code"
+msgctxt "@action:inmenu"
+msgid "Scan a QR Code"
+msgstr "Skenēt kvadrātkodu"
+
+#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#, kde-format
+msgctxt "@title"
+msgid "Scan a QR Code"
+msgstr "Skenēt kvadrātkodu"
+
+#: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
 msgstr "Pārslēgties starp kontiem"
 
-#: src/app/qml/AccountMenu.qml:45
+#: src/app/qml/AccountMenu.qml:61
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Rediģēt šo kontu"
 
-#: src/app/qml/AccountMenu.qml:51
+#: src/app/qml/AccountMenu.qml:67
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Paziņojumu iestatījumi"
 
-#: src/app/qml/AccountMenu.qml:59
+#: src/app/qml/AccountMenu.qml:75
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Devices"
 msgstr "Ierīces"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:83
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Atvērt rīkus izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Rīki izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:80
+#: src/app/qml/AccountMenu.qml:96
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Secret Backup"
 msgstr "Atvērt slepeno rezervi"
 
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:99
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Key Backup"
 msgstr "Atvērt atslēgas rezervi"
 
-#: src/app/qml/AccountMenu.qml:88
+#: src/app/qml/AccountMenu.qml:104
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verificēt šo ierīci"
 
-#: src/app/qml/AccountMenu.qml:94 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Ir nosūtīts verifikācijas pieprasījums"
 
-#: src/app/qml/AccountMenu.qml:95 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Lai turpinātu, otrā ierīcē apstipriniet verifikācijas pieprasījumu."
 
-#: src/app/qml/AccountMenu.qml:106
+#: src/app/qml/AccountMenu.qml:122
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@action:inmenu Open support dialog"
+msgid "Support"
+msgstr "Ziņot"
+
+#: src/app/qml/AccountMenu.qml:132
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Logout…"
@@ -336,7 +358,7 @@ msgid "Attachment:"
 msgstr "Pielikums:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:191
+#: src/timeline/DelegateContextMenu.qml:189
 #, kde-format
 msgid "Edit"
 msgstr "Rediģēt"
@@ -921,7 +943,7 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Pievienot opciju"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:70
+#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
 #: src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
@@ -945,12 +967,6 @@ msgstr "Nav paziņojumu"
 msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Atlasīt datni"
-
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
-#, kde-format
-msgctxt "@title"
-msgid "Scan a QR Code"
-msgstr "Skenēt kvadrātkodu"
 
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
@@ -1007,14 +1023,21 @@ msgid "No room found"
 msgstr "Neviena istaba nav atrasta"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:315
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Izpētīt istabas"
 
-#: src/app/qml/ReasonDialog.qml:60
+#: src/app/qml/ReasonDialog.qml:33
+#, kde-kuit-format
+msgid ""
+"This report will <strong>only</strong> be sent to the administrators of "
+"<link>%1</link> (your server)."
+msgstr ""
+
+#: src/app/qml/ReasonDialog.qml:72
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -1184,6 +1207,61 @@ msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Kopīgotā URL attēlam ir <a href='%1'>%1</a>"
 
+#: src/app/qml/SupportDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this event to the administrators'"
+#| msgid "Report"
+msgctxt "@title Support information"
+msgid "Support"
+msgstr "Ziņot"
+
+#: src/app/qml/SupportDialog.qml:33
+#, kde-format
+msgctxt "@info:label %1 is the domain of the server"
+msgid "Offical support resources provided by %1:"
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:34
+#, kde-format
+msgctxt "@info:label %1 is the domain of the server"
+msgid "%1 has no support resources."
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox"
+#| msgid "Open poll"
+msgctxt "@action:button Open support webpage"
+msgid "Open Support"
+msgstr "Atvērt aptauju"
+
+#: src/app/qml/SupportDialog.qml:82
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgctxt "@info:label Adminstrator contact"
+msgid "Admin"
+msgstr "Administrators"
+
+#: src/app/qml/SupportDialog.qml:84
+#, fuzzy, kde-format
+#| msgid "Security"
+msgctxt "@info:label Security contact"
+msgid "Security"
+msgstr "Drošība"
+
+#: src/app/qml/SupportDialog.qml:104
+#, kde-format
+msgctxt "@info:tooltip %1 is a Matrix ID"
+msgid "Contact via Matrix (%1)"
+msgstr ""
+
+#: src/app/qml/SupportDialog.qml:115
+#, kde-format
+msgctxt "@info:tooltip %1 is an e-mail address"
+msgid "Contact via e-mail (%1)"
+msgstr ""
+
 #: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
@@ -1341,7 +1419,7 @@ msgstr "Ziņot par ziņu"
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this user"
+msgid "Optionally give a reason for reporting this user"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
 #: src/app/qml/UserDetailDialog.qml:181
@@ -1354,7 +1432,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Ziņot"
 
-#: src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/UserDetailDialog.qml:185
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -1362,7 +1440,7 @@ msgctxt "@title"
 msgid "Report User"
 msgstr "Ziņot par ziņu"
 
-#: src/app/qml/UserDetailDialog.qml:194
+#: src/app/qml/UserDetailDialog.qml:196
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1370,7 +1448,7 @@ msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Atvērt profilu"
 
-#: src/app/qml/UserDetailDialog.qml:204
+#: src/app/qml/UserDetailDialog.qml:206
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Profile"
@@ -1378,14 +1456,14 @@ msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Atvērt profilu"
 
-#: src/app/qml/UserDetailDialog.qml:217
+#: src/app/qml/UserDetailDialog.qml:219
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderators"
 
-#: src/app/qml/UserDetailDialog.qml:242
+#: src/app/qml/UserDetailDialog.qml:244
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 #| msgid "Kick"
@@ -1393,55 +1471,59 @@ msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Izmest"
 
-#: src/app/qml/UserDetailDialog.qml:246 src/app/qml/UserDetailDialog.qml:251
+#: src/app/qml/UserDetailDialog.qml:248 src/app/qml/UserDetailDialog.qml:255
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Izmest lietotāju"
 
-#: src/app/qml/UserDetailDialog.qml:247
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:249
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for kicking this user"
 msgctxt "@info:placeholder"
-msgid "Reason for kicking this user"
+msgid "Optionally give a reason for kicking this user"
 msgstr "Iemesls lietotāja izmešanai"
 
-#: src/app/qml/UserDetailDialog.qml:248
+#: src/app/qml/UserDetailDialog.qml:250
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Izmest"
 
-#: src/app/qml/UserDetailDialog.qml:268
+#: src/app/qml/UserDetailDialog.qml:272
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:273 src/app/qml/UserDetailDialog.qml:278
+#: src/app/qml/UserDetailDialog.qml:277 src/app/qml/UserDetailDialog.qml:284
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Aizliegt lietotāju"
 
-#: src/app/qml/UserDetailDialog.qml:274
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:278
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for banning this user"
 msgctxt "@info:placeholder"
-msgid "Reason for banning this user"
+msgid "Optionally give a reason for banning this user"
 msgstr "Iemesls lietotāja aizliegšanai"
 
-#: src/app/qml/UserDetailDialog.qml:275
+#: src/app/qml/UserDetailDialog.qml:279
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Aizliegt"
 
-#: src/app/qml/UserDetailDialog.qml:295
+#: src/app/qml/UserDetailDialog.qml:301
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:306
+#: src/app/qml/UserDetailDialog.qml:312
 #, fuzzy, kde-format
 #| msgctxt "@title:dialog"
 #| msgid "Remove Messages"
@@ -1449,31 +1531,33 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Noņemt ziņas"
 
-#: src/app/qml/UserDetailDialog.qml:311
+#: src/app/qml/UserDetailDialog.qml:317
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Noņemt ziņas"
 
-#: src/app/qml/UserDetailDialog.qml:312
-#, kde-format
+#: src/app/qml/UserDetailDialog.qml:318
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this user's recent messages"
 msgctxt "@info:placeholder"
-msgid "Reason for removing this user's recent messages"
+msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "Iemesls šī lietotāja pēdējo ziņu noņemšanai"
 
-#: src/app/qml/UserDetailDialog.qml:313
+#: src/app/qml/UserDetailDialog.qml:319
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Noņemt"
 
-#: src/app/qml/UserDetailDialog.qml:316
+#: src/app/qml/UserDetailDialog.qml:324
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Noņemt ziņas"
 
-#: src/app/qml/UserDetailDialog.qml:329
+#: src/app/qml/UserDetailDialog.qml:337
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1481,7 +1565,7 @@ msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "Iestatīt privilēģiju līmeni"
 
-#: src/app/qml/UserDetailDialog.qml:353
+#: src/app/qml/UserDetailDialog.qml:361
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Set user power level"
@@ -1489,7 +1573,7 @@ msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Iestatīt privilēģiju līmeni"
 
-#: src/app/qml/UserDetailDialog.qml:380
+#: src/app/qml/UserDetailDialog.qml:388
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "One mutual room"
@@ -1499,7 +1583,7 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "%1 kopīga istaba"
 
-#: src/app/qml/UserDetailDialog.qml:419
+#: src/app/qml/UserDetailDialog.qml:427
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1513,7 +1597,7 @@ msgstr[0] " un vēl %1"
 msgstr[1] " un vēl %1"
 msgstr[2] " un vēl %1"
 
-#: src/app/qml/UserDetailDialog.qml:426
+#: src/app/qml/UserDetailDialog.qml:434
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "Private"
@@ -1521,7 +1605,7 @@ msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Privāts"
 
-#: src/app/qml/UserDetailDialog.qml:438
+#: src/app/qml/UserDetailDialog.qml:446
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1749,17 +1833,17 @@ msgstr ""
 "Nepareizi formatēts vai tukšs „Matrix“ identifikators<br /> „%1“ nav pareizs "
 "„Matrix“ identifikators"
 
-#: src/app/roommanager.cpp:425
+#: src/app/roommanager.cpp:426
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Neizdevās pievienoties „%1“<br />%2"
 
-#: src/app/roommanager.cpp:449
+#: src/app/roommanager.cpp:450
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/app/roommanager.cpp:453
+#: src/app/roommanager.cpp:454
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neizdevās lūgt pievienoties istabai<br />%1"
@@ -4241,50 +4325,34 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Noņēma logdaļu"
 
-#: src/rooms/ExploreComponent.qml:36
+#: src/rooms/ExploreComponent.qml:30
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Istabas"
 
-#: src/rooms/ExploreComponent.qml:48
+#: src/rooms/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Meklēt istabas"
 
-#: src/rooms/ExploreComponent.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Menu"
-msgstr "Rādīt izvēlni"
-
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "Atrast draugus"
-
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:70
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Atrast draugus"
-
-#: src/rooms/ExploreComponent.qml:102
-#, kde-format
-msgid "Create a Room"
-msgstr "Izveidot istabu"
-
-#: src/rooms/ExploreComponent.qml:117
-#, kde-format
-msgid "Scan a QR Code"
-msgstr "Skenēt kvadrātkodu"
-
 #: src/rooms/ExploreComponentMobile.qml:33
 #, kde-format
 msgid "Search"
 msgstr "Meklēt"
+
+#: src/rooms/ExploreComponentMobile.qml:63
+#, kde-format
+msgid "Find your friends"
+msgstr "Atrast draugus"
+
+#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
+#: src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Atrast draugus"
 
 #: src/rooms/ExploreComponentMobile.qml:76
 #, kde-format
@@ -4413,7 +4481,7 @@ msgstr "Ziņot"
 #| msgctxt "@info:placeholder"
 #| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this room"
+msgid "Optionally give a reason for reporting this room"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
 #: src/rooms/RoomContextMenu.qml:162
@@ -4426,7 +4494,7 @@ msgctxt ""
 msgid "Report"
 msgstr "Ziņot"
 
-#: src/rooms/RoomContextMenu.qml:164
+#: src/rooms/RoomContextMenu.qml:166
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -4435,7 +4503,7 @@ msgctxt "@title"
 msgid "Report Room"
 msgstr "Ziņot"
 
-#: src/rooms/RoomContextMenu.qml:174
+#: src/rooms/RoomContextMenu.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Leave Room…"
@@ -4510,12 +4578,12 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Izvērst „%1“"
 
-#: src/rooms/SpaceDrawer.qml:60
+#: src/rooms/SpaceDrawer.qml:61
 #, kde-format
 msgid "View notifications"
 msgstr "Skatīt paziņojumus"
 
-#: src/rooms/SpaceDrawer.qml:92
+#: src/rooms/SpaceDrawer.qml:93
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4525,14 +4593,14 @@ msgstr[0] "Atskaņot paziņojumus"
 msgstr[1] "Atskaņot paziņojumus"
 msgstr[2] "Atskaņot paziņojumus"
 
-#: src/rooms/SpaceDrawer.qml:92
+#: src/rooms/SpaceDrawer.qml:93
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Mājas"
 
-#: src/rooms/SpaceDrawer.qml:143
+#: src/rooms/SpaceDrawer.qml:144
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4541,22 +4609,41 @@ msgstr[0] "Privātas ziņas (%1 paziņojums)"
 msgstr[1] "Privātas ziņas (%1 paziņojumi)"
 msgstr[2] "Privātas ziņas (%1 paziņojumu)"
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Privātas ziņas"
 
-#: src/rooms/SpaceDrawer.qml:228
+#: src/rooms/SpaceDrawer.qml:229
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pievienoties „%1“"
 
-#: src/rooms/SpaceDrawer.qml:270
-#, kde-format
-msgid "Create a space"
-msgstr "Izveidot telpu"
+#: src/rooms/SpaceDrawer.qml:273
+#, fuzzy, kde-format
+#| msgctxt "@action:button Create new room"
+#| msgid "Create"
+msgctxt "@action:button Create a new room or space"
+msgid "Create"
+msgstr "Izveidot"
+
+#: src/rooms/SpaceDrawer.qml:287
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Room…"
+msgctxt "@action:button Create a new room"
+msgid "New Room…"
+msgstr "Jauna grupa…"
+
+#: src/rooms/SpaceDrawer.qml:298
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "New Space…"
+msgctxt "@action:button Create a new room"
+msgid "New Space…"
+msgstr "Skatīt telpu…"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
@@ -5007,25 +5094,31 @@ msgstr ""
 "Šī ierīce ir marķēta kā nedroša līdz to verificēs cita ierīce. Ieteicams "
 "verifikāciju veikt pēc iespējas ātrāk."
 
-#: src/settings/DevicesPage.qml:58
+#: src/settings/DevicesPage.qml:42
+#, kde-format
+msgctxt "@info:description"
+msgid "This device is marked as secure."
+msgstr ""
+
+#: src/settings/DevicesPage.qml:59
 #, kde-format
 msgctxt "@info:group"
 msgid "Verified Devices"
 msgstr "Verificētās ierīces"
 
-#: src/settings/DevicesPage.qml:64
+#: src/settings/DevicesPage.qml:65
 #, kde-format
 msgctxt "@info:group"
 msgid "Unverified Devices"
 msgstr "Neverificētās ierīces"
 
-#: src/settings/DevicesPage.qml:70
+#: src/settings/DevicesPage.qml:71
 #, kde-format
 msgctxt "@info:group"
 msgid "Devices without Encryption Support"
 msgstr "Ierīces bez šifrēšanas atbalsta"
 
-#: src/settings/DevicesPage.qml:86
+#: src/settings/DevicesPage.qml:87
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Lūdzu, ierakstieties, ka apskatītu šī konta ierakstītās ierīces."
@@ -7068,38 +7161,40 @@ msgctxt "@action:button"
 msgid "Leave this space…"
 msgstr "Pamest šo telpu…"
 
-#: src/timeline/DelegateContextMenu.qml:165
+#: src/timeline/DelegateContextMenu.qml:163
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Atbildēt"
 
-#: src/timeline/DelegateContextMenu.qml:177
+#: src/timeline/DelegateContextMenu.qml:175
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Atbildēt pavedienā"
 
-#: src/timeline/DelegateContextMenu.qml:203
+#: src/timeline/DelegateContextMenu.qml:201
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Noņemt…"
 
-#: src/timeline/DelegateContextMenu.qml:208
+#: src/timeline/DelegateContextMenu.qml:206
 #: src/timeline/DelegateContextMenu.qml:213
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Noņemt ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:209
-#, kde-format
+#: src/timeline/DelegateContextMenu.qml:207
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
 msgctxt "@info:placeholder"
-msgid "Reason for removing this message"
+msgid "Optionally give a reason for removing this message"
 msgstr "Iemesls šīs ziņas noņemšanai"
 
-#: src/timeline/DelegateContextMenu.qml:210
+#: src/timeline/DelegateContextMenu.qml:208
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
@@ -7221,9 +7316,11 @@ msgid "Report Message"
 msgstr "Ziņot par ziņu"
 
 #: src/timeline/DelegateContextMenu.qml:333
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for reporting this message"
 msgctxt "@info:placeholder"
-msgid "Reason for reporting this message"
+msgid "Optionally give a reason for reporting this message"
 msgstr "Iemesls ziņošanai par šo ziņu"
 
 #: src/timeline/DelegateContextMenu.qml:335
@@ -7233,49 +7330,49 @@ msgctxt ""
 msgid "Report"
 msgstr "Ziņot"
 
-#: src/timeline/DelegateContextMenu.qml:337
+#: src/timeline/DelegateContextMenu.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Ziņot par ziņu"
 
-#: src/timeline/DelegateContextMenu.qml:349
+#: src/timeline/DelegateContextMenu.qml:351
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Meklēt „%1“"
 
-#: src/timeline/DelegateContextMenu.qml:372
+#: src/timeline/DelegateContextMenu.qml:374
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfigurēt tīmekļa saīsnes…"
 
-#: src/timeline/DelegateContextMenu.qml:380
+#: src/timeline/DelegateContextMenu.qml:382
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Nolasīt skaļi tekstu"
 
-#: src/timeline/DelegateContextMenu.qml:383
+#: src/timeline/DelegateContextMenu.qml:385
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 teica %2"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:404
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Atspraust"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:404
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Piespraust"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:417
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7384,6 +7481,16 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgctxt "@action:button"
+#~ msgid "Show Menu"
+#~ msgstr "Rādīt izvēlni"
+
+#~ msgid "Create a Room"
+#~ msgstr "Izveidot istabu"
+
+#~ msgid "Create a space"
+#~ msgstr "Izveidot telpu"
 
 #~ msgctxt "Room permission type"
 #~ msgid "Set pinned events"
@@ -7600,9 +7707,6 @@ msgstr[2] "%2 raksta"
 #~ msgctxt "@action:button"
 #~ msgid "Ok"
 #~ msgstr "Labi"
-
-#~ msgid "Security"
-#~ msgstr "Drošība"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "Konfigurēt „NeoChat“…"
