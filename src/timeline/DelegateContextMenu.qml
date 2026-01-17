@@ -393,6 +393,7 @@ KirigamiComponents.ConvergentContextMenu {
         room: root.room
         eventId: root.eventId
         property string filename: Core.StandardPaths.writableLocation(Core.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + root.room.fileNameToDownload(eventId)
+        visible: root.mimeType.length > 0
     }
 
     Kirigami.Action {
