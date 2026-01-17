@@ -77,6 +77,21 @@ void CompletionModel::setTextItem(ChatTextItemHelper *textItem)
     Q_EMIT textItemChanged();
 }
 
+bool CompletionModel::isCompleting() const
+{
+    if (!m_textItem) {
+        return false;
+    }
+    return m_textItem->isCompleting;
+}
+
+void CompletionModel::ignoreCurrentCompletion()
+{
+    m_ignoreCurrentCompletion = true;
+    m_textItem->isCompleting = false;
+    Q_EMIT isCompletingChanged();
+}
+
 void CompletionModel::updateTextStart()
 {
     auto cursor = m_textItem->textCursor();
@@ -193,6 +208,15 @@ void CompletionModel::updateCompletion()
     if (cursor.isNull()) {
         return;
     }
+
+    if (m_ignoreCurrentCompletion) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+        if (cursor.selectedText() == u' ') {
+            m_ignoreCurrentCompletion = false;
+        }
+        return;
+    }
+
     cursor.setPosition(m_textStart);
     while (!cursor.selectedText().endsWith(u' ') && !cursor.atBlockEnd()) {
         cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
@@ -242,6 +266,7 @@ void CompletionModel::updateCompletion()
     endResetModel();
 
     m_textItem->isCompleting = rowCount() > 0;
+    Q_EMIT isCompletingChanged();
 }
 
 CompletionModel::AutoCompletionType CompletionModel::autoCompletionType() const

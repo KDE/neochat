@@ -11,32 +11,54 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
 import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 
-import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 
 QQC2.Popup {
     id: root
 
-    /**
-     * @brief The current room that user is viewing.
-     */
-    required property LibNeoChat.NeoChatRoom room
+    property alias model: completions.model
 
-    /**
-     * @brief The chatbar type
-     */
-    required property int type
+    required property LibNeoChat.ChatKeyHelper keyHelper
 
-    /**
-     * @brief The chatbar type
-     */
-    required property LibNeoChat.ChatTextItemHelper textItem
+    Connections {
+        target: keyHelper
 
-    visible: completions.count > 0
+        function onUnhandledUp(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            root.decrementIndex();
+        }
 
-    onVisibleChanged: if (visible) {
-        root.open();
+        function onUnhandledDown(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            root.incrementIndex();
+        }
+
+        function onUnhandledTab(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            root.completeCurrent();
+        }
+
+        function onUnhandledReturn(isCompleting: bool): void {
+            if (!isCompleting) {
+                return;
+            }
+            root.completeCurrent();
+        }
+
+        function onCloseCompletion(): void {
+            root.close();
+            root.model.ignoreCurrentCompletion();
+        }
     }
+
+    x: model.textItem.textItem.cursorRectangle.x - Kirigami.Units.largeSpacing
+    y: model.textItem.textItem.cursorRectangle.y - implicitHeight - Kirigami.Units.smallSpacing
 
     function incrementIndex() {
         completions.incrementCurrentIndex();
@@ -47,11 +69,11 @@ QQC2.Popup {
     }
 
     function complete(text: string, hRef: string) {
-        completionModel.insertCompletion(text, hRef);
+        model.insertCompletion(text, hRef);
     }
 
     function completeCurrent() {
-        completionModel.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef);
+        model.insertCompletion(completions.currentItem.replacedText, completions.currentItem.hRef);
     }
 
     leftPadding: 0
@@ -61,70 +83,57 @@ QQC2.Popup {
 
     implicitHeight: Math.min(completions.contentHeight, Kirigami.Units.gridUnit * 10)
 
-    contentItem: ColumnLayout {
-        spacing: 0
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-        QQC2.ScrollView {
-            Layout.fillWidth: true
-            Layout.preferredHeight: contentHeight
-            Layout.maximumHeight: Kirigami.Units.gridUnit * 10
+    contentItem: QQC2.ScrollView {
+        contentWidth: Kirigami.Units.gridUnit * 20
 
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
-            }
+        ListView {
+            id: completions
+            currentIndex: 0
+            keyNavigationWraps: true
+            highlightMoveDuration: 100
+            onCountChanged: currentIndex = 0
+            delegate: Delegates.RoundedItemDelegate {
+                id: completionDelegate
 
-            ListView {
-                id: completions
+                required property int index
+                required property string displayName
+                required property string subtitle
+                required property string iconName
+                required property string replacedText
+                required property url hRef
 
-                model: LibNeoChat.CompletionModel {
-                    id: completionModel
-                    room: root.room
-                    type: root.type
-                    textItem: root.textItem
-                    roomListModel: RoomManager.roomListModel
-                    userListModel: RoomManager.userListModel
-                }
-                currentIndex: 0
-                keyNavigationWraps: true
-                highlightMoveDuration: 100
-                onCountChanged: currentIndex = 0
-                delegate: Delegates.RoundedItemDelegate {
-                    id: completionDelegate
+                text: displayName
 
-                    required property int index
-                    required property string displayName
-                    required property string subtitle
-                    required property string iconName
-                    required property string replacedText
-                    required property url hRef
-
-                    text: displayName
-
-                    contentItem: RowLayout {
-                        KirigamiComponents.Avatar {
-                            visible: completionDelegate.iconName !== "invalid"
-                            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-                            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                            source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
-                            name: completionDelegate.text
-                        }
-                        Delegates.SubtitleContentItem {
-                            itemDelegate: completionDelegate
-                            labelItem.textFormat: Text.PlainText
-                            labelItem.clip: true // Intentional to limit insane Unicode in display names
-                            subtitle: completionDelegate.subtitle ?? ""
-                            subtitleItem.textFormat: Text.PlainText
-                        }
+                contentItem: RowLayout {
+                    KirigamiComponents.Avatar {
+                        visible: completionDelegate.iconName !== "invalid"
+                        Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                        Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                        source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
+                        name: completionDelegate.text
                     }
-                    onClicked: completionModel.insertCompletion(replacedText, hRef)
+                    Delegates.SubtitleContentItem {
+                        itemDelegate: completionDelegate
+                        labelItem.textFormat: Text.PlainText
+                        labelItem.clip: true // Intentional to limit insane Unicode in display names
+                        subtitle: completionDelegate.subtitle ?? ""
+                        subtitleItem.textFormat: Text.PlainText
+                    }
                 }
+                onClicked: root.model.insertCompletion(replacedText, hRef)
             }
         }
     }
 
-    background: Rectangle {
+    background: Kirigami.ShadowedRectangle {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+
+        radius: Kirigami.Units.cornerRadius
         color: Kirigami.Theme.backgroundColor
+        border {
+            width: 1
+            color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+        }
     }
 }

@@ -16,28 +16,19 @@ Loader {
     property string labelText: ""
 
     active: visible
-    sourceComponent: QQC2.Pane {
+    sourceComponent: QQC2.Control {
         id: typingPane
-
-        leftPadding: Kirigami.Units.largeSpacing
-        rightPadding: Kirigami.Units.largeSpacing
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.smallSpacing
-        spacing: Kirigami.Units.largeSpacing
 
         FontMetrics {
             id: fontMetrics
         }
-
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        Kirigami.Theme.inherit: false
 
         contentItem: RowLayout {
             spacing: typingPane.spacing
             Row {
                 id: dotRow
                 property int duration: 400
-                spacing: Kirigami.Units.smallSpacing
+                spacing: Kirigami.Units.largeSpacing
                 Repeater {
                     model: 3
                     delegate: Rectangle {
@@ -113,14 +104,16 @@ Loader {
             }
         }
 
-        leftInset: !mirrored ? 0 : -(background as Rectangle).radius
-        rightInset: mirrored ? 0 : -(background as Rectangle).radius
-        bottomInset: -(background as Rectangle).radius
-        background: Rectangle {
+        background: Kirigami.ShadowedRectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: false
+
             radius: Kirigami.Units.cornerRadius
             color: Kirigami.Theme.backgroundColor
-            border.color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, 0.2)
-            border.width: 1
+            border {
+                color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+                width: 1
+            }
         }
     }
 }

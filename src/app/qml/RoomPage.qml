@@ -301,7 +301,6 @@ Kirigami.Page {
             id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
-            connection: root.currentRoom.connection as NeoChatConnection
         }
     }
 
