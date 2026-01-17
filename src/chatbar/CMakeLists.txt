@@ -9,6 +9,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         AttachDialog.qml
         ChatBar.qml
         RichEditBar.qml
+        SendBar.qml
         CompletionMenu.qml
         EmojiDelegate.qml
         EmojiGrid.qml

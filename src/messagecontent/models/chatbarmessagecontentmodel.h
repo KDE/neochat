@@ -66,6 +66,11 @@ class ChatBarMessageContentModel : public MessageContentModel
      */
     Q_PROPERTY(bool hasRichFormatting READ hasRichFormatting NOTIFY hasRichFormattingChanged)
 
+    /**
+     * @brief The UserListModel to be used for room completions.
+     */
+    Q_PROPERTY(bool sendMessageWithEnter READ sendMessageWithEnter WRITE setSendMessageWithEnter NOTIFY sendMessageWithEnterChanged)
+
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
@@ -89,12 +94,16 @@ public:
 
     Q_INVOKABLE void removeAttachment();
 
+    bool sendMessageWithEnter() const;
+    void setSendMessageWithEnter(bool sendMessageWithEnter);
+
     Q_INVOKABLE void postMessage();
 
 Q_SIGNALS:
     void typeChanged();
     void focusRowChanged();
     void hasRichFormattingChanged();
+    void sendMessageWithEnterChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
@@ -124,6 +133,8 @@ private:
 
     void updateCache() const;
     QString messageText() const;
+
+    bool m_sendMessageWithEnter = true;
 
     void clearModel();
 };

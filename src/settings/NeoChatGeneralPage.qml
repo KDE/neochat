@@ -264,32 +264,6 @@ FormCard.FormCardPage {
         title: i18nc("Chat Editor", "Editor")
     }
     FormCard.FormCard {
-        FormCard.FormRadioDelegate {
-            text: i18nc("@option:radio", "Send messages with Enter")
-            checked: NeoChatConfig.sendMessageWith === 0
-            visible: !Kirigami.Settings.isMobile
-            enabled: !NeoChatConfig.isSendMessageWithImmutable
-            onToggled: {
-                NeoChatConfig.sendMessageWith = 0
-                NeoChatConfig.save()
-            }
-        }
-        FormCard.FormRadioDelegate {
-            id: sendWithEnterRadio
-            text: i18nc("@option:radio", "Send messages with Ctrl+Enter")
-            checked: NeoChatConfig.sendMessageWith === 1
-            visible: !Kirigami.Settings.isMobile
-            enabled: !NeoChatConfig.isSendMessageWithImmutable
-            onToggled: {
-                NeoChatConfig.sendMessageWith = 1
-                NeoChatConfig.save()
-            }
-        }
-        FormCard.FormDelegateSeparator {
-            visible: !Kirigami.Settings.isMobile
-            above: sendWithEnterRadio
-            below: quickEditCheckbox
-        }
         FormCard.FormCheckDelegate {
             id: quickEditCheckbox
             text: i18n("Use s/text/replacement syntax to edit your last message")

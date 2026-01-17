@@ -101,21 +101,14 @@ QQC2.Popup {
     }
 
     background: Kirigami.ShadowedRectangle {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+
         radius: Kirigami.Units.cornerRadius
         color: Kirigami.Theme.backgroundColor
-
         border {
             width: 1
             color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
         }
-
-        shadow {
-            size: Kirigami.Units.gridUnit
-            yOffset: 0
-            color: Qt.rgba(0, 0, 0, 0.2)
-        }
-
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
     }
 }
