@@ -22,9 +22,9 @@ ColumnLayout {
     /**
      * @brief The canonical alias of the room, if it exists. Otherwise falls back to the first available alias.
      */
-    readonly property var roomAlias: room.aliases[0]
+    readonly property string roomAlias: room?.aliases[0] ?? ""
 
-    Layout.fillWidth: true
+    spacing: 0
 
     RowLayout {
         Layout.fillWidth: true

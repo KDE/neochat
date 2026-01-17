@@ -48,6 +48,10 @@ QQC2.ScrollView {
 
     ListView {
         id: userList
+
+        // Used to determine if the view has settled and should stop perfoming the hack
+        property bool viewHasSettled: false
+
         header: ColumnLayout {
             id: columnLayout
 
@@ -56,15 +60,29 @@ QQC2.ScrollView {
             spacing: 0
             width: ListView.view ? ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin : 0
 
+            // HACK: Resettle this ListView while our labels wrap themselves. ListView doesn't do this automatically.
+            // We use the Timer to determine when its done internally reshuffling, so we don't accidentally send you to the top if you actually scrolled down.
+            onHeightChanged: {
+                if (!userList.viewHasSettled) {
+                    userList.positionViewAtBeginning();
+                    hackTimer.restart();
+                }
+            }
+
+            Timer {
+                id: hackTimer
+
+                // The internal wrapping and height changes happen quickly, so we don't need a long interval here
+                interval: 1
+                onTriggered: userList.viewHasSettled = true
+            }
+
             Loader {
                 active: true
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
                 visible: !root.room.isSpace
                 sourceComponent: root.room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
-                onItemChanged: if (item) {
-                    userList.positionViewAtBeginning();
-                }
             }
 
             Kirigami.ListSectionHeader {
@@ -322,5 +340,6 @@ QQC2.ScrollView {
             userList.headerItem.userListSearchField.text = "";
         }
         userList.currentIndex = -1;
+        userList.viewHasSettled = false;
     }
 }
