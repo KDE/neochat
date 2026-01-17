@@ -89,11 +89,10 @@ RowLayout {
             id: timeHoverHandler
         }
         
-        
         function formattedTime(): string {
-            const days = Math.floor((Date.now() - root.time) / (1000 * 60  * 60 * 24))
+            const days = Math.ceil((Date.now() - root.time) / (1000 * 60  * 60 * 24))
             if(days > 0) {
-                return Format.formatRelativeDateTime(root.time, Locale.ShortFormat)
+                return Format.formatRelativeDate(root.time, Locale.ShortFormat) + ", " + root.timeString
             } 
             return root.timeString
         }
