@@ -24,7 +24,8 @@ Kirigami.ScrollablePage {
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
-            text: i18nc("@placeholder", "This room does not use any extensions")
+            icon.name: "extension-symbolic"
+            text: i18nc("@placeholder", "No extensions")
             visible: extView.count === 0
         }
 
