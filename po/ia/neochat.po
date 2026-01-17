@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2025-09-02 17:47+0200\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"PO-Revision-Date: 2026-01-16 11:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -163,7 +163,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Aperi NeoChat in iste sala"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
@@ -299,13 +299,10 @@ msgstr ""
 "dispoisitivo."
 
 #: src/app/qml/AccountMenu.qml:122
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr "Reporta"
+msgstr "Supporto"
 
 #: src/app/qml/AccountMenu.qml:132
 #, kde-format
@@ -864,20 +861,16 @@ msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Uni te"
 
 #: src/app/qml/MeetingDialog.qml:19
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start Chat"
+#, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
-msgstr "Initia conversation in directo"
+msgstr "Initia"
 
 #: src/app/qml/MessageSourceSheet.qml:42 src/devtools/RoomData.qml:59
 #: src/devtools/RoomData.qml:108
@@ -995,15 +988,13 @@ msgid "No Camera Connected"
 msgstr ""
 
 #: src/app/qml/QuickFormatBar.qml:22
-#, fuzzy, kde-format
-#| msgid "Bold"
+#, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Grasse"
 
 #: src/app/qml/QuickFormatBar.qml:41
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Italic"
@@ -1046,11 +1037,10 @@ msgstr "Nulle sala trovate"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
 #: src/rooms/SpaceDrawer.qml:315
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Explora salas"
+msgstr "Explora"
 
 #: src/app/qml/ReasonDialog.qml:33
 #, kde-kuit-format
@@ -1083,64 +1073,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Tu non ha le privilegios pro completar iste action"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Messages appunctate"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Benvenite a NeoChat"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Selige o Uni un sala per initiar"
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1232,18 +1222,15 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Url compartite per imagine es <a href='%1'>%1</a>"
 
 #: src/app/qml/SupportDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title Support information"
 msgid "Support"
-msgstr "Reporta"
+msgstr "Supporto"
 
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1261,15 +1248,13 @@ msgid "Open Support"
 msgstr "Aperi sondage"
 
 #: src/app/qml/SupportDialog.qml:82
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgctxt "@info:label Adminstrator contact"
 msgid "Admin"
 msgstr "Admin"
 
 #: src/app/qml/SupportDialog.qml:84
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@info:label Security contact"
 msgid "Security"
 msgstr "Securitate"
@@ -1375,68 +1360,53 @@ msgid "Account Details"
 msgstr "Detalios de conto"
 
 #: src/app/qml/UserDetailDialog.qml:118
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<message>"
+msgstr "Message"
 
 #: src/app/qml/UserDetailDialog.qml:128
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Ignora"
+msgstr "Cessa a ignorar"
 
 #: src/app/qml/UserDetailDialog.qml:128
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignora"
 
 #: src/app/qml/UserDetailDialog.qml:136
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Copia Ligamine"
 
 #: src/app/qml/UserDetailDialog.qml:142
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Cerca Messages"
+msgstr "Cerca Messages…"
 
 #: src/app/qml/UserDetailDialog.qml:156
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show QR Code"
+#, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show QR Code"
 msgstr "Monstra codice QR"
 
 #: src/app/qml/UserDetailDialog.qml:172
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
-msgstr "Reporta"
+msgstr "Reporta…"
 
 #: src/app/qml/UserDetailDialog.qml:178
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr "Reporta Message"
+msgstr "Reporta Usator"
 
 #: src/app/qml/UserDetailDialog.qml:179
 #, fuzzy, kde-format
@@ -1447,22 +1417,17 @@ msgid "Optionally give a reason for reporting this user"
 msgstr "Motivo per reportar iste message"
 
 #: src/app/qml/UserDetailDialog.qml:181
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Reporta"
 
 #: src/app/qml/UserDetailDialog.qml:185
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr "Reporta Message"
+msgstr "Reporta Usator"
 
 #: src/app/qml/UserDetailDialog.qml:196
 #, fuzzy, kde-format
@@ -1488,12 +1453,10 @@ msgid "Moderation"
 msgstr "Moderator"
 
 #: src/app/qml/UserDetailDialog.qml:244
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Kick (Calca)"
+msgstr "Kick (Calca)…"
 
 #: src/app/qml/UserDetailDialog.qml:248 src/app/qml/UserDetailDialog.qml:255
 #, kde-format
@@ -1519,7 +1482,7 @@ msgstr "Kick (Calca)"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Prohibi (Ban)…"
 
 #: src/app/qml/UserDetailDialog.qml:277 src/app/qml/UserDetailDialog.qml:284
 #, kde-format
@@ -1603,7 +1566,7 @@ msgstr "Assigna le nivello de fortia de usator"
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
-msgstr "Omne Salas"
+msgstr "%1 salas mutue"
 
 #: src/app/qml/UserDetailDialog.qml:427
 #, fuzzy, kde-format
@@ -1615,8 +1578,8 @@ msgctxt ""
 "not shown"
 msgid "and 1 more…"
 msgid_plural "and %1 more…"
-msgstr[0] "e %1 altere"
-msgstr[1] "e %1 alteres"
+msgstr[0] " e %1 altere"
+msgstr[1] " e %1 altere"
 
 #: src/app/qml/UserDetailDialog.qml:434
 #, fuzzy, kde-format
@@ -1624,7 +1587,7 @@ msgstr[1] "e %1 alteres"
 #| msgid "Private"
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Private"
+msgstr "Nota private:"
 
 #: src/app/qml/UserDetailDialog.qml:446
 #, kde-format
@@ -1661,12 +1624,10 @@ msgid "Copy User ID"
 msgstr "ID de usator"
 
 #: src/app/qml/UserSearchPage.qml:84
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@info"
 msgid "Direct Messages"
-msgstr "Messages appunctate"
+msgstr "Messages directe"
 
 #: src/app/qml/UserSearchPage.qml:91
 #, kde-format
@@ -1873,27 +1834,27 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "Facite"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Id de Matrix malformate o vacue<br />%1 non es un correcte identificator de "
 "Matrix"
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Falleva a unir sala<br />%1"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Tu requireva unir a '%1'"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Il falleva a requirer unir sala<br />%1"
@@ -2318,11 +2279,9 @@ msgid "Favorite"
 msgstr "Favorito"
 
 #: src/libneochat/enums/neochatroomtype.h:69
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgid "Direct Messages"
-msgstr "Messages appunctate"
+msgstr "Messages directe"
 
 #: src/libneochat/enums/neochatroomtype.h:71
 #, kde-format
@@ -2362,16 +2321,13 @@ msgid "Admin"
 msgstr "Admin"
 
 #: src/libneochat/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
 msgstr "Proprietario"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Creator"
@@ -4154,9 +4110,7 @@ msgstr[0] "%2 reagite con %3"
 msgstr[1] "%2 reagite con %3"
 
 #: src/messagecontent/PollComponent.qml:122
-#, fuzzy, kde-format
-#| msgid "%1 Vote"
-#| msgid_plural "%1 Votes"
+#, kde-format
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
@@ -4266,9 +4220,7 @@ msgid "Actions"
 msgstr "Actiones"
 
 #: src/roominfo/RoomInformation.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:title"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Cerca Messages"
@@ -4280,20 +4232,16 @@ msgid "Verify user"
 msgstr "Verifica usator"
 
 #: src/roominfo/RoomInformation.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
-msgstr "@Mentiones"
+msgstr "Extensiones"
 
 #: src/roominfo/RoomInformation.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
-msgstr "@Mentiones"
+msgstr "Extensiones"
 
 #: src/roominfo/RoomInformation.qml:126
 #, fuzzy, kde-format
@@ -4304,9 +4252,7 @@ msgid "Shared Locations"
 msgstr "Invia un location"
 
 #: src/roominfo/RoomInformation.qml:143
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Messages appunctate"
@@ -4351,9 +4297,7 @@ msgid "Invite user to room"
 msgstr "Invita  usator a sala"
 
 #: src/roominfo/RoomInformation.qml:218
-#, fuzzy, kde-format
-#| msgid "%1 member"
-#| msgid_plural "%1 members"
+#, kde-format
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -4377,34 +4321,32 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Nulle Messages appunctate"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Cerca Messages"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "Trova messages..."
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Inserta un texto per initiar a cercar"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "Necun messages trovate"
 
 #: src/roominfo/WidgetsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "@Mentions"
+#, kde-format
 msgctxt "@title"
 msgid "Extensions"
-msgstr "@Mentiones"
+msgstr "Extensiones"
 
 #: src/roominfo/WidgetsPage.qml:27
 #, fuzzy, kde-format
@@ -4419,7 +4361,7 @@ msgstr "Iste sala continua un altere conversation."
 #| msgid "removed %1 widget"
 msgctxt "@action:button"
 msgid "Remove widget"
-msgstr "removite %1 widget"
+msgstr "Remove Widget"
 
 #: src/rooms/ExploreComponent.qml:30
 #, kde-format
@@ -4462,8 +4404,7 @@ msgid "Create a Room"
 msgstr "Crea un Sala"
 
 #: src/rooms/ExploreComponentMobile.qml:159
-#, fuzzy, kde-format
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Crea un spatio"
@@ -4500,11 +4441,10 @@ msgid "Default Settings"
 msgstr "Preferentias predefinite"
 
 #: src/rooms/RoomContextMenu.qml:74 src/settings/PushNotification.qml:41
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All Messages"
-msgstr "Invia message"
+msgstr "Omne messages"
 
 #: src/rooms/RoomContextMenu.qml:86 src/settings/PushNotification.qml:50
 #, kde-format
@@ -4560,14 +4500,11 @@ msgid "Room Settings"
 msgstr "Preferentias de sala"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
-msgstr "Reporta"
+msgstr "Reporta…"
 
 #: src/rooms/RoomContextMenu.qml:159
 #, fuzzy, kde-format
@@ -4587,10 +4524,7 @@ msgid "Optionally give a reason for reporting this room"
 msgstr "Motivo per reportar iste message"
 
 #: src/rooms/RoomContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
@@ -4715,12 +4649,10 @@ msgstr[0] "Amicos (%1 notificationes)"
 msgstr[1] "Amicos (%1 notificationes)"
 
 #: src/rooms/SpaceDrawer.qml:147
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Pinned Messages"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
-msgstr "Messages appunctate"
+msgstr "Messages directe"
 
 #: src/rooms/SpaceDrawer.qml:229
 #, kde-format
@@ -4729,25 +4661,19 @@ msgid "Join %1"
 msgstr "Uni a %1"
 
 #: src/rooms/SpaceDrawer.qml:273
-#, fuzzy, kde-format
-#| msgctxt "@action:button Create new room"
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Crea"
 
 #: src/rooms/SpaceDrawer.qml:287
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Room…"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Nove Sala…"
 
 #: src/rooms/SpaceDrawer.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Space…"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
 msgstr "Nove Spatio…"
@@ -5029,11 +4955,10 @@ msgid "Show your messages on the right"
 msgstr "Monstra tu message a dextera"
 
 #: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Comprime vista preliminar"
+msgstr "Monstra Vista preliminar de ligamine"
 
 #: src/settings/AppearanceSettingsPage.qml:345
 #, kde-format
@@ -5150,7 +5075,7 @@ msgstr "Confirma nove nomine de monstrar"
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit device name"
-msgstr "Edita nmine de dispositivo"
+msgstr "Edita nomine de dispositivo"
 
 #: src/settings/DeviceDelegate.qml:101
 #, kde-format
@@ -5178,9 +5103,7 @@ msgid "Remove device"
 msgstr "Remove dispositivo"
 
 #: src/settings/DeviceDelegate.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
 msgstr "Remove"
@@ -5562,7 +5485,7 @@ msgstr "Datos de retrocopia de clave invalide"
 #, kde-format
 msgctxt "@title:window"
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Vias breve de claviero"
 
 #: src/settings/KeyboardShortcutsPage.qml:18
 #, fuzzy, kde-format
@@ -5618,8 +5541,7 @@ msgid "Go to Next Unread Room"
 msgstr ""
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Membros"
@@ -5975,8 +5897,7 @@ msgid "Custom"
 msgstr "Personalisate"
 
 #: src/settings/NeoChatGeneralPage.qml:143
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgctxt "@title"
 msgid "Timeline"
 msgstr "Chronologia (linea del tempore)"
@@ -6277,7 +6198,7 @@ msgstr "Dispositivos"
 #: src/settings/NeoChatSettingsView.qml:102
 #, kde-format
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Vias breve de claviero"
 
 #: src/settings/NeoChatSettingsView.qml:108
 #, kde-format
@@ -6409,11 +6330,10 @@ msgid "Power Levels"
 msgstr "Assigna le nivello de fortia de usator"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "<message>"
+msgstr "Messages"
 
 #: src/settings/Permissions.qml:114
 #, fuzzy, kde-format
@@ -6424,19 +6344,16 @@ msgstr "Moderator"
 
 #: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
 #: src/settings/RoomSettingsView.qml:37
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title"
 msgid "General"
 msgstr "General"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "TRova plus eventos"
+msgstr "Altere eventos"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6548,8 +6465,7 @@ msgid "Topic:"
 msgstr "Topico:"
 
 #: src/settings/RoomGeneralPage.qml:89
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@action:button"
 msgid "Save"
 msgstr "Salveguarda"
@@ -6573,11 +6489,10 @@ msgid "Make this alias the room's canonical alias"
 msgstr "Face iste alias le alias canonic de sala"
 
 #: src/settings/RoomGeneralPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Delete alias"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete alias"
-msgstr "Dele"
+msgstr "Dele alias"
 
 #: src/settings/RoomGeneralPage.qml:160
 #, kde-format
@@ -6609,8 +6524,7 @@ msgid "Link previews are disabled globally in Appearance settings"
 msgstr "Vistas preliminar de URL es dishabilitate per definition in iste sala"
 
 #: src/settings/RoomGeneralPage.qml:206
-#, fuzzy, kde-format
-#| msgid "Enable"
+#, kde-format
 msgctxt "@action:button Enable link previews globally"
 msgid "Enable"
 msgstr "Habilita"
@@ -6764,7 +6678,7 @@ msgstr "Iste sala continua un altere conversation."
 #| msgid "Enable encryption"
 msgctxt "@action:button Enable encryption in this room"
 msgid "Enable Encryption…"
-msgstr "Habilita cryptation"
+msgstr "Habilita Cryptation"
 
 #: src/settings/RoomSecurityPage.qml:51
 #, kde-format
@@ -6911,8 +6825,7 @@ msgid "Room Settings"
 msgstr "Preferentias de sala"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Membros"
@@ -7194,11 +7107,10 @@ msgid "Pick Room"
 msgstr "Selige Sala"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Explora salas"
+msgstr "Explora"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
@@ -7450,14 +7362,11 @@ msgid "Copy Message Link"
 msgstr "Copia Ligamine de Message"
 
 #: src/timeline/DelegateContextMenu.qml:327
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
-msgstr "Reporta"
+msgstr "Reporta…"
 
 #: src/timeline/DelegateContextMenu.qml:332
 #, kde-format
@@ -7557,12 +7466,12 @@ msgstr "Iste sala continua un altere conversation."
 msgid "See older messages…"
 msgstr "Vide messages plus vetere..."
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "Reage"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
 msgstr "Menu de message"
@@ -7592,19 +7501,19 @@ msgstr ""
 "Isto es le initio del conversation in directo (chat). Il non ha alcun "
 "messages historic ultra iste puncto."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Salta al prime message non legite"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Salta al  message cargate plus vetule"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Jump to first unread message"
@@ -7612,19 +7521,19 @@ msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Salta al prime message non legite"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Salta al ultime message"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Trahe elementos hic per compartir los"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

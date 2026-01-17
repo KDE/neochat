@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -162,7 +162,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Malfermu NeoChat en ĉi tiu ĉambro"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Respondi"
@@ -1107,67 +1107,67 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignori"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Vi ne havas la privilegiojn por plenumi ĉi tiun agon"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat estas eksterrete. Bonvolu kontroli vian retan konekton."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Pinglitaj Mesaĝojn"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bonvenon al NeoChat"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Elekti aŭ aliĝi al ĉambro por komenciĝi"
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1280,7 +1280,7 @@ msgstr "Raporti"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1902,24 +1902,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Misformita aŭ malplena Matrix-id<br />%1 ne estas ĝusta Matrico-identigilo"
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Malsukcesis aliĝi al ĉambro<br />%1"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vi petis aliĝi al '%1'"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Malsukcesis peti aliĝon al ĉambro<br />%1"
@@ -4433,23 +4433,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Neniuj Pinglitaj Mesaĝoj"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Serĉi Mesaĝojn"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "Trovi mesaĝojn…"
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Enigi tekston por komenci serĉi"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "Trovis neniujn mesaĝojn"
@@ -7691,12 +7691,12 @@ msgstr "Ĉi tiu ĉambro daŭrigas alian konversacion."
 msgid "See older messages…"
 msgstr "Vidi pli malnovajn mesaĝojn…"
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "Reagi"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgid "Message menu"
@@ -7727,42 +7727,42 @@ msgstr ""
 "Ĉi tio estas komenco de la babilo. Ne estas historiaj mesaĝoj preter ĉi "
 "punkto."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Salti al la unua nelegita mesaĝo"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Salti al la plej malnova ŝargita mesaĝo"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Salti al la unua nelegita mesaĝo"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Salti al la plej nova mesaĝo"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Treni erojn ĉi tien por dividi ilin"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

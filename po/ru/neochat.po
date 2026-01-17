@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2025-07-28 12:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -164,7 +164,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -1101,39 +1101,39 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "У вас нет привилегий для завершения этого действия"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
@@ -1141,28 +1141,28 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "NeoChat находится в автономном режиме. Проверьте своё сетевое подключение."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Добро пожаловать в NeoChat"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Чтобы начать, выберите комнату или присоединитесь к ней"
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1277,7 +1277,7 @@ msgstr "Пожаловаться"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1882,25 +1882,25 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Неверно сформированный или пустой идентификатор Matrix<br />%1 — "
 "некорректный идентификатор Matrix"
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Не удалось присоединиться к комнате<br />%1"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не удалось отправить запрос на присоединение к комнате<br />%1"
@@ -4407,23 +4407,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Закреплённые сообщения отсутствуют"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Поиск сообщений"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "Поиск сообщений…"
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Введите текст для начала поиска"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "Не найдено ни одного сообщения"
@@ -7639,12 +7639,12 @@ msgstr "В этой комнате продолжается другой раз�
 msgid "See older messages…"
 msgstr "Посмотреть более старые сообщения…"
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "Реакция"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
 msgstr "Меню сообщения"
@@ -7672,42 +7672,42 @@ msgid ""
 "this point."
 msgstr "Это начало чата. Более ранних сообщений нет."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Перейти к первому непрочитанному сообщению"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Перейти к самому старому загруженному сообщению"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Перейти к первому непрочитанному сообщению"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Перейти к последнему сообщению"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Чтобы опубликовать файлы, перетащите их сюда"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

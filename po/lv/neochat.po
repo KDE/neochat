@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -162,7 +162,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Atvērt „NeoChat“ šajā istabā"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Atbildēt"
@@ -1061,63 +1061,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorēt"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Pievienoties „Jitsi“ sapulcei…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Sākt „Jitsi“ sapulci…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jums nav nepieciešamo privilēģiju, lai uzsāktu „Jitsi“ sapulces."
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Meklēt"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Šī telpa satur oficiālus ziņojumus no jūsu mājas servera."
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "„NeoChat“ darbojas nesaistē. Pārbaudiet tīkla savienojumu."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Piespraustās ziņas"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Laipni lūgti „NeoChat“ programmā!"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Lai sāktu, atlasiet vai pievienojieties istabai"
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1219,7 +1219,7 @@ msgstr "Ziņot"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1826,24 +1826,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Pabeigts"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Nepareizi formatēts vai tukšs „Matrix“ identifikators<br /> „%1“ nav pareizs "
 "„Matrix“ identifikators"
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Neizdevās pievienoties „%1“<br />%2"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neizdevās lūgt pievienoties istabai<br />%1"
@@ -4286,23 +4286,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Nav piespraustu ziņu"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Meklēt ziņas"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "Atrast ziņas..."
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Ievadiet tekstu, lai meklētu"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "Ziņas nav atrastas"
@@ -7408,12 +7408,12 @@ msgstr "Šī istaba turpina citu sarunu"
 msgid "See older messages…"
 msgstr "Skatīt vecākas ziņas…"
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "Reaģēt"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
 msgstr "Ziņas izvēlne"
@@ -7441,19 +7441,19 @@ msgid ""
 "this point."
 msgstr "Šis ir tērzēšanas sākums. Agrāk par šo vietu vēsturē ziņu nav."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Iet uz pirmo nelasīto ziņu"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Iet uz vecāko ielādēto ziņu"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Jump to first unread message"
@@ -7461,19 +7461,19 @@ msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Iet uz pirmo nelasīto ziņu"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Iet uz pēdējo ziņu"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Velciet vienumus te, lai tos kopīgotu"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
-"PO-Revision-Date: 2026-01-12 10:36+0100\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"PO-Revision-Date: 2026-01-14 13:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -160,7 +160,7 @@ msgstr "%1 : %2"
 msgid "Open NeoChat in this room"
 msgstr "Ouvrir NeoChat dans cette salon"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
@@ -1062,64 +1062,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Rejoignez la réunion sous Jitsi…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Démarrer la réunion sous Jitsi…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 "Vous ne possédez pas les privilèges pour démarrer des réunions sous Jitsi."
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Rechercher"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Ce salon contient des messages officiels de votre serveur domestique."
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat est non connecté. Veuillez vérifier votre connexion au réseau."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Messages épinglés"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bienvenue dans NeoChat"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Sélectionnez ou rejoignez un salon pour démarrer."
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1221,7 +1221,7 @@ msgstr "Rapport"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1801,24 +1801,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Terminé"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Identifiant Matrix mal-formé ou vide<br />%1 n'est pas un identifiant Matrix "
 "correct."
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Impossible de rejoindre %1<br />%2"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vous avez demandé à rejoindre « %1 »"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Échec de la demande pour rejoindre le salon<br />%1"
@@ -4265,23 +4265,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "Aucun messages épinglé"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "Rechercher des messages"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "Rechercher un message..."
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "Saisissez un texte pour démarrer la recherche"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "Aucun message n'a été trouvé."
@@ -5471,24 +5471,19 @@ msgid "Go to Next Unread Room"
 msgstr "Aller au salon suivant non lu"
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Membres"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "Utilisateurs privilégiés"
+msgstr "Membres privilégiés"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
 msgstr "Aucun utilisateur n'a été trouvé."
@@ -5500,20 +5495,14 @@ msgid "Loading…"
 msgstr "Chargement en cours..."
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default user power level"
 msgctxt "Room permission type"
 msgid "Default power level"
 msgstr "Niveau par défaut de privilèges de l'utilisateur "
 
 #: src/settings/models/permissionsmodel.cpp:62
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "Default power level to set the room state"
 msgctxt "Room permission type"
 msgid "Default power level to change room state"
-msgstr "Niveau par défaut de privilèges pour définir l'état du salon "
+msgstr "Niveau par défaut de privilèges pour modifier l'état du salon"
 
 #: src/settings/models/permissionsmodel.cpp:63
 msgctxt "Room permission type"
@@ -5586,12 +5575,9 @@ msgid "Change the room history visibility"
 msgstr "Modifier la visibilité de l'historique du salon"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgctxt "@action:button"
-#| msgid "Pinned messages"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Messages épinglés"
+msgstr "Épingler / Désépingler des messages"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -5614,50 +5600,33 @@ msgid "Set the parent space of this room"
 msgstr "Définir un espace parent de ce salon"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Envoyer cet emplacement"
+msgstr "Envoyer une mise à jour en temps réel de l'emplacement"
 
 #: src/settings/models/permissionsmodel.cpp:83
-#, fuzzy
-#| msgid "%1 started a poll"
 msgctxt "Room permission type"
 msgid "Start polls"
-msgstr "%1 a démarré un vote"
+msgstr "Démarrer les sondages"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Ouvrir un sondage"
+msgstr "Voter dans les sondages"
 
 #: src/settings/models/permissionsmodel.cpp:85
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Closed poll"
 msgctxt "Room permission type"
 msgid "Close polls"
-msgstr "Sondage terminé"
+msgstr "Fermer les sondages"
 
 #: src/settings/models/permissionsmodel.cpp:90
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid "This is the power level for all new users when joining the room"
 msgctxt "Room permission type"
 msgid "This is the power level for all new users when joining the room."
 msgstr ""
-"Ceci est le niveau de privilèges pour tous les nouveaux utilisateurs "
-"lorsqu'ils rejoignent le salon"
+"Ceci est le niveau de privilèges pour toutes les nouvelles personnes "
+"utilisatrices lorsqu'elles rejoignent le salon."
 
 #: src/settings/models/permissionsmodel.cpp:91
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all state events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all state-type events that do not have their own entry."
@@ -5666,16 +5635,12 @@ msgstr ""
 "entrée ici."
 
 #: src/settings/models/permissionsmodel.cpp:92
-#, fuzzy
-#| msgctxt "Room permission type"
-#| msgid ""
-#| "This is used for all message events that do not have their own entry here"
 msgctxt "Room permission type"
 msgid ""
 "This is used for all message-type events that do not have their own entry."
 msgstr ""
 "Ceci est utilisé pour tous les évènements de messages n'ayant pas leur "
-"propre entrée ici."
+"propre entrée."
 
 #: src/settings/models/pushrulemodel.cpp:17
 msgctxt "Notification type"
@@ -6259,25 +6224,19 @@ msgid "Password:"
 msgstr "Mot de passe :"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
-#| msgid "Power Level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
 msgstr "Niveau de privilèges"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgctxt "@action:intoolbar Message this user directly"
-#| msgid "Message"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "Message"
+msgstr "Messages"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@title Moderation actions for this user"
-#| msgid "Moderation"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
 msgstr "Modération"
@@ -6290,12 +6249,10 @@ msgid "General"
 msgstr "Général"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Fetch More Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Rechercher plus d'évènements"
+msgstr "Autres évènements"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6762,8 +6719,7 @@ msgid "Room Settings"
 msgstr "Configuration du salon"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Membres"
@@ -7407,12 +7363,12 @@ msgstr "Ce salon poursuit sur une autre discussion."
 msgid "See older messages…"
 msgstr "Voir les messages plus anciens..."
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "Réaction"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
 msgstr "Menu du message"
@@ -7442,37 +7398,37 @@ msgstr ""
 "Ceci est le début de la discussion. Il n'y a aucun historique de messages "
 "avant cet instant."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Se déplacer au premier message non lu"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Se déplacer sur le message le plus ancien chargé"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Se déplacer au message suivant non lu et mis en évidence"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Aller au message le plus ancien"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Faites glisser les éléments ici pour les partager"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

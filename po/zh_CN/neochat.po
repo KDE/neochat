@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -164,7 +164,7 @@ msgstr "%1：%2"
 msgid "Open NeoChat in this room"
 msgstr "在此聊天室打开 NeoChat"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "回复"
@@ -1051,63 +1051,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜索"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 处于离线状态。请检查您的网络连接。"
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1209,7 +1209,7 @@ msgstr "举报"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1752,22 +1752,22 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr ""
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "您请求加入 '%1'"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "加入聊天室 %1 失败"
@@ -4177,23 +4177,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr ""
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "搜索消息"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "查找消息..."
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "请输入文本以开始搜索"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "未找到消息"
@@ -7171,12 +7171,12 @@ msgstr "此聊天室接续了另一个对话。"
 msgid "See older messages…"
 msgstr "查看更早的消息..."
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "回应"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, kde-format
 msgid "Message menu"
 msgstr ""
@@ -7204,37 +7204,37 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "跳转到第一条未读消息"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr ""
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr ""
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "跳转到最新消息"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "拖动项目到此处来分享"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-16 00:43+0000\n"
+"POT-Creation-Date: 2026-01-17 00:43+0000\n"
 "PO-Revision-Date: 2025-11-29 21:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:66
+#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -1070,64 +1070,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "பொருட்படுத்தாதே"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "இச்செயலை மேற்கொள்ளும் உரிமை உங்களிடம் இல்லை"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
 #: src/roominfo/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "தேடல்"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "உங்கள் தாய் சேவையகத்திலிருந்தான அதிகாரப்பூர்வ செய்திகளை இந்த அரங்கு கொண்டிருக்கும்."
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. பிணைய இணைப்பை சரிபார்க்கவும்."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள்"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:291
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
-#: src/app/qml/RoomPage.qml:286
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "தொடங்க, அரங்கைத் தேர்ந்தெடுக்கவும் அல்லது ஒன்றில் செரவும்"
 
-#: src/app/qml/RoomPage.qml:347
+#: src/app/qml/RoomPage.qml:353
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1229,7 +1229,7 @@ msgstr "புகாரளி"
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
-msgid "Offical support resources provided by %1:"
+msgid "Official support resources provided by %1:"
 msgstr ""
 
 #: src/app/qml/SupportDialog.qml:34
@@ -1835,24 +1835,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "முடிந்தது"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/app/roommanager.cpp:426
+#: src/app/roommanager.cpp:435
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1 தனில் நுழைவது தோல்வியடைந்தது:<br />%2"
 
-#: src/app/roommanager.cpp:450
+#: src/app/roommanager.cpp:459
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -4315,23 +4315,23 @@ msgctxt "@info:placeholder"
 msgid "No Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள் இல்லை"
 
-#: src/roominfo/RoomSearchPage.qml:31
+#: src/roominfo/RoomSearchPage.qml:33
 #, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
 msgstr "செய்திகளில் தேடு"
 
-#: src/roominfo/RoomSearchPage.qml:43
+#: src/roominfo/RoomSearchPage.qml:45
 #, kde-format
 msgid "Find messages…"
 msgstr "செய்திகளைக் கண்டுபிடி"
 
-#: src/roominfo/RoomSearchPage.qml:44
+#: src/roominfo/RoomSearchPage.qml:46
 #, kde-format
 msgid "Enter text to start searching"
 msgstr "தேடுவதற்கான உரையை உள்ளிடவும்"
 
-#: src/roominfo/RoomSearchPage.qml:45
+#: src/roominfo/RoomSearchPage.qml:47
 #, kde-format
 msgid "No messages found"
 msgstr "எதுவும் கண்டுபிடிக்கப்படவில்லை"
@@ -7514,12 +7514,12 @@ msgstr "இந்த அரங்கு இன்னொரு உரையாட
 msgid "See older messages…"
 msgstr "பழைய செய்திகளைக் காட்டு…"
 
-#: src/timeline/QuickActions.qml:32
+#: src/timeline/QuickActions.qml:41
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
 
-#: src/timeline/QuickActions.qml:81
+#: src/timeline/QuickActions.qml:90
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgid "Message menu"
@@ -7548,42 +7548,42 @@ msgid ""
 "this point."
 msgstr "உரையாடலின் துவக்கம் இது. இதற்கு முன் எந்த செய்தியும் இல்லை."
 
-#: src/timeline/TimelineView.qml:217 src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:217
+#: src/timeline/TimelineView.qml:239
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "ஏற்றப்பட்டுள்ளவற்றில் பழைய செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:243
+#: src/timeline/TimelineView.qml:265
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:274
+#: src/timeline/TimelineView.qml:296
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:308
+#: src/timeline/TimelineView.qml:330
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/timeline/TimelineView.qml:333
+#: src/timeline/TimelineView.qml:355
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
