@@ -6,6 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.coreaddons 
 
 import org.kde.neochat
 
@@ -35,9 +36,6 @@ RowLayout {
      * @brief The timestamp of the message as a string.
      */
     required property string timeString
-
-    Layout.fillWidth: true
-    Layout.maximumWidth: Message.maxContentWidth
 
     implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
 
@@ -78,20 +76,26 @@ RowLayout {
             onTapped: nameButton.openUserMenu()
         }
     }
-    Item {
-        Layout.fillWidth: true
-    }
     QQC2.Label {
         id: timeLabel
-        text: root.timeString
+        text: formattedTime()
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
         QQC2.ToolTip.visible: timeHoverHandler.hovered
-        QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+        QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.LongFormat)
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
             id: timeHoverHandler
+        }
+        
+        
+        function formattedTime(): string {
+            const days = Math.floor((Date.now() - root.time) / (1000 * 60  * 60 * 24))
+            if(days > 0) {
+                return Format.formatRelativeDateTime(root.time, Locale.ShortFormat)
+            } 
+            return root.timeString
         }
     }
 }
