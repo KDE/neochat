@@ -173,6 +173,11 @@ public:
     std::optional<int> cursorPosition() const;
 
     /**
+     * @brief Return the rectangle where the cursor of the underlying text item is rendered.
+     */
+    QRect cursorRectangle() const;
+
+    /**
      * @brief Set the cursor position of the underlying text item to the given value.
      */
     void setCursorPosition(int pos);

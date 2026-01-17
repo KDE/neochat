@@ -6,6 +6,7 @@
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
+#include <qnamespace.h>
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
@@ -29,7 +30,10 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
         return backspace();
     case Qt::Key_Enter:
     case Qt::Key_Return:
-        return insertReturn();
+        return insertReturn(modifiers);
+    case Qt::Key_Escape:
+    case Qt::Key_Cancel:
+        return cancel();
     default:
         return false;
     }
@@ -155,13 +159,25 @@ bool ChatKeyHelper::backspace()
     return false;
 }
 
-bool ChatKeyHelper::insertReturn()
+bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
 {
     if (!textItem) {
         return false;
     }
-    if (textItem->isCompleting) {
+
+    bool shiftPressed = modifiers.testFlag(Qt::ShiftModifier);
+    if (shiftPressed && !sendMessageWithEnter) {
+        Q_EMIT unhandledReturn(false);
+        return true;
+    }
+
+    if (!shiftPressed && textItem->isCompleting) {
         Q_EMIT unhandledReturn(true);
+        return true;
+    }
+
+    if (!shiftPressed && sendMessageWithEnter) {
+        Q_EMIT unhandledReturn(false);
         return true;
     }
 
@@ -171,6 +187,18 @@ bool ChatKeyHelper::insertReturn()
     }
     cursor.insertBlock();
     return true;
+}
+
+bool ChatKeyHelper::cancel()
+{
+    if (!textItem) {
+        return false;
+    }
+    if (textItem->isCompleting) {
+        Q_EMIT closeCompletion();
+        return true;
+    }
+    return false;
 }
 
 bool ChatKeyHelper::pasteImage()

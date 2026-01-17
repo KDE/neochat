@@ -28,6 +28,8 @@ void StyleDelegateHelper::setTextItem(QQuickItem *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
+        connect(m_textItem, SIGNAL(styleChanged()), this, SLOT(formatDocument()));
+        connect(m_textItem, SIGNAL(styleChanged()), this, SLOT(formatDocument()));
         if (document()) {
             formatDocument();
         }
@@ -59,10 +61,11 @@ void StyleDelegateHelper::formatDocument()
     cursor.beginEditBlock();
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
-    const auto style = static_cast<RichFormat::Format>(m_textItem->property("index").toInt());
+    const auto style = static_cast<RichFormat::Format>(m_textItem->property("style").toInt());
     const auto string = RichFormat::styleString(style);
 
-    const int headingLevel = style <= 6 ? style : 0;
+    const auto sizeText = static_cast<RichFormat::Format>(m_textItem->property("sizeText").toBool());
+    const int headingLevel = style <= 6 && sizeText ? style : 0;
     // Apparently, 5 is maximum for FontSizeAdjustment; otherwise level=1 and
     // level=2 look the same
     const int sizeAdjustment = headingLevel > 0 ? 5 - headingLevel : 0;

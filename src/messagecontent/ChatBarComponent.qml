@@ -108,9 +108,6 @@ QQC2.Control {
                         height: implicitHeight
                         y: -height - 5
                         z: 10
-                        room: root.Message.room
-                        type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
-                        // textItem: textArea
                         margins: 0
                         Behavior on height {
                             NumberAnimation {

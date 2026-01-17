@@ -60,21 +60,6 @@ RowLayout {
             }
         }
     }
-    QQC2.Button {
-        id: cancelButton
-
-        anchors.top: root.top
-        anchors.right: root.right
-
-        visible: root.editable
-        display: QQC2.AbstractButton.IconOnly
-        text: i18nc("@action:button", "Cancel reply")
-        icon.name: "dialog-close"
-        onClicked: root.Message.room.mainCache.replyId = ""
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
     HoverHandler {
         cursorShape: Qt.PointingHandCursor
     }
@@ -86,5 +71,22 @@ RowLayout {
         id: _private
         // The space available for the component after taking away the border
         readonly property real availableContentWidth: root.Message.maxContentWidth - verticalBorder.implicitWidth - root.spacing
+
+        readonly property QQC2.Button cancelButton: QQC2.Button {
+            id: cancelButton
+
+            parent: root
+            anchors.top: root.top
+            anchors.right: root.right
+
+            visible: root.editable
+            display: QQC2.AbstractButton.IconOnly
+            text: i18nc("@action:button", "Cancel reply")
+            icon.name: "dialog-close"
+            onClicked: root.Message.room.mainCache.replyId = ""
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
     }
 }
