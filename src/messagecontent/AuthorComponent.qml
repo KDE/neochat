@@ -6,7 +6,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.coreaddons 
+import org.kde.coreaddons
 
 import org.kde.neochat
 
@@ -78,7 +78,7 @@ RowLayout {
     }
     QQC2.Label {
         id: timeLabel
-        text: formattedTime()
+        text: Format.formatRelativeDate(root.time, Locale.ShortFormat) + ", " + root.timeString
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
         QQC2.ToolTip.visible: timeHoverHandler.hovered
@@ -87,15 +87,6 @@ RowLayout {
 
         HoverHandler {
             id: timeHoverHandler
-        }
-        
-        
-        function formattedTime(): string {
-            const days = Math.floor((Date.now() - root.time) / (1000 * 60  * 60 * 24))
-            if(days > 0) {
-                return Format.formatRelativeDateTime(root.time, Locale.ShortFormat)
-            } 
-            return root.timeString
         }
     }
 }
