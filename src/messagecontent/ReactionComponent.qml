@@ -23,9 +23,7 @@ Flow {
      */
     required property ReactionModel reactionModel
 
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-    Layout.maximumWidth: Message.maxContentWidth
+    // HACK: We do not set Layout properties here, see BUG 504344 for the crash it caused.
 
     spacing: Kirigami.Units.smallSpacing
 
