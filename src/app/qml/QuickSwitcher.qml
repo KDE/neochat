@@ -22,7 +22,7 @@ Kirigami.SearchDialog {
     }
 
     onAccepted: if (currentItem) {
-        (currentItem as QQC2.ItemDelegate).clicked();
+        (root.currentItem as RoomDelegate).clicked();
     }
 
     onTextChanged: RoomManager.sortFilterRoomListModel.filterText = text
