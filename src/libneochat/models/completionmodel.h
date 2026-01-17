@@ -62,6 +62,11 @@ class CompletionModel : public QAbstractListModel
      */
     Q_PROPERTY(UserListModel *userListModel READ userListModel WRITE setUserListModel NOTIFY userListModelChanged)
 
+    /**
+     * @brief The UserListModel to be used for room completions.
+     */
+    Q_PROPERTY(bool isCompleting READ isCompleting NOTIFY isCompletingChanged)
+
 public:
     /**
      * @brief Defines the different types of completion available.
@@ -97,6 +102,10 @@ public:
 
     ChatTextItemHelper *textItem() const;
     void setTextItem(ChatTextItemHelper *textItem);
+
+    bool isCompleting() const;
+
+    Q_INVOKABLE void ignoreCurrentCompletion();
 
     /**
      * @brief Get the given role value at the given index.
@@ -137,12 +146,14 @@ Q_SIGNALS:
     void autoCompletionTypeChanged();
     void roomListModelChanged();
     void userListModelChanged();
+    void isCompletingChanged();
 
 private:
     QPointer<NeoChatRoom> m_room;
     ChatBarType::Type m_type = ChatBarType::None;
     QPointer<ChatTextItemHelper> m_textItem;
 
+    bool m_ignoreCurrentCompletion = false;
     int m_textStart = 0;
     void updateTextStart();
 

@@ -361,7 +361,6 @@ Kirigami.Page {
             id: chatBar
             width: parent.width
             currentRoom: root.currentRoom
-            connection: root.currentRoom.connection as NeoChatConnection
 
             // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
             onHeightChanged: root.resetViewSettling()

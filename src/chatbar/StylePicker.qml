@@ -19,6 +19,7 @@ QQC2.Popup {
     required property ChatButtonHelper chatButtonHelper
 
     y: -implicitHeight
+    padding: Kirigami.Units.largeSpacing
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -26,24 +27,21 @@ QQC2.Popup {
         Repeater {
             model: 9
 
-            delegate: QQC2.TextArea {
+            delegate: StyleDelegate {
                 id: styleDelegate
                 required property int index
 
                 Layout.fillWidth: true
-                Layout.minimumWidth: Kirigami.Units.gridUnit * 7
+                Layout.minimumWidth: Kirigami.Units.gridUnit * 8
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2
-                leftPadding: lineRow.visible ? lineRow.width + lineRow.anchors.leftMargin + Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
-                verticalAlignment: Text.AlignVCenter
 
-                enabled: root.chatContentModel.focusType !== LibNeoChat.MessageComponentType.Code || styleDelegate.index === LibNeoChat.RichFormat.Paragraph || styleDelegate.index === LibNeoChat.RichFormat.Quote
-                readOnly: true
-                selectByMouse: false
+                style: index
+                highlight: root.chatButtonHelper.currentStyle === index || hovered
 
                 onPressed: (event) => {
-                    if (styleDelegate.index === LibNeoChat.RichFormat.Paragraph ||
-                        styleDelegate.index === LibNeoChat.RichFormat.Code ||
-                        styleDelegate.index === LibNeoChat.RichFormat.Quote
+                    if (index === LibNeoChat.RichFormat.Paragraph ||
+                        index === LibNeoChat.RichFormat.Code ||
+                        index === LibNeoChat.RichFormat.Quote
                     ) {
                         root.chatContentModel.insertStyleAtCursor(styleDelegate.index);
                     } else {
@@ -51,71 +49,19 @@ QQC2.Popup {
                     }
                     root.close();
                 }
-
-                RowLayout {
-                    id: lineRow
-                    anchors {
-                        top: styleDelegate.top
-                        bottom: styleDelegate.bottom
-                        left: styleDelegate.left
-                        leftMargin: Kirigami.Units.smallSpacing
-                    }
-
-                    visible: styleDelegate.index === LibNeoChat.RichFormat.Code
-
-                    QQC2.Label {
-                        horizontalAlignment: Text.AlignRight
-                        verticalAlignment: Text.AlignVCenter
-                        text: "1"
-                        color: Kirigami.Theme.disabledTextColor
-
-                        font.family: "monospace"
-                    }
-                    Kirigami.Separator {
-                        Layout.fillHeight: true
-                    }
-                }
-
-                StyleDelegateHelper {
-                    textItem: styleDelegate
-                }
-
-                background: Rectangle {
-                    color: Kirigami.Theme.backgroundColor
-                    Kirigami.Theme.colorSet: styleDelegate.index === LibNeoChat.RichFormat.Quote ? Kirigami.Theme.Window : Kirigami.Theme.View
-                    Kirigami.Theme.inherit: false
-                    radius: Kirigami.Units.cornerRadius
-                    border {
-                        width: 1
-                        color: styleDelegate.hovered || (root.chatButtonHelper.currentStyle === styleDelegate.index) ?
-                               Kirigami.Theme.highlightColor :
-                               Kirigami.ColorUtils.linearInterpolation(
-                                   Kirigami.Theme.backgroundColor,
-                                   Kirigami.Theme.textColor,
-                                   Kirigami.Theme.frameContrast
-                               )
-                    }
-                }
             }
         }
     }
 
     background: Kirigami.ShadowedRectangle {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+
         radius: Kirigami.Units.cornerRadius
         color: Kirigami.Theme.backgroundColor
-
         border {
             width: 1
             color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
         }
-
-        shadow {
-            size: Kirigami.Units.gridUnit
-            yOffset: 0
-            color: Qt.rgba(0, 0, 0, 0.2)
-        }
-
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
     }
 }

@@ -342,6 +342,14 @@ std::optional<int> ChatTextItemHelper::cursorPosition() const
     return m_textItem->property("cursorPosition").toInt();
 }
 
+QRect ChatTextItemHelper::cursorRectangle() const
+{
+    if (!m_textItem) {
+        return {};
+    }
+    return m_textItem->property("cursorRectangle").toRect();
+}
+
 int ChatTextItemHelper::selectionStart() const
 {
     if (!m_textItem) {

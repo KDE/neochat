@@ -32,5 +32,6 @@ private:
     QPointer<QQuickItem> m_textItem;
     QTextDocument *document() const;
 
+private Q_SLOTS:
     void formatDocument();
 };

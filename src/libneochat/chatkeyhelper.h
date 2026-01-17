@@ -45,6 +45,15 @@ public:
      */
     Q_INVOKABLE bool handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers);
 
+    /**
+     * @brief Whether the enter/return should send message.
+     *
+     * If false, return/enter adds a new line.
+     *
+     * shift + return/enter does the opposite to return/enter.
+     */
+    bool sendMessageWithEnter = true;
+
 Q_SIGNALS:
     /**
      * @brief There is an unhandled up key press.
@@ -99,6 +108,14 @@ Q_SIGNALS:
     void unhandledReturn(bool isCompleting);
 
     /**
+     * @brief The completion dialog should be closed if open.
+     *
+     * Current trigger conditions:
+     *  - Return clicked when a completion has been started.
+     */
+    void closeCompletion();
+
+    /**
      * @brief An image has been pasted.
      */
     void imagePasted(const QString &filePath);
@@ -116,7 +133,9 @@ private:
 
     bool backspace();
 
-    bool insertReturn();
+    bool insertReturn(Qt::KeyboardModifiers modifiers);
+
+    bool cancel();
 
     bool pasteImage();
 };

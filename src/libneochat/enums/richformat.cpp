@@ -7,27 +7,29 @@
 #include <QTextCharFormat>
 #include <QTextCursor>
 
+#include <KLocalizedString>
+
 QString RichFormat::styleString(Format format)
 {
     switch (format) {
     case Paragraph:
-        return u"Paragraph"_s;
+        return i18nc("As in the default paragraph text style in the chat bar", "Paragraph Style");
     case Heading1:
-        return u"Heading 1"_s;
+        return i18nc("As in heading level 1 text style in the chat bar", "Heading 1");
     case Heading2:
-        return u"Heading 2"_s;
+        return i18nc("As in heading level 2 text style in the chat bar", "Heading 2");
     case Heading3:
-        return u"Heading 3"_s;
+        return i18nc("As in heading level 3 text style in the chat bar", "Heading 3");
     case Heading4:
-        return u"Heading 4"_s;
+        return i18nc("As in heading level 4 text style in the chat bar", "Heading 4");
     case Heading5:
-        return u"Heading 5"_s;
+        return i18nc("As in heading level 5 text style in the chat bar", "Heading 5");
     case Heading6:
-        return u"Heading 6"_s;
+        return i18nc("As in heading level 6 text style in the chat bar", "Heading 6");
     case Code:
-        return u"Code"_s;
+        return i18nc("As in code text style in the chat bar", "Code");
     case Quote:
-        return u"\"Quote\""_s;
+        return i18nc("As in quote text style in the chat bar", "\"Quote\"");
     default:
         return {};
     }

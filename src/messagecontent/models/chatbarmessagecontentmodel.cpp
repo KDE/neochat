@@ -174,6 +174,11 @@ void ChatBarMessageContentModel::connectKeyHelper()
             insertComponentAtCursor(MessageComponentType::Text);
         }
     });
+    connect(m_keyHelper, &ChatKeyHelper::unhandledReturn, this, [this](bool isCompleting) {
+        if (!isCompleting) {
+            postMessage();
+        }
+    });
     connect(m_keyHelper, &ChatKeyHelper::imagePasted, this, [this](const QString &filePath) {
         m_room->cacheForType(m_type)->setAttachmentPath(filePath);
     });
@@ -446,6 +451,21 @@ void ChatBarMessageContentModel::removeAttachment()
     if (m_room) {
         m_room->cacheForType(m_type)->setAttachmentPath({});
     }
+}
+
+bool ChatBarMessageContentModel::sendMessageWithEnter() const
+{
+    return m_sendMessageWithEnter;
+}
+
+void ChatBarMessageContentModel::setSendMessageWithEnter(bool sendMessageWithEnter)
+{
+    if (sendMessageWithEnter == m_sendMessageWithEnter) {
+        return;
+    }
+    m_sendMessageWithEnter = sendMessageWithEnter;
+    m_keyHelper->sendMessageWithEnter = sendMessageWithEnter;
+    Q_EMIT sendMessageWithEnterChanged();
 }
 
 ChatBarMessageContentModel::ComponentIt ChatBarMessageContentModel::removeComponent(ComponentIt it)

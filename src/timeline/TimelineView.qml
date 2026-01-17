@@ -335,9 +335,13 @@ QQC2.ScrollView {
         RowLayout {
             id: typingPaneContainer
             visible: _private.room && _private.room.otherMembersTyping.length > 0
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
+            anchors {
+                left: parent.left
+                leftMargin: Kirigami.Units.largeSpacing
+                right: parent.right
+                bottom: parent.bottom
+                bottomMargin: Kirigami.Units.smallSpacing
+            }
             height: visible ? typingPane.implicitHeight : 0
             z: 2
             Behavior on height {
