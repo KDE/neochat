@@ -20,8 +20,6 @@ ColumnLayout {
 
     signal resolveResource(string idOrUri, string action)
 
-    Layout.fillWidth: true
-    Layout.alignment: Qt.AlignVCenter
     spacing: 0
 
     Item {
