@@ -26,6 +26,8 @@ RowLayout {
 
     Kirigami.Heading {
         Layout.fillWidth: true
+        // Roughly equivalent to what Kirigami does for its built-in headings
+        Layout.leftMargin: Kirigami.Units.gridUnit - Kirigami.Units.mediumSpacing
         visible: !root.collapsed
         text: i18nc("@title", "Rooms")
     }
