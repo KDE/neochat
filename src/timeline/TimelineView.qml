@@ -114,7 +114,7 @@ QQC2.ScrollView {
          */
         function allUnreadVisible() {
             let readMarkerRow = model.readMarkerIndex?.row ?? -1;
-            if (readMarkerRow >= 0 && readMarkerRow < oldestVisibleIndex() && atYEnd) {
+            if (readMarkerRow >= 0 && readMarkerRow < oldestVisibleIndex() && closeToYEnd) {
                 return true;
             }
             return false;
@@ -199,7 +199,7 @@ QQC2.ScrollView {
             }
         }
 
-        onAtYEndChanged: {
+        onCloseToYEndChanged: {
             // Don't care about this until the view has settled first.
             if (!_private.viewHasSettled) {
                 return;
