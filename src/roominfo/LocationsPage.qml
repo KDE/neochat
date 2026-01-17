@@ -66,7 +66,10 @@ Kirigami.Page {
     }
 
     Kirigami.PlaceholderMessage {
-        text: i18n("There are no locations shared in this room.")
+        icon.name: "mark-location-symbolic"
+        text: i18nc("@info:placeholder", "No shared locations")
+        explanation: i18nc("@info 'Send a Location' should share the same name as the chat bar button", "Share a location by using 'Send a Location' in the chat bar.")
+
         visible: mapView.map.mapItems.length === 0
         anchors.centerIn: parent
     }

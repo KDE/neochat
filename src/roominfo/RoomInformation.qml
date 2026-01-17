@@ -140,7 +140,7 @@ QQC2.ScrollView {
             Delegates.RoundedItemDelegate {
                 id: locationsButton
                 visible: !root.room.isSpace
-                icon.name: "map-flat"
+                icon.name: "mark-location-symbolic"
                 text: i18nc("@action:button", "Shared Locations")
                 activeFocusOnTab: true
 
