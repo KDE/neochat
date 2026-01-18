@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
-"PO-Revision-Date: 2026-01-16 05:13+0100\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"PO-Revision-Date: 2026-01-17 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -230,80 +230,56 @@ msgstr "QR კოდის სკანირება"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "ანგარიშის გადართვა"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "ამ ანგარიშის ჩასწორება"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "გაფრთხილებების მორგება"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "მოწყობილობები"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "პროგრამისტის ხელსაწყოების გახსნა"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "პროგრამისტის ხელსაწყოები"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "საიდუმლო მარქაფის გახსნა"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "გასაღების მარქაფის გახსნა"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "ამ მოწყობილობის გადამოწმება"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "გადამოწმების მოთხოვნა გაიგზავნა"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "გასაგრძელებლად დაადასტურეთ გადამოწმებით მოთხოვნა სხვა მოწყობილობაზე."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "მხარდაჭერა"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "გასვლა…"
+msgid "Switch Account"
+msgstr "ანგარიშის გადართვა"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1070,7 +1046,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Jitsi-ის შეხვედრების დასაწყებად პრივილეგიები არ გაქვთ"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1088,7 +1064,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat გათიშულია. შეამოწმეთ ინტერნეტკავშირი."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1204,9 +1180,7 @@ msgid "Support"
 msgstr "მხარდაჭერა"
 
 #: src/app/qml/SupportDialog.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@info:label %1 is the domain of the server"
-#| msgid "Offical support resources provided by %1:"
+#, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "Official support resources provided by %1:"
 msgstr "%1-ის მიერ მოწოდებული ოფიციალური მხარდაჭერის რესურსები:"
@@ -1247,11 +1221,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "კონტაქტი ელფოსტით (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "ჩატვირთეთ თქვენი დაშიფრული შეტყობინებები"
+msgid "Manage Secret Backup"
+msgstr "საიდუმლო მარქაფის გახსნა"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -4038,7 +4014,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "გამოკითხვა დასრულდა. საუკეთესო პასუხი: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4073,16 +4049,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "ხმის სიმაღლე"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "მდებარეობები"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Shared Locations"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "გაზიარებული მდებარეობები"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "ამ ოთახში მდებარეობები გაზიარებული არაა."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4112,83 +4098,83 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "ინფორმაცია ოთახის შესახებ"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "ქმედებები"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "შეტყობინებების ძებნა"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "მომხმარებლის გადამოწმება"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "გაზიარებული მდებარეობები"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "მიმაგრებული შეტყობინებები"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "ოთახის მონაცემების შემოწმება"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "სივრციდან გასვლა…"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "ოთახიდან გასვლა…"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "წევრები"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "მომხმარებლის მოწვევა"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "მომხმარებლის ოთახში მოწვევა"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4196,7 +4182,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 წევრი"
 msgstr[1] "%1 წევრი"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
@@ -4240,25 +4226,27 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "გაფართოებები"
 
-#: src/roominfo/WidgetsPage.qml:27
-#, kde-format
+#: src/roominfo/WidgetsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Extensions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "ეს ოთახი გაფართოებებს არ იყენებს"
+msgid "No extensions"
+msgstr "გაფართოებები"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "ვიჯეტის წაშლა"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "ოთახები"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -5930,42 +5918,58 @@ msgid "Encryption"
 msgstr "დაშიფვრა"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "საიდუმლო მარქაფის გახსნა"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფიდან."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფიდან."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "გასაღებების შემოტანა წარმატებულია"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "გასაღებების გატანა"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "ამ მოწყობილობის დაშიფვრის გასაღებების გატანა."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7204,19 +7208,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1-მა თქვა %2"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "ჩამოხსნა"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "მიმაგრება"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7322,6 +7326,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "მოწყობილობები"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "გასაღების მარქაფის გახსნა"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "გასვლა…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "ჩატვირთეთ თქვენი დაშიფრული შეტყობინებები"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "ამ ოთახში მდებარეობები გაზიარებული არაა."
+
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "ეს ოთახი გაფართოებებს არ იყენებს"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"

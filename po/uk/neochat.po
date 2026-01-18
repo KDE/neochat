@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
-"PO-Revision-Date: 2026-01-16 05:29+0200\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
+"PO-Revision-Date: 2026-01-17 04:07+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -233,80 +233,56 @@ msgstr "Сканувати QR-код"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "Перемкнути обліковий запис"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Редагувати цей обліковий запис"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Параметри сповіщення"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "Пристрої"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "Відкриття резервної копії реєстраційних даних"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "Відкриття резервної копії ключів"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Перевірити цей пристрій"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Надіслано запит щодо перевірки"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Далі, вам слід прийняти запит щодо перевірки на іншому пристрої."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Підтримка"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "Вийти…"
+msgid "Switch Account"
+msgstr "Перемкнути обліковий запис"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1077,7 +1053,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1098,7 +1074,7 @@ msgstr ""
 "NeoChat поза мережею. Будь ласка, перевірте, чи працездатне з'єднання із "
 "інтернетом."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1214,9 +1190,7 @@ msgid "Support"
 msgstr "Підтримка"
 
 #: src/app/qml/SupportDialog.qml:33
-#, fuzzy, kde-format
-#| msgctxt "@info:label %1 is the domain of the server"
-#| msgid "Offical support resources provided by %1:"
+#, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "Official support resources provided by %1:"
 msgstr "Офіційні ресурси підтримки, які надаються %1:"
@@ -1257,11 +1231,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Зв'язок за допомогою електронної пошти (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Завантаження ваших зашифрованих повідомлень"
+msgid "Manage Secret Backup"
+msgstr "Відкриття резервної копії реєстраційних даних"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -4072,7 +4048,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "Голосування завершено. Найпопулярніша відповідь: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4107,16 +4083,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Гучність"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Місця"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Shared Locations"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "Спільні місця"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "У цій кімнаті не оприлюднюються місця перебування."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4146,83 +4132,83 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Відомості щодо кімнати"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Дії"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Шукати повідомлення"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Перевірити користувача"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Спільні місця"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Пришпилені повідомлення"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Інспектувати дані кімнати"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Полишити простір…"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Полишити кімнату…"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "Учасники"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Запрошення користувача"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "Запросити користувача до кімнати"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4232,7 +4218,7 @@ msgstr[1] "%1 учасники"
 msgstr[2] "%1 учасників"
 msgstr[3] "%1 учасник"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "Немає лічильника учасників"
@@ -4276,25 +4262,27 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "Розширення"
 
-#: src/roominfo/WidgetsPage.qml:27
-#, kde-format
+#: src/roominfo/WidgetsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Extensions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "У цій кімнаті не використано жодного розширення"
+msgid "No extensions"
+msgstr "Розширення"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Вилучити віджет"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Кімнати"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -5974,42 +5962,58 @@ msgid "Encryption"
 msgstr "Шифрування"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "Відкриття резервної копії реєстраційних даних"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "Імпортувати ключі шифрування з резервної копії."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Імпортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Імпортувати ключі шифрування з резервної копії."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Імпортування ключів"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ключі успішно імпортовано"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Експортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Експортувати ключі шифрування цього пристрою."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7270,19 +7274,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 вимовлено %2"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Відшпилити"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Пришпилити"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7391,6 +7395,29 @@ msgstr[0] "%2 вводять текст…"
 msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "Пристрої"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "Відкриття резервної копії ключів"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "Вийти…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "Завантаження ваших зашифрованих повідомлень"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "У цій кімнаті не оприлюднюються місця перебування."
+
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "У цій кімнаті не використано жодного розширення"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2025-12-01 09:14+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -231,70 +231,46 @@ msgstr "Lue QR-koodi"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "Vaihda tiliä"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Muokkaa tätä tiliä"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Ilmoitusasetukset"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "Laitteet"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Avaa kehitystyökalut"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Kehitystyökalut"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "Avaa salainen varmuuskopio"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "Avaa avainvarmuuskopio"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Vahvista tämä laite"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Vahvistuspyyntö lähetetty"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Jatka hyväksymällä vahvistuspyyntö toisella laitteella."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -303,11 +279,11 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Ilmoita"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "Kirjaudu ulos…"
+msgid "Switch Account"
+msgstr "Vaihda tiliä"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1079,7 +1055,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Käyttöoikeutesi eivät riitä Jitsi-tapaamisten aloittamiseen"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1097,7 +1073,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat ei ole verkossa. Tarkista verkkoyhteys."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1261,11 +1237,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Lataa salatut viestisi"
+msgid "Manage Secret Backup"
+msgstr "Avaa salainen varmuuskopio"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, fuzzy, kde-format
@@ -4109,7 +4087,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "Kysely on päättynyt. Voittanut vastaus: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4144,16 +4122,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Äänenvoimakkuus"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Sijainnit"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Shared Locations"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "Jaetut sijainnit"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Tässä huoneessa ei ole jaettuja sijainteja."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4183,83 +4171,83 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Huoneen tiedot"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Toimenpiteet"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Etsi viestejä"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Vahvista käyttäjä"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Laajennukset"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Laajennukset"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Jaetut sijainnit"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Kiinnitetyt viestit"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Tutki huoneen tietoja"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Poistu tilasta…"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Poistu huoneesta…"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "Jäsenet"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Kutsu käyttäjä"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "Kutsu käyttäjä huoneeseen"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4267,7 +4255,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 jäsen"
 msgstr[1] "%1 jäsentä"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "Ei jäsenmäärää"
@@ -4311,25 +4299,27 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "Laajennukset"
 
-#: src/roominfo/WidgetsPage.qml:27
-#, kde-format
+#: src/roominfo/WidgetsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Extensions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "Huone ei käytä laajennuksia"
+msgid "No extensions"
+msgstr "Laajennukset"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Poista sovelma"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Huoneet"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -6054,42 +6044,58 @@ msgid "Encryption"
 msgstr "Salaus"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "Avaa salainen varmuuskopio"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "Tuo salausavaimet varmuuskopiosta."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Tuo avaimet"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Tuo salausavaimet varmuuskopiosta."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Tuo avaimia"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Avainten tuonti onnistui."
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Vie avaimet"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Vie tämän laitteen salausavaimet."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7346,19 +7352,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 sanoi %2"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Irrota"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Kiinnitä"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7465,6 +7471,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "Laitteet"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "Avaa avainvarmuuskopio"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "Kirjaudu ulos…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "Lataa salatut viestisi"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "Tässä huoneessa ei ole jaettuja sijainteja."
+
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "Huone ei käytä laajennuksia"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"

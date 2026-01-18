@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -230,70 +230,46 @@ msgstr "QR 코드 스캔"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "계정 전환"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "이 계정 편집"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "알림 설정"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "장치"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "개발자 도구 열기"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "개발자 도구"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "비밀 백업 열기"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "키 백업 열기"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "이 장치 확인"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "확인 요청 전송됨"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "계속 진행하려면 다른 장치에서 확인 요청을 수락하십시오."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -302,11 +278,11 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "신고"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "로그아웃…"
+msgid "Switch Account"
+msgstr "계정 전환"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1088,7 +1064,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "이 작업을 수행하기에 충분한 권한이 없음"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1106,7 +1082,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1270,11 +1246,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "암호화된 메시지 불러오기"
+msgid "Manage Secret Backup"
+msgstr "비밀 백업 열기"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, fuzzy, kde-format
@@ -4102,7 +4080,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "투표가 종료되었습니다. 최대 응답: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4137,16 +4115,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "음량"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "위치"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send a Location"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "위치 보내기"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "이 대화방에 공유된 위치가 없습니다."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4176,13 +4164,13 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "대화방 정보"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "동작"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -4190,13 +4178,13 @@ msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "메시지 검색"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "사용자 확인"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4204,7 +4192,7 @@ msgctxt "@action:button"
 msgid "Extensions"
 msgstr "@멘션"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4212,7 +4200,7 @@ msgctxt "@title:window"
 msgid "Extensions"
 msgstr "@멘션"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send a Location"
@@ -4220,7 +4208,7 @@ msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "위치 보내기"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4228,7 +4216,7 @@ msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Room Data"
@@ -4236,7 +4224,7 @@ msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "대화방 데이터"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space…"
@@ -4244,7 +4232,7 @@ msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "스페이스 떠나기…"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Leave Room…"
@@ -4252,30 +4240,30 @@ msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "대화방 떠나기…"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "구성원"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "사용자 초대"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "대화방에 사용자 초대"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "구성원 %1명"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "구성원 집계 없음"
@@ -4321,26 +4309,27 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "@멘션"
 
-#: src/roominfo/WidgetsPage.qml:27
+#: src/roominfo/WidgetsPage.qml:28
 #, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "이 대화방에서 다른 대화가 진행 중입니다."
+msgid "No extensions"
+msgstr "@멘션"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "위젯 삭제"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "대화방"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -6088,42 +6077,58 @@ msgid "Encryption"
 msgstr "암호화"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "비밀 백업 열기"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "백업에서 암호화 키를 가져옵니다."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "키 가져오기"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "백업에서 암호화 키를 가져옵니다."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "키 가져오기"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "키를 가져옴"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "키 내보내기"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "이 장치의 암호화 키를 내보냅니다."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7379,19 +7384,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 님이 한 말: %2"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "고정 해제"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "고정"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7496,6 +7501,31 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "장치"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "키 백업 열기"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "로그아웃…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "암호화된 메시지 불러오기"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "이 대화방에 공유된 위치가 없습니다."
+
+#, fuzzy
+#~| msgid "This room continues another conversation."
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "이 대화방에서 다른 대화가 진행 중입니다."
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"

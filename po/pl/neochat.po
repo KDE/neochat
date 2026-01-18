@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2026-01-01 12:40+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -232,70 +232,46 @@ msgstr "Zeskanuj kod QR"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "Przełącz konto"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Dostosuj to konto"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Ustawienia powiadomień"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "Urządzenia"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Otwórz narzędzia programistyczne"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Narzędzia programisty"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "Otwórz kopię zapasową danych poufnych"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "Otwórz kopię zapasową klucza"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Sprawdź to urządzenie"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Wysłano prośbę o sprawdzenie"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Aby przejść dalej, potwierdź prośbę o sprawdzenie na innym urządzeniu."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this user to the administrators'"
@@ -304,11 +280,11 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Zgłoś"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "Wyloguj…"
+msgid "Switch Account"
+msgstr "Przełącz konto"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1078,7 +1054,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Nie masz uprawnień do rozpoczynania spotkań Jitsi"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1096,7 +1072,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat jest odłączony od sieci. Sprawdź swoje połączenie sieciowe."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1260,11 +1236,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Wczytaj swoje zaszyfrowane wiadomości"
+msgid "Manage Secret Backup"
+msgstr "Otwórz kopię zapasową danych poufnych"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -4079,7 +4057,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "Głosowanie dobiegło końca. Najczęściej wybierana odpowiedź: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4114,16 +4092,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Głośność"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Miejsca"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Shared Locations"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "Udostępnione położenia"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "Nie udostępniono żadnych miejsc w tym pokoju."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4153,83 +4141,83 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Szczegóły pokoju"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Działania"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Poszukaj wiadomości"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Sprawdź użytkownika"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Udostępnione położenia"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Przypięte wiadomości"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Obejrzy dane pokoju"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Opuść przestrzeń…"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Opuść pokój…"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "Członkowie"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Zaproś użytkownika"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "Zaproś użytkownika do pokoju"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4238,7 +4226,7 @@ msgstr[0] "%1 członek"
 msgstr[1] "%1 członków"
 msgstr[2] "%1 członków"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "Brak liczby członków"
@@ -4282,25 +4270,27 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
-#: src/roominfo/WidgetsPage.qml:27
-#, kde-format
+#: src/roominfo/WidgetsPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Extensions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "Ten pokój nie korzysta z żadnych rozszerzeń"
+msgid "No extensions"
+msgstr "Rozszerzenia"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Usuń element interfejsu"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Pokoje"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -6027,42 +6017,58 @@ msgid "Encryption"
 msgstr "Szyfrowanie"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "Otwórz kopię zapasową danych poufnych"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "Zaimportuj klucze szyfrujące z kopii zapasowej."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Zaimportuj klucze szyfrujące z kopii zapasowej."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Pomyślnie zaimportowano klucze"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Eksportowanie kluczy"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Wyeksportuj klucze szyfrujące tego urządzenia."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7324,19 +7330,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 powiedział %2"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Odepnij"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Przypnij"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7444,6 +7450,29 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "Urządzenia"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "Otwórz kopię zapasową klucza"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "Wyloguj…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "Wczytaj swoje zaszyfrowane wiadomości"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "Nie udostępniono żadnych miejsc w tym pokoju."
+
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "Ten pokój nie korzysta z żadnych rozszerzeń"
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -241,89 +241,63 @@ msgstr ""
 
 #: src/app/qml/AccountMenu.qml:52
 #, fuzzy, kde-format
-#| msgid "Edit Account"
-msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "Hesaba düzəliş etmək"
-
-#: src/app/qml/AccountMenu.qml:61
-#, fuzzy, kde-format
 #| msgid "Edit this account"
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Bu hesaba düzəliş edin"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/app/qml/AccountMenu.qml:75
-#, fuzzy, kde-format
-#| msgid "Devices"
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "Cihazlar"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Ayarlar"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Ayarlar"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr ""
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Cihaza düzəliş etmək"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, fuzzy, kde-format
-#| msgid "Logout"
+#| msgid "Edit Account"
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "Çıxış"
+msgid "Switch Account"
+msgstr "Hesaba düzəliş etmək"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, fuzzy, kde-format
@@ -1171,7 +1145,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1190,7 +1164,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
@@ -1365,12 +1339,11 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, fuzzy, kde-format
-#| msgid "Send an encrypted message…"
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, kde-format
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "Şifrələnmiş ismarıc göndərin..."
+msgid "Manage Secret Backup"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -4439,7 +4412,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr ""
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, fuzzy, kde-format
 #| msgid "React"
 msgctxt "@button"
@@ -4477,18 +4450,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
 #, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
-msgid "There are no locations shared in this room."
-msgstr "NeoChatı bu otaqla açın"
+#| msgid "Send invitation"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "Dəvət göndərmək"
+
+#: src/roominfo/LocationsPage.qml:71
+#, kde-format
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, fuzzy, kde-format
@@ -4523,95 +4504,95 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Otaq haqqında"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Cihaza düzəliş etmək"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Seçimlər:"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Seçimlər:"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Dəvət göndərmək"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Otaqlar"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Otağı tərk etmək"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "Üzvlər"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "İstifadəçi dəvət etmək"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -4621,7 +4602,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Üzv"
 msgstr[1] "%1 Üzvlər"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -4672,14 +4653,14 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "Seçimlər:"
 
-#: src/roominfo/WidgetsPage.qml:27
+#: src/roominfo/WidgetsPage.qml:28
 #, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#| msgid "Options:"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "Bu otaqda başqa bir söhbət davam edir"
+msgid "No extensions"
+msgstr "Seçimlər:"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, fuzzy, kde-format
 #| msgctxt "[User] removed <name> widget"
 #| msgid "removed %1 widget"
@@ -4687,14 +4668,14 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 vidjet silindi"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Otaqlar"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action"
@@ -6594,47 +6575,60 @@ msgid "Encryption"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "Ucdan Uca şifrələməni aktiv etmək"
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "Ucdan Uca şifrələməni aktiv etmək"
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7996,19 +7990,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -8125,6 +8119,35 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
+
+#, fuzzy
+#~| msgid "Devices"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "Cihazlar"
+
+#, fuzzy
+#~| msgid "Logout"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "Çıxış"
+
+#, fuzzy
+#~| msgid "Send an encrypted message…"
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "Şifrələnmiş ismarıc göndərin..."
+
+#, fuzzy
+#~| msgid "Open NeoChat in this room"
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "NeoChatı bu otaqla açın"
+
+#, fuzzy
+#~| msgid "This room continues another conversation."
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "Bu otaqda başqa bir söhbət davam edir"
 
 #, fuzzy
 #~| msgid "Ban this user"

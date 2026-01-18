@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-17 00:43+0000\n"
+"POT-Creation-Date: 2026-01-18 00:43+0000\n"
 "PO-Revision-Date: 2025-11-29 21:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -230,70 +230,46 @@ msgstr "QR குறியீட்டை வருடவும்"
 #: src/app/qml/AccountMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Switch Account"
-msgstr "கணக்கை மாற்று"
-
-#: src/app/qml/AccountMenu.qml:61
-#, kde-format
-msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "இந்தக் கணக்கைத் திருத்து"
 
-#: src/app/qml/AccountMenu.qml:67
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "அறிவிப்பு அமைப்புகள்"
 
-#: src/app/qml/AccountMenu.qml:75
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Devices"
-msgstr "சாதனங்கள்"
-
-#: src/app/qml/AccountMenu.qml:83
+#: src/app/qml/AccountMenu.qml:66
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/app/qml/AccountMenu.qml:89 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
 
-#: src/app/qml/AccountMenu.qml:96
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Open Secret Backup"
-msgstr "ரகசிய காப்புநகலைத் திற"
-
-#: src/app/qml/AccountMenu.qml:99
-#, kde-format
-msgctxt "@title:window"
-msgid "Open Key Backup"
-msgstr "சாவி காப்புநகலைத் திறப்பது"
-
-#: src/app/qml/AccountMenu.qml:104
+#: src/app/qml/AccountMenu.qml:79
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "இச்சாதனத்தை உறுதிப்படுத்து"
 
-#: src/app/qml/AccountMenu.qml:110 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "சரிபார்ப்பு கோரிக்கை அனுப்பப்பட்டுள்ளது"
 
-#: src/app/qml/AccountMenu.qml:111 src/settings/DevicesPage.qml:48
+#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:48
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "தொடர, சரிபார்ப்பு கோரிக்கையை இன்னொரு சாதனத்தில் ஏற்றுகொள்ளவும்."
 
-#: src/app/qml/AccountMenu.qml:122
+#: src/app/qml/AccountMenu.qml:97
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -302,11 +278,11 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "புகாரளி"
 
-#: src/app/qml/AccountMenu.qml:132
+#: src/app/qml/AccountMenu.qml:111
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Logout…"
-msgstr "கணக்கிலிருந்து வெளியேறு…"
+msgid "Switch Account"
+msgstr "கணக்கை மாற்று"
 
 #: src/app/qml/AccountSwitchDialog.qml:30
 #, kde-format
@@ -1090,7 +1066,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr "இச்செயலை மேற்கொள்ளும் உரிமை உங்களிடம் இல்லை"
 
 #: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
-#: src/roominfo/RoomInformation.qml:91
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
@@ -1108,7 +1084,7 @@ msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. பிணைய இணைப்பை சரிபார்க்கவும்."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:152
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
@@ -1272,11 +1248,13 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16
-#, kde-format
+#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
 msgctxt "@title:window"
-msgid "Load your encrypted messages"
-msgstr "மறையாக்கப்பட்டுள்ள செய்திகளை ஏற்றுவது"
+msgid "Manage Secret Backup"
+msgstr "ரகசிய காப்புநகலைத் திற"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, fuzzy, kde-format
@@ -4125,7 +4103,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "கருத்தாய்வு முடிந்துள்ளது. அதிகமான வாக்குகளைப் பெற்ற பதில்: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:87
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -4160,16 +4138,26 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "ஒலியளவு"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:132
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:150
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "இருப்பிடங்கள்"
 
-#: src/roominfo/LocationsPage.qml:69
+#: src/roominfo/LocationsPage.qml:70
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send a Location"
+msgctxt "@info:placeholder"
+msgid "No shared locations"
+msgstr "இடத்தை அனுப்பு"
+
+#: src/roominfo/LocationsPage.qml:71
 #, kde-format
-msgid "There are no locations shared in this room."
-msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
+msgctxt ""
+"@info 'Send a Location' should share the same name as the chat bar button"
+msgid "Share a location by using 'Send a Location' in the chat bar."
+msgstr ""
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4199,13 +4187,13 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "செயல்கள்"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -4213,13 +4201,13 @@ msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "செய்திகளில் தேடு"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "பயனரை உறுதிப்படுத்து"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4227,7 +4215,7 @@ msgctxt "@action:button"
 msgid "Extensions"
 msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/RoomInformation.qml:116
+#: src/roominfo/RoomInformation.qml:134
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4235,7 +4223,7 @@ msgctxt "@title:window"
 msgid "Extensions"
 msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/RoomInformation.qml:126
+#: src/roominfo/RoomInformation.qml:144
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send a Location"
@@ -4243,7 +4231,7 @@ msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/roominfo/RoomInformation.qml:143
+#: src/roominfo/RoomInformation.qml:161
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4251,7 +4239,7 @@ msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள்"
 
-#: src/roominfo/RoomInformation.qml:158
+#: src/roominfo/RoomInformation.qml:176
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Room Data"
@@ -4259,7 +4247,7 @@ msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4267,30 +4255,30 @@ msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "இடத்திலிருந்து வெளியேறு"
 
-#: src/roominfo/RoomInformation.qml:179
+#: src/roominfo/RoomInformation.qml:197
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "அரங்கிலிருந்து வெளியேறு"
 
-#: src/roominfo/RoomInformation.qml:192
+#: src/roominfo/RoomInformation.qml:210
 #, kde-format
 msgid "Members"
 msgstr "உறுப்பினர்கள்"
 
-#: src/roominfo/RoomInformation.qml:207 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:225 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "பயனரை வரவழைப்பது"
 
-#: src/roominfo/RoomInformation.qml:211
+#: src/roominfo/RoomInformation.qml:229
 #, kde-format
 msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4298,7 +4286,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
-#: src/roominfo/RoomInformation.qml:218
+#: src/roominfo/RoomInformation.qml:236
 #, kde-format
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
@@ -4344,14 +4332,15 @@ msgctxt "@title"
 msgid "Extensions"
 msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/WidgetsPage.qml:27
+#: src/roominfo/WidgetsPage.qml:28
 #, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#| msgctxt "@title:group"
+#| msgid "@Mentions"
 msgctxt "@placeholder"
-msgid "This room does not use any extensions"
-msgstr "இந்த அரங்கு இன்னொரு உரையாடலைத் தொடர்கிறது."
+msgid "No extensions"
+msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/WidgetsPage.qml:66
+#: src/roominfo/WidgetsPage.qml:67
 #, fuzzy, kde-format
 #| msgctxt "[User] removed <name> widget"
 #| msgid "removed %1 widget"
@@ -4359,13 +4348,13 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 பலகையை நீக்கினார்"
 
-#: src/rooms/ExploreComponent.qml:30
+#: src/rooms/ExploreComponent.qml:32
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "அரங்குகள்"
 
-#: src/rooms/ExploreComponent.qml:42
+#: src/rooms/ExploreComponent.qml:44
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
@@ -6101,42 +6090,58 @@ msgid "Encryption"
 msgstr "மறையாக்கம்"
 
 #: src/settings/NeoChatSecurityPage.qml:90
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@action:inmenu"
+msgid "Manage Secret Backup"
+msgstr "ரகசிய காப்புநகலைத் திற"
+
+#: src/settings/NeoChatSecurityPage.qml:91
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
+msgctxt "@info"
+msgid "Import or unlock encryption keys from other devices."
+msgstr "மறையாக்க சாவிகளை இறக்குமதி செய்யும்."
+
+#: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "சாவிகளை இறக்குமதி செய்"
 
-#: src/settings/NeoChatSecurityPage.qml:91
+#: src/settings/NeoChatSecurityPage.qml:104
 #, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup."
 msgstr "மறையாக்க சாவிகளை இறக்குமதி செய்யும்."
 
-#: src/settings/NeoChatSecurityPage.qml:97
+#: src/settings/NeoChatSecurityPage.qml:110
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "சாவிகளை இறக்குமதி செய்வது"
 
-#: src/settings/NeoChatSecurityPage.qml:100
+#: src/settings/NeoChatSecurityPage.qml:113
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "சாவிகள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன"
 
-#: src/settings/NeoChatSecurityPage.qml:113
+#: src/settings/NeoChatSecurityPage.qml:126
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "சாவிகளை ஏற்றுமதி செய்"
 
-#: src/settings/NeoChatSecurityPage.qml:114
+#: src/settings/NeoChatSecurityPage.qml:127
 #, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys."
 msgstr "மறையாக்க சாவிகளை ஏற்றுமதி செய்யும்."
 
-#: src/settings/NeoChatSecurityPage.qml:120
+#: src/settings/NeoChatSecurityPage.qml:133
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7466,19 +7471,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "தக்கவைக்கவேண்டாம்"
 
-#: src/timeline/DelegateContextMenu.qml:404
+#: src/timeline/DelegateContextMenu.qml:405
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "தக்கவை"
 
-#: src/timeline/DelegateContextMenu.qml:417
+#: src/timeline/DelegateContextMenu.qml:418
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -7590,6 +7595,31 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Devices"
+#~ msgstr "சாதனங்கள்"
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Key Backup"
+#~ msgstr "சாவி காப்புநகலைத் திறப்பது"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Logout…"
+#~ msgstr "கணக்கிலிருந்து வெளியேறு…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load your encrypted messages"
+#~ msgstr "மறையாக்கப்பட்டுள்ள செய்திகளை ஏற்றுவது"
+
+#~ msgid "There are no locations shared in this room."
+#~ msgstr "இவ்வரங்கில் எந்த இருப்பிடமும் பகிரப்படவில்லை."
+
+#, fuzzy
+#~| msgid "This room continues another conversation."
+#~ msgctxt "@placeholder"
+#~ msgid "This room does not use any extensions"
+#~ msgstr "இந்த அரங்கு இன்னொரு உரையாடலைத் தொடர்கிறது."
 
 #~ msgctxt "@action:button"
 #~ msgid "Show Menu"
