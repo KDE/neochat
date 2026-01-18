@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 02:38+0000\n"
+"POT-Creation-Date: 2026-01-18 02:55+0000\n"
 "PO-Revision-Date: 2025-11-10 08:31-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -250,7 +250,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Abrir ferramentas de desenvolvedor"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:200
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -954,7 +954,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "Selecionar um arquivo"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:125
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1044,63 +1044,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Entrar na reunião no Jitsi…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Iniciar reunião no Jitsi…"
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Você não tem permissão para iniciar reuniões no Jitsi"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
-#: src/roominfo/RoomInformation.qml:91
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Esta sala contém mensagens oficiais do seu servidor doméstico."
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desconectado. Verifique sua conexão de rede."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:182
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Mensagens fixadas"
 
-#: src/app/qml/RoomPage.qml:284
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bem-vindo ao NeoChat"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:293
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Selecione ou entre em uma sala para começar"
 
-#: src/app/qml/RoomPage.qml:346
+#: src/app/qml/RoomPage.qml:354
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1648,24 +1648,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Concluído"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "ID de Matrix malformado ou vazio<br />%1 não é um identificador Matrix "
 "correto"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:439
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Falha ao entrar em %1:<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Você solicitou entrar em '%1'"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:467
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Falha ao solicitar entrar na sala<br />%1"
@@ -3922,7 +3922,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "A enquete terminou. Resposta com mais votos: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -3957,7 +3957,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volume"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:163
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3996,95 +3996,95 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "Informações da sala"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "Ações"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, kde-format
 msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "Pesquisar mensagens"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "Usuário verificado"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "Remover dos favoritos"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "Adicionar aos favoritos"
 
-#: src/roominfo/RoomInformation.qml:123
+#: src/roominfo/RoomInformation.qml:141
 #, kde-format
 msgctxt "@action:button"
 msgid "Extensions"
 msgstr "Extensões"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Extensions"
 msgstr "Extensões"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:157
 #, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "Localizações compartilhadas"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "Mensagens fixadas"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "Inspecionar dados da sala"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "Sair do espaço…"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "Sair da sala…"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:222
 #, kde-format
 msgid "Members"
 msgstr "Membros"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:237 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Convidar um usuário"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:241
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convidar usuário para sala"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:248
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4092,7 +4092,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membros"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:248
 #, kde-format
 msgid "No member count"
 msgstr "Nenhuma contagem de membros"
@@ -4148,42 +4148,42 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Remover widget"
 
-#: src/rooms/ExploreComponent.qml:36
+#: src/rooms/ExploreComponent.qml:38
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "Salas"
 
-#: src/rooms/ExploreComponent.qml:48
+#: src/rooms/ExploreComponent.qml:50
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Procurar salas"
 
-#: src/rooms/ExploreComponent.qml:73
+#: src/rooms/ExploreComponent.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "Mostrar menu"
 
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:94 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "Encontrar seus amigos"
 
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:99 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Encontre seus amigos"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:104
 #, kde-format
 msgid "Create a Room"
 msgstr "Criar uma sala"
 
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:119
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "Escanear um código QR"
@@ -7017,19 +7017,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 disse %2"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Desafixar"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Fixar"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:416
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7098,31 +7098,31 @@ msgid ""
 msgstr ""
 "Este é o início do bate-papo. Não há mensagens históricas além deste ponto."
 
-#: src/timeline/TimelineView.qml:219
+#: src/timeline/TimelineView.qml:241
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Ir para primeira mensagem não lida"
 
-#: src/timeline/TimelineView.qml:219
+#: src/timeline/TimelineView.qml:241
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Ir para a mensagem carregada mais antiga"
 
-#: src/timeline/TimelineView.qml:250
+#: src/timeline/TimelineView.qml:272
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Ir para a mensagem mais antiga"
 
-#: src/timeline/TimelineView.qml:285
+#: src/timeline/TimelineView.qml:307
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Arraste itens aqui para compartilhar"
 
-#: src/timeline/TimelineView.qml:310
+#: src/timeline/TimelineView.qml:332
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 02:38+0000\n"
+"POT-Creation-Date: 2026-01-18 02:55+0000\n"
 "PO-Revision-Date: 2025-09-21 12:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -244,7 +244,7 @@ msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/AccountMenu.qml:73 src/roominfo/RoomInformation.qml:200
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
@@ -954,7 +954,7 @@ msgctxt "@title:dialog"
 msgid "Select a File"
 msgstr "கோப்பைத் தேர்ந்தெடுப்பது"
 
-#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:123
+#: src/app/qml/QrScannerPage.qml:16 src/rooms/ExploreComponent.qml:125
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
@@ -1044,64 +1044,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "பொருட்படுத்தாதே"
 
-#: src/app/qml/RoomPage.qml:87
+#: src/app/qml/RoomPage.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:90
+#: src/app/qml/RoomPage.qml:96
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "இச்செயலை மேற்கொள்ளும் உரிமை உங்களிடம் இல்லை"
 
-#: src/app/qml/RoomPage.qml:129 src/app/qml/UserDetailDialog.qml:285
-#: src/roominfo/RoomInformation.qml:91
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:285
+#: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "தேடல்"
 
-#: src/app/qml/RoomPage.qml:142
+#: src/app/qml/RoomPage.qml:148
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "உங்கள் தாய் சேவையகத்திலிருந்தான அதிகாரப்பூர்வ செய்திகளை இந்த அரங்கு கொண்டிருக்கும்."
 
-#: src/app/qml/RoomPage.qml:153
+#: src/app/qml/RoomPage.qml:159
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. பிணைய இணைப்பை சரிபார்க்கவும்."
 
-#: src/app/qml/RoomPage.qml:213 src/roominfo/RoomInformation.qml:164
+#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:182
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள்"
 
-#: src/app/qml/RoomPage.qml:284
+#: src/app/qml/RoomPage.qml:292
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "நியோச்சாட்டுக்கு நல்வரவு"
 
-#: src/app/qml/RoomPage.qml:285
+#: src/app/qml/RoomPage.qml:293
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "தொடங்க, அரங்கைத் தேர்ந்தெடுக்கவும் அல்லது ஒன்றில் செரவும்"
 
-#: src/app/qml/RoomPage.qml:346
+#: src/app/qml/RoomPage.qml:354
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1639,24 +1639,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "முடிந்தது"
 
-#: src/app/roommanager.cpp:213
+#: src/app/roommanager.cpp:235
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "முறையற்ற அல்லது காலியான மேட்ரிக்ஸு அடையாளம்<br />%1 ஒரு முறையான மேட்ரிக்ஸு "
 "கணக்குப்பெயர் அல்ல"
 
-#: src/app/roommanager.cpp:430
+#: src/app/roommanager.cpp:439
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "%1 தனில் நுழைவது தோல்வியடைந்தது:<br />%2"
 
-#: src/app/roommanager.cpp:454
+#: src/app/roommanager.cpp:463
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
-#: src/app/roommanager.cpp:458
+#: src/app/roommanager.cpp:467
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது<br />%1"
@@ -3917,7 +3917,7 @@ msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
 msgstr "கருத்தாய்வு முடிந்துள்ளது. அதிகமான வாக்குகளைப் பெற்ற பதில்: %1"
 
-#: src/messagecontent/ReactionComponent.qml:90
+#: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
 msgctxt "@button"
 msgid "React"
@@ -3952,7 +3952,7 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "ஒலியளவு"
 
-#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:145
+#: src/roominfo/LocationsPage.qml:17 src/roominfo/RoomInformation.qml:163
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -3991,13 +3991,13 @@ msgctxt "@action:title"
 msgid "Room Information"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/roominfo/RoomInformation.qml:72
+#: src/roominfo/RoomInformation.qml:90
 #, kde-format
 msgctxt "Room actions"
 msgid "Actions"
 msgstr "செயல்கள்"
 
-#: src/roominfo/RoomInformation.qml:82
+#: src/roominfo/RoomInformation.qml:100
 #, fuzzy, kde-format
 #| msgctxt "@action:title"
 #| msgid "Search Messages"
@@ -4005,13 +4005,13 @@ msgctxt "@action:button"
 msgid "Search Messages"
 msgstr "செய்திகளில் தேடு"
 
-#: src/roominfo/RoomInformation.qml:99
+#: src/roominfo/RoomInformation.qml:117
 #, kde-format
 msgctxt "@action:button"
 msgid "Verify user"
 msgstr "பயனரை உறுதிப்படுத்து"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Remove from Favorites"
@@ -4019,7 +4019,7 @@ msgctxt "@action:button"
 msgid "Remove from Favorites"
 msgstr "பிடித்தவற்றிலிருந்து நீக்கு"
 
-#: src/roominfo/RoomInformation.qml:110
+#: src/roominfo/RoomInformation.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Add to Favorites"
@@ -4027,7 +4027,7 @@ msgctxt "@action:button"
 msgid "Add to Favorites"
 msgstr "பிடித்தவற்றில் சேர்"
 
-#: src/roominfo/RoomInformation.qml:123
+#: src/roominfo/RoomInformation.qml:141
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4035,7 +4035,7 @@ msgctxt "@action:button"
 msgid "Extensions"
 msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/RoomInformation.qml:129
+#: src/roominfo/RoomInformation.qml:147
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "@Mentions"
@@ -4043,7 +4043,7 @@ msgctxt "@title:window"
 msgid "Extensions"
 msgstr "@ கோண்டு சுட்டுவது"
 
-#: src/roominfo/RoomInformation.qml:139
+#: src/roominfo/RoomInformation.qml:157
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send a Location"
@@ -4051,7 +4051,7 @@ msgctxt "@action:button"
 msgid "Shared Locations"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/roominfo/RoomInformation.qml:155
+#: src/roominfo/RoomInformation.qml:173
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Pinned Messages"
@@ -4059,7 +4059,7 @@ msgctxt "@action:button"
 msgid "Pinned Messages"
 msgstr "தக்கவைத்த செய்திகள்"
 
-#: src/roominfo/RoomInformation.qml:170
+#: src/roominfo/RoomInformation.qml:188
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Room Data"
@@ -4067,7 +4067,7 @@ msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:209
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4075,30 +4075,30 @@ msgctxt "@action:button"
 msgid "Leave Space…"
 msgstr "இடத்திலிருந்து வெளியேறு"
 
-#: src/roominfo/RoomInformation.qml:191
+#: src/roominfo/RoomInformation.qml:209
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@action:button"
 msgid "Leave Room…"
 msgstr "அரங்கிலிருந்து வெளியேறு"
 
-#: src/roominfo/RoomInformation.qml:204
+#: src/roominfo/RoomInformation.qml:222
 #, kde-format
 msgid "Members"
 msgstr "உறுப்பினர்கள்"
 
-#: src/roominfo/RoomInformation.qml:219 src/spaces/SpaceHomePage.qml:85
+#: src/roominfo/RoomInformation.qml:237 src/spaces/SpaceHomePage.qml:85
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "பயனரை வரவழைப்பது"
 
-#: src/roominfo/RoomInformation.qml:223
+#: src/roominfo/RoomInformation.qml:241
 #, kde-format
 msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:248
 #, kde-format
 msgctxt "@info"
 msgid "%1 member"
@@ -4106,7 +4106,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
-#: src/roominfo/RoomInformation.qml:230
+#: src/roominfo/RoomInformation.qml:248
 #, kde-format
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
@@ -4167,42 +4167,42 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 பலகையை நீக்கினார்"
 
-#: src/rooms/ExploreComponent.qml:36
+#: src/rooms/ExploreComponent.qml:38
 #, kde-format
 msgctxt "@title"
 msgid "Rooms"
 msgstr "அரங்குகள்"
 
-#: src/rooms/ExploreComponent.qml:48
+#: src/rooms/ExploreComponent.qml:50
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "அரங்கைக் கண்டுபிடி"
 
-#: src/rooms/ExploreComponent.qml:73
+#: src/rooms/ExploreComponent.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Menu"
 msgstr "பட்டியைக் காட்டு"
 
-#: src/rooms/ExploreComponent.qml:92 src/rooms/ExploreComponentMobile.qml:65
+#: src/rooms/ExploreComponent.qml:94 src/rooms/ExploreComponentMobile.qml:65
 #, kde-format
 msgid "Find your friends"
 msgstr "நண்பர்களைக் கண்டுபிடி"
 
-#: src/rooms/ExploreComponent.qml:97 src/rooms/ExploreComponentMobile.qml:72
+#: src/rooms/ExploreComponent.qml:99 src/rooms/ExploreComponentMobile.qml:72
 #: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "நண்பர்களைக் கண்டுபிடிப்பது"
 
-#: src/rooms/ExploreComponent.qml:102
+#: src/rooms/ExploreComponent.qml:104
 #, kde-format
 msgid "Create a Room"
 msgstr "அரங்கை உருவாக்கு"
 
-#: src/rooms/ExploreComponent.qml:117
+#: src/rooms/ExploreComponent.qml:119
 #, kde-format
 msgid "Scan a QR Code"
 msgstr "QR குறியீட்டை வருடவும்"
@@ -7166,19 +7166,19 @@ msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "தக்கவைக்கவேண்டாம்"
 
-#: src/timeline/DelegateContextMenu.qml:402
+#: src/timeline/DelegateContextMenu.qml:403
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "தக்கவை"
 
-#: src/timeline/DelegateContextMenu.qml:415
+#: src/timeline/DelegateContextMenu.qml:416
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -7248,35 +7248,35 @@ msgid ""
 "this point."
 msgstr "உரையாடலின் துவக்கம் இது. இதற்கு முன் எந்த செய்தியும் இல்லை."
 
-#: src/timeline/TimelineView.qml:219
+#: src/timeline/TimelineView.qml:241
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:219
+#: src/timeline/TimelineView.qml:241
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "ஏற்றப்பட்டுள்ளவற்றில் பழைய செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:250
+#: src/timeline/TimelineView.qml:272
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/timeline/TimelineView.qml:285
+#: src/timeline/TimelineView.qml:307
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/timeline/TimelineView.qml:310
+#: src/timeline/TimelineView.qml:332
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
