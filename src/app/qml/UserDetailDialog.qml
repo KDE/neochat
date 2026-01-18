@@ -39,6 +39,7 @@ Kirigami.Dialog {
     readonly property bool hasMutualRooms: root.model.count > 0
     readonly property bool isRoomProfile: root.room
     readonly property string shareUrl: "https://matrix.to/#/" + root.user.id
+    readonly property string displayName: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
 
     leftPadding: Kirigami.Units.largeSpacing * 2
     rightPadding: Kirigami.Units.largeSpacing * 2
@@ -64,10 +65,11 @@ Kirigami.Dialog {
 
             KirigamiComponents.Avatar {
                 id: avatar
-                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
-                name: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
+                Layout.preferredWidth: Kirigami.Units.iconSizes.large
+                Layout.preferredHeight: Kirigami.Units.iconSizes.large
+
+                name: root.displayName
                 source: {
                     if (root.room) {
                         return root.room.member(root.user.id).avatarUrl;
@@ -80,27 +82,29 @@ Kirigami.Dialog {
             }
 
             ColumnLayout {
-                Layout.fillWidth: true
-
                 spacing: 0
 
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+
                 Kirigami.Heading {
-                    level: 1
-                    Layout.fillWidth: true
-                    font.bold: true
                     clip: true // Intentional to limit insane Unicode in display names
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: root.room ? root.room.member(root.user.id).displayName : root.user.displayName
+                    text: root.displayName
                     textFormat: Text.PlainText
+
+                    Layout.fillWidth: true
                 }
 
                 Kirigami.SelectableLabel {
-                    id: idLabel
                     textFormat: TextEdit.PlainText
                     text: idLabelTextMetrics.elidedText
                     color: Kirigami.Theme.disabledTextColor
+                    font: Kirigami.Theme.smallFont
+
+                    Layout.fillWidth: true
 
                     TextMetrics {
                         id: idLabelTextMetrics
@@ -109,110 +113,137 @@ Kirigami.Dialog {
                         elideWidth: root.availableWidth - avatar.width - detailRow.spacing * 2 - detailRow.Layout.leftMargin - detailRow.Layout.rightMargin
                     }
                 }
-
-                Kirigami.ActionToolBar {
-                    Layout.topMargin: Kirigami.Units.smallSpacing
-
-                    actions: [
-                        Kirigami.Action {
-                            text: i18nc("@action:intoolbar Message this user directly", "Message")
-                            icon.name: "document-send-symbolic"
-
-                            onTriggered: {
-                                root.close();
-                                root.connection.requestDirectChat(root.user.id);
-                            }
-                        },
-                        Kirigami.Action {
-                            icon.name: "im-invisible-user-symbolic"
-                            text: root.connection.isIgnored(root.user.id) ? i18nc("@action:intoolbar Unignore or 'unblock' this user", "Unignore") : i18nc("@action:intoolbar Ignore or 'block' this user", "Ignore")
-
-                            onTriggered: {
-                                root.close();
-                                root.connection.isIgnored(root.user.id) ? root.connection.removeFromIgnoredUsers(root.user.id) : root.connection.addToIgnoredUsers(root.user.id);
-                            }
-                        },
-                        Kirigami.Action {
-                            text: i18nc("@action:intoolbar Copy shareable link for this user", "Copy Link")
-                            icon.name: "username-copy-symbolic"
-
-                            onTriggered: Clipboard.saveText(root.shareUrl)
-                        },
-                        Kirigami.Action {
-                            text: i18nc("@action:intoolbar Search for this user's messages.", "Search Messages…")
-                            icon.name: "search-symbolic"
-
-                            onTriggered: {
-                                ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
-                                room: root.room,
-                                senderId: root.user.id
-                            }, {
-                                title: i18nc("@action:title", "Search")
-                            });
-                                root.close();
-                            }
-                        },
-                        Kirigami.Action {
-                            text: i18nc("@action:intoolbar", "Show QR Code")
-                            icon.name: "view-barcode-qr-symbolic"
-
-                            onTriggered: {
-                                let qrCode = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
-                                    text: root.shareUrl,
-                                    title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
-                                    subtitle: root.user.id,
-                                    avatarColor: root.room?.member(root.user.id).color,
-                                    avatarSource: root.room? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
-                                }) as QrCodeMaximizeComponent;
-                                root.close();
-                                qrCode.open();
-                            }
-                        },
-                        Kirigami.Action {
-                            text: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report…")
-                            icon.name: "dialog-warning-symbolic"
-                            visible: root.connection.supportsMatrixSpecVersion("v1.13")
-
-                            onTriggered: {
-                                let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
-                                title: i18nc("@title:dialog", "Report User"),
-                                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this user"),
-                                icon: "dialog-warning-symbolic",
-                                actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report"),
-                                reporting: true,
-                                connection: root.connection,
-                            }, {
-                                title: i18nc("@title", "Report User"),
-                                width: Kirigami.Units.gridUnit * 25
-                            }) as ReasonDialog;
-                                dialog.accepted.connect(reason => {
-                                    root.connection.reportUser(root.user.id, reason);
-                                });
-                            }
-                        },
-                        Kirigami.Action {
-                            visible: root.room
-
-                            text: i18nc("@action:button", "View Main Profile")
-                            icon.name: "user-properties-symbolic"
-                            onTriggered: {
-                                root.oldRoom = root.room;
-                                root.room = null;
-                            }
-                        },
-                        Kirigami.Action {
-                            visible: !root.room && root.oldRoom
-
-                            text: i18nc("@action:button", "View Room Profile")
-                            icon.name: "user-properties-symbolic"
-                            onTriggered: {
-                                root.room = root.oldRoom;
-                                root.oldRoom = null;
-                            }
-                        }
-                    ]
-                }
             }
+
+            QQC2.AbstractButton {
+                contentItem: Barcode {
+                    id: barcode
+                    barcodeType: Barcode.QRCode
+                    content: "https://matrix.to/#/" + root.user.id
+                }
+
+                onClicked: {
+                    root.close();
+                    const map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                        text: barcode.content,
+                        title: root.displayName,
+                        subtitle: root.user.id,
+                        avatarSource: avatar.source,
+                    });
+                    map.open();
+                }
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.large
+                Layout.preferredHeight: Kirigami.Units.iconSizes.large
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.text: barcode.content
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+        }
+
+        Kirigami.ActionToolBar {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+
+            actions: [
+                Kirigami.Action {
+                    text: i18nc("@action:intoolbar Message this user directly", "Message")
+                    icon.name: "document-send-symbolic"
+
+                    onTriggered: {
+                        root.close();
+                        root.connection.requestDirectChat(root.user.id);
+                    }
+                },
+                Kirigami.Action {
+                    icon.name: "im-invisible-user-symbolic"
+                    text: root.connection.isIgnored(root.user.id) ? i18nc("@action:intoolbar Unignore or 'unblock' this user", "Unignore") : i18nc("@action:intoolbar Ignore or 'block' this user", "Ignore")
+
+                    onTriggered: {
+                        root.close();
+                        root.connection.isIgnored(root.user.id) ? root.connection.removeFromIgnoredUsers(root.user.id) : root.connection.addToIgnoredUsers(root.user.id);
+                    }
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:intoolbar Copy shareable link for this user", "Copy Link")
+                    icon.name: "username-copy-symbolic"
+
+                    onTriggered: Clipboard.saveText(root.shareUrl)
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:intoolbar Search for this user's messages.", "Search Messages…")
+                    icon.name: "search-symbolic"
+
+                    onTriggered: {
+                        ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomSearchPage'), {
+                        room: root.room,
+                        senderId: root.user.id
+                    }, {
+                        title: i18nc("@action:title", "Search")
+                    });
+                        root.close();
+                    }
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:intoolbar", "Show QR Code")
+                    icon.name: "view-barcode-qr-symbolic"
+
+                    onTriggered: {
+                        let qrCode = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                            text: root.shareUrl,
+                            title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
+                            subtitle: root.user.id,
+                            avatarColor: root.room?.member(root.user.id).color,
+                            avatarSource: root.room? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
+                        }) as QrCodeMaximizeComponent;
+                        root.close();
+                        qrCode.open();
+                    }
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report…")
+                    icon.name: "dialog-warning-symbolic"
+                    visible: root.connection.supportsMatrixSpecVersion("v1.13")
+
+                    onTriggered: {
+                        let dialog = ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                        title: i18nc("@title:dialog", "Report User"),
+                        placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this user"),
+                        icon: "dialog-warning-symbolic",
+                        actionText: i18nc("@action:button 'Report' as in 'Report this user to the administrators'", "Report"),
+                        reporting: true,
+                        connection: root.connection,
+                    }, {
+                        title: i18nc("@title", "Report User"),
+                        width: Kirigami.Units.gridUnit * 25
+                    }) as ReasonDialog;
+                        dialog.accepted.connect(reason => {
+                            root.connection.reportUser(root.user.id, reason);
+                        });
+                    }
+                },
+                Kirigami.Action {
+                    visible: root.room
+
+                    text: i18nc("@action:button", "View Main Profile")
+                    icon.name: "user-properties-symbolic"
+                    onTriggered: {
+                        root.oldRoom = root.room;
+                        root.room = null;
+                    }
+                },
+                Kirigami.Action {
+                    visible: !root.room && root.oldRoom
+
+                    text: i18nc("@action:button", "View Room Profile")
+                    icon.name: "user-properties-symbolic"
+                    onTriggered: {
+                        root.room = root.oldRoom;
+                        root.oldRoom = null;
+                    }
+                }
+            ]
         }
 
         Kirigami.Heading {

@@ -70,6 +70,7 @@ ColumnLayout {
             Kirigami.Heading {
                 Layout.fillWidth: true
                 text: root.room ? root.room.displayName : i18n("No name")
+                clip: true // Intentional to limit insane Unicode in display names
                 textFormat: Text.PlainText
                 wrapMode: Text.Wrap
             }
@@ -94,7 +95,7 @@ ColumnLayout {
             }
 
             onClicked: {
-                let map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
+                const map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                     text: barcode.content,
                     title: root.room ? root.room.displayName : "",
                     subtitle: root.room ? root.room.id : "",
