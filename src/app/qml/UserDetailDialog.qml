@@ -117,19 +117,19 @@ Kirigami.Dialog {
 
             QQC2.AbstractButton {
                 contentItem: Barcode {
-                    id: barcode
                     barcodeType: Barcode.QRCode
-                    content: "https://matrix.to/#/" + root.user.id
+                    content: root.shareUrl
                 }
 
                 onClicked: {
-                    root.close();
                     const map = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
-                        text: barcode.content,
+                        text: root.shareUrl,
                         title: root.displayName,
                         subtitle: root.user.id,
+                        avatarColor: root.room?.member(root.user.id).color,
                         avatarSource: avatar.source,
-                    });
+                    }) as QrCodeMaximizeComponent;
+                    root.close();
                     map.open();
                 }
 
@@ -183,22 +183,6 @@ Kirigami.Dialog {
                         title: i18nc("@action:title", "Search")
                     });
                         root.close();
-                    }
-                },
-                Kirigami.Action {
-                    text: i18nc("@action:intoolbar", "Show QR Code")
-                    icon.name: "view-barcode-qr-symbolic"
-
-                    onTriggered: {
-                        let qrCode = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
-                            text: root.shareUrl,
-                            title: root.room ? root.room.member(root.user.id).displayName : root.user.displayName,
-                            subtitle: root.user.id,
-                            avatarColor: root.room?.member(root.user.id).color,
-                            avatarSource: root.room? root.room.member(root.user.id).avatarUrl : root.user.avatarUrl
-                        }) as QrCodeMaximizeComponent;
-                        root.close();
-                        qrCode.open();
                     }
                 },
                 Kirigami.Action {
