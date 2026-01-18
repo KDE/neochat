@@ -25,14 +25,9 @@ Qt-based SDK for the [Matrix Protocol](https://spec.matrix.org/).
 
 ## Features
 
-NeoChat aims to be a fully featured application for the Matrix specification. As such most parts of the current specification are supported, with the notable exceptions
-of VoIP, threads, and some aspects of End-to-End Encryption. There are a few other smaller omissions due to the fact that the Matrix spec is constantly
+NeoChat aims to be a fully featured application for the Matrix specification. As such, most parts of the current specification are supported, with the notable exceptions
+of VoIP, threads, and some aspects of End-to-End Encryption. There are a few other smaller omissions due to the Matrix spec constantly
 evolving, but the aim remains to provide eventual support for the entire spec.
-
-Due to the nature of the Matrix specification development NeoChat also supports numerous unstable features. Currently these are:
-- Polls - MSC3381
-- Sticker Packs - MSC2545
-- Location Events - MSC3488
 
 ## Get it
 
@@ -48,12 +43,12 @@ The best way to build KDE apps during development is to use `kdesrc-build`. The 
 the KDE community website's get involved section under [development](https://community.kde.org/Get_Involved/development). This
 is primarily aimed at Linux development.
 
-For Windows and Android [Craft](https://invent.kde.org/packaging/craft) is the primary choice. There are guides for setting up
+For Windows and Android, [Craft](https://invent.kde.org/packaging/craft) is the primary choice. There are guides for setting up
 development environments for [Windows](https://community.kde.org/Get_Involved/development/Windows) and [Android](https://develop.kde.org/docs/packaging/android/building_applications/).
 
 ## Running
 
-Just start the executable in your preferred way - either from the build directory or from the installed location.
+Start the executable in your preferred way – either from the build directory or from the installed location.
 
 ## Tests
 
@@ -66,12 +61,12 @@ be complete.
 
 ![coverage](https://invent.kde.org/network/neochat/badges/master/pipeline.svg)
 
-Currently the number of tests is limited, but growing. If anyone wants to help improve this, those
+Currently, the number of tests is limited but growing. If anyone wants to help improve this, those
 contributions would be especially welcome.
 
 ## Contributing
 
-As is the case throughout the KDE ecosystem contributions are welcome from all. The code base is managed in the
+As is the case throughout the KDE ecosystem, contributions are welcome from all. The code base is managed in the
 [NeoChat repository](https://invent.kde.org/network/neochat) of the KDE Gitlab instance.
 
 - [Code of Conduct](https://kde.org/code-of-conduct)
@@ -86,7 +81,7 @@ The best place to reach the maintainers is on the KDE Matrix instance in the Neo
 
 ## Acknowledgement
 
-NeoChat utilizes [libQuotient](https://github.com/quotient-im/libQuotient/) as its Matrix SDK.
+NeoChat uses [libQuotient](https://github.com/quotient-im/libQuotient/) as its Matrix SDK.
 
 NeoChat is a fork of [Spectral](https://gitlab.com/spectral-im/spectral/).
 
