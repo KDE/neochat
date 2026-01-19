@@ -130,9 +130,6 @@ FormCard.FormCardPage {
                     // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
                     avatarSource: root.connection && (root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : "")
                 });
-                if (typeof root.closeDialog === "function") {
-                    root.closeDialog();
-                }
                 qrMax.open();
             }
         }

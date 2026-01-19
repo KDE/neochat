@@ -81,6 +81,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         images/walk.svg
     DEPENDENCIES
         QtQuick
+        org.kde.neochat.libneochat
 )
 
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)

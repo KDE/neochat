@@ -8,6 +8,8 @@
 class SupportContact
 {
     Q_GADGET
+    QML_NAMED_ELEMENT(supportContact)
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(QString role MEMBER role)
     Q_PROPERTY(QString matrixId MEMBER matrixId)

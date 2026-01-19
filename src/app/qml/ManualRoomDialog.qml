@@ -72,9 +72,9 @@ Kirigami.Dialog {
                     return null;
                 }
                 if (isAlias()) {
-                    return root.connection.roomByAlias(text);
+                    return root.connection.roomByAlias(text) as NeoChatRoom;
                 } else {
-                    return root.connection.room(text);
+                    return root.connection.room(text) as NeoChatRoom;
                 }
             }
 

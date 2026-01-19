@@ -55,10 +55,10 @@ Kirigami.Page {
         formats: Prison.Format.QRCode | Prison.Format.Aztec
         onResultChanged: {
             if (result.text.length > 0 && result.text != scanner.previousText) {
+                root.Kirigami.PageStack.closeDialog();
                 RoomManager.resolveResource(result.text, "qr");
                 scanner.previousText = result.text;
             }
-            root.closeDialog();
         }
         videoSink: viewFinder.videoSink
     }

@@ -39,7 +39,7 @@ Kirigami.Page {
             icon.name: "document-edit"
             onTriggered: {
                 root.room.setRoomState(root.type, root.stateKey, sourceTextArea.text);
-                root.closeDialog();
+                root.Kirigami.PageStack.closeDialog();
             }
             enabled: QmlUtils.isValidJson(sourceTextArea.text)
         }

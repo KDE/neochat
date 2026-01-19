@@ -27,7 +27,7 @@ Kirigami.Page {
 
     QQC2.Action {
         shortcut: 'Escape'
-        onTriggered: root.closeDialog()
+        onTriggered: Kirigami.PageStack.closeDialog()
     }
 
     Notification {
@@ -53,20 +53,16 @@ Kirigami.Page {
         model: root.model
         anchors.fill: parent
         onStateChanged: {
+            root.Kirigami.PageStack.closeDialog();
             if (state === Purpose.PurposeJobController.Finished) {
                 if (jobView.job?.output?.url?.length > 0) {
                     sharingSuccess.text = i18nc("@info", "Shared url for image is <a href='%1'>%1</a>", jobView.job.output.url);
                     sharingSuccess.sendEvent();
                     Clipboard.saveText(jobView.job.output.url);
                 }
-                root.closeDialog();
             } else if (state === Purpose.PurposeJobController.Error) {
                 // Show failure notification
                 sharingFailed.sendEvent();
-                root.closeDialog();
-            } else if (state === Purpose.PurposeJobController.Cancelled) {
-                // Do nothing
-                root.closeDialog();
             }
         }
     }

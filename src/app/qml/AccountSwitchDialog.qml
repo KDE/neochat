@@ -61,10 +61,10 @@ Kirigami.Dialog {
             }
 
             onClicked: {
+                root.close();
                 ((root.QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow).pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat.login', 'WelcomePage'), {}, {
                     title: i18nc("@title:window", "Login")
                 });
-                root.close();
             }
             Keys.onUpPressed: {
                 accountView.currentIndex = accountView.count - 1;

@@ -51,7 +51,7 @@ SearchPage {
     model: UserDirectoryListModel {
         id: userDictListModel
 
-        connection: root.room.connection
+        connection: root.room.connection as NeoChatConnection
     }
 
     modelDelegate: Delegates.RoundedItemDelegate {
@@ -109,10 +109,10 @@ SearchPage {
         function openManualUserDialog(): void {
             let dialog = manualUserDialog.createObject(this, {
                 connection: root.connection
-            });
+            }) as ManualUserDialog;
             dialog.parent = root.Window.window.overlay;
             dialog.accepted.connect(() => {
-                root.closeDialog();
+                root.Kirigami.PageStack.closeDialog();
             });
             dialog.userSelected.connect(userId => {
                 root.room.inviteToRoom(userId)

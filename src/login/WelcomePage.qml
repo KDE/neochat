@@ -211,7 +211,7 @@ Kirigami.Page {
                         }
 
                         function onCloseDialog(): void {
-                            root.closeDialog();
+                            root.Kirigami.PageStack.closeDialog();
                         }
                     }
 

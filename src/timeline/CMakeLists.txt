@@ -39,6 +39,7 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         models/webshortcutmodel.cpp
     DEPENDENCIES
         QtQuick
+        org.kde.neochat.libneochat
 )
 
 target_include_directories(Timeline PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/enums ${CMAKE_CURRENT_SOURCE_DIR}/models)
