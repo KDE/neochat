@@ -354,7 +354,9 @@ void RoomManager::loadInitialRoom()
 
 void RoomManager::openRoomForActiveConnection()
 {
-    Q_ASSERT(m_connection);
+    if (!m_connection) {
+        return;
+    }
 
     auto lastSpace = m_lastRoomConfig.readEntry(u"lastSpace"_s, QString());
     if (lastSpace == u"Home"_s) {
