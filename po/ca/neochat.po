@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:43+0000\n"
-"PO-Revision-Date: 2026-01-17 12:39+0100\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"PO-Revision-Date: 2026-01-18 11:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1051,7 +1051,7 @@ msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "No teniu permís per a iniciar reunions de Jitsi"
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
@@ -1230,12 +1230,10 @@ msgid "Contact via e-mail (%1)"
 msgstr "Contacta a través de correu electrònic (%1)"
 
 #: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
-msgstr "Obre una còpia de seguretat del secret"
+msgstr "Gestió de la còpia de seguretat del secret"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -1310,165 +1308,159 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Sol·licita des d'altres dispositius"
 
-#: src/app/qml/UserDetailDialog.qml:51
+#: src/app/qml/UserDetailDialog.qml:52
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Detalls del compte"
 
-#: src/app/qml/UserDetailDialog.qml:118
+#: src/app/qml/UserDetailDialog.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "Missatge"
 
-#: src/app/qml/UserDetailDialog.qml:128
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Deixa d'ignorar"
 
-#: src/app/qml/UserDetailDialog.qml:128
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: src/app/qml/UserDetailDialog.qml:136
+#: src/app/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Copia l'enllaç"
 
-#: src/app/qml/UserDetailDialog.qml:142
+#: src/app/qml/UserDetailDialog.qml:175
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Cerca missatges…"
 
-#: src/app/qml/UserDetailDialog.qml:156
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show QR Code"
-msgstr "Mostra el codi QR"
-
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:189
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Informa…"
 
-#: src/app/qml/UserDetailDialog.qml:178
+#: src/app/qml/UserDetailDialog.qml:195
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Informa d'un usuari"
 
-#: src/app/qml/UserDetailDialog.qml:179
+#: src/app/qml/UserDetailDialog.qml:196
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
 msgstr "Indiqueu opcionalment un motiu per a informar d'aquest usuari"
 
-#: src/app/qml/UserDetailDialog.qml:181
+#: src/app/qml/UserDetailDialog.qml:198
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Informa"
 
-#: src/app/qml/UserDetailDialog.qml:185
+#: src/app/qml/UserDetailDialog.qml:202
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Informa d'un usuari"
 
-#: src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/UserDetailDialog.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Visualitza el perfil principal"
 
-#: src/app/qml/UserDetailDialog.qml:206
+#: src/app/qml/UserDetailDialog.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Visualitza el perfil de la sala"
 
-#: src/app/qml/UserDetailDialog.qml:219
+#: src/app/qml/UserDetailDialog.qml:234
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Moderació"
 
-#: src/app/qml/UserDetailDialog.qml:244
+#: src/app/qml/UserDetailDialog.qml:259
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Expulsa…"
 
-#: src/app/qml/UserDetailDialog.qml:248 src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:270
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Expulsió d'usuari"
 
-#: src/app/qml/UserDetailDialog.qml:249
+#: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
 msgstr "Indiqueu opcionalment un motiu per a expulsar aquest usuari"
 
-#: src/app/qml/UserDetailDialog.qml:250
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Expulsa"
 
-#: src/app/qml/UserDetailDialog.qml:272
+#: src/app/qml/UserDetailDialog.qml:287
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Bandeja…"
 
-#: src/app/qml/UserDetailDialog.qml:277 src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:292 src/app/qml/UserDetailDialog.qml:299
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bandeja l'usuari"
 
-#: src/app/qml/UserDetailDialog.qml:278
+#: src/app/qml/UserDetailDialog.qml:293
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
 msgstr "Indiqueu opcionalment un motiu per a bandejar aquest usuari"
 
-#: src/app/qml/UserDetailDialog.qml:279
+#: src/app/qml/UserDetailDialog.qml:294
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Bandeja"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Desbandeja"
 
-#: src/app/qml/UserDetailDialog.qml:312
+#: src/app/qml/UserDetailDialog.qml:327
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Elimina missatges…"
 
-#: src/app/qml/UserDetailDialog.qml:317
+#: src/app/qml/UserDetailDialog.qml:332
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Eliminació de missatges"
 
-#: src/app/qml/UserDetailDialog.qml:318
+#: src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
@@ -1476,38 +1468,38 @@ msgstr ""
 "Indiqueu opcionalment un motiu per a eliminar els missatges recents d'aquest "
 "usuari"
 
-#: src/app/qml/UserDetailDialog.qml:319
+#: src/app/qml/UserDetailDialog.qml:334
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/app/qml/UserDetailDialog.qml:324
+#: src/app/qml/UserDetailDialog.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Eliminació de missatges"
 
-#: src/app/qml/UserDetailDialog.qml:337
+#: src/app/qml/UserDetailDialog.qml:352
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "Nivell de permisos"
 
-#: src/app/qml/UserDetailDialog.qml:361
+#: src/app/qml/UserDetailDialog.qml:376
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Estableix el nivell de permisos"
 
-#: src/app/qml/UserDetailDialog.qml:388
+#: src/app/qml/UserDetailDialog.qml:403
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Sales en comú"
 
-#: src/app/qml/UserDetailDialog.qml:427
+#: src/app/qml/UserDetailDialog.qml:442
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1517,13 +1509,13 @@ msgid_plural "and %1 more…"
 msgstr[0] "i 1 altra…"
 msgstr[1] "i %1 altres…"
 
-#: src/app/qml/UserDetailDialog.qml:434
+#: src/app/qml/UserDetailDialog.qml:449
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Nota privada"
 
-#: src/app/qml/UserDetailDialog.qml:446
+#: src/app/qml/UserDetailDialog.qml:461
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -4089,12 +4081,10 @@ msgid "Locations"
 msgstr "Ubicacions"
 
 #: src/roominfo/LocationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Shared Locations"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr "Ubicacions compartides"
+msgstr "Sense ubicacions compartides"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
@@ -4102,6 +4092,7 @@ msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
 msgstr ""
+"Comparteix una ubicació utilitzant «Envia una ubicació» a la barra de xat."
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4260,12 +4251,10 @@ msgid "Extensions"
 msgstr "Extensions"
 
 #: src/roominfo/WidgetsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr "Extensions"
+msgstr "Sense extensions"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
@@ -5960,20 +5949,17 @@ msgid "Encryption"
 msgstr "Encriptatge"
 
 #: src/settings/NeoChatSecurityPage.qml:90
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Secret Backup"
-msgstr "Obre una còpia de seguretat del secret"
+msgstr "Gestiona la còpia de seguretat del secret"
 
 #: src/settings/NeoChatSecurityPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
-msgstr "Importa les claus d'encriptatge a partir d'una còpia de seguretat."
+msgstr ""
+"Importa o desbloqueja les claus d'encriptatge des d'altres dispositius."
 
 #: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
@@ -7376,6 +7362,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show QR Code"
+#~ msgstr "Mostra el codi QR"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"

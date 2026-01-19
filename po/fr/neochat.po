@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-18 00:43+0000\n"
-"PO-Revision-Date: 2026-01-14 13:08+0100\n"
+"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"PO-Revision-Date: 2026-01-17 07:15+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -121,7 +121,7 @@ msgstr "Un client pour le protocole de communications  Matrix »"
 #: src/app/main.cpp:173
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Prend en charge le thème d'URL « Matrix : »"
+msgstr "Prend en charge de Matrix : thème d'URL"
 
 #: src/app/main.cpp:174
 #, kde-format
@@ -215,8 +215,7 @@ msgid "Show QR Code"
 msgstr "Afficher un code « QR »"
 
 #: src/app/qml/AccountMenu.qml:41
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Lire un code « QR »"
@@ -272,13 +271,10 @@ msgstr ""
 "périphérique."
 
 #: src/app/qml/AccountMenu.qml:97
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr "Rapport"
+msgstr "Assistance"
 
 #: src/app/qml/AccountMenu.qml:111
 #, kde-format
@@ -1013,6 +1009,8 @@ msgid ""
 "This report will <strong>only</strong> be sent to the administrators of "
 "<link>%1</link> (your server)."
 msgstr ""
+"Ce signalement sera envoyé <strong>uniquement</strong> aux administrateurs "
+"de <link>%1</link> (Votre serveur)."
 
 #: src/app/qml/ReasonDialog.qml:72
 #, kde-format
@@ -1057,7 +1055,7 @@ msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 "Vous ne possédez pas les privilèges pour démarrer des réunions sous Jitsi."
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:150
+#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
@@ -1186,13 +1184,10 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "L'URL partagé pour l'image est <a href='%1'>%1</a>."
 
 #: src/app/qml/SupportDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title Support information"
 msgid "Support"
-msgstr "Rapport"
+msgstr "Assistance"
 
 #: src/app/qml/SupportDialog.qml:33
 #, kde-format
@@ -1204,26 +1199,22 @@ msgstr ""
 #, kde-format
 msgctxt "@info:label %1 is the domain of the server"
 msgid "%1 has no support resources."
-msgstr ""
+msgstr "%1 ne possède aucune ressource d'assistance."
 
 #: src/app/qml/SupportDialog.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
+#, kde-format
 msgctxt "@action:button Open support webpage"
 msgid "Open Support"
-msgstr "Ouvrir un sondage"
+msgstr "Ouvrir une demande d'assistance"
 
 #: src/app/qml/SupportDialog.qml:82
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgctxt "@info:label Adminstrator contact"
 msgid "Admin"
 msgstr "Administrateur"
 
 #: src/app/qml/SupportDialog.qml:84
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@info:label Security contact"
 msgid "Security"
 msgstr "Sécurité"
@@ -1232,13 +1223,13 @@ msgstr "Sécurité"
 #, kde-format
 msgctxt "@info:tooltip %1 is a Matrix ID"
 msgid "Contact via Matrix (%1)"
-msgstr ""
+msgstr "Contact via Matrix (%1)"
 
 #: src/app/qml/SupportDialog.qml:115
 #, kde-format
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
-msgstr ""
+msgstr "Contact par courriel (%1)"
 
 #: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
 #, fuzzy, kde-format
@@ -1319,210 +1310,200 @@ msgctxt "@action:button"
 msgid "Request from other Devices"
 msgstr "Demande provenant d'autres périphériques"
 
-#: src/app/qml/UserDetailDialog.qml:51
+#: src/app/qml/UserDetailDialog.qml:52
 #, kde-format
 msgctxt "@title:menu Account details dialog"
 msgid "Account Details"
 msgstr "Détails du compte"
 
-#: src/app/qml/UserDetailDialog.qml:118
+#: src/app/qml/UserDetailDialog.qml:151
 #, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
 msgstr "Message"
 
-#: src/app/qml/UserDetailDialog.qml:128
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
 msgstr "Ne plus ignorer"
 
-#: src/app/qml/UserDetailDialog.qml:128
+#: src/app/qml/UserDetailDialog.qml:161
 #, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: src/app/qml/UserDetailDialog.qml:136
+#: src/app/qml/UserDetailDialog.qml:169
 #, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Copier le lien"
 
-#: src/app/qml/UserDetailDialog.qml:142
+#: src/app/qml/UserDetailDialog.qml:175
 #, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
 msgstr "Rechercher des messages..."
 
-#: src/app/qml/UserDetailDialog.qml:156
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show QR Code"
-msgstr "Afficher le code « QR »"
-
-#: src/app/qml/UserDetailDialog.qml:172
+#: src/app/qml/UserDetailDialog.qml:189
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Signaler…"
 
-#: src/app/qml/UserDetailDialog.qml:178
+#: src/app/qml/UserDetailDialog.qml:195
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
 msgstr "Signaler une personne utilisatrice"
 
-#: src/app/qml/UserDetailDialog.qml:179
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this user"
+#: src/app/qml/UserDetailDialog.qml:196
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
-msgstr "Raison pour un signalement concernant cette personne utilisatrice"
+msgstr ""
+"Donner accessoirement une raison pour le signalement de cet utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:181
+#: src/app/qml/UserDetailDialog.qml:198
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Rapport"
 
-#: src/app/qml/UserDetailDialog.qml:185
+#: src/app/qml/UserDetailDialog.qml:202
 #, kde-format
 msgctxt "@title"
 msgid "Report User"
 msgstr "Signaler une personne utilisatrice"
 
-#: src/app/qml/UserDetailDialog.qml:196
+#: src/app/qml/UserDetailDialog.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
 msgstr "Afficher le profil principal"
 
-#: src/app/qml/UserDetailDialog.qml:206
+#: src/app/qml/UserDetailDialog.qml:223
 #, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
 msgstr "Afficher le profil du salon"
 
-#: src/app/qml/UserDetailDialog.qml:219
+#: src/app/qml/UserDetailDialog.qml:234
 #, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
 msgstr "Modération"
 
-#: src/app/qml/UserDetailDialog.qml:244
+#: src/app/qml/UserDetailDialog.qml:259
 #, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
 msgstr "Rejeter..."
 
-#: src/app/qml/UserDetailDialog.qml:248 src/app/qml/UserDetailDialog.qml:255
+#: src/app/qml/UserDetailDialog.qml:263 src/app/qml/UserDetailDialog.qml:270
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Kick User"
 msgstr "Rejeter cet utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:249
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#: src/app/qml/UserDetailDialog.qml:264
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
-msgstr "Raison pour le rejet de cet utilisateur"
+msgstr "Donner accessoirement une raison pour le rejet de cet utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:250
+#: src/app/qml/UserDetailDialog.qml:265
 #, kde-format
 msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
 msgid "Kick"
 msgstr "Rejeter"
 
-#: src/app/qml/UserDetailDialog.qml:272
+#: src/app/qml/UserDetailDialog.qml:287
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
 msgstr "Bannir…"
 
-#: src/app/qml/UserDetailDialog.qml:277 src/app/qml/UserDetailDialog.qml:284
+#: src/app/qml/UserDetailDialog.qml:292 src/app/qml/UserDetailDialog.qml:299
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Ban User"
 msgstr "Bannir l'utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:278
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#: src/app/qml/UserDetailDialog.qml:293
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
-msgstr "Raison pour le bannissement de cet utilisateur"
+msgstr ""
+"Donner accessoirement une raison pour le bannissement de cet utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:279
+#: src/app/qml/UserDetailDialog.qml:294
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Bannir"
 
-#: src/app/qml/UserDetailDialog.qml:301
+#: src/app/qml/UserDetailDialog.qml:316
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
 msgstr "Abandonner le bannissement"
 
-#: src/app/qml/UserDetailDialog.qml:312
+#: src/app/qml/UserDetailDialog.qml:327
 #, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Supprimer des messages..."
 
-#: src/app/qml/UserDetailDialog.qml:317
+#: src/app/qml/UserDetailDialog.qml:332
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Supprimer des messages"
 
-#: src/app/qml/UserDetailDialog.qml:318
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this user's recent messages"
+#: src/app/qml/UserDetailDialog.qml:333
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
-msgstr "Raison pour la suppression des messages récents de cet utilisateur"
+msgstr ""
+"Donner accessoirement une raison pour la suppression des messages récents de "
+"cet utilisateur"
 
-#: src/app/qml/UserDetailDialog.qml:319
+#: src/app/qml/UserDetailDialog.qml:334
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/app/qml/UserDetailDialog.qml:324
+#: src/app/qml/UserDetailDialog.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Supprimer des messages"
 
-#: src/app/qml/UserDetailDialog.qml:337
+#: src/app/qml/UserDetailDialog.qml:352
 #, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
 msgstr "Niveau de privilèges"
 
-#: src/app/qml/UserDetailDialog.qml:361
+#: src/app/qml/UserDetailDialog.qml:376
 #, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
 msgstr "Définir le niveau de privilèges"
 
-#: src/app/qml/UserDetailDialog.qml:388
+#: src/app/qml/UserDetailDialog.qml:403
 #, kde-format
 msgctxt ""
 "@title The set of common rooms between your current user and the one shown"
 msgid "Mutual Rooms"
 msgstr "Salons réciproques"
 
-#: src/app/qml/UserDetailDialog.qml:427
+#: src/app/qml/UserDetailDialog.qml:442
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1532,13 +1513,13 @@ msgid_plural "and %1 more…"
 msgstr[0] "et 1 de plus..."
 msgstr[1] " et %1 de plus..."
 
-#: src/app/qml/UserDetailDialog.qml:434
+#: src/app/qml/UserDetailDialog.qml:449
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Remarque privée"
 
-#: src/app/qml/UserDetailDialog.qml:446
+#: src/app/qml/UserDetailDialog.qml:461
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -4440,12 +4421,10 @@ msgid "Report Room"
 msgstr "Signaler un salon"
 
 #: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this room"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
-msgstr "Raison pour un signalement concernant ce salon"
+msgstr "Donner accessoirement une raison pour le signalement de ce salon"
 
 #: src/rooms/RoomContextMenu.qml:162
 #, kde-format
@@ -4573,25 +4552,19 @@ msgid "Join %1"
 msgstr "Rejoindre %1"
 
 #: src/rooms/SpaceDrawer.qml:273
-#, fuzzy, kde-format
-#| msgctxt "@action:button Create new room"
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Créer"
 
 #: src/rooms/SpaceDrawer.qml:287
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Room…"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Nouveau salon…"
 
 #: src/rooms/SpaceDrawer.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "New Space…"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
 msgstr "Nouvel espace…"
@@ -5058,7 +5031,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:description"
 msgid "This device is marked as secure."
-msgstr ""
+msgstr "Cet périphérique est marqué comme sécurisé."
 
 #: src/settings/DevicesPage.qml:59
 #, kde-format
@@ -7149,12 +7122,10 @@ msgid "Remove Message"
 msgstr "Supprimer le message"
 
 #: src/timeline/DelegateContextMenu.qml:207
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
-msgstr "Raison pour la suppression de ce message"
+msgstr "Donner accessoirement une raison pour la suppression de ce message"
 
 #: src/timeline/DelegateContextMenu.qml:208
 #, kde-format
@@ -7278,12 +7249,10 @@ msgid "Report Message"
 msgstr "Signaler le message"
 
 #: src/timeline/DelegateContextMenu.qml:333
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
-msgstr "Raison pour le signalement de ce message"
+msgstr "Donner accessoirement une raison pour le signalement de ce message"
 
 #: src/timeline/DelegateContextMenu.qml:335
 #, kde-format
@@ -7441,6 +7410,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show QR Code"
+#~ msgstr "Afficher le code « QR »"
 
 #~ msgctxt "@action:inmenu"
 #~ msgid "Devices"
