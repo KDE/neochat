@@ -104,7 +104,7 @@ public:
     void handlePendingEvent(const Quotient::RoomEvent *event);
     void buildJitsiIndex();
 
-    NeoChatRoom *room = nullptr;
+    QPointer<NeoChatRoom> room;
     QMap<QString, const WidgetEvent *> state;
     int jitsiIndex = -1;
 };
