@@ -159,7 +159,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             Q_EMIT childrenHaveHighlightNotificationsChanged();
         }
     });
-    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotifcationCountChanged, this, [this](const QStringList &spaces) {
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotificationCountChanged, this, [this](const QStringList &spaces) {
         if (spaces.contains(id())) {
             Q_EMIT childrenNotificationCountChanged();
             Q_EMIT childrenHaveHighlightNotificationsChanged();
@@ -1121,7 +1121,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
         });
     } else if (state == PushNotificationState::MentionKeyword) {
         /**
-         * To only get notifcations for @ mentions and keywords a room rule with "don't_notify" is set.
+         * To only get notifications for @ mentions and keywords a room rule with "don't_notify" is set.
          *
          * Note -  This works becuase a default override rule which catches all user mentions will
          * take precedent and notify. See https://spec.matrix.org/v1.3/client-server-api/#default-override-rules. Any keywords will also have a similar override

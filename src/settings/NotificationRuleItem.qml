@@ -78,7 +78,7 @@ FormCard.AbstractFormDelegate {
                 enabled: root.enabled
                 down: checked
                 onToggled: {
-                    root.notificatonActionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notificationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -99,7 +99,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.notificatonActionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notificationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -121,7 +121,7 @@ FormCard.AbstractFormDelegate {
                 enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    root.notificatonActionChanged(root.notifcationRuleAction());
+                    root.notificatonActionChanged(root.notificationRuleAction());
                 }
 
                 QQC2.ToolTip {
@@ -144,7 +144,7 @@ FormCard.AbstractFormDelegate {
         }
     }
 
-    function notifcationRuleAction() {
+    function notificationRuleAction() {
         if (onButton.checked) {
             if (noisyButton.checked && highlightButton.checked && root.highlightable) {
                 return PushRuleAction.NoisyHighlight;

@@ -47,7 +47,7 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
             if (neoChatRoom != nullptr && (changes & (NeoChatRoom::Change::UnreadStats | NeoChatRoom::Change::Highlights))) {
                 const auto parents = parentSpaces(neoChatRoom->id());
                 if (parents.count() > 0) {
-                    Q_EMIT spaceNotifcationCountChanged(parents);
+                    Q_EMIT spaceNotificationCountChanged(parents);
                 }
             }
         });

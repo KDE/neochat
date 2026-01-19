@@ -98,7 +98,7 @@ public:
 Q_SIGNALS:
     void spaceHierarchyChanged();
     void connectionChanged();
-    void spaceNotifcationCountChanged(const QStringList &spaces);
+    void spaceNotificationCountChanged(const QStringList &spaces);
     void recommendedSpaceHiddenChanged();
 
 private Q_SLOTS:
