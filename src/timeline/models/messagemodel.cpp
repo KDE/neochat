@@ -289,12 +289,16 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == VerifiedRole) {
+#ifdef RUST_CRYPTO
+        return m_room->connection()->isVerifiedEvent(event.value().get().id(), room());
+#else
         if (event.value().get().originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(event.value().get().originalEvent());
             Q_ASSERT(encrypted);
             return eventRoom->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
         return false;
+#endif
     }
 
     if (role == AuthorDisplayNameRole) {
