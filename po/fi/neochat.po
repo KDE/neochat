@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Tommi Nieminen <translator@legisign.org>, 2024.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2025-12-01 09:14+0200\n"
+"PO-Revision-Date: 2026-01-12 14:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1246,12 +1246,10 @@ msgid "Manage Secret Backup"
 msgstr "Avaa salainen varmuuskopio"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security phrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The security key or backup passphrase was not correct."
-msgstr "Turvalause ei ollut oikein."
+msgstr "Turva-avain tai varasalasana ei ollut oikein."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1260,30 +1258,26 @@ msgid "Encryption keys restored."
 msgstr "Salausavaimet palautettu."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Avaa lukitus turva-avaimella"
+msgstr "Avaa lukitus turva-avaimella tai varasalasanalla"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key for this account, enter it below or upload it "
-#| "as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a security key or backup passphrase for this account, enter it "
 "below or upload it as a file."
-msgstr "Jos tilille on turva-avainta, syötä se alle tai lähetä tiedostona."
+msgstr ""
+"Jos tilille on turva-avainta tai varasalasanaa, syötä se alle tai lähetä "
+"tiedostona."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgstr "Turva-avain tai varasalasana:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
@@ -1364,22 +1358,17 @@ msgid "Search Messages…"
 msgstr "Etsi viestejä"
 
 #: src/app/qml/UserDetailDialog.qml:189
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report…"
 msgstr "Ilmoita…"
 
 #: src/app/qml/UserDetailDialog.qml:195
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report User"
-msgstr "Ilmoita viestistä"
+msgstr "Ilmoita käyttäjästä"
 
 #: src/app/qml/UserDetailDialog.qml:196
 #, fuzzy, kde-format
@@ -1390,22 +1379,17 @@ msgid "Optionally give a reason for reporting this user"
 msgstr "Syy viestistä ilmoittamiseen"
 
 #: src/app/qml/UserDetailDialog.qml:198
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this user to the administrators'"
 msgid "Report"
 msgstr "Ilmoita"
 
 #: src/app/qml/UserDetailDialog.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report User"
-msgstr "Ilmoita viestistä"
+msgstr "Ilmoita käyttäjästä"
 
 #: src/app/qml/UserDetailDialog.qml:213
 #, fuzzy, kde-format
@@ -2503,16 +2487,14 @@ msgid "left the room"
 msgstr "poistui huoneesta"
 
 #: src/libneochat/eventhandler.cpp:392
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "has removed %1 from the room: %2"
-msgstr "esti henkilön %1 pääsemästä huoneeseen %2"
+msgstr "on poistanut henkilön %1 huoneesta: %2"
 
 #: src/libneochat/eventhandler.cpp:394
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "has removed %1 from the room"
-msgstr "torjui käyttäjän %1 huoneesta"
+msgstr "on poistanut henkilön %1 huoneesta"
 
 #: src/libneochat/eventhandler.cpp:398
 #, kde-format
@@ -4439,23 +4421,17 @@ msgid "Room Settings"
 msgstr "Huoneen asetukset"
 
 #: src/rooms/RoomContextMenu.qml:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report…"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report…"
 msgstr "Ilmoita…"
 
 #: src/rooms/RoomContextMenu.qml:159
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Report Room"
-msgstr "Ilmoita"
+msgstr "Ilmoita huoneesta"
 
 #: src/rooms/RoomContextMenu.qml:160
 #, fuzzy, kde-format
@@ -4466,23 +4442,17 @@ msgid "Optionally give a reason for reporting this room"
 msgstr "Syy viestistä ilmoittamiseen"
 
 #: src/rooms/RoomContextMenu.qml:162
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this room to the administrators'"
 msgid "Report"
 msgstr "Ilmoita"
 
 #: src/rooms/RoomContextMenu.qml:166
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this event to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title"
 msgid "Report Room"
-msgstr "Ilmoita"
+msgstr "Ilmoita huoneesta"
 
 #: src/rooms/RoomContextMenu.qml:176
 #, kde-format
