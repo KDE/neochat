@@ -295,7 +295,7 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
     const auto sender = room->member(roomMemberEvent->senderId());
 
     QImage avatar_image;
-    if (roomMemberEvent && !room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+    if (!room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
         avatar_image = room->member(roomMemberEvent->senderId()).avatar(128, 128, {});
     } else {
         qWarning() << "using this room's avatar";
