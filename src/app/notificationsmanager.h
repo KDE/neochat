@@ -67,7 +67,7 @@ private:
     QStringList m_connActiveJob;
     void startNotificationJob(QPointer<NeoChatConnection> connection);
 
-    QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
+    static QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
     bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
     void postNotification(NeoChatRoom *room,
                           const QString &sender,
