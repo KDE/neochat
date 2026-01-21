@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 09:23+0100\n"
+"POT-Creation-Date: 2026-01-21 00:45+0000\n"
+"PO-Revision-Date: 2026-01-19 10:58+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -300,7 +300,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "Se connecter ou créer un nouveau compte"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -1177,7 +1177,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "Échec du partage"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
@@ -1232,12 +1232,10 @@ msgid "Contact via e-mail (%1)"
 msgstr "Contact par courriel (%1)"
 
 #: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
-msgstr "Ouvrir l'archive secrète"
+msgstr "Gérer l'archive secrète"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
@@ -1767,17 +1765,17 @@ msgstr ""
 "Identifiant Matrix mal-formé ou vide<br />%1 n'est pas un identifiant Matrix "
 "correct."
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Impossible de rejoindre %1<br />%2"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Vous avez demandé à rejoindre « %1 »"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Échec de la demande pour rejoindre le salon<br />%1"
@@ -3593,7 +3591,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr "Continuer dans le navigateur"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -4091,12 +4089,10 @@ msgid "Locations"
 msgstr "Emplacements"
 
 #: src/roominfo/LocationsPage.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Shared Locations"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr "Emplacements partagés"
+msgstr "Aucun emplacement partagé"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
@@ -4104,6 +4100,8 @@ msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
 msgstr ""
+"Partagez un emplacement en utilisant « Envoyer un emplacement » dans la "
+"barre de discussions."
 
 #: src/roominfo/RoomDrawer.qml:120 src/roominfo/RoomDrawerPage.qml:50
 #, kde-format
@@ -4262,12 +4260,10 @@ msgid "Extensions"
 msgstr "Extensions"
 
 #: src/roominfo/WidgetsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr "Extensions"
+msgstr "Aucune extension"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
@@ -4642,104 +4638,104 @@ msgstr "Libellé :"
 msgid "Work"
 msgstr "De travail"
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr ""
 "Votre serveur ne prend pas en charge la modification de votre mot de passe."
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Mot de passe courant :"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nouveau mot de passe :"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Confirmer le nouveau mot de passe :"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Les mots de passe ne correspondent pas."
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Adresses de courriel"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Numéros de téléphone"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Serveur d'identité"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informations sur le serveur"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, kde-format
 msgid "Homeserver url"
 msgstr "URL du serveur d'accueil"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Gestion des comptes"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Désactiver le compte..."
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Le mot de passe a été changé avec succès."
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Mot de passe non valable"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -5978,20 +5974,17 @@ msgid "Encryption"
 msgstr "Chiffrement"
 
 #: src/settings/NeoChatSecurityPage.qml:90
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Secret Backup"
-msgstr "Ouvrir l'archive secrète"
+msgstr "Gérer l'archive secrète"
 
 #: src/settings/NeoChatSecurityPage.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
-msgstr "Importer les clés de chiffrement à partir d'une archive."
+msgstr ""
+"Importer ou déverrouiller les clés de chiffrement à partir d'une archive."
 
 #: src/settings/NeoChatSecurityPage.qml:103
 #, kde-format
