@@ -170,16 +170,16 @@ bool NotificationsManager::shouldPostNotification(const QPointer<NeoChatConnecti
         return false;
     }
 
-    // If the room is the current room and the application is active the notification
+    // If the room is the current room and the application is active, the notification
     // should not be shown.
-    // This is setup so that if the application is inactive the notification will
+    // This is set up so that if the application is inactive, the notification will
     // always be posted, even if the room is the current room.
     if (RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
         && QGuiApplication::applicationState() == Qt::ApplicationActive) {
         return false;
     }
 
-    // If the notification timestamp is earlier than the initial timestamp assume
+    // If the notification timestamp is earlier than the initial timestamp, assume
     // the notification is old and shouldn't be posted.
     const auto timestamp = notification["ts"_L1].toDouble();
     if (timestamp < m_initialTimestamp[connection->user()->id()]) {
