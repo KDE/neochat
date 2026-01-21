@@ -270,10 +270,8 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
     if (NeoChatConfig::rejectUnknownInvites()) {
         auto job = room->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
         connect(job, &BaseJob::result, this, [this, job, room] {
-            QJsonObject replyData = job->jsonData();
-            if (replyData.contains(u"joined"_s)) {
-                const bool inAnyOfOurRooms = !replyData["joined"_L1].toArray().isEmpty();
-                if (inAnyOfOurRooms) {
+            if (QJsonObject replyData = job->jsonData(); replyData.contains(u"joined"_s)) {
+                if (!replyData["joined"_L1].toArray().isEmpty()) {
                     doPostInviteNotification(room);
                 } else {
                     room->forget();
@@ -429,9 +427,8 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
     painter.setBrush(brush);
     painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
 
-    if (room != nullptr) {
-        const auto roomAvatar = room->avatar(imageRect.width(), imageRect.height());
-        if (!roomAvatar.isNull() && icon != roomAvatar) {
+    if (room) {
+        if (const auto roomAvatar = room->avatar(imageRect.width(), imageRect.height()); !roomAvatar.isNull() && icon != roomAvatar) {
             const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
 
             painter.setBrush(Qt::white);
