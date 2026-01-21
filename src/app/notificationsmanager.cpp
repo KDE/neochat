@@ -38,7 +38,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
+void NotificationsManager::handleNotifications(const QPointer<NeoChatConnection> &connection)
 {
     if (KNotificationPermission::checkPermission() == Qt::PermissionStatus::Granted) {
         startNotificationJob(connection);
@@ -68,7 +68,7 @@ void NotificationsManager::startNotificationJob(QPointer<NeoChatConnection> conn
     }
 }
 
-void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization)
+void NotificationsManager::processNotificationJob(const QPointer<NeoChatConnection> &connection, const GetNotificationsJob *job, const bool initialization)
 {
     if (!job || !connection || !connection->isLoggedIn()) {
         return;
@@ -159,7 +159,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
     }
 }
 
-bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification)
+bool NotificationsManager::shouldPostNotification(const QPointer<NeoChatConnection> &connection, const QJsonValue &notification)
 {
     if (connection == nullptr || !connection->isLoggedIn()) {
         return false;
@@ -198,7 +198,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
                                             const QString &text,
                                             const QImage &icon,
                                             const QString &replyEventId,
-                                            bool canReply,
+                                            const bool canReply,
                                             qint64 timestamp)
 {
     const QString roomId = room->id();
@@ -283,7 +283,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
     }
 }
 
-void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
+void NotificationsManager::doPostInviteNotification(const QPointer<NeoChatRoom> &room)
 {
     const auto roomMemberEvent = room->currentState().get<RoomMemberEvent>(room->localMember().id());
     if (roomMemberEvent == nullptr) {

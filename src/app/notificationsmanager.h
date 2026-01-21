@@ -58,7 +58,7 @@ public:
     /**
      * @brief Handle the notifications for the given connection.
      */
-    void handleNotifications(QPointer<NeoChatConnection> connection);
+    void handleNotifications(const QPointer<NeoChatConnection> &connection);
 
 private:
     QHash<QString, qint64> m_initialTimestamp;
@@ -68,7 +68,7 @@ private:
     void startNotificationJob(QPointer<NeoChatConnection> connection);
 
     static QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
-    bool shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification);
+    bool shouldPostNotification(const QPointer<NeoChatConnection> &connection, const QJsonValue &notification);
     void postNotification(NeoChatRoom *room,
                           const QString &sender,
                           const QString &text,
@@ -77,7 +77,7 @@ private:
                           bool canReply,
                           qint64 timestamp);
 
-    void doPostInviteNotification(QPointer<NeoChatRoom> room);
+    void doPostInviteNotification(const QPointer<NeoChatRoom> &room);
 
     QHash<QString, std::pair<qint64, KNotification *>> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
@@ -85,5 +85,5 @@ private:
     bool permissionAsked = false;
 
 private Q_SLOTS:
-    void processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization);
+    void processNotificationJob(const QPointer<NeoChatConnection> &connection, const Quotient::GetNotificationsJob *job, bool initialization);
 };
