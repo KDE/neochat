@@ -213,6 +213,13 @@ class NeoChatRoom : public Quotient::Room
      */
     Q_PROPERTY(bool highlightCycleStarted READ highlightCycleStarted NOTIFY highlightCycleStartedChanged)
 
+    /**
+     * @brief Whether the space has unread messages.
+     *
+     * Will always return false if this is not a space.
+     */
+    Q_PROPERTY(bool spaceHasUnreadMessages READ spaceHasUnreadMessages NOTIFY spaceHasUnreadMessagesChanged)
+
 public:
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
@@ -652,6 +659,18 @@ public:
      */
     bool highlightCycleStarted() const;
 
+    /**
+     * @brief Whether the space has unread messages.
+     *
+     * Will always return false if this is not a space.
+     */
+    bool spaceHasUnreadMessages() const;
+
+    /**
+     * @brief Mark the space and all its children messages as read.
+     */
+    Q_INVOKABLE void markAllChildrenMessagesAsRead();
+
 private:
     bool m_visible = false;
 
@@ -722,6 +741,7 @@ Q_SIGNALS:
     void inviteTimestampChanged();
     void pinnedMessageChanged();
     void highlightCycleStartedChanged();
+    void spaceHasUnreadMessagesChanged();
 
     /**
      * @brief Request a message be shown to the user of the given type.

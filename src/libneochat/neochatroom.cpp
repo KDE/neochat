@@ -157,12 +157,14 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         if (isSpace()) {
             Q_EMIT childrenNotificationCountChanged();
             Q_EMIT childrenHaveHighlightNotificationsChanged();
+            Q_EMIT spaceHasUnreadMessagesChanged();
         }
     });
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotificationCountChanged, this, [this](const QStringList &spaces) {
         if (spaces.contains(id())) {
             Q_EMIT childrenNotificationCountChanged();
             Q_EMIT childrenHaveHighlightNotificationsChanged();
+            Q_EMIT spaceHasUnreadMessagesChanged();
         }
     });
 
@@ -1905,5 +1907,21 @@ void NeoChatRoom::invalidateLastUnreadHighlightId(const QString &fromEventId, co
         Q_EMIT highlightCycleStartedChanged();
     }
 }
+
+bool NeoChatRoom::spaceHasUnreadMessages() const
+{
+    if (!isSpace()) {
+        return false;
+    }
+
+    return SpaceHierarchyCache::instance().spaceHasUnreadMessages(id());
+}
+
+void NeoChatRoom::markAllChildrenMessagesAsRead()
+{
+    if (isSpace()) {
+        SpaceHierarchyCache::instance().markAllChildrenMessagesAsRead(id());
+    }
+};
 
 #include "moc_neochatroom.cpp"

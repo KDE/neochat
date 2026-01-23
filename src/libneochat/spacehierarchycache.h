@@ -84,6 +84,11 @@ public:
      */
     [[nodiscard]] bool isChild(const QString &roomId) const;
 
+    /**
+     * @brief Return whether the given space has unread messages.
+     */
+    bool spaceHasUnreadMessages(const QString &spaceId);
+
     NeoChatConnection *connection() const;
     void setConnection(NeoChatConnection *connection);
 
@@ -94,6 +99,8 @@ public:
 
     bool recommendedSpaceHidden() const;
     void setRecommendedSpaceHidden(bool hidden);
+
+    void markAllChildrenMessagesAsRead(const QString &spaceId);
 
 Q_SIGNALS:
     void spaceHierarchyChanged();
