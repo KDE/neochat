@@ -53,6 +53,7 @@ SearchPage {
     title: i18nc("@action:title Explore public rooms and spaces", "Explore")
     customPlaceholderText: publicRoomListModel.redirectedText
     customPlaceholderIcon: "data-warning"
+    enableSearch: publicRoomListModel.redirectedText.length === 0
 
     Component.onCompleted: focusSearch()
 
@@ -63,6 +64,7 @@ SearchPage {
             display: QQC2.Button.IconOnly
             checkable: true
             text: i18nc("@action:button", "Only show spaces")
+            enabled: root.enableSearch
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
