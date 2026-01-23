@@ -81,6 +81,11 @@ Kirigami.ScrollablePage {
     property bool showSearchButton: true
 
     /**
+     * @brief Enable the search controls like the text field and button.
+     */
+    property bool enableSearch: true
+
+    /**
      * @brief Message to be shown in a custom placeholder.
      * The custom placeholder will be shown if the text is not empty
      */
@@ -139,6 +144,7 @@ Kirigami.ScrollablePage {
             Kirigami.SearchField {
                 id: searchField
                 focus: true
+                enabled: root.enableSearch
                 Layout.fillWidth: true
                 Keys.onEnterPressed: searchButton.clicked()
                 Keys.onReturnPressed: searchButton.clicked()
@@ -158,6 +164,7 @@ Kirigami.ScrollablePage {
                 display: QQC2.Button.IconOnly
                 visible: root.showSearchButton
                 text: i18nc("@action:button", "Search")
+                enabled: root.enableSearch
 
                 onClicked: {
                     if (typeof root.model.search === 'function') {
@@ -173,7 +180,6 @@ Kirigami.ScrollablePage {
             Timer {
                 id: searchTimer
                 interval: 500
-                running: true
                 onTriggered: if (typeof root.model.search === 'function') {
                     root.model.search();
                 }
@@ -193,7 +199,7 @@ Kirigami.ScrollablePage {
             id: noSearchMessage
             icon.name: "search"
             anchors.centerIn: parent
-            visible: searchField.text.length === 0 && listView.count === 0 && customPlaceholder.text.length === 0
+            visible: searchField.text.length === 0 && listView.count === 0 && !root.model.searching && customPlaceholder.text.length === 0
             helpfulAction: root.noSearchHelpfulAction
         }
 
@@ -208,13 +214,13 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             id: customPlaceholder
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && !root.model.searching && text.length > 0
+            visible: listView.count === 0 && !root.model.searching && text.length > 0
             icon.name: root.customPlaceholderIcon
         }
 
         Kirigami.LoadingPlaceholder {
             anchors.centerIn: parent
-            visible: searchField.text.length > 0 && listView.count === 0 && (root.model.searching || searchTimer.running) && customPlaceholder.text.length === 0
+            visible: listView.count === 0 && (root.model.searching || searchTimer.running)
         }
 
         Keys.onUpPressed: {

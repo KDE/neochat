@@ -53,9 +53,16 @@ class PublicRoomListModel : public QAbstractListModel
     Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
     /**
-     * @brief The text returned by the server after redirection
+     * @brief The text returned by the server after redirection (after performing a search)
      */
     Q_PROPERTY(QString redirectedText READ redirectedText NOTIFY redirectedChanged)
+
+    /**
+     * @brief The error while trying to list the rooms (not after searching, which is covered by redirectedText)
+     *
+     * This is useful when a server completely shut off room search, or any kind of network error.
+     */
+    Q_PROPERTY(QString errorText READ errorText NOTIFY errorTextChanged)
 
 public:
     /**
@@ -120,6 +127,8 @@ public:
 
     QString redirectedText() const;
 
+    QString errorText() const;
+
 private:
     QPointer<NeoChatConnection> m_connection = nullptr;
     QString m_server;
@@ -143,6 +152,7 @@ private:
 
     Quotient::QueryPublicRoomsJob *job = nullptr;
     QString m_redirectedText;
+    QString m_errorText;
 
 Q_SIGNALS:
     void connectionChanged();
@@ -151,4 +161,5 @@ Q_SIGNALS:
     void showOnlySpacesChanged();
     void searchingChanged();
     void redirectedChanged();
+    void errorTextChanged();
 };

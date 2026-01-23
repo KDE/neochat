@@ -51,8 +51,16 @@ SearchPage {
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     title: i18nc("@action:title Explore public rooms and spaces", "Explore")
-    customPlaceholderText: publicRoomListModel.redirectedText
+    customPlaceholderText: {
+        if (publicRoomListModel.redirectedText.length > 0)
+            return publicRoomListModel.redirectedText;
+        if (publicRoomListModel.errorText.length > 0)
+            return publicRoomListModel.errorText;
+
+        return "";
+    }
     customPlaceholderIcon: "data-warning"
+    enableSearch: publicRoomListModel.errorText.length === 0
 
     Component.onCompleted: focusSearch()
 
@@ -63,6 +71,7 @@ SearchPage {
             display: QQC2.Button.IconOnly
             checkable: true
             text: i18nc("@action:button", "Only show spaces")
+            enabled: root.enableSearch
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: text
@@ -96,7 +105,7 @@ SearchPage {
 
         activeFocusOnTab: false // We handle moving to this item via up/down arrows, otherwise the tab order is wacky
         text: i18n("Enter a Room Manually")
-        visible: publicRoomListModel.redirectedText.length === 0
+        visible: root.customPlaceholderText.length === 0
         icon.name: "compass"
         icon.width: Kirigami.Units.gridUnit * 2
         icon.height: Kirigami.Units.gridUnit * 2

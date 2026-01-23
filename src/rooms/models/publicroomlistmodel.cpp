@@ -172,6 +172,8 @@ void PublicRoomListModel::next(int limit)
     }
     m_redirectedText.clear();
     Q_EMIT redirectedChanged();
+    m_errorText.clear();
+    Q_EMIT errorTextChanged();
 
     if (job) {
         qCDebug(PublicRoomList) << "Other job running, ignore";
@@ -200,9 +202,12 @@ void PublicRoomListModel::next(int limit)
             this->beginInsertRows({}, rooms.count(), rooms.count() + job->chunk().count() - 1);
             rooms.append(job->chunk());
             this->endInsertRows();
-        } else if (job->error() == BaseJob::ContentAccessError) {
+        } else if (job->error() == BaseJob::ContentAccessError && !m_searchText.isEmpty()) {
             m_redirectedText = job->jsonData()[u"error"_s].toString();
             Q_EMIT redirectedChanged();
+        } else {
+            m_errorText = job->jsonData()[u"error"_s].toString();
+            Q_EMIT errorTextChanged();
         }
 
         this->job = nullptr;
@@ -327,6 +332,11 @@ bool PublicRoomListModel::searching() const
 QString PublicRoomListModel::redirectedText() const
 {
     return m_redirectedText;
+}
+
+QString PublicRoomListModel::errorText() const
+{
+    return m_errorText;
 }
 
 #include "moc_publicroomlistmodel.cpp"
