@@ -75,6 +75,8 @@ Kirigami.Page {
     focus: true
     padding: 0
 
+    background: null // This needs to stay null, because of transparency blur
+
     onHeightChanged: {
         // HACK: See TimelineView for the hack details.
         // We get the height change here *first* so we are informed this is because of a window resize and not due to the pinned message.
