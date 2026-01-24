@@ -5,13 +5,13 @@
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2024, 2025 Johannes Obermayr <johannesobermayr@gmx.de>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
-"PO-Revision-Date: 2025-12-15 22:01+0100\n"
+"POT-Creation-Date: 2026-01-24 00:43+0000\n"
+"PO-Revision-Date: 2026-01-20 00:32+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -220,8 +220,7 @@ msgid "Show QR Code"
 msgstr "QR-Code anzeigen"
 
 #: src/app/qml/AccountMenu.qml:41
-#, fuzzy, kde-format
-#| msgid "Scan a QR Code"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Einen QR-Code scannen"
@@ -277,13 +276,10 @@ msgstr ""
 "fortzufahren."
 
 #: src/app/qml/AccountMenu.qml:97
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
-msgstr "Melden"
+msgstr "Unterstützung"
 
 #: src/app/qml/AccountMenu.qml:111
 #, kde-format
@@ -521,11 +517,10 @@ msgid "Create a Room"
 msgstr "Einen Raum erstellen"
 
 #: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Räume erkunden"
+msgstr "Erkunden"
 
 #: src/app/qml/GlobalMenu.qml:60
 #, kde-format
@@ -596,11 +591,10 @@ msgid "%1 has invited you to this room at %2."
 msgstr "%1 hat Sie um %2 in diesen Raum eingeladen."
 
 #: src/app/qml/InvitationView.qml:99
-#, fuzzy, kde-format
-#| msgid "Invite to private chat"
+#, kde-format
 msgctxt "@info:label This user invited you to chat at 'timestamp'"
 msgid "This user invited you to chat at %1."
-msgstr "Zu privaten Chat einladen"
+msgstr "Dieser Benutzer hat Sie um %1 zu einer Unterhaltung eingeladen."
 
 #: src/app/qml/InvitationView.qml:114
 #, kde-format
@@ -827,12 +821,14 @@ msgstr "Besprechung starten"
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
+"Sie sind dabei, in Ihrem Webbrowser einer Jitsi-Besprechung beizutreten."
 
 #: src/app/qml/MeetingDialog.qml:14
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
+"Sie sind dabei, in Ihrem Webbrowser eine neue Jitsi-Besprechung zu starten."
 
 #: src/app/qml/MeetingDialog.qml:19
 #, kde-format
@@ -1054,13 +1050,13 @@ msgstr "Ignorieren"
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
-msgstr ""
+msgstr "Jitsi-Besprechung beitreten …"
 
 #: src/app/qml/RoomPage.qml:96
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
-msgstr ""
+msgstr "Jitsi-Besprechung starten …"
 
 #: src/app/qml/RoomPage.qml:96
 #, kde-format
@@ -1117,7 +1113,7 @@ msgstr "Nachrichtenquelle"
 #, kde-format
 msgctxt "@title:menu Seen by/read marker dialog"
 msgid "Seen By"
-msgstr ""
+msgstr "Gesehen von"
 
 #: src/app/qml/ServerComboBox.qml:47
 #, kde-format
@@ -1244,13 +1240,13 @@ msgstr "Sicherheit"
 #, kde-format
 msgctxt "@info:tooltip %1 is a Matrix ID"
 msgid "Contact via Matrix (%1)"
-msgstr ""
+msgstr "Per Matrix kontaktieren (%1)"
 
 #: src/app/qml/SupportDialog.qml:115
 #, kde-format
 msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
-msgstr ""
+msgstr "Per E-Mail kontaktieren (%1)"
 
 #: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:94
 #, fuzzy, kde-format
@@ -1298,7 +1294,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Upload from File"
-msgstr ""
+msgstr "Aus Datei hochladen"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
 #, kde-format
@@ -1459,7 +1455,7 @@ msgstr "Rauswerfen"
 #, kde-format
 msgctxt "@action:button Ban this user from the room"
 msgid "Ban…"
-msgstr ""
+msgstr "Verbannen …"
 
 #: src/app/qml/UserDetailDialog.qml:292 src/app/qml/UserDetailDialog.qml:299
 #, kde-format
@@ -1485,7 +1481,7 @@ msgstr "Verbannen"
 #, kde-format
 msgctxt "@action:button Unban the user from this room"
 msgid "Unban"
-msgstr ""
+msgstr "Verbannung aufheben"
 
 #: src/app/qml/UserDetailDialog.qml:327
 #, fuzzy, kde-format
@@ -1569,7 +1565,7 @@ msgstr "Neue erstellen"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
-msgstr ""
+msgstr "Nur für Sie sichtbar"
 
 #: src/app/qml/UserMenu.qml:62
 #, kde-format
@@ -1808,7 +1804,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: src/app/roommanager.cpp:235
 #, kde-format
@@ -1850,8 +1846,7 @@ msgid "Choose local file"
 msgstr "Lokale Datei auswählen"
 
 #: src/chatbar/AttachDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Clipboard image"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Bild aus Zwischenablage"
@@ -1910,7 +1905,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Eine Nachricht senden …"
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2133,7 +2128,7 @@ msgstr "Telefonnummer als Drittanbieterkennung"
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
-msgstr ""
+msgstr "Anrufe"
 
 #: src/devtools/RoomData.qml:22
 #, kde-format
@@ -2297,16 +2292,13 @@ msgid "Admin"
 msgstr "Administrator"
 
 #: src/libneochat/enums/powerlevel.cpp:16
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgctxt "The person that owns a room"
 msgid "Owner"
 msgstr "Eigentümer"
 
 #: src/libneochat/enums/powerlevel.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@info the person that created this room"
-#| msgid "Creator"
+#, kde-format
 msgctxt "The person that created a room"
 msgid "Creator"
 msgstr "Ersteller"
@@ -2359,7 +2351,7 @@ msgstr "Meiste ungelesene Nachrichten"
 #, kde-format
 msgctxt "As in sorting rooms with highlighted message above those without"
 msgid "Has Highlighted Messages"
-msgstr ""
+msgstr "Hat hervorgehobene Nachrichten"
 
 #: src/libneochat/enums/roomsortparameter.h:63
 #, fuzzy, kde-format
@@ -2651,13 +2643,13 @@ msgstr "hat %1-Element eingerichtet"
 #, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "left a call"
-msgstr ""
+msgstr "hat einen Anruf verlassen"
 
 #: src/libneochat/eventhandler.cpp:460
 #, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "joined a call"
-msgstr ""
+msgstr "ist einem Anruf beigetreten"
 
 #: src/libneochat/eventhandler.cpp:464
 #, fuzzy, kde-format
@@ -2677,20 +2669,16 @@ msgid "updated %1 state for %2"
 msgstr "hat %1-Zustand für %2 aktualisiert"
 
 #: src/libneochat/eventhandler.cpp:473
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgctxt "@info In room list"
 msgid "Encrypted event"
-msgstr "Verschlüsselte Nachricht"
+msgstr "Verschlüsseltes Ereignis"
 
 #: src/libneochat/eventhandler.cpp:476
-#, fuzzy, kde-format
-#| msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-#| msgid "%2 reacted with %3"
-#| msgid_plural "%2 reacted with %3"
+#, kde-format
 msgctxt "[user] reacted with <emoji>"
 msgid "reacted with %1"
-msgstr "%2 reagierte mit %3"
+msgstr "reagierte mit %1"
 
 #: src/libneochat/eventhandler.cpp:478 src/libneochat/eventhandler.cpp:687
 #, kde-format
@@ -2930,25 +2918,22 @@ msgid "%1 configured a widget"
 msgstr "%1 hat ein Element eingerichtet"
 
 #: src/libneochat/eventhandler.cpp:674
-#, fuzzy, kde-format
-#| msgid "%1 left the room"
+#, kde-format
 msgctxt "[User] left a [voice/video] call"
 msgid "%1 left a call"
-msgstr "%1 hat den Raum verlassen"
+msgstr "%1 hat einen Anruf verlassen"
 
 #: src/libneochat/eventhandler.cpp:676
-#, fuzzy, kde-format
-#| msgid "%1 joined the room"
+#, kde-format
 msgctxt "[User] joined a [voice/video] call"
 msgid "%1 joined a call"
-msgstr "%1 hat den Raum betreten"
+msgstr "%1 ist einem Anruf beigetreten"
 
 #: src/libneochat/eventhandler.cpp:680
-#, fuzzy, kde-format
-#| msgid "%1 configured a widget"
+#, kde-format
 msgctxt "[User] configured an extension"
 msgid "%1 configured an extension"
-msgstr "%1 hat ein Element eingerichtet"
+msgstr "%1 hat eine Erweiterung eingerichtet"
 
 #: src/libneochat/eventhandler.cpp:682
 #, kde-format
@@ -3413,12 +3398,12 @@ msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 msgid "Space creation failed: %1"
 msgstr "Erstellen der Umgebung ist fehlgeschlagen: %1"
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Meldung erfolgreich übertragen."
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3440,7 +3425,7 @@ msgstr "Erstellen"
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #: src/libneochat/qml/CreateRoomDialog.qml:46
 #, kde-format
@@ -3503,12 +3488,10 @@ msgid "Name:"
 msgstr "Name:"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:46
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
-msgstr "Umgebung anzeigen"
+msgstr "Neue Umgebung"
 
 #: src/libneochat/qml/CreateSpaceDialog.qml:58
 #: src/spaces/SelectExistingRoomDialog.qml:147
@@ -3520,11 +3503,10 @@ msgid "Make this parent official"
 msgstr "Dieses übergeordnete Element offiziell festlegen"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:53
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Räume erkunden"
+msgstr "Erkunden"
 
 #: src/libneochat/qml/ExploreRoomsPage.qml:65
 #, kde-format
@@ -3586,11 +3568,10 @@ msgid "No users found"
 msgstr "Keine Benutzer gefunden"
 
 #: src/libneochat/qml/InviteUserPage.qml:26
-#, fuzzy, kde-format
-#| msgid "Enter text to start searching for your friends"
+#, kde-format
 msgctxt "@placeholder"
 msgid "Enter text to start searching for users"
-msgstr "Geben Sie einen Text ein, um mit der Suche nach Freunden zu beginnen"
+msgstr "Geben Sie einen Text ein, um mit der Suche nach Benutzern zu beginnen"
 
 #: src/libneochat/qml/InviteUserPage.qml:33
 #, kde-format
@@ -3667,7 +3648,7 @@ msgstr "Wird geladen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue in Browser"
-msgstr ""
+msgstr "In Browser fortfahren"
 
 #: src/login/Loading.qml:17
 #, fuzzy, kde-format
@@ -4623,13 +4604,12 @@ msgid "Home"
 msgstr "Start"
 
 #: src/rooms/SpaceDrawer.qml:144
-#, fuzzy, kde-format
-#| msgid "View notifications"
+#, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
-msgstr[0] "Benachrichtigungen anzeigen"
-msgstr[1] "Benachrichtigungen anzeigen"
+msgstr[0] "Direktnachrichten (%1 Benachrichtigung)"
+msgstr[1] "Direktnachrichten (%1 Benachrichtigungen)"
 
 #: src/rooms/SpaceDrawer.qml:147
 #, kde-format
@@ -4668,12 +4648,20 @@ msgid "New Space…"
 msgstr "Umgebung anzeigen"
 
 #: src/rooms/SpaceListContextMenu.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Mark as Read"
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Als gelesen markieren"
+
+#: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Umgebung anzeigen"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Link Address"
@@ -4681,13 +4669,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Verknüpfungsadresse kopieren"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Einstellungen der Umgebung"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -4890,11 +4878,10 @@ msgid "Use compact room list"
 msgstr "Kompakte Raumliste verwenden"
 
 #: src/settings/AppearanceSettingsPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Chat on Matrix"
+#, kde-format
 msgctxt "@label Font size for text in the chat pane"
 msgid "Chat font scaling"
-msgstr "Über Matrix unterhalten"
+msgstr "Schriftskalierung von Unterhaltungen"
 
 #: src/settings/AppearanceSettingsPage.qml:64
 #, fuzzy, kde-format
@@ -5007,7 +4994,7 @@ msgstr "Passwort"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
-msgstr ""
+msgstr "Daten löschen"
 
 #: src/settings/ConfirmDeactivateAccountDialog.qml:34
 #, kde-format
@@ -5843,12 +5830,10 @@ msgid "Hidden events are not considered as recent activity when sorting rooms."
 msgstr ""
 
 #: src/settings/NeoChatGeneralPage.qml:101
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Import Keys"
+#, kde-format
 msgctxt "As in 'sort something based on last activity'"
 msgid "Importance"
-msgstr "Schlüssel importieren"
+msgstr "Wichtigkeit"
 
 #: src/settings/NeoChatGeneralPage.qml:102
 #, fuzzy, kde-format
@@ -5898,7 +5883,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:153
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Nie"
 
 #: src/settings/NeoChatGeneralPage.qml:157
 #, kde-format
@@ -6880,13 +6865,13 @@ msgstr "Benutzerdefinierte Sortierreihenfolge der Raumliste"
 #, kde-format
 msgctxt "As in first sort chat rooms by the parameter"
 msgid "first:"
-msgstr ""
+msgstr "zuerst:"
 
 #: src/settings/RoomSortParameterDialog.qml:61
 #, kde-format
 msgctxt "As in then sort chat rooms by the parameter"
 msgid "then:"
-msgstr ""
+msgstr "dann:"
 
 #: src/settings/RoomSortParameterDialog.qml:77
 #, kde-format
@@ -7170,8 +7155,8 @@ msgstr "Vorgeschlagen"
 msgctxt "number of room members"
 msgid "%1 member - "
 msgid_plural "%1 members - "
-msgstr[0] "%1 Mitglied - "
-msgstr[1] "%1 Mitglieder - "
+msgstr[0] "%1 Mitglied – "
+msgstr[1] "%1 Mitglieder – "
 
 #: src/spaces/SpaceHierarchyDelegate.qml:103
 #, kde-format

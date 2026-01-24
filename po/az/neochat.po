@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-22 00:58+0000\n"
+"POT-Creation-Date: 2026-01-24 00:43+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1975,7 +1975,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "İsmarıcı göndərin..."
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -3643,13 +3643,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4992,26 +4992,33 @@ msgstr "Mənbəyə nəzər salamaq"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, fuzzy, kde-format
+#| msgid "Mark as Read"
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Oxunmuş kimi işarələmək"
+
+#: src/rooms/SpaceListContextMenu.qml:57
+#, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopyalamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Ayarlar"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
