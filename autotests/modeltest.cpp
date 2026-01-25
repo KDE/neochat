@@ -179,7 +179,7 @@ void ModelTest::testRoomTreeModel()
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = new MessageContentModel(room, nullptr, eventId);
+    auto contentModel = new MessageContentModel(room, eventId);
     auto tester = new QAbstractItemModelTester(contentModel);
     tester->setUseFetchMore(true);
 }
@@ -398,7 +398,6 @@ void ModelTest::testCompletionModel()
     tester->setUseFetchMore(true);
     model->setRoom(room);
     model->setAutoCompletionType(CompletionModel::Room);
-    model->setText(u"foo"_s, u"#foo"_s);
     auto roomListModel = new RoomListModel();
     roomListModel->setConnection(connection);
     model->setRoomListModel(roomListModel);
