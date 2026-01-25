@@ -127,7 +127,7 @@ void Server::start()
         qFatal() << "Server failed to listen on a port.";
         return;
     } else {
-        qWarning() << "Server listening";
+        qInfo() << "Server listening";
     }
 }
 
@@ -199,6 +199,25 @@ QString Server::sendEvent(const QString &roomId, const QString &eventType, const
                                 {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
                                 {u"room_id"_s, roomId}},
     };
+    m_state += changes;
+    return eventId;
+}
+
+QString Server::sendStateEvent(const QString &roomId, const QString &eventType, const QString &stateKey, const QJsonObject &content)
+{
+    Changes changes;
+    const auto eventId = generateEventId();
+    const auto json = QJsonObject{{u"type"_s, eventType},
+                                  {u"content"_s, content},
+                                  {u"sender"_s, u"@foo:server.com"_s},
+                                  {u"event_id"_s, eventId},
+                                  {u"origin_server_ts"_s, QDateTime::currentMSecsSinceEpoch()},
+                                  {u"room_id"_s, roomId},
+                                  {u"state_key"_s, stateKey}};
+    changes.events += Changes::Event{
+        .fullJson = json,
+    };
+    changes.stateEvents += Changes::Event{.fullJson = json};
     m_state += changes;
     return eventId;
 }
@@ -335,6 +354,18 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
     }
 
     for (const auto &change : m_state.mid(token)) {
+        for (const auto &state : change.stateEvents) {
+            const auto &roomId = state.fullJson[u"room_id"_s].toString();
+            // TODO: The join could be for a room we haven't joined yet. Shouldn't be necessary for now, though.
+            auto stateEvents = joinRooms[roomId][u"state"_s][u"events"_s].toArray();
+            stateEvents.append(state.fullJson);
+            auto room = joinRooms[roomId].toObject();
+            room[u"state"_s] = QJsonObject{{u"events"_s, stateEvents}};
+            joinRooms[roomId] = room;
+        }
+    }
+
+    for (const auto &change : m_state.mid(token)) {
         for (const auto &event : change.events) {
             // TODO the room might be in a different join state.
             auto timeline = joinRooms[event.fullJson[u"room_id"_s].toString()][u"timeline"_s][u"events"_s].toArray();
@@ -366,6 +397,5 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         syncData[u"rooms"_s] = rooms;
     }
 
-    qWarning() << syncData;
     responder.write(QJsonDocument(syncData), QHttpServerResponder::StatusCode::Ok);
 }

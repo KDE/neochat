@@ -41,7 +41,7 @@ ecm_add_test(
 
 ecm_add_test(
     chatbarcachetest.cpp
-    LINK_LIBRARIES neochat Qt::Test
+    LINK_LIBRARIES neochat Qt::Test Qt::HttpServer neochat_server
     TEST_NAME chatbarcachetest
 )
 

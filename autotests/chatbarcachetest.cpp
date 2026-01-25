@@ -11,9 +11,13 @@
 #include <Quotient/syncdata.h>
 #include <qtestcase.h>
 
+#include <KLocalizedString>
+
+#include "accountmanager.h"
 #include "chatbarcache.h"
 #include "neochatroom.h"
 
+#include "server.h"
 #include "testutils.h"
 
 using namespace Quotient;
@@ -24,7 +28,9 @@ class ChatBarCacheTest : public QObject
 
 private:
     Connection *connection = nullptr;
-    TestUtils::TestRoom *room = nullptr;
+    NeoChatRoom *room = nullptr;
+    Server server;
+    QString eventId;
 
 private Q_SLOTS:
     void initTestCase();
@@ -40,8 +46,31 @@ private Q_SLOTS:
 
 void ChatBarCacheTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
-    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, "test-min-sync.json"_L1);
+    Connection::setRoomType<NeoChatRoom>();
+    server.start();
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
+    auto accountManager = new AccountManager(true, this);
+    QSignalSpy spy(accountManager, &AccountManager::connectionAdded);
+    connection = dynamic_cast<NeoChatConnection *>(accountManager->accounts()->front());
+
+    const auto roomId = server.createRoom(u"@user:localhost:1234"_s);
+    eventId = server.sendEvent(roomId,
+                               u"m.room.message"_s,
+                               QJsonObject{
+                                   {u"body"_s, u"foo"_s},
+                                   {u"msgtype"_s, u"m.text"_s},
+                               });
+
+    QSignalSpy syncSpy(connection, &Connection::syncDone);
+    // We need to wait for two syncs, as the next one won't have the changes yet
+    QVERIFY(syncSpy.wait());
+    QVERIFY(syncSpy.wait());
+    room = dynamic_cast<NeoChatRoom *>(connection->room(roomId));
+    QVERIFY(room);
+
+    server.joinUser(room->id(), u"@foo:server.com"_s);
+    QVERIFY(syncSpy.wait());
+    QVERIFY(syncSpy.wait());
 }
 
 void ChatBarCacheTest::empty()
@@ -60,8 +89,9 @@ void ChatBarCacheTest::empty()
 
 void ChatBarCacheTest::noRoom()
 {
+    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache());
-    chatBarCache->setReplyId(u"$153456789:example.org"_s);
+    chatBarCache->setReplyId(eventId);
 
     // These should return empty even though a reply ID has been set because the
     // ChatBarCache has no parent.
@@ -75,9 +105,10 @@ void ChatBarCacheTest::noRoom()
 
 void ChatBarCacheTest::badParent()
 {
+    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
     QScopedPointer<QObject> badParent(new QObject());
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(badParent.get()));
-    chatBarCache->setReplyId(u"$153456789:example.org"_s);
+    chatBarCache->setReplyId(eventId);
 
     // These should return empty even though a reply ID has been set because the
     // ChatBarCache has no parent.
@@ -94,15 +125,15 @@ void ChatBarCacheTest::reply()
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
     chatBarCache->setText(u"some text"_s);
     chatBarCache->setAttachmentPath(u"some/path"_s);
-    chatBarCache->setReplyId(u"$153456789:example.org"_s);
+    chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), true);
-    QCOMPARE(chatBarCache->replyId(), u"$153456789:example.org"_s);
+    QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
-    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
     QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
 }
@@ -112,22 +143,26 @@ void ChatBarCacheTest::replyMissingUser()
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
     chatBarCache->setText(u"some text"_s);
     chatBarCache->setAttachmentPath(u"some/path"_s);
-    chatBarCache->setReplyId(u"$153456789:example.org"_s);
+    chatBarCache->setReplyId(eventId);
 
     QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), true);
-    QCOMPARE(chatBarCache->replyId(), u"$153456789:example.org"_s);
+    QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
     QCOMPARE(chatBarCache->editId(), QString());
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
-    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
     QCOMPARE(chatBarCache->relationAuthorIsPresent(), true);
 
     QSignalSpy relationAuthorIsPresentSpy(chatBarCache.get(), &ChatBarCache::relationAuthorIsPresentChanged);
 
     // sync again, which will simulate the reply user leaving the room
-    room->syncNewEvents(u"test-min-sync-extra-sync.json"_s);
+
+    QSignalSpy syncSpy(connection, &Connection::syncDone);
+    server.sendStateEvent(room->id(), u"m.room.member"_s, u"@foo:server.com"_s, {{u"membership"_s, u"leave"_s}});
+    QVERIFY(syncSpy.wait());
+    QVERIFY(syncSpy.wait());
 
     QTRY_COMPARE(relationAuthorIsPresentSpy.count(), 1);
     QCOMPARE(chatBarCache->relationAuthorIsPresent(), false);
@@ -139,19 +174,19 @@ void ChatBarCacheTest::edit()
 
     chatBarCache->setText(u"some text"_s);
     chatBarCache->setAttachmentPath(u"some/path"_s);
-    connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [](const QString &oldEventId, const QString &newEventId) {
+    connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
         QCOMPARE(oldEventId, QString());
-        QCOMPARE(newEventId, QString(u"$153456789:example.org"_s));
+        QCOMPARE(newEventId, eventId);
     });
-    chatBarCache->setEditId(u"$153456789:example.org"_s);
+    chatBarCache->setEditId(eventId);
 
     QCOMPARE(chatBarCache->text(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), true);
-    QCOMPARE(chatBarCache->editId(), u"$153456789:example.org"_s);
-    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@example:example.org"_s));
-    QCOMPARE(chatBarCache->relationMessage(), u"This is an example\ntext message"_s);
+    QCOMPARE(chatBarCache->editId(), eventId);
+    QCOMPARE(chatBarCache->relationAuthor(), room->member(u"@foo:server.com"_s));
+    QCOMPARE(chatBarCache->relationMessage(), u"foo"_s);
     QCOMPARE(chatBarCache->attachmentPath(), QString());
 }
 
@@ -159,7 +194,7 @@ void ChatBarCacheTest::attachment()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
     chatBarCache->setText(u"some text"_s);
-    chatBarCache->setEditId(u"$153456789:example.org"_s);
+    chatBarCache->setEditId(eventId);
     chatBarCache->setAttachmentPath(u"some/path"_s);
 
     QCOMPARE(chatBarCache->text(), u"some text"_s);

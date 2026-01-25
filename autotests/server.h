@@ -35,6 +35,7 @@ struct Changes {
         QJsonObject fullJson;
     };
     QList<Event> events;
+    QList<Event> stateEvents;
 };
 
 struct RoomData {
@@ -67,6 +68,7 @@ public:
      */
     QString createServerNoticesRoom(const QString &matrixId);
     QString sendEvent(const QString &roomId, const QString &eventType, const QJsonObject &content);
+    QString sendStateEvent(const QString &roomId, const QString &eventType, const QString &stateKey, const QJsonObject &content);
 
 private:
     QHttpServer m_server;
