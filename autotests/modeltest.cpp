@@ -136,7 +136,7 @@ void ModelTest::initTestCase()
     Connection::setRoomType<NeoChatRoom>();
     server.start();
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
-    auto accountManager = new AccountManager(true);
+    auto accountManager = new AccountManager(true, this);
     QSignalSpy spy(accountManager, &AccountManager::connectionAdded);
     connection = dynamic_cast<NeoChatConnection *>(accountManager->accounts()->front());
     const auto roomId = server.createRoom(u"@user:localhost:1234"_s);
@@ -171,126 +171,127 @@ void ModelTest::initTestCase()
 
 void ModelTest::testRoomTreeModel()
 {
-    auto roomTreeModel = new RoomTreeModel();
-    auto tester = new QAbstractItemModelTester(roomTreeModel);
+    auto roomTreeModel = new RoomTreeModel(this);
+    auto tester = new QAbstractItemModelTester(roomTreeModel, roomTreeModel);
     tester->setUseFetchMore(true);
     roomTreeModel->setConnection(connection);
 }
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = new MessageContentModel(room, nullptr, eventId);
-    auto tester = new QAbstractItemModelTester(contentModel);
+    auto contentModel = std::make_unique<MessageContentModel>(room, nullptr, eventId);
+    auto tester = new QAbstractItemModelTester(contentModel.get(), contentModel.get());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testEventMessageContentModel()
 {
-    auto model = new EventMessageContentModel(room, eventId);
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = std::make_unique<EventMessageContentModel>(room, eventId);
+    auto tester = new QAbstractItemModelTester(model.get(), model.get());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadModel()
 {
     auto model = new ThreadModel(eventId, room);
-    auto tester = new QAbstractItemModelTester(model);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadFetchModel()
 {
     auto model = new ThreadFetchModel(new ThreadModel(eventId, room));
-    auto tester = new QAbstractItemModelTester(model);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadChatBarModel()
 {
     auto model = new ThreadChatBarModel(new ThreadModel(eventId, room), room);
-    auto tester = new QAbstractItemModelTester(model);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testReactionModel()
 {
-    auto model = new ReactionModel(new MessageContentModel(room), eventId, room);
-    auto tester = new QAbstractItemModelTester(model);
+    auto messageContentModel = std::make_unique<MessageContentModel>(room);
+    auto model = new ReactionModel(messageContentModel.get(), eventId, room);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testPollAnswerModel()
 {
-    auto handler = new PollHandler();
-    auto model = new PollAnswerModel(handler);
-    auto tester = new QAbstractItemModelTester(model);
+    auto handler = std::make_unique<PollHandler>(room, eventId);
+    auto model = new PollAnswerModel(handler.get());
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testLineModel()
 {
-    auto model = new LineModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new LineModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto document = new QTextDocument();
+    auto document = new QTextDocument(this);
     model->setDocument(document);
     document->setPlainText(u"foo\nbar\n\nbaz"_s);
 }
 
 void ModelTest::testSpaceChildrenModel()
 {
-    auto model = new SpaceChildrenModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new SpaceChildrenModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSpace(room);
 }
 
 void ModelTest::testItineraryModel()
 {
-    auto model = new ItineraryModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new ItineraryModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testPublicRoomListModel()
 {
-    auto model = new PublicRoomListModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new PublicRoomListModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testMessageFilterModel()
 {
-    auto timelineModel = new TimelineModel();
-    auto model = new MessageFilterModel(nullptr, timelineModel);
-    auto tester = new QAbstractItemModelTester(model);
+    auto timelineModel = new TimelineModel(this);
+    auto model = new MessageFilterModel(this, timelineModel);
+    auto tester = new QAbstractItemModelTester(model, model);
     timelineModel->setRoom(room);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreePIdModel()
 {
-    auto model = new ThreePIdModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new ThreePIdModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testMediaMessageFilterModel()
 {
-    auto timelineModel = new TimelineModel();
-    auto messageFilterModel = new MessageFilterModel(nullptr, timelineModel);
-    auto model = new MediaMessageFilterModel(nullptr, messageFilterModel);
-    auto tester = new QAbstractItemModelTester(model);
+    auto timelineModel = new TimelineModel(this);
+    auto messageFilterModel = new MessageFilterModel(this, timelineModel);
+    auto model = new MediaMessageFilterModel(this, messageFilterModel);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     timelineModel->setRoom(room);
 }
 
 void ModelTest::testWebshortcutModel()
 {
-    auto model = new WebShortcutModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new WebShortcutModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSelectedText(u"Foo"_s);
 }
@@ -298,22 +299,22 @@ void ModelTest::testWebshortcutModel()
 void ModelTest::testTimelineMessageModel()
 {
     auto model = new TimelineMessageModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testReadMarkerModel()
 {
-    auto model = new ReadMarkerModel(eventId, room);
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = std::make_unique<ReadMarkerModel>(eventId, room);
+    auto tester = new QAbstractItemModelTester(model.get(), model.get());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testSearchModel()
 {
-    auto model = new SearchModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new SearchModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSearchText(u"foo"_s);
     model->setRoom(room);
@@ -321,24 +322,24 @@ void ModelTest::testSearchModel()
 
 void ModelTest::testStateModel()
 {
-    auto model = new StateModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new StateModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testTimelineModel()
 {
-    auto model = new TimelineModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new TimelineModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testStateKeysModel()
 {
-    auto model = new StateKeysModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new StateKeysModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setEventType(u"m.room.member"_s);
     model->setRoom(room);
@@ -346,28 +347,28 @@ void ModelTest::testStateKeysModel()
 
 void ModelTest::testPinnedMessageModel()
 {
-    auto model = new PinnedMessageModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new PinnedMessageModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testUserListModel()
 {
-    auto model = new UserListModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new UserListModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testStickerModel()
 {
-    auto model = new StickerModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new StickerModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setPackIndex(0);
     model->setRoom(room);
-    auto imagePacksModel = new ImagePacksModel();
+    auto imagePacksModel = new ImagePacksModel(this);
     model->setModel(imagePacksModel);
     imagePacksModel->setRoom(room);
     imagePacksModel->setShowEmoticons(true);
@@ -376,15 +377,15 @@ void ModelTest::testStickerModel()
 
 void ModelTest::testPowerLevelModel()
 {
-    auto model = new PowerLevelModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new PowerLevelModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testImagePacksModel()
 {
-    auto model = new ImagePacksModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new ImagePacksModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
     model->setShowEmoticons(true);
@@ -393,29 +394,29 @@ void ModelTest::testImagePacksModel()
 
 void ModelTest::testCompletionModel()
 {
-    auto model = new CompletionModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new CompletionModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
     model->setAutoCompletionType(CompletionModel::Room);
     model->setText(u"foo"_s, u"#foo"_s);
-    auto roomListModel = new RoomListModel();
+    auto roomListModel = new RoomListModel(this);
     roomListModel->setConnection(connection);
     model->setRoomListModel(roomListModel);
 }
 
 void ModelTest::testRoomListModel()
 {
-    auto model = new RoomListModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new RoomListModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testCommonRoomsModel()
 {
-    auto model = new CommonRoomsModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new CommonRoomsModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
     model->setUserId(u"@user:example.com"_s);
@@ -423,67 +424,67 @@ void ModelTest::testCommonRoomsModel()
 
 void ModelTest::testNotificationsModel()
 {
-    auto model = new NotificationsModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new NotificationsModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testLocationsModel()
 {
-    auto model = new LocationsModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new LocationsModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testServerListModel()
 {
-    auto model = new ServerListModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new ServerListModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testEmojiModel()
 {
-    auto tester = new QAbstractItemModelTester(&EmojiModel::instance());
+    auto tester = new QAbstractItemModelTester(&EmojiModel::instance(), &EmojiModel::instance());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testCustomEmojiModel()
 {
-    auto tester = new QAbstractItemModelTester(&CustomEmojiModel::instance());
+    auto tester = new QAbstractItemModelTester(&CustomEmojiModel::instance(), &CustomEmojiModel::instance());
     tester->setUseFetchMore(true);
     CustomEmojiModel::instance().setConnection(connection);
 }
 
 void ModelTest::testPushRuleModel()
 {
-    auto model = new PushRuleModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new PushRuleModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testActionsModel()
 {
-    auto tester = new QAbstractItemModelTester(&ActionsModel::instance());
+    auto tester = new QAbstractItemModelTester(&ActionsModel::instance(), &ActionsModel::instance());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testDevicesModel()
 {
-    auto model = new DevicesModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new DevicesModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testUserDirectoryListModel()
 {
-    auto model = new UserDirectoryListModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new UserDirectoryListModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
     model->setSearchText(u"foo"_s);
@@ -491,106 +492,106 @@ void ModelTest::testUserDirectoryListModel()
 
 void ModelTest::testAccountEmoticonModel()
 {
-    auto model = new AccountEmoticonModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new AccountEmoticonModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setConnection(connection);
 }
 
 void ModelTest::testPermissionsModel()
 {
-    auto model = new PermissionsModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new PermissionsModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testLiveLocationsModel()
 {
-    auto model = new LiveLocationsModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new LiveLocationsModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setRoom(room);
 }
 
 void ModelTest::testRoomSortParameterModel()
 {
-    auto model = new RoomSortParameterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new RoomSortParameterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testSortFilterRoomTreeModel()
 {
-    auto sourceModel = new RoomTreeModel();
-    auto model = new SortFilterRoomTreeModel(sourceModel);
-    auto tester = new QAbstractItemModelTester(model);
+    auto sourceModel = new RoomTreeModel(this);
+    auto model = new SortFilterRoomTreeModel(sourceModel, sourceModel);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     sourceModel->setConnection(connection);
 }
 
 void ModelTest::testSortFilterSpaceListModel()
 {
-    auto sourceModel = new RoomListModel();
-    auto model = new SortFilterSpaceListModel(sourceModel);
-    auto tester = new QAbstractItemModelTester(model);
+    auto sourceModel = new RoomListModel(this);
+    auto model = new SortFilterSpaceListModel(sourceModel, sourceModel);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     sourceModel->setConnection(connection);
 }
 
 void ModelTest::testSortFilterRoomListModel()
 {
-    auto sourceModel = new RoomListModel();
-    auto model = new SortFilterRoomListModel(sourceModel);
-    auto tester = new QAbstractItemModelTester(model);
+    auto sourceModel = new RoomListModel(this);
+    auto model = new SortFilterRoomListModel(sourceModel, sourceModel);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     sourceModel->setConnection(connection);
 }
 
 void ModelTest::testSpaceChildSortFilterModel()
 {
-    auto model = new SpaceChildSortFilterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new SpaceChildSortFilterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto spaceChildrenModel = new SpaceChildrenModel();
+    auto spaceChildrenModel = new SpaceChildrenModel(this);
     model->setSourceModel(spaceChildrenModel);
     spaceChildrenModel->setSpace(nullptr);
 }
 
 void ModelTest::testStateFilterModel()
 {
-    auto model = new StateFilterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new StateFilterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto stateModel = new StateModel();
+    auto stateModel = new StateModel(this);
     model->setSourceModel(stateModel);
     stateModel->setRoom(room);
 }
 
 void ModelTest::testMessageContentFilterModel()
 {
-    auto model = new MessageContentFilterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new MessageContentFilterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSourceModel(ContentProvider::self().contentModelForEvent(room, eventId));
 }
 
 void ModelTest::testUserFilterModel()
 {
-    auto model = new UserFilterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new UserFilterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto userListModel = new UserListModel();
+    auto userListModel = new UserListModel(this);
     model->setSourceModel(userListModel);
     userListModel->setRoom(room);
 }
 
 void ModelTest::testEmoticonFilterModel()
 {
-    auto model = new EmoticonFilterModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new EmoticonFilterModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto accountEmoticonModel = new AccountEmoticonModel();
+    auto accountEmoticonModel = new AccountEmoticonModel(this);
     model->setSourceModel(accountEmoticonModel);
     model->setShowEmojis(true);
     model->setShowStickers(true);
@@ -599,18 +600,18 @@ void ModelTest::testEmoticonFilterModel()
 
 void ModelTest::testDevicesProxyModel()
 {
-    auto model = new DevicesProxyModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new DevicesProxyModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    auto devicesModel = new DevicesModel();
+    auto devicesModel = new DevicesModel(this);
     model->setSourceModel(devicesModel);
     devicesModel->setConnection(dynamic_cast<NeoChatConnection *>(connection));
 }
 
 void ModelTest::testCompletionProxyModel()
 {
-    auto model = new CompletionProxyModel();
-    auto tester = new QAbstractItemModelTester(model);
+    auto model = new CompletionProxyModel(this);
+    auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
     model->setSourceModel(&EmojiModel::instance());
 }

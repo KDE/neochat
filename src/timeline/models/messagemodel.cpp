@@ -93,8 +93,6 @@ std::optional<std::reference_wrapper<const Quotient::RoomEvent>> MessageModel::g
     return std::nullopt;
 }
 
-static NeochatRoomMember *emptyNeochatRoomMember = new NeochatRoomMember;
-
 QVariant MessageModel::data(const QModelIndex &idx, int role) const
 {
     if (!checkIndex(idx, QAbstractItemModel::CheckIndexOption::IndexIsValid)) {
