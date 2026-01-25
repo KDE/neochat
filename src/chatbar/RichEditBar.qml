@@ -11,6 +11,8 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.messagecontent as MessageContent
 
+pragma ComponentBehavior: Bound
+
 RowLayout {
     id: root
 
@@ -54,7 +56,7 @@ RowLayout {
                                                              Kirigami.Units.gridUnit
 
     readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
-        textItem: contentModel.focusedTextItem
+        textItem: root.contentModel.focusedTextItem
     }
 
     signal clicked
@@ -66,7 +68,7 @@ RowLayout {
             onActivated: boldButton.clicked()
         }
         icon.name: "format-text-bold"
-        enabled: chatButtonHelper.richFormatEnabled
+        enabled: root.chatButtonHelper.richFormatEnabled
         text: i18nc("@action:button", "Bold")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
@@ -87,7 +89,7 @@ RowLayout {
             onActivated: italicButton.clicked()
         }
         icon.name: "format-text-italic"
-        enabled: chatButtonHelper.richFormatEnabled
+        enabled: root.chatButtonHelper.richFormatEnabled
         text: i18nc("@action:button", "Italic")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
@@ -111,7 +113,7 @@ RowLayout {
                 onActivated: underlineButton.clicked()
             }
             icon.name: "format-text-underline"
-            enabled: chatButtonHelper.richFormatEnabled
+            enabled: root.chatButtonHelper.richFormatEnabled
             text: i18nc("@action:button", "Underline")
             display: QQC2.AbstractButton.IconOnly
             checkable: true
@@ -127,7 +129,7 @@ RowLayout {
         }
         QQC2.ToolButton {
             icon.name: "format-text-strikethrough"
-            enabled: chatButtonHelper.richFormatEnabled
+            enabled: root.chatButtonHelper.richFormatEnabled
             text: i18nc("@action:button", "Strikethrough")
             display: QQC2.AbstractButton.IconOnly
             checkable: true
@@ -146,12 +148,12 @@ RowLayout {
         id: compressedExtraTextFormatButton
         visible: root.maxAvailableWidth < root.listCompressedImplicitWidth
         icon.name: "dialog-text-and-font"
-        enabled: chatButtonHelper.richFormatEnabled
+        enabled: root.chatButtonHelper.richFormatEnabled
         text: i18nc("@action:button", "Format Text")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         onClicked: {
-            let dialog = compressedTextFormatMenu.createObject(compressedExtraTextFormatButton)
+            let dialog = compressedTextFormatMenu.createObject(compressedExtraTextFormatButton) as QQC2.Menu
             dialog.onClosed.connect(() => {
                 compressedExtraTextFormatButton.checked = false;
             });
@@ -235,7 +237,7 @@ RowLayout {
         checkable: true
 
         onClicked: {
-            let dialog = emojiDialog.createObject(root).open();
+            let dialog = (emojiDialog.createObject(root) as EmojiDialog).open();
         }
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -267,7 +269,7 @@ RowLayout {
         visible: root.maxAvailableWidth > root.uncompressedImplicitWidth
         QQC2.ToolButton {
             icon.name: "format-list-unordered"
-            enabled: chatButtonHelper.richFormatEnabled
+            enabled: root.chatButtonHelper.richFormatEnabled
             text: i18nc("@action:button", "Unordered List")
             display: QQC2.AbstractButton.IconOnly
             checkable: true
@@ -283,11 +285,11 @@ RowLayout {
         }
         QQC2.ToolButton {
             icon.name: "format-list-ordered"
-            enabled: chatButtonHelper.richFormatEnabled
+            enabled: root.chatButtonHelper.richFormatEnabled
             text: i18nc("@action:button", "Ordered List")
             display: QQC2.AbstractButton.IconOnly
             checkable: true
-            checked: root.chatButtonHelper.orderedlist
+            checked: root.chatButtonHelper.orderedList
             onClicked: {
                 root.chatButtonHelper.setFormat(LibNeoChat.RichFormat.OrderedList);
                 root.clicked();
@@ -300,7 +302,7 @@ RowLayout {
         QQC2.ToolButton {
             id: indentAction
             icon.name: "format-indent-more"
-            enabled: chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListMore
+            enabled: root.chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListMore
             text: i18nc("@action:button", "Increase List Level")
             display: QQC2.AbstractButton.IconOnly
             onClicked: {
@@ -315,7 +317,7 @@ RowLayout {
         QQC2.ToolButton {
             id: dedentAction
             icon.name: "format-indent-less"
-            enabled: chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListLess
+            enabled: root.chatButtonHelper.richFormatEnabled && root.chatButtonHelper.canIndentListLess
             text: i18nc("@action:button", "Decrease List Level")
             display: QQC2.AbstractButton.IconOnly
             onClicked: {
@@ -330,7 +332,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: compressedListButton
-        enabled: chatButtonHelper.richFormatEnabled
+        enabled: root.chatButtonHelper.richFormatEnabled
         visible: root.maxAvailableWidth < root.uncompressedImplicitWidth
         icon.name: "format-list-unordered"
         text: i18nc("@action:button", "List Style")
