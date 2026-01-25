@@ -382,10 +382,10 @@ Kirigami.Page {
             popup.open();
         }
 
-        function onShowMaximizedCode(author, time, codeText, language) {
+        function onShowMaximizedCode(author, dateTime, codeText, language) {
             (Qt.createComponent('org.kde.neochat', 'CodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
                 author: author,
-                time: time,
+                dateTime: dateTime,
                 codeText: codeText,
                 language: language
             }) as CodeMaximizeComponent).open();

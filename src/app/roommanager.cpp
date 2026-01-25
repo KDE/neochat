@@ -286,12 +286,12 @@ void RoomManager::maximizeMedia(const QString &eventId)
     Q_EMIT showMaximizedMedia(index);
 }
 
-void RoomManager::maximizeCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language)
+void RoomManager::maximizeCode(NeochatRoomMember *author, const NeoChatDateTime &dateTime, const QString &codeText, const QString &language)
 {
     if (codeText.isEmpty()) {
         return;
     }
-    Q_EMIT showMaximizedCode(author, time, codeText, language);
+    Q_EMIT showMaximizedCode(author, dateTime, codeText, language);
 }
 
 void RoomManager::requestFullScreenClose()
