@@ -128,7 +128,7 @@ bool ChatKeyHelper::deleteChar()
     }
 
     QTextCursor cursor = textItem->textCursor();
-    if (cursor.isNull()) {
+    if (cursor.isNull() || cursor.hasSelection()) {
         return false;
     }
     if (cursor.position() >= textItem->document()->characterCount() - textItem->fixedEndChars().length() - 1) {
