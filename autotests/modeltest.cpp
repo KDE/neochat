@@ -179,8 +179,8 @@ void ModelTest::testRoomTreeModel()
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = std::make_unique<MessageContentModel>(room, nullptr, eventId);
-    auto tester = new QAbstractItemModelTester(contentModel.get(), contentModel.get());
+    auto contentModel = new MessageContentModel(room, eventId);
+    auto tester = new QAbstractItemModelTester(contentModel);
     tester->setUseFetchMore(true);
 }
 
@@ -399,8 +399,12 @@ void ModelTest::testCompletionModel()
     tester->setUseFetchMore(true);
     model->setRoom(room);
     model->setAutoCompletionType(CompletionModel::Room);
+<<<<<<< HEAD
     model->setText(u"foo"_s, u"#foo"_s);
     auto roomListModel = new RoomListModel(this);
+=======
+    auto roomListModel = new RoomListModel();
+>>>>>>> da60b8068 (Fix merge issues)
     roomListModel->setConnection(connection);
     model->setRoomListModel(roomListModel);
 }
