@@ -107,6 +107,19 @@ Item {
                     clip: true
 
                     ColumnLayout {
+                        readonly property real visibleTop: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight
+                        readonly property real visibleBottom: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight + chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight
+                        readonly property rect cursorRectInColumn: mapFromItem(contentModel.focusedTextItem.textItem, contentModel.focusedTextItem.cursorRectangle);
+                        onCursorRectInColumnChanged: {
+                            if (chatScrollView.QQC2.ScrollBar.vertical.visible) {
+                                if (cursorRectInColumn.y < visibleTop) {
+                                    chatScrollView.QQC2.ScrollBar.vertical.position = cursorRectInColumn.y / chatScrollView.contentHeight
+                                } else if (cursorRectInColumn.y + cursorRectInColumn.height > visibleBottom) {
+                                    chatScrollView.QQC2.ScrollBar.vertical.position = (cursorRectInColumn.y + cursorRectInColumn.height - (chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight)) / chatScrollView.contentHeight
+                                }
+                            }
+                        }
+
                         width: chatScrollView.width
                         spacing: Kirigami.Units.smallSpacing
 

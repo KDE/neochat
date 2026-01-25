@@ -38,6 +38,11 @@ class ChatTextItemHelper : public QObject
      */
     Q_PROPERTY(QQuickItem *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
+    /**
+     * @brief The QML text Item the ChatTextItemHelper is handling.
+     */
+    Q_PROPERTY(QRect cursorRectangle READ cursorRectangle NOTIFY cursorPositionChanged)
+
 public:
     enum InsertPosition {
         Cursor,
