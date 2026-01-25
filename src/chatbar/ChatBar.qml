@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.de>
 // SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
+// SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 pragma ComponentBehavior: Bound
@@ -118,7 +119,9 @@ Item {
                                 sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
                             }
 
-                            delegate: MessageComponentChooser {}
+                            delegate: MessageComponentChooser {
+                                rightAnchorMargin: chatScrollView.QQC2.ScrollBar.vertical.visible ? chatScrollView.QQC2.ScrollBar.vertical.width : 0
+                            }
                         }
                     }
                 }

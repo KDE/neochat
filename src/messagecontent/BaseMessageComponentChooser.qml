@@ -16,6 +16,13 @@ DelegateChooser {
     id: root
 
     /**
+     * @brief Extra margin required when anchoring an item on the right.
+     *
+     * Normally used for scrollbars.
+     */
+    property int rightAnchorMargin: 0
+
+    /**
      * @brief The user selected text has changed.
      */
     signal selectedTextChanged(string selectedText)
@@ -117,7 +124,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Reply
-        delegate: ReplyComponent {}
+        delegate: ReplyComponent {
+            rightAnchorMargin: root.rightAnchorMargin
+        }
     }
 
     DelegateChoice {
