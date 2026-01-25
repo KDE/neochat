@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:43+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2026-01-20 00:32+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -516,7 +516,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Einen Raum erstellen"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
@@ -928,8 +928,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Antwort hinzufügen"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1008,7 +1008,7 @@ msgid "No room found"
 msgstr "Kein Raum gefunden"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -4335,47 +4335,62 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Element entfernen"
 
-#: src/rooms/ExploreComponent.qml:32
-#, kde-format
+#: src/rooms/ExploreComponent.qml:35
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "Start"
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Direktnachrichten"
+
+#: src/rooms/ExploreComponent.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Rooms"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Räume"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Räume suchen"
 
-#: src/rooms/ExploreComponentMobile.qml:33
-#, kde-format
-msgid "Search"
-msgstr "Suchen"
+#: src/rooms/ExploreComponentMobile.qml:34
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "Start"
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "Freunde suchen"
+#: src/rooms/ExploreComponentMobile.qml:41
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Benachrichtigungen"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Freunde suchen"
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Account"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "Konto"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Neue erstellen"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Einen Raum erstellen"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
@@ -4523,6 +4538,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Ihre Freunde finden"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Freunde suchen"
+
 #: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgctxt "@info"
@@ -4587,7 +4608,7 @@ msgstr "%1 ausklappen"
 msgid "View notifications"
 msgstr "Benachrichtigungen anzeigen"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4596,14 +4617,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "Benachrichtigungen entstummen"
 msgstr[1] "Benachrichtigungen entstummen"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Start"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4611,19 +4632,19 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Direktnachrichten (%1 Benachrichtigung)"
 msgstr[1] "Direktnachrichten (%1 Benachrichtigungen)"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Direktnachrichten"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 betreten"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgctxt "@action:button Create new room"
 #| msgid "Create"
@@ -4631,7 +4652,7 @@ msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Erstellen"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4639,7 +4660,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Neue Gruppe …"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -6886,7 +6907,6 @@ msgid "Down"
 msgstr "Nach unten"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -7172,10 +7192,19 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Neuen Raum hinzufügen"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
-#, kde-format
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Remove…"
+msgstr "Entfernen"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Don't Make Suggested"
+msgctxt "@button"
+msgid "Don't Suggest"
 msgstr "Nicht vorschlagen"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7208,16 +7237,18 @@ msgid "Existing Room…"
 msgstr "Vorhandenen Raum auswählen"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "Benutzer in die Umgebung einladen"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "Zu Favoriten hinzufügen"
 
 #: src/spaces/SpaceHomePage.qml:99
@@ -7225,7 +7256,7 @@ msgstr "Zu Favoriten hinzufügen"
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Umgebung verlassen"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7552,6 +7583,15 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 schreibt gerade"
 msgstr[1] "%2 schreiben gerade"
+
+#~ msgid "Search"
+#~ msgstr "Suchen"
+
+#~ msgid "Find your friends"
+#~ msgstr "Freunde suchen"
+
+#~ msgid "Create New"
+#~ msgstr "Neue erstellen"
 
 #, fuzzy
 #~| msgctxt "@action:button"
@@ -7887,11 +7927,6 @@ msgstr[1] "%2 schreiben gerade"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "Verknüpfungsadresse kopieren"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgid "Remove…"
-#~ msgstr "Entfernen"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"
@@ -8637,9 +8672,6 @@ msgstr[1] "%2 schreiben gerade"
 
 #~ msgid "updated the database"
 #~ msgstr "hat die Datenbank aktualisiert"
-
-#~ msgid "Account"
-#~ msgstr "Konto"
 
 #~ msgid "Server error when joining the room \"%1\": %2"
 #~ msgstr "Serverfehler beim Betreten des Raums „%1“: %2"

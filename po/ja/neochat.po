@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:43+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2020-11-05 23:50-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -502,7 +502,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr ""
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
@@ -899,8 +899,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr ""
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -979,7 +979,7 @@ msgid "No room found"
 msgstr ""
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -4162,47 +4162,55 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:32
+#: src/rooms/ExploreComponent.qml:35
+#, kde-format
+msgctxt "@title Home space"
+msgid "Home"
+msgstr ""
+
+#: src/rooms/ExploreComponent.qml:37
 #, kde-format
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr ""
+
+#: src/rooms/ExploreComponent.qml:41
+#, kde-format
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:33
+#: src/rooms/ExploreComponentMobile.qml:34
 #, kde-format
-msgid "Search"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponentMobile.qml:41
 #, kde-format
-msgid "Find your friends"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
+#: src/rooms/ExploreComponentMobile.qml:57
 #, kde-format
-msgctxt "@title"
-msgid "Find your friends"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr ""
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
@@ -4348,6 +4356,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr ""
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr ""
+
 #: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgctxt "@info"
@@ -4402,51 +4416,51 @@ msgstr ""
 msgid "View notifications"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] ""
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] ""
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -6563,7 +6577,6 @@ msgid "Down"
 msgstr ""
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -6832,10 +6845,16 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr ""
 
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove…"
+msgstr ""
+
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Don't Suggest"
 msgstr ""
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -6864,20 +6883,20 @@ msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:80
 #, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:92
 #, kde-format
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:163

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:43+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2026-01-18 16:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -511,7 +511,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Oda Oluştur"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
@@ -910,8 +910,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Seçenek Ekle"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -990,7 +990,7 @@ msgid "No room found"
 msgstr "Oda bulunamadı"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -4235,47 +4235,64 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Araç takımını kaldır"
 
-#: src/rooms/ExploreComponent.qml:32
-#, kde-format
+#: src/rooms/ExploreComponent.qml:35
+#, fuzzy, kde-format
+#| msgctxt "Home space for the uncategorized rooms"
+#| msgid "Home"
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "Ana Sayfa"
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Doğrudan İletiler"
+
+#: src/rooms/ExploreComponent.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Rooms"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Odalar"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Odalar ara"
 
-#: src/rooms/ExploreComponentMobile.qml:33
-#, kde-format
-msgid "Search"
-msgstr "Ara"
+#: src/rooms/ExploreComponentMobile.qml:34
+#, fuzzy, kde-format
+#| msgctxt "Home space for the uncategorized rooms"
+#| msgid "Home"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "Ana Sayfa"
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "Arkadaşlarını Bul"
+#: src/rooms/ExploreComponentMobile.qml:41
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Bildirimler"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Arkadaşlarını Bul"
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "Hesaplar"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Yeni Oluştur"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Oda Oluştur"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
@@ -4421,6 +4438,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Arkadaşlarını Bul"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Arkadaşlarını Bul"
+
 #: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgctxt "@info"
@@ -4477,7 +4500,7 @@ msgstr "Genişlet: %1"
 msgid "View notifications"
 msgstr "Bildirimleri görüntüle"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
@@ -4485,13 +4508,13 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "Ana Sayfa (%1 Bildirim)"
 msgstr[1] "Ana Sayfa (%1 Bildirim)"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Ana Sayfa"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4499,31 +4522,31 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Doğrudan İletiler (%1 Bildirim)"
 msgstr[1] "Doğrudan İletiler (%1 Bildirim)"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Doğrudan İletiler"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Katıl: %1"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Oluştur"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Yeni Oda…"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -6676,7 +6699,6 @@ msgid "Down"
 msgstr "Aşağı"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -6958,10 +6980,19 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Yeni Oda Ekle"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
-#, kde-format
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
+#| msgid "Remove…"
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Remove…"
+msgstr "Kaldır…"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Don't Make Suggested"
+msgctxt "@button"
+msgid "Don't Suggest"
 msgstr "Önerilen Yapma"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -6989,21 +7020,27 @@ msgid "Existing Room…"
 msgstr "Var Olan Oda…"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "Kullanıcıyı Alana Davet Et"
 
 #: src/spaces/SpaceHomePage.qml:92
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Add to Space"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "Alana Ekle"
 
 #: src/spaces/SpaceHomePage.qml:99
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave this space…"
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Bu Alandan Ayrıl…"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7321,6 +7358,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
 
+#~ msgid "Search"
+#~ msgstr "Ara"
+
+#~ msgid "Find your friends"
+#~ msgstr "Arkadaşlarını Bul"
+
+#~ msgid "Create New"
+#~ msgstr "Yeni Oluştur"
+
 #~ msgctxt "@action:intoolbar"
 #~ msgid "Show QR Code"
 #~ msgstr "Kare Kodu Göster"
@@ -7625,9 +7671,6 @@ msgstr[1] "%2 yazıyor"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "Oda Adresini Kopyala"
-
-#~ msgid "Remove…"
-#~ msgstr "Kaldır…"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"

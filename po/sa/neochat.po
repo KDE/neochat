@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:43+0000\n"
+"POT-Creation-Date: 2026-01-25 00:44+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -528,7 +528,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:inmenu Explore public rooms and spaces"
@@ -965,8 +965,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "इमोजी योजयतु"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1052,7 +1052,7 @@ msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -4450,48 +4450,63 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 विजेट् निष्कासितम्"
 
-#: src/rooms/ExploreComponent.qml:32
-#, kde-format
+#: src/rooms/ExploreComponent.qml:35
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "गृहम्‌"
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Find messages…"
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "सन्देशान् अन्वेष्टुम्..."
+
+#: src/rooms/ExploreComponent.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Rooms"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "कक्ष्याः"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/rooms/ExploreComponentMobile.qml:33
-#, kde-format
-msgid "Search"
-msgstr "अन्वेषण"
+#: src/rooms/ExploreComponentMobile.qml:34
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "गृहम्‌"
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
+#: src/rooms/ExploreComponentMobile.qml:41
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "अधिसूचना"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "लेखा"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "New रचयतु"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgctxt "@action:button"
@@ -4665,6 +4680,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "मित्राणि अन्वेष्यताम्"
+
 #: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No friends found"
@@ -4727,7 +4748,7 @@ msgstr "%1 विस्तारयन्तु"
 msgid "View notifications"
 msgstr "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4736,14 +4757,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "सूचनां म्यूटं कुर्वन्तु"
 msgstr[1] "सूचनां म्यूटं कुर्वन्तु"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "गृहम्‌"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4752,27 +4773,27 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "सूचनाः पश्यन्तु"
 msgstr[1] "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 सह सम्मिलितं कुर्वन्तु"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "New रचयतु"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4780,7 +4801,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "नवीनसमूहः..."
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -7066,7 +7087,6 @@ msgid "Down"
 msgstr "अधः"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -7348,10 +7368,19 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "नूतनं कक्षं योजयन्तु"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
-#, kde-format
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Remove…"
+msgstr "अपाकरोति"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Don't Make Suggested"
+msgctxt "@button"
+msgid "Don't Suggest"
 msgstr "सुझातं मा कुरुत"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7384,16 +7413,18 @@ msgid "Existing Room…"
 msgstr "विद्यमानं कक्षं चिनोतु"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "उपयोक्तारं अन्तरिक्षं प्रति आमन्त्रयन्तु"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "प्रियं योजयतु"
 
 #: src/spaces/SpaceHomePage.qml:99
@@ -7401,7 +7432,7 @@ msgstr "प्रियं योजयतु"
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "एतत् स्थानं त्यजतु"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7759,6 +7790,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
 
+#~ msgid "Search"
+#~ msgstr "अन्वेषण"
+
+#~ msgid "Find your friends"
+#~ msgstr "मित्राणि अन्वेष्यताम्"
+
+#~ msgid "Create New"
+#~ msgstr "New रचयतु"
+
 #, fuzzy
 #~| msgctxt "@action:button"
 #~| msgid "Show QR Code"
@@ -8110,11 +8150,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "लिङ्क पता प्रतिलिपि कुर्वन्तु"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgid "Remove…"
-#~ msgstr "अपाकरोति"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"
