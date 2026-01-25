@@ -27,14 +27,9 @@ RowLayout {
     required property var author
 
     /**
-     * @brief The timestamp of the message.
+     * @brief The timestamp of the event as a NeoChatDateTime.
      */
-    required property var time
-
-    /**
-     * @brief The timestamp of the message as a string.
-     */
-    required property string timeString
+    required property NeoChatDateTime dateTime
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth
@@ -83,11 +78,11 @@ RowLayout {
     }
     QQC2.Label {
         id: timeLabel
-        text: root.timeString
+        text: root.dateTime.hourMinuteString
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
         QQC2.ToolTip.visible: timeHoverHandler.hovered
-        QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+        QQC2.ToolTip.text: root.dateTime.shortDateTime
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
