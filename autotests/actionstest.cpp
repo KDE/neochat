@@ -88,7 +88,7 @@ void ActionsTest::testActions()
     QFETCH(std::optional<QString>, resultText);
     QFETCH(std::optional<Quotient::RoomMessageEvent::MsgType>, type);
 
-    auto cache = new ChatBarCache();
+    auto cache = new ChatBarCache(this);
     cache->setText(command);
     auto result = ActionsModel::handleAction(room, cache);
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
