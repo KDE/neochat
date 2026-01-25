@@ -21,7 +21,7 @@ import org.kde.neochat
  * show in their original form and are instead visualised with a MIME type delegate
  * e.g. Videos.
  */
-RowLayout {
+QQC2.Control {
     id: root
 
     /**
@@ -34,59 +34,69 @@ RowLayout {
      */
     required property bool editable
 
+    /**
+     * @brief Extra margin required when anchoring an item on the right.
+     *
+     * Normally used for scrollbars.
+     */
+    property int rightAnchorMargin: 0
+
     Layout.fillWidth: true
+    padding: 0
 
-    spacing: Kirigami.Units.largeSpacing
+    contentItem: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
 
-    Rectangle {
-        id: verticalBorder
-        Layout.fillHeight: true
+        Rectangle {
+            id: verticalBorder
+            Layout.fillHeight: true
 
-        implicitWidth: Kirigami.Units.smallSpacing
-        color: root.replyContentModel.author?.color ?? Kirigami.Theme.highlightColor
-        radius: Kirigami.Units.cornerRadius
-    }
-    ColumnLayout {
-        id: contentColumn
-        spacing: Kirigami.Units.smallSpacing
+            implicitWidth: Kirigami.Units.smallSpacing
+            color: root.replyContentModel.author?.color ?? Kirigami.Theme.highlightColor
+            radius: Kirigami.Units.cornerRadius
+        }
+        ColumnLayout {
+            id: contentColumn
+            spacing: Kirigami.Units.smallSpacing
 
-        Message.maxContentWidth: _private.availableContentWidth
+            Message.maxContentWidth: _private.availableContentWidth
 
-        Repeater {
-            id: contentRepeater
-            model: root.replyContentModel
-            delegate: ReplyMessageComponentChooser {
-                onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
+            Repeater {
+                id: contentRepeater
+                model: root.replyContentModel
+                delegate: ReplyMessageComponentChooser {
+                    onReplyClicked: RoomManager.goToEvent(root.replyContentModel.eventId)
+                }
             }
         }
-    }
-    HoverHandler {
-        cursorShape: Qt.PointingHandCursor
-    }
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        onTapped: RoomManager.goToEvent(root.replyContentModel.eventId)
-    }
-    QtObject {
-        id: _private
-        // The space available for the component after taking away the border
-        readonly property real availableContentWidth: root.Message.maxContentWidth - verticalBorder.implicitWidth - root.spacing
-
-        readonly property QQC2.Button cancelButton: QQC2.Button {
-            id: cancelButton
-
-            parent: root
-            anchors.top: root.top
-            anchors.right: root.right
-
-            visible: root.editable
-            display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Cancel reply")
-            icon.name: "dialog-close"
-            onClicked: root.Message.room.mainCache.replyId = ""
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
         }
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: RoomManager.goToEvent(root.replyContentModel.eventId)
+        }
+        QtObject {
+            id: _private
+            // The space available for the component after taking away the border
+            readonly property real availableContentWidth: root.Message.maxContentWidth - verticalBorder.implicitWidth - root.spacing
+        }
+    }
+
+    QQC2.Button {
+        id: cancelButton
+        anchors.top: root.top
+        anchors.topMargin: Kirigami.Units.smallSpacing
+        anchors.right: root.right
+        anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
+
+        visible: root.editable
+        display: QQC2.AbstractButton.IconOnly
+        text: i18nc("@action:button", "Cancel reply")
+        icon.name: "dialog-close"
+        onClicked: root.Message.room.mainCache.replyId = ""
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 }

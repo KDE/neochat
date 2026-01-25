@@ -24,7 +24,7 @@ class ChatButtonHelper : public QObject
     Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
 
     /**
-     * @brief Whether the text format at the current cursor is bold.
+     * @brief Whether rich formating is enabled at the current cursor location.
      */
     Q_PROPERTY(bool richFormatEnabled READ richFormatEnabled NOTIFY richFormatEnabledChanged)
 
