@@ -50,9 +50,9 @@ MessageDelegateBase {
     required property MessageContentModel contentModel
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The date of the event as a string.
      */
-    required property NeoChatDateTime dateTime
+    required property string section
 
     /**
      * @brief A model with the first 5 other user read markers for this message.
@@ -203,7 +203,7 @@ MessageDelegateBase {
 
     sectionComponent: Kirigami.ListSectionHeader {
         horizontalPadding: 0
-        text: root.dateTime.relativeDate
+        text: root.section
     }
 
     readMarkerComponent: AvatarFlow {

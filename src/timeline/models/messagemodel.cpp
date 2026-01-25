@@ -17,9 +17,8 @@
 #include "enums/messagecomponenttype.h"
 #include "eventhandler.h"
 #include "events/pollevent.h"
-#include "models/eventmessagecontentmodel.h"
 #include "models/reactionmodel.h"
-#include "neochatdatetime.h"
+#include "models/eventmessagecontentmodel.h"
 #include "neochatroommember.h"
 
 using namespace Quotient;
@@ -111,8 +110,11 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         switch (role) {
         case DelegateTypeRole:
             return DelegateType::ReadMarker;
-        case DateTimeRole:
-            return data(index(m_lastReadEventIndex.row() + 1, 0), DateTimeRole);
+        case TimeRole: {
+            const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime().toLocalTime();
+            static const KFormat format;
+            return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
+        }
         case SpecialMarksRole:
             // Check if all the earlier events in the timeline are hidden. If so hide this.
             for (auto r = row - 1; r >= 0; --r) {
@@ -228,8 +230,12 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return {};
     }
 
-    if (role == DateTimeRole) {
-        return QVariant::fromValue(EventHandler::dateTime(eventRoom, &event.value().get(), isPending));
+    if (role == TimeRole) {
+        return EventHandler::time(eventRoom, &event.value().get(), isPending);
+    }
+
+    if (role == SectionRole) {
+        return EventHandler::timeString(eventRoom, &event.value().get(), true, QLocale::ShortFormat, isPending);
     }
 
     if (role == IsThreadedRole) {
@@ -261,8 +267,8 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
             // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
             if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
-                const auto day = data(idx, DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date().dayOfYear();
-                const auto previousEventDay = data(i, DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date().dayOfYear();
+                const auto day = data(idx, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
+                const auto previousEventDay = data(i, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
                 return day != previousEventDay;
             }
         }
@@ -336,7 +342,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[DelegateTypeRole] = "delegateType";
     roles[EventIdRole] = "eventId";
-    roles[DateTimeRole] = "dateTime";
+    roles[TimeRole] = "time";
+    roles[SectionRole] = "section";
     roles[AuthorRole] = "author";
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";

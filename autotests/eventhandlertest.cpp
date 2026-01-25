@@ -40,6 +40,7 @@ private Q_SLOTS:
     void nullSingleLineDisplayName();
     void time();
     void nullTime();
+    void timeString();
     void highlighted();
     void nullHighlighted();
     void hidden();
@@ -99,12 +100,12 @@ void EventHandlerTest::time()
 {
     const auto event = room->messageEvents().at(0).get();
 
-    QCOMPARE(EventHandler::dateTime(room, event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
+    QCOMPARE(EventHandler::time(room, event), QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)));
 
     const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
     QCOMPARE(room->pendingEvents().size(), 1);
     const auto pendingIt = room->findPendingEvent(txID);
-    QCOMPARE(EventHandler::dateTime(room, pendingIt->event(), true), pendingIt->lastUpdated());
+    QCOMPARE(EventHandler::time(room, pendingIt->event(), true), pendingIt->lastUpdated());
 
     room->discardMessage(txID);
     QCOMPARE(room->pendingEvents().size(), 0);
@@ -113,10 +114,40 @@ void EventHandlerTest::time()
 void EventHandlerTest::nullTime()
 {
     QTest::ignoreMessage(QtWarningMsg, "time called with room set to nullptr.");
-    QCOMPARE(EventHandler::dateTime(nullptr, nullptr), QDateTime());
+    QCOMPARE(EventHandler::time(nullptr, nullptr), QDateTime());
 
     QTest::ignoreMessage(QtWarningMsg, "time called with event set to nullptr.");
-    QCOMPARE(EventHandler::dateTime(room, nullptr), QDateTime());
+    QCOMPARE(EventHandler::time(room, nullptr), QDateTime());
+}
+
+void EventHandlerTest::timeString()
+{
+    const auto event = room->messageEvents().at(0).get();
+
+    KFormat format;
+
+    QCOMPARE(EventHandler::timeString(room, event, false),
+             QLocale().toString(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().time(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, event, true),
+             format.formatRelativeDate(QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::UTC)).toLocalTime().date(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, event, u"hh:mm"_s),
+             QDateTime::fromMSecsSinceEpoch(1432735824654, QTimeZone(QTimeZone::LocalTime)).toString(u"hh:mm"_s));
+
+    const auto txID = room->postJson("m.room.message"_L1, event->fullJson());
+    QCOMPARE(room->pendingEvents().size(), 1);
+    const auto pendingIt = room->findPendingEvent(txID);
+
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), false, QLocale::ShortFormat, true),
+             QLocale().toString(pendingIt->lastUpdated().toLocalTime().time(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), true, QLocale::ShortFormat, true),
+             format.formatRelativeDate(pendingIt->lastUpdated().toLocalTime().date(), QLocale::ShortFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), false, QLocale::LongFormat, true),
+             QLocale().toString(pendingIt->lastUpdated().toLocalTime().time(), QLocale::LongFormat));
+    QCOMPARE(EventHandler::timeString(room, pendingIt->event(), true, QLocale::LongFormat, true),
+             format.formatRelativeDate(pendingIt->lastUpdated().toLocalTime().date(), QLocale::LongFormat));
+
+    room->discardMessage(txID);
+    QCOMPARE(room->pendingEvents().size(), 0);
 }
 
 void EventHandlerTest::highlighted()

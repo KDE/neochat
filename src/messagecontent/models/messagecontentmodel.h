@@ -21,8 +21,6 @@
 #include "neochatroom.h"
 #include "neochatroommember.h"
 
-class NeoChatDateTime;
-
 /**
  * @class MessageContentModel
  *
@@ -49,7 +47,8 @@ public:
         ComponentTypeRole = Qt::UserRole, /**< The type of component to visualise the message. */
         ComponentAttributesRole, /**< The attributes of the component. */
         EventIdRole, /**< The matrix event ID of the event. */
-        DateTimeRole, /**< The timestamp for when the event was sent (as a NeoChatDateTime). */
+        TimeRole, /**< The timestamp for when the event was sent (as a QDateTime). */
+        TimeStringRole, /**< The timestamp for when the event was sent as a string (in QLocale::ShortFormat). */
         AuthorRole, /**< The author of the event. */
         FileTransferInfoRole, /**< FileTransferInfo for any downloading files. */
         ItineraryModelRole, /**< The itinerary model for a file. */
@@ -126,11 +125,18 @@ protected:
     QString m_eventId;
 
     /**
-     * @brief NeoChatDateTime for the message.
+     * @brief QDateTime for the message.
      *
      * The default implementation returns the current time.
      */
-    virtual NeoChatDateTime dateTime() const;
+    virtual QDateTime time() const;
+
+    /**
+     * @brief Time for the message as a string in the from "hh:mm".
+     *
+     * The default implementation returns the current time.
+     */
+    virtual QString timeString() const;
 
     /**
      * @brief The author of the message.

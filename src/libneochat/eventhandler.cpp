@@ -93,7 +93,7 @@ QString EventHandler::singleLineAuthorDisplayname(const NeoChatRoom *room, const
     return displayName;
 }
 
-NeoChatDateTime EventHandler::dateTime(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending)
+QDateTime EventHandler::time(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending)
 {
     if (room == nullptr) {
         qCWarning(EventHandling) << "time called with room set to nullptr.";
@@ -112,6 +112,25 @@ NeoChatDateTime EventHandler::dateTime(const NeoChatRoom *room, const Quotient::
         return {};
     }
     return event->originTimestamp();
+}
+
+QString EventHandler::timeString(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool relative, QLocale::FormatType format, bool isPending)
+{
+    auto ts = time(room, event, isPending);
+    if (ts.isValid()) {
+        if (relative) {
+            KFormat formatter;
+            return formatter.formatRelativeDate(ts.toLocalTime().date(), format);
+        } else {
+            return QLocale().toString(ts.toLocalTime().time(), format);
+        }
+    }
+    return {};
+}
+
+QString EventHandler::timeString(const NeoChatRoom *room, const Quotient::RoomEvent *event, const QString &format, bool isPending)
+{
+    return time(room, event, isPending).toLocalTime().toString(format);
 }
 
 bool EventHandler::isHighlighted(const NeoChatRoom *room, const Quotient::RoomEvent *event)

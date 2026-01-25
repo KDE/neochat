@@ -9,7 +9,6 @@
 #include "enums/delegatetype.h"
 #include "messagemodel.h"
 #include "models/timelinemodel.h"
-#include "neochatdatetime.h"
 
 using namespace Quotient;
 
@@ -180,13 +179,9 @@ bool MessageFilterModel::showAuthor(QModelIndex index) const
         if (data(i, TimelineMessageModel::SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
             return data(i, TimelineMessageModel::AuthorRole) != data(index, TimelineMessageModel::AuthorRole)
                 || data(i, TimelineMessageModel::DelegateTypeRole) == DelegateType::State
-                || data(i, TimelineMessageModel::DateTimeRole)
-                       .value<NeoChatDateTime>()
-                       .dateTime()
-                       .msecsTo(data(index, TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime())
-                > 600000
-                || data(i, TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date().day()
-                != data(index, TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date().day();
+                || data(i, TimelineMessageModel::TimeRole).toDateTime().msecsTo(data(index, TimelineMessageModel::TimeRole).toDateTime()) > 600000
+                || data(i, TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date().day()
+                != data(index, TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date().day();
         }
     }
 

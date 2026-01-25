@@ -49,9 +49,9 @@ TimelineDelegate {
     required property bool showSection
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The date of the event as a string.
      */
-    required property NeoChatDateTime dateTime
+    required property string section
 
     /**
      * @brief A model with the first 5 other user read markers for this message.
@@ -80,7 +80,7 @@ TimelineDelegate {
             Layout.fillWidth: true
             visible: root.showSection
             horizontalPadding: 0
-            text: root.dateTime.relativeDate
+            text: root.section
         }
         RowLayout {
             Layout.fillWidth: true

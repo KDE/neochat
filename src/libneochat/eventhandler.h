@@ -7,8 +7,6 @@
 #include <QString>
 #include <Quotient/events/eventcontent.h>
 
-#include "neochatdatetime.h"
-
 namespace Quotient
 {
 namespace EventContent
@@ -66,7 +64,41 @@ public:
     /**
      * @brief Return a QDateTime object for the event timestamp.
      */
-    static NeoChatDateTime dateTime(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
+    static QDateTime time(const NeoChatRoom *room, const Quotient::RoomEvent *event, bool isPending = false);
+
+    /**
+     * @brief Return a QString for the event timestamp.
+     *
+     * This is intended to return a string that is read for display in the UI without
+     * any further manipulation required.
+     *
+     * @param relative whether the string is realtive to the current date, i.e.
+     *                 Yesterday or Wednesday, etc.
+     * @param format the QLocale::FormatType to use.
+     * @param isPending whether the event is pending as this cannot be derived from
+     *                  just the event object.
+     * @param lastUpdated the time the event was last updated locally as this cannot be
+     *                    obtained from the event.
+     */
+    static QString timeString(const NeoChatRoom *room,
+                              const Quotient::RoomEvent *event,
+                              bool relative,
+                              QLocale::FormatType format = QLocale::ShortFormat,
+                              bool isPending = false);
+
+    /**
+     * @brief Return a QString for the event timestamp.
+     *
+     * This is intended to return a string that is read for display in the UI without
+     * any further manipulation required.
+     *
+     * @param format the format to use as a string.
+     * @param isPending whether the event is pending as this cannot be derived from
+     *                  just the event object.
+     * @param lastUpdated the time the event was last updated locally as this cannot be
+     *                    obtained from the event.
+     */
+    static QString timeString(const NeoChatRoom *room, const Quotient::RoomEvent *event, const QString &format, bool isPending = false);
 
     /**
      * @brief Whether the event should be highlighted in the timeline.

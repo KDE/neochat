@@ -52,7 +52,8 @@ Q_SIGNALS:
 private:
     void initializeModel();
 
-    NeoChatDateTime dateTime() const override;
+    QDateTime time() const override;
+    QString timeString() const override;
     QString authorId() const override;
     QString threadRootId() const override;
 
