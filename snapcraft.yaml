@@ -41,10 +41,10 @@ slots:
     bus: session
 
 parts:
-  olm:
-    source: https://gitlab.matrix.org/matrix-org/olm.git
+  corrosion:
+    source: https://github.com/corrosion-rs/corrosion.git
     source-depth: 1
-    source-tag: '3.2.16'
+    source-tag: 'v0.6.0'
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=Release
