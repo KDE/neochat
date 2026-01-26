@@ -28,7 +28,7 @@ class SyntaxHighlighter : public QSyntaxHighlighter
 public:
     QTextCharFormat mentionFormat;
     QTextCharFormat errorFormat;
-    Sonnet::BackgroundChecker *checker = new Sonnet::BackgroundChecker;
+    Sonnet::BackgroundChecker checker;
     Sonnet::Settings settings;
     QList<QPair<int, QString>> errors;
     QString previousText;
@@ -48,11 +48,11 @@ public:
         errorFormat.setForeground(m_theme->negativeTextColor());
         errorFormat.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
 
-        connect(checker, &Sonnet::BackgroundChecker::misspelling, this, [this](const QString &word, int start) {
+        connect(&checker, &Sonnet::BackgroundChecker::misspelling, this, [this](const QString &word, int start) {
             errors += {start, word};
-            checker->continueChecking();
+            checker.continueChecking();
         });
-        connect(checker, &Sonnet::BackgroundChecker::done, this, [this]() {
+        connect(&checker, &Sonnet::BackgroundChecker::done, this, [this]() {
             rehighlightTimer.start();
         });
         rehighlightTimer.setInterval(100);
@@ -64,9 +64,9 @@ public:
         if (settings.checkerEnabledByDefault()) {
             if (text != previousText) {
                 previousText = text;
-                checker->stop();
+                checker.stop();
                 errors.clear();
-                checker->setText(text);
+                checker.setText(text);
             }
             for (const auto &error : errors) {
                 setFormat(error.first, error.second.size(), errorFormat);
