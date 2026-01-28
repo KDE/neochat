@@ -73,25 +73,17 @@ RowLayout {
     }
     QQC2.Label {
         id: timeLabel
-        // text: formattedTime()
-        text: root.dateTime.hourMinuteString
+        
+        text: root.dateTime.shortRelativeDateTime
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
+        
         QQC2.ToolTip.visible: timeHoverHandler.hovered
-        // QQC2.ToolTip.text: root.time.toLocaleString(Qt.locale(), Locale.LongFormat)
-        QQC2.ToolTip.text: root.dateTime.shortDateTime
+        QQC2.ToolTip.text: root.dateTime.longDateTime
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
             id: timeHoverHandler
         }
-
-        // function formattedTime() {
-        //     const start = (new Date()).setHours(0, 0, 0, 0);
-        //     if (root.time >= start) {
-        //         return root.timeString;
-        //     }
-        //     return Format.formatRelativeDate(root.time, Locale.ShortFormat) + ", " + root.timeString;
-        // }
     }
 }
