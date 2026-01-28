@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:44+0000\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -354,6 +354,14 @@ msgstr "选择聊天室"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Confirm Leaving Room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "确认离开房间"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -1023,63 +1031,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "忽略"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜索"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat 处于离线状态。请检查您的网络连接。"
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -3741,12 +3749,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4183,16 +4191,13 @@ msgid "Home"
 msgstr ""
 
 #: src/rooms/ExploreComponent.qml:37
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Direct Messages"
-msgstr "私聊"
+msgstr ""
 
 #: src/rooms/ExploreComponent.qml:41
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Rooms"
+#, kde-format
 msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "聊天室"
@@ -4210,18 +4215,16 @@ msgid "Home"
 msgstr ""
 
 #: src/rooms/ExploreComponentMobile.qml:41
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:button View all notifications for this account"
 msgid "Notifications"
-msgstr "通知"
+msgstr ""
 
 #: src/rooms/ExploreComponentMobile.qml:57
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgctxt "@action:button Open the account menu"
 msgid "Account"
-msgstr "账户"
+msgstr ""
 
 #: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
@@ -6869,19 +6872,16 @@ msgid "Add new room"
 msgstr "添加新房间"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove…"
-msgstr "移除"
+msgstr ""
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
-#, fuzzy, kde-format
-#| msgid "Suggested"
+#, kde-format
 msgctxt "@button"
 msgid "Don't Suggest"
-msgstr "建议"
+msgstr ""
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
@@ -6908,12 +6908,10 @@ msgid "Existing Room…"
 msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:80
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Invite user to space"
+#, kde-format
 msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
-msgstr "邀请用户加入空间"
+msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:92
 #, kde-format
@@ -6922,12 +6920,10 @@ msgid "Add to Space…"
 msgstr ""
 
 #: src/spaces/SpaceHomePage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create a Space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this Space…"
-msgstr "创建空间"
+msgstr ""
 
 #: src/timeline/DelegateContextMenu.qml:163
 #, kde-format
@@ -7239,12 +7235,3 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
-
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgid "Find your friends"
-#~ msgstr "查找好友"
-
-#~ msgid "Create New"
-#~ msgstr "新建"
