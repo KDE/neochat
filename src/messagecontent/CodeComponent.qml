@@ -28,9 +28,9 @@ QQC2.Control {
     required property NeochatRoomMember author
 
     /**
-     * @brief The timestamp of the message.
+     * @brief The timestamp of the event as a NeoChatDateTime.
      */
-    required property var time
+    required property NeoChatDateTime dateTime
 
     /**
      * @brief The display text of the message.
@@ -104,7 +104,7 @@ QQC2.Control {
                     id: repeater
                     model: LineModel {
                         id: lineModel
-                        document: codeText.textDocument
+                        Component.onCompleted: setDocument(codeText.textDocument)
                     }
                     delegate: QQC2.Label {
                         id: label
@@ -119,13 +119,6 @@ QQC2.Control {
                         font.family: "monospace"
                     }
                 }
-            }
-
-            TapHandler {
-                enabled: root.time.toString() !== "Invalid Date"
-                acceptedButtons: Qt.LeftButton
-                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
-                onTapped: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class)
             }
 
             TapHandler {
@@ -171,12 +164,12 @@ QQC2.Control {
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
         QQC2.Button {
-            visible: root.time.toString() !== "Invalid Date"
+            visible: root.dateTime.isValid
             icon.name: "view-fullscreen"
             text: i18nc("@action:button", "Maximize")
             display: QQC2.AbstractButton.IconOnly
 
-            onClicked: RoomManager.maximizeCode(root.author, root.time, root.display, root.componentAttributes.class);
+            onClicked: RoomManager.maximizeCode(root.author, root.dateTime, root.display, root.componentAttributes.class);
 
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered

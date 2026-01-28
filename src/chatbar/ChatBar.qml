@@ -412,7 +412,6 @@ QQC2.Control {
     Component {
         id: replyPane
         Item {
-            implicitWidth: replyComponent.implicitWidth
             implicitHeight: replyComponent.implicitHeight
             ReplyComponent {
                 id: replyComponent

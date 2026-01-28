@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -148,66 +148,66 @@ msgstr "केवलं स्वपरीक्षाणां कृते उ
 msgid "Share a URL to Matrix"
 msgstr "Matrix कृते URL साझां कुर्वन्तु"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:140 src/app/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "एन्क्रिप्टेड् सन्देशः"
 
-#: src/app/notificationsmanager.cpp:225
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:231
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "अस्मिन् कक्षे NeoChat उद्घाटयन्तु"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "उत्तरं"
 
-#: src/app/notificationsmanager.cpp:245
+#: src/app/notificationsmanager.cpp:244
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgid "Reply…"
 msgstr "उत्तरं"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:303
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 भवन्तं कक्षे आमन्त्रितवान्"
 
-#: src/app/notificationsmanager.cpp:309
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "NeoChat इत्यत्र एतत् आमन्त्रणं उद्घाटयन्तु"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:316
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "स्वीकरोतु"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "अस्वीकार"
 
-#: src/app/notificationsmanager.cpp:322
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "उपयोक्तारं अङ्गीकुर्वन्तु अवहेलयन्तु च"
 
-#: src/app/notificationsmanager.cpp:383
+#: src/app/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:394
+#: src/app/notificationsmanager.cpp:389
 #, kde-format
 msgid "Open NeoChat"
 msgstr "NeoChat उद्घाटयन्तु"
@@ -312,7 +312,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "प्रवेशं कुर्वन्तु अथवा नूतनं खातं रचयन्तु"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -366,6 +366,14 @@ msgstr "एकं कक्षं चिनुत"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Confirm Leaving Room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "कक्षं त्यक्त्वा गन्तुं पुष्टिं कुर्वन्तु"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -528,7 +536,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:inmenu Explore public rooms and spaces"
@@ -965,8 +973,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "इमोजी योजयतु"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1052,7 +1060,7 @@ msgid "No room found"
 msgstr "न स्थानं लब्धम्"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1090,46 +1098,46 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "उपेक्षा"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "एतत् कार्यं पूर्णं कर्तुं भवतः विशेषाधिकारः नास्ति"
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "अन्वेषण"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat अफलाइन अस्ति। कृपया स्वस्य संजालसंयोजनं पश्यन्तु।"
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Find messages…"
@@ -1137,21 +1145,21 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat इत्यत्र स्वागतम्"
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "आरम्भार्थं कक्षं चिनोतु वा सम्मिलितं कुर्वन्तु वा"
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1245,7 +1253,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "साझेदारी असफलम् अभवत्"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, fuzzy, kde-format
 #| msgid "Shared url for image is <a href='%1'>%1</a>"
 msgctxt "@info"
@@ -1876,18 +1884,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "विकृत अथवा रिक्त Matrix id<br /> %1 सम्यक् Matrix-परिचयः नास्ति"
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "कक्षं सम्मिलितुं असफलः अभवत्<br /> %1"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "भवान् '%1' इत्यत्र सम्मिलितुं प्रार्थितवान्।"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "सम्मिलितकक्षस्य अनुरोधं कर्तुं असफलः<br /> %1"
@@ -1978,7 +1986,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "सन्देशं प्रेषयन्तु..."
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3475,12 +3483,12 @@ msgstr "कक्षनिर्माणं विफलम्: %1"
 msgid "Space creation failed: %1"
 msgstr "अन्तरिक्षनिर्माणं विफलम्: %1"
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, kde-format
 msgid "Report sent successfully."
 msgstr "प्रतिवेदनं सफलतया प्रेषितम्।"
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3743,7 +3751,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr ""
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -3976,12 +3984,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "क्लिप्बोर्ड् प्रति प्रतिलिख्यताम्"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4450,48 +4458,63 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 विजेट् निष्कासितम्"
 
-#: src/rooms/ExploreComponent.qml:32
-#, kde-format
+#: src/rooms/ExploreComponent.qml:35
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "गृहम्‌"
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Find messages…"
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "सन्देशान् अन्वेष्टुम्..."
+
+#: src/rooms/ExploreComponent.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Rooms"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "कक्ष्याः"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: src/rooms/ExploreComponentMobile.qml:33
-#, kde-format
-msgid "Search"
-msgstr "अन्वेषण"
+#: src/rooms/ExploreComponentMobile.qml:34
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "गृहम्‌"
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
+#: src/rooms/ExploreComponentMobile.qml:41
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "अधिसूचना"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "मित्राणि अन्वेष्यताम्"
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "लेखा"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "New रचयतु"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgctxt "@action:button"
@@ -4665,6 +4688,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "मित्राणि अन्वेष्यताम्"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "मित्राणि अन्वेष्यताम्"
+
 #: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No friends found"
@@ -4727,7 +4756,7 @@ msgstr "%1 विस्तारयन्तु"
 msgid "View notifications"
 msgstr "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4736,14 +4765,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "सूचनां म्यूटं कुर्वन्तु"
 msgstr[1] "सूचनां म्यूटं कुर्वन्तु"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "गृहम्‌"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4752,27 +4781,27 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "सूचनाः पश्यन्तु"
 msgstr[1] "सूचनाः पश्यन्तु"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "सन्देशान् अन्वेष्टुम्..."
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1 सह सम्मिलितं कुर्वन्तु"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "New रचयतु"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4780,7 +4809,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "नवीनसमूहः..."
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -4789,12 +4818,19 @@ msgid "New Space…"
 msgstr "अन्तरिक्षं पश्यन्तु"
 
 #: src/rooms/SpaceListContextMenu.qml:44
+#, fuzzy, kde-format
+#| msgid "Mark as Read"
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Read इति चिह्नं कुर्वन्तु"
+
+#: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "अन्तरिक्षं पश्यन्तु"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Link Address"
@@ -4802,13 +4838,13 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "लिङ्क पता प्रतिलिपि कुर्वन्तु"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "स्पेस सेटिंग्स्"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4867,104 +4903,104 @@ msgstr "नामपत्र:"
 msgid "Work"
 msgstr "कार्यम्‌"
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "रक्ष्"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "समाभाष्"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, fuzzy, kde-format
 #| msgid "Your server doesn't support changing your password"
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "भवतः सर्वरः भवतः गुप्तशब्दस्य परिवर्तनस्य समर्थनं न करोति"
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, fuzzy, kde-format
 #| msgid "Current Password:"
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "वर्तमान गुप्तशब्दः :"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, fuzzy, kde-format
 #| msgid "New Password:"
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "नवीनः गुप्तशब्दः :"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "नूतनं गुप्तशब्दं पुष्टयन्तु:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, fuzzy, kde-format
 #| msgid "Passwords don't match"
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "गुप्तशब्दाः न मेलन्ति"
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "ईमेल पता"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "दूरभाषसङ्ख्याः"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "परिचयसर्वरः"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "सर्वर सूचना"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, kde-format
 msgid "Homeserver url"
 msgstr "होमसर्वर url"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "लेखा प्रबन्धन"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "खातं निष्क्रियं कुर्वन्तु"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "गुप्तशब्दः सफलतया परिवर्तितः"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Invalid passphrase"
@@ -4972,7 +5008,7 @@ msgctxt "@info"
 msgid "Invalid password"
 msgstr "अमान्यगुप्तवाक्यम्"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Unknown problem while trying to change password"
 msgctxt "@info"
@@ -7059,7 +7095,6 @@ msgid "Down"
 msgstr "अधः"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -7341,10 +7376,19 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "नूतनं कक्षं योजयन्तु"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
-#, kde-format
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
+#| msgid "Remove"
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Remove…"
+msgstr "अपाकरोति"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Don't Make Suggested"
+msgctxt "@button"
+msgid "Don't Suggest"
 msgstr "सुझातं मा कुरुत"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7377,16 +7421,18 @@ msgid "Existing Room…"
 msgstr "विद्यमानं कक्षं चिनोतु"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "उपयोक्तारं अन्तरिक्षं प्रति आमन्त्रयन्तु"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "प्रियं योजयतु"
 
 #: src/spaces/SpaceHomePage.qml:99
@@ -7394,7 +7440,7 @@ msgstr "प्रियं योजयतु"
 #| msgctxt "@action:button"
 #| msgid "Leave this space"
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "एतत् स्थानं त्यजतु"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7752,6 +7798,15 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
 
+#~ msgid "Search"
+#~ msgstr "अन्वेषण"
+
+#~ msgid "Find your friends"
+#~ msgstr "मित्राणि अन्वेष्यताम्"
+
+#~ msgid "Create New"
+#~ msgstr "New रचयतु"
+
 #, fuzzy
 #~| msgctxt "@action:button"
 #~| msgid "Show QR Code"
@@ -8103,11 +8158,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "लिङ्क पता प्रतिलिपि कुर्वन्तु"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgid "Remove…"
-#~ msgstr "अपाकरोति"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"

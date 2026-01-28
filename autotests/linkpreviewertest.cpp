@@ -19,13 +19,7 @@ class LinkPreviewerTest : public QObject
 {
     Q_OBJECT
 
-private:
-    Connection *connection = nullptr;
-    TestUtils::TestRoom *room = nullptr;
-
 private Q_SLOTS:
-    void initTestCase();
-
     void linkPreviewsMatch_data();
     void linkPreviewsMatch();
 
@@ -35,12 +29,6 @@ private Q_SLOTS:
     void linkPreviewsReject_data();
     void linkPreviewsReject();
 };
-
-void LinkPreviewerTest::initTestCase()
-{
-    connection = Connection::makeMockConnection(u"@bob:example.org"_s);
-    room = new TestUtils::TestRoom(connection, u"!test:example.org"_s);
-}
 
 void LinkPreviewerTest::linkPreviewsMatch_data()
 {

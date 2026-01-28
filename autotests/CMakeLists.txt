@@ -11,7 +11,7 @@ add_definitions(-DDATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data" )
 
 ecm_add_test(
     neochatroomtest.cpp
-    LINK_LIBRARIES neochat Qt::Test
+    LINK_LIBRARIES neochat Qt::Test Qt::HttpServer neochat_server
     TEST_NAME neochatroomtest
 )
 
@@ -41,7 +41,7 @@ ecm_add_test(
 
 ecm_add_test(
     chatbarcachetest.cpp
-    LINK_LIBRARIES neochat Qt::Test
+    LINK_LIBRARIES neochat Qt::Test Qt::HttpServer neochat_server
     TEST_NAME chatbarcachetest
 )
 
@@ -103,4 +103,10 @@ ecm_add_test(
     roommanagertest.cpp
     LINK_LIBRARIES neochat Qt::Test neochat_server
     TEST_NAME roommanagertest
+)
+
+ecm_add_test(
+    modeltest.cpp
+    LINK_LIBRARIES neochat Qt::Test neochat_server Devtools
+    TEST_NAME modeltest
 )

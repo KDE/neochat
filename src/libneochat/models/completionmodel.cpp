@@ -13,7 +13,7 @@
 
 CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_filterModel(new CompletionProxyModel())
+    , m_filterModel(new CompletionProxyModel(this))
     , m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     connect(this, &CompletionModel::textChanged, this, &CompletionModel::updateCompletion);

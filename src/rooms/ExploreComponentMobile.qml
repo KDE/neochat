@@ -29,63 +29,42 @@ Kirigami.NavigationTabBar {
 
     actions: [
         Kirigami.Action {
-            id: infoAction
-            text: i18n("Search")
-            icon.name: "search"
-            onTriggered: {
-                if (explorePopup.visible && explorePopupLoader.sourceComponent == search) {
-                    explorePopup.close();
-                    root.currentIndex = -1;
-                } else if (explorePopup.visible && explorePopupLoader.sourceComponent != search) {
-                    explorePopup.close();
-                    explorePopup.open();
-                } else {
-                    explorePopup.open();
-                }
-                explorePopupLoader.switchComponent(search);
-            }
+            id: homeAction
+
+            text: i18nc("@action:button The 'normal' view of NeoChat including the room list", "Home")
+            icon.name: "user-home-symbolic"
+            checked: true
         },
         Kirigami.Action {
-            text: i18nc("@action:inmenu Explore public rooms and spaces", "Explore")
-            icon.name: "compass"
+            id: notificationsAction
+
+            text: i18nc("@action:button View all notifications for this account", "Notifications")
+            icon.name: "notifications-symbolic"
+
             onTriggered: {
-                explorePopup.close();
-                let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ExploreRoomsPage'), {
-                    connection: root.connection
-                }, {});
-                dialog.roomSelected.connect((roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined) => {
-                    RoomManager.resolveResource(roomId.length > 0 ? roomId : alias, isJoined ? "" : "join");
-                });
-                root.currentIndex = -1;
-            }
-        },
-        Kirigami.Action {
-            text: i18n("Find your friends")
-            icon.name: "list-add-user"
-            onTriggered: {
-                explorePopup.close();
-                (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
+                (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
                     connection: root.connection
                 }, {
-                    title: i18nc("@title", "Find your friends")
-                });
-                root.currentIndex = -1;
+                    title: i18nc("@title", "Notifications"),
+                    modality: Qt.NonModal
+                })
+                homeAction.checked = true; // Reset back to Home
             }
         },
         Kirigami.Action {
-            text: i18n("Create New")
-            icon.name: "list-add"
+            id: accountAction
+
+            text: i18nc("@action:button Open the account menu", "Account")
+            icon.name: "im-user-symbolic"
+
             onTriggered: {
-                if (explorePopup.visible && explorePopupLoader.sourceComponent == create) {
-                    explorePopup.close();
-                    root.currentIndex = -1;
-                } else if (explorePopup.visible && explorePopupLoader.sourceComponent != create) {
-                    explorePopup.close();
-                    explorePopup.open();
-                } else {
-                    explorePopup.open();
-                }
-                explorePopupLoader.switchComponent(create);
+                accountMenu.popup(root.QQC2.Overlay.overlay);
+                homeAction.checked = true; // Reset back to Home
+            }
+
+            readonly property AccountMenu accountMenu: AccountMenu {
+                connection: root.connection
+                window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow
             }
         }
     ]

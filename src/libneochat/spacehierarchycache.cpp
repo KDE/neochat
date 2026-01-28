@@ -187,6 +187,21 @@ bool SpaceHierarchyCache::isChild(const QString &roomId) const
     return false;
 }
 
+bool SpaceHierarchyCache::spaceHasUnreadMessages(const QString &spaceId)
+{
+    auto children = m_spaceHierarchy[spaceId];
+
+    for (const auto &childId : children) {
+        if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
+            if (child->notificationCount() > 0) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 NeoChatConnection *SpaceHierarchyCache::connection() const
 {
     return m_connection;
@@ -237,6 +252,42 @@ void SpaceHierarchyCache::setRecommendedSpaceHidden(bool hidden)
     group.writeEntry(u"hidden"_s, hidden);
     group.sync();
     Q_EMIT recommendedSpaceHiddenChanged();
+}
+
+void SpaceHierarchyCache::markAllChildrenMessagesAsRead(const QString &spaceId)
+{
+    const auto children = m_spaceHierarchy[spaceId];
+
+    for (const auto &childId : children) {
+        if (const auto child = static_cast<NeoChatRoom *>(m_connection->room(childId))) {
+            if (child->notificationCount() <= 0) {
+                continue;
+            }
+
+            if (child->messageEvents().crbegin() == child->historyEdge()) {
+                if (!child->eventsHistoryJob()) {
+                    if (child->allHistoryLoaded()) {
+                        continue;
+                    }
+
+                    child->getPreviousContent();
+                }
+
+                connect(
+                    child,
+                    &NeoChatRoom::addedMessages,
+                    child,
+                    [child] {
+                        if (child->messageEvents().crbegin() != child->historyEdge()) {
+                            child->markAllMessagesAsRead();
+                        }
+                    },
+                    Qt::SingleShotConnection);
+            } else {
+                child->markAllMessagesAsRead();
+            }
+        }
+    }
 }
 
 #include "moc_spacehierarchycache.cpp"

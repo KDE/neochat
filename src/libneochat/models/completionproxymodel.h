@@ -26,6 +26,8 @@ class CompletionProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
+    using QSortFilterProxyModel::QSortFilterProxyModel;
+
     /**
      * @brief Wether a row should be shown or not.
      *

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 15:10+0200\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
+"PO-Revision-Date: 2026-01-25 08:08+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -149,65 +149,65 @@ msgstr "Використовують лише для автоматичного 
 msgid "Share a URL to Matrix"
 msgstr "Оприлюднити адресу у Matrix"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:140 src/app/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/app/notificationsmanager.cpp:225
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:231
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
-#: src/app/notificationsmanager.cpp:245
+#: src/app/notificationsmanager.cpp:244
 #, kde-format
 msgid "Reply…"
 msgstr "Відповісти…"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:303
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "Вас запрошено до кімнати %1"
 
-#: src/app/notificationsmanager.cpp:309
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Відкрити це запрошення у NeoChat"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:316
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Відмовити"
 
-#: src/app/notificationsmanager.cpp:322
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Відмовити та ігнорувати користувача"
 
-#: src/app/notificationsmanager.cpp:383
+#: src/app/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:394
+#: src/app/notificationsmanager.cpp:389
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Відкрити NeoChat"
@@ -302,7 +302,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "Увійдіть до облікового запису або створіть обліковий запис"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -354,6 +354,14 @@ msgstr "Виберіть кімнату"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Confirm Leaving Room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "Підтвердження виходу з кімнати"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -514,7 +522,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Створення кімнати"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
@@ -915,8 +923,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Додати варіант"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -995,7 +1003,7 @@ msgid "No room found"
 msgstr "Кімнати не знайдено"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -1034,39 +1042,39 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ігнорувати"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Долучитися до зустрічі Jitsi…"
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Розпочати зустріч Jitsi…"
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "У вас недостатні права доступу для започатковування зустрічей Jitsi"
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 "У цій кімнаті містяться офіційні повідомлення з вашого домашнього сервера."
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
@@ -1074,26 +1082,26 @@ msgstr ""
 "NeoChat поза мережею. Будь ласка, перевірте, чи працездатне з'єднання із "
 "інтернетом."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Пришпилені повідомлення"
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Вітаємо у NeoChat"
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Для початку, виберіть кімнату або долучіться до неї"
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1177,7 +1185,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "Не вдалося оприлюднити"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
@@ -1756,17 +1764,17 @@ msgstr ""
 "Помилково форматований або порожній ідентифікатор Matrix<br />%1 не є "
 "правильним ідентифікатором Matrix"
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Не вдалося долучитися до %1:<br />%2"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Ви надіслали запит щодо долучення до «%1»"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Не вдалося надіслати запит щодо долучення до кімнати<br />%1"
@@ -1849,7 +1857,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3325,12 +3333,12 @@ msgstr "Не вдалося створити кімнату: %1"
 msgid "Space creation failed: %1"
 msgstr "Не вдалося створити простір: %1"
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3577,7 +3585,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr "Продовжити у браузері"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -3810,12 +3818,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Скопіювати до буфера"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4266,47 +4274,55 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Вилучити віджет"
 
-#: src/rooms/ExploreComponent.qml:32
+#: src/rooms/ExploreComponent.qml:35
+#, kde-format
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "Домівка"
+
+#: src/rooms/ExploreComponent.qml:37
 #, kde-format
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Безпосередні повідомлення"
+
+#: src/rooms/ExploreComponent.qml:41
+#, kde-format
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Кімнати"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Шукати кімнати"
 
-#: src/rooms/ExploreComponentMobile.qml:33
+#: src/rooms/ExploreComponentMobile.qml:34
 #, kde-format
-msgid "Search"
-msgstr "Пошук"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "Домівка"
 
-#: src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponentMobile.qml:41
 #, kde-format
-msgid "Find your friends"
-msgstr "Знайдіть ваших друзів"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Сповіщення"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
+#: src/rooms/ExploreComponentMobile.qml:57
 #, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Знайдіть ваших друзів"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "Обліковий запис"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Створити"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Створити кімнату"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
@@ -4452,6 +4468,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Знайдіть ваших друзів"
+
 #: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgctxt "@info"
@@ -4507,7 +4529,7 @@ msgstr "Розгорнути %1"
 msgid "View notifications"
 msgstr "Переглянути сповіщення"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
@@ -4517,13 +4539,13 @@ msgstr[1] "Домівка (%1 сповіщення)"
 msgstr[2] "Домівка (%1 сповіщень)"
 msgstr[3] "Домівка (%1 сповіщення)"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Домівка"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4533,31 +4555,31 @@ msgstr[1] "Безпосередні повідомлення (%1 сповіще�
 msgstr[2] "Безпосередні повідомлення (%1 сповіщень)"
 msgstr[3] "Безпосередні повідомлення (%1 сповіщення)"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Безпосередні повідомлення"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Долучити до %1"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Створити"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Створити кімнату…"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -4565,23 +4587,29 @@ msgstr "Створити простір…"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Позначити простір як прочитаний"
+
+#: src/rooms/SpaceListContextMenu.qml:57
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Переглянути простір"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Скопіювати адресу простору"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Параметри простору"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -4636,103 +4664,103 @@ msgstr "Мітка:"
 msgid "Work"
 msgstr "Робота"
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Пароль"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "На вашому сервері не передбачено підтримки зміни вашого пароля"
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Поточний пароль:"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Новий пароль:"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Підтвердження нового пароля:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Паролі не збігаються"
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Адреси ел. пошти"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Номери телефонів"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Сервер профілів"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Інформація про сервер"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, kde-format
 msgid "Homeserver url"
 msgstr "Адреса домашнього сервера"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Керування обліковими записами"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Деактивувати обліковий запис…"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Пароль успішно змінено"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Некоректний пароль"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -6717,7 +6745,6 @@ msgid "Down"
 msgstr "Нижче"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -7017,10 +7044,16 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Додати нову кімнату"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove…"
+msgstr "Вилучити…"
+
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Don't Suggest"
 msgstr "Не пропонувати"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7049,20 +7082,20 @@ msgstr "Наявна кімната…"
 
 #: src/spaces/SpaceHomePage.qml:80
 #, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Запросити користувача до простору"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
+msgstr "Запросити до простору…"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, kde-format
 msgctxt "@button"
-msgid "Add to Space"
-msgstr "Додати до простору"
+msgid "Add to Space…"
+msgstr "Додати до простору…"
 
 #: src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Полишити цей простір…"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7382,6 +7415,15 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgid "Find your friends"
+#~ msgstr "Знайдіть ваших друзів"
+
+#~ msgid "Create New"
+#~ msgstr "Створити"
+
 #~ msgctxt "@action:intoolbar"
 #~ msgid "Show QR Code"
 #~ msgstr "Показати QR-код"
@@ -7696,9 +7738,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "Скопіювати адресу кімнати"
-
-#~ msgid "Remove…"
-#~ msgstr "Вилучити…"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"
@@ -8445,9 +8484,6 @@ msgstr[3] "%2 вводить текст…"
 
 #~ msgid "updated the database"
 #~ msgstr "оновлено базу даних"
-
-#~ msgid "Account"
-#~ msgstr "Обліковий запис"
 
 #~ msgid "Server error when joining the room \"%1\": %2"
 #~ msgstr "Помилка сервера під час спроби приєднатися до кімнати «%1»: %2"

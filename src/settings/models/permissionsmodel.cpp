@@ -190,7 +190,7 @@ QVariant PermissionsModel::data(const QModelIndex &index, int role) const
     }
 
     const auto permission = m_permissions.value(index.row());
-    if (role == NameRole) {
+    if (role == NameRole || role == Qt::DisplayRole) {
         if (permissionNames.keys().contains(permission)) {
             return permissionNames.value(permission).toString();
         }

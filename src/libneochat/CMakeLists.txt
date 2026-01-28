@@ -17,6 +17,7 @@ target_sources(LibNeoChat PRIVATE
     filetransferpseudojob.cpp
     filetype.cpp
     linkpreviewer.cpp
+    neochatdatetime.cpp
     roomlastmessageprovider.cpp
     spacehierarchycache.cpp
     texthandler.cpp

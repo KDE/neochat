@@ -20,9 +20,9 @@ Components.AbstractMaximizeComponent {
     property NeochatRoomMember author
 
     /**
-     * @brief The timestamp of the message.
+     * @brief The timestamp of the event as a NeoChatDateTime.
      */
-    property var time
+    required property NeoChatDateTime dateTime
 
     /**
      * @brief The code text to show.
@@ -64,7 +64,7 @@ Components.AbstractMaximizeComponent {
             }
             QQC2.Label {
                 id: dateTimeLabel
-                text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+                text: root.dateTime.relativeDateTime
                 color: Kirigami.Theme.disabledTextColor
                 elide: Text.ElideRight
             }
@@ -116,7 +116,7 @@ Components.AbstractMaximizeComponent {
                     id: repeater
                     model: LineModel {
                         id: lineModel
-                        document: codeText.textDocument
+                        Component.onCompleted: setDocument(codeText.textDocument)
                     }
                     delegate: QQC2.Label {
                         id: label

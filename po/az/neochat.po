@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -152,69 +152,69 @@ msgstr ""
 msgid "Share a URL to Matrix"
 msgstr ""
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:140 src/app/notificationsmanager.cpp:385
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/app/notificationsmanager.cpp:225
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:231
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Cavab"
 
-#: src/app/notificationsmanager.cpp:245
+#: src/app/notificationsmanager.cpp:244
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgid "Reply…"
 msgstr "Cavab"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:303
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/app/notificationsmanager.cpp:309
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Bu dəvəti NeoChat-da açın"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:316
 #, fuzzy, kde-format
 #| msgid "Accept"
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Qəbul etmək"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:317
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "İmtina etmək"
 
-#: src/app/notificationsmanager.cpp:322
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr ""
 
-#: src/app/notificationsmanager.cpp:383
+#: src/app/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:394
+#: src/app/notificationsmanager.cpp:389
 #, fuzzy, kde-format
 #| msgid "NeoChat"
 msgid "Open NeoChat"
@@ -320,7 +320,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "Bu hesaba düzəliş edin"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"
@@ -381,6 +381,13 @@ msgstr "Yerli faylı seçin"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "Otağı tənzimləmək"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, fuzzy, kde-format
@@ -559,7 +566,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Otaq yaratmaq"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:inmenu Explore public rooms and spaces"
@@ -1000,8 +1007,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Sözlüyə əlavə edin"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title"
@@ -1085,7 +1092,7 @@ msgid "No room found"
 msgstr "Otaqlar tapılmadı"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1126,45 +1133,45 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "İmtina"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat qoşulmayıb. Lütfən, şəbəkə bağlantısını yoxlayın."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
@@ -1172,21 +1179,21 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Matrix'ə xoş gəldiniz"
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1278,7 +1285,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "Paylaşılmadı"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, fuzzy, kde-format
 #| msgid "Shared url for image is <a href='%1'>%1</a>"
 msgctxt "@info"
@@ -1873,18 +1880,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1, düzgün Matrix identifikatoru deyil"
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join %1:<br />%2"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room<br />%1"
@@ -1975,7 +1982,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "İsmarıcı göndərin..."
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -3643,13 +3650,13 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3919,7 +3926,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr ""
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, fuzzy, kde-format
 #| msgid "Please wait. This might take a little while."
 msgid ""
@@ -4175,14 +4182,14 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İmtina"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy address to clipboard"
 msgid "Copy to clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4661,51 +4668,61 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 vidjet silindi"
 
-#: src/rooms/ExploreComponent.qml:32
+#: src/rooms/ExploreComponent.qml:35
+#, kde-format
+msgctxt "@title Home space"
+msgid "Home"
+msgstr ""
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Birbaşa İsmarıclar"
+
+#: src/rooms/ExploreComponent.qml:41
 #, fuzzy, kde-format
 #| msgid "Rooms"
-msgctxt "@title"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Otaqlar"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/rooms/ExploreComponentMobile.qml:33
+#: src/rooms/ExploreComponentMobile.qml:34
 #, kde-format
-msgid "Search"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
 msgstr ""
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr ""
-
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr ""
-
-#: src/rooms/ExploreComponentMobile.qml:76
+#: src/rooms/ExploreComponentMobile.qml:41
 #, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create New"
-msgstr "Otaqlar və məxfi söhbətlər:"
+#| msgid "Show notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Bildirişlərdə göstərmək"
 
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Account"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "İstifadəçi hesabı"
+
+#: src/rooms/ExploreComponentMobile.qml:122
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Otaq yaratmaq"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
@@ -4869,6 +4886,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr ""
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr ""
+
 #: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No rooms found"
@@ -4930,7 +4953,7 @@ msgstr "%1 üzərindən qadağa götürüldü"
 msgid "View notifications"
 msgstr "Bildirişlərdə göstərmək"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4939,13 +4962,13 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "Bildirişlərdə göstərmək"
 msgstr[1] "Bildirişlərdə göstərmək"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4954,28 +4977,28 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Bildirişlərdə göstərmək"
 msgstr[1] "Bildirişlərdə göstərmək"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, fuzzy, kde-format
 #| msgid "Join"
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Qoşulun"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Otaqlar və məxfi söhbətlər:"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4983,7 +5006,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Yeni Qrup…"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:button Create a new room"
@@ -4992,26 +5015,33 @@ msgstr "Mənbəyə nəzər salamaq"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, fuzzy, kde-format
+#| msgid "Mark as Read"
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Oxunmuş kimi işarələmək"
+
+#: src/rooms/SpaceListContextMenu.qml:57
+#, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Mənbəyə nəzər salamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopyalamaq"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Ayarlar"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "'Space' is a matrix space"
@@ -5073,14 +5103,14 @@ msgstr "Yarlıq:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Saxlayın"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Password"
@@ -5088,41 +5118,41 @@ msgctxt "@title:group"
 msgid "Password"
 msgstr "Şifrə"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, fuzzy, kde-format
 #| msgid "Current Password:"
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Cari şifrə:"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, fuzzy, kde-format
 #| msgid "New Password:"
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Yeni şifrə:"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, fuzzy, kde-format
 #| msgid "Confirm new Password:"
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Yeni şifrənin təsdiqi:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Şifrələr oxşar deyil"
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
@@ -5130,34 +5160,34 @@ msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "onların görünən adı silindi"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Üzvlər"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Əsas server:"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Otaq haqqında"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"
 msgstr "Əsas server:"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -5165,28 +5195,28 @@ msgctxt "@title:group"
 msgid "Account Management"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Hesaba düzəliş etmək"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Şifrə uğurla dəyişdirildi"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Şifrənizi daxil edin"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Unknown problem while trying to change password"
 msgctxt "@info"
@@ -7403,7 +7433,6 @@ msgid "Down"
 msgstr "Endirmək"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@button"
@@ -7698,10 +7727,17 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Yeni otağa baxın..."
 
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@button"
+msgid "Remove…"
+msgstr "Silmək"
+
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Don't Suggest"
 msgstr ""
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7735,22 +7771,22 @@ msgstr "Otaq tapmaq"
 #: src/spaces/SpaceHomePage.qml:80
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
-msgctxt "@button"
-msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "%1,sizi otağa dəvət etdi"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favourites"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "Seçilmişlərə əlavə etmək"
 
 #: src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Otaq yaratmaq"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -8114,6 +8150,11 @@ msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
 
 #, fuzzy
+#~| msgid "Rooms and private chats:"
+#~ msgid "Create New"
+#~ msgstr "Otaqlar və məxfi söhbətlər:"
+
+#, fuzzy
 #~| msgid "Video"
 #~ msgctxt "@action:intoolbar"
 #~ msgid "Show QR Code"
@@ -8418,11 +8459,6 @@ msgstr[1] "%2 yazırlar"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "Kopyalamaq"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgid "Remove…"
-#~ msgstr "Silmək"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"
@@ -9157,9 +9193,6 @@ msgstr[1] "%2 yazırlar"
 
 #~ msgid "updated the database"
 #~ msgstr "verilınlər bazası yeniləndi"
-
-#~ msgid "Account"
-#~ msgstr "İstifadəçi hesabı"
 
 #~ msgid "Server error when joining the room \"%1\": %2"
 #~ msgstr "Otağa qoşulma zamanı server xətası \"%1\": %2"

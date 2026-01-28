@@ -16,6 +16,7 @@
 #include "contentprovider.h"
 #include "eventhandler.h"
 #include "models/reactionmodel.h"
+#include "neochatdatetime.h"
 #include "neochatroom.h"
 #include "texthandler.h"
 
@@ -123,22 +124,13 @@ void EventMessageContentModel::initializeModel()
     resetModel();
 }
 
-QDateTime EventMessageContentModel::time() const
+NeoChatDateTime EventMessageContentModel::dateTime() const
 {
     const auto event = m_room->getEvent(m_eventId);
     if (event.first == nullptr) {
-        return MessageContentModel::time();
+        return MessageContentModel::dateTime();
     };
-    return EventHandler::time(m_room, event.first, m_currentState == Pending);
-}
-
-QString EventMessageContentModel::timeString() const
-{
-    const auto event = m_room->getEvent(m_eventId);
-    if (event.first == nullptr) {
-        return MessageContentModel::timeString();
-    };
-    return EventHandler::timeString(m_room, event.first, u"hh:mm"_s, m_currentState == Pending);
+    return EventHandler::dateTime(m_room, event.first, m_currentState == Pending);
 }
 
 QString EventMessageContentModel::authorId() const
@@ -254,12 +246,7 @@ void EventMessageContentModel::resetModel()
         return;
     }
 
-    m_components += MessageComponent{MessageComponentType::Author,
-                                     QString(),
-                                     {
-                                         {u"time"_s, EventHandler::time(m_room, event.first, m_currentState == Pending)},
-                                         {u"timeString"_s, EventHandler::timeString(m_room, event.first, u"hh:mm"_s, m_currentState == Pending)},
-                                     }};
+    m_components += MessageComponent{MessageComponentType::Author, {}, {}};
 
     m_components += messageContentComponents();
     endResetModel();

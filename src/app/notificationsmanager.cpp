@@ -38,7 +38,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::handleNotifications(QPointer<NeoChatConnection> connection)
+void NotificationsManager::handleNotifications(const QPointer<NeoChatConnection> &connection)
 {
     if (KNotificationPermission::checkPermission() == Qt::PermissionStatus::Granted) {
         startNotificationJob(connection);
@@ -68,7 +68,7 @@ void NotificationsManager::startNotificationJob(QPointer<NeoChatConnection> conn
     }
 }
 
-void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> connection, Quotient::GetNotificationsJob *job, bool initialization)
+void NotificationsManager::processNotificationJob(const QPointer<NeoChatConnection> &connection, const GetNotificationsJob *job, const bool initialization)
 {
     if (!job || !connection || !connection->isLoggedIn()) {
         return;
@@ -82,8 +82,7 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
             if (!m_initialTimestamp.contains(connectionId)) {
                 m_initialTimestamp[connectionId] = notification["ts"_L1].toVariant().toLongLong();
             } else {
-                qint64 timestamp = notification["ts"_L1].toVariant().toLongLong();
-                if (timestamp > m_initialTimestamp[connectionId]) {
+                if (const auto timestamp = notification["ts"_L1].toVariant().toLongLong(); timestamp > m_initialTimestamp[connectionId]) {
                     m_initialTimestamp[connectionId] = timestamp;
                 }
             }
@@ -160,29 +159,29 @@ void NotificationsManager::processNotificationJob(QPointer<NeoChatConnection> co
     }
 }
 
-bool NotificationsManager::shouldPostNotification(QPointer<NeoChatConnection> connection, const QJsonValue &notification)
+bool NotificationsManager::shouldPostNotification(const QPointer<NeoChatConnection> &connection, const QJsonValue &notification)
 {
     if (connection == nullptr || !connection->isLoggedIn()) {
         return false;
     }
 
-    auto room = connection->room(notification["room_id"_L1].toString());
+    const auto room = connection->room(notification["room_id"_L1].toString());
     if (room == nullptr) {
         return false;
     }
 
-    // If the room is the current room and the application is active the notification
+    // If the room is the current room and the application is active, the notification
     // should not be shown.
-    // This is setup so that if the application is inactive the notification will
+    // This is set up so that if the application is inactive, the notification will
     // always be posted, even if the room is the current room.
-    bool isCurrentRoom = RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id();
-    if (isCurrentRoom && QGuiApplication::applicationState() == Qt::ApplicationActive) {
+    if (RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
+        && QGuiApplication::applicationState() == Qt::ApplicationActive) {
         return false;
     }
 
-    // If the notification timestamp is earlier than the initial timestamp assume
+    // If the notification timestamp is earlier than the initial timestamp, assume
     // the notification is old and shouldn't be posted.
-    qint64 timestamp = notification["ts"_L1].toDouble();
+    const auto timestamp = notification["ts"_L1].toDouble();
     if (timestamp < m_initialTimestamp[connection->user()->id()]) {
         return false;
     }
@@ -199,7 +198,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
                                             const QString &text,
                                             const QImage &icon,
                                             const QString &replyEventId,
-                                            bool canReply,
+                                            const bool canReply,
                                             qint64 timestamp)
 {
     const QString roomId = room->id();
@@ -271,10 +270,8 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
     if (NeoChatConfig::rejectUnknownInvites()) {
         auto job = room->connection()->callApi<NeochatGetCommonRoomsJob>(roomMemberEvent->senderId());
         connect(job, &BaseJob::result, this, [this, job, room] {
-            QJsonObject replyData = job->jsonData();
-            if (replyData.contains(u"joined"_s)) {
-                const bool inAnyOfOurRooms = !replyData["joined"_L1].toArray().isEmpty();
-                if (inAnyOfOurRooms) {
+            if (QJsonObject replyData = job->jsonData(); replyData.contains(u"joined"_s)) {
+                if (!replyData["joined"_L1].toArray().isEmpty()) {
                     doPostInviteNotification(room);
                 } else {
                     room->forget();
@@ -286,7 +283,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *rawRoom)
     }
 }
 
-void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
+void NotificationsManager::doPostInviteNotification(const QPointer<NeoChatRoom> &room)
 {
     const auto roomMemberEvent = room->currentState().get<RoomMemberEvent>(room->localMember().id());
     if (roomMemberEvent == nullptr) {
@@ -295,18 +292,18 @@ void NotificationsManager::doPostInviteNotification(QPointer<NeoChatRoom> room)
     const auto sender = room->member(roomMemberEvent->senderId());
 
     QImage avatar_image;
-    if (roomMemberEvent && !room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
+    if (!room->member(roomMemberEvent->senderId()).avatarUrl().isEmpty()) {
         avatar_image = room->member(roomMemberEvent->senderId()).avatar(128, 128, {});
     } else {
         qWarning() << "using this room's avatar";
         avatar_image = room->avatar(128);
     }
 
-    KNotification *notification = new KNotification(u"invite"_s);
+    const auto notification = new KNotification(u"invite"_s);
     notification->setText(i18n("%1 invited you to a room", sender.htmlSafeDisplayName()));
     notification->setTitle(room->displayName());
     notification->setPixmap(createNotificationImage(avatar_image, nullptr));
-    auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
+    const auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         if (!room) {
             return;
@@ -367,11 +364,9 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
 {
     const auto json = QJsonDocument::fromJson(message).object();
 
-    const auto type = json["notification"_L1]["type"_L1].toString();
-
     // the only two types of push notifications we support right now
-    if (type == u"m.room.message"_s || type == u"m.room.encrypted"_s) {
-        auto notification = new KNotification("message"_L1);
+    if (const auto type = json["notification"_L1]["type"_L1].toString(); type == u"m.room.message"_s || type == u"m.room.encrypted"_s) {
+        const auto notification = new KNotification("message"_L1);
 
         const auto sender = json["notification"_L1]["sender_display_name"_L1].toString();
         const auto roomName = json["notification"_L1]["room_name"_L1].toString();
@@ -391,13 +386,13 @@ void NotificationsManager::postPushNotification(const QByteArray &message)
         }
 
 #ifdef HAVE_KIO
-        auto openAction = notification->addAction(i18n("Open NeoChat"));
+        const auto openAction = notification->addAction(i18n("Open NeoChat"));
         connect(openAction, &KNotificationAction::activated, notification, [=]() {
             QString properId = roomId;
             properId = properId.replace(u"#"_s, QString());
             properId = properId.replace(u"!"_s, QString());
 
-            auto *job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(u"org.kde.neochat"_s));
+            const auto job = new KIO::ApplicationLauncherJob(KService::serviceByDesktopName(u"org.kde.neochat"_s));
             job->setUrls({QUrl::fromUserInput(u"matrix:r/%1"_s.arg(properId))});
             job->start();
         });
@@ -428,13 +423,12 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
     painter.setBrush(Qt::white);
     painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
 
-    QBrush brush(icon.scaledToHeight(biggestDimension));
+    const QBrush brush(icon.scaledToHeight(biggestDimension));
     painter.setBrush(brush);
     painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
 
-    if (room != nullptr) {
-        const QImage roomAvatar = room->avatar(imageRect.width(), imageRect.height());
-        if (!roomAvatar.isNull() && icon != roomAvatar) {
+    if (room) {
+        if (const auto roomAvatar = room->avatar(imageRect.width(), imageRect.height()); !roomAvatar.isNull() && icon != roomAvatar) {
             const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
 
             painter.setBrush(Qt::white);

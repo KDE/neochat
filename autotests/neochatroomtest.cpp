@@ -9,6 +9,10 @@
 #include <Quotient/quotient_common.h>
 #include <Quotient/syncdata.h>
 
+#include <KLocalizedString>
+
+#include "accountmanager.h"
+#include "server.h"
 #include "testutils.h"
 
 using namespace Quotient;
@@ -18,7 +22,8 @@ class NeoChatRoomTest : public QObject {
 
 private:
     Connection *connection = nullptr;
-    TestUtils::TestRoom *room = nullptr;
+    NeoChatRoom *room = nullptr;
+    Server server;
 
 private Q_SLOTS:
     void initTestCase();
@@ -27,8 +32,27 @@ private Q_SLOTS:
 
 void NeoChatRoomTest::initTestCase()
 {
-    connection = Connection::makeMockConnection(u"@bob:kde.org"_s);
-    room = new TestUtils::TestRoom(connection, u"#myroom:kde.org"_s, u"test-min-sync.json"_s);
+    Connection::setRoomType<NeoChatRoom>();
+    server.start();
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("neochat"));
+    auto accountManager = new AccountManager(true, this);
+    QSignalSpy spy(accountManager, &AccountManager::connectionAdded);
+    connection = dynamic_cast<NeoChatConnection *>(accountManager->accounts()->front());
+
+    const auto roomId = server.createRoom(u"@user:localhost:1234"_s);
+    server.sendEvent(roomId,
+                     u"m.room.message"_s,
+                     QJsonObject{
+                         {u"body"_s, u"foo"_s},
+                         {u"msgtype"_s, u"m.text"_s},
+                     });
+
+    QSignalSpy syncSpy(connection, &Connection::syncDone);
+    // We need to wait for two syncs, as the next one won't have the changes yet
+    QVERIFY(syncSpy.wait());
+    QVERIFY(syncSpy.wait());
+    room = dynamic_cast<NeoChatRoom *>(connection->room(roomId));
+    QVERIFY(room);
 }
 
 void NeoChatRoomTest::eventTest()

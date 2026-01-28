@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
-"PO-Revision-Date: 2026-01-18 09:01+0100\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
+"PO-Revision-Date: 2026-01-25 07:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -149,65 +149,65 @@ msgstr "Se uporablja samo za avtotestiranja"
 msgid "Share a URL to Matrix"
 msgstr "Deli URL z Matrixom"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:140 src/app/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/app/notificationsmanager.cpp:225
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:231
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/app/notificationsmanager.cpp:245
+#: src/app/notificationsmanager.cpp:244
 #, kde-format
 msgid "Reply…"
 msgstr "Odgovori…"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:303
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vas je povabil v sobo"
 
-#: src/app/notificationsmanager.cpp:309
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Odprite to povabilo v NeoChat"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:316
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: src/app/notificationsmanager.cpp:322
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Zavrni in prezri uporabnika"
 
-#: src/app/notificationsmanager.cpp:383
+#: src/app/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:394
+#: src/app/notificationsmanager.cpp:389
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Odpri NeoChat"
@@ -302,7 +302,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "Prijavite se ali ustvarite nov račun"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -354,6 +354,14 @@ msgstr "Izberi sobo"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Confirm Leaving Room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "Potrdi zapuščanje sobe"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -513,7 +521,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Ustvari sobo"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, kde-format
 msgctxt "@action:inmenu Explore public rooms and spaces"
 msgid "Explore"
@@ -912,8 +920,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Dodaj možnost"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -992,7 +1000,7 @@ msgid "No room found"
 msgstr "Nobene sobe ni mogoče najti"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -1031,63 +1039,63 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Pridruži se Jitsi sestanku…"
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Začni Jitsi sestanek…"
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Nimate pravic za začetek Jitsi sestankov"
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Išči"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Ta soba vsebuje uradna sporočila vašega domačega strežnika."
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite vašo omrežno povezavo."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Pripeta sporočila"
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Dobrodošli v NeoChat"
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Izberi ali pridruži se sobi da začnete"
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1171,7 +1179,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "Deljenje ni uspelo"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, kde-format
 msgctxt "@info"
 msgid "Shared url for image is <a href='%1'>%1</a>"
@@ -1747,17 +1755,17 @@ msgstr ""
 "Napačno oblikovan ali prazen ID Matrixa<br />%1 ni pravilen določilnik za "
 "Matrix"
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Pridružitev %1 ni uspela:<br />%2"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev v »%1«"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neuspel zahtevek za pridružitev v sobo<br />%1"
@@ -1839,7 +1847,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3315,12 +3323,12 @@ msgstr "Ustvarjanje sobe ni uspelo: %1"
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Prijava uspešno poslana."
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3564,7 +3572,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr "Nadaljuj v brskalniku"
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -3797,12 +3805,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4251,47 +4259,55 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Odstrani gradnik"
 
-#: src/rooms/ExploreComponent.qml:32
+#: src/rooms/ExploreComponent.qml:35
+#, kde-format
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "Domov"
+
+#: src/rooms/ExploreComponent.qml:37
 #, kde-format
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Neposredna sporočila"
+
+#: src/rooms/ExploreComponent.qml:41
+#, kde-format
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Sobe"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Išči sobe"
 
-#: src/rooms/ExploreComponentMobile.qml:33
+#: src/rooms/ExploreComponentMobile.qml:34
 #, kde-format
-msgid "Search"
-msgstr "Išči"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "Domov"
 
-#: src/rooms/ExploreComponentMobile.qml:63
+#: src/rooms/ExploreComponentMobile.qml:41
 #, kde-format
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Obvestila"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
+#: src/rooms/ExploreComponentMobile.qml:57
 #, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Poišči vaše prijatelje"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "Račun"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Ustvari nov"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Ustvari sobo"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Space"
@@ -4437,6 +4453,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Poišči vaše prijatelje"
+
 #: src/rooms/RoomListPage.qml:216
 #, kde-format
 msgctxt "@info"
@@ -4493,7 +4515,7 @@ msgstr "Razširi %1"
 msgid "View notifications"
 msgstr "Prikaži obvestila"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
@@ -4503,13 +4525,13 @@ msgstr[1] "Domov (%1 obvestilo)"
 msgstr[2] "Domov (%1 obvestili)"
 msgstr[3] "Domov (%1 obvestila)"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Domov"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4519,31 +4541,31 @@ msgstr[1] "Neposredno sporočilo (%1 obvestilo)"
 msgstr[2] "Neposredni sporočili (%1 obvestili)"
 msgstr[3] "Neposredna sporočila (%1 obvestila)"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Neposredna sporočila"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pridruži se %1"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Ustvari"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Nova soba…"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -4551,23 +4573,29 @@ msgstr "Novi prostor…"
 
 #: src/rooms/SpaceListContextMenu.qml:44
 #, kde-format
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Označi prostor kot prebran"
+
+#: src/rooms/SpaceListContextMenu.qml:57
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Prikaži prostor"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopiraj naslov prostora"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Nastavitve prostora"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -4622,103 +4650,103 @@ msgstr "Oznaka:"
 msgid "Work"
 msgstr "Delo"
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Geslo"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Vaš strežnik ne podpira spremembe vašega gesla"
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Trenutno geslo:"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Novo geslo:"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Potrdi novo geslo:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Gesli se ne ujemata"
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Naslovi e-pošte"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonske številke"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Strežnik identifikacije"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Informacije o strežniku"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, kde-format
 msgid "Homeserver url"
 msgstr "Url domačega strežnika"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Upravljanje računa"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Deaktiviraj račun…"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Uspešno zamenjano geslo"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Neveljavno geslo"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -6686,7 +6714,6 @@ msgid "Down"
 msgstr "Dol"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -6973,11 +7000,17 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Dodaj novo sobo"
 
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, kde-format
+msgctxt "@button"
+msgid "Remove…"
+msgstr "Odstrani…"
+
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
 msgctxt "@button"
-msgid "Don't Make Suggested"
-msgstr "Ne naredi predlaganega"
+msgid "Don't Suggest"
+msgstr "Ne predlagaj"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
 #, kde-format
@@ -7005,20 +7038,20 @@ msgstr "Obstoječa soba…"
 
 #: src/spaces/SpaceHomePage.qml:80
 #, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
-msgstr "Povabite uporabnika v prostor"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
+msgstr "Povabite v prostor…"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, kde-format
 msgctxt "@button"
-msgid "Add to Space"
-msgstr "Dodaj v prostor"
+msgid "Add to Space…"
+msgstr "Dodaj v prostor…"
 
 #: src/spaces/SpaceHomePage.qml:99
 #, kde-format
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Zapusti ta prostor…"
 
 #: src/timeline/DelegateContextMenu.qml:163
@@ -7339,6 +7372,15 @@ msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
 
+#~ msgid "Search"
+#~ msgstr "Išči"
+
+#~ msgid "Find your friends"
+#~ msgstr "Poišči vaše prijatelje"
+
+#~ msgid "Create New"
+#~ msgstr "Ustvari nov"
+
 #~ msgctxt "@action:intoolbar"
 #~ msgid "Show QR Code"
 #~ msgstr "Prikaži kodo QR"
@@ -7643,9 +7685,6 @@ msgstr[3] "%2 tipkajo"
 #~ msgctxt "@action:inmenu"
 #~ msgid "Copy Room Address"
 #~ msgstr "Kopiraj naslov sobe"
-
-#~ msgid "Remove…"
-#~ msgstr "Odstrani…"
 
 #~ msgctxt "menu"
 #~ msgid "NeoChat"

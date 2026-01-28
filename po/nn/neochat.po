@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-19 00:43+0000\n"
+"POT-Creation-Date: 2026-01-28 00:44+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -148,65 +148,65 @@ msgstr "Berre brukt for automatiske testar"
 msgid "Share a URL to Matrix"
 msgstr "Del ei adresse på Matrix"
 
-#: src/app/notificationsmanager.cpp:141 src/app/notificationsmanager.cpp:390
+#: src/app/notificationsmanager.cpp:140 src/app/notificationsmanager.cpp:385
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Kryptert melding"
 
-#: src/app/notificationsmanager.cpp:225
+#: src/app/notificationsmanager.cpp:224
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/app/notificationsmanager.cpp:231
+#: src/app/notificationsmanager.cpp:230
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Opna NeoChat i dette rommet"
 
-#: src/app/notificationsmanager.cpp:244 src/timeline/QuickActions.qml:75
+#: src/app/notificationsmanager.cpp:243 src/timeline/QuickActions.qml:75
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
 
-#: src/app/notificationsmanager.cpp:245
+#: src/app/notificationsmanager.cpp:244
 #, fuzzy, kde-format
 msgid "Reply…"
 msgstr "Svar"
 
-#: src/app/notificationsmanager.cpp:306
+#: src/app/notificationsmanager.cpp:303
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 inviterte deg til eit rom"
 
-#: src/app/notificationsmanager.cpp:309
+#: src/app/notificationsmanager.cpp:306
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Opna invitasjonen i NeoChat"
 
-#: src/app/notificationsmanager.cpp:319
+#: src/app/notificationsmanager.cpp:316
 #, kde-format
 msgctxt "@action:button The thing being accepted is an invitation to chat"
 msgid "Accept"
 msgstr "Godta"
 
-#: src/app/notificationsmanager.cpp:320
+#: src/app/notificationsmanager.cpp:317
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject"
 msgstr "Avvis"
 
-#: src/app/notificationsmanager.cpp:322
+#: src/app/notificationsmanager.cpp:319
 #, kde-format
 msgctxt "@action:button The thing being rejected is an invitation to chat"
 msgid "Reject and Ignore User"
 msgstr "Avvis og ignorer brukaren"
 
-#: src/app/notificationsmanager.cpp:383
+#: src/app/notificationsmanager.cpp:378
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/app/notificationsmanager.cpp:394
+#: src/app/notificationsmanager.cpp:389
 #, kde-format
 msgid "Open NeoChat"
 msgstr "Opna NeoChat"
@@ -308,7 +308,7 @@ msgctxt "@info"
 msgid "Log in or create a new account"
 msgstr "Logg inn eller registrer ny konto"
 
-#: src/app/qml/AccountSwitchDialog.qml:65
+#: src/app/qml/AccountSwitchDialog.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
@@ -362,6 +362,14 @@ msgstr "Vel rom"
 msgctxt "@action"
 msgid "Copy to clipboard"
 msgstr "Kopier til utklippstavla"
+
+#: src/app/qml/ConfirmLeaveDialog.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Confirm Leaving Room"
+msgctxt "@title:dialog"
+msgid "Confirm Leaving Space"
+msgstr "Stadfest forlating av rom"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -527,7 +535,7 @@ msgctxt "@title"
 msgid "Create a Room"
 msgstr "Opprett rom"
 
-#: src/app/qml/GlobalMenu.qml:48 src/rooms/ExploreComponentMobile.qml:49
+#: src/app/qml/GlobalMenu.qml:48
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:inmenu Explore public rooms and spaces"
@@ -948,8 +956,8 @@ msgctxt "@action:button"
 msgid "Add option"
 msgstr "Legg til emoji"
 
-#: src/app/qml/NotificationsView.qml:20 src/rooms/SpaceDrawer.qml:71
-#: src/settings/RoomSettingsView.qml:82
+#: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
+#: src/rooms/SpaceDrawer.qml:72 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1035,7 +1043,7 @@ msgid "No room found"
 msgstr "Fann ikkje nokon rom"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:315
+#: src/rooms/SpaceDrawer.qml:318
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1073,67 +1081,67 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: src/app/qml/RoomPage.qml:93
+#: src/app/qml/RoomPage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:96
+#: src/app/qml/RoomPage.qml:98
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Du har ikkje løyve til å utføra denne handlinga"
 
-#: src/app/qml/RoomPage.qml:135 src/app/qml/UserDetailDialog.qml:183
+#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:183
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Søk"
 
-#: src/app/qml/RoomPage.qml:148
+#: src/app/qml/RoomPage.qml:150
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:159
+#: src/app/qml/RoomPage.qml:161
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat er fråkopla. Sjå til at du er kopla til nettet."
 
-#: src/app/qml/RoomPage.qml:219 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Finn meldingar …"
 
-#: src/app/qml/RoomPage.qml:291
+#: src/app/qml/RoomPage.qml:293
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Velkommen til NeoChat"
 
-#: src/app/qml/RoomPage.qml:292
+#: src/app/qml/RoomPage.qml:294
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Start ved å velja eller verta med i eit rom"
 
-#: src/app/qml/RoomPage.qml:353
+#: src/app/qml/RoomPage.qml:355
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1227,7 +1235,7 @@ msgctxt "@info:status"
 msgid "Sharing failed"
 msgstr "Feil ved deling"
 
-#: src/app/qml/ShareDialog.qml:58
+#: src/app/qml/ShareDialog.qml:59
 #, fuzzy, kde-format
 #| msgid "Shared url for image is <a href='%1'>%1</a>"
 msgctxt "@info"
@@ -1863,18 +1871,18 @@ msgstr ""
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
-#: src/app/roommanager.cpp:435
+#: src/app/roommanager.cpp:437
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Klarte ikkje verta med i rommet<br />%1"
 
-#: src/app/roommanager.cpp:459
+#: src/app/roommanager.cpp:461
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
-#: src/app/roommanager.cpp:463
+#: src/app/roommanager.cpp:465
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Klarte ikkje be om å få verta med i rommet<br />%1"
@@ -1964,7 +1972,7 @@ msgctxt "@placeholder"
 msgid "Send a message…"
 msgstr "Send ei melding …"
 
-#: src/chatbar/ChatBar.qml:432 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -3458,12 +3466,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/libneochat/neochatroom.cpp:1258
+#: src/libneochat/neochatroom.cpp:1260
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/libneochat/neochatroom.cpp:1623 src/libneochat/neochatroom.cpp:1631
+#: src/libneochat/neochatroom.cpp:1625 src/libneochat/neochatroom.cpp:1633
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3726,7 +3734,7 @@ msgctxt "@action:button"
 msgid "Continue in Browser"
 msgstr ""
 
-#: src/login/Loading.qml:16
+#: src/login/Loading.qml:17
 #, kde-format
 msgid ""
 "Please wait while your messages are loaded from the server. This might take "
@@ -3958,12 +3966,12 @@ msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/messagecontent/CodeComponent.qml:164
+#: src/messagecontent/CodeComponent.qml:157
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopier til utklippstavla"
 
-#: src/messagecontent/CodeComponent.qml:176
+#: src/messagecontent/CodeComponent.qml:169
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -4423,48 +4431,63 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "fjerna eit %1-element"
 
-#: src/rooms/ExploreComponent.qml:32
-#, kde-format
+#: src/rooms/ExploreComponent.qml:35
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@title Home space"
+msgid "Home"
+msgstr "Heim"
+
+#: src/rooms/ExploreComponent.qml:37
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
 msgctxt "@title"
+msgid "Direct Messages"
+msgstr "Direktemeldingar"
+
+#: src/rooms/ExploreComponent.qml:41
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Rooms"
+msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Rom"
 
-#: src/rooms/ExploreComponent.qml:44
+#: src/rooms/ExploreComponent.qml:54
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Søk i rom"
 
-#: src/rooms/ExploreComponentMobile.qml:33
-#, kde-format
-msgid "Search"
-msgstr "Søk"
+#: src/rooms/ExploreComponentMobile.qml:34
+#, fuzzy, kde-format
+#| msgid "Home"
+msgctxt "@action:button The 'normal' view of NeoChat including the room list"
+msgid "Home"
+msgstr "Heim"
 
-#: src/rooms/ExploreComponentMobile.qml:63
-#, kde-format
-msgid "Find your friends"
-msgstr "Finn vennane dine"
+#: src/rooms/ExploreComponentMobile.qml:41
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "@action:button View all notifications for this account"
+msgid "Notifications"
+msgstr "Varslingar"
 
-#: src/rooms/ExploreComponentMobile.qml:70 src/rooms/RoomListPage.qml:190
-#: src/rooms/RoomListPage.qml:244
-#, kde-format
-msgctxt "@title"
-msgid "Find your friends"
-msgstr "Finn vennane dine"
+#: src/rooms/ExploreComponentMobile.qml:57
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgctxt "@action:button Open the account menu"
+msgid "Account"
+msgstr "Kontoar"
 
-#: src/rooms/ExploreComponentMobile.qml:76
-#, kde-format
-msgid "Create New"
-msgstr "Lag ny"
-
-#: src/rooms/ExploreComponentMobile.qml:143
+#: src/rooms/ExploreComponentMobile.qml:122
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Room"
 msgstr "Opprett rom"
 
-#: src/rooms/ExploreComponentMobile.qml:159
+#: src/rooms/ExploreComponentMobile.qml:138
 #, fuzzy, kde-format
 #| msgid "Create a Space"
 msgctxt "@action:button"
@@ -4635,6 +4658,12 @@ msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Finn vennane dine"
 
+#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#, kde-format
+msgctxt "@title"
+msgid "Find your friends"
+msgstr "Finn vennane dine"
+
 #: src/rooms/RoomListPage.qml:216
 #, fuzzy, kde-format
 #| msgid "No friends found"
@@ -4699,7 +4728,7 @@ msgstr "Utvid %1"
 msgid "View notifications"
 msgstr "Vis varslingar"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4708,14 +4737,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "Fjern varslingsdemping"
 msgstr[1] "Fjern varslingsdemping"
 
-#: src/rooms/SpaceDrawer.qml:93
+#: src/rooms/SpaceDrawer.qml:96
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Heim"
 
-#: src/rooms/SpaceDrawer.qml:144
+#: src/rooms/SpaceDrawer.qml:147
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4724,26 +4753,26 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Vis varslingar"
 msgstr[1] "Vis varslingar"
 
-#: src/rooms/SpaceDrawer.qml:147
+#: src/rooms/SpaceDrawer.qml:150
 #, fuzzy, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Finn meldingar …"
 
-#: src/rooms/SpaceDrawer.qml:229
+#: src/rooms/SpaceDrawer.qml:232
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Vert med i %1"
 
-#: src/rooms/SpaceDrawer.qml:273
+#: src/rooms/SpaceDrawer.qml:276
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Lag ny"
 
-#: src/rooms/SpaceDrawer.qml:287
+#: src/rooms/SpaceDrawer.qml:290
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4751,7 +4780,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Ny gruppe …"
 
-#: src/rooms/SpaceDrawer.qml:298
+#: src/rooms/SpaceDrawer.qml:301
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -4760,24 +4789,31 @@ msgid "New Space…"
 msgstr "Vis område"
 
 #: src/rooms/SpaceListContextMenu.qml:44
+#, fuzzy, kde-format
+#| msgid "Mark as Read"
+msgctxt "@action:inmenu"
+msgid "Mark Space as Read"
+msgstr "Merk som lese"
+
+#: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Vis område"
 
-#: src/rooms/SpaceListContextMenu.qml:50
+#: src/rooms/SpaceListContextMenu.qml:63
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Kopier lenkje"
 
-#: src/rooms/SpaceListContextMenu.qml:60 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Område­innstillingar"
 
-#: src/rooms/SpaceListContextMenu.qml:72
+#: src/rooms/SpaceListContextMenu.qml:85
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Leave Space"
@@ -4835,104 +4871,104 @@ msgstr "Merkelapp:"
 msgid "Work"
 msgstr "Arbeid"
 
-#: src/settings/AccountEditorPage.qml:141
-#: src/settings/AccountEditorPage.qml:197
+#: src/settings/AccountEditorPage.qml:138
+#: src/settings/AccountEditorPage.qml:194
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:155
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Passord"
 
-#: src/settings/AccountEditorPage.qml:163
+#: src/settings/AccountEditorPage.qml:160
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Tenaren støttar ikkje endring av passord"
 
-#: src/settings/AccountEditorPage.qml:170
+#: src/settings/AccountEditorPage.qml:167
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Gjeldande passord:"
 
-#: src/settings/AccountEditorPage.qml:177
+#: src/settings/AccountEditorPage.qml:174
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nytt passord:"
 
-#: src/settings/AccountEditorPage.qml:184
+#: src/settings/AccountEditorPage.qml:181
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Stadfest passord:"
 
-#: src/settings/AccountEditorPage.qml:189
+#: src/settings/AccountEditorPage.qml:186
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Passorda er ikkje like"
 
-#: src/settings/AccountEditorPage.qml:209
+#: src/settings/AccountEditorPage.qml:206
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
-#: src/settings/AccountEditorPage.qml:215
+#: src/settings/AccountEditorPage.qml:212
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonnummer"
 
-#: src/settings/AccountEditorPage.qml:220
+#: src/settings/AccountEditorPage.qml:217
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitetstenar"
 
-#: src/settings/AccountEditorPage.qml:229
+#: src/settings/AccountEditorPage.qml:226
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Tenarinformasjon"
 
-#: src/settings/AccountEditorPage.qml:233
+#: src/settings/AccountEditorPage.qml:230
 #, kde-format
 msgid "Homeserver url"
 msgstr "Adresse til heimetenar"
 
-#: src/settings/AccountEditorPage.qml:254
+#: src/settings/AccountEditorPage.qml:251
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Kontohandsaming"
 
-#: src/settings/AccountEditorPage.qml:259
+#: src/settings/AccountEditorPage.qml:256
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Deaktiver konto"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:273
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Passordet er no endra"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Ugyldig passfrase"
 
-#: src/settings/AccountEditorPage.qml:282
+#: src/settings/AccountEditorPage.qml:279
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7006,7 +7042,6 @@ msgid "Down"
 msgstr "Last ned"
 
 #: src/settings/RoomSortParameterDialog.qml:97
-#: src/spaces/SpaceHierarchyDelegate.qml:123
 #, kde-format
 msgctxt "@button"
 msgid "Remove"
@@ -7292,10 +7327,18 @@ msgctxt "@button"
 msgid "Add new room"
 msgstr "Legg til nytt rom"
 
-#: src/spaces/SpaceHierarchyDelegate.qml:143
-#, kde-format
+#: src/spaces/SpaceHierarchyDelegate.qml:123
+#, fuzzy, kde-format
 msgctxt "@button"
-msgid "Don't Make Suggested"
+msgid "Remove…"
+msgstr "Fjern"
+
+#: src/spaces/SpaceHierarchyDelegate.qml:143
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Don't Make Suggested"
+msgctxt "@button"
+msgid "Don't Suggest"
 msgstr "Ikkje gjer til føreslått"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
@@ -7328,22 +7371,24 @@ msgid "Existing Room…"
 msgstr "Vel eit rom"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, kde-format
-msgctxt "@button"
-msgid "Invite user to space"
+#, fuzzy, kde-format
+#| msgctxt "@button"
+#| msgid "Invite user to space"
+msgctxt "@button Invite user to this space"
+msgid "Invite to Space…"
 msgstr "Inviter brukar til området"
 
 #: src/spaces/SpaceHomePage.qml:92
 #, fuzzy, kde-format
 #| msgid "Add to Favorites"
 msgctxt "@button"
-msgid "Add to Space"
+msgid "Add to Space…"
 msgstr "Legg til favorittar"
 
 #: src/spaces/SpaceHomePage.qml:99
 #, fuzzy, kde-format
 msgctxt "@action:button"
-msgid "Leave this space…"
+msgid "Leave this Space…"
 msgstr "Forlat området"
 
 #: src/timeline/DelegateContextMenu.qml:163

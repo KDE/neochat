@@ -41,6 +41,19 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     QQC2.Action {
+        text: i18nc("@action:inmenu", "Mark Space as Read")
+        icon.name: "checkmark"
+        enabled: root.room.spaceHasUnreadMessages
+        onTriggered: {
+            root.room.markAllChildrenMessagesAsRead();
+        }
+    }
+
+    Kirigami.Action {
+        separator: true
+    }
+
+    QQC2.Action {
         text: i18nc("'Space' is a matrix space", "View Space")
         icon.name: "view-list-details"
         onTriggered: RoomManager.resolveResource(root.room.id)

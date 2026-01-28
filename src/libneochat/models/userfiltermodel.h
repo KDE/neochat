@@ -27,6 +27,8 @@ class UserFilterModel : public QSortFilterProxyModel
     Q_PROPERTY(bool allowEmpty READ allowEmpty WRITE setAllowEmpty NOTIFY allowEmptyChanged)
 
 public:
+    using QSortFilterProxyModel::QSortFilterProxyModel;
+
     /**
      * @brief Custom filter function checking boith the display name and matrix ID.
      *

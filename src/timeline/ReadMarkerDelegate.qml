@@ -13,6 +13,11 @@ import org.kde.neochat
 TimelineDelegate {
     id: root
 
+    /**
+     * @brief The timestamp of the event as a NeoChatDateTime.
+     */
+    required property NeoChatDateTime dateTime
+
     property bool isTemporaryHighlighted: false
     onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
         temporaryHighlightTimer.start();
@@ -39,7 +44,7 @@ TimelineDelegate {
         }
 
         contentItem: QQC2.Label {
-            text: i18nc("Relative time since the room was last read", "Last read: %1", time)
+            text: i18nc("Relative time since the room was last read", "Last read: %1", root.dateTime.relativeDateTime)
         }
 
         background: Kirigami.ShadowedRectangle {

@@ -18,6 +18,7 @@ class StateFilterModel : public QSortFilterProxyModel
     QML_ELEMENT
 
 public:
+    using QSortFilterProxyModel::QSortFilterProxyModel;
     /**
      * @brief Custom filter function checking if an event type has been filtered out.
      *

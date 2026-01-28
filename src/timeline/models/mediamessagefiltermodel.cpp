@@ -7,6 +7,7 @@
 #include <Quotient/room.h>
 
 #include "messagefiltermodel.h"
+#include "neochatdatetime.h"
 #include "timelinemessagemodel.h"
 
 using namespace Qt::StringLiterals;
@@ -34,8 +35,9 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
     // We need to catch this one and return true if the next media object was
     // on a different day.
     if (role == TimelineMessageModel::ShowSectionRole) {
-        const auto day = mapToSource(index).data(TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date();
-        const auto previousEventDay = mapToSource(this->index(index.row() + 1, 0)).data(TimelineMessageModel::TimeRole).toDateTime().toLocalTime().date();
+        const auto day = mapToSource(index).data(TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date();
+        const auto previousEventDay =
+            mapToSource(this->index(index.row() + 1, 0)).data(TimelineMessageModel::DateTimeRole).value<NeoChatDateTime>().dateTime().toLocalTime().date();
         return day != previousEventDay;
     }
 
@@ -75,7 +77,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
 {
-    auto roles = sourceModel()->roleNames();
+    auto roles = sourceModel() ? sourceModel()->roleNames() : QHash<int, QByteArray>();
     roles[SourceRole] = "source";
     roles[TempSourceRole] = "tempSource";
     roles[TypeRole] = "type";

@@ -23,6 +23,7 @@
 #include "models/timelinemodel.h"
 #include "models/userlistmodel.h"
 #include "models/widgetmodel.h"
+#include "neochatdatetime.h"
 #include "neochatroommember.h"
 
 class NeoChatRoom;
@@ -218,7 +219,7 @@ public:
      */
     Q_INVOKABLE void maximizeMedia(const QString &eventId);
 
-    Q_INVOKABLE void maximizeCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language);
+    Q_INVOKABLE void maximizeCode(NeochatRoomMember *author, const NeoChatDateTime &time, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay currently open closes.
@@ -292,7 +293,7 @@ Q_SIGNALS:
     /**
      * @brief Request a block of code is shown maximized.
      */
-    void showMaximizedCode(NeochatRoomMember *author, const QDateTime &time, const QString &codeText, const QString &language);
+    void showMaximizedCode(NeochatRoomMember *author, const NeoChatDateTime &dateTime, const QString &codeText, const QString &language);
 
     /**
      * @brief Request that any full screen overlay closes.

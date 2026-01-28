@@ -157,12 +157,14 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         if (isSpace()) {
             Q_EMIT childrenNotificationCountChanged();
             Q_EMIT childrenHaveHighlightNotificationsChanged();
+            Q_EMIT spaceHasUnreadMessagesChanged();
         }
     });
     connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceNotificationCountChanged, this, [this](const QStringList &spaces) {
         if (spaces.contains(id())) {
             Q_EMIT childrenNotificationCountChanged();
             Q_EMIT childrenHaveHighlightNotificationsChanged();
+            Q_EMIT spaceHasUnreadMessagesChanged();
         }
     });
 
@@ -188,13 +190,15 @@ void NeoChatRoom::setVisible(bool visible)
 
 int NeoChatRoom::contextAwareNotificationCount() const
 {
-    // DOn't include spaces, rooms that the user hasn't joined and rooms where the user has joined the successor.
+    // Don't include spaces, rooms that the user hasn't joined and rooms where the user has joined the successor.
     if (isSpace() || joinState() != JoinState::Join || successor(JoinState::Join) != nullptr) {
         return 0;
     }
     if (m_currentPushNotificationState == PushNotificationState::Mute) {
         return 0;
     }
+    // There is (currently) no association between our highlight count and the associated push rule,
+    // so we need this check here otherwise everything appears out-of-sync.
     if (m_currentPushNotificationState == PushNotificationState::MentionKeyword || isLowPriority()) {
         return int(highlightCount());
     }
@@ -1905,5 +1909,21 @@ void NeoChatRoom::invalidateLastUnreadHighlightId(const QString &fromEventId, co
         Q_EMIT highlightCycleStartedChanged();
     }
 }
+
+bool NeoChatRoom::spaceHasUnreadMessages() const
+{
+    if (!isSpace()) {
+        return false;
+    }
+
+    return SpaceHierarchyCache::instance().spaceHasUnreadMessages(id());
+}
+
+void NeoChatRoom::markAllChildrenMessagesAsRead()
+{
+    if (isSpace()) {
+        SpaceHierarchyCache::instance().markAllChildrenMessagesAsRead(id());
+    }
+};
 
 #include "moc_neochatroom.cpp"

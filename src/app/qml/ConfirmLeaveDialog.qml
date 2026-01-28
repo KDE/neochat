@@ -13,7 +13,7 @@ Kirigami.PromptDialog {
 
     required property NeoChatRoom room
 
-    title: i18nc("@title:dialog", "Confirm Leaving Room")
+    title: root.room.isSpace ? i18nc("@title:dialog", "Confirm Leaving Space") : i18nc("@title:dialog", "Confirm Leaving Room")
     subtitle: root.room ? i18nc("Do you really want to leave <room name>?", "Do you really want to leave %1?", root.room.displayNameForHtml) : ""
     dialogType: Kirigami.PromptDialog.Warning
 

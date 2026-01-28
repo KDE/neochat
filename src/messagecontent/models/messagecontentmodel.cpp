@@ -10,6 +10,7 @@
 #include "chatbarcache.h"
 #include "contentprovider.h"
 #include "neochatconnection.h"
+#include "neochatdatetime.h"
 #include "texthandler.h"
 
 using namespace Quotient;
@@ -79,14 +80,9 @@ QString MessageContentModel::eventId() const
     return m_eventId;
 }
 
-QDateTime MessageContentModel::time() const
+NeoChatDateTime MessageContentModel::dateTime() const
 {
     return QDateTime::currentDateTime();
-}
-
-QString MessageContentModel::timeString() const
-{
-    return time().toLocalTime().toString(u"hh:mm"_s);
 }
 
 QString MessageContentModel::authorId() const
@@ -136,11 +132,8 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
     if (role == EventIdRole) {
         return eventId();
     }
-    if (role == TimeRole) {
-        return time();
-    }
-    if (role == TimeStringRole) {
-        return timeString();
+    if (role == DateTimeRole) {
+        return QVariant::fromValue(dateTime());
     }
     if (role == AuthorRole) {
         return QVariant::fromValue<NeochatRoomMember *>(author());
@@ -199,8 +192,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ComponentTypeRole] = "componentType";
     roles[MessageContentModel::ComponentAttributesRole] = "componentAttributes";
     roles[MessageContentModel::EventIdRole] = "eventId";
-    roles[MessageContentModel::TimeRole] = "time";
-    roles[MessageContentModel::TimeStringRole] = "timeString";
+    roles[MessageContentModel::DateTimeRole] = "dateTime";
     roles[MessageContentModel::AuthorRole] = "author";
     roles[MessageContentModel::FileTransferInfoRole] = "fileTransferInfo";
     roles[MessageContentModel::ItineraryModelRole] = "itineraryModel";
