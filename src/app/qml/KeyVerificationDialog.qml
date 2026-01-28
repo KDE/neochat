@@ -29,7 +29,7 @@ Kirigami.Page {
         },
         State {
             name: "waitingForVerification"
-            when: root.session.state === KeyVerificationSession.TRANSITIONED && root.session.sasState === KeyVerificationSession.KEYSEXCHANGED
+            when: root.session.state === KeyVerificationSession.TRANSITIONED && root.session.sasState === KeyVerificationSession.SASKEYSEXCHANGED
             PropertyChanges {
                 stateLoader.sourceComponent: emojiSas
             }
@@ -86,7 +86,7 @@ Kirigami.Page {
         },
         State {
             name: "confirmed"
-            when: root.session.state === KeyVerificationSession.TRANSITIONED && root.session.sasState === KeyVerificationSession.CONFIRMED
+            when: root.session.state === KeyVerificationSession.TRANSITIONED && root.session.sasState === KeyVerificationSession.SASCONFIRMED
             PropertyChanges {
                 stateLoader.sourceComponent: message
             }
@@ -150,7 +150,7 @@ Kirigami.Page {
                 case KeyVerificationSession.DONE:
                     return "security-high";
                 case KeyVerificationSession.TRANSITIONED: {
-                    if (root.session.sasState === KeyVerificationSession.CONFIRMED) {
+                    if (root.session.sasState === KeyVerificationSession.SASCONFIRMED) {
                         return "security-high";
                     }
                     if (root.session.sasState === KeyVerificationSession.SASDONE) {
@@ -186,7 +186,7 @@ Kirigami.Page {
                     }
                 }
                 case KeyVerificationSession.TRANSITIONED: {
-                    if (root.session.sasState === KeyVerificationSession.CONFIRMED) {
+                    if (root.session.sasState === KeyVerificationSession.SASCONFIRMED) {
                         return i18nc("@info", "Waiting for remote party to confirm verification");
                     }
                     if (root.session.sasState === KeyVerificationSession.SASDONE) {
