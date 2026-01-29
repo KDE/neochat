@@ -19,7 +19,7 @@ Kirigami.Page {
 
     property bool showExisting: false
     property bool _showExisting: showExisting && root.currentStepString === root.initialStep
-    property bool showSettings: true
+    property bool showSettings: _showExisting
     property alias currentStep: module.item
     property string currentStepString: initialStep
     property string initialStep: "LoginRegister"
@@ -245,6 +245,7 @@ Kirigami.Page {
                 }
 
                 FormCard.FormDelegateSeparator {
+                    above: null // Set this manually so KA doesn't decide to pick another unrelated delegate
                     below: continueButton
                     visible: (root.currentStep as LoginStep).nextAction
                 }
@@ -254,27 +255,30 @@ Kirigami.Page {
                     text: (root.currentStep as LoginStep).nextAction && (root.currentStep as LoginStep).nextAction.text ? (root.currentStep as LoginStep).nextAction.text : i18nc("@action:button", "Continue")
                     visible: (root.currentStep as LoginStep).nextAction
                     onClicked: (root.currentStep as LoginStep).nextAction.trigger()
-                    icon.name: "arrow-right-symbolic"
                     enabled: (root.currentStep as LoginStep).nextAction ? (root.currentStep as LoginStep).nextAction.enabled : false
-                }
-
-                FormCard.FormButtonDelegate {
-                    text: i18nc("@action:button", "Go back")
-                    visible: (root.currentStep as LoginStep).previousAction
-                    onClicked: (root.currentStep as LoginStep).previousAction.trigger()
-                    icon.name: "arrow-left-symbolic"
-                    enabled: (root.currentStep as LoginStep).previousAction ? (root.currentStep as LoginStep).previousAction.enabled : false
                 }
             }
 
             FormCard.FormCard {
                 Layout.topMargin: Kirigami.Units.largeSpacing * 2
                 maximumWidth: Kirigami.Units.gridUnit * 20
-                visible: root.showSettings
+                visible: root.showSettings || previousButtonDelegate.visible
+
                 FormCard.FormButtonDelegate {
                     text: i18nc("@action:button", "Settings")
                     icon.name: "settings-configure"
+                    visible: root.showSettings
                     onClicked: NeoChatSettingsView.open()
+                }
+
+                FormCard.FormButtonDelegate {
+                    id: previousButtonDelegate
+
+                    text: i18nc("@action:button", "Go Back")
+                    visible: (root.currentStep as LoginStep).previousAction
+                    onClicked: (root.currentStep as LoginStep).previousAction.trigger()
+                    enabled: (root.currentStep as LoginStep).previousAction ? (root.currentStep as LoginStep).previousAction.enabled : false
+                    trailingLogo.direction: Qt.LeftArrow
                 }
             }
         }

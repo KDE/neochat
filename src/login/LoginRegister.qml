@@ -21,6 +21,7 @@ LoginStep {
 
     FormCard.FormButtonDelegate {
         id: loginButton
+        icon.name: "user-symbolic"
         text: i18nc("@action:button", "Login")
         onClicked: root.processed("Login")
     }
@@ -28,6 +29,7 @@ LoginStep {
     FormCard.FormDelegateSeparator {}
 
     FormCard.FormButtonDelegate {
+        icon.name: "network-server-symbolic"
         text: i18nc("@action:button", "Register")
         onClicked: root.processed("Homeserver")
     }
