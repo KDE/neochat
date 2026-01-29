@@ -6,7 +6,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
-import org.kde.coreaddons
 
 import org.kde.neochat
 
@@ -32,7 +31,11 @@ RowLayout {
      */
     required property NeoChatDateTime dateTime
 
+    Layout.fillWidth: true
+    Layout.maximumWidth: Message.maxContentWidth
+
     implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
+    spacing: Kirigami.Units.mediumSpacing
 
     QQC2.Label {
         id: nameButton
@@ -73,11 +76,11 @@ RowLayout {
     }
     QQC2.Label {
         id: timeLabel
-        
+
         text: root.dateTime.shortRelativeDateTime
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
-        
+
         QQC2.ToolTip.visible: timeHoverHandler.hovered
         QQC2.ToolTip.text: root.dateTime.longDateTime
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -86,4 +89,9 @@ RowLayout {
             id: timeHoverHandler
         }
     }
+    
+    Item {
+        Layout.fillWidth: true
+    }
+
 }
