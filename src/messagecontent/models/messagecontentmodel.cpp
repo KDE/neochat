@@ -67,7 +67,7 @@ void MessageContentModel::setRoom(NeoChatRoom *room)
         m_room->disconnect(this);
     }
 
-    m_room = room;
+    const auto oldRoom = std::exchange(m_room, room);
 
     if (m_room) {
         connect(m_room, &NeoChatRoom::newFileTransfer, this, [this](const QString &eventId) {
@@ -103,7 +103,7 @@ void MessageContentModel::setRoom(NeoChatRoom *room)
         connect(m_room, &NeoChatRoom::urlPreviewEnabledChanged, this, &MessageContentModel::componentsUpdated);
     }
 
-    Q_EMIT roomChanged();
+    Q_EMIT roomChanged(oldRoom, m_room);
 }
 
 QString MessageContentModel::eventId() const

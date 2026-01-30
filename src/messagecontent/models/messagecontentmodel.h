@@ -123,7 +123,7 @@ public:
     Q_INVOKABLE void toggleSpoiler(QModelIndex index);
 
 Q_SIGNALS:
-    void roomChanged();
+    void roomChanged(NeoChatRoom *oldRoom, NeoChatRoom *newRoom);
     void authorChanged();
 
     /**

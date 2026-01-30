@@ -1,0 +1,96 @@
+// SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
+// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+import QtCore
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+
+import org.kde.kirigami as Kirigami
+
+import org.kde.neochat.libneochat as LibNeoChat
+
+QQC2.Control {
+    id: root
+
+    required property real availableWidth
+
+    width: root.availableWidth - Kirigami.Units.largeSpacing * 2
+    topPadding: Kirigami.Units.smallSpacing
+    bottomPadding: Kirigami.Units.smallSpacing
+
+    contentItem: ColumnLayout {
+        RichEditBar {
+            id: richEditBar
+            visible: NeoChatConfig.sendMessageWith === 1
+            maxAvailableWidth: root.availableWidth - Kirigami.Units.largeSpacing * 2
+
+            room: root.currentRoom
+            contentModel: chatContentView.model
+
+            onClicked: contentModel.refocusCurrentComponent()
+        }
+        Kirigami.Separator {
+            Layout.fillWidth: true
+            visible: NeoChatConfig.sendMessageWith === 1
+        }
+        RowLayout {
+            spacing: 0
+            QQC2.ScrollView {
+                id: chatScrollView
+                Layout.fillWidth: true
+                Layout.maximumHeight: Kirigami.Units.gridUnit * 8
+
+                clip: true
+
+                ColumnLayout {
+                    readonly property real visibleTop: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight
+                    readonly property real visibleBottom: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight + chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight
+                    readonly property rect cursorRectInColumn: mapFromItem(contentModel.focusedTextItem.textItem, contentModel.focusedTextItem.cursorRectangle);
+                    onCursorRectInColumnChanged: {
+                        if (chatScrollView.QQC2.ScrollBar.vertical.visible) {
+                            if (cursorRectInColumn.y < visibleTop) {
+                                chatScrollView.QQC2.ScrollBar.vertical.position = cursorRectInColumn.y / chatScrollView.contentHeight
+                            } else if (cursorRectInColumn.y + cursorRectInColumn.height > visibleBottom) {
+                                chatScrollView.QQC2.ScrollBar.vertical.position = (cursorRectInColumn.y + cursorRectInColumn.height - (chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight)) / chatScrollView.contentHeight
+                            }
+                        }
+                    }
+
+                    width: chatScrollView.width
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Repeater {
+                        id: chatContentView
+                        model: ChatBarMessageContentModel {
+                            id: contentModel
+                            type: root.chatBarType
+                            room: root.currentRoom
+                            sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
+                        }
+
+                        delegate: MessageComponentChooser {
+                            rightAnchorMargin: chatScrollView.QQC2.ScrollBar.vertical.visible ? chatScrollView.QQC2.ScrollBar.vertical.width : 0
+                        }
+                    }
+                }
+            }
+            SendBar {
+                room: root.currentRoom
+                contentModel: chatContentView.model
+            }
+        }
+    }
+
+    background: Kirigami.ShadowedRectangle {
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        Kirigami.Theme.inherit: false
+
+        radius: Kirigami.Units.cornerRadius
+        color: Kirigami.Theme.backgroundColor
+        border {
+            color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+            width: 1
+        }
+    }
+}

@@ -104,25 +104,21 @@ QQC2.Control {
                         }
                     }
 
-                    CompletionMenu {
-                        id: completionMenu
-                        width: Math.max(350, root.width - 1)
-                        height: implicitHeight
-                        y: -height - 5
-                        z: 10
-
-                        room: root.Message.room
-                        type: root.chatBarCache.isEditing ? ChatBarType.Edit : ChatBarType.Thread
-                        // textItem: textArea
-                        margins: 0
-                        Behavior on height {
-                            NumberAnimation {
-                                property: "height"
-                                duration: Kirigami.Units.shortDuration
-                                easing.type: Easing.OutCubic
-                            }
-                        }
-                    }
+                    // CompletionMenu {
+                    //     id: completionMenu
+                    //     width: Math.max(350, root.width - 1)
+                    //     height: implicitHeight
+                    //     y: -height - 5
+                    //     z: 10
+                    //     margins: 0
+                    //     Behavior on height {
+                    //         NumberAnimation {
+                    //             property: "height"
+                    //             duration: Kirigami.Units.shortDuration
+                    //             easing.type: Easing.OutCubic
+                    //         }
+                    //     }
+                    // }
 
                     // opt-out of whatever spell checker a styled TextArea might come with
                     Kirigami.SpellCheck.enabled: false
