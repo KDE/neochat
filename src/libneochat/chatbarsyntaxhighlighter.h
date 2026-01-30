@@ -36,7 +36,7 @@ private:
     QTextCharFormat m_mentionFormat;
     QTextCharFormat m_errorFormat;
 
-    Sonnet::BackgroundChecker *m_checker = new Sonnet::BackgroundChecker;
+    Sonnet::BackgroundChecker *m_checker = new Sonnet::BackgroundChecker(this);
     Sonnet::Settings m_settings;
     QString m_previousText;
 
