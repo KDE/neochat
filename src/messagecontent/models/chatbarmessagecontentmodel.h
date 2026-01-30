@@ -6,6 +6,7 @@
 #include <QAbstractListModel>
 #include <QQmlEngine>
 
+#include "chatbarcache.h"
 #include "chatkeyhelper.h"
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"
@@ -100,15 +101,17 @@ public:
     Q_INVOKABLE void postMessage();
 
 Q_SIGNALS:
-    void typeChanged();
+    void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
     void focusRowChanged();
     void hasRichFormattingChanged();
     void sendMessageWithEnterChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
+    void connectCache(ChatBarCache *oldCache = nullptr);
 
     void initializeModel(const QString &initialText = {});
+    void initializeFromCache();
 
     std::optional<QString> getReplyEventId() override;
 

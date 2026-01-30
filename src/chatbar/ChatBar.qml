@@ -42,6 +42,8 @@ Item {
         }
     }
 
+    property int chatBarType: LibNeoChat.ChatBarType.Room
+
     onActiveFocusChanged: chatContentView.itemAt(contentModel.index(contentModel.focusRow, 0)).forceActiveFocus()
 
     Connections {
@@ -127,7 +129,7 @@ Item {
                             id: chatContentView
                             model: ChatBarMessageContentModel {
                                 id: contentModel
-                                type: ChatBarType.Room
+                                type: root.chatBarType
                                 room: root.currentRoom
                                 sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
                             }
@@ -201,7 +203,7 @@ Item {
 
         property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
             room: root.currentRoom
-            type: LibNeoChat.ChatBarType.Room
+            type: root.chatBarType
             textItem: contentModel.focusedTextItem
             roomListModel: RoomManager.roomListModel
             userListModel: RoomManager.userListModel
