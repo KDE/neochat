@@ -43,12 +43,14 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
             addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
         }
 
+        clearModel();
+
         const auto textSections = m_room->cacheForType(m_type)->text().split(u"\n\n"_s);
         if (textSections.length() == 1 && textSections[0].isEmpty()) {
+            initializeModel();
             return;
         }
 
-        clearModel();
         beginResetModel();
         for (const auto &section : textSections) {
             const auto type = MessageComponentType::typeForString(section);
