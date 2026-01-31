@@ -52,6 +52,7 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         RoomAdvancedPage.qml
         KeyboardShortcutsPage.qml
         Members.qml
+        MembersList.qml
     SOURCES
         colorschemer.cpp
         threepidaddhelper.cpp

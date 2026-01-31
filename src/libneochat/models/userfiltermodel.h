@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <Quotient/quotient_common.h>
+
 #include <QQmlEngine>
 #include <QSortFilterProxyModel>
 
@@ -25,7 +27,10 @@ class UserFilterModel : public QSortFilterProxyModel
      */
     Q_PROPERTY(QString filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
     Q_PROPERTY(bool allowEmpty READ allowEmpty WRITE setAllowEmpty NOTIFY allowEmptyChanged)
-
+    /**
+     * @brief Only shows users with this membership state.
+     */
+    Q_PROPERTY(Quotient::Membership membership READ membership WRITE setMembership NOTIFY membershipChanged)
 public:
     using QSortFilterProxyModel::QSortFilterProxyModel;
 
@@ -42,11 +47,16 @@ public:
     bool allowEmpty() const;
     void setAllowEmpty(bool allowEmpty);
 
+    Quotient::Membership membership() const;
+    void setMembership(Quotient::Membership state);
+
 Q_SIGNALS:
     void filterTextChanged();
     void allowEmptyChanged();
+    void membershipChanged();
 
 private:
     QString m_filterText;
     bool m_allowEmpty = false;
+    Quotient::Membership m_membership = Quotient::Membership::Invalid;
 };

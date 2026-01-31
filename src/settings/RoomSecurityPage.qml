@@ -13,7 +13,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-import Quotient
+import io.github.quotient_im.libquotient
 
 FormCard.FormCardPage {
     id: root

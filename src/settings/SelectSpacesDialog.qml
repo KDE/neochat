@@ -9,7 +9,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.kirigamiaddons.labs.components as Components
 
-import Quotient
+import io.github.quotient_im.libquotient
 
 import org.kde.neochat
 

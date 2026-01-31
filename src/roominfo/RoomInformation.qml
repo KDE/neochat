@@ -261,6 +261,7 @@ QQC2.ScrollView {
             id: userFilterModel
             sourceModel: root.userListModel
             allowEmpty: true
+            membership: JoinRule.Join
         }
 
         clip: true

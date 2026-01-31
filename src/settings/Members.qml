@@ -14,6 +14,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.kitemmodels
 
 import org.kde.neochat
+import io.github.quotient_im.libquotient
 
 FormCard.FormCardPage {
     id: root
@@ -26,6 +27,63 @@ FormCard.FormCardPage {
 
     readonly property PowerLevelModel powerLevelModel: PowerLevelModel {
         showMute: false
+    }
+
+    Component {
+        id: bannedMembersPage
+        MembersList {
+            title: i18nc("@title", "Banned Members")
+            membership: Quotient.MembershipMask.Ban
+            room: root.room
+            confirmationTitle: i18nc("@title:dialog", "Unban User")
+            confirmationSubtitle: i18nc("@info %1 is a matrix ID", "Do you really want to unban %1?", currentMemberId)
+            icon: "checkmark-symbolic"
+            actionText: i18nc("@action:button", "Unban…")
+            actionConfirmationText: i18nc("@action:button", "Unban")
+            actionVisible: root.room.canSendState("ban")
+
+            onActionTaken: memberId => root.room.unban(memberId)
+        }
+    }
+
+    Component {
+        id: invitedMembersPage
+        MembersList {
+            title: i18nc("@title", "Invited Members")
+            membership: Quotient.MembershipMask.Invite
+            room: root.room
+            confirmationTitle: i18nc("@title:dialog", "Uninvite User")
+            confirmationSubtitle: i18nc("@info %1 is a matrix ID", "Do you really want to uninvite %1?", currentMemberId)
+            icon: "im-ban-kick-user-symbolic"
+            actionText: i18nc("@action:button", "Uninvite…")
+            actionConfirmationText: i18nc("@action:button", "Uninvite")
+            actionVisible: root.room.canSendState("kick")
+
+            onActionTaken: memberId => root.room.kickMember(memberId, "Revoked invite")
+        }
+    }
+
+    FormCard.FormCard {
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
+
+        FormCard.FormButtonDelegate {
+            id: bannedMemberDelegate
+
+            icon.name: "im-ban-user-symbolic"
+            text: i18nc("@action:button", "Banned Members")
+            onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(bannedMembersPage)
+        }
+        FormCard.FormDelegateSeparator {
+            above: bannedMemberDelegate
+            below: inviteMemberDelegate
+        }
+        FormCard.FormButtonDelegate {
+            id: inviteMemberDelegate
+
+            icon.name: "list-add-user-symbolic"
+            text: i18nc("@action:button", "Invited Members")
+            onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(invitedMembersPage)
+        }
     }
 
     FormCard.FormHeader {
@@ -103,6 +161,7 @@ FormCard.FormCardPage {
                             id: userListFilterModel
                             sourceModel: RoomManager.userListModel
                             filterText: userListSearchField.text
+                            membership: Quotient.MembershipMask.Join
 
                             onFilterTextChanged: {
                                 if (filterText.length > 0 && !userListSearchPopup.visible) {

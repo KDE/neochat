@@ -9,7 +9,7 @@ import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
 
-import Quotient
+import io.github.quotient_im.libquotient
 
 import org.kde.neochat
 import org.kde.neochat.settings
@@ -126,7 +126,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         text: i18nc("@action:inmenu", "Copy Room Link")
         icon.name: "edit-copy"
-        visible: !root.room.isDirectChat() && root.room.joinRule !== JoinRule.Invite
+        visible: !root.room.isDirectChat() && root.room.joinRule !== Quotient.Invite
         onTriggered: {
             // The canonical alias (if it exists) otherwise the first available alias
             const firstAlias = root.room.aliases[0];
