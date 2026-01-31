@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
     Registration::instance().setAccountManager(accountManager.get());
 
     qml_register_types_org_kde_neochat();
-    qmlRegisterUncreatableMetaObject(Quotient::staticMetaObject, "Quotient", 1, 0, "JoinRule", u"Access to JoinRule enum only"_s);
+    // qmlRegisterUncreatableMetaObject(Quotient::staticMetaObject, "Quotient", 1, 0, "Quotient", u"Access to enums only"_s);
 
     QQmlApplicationEngine engine;
 

@@ -14,6 +14,7 @@ import org.kde.kirigamiaddons.labs.components as KirigamiComponents
 import org.kde.neochat.libneochat
 import org.kde.neochat
 
+
 /**
  * @brief Component for visualising the room information.
  *
@@ -261,6 +262,7 @@ QQC2.ScrollView {
             id: userFilterModel
             sourceModel: root.userListModel
             allowEmpty: true
+            membership: JoinRule.Join
         }
 
         clip: true

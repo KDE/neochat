@@ -172,6 +172,10 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     Q_ASSERT(neochatconnection);
     connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
     connect(this, &Room::fullyReadMarkerMoved, this, &NeoChatRoom::invalidateLastUnreadHighlightId);
+
+    connect(this, &Room::memberListChanged, this, &NeoChatRoom::refreshAllMembers, Qt::SingleShotConnection);
+    connect(this, &Room::memberJoined, this, &NeoChatRoom::insertMemberSorted);
+    connect(this, &Room::memberLeft, this, &NeoChatRoom::removeMemberSorted);
 }
 
 bool NeoChatRoom::visible() const
@@ -1908,6 +1912,39 @@ void NeoChatRoom::invalidateLastUnreadHighlightId(const QString &fromEventId, co
     }
 }
 
+void NeoChatRoom::refreshAllMembers()
+{
+    m_sortedMembers = members();
+
+    MemberSorter sorter;
+    std::ranges::sort(m_sortedMembers, [this, &sorter](const auto &left, const auto &right) {
+        const auto leftPl = memberEffectivePowerLevel(left.id());
+        const auto rightPl = memberEffectivePowerLevel(right.id());
+        if (leftPl > rightPl) {
+            return true;
+        }
+        if (rightPl > leftPl) {
+            return false;
+        }
+
+        return sorter(left, right);
+    });
+}
+
+void NeoChatRoom::insertMemberSorted(const Quotient::RoomMember member)
+{
+    if (m_sortedMembers.contains(member)) {
+        return;
+    }
+
+    m_sortedMembers.append(member);
+}
+
+void NeoChatRoom::removeMemberSorted(const Quotient::RoomMember member)
+{
+    m_sortedMembers.removeAll(member);
+}
+
 bool NeoChatRoom::spaceHasUnreadMessages() const
 {
     if (!isSpace()) {
@@ -1922,6 +1959,11 @@ void NeoChatRoom::markAllChildrenMessagesAsRead()
     if (isSpace()) {
         SpaceHierarchyCache::instance().markAllChildrenMessagesAsRead(id());
     }
-};
+}
+
+QList<Quotient::RoomMember> NeoChatRoom::sortedMembers() const
+{
+    return m_sortedMembers;
+}
 
 #include "moc_neochatroom.cpp"

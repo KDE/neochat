@@ -29,6 +29,7 @@ qt_add_library(neochat STATIC
     sharehandler.cpp
     sharehandler.h
     foreigntypes.h
+    foriegntypes.cpp
     identityserverhelper.cpp
     identityserverhelper.h
     models/commonroomsmodel.cpp

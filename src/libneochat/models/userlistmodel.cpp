@@ -47,10 +47,6 @@ void UserListModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::memberAvatarUpdated, this, [this](RoomMember member) {
             refreshMember(member, {AvatarRole});
         });
-        connect(m_currentRoom, &Room::memberListChanged, this, [this]() {
-            // this is slow
-            UserListModel::refreshAllMembers();
-        });
         connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
             setRoom(nullptr);
         });
@@ -79,31 +75,31 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
                     "users.count()";
         return {};
     }
-    auto memberId = m_members.at(index.row());
+    auto member = m_members.at(index.row());
     if (role == DisplayNameRole) {
-        return m_currentRoom->member(memberId).disambiguatedName();
+        return member.disambiguatedName();
     }
     if (role == UserIdRole) {
-        return memberId;
+        return member.id();
     }
     if (role == AvatarRole) {
-        return m_currentRoom->member(memberId).avatarUrl();
+        return member.avatarUrl();
     }
     if (role == ObjectRole) {
-        return QVariant::fromValue(memberId);
+        return QVariant::fromValue(member.id());
     }
     if (role == PowerLevelRole) {
-        if (m_currentRoom->isCreator(memberId)) {
+        if (m_currentRoom->isCreator(member.id())) {
             return std::numeric_limits<int>::max();
         }
         auto plEvent = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
         if (!plEvent) {
             return 0;
         }
-        return plEvent->powerLevelForUser(memberId);
+        return plEvent->powerLevelForUser(member.id());
     }
     if (role == PowerLevelStringRole) {
-        if (m_currentRoom->roomCreatorHasUltimatePowerLevel() && m_currentRoom->isCreator(memberId)) {
+        if (m_currentRoom->roomCreatorHasUltimatePowerLevel() && m_currentRoom->isCreator(member.id())) {
             return i18nc("@info the person that created this room", "Creator");
         }
 
@@ -114,7 +110,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
             return u"Not Available"_s;
         }
 
-        auto userPl = pl->powerLevelForUser(memberId);
+        auto userPl = pl->powerLevelForUser(member.id());
 
         return i18nc("%1 is the name of the power level, e.g. admin and %2 is the value that represents.",
                      "%1 (%2)",
@@ -122,7 +118,10 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
                      userPl);
     }
     if (role == IsCreatorRole) {
-        return m_currentRoom->isCreator(memberId);
+        return m_currentRoom->isCreator(member.id());
+    }
+    if (role == MembershipRole) {
+        return QVariant::fromValue(member.membershipState());
     }
 
     return {};
@@ -146,13 +145,13 @@ bool UserListModel::event(QEvent *event)
 
 void UserListModel::memberJoined(const Quotient::RoomMember &member)
 {
-    if (m_members.contains(member.id())) {
+    if (m_members.contains(member)) {
         return;
     }
 
     const int row = m_members.size();
     beginInsertRows(QModelIndex(), row, row);
-    m_members.append(member.id());
+    m_members.append(member);
     endInsertRows();
 }
 
@@ -181,21 +180,8 @@ void UserListModel::refreshMember(const Quotient::RoomMember &member, const QLis
 void UserListModel::refreshAllMembers()
 {
     beginResetModel();
-
     if (m_currentRoom != nullptr) {
-        m_members = m_currentRoom->joinedMemberIds();
-        MemberSorter sorter;
-        std::sort(m_members.begin(), m_members.end(), [&sorter, this](const auto &left, const auto &right) {
-            const auto leftPl = m_currentRoom->memberEffectivePowerLevel(left);
-            const auto rightPl = m_currentRoom->memberEffectivePowerLevel(right);
-            if (leftPl > rightPl) {
-                return true;
-            } else if (rightPl > leftPl) {
-                return false;
-            }
-
-            return sorter(m_currentRoom->member(left), m_currentRoom->member(right));
-        });
+        m_members = m_currentRoom->sortedMembers();
     }
     endResetModel();
     Q_EMIT usersRefreshed();
@@ -211,8 +197,8 @@ int UserListModel::findUserPos(const QString &userId) const
     if (!m_currentRoom) {
         return 0;
     }
-    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const QString &memberId) {
-        return userId == memberId;
+    const auto pos = std::find_if(m_members.cbegin(), m_members.cend(), [&userId](const RoomMember &member) {
+        return userId == member.id();
     });
     return pos - m_members.cbegin();
 }
@@ -228,6 +214,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     roles[PowerLevelRole] = "powerLevel";
     roles[PowerLevelStringRole] = "powerLevelString";
     roles[IsCreatorRole] = "isCreator";
+    roles[MembershipRole] = "membership";
 
     return roles;
 }

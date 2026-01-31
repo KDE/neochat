@@ -23,6 +23,7 @@ Kirigami.Page {
     property alias currentStep: module.item
     property string currentStepString: initialStep
     property string initialStep: "LoginRegister"
+    property int test: QuotientTypes.Membership.Knock
 
     signal connectionChosen
 

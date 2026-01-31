@@ -9,6 +9,7 @@
 #include <Quotient/e2ee/sssshandler.h>
 #include <Quotient/keyimport.h>
 #include <Quotient/keyverificationsession.h>
+#include <Quotient/quotient_common.h>
 #include <Quotient/roommember.h>
 
 #include "controller.h"
@@ -45,4 +46,15 @@ struct ForeignKeyImport {
     QML_SINGLETON
     QML_FOREIGN(Quotient::KeyImport)
     QML_NAMED_ELEMENT(KeyImport)
+};
+
+class QmlType : public QObject
+{
+    Q_OBJECT
+    QML_NAMED_ELEMENT(QuotientTypes)
+    // QML_EXTENDED_NAMESPACE(Quotient)
+    Q_CLASSINFO("RegisterEnumClassesUnscoped", "false")
+
+    Q_ENUM(Quotient::Membership)
+    // Q_ENUM(Quotient::JoinRule)
 };
