@@ -28,6 +28,31 @@ FormCard.FormCardPage {
         showMute: false
     }
 
+    FormCard.FormCard {
+        visible: Controller.libquotientMinorVersion >= 10
+
+        Layout.topMargin: Kirigami.Units.largeSpacing * 4
+
+        FormCard.FormButtonDelegate {
+            id: bannedMemberDelegate
+
+            icon.name: "im-ban-user-symbolic"
+            text: i18nc("@action:button", "Banned Members")
+            onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat.settings', 'BannedMembersList'))
+        }
+        FormCard.FormDelegateSeparator {
+            above: bannedMemberDelegate
+            below: inviteMemberDelegate
+        }
+        FormCard.FormButtonDelegate {
+            id: inviteMemberDelegate
+
+            icon.name: "list-add-user-symbolic"
+            text: i18nc("@action:button", "Invited Members")
+            onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat.settings', 'InvitedMembersList'))
+        }
+    }
+
     FormCard.FormHeader {
         title: i18nc("@title", "Privileged Members")
         visible: !root.loading
@@ -103,6 +128,7 @@ FormCard.FormCardPage {
                             id: userListFilterModel
                             sourceModel: RoomManager.userListModel
                             filterText: userListSearchField.text
+                            membership: Quotient.MembershipMask.Join
 
                             onFilterTextChanged: {
                                 if (filterText.length > 0 && !userListSearchPopup.visible) {
