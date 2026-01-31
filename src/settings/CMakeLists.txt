@@ -52,6 +52,9 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         RoomAdvancedPage.qml
         KeyboardShortcutsPage.qml
         Members.qml
+        MembersList.qml
+        BannedMembersList.qml
+        InvitedMembersList.qml
     SOURCES
         colorschemer.cpp
         threepidaddhelper.cpp
@@ -69,7 +72,6 @@ ecm_add_qml_module(Settings GENERATE_PLUGIN_SOURCE
         io.github.quotient_im.libquotient
         org.kde.neochat.libneochat
 )
-
 
 target_include_directories(Settings PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)
 target_link_libraries(Settings PRIVATE
