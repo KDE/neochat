@@ -5,6 +5,8 @@
 #include "events/pollevent.h"
 #include "messagemodel_logging.h"
 
+#include <Quotient/events/reactionevent.h>
+
 using namespace Quotient;
 
 TimelineMessageModel::TimelineMessageModel(QObject *parent)
@@ -62,7 +64,10 @@ void TimelineMessageModel::connectNewRoom()
         });
         connect(m_room, &Room::pendingEventAdded, this, [this](const Quotient::RoomEvent *event) {
             Q_EMIT newEventAdded(event);
-            Q_EMIT newLocalUserEventAdded();
+            // Don't scroll the timeline view for reactions.
+            if (!event->is<ReactionEvent>()) {
+                Q_EMIT newLocalUserEventAdded();
+            }
             if (!m_resetting) {
                 beginInsertRows({}, 0, 0);
                 endInsertRows();
