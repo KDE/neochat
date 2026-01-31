@@ -671,6 +671,11 @@ public:
      */
     Q_INVOKABLE void markAllChildrenMessagesAsRead();
 
+    /**
+     * @return List of members in this room, sorted by power level and then by name.
+     */
+    QList<QString> sortedMemberIds() const;
+
 private:
     bool m_visible = false;
 
@@ -707,6 +712,7 @@ private:
     void loadPinnedMessage();
 
     QString m_lastUnreadHighlightId;
+    QList<QString> m_sortedMemberIds;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
@@ -714,6 +720,10 @@ private Q_SLOTS:
     void cacheLastEvent();
 
     void invalidateLastUnreadHighlightId(const QString &fromEventId, const QString &toEventId);
+
+    void refreshAllMembers();
+
+    void insertMemberSorted(Quotient::RoomMember member);
 
 Q_SIGNALS:
     void cachedInputChanged();

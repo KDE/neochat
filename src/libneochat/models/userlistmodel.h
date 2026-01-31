@@ -43,12 +43,14 @@ public:
      */
     enum EventRoles {
         DisplayNameRole = Qt::DisplayRole, /**< The user's display name in the current room. */
-        UserIdRole, /**< Matrix ID of the user. */
+        UserIdRole = Qt::UserRole, /**< Matrix ID of the user. */
         AvatarRole, /**< The source URL for the user's avatar in the current room. */
         ObjectRole, /**< The QObject for the user. */
         PowerLevelRole, /**< The user's power level in the current room. */
         PowerLevelStringRole, /**< The name of the user's power level in the current room. */
         IsCreatorRole, /**< Whether this user is considered a creator of the current room. */
+        MembershipRole, /**< The membership state of this user. */
+        ColorRole, /**< The color of this user. */
     };
     Q_ENUM(EventRoles)
 
@@ -89,7 +91,6 @@ protected:
 
 private Q_SLOTS:
     void memberJoined(const Quotient::RoomMember &member);
-    void memberLeft(const Quotient::RoomMember &member);
     void refreshMember(const Quotient::RoomMember &member, const QList<int> &roles = {});
     void refreshAllMembers();
 

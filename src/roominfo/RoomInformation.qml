@@ -283,6 +283,7 @@ QQC2.ScrollView {
             required property url avatar
             required property int powerLevel
             required property string powerLevelString
+            required property color color
 
             implicitHeight: Kirigami.Units.gridUnit * 2
 
@@ -304,6 +305,7 @@ QQC2.ScrollView {
                     }
                     source: userDelegate.avatar
                     name: userDelegate.userId
+                    color: userDelegate.color
 
                     Layout.fillHeight: true
                 }
