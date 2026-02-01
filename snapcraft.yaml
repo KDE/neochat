@@ -41,7 +41,15 @@ slots:
     bus: session
 
 parts:
+  rustup:
+    plugin: rust
+    source: .
+    rust-channel: "1.76"
+    override-build: ""
+    override-prime: ""
+
   corrosion:
+    after: [rustup]
     source: https://github.com/corrosion-rs/corrosion.git
     source-depth: 1
     source-tag: 'v0.6.0'
