@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-29 00:44+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3780,7 +3780,7 @@ msgstr "मैट्रिक्स आईडी :"
 msgid "Matrix ID"
 msgstr "मैट्रिक्स आईडी"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3804,13 +3804,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "एकेन प्रवेशेन सह प्रवेशं कुर्वन्तु"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "प्रवेशः"
 
-#: src/login/LoginRegister.qml:31
+#: src/login/LoginRegister.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3949,17 +3949,19 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "प्रवेशं कुर्वन्तु अथवा नूतनं खातं रचयन्तु"
 
-#: src/login/WelcomePage.qml:262
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "पुनः गच्छतु"
-
-#: src/login/WelcomePage.qml:275
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "सेटिंग्स्"
+
+#: src/login/WelcomePage.qml:277
+#, fuzzy, kde-format
+#| msgctxt "@action:button As in 'go back'"
+#| msgid "Back"
+msgctxt "@action:button"
+msgid "Go Back"
+msgstr "पृष्ठभागः"
 
 #: src/messagecontent/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -7797,6 +7799,10 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
+
+#~ msgctxt "@action:button"
+#~ msgid "Go back"
+#~ msgstr "पुनः गच्छतु"
 
 #~ msgid "Search"
 #~ msgstr "अन्वेषण"

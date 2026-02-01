@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-29 00:44+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3658,7 +3658,7 @@ msgstr "Matrix ID:"
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3682,13 +3682,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "싱글 사인온으로 로그인"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "로그인"
 
-#: src/login/LoginRegister.qml:31
+#: src/login/LoginRegister.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3827,17 +3827,19 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "기존 계정에 로그인하거나 새 계정 만들기"
 
-#: src/login/WelcomePage.qml:262
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "뒤로 가기"
-
-#: src/login/WelcomePage.qml:275
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "설정"
+
+#: src/login/WelcomePage.qml:277
+#, fuzzy, kde-format
+#| msgctxt "@action:button As in 'go back'"
+#| msgid "Back"
+msgctxt "@action:button"
+msgid "Go Back"
+msgstr "뒤로"
 
 #: src/messagecontent/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -7544,6 +7546,10 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#~ msgctxt "@action:button"
+#~ msgid "Go back"
+#~ msgstr "뒤로 가기"
 
 #~ msgid "Search"
 #~ msgstr "검색"

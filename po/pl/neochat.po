@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-29 00:44+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2026-01-24 11:07+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3599,7 +3599,7 @@ msgstr "ID Matriksa:"
 msgid "Matrix ID"
 msgstr "ID Matriksa"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3623,13 +3623,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Wejdź jednorazowo"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Zaloguj się"
 
-#: src/login/LoginRegister.qml:31
+#: src/login/LoginRegister.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3768,17 +3768,19 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Wejdź na konto lub utwórz nowe"
 
-#: src/login/WelcomePage.qml:262
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Cofnij się"
-
-#: src/login/WelcomePage.qml:275
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Ustawienia"
+
+#: src/login/WelcomePage.qml:277
+#, fuzzy, kde-format
+#| msgctxt "@action:button As in 'go back'"
+#| msgid "Back"
+msgctxt "@action:button"
+msgid "Go Back"
+msgstr "Wstecz"
 
 #: src/messagecontent/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -7394,6 +7396,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
+
+#~ msgctxt "@action:button"
+#~ msgid "Go back"
+#~ msgstr "Cofnij się"
 
 #~ msgid "Search"
 #~ msgstr "Poszukaj"

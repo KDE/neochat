@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-29 00:44+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -356,12 +356,10 @@ msgid "Copy to clipboard"
 msgstr "复制到剪贴板"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Confirm Leaving Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Space"
-msgstr "确认离开房间"
+msgstr ""
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -3545,7 +3543,7 @@ msgstr "Matrix ID："
 msgid "Matrix ID"
 msgstr "Matrix ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3569,13 +3567,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "使用单点登录方式登录"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "登录"
 
-#: src/login/LoginRegister.qml:31
+#: src/login/LoginRegister.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3714,17 +3712,17 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "登录或创建一个新账户"
 
-#: src/login/WelcomePage.qml:262
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "返回"
-
-#: src/login/WelcomePage.qml:275
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "设置"
+
+#: src/login/WelcomePage.qml:277
+#, kde-format
+msgctxt "@action:button"
+msgid "Go Back"
+msgstr ""
 
 #: src/messagecontent/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -7235,3 +7233,7 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在输入"
+
+#~ msgctxt "@action:button"
+#~ msgid "Go back"
+#~ msgstr "返回"

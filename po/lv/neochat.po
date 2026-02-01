@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-29 00:44+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3660,7 +3660,7 @@ msgstr "„Matrix“ ID:"
 msgid "Matrix ID"
 msgstr "„Matrix“ ID"
 
-#: src/login/Login.qml:39 src/login/WelcomePage.qml:254
+#: src/login/Login.qml:39 src/login/WelcomePage.qml:255
 #: src/settings/ThreePIdCard.qml:189
 #, kde-format
 msgctxt "@action:button"
@@ -3684,13 +3684,13 @@ msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "Ierakstīties ar vienoto ierakstīšanos"
 
-#: src/login/LoginRegister.qml:24 src/login/Password.qml:40
+#: src/login/LoginRegister.qml:25 src/login/Password.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Ierakstīties"
 
-#: src/login/LoginRegister.qml:31
+#: src/login/LoginRegister.qml:33
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
@@ -3829,17 +3829,19 @@ msgctxt "@title"
 msgid "Log in or Create a New Account"
 msgstr "Ierakstīties vai izveidot jaunu kontu"
 
-#: src/login/WelcomePage.qml:262
-#, kde-format
-msgctxt "@action:button"
-msgid "Go back"
-msgstr "Atgriezties"
-
-#: src/login/WelcomePage.qml:275
+#: src/login/WelcomePage.qml:268
 #, kde-format
 msgctxt "@action:button"
 msgid "Settings"
 msgstr "Iestatījumi"
+
+#: src/login/WelcomePage.qml:277
+#, fuzzy, kde-format
+#| msgctxt "@action:button As in 'go back'"
+#| msgid "Back"
+msgctxt "@action:button"
+msgid "Go Back"
+msgstr "Atpakaļ"
 
 #: src/messagecontent/BaseMessageComponentChooser.qml:164
 #, kde-format
@@ -7530,6 +7532,10 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgctxt "@action:button"
+#~ msgid "Go back"
+#~ msgstr "Atgriezties"
 
 #~ msgid "Search"
 #~ msgstr "Meklēt"
