@@ -98,7 +98,7 @@ parts:
 
   libquotient:
     after:
-      - olm
+      - corrosion
       - qtkeychain
     source: https://github.com/quotient-im/libQuotient.git
     source-tag: 0.9.2
@@ -114,8 +114,6 @@ parts:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING=OFF
-      - -DQuotient_ENABLE_E2EE=ON
-      - -DBUILD_WITH_QT6=ON
     prime:
       - -usr/include
       - -usr/lib/*/pkgconfig
