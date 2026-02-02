@@ -31,7 +31,7 @@ RowLayout {
 
         property bool isBusy: root.room && root.room.hasFileUploading
 
-        visible: root.chatBarCache.attachmentPath.length === 0
+        visible: !root.contentModel.hasAttachment && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "mail-attachment"
         text: i18n("Attach an image or file")
         display: QQC2.AbstractButton.IconOnly
@@ -84,6 +84,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: mapButton
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "globe"
         property bool isBusy: false
         text: i18n("Send a Location")
@@ -100,6 +101,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: pollButton
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "amarok_playcount"
         property bool isBusy: false
         text: i18nc("@action:button", "Create a Poll")
@@ -127,5 +129,22 @@ RowLayout {
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
+    }
+    QQC2.ToolButton {
+        id: cancelButton
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Edit
+        display: QQC2.AbstractButton.IconOnly
+        text: i18nc("@action:button", "Cancel")
+        icon.name: "dialog-close"
+        onClicked: root.room.cacheForType(contentModel.type).clearRelations()
+
+        Kirigami.Action {
+            shortcut: "Escape"
+            onTriggered: cancelButton.clicked()
+        }
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 }

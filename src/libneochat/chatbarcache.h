@@ -30,7 +30,7 @@ struct Mention {
  * A class to cache data from a chat bar.
  *
  * A chat bar can be anything that allows users to compose or edit message, it doesn't
- * necessarily have to use the ChatBar component, e.g. ChatBarComponent.
+ * necessarily have to use the ChatBar component.
  *
  * This object is intended to allow the current contents of a chat bar to be cached
  * between different rooms, i.e. there is an expectation that each NeoChatRoom could
@@ -40,7 +40,7 @@ struct Mention {
  *       as it's parent. This is necessary for certain functions which need to get
  *       relevant room information.
  *
- * @sa ChatBar, ChatBarComponent, NeoChatRoom
+ * @sa ChatBar, NeoChatRoom
  */
 class ChatBarCache : public QObject
 {

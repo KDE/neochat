@@ -29,6 +29,7 @@
 #include "models/livelocationsmodel.h"
 #include "models/locationsmodel.h"
 #include "models/messagecontentfiltermodel.h"
+#include "models/messagecontentmodel.h"
 #include "models/notificationsmodel.h"
 #include "models/permissionsmodel.h"
 #include "models/pinnedmessagemodel.h"
@@ -179,8 +180,8 @@ void ModelTest::testRoomTreeModel()
 
 void ModelTest::testMessageContentModel()
 {
-    auto contentModel = new MessageContentModel(room, eventId);
-    auto tester = new QAbstractItemModelTester(contentModel);
+    auto contentModel = std::make_unique<MessageContentModel>(room, eventId);
+    auto tester = new QAbstractItemModelTester(contentModel.get());
     tester->setUseFetchMore(true);
 }
 

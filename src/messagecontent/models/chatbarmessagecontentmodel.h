@@ -68,6 +68,11 @@ class ChatBarMessageContentModel : public MessageContentModel
     Q_PROPERTY(bool hasRichFormatting READ hasRichFormatting NOTIFY hasRichFormattingChanged)
 
     /**
+     * @brief Whether the model has an attachment..
+     */
+    Q_PROPERTY(bool hasAttachment READ hasAttachment NOTIFY hasAttachmentChanged)
+
+    /**
      * @brief The UserListModel to be used for room completions.
      */
     Q_PROPERTY(bool sendMessageWithEnter READ sendMessageWithEnter WRITE setSendMessageWithEnter NOTIFY sendMessageWithEnterChanged)
@@ -89,6 +94,7 @@ public:
     Q_INVOKABLE void insertComponentAtCursor(MessageComponentType::Type type);
 
     bool hasRichFormatting() const;
+    bool hasAttachment() const;
     Q_INVOKABLE void addAttachment(const QUrl &path);
 
     Q_INVOKABLE void removeComponent(int row, bool removeLast = false);
@@ -104,6 +110,7 @@ Q_SIGNALS:
     void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
     void focusRowChanged();
     void hasRichFormattingChanged();
+    void hasAttachmentChanged();
     void sendMessageWithEnterChanged();
 
 private:

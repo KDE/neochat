@@ -244,7 +244,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     return roles;
 }
 
-bool MessageContentModel::hasComponentType(MessageComponentType::Type type)
+bool MessageContentModel::hasComponentType(MessageComponentType::Type type) const
 {
     return std::find_if(m_components.cbegin(),
                         m_components.cend(),
@@ -254,7 +254,7 @@ bool MessageContentModel::hasComponentType(MessageComponentType::Type type)
         != m_components.cend();
 }
 
-bool MessageContentModel::hasComponentType(QList<MessageComponentType::Type> types)
+bool MessageContentModel::hasComponentType(QList<MessageComponentType::Type> types) const
 {
     for (const auto &type : types) {
         if (hasComponentType(type)) {

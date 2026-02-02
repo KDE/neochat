@@ -512,7 +512,7 @@ public:
 
     ChatBarCache *threadCache() const;
 
-    ChatBarCache *cacheForType(ChatBarType::Type type) const;
+    Q_INVOKABLE ChatBarCache *cacheForType(ChatBarType::Type type) const;
 
     /**
      * @brief Reply to the last message sent in the timeline.

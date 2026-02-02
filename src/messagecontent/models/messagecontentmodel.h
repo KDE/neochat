@@ -164,8 +164,8 @@ protected:
     using ComponentIt = QList<MessageComponent>::iterator;
 
     QList<MessageComponent> m_components;
-    bool hasComponentType(MessageComponentType::Type type);
-    bool hasComponentType(QList<MessageComponentType::Type> types);
+    bool hasComponentType(MessageComponentType::Type type) const;
+    bool hasComponentType(QList<MessageComponentType::Type> types) const;
     void forEachComponentOfType(MessageComponentType::Type type, std::function<ComponentIt(ComponentIt)> function);
     void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<ComponentIt(ComponentIt)> function);
 

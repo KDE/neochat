@@ -152,11 +152,6 @@ DelegateChooser {
     }
 
     DelegateChoice {
-        roleValue: MessageComponentType.ChatBar
-        delegate: ChatBarComponent {}
-    }
-
-    DelegateChoice {
         roleValue: MessageComponentType.ReplyButton
         delegate: ReplyButtonComponent {}
     }

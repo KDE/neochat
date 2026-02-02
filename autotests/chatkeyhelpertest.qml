@@ -9,19 +9,13 @@ import org.kde.neochat.libneochat
 import NeoChatTestUtils
 
 TestCase {
-    name: "ChatTextItemHelperTest"
+    name: "ChatKeyHelperTest"
 
     TextEdit {
         id: textEdit
 
-        Keys.onUpPressed: (event) => {
-            event.accepted = true;
-            testHelper.keyHelper.up();
-        }
-
-        Keys.onDownPressed: (event) => {
-            event.accepted = true;
-            testHelper.keyHelper.down();
+        Keys.onPressed: (event) => {
+            event.accepted = testHelper.keyHelper.handleKey(event.key, event.modifiers);
         }
     }
 

@@ -8,14 +8,26 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 
 QQC2.Control {
     id: root
 
-    required property real availableWidth
+    /**
+     * @brief The current room that user is viewing.
+     */
+    required property LibNeoChat.NeoChatRoom room
 
-    width: root.availableWidth - Kirigami.Units.largeSpacing * 2
+    property int chatBarType: LibNeoChat.ChatBarType.Room
+
+    required property real maxAvailableWidth
+
+    Message.contentModel: contentModel
+
+    onActiveFocusChanged: contentModel.refocusCurrentComponent()
+
+    implicitWidth: root.maxAvailableWidth - (root.maxAvailableWidth >= (parent?.width ?? 0) ? Kirigami.Units.largeSpacing * 2 : 0)
     topPadding: Kirigami.Units.smallSpacing
     bottomPadding: Kirigami.Units.smallSpacing
 
@@ -23,9 +35,9 @@ QQC2.Control {
         RichEditBar {
             id: richEditBar
             visible: NeoChatConfig.sendMessageWith === 1
-            maxAvailableWidth: root.availableWidth - Kirigami.Units.largeSpacing * 2
+            maxAvailableWidth: root.maxAvailableWidth - Kirigami.Units.largeSpacing * 2
 
-            room: root.currentRoom
+            room: root.room
             contentModel: chatContentView.model
 
             onClicked: contentModel.refocusCurrentComponent()
@@ -65,18 +77,18 @@ QQC2.Control {
                         model: ChatBarMessageContentModel {
                             id: contentModel
                             type: root.chatBarType
-                            room: root.currentRoom
+                            room: root.room
                             sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
                         }
 
-                        delegate: MessageComponentChooser {
+                        delegate: BaseMessageComponentChooser {
                             rightAnchorMargin: chatScrollView.QQC2.ScrollBar.vertical.visible ? chatScrollView.QQC2.ScrollBar.vertical.width : 0
                         }
                     }
                 }
             }
             SendBar {
-                room: root.currentRoom
+                room: root.room
                 contentModel: chatContentView.model
             }
         }
@@ -91,6 +103,29 @@ QQC2.Control {
         border {
             color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
             width: 1
+        }
+    }
+
+    QtObject {
+        id: _private
+
+        property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
+            room: root.room
+            type: root.chatBarType
+            textItem: contentModel.focusedTextItem
+            roomListModel: RoomManager.roomListModel
+            userListModel: RoomManager.userListModel
+
+            onIsCompletingChanged: {
+                if (!isCompleting) {
+                    return;
+                }
+
+                let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'CompletionMenu').createObject(contentModel.focusedTextItem.textItem, {
+                    model: _private.completionModel,
+                    keyHelper: contentModel.keyHelper
+                }).open();
+            }
         }
     }
 }

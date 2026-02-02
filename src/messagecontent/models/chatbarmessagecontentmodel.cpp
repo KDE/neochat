@@ -77,7 +77,17 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
         oldCache->disconnect(this);
     }
 
-    connect(m_room->cacheForType(m_type), &ChatBarCache::relationIdChanged, this, &ChatBarMessageContentModel::updateReplyModel);
+    connect(m_room->cacheForType(m_type), &ChatBarCache::relationIdChanged, this, [this]() {
+        if (!m_room || m_type == ChatBarType::None) {
+            return;
+        }
+        const auto currentCache = m_room->cacheForType(m_type);
+        if (currentCache->isReplying()) {
+            updateReplyModel();
+        } else if (currentCache->isEditing()) {
+            initializeFromCache();
+        }
+    });
     connect(m_room->cacheForType(m_type), &ChatBarCache::attachmentPathChanged, this, [this]() {
         if (m_room->cacheForType(m_type)->attachmentPath().length() > 0) {
             addAttachment(QUrl(m_room->cacheForType(m_type)->attachmentPath()));
@@ -114,7 +124,8 @@ void ChatBarMessageContentModel::initializeFromCache()
 
     clearModel();
 
-    const auto textSections = m_room->cacheForType(m_type)->text().split(u"\n\n"_s);
+    const auto currentCache = m_room->cacheForType(m_type);
+    const auto textSections = (m_type == ChatBarType::Room ? currentCache->text() : currentCache->relationMessage()).split(u"\n\n"_s);
     if (textSections.length() == 1 && textSections[0].isEmpty()) {
         initializeModel();
         return;
@@ -334,6 +345,11 @@ bool ChatBarMessageContentModel::hasRichFormatting() const
     return false;
 }
 
+bool ChatBarMessageContentModel::hasAttachment() const
+{
+    return hasComponentType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video});
+}
+
 void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 {
     if (m_type == ChatBarType::None || !m_room) {
@@ -360,6 +376,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     it->display = path.fileName();
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {DisplayRole});
     m_room->cacheForType(m_type)->setAttachmentPath(path.toString());
+    Q_EMIT hasAttachmentChanged();
 }
 
 ChatBarMessageContentModel::ComponentIt
@@ -477,6 +494,7 @@ void ChatBarMessageContentModel::removeAttachment()
     if (m_room) {
         m_room->cacheForType(m_type)->setAttachmentPath({});
     }
+    Q_EMIT hasAttachmentChanged();
 }
 
 bool ChatBarMessageContentModel::sendMessageWithEnter() const

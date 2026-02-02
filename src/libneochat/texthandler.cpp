@@ -52,8 +52,8 @@ void TextHandler::setData(const QString &string)
 QString TextHandler::handleSendText()
 {
     m_pos = 0;
-    m_dataBuffer = customMarkdownToHtml(m_data);
-    m_dataBuffer = markdownToHTML(m_dataBuffer);
+    m_dataBuffer = markdownToHTML(m_data);
+    m_dataBuffer = customMarkdownToHtml(m_dataBuffer);
 
     m_nextTokenType = nextTokenType(m_dataBuffer, m_pos, m_nextToken, m_nextTokenType);
 
@@ -804,6 +804,8 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
 
     // underline
     processSyntax(u"_"_s, u"<u>"_s, u"</u>"_s);
+
+    qWarning() << buffer;
 
     return buffer;
 }

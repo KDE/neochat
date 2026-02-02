@@ -42,9 +42,9 @@ Item {
         }
     }
 
-    property int chatBarType: LibNeoChat.ChatBarType.Room
-
-    onActiveFocusChanged: chatContentView.itemAt(contentModel.index(contentModel.focusRow, 0)).forceActiveFocus()
+    onActiveFocusChanged: if (activeFocus) {
+        core.forceActiveFocus();
+    }
 
     Connections {
         target: ShareHandler
@@ -67,97 +67,16 @@ Item {
         }
     }
 
-    Message.room: root.currentRoom
-    Message.contentModel: contentModel
+    implicitHeight: core.implicitHeight + Kirigami.Units.largeSpacing
 
-    implicitHeight: chatBar.implicitHeight + Kirigami.Units.largeSpacing
-
-    QQC2.Control {
-        id: chatBar
-
+    ChatBarCore {
+        id: core
         anchors.top: root.top
         anchors.horizontalCenter: root.horizontalCenter
 
-        spacing: 0
-
-        width: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.smallSpacing
-
-        contentItem: ColumnLayout {
-            RichEditBar {
-                id: richEditBar
-                visible: NeoChatConfig.sendMessageWith === 1
-                maxAvailableWidth: chatBarSizeHelper.availableWidth - Kirigami.Units.largeSpacing * 2
-
-                room: root.currentRoom
-                contentModel: chatContentView.model
-
-                onClicked: contentModel.refocusCurrentComponent()
-            }
-            Kirigami.Separator {
-                Layout.fillWidth: true
-                visible: NeoChatConfig.sendMessageWith === 1
-            }
-            RowLayout {
-                spacing: 0
-                QQC2.ScrollView {
-                    id: chatScrollView
-                    Layout.fillWidth: true
-                    Layout.maximumHeight: Kirigami.Units.gridUnit * 8
-
-                    clip: true
-
-                    ColumnLayout {
-                        readonly property real visibleTop: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight
-                        readonly property real visibleBottom: chatScrollView.QQC2.ScrollBar.vertical.position * chatScrollView.contentHeight + chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight
-                        readonly property rect cursorRectInColumn: mapFromItem(contentModel.focusedTextItem.textItem, contentModel.focusedTextItem.cursorRectangle);
-                        onCursorRectInColumnChanged: {
-                            if (chatScrollView.QQC2.ScrollBar.vertical.visible) {
-                                if (cursorRectInColumn.y < visibleTop) {
-                                    chatScrollView.QQC2.ScrollBar.vertical.position = cursorRectInColumn.y / chatScrollView.contentHeight
-                                } else if (cursorRectInColumn.y + cursorRectInColumn.height > visibleBottom) {
-                                    chatScrollView.QQC2.ScrollBar.vertical.position = (cursorRectInColumn.y + cursorRectInColumn.height - (chatScrollView.QQC2.ScrollBar.vertical.size * chatScrollView.contentHeight)) / chatScrollView.contentHeight
-                                }
-                            }
-                        }
-
-                        width: chatScrollView.width
-                        spacing: Kirigami.Units.smallSpacing
-
-                        Repeater {
-                            id: chatContentView
-                            model: ChatBarMessageContentModel {
-                                id: contentModel
-                                type: root.chatBarType
-                                room: root.currentRoom
-                                sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
-                            }
-
-                            delegate: MessageComponentChooser {
-                                rightAnchorMargin: chatScrollView.QQC2.ScrollBar.vertical.visible ? chatScrollView.QQC2.ScrollBar.vertical.width : 0
-                            }
-                        }
-                    }
-                }
-                SendBar {
-                    room: root.currentRoom
-                    contentModel: chatContentView.model
-                }
-            }
-        }
-
-        background: Kirigami.ShadowedRectangle {
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            Kirigami.Theme.inherit: false
-
-            radius: Kirigami.Units.cornerRadius
-            color: Kirigami.Theme.backgroundColor
-            border {
-                color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
-                width: 1
-            }
-        }
+        Message.room: root.currentRoom
+        room: root.currentRoom
+        maxAvailableWidth: chatBarSizeHelper.availableWidth
     }
     MouseArea {
         id: hoverArea
@@ -165,7 +84,7 @@ Item {
             top: chatModeButton.top
             left: root.left
             right: root.right
-            bottom: chatBar.top
+            bottom: core.top
         }
         propagateComposedEvents: true
         hoverEnabled: true
@@ -174,12 +93,12 @@ Item {
     QQC2.Button {
         id: chatModeButton
         anchors {
-            bottom: chatBar.top
+            bottom: core.top
             bottomMargin: Kirigami.Units.smallSpacing
             horizontalCenter: root.horizontalCenter
         }
 
-        visible: hoverArea.containsMouse || hovered || chatBar.hovered
+        visible: hoverArea.containsMouse || hovered || core.hovered
         width: Kirigami.Units.iconSizes.enormous
         height: Kirigami.Units.iconSizes.smallMedium
 
@@ -196,28 +115,5 @@ Item {
         startPercentWidth: 100
         endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
         maxWidth: NeoChatConfig.compactLayout ? root.width - Kirigami.Units.largeSpacing * 2 : Kirigami.Units.gridUnit * 60
-    }
-
-    QtObject {
-        id: _private
-
-        property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
-            room: root.currentRoom
-            type: root.chatBarType
-            textItem: contentModel.focusedTextItem
-            roomListModel: RoomManager.roomListModel
-            userListModel: RoomManager.userListModel
-
-            onIsCompletingChanged: {
-                if (!isCompleting) {
-                    return;
-                }
-
-                let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'CompletionMenu').createObject(contentModel.focusedTextItem.textItem, {
-                    model: _private.completionModel,
-                    keyHelper: contentModel.keyHelper
-                }).open();
-            }
-        }
     }
 }

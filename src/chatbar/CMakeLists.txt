@@ -8,6 +8,7 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
     QML_FILES
         AttachDialog.qml
         ChatBar.qml
+        ChatBarCore.qml
         RichEditBar.qml
         SendBar.qml
         CompletionMenu.qml

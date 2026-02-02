@@ -11,7 +11,6 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         ReplyMessageComponentChooser.qml
         AuthorComponent.qml
         AudioComponent.qml
-        ChatBarComponent.qml
         CodeComponent.qml
         EncryptedComponent.qml
         FetchButtonComponent.qml
