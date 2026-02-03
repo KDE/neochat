@@ -67,7 +67,7 @@ public:
         ThreadRootRole, /**< The thread root event ID for the event. */
         LinkPreviewerRole, /**< The link preview details. */
         ChatBarCacheRole, /**< The ChatBarCache to use. */
-        Editable, /**< Whether the component can be edited. */
+        EditableRole, /**< Whether the component can be edited. */
         CurrentFocusRole, /**< Whteher the delegate should have focus. */
     };
     Q_ENUM(Roles)
@@ -138,7 +138,7 @@ Q_SIGNALS:
 
 protected:
     QPointer<NeoChatRoom> m_room;
-    QString m_eventId = {};
+    QString m_eventId;
 
     /**
      * @brief NeoChatDateTime for the message.
@@ -165,7 +165,7 @@ protected:
 
     QList<MessageComponent> m_components;
     bool hasComponentType(MessageComponentType::Type type) const;
-    bool hasComponentType(QList<MessageComponentType::Type> types) const;
+    bool hasComponentType(const QList<MessageComponentType::Type> &types) const;
     void forEachComponentOfType(MessageComponentType::Type type, std::function<ComponentIt(ComponentIt)> function);
     void forEachComponentOfType(QList<MessageComponentType::Type> types, std::function<ComponentIt(ComponentIt)> function);
 

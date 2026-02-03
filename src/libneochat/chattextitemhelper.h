@@ -5,7 +5,6 @@
 
 #include <QObject>
 #include <QQuickItem>
-#include <qcontainerfwd.h>
 
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"

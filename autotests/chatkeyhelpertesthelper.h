@@ -8,7 +8,6 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 #include <QTextDocumentFragment>
-#include <qquickitem.h>
 
 #include "chatkeyhelper.h"
 #include "chattextitemhelper.h"

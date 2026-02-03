@@ -4,7 +4,6 @@
 #include "chatbarmessagecontentmodel.h"
 
 #include <QTextDocumentFragment>
-#include <qlogging.h>
 
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
@@ -332,7 +331,7 @@ QModelIndex ChatBarMessageContentModel::indexForTextItem(ChatTextItemHelper *tex
 
 bool ChatBarMessageContentModel::hasRichFormatting() const
 {
-    for (const auto &component : m_components) {
+    return std::ranges::any_of(m_components, [this](const auto &component) {
         if (component.type != MessageComponentType::Text) {
             return true;
         }
@@ -341,8 +340,8 @@ bool ChatBarMessageContentModel::hasRichFormatting() const
                 return true;
             }
         }
-    }
-    return false;
+        return false;
+    });
 }
 
 bool ChatBarMessageContentModel::hasAttachment() const

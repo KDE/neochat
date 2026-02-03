@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QQuickItem>
 #include <QTextCursor>
-#include <qtextcursor.h>
 
 #include "chatmarkdownhelper.h"
 #include "chattextitemhelper.h"

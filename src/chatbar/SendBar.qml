@@ -33,7 +33,7 @@ RowLayout {
 
         visible: !root.contentModel.hasAttachment && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "mail-attachment"
-        text: i18n("Attach an image or file")
+        text: i18nc("@action:button", "Attach an image or file")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: {
@@ -48,8 +48,8 @@ RowLayout {
 
             let warningDialog = Qt.createComponent('org.kde.kirigami', 'PromptDialog').createObject(QQC2.Overlay.overlay, {
                 dialogType: Kirigami.PromptDialog.Warning,
-                title: i18n("Attach an image or file?"),
-                subtitle: i18n("Attachments can only have plain text captions, all rich formatting will be removed"),
+                title: attachmentButton.text,
+                subtitle: i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
                 standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
             });
             warningDialog.onAccepted.connect(() => {
@@ -87,7 +87,7 @@ RowLayout {
         visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "globe"
         property bool isBusy: false
-        text: i18n("Send a Location")
+        text: i18nc("@action:button", "Send a Location")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: {
@@ -122,7 +122,7 @@ RowLayout {
         property bool isBusy: false
 
         icon.name: "document-send"
-        text: i18n("Send message")
+        text: i18nc("@action:button", "Send message")
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: root.contentModel.postMessage();

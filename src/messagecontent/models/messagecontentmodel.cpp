@@ -201,7 +201,7 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         }
         return QVariant::fromValue<ChatBarCache *>(m_room->editCache());
     }
-    if (role == Editable) {
+    if (role == EditableRole) {
         return m_editableActive;
     }
     if (role == CurrentFocusRole) {
@@ -239,7 +239,7 @@ QHash<int, QByteArray> MessageContentModel::roleNamesStatic()
     roles[MessageContentModel::ThreadRootRole] = "threadRoot";
     roles[MessageContentModel::LinkPreviewerRole] = "linkPreviewer";
     roles[MessageContentModel::ChatBarCacheRole] = "chatBarCache";
-    roles[MessageContentModel::Editable] = "editable";
+    roles[MessageContentModel::EditableRole] = "editable";
     roles[MessageContentModel::CurrentFocusRole] = "currentFocus";
     return roles;
 }
@@ -254,14 +254,11 @@ bool MessageContentModel::hasComponentType(MessageComponentType::Type type) cons
         != m_components.cend();
 }
 
-bool MessageContentModel::hasComponentType(QList<MessageComponentType::Type> types) const
+bool MessageContentModel::hasComponentType(const QList<MessageComponentType::Type> &types) const
 {
-    for (const auto &type : types) {
-        if (hasComponentType(type)) {
-            return true;
-        }
-    }
-    return false;
+    return std::ranges::any_of(types, [this](const MessageComponentType::Type &type) {
+        return hasComponentType(type);
+    });
 }
 
 void MessageContentModel::forEachComponentOfType(MessageComponentType::Type type,
@@ -316,8 +313,7 @@ void MessageContentModel::updateReplyModel()
 
     m_replyModel = new EventMessageContentModel(m_room, *eventId, true, false, this);
 
-    bool hasModel = hasComponentType(MessageComponentType::Reply);
-    if (!hasModel) {
+    if (!hasComponentType(MessageComponentType::Reply)) {
         int insertRow = 0;
         if (m_components.first().type == MessageComponentType::Author) {
             insertRow = 1;

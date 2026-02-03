@@ -8,7 +8,7 @@
 struct MessageComponent {
     MessageComponentType::Type type = MessageComponentType::Other;
     QString display;
-    QVariantMap attributes = {};
+    QVariantMap attributes;
 
     bool operator==(const MessageComponent &right) const
     {

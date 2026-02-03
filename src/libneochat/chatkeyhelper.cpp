@@ -6,7 +6,6 @@
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
-#include <qnamespace.h>
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)

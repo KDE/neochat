@@ -156,7 +156,7 @@ void ChatTextItemHelper::initializeChars()
         return;
     }
 
-    QTextCursor cursor = QTextCursor(doc);
+    QTextCursor cursor(doc);
     if (cursor.isNull()) {
         return;
     }

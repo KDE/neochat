@@ -36,7 +36,7 @@ class CompletionModel : public QAbstractListModel
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
     /**
-     * @brief The QQuickTextDocument that is being handled.
+     * @brief The ChatBarType::Type of the chat bar.
      */
     Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
 

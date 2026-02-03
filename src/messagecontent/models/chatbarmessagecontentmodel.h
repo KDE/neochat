@@ -18,7 +18,7 @@
 /**
  * @class ChatBarMessageContentModel
  *
- * Inherited from MessageContentModel this visulaises the content of a Quotient::RoomMessageEvent.
+ * Inherited from MessageContentModel this visualises the content of a Quotient::RoomMessageEvent.
  */
 class ChatBarMessageContentModel : public MessageContentModel
 {
