@@ -13,7 +13,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import org.kde.neochat
 
-import Quotient
+import io.github.quotient_im.libquotient
 
 FormCard.FormCardPage {
     id: root
@@ -65,23 +65,23 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Private (invite only)")
             description: i18nc("@info", "Only invited people can join.")
-            checked: root.room.joinRule === JoinRule.Invite
+            checked: root.room.joinRule === Quotient.JoinRule.Invite
             enabled: root.room.canSendState("m.room.join_rules")
-            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Invite) {
-                root.room.joinRule = JoinRule.Invite;
+            onCheckedChanged: if (checked && root.room.joinRule != Quotient.JoinRule.Invite) {
+                root.room.joinRule = Quotient.JoinRule.Invite;
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Space members")
             description: i18nc("@info", "Anyone in the selected spaces can find and join.") + (!["8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
-            checked: root.room.joinRule === JoinRule.Restricted
+            checked: root.room.joinRule === Quotient.JoinRule.Restricted
             enabled: root.room.canSendState("m.room.join_rules") && ["8", "9", "10", "11", "12"].includes(root.room.version)
-            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Restricted) {
+            onCheckedChanged: if (checked && root.room.joinRule != Quotient.JoinRule.Restricted) {
                 (selectSpacesDialog.createObject(QQC2.Overlay.overlay) as SelectSpacesDialog).open();
             }
 
             contentItem.children: QQC2.Button {
-                visible: root.room.joinRule === JoinRule.Restricted
+                visible: root.room.joinRule === Quotient.JoinRule.Restricted
                 text: i18nc("@action:button", "Select spaces")
                 icon.name: "list-add"
 
@@ -102,20 +102,20 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Knock")
             description: i18nc("@info", "People not in the room need to request an invite to join the room.") + (!["7", "8", "9", "10", "11", "12"].includes(root.room.version) ? `\n${root.needUpgradeRoom}` : "")
-            checked: root.room.joinRule === JoinRule.Knock
+            checked: root.room.joinRule === Quotient.JoinRule.Knock
             // https://spec.matrix.org/v1.4/rooms/#feature-matrix
             enabled: root.room.canSendState("m.room.join_rules") && ["7", "8", "9", "10", "11", "12"].includes(root.room.version)
-            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Knock) {
-                root.room.joinRule = JoinRule.Knock;
+            onCheckedChanged: if (checked && root.room.joinRule != Quotient.JoinRule.Knock) {
+                root.room.joinRule = Quotient.JoinRule.Knock;
             }
         }
         FormCard.FormRadioDelegate {
             text: i18nc("@option:check", "Public")
             description: i18nc("@option:check", "Anyone can find and join.")
-            checked: root.room.joinRule === JoinRule.Public
+            checked: root.room.joinRule === Quotient.JoinRule.Public
             enabled: root.room.canSendState("m.room.join_rules")
-            onCheckedChanged: if (checked && root.room.joinRule != JoinRule.Public) {
-                root.room.joinRule = JoinRule.Public;
+            onCheckedChanged: if (checked && root.room.joinRule != Quotient.JoinRule.Public) {
+                root.room.joinRule = Quotient.JoinRule.Public;
             }
         }
     }
