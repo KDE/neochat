@@ -45,6 +45,8 @@ Components.AbstractMaximizeComponent {
         }
     ]
 
+    onOpened: forceActiveFocus()
+
     PositionSource {
         id: positionSource
 
