@@ -138,7 +138,7 @@ Kirigami.Dialog {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
 
                 QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.text: barcode.content
+                QQC2.ToolTip.text: root.shareUrl
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
