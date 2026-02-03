@@ -150,4 +150,6 @@ Components.AbstractMaximizeComponent {
             color: Kirigami.Theme.backgroundColor
         }
     }
+
+    onOpened: forceActiveFocus()
 }
