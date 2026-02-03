@@ -16,7 +16,7 @@ KirigamiComponents.ConvergentContextMenu {
     id: root
 
     required property Kirigami.ApplicationWindow window
-    required property var author
+    required property NeochatRoomMember author
 
     headerContentItem: RowLayout {
         id: detailRow

@@ -20,11 +20,12 @@ RowLayout {
     /**
      * @brief The message author.
      *
-     * A Quotient::RoomMember object.
+     * A NeochatRoomMember object (which is just a QML safe wrapper around
+     * Quotient::RoomMember).
      *
-     * @sa Quotient::RoomMember
+     * @sa NeochatRoomMember, Quotient::RoomMember
      */
-    required property var author
+    required property NeochatRoomMember author
 
     /**
      * @brief The timestamp of the event as a neoChatDateTime.

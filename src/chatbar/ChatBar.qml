@@ -61,9 +61,9 @@ Item {
         target: root.currentRoom.mainCache
 
         function onMentionAdded(text: string, hRef: string): void {
-            completionMenu.complete(text, hRef);
+            core.completionModel.insertCompletion(text, hRef);
             // move the focus back to the chat bar
-            contentModel.refocusCurrentComponent();
+            core.model.refocusCurrentComponent();
         }
     }
 
