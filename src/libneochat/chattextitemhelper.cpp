@@ -481,7 +481,15 @@ void ChatTextItemHelper::mergeTextFormatOnCursor(RichFormat::Format format, QTex
     if (!cursor.hasSelection()) {
         cursor.select(QTextCursor::WordUnderCursor);
     }
-    cursor.mergeCharFormat(charFormat);
+
+    if (!cursor.hasSelection() && isEmpty()) {
+        cursor.mergeBlockCharFormat(charFormat);
+    } else if (!cursor.hasSelection()) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+        cursor.mergeCharFormat(charFormat);
+    } else {
+        cursor.mergeCharFormat(charFormat);
+    }
     Q_EMIT charFormatChanged();
 }
 
