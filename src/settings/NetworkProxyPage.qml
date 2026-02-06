@@ -11,6 +11,8 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.neochat
 
 FormCard.FormCardPage {
+    id: root
+
     title: i18nc("@title:window", "Proxy")
     property int currentType
     property bool proxyConfigChanged: false
