@@ -40,7 +40,7 @@ ColumnLayout {
     Layout.maximumWidth: Message.maxContentWidth
 
     LiveLocationsModel {
-        id: liveLocationModel
+        id: locationModel
         eventId: root.eventId
         room: Message.room
     }
@@ -50,13 +50,13 @@ ColumnLayout {
         Layout.preferredWidth: root.Message.maxContentWidth
         Layout.preferredHeight: root.Message.maxContentWidth / 16 * 9
 
-        map.center: QtPositioning.coordinate(liveLocationModel.boundingBox.y, liveLocationModel.boundingBox.x)
+        map.center: QtPositioning.coordinate(locationModel.boundingBox.y, locationModel.boundingBox.x)
         map.zoomLevel: 15
 
         map.plugin: OsmLocationPlugin.plugin
 
         MapItemView {
-            model: liveLocationModel
+            model: locationModel
             delegate: LocationMapItem {}
         }
 
@@ -64,7 +64,7 @@ ColumnLayout {
             acceptedButtons: Qt.LeftButton
             onTapped: {
                 fullScreenMap.createObject(parent, {
-                    liveLocationModel: liveLocationModel
+                    liveLocationModel: locationModel
                 })
             }
         }
