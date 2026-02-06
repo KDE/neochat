@@ -126,7 +126,7 @@ KirigamiComponents.ConvergentContextMenu {
 
                     onClicked: {
                         if (emojiText.text === "⋮") {
-                            var dialog = emojiDialog.createObject(emojiDelegate) as EmojiDialog;
+                            let dialog = emojiDialog.createObject(emojiDelegate) as EmojiDialog;
                             dialog.showStickers = false;
                             dialog.chosen.connect(emoji => {
                                 root.room.toggleReaction(root.eventId, emoji);

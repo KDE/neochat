@@ -66,7 +66,7 @@ Kirigami.Dialog {
                 id: optionModel
 
                 readonly property bool allValuesSet: {
-                    for( var i = 0; i < optionModel.rowCount(); i++ ) {
+                    for (let i = 0; i < optionModel.rowCount(); i++) {
                         if (optionModel.get(i).optionText.length <= 0) {
                             return false;
                         }
@@ -83,7 +83,7 @@ Kirigami.Dialog {
 
                 function values() {
                     let textValues = []
-                    for( var i = 0; i < optionModel.rowCount(); i++ ) {
+                    for(let i = 0; i < optionModel.rowCount(); i++) {
                         textValues.push(optionModel.get(i).optionText);
                     }
                     return textValues;

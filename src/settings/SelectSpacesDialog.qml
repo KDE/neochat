@@ -37,7 +37,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
     onAccepted: {
         let ids = [];
-        for (var i in spaceGroup.buttons) {
+        for (let i in spaceGroup.buttons) {
             if (spaceGroup.buttons[i].checked) {
                 ids.push(spaceGroup.buttons[i].modelData.id);
             }
