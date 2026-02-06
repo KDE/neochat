@@ -97,9 +97,9 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu Open support dialog", "Support")
         icon.name: "help-contents-symbolic"
         onTriggered: {
-            Qt.createComponent("org.kde.neochat", "SupportDialog").createObject(QQC2.Overlay.overlay, {
+            (Qt.createComponent("org.kde.neochat", "SupportDialog").createObject(QQC2.Overlay.overlay, {
                 connection: root.connection,
-            }).open();
+            }) as SupportDialog).open();
         }
     }
 

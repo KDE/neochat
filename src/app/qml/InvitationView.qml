@@ -166,7 +166,7 @@ ColumnLayout {
     }
 
     RowLayout {
-        visible: root.currentRoom.connection.canCheckMutualRooms
+        visible: (root.currentRoom.connection as NeoChatConnection).canCheckMutualRooms
         spacing: 0
 
         Layout.topMargin: Kirigami.Units.largeSpacing * 2
