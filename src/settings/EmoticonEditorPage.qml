@@ -96,12 +96,10 @@ FormCard.FormCardPage {
             }
         }
         FormCard.FormTextFieldDelegate {
-            id: shortcode
             label: i18n("Shortcode:")
             text: root.shortcode
         }
         FormCard.FormTextFieldDelegate {
-            id: description
             label: i18n("Description:")
             text: root.description
         }
@@ -109,19 +107,19 @@ FormCard.FormCardPage {
             id: save
             text: i18n("Save")
             icon.name: "document-save"
-            enabled: !root.newEmoticon || (image.source.toString().length > 0 && shortcode.text && description.text)
+            enabled: !root.newEmoticon || (image.source.toString().length > 0 && root.shortcode && root.description)
             onClicked: {
                 if (root.newEmoticon) {
-                    model.addEmoticon(image.source, shortcode.text, description.text, emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon");
+                    root.model.addEmoticon(image.source, root.shortcode, root.description, root.emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon");
                 } else {
-                    if (description.text !== root.description) {
-                        root.model.setEmoticonBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text);
+                    if (root.description !== root.description) {
+                        root.model.setEmoticonBody(root.proxyModel.mapToSource(root.proxyModel.index(root.model.index, 0)).row, root.description);
                     }
-                    if (shortcode.text !== root.shortcode) {
-                        root.model.setEmoticonShortcode(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, shortcode.text);
+                    if (root.shortcode !== root.shortcode) {
+                        root.model.setEmoticonShortcode(root.proxyModel.mapToSource(root.proxyModel.index(root.model.index, 0)).row, root.shortcode);
                     }
                     if (image.source + "" !== root.url) {
-                        root.model.setEmoticonImage(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, image.source);
+                        root.model.setEmoticonImage(root.proxyModel.mapToSource(root.proxyModel.index(root.model.index, 0)).row, image.source);
                     }
                 }
                 root.closeDialog();
@@ -129,8 +127,6 @@ FormCard.FormCardPage {
         }
     }
     property Component openFileDialog: Component {
-        id: openFileDialog
-
         OpenFileDialog {
             currentFolder: Core.StandardPaths.standardLocations(Core.StandardPaths.PicturesLocation)[0]
             parentWindow: root.Window.window

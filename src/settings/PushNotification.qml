@@ -80,16 +80,11 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
-
-            Component {
-                id: ruleDelegate
-                NotificationRuleItem {
-                    onDeleteRule: {
-                        root.pushRuleModel.removeKeyword(id);
-                    }
-                    onNotificatonActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
+            delegate: NotificationRuleItem {
+                onDeleteRule: {
+                    root.pushRuleModel.removeKeyword(id);
                 }
+                onNotificatonActionChanged: action => root.pushRuleModel.setPushRuleAction(id, action)
             }
         }
         FormCard.AbstractFormDelegate {

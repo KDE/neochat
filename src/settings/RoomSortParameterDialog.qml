@@ -36,7 +36,6 @@ Kirigami.Dialog {
         clip: true
 
         ListView {
-            id: listView
             implicitHeight: contentHeight
             currentIndex: -1
 

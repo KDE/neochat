@@ -24,7 +24,6 @@ FormCard.FormCardPage {
     required property NeoChatConnection connection
 
     property DevicesModel devicesModel: DevicesModel {
-        id: devicesModel
         connection: root.connection
     }
 

@@ -46,7 +46,6 @@ QQC2.Control {
             }
 
             ColumnLayout {
-                id: column
                 width: scrollView.width
                 spacing: 0
 
