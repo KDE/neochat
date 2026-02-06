@@ -76,7 +76,7 @@ FormCard.FormCardPage {
             text: i18nc("@option:check", "Turn on encryption in new chats")
             description: i18nc("@info", "If enabled, NeoChat will use encryption when starting new direct messages.")
             checked: NeoChatConfig.preferUsingEncryption
-            enabled: !NeoChatConfig.preferUsingEncryptionImmutable
+            enabled: !NeoChatConfig.isPreferUsingEncryptionImmutable
             onToggled: {
                 NeoChatConfig.preferUsingEncryption = checked;
                 NeoChatConfig.save();
