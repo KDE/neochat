@@ -18,7 +18,7 @@ Kirigami.Page {
     required property NeoChatConnection connection
     padding: 0
 
-    Component.onCompleted: camera.start()
+    Component.onCompleted: session.camera.start()
 
     Connections {
         target: root.QQC2.ApplicationWindow.window
@@ -66,12 +66,8 @@ Kirigami.Page {
     CaptureSession {
         id: session
 
-        camera: Camera {
-            id: camera
-        }
-        imageCapture: ImageCapture {
-            id: imageCapture
-        }
+        camera: Camera {}
+        imageCapture: ImageCapture {}
         videoOutput: viewFinder
     }
 }
