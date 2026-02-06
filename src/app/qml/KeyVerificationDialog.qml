@@ -11,6 +11,7 @@ import QtQml
 
 import org.kde.kirigami as Kirigami
 import org.kde.neochat
+import io.github.quotient_im.libquotient
 
 Kirigami.Page {
     id: root
