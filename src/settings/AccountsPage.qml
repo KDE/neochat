@@ -28,7 +28,7 @@ FormCard.FormCardPage {
         interval: 10
         running: false
         onTriggered: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
-            connection: initialAccount
+            connection: root.initialAccount
         }, {
             title: i18n("Account editor")
         })

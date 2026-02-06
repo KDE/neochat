@@ -75,7 +75,7 @@ FormCard.FormCardPage {
 
     FormCard.AbstractFormDelegate {
         Layout.fillWidth: true
-        visible: root.connection && devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
+        visible: root.connection && root.devicesModel.count === 0 // We can assume 0 means loading since there is at least one device
         contentItem: Kirigami.LoadingPlaceholder {}
     }
 

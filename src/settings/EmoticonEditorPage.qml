@@ -29,7 +29,7 @@ FormCard.FormCardPage {
     title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title:window", "Add Sticker") : i18nc("@title:window", "Edit Sticker")) : (newEmoticon ? i18nc("@title:window", "Add Emoji") : i18nc("@title:window", "Edit Emoji"))
 
     FormCard.FormHeader {
-        title: emoticonType === EmoticonFormCard.Stickers ? i18nc("@info:group", "Sticker") : i18nc("@info:group", "Emoji")
+        title: root.emoticonType === EmoticonFormCard.Stickers ? i18nc("@info:group", "Sticker") : i18nc("@info:group", "Emoji")
     }
     FormCard.FormCard {
         FormCard.AbstractFormDelegate {
@@ -44,11 +44,9 @@ FormCard.FormCardPage {
                     source: root.url
                     sourceSize.width: Kirigami.Units.gridUnit * 4
                     sourceSize.height: Kirigami.Units.gridUnit * 4
-                    width: Kirigami.Units.gridUnit * 4
-                    height: Kirigami.Units.gridUnit * 4
 
                     Kirigami.Icon {
-                        source: emoticonType === EmoticonFormCard.Stickers ? "stickers" : "preferences-desktop-emoticons"
+                        source: root.emoticonType === EmoticonFormCard.Stickers ? "stickers" : "preferences-desktop-emoticons"
                         anchors.fill: parent
                         visible: parent.status !== Image.Ready
                     }
@@ -75,7 +73,7 @@ FormCard.FormCardPage {
                             if (fileDialog != null) {
                                 return;
                             }
-                            fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay);
+                            fileDialog = root.openFileDialog.createObject(QQC2.Overlay.overlay);
                             fileDialog.chosen.connect(function (receivedSource) {
                                 mouseArea.fileDialog = null;
                                 if (!receivedSource) {
