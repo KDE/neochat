@@ -16,7 +16,7 @@ Kirigami.PromptDialog {
 
     customFooterActions: Kirigami.Action {
         icon.name: "camera-video-symbolic"
-        text: hasExistingMeeting ? i18nc("@action:button Join the Jitsi meeting", "Join") : i18nc("@action:button Start a new Jitsi meeting", "Start")
+        text: root.hasExistingMeeting ? i18nc("@action:button Join the Jitsi meeting", "Join") : i18nc("@action:button Start a new Jitsi meeting", "Start")
         onTriggered: root.accept()
     }
 }

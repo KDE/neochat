@@ -214,7 +214,7 @@ KirigamiComponents.ConvergentContextMenu {
                 width: Kirigami.Units.gridUnit * 25
             });
             dialog.accepted.connect(reason => {
-                currentRoom.redactEvent(root.eventId, reason);
+                root.room.redactEvent(root.eventId, reason);
             });
         }
     }
@@ -340,7 +340,7 @@ KirigamiComponents.ConvergentContextMenu {
                 width: Kirigami.Units.gridUnit * 25
             });
             dialog.accepted.connect(reason => {
-                currentRoom.reportEvent(root.eventId, reason);
+                root.room.reportEvent(root.eventId, reason);
             });
         }
     }

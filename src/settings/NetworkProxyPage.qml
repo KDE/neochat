@@ -21,10 +21,10 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id: systemDefault
             text: i18n("System Default")
-            checked: currentType === 0
+            checked: root.currentType === 0
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
-                currentType = 0
+                root.currentType = 0
             }
         }
 
@@ -33,10 +33,10 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id:noProxy
             text: i18n("No Proxy")
-            checked: currentType === 3
-            enabled: !Config.isProxyTypeImmutable
+            checked: root.currentType === 3
+            enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
-                currentType = 3;
+                root.currentType = 3;
             }
         }
 
@@ -45,10 +45,10 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id: http
             text: i18n("HTTP")
-            checked: currentType === 1
+            checked: root.currentType === 1
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
-                currentType = 1
+                root.currentType = 1
             }
         }
 
@@ -57,10 +57,10 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             id: socks5
             text: i18n("Socks5")
-            checked: currentType === 2
+            checked: root.currentType === 2
             enabled: !NeoChatConfig.isProxyTypeImmutable
             onToggled: {
-                currentType = 2
+                root.currentType = 2
             }
         }
     }
@@ -71,7 +71,7 @@ FormCard.FormCardPage {
 
     FormCard.FormCard {
         // It makes no sense to configure proxy settings for "System Default" and "No Proxy"
-        enabled: currentType !== 0 && currentType !== 3
+        enabled: root.currentType !== 0 && root.currentType !== 3
 
         FormCard.FormTextFieldDelegate {
             id: hostField
@@ -79,7 +79,7 @@ FormCard.FormCardPage {
             text: NeoChatConfig.proxyHost
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                root.proxyConfigChanged = true
             }
         }
         FormCard.FormDelegateSeparator { below: hostField; above: portField }
@@ -101,7 +101,7 @@ FormCard.FormCardPage {
                         return value // it will add a thousands separator if we don't do this, not sure why
                     }
                     onValueChanged: {
-                        proxyConfigChanged = true
+                        root.proxyConfigChanged = true
                     }
                 }
             }
@@ -113,7 +113,7 @@ FormCard.FormCardPage {
             text: NeoChatConfig.proxyUser
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                root.proxyConfigChanged = true
             }
         }
         FormCard.FormDelegateSeparator { below: userField; above: passwordField }
@@ -124,7 +124,7 @@ FormCard.FormCardPage {
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhUrlCharactersOnly
             onEditingFinished: {
-                proxyConfigChanged = true
+                root.proxyConfigChanged = true
             }
         }
     }
@@ -139,15 +139,15 @@ FormCard.FormCardPage {
             QQC2.Button  {
                 text: i18n("Apply")
                 icon.name: "dialog-ok-apply-symbolic"
-                enabled: currentType !== NeoChatConfig.proxyType || proxyConfigChanged
+                enabled: root.currentType !== NeoChatConfig.proxyType || root.proxyConfigChanged
                 onClicked: {
-                    NeoChatConfig.proxyType = currentType;
+                    NeoChatConfig.proxyType = root.currentType;
                     NeoChatConfig.proxyHost = hostField.text;
                     NeoChatConfig.proxyPort = portField.value;
                     NeoChatConfig.proxyUser = userField.text;
                     NeoChatConfig.proxyPassword = passwordField.text;
                     NeoChatConfig.save();
-                    proxyConfigChanged = false;
+                    root.proxyConfigChanged = false;
                     ProxyController.setApplicationProxy();
                 }
             }

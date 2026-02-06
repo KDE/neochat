@@ -70,7 +70,7 @@ ColumnLayout {
         states: [
             State {
                 name: "downloadedInstant"
-                when: root.fileTransferInfo.completed && autoOpenFile
+                when: root.fileTransferInfo.completed && root.autoOpenFile
 
                 PropertyChanges {
                     openButton.icon.name: "document-open"
@@ -84,7 +84,7 @@ ColumnLayout {
             },
             State {
                 name: "downloaded"
-                when: root.fileTransferInfo.completed && !autoOpenFile
+                when: root.fileTransferInfo.completed && !root.autoOpenFile
 
                 PropertyChanges {
                     openButton.visible: false
@@ -138,7 +138,7 @@ ColumnLayout {
             id: openButton
             icon.name: "document-open"
             onClicked: {
-                autoOpenFile = true;
+                root.autoOpenFile = true;
                 root.Message.room.downloadTempFile(root.eventId);
             }
 
@@ -166,7 +166,7 @@ ColumnLayout {
                 onAccepted: {
                     NeoChatConfig.lastSaveDirectory = currentFolder;
                     NeoChatConfig.save();
-                    if (autoOpenFile) {
+                    if (root.autoOpenFile) {
                         UrlHelper.copyTo(root.fileTransferInfo.localPath, selectedFile);
                     } else {
                         root.Message.room.download(root.eventId, selectedFile);

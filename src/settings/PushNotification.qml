@@ -30,37 +30,37 @@ FormCard.FormCardPage {
         FormCard.FormRadioDelegate {
             icon.name: "globe"
             text: i18nc("As in the default notification setting", "Default Settings")
-            checked: room.pushNotificationState === PushNotificationState.Default
-            enabled: room.pushNotificationState !== PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.Default
+            enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.Default;
+                root.room.pushNotificationState = PushNotificationState.Default;
             }
         }
         FormCard.FormRadioDelegate {
             icon.name: "notifications"
             text: i18nc("As in 'notify for all messages'", "All Messages")
-            checked: room.pushNotificationState === PushNotificationState.All
-            enabled: room.pushNotificationState !== PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.All
+            enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.All;
+                root.room.pushNotificationState = PushNotificationState.All;
             }
         }
         FormCard.FormRadioDelegate {
             icon.name: "im-user"
             text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'", "@Mentions and Keywords")
-            checked: room.pushNotificationState === PushNotificationState.MentionKeyword
-            enabled: room.pushNotificationState !== PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.MentionKeyword
+            enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.MentionKeyword;
+                root.room.pushNotificationState = PushNotificationState.MentionKeyword;
             }
         }
         FormCard.FormRadioDelegate {
             icon.name: "notifications-disabled"
             text: i18nc("As in 'do not notify for any messages'", "None")
-            checked: room.pushNotificationState === PushNotificationState.Mute
-            enabled: room.pushNotificationState !== PushNotificationState.Unknown
+            checked: root.room.pushNotificationState === PushNotificationState.Mute
+            enabled: root.room.pushNotificationState !== PushNotificationState.Unknown
             onToggled: {
-                room.pushNotificationState = PushNotificationState.Mute;
+                root.room.pushNotificationState = PushNotificationState.Mute;
             }
         }
     }

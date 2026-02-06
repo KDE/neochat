@@ -108,7 +108,7 @@ SearchPage {
         id: _private
         function openManualUserDialog(): void {
             let dialog = manualUserDialog.createObject(this, {
-                connection: root.connection
+                connection: root.room.connection
             }) as ManualUserDialog;
             dialog.parent = root.Window.window.overlay;
             dialog.accepted.connect(() => {
