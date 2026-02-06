@@ -79,7 +79,7 @@ Components.AbstractMaximizeComponent {
         QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
         QQC2.TextArea {
-            id: codeText
+            id: codeTextEdit
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: lineNumberColumn.width + lineNumberColumn.anchors.leftMargin + Kirigami.Units.smallSpacing * 2
@@ -100,15 +100,15 @@ Components.AbstractMaximizeComponent {
 
             SyntaxHighlighter {
                 property string definitionName: Repository.definitionForName(root.language).name
-                textEdit: definitionName == "None" ? null : codeText
+                textEdit: definitionName == "None" ? null : codeTextEdit
                 definition: definitionName
             }
             ColumnLayout {
                 id: lineNumberColumn
                 anchors {
-                    top: codeText.top
-                    topMargin: codeText.topPadding + 1
-                    left: codeText.left
+                    top: codeTextEdit.top
+                    topMargin: codeTextEdit.topPadding + 1
+                    left: codeTextEdit.left
                     leftMargin: Kirigami.Units.smallSpacing
                 }
                 spacing: 0
@@ -116,7 +116,7 @@ Components.AbstractMaximizeComponent {
                     id: repeater
                     model: LineModel {
                         id: lineModel
-                        Component.onCompleted: setDocument(codeText.textDocument)
+                        Component.onCompleted: setDocument(codeTextEdit.textDocument)
                     }
                     delegate: QQC2.Label {
                         id: label
