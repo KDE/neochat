@@ -43,7 +43,7 @@ RowLayout {
         display: QQC2.ToolButton.IconOnly
         onClicked: {
             root.reacting = true;
-            var dialog = emojiDialog.createObject(reactButton);
+            var dialog = emojiDialog.createObject(reactButton) as EmojiDialog;
             dialog.chosen.connect(emoji => {
                 root.reacting = false;
                 root.room.toggleReaction(root.eventId, emoji);

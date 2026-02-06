@@ -104,8 +104,8 @@ Kirigami.Page {
             enabled: hasExistingMeeting || canStartNewMeeting
             visible: root.currentRoom && !root.currentRoom.isSpace
             onTriggered: {
-                const dialog = Qt.createComponent("org.kde.neochat", "MeetingDialog").createObject(QQC2.Overlay.overlay, { hasExistingMeeting });
-                dialog.onAccepted.connect(doAction);
+                const dialog = Qt.createComponent("org.kde.neochat", "MeetingDialog").createObject(QQC2.Overlay.overlay, { hasExistingMeeting }) as MeetingDialog;
+                dialog.accepted.connect(doAction);
                 dialog.open();
             }
 

@@ -102,7 +102,7 @@ Flow {
         }
 
         onClicked: {
-            var dialog = emojiDialog.createObject(reactButton);
+            var dialog = emojiDialog.createObject(reactButton) as EmojiDialog;
             dialog.showStickers = false;
             dialog.chosen.connect(emoji => {
                 root.Message.room.toggleReaction(root.eventId, emoji);

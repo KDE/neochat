@@ -51,7 +51,7 @@ ColumnLayout {
     property bool autoOpenFile: false
 
     function saveFileAs() {
-        const dialog = fileDialog.createObject(QQC2.Overlay.overlay);
+        const dialog = fileDialog.createObject(QQC2.Overlay.overlay) as Dialogs.FileDialog;
         dialog.selectedFile = Message.room.fileNameToDownload(root.eventId);
         dialog.open();
     }

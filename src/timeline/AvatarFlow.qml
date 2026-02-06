@@ -72,7 +72,7 @@ RowLayout {
         }
     }
 
-    QQC2.ToolTip.text: root.model?.readMarkersString ?? ""
+    QQC2.ToolTip.text: (root.model as ReadMarkerModel)?.readMarkersString ?? ""
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 

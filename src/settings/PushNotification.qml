@@ -17,7 +17,7 @@ FormCard.FormCardPage {
     property NeoChatRoom room
 
     property PushRuleModel pushRuleModel: PushRuleModel {
-        connection: root.room.connection
+        connection: root.room.connection as NeoChatConnection
     }
 
     title: i18nc('@title:window', 'Notifications')
