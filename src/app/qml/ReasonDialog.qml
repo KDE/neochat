@@ -30,7 +30,7 @@ Kirigami.Page {
         type: Kirigami.MessageType.Information
         position: Kirigami.InlineMessage.Position.Header
 
-        text: xi18n("This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection.domain)
+        text: xi18nc("@info", "This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection.domain)
     }
 
     QQC2.TextArea {
