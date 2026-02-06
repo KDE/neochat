@@ -40,9 +40,11 @@ ColumnLayout {
             model: root.connection.getSupportedRoomVersions()
 
             delegate: FormCard.FormTextDelegate {
+                id: versionDelegate
+                required property var modelData
                 text: modelData.id
                 contentItem.children: QQC2.Label {
-                    text: modelData.status
+                    text: versionDelegate.modelData.status
                     color: Kirigami.Theme.disabledTextColor
                 }
             }
