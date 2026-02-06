@@ -59,7 +59,7 @@ Kirigami.OverlayDrawer {
             if (_lastX === -1) {
                 return;
             }
-            if (Qt.application.layoutDirection === Qt.RightToLeft) {
+            if (Application.layoutDirection === Qt.RightToLeft) {
                 root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, root.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x));
             } else {
                 root.actualWidth = Math.min(root.maxWidth, Math.max(root.minWidth, root.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x));
@@ -68,7 +68,7 @@ Kirigami.OverlayDrawer {
     }
     enabled: true
 
-    edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
+    edge: Application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
 
     // If modal has been changed and the drawer is closed automatically then dim on popup open will have been switched off in main.qml so switch it back on after the animation completes.
     // This is to avoid dim being active for a split second when the drawer is switched to modal which looks terrible.
