@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
@@ -117,6 +119,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.Location
         delegate: MimeComponent {
+            required property string display
             mimeIconSource: "mark-location"
             label: display
         }
@@ -125,6 +128,7 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageComponentType.LiveLocation
         delegate: MimeComponent {
+            required property string display
             mimeIconSource: "mark-location"
             label: display
         }

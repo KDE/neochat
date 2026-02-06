@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -34,7 +36,7 @@ QQC2.Control {
 
             Layout.fillWidth: true
             Layout.margins: Kirigami.Units.largeSpacing
-            Layout.preferredHeight: active ? item.implicitHeight : 0
+            Layout.preferredHeight: active ? (item as Item).implicitHeight : 0
 
             active: visible
             visible: root.chatBarCache.replyId.length > 0 || root.chatBarCache.attachmentPath.length > 0
@@ -71,7 +73,7 @@ QQC2.Control {
                         root.chatBarCache.text = text;
                     }
 
-                    Keys.onEnterPressed: {
+                    Keys.onEnterPressed: event => {
                         if (completionMenu.visible) {
                             completionMenu.complete();
                         } else if (event.modifiers & Qt.ShiftModifier) {
@@ -80,7 +82,7 @@ QQC2.Control {
                             _private.post();
                         }
                     }
-                    Keys.onReturnPressed: {
+                    Keys.onReturnPressed: event => {
                         if (completionMenu.visible) {
                             completionMenu.complete();
                         } else if (event.modifiers & Qt.ShiftModifier) {
@@ -108,7 +110,7 @@ QQC2.Control {
                         height: implicitHeight
                         y: -height - 5
                         z: 10
-                        connection: root.Message.room.connection
+                        connection: root.Message.room.connection as NeoChatConnection
                         chatDocumentHandler: documentHandler
                         margins: 0
                         Behavior on height {
@@ -165,7 +167,7 @@ QQC2.Control {
                 text: i18nc("@action:button", "Attach an image or file")
                 icon.name: "mail-attachment"
                 onClicked: {
-                    let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay);
+                    let dialog = (Clipboard.hasImage ? attachDialog : openFileDialog).createObject(QQC2.Overlay.overlay) as QQC2.Dialog;
                     dialog.chosen.connect(path => root.chatBarCache.attachmentPath = path);
                     dialog.open();
                 }
@@ -225,8 +227,6 @@ QQC2.Control {
                 Message.maxContentWidth: paneLoader.item.width
             }
             QQC2.Button {
-                id: cancelButton
-
                 anchors.top: parent.top
                 anchors.right: parent.right
 
@@ -261,9 +261,9 @@ QQC2.Control {
         function updateText() {
             // This could possibly be undefined due to some esoteric QtQuick issue. Referencing it somewhere in JS is enough.
             documentHandler.document;
-            if (chatBarCache?.isEditing && chatBarCache.relationMessage.length > 0) {
-                textArea.text = chatBarCache.relationMessage;
-                documentHandler.updateMentions(chatBarCache.editId);
+            if (root.chatBarCache?.isEditing && root.chatBarCache.relationMessage.length > 0) {
+                textArea.text = root.chatBarCache.relationMessage;
+                documentHandler.updateMentions(root.chatBarCache.editId);
                 textArea.forceActiveFocus();
                 textArea.cursorPosition = textArea.text.length;
             }

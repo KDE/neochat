@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick
-import QtQuick.Layouts
 
 import Qt.labs.qmlmodels
 
@@ -63,12 +62,10 @@ DelegateChooser {
         roleValue: DelegateType.Other
         delegate: NeoChatConfig.showAllEvents ? hiddenDelegate : emptyDelegate
 
-        Component {
-            id: hiddenDelegate
+        property Component hiddenDelegate : Component {
             HiddenDelegate {}
         }
-        Component {
-            id: emptyDelegate
+        property Component emptyDelegate : Component {
             Item {}
         }
     }

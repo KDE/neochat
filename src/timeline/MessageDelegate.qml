@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2020 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 

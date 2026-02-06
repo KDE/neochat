@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -44,7 +46,7 @@ FormCard.FormCardPage {
                 id: accountDelegate
                 required property NeoChatConnection connection
                 Layout.fillWidth: true
-                onClicked: root.QQC2.ApplicationWindow.window.pageStack.layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
+                onClicked: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.push(Qt.createComponent('org.kde.neochat.settings', 'AccountEditorPage'), {
                     connection: accountDelegate.connection
                 }, {
                     title: i18n("Account editor")
@@ -124,8 +126,8 @@ FormCard.FormCardPage {
     property Connections connections: Connections {
         target: Controller
         function onConnectionAdded() {
-            if (pageStack.layers.depth > 2) {
-                pageStack.layers.pop();
+            if ((root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.depth > 2) {
+                (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).layers.pop();
             }
         }
     }

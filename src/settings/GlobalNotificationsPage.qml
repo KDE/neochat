@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2022 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -27,8 +29,8 @@ FormCard.FormCardPage {
         FormCard.FormCheckDelegate {
             text: i18n("Enable notifications for this account")
             description: {
-                if (connection.pushNotificationsAvailable) {
-                    if (connection.enablePushNotifications) {
+                if (root.connection.pushNotificationsAvailable) {
+                    if (root.connection.enablePushNotifications) {
                         return i18n("Notifications can appear even when NeoChat isn't running.");
                     } else {
                         return i18n("Push notifications are available but could not be enabled.");
@@ -52,8 +54,6 @@ FormCard.FormCardPage {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
                     source: "data-information"
-                    width: Kirigami.Units.iconSizes.sizeForLabels
-                    height: Kirigami.Units.iconSizes.sizeForLabels
                 }
                 QQC2.Label {
                     text: i18nc("@info", "These are the default notification settings for all rooms. You can customize notifications per-room in the room list or room settings.")
@@ -78,7 +78,7 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
+            delegate: root.ruleDelegate
         }
     }
 
@@ -95,7 +95,7 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
+            delegate: root.ruleDelegate
         }
     }
 
@@ -113,7 +113,7 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
+            delegate: root.ruleDelegate
         }
         FormCard.AbstractFormDelegate {
             Layout.fillWidth: true
@@ -176,7 +176,7 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
+            delegate: root.ruleDelegate
         }
     }
 
@@ -197,12 +197,11 @@ FormCard.FormCardPage {
                 }
             }
 
-            delegate: ruleDelegate
+            delegate: root.ruleDelegate
         }
     }
 
     property Component ruleDelegate: Component {
-        id: ruleDelegate
         NotificationRuleItem {
             onDeleteRule: {
                 root.pushRuleModel.removeKeyword(id);

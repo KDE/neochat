@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -56,6 +58,7 @@ Kirigami.Dialog {
             model: root.room.parentObjects(true)
 
             delegate: FormCard.FormCheckDelegate {
+                id: parentDelegate
                 required property var modelData
 
                 text: modelData.displayName
@@ -67,8 +70,8 @@ Kirigami.Dialog {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
-                    source: modelData.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(modelData.avatarUrl) : ""
-                    name: modelData.displayName
+                    source: parentDelegate.modelData.avatarUrl.toString().length > 0 ? root.room.connection.makeMediaUrl(parentDelegate.modelData.avatarUrl) : ""
+                    name: parentDelegate.modelData.displayName
                 }
             }
         }

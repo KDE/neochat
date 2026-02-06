@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -37,6 +39,8 @@ FormCard.FormCardPage {
             id: repeater
             model: root.connection.ignoredUsers()
             delegate: FormCard.AbstractFormDelegate {
+                id: ignoredUserDelegate
+                required property string modelData
                 topPadding: Kirigami.Units.smallSpacing
                 bottomPadding: Kirigami.Units.smallSpacing
 
@@ -46,7 +50,7 @@ FormCard.FormCardPage {
 
                     QQC2.Label {
                         Layout.fillWidth: true
-                        text: modelData
+                        text: ignoredUserDelegate.modelData
                         elide: Text.ElideRight
                         Accessible.ignored: true // base class sets this text on root already
                     }
@@ -54,7 +58,7 @@ FormCard.FormCardPage {
                     QQC2.ToolButton {
                         text: i18nc("@action:button", "Unignore this user")
                         icon.name: "list-remove-symbolic"
-                        onClicked: root.connection.removeFromIgnoredUsers(modelData)
+                        onClicked: root.connection.removeFromIgnoredUsers(ignoredUserDelegate.modelData)
                         display: QQC2.Button.IconOnly
                         QQC2.ToolTip.text: text
                         QQC2.ToolTip.visible: hovered

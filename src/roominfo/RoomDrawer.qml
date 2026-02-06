@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts

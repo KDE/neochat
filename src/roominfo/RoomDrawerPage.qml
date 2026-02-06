@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2023 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -103,7 +104,7 @@ Kirigami.Page {
 
     Connections {
         target: root.Kirigami.PageStack.pageStack
-        onWideModeChanged: {
+        function onWideModeChanged(): void {
             if ((root.Kirigami.PageStack.pageStack as Kirigami.PageRow).wideMode) {
                 root.Kirigami.PageStack.pop();
             }
