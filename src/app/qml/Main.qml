@@ -151,8 +151,6 @@ Kirigami.ApplicationWindow {
     }
 
     contextDrawer: RoomDrawer {
-        id: contextDrawer
-
         // This is a memory for all user initiated actions on the drawer, i.e. clicking the button
         // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
         property bool drawerUserState: NeoChatConfig.autoRoomInfoDrawer
@@ -178,9 +176,9 @@ Kirigami.ApplicationWindow {
 
         // Connect to the onClicked function of the RoomDrawer handle button
         Connections {
-            target: contextDrawer.handle.children[0]
+            target: root.contextDrawer.handle.children[0]
             function onClicked() {
-                contextDrawer.drawerUserState = contextDrawer.drawerOpen;
+                root.contextDrawer.drawerUserState = root.contextDrawer.drawerOpen;
             }
         }
 
