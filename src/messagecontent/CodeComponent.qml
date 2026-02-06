@@ -28,9 +28,9 @@ QQC2.Control {
     required property NeochatRoomMember author
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The timestamp of the event as a neoChatDateTime.
      */
-    required property NeoChatDateTime dateTime
+    required property neoChatDateTime dateTime
 
     /**
      * @brief The display text of the message.

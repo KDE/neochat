@@ -27,9 +27,9 @@ RowLayout {
     required property var author
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The timestamp of the event as a neoChatDateTime.
      */
-    required property NeoChatDateTime dateTime
+    required property neoChatDateTime dateTime
 
     Layout.fillWidth: true
     Layout.maximumWidth: Message.maxContentWidth

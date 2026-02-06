@@ -50,9 +50,9 @@ MessageDelegateBase {
     required property MessageContentModel contentModel
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The timestamp of the event as a neoChatDateTime.
      */
-    required property NeoChatDateTime dateTime
+    required property neoChatDateTime dateTime
 
     /**
      * @brief A model with the first 5 other user read markers for this message.

@@ -18,7 +18,7 @@
 class NeoChatDateTime
 {
     Q_GADGET
-    QML_ELEMENT
+    QML_NAMED_ELEMENT(neoChatDateTime)
 
     /**
      * @brief The base QDateTime used to generate the other values.

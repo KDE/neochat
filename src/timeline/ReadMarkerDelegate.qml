@@ -14,9 +14,9 @@ TimelineDelegate {
     id: root
 
     /**
-     * @brief The timestamp of the event as a NeoChatDateTime.
+     * @brief The timestamp of the event as a neoChatDateTime.
      */
-    required property NeoChatDateTime dateTime
+    required property neoChatDateTime dateTime
 
     property bool isTemporaryHighlighted: false
     onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) {
