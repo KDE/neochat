@@ -215,7 +215,7 @@ Kirigami.Page {
             }
 
             TapHandler {
-                onTapped: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
+                onTapped: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'RoomPinnedMessagesPage'), {
                     room: root.currentRoom
                 }, {
                     title: i18nc("@title", "Pinned Messages")
