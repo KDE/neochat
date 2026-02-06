@@ -41,13 +41,11 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignHCenter
         QQC2.Button {
-            anchors.bottom: parent.bottom
             text: i18n("They match")
             icon.name: "dialog-ok"
             onClicked: root.accept()
         }
         QQC2.Button {
-            anchors.bottom: parent.bottom
             text: i18n("They don't match")
             icon.name: "dialog-cancel"
             onClicked: root.reject()
