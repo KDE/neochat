@@ -63,5 +63,10 @@ public:
      */
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    /**
+     * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
+     */
+    Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
+
     int getRowForEventId(const QString &eventId) const;
 };

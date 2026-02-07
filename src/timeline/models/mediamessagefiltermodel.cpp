@@ -87,6 +87,11 @@ QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
     return roles;
 }
 
+const Quotient::RoomEvent *MediaMessageFilterModel::findEvent(const QString &eventId) const
+{
+    return static_cast<MessageFilterModel *>(sourceModel())->findEvent(eventId);
+}
+
 int MediaMessageFilterModel::getRowForEventId(const QString &eventId) const
 {
     for (auto i = 0; i < rowCount(); i++) {
