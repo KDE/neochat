@@ -430,7 +430,7 @@ void ChatBarMessageContentModel::insertStyleAtCursor(RichFormat::Format style)
 void ChatBarMessageContentModel::insertComponentAtCursor(MessageComponentType::Type type)
 {
     if (m_components[m_currentFocusComponent.row()].type == type) {
-        if (type == MessageComponentType::Text && focusedTextItem()) {
+        if ((type == MessageComponentType::Text || type == MessageComponentType::Quote) && focusedTextItem()) {
             focusedTextItem()->mergeFormatOnCursor(RichFormat::Paragraph);
         }
         return;

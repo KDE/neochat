@@ -47,6 +47,21 @@ QTextDocument *StyleDelegateHelper::document() const
     return quickDocument ? quickDocument->textDocument() : nullptr;
 }
 
+bool StyleDelegateHelper::inQuote() const
+{
+    return m_inQuote;
+}
+
+void StyleDelegateHelper::setInQuote(bool inQuote)
+{
+    if (inQuote == m_inQuote) {
+        return;
+    }
+    m_inQuote = inQuote;
+    formatDocument();
+    Q_EMIT inQuoteChanged();
+}
+
 void StyleDelegateHelper::formatDocument()
 {
     if (!document()) {
@@ -62,7 +77,7 @@ void StyleDelegateHelper::formatDocument()
     cursor.select(QTextCursor::Document);
     cursor.removeSelectedText();
     const auto style = static_cast<RichFormat::Format>(m_textItem->property("style").toInt());
-    const auto string = RichFormat::styleString(style);
+    const auto string = RichFormat::styleString(style, m_inQuote);
 
     const auto sizeText = static_cast<RichFormat::Format>(m_textItem->property("sizeText").toBool());
     const int headingLevel = style <= 6 && sizeText ? style : 0;
@@ -83,7 +98,7 @@ void StyleDelegateHelper::formatDocument()
         chrfmt.setFontItalic(true);
     }
 
-    cursor.mergeBlockCharFormat(chrfmt);
+    cursor.setBlockCharFormat(chrfmt);
     cursor.insertText(string);
     cursor.endEditBlock();
 }

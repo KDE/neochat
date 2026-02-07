@@ -67,7 +67,7 @@ public:
      *
      * @sa Format
      */
-    static QString styleString(Format format);
+    static QString styleString(Format format, bool inQuoteBlock = false);
 
     /**
      * @brief Return the FormatType for the Format.

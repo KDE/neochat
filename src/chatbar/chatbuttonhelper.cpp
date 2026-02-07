@@ -41,6 +41,7 @@ void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
             }
         });
         connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::richFormatEnabledChanged);
+        connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::styleChanged);
         connect(m_textItem, &ChatTextItemHelper::charFormatChanged, this, &ChatButtonHelper::charFormatChanged);
         connect(m_textItem, &ChatTextItemHelper::styleChanged, this, &ChatButtonHelper::styleChanged);
         connect(m_textItem, &ChatTextItemHelper::listChanged, this, &ChatButtonHelper::listChanged);
@@ -48,6 +49,23 @@ void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
 
     Q_EMIT textItemChanged();
     Q_EMIT richFormatEnabledChanged();
+    Q_EMIT styleChanged();
+}
+
+bool ChatButtonHelper::inQuote() const
+{
+    return m_inQuote;
+}
+
+void ChatButtonHelper::setInQuote(bool inQuote)
+{
+    if (inQuote == m_inQuote) {
+        return;
+    }
+    m_inQuote = inQuote;
+    Q_EMIT inQuoteChanged();
+    Q_EMIT richFormatEnabledChanged();
+    Q_EMIT styleChanged();
 }
 
 bool ChatButtonHelper::richFormatEnabled() const
@@ -158,7 +176,14 @@ RichFormat::Format ChatButtonHelper::currentStyle() const
     if (!m_textItem) {
         return RichFormat::Paragraph;
     }
-    return static_cast<RichFormat::Format>(m_textItem->textCursor().blockFormat().headingLevel());
+    if (!richFormatEnabled()) {
+        return RichFormat::Code;
+    }
+    const auto currentHeadingLevel = m_textItem->textCursor().blockFormat().headingLevel();
+    if (currentHeadingLevel == 0 && m_inQuote) {
+        return RichFormat::Quote;
+    }
+    return static_cast<RichFormat::Format>(currentHeadingLevel);
 }
 
 void ChatButtonHelper::setFormat(RichFormat::Format format)

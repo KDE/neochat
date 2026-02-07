@@ -9,30 +9,45 @@
 
 #include <KLocalizedString>
 
-QString RichFormat::styleString(Format format)
+QString RichFormat::styleString(Format format, bool inQuoteBlock)
 {
+    QString formatString;
     switch (format) {
     case Paragraph:
-        return i18nc("As in the default paragraph text style in the chat bar", "Paragraph Style");
+        formatString = i18nc("As in the default paragraph text style in the chat bar", "Paragraph Style");
+        break;
     case Heading1:
-        return i18nc("As in heading level 1 text style in the chat bar", "Heading 1");
+        formatString = i18nc("As in heading level 1 text style in the chat bar", "Heading 1");
+        break;
     case Heading2:
-        return i18nc("As in heading level 2 text style in the chat bar", "Heading 2");
+        formatString = i18nc("As in heading level 2 text style in the chat bar", "Heading 2");
+        break;
     case Heading3:
-        return i18nc("As in heading level 3 text style in the chat bar", "Heading 3");
+        formatString = i18nc("As in heading level 3 text style in the chat bar", "Heading 3");
+        break;
     case Heading4:
-        return i18nc("As in heading level 4 text style in the chat bar", "Heading 4");
+        formatString = i18nc("As in heading level 4 text style in the chat bar", "Heading 4");
+        break;
     case Heading5:
-        return i18nc("As in heading level 5 text style in the chat bar", "Heading 5");
+        formatString = i18nc("As in heading level 5 text style in the chat bar", "Heading 5");
+        break;
     case Heading6:
-        return i18nc("As in heading level 6 text style in the chat bar", "Heading 6");
+        formatString = i18nc("As in heading level 6 text style in the chat bar", "Heading 6");
+        break;
     case Code:
-        return i18nc("As in code text style in the chat bar", "Code");
+        formatString = i18nc("As in code text style in the chat bar", "Code");
+        break;
     case Quote:
-        return i18nc("As in quote text style in the chat bar", "\"Quote\"");
+        if (inQuoteBlock) {
+            formatString = i18nc("As in the default paragraph text style inside a quote block in the chat bar", "Quote Paragraph Style");
+            break;
+        }
+        formatString = i18nc("As in quote text style in the chat bar", "Quote");
+        break;
     default:
-        return {};
+        break;
     }
+    return u"%1%2%1"_s.arg(inQuoteBlock && !(format == Paragraph || format == Code) ? u"\""_s : u""_s, formatString);
 };
 
 RichFormat::FormatType RichFormat::typeForFormat(Format format)

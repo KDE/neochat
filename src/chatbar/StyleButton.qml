@@ -16,6 +16,8 @@ QQC2.AbstractButton {
 
     required property int style
 
+    required property bool inQuote
+
     property bool open: false
 
     property bool compressed: false
@@ -37,6 +39,7 @@ QQC2.AbstractButton {
 
             visible: !root.compressed
             style: root.style
+            inQuote: root.inQuote
             sizeText: false
 
             onPressed: root.clicked()

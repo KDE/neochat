@@ -16,6 +16,8 @@ QQC2.TextArea {
 
     required property int style
 
+    required property bool inQuote
+
     property bool highlight: false
 
     property bool sizeText: true
@@ -52,11 +54,12 @@ QQC2.TextArea {
 
     StyleDelegateHelper {
         textItem: root
+        inQuote: root.inQuote
     }
 
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
-        Kirigami.Theme.colorSet: root.style === LibNeoChat.RichFormat.Quote ? Kirigami.Theme.Window : Kirigami.Theme.View
+        Kirigami.Theme.colorSet: root.style === LibNeoChat.RichFormat.Quote || (root.inQuote && !(root.style == LibNeoChat.RichFormat.Paragraph || root.style == LibNeoChat.RichFormat.Code)) ? Kirigami.Theme.Window : Kirigami.Theme.View
         Kirigami.Theme.inherit: false
         radius: Kirigami.Units.cornerRadius
         border {

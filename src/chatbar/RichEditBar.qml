@@ -57,6 +57,7 @@ RowLayout {
 
     readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
         textItem: root.contentModel.focusedTextItem
+        inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
     }
 
     signal clicked
@@ -195,11 +196,12 @@ RowLayout {
     }
     StyleButton {
         id: styleButton
-        Layout.minimumWidth: compressed ? -1 : Kirigami.Units.gridUnit * 8 + Kirigami.Units.largeSpacing * 2
+        Layout.minimumWidth: compressed ? -1 : Kirigami.Units.gridUnit * 10 + Kirigami.Units.largeSpacing * 2
 
         icon.name: "typewriter"
         text: i18nc("@action:button", "Text Style")
         style: root.chatButtonHelper.currentStyle
+        inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
         compressed: root.maxAvailableWidth < root.extraTextCompressedImplicitWidth
         enabled: root.chatButtonHelper.styleFormatEnabled
         display: QQC2.AbstractButton.IconOnly
@@ -216,8 +218,10 @@ RowLayout {
 
         StylePicker {
             id: styleMenu
+            width: styleButton.compressed ? implicitWidth : styleButton.width
             chatContentModel: root.contentModel
             chatButtonHelper: root.chatButtonHelper
+            inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
 
             onClosed: {
                 root.clicked()

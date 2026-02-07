@@ -17,6 +17,7 @@ QQC2.Popup {
 
     required property MessageContent.ChatBarMessageContentModel chatContentModel
     required property ChatButtonHelper chatButtonHelper
+    required property bool inQuote
 
     y: -implicitHeight
     padding: Kirigami.Units.largeSpacing
@@ -35,7 +36,12 @@ QQC2.Popup {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 8
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2
 
+                enabled: chatButtonHelper.richFormatEnabled ||
+                         index == LibNeoChat.RichFormat.Paragraph ||
+                         index == LibNeoChat.RichFormat.Code ||
+                         index == LibNeoChat.RichFormat.Quote
                 style: index
+                inQuote: root.inQuote
                 highlight: root.chatButtonHelper.currentStyle === index || hovered
 
                 onPressed: (event) => {
