@@ -11,6 +11,8 @@ import org.kde.kirigami as Kirigami
 import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.messagecontent as MessageContent
 
+pragma ComponentBehavior: Bound
+
 RowLayout {
     id: root
 
@@ -23,60 +25,128 @@ RowLayout {
 
     required property MessageContent.ChatBarMessageContentModel contentModel
 
+    required property real maxAvailableWidth
+
+    readonly property real overflowWidth: Kirigami.Units.gridUnit * 30
+
+    function openLocationChooser(): void {
+        Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay, {
+            room: root.room
+        }).open();
+    }
+
+    function openNewPollDialog(): void {
+        Qt.createComponent('org.kde.neochat.chatbar', 'NewPollDialog').createObject(QQC2.Overlay.overlay, {
+            room: root.room
+        }).open();
+    }
+
+    function addAttachment(): void {
+        if (!root.contentModel.hasRichFormatting) {
+            if (LibNeoChat.Clipboard.hasImage) {
+                attachDialog();
+            } else {
+                fileDialog();
+            }
+            return;
+        }
+
+        let warningDialog = Qt.createComponent('org.kde.kirigami', 'PromptDialog').createObject(QQC2.Overlay.overlay, {
+            dialogType: Kirigami.PromptDialog.Warning,
+            title: attachmentButton.text,
+            subtitle: i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
+            standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+        });
+        warningDialog.onAccepted.connect(() => {
+            if (LibNeoChat.Clipboard.hasImage) {
+                attachmentButton.attachDialog();
+            } else {
+                attachmentButton.fileDialog();
+            }
+        });
+        warningDialog.open();
+    }
+
+    function attachDialog(): void {
+        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'AttachDialog').createObject(QQC2.Overlay.overlay) as AttachDialog;
+        dialog.anchors.centerIn = QQC2.Overlay.overlay;
+        dialog.chosen.connect(path => root.contentModel.addAttachment(path));
+        dialog.open();
+    }
+
+    function fileDialog(): void {
+        let dialog = Qt.createComponent('org.kde.neochat.libneochat', 'OpenFileDialog').createObject(QQC2.Overlay.overlay, {
+            parentWindow: Window.window,
+            currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
+        });
+        dialog.chosen.connect(path => root.contentModel.addAttachment(path));
+        dialog.open();
+    }
+
     Kirigami.Separator {
         Layout.fillHeight: true
     }
     QQC2.ToolButton {
-        id: attachmentButton
+        id: compressedExtraSendButton
+        property QQC2.Menu overflowMenu
 
-        property bool isBusy: root.room && root.room.hasFileUploading
-
-        visible: !root.contentModel.hasAttachment && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
-        icon.name: "mail-attachment"
-        text: i18nc("@action:button", "Attach an image or file")
+        visible: root.maxAvailableWidth < root.overflowWidth && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
+        icon.name: "overflow-menu"
+        enabled: root.chatButtonHelper.richFormatEnabled
+        text: i18nc("@action:button", "Format Text")
         display: QQC2.AbstractButton.IconOnly
-
+        checkable: true
         onClicked: {
-            if (!root.contentModel.hasRichFormatting) {
-                if (LibNeoChat.Clipboard.hasImage) {
-                    attachDialog();
-                } else {
-                    fileDialog();
+            if (!checked) {
+                if (overflowMenu) {
+                    overflowMenu.close();
                 }
                 return;
             }
 
-            let warningDialog = Qt.createComponent('org.kde.kirigami', 'PromptDialog').createObject(QQC2.Overlay.overlay, {
-                dialogType: Kirigami.PromptDialog.Warning,
-                title: attachmentButton.text,
-                subtitle: i18nc("@Warning: that any rich text in the chat bar will be switched for the plain text equivalent.", "Attachments can only have plain text captions, all rich formatting will be removed"),
-                standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+            overflowMenu = compressedExtraSendMenu.createObject(compressedExtraSendButton)
+            overflowMenu.onClosed.connect(() => {
+                overflowMenu = null;
             });
-            warningDialog.onAccepted.connect(() => {
-                if (LibNeoChat.Clipboard.hasImage) {
-                    attachmentButton.attachDialog();
-                } else {
-                    attachmentButton.fileDialog();
+            overflowMenu.open();
+        }
+
+        Component {
+            id: compressedExtraSendMenu
+            QQC2.Menu {
+                y: -implicitHeight
+
+                QQC2.MenuItem {
+                    visible: !root.contentModel.hasAttachment
+                    icon.name: "mail-attachment"
+                    text: i18nc("@action:button", "Attach an image or file")
+                    onTriggered: root.addAttachment()
                 }
-            });
-            warningDialog.open();
+                QQC2.MenuItem {
+                    icon.name: "globe"
+                    text: i18nc("@action:button", "Send a Location")
+                    onTriggered: root.openLocationChooser()
+                }
+                QQC2.MenuItem {
+                    icon.name: "amarok_playcount"
+                    text: i18nc("@action:button", "Create a Poll")
+                    onTriggered: root.openNewPollDialog();
+                }
+            }
         }
 
-        function attachDialog(): void {
-            let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'AttachDialog').createObject(QQC2.Overlay.overlay) as AttachDialog;
-            dialog.anchors.centerIn = QQC2.Overlay.overlay;
-            dialog.chosen.connect(path => root.contentModel.addAttachment(path));
-            dialog.open();
-        }
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
+    QQC2.ToolButton {
+        id: attachmentButton
+        visible: !root.contentModel.hasAttachment && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        icon.name: "mail-attachment"
+        text: i18nc("@action:button", "Attach an image or file")
+        display: QQC2.AbstractButton.IconOnly
 
-        function fileDialog(): void {
-            let dialog = Qt.createComponent('org.kde.neochat.libneochat', 'OpenFileDialog').createObject(QQC2.Overlay.overlay, {
-                parentWindow: Window.window,
-                currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-            });
-            dialog.chosen.connect(path => root.contentModel.addAttachment(path));
-            dialog.open();
-        }
+        onClicked: root.addAttachment()
 
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -84,43 +154,30 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: mapButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "globe"
-        property bool isBusy: false
         text: i18nc("@action:button", "Send a Location")
         display: QQC2.AbstractButton.IconOnly
 
-        onClicked: {
-            locationChooser.createObject(QQC2.ApplicationWindow.overlay, {
-                room: root.room
-            }).open();
-        }
+        onClicked: root.openLocationChooser();
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
     QQC2.ToolButton {
         id: pollButton
-        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
         icon.name: "amarok_playcount"
-        property bool isBusy: false
         text: i18nc("@action:button", "Create a Poll")
         display: QQC2.AbstractButton.IconOnly
 
-        onClicked: {
-            newPollDialog.createObject(QQC2.Overlay.overlay, {
-                room: root.room
-            }).open();
-        }
+        onClicked: root.openNewPollDialog();
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
     QQC2.ToolButton {
         id: sendButton
-
-        property bool isBusy: false
-
         icon.name: "document-send"
         text: i18nc("@action:button", "Send message")
         display: QQC2.AbstractButton.IconOnly

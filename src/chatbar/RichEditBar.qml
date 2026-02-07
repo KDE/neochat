@@ -414,14 +414,4 @@ RowLayout {
             }
         }
     }
-
-    Component {
-        id: locationChooser
-        LocationChooser {}
-    }
-
-    Component {
-        id: newPollDialog
-        NewPollDialog {}
-    }
 }

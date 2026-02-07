@@ -110,6 +110,7 @@ QQC2.Control {
             SendBar {
                 room: root.room
                 contentModel: root.model
+                maxAvailableWidth: root.maxAvailableWidth
             }
         }
     }
