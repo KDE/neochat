@@ -246,7 +246,7 @@ RowLayout {
     QQC2.ToolButton {
         id: linkButton
         icon.name: "insert-link-symbolic"
-        text: i18nc("@action:button", "Insert link")
+        text: root.chatButtonHelper.currentLinkUrl.length > 0 ? i18nc("@action:button", "Edit link") : i18nc("@action:button", "Insert link")
         display: QQC2.AbstractButton.IconOnly
         onClicked: {
             let dialog = linkDialog.createObject(QQC2.Overlay.overlay, {
