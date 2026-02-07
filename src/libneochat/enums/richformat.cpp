@@ -98,7 +98,11 @@ QTextCharFormat RichFormat::charFormatForFormat(Format format, bool invert, cons
     if (headingLevelForFormat(format) > 0) {
         // Apparently, 4 is maximum for FontSizeAdjustment; otherwise level=1 and
         // level=2 look the same
-        charFormat.setProperty(QTextFormat::FontSizeAdjustment, 5 - headingLevelForFormat(format));
+        int fontSizeAdjustment = 0;
+        if (!invert) {
+            fontSizeAdjustment = 5 - headingLevelForFormat(format);
+        }
+        charFormat.setProperty(QTextFormat::FontSizeAdjustment, fontSizeAdjustment);
     }
     if (format == Paragraph) {
         charFormat.setFontWeight(QFont::Normal);

@@ -6,6 +6,7 @@
 #include "chattextitemhelper.h"
 #include "clipboard.h"
 #include "neochatroom.h"
+#include "richformat.h"
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
@@ -184,7 +185,12 @@ bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
     if (cursor.isNull()) {
         return false;
     }
-    cursor.insertBlock();
+
+    // If there was a heading we always want to revert to Paragraph format.
+    auto newBlockFormat = RichFormat::blockFormatForFormat(RichFormat::Paragraph);
+    auto newCharFormat = cursor.charFormat();
+    newCharFormat.merge(RichFormat::charFormatForFormat(static_cast<RichFormat::Format>(cursor.blockFormat().headingLevel()), true));
+    cursor.insertBlock(newBlockFormat, newCharFormat);
     return true;
 }
 
