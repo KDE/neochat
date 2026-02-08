@@ -105,7 +105,9 @@ TextEdit {
     textFormat: Text.RichText
 
     onLinkActivated: link => {
-        RoomManager.resolveResource(link, "join");
+        if (!root.editable) {
+            RoomManager.resolveResource(link, "join");
+        }
     }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = hoveredLink;
