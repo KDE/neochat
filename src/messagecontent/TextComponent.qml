@@ -79,8 +79,8 @@ QQC2.TextArea {
         event.accepted = Message.contentModel.keyHelper.handleKey(event.key, event.modifiers);
     }
 
-    onFocusChanged: if (focus && !root.currentFocus) {
-        Message.contentModel.setFocusRow(root.index, true)
+    onFocusChanged: if (focus && !currentFocus && editable) {
+        Message.contentModel.setFocusRow(index, true)
     }
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
@@ -124,6 +124,9 @@ QQC2.TextArea {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
 
+    // To prevent the dfault QQC2 desktop style menu inconjuction with https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/507
+    onPressed: event => event.accepted = true;
+
     HoverHandler {
         cursorShape: root.hoveredLink || (!(root.componentAttributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
     }
@@ -132,22 +135,25 @@ QQC2.TextArea {
         onTapped: root.Message.contentModel.toggleSpoiler(root.Message.contentFilterModel.mapToSource(root.Message.contentFilterModel.index(root.index, 0)))
     }
     TapHandler {
-        enabled: !root.hoveredLink
+        enabled: !root.hoveredLink && !root.editable
         acceptedButtons: Qt.LeftButton
         acceptedDevices: PointerDevice.TouchScreen
         onLongPressed: {
-            const event = root.Message.room.findEvent(root.eventId);
-            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+            requestMenu();
         }
     }
     TapHandler {
+        enabled: !root.editable
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad | PointerDevice.Stylus
-        gesturePolicy: TapHandler.WithinBounds
         onTapped: {
-            const event = root.Message.room.findEvent(root.eventId);
-            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+            requestMenu();
         }
+    }
+
+    function requestMenu() {
+        const event = root.Message.room.findEvent(root.eventId);
+        RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
     }
 
     background: null
