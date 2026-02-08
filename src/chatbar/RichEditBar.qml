@@ -232,9 +232,6 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: emojiButton
-
-        property bool isBusy: false
-
         visible: !Kirigami.Settings.isMobile
         icon.name: "smiley"
         text: i18n("Emojis & Stickers")
@@ -250,6 +247,7 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: linkButton
+        enabled: root.chatButtonHelper.richFormatEnabled
         icon.name: "insert-link-symbolic"
         text: root.chatButtonHelper.currentLinkUrl.length > 0 ? i18nc("@action:button", "Edit link") : i18nc("@action:button", "Insert link")
         display: QQC2.AbstractButton.IconOnly
