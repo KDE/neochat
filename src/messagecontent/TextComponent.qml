@@ -13,7 +13,7 @@ import org.kde.neochat
 /**
  * @brief A component to show rich text from a message.
  */
-TextEdit {
+QQC2.TextArea {
     id: root
 
     /**
@@ -85,8 +85,8 @@ TextEdit {
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
 
-    leftPadding: Kirigami.Units.smallSpacing
-    rightPadding: Kirigami.Units.smallSpacing
+    leftPadding: 0
+    rightPadding: 0
 
     text: root.editable ? "" : display
 
@@ -103,6 +103,15 @@ TextEdit {
     readOnly: !root.editable
     wrapMode: Text.Wrap
     textFormat: Text.RichText
+    placeholderText: if (!editable || index !== (Message.contentModel?.hasAttachment ? 1 : 0)) {
+        return "";
+    } else if (Message.contentModel?.hasAttachment) {
+        i18nc("@placeholder", "Set an attachment caption…")
+    } else if (Message.room?.usesEncryption) {
+        i18nc("@placeholder", "Send an encrypted message…")
+    } else {
+        i18nc("@placeholder", "Send a message…")
+    }
 
     onLinkActivated: link => {
         if (!root.editable) {
@@ -140,4 +149,6 @@ TextEdit {
             RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
         }
     }
+
+    background: null
 }
