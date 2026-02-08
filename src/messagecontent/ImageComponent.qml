@@ -60,39 +60,63 @@ Item {
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
 
-    QQC2.Button {
+    RowLayout {
         anchors.top: root.top
         anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.right: root.right
         anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
-        visible: !_private.hideImage && !root.editable
-        icon.name: "view-hidden"
-        text: i18nc("@action:button", "Hide Image")
-        display: QQC2.Button.IconOnly
-        z: 10
-        onClicked: {
-            _private.hideImage = true;
-            Controller.markImageHidden(root.eventId)
-        }
 
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    }
-    QQC2.Button {
-        id: cancelButton
-        anchors.top: root.top
-        anchors.topMargin: Kirigami.Units.smallSpacing
-        anchors.right: root.right
-        anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
-        visible: root.editable
-        display: QQC2.AbstractButton.IconOnly
-        text: i18nc("@action:button", "Remove attachment")
-        icon.name: "dialog-close"
-        onClicked: root.Message.contentModel?.removeAttachment()
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        QQC2.Button {
+
+            visible: !_private.hideImage && !root.editable
+            icon.name: "view-hidden"
+            text: i18nc("@action:button", "Hide Image")
+            display: QQC2.Button.IconOnly
+            z: 10
+            onClicked: {
+                _private.hideImage = true;
+                Controller.markImageHidden(root.eventId)
+            }
+
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+        QQC2.Button {
+            id: editImageButton
+            visible: root.editable
+            icon.name: "document-edit"
+            text: i18n("Edit")
+            display: QQC2.AbstractButton.IconOnly
+
+            Component {
+                id: imageEditorPage
+                ImageEditorPage {
+                    imagePath: root.componentAttributes.source
+                }
+            }
+
+            onClicked: {
+                let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage);
+                imageEditor.newPathChanged.connect(function (newPath) {
+                    imageEditor.closeDialog();
+                    Message.contentModel?.addAttachment(newPath);
+                });
+            }
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+        }
+        QQC2.Button {
+            id: cancelButton
+            visible: root.editable
+            display: QQC2.AbstractButton.IconOnly
+            text: i18nc("@action:button", "Remove attachment")
+            icon.name: "dialog-close"
+            onClicked: root.Message.contentModel?.removeAttachment()
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
     }
 
     Loader {
