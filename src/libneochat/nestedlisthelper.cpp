@@ -39,6 +39,7 @@ bool NestedListHelper::handleBeforeKeyPressEvent(QKeyEvent *event, const QTextCu
 
 bool NestedListHelper::canIndent(const QTextCursor &textCursor) const
 {
+    // Note modified from the original
     const auto block = textCursor.block();
     if (textCursor.isNull() || !block.isValid()) {
         return false;
@@ -53,6 +54,7 @@ bool NestedListHelper::canIndent(const QTextCursor &textCursor) const
 
 bool NestedListHelper::canDedent(const QTextCursor &textCursor) const
 {
+    // Note modified from the original
     const auto block = textCursor.block();
     if (textCursor.isNull() || !block.isValid()) {
         return false;
