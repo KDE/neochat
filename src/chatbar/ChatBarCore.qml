@@ -72,12 +72,12 @@ QQC2.Control {
             visible: NeoChatConfig.sendMessageWith === 1
         }
         RowLayout {
-            spacing: 0
             QQC2.ScrollView {
                 id: chatScrollView
                 Layout.fillWidth: true
                 Layout.maximumHeight: Kirigami.Units.gridUnit * 8
 
+                contentWidth: availableWidth
                 clip: true
 
                 ColumnLayout {

@@ -144,6 +144,10 @@ void ChatBarMessageContentModel::initializeFromCache()
     }
     endResetModel();
 
+    if (currentCache->attachmentPath().length() > 0) {
+        addAttachment(QUrl(currentCache->attachmentPath()));
+    }
+
     m_currentFocusComponent = QPersistentModelIndex(index(rowCount() - 1));
     Q_EMIT focusRowChanged();
 }
@@ -365,12 +369,16 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     clearModel();
     initializeModel(plainText);
 
+    QFileInfo fileInfo(path.isLocalFile() ? path.toLocalFile() : path.toString());
+    auto mime = QMimeDatabase().mimeTypeForUrl(path);
     auto it = insertComponent(m_components.first().type == MessageComponentType::Reply ? 1 : 0,
                               MessageComponentType::typeForPath(path),
                               {
                                   {"filename"_L1, path.fileName()},
                                   {"source"_L1, path},
                                   {"animated"_L1, false},
+                                  {"mimeIcon"_L1, mime.name()},
+                                  {"size"_L1, fileInfo.size()},
                               });
     it->display = path.fileName();
     Q_EMIT dataChanged(index(std::distance(m_components.begin(), it)), index(std::distance(m_components.begin(), it)), {DisplayRole});
@@ -662,6 +670,9 @@ std::optional<QString> ChatBarMessageContentModel::getReplyEventId()
 
 void ChatBarMessageContentModel::clearModel()
 {
+    const auto hadAttachment =
+        hasComponentType({MessageComponentType::File, MessageComponentType::Audio, MessageComponentType::Image, MessageComponentType::Video});
+
     beginResetModel();
     for (const auto &component : m_components) {
         if (const auto textItem = textItemForComponent(component)) {
@@ -671,6 +682,10 @@ void ChatBarMessageContentModel::clearModel()
     }
     m_components.clear();
     endResetModel();
+
+    if (hadAttachment) {
+        Q_EMIT hasAttachmentChanged();
+    }
 }
 
 #include "moc_chatbarmessagecontentmodel.cpp"

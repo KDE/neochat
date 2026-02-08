@@ -37,6 +37,11 @@ ColumnLayout {
     required property var fileTransferInfo
 
     /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
      * @brief Whether the media has been downloaded.
      */
     readonly property bool downloaded: root.fileTransferInfo && root.fileTransferInfo.completed
@@ -66,6 +71,7 @@ ColumnLayout {
     spacing: Kirigami.Units.largeSpacing
 
     RowLayout {
+        Layout.fillWidth: true
         spacing: Kirigami.Units.largeSpacing
 
         states: [
@@ -137,6 +143,7 @@ ColumnLayout {
 
         QQC2.Button {
             id: openButton
+            visible: !root.editable
             icon.name: "document-open"
             onClicked: {
                 root.autoOpenFile = true;
@@ -150,10 +157,23 @@ ColumnLayout {
 
         QQC2.Button {
             id: downloadButton
+            visible: !root.editable
             icon.name: "download"
             onClicked: root.saveFileAs()
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
+            id: cancelButton
+            visible: root.editable
+            display: QQC2.AbstractButton.IconOnly
+            text: i18nc("@action:button", "Remove attachment")
+            icon.name: "dialog-close"
+            onClicked: root.Message.contentModel?.removeAttachment()
+            QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
