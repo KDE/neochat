@@ -155,10 +155,10 @@ void MessageDelegateBase::cleanupIncubator(MessageObjectIncubator *incubator)
 
     incubator->clear();
     const auto it = std::find(m_activeIncubators.begin(), m_activeIncubators.end(), incubator);
+    delete incubator;
     if (it != m_activeIncubators.end()) {
         m_activeIncubators.erase(it);
     }
-    delete incubator;
 }
 
 void MessageDelegateBase::cleanupItem(QQuickItem *item)
@@ -249,7 +249,12 @@ void MessageDelegateBase::updateAvatar()
                     markAsDirty();
                 }
                 m_avatarIncubating = false;
-                cleanupIncubator(incubator);
+                // We can't cleanup the incubator in the completedCallback otherwise
+                // we use after free when we return to the status changed function
+                // of that incubator
+                QTimer::singleShot(0, this, [this, incubator]() {
+                    cleanupIncubator(incubator);
+                });
             },
             m_errorCallback);
         m_activeIncubators.push_back(avatarIncubator);
@@ -313,7 +318,12 @@ void MessageDelegateBase::updateSection()
                     markAsDirty();
                 }
                 m_sectionIncubating = false;
-                cleanupIncubator(incubator);
+                // We can't cleanup the incubator in the completedCallback otherwise
+                // we use after free when we return to the status changed function
+                // of that incubator
+                QTimer::singleShot(0, this, [this, incubator]() {
+                    cleanupIncubator(incubator);
+                });
             },
             m_errorCallback);
         m_activeIncubators.push_back(sectionIncubator);
@@ -377,7 +387,12 @@ void MessageDelegateBase::updateReadMarker()
                     markAsDirty();
                 }
                 m_readMarkerIncubating = false;
-                cleanupIncubator(incubator);
+                // We can't cleanup the incubator in the completedCallback otherwise
+                // we use after free when we return to the status changed function
+                // of that incubator
+                QTimer::singleShot(0, this, [this, incubator]() {
+                    cleanupIncubator(incubator);
+                });
             },
             m_errorCallback);
         m_activeIncubators.push_back(readMarkerIncubator);
@@ -448,7 +463,12 @@ void MessageDelegateBase::updateBackground()
                     markAsDirty();
                 }
                 m_compactBackgroundIncubating = false;
-                cleanupIncubator(incubator);
+                // We can't cleanup the incubator in the completedCallback otherwise
+                // we use after free when we return to the status changed function
+                // of that incubator
+                QTimer::singleShot(0, this, [this, incubator]() {
+                    cleanupIncubator(incubator);
+                });
             },
             m_errorCallback);
         m_activeIncubators.push_back(compactBackgroundIncubator);
@@ -506,8 +526,13 @@ void MessageDelegateBase::updateQuickAction()
                 }
                 markAsDirty();
             }
-            cleanupIncubator(incubator);
             m_quickActionIncubating = false;
+            // We can't cleanup the incubator in the completedCallback otherwise
+            // we use after free when we return to the status changed function
+            // of that incubator
+            QTimer::singleShot(0, this, [this, incubator]() {
+                cleanupIncubator(incubator);
+            });
         },
         m_errorCallback);
     m_activeIncubators.push_back(quickActionIncubator);
