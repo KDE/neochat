@@ -81,9 +81,8 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
             return;
         }
         const auto currentCache = m_room->cacheForType(m_type);
-        if (currentCache->isReplying()) {
-            updateReplyModel();
-        } else if (currentCache->isEditing()) {
+        updateReplyModel();
+        if (currentCache->isEditing()) {
             initializeFromCache();
         }
     });
