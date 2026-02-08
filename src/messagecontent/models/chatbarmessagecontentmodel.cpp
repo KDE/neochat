@@ -498,6 +498,7 @@ void ChatBarMessageContentModel::removeAttachment()
         mediaRow = 1;
     }
     removeComponent(mediaRow);
+    refocusCurrentComponent();
     if (m_room) {
         m_room->cacheForType(m_type)->setAttachmentPath({});
     }

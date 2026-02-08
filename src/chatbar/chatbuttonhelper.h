@@ -29,6 +29,11 @@ class ChatButtonHelper : public QObject
     Q_PROPERTY(bool inQuote READ inQuote WRITE setInQuote NOTIFY inQuoteChanged)
 
     /**
+     * @brief Whether the model has an attachment..
+     */
+    Q_PROPERTY(bool hasAttachment READ hasAttachment WRITE setHasAttachment NOTIFY hasAttachmentChanged)
+
+    /**
      * @brief Whether rich formating is enabled at the current cursor location.
      */
     Q_PROPERTY(bool richFormatEnabled READ richFormatEnabled NOTIFY richFormatEnabledChanged)
@@ -102,6 +107,9 @@ public:
     bool inQuote() const;
     void setInQuote(bool inQuote);
 
+    bool hasAttachment() const;
+    void setHasAttachment(bool hasAttachment);
+
     bool richFormatEnabled() const;
     bool styleFormatEnabled() const;
     bool bold() const;
@@ -149,6 +157,7 @@ public:
 Q_SIGNALS:
     void textItemChanged();
     void inQuoteChanged();
+    void hasAttachmentChanged();
     void richFormatEnabledChanged();
     void charFormatChanged();
     void styleChanged();
@@ -157,6 +166,7 @@ Q_SIGNALS:
 private:
     QPointer<ChatTextItemHelper> m_textItem;
     bool m_inQuote = false;
+    bool m_hasAttachment = false;
 
     void selectLinkText(QTextCursor &cursor) const;
 };

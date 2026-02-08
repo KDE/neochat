@@ -5,11 +5,8 @@
 
 #include <Kirigami/Platform/PlatformTheme>
 
-#include "chatbarcache.h"
 #include "chattextitemhelper.h"
-#include "enums/chatbartype.h"
 #include "enums/richformat.h"
-#include "neochatroom.h"
 
 ChatButtonHelper::ChatButtonHelper(QObject *parent)
     : QObject(parent)
@@ -34,12 +31,6 @@ void ChatButtonHelper::setTextItem(ChatTextItemHelper *textItem)
     m_textItem = textItem;
 
     if (m_textItem) {
-        connect(m_textItem, &ChatTextItemHelper::roomChanged, this, [this]() {
-            if (m_textItem->room() && m_textItem->type() != ChatBarType::None) {
-                const auto cache = m_textItem->room()->cacheForType(m_textItem->type());
-                connect(cache, &ChatBarCache::attachmentPathChanged, this, &ChatButtonHelper::richFormatEnabledChanged);
-            }
-        });
         connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::richFormatEnabledChanged);
         connect(m_textItem, &ChatTextItemHelper::textFormatChanged, this, &ChatButtonHelper::styleChanged);
         connect(m_textItem, &ChatTextItemHelper::charFormatChanged, this, &ChatButtonHelper::charFormatChanged);
@@ -68,6 +59,21 @@ void ChatButtonHelper::setInQuote(bool inQuote)
     Q_EMIT styleChanged();
 }
 
+bool ChatButtonHelper::hasAttachment() const
+{
+    return m_hasAttachment;
+}
+
+void ChatButtonHelper::setHasAttachment(bool hasAttachment)
+{
+    if (hasAttachment == m_hasAttachment) {
+        return;
+    }
+    m_hasAttachment = hasAttachment;
+    Q_EMIT hasAttachmentChanged();
+    Q_EMIT richFormatEnabledChanged();
+}
+
 bool ChatButtonHelper::richFormatEnabled() const
 {
     if (!m_textItem) {
@@ -86,15 +92,8 @@ bool ChatButtonHelper::richFormatEnabled() const
 
 bool ChatButtonHelper::styleFormatEnabled() const
 {
-    if (!m_textItem) {
+    if (!m_textItem || m_hasAttachment) {
         return false;
-    }
-    const auto room = m_textItem->room();
-    if (!room) {
-        return false;
-    }
-    if (const auto cache = room->cacheForType(m_textItem->type())) {
-        return cache->attachmentPath().isEmpty();
     }
     return true;
 }

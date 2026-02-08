@@ -58,7 +58,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageComponentType.Image
-        delegate: ImageComponent {}
+        delegate: ImageComponent {
+            rightAnchorMargin: root.rightAnchorMargin
+        }
     }
 
     DelegateChoice {

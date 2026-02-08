@@ -58,6 +58,7 @@ RowLayout {
     readonly property ChatButtonHelper chatButtonHelper: ChatButtonHelper {
         textItem: root.contentModel.focusedTextItem
         inQuote: root.contentModel.focusType == LibNeoChat.MessageComponentType.Quote
+        hasAttachment: root.contentModel.hasAttachment
     }
 
     signal clicked

@@ -7,6 +7,7 @@ pragma ComponentBehavior: Bound
 import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
@@ -39,18 +40,32 @@ Item {
     required property var fileTransferInfo
 
     /**
+     * @brief Whether the component should be editable.
+     */
+    required property bool editable
+
+    /**
      * The maximum height of the image. Can be left undefined most of the times. Passed to MediaSizeHelper::contentMaxHeight.
      */
-    property var contentMaxHeight: undefined
+    property var contentMaxHeight: editable ? Kirigami.Units.gridUnit * 8 : undefined
 
+    /**
+     * @brief Extra margin required when anchoring an item on the right.
+     *
+     * Normally used for scrollbars.
+     */
+    property int rightAnchorMargin: 0
+
+    Layout.fillWidth: true
     implicitWidth: mediaSizeHelper.currentSize.width
     implicitHeight: mediaSizeHelper.currentSize.height
 
     QQC2.Button {
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: Kirigami.Units.smallSpacing
-        visible: !_private.hideImage
+        anchors.top: root.top
+        anchors.topMargin: Kirigami.Units.smallSpacing
+        anchors.right: root.right
+        anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
+        visible: !_private.hideImage && !root.editable
         icon.name: "view-hidden"
         text: i18nc("@action:button", "Hide Image")
         display: QQC2.Button.IconOnly
@@ -60,6 +75,21 @@ Item {
             Controller.markImageHidden(root.eventId)
         }
 
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
+    QQC2.Button {
+        id: cancelButton
+        anchors.top: root.top
+        anchors.topMargin: Kirigami.Units.smallSpacing
+        anchors.right: root.right
+        anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
+        visible: root.editable
+        display: QQC2.AbstractButton.IconOnly
+        text: i18nc("@action:button", "Remove attachment")
+        icon.name: "dialog-close"
+        onClicked: root.Message.contentModel?.removeAttachment()
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
@@ -149,8 +179,10 @@ Item {
             if (root.componentAttributes.animated) {
                 _private.imageItem.paused = true;
             }
-            root.Message.timeline.interactive = false;
-            if (!root.componentAttributes.isSticker) {
+            if (root.Message.timeline) {
+                root.Message.timeline.interactive = false;
+            }
+            if (!root.componentAttributes.isSticker && !root.editable) {
                 RoomManager.maximizeMedia(root.eventId);
             }
         }

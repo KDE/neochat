@@ -75,7 +75,7 @@ QQC2.Control {
             QQC2.ScrollView {
                 id: chatScrollView
                 Layout.fillWidth: true
-                Layout.maximumHeight: Kirigami.Units.gridUnit * 8
+                Layout.maximumHeight: Kirigami.Units.gridUnit * (root.model.hasAttachment ? 12 : 8)
 
                 contentWidth: availableWidth
                 clip: true
