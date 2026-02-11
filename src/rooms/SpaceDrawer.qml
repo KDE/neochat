@@ -24,10 +24,6 @@ QQC2.Control {
     topPadding: 0
     bottomPadding: 0
 
-    onActiveFocusChanged: if (activeFocus) {
-        notificationsButton.forceActiveFocus();
-    }
-
     contentItem: ColumnLayout {
         spacing: 0
 
@@ -48,38 +44,6 @@ QQC2.Control {
             ColumnLayout {
                 width: scrollView.width
                 spacing: 0
-
-                AvatarTabButton {
-                    id: notificationsButton
-
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: width - Kirigami.Units.smallSpacing
-                    Layout.maximumHeight: width - Kirigami.Units.smallSpacing
-                    Layout.topMargin: Kirigami.Units.smallSpacing / 2
-                    Layout.bottomMargin: Kirigami.Units.smallSpacing / 2
-                    text: i18n("View notifications")
-                    contentItem: Kirigami.Icon {
-                        source: "notifications"
-                    }
-                    visible: !Kirigami.Settings.isMobile // Shows up in the mobile bar instead
-
-                    activeFocusOnTab: true
-
-                    onSelected: (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'NotificationsView'), {
-                        connection: root.connection
-                    }, {
-                        title: i18nc("@title", "Notifications"),
-                        modality: Qt.NonModal
-                    })
-                }
-
-                Kirigami.Separator {
-                    visible: notificationsButton.visible
-
-                    Layout.fillWidth: true
-                    Layout.leftMargin: Kirigami.Units.smallSpacing
-                    Layout.rightMargin: Kirigami.Units.smallSpacing
-                }
 
                 AvatarTabButton {
                     id: allRoomButton
