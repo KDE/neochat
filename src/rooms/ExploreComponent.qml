@@ -58,4 +58,16 @@ RowLayout {
         QQC2.ToolTip.text: text
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
+
+    QQC2.ToolButton {
+        display: QQC2.Button.IconOnly
+        visible: Kirigami.Settings.isMobile
+        text: i18nc("@action:button", "Open Settings")
+        icon.name: "settings-configure-symbolic"
+        onClicked: NeoChatSettingsView.open()
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    }
 }
