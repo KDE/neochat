@@ -270,6 +270,7 @@ Kirigami.Page {
     Component {
         id: exploreComponent
         ExploreComponent {
+            connection: root.connection
             collapsed: root.collapsed
 
             onSearch: root.search()

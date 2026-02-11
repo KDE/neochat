@@ -15,6 +15,7 @@ import org.kde.neochat
 RowLayout {
     id: root
 
+    required property NeoChatConnection connection
     property bool collapsed: false
 
     signal search
@@ -36,7 +37,7 @@ RowLayout {
                 } else if(RoomManager.currentSpace === 'DM') {
                     return i18nc("@title", "Direct Messages");
                 }
-                return root.connection.room(RoomManager.currentSpace).displayName;
+                return root.connection.room(RoomManager.currentSpace)?.displayName;
             }
             return i18nc("@title List of rooms", "Rooms");
         }
