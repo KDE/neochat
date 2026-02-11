@@ -54,6 +54,7 @@ public:
         ReplacementIdRole, /**< The room id of the room replacing this one, if any. */
         IsDirectChat, /**< Whether this room is a direct chat. */
         NotificationCountRole, /**< Count of all notifications that also include non-notable events like unread messages. */
+        RoomTypeRole, /**< The room's type. */
     };
     Q_ENUM(EventRoles)
 

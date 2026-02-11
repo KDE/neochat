@@ -276,6 +276,11 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == NotificationCountRole) {
         return room->notificationCount();
     }
+    if (role == RoomTypeRole) {
+        if (room->creation()) {
+            return room->creation()->contentPart<QString>("type"_L1);
+        }
+    }
 
     return QVariant();
 }
@@ -310,6 +315,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[IsChildSpaceRole] = "isChildSpace";
     roles[IsDirectChat] = "isDirectChat";
     roles[NotificationCountRole] = "notificationCount";
+    roles[RoomTypeRole] = "roomType";
     return roles;
 }
 

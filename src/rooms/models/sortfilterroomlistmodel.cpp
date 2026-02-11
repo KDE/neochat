@@ -3,6 +3,7 @@
 
 #include "sortfilterroomlistmodel.h"
 
+#include "enums/neochatroomtype.h"
 #include "neochatconnection.h"
 
 using namespace Qt::StringLiterals;
@@ -14,11 +15,9 @@ SortFilterRoomListModel::SortFilterRoomListModel(RoomListModel *sourceModel, QOb
     setSourceModel(sourceModel);
 
     sort(0);
-    invalidateFilter();
-    connect(this, &SortFilterRoomListModel::filterTextChanged, this, [this]() {
-        invalidateFilter();
-    });
+    connect(this, &SortFilterRoomListModel::filterTextChanged, this, &SortFilterRoomListModel::invalidateFilter);
     connect(this, &SortFilterRoomListModel::sourceModelChanged, this, [this]() {
+        this->sourceModel()->disconnect(this);
         connect(this->sourceModel(), &QAbstractListModel::rowsInserted, this, &SortFilterRoomListModel::invalidateRowsFilter);
         connect(this->sourceModel(), &QAbstractListModel::rowsRemoved, this, &SortFilterRoomListModel::invalidateRowsFilter);
     });
@@ -41,6 +40,11 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 
     if (sourceModel()->data(index, RoomListModel::JoinStateRole).toString() == u"upgraded"_s
         && dynamic_cast<RoomListModel *>(sourceModel())->connection()->room(sourceModel()->data(index, RoomListModel::ReplacementIdRole).toString())) {
+        return false;
+    }
+
+    // Hide rooms with defined types, assuming that data-holding rooms have a defined type
+    if (!sourceModel()->data(index, RoomListModel::RoomTypeRole).toString().isEmpty()) {
         return false;
     }
 
