@@ -326,7 +326,7 @@ void ChatTextItemHelper::insertFragment(const QTextDocumentFragment fragment, In
         text = trim(text);
         cursor.insertText(text);
     } else {
-        cursor.insertMarkdown(trim(fragment.toMarkdown()));
+        cursor.insertFragment(fragment);
     }
     if (keepPosition) {
         cursor.setPosition(currentPosition);
