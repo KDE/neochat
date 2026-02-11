@@ -1970,20 +1970,11 @@ int NeoChatRoom::selectedMessageCount() const
 
 bool NeoChatRoom::canDeleteSelectedMessages() const
 {
-    if (canSendState("redact"_L1)) {
-        return true;
-    }
-
     const QString localUserId = connection()->userId();
-    return std::ranges::all_of(m_selectedMessageIds, [this, localUserId](const QString &eventId) {
-        const auto eventIt = findInTimeline(eventId);
-        if (eventIt == historyEdge()) {
-            return false;
-        }
-
-        const RoomEvent *event = eventIt->event();
-        return event && (event->senderId() == localUserId);
-    });
+    return canSendState("redact"_L1) || std::ranges::all_of(m_selectedMessageIds, [this, localUserId](const QString &eventId) {
+               const RoomEvent *event = findEvent(eventId);
+               return event && (event->senderId() == localUserId);
+           });
 }
 
 bool NeoChatRoom::isMessageSelected(const QString &eventId) const
@@ -2005,14 +1996,15 @@ QString NeoChatRoom::getFormattedSelectedMessages() const
     QVector<const RoomEvent *> events;
     events.reserve(m_selectedMessageIds.size());
 
-    std::ranges::copy(m_selectedMessageIds | std::views::transform([this](const QString &eventId) -> const RoomEvent * {
-                          const auto eventIt = findInTimeline(eventId);
-                          return eventIt != historyEdge() ? eventIt->event() : nullptr;
-                      }) | std::views::filter([](const RoomEvent *event) {
-                          return event != nullptr;
-                      }),
-                      std::back_inserter(events));
-
+    // clang-format off
+    std::ranges::copy(
+        m_selectedMessageIds
+            | std::views::transform(std::bind_front(&NeoChatRoom::findEvent, this))
+            | std::views::filter([](const RoomEvent *event) {
+                  return event != nullptr;
+              }),
+        std::back_inserter(events));
+    // clang-format on
     std::ranges::sort(events, {}, &RoomEvent::originTimestamp);
 
     QString formattedContent;
@@ -2033,14 +2025,10 @@ QString NeoChatRoom::getFormattedSelectedMessages() const
 void NeoChatRoom::deleteSelectedMessages(const QString &reason)
 {
     QStringList events;
-    for (const auto &eventId : std::as_const(m_selectedMessageIds)) {
-        const auto eventIt = findInTimeline(eventId);
-        if (eventIt == historyEdge()) {
-            continue;
-        }
 
-        const RoomEvent *event = eventIt->event();
-        if (event && !event->isRedacted() && !is<RedactionEvent>(*event)) {
+    for (const auto &eventId : std::as_const(m_selectedMessageIds)) {
+        const auto [event, isPending] = getEvent(eventId);
+        if (event && !isPending && !event->isRedacted() && !is<RedactionEvent>(*event)) {
             events += eventId;
         }
     }

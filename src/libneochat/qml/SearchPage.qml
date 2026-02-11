@@ -22,6 +22,11 @@ Kirigami.ScrollablePage {
     property alias headerTrailing: headerContent.children
 
     /**
+     * @brief Any additional components below the search bar.
+     */
+     property alias belowHeader: headerColumn.children
+
+    /**
      * @brief The model that provides the search results.
      *
      * The model needs to provide the following properties:
@@ -125,68 +130,73 @@ Kirigami.ScrollablePage {
         root.model.search();
     }
 
-    header: QQC2.Control {
-        padding: Kirigami.Units.largeSpacing
+    header: ColumnLayout {
+        id: headerColumn
+        spacing: 0
 
-        background: Rectangle {
-            Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            Kirigami.Theme.inherit: false
-            color: Kirigami.Theme.backgroundColor
+        QQC2.Control {
+            padding: Kirigami.Units.largeSpacing
 
-            Kirigami.Separator {
-                anchors {
-                    left: parent.left
-                    bottom: parent.bottom
-                    right: parent.right
-                }
-            }
-        }
+            background: Rectangle {
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                Kirigami.Theme.inherit: false
+                color: Kirigami.Theme.backgroundColor
 
-        contentItem: RowLayout {
-            id: headerContent
-            spacing: Kirigami.Units.largeSpacing
-
-            Kirigami.SearchField {
-                id: searchField
-                focus: true
-                enabled: root.enableSearch
-                Layout.fillWidth: true
-                Keys.onEnterPressed: searchButton.clicked()
-                Keys.onReturnPressed: searchButton.clicked()
-                onTextChanged: root.model.searchText = text
-                onAccepted: {
-                    // If the text is empty, call the search model immediately because it will early-return.
-                    if (root.model.searchText.length === 0) {
-                        root.model.search();
-                    } else {
-                        searchTimer.restart();
+                Kirigami.Separator {
+                    anchors {
+                        left: parent.left
+                        bottom: parent.bottom
+                        right: parent.right
                     }
                 }
             }
-            QQC2.Button {
-                id: searchButton
-                icon.name: "search"
-                display: QQC2.Button.IconOnly
-                visible: root.showSearchButton
-                text: i18nc("@action:button", "Search")
-                enabled: root.enableSearch
 
-                onClicked: {
-                    if (typeof root.model.search === 'function') {
-                        searchTimer.stop();
-                        root.model.search();
+            contentItem: RowLayout {
+                id: headerContent
+                spacing: Kirigami.Units.largeSpacing
+
+                Kirigami.SearchField {
+                    id: searchField
+                    focus: true
+                    enabled: root.enableSearch
+                    Layout.fillWidth: true
+                    Keys.onEnterPressed: searchButton.clicked()
+                    Keys.onReturnPressed: searchButton.clicked()
+                    onTextChanged: root.model.searchText = text
+                    onAccepted: {
+                        // If the text is empty, call the search model immediately because it will early-return.
+                        if (root.model.searchText.length === 0) {
+                            root.model.search();
+                        } else {
+                            searchTimer.restart();
+                        }
                     }
                 }
+                QQC2.Button {
+                    id: searchButton
+                    icon.name: "search"
+                    display: QQC2.Button.IconOnly
+                    visible: root.showSearchButton
+                    text: i18nc("@action:button", "Search")
+                    enabled: root.enableSearch
 
-                QQC2.ToolTip.visible: hovered
-                QQC2.ToolTip.text: text
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            }
-            Timer {
-                id: searchTimer
-                interval: 500
-                onTriggered: if (typeof root.model.search === 'function') {
-                    root.model.search();
+                    onClicked: {
+                        if (typeof root.model.search === 'function') {
+                            searchTimer.stop();
+                            root.model.search();
+                        }
+                    }
+
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+                Timer {
+                    id: searchTimer
+                    interval: 500
+                    onTriggered: if (typeof root.model.search === 'function') {
+                        root.model.search();
+                    }
                 }
             }
         }

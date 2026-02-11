@@ -1,10 +1,14 @@
 // SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
 import org.kde.neochat.libneochat
 import org.kde.neochat.timeline
 
@@ -42,6 +46,12 @@ SearchPage {
     }
 
     modelDelegate: EventDelegate {
+        room: root.room
+        showSelectionControl: true
+    }
+
+    belowHeader: SelectedMessagesControl {
+        Layout.fillWidth: true
         room: root.room
     }
 
