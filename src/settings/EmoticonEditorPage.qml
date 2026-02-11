@@ -41,6 +41,8 @@ FormCard.FormCardPage {
                 Image {
                     id: image
                     Layout.alignment: Qt.AlignRight
+                    Layout.minimumWidth: Kirigami.Units.gridUnit * 4
+                    Layout.minimumHeight: Kirigami.Units.gridUnit * 4
                     source: root.url
                     sourceSize.width: Kirigami.Units.gridUnit * 4
                     sourceSize.height: Kirigami.Units.gridUnit * 4
