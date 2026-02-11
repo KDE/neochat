@@ -35,6 +35,7 @@ RowLayout {
     Layout.maximumWidth: Message.maxContentWidth
 
     implicitHeight: Math.max(nameButton.implicitHeight, timeLabel.implicitHeight)
+    spacing: Kirigami.Units.mediumSpacing
 
     QQC2.Label {
         id: nameButton
@@ -45,11 +46,15 @@ RowLayout {
         font.weight: Font.Bold
         elide: Text.ElideRight
         clip: true // Intentional to limit insane Unicode in display names
+        
+        Layout.fillWidth: true
+        Layout.maximumWidth: nameButton.implicitWidth + Kirigami.Units.smallSpacing
+
 
         function openUserMenu(): void {
             const menu = Qt.createComponent("org.kde.neochat", "UserMenu").createObject(root, {
                 window: QQC2.ApplicationWindow.window as Kirigami.ApplicationWindow,
-                author: root.author,
+                author: root.author
             });
             menu.popup(root.QQC2.Overlay.overlay);
         }
@@ -73,20 +78,24 @@ RowLayout {
             onTapped: nameButton.openUserMenu()
         }
     }
-    Item {
-        Layout.fillWidth: true
-    }
     QQC2.Label {
         id: timeLabel
-        text: root.dateTime.hourMinuteString
+
+        text: root.dateTime.shortRelativeDateTime
         horizontalAlignment: Text.AlignRight
         color: Kirigami.Theme.disabledTextColor
+
         QQC2.ToolTip.visible: timeHoverHandler.hovered
-        QQC2.ToolTip.text: root.dateTime.shortDateTime
+        QQC2.ToolTip.text: root.dateTime.longDateTime
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
             id: timeHoverHandler
         }
     }
+    
+    Item {
+        Layout.fillWidth: true
+    }
+
 }

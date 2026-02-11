@@ -27,6 +27,11 @@ QString NeoChatDateTime::shortDateTime() const
     return QLocale().toString(m_dateTime.toLocalTime(), QLocale::ShortFormat);
 }
 
+QString NeoChatDateTime::longDateTime() const
+{
+    return QLocale().toString(m_dateTime.toLocalTime(), QLocale::LongFormat);
+}
+
 QString NeoChatDateTime::relativeDate() const
 {
     KFormat formatter;
@@ -37,6 +42,14 @@ QString NeoChatDateTime::relativeDateTime() const
 {
     KFormat formatter;
     return formatter.formatRelativeDateTime(m_dateTime.toLocalTime(), QLocale::ShortFormat);
+}
+
+QString NeoChatDateTime::shortRelativeDateTime() const
+{
+    if (m_dateTime > QDate::currentDate().startOfDay()) {
+        return hourMinuteString();
+    }
+    return relativeDate() + u", "_s + hourMinuteString();
 }
 
 bool NeoChatDateTime::isValid() const
