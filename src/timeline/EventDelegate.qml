@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2024 James Graham <james.h.graham@protonmail.com>
 // SPDX-License-Identifier: GPL-3.0-only
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 
 import Qt.labs.qmlmodels
@@ -16,6 +18,11 @@ DelegateChooser {
      */
     required property NeoChatRoom room
 
+    /**
+     * @brief Whether to show selection controls for message delegate.
+     */
+    property bool showSelectionControl: false
+
     role: "delegateType"
 
     DelegateChoice {
@@ -25,7 +32,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.Message
-        delegate: MessageDelegate {}
+        delegate: MessageDelegate {
+            showSelectionControl: root.showSelectionControl
+        }
     }
 
     DelegateChoice {

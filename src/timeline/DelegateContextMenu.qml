@@ -408,6 +408,13 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
+        visible: root.messageComponentType !== MessageComponentType.Other
+        text: root.room.selectedMessageCount > 0 && root.room.isMessageSelected(root.eventId) ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
+        icon.name: "edit-select-all-symbolic"
+        onTriggered: root.room.toggleMessageSelection(root.eventId)
+    }
+
+    Kirigami.Action {
         separator: true
         visible: viewSourceAction.visible
     }

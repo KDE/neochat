@@ -5,6 +5,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
@@ -109,6 +110,16 @@ MessageDelegateBase {
      */
     property bool showHighlight: root.isHighlighted || isTemporaryHighlighted
 
+    /**
+     * @brief Whether the message is selected.
+     */
+    property bool selected: root.room.selectedMessageCount > 0 && room.isMessageSelected(eventId)
+
+    /**
+     * @brief Whether to show selection controls for this message.
+     */
+    property bool showSelectionControl: false
+
     Message.room: root.room
     Message.timeline: root.ListView.view
     Message.contentModel: root.contentModel
@@ -120,6 +131,7 @@ MessageDelegateBase {
     enableAvatars: NeoChatConfig?.showAvatarInTimeline ?? false
     compactMode: NeoChatConfig?.compactLayout ?? false
     showLocalMessagesOnRight: NeoChatConfig.showLocalMessagesOnRight
+    showSelection: root.showSelectionControl && room.selectedMessageCount > 0
 
     contentItem: Bubble {
         id: bubble
@@ -228,6 +240,20 @@ MessageDelegateBase {
         room: root.room
         eventId: root.eventId
         author: root.author
+    }
+
+    selectionComponent: RowLayout {
+        spacing: Kirigami.Units.smallSpacing
+        implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+
+        QQC2.CheckBox {
+            checked: root.selected
+            onClicked: root.room.toggleMessageSelection(root.eventId)
+        }
+
+        Kirigami.Separator {
+            Layout.fillHeight: true
+        }
     }
 
     QtObject {

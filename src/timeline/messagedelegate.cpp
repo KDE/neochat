@@ -138,7 +138,10 @@ void MessageDelegateBase::setPercentageValues(bool fillWidth)
 
 void MessageDelegateBase::setContentPadding()
 {
-    m_contentSizeHelper.setLeftPadding(m_sizeHelper.leftX() + (leaveAvatarSpace() ? m_avatarSize + m_spacing : 0));
+    qreal selectionOffset = (m_showSelection && m_selectionItem) ? m_selectionItem->implicitWidth() + (m_spacing * 2) : 0;
+    qreal avatarOffset = (leaveAvatarSpace() ? m_avatarSize + m_spacing : 0);
+
+    m_contentSizeHelper.setLeftPadding(m_sizeHelper.leftX() + selectionOffset + avatarOffset);
     m_contentSizeHelper.setRightPadding(m_sizeHelper.rightPadding());
 }
 
@@ -539,6 +542,77 @@ void MessageDelegateBase::updateQuickAction()
     m_quickActionComponent->create(*quickActionIncubator, qmlContext(m_quickActionComponent));
 }
 
+QQmlComponent *MessageDelegateBase::selectionComponent() const
+{
+    return m_selectionComponent;
+}
+
+void MessageDelegateBase::setSelectionComponent(QQmlComponent *selectionComponent)
+{
+    if (selectionComponent == m_selectionComponent) {
+        return;
+    }
+    m_selectionComponent = selectionComponent;
+    Q_EMIT selectionComponentChanged();
+
+    updateSelection();
+}
+
+bool MessageDelegateBase::showSelection() const
+{
+    return m_showSelection;
+}
+
+void MessageDelegateBase::setShowSelection(bool showSelection)
+{
+    if (showSelection == m_showSelection) {
+        return;
+    }
+    m_showSelection = showSelection;
+    Q_EMIT showSelectionChanged();
+
+    updateSelection();
+}
+
+void MessageDelegateBase::updateSelection()
+{
+    if (m_selectionComponent && showSelection() && !m_selectionItem && !m_selectionIncubating) {
+        const auto selectionIncubator = new MessageObjectIncubator(
+            m_objectInitialCallback,
+            [this](MessageObjectIncubator *incubator) {
+                if (!incubator) {
+                    return;
+                }
+                const auto selectionObject = qobject_cast<QQuickItem *>(incubator->object());
+                if (selectionObject) {
+                    // The setting may have changed during the incubation period.
+                    if (showSelection()) {
+                        m_selectionItem = selectionObject;
+                    } else {
+                        cleanupItem(selectionObject);
+                    }
+                    setContentPadding();
+                    markAsDirty();
+                }
+                m_selectionIncubating = false;
+                // We can't cleanup the incubator in the completedCallback otherwise
+                // we use after free when we return to the status changed function
+                // of that incubator
+                QTimer::singleShot(0, this, [this, incubator]() {
+                    cleanupIncubator(incubator);
+                });
+            },
+            m_errorCallback);
+        m_activeIncubators.push_back(selectionIncubator);
+        m_selectionComponent->create(*selectionIncubator, qmlContext(m_selectionComponent));
+        m_selectionIncubating = true;
+    } else if (!showSelection() && m_selectionItem) {
+        cleanupItem(m_selectionItem);
+        setContentPadding();
+        markAsDirty();
+    }
+}
+
 bool MessageDelegateBase::showLocalMessagesOnRight() const
 {
     return m_showLocalMessagesOnRight;
@@ -623,10 +697,17 @@ void MessageDelegateBase::resizeContent()
         nextY += m_sectionItem->implicitHeight() + m_spacing;
     }
     qreal yAdd = 0.0;
+    if (m_showSelection && m_selectionItem) {
+        m_selectionItem->setPosition(QPointF(m_sizeHelper.leftX(), nextY));
+        m_selectionItem->setSize(QSizeF(m_selectionItem->implicitWidth(), m_selectionItem->implicitHeight()));
+        yAdd = m_selectionItem->implicitHeight();
+    }
     if (showAvatar() && m_avatarItem) {
-        m_avatarItem->setPosition(QPointF(m_sizeHelper.leftX(), nextY));
+        m_avatarItem->setPosition(
+            QPointF(m_showSelection && m_selectionItem ? m_sizeHelper.leftX() + m_selectionItem->implicitWidth() + (m_spacing * 2) : m_sizeHelper.leftX(),
+                    nextY));
         m_avatarItem->setSize(QSizeF(m_avatarItem->implicitWidth(), m_avatarItem->implicitHeight()));
-        yAdd = m_avatarItem->implicitWidth();
+        yAdd = std::max(yAdd, m_avatarItem->implicitHeight());
     }
     if (m_contentItem) {
         const auto contentItemWidth =

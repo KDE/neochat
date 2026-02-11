@@ -604,6 +604,7 @@ QString RoomManager::findSpaceIdForCurrentRoom() const
 void RoomManager::setCurrentRoom(const QString &roomId)
 {
     if (m_currentRoom != nullptr) {
+        m_currentRoom->clearSelectedMessages();
         m_currentRoom->disconnect(this);
     }
 

@@ -213,6 +213,7 @@ QQC2.ScrollView {
         model: root.messageFilterModel
         delegate: EventDelegate {
             room: _private.room
+            showSelectionControl: true
         }
 
         ColumnLayout {

@@ -102,6 +102,16 @@ class MessageDelegateBase : public TimelineDelegate
     Q_PROPERTY(QQmlComponent *quickActionComponent READ quickActionComponent WRITE setQuickActionComponent NOTIFY quickActionComponentChanged FINAL)
 
     /**
+     * @brief The component to use to visualize message selection.
+     */
+    Q_PROPERTY(QQmlComponent *selectionComponent READ selectionComponent WRITE setSelectionComponent NOTIFY selectionComponentChanged FINAL)
+
+    /**
+     * @brief Whether to show the selection component.
+     */
+    Q_PROPERTY(bool showSelection READ showSelection WRITE setShowSelection NOTIFY showSelectionChanged FINAL REQUIRED)
+
+    /**
      * @brief Whether to use the compact mode appearance.
      */
     Q_PROPERTY(bool compactMode READ compactMode WRITE setCompactMode NOTIFY compactModeChanged FINAL)
@@ -161,6 +171,11 @@ public:
     QQmlComponent *quickActionComponent() const;
     void setQuickActionComponent(QQmlComponent *quickActionComponent);
 
+    QQmlComponent *selectionComponent() const;
+    void setSelectionComponent(QQmlComponent *selectionComponent);
+    bool showSelection() const;
+    void setShowSelection(bool showSelection);
+
     bool showLocalMessagesOnRight() const;
     void setShowLocalMessagesOnRight(bool showLocalMessagesOnRight);
 
@@ -182,6 +197,8 @@ Q_SIGNALS:
     void showReadMarkersChanged();
     void compactBackgroundComponentChanged();
     void quickActionComponentChanged();
+    void selectionComponentChanged();
+    void showSelectionChanged();
     void compactModeChanged();
     void showLocalMessagesOnRightChanged();
     void isTemporaryHighlightedChanged();
@@ -226,6 +243,12 @@ private:
     QPointer<QQmlComponent> m_quickActionComponent;
     bool m_quickActionIncubating = false;
     QPointer<QQuickItem> m_quickActionItem;
+
+    QPointer<QQmlComponent> m_selectionComponent;
+    bool m_selectionIncubating = false;
+    QPointer<QQuickItem> m_selectionItem;
+    bool m_showSelection = false;
+    void updateSelection();
 
     bool m_showLocalMessagesOnRight = true;
 

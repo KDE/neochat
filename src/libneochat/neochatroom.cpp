@@ -59,6 +59,8 @@
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
 
+#include <ranges>
+
 using namespace Quotient;
 
 std::function<bool(const Quotient::RoomEvent *)> NeoChatRoom::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
@@ -630,7 +632,14 @@ bool NeoChatRoom::isUserBanned(const QString &user) const
 
 void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reason)
 {
-    doDeleteMessagesByUser(user, reason);
+    QStringList events;
+    for (const auto &event : messageEvents()) {
+        if (event->senderId() == user && !event->isRedacted() && !event.viewAs<RedactionEvent>() && !event->isStateEvent()) {
+            events += event->id();
+        }
+    }
+
+    doDeleteMessageIds(events, reason);
 }
 
 QString NeoChatRoom::historyVisibility() const
@@ -761,16 +770,10 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
     }
 }
 
-QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)
+QCoro::Task<void> NeoChatRoom::doDeleteMessageIds(const QStringList eventIds, QString reason)
 {
-    QStringList events;
-    for (const auto &event : messageEvents()) {
-        if (event->senderId() == user && !event->isRedacted() && !event.viewAs<RedactionEvent>() && !event->isStateEvent()) {
-            events += event->id();
-        }
-    }
-    for (const auto &e : events) {
-        auto job = connection()->callApi<RedactEventJob>(id(), QString::fromLatin1(QUrl::toPercentEncoding(e)), connection()->generateTxnId(), reason);
+    for (const auto &eventId : eventIds) {
+        auto job = connection()->callApi<RedactEventJob>(id(), eventId, connection()->generateTxnId(), reason);
         co_await qCoro(job.get(), &BaseJob::finished);
         if (job->error() != BaseJob::Success) {
             qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";
@@ -1961,6 +1964,98 @@ void NeoChatRoom::markAllChildrenMessagesAsRead()
 QList<QString> NeoChatRoom::sortedMemberIds() const
 {
     return m_sortedMemberIds;
+}
+
+int NeoChatRoom::selectedMessageCount() const
+{
+    return m_selectedMessageIds.size();
+}
+
+bool NeoChatRoom::canDeleteSelectedMessages() const
+{
+    if (canSendState("redact"_L1)) {
+        return true;
+    }
+
+    const QString localUserId = connection()->userId();
+    return std::ranges::all_of(m_selectedMessageIds, [this, localUserId](const QString &eventId) {
+        const auto eventIt = findInTimeline(eventId);
+        if (eventIt == historyEdge()) {
+            return false;
+        }
+
+        const RoomEvent *event = eventIt->event();
+        return event && (event->senderId() == localUserId);
+    });
+}
+
+bool NeoChatRoom::isMessageSelected(const QString &eventId) const
+{
+    return m_selectedMessageIds.contains(eventId);
+}
+
+void NeoChatRoom::toggleMessageSelection(const QString &eventId)
+{
+    if (!m_selectedMessageIds.remove(eventId)) {
+        m_selectedMessageIds.insert(eventId);
+    }
+
+    Q_EMIT selectionChanged();
+}
+
+QString NeoChatRoom::getFormattedSelectedMessages() const
+{
+    QVector<const RoomEvent *> events;
+    events.reserve(m_selectedMessageIds.size());
+
+    std::ranges::copy(m_selectedMessageIds | std::views::transform([this](const QString &eventId) -> const RoomEvent * {
+                          const auto eventIt = findInTimeline(eventId);
+                          return eventIt != historyEdge() ? eventIt->event() : nullptr;
+                      }) | std::views::filter([](const RoomEvent *event) {
+                          return event != nullptr;
+                      }),
+                      std::back_inserter(events));
+
+    std::ranges::sort(events, {}, &RoomEvent::originTimestamp);
+
+    QString formattedContent;
+    formattedContent.reserve(events.size() * 256); // estimate an average of 256 characters per message
+
+    for (const RoomEvent *event : events) {
+        formattedContent += EventHandler::authorDisplayName(this, event);
+        formattedContent += u" — "_s;
+        formattedContent += EventHandler::dateTime(this, event).shortDateTime();
+        formattedContent += u'\n';
+        formattedContent += EventHandler::plainBody(this, event);
+        formattedContent += u"\n\n"_s;
+    }
+
+    return formattedContent.trimmed();
+}
+
+void NeoChatRoom::deleteSelectedMessages(const QString &reason)
+{
+    QStringList events;
+    for (const auto &eventId : m_selectedMessageIds) {
+        const auto eventIt = findInTimeline(eventId);
+        if (eventIt == historyEdge()) {
+            continue;
+        }
+
+        const RoomEvent *event = eventIt->event();
+        if (event && !event->isRedacted() && !is<RedactionEvent>(*event)) {
+            events += eventId;
+        }
+    }
+
+    doDeleteMessageIds(events, reason);
+    clearSelectedMessages();
+}
+
+void NeoChatRoom::clearSelectedMessages()
+{
+    m_selectedMessageIds.clear();
+    Q_EMIT selectionChanged();
 }
 
 #include "moc_neochatroom.cpp"
