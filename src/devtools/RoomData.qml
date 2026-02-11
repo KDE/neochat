@@ -36,9 +36,24 @@ ColumnLayout {
                 dialog.chosen.connect(id => root.room = root.connection.room(id))
             }
         }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormTextDelegate {
             visible: root.room
             text: i18n("Room Id: %1", root.room.id)
+        }
+        FormCard.FormDelegateSeparator {}
+        FormCard.FormCheckDelegate {
+            visible: root.room
+            text: i18nc("@option:check Toggle for whether this room is considered a direct chat or not", "Direct Chat")
+            checked: root.room.isDirectChat()
+            enabled: root.room.totalMemberCount === 2
+            onCheckedChanged: {
+                if (checked) {
+                    root.room.markAsDirectChat();
+                } else {
+                    root.connection.removeFromDirectChats(root.room.id);
+                }
+            }
         }
     }
     FormCard.FormHeader {
