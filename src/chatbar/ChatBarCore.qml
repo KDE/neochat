@@ -95,7 +95,7 @@ QQC2.Control {
                     }
 
                     width: chatScrollView.width
-                    spacing: Kirigami.Units.smallSpacing
+                    spacing: 0
 
                     Repeater {
                         id: chatContentView

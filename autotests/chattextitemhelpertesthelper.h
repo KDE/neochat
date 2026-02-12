@@ -42,6 +42,9 @@ public:
 
     Q_INVOKABLE void setFixedChars(const QString &startChars, const QString &endChars)
     {
+        if (!m_textItem) {
+            return;
+        }
         m_textItem->setFixedChars(startChars, endChars);
     }
 
@@ -138,10 +141,11 @@ public:
         if (!m_textItem) {
             return;
         }
-        const auto textItem = new ChatTextItemHelper();
+        const auto textItem = new ChatTextItemHelper(this);
         textItem->setTextItem(item);
         textItem->setCursorPosition(cursorPos);
         m_textItem->setCursorFromTextItem(textItem, infront);
+        textItem->deleteLater();
     }
 
     Q_INVOKABLE void mergeFormatOnCursor(RichFormat::Format format)

@@ -65,6 +65,11 @@ TestCase {
         spyCursor.clear();
     }
 
+    function cleanupTestCase(): void {
+        testHelper.textItem = null;
+        textItemHelper.textItem = null;
+    }
+
     function test_item(): void {
         compare(textItemHelper.textItem, textEdit);
         compare(spyItem.count, 0);
