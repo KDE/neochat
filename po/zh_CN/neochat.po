@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -913,7 +913,7 @@ msgid "Add option"
 msgstr "添加选项"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/SpaceDrawer.qml:71 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -992,7 +992,7 @@ msgid "No room found"
 msgstr ""
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:317
+#: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
@@ -1074,19 +1074,65 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:293
+#: src/app/qml/RoomPage.qml:243
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "显示已被删除的消息"
+
+#: src/app/qml/RoomPage.qml:247
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:251
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "复制到剪贴板"
+
+#: src/app/qml/RoomPage.qml:255
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "私聊"
+
+#: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
+#: src/app/qml/UserDetailDialog.qml:331
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "移除消息"
+
+#: src/app/qml/RoomPage.qml:262
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "移除"
+
+#: src/app/qml/RoomPage.qml:345
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:355
+#: src/app/qml/RoomPage.qml:407
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1442,23 +1488,11 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr ""
 
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "移除消息"
-
 #: src/app/qml/UserDetailDialog.qml:332
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr ""
-
-#: src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "移除"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
@@ -3269,12 +3303,12 @@ msgstr "聊天室创建失败：%1"
 msgid "Space creation failed: %1"
 msgstr "空间创建失败：%1"
 
-#: src/libneochat/neochatroom.cpp:1266
+#: src/libneochat/neochatroom.cpp:1269
 #, kde-format
 msgid "Report sent successfully."
 msgstr "举报成功。"
 
-#: src/libneochat/neochatroom.cpp:1631 src/libneochat/neochatroom.cpp:1639
+#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1642
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4183,29 +4217,35 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:35
+#: src/rooms/ExploreComponent.qml:36
 #, kde-format
 msgctxt "@title Home space"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:37
+#: src/rooms/ExploreComponent.qml:38
 #, kde-format
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr ""
 
-#: src/rooms/ExploreComponent.qml:41
+#: src/rooms/ExploreComponent.qml:42
 #, kde-format
 msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "聊天室"
 
-#: src/rooms/ExploreComponent.qml:54
+#: src/rooms/ExploreComponent.qml:55
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr ""
+
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Settings"
+msgstr "打开设置"
 
 #: src/rooms/ExploreComponentMobile.qml:34
 #, kde-format
@@ -4432,56 +4472,51 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "展开 %1"
 
-#: src/rooms/SpaceDrawer.qml:60
-#, kde-format
-msgid "View notifications"
-msgstr "查看通知"
-
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
 msgstr[0] ""
 
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:110
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
 msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] ""
 
-#: src/rooms/SpaceDrawer.qml:149
+#: src/rooms/SpaceDrawer.qml:113
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "私聊"
 
-#: src/rooms/SpaceDrawer.qml:231
+#: src/rooms/SpaceDrawer.qml:195
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "加入 %1"
 
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/SpaceDrawer.qml:239
 #, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:253
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr ""
 
-#: src/rooms/SpaceDrawer.qml:300
+#: src/rooms/SpaceDrawer.qml:264
 #, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
@@ -4523,11 +4558,10 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr ""
 
-#: src/rooms/UserInfo.qml:94
+#: src/rooms/UserInfo.qml:95
 #, kde-format
-msgctxt "@action:button"
-msgid "Open Settings"
-msgstr "打开设置"
+msgid "View notifications"
+msgstr "查看通知"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4568,7 +4602,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:138
 #: src/settings/AccountEditorPage.qml:194
-#: src/settings/EmoticonEditorPage.qml:106
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "保存"
@@ -5004,22 +5038,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "表情"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "更改图像"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "设置图像"
 
-#: src/settings/EmoticonEditorPage.qml:97
+#: src/settings/EmoticonEditorPage.qml:99
 #, kde-format
 msgid "Shortcode:"
 msgstr "短代码："
 
-#: src/settings/EmoticonEditorPage.qml:101
+#: src/settings/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
 msgstr "描述："
@@ -7131,7 +7165,21 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Deselect Message"
+msgstr "私聊"
+
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Select Message"
+msgstr "私聊"
+
+#: src/timeline/DelegateContextMenu.qml:425
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7198,37 +7246,37 @@ msgid ""
 "this point."
 msgstr ""
 
-#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "跳转到第一条未读消息"
 
-#: src/timeline/TimelineView.qml:239
+#: src/timeline/TimelineView.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr ""
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr ""
 
-#: src/timeline/TimelineView.qml:296
+#: src/timeline/TimelineView.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "跳转到最新消息"
 
-#: src/timeline/TimelineView.qml:330
+#: src/timeline/TimelineView.qml:331
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "拖动项目到此处来分享"
 
-#: src/timeline/TimelineView.qml:355
+#: src/timeline/TimelineView.qml:356
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

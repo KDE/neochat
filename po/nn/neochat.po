@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -957,7 +957,7 @@ msgid "Add option"
 msgstr "Legg til emoji"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/SpaceDrawer.qml:71 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1043,7 +1043,7 @@ msgid "No room found"
 msgstr "Fann ikkje nokon rom"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:317
+#: src/rooms/SpaceDrawer.qml:281
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1128,21 +1128,69 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Finn meldingar …"
 
-#: src/app/qml/RoomPage.qml:293
+#: src/app/qml/RoomPage.qml:243
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "Vis sletta meldingar"
+
+#: src/app/qml/RoomPage.qml:247
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:251
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "Kopier til utklippstavla"
+
+#: src/app/qml/RoomPage.qml:255
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "Direktemeldingar"
+
+#: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
+#: src/app/qml/UserDetailDialog.qml:331
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Fjern meldingar"
+
+#: src/app/qml/RoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr "Grunngjeving for fjerning av meldinga"
+
+#: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Fjern"
+
+#: src/app/qml/RoomPage.qml:345
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Velkommen til NeoChat"
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Start ved å velja eller verta med i eit rom"
 
-#: src/app/qml/RoomPage.qml:355
+#: src/app/qml/RoomPage.qml:407
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1564,12 +1612,6 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Fjern meldingar"
 
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Fjern meldingar"
-
 #: src/app/qml/UserDetailDialog.qml:332
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
@@ -1577,12 +1619,6 @@ msgstr "Fjern meldingar"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "Grunngjeving for fjerning av brukaren sine nylege meldingar"
-
-#: src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Fjern"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
@@ -3467,12 +3503,12 @@ msgstr "Feil ved romregistrering: %1"
 msgid "Space creation failed: %1"
 msgstr "Feil ved registrering av område: %1"
 
-#: src/libneochat/neochatroom.cpp:1266
+#: src/libneochat/neochatroom.cpp:1269
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapporten er no send."
 
-#: src/libneochat/neochatroom.cpp:1631 src/libneochat/neochatroom.cpp:1639
+#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1642
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4434,21 +4470,21 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "fjerna eit %1-element"
 
-#: src/rooms/ExploreComponent.qml:35
+#: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "@title Home space"
 msgid "Home"
 msgstr "Heim"
 
-#: src/rooms/ExploreComponent.qml:37
+#: src/rooms/ExploreComponent.qml:38
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr "Direktemeldingar"
 
-#: src/rooms/ExploreComponent.qml:41
+#: src/rooms/ExploreComponent.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Rooms"
@@ -4456,11 +4492,18 @@ msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Rom"
 
-#: src/rooms/ExploreComponent.qml:54
+#: src/rooms/ExploreComponent.qml:55
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Søk i rom"
+
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open Settings"
+msgstr "Opna innstillingar"
 
 #: src/rooms/ExploreComponentMobile.qml:34
 #, fuzzy, kde-format
@@ -4726,12 +4769,7 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Utvid %1"
 
-#: src/rooms/SpaceDrawer.qml:60
-#, kde-format
-msgid "View notifications"
-msgstr "Vis varslingar"
-
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4740,14 +4778,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "Fjern varslingsdemping"
 msgstr[1] "Fjern varslingsdemping"
 
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Heim"
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:110
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4756,26 +4794,26 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "Vis varslingar"
 msgstr[1] "Vis varslingar"
 
-#: src/rooms/SpaceDrawer.qml:149
+#: src/rooms/SpaceDrawer.qml:113
 #, fuzzy, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Finn meldingar …"
 
-#: src/rooms/SpaceDrawer.qml:231
+#: src/rooms/SpaceDrawer.qml:195
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Vert med i %1"
 
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/SpaceDrawer.qml:239
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Lag ny"
 
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:253
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4783,7 +4821,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Ny gruppe …"
 
-#: src/rooms/SpaceDrawer.qml:300
+#: src/rooms/SpaceDrawer.qml:264
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -4830,12 +4868,10 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Deaktiver konto"
 
-#: src/rooms/UserInfo.qml:94
-#, fuzzy, kde-format
-#| msgid "Open Settings"
-msgctxt "@action:button"
-msgid "Open Settings"
-msgstr "Opna innstillingar"
+#: src/rooms/UserInfo.qml:95
+#, kde-format
+msgid "View notifications"
+msgstr "Vis varslingar"
 
 #: src/settings/AccountEditorPage.qml:20
 #, fuzzy, kde-format
@@ -4876,7 +4912,7 @@ msgstr "Arbeid"
 
 #: src/settings/AccountEditorPage.qml:138
 #: src/settings/AccountEditorPage.qml:194
-#: src/settings/EmoticonEditorPage.qml:106
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
@@ -5325,22 +5361,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "Byt bilete"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "Vel bilete"
 
-#: src/settings/EmoticonEditorPage.qml:97
+#: src/settings/EmoticonEditorPage.qml:99
 #, kde-format
 msgid "Shortcode:"
 msgstr "Kortkode:"
 
-#: src/settings/EmoticonEditorPage.qml:101
+#: src/settings/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
 msgstr "Skildring:"
@@ -7623,7 +7659,21 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Deselect Message"
+msgstr "Direktemeldingar"
+
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Select Message"
+msgstr "Direktemeldingar"
+
+#: src/timeline/DelegateContextMenu.qml:425
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -7693,42 +7743,42 @@ msgid ""
 "this point."
 msgstr "Dette er starten på praten. Det finst ingen eldre meldingar."
 
-#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: src/timeline/TimelineView.qml:239
+#: src/timeline/TimelineView.qml:240
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Gå til eldste innlasta melding"
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Gå til første ulesne melding"
 
-#: src/timeline/TimelineView.qml:296
+#: src/timeline/TimelineView.qml:297
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: src/timeline/TimelineView.qml:330
+#: src/timeline/TimelineView.qml:331
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/timeline/TimelineView.qml:355
+#: src/timeline/TimelineView.qml:356
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

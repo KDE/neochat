@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -974,7 +974,7 @@ msgid "Add option"
 msgstr "इमोजी जोड़ें"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/SpaceDrawer.qml:71 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1060,7 +1060,7 @@ msgid "No room found"
 msgstr "कोई कमरा नहीं मिला"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:317
+#: src/rooms/SpaceDrawer.qml:281
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1146,21 +1146,69 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "संदेश खोजें…"
 
-#: src/app/qml/RoomPage.qml:293
+#: src/app/qml/RoomPage.qml:243
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "हटाए गए संदेश दिखाएं"
+
+#: src/app/qml/RoomPage.qml:247
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:251
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "क्लिपबोर्ड पर कॉपी करें"
+
+#: src/app/qml/RoomPage.qml:255
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "संदेश खोजें…"
+
+#: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
+#: src/app/qml/UserDetailDialog.qml:331
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "संदेश हटाएँ"
+
+#: src/app/qml/RoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr "इस संदेश को हटाने का कारण"
+
+#: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "निकालना"
+
+#: src/app/qml/RoomPage.qml:345
 #, fuzzy, kde-format
 #| msgid "Welcome to NeoChat"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "नियोचैट में आपका स्वागत है"
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Select or join a room to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "आरंभ करने के लिए कोई कमरा चुनें या उसमें शामिल हों"
 
-#: src/app/qml/RoomPage.qml:355
+#: src/app/qml/RoomPage.qml:407
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -1585,12 +1633,6 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "संदेश हटाएँ"
 
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "संदेश हटाएँ"
-
 #: src/app/qml/UserDetailDialog.qml:332
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
@@ -1598,12 +1640,6 @@ msgstr "संदेश हटाएँ"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "इस उपयोगकर्ता के हाल के संदेशों को हटाने का कारण"
-
-#: src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "निकालना"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
@@ -3493,12 +3529,12 @@ msgstr "कक्ष निर्माण विफल: %1"
 msgid "Space creation failed: %1"
 msgstr "स्थान निर्माण विफल: %1"
 
-#: src/libneochat/neochatroom.cpp:1266
+#: src/libneochat/neochatroom.cpp:1269
 #, kde-format
 msgid "Report sent successfully."
 msgstr "रिपोर्ट सफलतापूर्वक भेजी गई."
 
-#: src/libneochat/neochatroom.cpp:1631 src/libneochat/neochatroom.cpp:1639
+#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1642
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4471,21 +4507,21 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "%1 विजेट हटाया गया"
 
-#: src/rooms/ExploreComponent.qml:35
+#: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "@title Home space"
 msgid "Home"
 msgstr "घर"
 
-#: src/rooms/ExploreComponent.qml:37
+#: src/rooms/ExploreComponent.qml:38
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr "संदेश खोजें…"
 
-#: src/rooms/ExploreComponent.qml:41
+#: src/rooms/ExploreComponent.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Rooms"
@@ -4493,11 +4529,18 @@ msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "कमरा"
 
-#: src/rooms/ExploreComponent.qml:54
+#: src/rooms/ExploreComponent.qml:55
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "कमरे खोजें"
+
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#, fuzzy, kde-format
+#| msgid "Open Settings"
+msgctxt "@action:button"
+msgid "Open Settings"
+msgstr "खुली सेटिंग"
 
 #: src/rooms/ExploreComponentMobile.qml:34
 #, fuzzy, kde-format
@@ -4764,12 +4807,7 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "विस्तृत करें %1"
 
-#: src/rooms/SpaceDrawer.qml:60
-#, kde-format
-msgid "View notifications"
-msgstr "सूचनाएं देखें"
-
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4778,14 +4816,14 @@ msgid_plural "Home (%1 notifications)"
 msgstr[0] "सूचनाएं अनम्यूट करें"
 msgstr[1] "सूचनाएं अनम्यूट करें"
 
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "घर"
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:110
 #, fuzzy, kde-format
 #| msgid "View notifications"
 msgctxt "@button View all one-on-one chats."
@@ -4794,27 +4832,27 @@ msgid_plural "Direct Messages (%1 notifications)"
 msgstr[0] "सूचनाएं देखें"
 msgstr[1] "सूचनाएं देखें"
 
-#: src/rooms/SpaceDrawer.qml:149
+#: src/rooms/SpaceDrawer.qml:113
 #, fuzzy, kde-format
 #| msgid "Find messages…"
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "संदेश खोजें…"
 
-#: src/rooms/SpaceDrawer.qml:231
+#: src/rooms/SpaceDrawer.qml:195
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "%1सेजुड़ें"
 
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/SpaceDrawer.qml:239
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "नया निर्माण"
 
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:253
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
@@ -4822,7 +4860,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "नया समूह…"
 
-#: src/rooms/SpaceDrawer.qml:300
+#: src/rooms/SpaceDrawer.qml:264
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -4872,12 +4910,10 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "खाता निष्क्रिय करें"
 
-#: src/rooms/UserInfo.qml:94
-#, fuzzy, kde-format
-#| msgid "Open Settings"
-msgctxt "@action:button"
-msgid "Open Settings"
-msgstr "खुली सेटिंग"
+#: src/rooms/UserInfo.qml:95
+#, kde-format
+msgid "View notifications"
+msgstr "सूचनाएं देखें"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4918,7 +4954,7 @@ msgstr "काम"
 
 #: src/settings/AccountEditorPage.qml:138
 #: src/settings/AccountEditorPage.qml:194
-#: src/settings/EmoticonEditorPage.qml:106
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "बचाना"
@@ -5379,22 +5415,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "इमोजी"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "छवि बदलें"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "छवि सेट करें"
 
-#: src/settings/EmoticonEditorPage.qml:97
+#: src/settings/EmoticonEditorPage.qml:99
 #, kde-format
 msgid "Shortcode:"
 msgstr "लघु कूट संख्या:"
 
-#: src/settings/EmoticonEditorPage.qml:101
+#: src/settings/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
 msgstr "विवरण:"
@@ -7715,7 +7751,21 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr ""
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:inmenu"
+msgid "Deselect Message"
+msgstr "संदेश खोजें…"
+
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Find messages…"
+msgctxt "@action:inmenu"
+msgid "Select Message"
+msgstr "संदेश खोजें…"
+
+#: src/timeline/DelegateContextMenu.qml:425
 #, fuzzy, kde-format
 #| msgid "View Source"
 msgctxt "@action:inmenu"
@@ -7785,42 +7835,42 @@ msgid ""
 "this point."
 msgstr "यह चैट की शुरुआत है। इस बिंदु से आगे कोई ऐतिहासिक संदेश नहीं है।"
 
-#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "पहले अपठित संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:239
+#: src/timeline/TimelineView.qml:240
 #, fuzzy, kde-format
 #| msgid "Jump to oldest loaded message"
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "सबसे पुराने लोड किए गए संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, fuzzy, kde-format
 #| msgid "Jump to first unread message"
 msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "पहले अपठित संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:296
+#: src/timeline/TimelineView.qml:297
 #, fuzzy, kde-format
 #| msgid "Jump to latest message"
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "नवीनतम संदेश पर जाएं"
 
-#: src/timeline/TimelineView.qml:330
+#: src/timeline/TimelineView.qml:331
 #, fuzzy, kde-format
 #| msgid "Drag items here to share them"
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "आइटम को साझा करने के लिए उन्हें यहां खींचें"
 
-#: src/timeline/TimelineView.qml:355
+#: src/timeline/TimelineView.qml:356
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:43+0000\n"
+"POT-Creation-Date: 2026-02-12 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -928,7 +928,7 @@ msgid "Add option"
 msgstr "Pievienot opciju"
 
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
-#: src/rooms/SpaceDrawer.qml:71 src/settings/RoomSettingsView.qml:82
+#: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
 #, kde-format
 msgctxt "@title"
 msgid "Notifications"
@@ -1007,7 +1007,7 @@ msgid "No room found"
 msgstr "Neviena istaba nav atrasta"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
-#: src/rooms/SpaceDrawer.qml:317
+#: src/rooms/SpaceDrawer.qml:281
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1090,19 +1090,67 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Piespraustās ziņas"
 
-#: src/app/qml/RoomPage.qml:293
+#: src/app/qml/RoomPage.qml:243
+#, fuzzy, kde-format
+#| msgid "Show deleted messages"
+msgctxt "@info"
+msgid "Selected Messages: %1"
+msgstr "Rādīt dzēstās ziņas"
+
+#: src/app/qml/RoomPage.qml:247
+#, kde-format
+msgctxt "@action:button"
+msgid "Copy Conversation"
+msgstr ""
+
+#: src/app/qml/RoomPage.qml:251
+#, fuzzy, kde-format
+#| msgid "Copy to clipboard"
+msgctxt "@info"
+msgid "Conversation copied to clipboard"
+msgstr "Kopēt starpliktuvē"
+
+#: src/app/qml/RoomPage.qml:255
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:button"
+msgid "Delete Messages"
+msgstr "Privātas ziņas"
+
+#: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
+#: src/app/qml/UserDetailDialog.qml:331
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Remove Messages"
+msgstr "Noņemt ziņas"
+
+#: src/app/qml/RoomPage.qml:262
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Reason for removing this message"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for removing these messages"
+msgstr "Iemesls šīs ziņas noņemšanai"
+
+#: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
+#, kde-format
+msgctxt "@action:button 'Remove' as in 'Remove these messages'"
+msgid "Remove"
+msgstr "Noņemt"
+
+#: src/app/qml/RoomPage.qml:345
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Laipni lūgti „NeoChat“ programmā!"
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:346
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Lai sāktu, atlasiet vai pievienojieties istabai"
 
-#: src/app/qml/RoomPage.qml:355
+#: src/app/qml/RoomPage.qml:407
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1510,12 +1558,6 @@ msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
 msgstr "Noņemt ziņas"
 
-#: src/app/qml/UserDetailDialog.qml:331
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Remove Messages"
-msgstr "Noņemt ziņas"
-
 #: src/app/qml/UserDetailDialog.qml:332
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
@@ -1523,12 +1565,6 @@ msgstr "Noņemt ziņas"
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
 msgstr "Iemesls šī lietotāja pēdējo ziņu noņemšanai"
-
-#: src/app/qml/UserDetailDialog.qml:333
-#, kde-format
-msgctxt "@action:button 'Remove' as in 'Remove these messages'"
-msgid "Remove"
-msgstr "Noņemt"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
@@ -3383,12 +3419,12 @@ msgstr "Istabas izveide neizdevās: %1"
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
 
-#: src/libneochat/neochatroom.cpp:1266
+#: src/libneochat/neochatroom.cpp:1269
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ziņojums ir veiksmīgi nosūtīts."
 
-#: src/libneochat/neochatroom.cpp:1631 src/libneochat/neochatroom.cpp:1639
+#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1642
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4318,21 +4354,21 @@ msgctxt "@action:button"
 msgid "Remove widget"
 msgstr "Noņēma logdaļu"
 
-#: src/rooms/ExploreComponent.qml:35
+#: src/rooms/ExploreComponent.qml:36
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "@title Home space"
 msgid "Home"
 msgstr "Mājas"
 
-#: src/rooms/ExploreComponent.qml:37
+#: src/rooms/ExploreComponent.qml:38
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr "Privātas ziņas"
 
-#: src/rooms/ExploreComponent.qml:41
+#: src/rooms/ExploreComponent.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Rooms"
@@ -4340,11 +4376,17 @@ msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Istabas"
 
-#: src/rooms/ExploreComponent.qml:54
+#: src/rooms/ExploreComponent.qml:55
 #, kde-format
 msgctxt "@action"
 msgid "Search Rooms"
 msgstr "Meklēt istabas"
+
+#: src/rooms/ExploreComponent.qml:65 src/rooms/UserInfo.qml:111
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Settings"
+msgstr "Atvērt iestatījumus"
 
 #: src/rooms/ExploreComponentMobile.qml:34
 #, fuzzy, kde-format
@@ -4592,12 +4634,7 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Izvērst „%1“"
 
-#: src/rooms/SpaceDrawer.qml:60
-#, kde-format
-msgid "View notifications"
-msgstr "Skatīt paziņojumus"
-
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Unmute notifications"
 msgctxt "Home space for the uncategorized rooms"
@@ -4607,14 +4644,14 @@ msgstr[0] "Atskaņot paziņojumus"
 msgstr[1] "Atskaņot paziņojumus"
 msgstr[2] "Atskaņot paziņojumus"
 
-#: src/rooms/SpaceDrawer.qml:95
+#: src/rooms/SpaceDrawer.qml:59
 #, fuzzy, kde-format
 #| msgid "Home"
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Mājas"
 
-#: src/rooms/SpaceDrawer.qml:146
+#: src/rooms/SpaceDrawer.qml:110
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages (%1 notification)"
@@ -4623,19 +4660,19 @@ msgstr[0] "Privātas ziņas (%1 paziņojums)"
 msgstr[1] "Privātas ziņas (%1 paziņojumi)"
 msgstr[2] "Privātas ziņas (%1 paziņojumu)"
 
-#: src/rooms/SpaceDrawer.qml:149
+#: src/rooms/SpaceDrawer.qml:113
 #, kde-format
 msgctxt "@button View all one-on-one chats."
 msgid "Direct Messages"
 msgstr "Privātas ziņas"
 
-#: src/rooms/SpaceDrawer.qml:231
+#: src/rooms/SpaceDrawer.qml:195
 #, kde-format
 msgctxt "Join <name of a space>"
 msgid "Join %1"
 msgstr "Pievienoties „%1“"
 
-#: src/rooms/SpaceDrawer.qml:275
+#: src/rooms/SpaceDrawer.qml:239
 #, fuzzy, kde-format
 #| msgctxt "@action:button Create new room"
 #| msgid "Create"
@@ -4643,7 +4680,7 @@ msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Izveidot"
 
-#: src/rooms/SpaceDrawer.qml:289
+#: src/rooms/SpaceDrawer.qml:253
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Room…"
@@ -4651,7 +4688,7 @@ msgctxt "@action:button Create a new room"
 msgid "New Room…"
 msgstr "Jauna grupa…"
 
-#: src/rooms/SpaceDrawer.qml:300
+#: src/rooms/SpaceDrawer.qml:264
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "New Space…"
@@ -4697,11 +4734,10 @@ msgctxt "@info:tooltip"
 msgid "Manage Account"
 msgstr "Pārvaldīt kontu"
 
-#: src/rooms/UserInfo.qml:94
+#: src/rooms/UserInfo.qml:95
 #, kde-format
-msgctxt "@action:button"
-msgid "Open Settings"
-msgstr "Atvērt iestatījumus"
+msgid "View notifications"
+msgstr "Skatīt paziņojumus"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -4742,7 +4778,7 @@ msgstr "Darbojas"
 
 #: src/settings/AccountEditorPage.qml:138
 #: src/settings/AccountEditorPage.qml:194
-#: src/settings/EmoticonEditorPage.qml:106
+#: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Saglabāt"
@@ -5181,22 +5217,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emocijzīme"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "Nomainīt attēlu"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "Iestatīt attēlu"
 
-#: src/settings/EmoticonEditorPage.qml:97
+#: src/settings/EmoticonEditorPage.qml:99
 #, kde-format
 msgid "Shortcode:"
 msgstr "Īsais kods:"
 
-#: src/settings/EmoticonEditorPage.qml:101
+#: src/settings/EmoticonEditorPage.qml:103
 #, kde-format
 msgid "Description:"
 msgstr "Apraksts:"
@@ -7424,7 +7460,21 @@ msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Piespraust"
 
-#: src/timeline/DelegateContextMenu.qml:418
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Deselect Message"
+msgstr "Privātas ziņas"
+
+#: src/timeline/DelegateContextMenu.qml:412
+#, fuzzy, kde-format
+#| msgid "Direct Messages"
+msgctxt "@action:inmenu"
+msgid "Select Message"
+msgstr "Privātas ziņas"
+
+#: src/timeline/DelegateContextMenu.qml:425
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7493,19 +7543,19 @@ msgid ""
 "this point."
 msgstr "Šis ir tērzēšanas sākums. Agrāk par šo vietu vēsturē ziņu nav."
 
-#: src/timeline/TimelineView.qml:239 src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:240 src/timeline/TimelineView.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to first unread message"
 msgstr "Iet uz pirmo nelasīto ziņu"
 
-#: src/timeline/TimelineView.qml:239
+#: src/timeline/TimelineView.qml:240
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to oldest loaded message"
 msgstr "Iet uz vecāko ielādēto ziņu"
 
-#: src/timeline/TimelineView.qml:265
+#: src/timeline/TimelineView.qml:266
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Jump to first unread message"
@@ -7513,19 +7563,19 @@ msgctxt "@action:button"
 msgid "Jump to next unread highlight"
 msgstr "Iet uz pirmo nelasīto ziņu"
 
-#: src/timeline/TimelineView.qml:296
+#: src/timeline/TimelineView.qml:297
 #, kde-format
 msgctxt "@action:button"
 msgid "Jump to latest message"
 msgstr "Iet uz pēdējo ziņu"
 
-#: src/timeline/TimelineView.qml:330
+#: src/timeline/TimelineView.qml:331
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Velciet vienumus te, lai tos kopīgotu"
 
-#: src/timeline/TimelineView.qml:355
+#: src/timeline/TimelineView.qml:356
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
