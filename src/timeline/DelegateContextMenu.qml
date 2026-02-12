@@ -163,8 +163,18 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Reply")
         icon.name: "mail-replied-symbolic"
         onTriggered: {
+            let threadRoot = root.room.rootIdForThread(root.eventId);
+            if (threadRoot.length > 0) {
+                root.room.threadCache.replyId = root.eventId;
+                root.room.threadCache.threadId = threadRoot;
+                root.room.mainCache.clearRelations();
+                root.room.editCache.clearRelations();
+                RoomManager.requestFullScreenClose();
+                return;
+            }
             root.room.mainCache.replyId = root.eventId;
-            root.room.editCache.editId = "";
+            root.room.editCache.clearRelations();
+            root.room.threadCache.clearRelations();
             RoomManager.requestFullScreenClose();
         }
     }

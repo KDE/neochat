@@ -29,7 +29,7 @@ QQC2.Control {
      *
      * @sa Quotient::RoomMember
      */
-    property var author
+    required property var author
 
     /**
      * @brief Whether the message author should be shown.
