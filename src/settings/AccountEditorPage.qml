@@ -119,6 +119,26 @@ FormCard.FormCardPage {
             text: root.connection ? root.connection.label : ""
         }
         FormCard.FormDelegateSeparator {}
+        FormCard.FormTextDelegate {
+            id: userIdDelegate
+            text: i18nc("@info:label", "User ID")
+            description: root.connection.localUserId
+
+            contentItem.children: QQC2.Button {
+                text: i18nc("@action:button", "Copy user ID to clipboard")
+                icon.name: "edit-copy"
+                display: QQC2.AbstractButton.IconOnly
+
+                onClicked: {
+                    Clipboard.saveText(root.connection.localUserId);
+                }
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.visible: hovered
+            }
+        }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             text: i18nc("@action:button", "Show QR Code")
             icon.name: "view-barcode-qr-symbolic"
