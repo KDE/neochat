@@ -31,43 +31,56 @@ QQC2.ItemDelegate {
     activeFocusOnTab: false
     background: null
 
-    onClicked: root.treeView.toggleExpanded(row)
-
     Keys.onEnterPressed: root.treeView.toggleExpanded(row)
     Keys.onReturnPressed: root.treeView.toggleExpanded(row)
     Keys.onSpacePressed: root.treeView.toggleExpanded(row)
 
-    contentItem: RowLayout {
-        spacing: 0
-        Kirigami.ListSectionHeader {
-            Layout.fillWidth: true
-            visible: !root.collapsed
-            horizontalPadding: 0
-            topPadding: 0
-            bottomPadding: 0
-            text: root.collapsed ? "" : root.displayName
+    contentItem: Item {
+        implicitWidth: layout.implicitWidth
+        implicitHeight: layout.implicitHeight
 
-            onClicked: root.treeView.toggleExpanded(row)
-        }
-        QQC2.ToolButton {
-            id: collapseButton
-            Layout.alignment: Qt.AlignHCenter
+        RowLayout {
+            id: layout
 
-            icon {
-                name: root.expanded ? "go-up" : "go-down"
-                width: Kirigami.Units.iconSizes.small
-                height: Kirigami.Units.iconSizes.small
+            width: root.contentItem.width
+
+            spacing: 0
+
+            Kirigami.ListSectionHeader {
+                Layout.fillWidth: true
+                visible: !root.collapsed
+                horizontalPadding: 0
+                topPadding: 0
+                bottomPadding: 0
+                text: root.collapsed ? "" : root.displayName
+
+                onClicked: root.treeView.toggleExpanded(row)
             }
-            text: root.expanded ? i18nc("Collapse <section name>", "Collapse %1", root.displayName) : i18nc("Expand <section name", "Expand %1", root.displayName)
-            display: QQC2.Button.IconOnly
+            QQC2.ToolButton {
+                id: collapseButton
+                Layout.alignment: Qt.AlignHCenter
 
-            activeFocusOnTab: false
+                icon {
+                    name: root.expanded ? "go-up" : "go-down"
+                    width: Kirigami.Units.iconSizes.small
+                    height: Kirigami.Units.iconSizes.small
+                }
+                text: root.expanded ? i18nc("Collapse <section name>", "Collapse %1", root.displayName) : i18nc("Expand <section name", "Expand %1", root.displayName)
+                display: QQC2.Button.IconOnly
 
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                activeFocusOnTab: false
 
-            onClicked: root.treeView.toggleExpanded(root.row)
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                onClicked: root.treeView.toggleExpanded(root.row)
+            }
+        }
+
+        // Reduce the size of the tap target, this is smaller the ginormous section header ItemDelegate
+        TapHandler {
+            onTapped: root.treeView.toggleExpanded(root.row)
         }
     }
 }
