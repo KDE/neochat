@@ -105,7 +105,7 @@ KirigamiComponents.ConvergentContextMenu {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
             Repeater {
-                model: ["👍", "👎️", "😄", "🎉", "👀", "⋮"]
+                model: ["👍", "👎️", "😄", "🎉", "❤️", "⋮"]
                 delegate: Delegates.RoundedItemDelegate {
                     id: emojiDelegate
 
