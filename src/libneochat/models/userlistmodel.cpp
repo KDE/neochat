@@ -172,6 +172,10 @@ void UserListModel::refreshAllMembers()
 {
     beginResetModel();
     if (m_currentRoom != nullptr) {
+        // Only sort members when this model needs to be refreshed.
+        if (m_currentRoom->sortedMemberIds().isEmpty()) {
+            m_currentRoom->sortAllMembers();
+        }
         m_members = m_currentRoom->sortedMemberIds();
     } else {
         m_members.clear();

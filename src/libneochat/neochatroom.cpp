@@ -175,9 +175,16 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
     connect(this, &Room::fullyReadMarkerMoved, this, &NeoChatRoom::invalidateLastUnreadHighlightId);
 
-    // Wait until the initial member list is available before sorting
-    connect(this, &Room::memberListChanged, this, &NeoChatRoom::refreshAllMembers, Qt::SingleShotConnection);
-    connect(this, &Room::memberJoined, this, &NeoChatRoom::insertMemberSorted);
+    // This may look weird, but this is actually for performance.
+    // We only want to listen to new member joining *when* the initial member list was loaded.
+    connect(
+        this,
+        &Room::memberListChanged,
+        this,
+        [this] {
+            connect(this, &Room::memberJoined, this, &NeoChatRoom::insertMemberSorted);
+        },
+        Qt::SingleShotConnection);
 }
 
 bool NeoChatRoom::visible() const
@@ -1917,14 +1924,21 @@ void NeoChatRoom::invalidateLastUnreadHighlightId(const QString &fromEventId, co
     }
 }
 
-void NeoChatRoom::refreshAllMembers()
+void NeoChatRoom::sortAllMembers()
 {
     m_sortedMemberIds = memberIds();
 
+    // Build up a temporary cache, because we may be checking the same member over and over while sorting.
+    QHash<QString, int> effectivePowerLevels;
+    effectivePowerLevels.reserve(m_sortedMemberIds.size());
+    for (const auto &member : m_sortedMemberIds) {
+        effectivePowerLevels[member] = memberEffectivePowerLevel(member);
+    }
+
     MemberSorter sorter;
-    std::ranges::sort(m_sortedMemberIds, [this, &sorter](const auto &left, const auto &right) {
-        const auto leftPl = memberEffectivePowerLevel(left);
-        const auto rightPl = memberEffectivePowerLevel(right);
+    std::ranges::sort(m_sortedMemberIds, [&sorter, &effectivePowerLevels](const auto &left, const auto &right) {
+        const auto leftPl = effectivePowerLevels[left];
+        const auto rightPl = effectivePowerLevels[right];
         if (leftPl > rightPl) {
             return true;
         }

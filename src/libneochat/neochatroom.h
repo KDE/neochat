@@ -683,6 +683,8 @@ public:
 
     /**
      * @return List of members in this room, sorted by power level and then by name.
+     *
+     * This list is only populated after sortAllMembers() is called.
      */
     QList<QString> sortedMemberIds() const;
 
@@ -720,6 +722,13 @@ public:
      * @brief Clear the selection of messages.
      */
     Q_INVOKABLE void clearSelectedMessages();
+
+    /**
+     * @brief Sort all members based on their display name, and power level.
+     *
+     * @note This is a very expensive operation, and should only be done when truly needed.
+     */
+    void sortAllMembers();
 
 private:
     bool m_visible = false;
@@ -766,8 +775,6 @@ private Q_SLOTS:
     void cacheLastEvent();
 
     void invalidateLastUnreadHighlightId(const QString &fromEventId, const QString &toEventId);
-
-    void refreshAllMembers();
 
     void insertMemberSorted(Quotient::RoomMember member);
 
