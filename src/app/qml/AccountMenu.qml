@@ -24,17 +24,9 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:button", "Show QR Code")
-        icon.name: "view-barcode-qr-symbolic"
-        onTriggered: {
-            (Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
-                text: "https://matrix.to/#/" + root.connection.localUser.id,
-                title: root.connection.localUser.displayName,
-                subtitle: root.connection.localUser.id,
-                // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-                avatarSource: root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : ""
-            }) as QrCodeMaximizeComponent).open();
-        }
+        text: i18nc("@action:button", "Open Profile")
+        icon.name: "im-user-symbolic"
+        onTriggered: RoomManager.resolveResource(root.connection.localUserId)
     }
 
     Kirigami.Action {
