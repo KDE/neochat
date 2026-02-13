@@ -62,14 +62,18 @@
 #include <ranges>
 
 using namespace Quotient;
+using namespace std::ranges::views;
 
 std::function<bool(const Quotient::RoomEvent *)> NeoChatRoom::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
     return false;
 };
 
-NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinState)
-    : Room(connection, std::move(roomId), joinState)
+NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
+    : Room(c, std::move(roomId), joinState)
 {
+    const auto connection = static_cast<NeoChatConnection *>(c);
+    Q_ASSERT(connection);
+
     m_mainCache = new ChatBarCache(this);
     m_editCache = new ChatBarCache(this);
     m_threadCache = new ChatBarCache(this);
@@ -79,24 +83,21 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setFileUploadingProgress(0);
         setHasFileUploading(false);
     });
-    connect(this, &Room::fileTransferCompleted, this, [this](QString eventId) {
-        const auto evtIt = findInTimeline(eventId);
-        if (evtIt != messageEvents().rend()) {
-            const auto m_event = evtIt->viewAs<RoomEvent>();
+    connect(this, &Room::fileTransferCompleted, this, [this](const QString &eventId) {
+        if (const auto evtIt = findInTimeline(eventId); evtIt != messageEvents().rend()) {
             QString mxcUrl;
-            if (auto event = eventCast<const Quotient::RoomMessageEvent>(m_event)) {
-                if (event->has<EventContent::FileContentBase>()) {
-                    mxcUrl = event->get<EventContent::FileContentBase>()->url().toString();
-                }
-            } else if (auto event = eventCast<const Quotient::StickerEvent>(m_event)) {
+            if (auto roomMessageEvent = evtIt->viewAs<const Quotient::RoomMessageEvent>();
+                roomMessageEvent && roomMessageEvent->has<EventContent::FileContentBase>()) {
+                mxcUrl = roomMessageEvent->get<EventContent::FileContentBase>()->url().toString();
+            } else if (auto event = evtIt->viewAs<const Quotient::StickerEvent>()) {
                 mxcUrl = event->image().url().toString();
             }
             if (mxcUrl.isEmpty()) {
                 return;
             }
-            auto localPath = this->fileTransferInfo(eventId).localPath.toLocalFile();
-            auto config = KSharedConfig::openStateConfig(u"neochatdownloads"_s)->group(u"downloads"_s);
-            config.writePathEntry(mxcUrl.mid(6), localPath);
+            KSharedConfig::openStateConfig(u"neochatdownloads"_s)
+                ->group(u"downloads"_s)
+                .writePathEntry(mxcUrl.mid(6), fileTransferInfo(eventId).localPath.toLocalFile());
         }
     });
 
@@ -104,21 +105,16 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::cleanupExtraEventRange);
     connect(this, &Room::aboutToAddNewMessages, this, &NeoChatRoom::cleanupExtraEventRange);
 
-    const auto &roomLastMessageProvider = RoomLastMessageProvider::self();
-
-    if (roomLastMessageProvider.hasKey(id())) {
-        auto eventJson = QJsonDocument::fromJson(roomLastMessageProvider.read(id())).object();
-        if (!eventJson.isEmpty()) {
-            auto event = loadEvent<RoomEvent>(eventJson);
-
-            if (event != nullptr) {
+    if (RoomLastMessageProvider::self().hasKey(id())) {
+        if (auto eventJson = QJsonDocument::fromJson(RoomLastMessageProvider::self().read(id())).object(); !eventJson.isEmpty()) {
+            if (auto event = loadEvent<RoomEvent>(eventJson)) {
                 m_cachedEvent = std::move(event);
             }
         }
     }
     connect(this, &Room::addedMessages, this, &NeoChatRoom::cacheLastEvent);
 
-    connect(this, &Quotient::Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
+    connect(this, &Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
 
     connect(this, &Room::joinStateChanged, this, [this](JoinState oldState, JoinState newState) {
         if (oldState == JoinState::Invite && newState != JoinState::Invite) {
@@ -170,9 +166,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         }
     });
 
-    const auto neochatconnection = static_cast<NeoChatConnection *>(connection);
-    Q_ASSERT(neochatconnection);
-    connect(neochatconnection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
+    connect(connection, &NeoChatConnection::globalUrlPreviewEnabledChanged, this, &NeoChatRoom::urlPreviewEnabledChanged);
     connect(this, &Room::fullyReadMarkerMoved, this, &NeoChatRoom::invalidateLastUnreadHighlightId);
 
     // This may look weird, but this is actually for performance.
@@ -256,19 +250,17 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
     if (url.isEmpty()) {
         co_return;
     }
-
-    auto mime = QMimeDatabase().mimeTypeForUrl(url);
     url.setScheme("file"_L1);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
-    EventContent::FileContentBase *content;
+
+    const auto mime = QMimeDatabase().mimeTypeForUrl(url);
+    EventContent::FileContentBase *content = nullptr;
     if (mime.name().startsWith("image/"_L1)) {
-        QImage image(url.toLocalFile());
-        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+        content = new EventContent::ImageContent(url, fileInfo.size(), mime, QImage(url.toLocalFile()).size(), fileInfo.fileName());
     } else if (mime.name().startsWith("audio/"_L1)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_L1)) {
         QVideoSink sink;
-
         QMediaPlayer player;
         player.setSource(url);
         player.setVideoSink(&sink);
@@ -305,7 +297,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
 
-    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content), relatesTo);
+    const auto txnId = postFile(body.isEmpty() ? url.fileName() : body, std::unique_ptr<EventContent::FileContentBase>(content), relatesTo);
     setHasFileUploading(true);
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
         if (id == txnId) {
@@ -329,8 +321,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body, std::optiona
     connect(this, &Room::fileTransferProgress, job, &FileTransferPseudoJob::fileTransferProgress);
     connect(this, &Room::fileTransferCompleted, job, &FileTransferPseudoJob::fileTransferCompleted);
     connect(this, &Room::fileTransferFailed, job, [this, job, txnId] {
-        auto info = fileTransferInfo(txnId);
-        if (info.status == FileTransferInfo::Cancelled) {
+        if (fileTransferInfo(txnId).status == FileTransferInfo::Cancelled) {
             job->fileTransferCanceled(txnId);
         } else {
             job->fileTransferFailed(txnId);
@@ -376,10 +367,8 @@ const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> f
     for (auto timelineItem = messageEvents().rbegin(); timelineItem < messageEvents().rend(); timelineItem++) {
         const RoomEvent *event = timelineItem->get();
 
-        if (filter) {
-            if (filter(event)) {
-                continue;
-            }
+        if (filter && filter(event)) {
+            continue;
         }
 
         if (is<RedactionEvent>(*event) || is<ReactionEvent>(*event)) {
@@ -420,7 +409,7 @@ const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> f
         }
     }
 
-    if (m_cachedEvent != nullptr) {
+    if (m_cachedEvent) {
         return std::to_address(m_cachedEvent);
     }
 
@@ -429,18 +418,9 @@ const RoomEvent *NeoChatRoom::lastEvent(std::function<bool(const RoomEvent *)> f
 
 void NeoChatRoom::cacheLastEvent()
 {
-    auto event = lastEvent(m_hiddenFilter);
-    if (event != nullptr) {
-        auto &roomLastMessageProvider = RoomLastMessageProvider::self();
-
-        auto eventJson = QJsonDocument(event->fullJson()).toJson(QJsonDocument::Compact);
-        roomLastMessageProvider.write(id(), eventJson);
-
-        auto uniqueEvent = loadEvent<RoomEvent>(event->fullJson());
-
-        if (event != nullptr) {
-            m_cachedEvent = std::move(uniqueEvent);
-        }
+    if (auto event = lastEvent(m_hiddenFilter)) {
+        RoomLastMessageProvider::self().write(id(), QJsonDocument(event->fullJson()).toJson(QJsonDocument::Compact));
+        m_cachedEvent = loadEvent<RoomEvent>(event->fullJson());
     }
 }
 
@@ -448,8 +428,7 @@ bool NeoChatRoom::isEventSpoiler(const RoomEvent *e) const
 {
     if (const auto message = eventCast<const RoomMessageEvent>(e)) {
         if (message->has<EventContent::TextContent>() && message->content() && message->mimeType().name() == "text/html"_L1) {
-            const auto htmlBody = message->get<EventContent::TextContent>()->body;
-            return htmlBody.contains("data-mx-spoiler"_L1);
+            return message->get<EventContent::TextContent>()->body.contains("data-mx-spoiler"_L1);
         }
     }
     return false;
@@ -466,10 +445,10 @@ void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
     if (ti->senderId() == localMember.id()) {
         return;
     }
-    if (auto *e = ti.viewAs<RoomMessageEvent>()) {
-        const auto &text = e->plainBody();
+    if (const auto roomMessageEvent = ti.viewAs<RoomMessageEvent>()) {
+        const auto &text = roomMessageEvent->plainBody();
         if (text.contains(localMember.id()) || text.contains(localMember.disambiguatedName())) {
-            highlights.insert(e);
+            highlights.insert(roomMessageEvent);
         }
     }
 }
@@ -490,8 +469,8 @@ void NeoChatRoom::onAddHistoricalTimelineEvents(rev_iter_t from)
 
 void NeoChatRoom::onRedaction(const RoomEvent &prevEvent, const RoomEvent & /*after*/)
 {
-    if (const auto &e = eventCast<const ReactionEvent>(&prevEvent)) {
-        if (auto relatedEventId = e->eventId(); !relatedEventId.isEmpty()) {
+    if (const auto &reactionEvent = eventCast<const ReactionEvent>(&prevEvent)) {
+        if (auto relatedEventId = reactionEvent->eventId(); !relatedEventId.isEmpty()) {
             Q_EMIT updatedEvent(relatedEventId);
         }
     }
@@ -520,8 +499,7 @@ QUrl NeoChatRoom::avatarMediaUrl() const
     }
 
     // Use the first (excluding self) user's avatar for direct chats
-    const auto directChatMembers = this->directChatMembers();
-    for (const auto member : directChatMembers) {
+    for (const auto &member : directChatMembers()) {
         if (member != localMember()) {
             return member.avatarUrl();
         }
@@ -548,32 +526,21 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
         return;
     }
 
-    const auto &evt = **eventIt;
+    auto isOwnReactionOfType = [this, reaction](const auto &it) {
+        auto reactionEvent = eventCast<const ReactionEvent>(it);
+        return reactionEvent && reactionEvent->key() == reaction && reactionEvent->senderId() == localMember().id();
+    };
 
-    QStringList redactEventIds; // What if there are multiple reaction events?
+    const auto &annotations = relatedEvents(**eventIt, EventRelation::AnnotationType);
+    auto redactEventIds = annotations | filter(isOwnReactionOfType) | transform(&RoomEvent::id);
 
-    const auto &annotations = relatedEvents(evt, EventRelation::AnnotationType);
-    if (!annotations.isEmpty()) {
-        for (const auto &a : annotations) {
-            if (auto e = eventCast<const ReactionEvent>(a)) {
-                if (e->key() != reaction) {
-                    continue;
-                }
-
-                if (e->senderId() == localMember().id()) {
-                    redactEventIds.push_back(e->id());
-                    break;
-                }
-            }
-        }
+    if (std::ranges::empty(redactEventIds)) {
+        postReaction(eventId, reaction);
+        return;
     }
 
-    if (!redactEventIds.isEmpty()) {
-        for (const auto &redactEventId : redactEventIds) {
-            redactEvent(redactEventId);
-        }
-    } else {
-        postReaction(eventId, reaction);
+    for (const auto &redactEventId : redactEventIds) {
+        redactEvent(redactEventId);
     }
 }
 
