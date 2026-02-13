@@ -6,8 +6,11 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.delegates as Delegates
 
-QQC2.ItemDelegate {
+import org.kde.neochat
+
+Delegates.RoundedItemDelegate {
     id: root
 
     required property TreeView treeView
@@ -36,29 +39,31 @@ QQC2.ItemDelegate {
     Keys.onSpacePressed: root.treeView.toggleExpanded(row)
 
     contentItem: Item {
-        implicitWidth: layout.implicitWidth
-        implicitHeight: layout.implicitHeight
+        implicitHeight: Math.max(layout.implicitHeight, Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2))
 
         RowLayout {
             id: layout
 
-            width: root.contentItem.width
+            anchors.fill: parent
 
             spacing: 0
 
             Kirigami.ListSectionHeader {
-                Layout.fillWidth: true
                 visible: !root.collapsed
                 horizontalPadding: 0
                 topPadding: 0
                 bottomPadding: 0
                 text: root.collapsed ? "" : root.displayName
 
-                onClicked: root.treeView.toggleExpanded(row)
+                onClicked: root.treeView.toggleExpanded(root.row)
+
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
             }
             QQC2.ToolButton {
                 id: collapseButton
-                Layout.alignment: Qt.AlignHCenter
+
+                Layout.alignment: Qt.AlignCenter
 
                 icon {
                     name: root.expanded ? "go-up" : "go-down"

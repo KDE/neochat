@@ -139,6 +139,7 @@ Kirigami.Page {
             contentItem: TreeView {
                 id: treeView
                 topMargin: Math.round(Kirigami.Units.smallSpacing / 2)
+                bottomMargin: Math.round(Kirigami.Units.smallSpacing / 2)
 
                 clip: true
                 reuseItems: false
@@ -147,6 +148,17 @@ Kirigami.Page {
 
                 selectionModel: ItemSelectionModel {}
 
+                // This is somewhat of a hack.
+                // If we don't calculate this for TableView, then the content area doesn't quite scroll down far enough to cover the margins.
+                rowHeightProvider: row => {
+                    // NOTE: This padding value should be kept in sync with the padding value of our delegates.
+                    const padding = Kirigami.Units.mediumSpacing;
+                    // NOTE: This calculation should be kept in sync with the height value of our delegates.
+                    return Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2) + padding * 2;
+                }
+
+                // NOTE: For any future delegate spelunkers, please *keep the delegate heights in sync*.
+                // If you fail to do so, weird scrolling behavior begins to manifest.
                 delegate: DelegateChooser {
                     role: "delegateType"
 
@@ -181,8 +193,8 @@ Kirigami.Page {
                         delegate: Delegates.RoundedItemDelegate {
                             text: i18nc("@action:button", "Find your friends")
                             icon.name: "list-add-user"
-                            icon.width: Kirigami.Units.gridUnit * 2
-                            icon.height: Kirigami.Units.gridUnit * 2
+                            icon.width: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
+                            icon.height: Kirigami.Units.gridUnit + (NeoChatConfig.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
 
                             onClicked: (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UserSearchPage'), {
                                 connection: root.connection
