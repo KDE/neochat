@@ -10,7 +10,7 @@ confinement: strict
 apps:
   neochat:
     extensions:
-      - kde-neon-6
+      - kde-neon-6@latest/beta
     command: usr/bin/neochat
     common-id: org.kde.neochat
     desktop: usr/share/applications/org.kde.neochat.desktop
@@ -41,18 +41,6 @@ slots:
     bus: session
 
 parts:
-  kde-snap-setup:
-    plugin: nil
-    override-build: |
-      craftctl default
-      build-snaps: &kde-base-build-snaps
-        - core24/$KDE_SNAP_CHANNEL
-        - kde-qt6-core24-sdk/$KDE_SNAP_CHANNEL
-        - kf6-core24-sdk/$KDE_SNAP_CHANNEL
-    build-packages:
-      - python3-yaml
-    build-snaps: *kde-base-build-snaps
-  
   olm:
     source: https://gitlab.matrix.org/matrix-org/olm.git
     source-depth: 1
