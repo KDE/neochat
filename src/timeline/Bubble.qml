@@ -117,7 +117,7 @@ QQC2.Control {
         visible: root.showBackground
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         Kirigami.Theme.inherit: false
-        color: if (root.author.isLocalMember && !root.isThreaded) {
+        color: if ((root.author?.isLocalMember ?? false) && !root.isThreaded) {
             return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15);
         } else if (root.showHighlight) {
             return Kirigami.Theme.positiveBackgroundColor;
