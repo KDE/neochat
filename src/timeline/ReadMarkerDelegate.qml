@@ -14,6 +14,11 @@ TimelineDelegate {
     id: root
 
     /**
+     * @brief The NeoChatRoom the delegate is being displayed in.
+     */
+    required property NeoChatRoom room
+
+    /**
      * @brief The timestamp of the event as a neoChatDateTime.
      */
     required property neoChatDateTime dateTime
@@ -29,12 +34,16 @@ TimelineDelegate {
     alwaysFillWidth: NeoChatConfig.compactLayout
 
     contentItem: QQC2.ItemDelegate {
-        padding: Kirigami.Units.largeSpacing
-        topInset: Kirigami.Units.largeSpacing
-        topPadding: Kirigami.Units.largeSpacing * 2
-        bottomPadding: Kirigami.Units.largeSpacing * 2
-        leftPadding: Kirigami.Units.largeSpacing * 2
-        bottomInset: Kirigami.Units.largeSpacing
+        padding: Kirigami.Units.largeSpacing * 2
+        topPadding: padding
+        bottomPadding: Kirigami.Units.largeSpacing
+        leftPadding: padding
+        rightPadding: padding
+
+        topInset: Kirigami.Units.largeSpacing + Kirigami.Units.mediumSpacing
+        bottomInset: Kirigami.Units.mediumSpacing
+        rightInset: Kirigami.Units.largeSpacing
+        leftInset: 0
 
         Timer {
             id: temporaryHighlightTimer
@@ -43,8 +52,30 @@ TimelineDelegate {
             onTriggered: root.isTemporaryHighlighted = false
         }
 
-        contentItem: QQC2.Label {
-            text: i18nc("Relative time since the room was last read", "Last read: %1", root.dateTime.relativeDateTime)
+        contentItem: RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.Icon {
+                source: "view-readermode"
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.sizeForLabels
+                Layout.preferredHeight: Kirigami.Units.iconSizes.sizeForLabels
+            }
+
+            QQC2.Label {
+                text: i18nc("Relative time since the room was last read", "Last read: %1", root.dateTime.relativeDateTime)
+
+                Layout.fillWidth: true
+            }
+
+            QQC2.ToolButton {
+                text: i18nc("@action:button Mark all messages up to now as read", "Mark as Read")
+                icon.name: "checkmark"
+
+                onClicked: root.room.markAllMessagesAsRead()
+
+                Layout.alignment: Qt.AlignRight
+            }
         }
 
         background: Kirigami.ShadowedRectangle {

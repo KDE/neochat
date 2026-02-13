@@ -39,7 +39,9 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: DelegateType.ReadMarker
-        delegate: ReadMarkerDelegate {}
+        delegate: ReadMarkerDelegate {
+            room: root.room
+        }
     }
 
     DelegateChoice {
