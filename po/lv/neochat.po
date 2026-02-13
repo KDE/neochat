@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -210,68 +210,68 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Atvērt „NeoChat“"
 
-#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
+#: src/app/qml/AccountMenu.qml:27 src/app/qml/UserMenu.qml:62
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Rādīt kvadrātkodu"
+msgid "Open Profile"
+msgstr "Atvērt profilu"
 
-#: src/app/qml/AccountMenu.qml:41
+#: src/app/qml/AccountMenu.qml:33
 #, fuzzy, kde-format
 #| msgid "Scan a QR Code"
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Skenēt kvadrātkodu"
 
-#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#: src/app/qml/AccountMenu.qml:39 src/app/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Skenēt kvadrātkodu"
 
-#: src/app/qml/AccountMenu.qml:52
+#: src/app/qml/AccountMenu.qml:44
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Rediģēt šo kontu"
 
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Paziņojumu iestatījumi"
 
-#: src/app/qml/AccountMenu.qml:66
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Atvērt rīkus izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
+#: src/app/qml/AccountMenu.qml:64 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Rīki izstrādātājiem"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Verificēt šo ierīci"
 
-#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:77 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Ir nosūtīts verifikācijas pieprasījums"
 
-#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:78 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Lai turpinātu, otrā ierīcē apstipriniet verifikācijas pieprasījumu."
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:89
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -280,7 +280,7 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Ziņot"
 
-#: src/app/qml/AccountMenu.qml:111
+#: src/app/qml/AccountMenu.qml:103
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
@@ -1625,12 +1625,6 @@ msgstr "Privāts"
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
 msgstr ""
-
-#: src/app/qml/UserMenu.qml:62
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Profile"
-msgstr "Atvērt profilu"
 
 #: src/app/qml/UserMenu.qml:68
 #, kde-format
@@ -4622,13 +4616,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Meklēt draugu direktorijā"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Sakļaut „%1“"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4776,103 +4770,125 @@ msgstr "Etiķete:"
 msgid "Work"
 msgstr "Darbojas"
 
-#: src/settings/AccountEditorPage.qml:138
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@info:label"
+msgid "User ID"
+msgstr "Lietotāja ID"
+
+#: src/settings/AccountEditorPage.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action:button"
+msgid "Copy user ID to clipboard"
+msgstr "Kopēt starpliktuvē istabas ID"
+
+#: src/settings/AccountEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Rādīt kvadrātkodu"
+
+#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:214
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Saglabāt"
 
-#: src/settings/AccountEditorPage.qml:155
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Parole"
 
-#: src/settings/AccountEditorPage.qml:160
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Jūsu serveris neatbalsta paroles maiņu"
 
-#: src/settings/AccountEditorPage.qml:167
+#: src/settings/AccountEditorPage.qml:187
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Pašreizējā parole:"
 
-#: src/settings/AccountEditorPage.qml:174
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Jaunā parole:"
 
-#: src/settings/AccountEditorPage.qml:181
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Apstipriniet jauno paroli:"
 
-#: src/settings/AccountEditorPage.qml:186
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Paroles nesakrīt"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-pasta adreses"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:232
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Tālruņa numuri"
 
-#: src/settings/AccountEditorPage.qml:217
+#: src/settings/AccountEditorPage.qml:237
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitātes serveris"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Servera informācija"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgid "Homeserver url"
 msgstr "Mājas servera URL"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Konta pārvaldība"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Deaktivizēt kontu…"
 
-#: src/settings/AccountEditorPage.qml:273
+#: src/settings/AccountEditorPage.qml:293
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Parole ir nomainīta"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:296
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Nederīga parole"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:299
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"

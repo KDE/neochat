@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
-"PO-Revision-Date: 2026-02-09 20:01+0300\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
+"PO-Revision-Date: 2026-02-12 21:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -210,73 +210,73 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Aç: NeoChat"
 
-#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
+#: src/app/qml/AccountMenu.qml:27 src/app/qml/UserMenu.qml:62
 #, kde-format
 msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Kare Kodu Göster"
+msgid "Open Profile"
+msgstr "Profili Aç"
 
-#: src/app/qml/AccountMenu.qml:41
+#: src/app/qml/AccountMenu.qml:33
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Kare Kod Tara"
 
-#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#: src/app/qml/AccountMenu.qml:39 src/app/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Kare Kod Tara"
 
-#: src/app/qml/AccountMenu.qml:52
+#: src/app/qml/AccountMenu.qml:44
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Bu Hesabı Düzenle"
 
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:50
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Bildirim Ayarları"
 
-#: src/app/qml/AccountMenu.qml:66
+#: src/app/qml/AccountMenu.qml:58
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Geliştirici Araçlarını Aç"
 
-#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
+#: src/app/qml/AccountMenu.qml:64 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:71
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Bu Aygıtı Doğrula"
 
-#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:77 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr "Doğrulama İsteği Gönderildi"
 
-#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:78 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr "Sürdürmek için doğrulama isteğini başka bir aygıtta kabul edin."
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:89
 #, kde-format
 msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Destek"
 
-#: src/app/qml/AccountMenu.qml:111
+#: src/app/qml/AccountMenu.qml:103
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Switch Account"
@@ -1081,31 +1081,28 @@ msgid "Pinned Messages"
 msgstr "Sabitlenmiş İletiler"
 
 #: src/app/qml/RoomPage.qml:243
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
-msgstr "Silinen iletileri göster"
+msgstr "Seçili ileti: %1"
 
 #: src/app/qml/RoomPage.qml:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
-msgstr ""
+msgstr "Konuşmayı Kopyala"
 
 #: src/app/qml/RoomPage.qml:251
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
-msgstr "Panoya kopyala"
+msgstr "Konuşma panoya kopyalandı"
 
 #: src/app/qml/RoomPage.qml:255
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr "Doğrudan İletiler"
+msgstr "İletileri Sil"
 
 #: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
 #: src/app/qml/UserDetailDialog.qml:331
@@ -1115,12 +1112,10 @@ msgid "Remove Messages"
 msgstr "İletileri Kaldır"
 
 #: src/app/qml/RoomPage.qml:262
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Optionally give a reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr "İsteğe bağlı olarak bu iletiyi kaldırma gerekçenizi verin"
+msgstr "İsteğe bağlı olarak bu iletileri kaldırma gerekçenizi verin"
 
 #: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
@@ -1552,12 +1547,6 @@ msgstr "Özel Not"
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
 msgstr "Yalnızca size görünür"
-
-#: src/app/qml/UserMenu.qml:62
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Profile"
-msgstr "Profili Aç"
 
 #: src/app/qml/UserMenu.qml:68
 #, kde-format
@@ -4523,13 +4512,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Arkadaş Dizininde Ara"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Daralt: %1"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4665,103 +4654,125 @@ msgstr "Etiket:"
 msgid "Work"
 msgstr "İş"
 
-#: src/settings/AccountEditorPage.qml:138
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@info:label"
+msgid "User ID"
+msgstr "Kullanıcı Kimliği"
+
+#: src/settings/AccountEditorPage.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action:button"
+msgid "Copy user ID to clipboard"
+msgstr "Oda Kimliğini Panoya Kopyala"
+
+#: src/settings/AccountEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Kare Kodu Göster"
+
+#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:214
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/settings/AccountEditorPage.qml:155
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Parola"
 
-#: src/settings/AccountEditorPage.qml:160
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Sunucunuz parolanızı değiştirmeyi desteklemiyor"
 
-#: src/settings/AccountEditorPage.qml:167
+#: src/settings/AccountEditorPage.qml:187
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Geçerli parola:"
 
-#: src/settings/AccountEditorPage.qml:174
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Yeni parola:"
 
-#: src/settings/AccountEditorPage.qml:181
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Yeni parolayı onayla:"
 
-#: src/settings/AccountEditorPage.qml:186
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Parolalar uyuşmuyor"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-posta Adresleri"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:232
 #, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefon Numaraları"
 
-#: src/settings/AccountEditorPage.qml:217
+#: src/settings/AccountEditorPage.qml:237
 #, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Kimlik Sunucusu"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Sunucu Bilgisi"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgid "Homeserver url"
 msgstr "Ana Sunucu URL’si"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Hesap Yönetimi"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Hesabı Devre Dışı Bırak…"
 
-#: src/settings/AccountEditorPage.qml:273
+#: src/settings/AccountEditorPage.qml:293
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:296
 #, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Geçersiz parola"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:299
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
@@ -7274,18 +7285,16 @@ msgid "Pin"
 msgstr "Sabitle"
 
 #: src/timeline/DelegateContextMenu.qml:412
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Doğrudan İletiler"
+msgstr "İletinin Seçimini Kaldır"
 
 #: src/timeline/DelegateContextMenu.qml:412
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Doğrudan İletiler"
+msgstr "İletiyi Seç"
 
 #: src/timeline/DelegateContextMenu.qml:425
 #, kde-format

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -211,68 +211,72 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "Opna NeoChat"
 
-#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
-#, kde-format
+#: src/app/qml/AccountMenu.qml:27 src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
 msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr "Vis QR-kode"
+msgid "Open Profile"
+msgstr "Opna fil"
 
-#: src/app/qml/AccountMenu.qml:41
+#: src/app/qml/AccountMenu.qml:33
 #, fuzzy, kde-format
 #| msgid "Scan a QR Code"
 msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Skann QR-kode"
 
-#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#: src/app/qml/AccountMenu.qml:39 src/app/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr "Skann QR-kode"
 
-#: src/app/qml/AccountMenu.qml:52
+#: src/app/qml/AccountMenu.qml:44
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Rediger kontoen"
 
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:50
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Varslings­innstillingar"
 
-#: src/app/qml/AccountMenu.qml:66
+#: src/app/qml/AccountMenu.qml:58
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Opna utviklarverktøy"
 
-#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
+#: src/app/qml/AccountMenu.qml:64 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Utviklarverktøy"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:71
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Stadfest eininga"
 
-#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:77 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:78 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:89
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -281,7 +285,7 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Rapporter"
 
-#: src/app/qml/AccountMenu.qml:111
+#: src/app/qml/AccountMenu.qml:103
 #, fuzzy, kde-format
 #| msgctxt "@title: dialog to switch between logged in accounts"
 #| msgid "Switch Account"
@@ -1672,16 +1676,6 @@ msgstr "Lag ny"
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
 msgstr ""
-
-#: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgctxt "@action:button"
-msgid "Open Profile"
-msgstr "Opna fil"
 
 #: src/app/qml/UserMenu.qml:68
 #, fuzzy, kde-format
@@ -4757,13 +4751,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Søk i vennekatalogen"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Fald saman %1"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4910,104 +4904,125 @@ msgstr "Merkelapp:"
 msgid "Work"
 msgstr "Arbeid"
 
-#: src/settings/AccountEditorPage.qml:138
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@info:label"
+msgid "User ID"
+msgstr "Brukar-ID"
+
+#: src/settings/AccountEditorPage.qml:128
+#, fuzzy, kde-format
+#| msgid "Copy room ID to clipboard"
+msgctxt "@action:button"
+msgid "Copy user ID to clipboard"
+msgstr "Kopier rom-ID til utklippstavla"
+
+#: src/settings/AccountEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr "Vis QR-kode"
+
+#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:214
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: src/settings/AccountEditorPage.qml:155
+#: src/settings/AccountEditorPage.qml:175
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Passord"
 
-#: src/settings/AccountEditorPage.qml:160
+#: src/settings/AccountEditorPage.qml:180
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Tenaren støttar ikkje endring av passord"
 
-#: src/settings/AccountEditorPage.qml:167
+#: src/settings/AccountEditorPage.qml:187
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Gjeldande passord:"
 
-#: src/settings/AccountEditorPage.qml:174
+#: src/settings/AccountEditorPage.qml:194
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Nytt passord:"
 
-#: src/settings/AccountEditorPage.qml:181
+#: src/settings/AccountEditorPage.qml:201
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Stadfest passord:"
 
-#: src/settings/AccountEditorPage.qml:186
+#: src/settings/AccountEditorPage.qml:206
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Passorda er ikkje like"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:226
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "E-postadresser"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:232
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Telefonnummer"
 
-#: src/settings/AccountEditorPage.qml:217
+#: src/settings/AccountEditorPage.qml:237
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Identitetstenar"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:246
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Tenarinformasjon"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgid "Homeserver url"
 msgstr "Adresse til heimetenar"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:271
 #, fuzzy, kde-format
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Kontohandsaming"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgid "Deactivate Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Deaktiver konto"
 
-#: src/settings/AccountEditorPage.qml:273
+#: src/settings/AccountEditorPage.qml:293
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Passordet er no endra"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:296
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Ugyldig passfrase"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:299
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"

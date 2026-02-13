@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-13 00:43+0000\n"
 "PO-Revision-Date: 2024-09-20 13:25+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -216,13 +216,17 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat"
 msgstr "NeoChat"
 
-#: src/app/qml/AccountMenu.qml:27 src/settings/AccountEditorPage.qml:123
-#, kde-format
+#: src/app/qml/AccountMenu.qml:27 src/app/qml/UserMenu.qml:62
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "tooltip for a button on a message; offers ability to open its downloaded "
+#| "file with an appropriate application"
+#| msgid "Open File"
 msgctxt "@action:button"
-msgid "Show QR Code"
-msgstr ""
+msgid "Open Profile"
+msgstr "Άνοιγμα αρχείου"
 
-#: src/app/qml/AccountMenu.qml:41
+#: src/app/qml/AccountMenu.qml:33
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Show QR code"
@@ -230,59 +234,59 @@ msgctxt "@action:inmenu"
 msgid "Scan a QR Code"
 msgstr "Εμφάνιση κώδικα QR"
 
-#: src/app/qml/AccountMenu.qml:47 src/app/qml/QrScannerPage.qml:16
+#: src/app/qml/AccountMenu.qml:39 src/app/qml/QrScannerPage.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Scan a QR Code"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:52
+#: src/app/qml/AccountMenu.qml:44
 #, fuzzy, kde-format
 #| msgid "Edit This Account"
 msgctxt "@action:inmenu"
 msgid "Edit This Account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
-#: src/app/qml/AccountMenu.qml:58
+#: src/app/qml/AccountMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Room notifications setting"
 msgctxt "@action:inmenu"
 msgid "Notification Settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
-#: src/app/qml/AccountMenu.qml:66
+#: src/app/qml/AccountMenu.qml:58
 #, fuzzy, kde-format
 #| msgid "Open Developer Tools"
 msgctxt "@action:inmenu"
 msgid "Open Developer Tools"
 msgstr "Άνοιγμα εργαλείων προγραμματιστή"
 
-#: src/app/qml/AccountMenu.qml:72 src/roominfo/RoomInformation.qml:188
+#: src/app/qml/AccountMenu.qml:64 src/roominfo/RoomInformation.qml:188
 #, kde-format
 msgctxt "@title:window"
 msgid "Developer Tools"
 msgstr "Εργαλεία προγραμματιστή"
 
-#: src/app/qml/AccountMenu.qml:79
+#: src/app/qml/AccountMenu.qml:71
 #, fuzzy, kde-format
 #| msgid "Verify device"
 msgctxt "@action:inmenu"
 msgid "Verify This Device"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/app/qml/AccountMenu.qml:85 src/settings/DevicesPage.qml:46
+#: src/app/qml/AccountMenu.qml:77 src/settings/DevicesPage.qml:46
 #, kde-format
 msgctxt "@title"
 msgid "Verification Request Sent"
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:86 src/settings/DevicesPage.qml:47
+#: src/app/qml/AccountMenu.qml:78 src/settings/DevicesPage.qml:47
 #, kde-format
 msgctxt "@info:label"
 msgid "To proceed, accept the verification request on another device."
 msgstr ""
 
-#: src/app/qml/AccountMenu.qml:97
+#: src/app/qml/AccountMenu.qml:89
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -291,7 +295,7 @@ msgctxt "@action:inmenu Open support dialog"
 msgid "Support"
 msgstr "Αναφορά"
 
-#: src/app/qml/AccountMenu.qml:111
+#: src/app/qml/AccountMenu.qml:103
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:inmenu"
@@ -1703,16 +1707,6 @@ msgstr "Αποχώρηση από τον χώρο"
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
 msgstr ""
-
-#: src/app/qml/UserMenu.qml:62
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to open its downloaded "
-#| "file with an appropriate application"
-#| msgid "Open File"
-msgctxt "@action:button"
-msgid "Open Profile"
-msgstr "Άνοιγμα αρχείου"
 
 #: src/app/qml/UserMenu.qml:68
 #, fuzzy, kde-format
@@ -4931,13 +4925,13 @@ msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:68
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgctxt "Expand <section name"
@@ -5089,109 +5083,131 @@ msgstr "Ετικέτα:"
 msgid "Work"
 msgstr ""
 
-#: src/settings/AccountEditorPage.qml:138
-#: src/settings/AccountEditorPage.qml:194
+#: src/settings/AccountEditorPage.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "User ID"
+msgctxt "@info:label"
+msgid "User ID"
+msgstr "Αναγνωριστικό χρήστη"
+
+#: src/settings/AccountEditorPage.qml:128
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:button"
+msgid "Copy user ID to clipboard"
+msgstr "Αντιγραφή διεύθυνσης στο πρόχειρο"
+
+#: src/settings/AccountEditorPage.qml:143
+#, kde-format
+msgctxt "@action:button"
+msgid "Show QR Code"
+msgstr ""
+
+#: src/settings/AccountEditorPage.qml:158
+#: src/settings/AccountEditorPage.qml:214
 #: src/settings/EmoticonEditorPage.qml:108
 #, kde-format
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/settings/AccountEditorPage.qml:155
+#: src/settings/AccountEditorPage.qml:175
 #, kde-format
 msgctxt "@title:group"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:160
+#: src/settings/AccountEditorPage.qml:180
 #, kde-format
 msgctxt "@info"
 msgid "Your server doesn't support changing your password"
 msgstr "Ο εξυπηρετητής σου δεν υποστηρίζει αλλαγή κωδικού πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:167
+#: src/settings/AccountEditorPage.qml:187
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Current Password:"
 msgstr "Τρέχων κωδικός:"
 
-#: src/settings/AccountEditorPage.qml:174
+#: src/settings/AccountEditorPage.qml:194
 #, kde-format
 msgctxt "@label:textbox"
 msgid "New Password:"
 msgstr "Νέος κωδικός:"
 
-#: src/settings/AccountEditorPage.qml:181
+#: src/settings/AccountEditorPage.qml:201
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Confirm new Password:"
 msgstr "Επιβεβαίωση νέου κωδικού:"
 
-#: src/settings/AccountEditorPage.qml:186
+#: src/settings/AccountEditorPage.qml:206
 #, kde-format
 msgctxt "@info"
 msgid "Passwords don't match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
-#: src/settings/AccountEditorPage.qml:206
+#: src/settings/AccountEditorPage.qml:226
 #, fuzzy, kde-format
 #| msgid "Confirm new display name"
 msgctxt "@title:group"
 msgid "Email Addresses"
 msgstr "Επιβεβαίωση νέου ονόματος"
 
-#: src/settings/AccountEditorPage.qml:212
+#: src/settings/AccountEditorPage.qml:232
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@title:group"
 msgid "Phone Numbers"
 msgstr "Μέλη"
 
-#: src/settings/AccountEditorPage.qml:217
+#: src/settings/AccountEditorPage.qml:237
 #, fuzzy, kde-format
 #| msgid "Add New Server"
 msgctxt "@title:group"
 msgid "Identity Server"
 msgstr "Προσθήκη νέου εξυπηρετητή"
 
-#: src/settings/AccountEditorPage.qml:226
+#: src/settings/AccountEditorPage.qml:246
 #, kde-format
 msgctxt "@title:group"
 msgid "Server Information"
 msgstr "Πληροφορίες εξυπηρετητή"
 
-#: src/settings/AccountEditorPage.qml:230
+#: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgid "Homeserver url"
 msgstr "Url εξυπηρετητή"
 
-#: src/settings/AccountEditorPage.qml:251
+#: src/settings/AccountEditorPage.qml:271
 #, fuzzy, kde-format
 #| msgid "Account editor"
 msgctxt "@title:group"
 msgid "Account Management"
 msgstr "Συντάκτης λογαριασμού"
 
-#: src/settings/AccountEditorPage.qml:256
+#: src/settings/AccountEditorPage.qml:276
 #, fuzzy, kde-format
 #| msgid "Edit Account"
 msgctxt "@action:button"
 msgid "Deactivate Account…"
 msgstr "Επεξεργασία λογαριασμού"
 
-#: src/settings/AccountEditorPage.qml:273
+#: src/settings/AccountEditorPage.qml:293
 #, kde-format
 msgctxt "@info"
 msgid "Password changed successfully"
 msgstr "Επιτυχημένη αλλαγή κωδικού πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:276
+#: src/settings/AccountEditorPage.qml:296
 #, fuzzy, kde-format
 #| msgid "Enter your password"
 msgctxt "@info"
 msgid "Invalid password"
 msgstr "Δώσε τον κωδικό πρόσβασης"
 
-#: src/settings/AccountEditorPage.qml:279
+#: src/settings/AccountEditorPage.qml:299
 #, kde-format
 msgctxt "@info"
 msgid "Unknown problem while trying to change password"
