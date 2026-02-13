@@ -80,6 +80,12 @@ Kirigami.Page {
     onHeightChanged: {
         // HACK: See TimelineView for the hack details.
         // We get the height change here *first* so we are informed this is because of a window resize and not due to the pinned message.
+        resetViewSettling();
+    }
+
+    // Resets the view settling of the timeline.
+    // This should be called whenever the apparent height of the timeline changes, or else the view will scroll on its own!
+    function resetViewSettling(): void {
         (timelineViewLoader.item as TimelineView).resetViewSettling();
     }
 
@@ -356,6 +362,9 @@ Kirigami.Page {
             width: parent.width
             currentRoom: root.currentRoom
             connection: root.currentRoom.connection as NeoChatConnection
+
+            // Creating a reply (or doing anything in the chat bar) can change the height, but this isn't picked up on the root's onHeightChanged.
+            onHeightChanged: root.resetViewSettling()
         }
     }
 
