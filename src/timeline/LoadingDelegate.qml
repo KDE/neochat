@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 
@@ -15,7 +17,15 @@ TimelineDelegate {
 
     alwaysFillWidth: NeoChatConfig.compactLayout
 
-    contentItem: Kirigami.PlaceholderMessage {
-        text: i18n("Loading…")
+    contentItem: RowLayout {
+        spacing: 0
+
+        QQC2.ProgressBar {
+            indeterminate: true
+
+            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+        }
     }
 }
