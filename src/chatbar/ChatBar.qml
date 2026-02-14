@@ -151,6 +151,19 @@ QQC2.Control {
             tooltip: text
         },
         BusyAction {
+            icon.name: "microphone"
+            isBusy: false
+            text: i18nc("@action:button", "Send a Voice Message")
+            displayHint: QQC2.AbstractButton.IconOnly
+            onTriggered: {
+                let dialog = voiceMessageDialog.createObject(root, {
+                    room: root.currentRoom
+                }) as VoiceMessageDialog;
+                dialog.open();
+            }
+            tooltip: text
+        },
+        BusyAction {
             id: sendAction
 
             isBusy: false
@@ -546,6 +559,11 @@ QQC2.Control {
     Component {
         id: newPollDialog
         NewPollDialog {}
+    }
+
+    Component {
+        id: voiceMessageDialog
+        VoiceMessageDialog {}
     }
 
     CompletionMenu {

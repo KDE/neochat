@@ -16,4 +16,5 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         EmojiDialog.qml
         EmojiTonesPicker.qml
         ImageEditorPage.qml
+        VoiceMessageDialog.qml
 )
