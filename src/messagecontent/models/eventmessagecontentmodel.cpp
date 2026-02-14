@@ -113,6 +113,12 @@ void EventMessageContentModel::initializeModel()
         }
     });
 #if Quotient_VERSION_MINOR > 9
+    connect(m_room, &Room::newThread, this, [this](const QString &newThread) {
+        if (newThread == m_eventId) {
+            resetContent();
+        }
+    });
+#elif Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH >= 4
     connect(m_room, &Room::newThread, this, [this](const Thread &newThread) {
         if (newThread.threadRootId == m_eventId) {
             resetContent();

@@ -70,6 +70,7 @@ TestCase {
             {tag: "heading 5", input: "##### h", outText: ["#", "##", "###", "####", "#####", "##### ", "h"], outFormats: [[], [], [], [], [], [], [RichFormat.Bold, RichFormat.Heading5]], unhandled: 0},
             {tag: "heading 6", input: "###### h", outText: ["#", "##", "###", "####", "#####", "######", "###### ", "h"], outFormats: [[], [], [], [], [], [] ,[], [RichFormat.Bold, RichFormat.Heading6]], unhandled: 0},
             {tag: "quote", input: "> q", outText: [">", "> ", "q"], outFormats: [[], [], []], unhandled: 1},
+            {tag: "quote - no space", input: ">q", outText: [">", "q"], outFormats: [[], [], []], unhandled: 1},
             {tag: "unorderedlist 1", input: "* l", outText: ["*", "* ", "l"], outFormats: [[], [], [RichFormat.UnorderedList]], unhandled: 0},
             {tag: "unorderedlist 2", input: "- l", outText: ["-", "- ", "l"], outFormats: [[], [], [RichFormat.UnorderedList]], unhandled: 0},
             {tag: "orderedlist 1", input: "1. l", outText: ["1", "1.", "1. ", "l"], outFormats: [[], [], [], [RichFormat.OrderedList]], unhandled: 0},
