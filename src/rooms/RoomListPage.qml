@@ -95,7 +95,8 @@ Kirigami.Page {
     Connections {
         target: RoomManager
         function onCurrentSpaceChanged() {
-            treeView.expandRecursively();
+            // HACK: If we don't delay this, it attempts to expand the tree while it's half or not loaded at all.
+            Qt.callLater(() => treeView.expandRecursively());
         }
     }
 
