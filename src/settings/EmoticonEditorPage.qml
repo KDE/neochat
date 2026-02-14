@@ -98,11 +98,14 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             label: i18n("Shortcode:")
             text: root.shortcode
+            onTextChanged: root.shortcode = text
         }
         FormCard.FormTextFieldDelegate {
             label: i18n("Description:")
             text: root.description
+            onTextChanged: root.description = text
         }
+        FormCard.FormDelegateSeparator {}
         FormCard.FormButtonDelegate {
             id: save
             text: i18n("Save")
