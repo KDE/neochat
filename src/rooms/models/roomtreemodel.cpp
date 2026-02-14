@@ -163,6 +163,9 @@ void RoomTreeModel::moveRoom(Quotient::Room *room)
     beginInsertRows(newParent, newParentItem->childCount(), newParentItem->childCount());
     newParentItem->insertChild(std::make_unique<RoomTreeItem>(neochatRoom, newParentItem));
     endInsertRows();
+
+    // The room list needs to be re-sorted when this happens, of course.
+    Q_EMIT invalidateSort();
 }
 
 void RoomTreeModel::connectRoomSignals(NeoChatRoom *room)
