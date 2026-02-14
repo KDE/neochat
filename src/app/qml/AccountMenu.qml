@@ -26,7 +26,7 @@ KirigamiComponents.ConvergentContextMenu {
     Kirigami.Action {
         text: i18nc("@action:button", "Open Profile")
         icon.name: "im-user-symbolic"
-        onTriggered: RoomManager.resolveResource(root.connection.localUserId)
+        onTriggered: RoomManager.resolveResource(root.connection.localUserId, "qr") // Use "qr" action to make sure a room isn't passed, see RoomManager::visitUser
     }
 
     Kirigami.Action {
