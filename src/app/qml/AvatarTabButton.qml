@@ -21,6 +21,7 @@ Delegates.RoundedItemDelegate {
     signal contextMenuRequested
     signal selected
 
+    activeFocusOnTab: true
     padding: Kirigami.Units.largeSpacing
 
     QQC2.ToolTip.visible: hovered
