@@ -58,6 +58,10 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
     }
 
     if (modifiers.testFlag(Qt::ControlModifier)) {
+        const auto room = textItem->room();
+        if (!room) {
+            return false;
+        }
         room->replyLastMessage();
         return true;
     }

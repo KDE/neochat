@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QQmlEngine>
 
-class NeoChatRoom;
 class ChatTextItemHelper;
 
 /**
@@ -25,13 +24,6 @@ class ChatKeyHelper : public QObject
 
 public:
     explicit ChatKeyHelper(QObject *parent = nullptr);
-
-    /**
-     * @brief The ChatTextItemHelper that ChatKeyHelper is handling key presses for.
-     *
-     * @sa ChatTextItemHelper
-     */
-    QPointer<NeoChatRoom> room;
 
     /**
      * @brief The ChatTextItemHelper that ChatKeyHelper is handling key presses for.

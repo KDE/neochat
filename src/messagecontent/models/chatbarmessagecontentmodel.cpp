@@ -45,7 +45,6 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
                 textItem->setRoom(m_room);
             }
         }
-        m_keyHelper->room = m_room;
     });
     connect(this, &ChatBarMessageContentModel::typeChanged, this, [this](ChatBarType::Type oldType) {
         for (const auto &component : m_components) {

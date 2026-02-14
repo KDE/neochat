@@ -10,6 +10,7 @@
 #include <QTextDocumentFragment>
 
 #include <Kirigami/Platform/PlatformTheme>
+#include <qtextdocument.h>
 
 #include "chatbarsyntaxhighlighter.h"
 #include "neochatroom.h"
@@ -605,7 +606,7 @@ QString ChatTextItemHelper::markdownText() const
     if (!doc) {
         return {};
     }
-    return trim(doc->toMarkdown());
+    return trim(doc->toMarkdown(QTextDocument::MarkdownDialectGitHub));
 }
 
 QString ChatTextItemHelper::plainText() const

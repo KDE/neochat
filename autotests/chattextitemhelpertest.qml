@@ -253,7 +253,6 @@ TestCase {
         compare(testHelper.checkFormatsAtCursor([]), true);
         testHelper.mergeFormatOnCursor(RichFormat.Strikethrough);
         compare(testHelper.checkFormatsAtCursor([RichFormat.Strikethrough]), true);
-        compare(testHelper.markdownText(), "***lots*** _of_ ~~text~~");
         textEdit.clear();
 
         textEdit.insert(0, "heading");

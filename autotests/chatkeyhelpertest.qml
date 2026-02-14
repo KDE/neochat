@@ -32,12 +32,6 @@ TestCase {
     }
 
     SignalSpy {
-        id: spyItem
-        target: textItemHelper
-        signalName: "textItemChanged"
-    }
-
-    SignalSpy {
         id: spyUp
         target: testHelper.keyHelper
         signalName: "unhandledUp"
@@ -63,12 +57,16 @@ TestCase {
 
     function init(): void {
         textEdit.clear();
-        spyItem.clear();
         spyUp.clear();
         spyDown.clear();
         spyDelete.clear();
         spyBackSpace.clear();
         textEdit.forceActiveFocus();
+    }
+
+    function cleanupTestCase(): void {
+        testHelper.textItem = null;
+        textItemHelper.textItem = null;
     }
 
     function test_upDown(): void {

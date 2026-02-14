@@ -30,14 +30,13 @@ public:
 
     ChatTextItemHelper *textItem() const
     {
-        return m_textItem;
+        return m_keyHelper->textItem;
     }
     void setTextItem(ChatTextItemHelper *textItem)
     {
-        if (textItem == m_textItem) {
+        if (textItem == m_keyHelper->textItem) {
             return;
         }
-        m_textItem = textItem;
         m_keyHelper->textItem = textItem;
         Q_EMIT textItemChanged();
     }
@@ -51,6 +50,5 @@ Q_SIGNALS:
     void textItemChanged();
 
 private:
-    QPointer<ChatTextItemHelper> m_textItem;
     QPointer<ChatKeyHelper> m_keyHelper;
 };

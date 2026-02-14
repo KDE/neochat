@@ -3,6 +3,7 @@
 
 #include "richformat.h"
 
+#include <QFontInfo>
 #include <QTextBlockFormat>
 #include <QTextCharFormat>
 #include <QTextCursor>
@@ -195,19 +196,20 @@ QList<RichFormat::Format> RichFormat::formatsAtCursor(const QTextCursor &cursor)
     if (cursor.isNull()) {
         return formats;
     }
-    if (cursor.charFormat().fontWeight() == QFont::Bold) {
+    const auto format = cursor.charFormat();
+    if (format.fontWeight() == QFont::Bold) {
         formats += Bold;
     }
-    if (cursor.charFormat().fontItalic()) {
+    if (format.fontItalic()) {
         formats += Italic;
     }
-    if (cursor.charFormat().fontUnderline()) {
+    if (format.fontUnderline()) {
         formats += Underline;
     }
-    if (cursor.charFormat().fontStrikeOut()) {
+    if (format.fontStrikeOut()) {
         formats += Strikethrough;
     }
-    if (cursor.charFormat().fontFixedPitch()) {
+    if (format.fontFixedPitch()) {
         formats += InlineCode;
     }
     if (cursor.blockFormat().headingLevel() > 0 && cursor.blockFormat().headingLevel() <= 6) {
