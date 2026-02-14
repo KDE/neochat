@@ -22,7 +22,6 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
         StyleDelegate.qml
         ImageEditorPage.qml
         VoiceMessageDialog.qml
-        ImageDialog.qml
         LinkDialog.qml
         LocationChooser.qml
         NewPollDialog.qml

@@ -83,6 +83,13 @@ RowLayout {
         dialog.open();
     }
 
+    function openVoiceDialog(): void {
+        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'VoiceMessageDialog').createObject(root, {
+            room: root.currentRoom
+        }) as VoiceMessageDialog;
+        dialog.open();
+    }
+
     Kirigami.Separator {
         Layout.fillHeight: true
     }
@@ -132,6 +139,11 @@ RowLayout {
                     text: i18nc("@action:button", "Create a Poll")
                     onTriggered: root.openNewPollDialog();
                 }
+                QQC2.MenuItem {
+                    icon.name: "microphone"
+                    text: i18nc("@action:button", "Send a Voice Message")
+                    onTriggered: root.openVoiceDialog();
+                }
             }
         }
 
@@ -172,6 +184,16 @@ RowLayout {
         display: QQC2.AbstractButton.IconOnly
 
         onClicked: root.openNewPollDialog();
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        QQC2.ToolTip.text: text
+    }
+    QQC2.ToolButton {
+        visible: (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        icon.name: "microphone"
+        text: i18nc("@action:button", "Send a Voice Message")
+        display: QQC2.AbstractButton.IconOnly
+        onClicked: root.openVoiceDialog();
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
