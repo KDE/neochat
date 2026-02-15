@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:43+0000\n"
+"POT-Creation-Date: 2026-02-15 00:43+0000\n"
 "PO-Revision-Date: 2026-02-13 12:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -332,7 +332,8 @@ msgid "Attachment:"
 msgstr "Priloga:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/timeline/DelegateContextMenu.qml:189
+#: src/messagecontent/ImageComponent.qml:89
+#: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -704,28 +705,6 @@ msgctxt "@action:button"
 msgid "Emoji Verification"
 msgstr "Verifikacija čustvenčka"
 
-#: src/app/qml/LocationChooser.qml:20
-#, kde-format
-msgid "Choose a Location"
-msgstr "Izberi lokacijo"
-
-#: src/app/qml/LocationChooser.qml:25
-#, kde-format
-msgid "Send this location"
-msgstr "Pošlji to lokacijo"
-
-#: src/app/qml/LocationChooser.qml:33
-#, kde-format
-msgctxt "@action:intoolbar Re-center the map onto the set location"
-msgid "Re-Center"
-msgstr "Ponovno usredini"
-
-#: src/app/qml/LocationChooser.qml:39
-#, kde-format
-msgctxt "@action:intoolbar Determine the device's location"
-msgid "Locate"
-msgstr "Lociraj"
-
 #: src/app/qml/Main.qml:172
 #, kde-format
 msgctxt "@action:button"
@@ -846,78 +825,6 @@ msgctxt "@action As in 'edit the state of this room'"
 msgid "Edit state"
 msgstr "Uredi stanje"
 
-#: src/app/qml/NewPollDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr "Pošlji"
-
-#: src/app/qml/NewPollDialog.qml:37
-#, kde-format
-msgctxt "@title: create new poll in the room"
-msgid "Create Poll"
-msgstr "Ustvari glasovanje"
-
-#: src/app/qml/NewPollDialog.qml:45
-#, kde-format
-msgctxt "@label"
-msgid "Poll type:"
-msgstr "Vrsta glasovanja:"
-
-#: src/app/qml/NewPollDialog.qml:50
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Open poll"
-msgstr "Odprto glasovanje"
-
-#: src/app/qml/NewPollDialog.qml:51
-#, kde-format
-msgctxt "@item:inlistbox"
-msgid "Closed poll"
-msgstr "Zaprto glasovanje"
-
-#: src/app/qml/NewPollDialog.qml:56
-#, kde-format
-msgctxt "@info"
-msgid "Voters can see the result as soon as they have voted"
-msgstr "Volivci lahko vidijo rezultat takoj, ko so glasovali"
-
-#: src/app/qml/NewPollDialog.qml:56
-#, kde-format
-msgctxt "@info"
-msgid "Results are revealed only after the poll has closed"
-msgstr "Rezultati so razkriti šele po zaprtju glasovanja"
-
-#: src/app/qml/NewPollDialog.qml:60
-#, kde-format
-msgctxt "@label"
-msgid "Question:"
-msgstr "Vprašanje:"
-
-#: src/app/qml/NewPollDialog.qml:103
-#, kde-format
-msgctxt "As in first answer option to the poll"
-msgid "Option %1:"
-msgstr "Možnost %1:"
-
-#: src/app/qml/NewPollDialog.qml:119
-#, kde-format
-msgctxt "@placeholder"
-msgid "Enter option"
-msgstr "Vnesite možnost"
-
-#: src/app/qml/NewPollDialog.qml:123
-#, kde-format
-msgctxt "@action:button"
-msgid "Remove option"
-msgstr "Odstrani možnost"
-
-#: src/app/qml/NewPollDialog.qml:146
-#, kde-format
-msgctxt "@action:button"
-msgid "Add option"
-msgstr "Dodaj možnost"
-
 #: src/app/qml/NotificationsView.qml:20 src/rooms/ExploreComponentMobile.qml:48
 #: src/rooms/UserInfo.qml:100 src/settings/RoomSettingsView.qml:82
 #, kde-format
@@ -927,7 +834,6 @@ msgstr "Obvestila"
 
 #: src/app/qml/NotificationsView.qml:35 src/app/qml/NotificationsView.qml:40
 #: src/login/Login.qml:39 src/settings/DevicesPage.qml:20
-#: src/timeline/LoadingDelegate.qml:19
 #, kde-format
 msgid "Loading…"
 msgstr "Nalaganje …"
@@ -937,31 +843,26 @@ msgstr "Nalaganje …"
 msgid "No Notifications"
 msgstr "Ni obvestil"
 
-#: src/app/qml/OpenFileDialog.qml:12
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Select a File"
-msgstr "Izberi datoteko"
-
 #: src/app/qml/QrScannerPage.qml:41
 #, kde-format
 msgctxt "@info"
 msgid "No Camera Connected"
 msgstr "Ni povezane nobene kamere"
 
-#: src/app/qml/QuickFormatBar.qml:22
+#: src/app/qml/QuickFormatBar.qml:22 src/chatbar/RichEditBar.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Bold"
 msgstr "Krepko"
 
-#: src/app/qml/QuickFormatBar.qml:41
+#: src/app/qml/QuickFormatBar.qml:41 src/chatbar/RichEditBar.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Italic"
 msgstr "Ležeče"
 
-#: src/app/qml/QuickFormatBar.qml:60
+#: src/app/qml/QuickFormatBar.qml:60 src/chatbar/RichEditBar.qml:135
+#: src/chatbar/RichEditBar.qml:183
 #, kde-format
 msgctxt "@action:button"
 msgid "Strikethrough"
@@ -985,7 +886,7 @@ msgctxt "@action:button"
 msgid "Quote"
 msgstr "Navedba"
 
-#: src/app/qml/QuickFormatBar.qml:136
+#: src/app/qml/QuickFormatBar.qml:136 src/chatbar/RichEditBar.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
@@ -997,7 +898,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:225
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:237
 #: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1038,106 +939,106 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: src/app/qml/RoomPage.qml:95
+#: src/app/qml/RoomPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr "Pridruži se Jitsi sestanku…"
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr "Začni Jitsi sestanek…"
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "Nimate pravic za začetek Jitsi sestankov"
 
-#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:182
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:182
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Išči"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:156
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "Ta soba vsebuje uradna sporočila vašega domačega strežnika."
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:167
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite vašo omrežno povezavo."
 
-#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:170
+#: src/app/qml/RoomPage.qml:227 src/roominfo/RoomInformation.qml:170
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Pripeta sporočila"
 
-#: src/app/qml/RoomPage.qml:243
+#: src/app/qml/RoomPage.qml:249
 #, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
 msgstr "Izbrana sporočila: %1"
 
-#: src/app/qml/RoomPage.qml:247
+#: src/app/qml/RoomPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
 msgstr "Kopiraj klepet"
 
-#: src/app/qml/RoomPage.qml:251
+#: src/app/qml/RoomPage.qml:257
 #, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
 msgstr "Klepet prekopiran na odložišče"
 
-#: src/app/qml/RoomPage.qml:255
+#: src/app/qml/RoomPage.qml:261
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
 msgstr "Zbriši sporočila"
 
-#: src/app/qml/RoomPage.qml:261 src/app/qml/RoomPage.qml:268
+#: src/app/qml/RoomPage.qml:267 src/app/qml/RoomPage.qml:274
 #: src/app/qml/UserDetailDialog.qml:331
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
 msgstr "Odstrani sporočila"
 
-#: src/app/qml/RoomPage.qml:262
+#: src/app/qml/RoomPage.qml:268
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
 msgstr "Po želji navedite razlog za odstranitev teh sporočil"
 
-#: src/app/qml/RoomPage.qml:263 src/app/qml/UserDetailDialog.qml:333
+#: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/app/qml/RoomPage.qml:345
+#: src/app/qml/RoomPage.qml:351
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Dobrodošli v NeoChat"
 
-#: src/app/qml/RoomPage.qml:346
+#: src/app/qml/RoomPage.qml:352
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Izberi ali pridruži se sobi da začnete"
 
-#: src/app/qml/RoomPage.qml:407
+#: src/app/qml/RoomPage.qml:415
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -1816,66 +1717,17 @@ msgctxt "@action:button"
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: src/chatbar/ChatBar.qml:88 src/messagecontent/ChatBarComponent.qml:167
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
-msgid "Attach an image or file"
-msgstr "Priloži sliko ali datoteko"
-
-#: src/chatbar/ChatBar.qml:112
-#, kde-format
-msgctxt "@action:button"
-msgid "Emojis & Stickers"
-msgstr "Čustvenčki in nalepke"
-
-#: src/chatbar/ChatBar.qml:129
-#, kde-format
-msgctxt "@action:button"
-msgid "Send a Location"
-msgstr "Pošlji lokacijo"
-
-#: src/chatbar/ChatBar.qml:143
-#, kde-format
-msgctxt "@action:button"
-msgid "Create a Poll"
-msgstr "Ustvari glasovanje"
-
-#: src/chatbar/ChatBar.qml:159
-#, kde-format
-msgctxt "@action:button"
-msgid "Send message"
-msgstr "Pošlji sporočilo"
-
-#: src/chatbar/ChatBar.qml:220
-#, kde-format
-msgctxt "@info"
-msgid "The user you're replying to has left the room, and can't be notified."
+msgid "Enter rich text mode"
 msgstr ""
-"Uporabnik, ki mu odgovarjate, je zapustil sobo in ga ni mogoče obvestiti."
 
-#: src/chatbar/ChatBar.qml:261
-#, kde-format
-msgctxt "@placeholder"
-msgid "Send an encrypted message…"
-msgstr "Pošlji šifrirano sporočilo…"
-
-#: src/chatbar/ChatBar.qml:261
-#, kde-format
-msgctxt "@placeholder"
-msgid "Set an attachment caption…"
-msgstr "Nastavi napis priloge…"
-
-#: src/chatbar/ChatBar.qml:261
-#, kde-format
-msgctxt "@placeholder"
-msgid "Send a message…"
-msgstr "Pošlji sporočilo…"
-
-#: src/chatbar/ChatBar.qml:431 src/messagecontent/ChatBarComponent.qml:234
+#: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
-msgid "Cancel reply"
-msgstr "Prekliči odgovor"
+msgid "Exit rich text mode"
+msgstr ""
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1956,6 +1808,298 @@ msgstr "Prevrni"
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Prezrcali"
+
+#: src/chatbar/LinkDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@title:window"
+msgid "Insert Link"
+msgstr "Vstavi povezavo"
+
+#: src/chatbar/LinkDialog.qml:23
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link Text:"
+msgstr ""
+
+#: src/chatbar/LinkDialog.qml:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Link URL:"
+msgstr ""
+
+#: src/chatbar/LocationChooser.qml:20
+#, kde-format
+msgid "Choose a Location"
+msgstr "Izberi lokacijo"
+
+#: src/chatbar/LocationChooser.qml:25
+#, kde-format
+msgid "Send this location"
+msgstr "Pošlji to lokacijo"
+
+#: src/chatbar/LocationChooser.qml:33
+#, kde-format
+msgctxt "@action:intoolbar Re-center the map onto the set location"
+msgid "Re-Center"
+msgstr "Ponovno usredini"
+
+#: src/chatbar/LocationChooser.qml:39
+#, kde-format
+msgctxt "@action:intoolbar Determine the device's location"
+msgid "Locate"
+msgstr "Lociraj"
+
+#: src/chatbar/NewPollDialog.qml:27
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr "Pošlji"
+
+#: src/chatbar/NewPollDialog.qml:37
+#, kde-format
+msgctxt "@title: create new poll in the room"
+msgid "Create Poll"
+msgstr "Ustvari glasovanje"
+
+#: src/chatbar/NewPollDialog.qml:45
+#, kde-format
+msgctxt "@label"
+msgid "Poll type:"
+msgstr "Vrsta glasovanja:"
+
+#: src/chatbar/NewPollDialog.qml:50
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Open poll"
+msgstr "Odprto glasovanje"
+
+#: src/chatbar/NewPollDialog.qml:51
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "Closed poll"
+msgstr "Zaprto glasovanje"
+
+#: src/chatbar/NewPollDialog.qml:56
+#, kde-format
+msgctxt "@info"
+msgid "Voters can see the result as soon as they have voted"
+msgstr "Volivci lahko vidijo rezultat takoj, ko so glasovali"
+
+#: src/chatbar/NewPollDialog.qml:56
+#, kde-format
+msgctxt "@info"
+msgid "Results are revealed only after the poll has closed"
+msgstr "Rezultati so razkriti šele po zaprtju glasovanja"
+
+#: src/chatbar/NewPollDialog.qml:60
+#, kde-format
+msgctxt "@label"
+msgid "Question:"
+msgstr "Vprašanje:"
+
+#: src/chatbar/NewPollDialog.qml:103
+#, kde-format
+msgctxt "As in first answer option to the poll"
+msgid "Option %1:"
+msgstr "Možnost %1:"
+
+#: src/chatbar/NewPollDialog.qml:119
+#, kde-format
+msgctxt "@placeholder"
+msgid "Enter option"
+msgstr "Vnesite možnost"
+
+#: src/chatbar/NewPollDialog.qml:123
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove option"
+msgstr "Odstrani možnost"
+
+#: src/chatbar/NewPollDialog.qml:146
+#, kde-format
+msgctxt "@action:button"
+msgid "Add option"
+msgstr "Dodaj možnost"
+
+#: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
+#, fuzzy, kde-format
+#| msgid "Decline"
+msgctxt "@action:button"
+msgid "Underline"
+msgstr "Odkloni"
+
+#: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Format Text"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:203
+#, kde-format
+msgctxt "@action:button"
+msgid "Text Style"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:237
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Emojis & Stickers"
+msgid "Emojis & Stickers"
+msgstr "Čustvenčki in nalepke"
+
+#: src/chatbar/RichEditBar.qml:252
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit Sticker"
+msgctxt "@action:button"
+msgid "Edit link"
+msgstr "Uredi nalepko"
+
+#: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
+#, kde-format
+msgctxt "@action:button"
+msgid "Unordered List"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
+#, kde-format
+msgctxt "@action:button"
+msgid "Ordered List"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
+#, kde-format
+msgctxt "@action:button"
+msgid "Increase List Level"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
+#, kde-format
+msgctxt "@action:button"
+msgid "Decrease List Level"
+msgstr ""
+
+#: src/chatbar/RichEditBar.qml:341
+#, kde-format
+msgctxt "@action:button"
+msgid "List Style"
+msgstr ""
+
+#: src/chatbar/SendBar.qml:57
+#, kde-format
+msgctxt ""
+"@Warning: that any rich text in the chat bar will be switched for the plain "
+"text equivalent."
+msgid ""
+"Attachments can only have plain text captions, all rich formatting will be "
+"removed"
+msgstr ""
+
+#: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
+#, kde-format
+msgctxt "@action:button"
+msgid "Attach an image or file"
+msgstr "Priloži sliko ali datoteko"
+
+#: src/chatbar/SendBar.qml:134 src/chatbar/SendBar.qml:171
+#, kde-format
+msgctxt "@action:button"
+msgid "Send a Location"
+msgstr "Pošlji lokacijo"
+
+#: src/chatbar/SendBar.qml:139 src/chatbar/SendBar.qml:183
+#, kde-format
+msgctxt "@action:button"
+msgid "Create a Poll"
+msgstr "Ustvari glasovanje"
+
+#: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
+#, fuzzy, kde-format
+#| msgctxt "@placeholder"
+#| msgid "Send a message…"
+msgctxt "@action:button"
+msgid "Send a Voice Message"
+msgstr "Pošlji sporočilo…"
+
+#: src/chatbar/SendBar.qml:204
+#, kde-format
+msgctxt "@action:button"
+msgid "Send message"
+msgstr "Pošlji sporočilo"
+
+#: src/chatbar/SendBar.qml:216 src/settings/ThreePIdCard.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/chatbar/TableDialog.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Insert link"
+msgctxt "@title:window"
+msgid "Insert Table"
+msgstr "Vstavi povezavo"
+
+#: src/chatbar/TableDialog.qml:23
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Rows:"
+msgstr ""
+
+#: src/chatbar/TableDialog.qml:30
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Number of Columns:"
+msgstr ""
+
+#: src/chatbar/VoiceMessageDialog.qml:31
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Remove Message"
+msgctxt "@title:dialog"
+msgid "Record Voice Message"
+msgstr "Odstrani sporočilo"
+
+#: src/chatbar/VoiceMessageDialog.qml:36
+#, kde-format
+msgctxt "@action:button Stop audio recording"
+msgid "Stop Recording"
+msgstr ""
+
+#: src/chatbar/VoiceMessageDialog.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Start Meeting"
+msgctxt "@action:button Start audio recording"
+msgid "Start Recording"
+msgstr "Začni sestanek"
+
+#: src/chatbar/VoiceMessageDialog.qml:48
+#, fuzzy, kde-format
+#| msgctxt "As in first answer option to the poll"
+#| msgid "Option %1:"
+msgctxt "@info Duration being the length of an audio recording"
+msgid "Duration: %1"
+msgstr "Možnost %1:"
+
+#: src/chatbar/VoiceMessageDialog.qml:54
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Voice message recording requires a newer Qt version than is currently "
+"installed on this system."
+msgstr ""
+
+#: src/chatbar/VoiceMessageDialog.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send"
+msgctxt "@action:button Send the voice message"
+msgid "Send"
+msgstr "Pošlji"
 
 #: src/devtools/AccountData.qml:22
 #, kde-format
@@ -2283,6 +2427,75 @@ msgctxt ""
 "represents."
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: src/libneochat/enums/richformat.cpp:18
+#, kde-format
+msgctxt "As in the default paragraph text style in the chat bar"
+msgid "Paragraph Style"
+msgstr ""
+
+#: src/libneochat/enums/richformat.cpp:21
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 1 text style in the chat bar"
+msgid "Heading 1"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:24
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 2 text style in the chat bar"
+msgid "Heading 2"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:27
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 3 text style in the chat bar"
+msgid "Heading 3"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:30
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 4 text style in the chat bar"
+msgid "Heading 4"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:33
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 5 text style in the chat bar"
+msgid "Heading 5"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:36
+#, fuzzy, kde-format
+#| msgid "Loading"
+msgctxt "As in heading level 6 text style in the chat bar"
+msgid "Heading 6"
+msgstr "Nalaganje"
+
+#: src/libneochat/enums/richformat.cpp:39
+#, kde-format
+msgctxt "As in code text style in the chat bar"
+msgid "Code"
+msgstr ""
+
+#: src/libneochat/enums/richformat.cpp:43
+#, kde-format
+msgctxt ""
+"As in the default paragraph text style inside a quote block in the chat bar"
+msgid "Quote Paragraph Style"
+msgstr ""
+
+#: src/libneochat/enums/richformat.cpp:46
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Quote"
+msgctxt "As in quote text style in the chat bar"
+msgid "Quote"
+msgstr "Navedba"
 
 #: src/libneochat/enums/roomsortparameter.h:53
 #, kde-format
@@ -3347,12 +3560,12 @@ msgstr "Ustvarjanje sobe ni uspelo: %1"
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/libneochat/neochatroom.cpp:1269
+#: src/libneochat/neochatroom.cpp:1243
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Prijava uspešno poslana."
 
-#: src/libneochat/neochatroom.cpp:1634 src/libneochat/neochatroom.cpp:1642
+#: src/libneochat/neochatroom.cpp:1608 src/libneochat/neochatroom.cpp:1616
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -3457,34 +3670,34 @@ msgctxt "@action:title Explore public rooms and spaces"
 msgid "Explore"
 msgstr "Razišči"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:65
+#: src/libneochat/qml/ExploreRoomsPage.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "Only show spaces"
 msgstr "Prikazuj samo prostore"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:98
+#: src/libneochat/qml/ExploreRoomsPage.qml:107
 #, kde-format
 msgid "Enter a Room Manually"
 msgstr "Vnesite sobo ročno"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:107
+#: src/libneochat/qml/ExploreRoomsPage.qml:116
 #, kde-format
 msgid "If you already know a room's address or alias, and it isn't shown here."
 msgstr "Če že poznate naslov ali vzdevek sobe in ni prikazan tukaj."
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:119
+#: src/libneochat/qml/ExploreRoomsPage.qml:128
 #, kde-format
 msgid "Find a room…"
 msgstr "Najdi sobo …"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:120
+#: src/libneochat/qml/ExploreRoomsPage.qml:129
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms found"
 msgstr "Nobene javne sobe ni najdene"
 
-#: src/libneochat/qml/ExploreRoomsPage.qml:121
+#: src/libneochat/qml/ExploreRoomsPage.qml:130
 #, kde-format
 msgctxt "@info:label"
 msgid "No public rooms"
@@ -3539,7 +3752,13 @@ msgctxt "@action:button"
 msgid "Send invitation"
 msgstr "Pošlji povabilo"
 
-#: src/libneochat/qml/SearchPage.qml:160
+#: src/libneochat/qml/OpenFileDialog.qml:12
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Select a File"
+msgstr "Izberi datoteko"
+
+#: src/libneochat/qml/SearchPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Search"
@@ -3806,35 +4025,17 @@ msgctxt "@action:button"
 msgid "Go Back"
 msgstr "Pojdi nazaj"
 
-#: src/messagecontent/BaseMessageComponentChooser.qml:166
+#: src/messagecontent/BaseMessageComponentChooser.qml:172
 #, kde-format
 msgid "%1 started a user verification"
 msgstr "%1 je začel preverjanje uporabnika"
 
-#: src/messagecontent/ChatBarComponent.qml:181
-#, kde-format
-msgctxt "@action:button"
-msgid "Confirm edit"
-msgstr "Potrdi urejanje"
-
-#: src/messagecontent/ChatBarComponent.qml:181
-#, kde-format
-msgctxt "@action:button"
-msgid "Post message in thread"
-msgstr "Objavi sporočilo v niti"
-
-#: src/messagecontent/ChatBarComponent.qml:192 src/settings/ThreePIdCard.qml:93
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/messagecontent/CodeComponent.qml:157
+#: src/messagecontent/CodeComponent.qml:190
 #, kde-format
 msgid "Copy to clipboard"
 msgstr "Kopiraj na odložišče"
 
-#: src/messagecontent/CodeComponent.qml:169
+#: src/messagecontent/CodeComponent.qml:202
 #: src/messagecontent/VideoComponent.qml:341
 #, kde-format
 msgctxt "@action:button"
@@ -3855,16 +4056,16 @@ msgctxt "@action:button"
 msgid "Fetch More Events"
 msgstr "Pridobi več dogodkov"
 
-#: src/messagecontent/FileComponent.qml:81
-#: src/messagecontent/FileComponent.qml:156
+#: src/messagecontent/FileComponent.qml:87
+#: src/messagecontent/FileComponent.qml:164
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Prenos"
 
-#: src/messagecontent/FileComponent.qml:94
-#: src/messagecontent/FileComponent.qml:146
+#: src/messagecontent/FileComponent.qml:100
+#: src/messagecontent/FileComponent.qml:153
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -3872,18 +4073,27 @@ msgctxt ""
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/messagecontent/FileComponent.qml:104
+#: src/messagecontent/FileComponent.qml:110
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/messagecontent/FileComponent.qml:108
+#: src/messagecontent/FileComponent.qml:114
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Ustavi prenos"
+
+#: src/messagecontent/FileComponent.qml:173
+#: src/messagecontent/ImageComponent.qml:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Remove parent"
+msgctxt "@action:button"
+msgid "Remove attachment"
+msgstr "Odstrani nadrejenega"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -3907,14 +4117,14 @@ msgstr "Čas prijave: %1"
 msgid "Check-out time: %1"
 msgstr "Check-out time: %1"
 
-#: src/messagecontent/ImageComponent.qml:55
+#: src/messagecontent/ImageComponent.qml:73
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Skrij sliko"
 
-#: src/messagecontent/ImageComponent.qml:136
+#: src/messagecontent/ImageComponent.qml:190
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -3954,7 +4164,7 @@ msgid "Loading URL preview"
 msgstr "Nalaganje predogleda URL"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -3972,7 +4182,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Odpri celotni zaslon"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:225
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3982,19 +4192,19 @@ msgstr ""
 "Tega sporočila ni bilo mogoče najti, nimate dovoljenja za ogled ali pa ga je "
 "poslal prezrt uporabnik"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:244
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
 msgstr "Nalaganje odgovora…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:68
+#: src/messagecontent/models/messagecontentmodel.cpp:96
 #, kde-format
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "Prenos datoteke ni uspel."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:71
+#: src/messagecontent/models/messagecontentmodel.cpp:99
 #, kde-format
 msgctxt "@info Failed to download file: [error message]"
 msgid "Failed to download file:<br />%1"
@@ -4069,6 +4279,30 @@ msgstr "Odzovi se"
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odgovor"
+
+#: src/messagecontent/ReplyComponent.qml:95
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Prekliči odgovor"
+
+#: src/messagecontent/TextComponent.qml:109
+#, kde-format
+msgctxt "@placeholder"
+msgid "Set an attachment caption…"
+msgstr "Nastavi napis priloge…"
+
+#: src/messagecontent/TextComponent.qml:111
+#, kde-format
+msgctxt "@placeholder"
+msgid "Send an encrypted message…"
+msgstr "Pošlji šifrirano sporočilo…"
+
+#: src/messagecontent/TextComponent.qml:113
+#, kde-format
+msgctxt "@placeholder"
+msgid "Send a message…"
+msgstr "Pošlji sporočilo…"
 
 #: src/messagecontent/TrainReservationComponent.qml:124
 #: src/messagecontent/TrainReservationComponent.qml:191
@@ -4477,31 +4711,31 @@ msgstr "Utišana soba"
 msgid "Configure room"
 msgstr "Nastavi sobo"
 
-#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:240
+#: src/rooms/RoomListPage.qml:194 src/rooms/RoomListPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:244
+#: src/rooms/RoomListPage.qml:202 src/rooms/RoomListPage.qml:256
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Poišči vaše prijatelje"
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:228
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "Ni najdenega nobenega prijatelja"
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:228
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "Ni najdene nobene sobe"
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:230
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4510,31 +4744,31 @@ msgstr ""
 "Dodali niste še nobenega od svojih prijateljev, kliknite spodaj, da jih "
 "poiščete."
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:230
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Pridružite se nekaj sobam za začetek"
 
-#: src/rooms/RoomListPage.qml:225
+#: src/rooms/RoomListPage.qml:237
 #, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "Išči sobo"
 
-#: src/rooms/RoomListPage.qml:240
+#: src/rooms/RoomListPage.qml:252
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Poišči v imeniku prijateljev"
 
-#: src/rooms/RoomTreeSection.qml:68
+#: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Strni %1"
 
-#: src/rooms/RoomTreeSection.qml:68
+#: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4694,7 +4928,7 @@ msgstr "Prikaži kodo QR"
 
 #: src/settings/AccountEditorPage.qml:158
 #: src/settings/AccountEditorPage.qml:214
-#: src/settings/EmoticonEditorPage.qml:108
+#: src/settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
@@ -5149,7 +5383,7 @@ msgstr "Nastavi sliko"
 msgid "Shortcode:"
 msgstr "Kratka koda:"
 
-#: src/settings/EmoticonEditorPage.qml:103
+#: src/settings/EmoticonEditorPage.qml:104
 #, kde-format
 msgid "Description:"
 msgstr "Opis:"
@@ -5859,68 +6093,56 @@ msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/settings/NeoChatGeneralPage.qml:268
-#, kde-format
-msgctxt "@option:radio"
-msgid "Send messages with Enter"
-msgstr "Pošiljaj sporočila s tipko Enter"
-
-#: src/settings/NeoChatGeneralPage.qml:279
-#, kde-format
-msgctxt "@option:radio"
-msgid "Send messages with Ctrl+Enter"
-msgstr "Pošiljaj sporočila s tipko Ctrl+Enter"
-
-#: src/settings/NeoChatGeneralPage.qml:295
+#: src/settings/NeoChatGeneralPage.qml:269
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/settings/NeoChatGeneralPage.qml:309
+#: src/settings/NeoChatGeneralPage.qml:283
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji obvestila tipkanja"
 
-#: src/settings/NeoChatGeneralPage.qml:319
+#: src/settings/NeoChatGeneralPage.qml:293
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/settings/NeoChatGeneralPage.qml:324
+#: src/settings/NeoChatGeneralPage.qml:298
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:340
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Odpri razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:344
+#: src/settings/NeoChatGeneralPage.qml:318
 #, kde-format
 msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
-#: src/settings/NeoChatGeneralPage.qml:349
+#: src/settings/NeoChatGeneralPage.qml:323
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Privzete nastavitve"
 
-#: src/settings/NeoChatGeneralPage.qml:354
+#: src/settings/NeoChatGeneralPage.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Ponastavi vse vrednosti konfiguracije na privzete…"
 
-#: src/settings/NeoChatGeneralPage.qml:360
+#: src/settings/NeoChatGeneralPage.qml:334
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Ponovno nastavi konfihuracijo"
 
-#: src/settings/NeoChatGeneralPage.qml:361
+#: src/settings/NeoChatGeneralPage.qml:335
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -7102,220 +7324,220 @@ msgctxt "@action:inmenu"
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/timeline/DelegateContextMenu.qml:175
+#: src/timeline/DelegateContextMenu.qml:185
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: src/timeline/DelegateContextMenu.qml:201
+#: src/timeline/DelegateContextMenu.qml:211
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove…"
 msgstr "Odstrani…"
 
-#: src/timeline/DelegateContextMenu.qml:206
-#: src/timeline/DelegateContextMenu.qml:213
+#: src/timeline/DelegateContextMenu.qml:216
+#: src/timeline/DelegateContextMenu.qml:223
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
 msgstr "Odstrani sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:207
+#: src/timeline/DelegateContextMenu.qml:217
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
 msgstr "Po želji navedite razlog za odstranitev tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:208
+#: src/timeline/DelegateContextMenu.qml:218
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/timeline/DelegateContextMenu.qml:229
+#: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
 msgctxt "@action:inmenu As in 'Forward this message'"
 msgid "Forward…"
 msgstr "Naprej…"
 
-#: src/timeline/DelegateContextMenu.qml:235
+#: src/timeline/DelegateContextMenu.qml:245
 #, kde-format
 msgctxt "@title"
 msgid "Forward Message"
 msgstr "Prenesi sporočilo naprej"
 
-#: src/timeline/DelegateContextMenu.qml:249
+#: src/timeline/DelegateContextMenu.qml:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Image"
 msgstr "Odpri sliko"
 
-#: src/timeline/DelegateContextMenu.qml:251
+#: src/timeline/DelegateContextMenu.qml:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Audio"
 msgstr "Odpri avdio"
 
-#: src/timeline/DelegateContextMenu.qml:253
+#: src/timeline/DelegateContextMenu.qml:263
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open Video"
 msgstr "Odpri video"
 
-#: src/timeline/DelegateContextMenu.qml:255
+#: src/timeline/DelegateContextMenu.qml:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/timeline/DelegateContextMenu.qml:268
+#: src/timeline/DelegateContextMenu.qml:278
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Image…"
 msgstr "Shrani sliko…"
 
-#: src/timeline/DelegateContextMenu.qml:270
+#: src/timeline/DelegateContextMenu.qml:280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Audio…"
 msgstr "Shrani avdio…"
 
-#: src/timeline/DelegateContextMenu.qml:272
+#: src/timeline/DelegateContextMenu.qml:282
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save Video…"
 msgstr "Shrani video…"
 
-#: src/timeline/DelegateContextMenu.qml:274
+#: src/timeline/DelegateContextMenu.qml:284
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Save File…"
 msgstr "Shrani datoteko…"
 
-#: src/timeline/DelegateContextMenu.qml:289
+#: src/timeline/DelegateContextMenu.qml:299
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Image"
 msgstr "Kopiraj sliko"
 
-#: src/timeline/DelegateContextMenu.qml:291
+#: src/timeline/DelegateContextMenu.qml:301
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Audio"
 msgstr "Kopiraj avdio"
 
-#: src/timeline/DelegateContextMenu.qml:293
+#: src/timeline/DelegateContextMenu.qml:303
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Video"
 msgstr "Prikaži video"
 
-#: src/timeline/DelegateContextMenu.qml:295
+#: src/timeline/DelegateContextMenu.qml:305
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy File"
 msgstr "Kopiraj datoteko"
 
-#: src/timeline/DelegateContextMenu.qml:305
+#: src/timeline/DelegateContextMenu.qml:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Link Address"
 msgstr "Kopiraj naslov povezave"
 
-#: src/timeline/DelegateContextMenu.qml:313
+#: src/timeline/DelegateContextMenu.qml:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Text"
 msgstr "Kopiraj besedilo"
 
-#: src/timeline/DelegateContextMenu.qml:319
+#: src/timeline/DelegateContextMenu.qml:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Message Link"
 msgstr "Kopiraj povezavo na sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:327
+#: src/timeline/DelegateContextMenu.qml:337
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report…"
 msgstr "Prijavi…"
 
-#: src/timeline/DelegateContextMenu.qml:332
+#: src/timeline/DelegateContextMenu.qml:342
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Report Message"
 msgstr "Prijavi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:333
+#: src/timeline/DelegateContextMenu.qml:343
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
 msgstr "Po želji navedite razlog za prijavo tega sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:335
+#: src/timeline/DelegateContextMenu.qml:345
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
 msgstr "Prijava"
 
-#: src/timeline/DelegateContextMenu.qml:339
+#: src/timeline/DelegateContextMenu.qml:349
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Prijavi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:351
+#: src/timeline/DelegateContextMenu.qml:361
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Search for '%1'"
 msgstr "Poišči '%1'"
 
-#: src/timeline/DelegateContextMenu.qml:374
+#: src/timeline/DelegateContextMenu.qml:384
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Konfiguriraj spletne bližnjice…"
 
-#: src/timeline/DelegateContextMenu.qml:382
+#: src/timeline/DelegateContextMenu.qml:392
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Read Text Aloud"
 msgstr "Preberi besedilo na glas"
 
-#: src/timeline/DelegateContextMenu.qml:385
+#: src/timeline/DelegateContextMenu.qml:395
 #, kde-format
 msgctxt "@info text-to-speech %1 is author %2 is message text"
 msgid "%1 said %2"
 msgstr "%1 je rekel %2"
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:button 'Unpin' as in 'Unpin this message'"
 msgid "Unpin"
 msgstr "Odpni"
 
-#: src/timeline/DelegateContextMenu.qml:405
+#: src/timeline/DelegateContextMenu.qml:415
 #, kde-format
 msgctxt "@action:button 'Pin' as in 'Pin the message in the room'"
 msgid "Pin"
 msgstr "Pripni"
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
 msgstr "Prekliči izbiro sporočila"
 
-#: src/timeline/DelegateContextMenu.qml:412
+#: src/timeline/DelegateContextMenu.qml:422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
 msgstr "Izberi sporočilo"
 
-#: src/timeline/DelegateContextMenu.qml:425
+#: src/timeline/DelegateContextMenu.qml:435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
@@ -7362,11 +7584,19 @@ msgstr "Odzovi se"
 msgid "Message menu"
 msgstr "Meni sporočila"
 
-#: src/timeline/ReadMarkerDelegate.qml:47
+#: src/timeline/ReadMarkerDelegate.qml:66
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Nazadnje prebrano: %1"
+
+#: src/timeline/ReadMarkerDelegate.qml:72
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Mark as Read"
+msgctxt "@action:button Mark all messages up to now as read"
+msgid "Mark as Read"
+msgstr "Označi kot prebrano"
 
 #: src/timeline/SuccessorDelegate.qml:26
 #, kde-format
@@ -7416,7 +7646,7 @@ msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih delite z drugimi"
 
-#: src/timeline/TimelineView.qml:356
+#: src/timeline/TimelineView.qml:360
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -7425,6 +7655,28 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "The user you're replying to has left the room, and can't be notified."
+#~ msgstr ""
+#~ "Uporabnik, ki mu odgovarjate, je zapustil sobo in ga ni mogoče obvestiti."
+
+#~ msgctxt "@action:button"
+#~ msgid "Confirm edit"
+#~ msgstr "Potrdi urejanje"
+
+#~ msgctxt "@action:button"
+#~ msgid "Post message in thread"
+#~ msgstr "Objavi sporočilo v niti"
+
+#~ msgctxt "@option:radio"
+#~ msgid "Send messages with Enter"
+#~ msgstr "Pošiljaj sporočila s tipko Enter"
+
+#~ msgctxt "@option:radio"
+#~ msgid "Send messages with Ctrl+Enter"
+#~ msgstr "Pošiljaj sporočila s tipko Ctrl+Enter"
 
 #~ msgctxt "@action:button"
 #~ msgid "Go back"
