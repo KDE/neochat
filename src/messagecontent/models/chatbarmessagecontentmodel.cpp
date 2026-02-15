@@ -34,6 +34,7 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
 
         connectCache(oldRoom ? oldRoom->cacheForType(m_type) : nullptr);
         initializeFromCache();
+        refocusCurrentComponent();
     });
     connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
         m_markdownHelper->setTextItem(focusedTextItem());
@@ -657,6 +658,7 @@ void ChatBarMessageContentModel::postMessage()
     m_room->cacheForType(m_type)->postMessage();
     clearModel();
     initializeModel();
+    refocusCurrentComponent();
 }
 
 std::optional<QString> ChatBarMessageContentModel::getReplyEventId()
