@@ -95,6 +95,7 @@ protected:
     bool m_resizingContent = false;
 
 private:
+    void classBegin() override;
     void componentComplete() override;
     void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
     void updatePolish() override;

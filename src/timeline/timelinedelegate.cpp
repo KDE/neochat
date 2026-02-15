@@ -109,9 +109,9 @@ void TimelineDelegate::geometryChange(const QRectF &newGeometry, const QRectF &o
     QQuickItem::geometryChange(newGeometry, oldGeometry);
 }
 
-void TimelineDelegate::componentComplete()
+void TimelineDelegate::classBegin()
 {
-    QQuickItem::componentComplete();
+    QQuickItem::classBegin();
 
     auto engine = qmlEngine(this);
     Q_ASSERT(engine);
@@ -121,6 +121,11 @@ void TimelineDelegate::componentComplete()
     connect(m_units, &Kirigami::Platform::Units::largeSpacingChanged, this, &TimelineDelegate::setCurveValues);
     connect(m_units, &Kirigami::Platform::Units::smallSpacingChanged, this, &TimelineDelegate::setCurveValues);
     setCurveValues();
+}
+
+void TimelineDelegate::componentComplete()
+{
+    QQuickItem::componentComplete();
 
     if (m_isDirty) {
         resizeContent();
