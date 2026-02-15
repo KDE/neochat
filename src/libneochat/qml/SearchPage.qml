@@ -136,6 +136,7 @@ Kirigami.ScrollablePage {
 
         QQC2.Control {
             padding: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
 
             background: Rectangle {
                 Kirigami.Theme.colorSet: Kirigami.Theme.Window

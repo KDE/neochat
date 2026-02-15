@@ -234,8 +234,13 @@ public:
     /**
      * @brief Show a context menu for the given event.
      */
-    Q_INVOKABLE void
-    viewEventMenu(QObject *parent, const Quotient::RoomEvent *event, NeoChatRoom *room, const QString &selectedText = {}, const QString &hoveredLink = {});
+
+    Q_INVOKABLE void viewEventMenu(QObject *parent,
+                                   const Quotient::RoomEvent *event,
+                                   NeoChatRoom *room,
+                                   const QString &selectedText = {},
+                                   const QString &hoveredLink = {},
+                                   QAbstractItemModel *messageModel = nullptr);
 
     /**
      * @brief Set a URL to be loaded as the initial room.
@@ -318,7 +323,8 @@ Q_SIGNALS:
                           const QString &mimeType,
                           const Quotient::FileTransferInfo &progressInfo,
                           const QString &selectedText,
-                          const QString &hoveredLink);
+                          const QString &hoveredLink,
+                          QAbstractItemModel *messageModel);
 
     /**
      * @brief Show the direct chat confirmation dialog.

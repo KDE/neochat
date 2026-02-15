@@ -39,6 +39,11 @@ class MessageAttached : public QQuickAttachedPropertyPropagator
     Q_PROPERTY(MessageContentFilterModel *contentFilterModel READ contentFilterModel WRITE setContentFilterModel NOTIFY contentFilterModelChanged FINAL)
 
     /**
+     * @brief The message model for the current message. Can be either MessageModel, MessageFilterModel, or MediaMessageFilterModel.
+     */
+    Q_PROPERTY(QAbstractItemModel *messageModel READ messageModel WRITE setMessageModel NOTIFY messageModelChanged FINAL)
+
+    /**
      * @brief The index of the message in the timeline
      */
     Q_PROPERTY(int index READ index WRITE setIndex NOTIFY indexChanged FINAL)
@@ -75,6 +80,9 @@ public:
     MessageContentFilterModel *contentFilterModel() const;
     void setContentFilterModel(MessageContentFilterModel *contentFilterModel);
 
+    QAbstractItemModel *messageModel() const;
+    void setMessageModel(QAbstractItemModel *messageModel);
+
     int index() const;
     void setIndex(int index);
 
@@ -92,6 +100,7 @@ Q_SIGNALS:
     void timelineChanged();
     void contentModelChanged();
     void contentFilterModelChanged();
+    void messageModelChanged();
     void indexChanged();
     void maxContentWidthChanged();
     void selectedTextChanged();
@@ -113,6 +122,9 @@ private:
 
     QPointer<MessageContentFilterModel> m_contentFilterModel;
     bool m_explicitContentFilterModel = false;
+
+    QPointer<QAbstractItemModel> m_messageModel;
+    bool m_explicitMessageModel = false;
 
     int m_index = -1;
     bool m_explicitIndex = false;

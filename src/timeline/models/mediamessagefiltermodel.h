@@ -22,6 +22,11 @@ class MediaMessageFilterModel : public QSortFilterProxyModel
     Q_OBJECT
     QML_ELEMENT
 
+    /**
+     * @brief The number of selected messages.
+     */
+    Q_PROPERTY(int selectedMessageCount READ selectedMessageCount NOTIFY selectionChanged)
+
 public:
     enum MediaType {
         Image = 0,
@@ -68,5 +73,26 @@ public:
      */
     Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
 
+    /**
+     * @brief The number of selected messages.
+     */
+    int selectedMessageCount() const;
+
+    /**
+     * @brief Whether the given message is selected.
+     */
+    Q_INVOKABLE bool isMessageSelected(const QString &roomId, const QString &eventId) const;
+
+    /**
+     * @brief Toggle the selection state of the given message.
+     */
+    Q_INVOKABLE void toggleMessageSelection(const QString &roomId, const QString &eventId);
+
     int getRowForEventId(const QString &eventId) const;
+
+Q_SIGNALS:
+    /**
+     * @brief Emitted when a message is selected or deselected.
+     */
+    void selectionChanged();
 };

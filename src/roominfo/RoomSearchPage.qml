@@ -52,7 +52,7 @@ SearchPage {
 
     belowHeader: SelectedMessagesControl {
         Layout.fillWidth: true
-        room: root.room
+        messageModel: searchModel
     }
 
     searchFieldPlaceholder: i18n("Find messages…")

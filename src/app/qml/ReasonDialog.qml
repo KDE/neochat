@@ -15,7 +15,7 @@ Kirigami.Page {
     required property string actionText
     required property string icon
     required property bool reporting
-    required property NeoChatConnection connection
+    property NeoChatConnection connection: null
 
     signal accepted(reason: string)
 
@@ -26,11 +26,11 @@ Kirigami.Page {
 
     header: Kirigami.InlineMessage {
         showCloseButton: false
-        visible: root.reporting
+        visible: root.reporting && root.connection !== null
         type: Kirigami.MessageType.Information
         position: Kirigami.InlineMessage.Position.Header
 
-        text: xi18nc("@info", "This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection.domain)
+        text: xi18nc("@info", "This report will <strong>only</strong> be sent to the administrators of <link>%1</link> (your server).", root.connection?.domain)
     }
 
     QQC2.TextArea {

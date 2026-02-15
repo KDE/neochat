@@ -95,6 +95,11 @@ KirigamiComponents.ConvergentContextMenu {
      */
     readonly property bool hasFileContent: mimeType.length > 0
 
+    /**
+     * @brief The message model for the selected message. Can be either MessageModel, MessageFilterModel, or MediaMessageFilterModel.
+     */
+    property var messageModel
+
     Kirigami.Action {
         id: emojiAction
         visible: root.blockType === Blocks.Other ? NeoChatConfig.relateAnyEvent : true
@@ -418,10 +423,10 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        visible: root.blockType !== Blocks.Other
-        text: root.room.selectedMessageCount > 0 && root.room.isMessageSelected(root.eventId) ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
+        visible: root.blockType !== Blocks.Other && typeof root.messageModel?.toggleMessageSelection === "function"
+        text: root.messageModel?.selectedMessageCount > 0 && typeof root.messageModel?.isMessageSelected === "function" && root.messageModel?.isMessageSelected(root.room.id, root.eventId) ? i18nc("@action:inmenu", "Deselect Message") : i18nc("@action:inmenu", "Select Message")
         icon.name: "edit-select-all-symbolic"
-        onTriggered: root.room.toggleMessageSelection(root.eventId)
+        onTriggered: root.messageModel.toggleMessageSelection(root.room.id, root.eventId)
     }
 
     Kirigami.Action {

@@ -6,6 +6,7 @@
 #include <QEvent>
 
 #include <Quotient/events/encryptedevent.h>
+#include <Quotient/events/redactionevent.h>
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/events/stickerevent.h>
 #include <Quotient/thread.h>
@@ -21,6 +22,8 @@
 #include "models/reactionmodel.h"
 #include "neochatdatetime.h"
 #include "neochatroommember.h"
+
+#include <ranges>
 
 using namespace Quotient;
 
@@ -51,6 +54,8 @@ void MessageModel::setRoom(NeoChatRoom *room)
     if (room == m_room) {
         return;
     }
+
+    clearSelectedMessages();
 
     const auto oldRoom = m_room;
     Q_EMIT roomAboutToChange(oldRoom, room);
@@ -322,6 +327,10 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         return QVariant::fromValue(eventRoom);
     }
 
+    if (role == IsSelectedRole) {
+        return isMessageSelected(eventRoom->id(), event.value().get().id());
+    }
+
     return {};
 }
 
@@ -352,6 +361,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ShowAuthorRole] = "showAuthor";
     roles[EventTypeRole] = "eventType";
     roles[RoomRole] = "room";
+    roles[IsSelectedRole] = "isSelected";
     return roles;
 }
 
@@ -372,6 +382,143 @@ const RoomEvent *MessageModel::findEvent(const QString &eventId) const
         return &event.value().get();
     }
     return nullptr;
+}
+
+int MessageModel::selectedMessageCount() const
+{
+    return std::accumulate(m_selectedMessageIds.constBegin(), m_selectedMessageIds.constEnd(), 0, [](int count, const auto &selectedMessageIds) {
+        return count + selectedMessageIds.size();
+    });
+}
+
+bool MessageModel::canDeleteSelectedMessages() const
+{
+    const QString localUserId = m_room->connection()->userId();
+
+    return std::ranges::all_of(m_selectedMessageIds.asKeyValueRange(), [this, &localUserId](const auto &pair) {
+        const auto [roomId, selectedMessageIds] = pair;
+
+        NeoChatRoom *eventRoom = m_room;
+        if (roomId != eventRoom->id()) {
+            if (auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId))) {
+                eventRoom = room;
+            } else {
+                return false;
+            }
+        }
+
+        return eventRoom->canSendState("redact"_L1) || std::ranges::all_of(selectedMessageIds, [eventRoom, &localUserId](const QString &eventId) {
+                   const RoomEvent *event = eventRoom->findEvent(eventId);
+                   return event && event->senderId() == localUserId;
+               });
+    });
+}
+
+bool MessageModel::isMessageSelected(const QString &roomId, const QString &eventId) const
+{
+    auto it = m_selectedMessageIds.constFind(roomId);
+    return it != m_selectedMessageIds.constEnd() && it.value().contains(eventId);
+}
+
+void MessageModel::toggleMessageSelection(const QString &roomId, const QString &eventId)
+{
+    auto &eventIds = m_selectedMessageIds[roomId];
+    if (!eventIds.remove(eventId)) {
+        eventIds.insert(eventId);
+    }
+
+    if (eventIds.isEmpty()) {
+        m_selectedMessageIds.remove(roomId);
+    }
+
+    Q_EMIT selectionChanged();
+    const QModelIndex idx = indexForEventId(eventId);
+    if (!idx.isValid()) {
+        qWarning() << "toggleMessageSelection: event not in model:" << eventId;
+        return;
+    }
+
+    Q_EMIT refreshEventRoles(idx.row(), {IsSelectedRole});
+}
+
+QString MessageModel::getFormattedSelectedMessages() const
+{
+    QString formattedContent;
+    formattedContent.reserve(selectedMessageCount() * 256); // estimate an average of 256 characters per message
+
+    for (const auto &[roomId, selectedMessageIds] : m_selectedMessageIds.asKeyValueRange()) {
+        NeoChatRoom *eventRoom = m_room;
+        if (roomId != eventRoom->id()) {
+            if (auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId))) {
+                eventRoom = room;
+            } else {
+                continue;
+            }
+        }
+
+        QVector<const RoomEvent *> events;
+        events.reserve(selectedMessageIds.size());
+
+        if (m_selectedMessageIds.size() > 1) {
+            formattedContent += u"["_s + eventRoom->displayName() + u"]\n"_s;
+        }
+
+        // clang-format off
+        std::ranges::copy(
+            selectedMessageIds
+                | std::views::transform(std::bind_front(&NeoChatRoom::findEvent, eventRoom))
+                | std::views::filter([](const RoomEvent *event) {
+                    return event != nullptr;
+                }),
+            std::back_inserter(events));
+        // clang-format on
+        std::ranges::sort(events, {}, &RoomEvent::originTimestamp);
+
+        for (const RoomEvent *event : events) {
+            formattedContent += EventHandler::authorDisplayName(eventRoom, event);
+            formattedContent += u" — "_s;
+            formattedContent += EventHandler::dateTime(eventRoom, event).shortDateTime();
+            formattedContent += u'\n';
+            formattedContent += EventHandler::plainBody(eventRoom, event);
+            formattedContent += u"\n\n"_s;
+        }
+    }
+
+    return formattedContent.trimmed();
+}
+
+void MessageModel::deleteSelectedMessages(const QString &reason)
+{
+    for (const auto &[roomId, selectedMessageIds] : m_selectedMessageIds.asKeyValueRange()) {
+        NeoChatRoom *eventRoom = m_room;
+        if (roomId != eventRoom->id()) {
+            if (auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId))) {
+                eventRoom = room;
+            } else {
+                continue;
+            }
+        }
+
+        QStringList events;
+        for (const auto &eventId : selectedMessageIds) {
+            const auto [event, isPending] = eventRoom->getEvent(eventId);
+            if (event && !isPending && !event->isRedacted() && !is<RedactionEvent>(*event)) {
+                events += eventId;
+            }
+        }
+        eventRoom->deleteMessageIds(events, reason);
+    }
+
+    clearSelectedMessages();
+}
+
+void MessageModel::clearSelectedMessages()
+{
+    m_selectedMessageIds.clear();
+    Q_EMIT selectionChanged();
+    if (rowCount() > 0) {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {IsSelectedRole});
+    }
 }
 
 void MessageModel::fullEventRefresh(int row)

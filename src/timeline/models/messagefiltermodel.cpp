@@ -24,23 +24,15 @@ MessageFilterModel::MessageFilterModel(QObject *parent, QAbstractItemModel *sour
 
     if (auto model = dynamic_cast<TimelineModel *>(sourceModel)) {
         connect(model->timelineMessageModel(), &MessageModel::readMarkerIndexChanged, this, &MessageFilterModel::readMarkerIndexChanged);
+        connect(model->timelineMessageModel(), &MessageModel::selectionChanged, this, &MessageFilterModel::selectionChanged);
     }
 }
 
 QPersistentModelIndex MessageFilterModel::readMarkerIndex() const
 {
-    // Check if sourceModel is a message model.
-    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
-    bool timelineModelIsSource = false;
-    // See if it's a timeline model.
+    auto [messageModel, timelineModelIsSource] = this->messageModel();
     if (!messageModel) {
-        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
-            messageModel = timelineModel->timelineMessageModel();
-            timelineModelIsSource = true;
-            if (!messageModel) {
-                return {};
-            }
-        }
+        return {};
     }
 
     auto eventIndex = messageModel->readMarkerIndex();
@@ -52,6 +44,22 @@ QPersistentModelIndex MessageFilterModel::readMarkerIndex() const
         eventIndex = dynamic_cast<TimelineModel *>(sourceModel())->mapFromSource(eventIndex);
     }
     return mapFromSource(eventIndex);
+}
+
+std::pair<MessageModel *, bool> MessageFilterModel::messageModel() const
+{
+    // Check if sourceModel is a message model.
+    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
+    bool timelineModelIsSource = false;
+    // See if it's a timeline model.
+    if (!messageModel) {
+        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
+            messageModel = timelineModel->timelineMessageModel();
+            timelineModelIsSource = true;
+        }
+    }
+
+    return {messageModel, timelineModelIsSource};
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -128,18 +136,9 @@ QHash<int, QByteArray> MessageFilterModel::roleNames() const
 
 QModelIndex MessageFilterModel::indexForEventId(const QString &eventId) const
 {
-    // Check if sourceModel is a message model.
-    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
-    bool timelineModelIsSource = false;
-    // See if it's a timeline model.
+    auto [messageModel, timelineModelIsSource] = this->messageModel();
     if (!messageModel) {
-        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
-            messageModel = timelineModel->timelineMessageModel();
-            timelineModelIsSource = true;
-            if (!messageModel) {
-                return {};
-            }
-        }
+        return {};
     }
 
     auto eventIndex = messageModel->indexForEventId(eventId);
@@ -155,19 +154,42 @@ QModelIndex MessageFilterModel::indexForEventId(const QString &eventId) const
 
 const Quotient::RoomEvent *MessageFilterModel::findEvent(const QString &eventId) const
 {
-    // Check if sourceModel is a message model.
-    auto messageModel = dynamic_cast<MessageModel *>(sourceModel());
-    // See if it's a timeline model.
+    const auto [messageModel, _] = this->messageModel();
     if (!messageModel) {
-        if (const auto timelineModel = dynamic_cast<TimelineModel *>(sourceModel())) {
-            messageModel = timelineModel->timelineMessageModel();
-            if (!messageModel) {
-                return nullptr;
-            }
-        }
+        return nullptr;
     }
 
     return messageModel->findEvent(eventId);
+}
+
+int MessageFilterModel::selectedMessageCount() const
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return 0;
+    }
+
+    return messageModel->selectedMessageCount();
+}
+
+bool MessageFilterModel::isMessageSelected(const QString &roomId, const QString &eventId) const
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return false;
+    }
+
+    return messageModel->isMessageSelected(roomId, eventId);
+}
+
+void MessageFilterModel::toggleMessageSelection(const QString &roomId, const QString &eventId)
+{
+    const auto [messageModel, _] = this->messageModel();
+    if (!messageModel) {
+        return;
+    }
+
+    messageModel->toggleMessageSelection(roomId, eventId);
 }
 
 bool MessageFilterModel::showAuthor(QModelIndex index) const

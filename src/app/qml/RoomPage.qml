@@ -225,7 +225,8 @@ Kirigami.Page {
 
         SelectedMessagesControl {
             Layout.fillWidth: true
-            room: root.currentRoom
+            // root.messageFilterModel.sourceModel is root.timelineModel
+            messageModel: root.timelineModel.timelineMessageModel
         }
 
         Kirigami.InlineMessage {
@@ -371,7 +372,7 @@ Kirigami.Page {
 
         property DelegateContextMenu currentMenu: null
 
-        function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, blockType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string) {
+        function onShowDelegateMenu(parent: QtObject, room: NeoChatRoom, eventId: string, author, blockType, plainText: string, richText: string, mimeType: string, progressInfo, selectedText: string, hoveredLink: string, messageModel) {
             if (currentMenu) {
                 return;
             }
@@ -385,6 +386,7 @@ Kirigami.Page {
                 blockType: blockType,
                 selectedText,
                 hoveredLink,
+                messageModel,
             });
             currentMenu.closed.connect(() => {currentMenu = null});
             currentMenu.popup();

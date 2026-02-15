@@ -221,16 +221,6 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool spaceHasUnreadMessages READ spaceHasUnreadMessages NOTIFY spaceHasUnreadMessagesChanged)
 
     /**
-     * @brief The number of selected messages in the room.
-     */
-    Q_PROPERTY(int selectedMessageCount READ selectedMessageCount NOTIFY selectionChanged)
-
-    /**
-     * @brief Whether the user can delete the selected messages.
-     */
-    Q_PROPERTY(bool canDeleteSelectedMessages READ canDeleteSelectedMessages NOTIFY selectionChanged)
-
-    /**
      * @brief The current join rule for the room as a QString.
      *
      * Possible values are [public, knock, invite, private, restricted].
@@ -366,6 +356,8 @@ public:
     [[nodiscard]] QUrl avatarMediaUrl() const;
 
     NeochatRoomMember *directChatRemoteMember();
+
+    QCoro::Task<void> deleteMessageIds(const QStringList eventIds, QString reason);
 
     /**
      * @brief Whether this room has one or more parent spaces set.
@@ -712,41 +704,6 @@ public:
     QList<QString> sortedMemberIds() const;
 
     /**
-     * @brief The number of selected messages in the room.
-     */
-    int selectedMessageCount() const;
-
-    /**
-     * @brief Whether the user can delete the selected messages.
-     */
-    bool canDeleteSelectedMessages() const;
-
-    /**
-     * @brief Whether the given message is selected.
-     */
-    Q_INVOKABLE bool isMessageSelected(const QString &eventId) const;
-
-    /**
-     * @brief Toggle the selection state of the given message.
-     */
-    Q_INVOKABLE void toggleMessageSelection(const QString &eventId);
-
-    /**
-     * @brief Get the content of the selected messages formatted as a single string.
-     */
-    Q_INVOKABLE QString getFormattedSelectedMessages() const;
-
-    /**
-     * @brief Delete the selected messages with an optional reason.
-     */
-    Q_INVOKABLE void deleteSelectedMessages(const QString &reason = QString());
-
-    /**
-     * @brief Clear the selection of messages.
-     */
-    Q_INVOKABLE void clearSelectedMessages();
-
-    /**
      * @brief Sort all members based on their display name, and power level.
      *
      * @note This is a very expensive operation, and should only be done when truly needed.
@@ -791,7 +748,6 @@ private:
     void onAddHistoricalTimelineEvents(rev_iter_t from) override;
     void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
-    QCoro::Task<void> doDeleteMessageIds(const QStringList eventIds, QString reason);
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString(), std::optional<Quotient::EventRelation> relatesTo = std::nullopt);
 
     std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
@@ -811,7 +767,6 @@ private:
 
     QString m_lastUnreadHighlightId;
     QList<QString> m_sortedMemberIds;
-    QSet<QString> m_selectedMessageIds;
 
 private Q_SLOTS:
     void updatePushNotificationState(QString type);
@@ -849,7 +804,6 @@ Q_SIGNALS:
     void pinnedMessageChanged();
     void highlightCycleStartedChanged();
     void spaceHasUnreadMessagesChanged();
-    void selectionChanged();
     void joinRuleStringChanged();
 
     /**

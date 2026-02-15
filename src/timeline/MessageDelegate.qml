@@ -91,6 +91,11 @@ MessageDelegateBase {
     required property bool verified
 
     /**
+     * @brief Whether the message is selected.
+     */
+    required property bool isSelected
+
+    /**
      * @brief Open the any message media externally.
      */
     signal openExternally
@@ -111,11 +116,6 @@ MessageDelegateBase {
     property bool showHighlight: root.isHighlighted || isTemporaryHighlighted
 
     /**
-     * @brief Whether the message is selected.
-     */
-    property bool selected: root.room.selectedMessageCount > 0 && room.isMessageSelected(eventId)
-
-    /**
      * @brief Whether to show selection controls for this message.
      */
     property bool showSelectionControl: false
@@ -123,6 +123,7 @@ MessageDelegateBase {
     Message.room: root.room
     Message.timeline: root.ListView.view
     Message.contentModel: root.contentModel
+    Message.messageModel: root.ListView.view.model
     Message.index: root.index
     Message.maxContentWidth: maxContentWidth - bubble.leftPadding - bubble.rightPadding
 
@@ -133,7 +134,7 @@ MessageDelegateBase {
     enableAvatars: NeoChatConfig?.showAvatarInTimeline ?? false
     compactMode: NeoChatConfig?.compactLayout ?? false
     showLocalMessagesOnRight: NeoChatConfig.showLocalMessagesOnRight
-    showSelection: root.showSelectionControl && room.selectedMessageCount > 0
+    showSelection: root.showSelectionControl && typeof root.Message.messageModel?.toggleMessageSelection === "function" && root.Message.messageModel.selectedMessageCount > 0
 
     contentItem: Bubble {
         id: bubble
@@ -249,8 +250,8 @@ MessageDelegateBase {
         implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
 
         QQC2.CheckBox {
-            checked: root.selected
-            onClicked: root.room.toggleMessageSelection(root.eventId)
+            checked: root.isSelected
+            onClicked: root.Message.messageModel.toggleMessageSelection(root.room.id, root.eventId)
         }
 
         Kirigami.Separator {
@@ -263,7 +264,7 @@ MessageDelegateBase {
 
         function showMessageMenu(): void {
             let event = root.ListView.view.model.findEvent(root.eventId);
-            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.room, root.Message.selectedText, root.Message.hoveredLink);
+            RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.room, root.Message.selectedText, root.Message.hoveredLink, root.Message.messageModel);
         }
     }
 }

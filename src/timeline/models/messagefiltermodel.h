@@ -29,6 +29,11 @@ class MessageFilterModel : public QSortFilterProxyModel
      */
     Q_PROPERTY(QPersistentModelIndex readMarkerIndex READ readMarkerIndex NOTIFY readMarkerIndexChanged)
 
+    /**
+     * @brief The number of selected messages.
+     */
+    Q_PROPERTY(int selectedMessageCount READ selectedMessageCount NOTIFY selectionChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -74,6 +79,21 @@ public:
      */
     Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
 
+    /**
+     * @brief The number of selected messages.
+     */
+    int selectedMessageCount() const;
+
+    /**
+     * @brief Whether the given message is selected.
+     */
+    Q_INVOKABLE bool isMessageSelected(const QString &roomId, const QString &eventId) const;
+
+    /**
+     * @brief Toggle the selection state of the given message.
+     */
+    Q_INVOKABLE void toggleMessageSelection(const QString &roomId, const QString &eventId);
+
     static void setShowAllEvents(bool enabled);
     static void setShowDeletedMessages(bool enabled);
 
@@ -83,9 +103,16 @@ Q_SIGNALS:
      */
     void readMarkerIndexChanged();
 
+    /**
+     * @brief Emitted when a message is selected or deselected.
+     */
+    void selectionChanged();
+
 private:
     static bool m_showAllEvents;
     static bool m_showDeletedMessages;
+
+    std::pair<MessageModel *, bool> messageModel() const;
 
     bool eventIsVisible(int sourceRow, const QModelIndex &sourceParent) const;
 

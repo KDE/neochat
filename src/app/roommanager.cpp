@@ -310,7 +310,12 @@ void RoomManager::viewEventSource(const QString &eventId)
     Q_EMIT showEventSource(eventId);
 }
 
-void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChatRoom *room, const QString &selectedText, const QString &hoveredLink)
+void RoomManager::viewEventMenu(QObject *parent,
+                                const RoomEvent *event,
+                                NeoChatRoom *room,
+                                const QString &selectedText,
+                                const QString &hoveredLink,
+                                QAbstractItemModel *messageModel)
 {
     if (!event) {
         qWarning() << "Tried to open event menu with empty event";
@@ -327,7 +332,8 @@ void RoomManager::viewEventMenu(QObject *parent, const RoomEvent *event, NeoChat
                             EventHandler::mediaInfo(room, event)["mimeType"_L1].toString(),
                             room->fileTransferInfo(event->id()),
                             selectedText,
-                            hoveredLink);
+                            hoveredLink,
+                            messageModel);
 }
 
 bool RoomManager::hasOpenRoom() const
@@ -615,7 +621,6 @@ QString RoomManager::findSpaceIdForCurrentRoom() const
 void RoomManager::setCurrentRoom(const QString &roomId)
 {
     if (m_currentRoom != nullptr) {
-        m_currentRoom->clearSelectedMessages();
         m_currentRoom->disconnect(this);
     }
 

@@ -6,29 +6,30 @@ import QtQuick
 import org.kde.kirigami as Kirigami
 
 import org.kde.neochat
+import org.kde.neochat.timeline
 
 Kirigami.InlineMessage {
     id: root
 
     /**
-     * @brief The NeoChatRoom the selected messages belong to.
+     * @brief The message model for the selected messages.
      */
-    required property NeoChatRoom room
+    required property MessageModel messageModel
 
     showCloseButton: false
-    visible: root.room?.selectedMessageCount > 0
+    visible: root.messageModel?.selectedMessageCount > 0
     position: Kirigami.InlineMessage.Position.Header
     type: Kirigami.MessageType.Positive
     icon.name: "edit-select-all-symbolic"
 
-    text: i18nc("@info", "Selected Messages: %1", root.room?.selectedMessageCount)
+    text: i18nc("@info", "Selected Messages: %1", root.messageModel?.selectedMessageCount)
 
     actions: [
         Kirigami.Action {
             text: i18nc("@action:button", "Copy Conversation")
             icon.name: "edit-copy"
             onTriggered: {
-                Clipboard.saveText(root.room.getFormattedSelectedMessages())
+                Clipboard.saveText(root.messageModel.getFormattedSelectedMessages())
                 showPassiveNotification(i18nc("@info", "Conversation copied to clipboard"));
             }
         },
@@ -36,7 +37,7 @@ Kirigami.InlineMessage {
             text: i18nc("@action:button", "Delete Messages")
             icon.name: "trash-empty-symbolic"
             icon.color: Kirigami.Theme.negativeTextColor
-            enabled: root.room?.canDeleteSelectedMessages
+            enabled: root.messageModel?.canDeleteSelectedMessages
             onTriggered: {
                 let dialog = pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
                     title: i18nc("@title:dialog", "Remove Messages"),
@@ -44,20 +45,19 @@ Kirigami.InlineMessage {
                     actionText: i18nc("@action:button 'Remove' as in 'Remove these messages'", "Remove"),
                     icon: "delete",
                     reporting: false,
-                    connection: root.room.connection,
                 }, {
                     title: i18nc("@title:dialog", "Remove Messages"),
                     width: Kirigami.Units.gridUnit * 25
                 }) as ReasonDialog;
                 dialog.accepted.connect(reason => {
-                    root.room.deleteSelectedMessages(reason);
+                    root.messageModel.deleteSelectedMessages(reason);
                 });
             }
         },
         Kirigami.Action {
             icon.name: "dialog-close"
             icon.color: Kirigami.Theme.negativeTextColor
-            onTriggered: root.room.clearSelectedMessages()
+            onTriggered: root.messageModel.clearSelectedMessages()
         }
     ]
 }

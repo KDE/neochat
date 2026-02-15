@@ -17,6 +17,8 @@ MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent, MessageFilterM
 {
     Q_ASSERT(sourceMediaModel);
     setSourceModel(sourceMediaModel);
+
+    connect(sourceMediaModel, &MessageFilterModel::selectionChanged, this, &MediaMessageFilterModel::selectionChanged);
 }
 
 bool MediaMessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -90,6 +92,21 @@ QHash<int, QByteArray> MediaMessageFilterModel::roleNames() const
 const Quotient::RoomEvent *MediaMessageFilterModel::findEvent(const QString &eventId) const
 {
     return static_cast<MessageFilterModel *>(sourceModel())->findEvent(eventId);
+}
+
+int MediaMessageFilterModel::selectedMessageCount() const
+{
+    return static_cast<MessageFilterModel *>(sourceModel())->selectedMessageCount();
+}
+
+bool MediaMessageFilterModel::isMessageSelected(const QString &roomId, const QString &eventId) const
+{
+    return static_cast<MessageFilterModel *>(sourceModel())->isMessageSelected(roomId, eventId);
+}
+
+void MediaMessageFilterModel::toggleMessageSelection(const QString &roomId, const QString &eventId)
+{
+    static_cast<MessageFilterModel *>(sourceModel())->toggleMessageSelection(roomId, eventId);
 }
 
 int MediaMessageFilterModel::getRowForEventId(const QString &eventId) const

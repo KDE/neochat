@@ -53,6 +53,16 @@ class MessageModel : public QAbstractListModel
      */
     Q_PROPERTY(QPersistentModelIndex readMarkerIndex READ readMarkerIndex NOTIFY readMarkerIndexChanged)
 
+    /**
+     * @brief The number of selected messages.
+     */
+    Q_PROPERTY(int selectedMessageCount READ selectedMessageCount NOTIFY selectionChanged)
+
+    /**
+     * @brief Whether the user can delete the selected messages.
+     */
+    Q_PROPERTY(bool canDeleteSelectedMessages READ canDeleteSelectedMessages NOTIFY selectionChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -87,6 +97,8 @@ public:
         ShowAuthorRole, /**< Whether the author of a message should be shown. */
         EventTypeRole, /**< The matrix event type of this message. */
         RoomRole, /**< The room this event is from. */
+
+        IsSelectedRole, /**< Whether the message is selected. */
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
@@ -121,6 +133,41 @@ public:
      * @brief Finds the event of the given event ID in the model, returning nullptr if no matches were found.
      */
     Q_INVOKABLE const Quotient::RoomEvent *findEvent(const QString &eventId) const;
+
+    /**
+     * @brief The number of selected messages.
+     */
+    int selectedMessageCount() const;
+
+    /**
+     * @brief Whether the local user can delete the selected messages.
+     */
+    bool canDeleteSelectedMessages() const;
+
+    /**
+     * @brief Whether the given message is selected.
+     */
+    Q_INVOKABLE bool isMessageSelected(const QString &roomId, const QString &eventId) const;
+
+    /**
+     * @brief Toggle the selection state of the given message.
+     */
+    Q_INVOKABLE void toggleMessageSelection(const QString &roomId, const QString &eventId);
+
+    /**
+     * @brief Get the content of the selected messages formatted as a single string.
+     */
+    Q_INVOKABLE QString getFormattedSelectedMessages() const;
+
+    /**
+     * @brief Delete the selected messages with an optional reason.
+     */
+    Q_INVOKABLE void deleteSelectedMessages(const QString &reason = QString());
+
+    /**
+     * @brief Clear the selection of messages.
+     */
+    Q_INVOKABLE void clearSelectedMessages();
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
@@ -168,6 +215,10 @@ Q_SIGNALS:
      */
     void newLocalUserEventAdded();
 
+    /**
+     * @brief Emitted when a message is selected or deselected.
+     */
+    void selectionChanged();
 protected:
     QPointer<NeoChatRoom> m_room;
     QPersistentModelIndex m_lastReadEventIndex;
@@ -192,6 +243,8 @@ protected:
 
 private:
     QMap<QString, QSharedPointer<ReadMarkerModel>> m_readMarkerModels;
+
+    QHash<QString, QSet<QString>> m_selectedMessageIds;
 
     void createEventObjects(const Quotient::RoomEvent *event);
 
