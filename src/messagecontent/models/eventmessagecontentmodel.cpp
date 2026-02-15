@@ -22,8 +22,6 @@
 
 using namespace Quotient;
 
-bool EventMessageContentModel::m_threadsEnabled = false;
-
 EventMessageContentModel::EventMessageContentModel(NeoChatRoom *room, const QString &eventId, bool isReply, bool isPending, MessageContentModel *parent)
     : MessageContentModel(room, eventId, parent)
     , m_currentState(isPending ? Pending : Unknown)
@@ -103,9 +101,6 @@ void EventMessageContentModel::initializeModel()
                 Q_EMIT authorChanged();
             }
         }
-    });
-    connect(this, &EventMessageContentModel::threadsEnabledChanged, this, [this]() {
-        resetModel();
     });
     connect(m_room, &Room::updatedEvent, this, [this](const QString &eventId) {
         if (eventId == m_eventId) {
@@ -304,7 +299,7 @@ QList<MessageComponent> EventMessageContentModel::messageContentComponents(bool 
     }
 
     const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(event.first);
-    if (m_threadsEnabled && roomMessageEvent
+    if (roomMessageEvent
         && ((roomMessageEvent->isThreaded() && roomMessageEvent->id() == roomMessageEvent->threadRootEventId())
             || m_room->threads().contains(roomMessageEvent->id()))) {
         newComponents += MessageComponent{MessageComponentType::Separator, {}, {}};
@@ -328,14 +323,14 @@ std::optional<QString> EventMessageContentModel::getReplyEventId()
     if (roomMessageEvent == nullptr) {
        return std::nullopt;
     }
-    if (!roomMessageEvent->isReply(!m_threadsEnabled)) {
+    if (!roomMessageEvent->isReply()) {
         if (m_replyModel) {
             m_replyModel->disconnect(this);
             m_replyModel->deleteLater();
         }
         return std::nullopt;
     }
-    return roomMessageEvent->isReply(!m_threadsEnabled) ? std::make_optional(roomMessageEvent->replyEventId(!m_threadsEnabled)) : std::nullopt;
+    return roomMessageEvent->isReply() ? std::make_optional(roomMessageEvent->replyEventId()) : std::nullopt;
 }
 
 QList<MessageComponent> EventMessageContentModel::componentsForType(MessageComponentType::Type type)
@@ -473,11 +468,6 @@ void EventMessageContentModel::updateReactionModel()
 ThreadModel *EventMessageContentModel::modelForThread(const QString &threadRootId)
 {
     return ContentProvider::self().modelForThread(m_room, threadRootId);
-}
-
-void EventMessageContentModel::setThreadsEnabled(bool enableThreads)
-{
-    m_threadsEnabled = enableThreads;
 }
 
 #include "moc_eventmessagecontentmodel.cpp"

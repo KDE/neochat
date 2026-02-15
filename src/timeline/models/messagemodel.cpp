@@ -27,7 +27,6 @@ using namespace Quotient;
 std::function<bool(const Quotient::RoomEvent *)> MessageModel::m_hiddenFilter = [](const Quotient::RoomEvent *) -> bool {
     return false;
 };
-bool MessageModel::m_threadsEnabled = false;
 
 MessageModel::MessageModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -39,10 +38,6 @@ MessageModel::MessageModel(QObject *parent)
     });
     connect(this, &MessageModel::modelReset, this, [this]() {
         m_resetting = false;
-    });
-
-    connect(this, &MessageModel::threadsEnabledChanged, this, [this]() {
-        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {DelegateTypeRole, ContentModelRole, IsThreadedRole, SpecialMarksRole});
     });
 }
 
@@ -151,7 +146,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (m_threadsEnabled && roomMessageEvent && roomMessageEvent->isThreaded()) {
+        if (roomMessageEvent && roomMessageEvent->isThreaded()) {
             return QVariant::fromValue<EventMessageContentModel *>(
                 ContentProvider::self().contentModelForEvent(eventRoom, roomMessageEvent->threadRootEventId()));
         }
@@ -200,7 +195,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         }
 
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (m_threadsEnabled && roomMessageEvent && (roomMessageEvent->isThreaded() || eventRoom->threads().contains(event.value().get().id()))) {
+        if (roomMessageEvent && (roomMessageEvent->isThreaded() || eventRoom->threads().contains(event.value().get().id()))) {
             const auto &thread = eventRoom->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
             if (thread.latestEventId != event.value().get().id()) {
                 return EventStatus::Hidden;
@@ -231,9 +226,6 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsThreadedRole) {
-        if (!m_threadsEnabled) {
-            return false;
-        }
         if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get())) {
             return roomMessageEvent->isThreaded();
         }
@@ -557,11 +549,6 @@ bool MessageModel::event(QEvent *event)
 void MessageModel::setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter)
 {
     MessageModel::m_hiddenFilter = hiddenFilter;
-}
-
-void MessageModel::setThreadsEnabled(bool enableThreads)
-{
-    MessageModel::m_threadsEnabled = enableThreads;
 }
 
 #include "moc_messagemodel.cpp"

@@ -29,10 +29,16 @@ BaseMessageComponentChooser {
     DelegateChoice {
         roleValue: MessageComponentType.ChatBar
         delegate: ChatBarCore {
+
+            /**
+             * @brief The ChatBarCache to use.
+             */
+            required property ChatBarCache chatBarCache
+
             Layout.fillWidth: true
             Layout.maximumWidth: Message.maxContentWidth
             room: Message.room
-            chatBarType: LibNeoChat.ChatBarType.Edit
+            chatBarType: chatBarCache.isEditing ? LibNeoChat.ChatBarType.Edit : LibNeoChat.ChatBarType.Thread
             maxAvailableWidth: Message.maxContentWidth
         }
     }

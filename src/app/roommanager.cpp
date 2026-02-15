@@ -129,15 +129,6 @@ RoomManager::RoomManager(QObject *parent)
             m_messageFilterModel->invalidate();
         }
     });
-    ContentProvider::self().setThreadsEnabled(NeoChatConfig::threads());
-    MessageModel::setThreadsEnabled(NeoChatConfig::threads());
-    connect(NeoChatConfig::self(), &NeoChatConfig::ThreadsChanged, this, [this] {
-        ContentProvider::self().setThreadsEnabled(NeoChatConfig::threads());
-        MessageModel::setThreadsEnabled(NeoChatConfig::threads());
-        if (m_timelineModel) {
-            Q_EMIT m_timelineModel->threadsEnabledChanged();
-        }
-    });
     connect(NeoChatConfig::self(), &NeoChatConfig::SortOrderChanged, this, [this]() {
         m_sortFilterRoomTreeModel->invalidate();
     });

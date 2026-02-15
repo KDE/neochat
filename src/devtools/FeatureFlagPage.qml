@@ -15,13 +15,6 @@ FormCard.FormCard {
     Layout.topMargin: Kirigami.Units.largeSpacing
 
     FormCard.FormCheckDelegate {
-        id: roomAccountDataVisibleCheck
-        text: i18nc("@option:check Enable the matrix 'threads' feature", "Threads")
-        checked: NeoChatConfig.threads
-
-        onToggled: NeoChatConfig.threads = checked
-    }
-    FormCard.FormCheckDelegate {
         text: i18nc("@option:check Enable the matrix feature to add a phone number as a third party ID", "Add phone numbers as 3PIDs")
         checked: NeoChatConfig.phone3PId
 

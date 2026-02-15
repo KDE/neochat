@@ -156,7 +156,6 @@ public:
 
 Q_SIGNALS:
     void roomChanged();
-    void threadsEnabledChanged();
 
 private:
     TimelineMessageModel *m_timelineMessageModel = nullptr;

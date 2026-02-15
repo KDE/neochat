@@ -1,0 +1,27 @@
+// SPDX-FileCopyrightText: 2026 James Graham <james.h.graham@protonmail.com>
+// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+
+import QtQuick
+import QtQuick.Layouts
+import Qt.labs.qmlmodels
+
+import org.kde.neochat
+import org.kde.neochat.libneochat as LibNeoChat
+
+/**
+ * @brief Select a message component based on a MessageComponentType.
+ */
+BaseMessageComponentChooser {
+    id: root
+
+    DelegateChoice {
+        roleValue: MessageComponentType.ChatBar
+        delegate: ChatBarCore {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Message.maxContentWidth
+            room: Message.room
+            chatBarType: LibNeoChat.ChatBarType.Thread
+            maxAvailableWidth: Message.maxContentWidth
+        }
+    }
+}

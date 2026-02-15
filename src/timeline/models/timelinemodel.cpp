@@ -16,8 +16,6 @@ TimelineModel::TimelineModel(QObject *parent)
     addSourceModel(m_timelineMessageModel);
     m_timelineEndModel = new TimelineEndModel(this);
     addSourceModel(m_timelineEndModel);
-
-    connect(this, &TimelineModel::threadsEnabledChanged, m_timelineMessageModel, &TimelineMessageModel::threadsEnabledChanged);
 }
 
 NeoChatRoom *TimelineModel::room() const

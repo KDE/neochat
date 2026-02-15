@@ -87,7 +87,6 @@ void MessageDelegateBase::setIsThreaded(bool isThreaded)
         return;
     }
     m_isThreaded = isThreaded;
-    setAlwaysFillWidth(m_isThreaded || m_compactMode);
     setPercentageValues(m_isThreaded || m_compactMode);
     updateAvatar();
     Q_EMIT isThreadedChanged();
@@ -138,11 +137,8 @@ void MessageDelegateBase::setPercentageValues(bool fillWidth)
 
 void MessageDelegateBase::setContentPadding()
 {
-    qreal selectionOffset = (m_showSelection && m_selectionItem) ? m_selectionItem->implicitWidth() + (m_spacing * 2) : 0;
-    qreal avatarOffset = (leaveAvatarSpace() ? m_avatarSize + m_spacing : 0);
-
-    m_contentSizeHelper.setLeftPadding(m_sizeHelper.leftX() + selectionOffset + avatarOffset);
-    m_contentSizeHelper.setRightPadding(m_sizeHelper.rightPadding());
+    m_contentSizeHelper.setLeftPadding(m_sizeHelper.leftX());
+    m_contentSizeHelper.setRightPadding(m_compactMode ? m_sizeHelper.rightPadding() : 0);
 }
 
 qreal MessageDelegateBase::maxContentWidth() const
@@ -229,7 +225,7 @@ bool MessageDelegateBase::leaveAvatarSpace() const
 
 bool MessageDelegateBase::showAvatar() const
 {
-    return m_enableAvatars && m_showAuthor && !showMessageOnRight();
+    return m_enableAvatars && (m_showAuthor || m_isThreaded) && !showMessageOnRight();
 }
 
 void MessageDelegateBase::updateAvatar()
@@ -434,7 +430,7 @@ void MessageDelegateBase::setCompactMode(bool compactMode)
         return;
     }
     m_compactMode = compactMode;
-    setAlwaysFillWidth(m_isThreaded || m_compactMode);
+    setAlwaysFillWidth(m_compactMode);
     setPercentageValues(m_isThreaded || m_compactMode);
     setBaseRightPadding();
 
@@ -669,7 +665,7 @@ void MessageDelegateBase::updateImplicitHeight()
 
 bool MessageDelegateBase::showMessageOnRight() const
 {
-    return m_showLocalMessagesOnRight && !m_alwaysFillWidth && m_author && m_author->isLocalMember();
+    return m_showLocalMessagesOnRight && !m_compactMode && !m_isThreaded && m_author && m_author->isLocalMember();
 }
 
 void MessageDelegateBase::resizeContent()
@@ -697,22 +693,25 @@ void MessageDelegateBase::resizeContent()
         nextY += m_sectionItem->implicitHeight() + m_spacing;
     }
     qreal yAdd = 0.0;
+    qreal nextX = m_sizeHelper.leftX();
     if (m_showSelection && m_selectionItem) {
-        m_selectionItem->setPosition(QPointF(m_sizeHelper.leftX(), nextY));
+        m_selectionItem->setPosition(QPointF(nextX, nextY));
         m_selectionItem->setSize(QSizeF(m_selectionItem->implicitWidth(), m_selectionItem->implicitHeight()));
         yAdd = m_selectionItem->implicitHeight();
+        nextX += m_selectionItem->implicitWidth() + m_spacing;
     }
     if (showAvatar() && m_avatarItem) {
-        m_avatarItem->setPosition(
-            QPointF(m_showSelection && m_selectionItem ? m_sizeHelper.leftX() + m_selectionItem->implicitWidth() + (m_spacing * 2) : m_sizeHelper.leftX(),
-                    nextY));
+        m_avatarItem->setPosition(QPointF(nextX, nextY));
         m_avatarItem->setSize(QSizeF(m_avatarItem->implicitWidth(), m_avatarItem->implicitHeight()));
         yAdd = std::max(yAdd, m_avatarItem->implicitHeight());
+        nextX += m_avatarItem->implicitWidth() + m_spacing;
+    } else if (leaveAvatarSpace()) {
+        nextX += m_avatarSize + m_spacing;
     }
     if (m_contentItem) {
-        const auto contentItemWidth =
-            m_alwaysFillWidth ? m_contentSizeHelper.availableWidth() : std::min(m_contentItem->implicitWidth(), m_contentSizeHelper.availableWidth());
-        const auto contentX = showMessageOnRight() ? m_sizeHelper.rightX() - contentItemWidth - 1 : m_contentSizeHelper.leftPadding();
+        const auto contentItemWidth = m_compactMode || m_isThreaded ? m_contentSizeHelper.availableWidth() - nextX
+                                                                    : std::min(m_contentItem->implicitWidth(), m_contentSizeHelper.availableWidth());
+        const auto contentX = showMessageOnRight() ? m_sizeHelper.rightX() - contentItemWidth - 1 : nextX;
         m_contentItem->setPosition(QPointF(contentX, nextY));
         m_contentItem->setSize(QSizeF(contentItemWidth, m_contentItem->implicitHeight()));
         yAdd = std::max(yAdd, m_contentItem->implicitHeight());

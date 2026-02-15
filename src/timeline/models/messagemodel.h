@@ -124,8 +124,6 @@ public:
 
     static void setHiddenFilter(std::function<bool(const Quotient::RoomEvent *)> hiddenFilter);
 
-    static void setThreadsEnabled(bool enableThreads);
-
 Q_SIGNALS:
     /**
      * @brief Emitted when the room is changed.
@@ -170,8 +168,6 @@ Q_SIGNALS:
      */
     void newLocalUserEventAdded();
 
-    void threadsEnabledChanged();
-
 protected:
     QPointer<NeoChatRoom> m_room;
     QPersistentModelIndex m_lastReadEventIndex;
@@ -200,5 +196,4 @@ private:
     void createEventObjects(const Quotient::RoomEvent *event);
 
     static std::function<bool(const Quotient::RoomEvent *)> m_hiddenFilter;
-    static bool m_threadsEnabled;
 };

@@ -99,7 +99,6 @@ RowLayout {
 
         visible: root.maxAvailableWidth < root.overflowWidth && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
         icon.name: "overflow-menu"
-        enabled: root.chatButtonHelper.richFormatEnabled
         text: i18nc("@action:button", "Format Text")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
@@ -153,7 +152,9 @@ RowLayout {
     }
     QQC2.ToolButton {
         id: attachmentButton
-        visible: !root.contentModel.hasAttachment && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room && root.maxAvailableWidth >= root.overflowWidth
+        visible: !root.contentModel.hasAttachment &&
+                 ((root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room || (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Thread) &&
+                 root.maxAvailableWidth >= root.overflowWidth
         icon.name: "mail-attachment"
         text: i18nc("@action:button", "Attach an image or file")
         display: QQC2.AbstractButton.IconOnly

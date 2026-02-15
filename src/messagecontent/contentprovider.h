@@ -81,8 +81,6 @@ public:
      */
     Q_INVOKABLE PollHandler *handlerForPoll(NeoChatRoom *room, const QString &eventId);
 
-    void setThreadsEnabled(bool enableThreads);
-
 private:
     explicit ContentProvider(QObject *parent = nullptr);
 

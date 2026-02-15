@@ -181,7 +181,7 @@ KirigamiComponents.ConvergentContextMenu {
 
     Kirigami.Action {
         id: replyThreadAction
-        visible: (root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent) && NeoChatConfig.threads
+        visible: (root.messageComponentType !== MessageComponentType.Other || NeoChatConfig.relateAnyEvent)
         text: i18nc("@action:inmenu", "Reply in Thread")
         icon.name: "dialog-messages"
         onTriggered: {

@@ -9,6 +9,7 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
         BaseMessageComponentChooser.qml
         MessageComponentChooser.qml
         ReplyMessageComponentChooser.qml
+        ThreadBodyMessageComponentChooser.qml
         AuthorComponent.qml
         AudioComponent.qml
         CodeComponent.qml

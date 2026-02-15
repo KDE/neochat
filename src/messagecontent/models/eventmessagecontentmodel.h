@@ -43,11 +43,8 @@ public:
      */
     Q_INVOKABLE ThreadModel *modelForThread(const QString &threadRootId);
 
-    static void setThreadsEnabled(bool enableThreads);
-
 Q_SIGNALS:
     void eventUpdated();
-    void threadsEnabledChanged();
 
 private:
     void initializeModel();
@@ -74,6 +71,4 @@ private:
     void updateItineraryModel();
 
     void updateReactionModel();
-
-    static bool m_threadsEnabled;
 };
