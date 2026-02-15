@@ -159,15 +159,15 @@ TestCase {
         compare(chatMarkdownHelper.checkText("test"), true);
         compare(chatMarkdownHelper.checkFormats([]), true);
         textEdit.insert(4, "**b");
-        compare(chatMarkdownHelper.checkText("testb"), true);
-        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        compare(chatMarkdownHelper.checkText("test**b"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
 
         textEdit.clear();
         textEdit.insert(0, "test");
         compare(chatMarkdownHelper.checkText("test"), true);
         compare(chatMarkdownHelper.checkFormats([]), true);
         textEdit.insert(2, "**b");
-        compare(chatMarkdownHelper.checkText("tebst"), true);
-        compare(chatMarkdownHelper.checkFormats([RichFormat.Bold]), true);
+        compare(chatMarkdownHelper.checkText("te**bst"), true);
+        compare(chatMarkdownHelper.checkFormats([]), true);
     }
 }

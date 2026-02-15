@@ -42,6 +42,6 @@ private:
 
     void checkMarkdown(int position, int charsRemoved, int charsAdded);
     void updatePosition(int position);
-    void checkMarkdownForward(int charsAdded);
+    void checkMarkdownForward();
     void complete();
 };

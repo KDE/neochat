@@ -188,17 +188,12 @@ void ChatMarkdownHelper::checkMarkdown(int position, int charsRemoved, int chars
     // This can happen when formatting is applied.
     if (charsAdded == charsRemoved) {
         return;
-    }
-    auto cursor = m_textItem->textCursor();
-    if (cursor.isNull()) {
+    } else if (charsRemoved > charsAdded || charsAdded - charsRemoved > 1) {
+        updatePosition(std::max(0, position - charsRemoved + charsAdded));
         return;
     }
 
-    if (charsRemoved > charsAdded) {
-        updatePosition(std::max(0, position - charsRemoved + charsAdded));
-    }
-
-    checkMarkdownForward(charsAdded - charsRemoved);
+    checkMarkdownForward();
 }
 
 void ChatMarkdownHelper::updatePosition(int position)
@@ -226,40 +221,33 @@ void ChatMarkdownHelper::updatePosition(int position)
     }
 }
 
-void ChatMarkdownHelper::checkMarkdownForward(int charsAdded)
+void ChatMarkdownHelper::checkMarkdownForward()
 {
-    if (charsAdded <= 0) {
-        return;
-    }
     auto cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return;
     }
 
-    for (auto i = 1; i <= charsAdded; ++i) {
-        cursor.setPosition(m_startPos);
-        const auto atBlockStart = cursor.atBlockStart();
-        cursor.setPosition(m_endPos, QTextCursor::KeepAnchor);
-        const auto currentMarkdown = cursor.selectedText();
-        cursor.setPosition(m_endPos);
-        cursor.setPosition(m_endPos + 1, QTextCursor::KeepAnchor);
-        const auto nextChar = cursor.selectedText();
+    cursor.setPosition(m_startPos);
+    const auto atBlockStart = cursor.atBlockStart();
+    cursor.setPosition(m_endPos, QTextCursor::KeepAnchor);
+    const auto currentMarkdown = cursor.selectedText();
+    cursor.setPosition(m_endPos);
+    cursor.setPosition(m_endPos + 1, QTextCursor::KeepAnchor);
+    const auto nextChar = cursor.selectedText();
 
-        const auto result = checkSequence(currentMarkdown, nextChar, atBlockStart);
-        if (!result) {
-            ++m_startPos;
-            m_endPos = m_startPos;
-            continue;
-            ;
-        }
-        if (!*result) {
-            ++m_endPos;
-            continue;
-            ;
-        }
-
-        complete();
+    const auto result = checkSequence(currentMarkdown, nextChar, atBlockStart);
+    if (!result) {
+        ++m_startPos;
+        m_endPos = m_startPos;
+        return;
     }
+    if (!*result) {
+        ++m_endPos;
+        return;
+    }
+
+    complete();
 }
 
 void ChatMarkdownHelper::complete()
