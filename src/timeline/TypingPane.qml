@@ -24,7 +24,7 @@ Loader {
         }
 
         contentItem: RowLayout {
-            spacing: typingPane.spacing
+            spacing: Kirigami.Units.largeSpacing
             Row {
                 id: dotRow
                 property int duration: 400
