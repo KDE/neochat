@@ -85,6 +85,8 @@ QQC2.TextArea {
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(display))
 
+    topPadding: 0
+    bottomPadding: 0
     leftPadding: 0
     rightPadding: 0
 
