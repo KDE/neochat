@@ -72,7 +72,7 @@ QQC2.TextArea {
      */
     property bool isReply: false
 
-    Layout.fillWidth: true
+    Layout.fillWidth: NeoChatConfig.compactLayout
     Layout.maximumWidth: Message.maxContentWidth
 
     Keys.onPressed: (event) => {

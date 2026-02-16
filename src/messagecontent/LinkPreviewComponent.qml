@@ -87,7 +87,6 @@ QQC2.Control {
         }
         ColumnLayout {
             id: column
-            Layout.preferredWidth: Math.max(linkPreviewTitle.implicitWidth, linkPreviewDescription.implicitWidth)
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
             Kirigami.Heading {
@@ -108,7 +107,7 @@ QQC2.Control {
                     text: root.linkPreviewer.title
                     font: linkPreviewTitle.font
                     elide: Text.ElideRight
-                    elideWidth: linkPreviewTitle.width
+                    elideWidth: column.width
                 }
             }
             QQC2.Label {
