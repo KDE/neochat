@@ -29,7 +29,8 @@ TimelineDelegate {
     }
 
     width: parent?.width
-    rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing
+    leftPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.largeSpacing
+    rightPadding: NeoChatConfig.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.largeSpacing
 
     alwaysFillWidth: NeoChatConfig.compactLayout
 
@@ -42,7 +43,7 @@ TimelineDelegate {
 
         topInset: Kirigami.Units.largeSpacing + Kirigami.Units.mediumSpacing
         bottomInset: Kirigami.Units.mediumSpacing
-        rightInset: Kirigami.Units.largeSpacing
+        rightInset: 0
         leftInset: 0
 
         Timer {

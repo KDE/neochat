@@ -127,6 +127,8 @@ MessageDelegateBase {
     Message.maxContentWidth: maxContentWidth - bubble.leftPadding - bubble.rightPadding
 
     width: parent?.width
+    leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.largeSpacing
+    rightPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : Kirigami.Units.largeSpacing
 
     enableAvatars: NeoChatConfig?.showAvatarInTimeline ?? false
     compactMode: NeoChatConfig?.compactLayout ?? false
@@ -135,9 +137,9 @@ MessageDelegateBase {
 
     contentItem: Bubble {
         id: bubble
-        topPadding: NeoChatConfig.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
-        bottomPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
-        leftPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        topPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing
+        bottomPadding: NeoChatConfig.compactLayout ? 0 : Kirigami.Units.largeSpacing
+        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.mediumSpacing : Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
         rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
         author: root.author

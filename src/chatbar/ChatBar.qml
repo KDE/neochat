@@ -120,6 +120,8 @@ Item {
         endBreakpoint: Kirigami.Units.gridUnit * 66
         startPercentWidth: 100
         endPercentWidth: NeoChatConfig.compactLayout ? 100 : 85
+        leftPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0 
+        rightPadding: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0 
         maxWidth: NeoChatConfig.compactLayout ? root.width - Kirigami.Units.largeSpacing * 2 : Kirigami.Units.gridUnit * 60
     }
 }
