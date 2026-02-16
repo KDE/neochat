@@ -42,7 +42,10 @@ QQC2.Control {
     property int rightAnchorMargin: 0
 
     Layout.fillWidth: true
-    padding: 0
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.largeSpacing
