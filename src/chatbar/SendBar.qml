@@ -98,10 +98,14 @@ RowLayout {
         property QQC2.Menu overflowMenu
 
         visible: root.maxAvailableWidth < root.overflowWidth && (root.contentModel?.type ?? true) === LibNeoChat.ChatBarType.Room
-        icon.name: "overflow-menu"
-        text: i18nc("@action:button", "Format Text")
+        icon.name: "list-add-symbolic"
+        text: i18nc("@action:button", "Add to message")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
+        checked: overflowMenu !== null
+
+        Accessible.role: Accessible.ButtonMenu
+
         onClicked: {
             if (!checked) {
                 if (overflowMenu) {
