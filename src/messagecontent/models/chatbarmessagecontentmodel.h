@@ -77,6 +77,11 @@ class ChatBarMessageContentModel : public MessageContentModel
      */
     Q_PROPERTY(bool sendMessageWithEnter READ sendMessageWithEnter WRITE setSendMessageWithEnter NOTIFY sendMessageWithEnterChanged)
 
+    /**
+     * @brief Whether the model has any content, ideal for checking if there is anything to send.
+     */
+    Q_PROPERTY(bool hasAnyContent READ hasAnyContent NOTIFY hasAnyContentChanged)
+
 public:
     explicit ChatBarMessageContentModel(QObject *parent = nullptr);
 
@@ -106,12 +111,15 @@ public:
 
     Q_INVOKABLE void postMessage();
 
+    bool hasAnyContent() const;
+
 Q_SIGNALS:
     void typeChanged(ChatBarType::Type oldType, ChatBarType::Type newType);
     void focusRowChanged();
     void hasRichFormattingChanged();
     void hasAttachmentChanged();
     void sendMessageWithEnterChanged();
+    void hasAnyContentChanged();
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;

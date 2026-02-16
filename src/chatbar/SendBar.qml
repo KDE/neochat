@@ -208,6 +208,7 @@ RowLayout {
         icon.name: "document-send"
         text: i18nc("@action:button", "Send message")
         display: QQC2.AbstractButton.IconOnly
+        enabled: root.contentModel.hasAnyContent
 
         onClicked: root.contentModel.postMessage();
         QQC2.ToolTip.visible: hovered

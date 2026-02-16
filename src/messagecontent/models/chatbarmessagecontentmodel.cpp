@@ -60,6 +60,9 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         initializeFromCache();
     });
     connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
+    connect(this, &ChatBarMessageContentModel::modelReset, this, &ChatBarMessageContentModel::hasAnyContentChanged);
+    connect(this, &ChatBarMessageContentModel::rowsInserted, this, &ChatBarMessageContentModel::hasAnyContentChanged);
+    connect(this, &ChatBarMessageContentModel::rowsRemoved, this, &ChatBarMessageContentModel::hasAnyContentChanged);
 
     connectCache();
     connectKeyHelper();
@@ -302,6 +305,7 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
     connect(chattextitemhelper, &ChatTextItemHelper::cleared, this, [this](ChatTextItemHelper *helper) {
         removeComponent(helper);
     });
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::hasAnyContentChanged);
 }
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(const MessageComponent &component) const
@@ -662,6 +666,28 @@ void ChatBarMessageContentModel::postMessage()
     clearModel();
     initializeModel();
     refocusCurrentComponent();
+}
+
+bool ChatBarMessageContentModel::hasAnyContent() const
+{
+    // Shouldn't really be possible, but is true.
+    if (m_components.empty()) {
+        return false;
+    }
+
+    // If there's more than one component naturally there is content.
+    if (m_components.size() > 1) {
+        return true;
+    }
+
+    // There's usually at a minimum a TextComponent, we need to check if it's empty.
+    if (const auto textItem = textItemForComponent(m_components.constFirst())) {
+        if (textItem->isEmpty()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 std::optional<QString> ChatBarMessageContentModel::getReplyEventId()
