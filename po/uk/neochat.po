@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-15 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 09:24+0200\n"
+"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"PO-Revision-Date: 2026-02-15 08:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -901,7 +901,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "Кімнати не знайдено"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:237
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:238
 #: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1730,13 +1730,13 @@ msgstr "Зображення з буфера"
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter rich text mode"
-msgstr ""
+msgstr "Увійти до режиму форматованого тексту"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Exit rich text mode"
-msgstr ""
+msgstr "Вийти з режиму форматованого тексту"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1819,9 +1819,7 @@ msgid "Mirror"
 msgstr "Віддзеркалити"
 
 #: src/chatbar/LinkDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
 msgstr "Вставити посилання"
@@ -1830,13 +1828,13 @@ msgstr "Вставити посилання"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Текст посилання:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL посилання:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1933,68 +1931,63 @@ msgid "Add option"
 msgstr "Додати варіант"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "У мережі"
+msgstr "Підкреслення"
 
 #: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "Форматування тексту"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "Стиль тексту"
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "Емоційки і наліпки"
 
 #: src/chatbar/RichEditBar.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr "Редагування наліпки"
+msgstr "Редагувати посилання"
 
 #: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "Невпорядкований список"
 
 #: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "Впорядкований список"
 
 #: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Підвищити рівень у списку"
 
 #: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Знизити рівень у списку"
 
 #: src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "Стиль списку"
 
 #: src/chatbar/SendBar.qml:57
 #, kde-format
@@ -2005,6 +1998,8 @@ msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
 msgstr ""
+"У долучень можуть бути лише прості текстові підписи, усі елементи "
+"форматування буде вилучено"
 
 #: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
 #, kde-format
@@ -2025,12 +2020,10 @@ msgid "Create a Poll"
 msgstr "Створити голосування"
 
 #: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr "Надіслати повідомлення…"
+msgstr "Надіслати голосове повідомлення"
 
 #: src/chatbar/SendBar.qml:204
 #, kde-format
@@ -2045,54 +2038,46 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/chatbar/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Вставити посилання"
+msgstr "Вставлення таблиці"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Кількість рядків:"
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Кількість стовпчиків:"
 
 #: src/chatbar/VoiceMessageDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr "Вилучити повідомлення"
+msgstr "Запис голосового повідомлення"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Припинити запис"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Start Meeting"
+#, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr "Почати зустріч"
+msgstr "Почати запис"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "As in first answer option to the poll"
-#| msgid "Option %1:"
+#, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr "Варіант %1:"
+msgstr "Тривалість: %1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2101,11 +2086,11 @@ msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
 msgstr ""
+"Записування голосового повідомлення потребує новішої версії Qt, ніж поточна "
+"встановлена у цій системі."
 
 #: src/chatbar/VoiceMessageDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
 msgstr "Надіслати"
@@ -2441,67 +2426,59 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "Стиль параграфа"
 
 #: src/libneochat/enums/richformat.cpp:21
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr "Завантаження"
+msgstr "Заголовок 1"
 
 #: src/libneochat/enums/richformat.cpp:24
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr "Завантаження"
+msgstr "Заголовок 2"
 
 #: src/libneochat/enums/richformat.cpp:27
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr "Завантаження"
+msgstr "Заголовок 3"
 
 #: src/libneochat/enums/richformat.cpp:30
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr "Завантаження"
+msgstr "Заголовок 4"
 
 #: src/libneochat/enums/richformat.cpp:33
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr "Завантаження"
+msgstr "Заголовок 5"
 
 #: src/libneochat/enums/richformat.cpp:36
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr "Завантаження"
+msgstr "Заголовок 6"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "Стиль абзацу цитати"
 
 #: src/libneochat/enums/richformat.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Quote"
+#, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
 msgstr "Цитата"
@@ -4101,12 +4078,10 @@ msgstr "Припинити отримання даних"
 
 #: src/messagecontent/FileComponent.qml:173
 #: src/messagecontent/ImageComponent.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
-msgstr "Вилучити батьківський"
+msgstr "Вилучити долучення"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -4591,13 +4566,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Створити простір"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:369
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Вас запрошено до спілкування"
 
-#: src/rooms/models/roomtreemodel.cpp:368
+#: src/rooms/models/roomtreemodel.cpp:371
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4725,31 +4700,31 @@ msgstr "Кімната із вимкненим спілкуванням"
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
 
-#: src/rooms/RoomListPage.qml:194 src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
-#: src/rooms/RoomListPage.qml:202 src/rooms/RoomListPage.qml:256
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Знайдіть ваших друзів"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "Не знайдено жодного друга"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "Не знайдено кімнат"
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4757,19 +4732,19 @@ msgid ""
 msgstr ""
 "Вами ще не додано жодного друга. Натисніть нижче, щоб виконати пошук друзів."
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Спочатку, приєднайтеся до кімнат"
 
-#: src/rooms/RoomListPage.qml:237
+#: src/rooms/RoomListPage.qml:238
 #, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "Шукати кімнату"
 
-#: src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
@@ -7634,9 +7609,7 @@ msgid "Last read: %1"
 msgstr "Востаннє прочитано: %1"
 
 #: src/timeline/ReadMarkerDelegate.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"

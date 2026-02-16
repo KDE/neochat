@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-15 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 08:52+0100\n"
+"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"PO-Revision-Date: 2026-02-15 10:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -901,7 +901,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "No s'ha trobat cap sala"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:237
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:238
 #: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1738,13 +1738,13 @@ msgstr "Imatge del porta-retalls"
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter rich text mode"
-msgstr ""
+msgstr "Entra al mode de text enriquit"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Exit rich text mode"
-msgstr ""
+msgstr "Ix del mode de text enriquit"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1827,24 +1827,22 @@ msgid "Mirror"
 msgstr "Emmiralla"
 
 #: src/chatbar/LinkDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
-msgstr "Inserix un enllaç"
+msgstr "Inserció d'un enllaç"
 
 #: src/chatbar/LinkDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Text de l'enllaç:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL de l'enllaç:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1941,68 +1939,63 @@ msgid "Add option"
 msgstr "Afig una opció"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "Declina"
+msgstr "Subratllat"
 
 #: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "Dona format al text"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "Estil del text"
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji i adhesius"
 
 #: src/chatbar/RichEditBar.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr "Edita un adhesiu"
+msgstr "Edita l'enllaç"
 
 #: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "Llista sense ordenar"
 
 #: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "Llista ordenada"
 
 #: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Incrementa el nivell de la llista"
 
 #: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Disminuïx el nivell de la llista"
 
 #: src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "Estil de llista"
 
 #: src/chatbar/SendBar.qml:57
 #, kde-format
@@ -2013,6 +2006,8 @@ msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
 msgstr ""
+"Els adjunts només poden tindre títols de text net, s'eliminaran tots els "
+"formats enriquits"
 
 #: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
 #, kde-format
@@ -2033,12 +2028,10 @@ msgid "Create a Poll"
 msgstr "Crea una votació"
 
 #: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr "Envia un missatge…"
+msgstr "Envia un missatge de veu"
 
 #: src/chatbar/SendBar.qml:204
 #, kde-format
@@ -2053,54 +2046,46 @@ msgid "Cancel"
 msgstr "Cancel·la"
 
 #: src/chatbar/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Inserix un enllaç"
+msgstr "Inserció d'una taula"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Nombre de files:"
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Nombre de columnes:"
 
 #: src/chatbar/VoiceMessageDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr "Eliminació de missatge"
+msgstr "Grava un missatge de veu"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Para la gravació"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Start Meeting"
+#, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr "Inici de reunió"
+msgstr "Inicia la gravació"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "As in first answer option to the poll"
-#| msgid "Option %1:"
+#, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr "Opció %1:"
+msgstr "Duració: %1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2109,11 +2094,11 @@ msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
 msgstr ""
+"La gravació de missatges de veu requerix una versió de les Qt més nova que "
+"la que hi ha instal·lada en este sistema."
 
 #: src/chatbar/VoiceMessageDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
 msgstr "Envia"
@@ -2447,67 +2432,59 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "Estil de paràgraf"
 
 #: src/libneochat/enums/richformat.cpp:21
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr "S'està carregant"
+msgstr "Capçalera 1"
 
 #: src/libneochat/enums/richformat.cpp:24
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr "S'està carregant"
+msgstr "Capçalera 2"
 
 #: src/libneochat/enums/richformat.cpp:27
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr "S'està carregant"
+msgstr "Capçalera 3"
 
 #: src/libneochat/enums/richformat.cpp:30
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr "S'està carregant"
+msgstr "Capçalera 4"
 
 #: src/libneochat/enums/richformat.cpp:33
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr "S'està carregant"
+msgstr "Capçalera 5"
 
 #: src/libneochat/enums/richformat.cpp:36
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr "S'està carregant"
+msgstr "Capçalera 6"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "Codi"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "Estil de paràgraf de cita"
 
 #: src/libneochat/enums/richformat.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Quote"
+#, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
 msgstr "Cita"
@@ -4111,12 +4088,10 @@ msgstr "Para la baixada"
 
 #: src/messagecontent/FileComponent.qml:173
 #: src/messagecontent/ImageComponent.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
-msgstr "Elimina el pare"
+msgstr "Elimina l'adjunt"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -4591,13 +4566,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Crea un espai"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:369
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Vos ha convidat al xat"
 
-#: src/rooms/models/roomtreemodel.cpp:368
+#: src/rooms/models/roomtreemodel.cpp:371
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4725,31 +4700,31 @@ msgstr "Sala silenciada"
 msgid "Configure room"
 msgstr "Configura la sala"
 
-#: src/rooms/RoomListPage.qml:194 src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "Busca d'amics"
 
-#: src/rooms/RoomListPage.qml:202 src/rooms/RoomListPage.qml:256
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "Busca d'amics"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "No s'ha trobat cap amic"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "No s'ha trobat cap sala"
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4758,19 +4733,19 @@ msgstr ""
 "Encara no heu afegit cap dels vostres amics, cliqueu damunt davall per a "
 "buscar-los."
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Uniu-vos a diverses sales per a començar"
 
-#: src/rooms/RoomListPage.qml:237
+#: src/rooms/RoomListPage.qml:238
 #, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "Busca la sala"
 
-#: src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
@@ -7619,9 +7594,7 @@ msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
 #: src/timeline/ReadMarkerDelegate.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
@@ -7682,26 +7655,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "The user you're replying to has left the room, and can't be notified."
-#~ msgstr ""
-#~ "L'usuari al qual esteu responent ha deixat la sala i no se'l pot "
-#~ "notificar."
-
-#~ msgctxt "@action:button"
-#~ msgid "Confirm edit"
-#~ msgstr "Confirma l'edició"
-
-#~ msgctxt "@action:button"
-#~ msgid "Post message in thread"
-#~ msgstr "Publica un missatge en el fil"
-
-#~ msgctxt "@option:radio"
-#~ msgid "Send messages with Enter"
-#~ msgstr "Envia els missatges amb «Retorn»"
-
-#~ msgctxt "@option:radio"
-#~ msgid "Send messages with Ctrl+Enter"
-#~ msgstr "Envia els missatges amb «Ctrl+Retorn»"

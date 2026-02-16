@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-15 00:43+0000\n"
-"PO-Revision-Date: 2026-02-13 05:38+0100\n"
+"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"PO-Revision-Date: 2026-02-15 02:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -894,7 +894,7 @@ msgctxt "Placeholder message"
 msgid "No room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
-#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:237
+#: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:238
 #: src/rooms/SpaceDrawer.qml:281
 #, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
@@ -1706,13 +1706,13 @@ msgstr "ბუფერის გამოსახულება"
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter rich text mode"
-msgstr ""
+msgstr "გადასვლა მდიდარი ტექსტის რეჟიმზე"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Exit rich text mode"
-msgstr ""
+msgstr "გასვლა მდიდარი ტექსტის რეჟიმიდან"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1795,9 +1795,7 @@ msgid "Mirror"
 msgstr "სარკე"
 
 #: src/chatbar/LinkDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
 msgstr "ბმულის ჩასმა"
@@ -1806,13 +1804,13 @@ msgstr "ბმულის ჩასმა"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "ბმულის ტექსტი:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "ბმულის URL:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1909,68 +1907,63 @@ msgid "Add option"
 msgstr "არჩევნის დამატება"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "ონლაინ"
+msgstr "ხაზგასმული"
 
 #: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "ტექსტის დაფორმატება"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "ტექსტის სტილი"
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "ემოჯიები და სტიკერები"
 
 #: src/chatbar/RichEditBar.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr "სტიკერის ჩასწორება"
+msgstr "ბმულის ჩასწორება"
 
 #: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "დაულაგებელი სია"
 
 #: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "დალაგებული სია"
 
 #: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "დონის გაზრდა"
 
 #: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "დონის შემცირება"
 
 #: src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "სიის სტილი"
 
 #: src/chatbar/SendBar.qml:57
 #, kde-format
@@ -1981,6 +1974,8 @@ msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
 msgstr ""
+"მიმაგრებულ ელემენტებს, მხოლოდ, უბრალო ტექსტური წარწერები შეიძლება, ჰქონდეს. "
+"მდიდარი დაფორმატება მოცილებული იქნება"
 
 #: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
 #, kde-format
@@ -2001,12 +1996,10 @@ msgid "Create a Poll"
 msgstr "გამოკითხვის შექმნა"
 
 #: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr "შეტყობინების გაგზავნა…"
+msgstr "ხმოვანი შეტყობინების გაგზავნა"
 
 #: src/chatbar/SendBar.qml:204
 #, kde-format
@@ -2021,54 +2014,46 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: src/chatbar/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "ბმულის ჩასმა"
+msgstr "ცხრილის ჩასმა"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "მწკრივების რიცხვი:"
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "სვეტების რაოდენობა:"
 
 #: src/chatbar/VoiceMessageDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr "შეტყობინების წაშლა"
+msgstr "ხმოვანი შეტყობინების ჩაწერა"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "ჩაწერის შეწყვეტა"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Start Meeting"
+#, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr "შეხვედრის დაწყება"
+msgstr "ჩაწერის დაწყება"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "As in first answer option to the poll"
-#| msgid "Option %1:"
+#, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr "არჩევანი %1:"
+msgstr "ხანგრძლივობა: %1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2077,11 +2062,11 @@ msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
 msgstr ""
+"ხმოვანი შეტყობინების ჩაწერას Qt-ის იმაზე უფრო ახალი ვერსია სჭირდება, ვიდრე "
+"ამ სისტემაზეა დაყენებული"
 
 #: src/chatbar/VoiceMessageDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
 msgstr "გაგზავნა"
@@ -2414,67 +2399,59 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "აბზაცის სტილი"
 
 #: src/libneochat/enums/richformat.cpp:21
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr "იტვირთება"
+msgstr "სათაური 1"
 
 #: src/libneochat/enums/richformat.cpp:24
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr "იტვირთება"
+msgstr "სათაური 2"
 
 #: src/libneochat/enums/richformat.cpp:27
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr "იტვირთება"
+msgstr "სათაური 3"
 
 #: src/libneochat/enums/richformat.cpp:30
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr "იტვირთება"
+msgstr "სათაური 4"
 
 #: src/libneochat/enums/richformat.cpp:33
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr "იტვირთება"
+msgstr "სათაური 5"
 
 #: src/libneochat/enums/richformat.cpp:36
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr "იტვირთება"
+msgstr "სათაური 6"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "კოდი"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "აბზაცის ციტატის სტილი"
 
 #: src/libneochat/enums/richformat.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Quote"
+#, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
 msgstr "ციტატა"
@@ -4075,12 +4052,10 @@ msgstr "გადმოწერის შეჩერება"
 
 #: src/messagecontent/FileComponent.qml:173
 #: src/messagecontent/ImageComponent.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
-msgstr "მშობლის წაშლა"
+msgstr "მიმაგრებული ფაილის წაშლა"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -4555,13 +4530,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "სივრცის შექმნა"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:369
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "მოგიწვიათ სასაუბროდ"
 
-#: src/rooms/models/roomtreemodel.cpp:368
+#: src/rooms/models/roomtreemodel.cpp:371
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4690,31 +4665,31 @@ msgstr "დადუმებული ოთახი"
 msgid "Configure room"
 msgstr "ოთახის მორგება"
 
-#: src/rooms/RoomListPage.qml:194 src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
-#: src/rooms/RoomListPage.qml:202 src/rooms/RoomListPage.qml:256
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:257
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
 msgstr "იპოვეთ თქვენი მეგობრები"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "მეგობრები ვერ ვიპოვე"
 
-#: src/rooms/RoomListPage.qml:228
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "ოთახები ვერ ვიპოვე"
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4722,19 +4697,19 @@ msgid ""
 msgstr ""
 "თუ მეგობრები ჯერ არ დაგიმატებიათ, დააწკაპუნეთ ქვემოთ, რომ მოძებნოთ ისინი."
 
-#: src/rooms/RoomListPage.qml:230
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
 
-#: src/rooms/RoomListPage.qml:237
+#: src/rooms/RoomListPage.qml:238
 #, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
 msgstr "ოთახის ძებნა"
 
-#: src/rooms/RoomListPage.qml:252
+#: src/rooms/RoomListPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
@@ -7566,9 +7541,7 @@ msgid "Last read: %1"
 msgstr "ბოლოს წაიკითხა: %1"
 
 #: src/timeline/ReadMarkerDelegate.qml:72
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
 msgstr "წაკითხულად მონიშვნა"
