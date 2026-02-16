@@ -28,7 +28,7 @@ for (shortcode, props) in gemojione_json.items():
 
 response = requests.get('https://unicode.org/Public/emoji/14.0/emoji-test.txt')
 group = ""
-file = open("../src/emojis.h", "w")
+file = open("../src/libneochat/emojis.h", "w")
 # REUSE-IgnoreStart
 file.write("// SPDX-FileCopyrightText: None\n")
 file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")
@@ -36,7 +36,7 @@ file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")
 file.write("// This file is auto-generated. All changes will be lost. See tools/update-emojis.py\n")
 file.write("// clang-format off\n")
 
-tones_file = open("../src/emojitones_data.h", "w")
+tones_file = open("../src/libneochat/emojitones_data.h", "w")
 # REUSE-IgnoreStart
 tones_file.write("// SPDX-FileCopyrightText: None\n")
 tones_file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")
@@ -91,12 +91,11 @@ for line in response.text.split("\n"):
         if escaped_sequence in emoji_unicode_shortname_map:
             shortcode = emoji_unicode_shortname_map[escaped_sequence]
 
-        emoji_args = 'QString::fromUtf8("{0}"), u"{1}"_s, u"{2}"_s'.format(escaped_sequence, shortcode, description)
-        emoji_qvariant = 'QVariant::fromValue(Emoji{' + emoji_args + '})'
+        emoji_args = 'u8"{0}", u8"{1}", u8"{2}"'.format(escaped_sequence, shortcode, description)
 
         if is_skin_tone:
-            tones_file.write("{u\"" + description.split(":")[0] + "\"_s, " + emoji_qvariant + "},\n")
+            tones_file.write("{u8\"" + description.split(":")[0] + "\", " + emoji_args + "},\n")
             continue
-        file.write("_emojis[" + group + "].append(" + emoji_qvariant + ");\n")
+        file.write("{EmojiModel::" + group + ", " + emoji_args + "},\n")
 file.close()
 tones_file.close()

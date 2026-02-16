@@ -12,6 +12,15 @@
 #include "customemojimodel.h"
 #include <KLocalizedString>
 
+struct {
+    EmojiModel::Category category;
+    const char8_t *escaped_sequence;
+    const char8_t *shortcode;
+    const char8_t *description;
+} constexpr const emoji_data[] = {
+#include "emojis.h"
+};
+
 using namespace Qt::StringLiterals;
 
 EmojiModel::EmojiModel(QObject *parent)
@@ -20,7 +29,10 @@ EmojiModel::EmojiModel(QObject *parent)
     , m_configGroup(KConfigGroup(m_config, u"Editor"_s))
 {
     if (_emojis.isEmpty()) {
-#include "emojis.h"
+        for (const auto &emoji : emoji_data) {
+            _emojis[emoji.category].push_back(QVariant::fromValue(
+                Emoji(QString::fromUtf8(emoji.escaped_sequence), QString::fromUtf8(emoji.shortcode), QString::fromUtf8(emoji.description))));
+        }
     }
 }
 
@@ -139,12 +151,12 @@ QVariantList EmojiModel::emojis(Category category) const
     return _emojis[category];
 }
 
-QVariantList EmojiModel::tones(const QString &baseEmoji) const
+QList<Emoji> EmojiModel::tones(const QString &baseEmoji) const
 {
     if (baseEmoji.endsWith(u"tone"_s)) {
-        return EmojiTones::_tones.values(baseEmoji.split(u":"_s)[0]);
+        return EmojiTones::tones().values(baseEmoji.split(u":"_s)[0]);
     }
-    return EmojiTones::_tones.values(baseEmoji);
+    return EmojiTones::tones().values(baseEmoji);
 }
 
 QHash<EmojiModel::Category, QVariantList> EmojiModel::_emojis;

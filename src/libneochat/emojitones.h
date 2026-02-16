@@ -3,7 +3,9 @@
 
 #pragma once
 
-#include <QVariant>
+#include "models/emojimodel.h"
+
+#include <QMultiHash>
 
 /**
  * @class EmojiTones
@@ -15,7 +17,7 @@
 class EmojiTones
 {
 private:
-    static QMultiHash<QString, QVariant> _tones;
+    static QMultiHash<QString, Emoji> tones();
 
     friend class EmojiModel;
 };
