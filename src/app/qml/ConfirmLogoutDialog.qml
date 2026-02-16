@@ -15,22 +15,16 @@ Kirigami.PromptDialog {
     title: i18nc("@title:dialog", "Sign out")
     subtitle: i18n("Are you sure you want to sign out?")
     dialogType: Kirigami.PromptDialog.Warning
+    standardButtons: QQC2.Dialog.Cancel
 
-    onRejected: {
-        root.close();
-    }
+    onAccepted: root.connection.logout(true)
 
     footer: QQC2.DialogButtonBox {
-        standardButtons: QQC2.Dialog.Cancel
-
         QQC2.Button {
             text: i18nc("@action:button", "Sign out")
+            onClicked: root.accept()
+
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
-            onClicked: {
-                root.connection.logout(true);
-                root.close();
-                root.accepted();
-            }
         }
     }
 }

@@ -18,6 +18,9 @@ Kirigami.PromptDialog {
     subtitle: i18n("Your account will be permanently disabled.\nThis cannot be undone.\nYour Matrix ID will not be available for new accounts.\nYour messages will stay available.")
 
     dialogType: Kirigami.PromptDialog.Warning
+    standardButtons: QQC2.Dialog.Cancel
+
+    onAccepted: root.connection.deactivateAccount(passwordField.text, eraseDelegate.checked)
 
     mainItem: ColumnLayout {
         FormCard.FormTextFieldDelegate {
@@ -37,16 +40,14 @@ Kirigami.PromptDialog {
     }
 
     footer: QQC2.DialogButtonBox {
-        standardButtons: QQC2.Dialog.Cancel
-
         QQC2.Button {
             text: i18n("Deactivate account")
             icon.name: "emblem-warning"
             enabled: passwordField.text.length > 0
-            onClicked: {
-                root.connection.deactivateAccount(passwordField.text, eraseDelegate.checked);
-                root.closeDialog();
-            }
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
 }

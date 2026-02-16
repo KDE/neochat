@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -20,20 +21,25 @@ Kirigami.Dialog {
 
     title: i18nc("@title", "Create Room")
     implicitWidth: Kirigami.Units.gridUnit * 20
-    standardButtons: Kirigami.Dialog.Cancel
+    showCloseButton: false
+    standardButtons: QQC2.Dialog.Cancel
 
-    customFooterActions: [
-        Kirigami.Action {
+    onAccepted: {
+        root.connection.createRoom(roomNameField.text, "", root.parentId, false);
+        root.newChild(roomNameField.text);
+    }
+
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
             icon.name: "list-add-symbolic"
             text: i18nc("@action:button Create new room", "Create")
             enabled: roomNameField.text.length > 0
-            onTriggered: {
-                root.connection.createRoom(roomNameField.text, "", root.parentId, false);
-                root.newChild(roomNameField.text);
-                root.close();
-            }
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
-    ]
+    }
 
     Component.onCompleted: roomNameField.forceActiveFocus()
 

@@ -16,19 +16,18 @@ Kirigami.PromptDialog {
     title: root.room.isSpace ? i18nc("@title:dialog", "Confirm Leaving Space") : i18nc("@title:dialog", "Confirm Leaving Room")
     subtitle: root.room ? i18nc("Do you really want to leave <room name>?", "Do you really want to leave %1?", root.room.displayNameForHtml) : ""
     dialogType: Kirigami.PromptDialog.Warning
+    standardButtons: QQC2.Dialog.Cancel
 
-    onRejected: {
-        root.close();
-    }
+    onAccepted: root.room.forget()
 
     footer: QQC2.DialogButtonBox {
-        standardButtons: QQC2.Dialog.Cancel
-
         QQC2.Button {
-            text: i18nc("@action:button", "Leave Room")
-            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+            text: i18nc("@action:button Leave this room/space", "Leave")
             icon.name: "arrow-left-symbolic"
-            onClicked: root.room.forget();
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
 }

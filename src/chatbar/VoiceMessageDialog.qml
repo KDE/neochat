@@ -60,9 +60,11 @@ QQC2.Dialog {
         QQC2.Button {
             text: i18nc("@action:button Send the voice message", "Send")
             icon.name: "document-send"
-            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
-            onClicked: voiceRecorder.send()
             enabled: !voiceRecorder.recording && voiceRecorder.recorder.duration > 0 && voiceRecorder.isSupported
+
+            onClicked: voiceRecorder.send()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
 }

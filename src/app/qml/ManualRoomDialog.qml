@@ -4,6 +4,7 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -24,6 +25,8 @@ Kirigami.Dialog {
     signal roomSelected(string roomId, string displayName, url avatarUrl, string alias, string topic, int memberCount, bool isJoined)
 
     title: i18nc("@title", "Manually Enter a Room")
+    showCloseButton: false
+    standardButtons: QQC2.Dialog.Cancel
 
     width: Math.min(root.Window.window.width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
@@ -31,35 +34,26 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
-            enabled: roomIdAliasText.isValidText
-            text: i18n("OK")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                // We don't necessarily have all the info so fill out the best we can.
-                let roomId = roomIdAliasText.isAlias() ? "" : roomIdAliasText.text;
-                let displayName = "";
-                let avatarUrl = "";
-                let alias = roomIdAliasText.isAlias() ? roomIdAliasText.text : "";
-                let topic = "";
-                let memberCount = -1;
-                let isJoined = false;
-                if (roomIdAliasText.room) {
-                    roomId = roomIdAliasText.room.id;
-                    displayName = roomIdAliasText.room.displayName;
-                    avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : "";
-                    alias = roomIdAliasText.room.canonicalAlias;
-                    topic = roomIdAliasText.room.topic;
-                    memberCount = roomIdAliasText.room.joinedCount;
-                    isJoined = true;
-                }
-                root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
-                root.close();
-            }
+    onAccepted: {
+        // We don't necessarily have all the info so fill out the best we can.
+        let roomId = roomIdAliasText.isAlias() ? "" : roomIdAliasText.text;
+        let displayName = "";
+        let avatarUrl = "";
+        let alias = roomIdAliasText.isAlias() ? roomIdAliasText.text : "";
+        let topic = "";
+        let memberCount = -1;
+        let isJoined = false;
+        if (roomIdAliasText.room) {
+            roomId = roomIdAliasText.room.id;
+            displayName = roomIdAliasText.room.displayName;
+            avatarUrl = roomIdAliasText.room.avatarUrl.toString().length > 0 ? connection.makeMediaUrl(roomIdAliasText.room.avatarUrl) : "";
+            alias = roomIdAliasText.room.canonicalAlias;
+            topic = roomIdAliasText.room.topic;
+            memberCount = roomIdAliasText.room.joinedCount;
+            isJoined = true;
         }
-    ]
+        root.roomSelected(roomId, displayName, avatarUrl, alias, topic, memberCount, isJoined);
+    }
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -109,5 +103,17 @@ Kirigami.Dialog {
     onVisibleChanged: {
         roomIdAliasText.forceActiveFocus();
         timer.restart();
+    }
+
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
+            text: i18nc("@action:button Join this room/space", "Join")
+            icon.name: "checkmark"
+            enabled: roomIdAliasText.isValidText
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+        }
     }
 }

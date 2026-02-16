@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -20,22 +21,27 @@ Kirigami.Dialog {
 
     title: i18nc("@title", "Create a Space")
     implicitWidth: Kirigami.Units.gridUnit * 20
-    standardButtons: Kirigami.Dialog.Cancel
+    showCloseButton: false
+    standardButtons: QQC2.Dialog.Cancel
 
     Component.onCompleted: roomNameField.forceActiveFocus()
 
-    customFooterActions: [
-        Kirigami.Action {
+    onAccepted: {
+        root.connection.createSpace(roomNameField.text, "", root.parentId, newOfficialCheck.checked);
+        root.newChild(roomNameField.text);
+    }
+
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
             icon.name: "list-add-symbolic"
             text: i18nc("@action:button Create new space", "Create")
             enabled: roomNameField.text.length > 0
-            onTriggered: {
-                root.connection.createSpace(roomNameField.text, "", root.parentId, newOfficialCheck.checked);
-                root.newChild(roomNameField.text);
-                root.close();
-            }
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
-    ]
+    }
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing

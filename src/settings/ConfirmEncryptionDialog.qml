@@ -14,23 +14,19 @@ Kirigami.PromptDialog {
     title: i18nc("@title:dialog", "Activate Encryption")
     subtitle: i18n("It will not be possible to deactivate the encryption after it is enabled.")
     dialogType: Kirigami.PromptDialog.Warning
+    standardButtons: QQC2.Dialog.Cancel
 
     property NeoChatRoom room
 
-    onRejected: {
-        root.close();
-    }
+    onAccepted: root.room.activateEncryption()
 
     footer: QQC2.DialogButtonBox {
-        standardButtons: QQC2.Dialog.Cancel
-
         QQC2.Button {
             text: i18n("Activate Encryption")
+
+            onClicked: root.accept()
+
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
-            onClicked: {
-                root.room.activateEncryption();
-                root.close();
-            }
         }
     }
 }

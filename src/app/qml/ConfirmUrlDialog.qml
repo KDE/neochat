@@ -17,12 +17,5 @@ Kirigami.PromptDialog {
 
     standardButtons: QQC2.DialogButtonBox.Open | QQC2.DialogButtonBox.Cancel
 
-    onAccepted: {
-        Qt.openUrlExternally(root.link);
-        root.close();
-    }
-
-    onRejected: {
-        root.close();
-    }
+    onAccepted: Qt.openUrlExternally(root.link)
 }

@@ -23,6 +23,8 @@ Kirigami.Dialog {
     required property NeoChatRoom room
 
     title: i18nc("@title", "Select new official parent")
+    showCloseButton: false
+    standardButtons: QQC2.Dialog.Cancel
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
@@ -30,18 +32,7 @@ Kirigami.Dialog {
     topPadding: 0
     bottomPadding: 0
 
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
-            enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
-            text: i18n("OK")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked);
-                root.close();
-            }
-        }
-    ]
+    onAccepted: root.room.addParent(chosenRoomDelegate.roomId, makeCanonicalCheck.checked, existingOfficialCheck.checked);
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -170,6 +161,18 @@ Kirigami.Dialog {
             checked: enabled
 
             enabled: chosenRoomDelegate.visible
+        }
+    }
+
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
+            enabled: chosenRoomDelegate.visible && root.room.canModifyParent(chosenRoomDelegate.roomId)
+            text: i18nc("@action:button", "Ok")
+            icon.name: "dialog-ok"
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
         }
     }
 }

@@ -24,25 +24,16 @@ Kirigami.Dialog {
     signal userSelected(string userId)
 
     title: i18nc("@title", "User ID")
+    showCloseButton: false
 
     width: Math.min(QQC2.ApplicationWindow.window.width, Kirigami.Units.gridUnit * 24)
     leftPadding: 0
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
+    standardButtons: QQC2.Dialog.Cancel
 
-    standardButtons: Kirigami.Dialog.Cancel
-    customFooterActions: [
-        Kirigami.Action {
-            enabled: userIdText.isValidText
-            text: i18n("OK")
-            icon.name: "dialog-ok"
-            onTriggered: {
-                root.userSelected(userIdText.text)
-                root.accept();
-            }
-        }
-    ]
+    onAccepted: root.userSelected(userIdText.text)
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -78,5 +69,17 @@ Kirigami.Dialog {
     onVisibleChanged: {
         userIdText.forceActiveFocus();
         timer.restart();
+    }
+
+    footer: QQC2.DialogButtonBox {
+        QQC2.Button {
+            text: i18nc("@action:button Perform an action with this user ID", "Ok")
+            icon.name: "checkmark"
+            enabled: userIdText.isValidText
+
+            onClicked: root.accept()
+
+            QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
+        }
     }
 }

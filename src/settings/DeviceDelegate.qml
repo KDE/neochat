@@ -154,16 +154,21 @@ FormCard.AbstractFormDelegate {
             label: i18n("Password:")
             echoMode: TextInput.Password
         }
-        customFooterActions: [
-            Kirigami.Action {
+
+        onAccepted: {
+            root.devicesModel.logout(passwordSheet.deviceId, passwordField.text);
+            passwordField.text = "";
+        }
+
+        footer: QQC2.DialogButtonBox {
+            QQC2.Button {
                 text: i18nc("@action:button As in 'Remove this device'", "Remove")
                 icon.name: "delete"
-                onTriggered: {
-                    root.devicesModel.logout(passwordSheet.deviceId, passwordField.text);
-                    passwordField.text = "";
-                    passwordSheet.close();
-                }
+
+                onClicked: passwordSheet.close()
+
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             }
-        ]
+        }
     }
 }
