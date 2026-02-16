@@ -571,6 +571,9 @@ void ChatBarMessageContentModel::handleBlockTransition(bool up)
         setFocusRow(insertRow);
         return;
     }
+    if (atEdge) {
+        return;
+    }
 
     const auto nextRow = currentRow + (up ? -1 : 1);
     const auto nextNotText = m_components[nextRow].type != MessageComponentType::Text;
