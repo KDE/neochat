@@ -15,7 +15,8 @@
 #include "neochatroom.h"
 
 ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
-    : QConcatenateTablesProxyModel(room)
+    : QConcatenateTablesProxyModel()
+    , m_room(room)
     , m_threadRootId(threadRootId)
     , m_threadFetchModel(new ThreadFetchModel(this))
     , m_threadChatBarModel(new ThreadChatBarModel(this, room))
@@ -51,12 +52,7 @@ ThreadModel::ThreadModel(const QString &threadRootId, NeoChatRoom *room)
 
 void ThreadModel::checkPending()
 {
-    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-    if (room == nullptr) {
-        return;
-    }
-
-    for (auto i = room->pendingEvents().rbegin(); i != room->pendingEvents().rend(); i++) {
+    for (auto i = m_room->pendingEvents().rbegin(); i != m_room->pendingEvents().rend(); i++) {
         if (const auto roomMessageEvent = eventCast<const Quotient::RoomMessageEvent>(i->event());
             roomMessageEvent->isThreaded() && roomMessageEvent->threadRootEventId() == m_threadRootId) {
             addNewEvent(roomMessageEvent);
@@ -83,9 +79,8 @@ bool ThreadModel::moreEventsAvailable(const QModelIndex &parent) const
 void ThreadModel::fetchMoreEvents(int max)
 {
     if (!m_currentJob && m_nextBatch.has_value()) {
-        const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-        const auto connection = room->connection();
-        m_currentJob = connection->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), max);
+        m_currentJob =
+            m_room->connection()->callApi<Quotient::GetRelatingEventsWithRelTypeJob>(m_room->id(), m_threadRootId, u"m.thread"_s, *m_nextBatch, QString(), max);
         Q_EMIT moreEventsAvailableChanged();
         connect(m_currentJob, &Quotient::BaseJob::success, this, [this]() {
             auto newEvents = m_currentJob->chunk();
@@ -130,15 +125,11 @@ void ThreadModel::addModels()
         clearModels();
     }
 
-    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-    if (room == nullptr) {
-        return;
-    }
     addSourceModel(m_threadFetchModel);
     for (auto it = m_events.crbegin(); it != m_events.crend(); ++it) {
-        const auto contentModel = ContentProvider::self().contentModelForEvent(room, *it);
+        const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, *it);
         if (contentModel != nullptr) {
-            addSourceModel(ContentProvider::self().contentModelForEvent(room, *it));
+            addSourceModel(contentModel);
         }
     }
     addSourceModel(m_threadChatBarModel);
@@ -149,13 +140,9 @@ void ThreadModel::addModels()
 
 void ThreadModel::clearModels()
 {
-    const auto room = dynamic_cast<NeoChatRoom *>(QObject::parent());
-    if (room == nullptr) {
-        return;
-    }
     removeSourceModel(m_threadFetchModel);
     for (const auto &model : m_events) {
-        const auto contentModel = ContentProvider::self().contentModelForEvent(room, model);
+        const auto contentModel = ContentProvider::self().contentModelForEvent(m_room, model);
         if (sourceModels().contains(contentModel)) {
             removeSourceModel(contentModel);
         }

@@ -164,6 +164,8 @@ Q_SIGNALS:
     void moreEventsAvailableChanged();
 
 private:
+    QPointer<NeoChatRoom> m_room;
+
     QString m_threadRootId;
     QPointer<MessageContentModel> m_threadRootContentModel;
 

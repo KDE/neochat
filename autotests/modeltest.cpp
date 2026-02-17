@@ -194,21 +194,23 @@ void ModelTest::testEventMessageContentModel()
 
 void ModelTest::testThreadModel()
 {
-    auto model = new ThreadModel(eventId, room);
-    auto tester = new QAbstractItemModelTester(model, model);
+    auto model = std::make_unique<ThreadModel>(eventId, room);
+    auto tester = new QAbstractItemModelTester(model.get(), model.get());
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadFetchModel()
 {
-    auto model = new ThreadFetchModel(new ThreadModel(eventId, room));
+    auto threadModel = std::make_unique<ThreadModel>(eventId, room);
+    auto model = new ThreadFetchModel(threadModel.get());
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
 
 void ModelTest::testThreadChatBarModel()
 {
-    auto model = new ThreadChatBarModel(new ThreadModel(eventId, room), room);
+    auto threadModel = std::make_unique<ThreadModel>(eventId, room);
+    auto model = new ThreadChatBarModel(threadModel.get(), room);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
 }
