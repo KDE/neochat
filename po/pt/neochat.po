@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-28 02:42+0000\n"
+"POT-Creation-Date: 2026-02-17 02:39+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -575,7 +575,7 @@ msgid "Explore Rooms"
 msgstr "Explorar as Salas"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
+#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:244
 #: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -1144,45 +1144,45 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:95
+#: src/app/qml/RoomPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:156
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:167
 #, fuzzy, kde-format
 #| msgid "NeoChat is offline. Please check your network connection."
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
 
-#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/RoomPage.qml:227 src/roominfo/RoomInformation.qml:182
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, fuzzy, kde-format
 #| msgid "Direct Messages"
@@ -1190,21 +1190,21 @@ msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "Mensagens Directas"
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:300
 #, fuzzy, kde-format
 #| msgid "Welcome to Matrix"
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "Bem-vindo ao Matrix"
 
-#: src/app/qml/RoomPage.qml:295
+#: src/app/qml/RoomPage.qml:301
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Junte-se a algumas salas para começar"
 
-#: src/app/qml/RoomPage.qml:356
+#: src/app/qml/RoomPage.qml:365
 #, fuzzy, kde-format
 #| msgid "Message Source"
 msgctxt "@title:dialog"
@@ -4544,7 +4544,7 @@ msgid "Find your friends"
 msgstr ""
 
 #: src/rooms/ExploreComponent.qml:99 src/rooms/ExploreComponentMobile.qml:72
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -4592,14 +4592,14 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Criar um Espaço"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:369
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Abrir uma conversa privada"
 
-#: src/rooms/models/roomtreemodel.cpp:368
+#: src/rooms/models/roomtreemodel.cpp:371
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info:label"
@@ -4708,68 +4708,68 @@ msgstr "Sala em silêncio"
 msgid "Configure room"
 msgstr "Configurar a sala"
 
-#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:229
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info"
 msgid "No friends found"
 msgstr "Não foram encontradas salas"
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:229
 #, fuzzy, kde-format
 #| msgid "No rooms found"
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "Não foram encontradas salas"
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr ""
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:231
 #, fuzzy, kde-format
 #| msgid "Join some rooms to get started"
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "Junte-se a algumas salas para começar"
 
-#: src/rooms/RoomListPage.qml:225
+#: src/rooms/RoomListPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgctxt "@action"
 msgid "Search in room directory"
 msgstr "Procurar na lista de salas"
 
-#: src/rooms/RoomListPage.qml:225
+#: src/rooms/RoomListPage.qml:238
 #, fuzzy, kde-format
 #| msgid "Explore rooms"
 msgctxt "@action"
 msgid "Explore rooms"
 msgstr "Explorar as salas"
 
-#: src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:255
 #, fuzzy, kde-format
 #| msgid "Search in room directory"
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Procurar na lista de salas"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:73
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -4910,7 +4910,7 @@ msgstr ""
 
 #: src/settings/AccountEditorPage.qml:141
 #: src/settings/AccountEditorPage.qml:197
-#: src/settings/EmoticonEditorPage.qml:108
+#: src/settings/EmoticonEditorPage.qml:113
 #, kde-format
 msgid "Save"
 msgstr "Gravar"
@@ -5377,22 +5377,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "Emoji"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "Modificar a Imagem"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "Definir uma Imagem"
 
-#: src/settings/EmoticonEditorPage.qml:98
+#: src/settings/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
 msgstr "Código curto:"
 
-#: src/settings/EmoticonEditorPage.qml:103
+#: src/settings/EmoticonEditorPage.qml:106
 #, kde-format
 msgid "Description:"
 msgstr "Descrição:"

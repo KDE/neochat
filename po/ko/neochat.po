@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-28 02:42+0000\n"
+"POT-Creation-Date: 2026-02-17 02:39+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -524,7 +524,7 @@ msgid "Explore Rooms"
 msgstr "대화방 탐색"
 
 #: src/app/qml/GlobalMenu.qml:54 src/app/qml/QuickSwitcher.qml:40
-#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:231
+#: src/rooms/ExploreComponentMobile.qml:56 src/rooms/RoomListPage.qml:244
 #: src/rooms/SpaceDrawer.qml:301 src/settings/SelectParentDialog.qml:142
 #: src/spaces/SelectExistingRoomDialog.qml:44
 #: src/spaces/SelectExistingRoomDialog.qml:127
@@ -1042,64 +1042,64 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "무시"
 
-#: src/app/qml/RoomPage.qml:95
+#: src/app/qml/RoomPage.qml:101
 #, kde-format
 msgctxt "@action:button"
 msgid "Join Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Jitsi meeting…"
 msgstr ""
 
-#: src/app/qml/RoomPage.qml:98
+#: src/app/qml/RoomPage.qml:104
 #, fuzzy, kde-format
 #| msgid "You do not have the privileges to complete this action"
 msgctxt "@action:button"
 msgid "You do not have permissions to start Jitsi meetings"
 msgstr "이 작업을 수행하기에 충분한 권한이 없음"
 
-#: src/app/qml/RoomPage.qml:137 src/app/qml/UserDetailDialog.qml:285
+#: src/app/qml/RoomPage.qml:143 src/app/qml/UserDetailDialog.qml:285
 #: src/roominfo/RoomInformation.qml:109
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "검색"
 
-#: src/app/qml/RoomPage.qml:150
+#: src/app/qml/RoomPage.qml:156
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
 msgstr "이 대화방에는 홈 서버에서 전송한 공식 메시지가 포함되어 있습니다."
 
-#: src/app/qml/RoomPage.qml:161
+#: src/app/qml/RoomPage.qml:167
 #, kde-format
 msgctxt "@info:status"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
 
-#: src/app/qml/RoomPage.qml:221 src/roominfo/RoomInformation.qml:182
+#: src/app/qml/RoomPage.qml:227 src/roominfo/RoomInformation.qml:182
 #: src/roominfo/RoomPinnedMessagesPage.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
-#: src/app/qml/RoomPage.qml:294
+#: src/app/qml/RoomPage.qml:300
 #, kde-format
 msgctxt "@title"
 msgid "Welcome to NeoChat"
 msgstr "NeoChat에 오신 것을 환영합니다"
 
-#: src/app/qml/RoomPage.qml:295
+#: src/app/qml/RoomPage.qml:301
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "시작하려면 대화방을 선택하거나 입장하십시오"
 
-#: src/app/qml/RoomPage.qml:356
+#: src/app/qml/RoomPage.qml:365
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Message Source"
@@ -4163,7 +4163,7 @@ msgid "Find your friends"
 msgstr "친구 찾기"
 
 #: src/rooms/ExploreComponent.qml:99 src/rooms/ExploreComponentMobile.qml:72
-#: src/rooms/RoomListPage.qml:190 src/rooms/RoomListPage.qml:246
+#: src/rooms/RoomListPage.qml:203 src/rooms/RoomListPage.qml:259
 #, kde-format
 msgctxt "@title"
 msgid "Find your friends"
@@ -4206,13 +4206,13 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "스페이스 만들기"
 
-#: src/rooms/models/roomtreemodel.cpp:366
+#: src/rooms/models/roomtreemodel.cpp:369
 #, kde-format
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "채팅에 초대함"
 
-#: src/rooms/models/roomtreemodel.cpp:368
+#: src/rooms/models/roomtreemodel.cpp:371
 #, kde-format
 msgctxt "@info:label"
 msgid "%1 invited you"
@@ -4312,62 +4312,62 @@ msgstr "대화방 음소거됨"
 msgid "Configure room"
 msgstr "대화방 설정"
 
-#: src/rooms/RoomListPage.qml:182 src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:195 src/rooms/RoomListPage.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Find your friends"
 msgstr "친구 찾기"
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No friends found"
 msgstr "친구를 찾을 수 없음"
 
-#: src/rooms/RoomListPage.qml:216
+#: src/rooms/RoomListPage.qml:229
 #, kde-format
 msgctxt "@info"
 msgid "No rooms found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
 msgstr "친구를 추가하지 않았습니다. 아래를 클릭하여 검색할 수 있습니다."
 
-#: src/rooms/RoomListPage.qml:218
+#: src/rooms/RoomListPage.qml:231
 #, kde-format
 msgctxt "@info"
 msgid "Join some rooms to get started"
 msgstr "시작하려면 대화방에 입장하십시오"
 
-#: src/rooms/RoomListPage.qml:225
+#: src/rooms/RoomListPage.qml:238
 #, kde-format
 msgctxt "@action"
 msgid "Search in room directory"
 msgstr "대화방 디렉터리에서 검색"
 
-#: src/rooms/RoomListPage.qml:225
+#: src/rooms/RoomListPage.qml:238
 #, kde-format
 msgctxt "@action"
 msgid "Explore rooms"
 msgstr "대화방 탐색"
 
-#: src/rooms/RoomListPage.qml:242
+#: src/rooms/RoomListPage.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "친구 디렉터리에서 검색"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "%1 접기"
 
-#: src/rooms/RoomTreeSection.qml:61
+#: src/rooms/RoomTreeSection.qml:73
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -4497,7 +4497,7 @@ msgstr "직장"
 
 #: src/settings/AccountEditorPage.qml:141
 #: src/settings/AccountEditorPage.qml:197
-#: src/settings/EmoticonEditorPage.qml:108
+#: src/settings/EmoticonEditorPage.qml:113
 #, kde-format
 msgid "Save"
 msgstr "저장"
@@ -4929,22 +4929,22 @@ msgctxt "@info:group"
 msgid "Emoji"
 msgstr "이모지"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Change Image"
 msgstr "그림 변경"
 
-#: src/settings/EmoticonEditorPage.qml:59
+#: src/settings/EmoticonEditorPage.qml:61
 #, kde-format
 msgid "Set Image"
 msgstr "이미지 설정"
 
-#: src/settings/EmoticonEditorPage.qml:98
+#: src/settings/EmoticonEditorPage.qml:100
 #, kde-format
 msgid "Shortcode:"
 msgstr "단축 코드:"
 
-#: src/settings/EmoticonEditorPage.qml:103
+#: src/settings/EmoticonEditorPage.qml:106
 #, kde-format
 msgid "Description:"
 msgstr "설명:"
