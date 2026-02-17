@@ -100,7 +100,7 @@ public:
     bool recommendedSpaceHidden() const;
     void setRecommendedSpaceHidden(bool hidden);
 
-    void markAllChildrenMessagesAsRead(const QString &spaceId);
+    void markAllChildrenMessagesAsRead(const QString &spaceId, bool sendPublicReceipts);
 
 Q_SIGNALS:
     void spaceHierarchyChanged();

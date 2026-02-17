@@ -45,7 +45,7 @@ KirigamiComponents.ConvergentContextMenu {
         icon.name: "checkmark"
         enabled: root.room.spaceHasUnreadMessages
         onTriggered: {
-            root.room.markAllChildrenMessagesAsRead();
+            root.room.markAllChildrenMessagesAsRead(NeoChatConfig.publicReadReceipts);
         }
     }
 
