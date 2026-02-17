@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"POT-Creation-Date: 2026-02-17 00:44+0000\n"
 "PO-Revision-Date: 2024-10-27 15:01+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -388,10 +388,12 @@ msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr "Er du sikker på at du vil forlata %1?"
 
-#: src/app/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
+#: src/app/qml/ConfirmLeaveDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave Room"
+msgctxt "@action:button Leave this room/space"
+msgid "Leave"
 msgstr "Forlat rommet"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
@@ -405,7 +407,7 @@ msgstr "Logg ut"
 msgid "Are you sure you want to sign out?"
 msgstr "Er du sikker på at du vil logga ut?"
 
-#: src/app/qml/ConfirmLogoutDialog.qml:27
+#: src/app/qml/ConfirmLogoutDialog.qml:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
@@ -488,7 +490,7 @@ msgid "Space"
 msgstr "Rom"
 
 # Vert vist som info for alle rom/kanalar ein (no) er med i. Passar derfor betre med «Er med» enn «Vart med».
-#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:106
+#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:97
 #: src/spaces/SelectExistingRoomDialog.qml:93
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -765,32 +767,34 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Del"
 
-#: src/app/qml/ManualRoomDialog.qml:26
+#: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
 msgstr ""
 
-#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "OK"
-
-#: src/app/qml/ManualRoomDialog.qml:81
+#: src/app/qml/ManualRoomDialog.qml:75
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "Rom-ID/-alias:"
 
-#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#: src/app/qml/ManualRoomDialog.qml:78 src/app/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Må starta med # for eit alias eller ! for ein ID"
 
-#: src/app/qml/ManualRoomDialog.qml:90
+#: src/app/qml/ManualRoomDialog.qml:84
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "Teksten er ikkje ein gyldig rom-ID eller eit gyldig rom-alias"
+
+#: src/app/qml/ManualRoomDialog.qml:110
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join this room/space"
+msgid "Join"
+msgstr "Vert med"
 
 #: src/app/qml/ManualUserDialog.qml:26
 #, kde-format
@@ -798,28 +802,34 @@ msgctxt "@title"
 msgid "User ID"
 msgstr "Brukar-ID"
 
-#: src/app/qml/ManualUserDialog.qml:54
+#: src/app/qml/ManualUserDialog.qml:45
 #, kde-format
 msgid "User ID:"
 msgstr "Brukar-ID:"
 
-#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#: src/app/qml/ManualUserDialog.qml:48 src/app/qml/ManualUserDialog.qml:56
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "Brukar-ID-ar må starta med @"
 
-#: src/app/qml/ManualUserDialog.qml:63
+#: src/app/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "Teksten er ikkje ein gyldig brukar-ID"
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/ManualUserDialog.qml:76
+#, kde-format
+msgctxt "@action:button Perform an action with this user ID"
+msgid "Ok"
+msgstr ""
+
+#: src/app/qml/MeetingDialog.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
 msgstr ""
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/MeetingDialog.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start Chat"
@@ -827,19 +837,19 @@ msgctxt "@title"
 msgid "Start Meeting"
 msgstr "Start prat"
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Join"
@@ -847,7 +857,7 @@ msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Vert med"
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start Chat"
@@ -1797,23 +1807,23 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr ""
 
-#: src/app/roommanager.cpp:235
+#: src/app/roommanager.cpp:226
 #, fuzzy, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr "%1 er ikkje ein gyldig Matrix-identifikator"
 
-#: src/app/roommanager.cpp:437
+#: src/app/roommanager.cpp:428
 #, fuzzy, kde-format
 #| msgid "Failed to join room<br />%1"
 msgid "Failed to join %1:<br />%2"
 msgstr "Klarte ikkje verta med i rommet<br />%1"
 
-#: src/app/roommanager.cpp:461
+#: src/app/roommanager.cpp:452
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du har bedt om å få verta med i «%1»"
 
-#: src/app/roommanager.cpp:465
+#: src/app/roommanager.cpp:456
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Klarte ikkje be om å få verta med i rommet<br />%1"
@@ -1979,77 +1989,77 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Posisjonar"
 
-#: src/chatbar/NewPollDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr ""
-
-#: src/chatbar/NewPollDialog.qml:37
+#: src/chatbar/NewPollDialog.qml:23
 #, fuzzy, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "Opprett rom"
 
-#: src/chatbar/NewPollDialog.qml:45
+#: src/chatbar/NewPollDialog.qml:35
 #, kde-format
 msgctxt "@label"
 msgid "Poll type:"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:40
 #, fuzzy, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "Opna fil"
 
-#: src/chatbar/NewPollDialog.qml:51
+#: src/chatbar/NewPollDialog.qml:41
 #, fuzzy, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Lukk"
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:60
+#: src/chatbar/NewPollDialog.qml:50
 #, fuzzy, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "Skildring:"
 
-#: src/chatbar/NewPollDialog.qml:103
+#: src/chatbar/NewPollDialog.qml:93
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr ""
 
-#: src/chatbar/NewPollDialog.qml:119
+#: src/chatbar/NewPollDialog.qml:109
 #, fuzzy, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Kryptering"
 
-#: src/chatbar/NewPollDialog.qml:123
+#: src/chatbar/NewPollDialog.qml:113
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Fjern overområde"
 
-#: src/chatbar/NewPollDialog.qml:146
+#: src/chatbar/NewPollDialog.qml:136
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Add option"
 msgstr "Legg til emoji"
+
+#: src/chatbar/NewPollDialog.qml:145
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr ""
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -2058,7 +2068,7 @@ msgctxt "@action:button"
 msgid "Underline"
 msgstr "Avvis"
 
-#: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
+#: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
@@ -2122,26 +2132,34 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
+# Namn på «send»-knappen i skrivefeltet.
+#: src/chatbar/SendBar.qml:102
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Add to message"
+msgstr "Send meldinga"
+
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Legg ved bilete eller fil"
 
-#: src/chatbar/SendBar.qml:134 src/chatbar/SendBar.qml:171
+#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Send geografisk posisjon"
 
-#: src/chatbar/SendBar.qml:139 src/chatbar/SendBar.qml:183
+#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Opprett rom"
 
-#: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
+#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@action:button"
@@ -2149,14 +2167,14 @@ msgid "Send a Voice Message"
 msgstr "Send ei melding …"
 
 # Namn på «send»-knappen i skrivefeltet.
-#: src/chatbar/SendBar.qml:204
+#: src/chatbar/SendBar.qml:209
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Send meldinga"
 
-#: src/chatbar/SendBar.qml:216 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:221 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2340,13 +2358,7 @@ msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Funksjonsflagg"
 
-#: src/devtools/FeatureFlagPage.qml:19
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr "Trådar"
-
-#: src/devtools/FeatureFlagPage.qml:25
+#: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -2354,7 +2366,7 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Legg til telefonnummer som 3PID-ar"
 
-#: src/devtools/FeatureFlagPage.qml:34
+#: src/devtools/FeatureFlagPage.qml:27
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -3586,68 +3598,68 @@ msgstr "%1 vart kasta ut av rommet."
 msgid "Removes the user from the room"
 msgstr "Fjernar brukaren frå rommet"
 
-#: src/libneochat/models/emojimodel.cpp:157
-#: src/libneochat/models/emojimodel.cpp:215
+#: src/libneochat/models/emojimodel.cpp:169
+#: src/libneochat/models/emojimodel.cpp:227
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Logg"
 
-#: src/libneochat/models/emojimodel.cpp:162
+#: src/libneochat/models/emojimodel.cpp:174
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Fjesingar"
 
-#: src/libneochat/models/emojimodel.cpp:167
+#: src/libneochat/models/emojimodel.cpp:179
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Folk"
 
-#: src/libneochat/models/emojimodel.cpp:172
+#: src/libneochat/models/emojimodel.cpp:184
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Natur"
 
-#: src/libneochat/models/emojimodel.cpp:177
+#: src/libneochat/models/emojimodel.cpp:189
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Mat"
 
-#: src/libneochat/models/emojimodel.cpp:182
+#: src/libneochat/models/emojimodel.cpp:194
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktivitetar"
 
-#: src/libneochat/models/emojimodel.cpp:187
+#: src/libneochat/models/emojimodel.cpp:199
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Reiseliv"
 
-#: src/libneochat/models/emojimodel.cpp:192
+#: src/libneochat/models/emojimodel.cpp:204
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Gjenstandar"
 
-#: src/libneochat/models/emojimodel.cpp:197
+#: src/libneochat/models/emojimodel.cpp:209
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Symbol"
 
-#: src/libneochat/models/emojimodel.cpp:202
+#: src/libneochat/models/emojimodel.cpp:214
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Flagg"
 
-#: src/libneochat/models/emojimodel.cpp:221
+#: src/libneochat/models/emojimodel.cpp:233
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -3706,7 +3718,7 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Breiddegr.: %1 – lengdegr.: %2"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:21
+#: src/libneochat/qml/CreateRoomDialog.qml:22
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Create Room"
@@ -3714,26 +3726,26 @@ msgctxt "@title"
 msgid "Create Room"
 msgstr "Opprett rom"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:28
+#: src/libneochat/qml/CreateRoomDialog.qml:35
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create new room"
 msgid "Create"
 msgstr "Lag ny"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:45
+#: src/libneochat/qml/CreateRoomDialog.qml:51
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
 msgstr ""
 
-#: src/libneochat/qml/CreateRoomDialog.qml:46
+#: src/libneochat/qml/CreateRoomDialog.qml:52
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
 msgstr ""
 
-#: src/libneochat/qml/CreateRoomDialog.qml:52
+#: src/libneochat/qml/CreateRoomDialog.qml:58
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Public"
@@ -3741,27 +3753,27 @@ msgctxt "@info:label"
 msgid "Public"
 msgstr "Offentleg"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:53
+#: src/libneochat/qml/CreateRoomDialog.qml:59
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
 msgstr ""
 
-#: src/libneochat/qml/CreateRoomDialog.qml:60
+#: src/libneochat/qml/CreateRoomDialog.qml:66
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:61
+#: src/libneochat/qml/CreateRoomDialog.qml:67
 #, fuzzy, kde-format
 #| msgid "Leave Room"
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
 msgstr "Forlat rommet"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:66
+#: src/libneochat/qml/CreateRoomDialog.qml:72
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "New Email Address:"
@@ -3769,7 +3781,7 @@ msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
 msgstr "Ny e-postadresse:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:67
+#: src/libneochat/qml/CreateRoomDialog.qml:73
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Add new room"
@@ -3777,27 +3789,27 @@ msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
 msgstr "Legg til nytt rom"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:21
+#: src/libneochat/qml/CreateSpaceDialog.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Opprett område"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:30
+#: src/libneochat/qml/CreateSpaceDialog.qml:37
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@action:button Create new space"
 msgid "Create"
 msgstr "Lag ny"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:45
+#: src/libneochat/qml/CreateSpaceDialog.qml:51
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:46
+#: src/libneochat/qml/CreateSpaceDialog.qml:52
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "View Space"
@@ -3805,7 +3817,7 @@ msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Vis område"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:58
+#: src/libneochat/qml/CreateSpaceDialog.qml:64
 #: src/spaces/SelectExistingRoomDialog.qml:147
 #, kde-format
 msgctxt ""
@@ -4293,19 +4305,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Send til KDE Itinerary"
 
-#: src/messagecontent/LinkPreviewComponent.qml:141
+#: src/messagecontent/LinkPreviewComponent.qml:140
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Fjern førehandsvising"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Shrink preview"
 msgstr "Krymp førehandsvising"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Expand preview"
 msgstr "Utvid førehandsvising"
@@ -4321,7 +4333,7 @@ msgid "Loading URL preview"
 msgstr "Lastar førehandsvising av nettside"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info Loading this message"
@@ -4342,7 +4354,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Start fullskjermsmodus"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4352,7 +4364,7 @@ msgstr ""
 "Fann ikkje meldinga, eller så har du ikkje løyve til å visa ho, eller ho var "
 "send av ein ignorert brukar"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, fuzzy, kde-format
 #| msgid "Loading reply"
 msgctxt "@info"
@@ -4436,27 +4448,27 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Svar"
 
-#: src/messagecontent/ReplyComponent.qml:95
+#: src/messagecontent/ReplyComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Avbryt svar"
 
-#: src/messagecontent/TextComponent.qml:109
+#: src/messagecontent/TextComponent.qml:111
 #, fuzzy, kde-format
 #| msgid "Set an attachment caption…"
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Vel vedleggstekst …"
 
-#: src/messagecontent/TextComponent.qml:111
+#: src/messagecontent/TextComponent.qml:113
 #, fuzzy, kde-format
 #| msgid "Send an encrypted message…"
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Send ei kryptert melding …"
 
-#: src/messagecontent/TextComponent.qml:113
+#: src/messagecontent/TextComponent.qml:115
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@placeholder"
@@ -5404,25 +5416,25 @@ msgstr ""
 "Matrix-ID-en din vert ikkje tilgjengeleg for nye kontoar.\n"
 "Meldingane dine vert verande tilgjengeleg."
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#: src/settings/ConfirmDeactivateAccountDialog.qml:28
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Passord"
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#: src/settings/ConfirmDeactivateAccountDialog.qml:36
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
 msgstr ""
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#: src/settings/ConfirmDeactivateAccountDialog.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr ""
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#: src/settings/ConfirmDeactivateAccountDialog.qml:44
 #, kde-format
 msgid "Deactivate account"
 msgstr "Deaktiver konto"
@@ -5439,7 +5451,7 @@ msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "Det er ikkje mogleg å slå av krypteringa etter at ho er slått på."
 
-#: src/settings/ConfirmEncryptionDialog.qml:28
+#: src/settings/ConfirmEncryptionDialog.qml:25
 #, kde-format
 msgid "Activate Encryption"
 msgstr "Slå på kryptering"
@@ -5499,7 +5511,7 @@ msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "Fjern eininga"
 
-#: src/settings/DeviceDelegate.qml:159
+#: src/settings/DeviceDelegate.qml:165
 #, fuzzy, kde-format
 #| msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 #| msgid "Remove"
@@ -7328,44 +7340,50 @@ msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Vel nytt offisielt overområde"
 
-#: src/settings/SelectParentDialog.qml:50
+#: src/settings/SelectParentDialog.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Vel rom"
 
-#: src/settings/SelectParentDialog.qml:57
+#: src/settings/SelectParentDialog.qml:48
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Vel overområde"
 
-#: src/settings/SelectParentDialog.qml:157
+#: src/settings/SelectParentDialog.qml:148
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Vel rommet som underrom av området %1"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
 msgstr ""
 "Du har ikkje nødvendige løyve i overområdet til å velja denne tilstanden"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "Den valde rommet er ikkje eit område"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Du har ikkje løyve til å utføra denne handlinga"
 
-#: src/settings/SelectParentDialog.qml:169
+#: src/settings/SelectParentDialog.qml:160
 #, kde-format
 msgid "Make this space the canonical parent"
 msgstr "Gjer dette rommet til kanonisk overområde"
+
+#: src/settings/SelectParentDialog.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr ""
 
 #: src/settings/SelectSpacesDialog.qml:37
 #, kde-format
@@ -8016,6 +8034,13 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgctxt "@option:check Enable the matrix 'threads' feature"
+#~ msgid "Threads"
+#~ msgstr "Trådar"
 
 #~ msgctxt "@action:button"
 #~ msgid "Confirm edit"

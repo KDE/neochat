@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"POT-Creation-Date: 2026-02-17 00:44+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -378,10 +378,12 @@ msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr "Vai tiešām vēlaties pamest „%1“?"
 
-#: src/app/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
+#: src/app/qml/ConfirmLeaveDialog.qml:25
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Leave Room"
+msgctxt "@action:button Leave this room/space"
+msgid "Leave"
 msgstr "Pamest istabu"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
@@ -395,7 +397,7 @@ msgstr "Izrakstīties"
 msgid "Are you sure you want to sign out?"
 msgstr "Vai tiešām vēlaties izrakstīties?"
 
-#: src/app/qml/ConfirmLogoutDialog.qml:27
+#: src/app/qml/ConfirmLogoutDialog.qml:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
@@ -477,7 +479,7 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Telpa"
 
-#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:106
+#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:97
 #: src/spaces/SelectExistingRoomDialog.qml:93
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -738,32 +740,34 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Kopīgot"
 
-#: src/app/qml/ManualRoomDialog.qml:26
+#: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
 msgstr "Manuāli norādiet istabu"
 
-#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "Labi"
-
-#: src/app/qml/ManualRoomDialog.qml:81
+#: src/app/qml/ManualRoomDialog.qml:75
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "Istabas ID vai aizstājējvārds:"
 
-#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#: src/app/qml/ManualRoomDialog.qml:78 src/app/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Aizstājējvārdam jāsākas ar #, bet ID ar !"
 
-#: src/app/qml/ManualRoomDialog.qml:90
+#: src/app/qml/ManualRoomDialog.qml:84
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "Ievadītais nav derīgas istabas ID vai aizstājējvārds"
+
+#: src/app/qml/ManualRoomDialog.qml:110
+#, fuzzy, kde-format
+#| msgctxt "@action:button Join the Jitsi meeting"
+#| msgid "Join"
+msgctxt "@action:button Join this room/space"
+msgid "Join"
+msgstr "Pievienoties"
 
 #: src/app/qml/ManualUserDialog.qml:26
 #, kde-format
@@ -771,52 +775,60 @@ msgctxt "@title"
 msgid "User ID"
 msgstr "Lietotāja ID"
 
-#: src/app/qml/ManualUserDialog.qml:54
+#: src/app/qml/ManualUserDialog.qml:45
 #, kde-format
 msgid "User ID:"
 msgstr "Lietotāja ID:"
 
-#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#: src/app/qml/ManualUserDialog.qml:48 src/app/qml/ManualUserDialog.qml:56
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "Lietotāja ID ir jāsākas ar @"
 
-#: src/app/qml/ManualUserDialog.qml:63
+#: src/app/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "Ievadītais nav derīgs lietotāja ID"
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/ManualUserDialog.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ok"
+msgctxt "@action:button Perform an action with this user ID"
+msgid "Ok"
+msgstr "Labi"
+
+#: src/app/qml/MeetingDialog.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Join Meeting"
 msgstr "Pievienoties sapulcei"
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/MeetingDialog.qml:16
 #, kde-format
 msgctxt "@title"
 msgid "Start Meeting"
 msgstr "Uzsākt sapulci"
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr "Jūs grasāties pievienoties „Jitsi“ sapulcei tīmekļa pārlūkā."
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr "Jūs grasāties uzsākt jaunu „Jitsi“ sapulci savā tīmekļa pārlūkā."
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, kde-format
 msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Pievienoties"
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, kde-format
 msgctxt "@action:button Start a new Jitsi meeting"
 msgid "Start"
@@ -1736,24 +1748,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Pabeigts"
 
-#: src/app/roommanager.cpp:235
+#: src/app/roommanager.cpp:226
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Nepareizi formatēts vai tukšs „Matrix“ identifikators<br /> „%1“ nav pareizs "
 "„Matrix“ identifikators"
 
-#: src/app/roommanager.cpp:437
+#: src/app/roommanager.cpp:428
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Neizdevās pievienoties „%1“<br />%2"
 
-#: src/app/roommanager.cpp:461
+#: src/app/roommanager.cpp:452
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Jūsu lūdzāt pievienoties „%1“"
 
-#: src/app/roommanager.cpp:465
+#: src/app/roommanager.cpp:456
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Neizdevās lūgt pievienoties istabai<br />%1"
@@ -1914,77 +1926,77 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Noteikt vietu"
 
-#: src/chatbar/NewPollDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr "Nosūtīt"
-
-#: src/chatbar/NewPollDialog.qml:37
+#: src/chatbar/NewPollDialog.qml:23
 #, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "Izveidot aptauju"
 
-#: src/chatbar/NewPollDialog.qml:45
+#: src/chatbar/NewPollDialog.qml:35
 #, kde-format
 msgctxt "@label"
 msgid "Poll type:"
 msgstr "Aptaujas tips:"
 
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:40
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "Atvērt aptauju"
 
-#: src/chatbar/NewPollDialog.qml:51
+#: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Aizvērt aptauju"
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr "Balsotāji rezultātus var redzēt uzreiz pēc nobalsošanas"
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr "Rezultāti tiek atklāti tikai pēc aptaujas aizvēršanas"
 
-#: src/chatbar/NewPollDialog.qml:60
+#: src/chatbar/NewPollDialog.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "Jautājums:"
 
-#: src/chatbar/NewPollDialog.qml:103
+#: src/chatbar/NewPollDialog.qml:93
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Iespēja %1:"
 
-#: src/chatbar/NewPollDialog.qml:119
+#: src/chatbar/NewPollDialog.qml:109
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Norādiet opciju"
 
-#: src/chatbar/NewPollDialog.qml:123
+#: src/chatbar/NewPollDialog.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Noņemt opciju"
 
-#: src/chatbar/NewPollDialog.qml:146
+#: src/chatbar/NewPollDialog.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Add option"
 msgstr "Pievienot opciju"
+
+#: src/chatbar/NewPollDialog.qml:145
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr "Nosūtīt"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -1993,7 +2005,7 @@ msgctxt "@action:button"
 msgid "Underline"
 msgstr "Noraidīt"
 
-#: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
+#: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
@@ -2060,25 +2072,33 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
+#: src/chatbar/SendBar.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Add to message"
+msgstr "Sūtīt ziņu"
+
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Pievienot attēlu vai datni"
 
-#: src/chatbar/SendBar.qml:134 src/chatbar/SendBar.qml:171
+#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Sūtīt vietu"
 
-#: src/chatbar/SendBar.qml:139 src/chatbar/SendBar.qml:183
+#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Izveidot aptauju"
 
-#: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
+#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Send a message…"
@@ -2086,13 +2106,13 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Sūtīt ziņu…"
 
-#: src/chatbar/SendBar.qml:204
+#: src/chatbar/SendBar.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Sūtīt ziņu"
 
-#: src/chatbar/SendBar.qml:216 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:221 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2278,13 +2298,7 @@ msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Iespēju karodziņi"
 
-#: src/devtools/FeatureFlagPage.qml:19
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr "Pavedieni"
-
-#: src/devtools/FeatureFlagPage.qml:25
+#: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -2292,7 +2306,7 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Pievienot tālruņa numurus kā 3PID"
 
-#: src/devtools/FeatureFlagPage.qml:34
+#: src/devtools/FeatureFlagPage.qml:27
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -3516,68 +3530,68 @@ msgstr "%1 ir izmests no šīs istabas"
 msgid "Removes the user from the room"
 msgstr "Noņem lietotāju no istabas"
 
-#: src/libneochat/models/emojimodel.cpp:157
-#: src/libneochat/models/emojimodel.cpp:215
+#: src/libneochat/models/emojimodel.cpp:169
+#: src/libneochat/models/emojimodel.cpp:227
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Vēsture"
 
-#: src/libneochat/models/emojimodel.cpp:162
+#: src/libneochat/models/emojimodel.cpp:174
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Smaidiņi"
 
-#: src/libneochat/models/emojimodel.cpp:167
+#: src/libneochat/models/emojimodel.cpp:179
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Cilvēki"
 
-#: src/libneochat/models/emojimodel.cpp:172
+#: src/libneochat/models/emojimodel.cpp:184
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Daba"
 
-#: src/libneochat/models/emojimodel.cpp:177
+#: src/libneochat/models/emojimodel.cpp:189
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Ēdiens"
 
-#: src/libneochat/models/emojimodel.cpp:182
+#: src/libneochat/models/emojimodel.cpp:194
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktivitātes"
 
-#: src/libneochat/models/emojimodel.cpp:187
+#: src/libneochat/models/emojimodel.cpp:199
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Ceļošana"
 
-#: src/libneochat/models/emojimodel.cpp:192
+#: src/libneochat/models/emojimodel.cpp:204
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Objekti"
 
-#: src/libneochat/models/emojimodel.cpp:197
+#: src/libneochat/models/emojimodel.cpp:209
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Simboli"
 
-#: src/libneochat/models/emojimodel.cpp:202
+#: src/libneochat/models/emojimodel.cpp:214
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Karogi"
 
-#: src/libneochat/models/emojimodel.cpp:221
+#: src/libneochat/models/emojimodel.cpp:233
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -3637,91 +3651,91 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Plat.: %1, gar.: %2"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:21
+#: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Create Room"
 msgstr "Izveidot istabu"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:28
+#: src/libneochat/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
 msgstr "Izveidot"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:45
+#: src/libneochat/qml/CreateRoomDialog.qml:51
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
 msgstr "Privāts"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:46
+#: src/libneochat/qml/CreateRoomDialog.qml:52
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
 msgstr "Šai istabai varat pievienoties tikai ar uzaicinājumu."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:52
+#: src/libneochat/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "Publiska"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:53
+#: src/libneochat/qml/CreateRoomDialog.qml:59
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
 msgstr "Šo istabu var atrast un tai pievienoties jebkurš."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:60
+#: src/libneochat/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Nosaukums:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:61
+#: src/libneochat/qml/CreateRoomDialog.qml:67
 #, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
 msgstr "Jauna istaba"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:66
+#: src/libneochat/qml/CreateRoomDialog.qml:72
 #, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
 msgstr "Adrese:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:67
+#: src/libneochat/qml/CreateRoomDialog.qml:73
 #, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
 msgstr "jauna-istaba"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:21
+#: src/libneochat/qml/CreateSpaceDialog.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Izveidot telpu"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:30
+#: src/libneochat/qml/CreateSpaceDialog.qml:37
 #, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
 msgstr "Izveidot"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:45
+#: src/libneochat/qml/CreateSpaceDialog.qml:51
 #, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "Nosaukums:"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:46
+#: src/libneochat/qml/CreateSpaceDialog.qml:52
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Jauna telpa"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:58
+#: src/libneochat/qml/CreateSpaceDialog.qml:64
 #: src/spaces/SelectExistingRoomDialog.qml:147
 #, kde-format
 msgctxt ""
@@ -4203,19 +4217,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Sūtīt uz KDE „Itinerary“"
 
-#: src/messagecontent/LinkPreviewComponent.qml:141
+#: src/messagecontent/LinkPreviewComponent.qml:140
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Noņemt priekšskatījumu"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Shrink preview"
 msgstr "Samazināt priekšskatījumu"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Expand preview"
 msgstr "Palielināt priekšskatījumu"
@@ -4231,7 +4245,7 @@ msgid "Loading URL preview"
 msgstr "Ielādē URL priekšskatījumu"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -4249,7 +4263,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Atvērt pilnekrānu"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4259,7 +4273,7 @@ msgstr ""
 "Ziņa nav atrasta, jums nav piešķirtas tiesības to redzēt vai to ir nosūtījis "
 "ignorēts lietotājs"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
@@ -4343,25 +4357,25 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Atbildēt"
 
-#: src/messagecontent/ReplyComponent.qml:95
+#: src/messagecontent/ReplyComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Atcelt atbildi"
 
-#: src/messagecontent/TextComponent.qml:109
+#: src/messagecontent/TextComponent.qml:111
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Sūtīt pielikuma virsrakstu…"
 
-#: src/messagecontent/TextComponent.qml:111
+#: src/messagecontent/TextComponent.qml:113
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Sūtīt šifrētu ziņu…"
 
-#: src/messagecontent/TextComponent.qml:113
+#: src/messagecontent/TextComponent.qml:115
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -5277,25 +5291,25 @@ msgstr ""
 "Jūsu „Matrix“ ID nebūs pieejams jauniem kontiem.\n"
 "Jūsu ziņas paliks pieejamas."
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#: src/settings/ConfirmDeactivateAccountDialog.qml:28
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Parole"
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#: src/settings/ConfirmDeactivateAccountDialog.qml:36
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
 msgstr "Dzēst datus"
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#: src/settings/ConfirmDeactivateAccountDialog.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr "Pieprasīt jūsu serverim dzēst pēc iespējas vairāk lietotāju datu."
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#: src/settings/ConfirmDeactivateAccountDialog.qml:44
 #, kde-format
 msgid "Deactivate account"
 msgstr "Deaktivizēt kontu"
@@ -5312,7 +5326,7 @@ msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "Pēc šifrēšanas ieslēgšanas to vairs nevarēs izslēgt."
 
-#: src/settings/ConfirmEncryptionDialog.qml:28
+#: src/settings/ConfirmEncryptionDialog.qml:25
 #, kde-format
 msgid "Activate Encryption"
 msgstr "Ieslēgt šifrēšanu"
@@ -5368,7 +5382,7 @@ msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "Noņemt ierīci"
 
-#: src/settings/DeviceDelegate.qml:159
+#: src/settings/DeviceDelegate.qml:165
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
@@ -7157,24 +7171,24 @@ msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Atlasīt jaunu oficiālo vecākobjektu"
 
-#: src/settings/SelectParentDialog.qml:50
+#: src/settings/SelectParentDialog.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Izvēlieties istabu"
 
-#: src/settings/SelectParentDialog.qml:57
+#: src/settings/SelectParentDialog.qml:48
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Izvēlēties vecākobjekta telpu"
 
-#: src/settings/SelectParentDialog.qml:157
+#: src/settings/SelectParentDialog.qml:148
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Iestatīt šo istabu kā bērnobjektu telpai „%1“"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
@@ -7182,20 +7196,26 @@ msgstr ""
 "Jums nav nepieciešamo vecākobjekta privilēģiju līmeņa, lai iestatītu šādu "
 "statusu"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "Atlasītā istaba nav telpa"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Jums nav nepieciešamo privilēģiju šīs darbības veikšanai"
 
-#: src/settings/SelectParentDialog.qml:169
+#: src/settings/SelectParentDialog.qml:160
 #, kde-format
 msgid "Make this space the canonical parent"
 msgstr "Padarīt šo telpu par kanonisko vecākobjektu"
+
+#: src/settings/SelectParentDialog.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Labi"
 
 #: src/settings/SelectSpacesDialog.qml:37
 #, kde-format
@@ -7830,6 +7850,13 @@ msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
 
+#~ msgid "OK"
+#~ msgstr "Labi"
+
+#~ msgctxt "@option:check Enable the matrix 'threads' feature"
+#~ msgid "Threads"
+#~ msgstr "Pavedieni"
+
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "The user you're replying to has left the room, and can't be notified."
@@ -8117,10 +8144,6 @@ msgstr[2] "%2 raksta"
 #~ msgctxt "@info screenreader"
 #~ msgid "The currently selected link"
 #~ msgstr "Pašreiz atlasītā saite"
-
-#~ msgctxt "@action:button"
-#~ msgid "Ok"
-#~ msgstr "Labi"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "Konfigurēt „NeoChat“…"

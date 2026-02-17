@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:45+0000\n"
+"POT-Creation-Date: 2026-02-17 00:44+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -376,10 +376,11 @@ msgctxt "Do you really want to leave <room name>?"
 msgid "Do you really want to leave %1?"
 msgstr "Vill du verkligen lämna %1?"
 
-#: src/app/qml/ConfirmLeaveDialog.qml:28
-#, kde-format
-msgctxt "@action:button"
-msgid "Leave Room"
+#: src/app/qml/ConfirmLeaveDialog.qml:25
+#, fuzzy, kde-format
+#| msgid "Leave room"
+msgctxt "@action:button Leave this room/space"
+msgid "Leave"
 msgstr "Lämna rum"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
@@ -393,7 +394,7 @@ msgstr "Logga ut"
 msgid "Are you sure you want to sign out?"
 msgstr "Är du säker på att du vill logga ut?"
 
-#: src/app/qml/ConfirmLogoutDialog.qml:27
+#: src/app/qml/ConfirmLogoutDialog.qml:24
 #, kde-format
 msgctxt "@action:button"
 msgid "Sign out"
@@ -473,7 +474,7 @@ msgctxt "@info:label A matrix space"
 msgid "Space"
 msgstr "Utrymme"
 
-#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:106
+#: src/app/qml/ExplorerDelegate.qml:75 src/settings/SelectParentDialog.qml:97
 #: src/spaces/SelectExistingRoomDialog.qml:93
 #: src/spaces/SpaceHierarchyDelegate.qml:94
 #, kde-format
@@ -734,32 +735,34 @@ msgctxt "@title"
 msgid "Share"
 msgstr "Dela"
 
-#: src/app/qml/ManualRoomDialog.qml:26
+#: src/app/qml/ManualRoomDialog.qml:27
 #, kde-format
 msgctxt "@title"
 msgid "Manually Enter a Room"
 msgstr "Gå in i ett rum manuellt"
 
-#: src/app/qml/ManualRoomDialog.qml:38 src/app/qml/ManualUserDialog.qml:38
-#: src/settings/SelectParentDialog.qml:37
-#, kde-format
-msgid "OK"
-msgstr "Ok"
-
-#: src/app/qml/ManualRoomDialog.qml:81
+#: src/app/qml/ManualRoomDialog.qml:75
 #, kde-format
 msgid "Room ID or Alias:"
 msgstr "Rumsidentifikation eller alias:"
 
-#: src/app/qml/ManualRoomDialog.qml:84 src/app/qml/ManualRoomDialog.qml:92
+#: src/app/qml/ManualRoomDialog.qml:78 src/app/qml/ManualRoomDialog.qml:86
 #, kde-format
 msgid "Must start with # for an alias or ! for an ID"
 msgstr "Måste börja med # för ett alias eller ! för en identifikation"
 
-#: src/app/qml/ManualRoomDialog.qml:90
+#: src/app/qml/ManualRoomDialog.qml:84
 #, kde-format
 msgid "The input is not a valid room ID or alias"
 msgstr "Indata är inte en giltig rumsidentifikation eller alias"
+
+#: src/app/qml/ManualRoomDialog.qml:110
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Join"
+msgctxt "@action:button Join this room/space"
+msgid "Join"
+msgstr "Gå med"
 
 #: src/app/qml/ManualUserDialog.qml:26
 #, kde-format
@@ -767,29 +770,37 @@ msgctxt "@title"
 msgid "User ID"
 msgstr "Användaridentifikation"
 
-#: src/app/qml/ManualUserDialog.qml:54
+#: src/app/qml/ManualUserDialog.qml:45
 #, kde-format
 msgid "User ID:"
 msgstr "Användaridentifikation:"
 
-#: src/app/qml/ManualUserDialog.qml:57 src/app/qml/ManualUserDialog.qml:65
+#: src/app/qml/ManualUserDialog.qml:48 src/app/qml/ManualUserDialog.qml:56
 #, kde-format
 msgid "User IDs Must start with @"
 msgstr "Användaridentifikationer måste börja med @"
 
-#: src/app/qml/ManualUserDialog.qml:63
+#: src/app/qml/ManualUserDialog.qml:54
 #, kde-format
 msgid "The input is not a valid user ID"
 msgstr "Indata är inte en giltig användaridentifikation"
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/ManualUserDialog.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Ok"
+msgctxt "@action:button Perform an action with this user ID"
+msgid "Ok"
+msgstr "Ok"
+
+#: src/app/qml/MeetingDialog.qml:16
 #, fuzzy, kde-format
 #| msgid "Join existing chat"
 msgctxt "@title"
 msgid "Join Meeting"
 msgstr "Gå med i befintlig chatt"
 
-#: src/app/qml/MeetingDialog.qml:15
+#: src/app/qml/MeetingDialog.qml:16
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start Chat"
@@ -797,19 +808,19 @@ msgctxt "@title"
 msgid "Start Meeting"
 msgstr "Starta chatt"
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to join a Jitsi meeting in your web browser."
 msgstr ""
 
-#: src/app/qml/MeetingDialog.qml:16
+#: src/app/qml/MeetingDialog.qml:17
 #, kde-format
 msgctxt "@info:label"
 msgid "You are about to start a new Jitsi meeting in your web browser."
 msgstr ""
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Join"
@@ -817,7 +828,7 @@ msgctxt "@action:button Join the Jitsi meeting"
 msgid "Join"
 msgstr "Gå med"
 
-#: src/app/qml/MeetingDialog.qml:21
+#: src/app/qml/MeetingDialog.qml:23
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start Chat"
@@ -1749,24 +1760,24 @@ msgctxt "@action:button Done, we are finished with verification"
 msgid "Done"
 msgstr "Klar"
 
-#: src/app/roommanager.cpp:235
+#: src/app/roommanager.cpp:226
 #, kde-format
 msgid "Malformed or empty Matrix id<br />%1 is not a correct Matrix identifier"
 msgstr ""
 "Felaktig eller tom Matris-identifierare<br />%1 är inte en korrekt Matrix-"
 "identifierare"
 
-#: src/app/roommanager.cpp:437
+#: src/app/roommanager.cpp:428
 #, kde-format
 msgid "Failed to join %1:<br />%2"
 msgstr "Misslyckades gå med i %1:<br />%2"
 
-#: src/app/roommanager.cpp:461
+#: src/app/roommanager.cpp:452
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Du frågade om att gå med i '%1'"
 
-#: src/app/roommanager.cpp:465
+#: src/app/roommanager.cpp:456
 #, kde-format
 msgid "Failed to request joining room<br />%1"
 msgstr "Misslyckades fråga om att gå med i rum<br />%1"
@@ -1927,77 +1938,77 @@ msgctxt "@action:intoolbar Determine the device's location"
 msgid "Locate"
 msgstr "Lokalisera"
 
-#: src/chatbar/NewPollDialog.qml:27
-#, kde-format
-msgctxt "@action:button"
-msgid "Send"
-msgstr "Skicka"
-
-#: src/chatbar/NewPollDialog.qml:37
+#: src/chatbar/NewPollDialog.qml:23
 #, kde-format
 msgctxt "@title: create new poll in the room"
 msgid "Create Poll"
 msgstr "Skapa omröstning"
 
-#: src/chatbar/NewPollDialog.qml:45
+#: src/chatbar/NewPollDialog.qml:35
 #, kde-format
 msgctxt "@label"
 msgid "Poll type:"
 msgstr "Omröstningstyp:"
 
-#: src/chatbar/NewPollDialog.qml:50
+#: src/chatbar/NewPollDialog.qml:40
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Open poll"
 msgstr "Öppen omröstning"
 
-#: src/chatbar/NewPollDialog.qml:51
+#: src/chatbar/NewPollDialog.qml:41
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Stängd omröstning"
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
 msgstr "Röstande kan se resultaten så snart de har röstat"
 
-#: src/chatbar/NewPollDialog.qml:56
+#: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
 msgstr "Resultaten avslöjas bara efter omröstningen har avslutats"
 
-#: src/chatbar/NewPollDialog.qml:60
+#: src/chatbar/NewPollDialog.qml:50
 #, kde-format
 msgctxt "@label"
 msgid "Question:"
 msgstr "Fråga:"
 
-#: src/chatbar/NewPollDialog.qml:103
+#: src/chatbar/NewPollDialog.qml:93
 #, kde-format
 msgctxt "As in first answer option to the poll"
 msgid "Option %1:"
 msgstr "Alternativ %1:"
 
-#: src/chatbar/NewPollDialog.qml:119
+#: src/chatbar/NewPollDialog.qml:109
 #, kde-format
 msgctxt "@placeholder"
 msgid "Enter option"
 msgstr "Ange alternativ"
 
-#: src/chatbar/NewPollDialog.qml:123
+#: src/chatbar/NewPollDialog.qml:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove option"
 msgstr "Ta bort alternativ"
 
-#: src/chatbar/NewPollDialog.qml:146
+#: src/chatbar/NewPollDialog.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Add option"
 msgstr "Lägg till alternativ"
+
+#: src/chatbar/NewPollDialog.qml:145
+#, kde-format
+msgctxt "@action:button"
+msgid "Send"
+msgstr "Skicka"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
 #, fuzzy, kde-format
@@ -2006,7 +2017,7 @@ msgctxt "@action:button"
 msgid "Underline"
 msgstr "Uppkopplad"
 
-#: src/chatbar/RichEditBar.qml:154 src/chatbar/SendBar.qml:103
+#: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
@@ -2073,25 +2084,33 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:129 src/chatbar/SendBar.qml:158
+#: src/chatbar/SendBar.qml:102
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Send message"
+msgctxt "@action:button"
+msgid "Add to message"
+msgstr "Skicka meddelande"
+
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Lägg till en bild eller fil"
 
-#: src/chatbar/SendBar.qml:134 src/chatbar/SendBar.qml:171
+#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Skicka en plats"
 
-#: src/chatbar/SendBar.qml:139 src/chatbar/SendBar.qml:183
+#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Skapa en omröstning"
 
-#: src/chatbar/SendBar.qml:144 src/chatbar/SendBar.qml:194
+#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Send a message…"
@@ -2099,13 +2118,13 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Skicka ett meddelande…"
 
-#: src/chatbar/SendBar.qml:204
+#: src/chatbar/SendBar.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Skicka meddelande"
 
-#: src/chatbar/SendBar.qml:216 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:221 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -2291,13 +2310,7 @@ msgctxt "@title:tab"
 msgid "Feature Flags"
 msgstr "Funktionsflaggor"
 
-#: src/devtools/FeatureFlagPage.qml:19
-#, kde-format
-msgctxt "@option:check Enable the matrix 'threads' feature"
-msgid "Threads"
-msgstr "Trådar"
-
-#: src/devtools/FeatureFlagPage.qml:25
+#: src/devtools/FeatureFlagPage.qml:18
 #, kde-format
 msgctxt ""
 "@option:check Enable the matrix feature to add a phone number as a third "
@@ -2305,7 +2318,7 @@ msgctxt ""
 msgid "Add phone numbers as 3PIDs"
 msgstr "Lägg till telefonnummer som tredjepartsidentifierare"
 
-#: src/devtools/FeatureFlagPage.qml:34
+#: src/devtools/FeatureFlagPage.qml:27
 #, kde-format
 msgctxt "@option:check Enable the matrix feature for audio and video calling"
 msgid "Calls"
@@ -3530,68 +3543,68 @@ msgstr "%1 kastades ut från rummet."
 msgid "Removes the user from the room"
 msgstr "Tar bort användaren från rummet"
 
-#: src/libneochat/models/emojimodel.cpp:157
-#: src/libneochat/models/emojimodel.cpp:215
+#: src/libneochat/models/emojimodel.cpp:169
+#: src/libneochat/models/emojimodel.cpp:227
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Historia"
 
-#: src/libneochat/models/emojimodel.cpp:162
+#: src/libneochat/models/emojimodel.cpp:174
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Smilisar"
 
-#: src/libneochat/models/emojimodel.cpp:167
+#: src/libneochat/models/emojimodel.cpp:179
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Människor"
 
-#: src/libneochat/models/emojimodel.cpp:172
+#: src/libneochat/models/emojimodel.cpp:184
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Natur"
 
-#: src/libneochat/models/emojimodel.cpp:177
+#: src/libneochat/models/emojimodel.cpp:189
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Mat"
 
-#: src/libneochat/models/emojimodel.cpp:182
+#: src/libneochat/models/emojimodel.cpp:194
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Aktiviteter"
 
-#: src/libneochat/models/emojimodel.cpp:187
+#: src/libneochat/models/emojimodel.cpp:199
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Resor"
 
-#: src/libneochat/models/emojimodel.cpp:192
+#: src/libneochat/models/emojimodel.cpp:204
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Objekt"
 
-#: src/libneochat/models/emojimodel.cpp:197
+#: src/libneochat/models/emojimodel.cpp:209
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Symboler"
 
-#: src/libneochat/models/emojimodel.cpp:202
+#: src/libneochat/models/emojimodel.cpp:214
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Flaggor"
 
-#: src/libneochat/models/emojimodel.cpp:221
+#: src/libneochat/models/emojimodel.cpp:233
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -3651,91 +3664,91 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Latitud: %1, Longitud: %2"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:21
+#: src/libneochat/qml/CreateRoomDialog.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Create Room"
 msgstr "Skapa rum"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:28
+#: src/libneochat/qml/CreateRoomDialog.qml:35
 #, kde-format
 msgctxt "@action:button Create new room"
 msgid "Create"
 msgstr "Skapa"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:45
+#: src/libneochat/qml/CreateRoomDialog.qml:51
 #, kde-format
 msgctxt "@info:label"
 msgid "Private"
 msgstr "Privat"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:46
+#: src/libneochat/qml/CreateRoomDialog.qml:52
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can only be joined with an invite."
 msgstr "Det går bara att gå med i rummet med en inbjudan."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:52
+#: src/libneochat/qml/CreateRoomDialog.qml:58
 #, kde-format
 msgctxt "@info:label"
 msgid "Public"
 msgstr "Öppet"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:53
+#: src/libneochat/qml/CreateRoomDialog.qml:59
 #, kde-format
 msgctxt "@info:description"
 msgid "This room can be found and joined by anyone."
 msgstr "Vem som helst kan hitta och gå med i rummet."
 
-#: src/libneochat/qml/CreateRoomDialog.qml:60
+#: src/libneochat/qml/CreateRoomDialog.qml:66
 #, kde-format
 msgctxt "@info:label Name of the room"
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:61
+#: src/libneochat/qml/CreateRoomDialog.qml:67
 #, kde-format
 msgctxt "@info:placeholder Placeholder for room name"
 msgid "New Room"
 msgstr "Nytt rum"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:66
+#: src/libneochat/qml/CreateRoomDialog.qml:72
 #, kde-format
 msgctxt "@info:label Address or alias to refer to the room by"
 msgid "Address:"
 msgstr "Adress:"
 
-#: src/libneochat/qml/CreateRoomDialog.qml:67
+#: src/libneochat/qml/CreateRoomDialog.qml:73
 #, kde-format
 msgctxt "@info:placeholder Placeholder address for the room"
 msgid "new-room"
 msgstr "nytt-rum"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:21
+#: src/libneochat/qml/CreateSpaceDialog.qml:22
 #, kde-format
 msgctxt "@title"
 msgid "Create a Space"
 msgstr "Skapa ett utrymme"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:30
+#: src/libneochat/qml/CreateSpaceDialog.qml:37
 #, kde-format
 msgctxt "@action:button Create new space"
 msgid "Create"
 msgstr "Skapa"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:45
+#: src/libneochat/qml/CreateSpaceDialog.qml:51
 #, kde-format
 msgctxt "@info:label Name of the space"
 msgid "Name:"
 msgstr "Namn:"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:46
+#: src/libneochat/qml/CreateSpaceDialog.qml:52
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "New Space"
 msgstr "Nytt utrymme"
 
-#: src/libneochat/qml/CreateSpaceDialog.qml:58
+#: src/libneochat/qml/CreateSpaceDialog.qml:64
 #: src/spaces/SelectExistingRoomDialog.qml:147
 #, kde-format
 msgctxt ""
@@ -4223,19 +4236,19 @@ msgctxt "@action"
 msgid "Send to KDE Itinerary"
 msgstr "Skicka till KDE-resplan"
 
-#: src/messagecontent/LinkPreviewComponent.qml:141
+#: src/messagecontent/LinkPreviewComponent.qml:140
 #: src/messagecontent/LinkPreviewLoadComponent.qml:76
 #, kde-format
 msgctxt "As in remove the link preview so it's no longer shown"
 msgid "Remove preview"
 msgstr "Ta bort förhandsgranskning"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Shrink preview"
 msgstr "Krymp förhandsgranskning"
 
-#: src/messagecontent/LinkPreviewComponent.qml:159
+#: src/messagecontent/LinkPreviewComponent.qml:158
 #, kde-format
 msgid "Expand preview"
 msgstr "Expandera förhandsgranskning"
@@ -4251,7 +4264,7 @@ msgid "Loading URL preview"
 msgstr "Läser in webbadressförhandsgranskning"
 
 #: src/messagecontent/LoadComponent.qml:30
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, kde-format
 msgctxt "@info Loading this message"
 msgid "Loading…"
@@ -4269,7 +4282,7 @@ msgctxt "@action:button"
 msgid "Open Fullscreen"
 msgstr "Gå till fullskärm"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:231
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4279,7 +4292,7 @@ msgstr ""
 "Antingen hittades meddelandet inte, eller så har du inte behörighet att visa "
 "det, eller så skickades det av en ignorerad användare"
 
-#: src/messagecontent/models/eventmessagecontentmodel.cpp:250
+#: src/messagecontent/models/eventmessagecontentmodel.cpp:245
 #, kde-format
 msgctxt "@info"
 msgid "Loading reply…"
@@ -4359,25 +4372,25 @@ msgctxt "@action:button"
 msgid "Reply"
 msgstr "Svara"
 
-#: src/messagecontent/ReplyComponent.qml:95
+#: src/messagecontent/ReplyComponent.qml:98
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Avbryt svar"
 
-#: src/messagecontent/TextComponent.qml:109
+#: src/messagecontent/TextComponent.qml:111
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Ange rubrik för bilaga…"
 
-#: src/messagecontent/TextComponent.qml:111
+#: src/messagecontent/TextComponent.qml:113
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Skicka ett krypterat meddelande…"
 
-#: src/messagecontent/TextComponent.qml:113
+#: src/messagecontent/TextComponent.qml:115
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -5310,25 +5323,25 @@ msgstr ""
 "Din Matrix-identifierare kommer inte att vara tillgänglig för nya konton.\n"
 "Dina meddelanden förblir tillgängliga."
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:25
+#: src/settings/ConfirmDeactivateAccountDialog.qml:28
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:33
+#: src/settings/ConfirmDeactivateAccountDialog.qml:36
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Erase Data"
 msgstr "Radera data"
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:34
+#: src/settings/ConfirmDeactivateAccountDialog.qml:37
 #, kde-format
 msgctxt "@info"
 msgid "Request your server to delete as much user data as possible."
 msgstr "Begär att din server tar bort så mycket data som möjligt."
 
-#: src/settings/ConfirmDeactivateAccountDialog.qml:43
+#: src/settings/ConfirmDeactivateAccountDialog.qml:44
 #, kde-format
 msgid "Deactivate account"
 msgstr "Inaktivera konto"
@@ -5345,7 +5358,7 @@ msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
 msgstr "Det går inte att inaktivera kryptering efter den har aktiverats."
 
-#: src/settings/ConfirmEncryptionDialog.qml:28
+#: src/settings/ConfirmEncryptionDialog.qml:25
 #, kde-format
 msgid "Activate Encryption"
 msgstr "aktiverade kryptering"
@@ -5401,7 +5414,7 @@ msgctxt "@title:dialog"
 msgid "Remove device"
 msgstr "Ta bort enhet"
 
-#: src/settings/DeviceDelegate.qml:159
+#: src/settings/DeviceDelegate.qml:165
 #, kde-format
 msgctxt "@action:button As in 'Remove this device'"
 msgid "Remove"
@@ -7216,24 +7229,24 @@ msgctxt "@title"
 msgid "Select new official parent"
 msgstr "Välj nytt officiellt överliggande objekt"
 
-#: src/settings/SelectParentDialog.qml:50
+#: src/settings/SelectParentDialog.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Pick room"
 msgstr "Välj rum"
 
-#: src/settings/SelectParentDialog.qml:57
+#: src/settings/SelectParentDialog.qml:48
 #, kde-format
 msgctxt "@title"
 msgid "Choose Parent Space"
 msgstr "Välj överliggande utrymme"
 
-#: src/settings/SelectParentDialog.qml:157
+#: src/settings/SelectParentDialog.qml:148
 #, kde-format
 msgid "Set this room as a child of the space %1"
 msgstr "Ställ in rummet att vara underliggande objekt till utrymmet %1"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the parent to set this state"
@@ -7241,20 +7254,26 @@ msgstr ""
 "Du har inte tillräckligt hög rättighetsnivå i överliggande objekt för att "
 "ställa in tillståndet"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "The selected room is not a space"
 msgstr "Det valda rummet är inte ett utrymme"
 
-#: src/settings/SelectParentDialog.qml:164
+#: src/settings/SelectParentDialog.qml:155
 #, kde-format
 msgid "You do not have the privileges to complete this action"
 msgstr "Du har inte rättigheter att slutföra åtgärden"
 
-#: src/settings/SelectParentDialog.qml:169
+#: src/settings/SelectParentDialog.qml:160
 #, kde-format
 msgid "Make this space the canonical parent"
 msgstr "Gör utrymmet till kanonisk överliggande objekt"
+
+#: src/settings/SelectParentDialog.qml:170
+#, kde-format
+msgctxt "@action:button"
+msgid "Ok"
+msgstr "Ok"
 
 #: src/settings/SelectSpacesDialog.qml:37
 #, kde-format
@@ -7888,6 +7907,17 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
 
+#~ msgctxt "@action:button"
+#~ msgid "Leave Room"
+#~ msgstr "Lämna rum"
+
+#~ msgid "OK"
+#~ msgstr "Ok"
+
+#~ msgctxt "@option:check Enable the matrix 'threads' feature"
+#~ msgid "Threads"
+#~ msgstr "Trådar"
+
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "The user you're replying to has left the room, and can't be notified."
@@ -8180,10 +8210,6 @@ msgstr[1] "%2 skriver"
 #~ msgctxt "@info screenreader"
 #~ msgid "The currently selected link"
 #~ msgstr "Länken som för närvarande är vald"
-
-#~ msgctxt "@action:button"
-#~ msgid "Ok"
-#~ msgstr "Ok"
 
 #~ msgid "Configure NeoChat…"
 #~ msgstr "Anpassa NeoChat…"
@@ -8893,9 +8919,6 @@ msgstr[1] "%2 skriver"
 
 #~ msgid "Joins room with given address"
 #~ msgstr "Går med i rum med angiven adress"
-
-#~ msgid "Leave room"
-#~ msgstr "Lämna rum"
 
 #~ msgid "Invites user with given id to current room"
 #~ msgstr "Bjuder in användare med angiven identifikation till aktuellt rum"
