@@ -6,6 +6,7 @@
 #include "messagemodel_logging.h"
 
 #include <Quotient/events/reactionevent.h>
+#include <Quotient/thread.h>
 
 using namespace Quotient;
 
@@ -125,6 +126,21 @@ void TimelineMessageModel::connectNewRoom()
                 }
             }
         });
+#if Quotient_VERSION_MINOR > 9
+        connect(m_room, &Room::newThread, this, [this](const QString &threadRootId) {
+            if (threadRootId.isEmpty()) {
+                return;
+            }
+            refreshEventRoles(threadRootId, {IsThreadedRole, ThreadRootRole});
+        });
+#elif Quotient_VERSION_MINOR == 9 && Quotient_VERSION_PATCH >= 4
+        connect(m_room, &Room::newThread, this, [this](const Thread &newThread) {
+            if (newThread.threadRootId.isEmpty()) {
+                return;
+            }
+            refreshEventRoles(newThread.threadRootId, {IsThreadedRole, ThreadRootRole});
+        });
+#endif
         connect(m_room->connection(), &Connection::ignoredUsersListChanged, this, [this] {
             beginResetModel();
             endResetModel();

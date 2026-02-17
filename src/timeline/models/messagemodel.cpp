@@ -183,6 +183,12 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             if (event.value().get().contentJson().contains("m.new_content"_L1)) {
                 return EventStatus::Hidden;
             }
+            // A threaded event will be merged into the thread root event so
+            // also don't show.
+            const auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
+            if (roomMessageEvent && roomMessageEvent->relatesTo() && roomMessageEvent->relatesTo()->type == EventRelation::ThreadType) {
+                return EventStatus::Hidden;
+            }
             const auto pendingIt = eventRoom->findPendingEvent(event->get().transactionId());
             if (pendingIt == eventRoom->pendingEvents().end()) {
                 return EventStatus::Hidden;
@@ -194,12 +200,9 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
-        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
-        if (roomMessageEvent && (roomMessageEvent->isThreaded() || eventRoom->threads().contains(event.value().get().id()))) {
-            const auto &thread = eventRoom->threads().value(roomMessageEvent->isThreaded() ? roomMessageEvent->threadRootEventId() : event.value().get().id());
-            if (thread.latestEventId != event.value().get().id()) {
-                return EventStatus::Hidden;
-            }
+        const auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
+        if (roomMessageEvent && roomMessageEvent->relatesTo() && roomMessageEvent->relatesTo()->type == EventRelation::ThreadType) {
+            return EventStatus::Hidden;
         }
         return EventStatus::Normal;
     }
@@ -227,7 +230,7 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
 
     if (role == IsThreadedRole) {
         if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get())) {
-            return roomMessageEvent->isThreaded();
+            return roomMessageEvent->isThreaded() || eventRoom->threads().contains(event->get().id());
         }
         return {};
     }
@@ -236,6 +239,8 @@ QVariant MessageModel::data(const QModelIndex &idx, int role) const
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event.value().get());
         if (roomMessageEvent && roomMessageEvent->isThreaded()) {
             return roomMessageEvent->threadRootEventId();
+        } else if (eventRoom->threads().contains(event->get().id())) {
+            return event->get().id();
         }
         return {};
     }
