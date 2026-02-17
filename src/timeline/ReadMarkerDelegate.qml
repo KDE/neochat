@@ -73,7 +73,7 @@ TimelineDelegate {
                 text: i18nc("@action:button Mark all messages up to now as read", "Mark as Read")
                 icon.name: "checkmark"
 
-                onClicked: root.room.markAllMessagesAsRead()
+                onClicked: root.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts)
 
                 Layout.alignment: Qt.AlignRight
             }

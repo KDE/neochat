@@ -47,7 +47,7 @@ KirigamiComponents.ConvergentContextMenu {
         text: i18nc("@action:inmenu", "Mark as Read")
         icon.name: "checkmark"
         enabled: root.room.notificationCount > 0 || root.room.highlightCount > 0
-        onTriggered: root.room.markAllMessagesAsRead()
+        onTriggered: root.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts)
     }
 
     Kirigami.Action {

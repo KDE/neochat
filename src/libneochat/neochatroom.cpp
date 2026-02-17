@@ -1935,11 +1935,21 @@ bool NeoChatRoom::spaceHasUnreadMessages() const
     return SpaceHierarchyCache::instance().spaceHasUnreadMessages(id());
 }
 
-void NeoChatRoom::markAllChildrenMessagesAsRead()
+void NeoChatRoom::markAllChildrenMessagesAsRead(bool sendPublicReceipts)
 {
     if (isSpace()) {
-        SpaceHierarchyCache::instance().markAllChildrenMessagesAsRead(id());
+        SpaceHierarchyCache::instance().markAllChildrenMessagesAsRead(id(), sendPublicReceipts);
     }
+}
+
+void NeoChatRoom::markAllMessagesAsRead(bool sendPublicReceipts)
+{
+#if Quotient_VERSION_MINOR >= 10
+    Room::markAllMessagesAsRead(sendPublicReceipts);
+#else
+    Q_UNUSED(sendPublicReceipts)
+    Room::markAllMessagesAsRead();
+#endif
 }
 
 QList<QString> NeoChatRoom::sortedMemberIds() const

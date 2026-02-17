@@ -254,7 +254,7 @@ void SpaceHierarchyCache::setRecommendedSpaceHidden(bool hidden)
     Q_EMIT recommendedSpaceHiddenChanged();
 }
 
-void SpaceHierarchyCache::markAllChildrenMessagesAsRead(const QString &spaceId)
+void SpaceHierarchyCache::markAllChildrenMessagesAsRead(const QString &spaceId, bool sendPublicReceipts)
 {
     const auto children = m_spaceHierarchy[spaceId];
 
@@ -277,14 +277,14 @@ void SpaceHierarchyCache::markAllChildrenMessagesAsRead(const QString &spaceId)
                     child,
                     &NeoChatRoom::addedMessages,
                     child,
-                    [child] {
+                    [child, sendPublicReceipts] {
                         if (child->messageEvents().crbegin() != child->historyEdge()) {
-                            child->markAllMessagesAsRead();
+                            child->markAllMessagesAsRead(sendPublicReceipts);
                         }
                     },
                     Qt::SingleShotConnection);
             } else {
-                child->markAllMessagesAsRead();
+                child->markAllMessagesAsRead(sendPublicReceipts);
             }
         }
     }

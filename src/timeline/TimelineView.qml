@@ -170,26 +170,26 @@ QQC2.ScrollView {
 
             function onReadMarkerAdded() {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.EntryVisible && messageListView.allUnreadVisible()) {
-                    _private.room.markAllMessagesAsRead();
+                    _private.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
                 }
             }
 
             function onNewLocalUserEventAdded() {
                 messageListView.positionViewAtBeginning();
-                _private.room.markAllMessagesAsRead();
+                _private.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
             }
 
             function onRoomAboutToChange(oldRoom, newRoom) {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Exit ||
                     (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.ExitVisible && messageListView.allUnreadVisible())
                 ) {
-                    oldRoom.markAllMessagesAsRead();
+                    oldRoom.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
                 }
             }
 
             function onRoomChanged(oldRoom, newRoom) {
                 if (root.markReadCondition == LibNeoChat.TimelineMarkReadCondition.Entry) {
-                    newRoom.markAllMessagesAsRead();
+                    newRoom.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
                 }
             }
         }
@@ -202,7 +202,7 @@ QQC2.ScrollView {
 
             if (closeToYEnd && _private.hasScrolledUpBefore) {
                 if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
-                    _private.room.markAllMessagesAsRead();
+                    _private.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
                 }
                 _private.hasScrolledUpBefore = false;
             } else if (!closeToYEnd) {
@@ -298,7 +298,7 @@ QQC2.ScrollView {
 
             onClicked: {
                 messageListView.positionViewAtBeginning();
-                _private.room.markAllMessagesAsRead();
+                _private.room.markAllMessagesAsRead(NeoChatConfig.publicReadReceipts);
             }
 
             icon.name: "go-down"

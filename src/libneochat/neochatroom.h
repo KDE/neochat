@@ -679,7 +679,12 @@ public:
     /**
      * @brief Mark the space and all its children messages as read.
      */
-    Q_INVOKABLE void markAllChildrenMessagesAsRead();
+    Q_INVOKABLE void markAllChildrenMessagesAsRead(bool sendPublicReceipts);
+
+    /**
+     * @brief Mark all messages in the room as read up to the latest event.
+     */
+    Q_INVOKABLE void markAllMessagesAsRead(bool sendPublicReceipts = true);
 
     /**
      * @return List of members in this room, sorted by power level and then by name.

@@ -67,8 +67,18 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
+        FormCard.FormCheckDelegate {
+            id: publicReceiptsDelegate
+            text: i18nc("@option:check", "Send read receipts")
+            checked: NeoChatConfig.publicReadReceipts
+            enabled: !NeoChatConfig.isPublicReadReceiptsImmutable
+            onToggled: {
+                NeoChatConfig.publicReadReceipts = checked;
+                NeoChatConfig.save();
+            }
+        }
         FormCard.FormDelegateSeparator {
-            above: typingNotificationsDelegate
+            above: publicReceiptsDelegate
             below: hideImagesDelegate
         }
         FormCard.FormCheckDelegate {
