@@ -230,21 +230,7 @@ RowLayout {
             }
         }
     }
-    QQC2.ToolButton {
-        id: emojiButton
-        visible: !Kirigami.Settings.isMobile
-        icon.name: "smiley"
-        text: i18n("Emojis & Stickers")
-        display: QQC2.AbstractButton.IconOnly
-        checkable: true
 
-        onClicked: {
-            let dialog = (emojiDialog.createObject(root) as EmojiDialog).open();
-        }
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        QQC2.ToolTip.text: text
-    }
     QQC2.ToolButton {
         id: linkButton
         enabled: root.chatButtonHelper.richFormatEnabled
@@ -396,25 +382,4 @@ RowLayout {
         LinkDialog {}
     }
 
-    Component {
-        id: emojiDialog
-        EmojiDialog {
-            x: root.width - width
-            y: -implicitHeight
-
-            modal: false
-            includeCustom: true
-            closeOnChosen: false
-
-            currentRoom: root.room
-
-            onChosen: emoji => {
-                root.chatButtonHelper.insertText(emoji);
-                close();
-            }
-            onClosed: if (emojiButton.checked) {
-                emojiButton.checked = false;
-            }
-        }
-    }
 }

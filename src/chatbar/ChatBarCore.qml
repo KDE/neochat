@@ -71,6 +71,35 @@ QQC2.Control {
             visible: NeoChatConfig.sendMessageWith === 1
         }
         RowLayout {
+            QQC2.ToolButton {
+                id: emojiButton
+                property EmojiDialog dialog
+                
+                icon.name: "smiley"
+                text: i18n("Emojis & Stickers")
+                display: QQC2.AbstractButton.IconOnly
+                checkable: true
+                checked: dialog !== null
+        
+                onClicked: {
+                    if(!checked){
+                        if(dialog) {
+                            dialog.close();
+                        }
+                        return;
+                    }
+                    
+                    dialog = (emojiDialog.createObject(root) as EmojiDialog);
+                    dialog.onClosed.connect(() => {
+                        dialog = null;
+                    });
+                    dialog.open();
+                }
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                QQC2.ToolTip.text: text
+            }
+            
             QQC2.ScrollView {
                 id: chatScrollView
                 Layout.fillWidth: true
@@ -125,4 +154,24 @@ QQC2.Control {
             width: 1
         }
     }
+    
+    Component {
+        id: emojiDialog
+        EmojiDialog {
+            x: 0
+            y: -implicitHeight
+
+            modal: false
+            includeCustom: true
+            closeOnChosen: false
+
+            currentRoom: root.room
+
+            onChosen: emoji => {
+                root.chatButtonHelper.insertText(emoji);
+                close();
+            }
+
+        }
+    }   
 }
