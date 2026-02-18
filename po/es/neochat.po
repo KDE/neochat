@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:44+0000\n"
-"PO-Revision-Date: 2026-02-17 01:54+0100\n"
+"POT-Creation-Date: 2026-02-18 00:45+0000\n"
+"PO-Revision-Date: 2026-02-17 14:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -376,12 +376,10 @@ msgid "Do you really want to leave %1?"
 msgstr "¿Realmente desea salir de %1?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "Salir de la sala"
+msgstr "Salir"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -754,9 +752,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "La entrada no es válida como alias ni ID de sala"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "Unirme"
@@ -786,7 +782,7 @@ msgstr "La entrada no es válida como ID de usuario"
 #, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/app/qml/MeetingDialog.qml:16
 #, kde-format
@@ -2014,12 +2010,10 @@ msgstr ""
 "texto enriquecido)."
 
 #: src/chatbar/SendBar.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr "Enviar mensaje"
+msgstr "Añadir al mensaje"
 
 #: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, kde-format
@@ -2051,7 +2045,7 @@ msgctxt "@action:button"
 msgid "Send message"
 msgstr "Enviar mensaje"
 
-#: src/chatbar/SendBar.qml:221 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -7047,7 +7041,7 @@ msgstr "Hacer que este espacio sea el espacio padre canónico"
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/settings/SelectSpacesDialog.qml:37
 #, kde-format
@@ -7658,10 +7652,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgid "OK"
-#~ msgstr "Aceptar"
-
-#~ msgctxt "@option:check Enable the matrix 'threads' feature"
-#~ msgid "Threads"
-#~ msgstr "Hilos"
