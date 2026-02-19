@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
-"PO-Revision-Date: 2026-02-16 16:32+0300\n"
+"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"PO-Revision-Date: 2026-02-18 16:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
-"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/app/controller.cpp:172
 #, kde-format
@@ -373,12 +373,10 @@ msgid "Do you really want to leave %1?"
 msgstr "%1 odasından ayrılmayı gerçekten istiyor musunuz?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "Odadan Ayrıl"
+msgstr "Ayrıl"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -751,9 +749,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "Girdi, geçerli bir oda kimliği veya arma değil"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "Katıl"
@@ -780,9 +776,7 @@ msgid "The input is not a valid user ID"
 msgstr "Girdi, geçerli bir kullanıcı kimliği değil"
 
 #: src/app/qml/ManualUserDialog.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ok"
+#, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
 msgstr "Tamam"
@@ -2001,12 +1995,10 @@ msgstr ""
 "biçimlendirmesi kaldırılacaktır!"
 
 #: src/chatbar/SendBar.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr "İleti gönder"
+msgstr "İletiye Ekle"
 
 #: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, kde-format
@@ -7555,13 +7547,13 @@ msgstr "Tepki"
 msgid "Message menu"
 msgstr "İleti menüsü"
 
-#: src/timeline/ReadMarkerDelegate.qml:66
+#: src/timeline/ReadMarkerDelegate.qml:67
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Son okunma: %1"
 
-#: src/timeline/ReadMarkerDelegate.qml:72
+#: src/timeline/ReadMarkerDelegate.qml:73
 #, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"

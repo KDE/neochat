@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-18 00:45+0000\n"
-"PO-Revision-Date: 2026-02-15 21:02+0400\n"
+"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"PO-Revision-Date: 2026-02-18 17:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -372,11 +372,10 @@ msgid "Do you really want to leave %1?"
 msgstr "أتريد حقًّا مغادرة %1؟"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "اترك الغرفة"
+msgstr "غادر"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -747,9 +746,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "ليس النص المُدخَل  ليس معرف غرفة صالح أو معرف بديل"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "انضم"
@@ -776,9 +773,7 @@ msgid "The input is not a valid user ID"
 msgstr "ليس النص المُدخَل ليس رقم مستخدم صالح"
 
 #: src/app/qml/ManualUserDialog.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ok"
+#, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
 msgstr "حسنًا"
@@ -1976,12 +1971,10 @@ msgstr ""
 "ستُزال منها"
 
 #: src/chatbar/SendBar.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr "أرسل رسالة"
+msgstr "أضف إلى الرسالة"
 
 #: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
 #, kde-format
@@ -7542,13 +7535,13 @@ msgstr "تفاعل"
 msgid "Message menu"
 msgstr "قائمة الرّسالة"
 
-#: src/timeline/ReadMarkerDelegate.qml:66
+#: src/timeline/ReadMarkerDelegate.qml:67
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "آخر قراءة: %1"
 
-#: src/timeline/ReadMarkerDelegate.qml:72
+#: src/timeline/ReadMarkerDelegate.qml:73
 #, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
