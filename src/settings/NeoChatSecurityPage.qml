@@ -89,7 +89,7 @@ FormCard.FormCardPage {
     FormCard.FormCard {
         FormCard.FormButtonDelegate {
             id: secretBackupDelegate
-            text: i18nc("@action:inmenu", "Manage Secret Backup")
+            text: i18nc("@action:inmenu", "Manage Key Storage")
             description: i18nc("@info", "Import or unlock encryption keys from other devices.")
             icon.name: "unlock"
             onClicked: root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog'), {}, {
@@ -103,7 +103,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: importKeysDelegate
             text: i18nc("@action:button", "Import Keys")
-            description: i18nc("@info", "Import encryption keys from a backup.")
+            description: i18nc("@info", "Import encryption keys from a backup file.")
             icon.name: "document-import"
             onClicked: {
                 let dialog = root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ImportKeysDialog"), {
@@ -126,7 +126,7 @@ FormCard.FormCardPage {
         FormCard.FormButtonDelegate {
             id: exportKeysDelegate
             text: i18nc("@action:button", "Export Keys")
-            description: i18nc("@info", "Export this device's encryption keys.")
+            description: i18nc("@info", "Export this device's encryption keys to a file.")
             icon.name: "document-export"
             onClicked: {
                 root.QQC2.ApplicationWindow.window.pageStack.pushDialogLayer(Qt.createComponent("org.kde.neochat.settings", "ExportKeysDialog"), {

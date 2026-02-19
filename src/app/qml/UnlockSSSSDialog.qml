@@ -13,7 +13,7 @@ FormCard.FormCardPage {
 
     property bool processing: false
 
-    title: i18nc("@title:window", "Manage Secret Backup")
+    title: i18nc("@title:window", "Manage Key Storage")
 
     topPadding: Kirigami.Units.gridUnit
     leftPadding: 0
@@ -32,7 +32,7 @@ FormCard.FormCardPage {
         function onKeyBackupError(): void {
             securityKeyField.clear()
             root.processing = false
-            banner.text = i18nc("@info:status", "The security key or backup passphrase was not correct.")
+            banner.text = i18nc("@info:status", "The recovery key was not correct.")
             banner.visible = true
         }
 
@@ -45,20 +45,20 @@ FormCard.FormCardPage {
     }
 
     FormCard.FormHeader {
-        title: i18nc("@title", "Unlock using Security Key or Backup Passphrase")
+        title: i18nc("@title", "Unlock using Recovery Key")
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            description: i18nc("@info", "If you have a security key or backup passphrase for this account, enter it below or upload it as a file.")
+            description: i18nc("@info", "If you have a recovery key (also known as a “security key” or “backup passphrase”), enter it below or upload it as a file.")
         }
         FormCard.FormTextFieldDelegate {
             id: securityKeyField
-            label: i18nc("@label:textbox", "Security Key or Backup Passphrase:")
+            label: i18nc("@label:textbox", "Recovery Key:")
             echoMode: TextInput.Password
         }
         FormCard.FormButtonDelegate {
             id: uploadSecurityKeyButton
-            text: i18nc("@action:button", "Upload from File")
+            text: i18nc("@action:button", "Upload From File")
             icon.name: "cloud-upload"
             enabled: !root.processing
             onClicked: {
@@ -83,12 +83,12 @@ FormCard.FormCardPage {
     }
     FormCard.FormCard {
         FormCard.FormTextDelegate {
-            description: i18nc("@info", "If you have previously verified this device, you can try loading the backup key from other devices by clicking the button below.")
+            description: i18nc("@info", "If you have previously verified this device, you request encryption keys from other verified devices.")
         }
         FormCard.FormButtonDelegate {
             id: unlockCrossSigningButton
             icon.name: "emblem-shared-symbolic"
-            text: i18nc("@action:button", "Request from other Devices")
+            text: i18nc("@action:button", "Request From Other Devices")
             enabled: !root.processing
             onClicked: {
                 root.processing = true
