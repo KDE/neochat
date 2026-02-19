@@ -8,6 +8,7 @@ import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
 
+import org.kde.neochat
 import org.kde.neochat.libneochat as LibNeoChat
 import org.kde.neochat.messagecontent as MessageContent
 
@@ -188,6 +189,20 @@ RowLayout {
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
     }
+    
+    QQC2.ToolButton {
+        icon.name: "edit-select-text-symbolic"
+        text: i18nc("@action:button", "Rich Text")
+        display: QQC2.AbstractButton.IconOnly
+        onClicked: NeoChatConfig.sendMessageWith = NeoChatConfig.sendMessageWith === 0 ? 1 : 0
+        checkable: true
+        checked: NeoChatConfig === 1
+        
+        QQC2.ToolTip.visible: hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        QQC2.ToolTip.text: text
+    }
+    
     QQC2.ToolButton {
         id: sendButton
         icon.name: "document-send"

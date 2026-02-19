@@ -90,28 +90,6 @@ Item {
         hoverEnabled: true
         acceptedButtons: Qt.NoButton
     }
-    QQC2.Button {
-        id: chatModeButton
-        anchors {
-            bottom: core.top
-            bottomMargin: Kirigami.Units.smallSpacing
-            horizontalCenter: root.horizontalCenter
-        }
-
-        visible: hoverArea.containsMouse || hovered || core.hovered
-        width: Kirigami.Units.iconSizes.enormous
-        height: Kirigami.Units.iconSizes.smallMedium
-
-        icon.name: NeoChatConfig.sendMessageWith === 0 ? "arrow-up" : "arrow-down"
-        text: NeoChatConfig.sendMessageWith === 0 ? i18nc("@action:button", "Enter rich text mode") : i18nc("@action:button", "Exit rich text mode")
-        display: QQC2.AbstractButton.IconOnly
-
-        onClicked: NeoChatConfig.sendMessageWith = NeoChatConfig.sendMessageWith === 0 ? 1 : 0
-
-        QQC2.ToolTip.visible: hovered
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        QQC2.ToolTip.text: text
-    }
 
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
