@@ -92,7 +92,7 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
             connect(doc, &QTextDocument::contentsChange, this, &ChatTextItemHelper::contentsChange);
             m_highlighter->setDocument(doc);
         }
-        initializeChars();
+        initialize();
     }
 
     Q_EMIT textItemChanged();
@@ -133,24 +133,21 @@ void ChatTextItemHelper::setFixedChars(const QString &startChars, const QString 
     }
     m_fixedStartChars = startChars;
     m_fixedEndChars = endChars;
-    initializeChars();
+    initialize();
 }
 
-QString ChatTextItemHelper::initialText() const
+QTextDocumentFragment ChatTextItemHelper::initialFragment() const
 {
-    return m_initialText;
+    return m_initialFragment;
 }
 
-void ChatTextItemHelper::setInitialText(const QString &text)
+void ChatTextItemHelper::setInitialFragment(const QTextDocumentFragment &fragment)
 {
-    if (text == m_initialText) {
-        return;
-    }
-    m_initialText = text;
-    initializeChars();
+    m_initialFragment = fragment;
+    initialize();
 }
 
-void ChatTextItemHelper::initializeChars()
+void ChatTextItemHelper::initialize()
 {
     const auto doc = document();
     if (!doc) {
@@ -166,8 +163,8 @@ void ChatTextItemHelper::initializeChars()
 
     cursor.beginEditBlock();
     int finalCursorPos = cursor.position();
-    if (doc->isEmpty() && !m_initialText.isEmpty()) {
-        cursor.insertText(m_initialText);
+    if (doc->isEmpty() && !m_initialFragment.isEmpty()) {
+        cursor.insertFragment(m_initialFragment);
         finalCursorPos = cursor.position();
     }
 
@@ -616,6 +613,16 @@ QString ChatTextItemHelper::plainText() const
         return {};
     }
     return trim(doc->toPlainText());
+}
+
+QTextDocumentFragment ChatTextItemHelper::toFragment() const
+{
+    auto cursor = textCursor();
+    if (cursor.isNull()) {
+        return {};
+    }
+    cursor.select(QTextCursor::Document);
+    return cursor.selection();
 }
 
 QString ChatTextItemHelper::trim(QString string) const

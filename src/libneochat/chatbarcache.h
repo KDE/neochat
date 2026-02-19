@@ -8,21 +8,12 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "blockcache.h"
+
 namespace Quotient
 {
 class RoomMember;
 }
-
-/**
- * @brief Defines a user mention in the current chat or edit text.
- */
-struct Mention {
-    QTextCursor cursor; /**< Contains the mention's text and position in the text.  */
-    QString text; /**< The inserted text of the mention. */
-    int start = 0; /**< Start position of the mention. */
-    int position = 0; /**< End position of the mention. */
-    QString id; /**< The id the mention (used to create link when sending the message). */
-};
 
 /**
  * @class ChatBarCache
@@ -147,6 +138,8 @@ public:
 
     explicit ChatBarCache(QObject *parent = nullptr);
 
+    Block::Cache &cache();
+
     QString text() const;
     QString sendText() const;
     void setText(const QString &text);
@@ -179,11 +172,6 @@ public:
     Q_INVOKABLE void clearRelations();
 
     /**
-     * @brief Retrieve the mentions for the current chat bar text.
-     */
-    QList<Mention> *mentions();
-
-    /**
      * @brief Get the saved chat bar text.
      */
     QString savedText() const;
@@ -209,14 +197,14 @@ Q_SIGNALS:
     void relationAuthorIsPresentChanged();
 
 private:
+    Block::Cache m_cache;
+
     QString m_text = QString();
-    QString formatMentions() const;
 
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;
     QString m_threadId = QString();
     QString m_attachmentPath = QString();
-    QList<Mention> m_mentions;
     QString m_savedText;
 
     void clearCache();

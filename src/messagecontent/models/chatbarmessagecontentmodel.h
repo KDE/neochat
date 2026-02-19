@@ -143,7 +143,7 @@ private:
     QPointer<ChatKeyHelper> m_keyHelper;
     void connectKeyHelper();
 
-    ComponentIt insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes = {}, const QString &intialText = {});
+    ComponentIt insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes = {}, const QTextDocumentFragment &intialFragment = {});
     ComponentIt removeComponent(ComponentIt it);
     void removeComponent(ChatTextItemHelper *textItem);
 

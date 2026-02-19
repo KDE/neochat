@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QTextCursor>
 
+#include <Kirigami/Platform/PlatformTheme>
+
 #include "chattextitemhelper.h"
 #include "completionproxymodel.h"
 #include "models/actionsmodel.h"
@@ -22,35 +24,6 @@ CompletionModel::CompletionModel(QObject *parent)
 {
     m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
     m_emojiModel->addSourceModel(&EmojiModel::instance());
-}
-
-NeoChatRoom *CompletionModel::room() const
-{
-    return m_room;
-}
-
-void CompletionModel::setRoom(NeoChatRoom *room)
-{
-    if (m_room == room) {
-        return;
-    }
-
-    m_room = room;
-    Q_EMIT roomChanged();
-}
-
-ChatBarType::Type CompletionModel::type() const
-{
-    return m_type;
-}
-
-void CompletionModel::setType(ChatBarType::Type type)
-{
-    if (type == m_type) {
-        return;
-    }
-    m_type = type;
-    Q_EMIT typeChanged();
 }
 
 ChatTextItemHelper *CompletionModel::textItem() const
@@ -322,29 +295,22 @@ void CompletionModel::insertCompletion(const QString &text, const QUrl &link)
     }
     cursor.removeSelectedText();
 
-    const int start = cursor.position();
-    const auto insertString = u"%1 %2"_s.arg(text, link.isEmpty() ? QString() : u" "_s);
-    cursor.insertText(insertString);
-    cursor.setPosition(start);
-    cursor.setPosition(start + text.size(), QTextCursor::KeepAnchor);
-    cursor.setKeepPositionOnInsert(true);
-    cursor.endEditBlock();
+    const auto previousFormat = cursor.charFormat();
+    auto charFormat = previousFormat;
+    if (link.isValid()) {
+        const auto theme = static_cast<Kirigami::Platform::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::Platform::PlatformTheme>(this, true));
+        charFormat = QTextCharFormat();
+        charFormat.setForeground(theme->linkColor());
+        charFormat.setFontWeight(QFont::Bold);
+        charFormat.setAnchor(true);
+        charFormat.setAnchorHref(link.toString());
+    }
+    cursor.insertText(text, charFormat);
     if (!link.isEmpty()) {
-        pushMention({
-            .cursor = cursor,
-            .text = text,
-            .id = link.toString(),
-        });
+        cursor.insertText(u" "_s, previousFormat);
     }
+    cursor.endEditBlock();
     m_textItem->rehighlight();
-}
-
-void CompletionModel::pushMention(const Mention mention) const
-{
-    if (!m_room || m_type == ChatBarType::None) {
-        return;
-    }
-    m_room->cacheForType(m_type)->mentions()->push_back(mention);
 }
 
 #include "moc_completionmodel.cpp"

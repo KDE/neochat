@@ -5,6 +5,8 @@
 
 #include <QObject>
 #include <QQuickItem>
+#include <QTextDocumentFragment>
+#include <qtextdocumentfragment.h>
 
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"
@@ -108,16 +110,16 @@ public:
     void setFixedChars(const QString &startChars, const QString &endChars);
 
     /**
-     * @brief Any text to initialise the text item with when set.
+     * @brief Any QTextDocumentFragment to initialise the text item with when set.
      */
-    QString initialText() const;
+    QTextDocumentFragment initialFragment() const;
 
     /**
-     * @brief Set the text to initialise the text item with when set.
+     * @brief Set the QTextDocumentFragment to initialise the text item with when set.
      *
      * This text will only be set if the text item is empty when set.
      */
-    void setInitialText(const QString &text);
+    void setInitialFragment(const QTextDocumentFragment &fragment);
 
     /**
      * @brief The underlying QTextDocument.
@@ -248,6 +250,11 @@ public:
      */
     QString plainText() const;
 
+    /**
+     * @brief Output the text in the text item as a QTextDocumentFragment.
+     */
+    QTextDocumentFragment toFragment() const;
+
 Q_SIGNALS:
     /**
      * @brief Emitted when the NeoChatRoom used by the syntax highlighter is changed.
@@ -309,8 +316,8 @@ private:
 
     QString m_fixedStartChars = {};
     QString m_fixedEndChars = {};
-    QString m_initialText = {};
-    void initializeChars();
+    QTextDocumentFragment m_initialFragment = {};
+    void initialize();
     bool m_initializingChars = false;
 
     std::optional<int> lineLength(int lineNumber) const;

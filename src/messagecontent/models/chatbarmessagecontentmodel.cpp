@@ -104,7 +104,7 @@ void ChatBarMessageContentModel::initializeModel(const QString &initialText)
     const auto textItem = new ChatTextItemHelper(this);
     textItem->setRoom(m_room);
     textItem->setType(m_type);
-    textItem->setInitialText(initialText);
+    textItem->setInitialFragment(QTextDocumentFragment::fromPlainText(initialText));
     connectTextItem(textItem);
     m_components += MessageComponent{
         .type = MessageComponentType::Text,
@@ -125,25 +125,17 @@ void ChatBarMessageContentModel::initializeFromCache()
 
     clearModel();
 
-    const auto currentCache = m_room->cacheForType(m_type);
-    const auto textSections = (m_type == ChatBarType::Room ? currentCache->text() : currentCache->relationMessage()).split(u"\n\n"_s);
-    if (textSections.length() == 1 && textSections[0].isEmpty()) {
+    const auto &currentCache = m_room->cacheForType(m_type);
+    const auto &blockCache = currentCache->cache();
+    if (blockCache.isEmpty()) {
         initializeModel();
         return;
     }
 
     beginResetModel();
-    for (const auto &section : textSections) {
-        const auto type = MessageComponentType::typeForString(section);
-        auto cleanText = section;
-        if (type == MessageComponentType::Code) {
-            cleanText.remove(0, 4);
-            cleanText.remove(cleanText.length() - 4, 4);
-        } else if (type == MessageComponentType::Quote) {
-            cleanText.remove(0, 2);
-        }
-        insertComponent(rowCount(), type, {}, cleanText);
-    }
+    std::ranges::for_each(blockCache.constBegin(), blockCache.constEnd(), [this](const Block::CacheItem &cacheItem) {
+        insertComponent(rowCount(), cacheItem.type, {}, cacheItem.content);
+    });
     endResetModel();
 
     if (currentCache->attachmentPath().length() > 0) {
@@ -390,7 +382,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
 }
 
 ChatBarMessageContentModel::ComponentIt
-ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes, const QString &intialText)
+ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type type, QVariantMap attributes, const QTextDocumentFragment &intialFragment)
 {
     if (row < 0 || row > rowCount()) {
         return m_components.end();
@@ -398,7 +390,7 @@ ChatBarMessageContentModel::insertComponent(int row, MessageComponentType::Type 
 
     if (MessageComponentType::isTextType(type)) {
         const auto textItemWrapper = new ChatTextItemHelper(this);
-        textItemWrapper->setInitialText(intialText);
+        textItemWrapper->setInitialFragment(intialFragment);
         textItemWrapper->setRoom(m_room);
         textItemWrapper->setType(m_type);
         if (type == MessageComponentType::Quote) {
@@ -600,7 +592,8 @@ void ChatBarMessageContentModel::updateCache() const
         return;
     }
 
-    m_room->cacheForType(m_type)->setText(messageText());
+    m_room->cacheForType(m_type)->cache().clear();
+    m_room->cacheForType(m_type)->cache().fill(m_components);
 }
 
 inline QString formatQuote(const QString &input)

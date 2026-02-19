@@ -9,6 +9,7 @@ target_sources(LibNeoChat PRIVATE
     neochatroommember.cpp
     accountmanager.cpp
     chatbarcache.cpp
+    blockcache.cpp
     chatbarsyntaxhighlighter.cpp
     chatkeyhelper.cpp
     chatmarkdownhelper.cpp

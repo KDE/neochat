@@ -33,6 +33,11 @@ ChatBarCache::ChatBarCache(QObject *parent)
     connect(this, &ChatBarCache::relationIdChanged, this, &ChatBarCache::relationAuthorIsPresentChanged);
 }
 
+Block::Cache &ChatBarCache::cache()
+{
+    return m_cache;
+}
+
 QString ChatBarCache::text() const
 {
     return m_text;
@@ -55,27 +60,7 @@ QString ChatBarCache::sendText() const
         return text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : text();
     }
 
-    return formatMentions();
-}
-
-QString ChatBarCache::formatMentions() const
-{
-    auto mentions = m_mentions;
-    std::sort(mentions.begin(), mentions.end(), [](const auto &a, const auto &b) {
-        return a.cursor.anchor() > b.cursor.anchor();
-    });
-
-    auto formattedText = text();
-    for (const auto &mention : mentions) {
-        if (mention.text.isEmpty() || mention.id.isEmpty()) {
-            continue;
-        }
-        formattedText = formattedText.replace(mention.cursor.anchor(),
-                                              mention.cursor.position() - mention.cursor.anchor(),
-                                              u"[%1](https://matrix.to/#/%2)"_s.arg(mention.text.toHtmlEscaped(), mention.id));
-    }
-
-    return formattedText;
+    return text();
 }
 
 bool ChatBarCache::isReplying() const
@@ -232,11 +217,6 @@ void ChatBarCache::clearRelations()
     Q_EMIT attachmentPathChanged();
 }
 
-QList<Mention> *ChatBarCache::mentions()
-{
-    return &m_mentions;
-}
-
 QString ChatBarCache::savedText() const
 {
     return m_savedText;
@@ -294,7 +274,6 @@ void ChatBarCache::postMessage()
 void ChatBarCache::clearCache()
 {
     setText({});
-    m_mentions.clear();
     m_savedText = QString();
     clearRelations();
 }

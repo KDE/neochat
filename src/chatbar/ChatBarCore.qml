@@ -30,8 +30,6 @@ QQC2.Control {
     }
 
     readonly property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
-        room: root.room
-        type: root.chatBarType
         textItem: root.model.focusedTextItem
         roomListModel: RoomManager.roomListModel
         userListModel: RoomManager.userListModel

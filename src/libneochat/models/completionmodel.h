@@ -31,16 +31,6 @@ class CompletionModel : public QAbstractListModel
     QML_ELEMENT
 
     /**
-     * @brief The current room that the text document is being handled for.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
-
-    /**
-     * @brief The ChatBarType::Type of the chat bar.
-     */
-    Q_PROPERTY(ChatBarType::Type type READ type WRITE setType NOTIFY typeChanged)
-
-    /**
      * @brief The QML text Item that completions are being provided for.
      */
     Q_PROPERTY(ChatTextItemHelper *textItem READ textItem WRITE setTextItem NOTIFY textItemChanged)
@@ -94,12 +84,6 @@ public:
 
     explicit CompletionModel(QObject *parent = nullptr);
 
-    NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
-
-    ChatBarType::Type type() const;
-    void setType(ChatBarType::Type type);
-
     ChatTextItemHelper *textItem() const;
     void setTextItem(ChatTextItemHelper *textItem);
 
@@ -140,8 +124,6 @@ public:
     Q_INVOKABLE void insertCompletion(const QString &text, const QUrl &link);
 
 Q_SIGNALS:
-    void roomChanged();
-    void typeChanged();
     void textItemChanged();
     void autoCompletionTypeChanged();
     void roomListModelChanged();
@@ -149,8 +131,6 @@ Q_SIGNALS:
     void isCompletingChanged();
 
 private:
-    QPointer<NeoChatRoom> m_room;
-    ChatBarType::Type m_type = ChatBarType::None;
     QPointer<ChatTextItemHelper> m_textItem;
 
     bool m_ignoreCurrentCompletion = false;
@@ -165,6 +145,4 @@ private:
     UserListModel *m_userListModel;
     RoomListModel *m_roomListModel;
     QConcatenateTablesProxyModel *m_emojiModel;
-
-    void pushMention(const Mention mention) const;
 };

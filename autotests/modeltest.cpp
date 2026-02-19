@@ -400,7 +400,6 @@ void ModelTest::testCompletionModel()
     auto model = new CompletionModel(this);
     auto tester = new QAbstractItemModelTester(model, model);
     tester->setUseFetchMore(true);
-    model->setRoom(room);
     model->setAutoCompletionType(CompletionModel::Room);
     auto roomListModel = new RoomListModel(this);
     roomListModel->setConnection(connection);

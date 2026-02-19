@@ -33,7 +33,6 @@ public:
 
 private:
     Kirigami::Platform::PlatformTheme *m_theme = nullptr;
-    QTextCharFormat m_mentionFormat;
     QTextCharFormat m_errorFormat;
 
     Sonnet::BackgroundChecker *m_checker = new Sonnet::BackgroundChecker(this);
