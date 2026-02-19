@@ -37,8 +37,38 @@ FormCard.FormCardPage {
                 title: i18nc("@title:window", "Ignored Users")
             });
         }
+    }
+
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Messages")
+    }
+    FormCard.FormCard {
+        FormCard.FormCheckDelegate {
+            id: showLinkPreviewDelegate
+            text: i18nc("@label:checkbox", "Show link previews")
+            description: i18nc("@info:label", "You can customize this per-room under room settings. If unchecked, disables link previews in every room.")
+            checked: NeoChatConfig.showLinkPreview
+            onToggled: {
+                NeoChatConfig.showLinkPreview = checked;
+                NeoChatConfig.save();
+            }
+        }
         FormCard.FormDelegateSeparator {
-            above: ignoredUsersDelegate
+            above: showLinkPreviewDelegate
+            below: typingNotificationsDelegate
+        }
+        FormCard.FormCheckDelegate {
+            id: typingNotificationsDelegate
+            text: i18nc("@label:checkbox", "Send typing notifications")
+            checked: NeoChatConfig.typingNotifications
+            enabled: !NeoChatConfig.isTypingNotificationsImmutable
+            onToggled: {
+                NeoChatConfig.typingNotifications = checked;
+                NeoChatConfig.save();
+            }
+        }
+        FormCard.FormDelegateSeparator {
+            above: typingNotificationsDelegate
             below: hideImagesDelegate
         }
         FormCard.FormCheckDelegate {
@@ -52,10 +82,11 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
-        FormCard.FormDelegateSeparator {
-            above: hideImagesDelegate
-            below: rejectInvitationsDelegate
-        }
+    }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Invites")
+    }
+    FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: rejectInvitationsDelegate
             text: i18nc("@option:check", "Reject invitations from unknown users")
@@ -67,10 +98,11 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
-        FormCard.FormDelegateSeparator {
-            above: rejectInvitationsDelegate
-            below: preferEncryptionDelegate
-        }
+    }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Encryption")
+    }
+    FormCard.FormCard {
         FormCard.FormCheckDelegate {
             id: preferEncryptionDelegate
             text: i18nc("@option:check", "Turn on encryption in new chats")
@@ -82,11 +114,10 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
-    }
-    FormCard.FormHeader {
-        title: i18nc("@title:group", "Encryption")
-    }
-    FormCard.FormCard {
+        FormCard.FormDelegateSeparator {
+            above: preferEncryptionDelegate
+            below: secretBackupDelegate
+        }
         FormCard.FormButtonDelegate {
             id: secretBackupDelegate
             text: i18nc("@action:inmenu", "Manage Key Storage")

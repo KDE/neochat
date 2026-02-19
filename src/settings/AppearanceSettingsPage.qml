@@ -333,22 +333,6 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
-
-        FormCard.FormDelegateSeparator {
-            above: showLocalMessagesOnRightDelegate
-            below: showLinkPreviewDelegate
-        }
-
-        FormCard.FormCheckDelegate {
-            id: showLinkPreviewDelegate
-            text: i18nc("@label:checkbox", "Show link previews")
-            description: i18nc("@info:label", "You can customize this per-room under room settings. If unchecked, disables link previews in every room.")
-            checked: NeoChatConfig.showLinkPreview
-            onToggled: {
-                NeoChatConfig.showLinkPreview = checked;
-                NeoChatConfig.save();
-            }
-        }
     }
 
     FormCard.FormHeader {

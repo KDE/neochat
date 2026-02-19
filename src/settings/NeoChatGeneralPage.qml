@@ -274,20 +274,6 @@ FormCard.FormCardPage {
                 NeoChatConfig.save();
             }
         }
-        FormCard.FormDelegateSeparator {
-            above: quickEditCheckbox
-            below: typingNotificationsDelegate
-        }
-        FormCard.FormCheckDelegate {
-            id: typingNotificationsDelegate
-            text: i18n("Send typing notifications")
-            checked: NeoChatConfig.typingNotifications
-            enabled: !NeoChatConfig.isTypingNotificationsImmutable
-            onToggled: {
-                NeoChatConfig.typingNotifications = checked;
-                NeoChatConfig.save();
-            }
-        }
     }
     FormCard.FormHeader {
         title: i18n("Developer Settings")
