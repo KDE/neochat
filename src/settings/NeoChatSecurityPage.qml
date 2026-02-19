@@ -87,16 +87,30 @@ FormCard.FormCardPage {
         title: i18nc("@title:group", "Invites")
     }
     FormCard.FormCard {
-        FormCard.FormCheckDelegate {
+        FormCard.FormRadioDelegate {
+            text: i18nc("@info:label", "Everyone")
+            checked: !NeoChatConfig.rejectUnknownInvites && !root.connection.blockAllInvites
+            description: i18nc("@info:description", "Anyone can send you invites.")
+        }
+
+        FormCard.FormRadioDelegate {
             id: rejectInvitationsDelegate
-            text: i18nc("@option:check", "Reject invitations from unknown users")
-            description: root.connection.canCheckMutualRooms ? i18nc("@info", "If enabled, NeoChat will reject invitations from users you don't share a room with.") : i18nc("@info", "Your server does not support this setting.")
+            text: i18nc("@option:check", "Known users")
+            description: root.connection.canCheckMutualRooms ? i18nc("@info", "Only users you share a room with can send you invites.") : i18nc("@info", "Your server does not support this setting.")
             checked: NeoChatConfig.rejectUnknownInvites
             enabled: !NeoChatConfig.isRejectUnknownInvitesImmutable && root.connection.canCheckMutualRooms
-            onToggled: {
+            onCheckedChanged: {
                 NeoChatConfig.rejectUnknownInvites = checked;
                 NeoChatConfig.save();
             }
+        }
+
+        FormCard.FormRadioDelegate {
+            text: i18nc("@info:label", "No one")
+            checked: root.connection.blockAllInvites
+            enabled: root.connection.supportsMatrixSpecVersion("v1.18")
+            description: root.connection.supportsMatrixSpecVersion("v1.18") ? i18nc("@info:description", "No one can send you invites.") : i18nc("@info", "Your server does not support this setting.")
+            onCheckedChanged: root.connection.blockAllInvites = checked
         }
     }
     FormCard.FormHeader {

@@ -62,6 +62,9 @@ void NeoChatConnection::connectSignals()
         if (type == u"m.identity_server"_s) {
             Q_EMIT identityServerChanged();
         }
+        if (type == u"m.invite_permission_config"_s) {
+            Q_EMIT blockAllInvitesChanged();
+        }
     });
     connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
         if (job->error() == BaseJob::UserConsentRequired) {
@@ -634,6 +637,22 @@ void NeoChatConnection::setNoteForUser(const QString &userId, const QString &not
         object[userId] = note;
     }
     setAccountData(QStringLiteral("org.kde.neochat.user_note"), object);
+}
+
+bool NeoChatConnection::blockAllInvites() const
+{
+    return accountDataJson("m.invite_permission_config"_L1)["default_action"_L1].toString() == "block"_L1;
+}
+
+void NeoChatConnection::setBlockAllInvites(bool block)
+{
+    auto object = accountDataJson(QStringLiteral("m.invite_permission_config"));
+    if (block) {
+        object["default_action"_L1] = "block"_L1;
+    } else {
+        object.remove("default_action"_L1);
+    }
+    setAccountData(QStringLiteral("m.invite_permission_config"), object);
 }
 
 #include "moc_neochatconnection.cpp"

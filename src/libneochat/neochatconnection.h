@@ -100,6 +100,11 @@ class NeoChatConnection : public Quotient::Connection
      */
     Q_PROPERTY(bool isVerifiedSession READ isVerifiedSession NOTIFY ownSessionVerified)
 
+    /**
+     * @brief True if this account is blocking invites for all users.
+     */
+    Q_PROPERTY(bool blockAllInvites READ blockAllInvites WRITE setBlockAllInvites NOTIFY blockAllInvitesChanged)
+
 public:
     /**
      * @brief Defines the status after an attempt to change the password on an account.
@@ -244,6 +249,9 @@ public:
      */
     Q_INVOKABLE void setNoteForUser(const QString &userId, const QString &note);
 
+    bool blockAllInvites() const;
+    void setBlockAllInvites(bool block);
+
 Q_SIGNALS:
     void globalUrlPreviewEnabledChanged();
     void labelChanged();
@@ -283,6 +291,7 @@ Q_SIGNALS:
 
     void keyBackupUnlocked();
     void keyBackupError();
+    void blockAllInvitesChanged();
 
 private:
     static bool m_globalUrlPreviewDefault;
