@@ -6,7 +6,6 @@ ecm_add_qml_module(Chatbar GENERATE_PLUGIN_SOURCE
     URI org.kde.neochat.chatbar
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/src/org/kde/neochat/chatbar
     QML_FILES
-        AttachDialog.qml
         ChatBar.qml
         ChatBarCore.qml
         RichEditBar.qml

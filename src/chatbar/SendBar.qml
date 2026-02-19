@@ -43,11 +43,7 @@ RowLayout {
 
     function addAttachment(): void {
         if (!root.contentModel.hasRichFormatting) {
-            if (LibNeoChat.Clipboard.hasImage) {
-                attachDialog();
-            } else {
-                fileDialog();
-            }
+            fileDialog();
             return;
         }
 
@@ -58,20 +54,9 @@ RowLayout {
             standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
         });
         warningDialog.onAccepted.connect(() => {
-            if (LibNeoChat.Clipboard.hasImage) {
-                attachmentButton.attachDialog();
-            } else {
-                attachmentButton.fileDialog();
-            }
+            attachmentButton.fileDialog();
         });
         warningDialog.open();
-    }
-
-    function attachDialog(): void {
-        let dialog = Qt.createComponent('org.kde.neochat.chatbar', 'AttachDialog').createObject(QQC2.Overlay.overlay) as AttachDialog;
-        dialog.anchors.centerIn = QQC2.Overlay.overlay;
-        dialog.chosen.connect(path => root.contentModel.addAttachment(path));
-        dialog.open();
     }
 
     function fileDialog(): void {
