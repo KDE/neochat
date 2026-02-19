@@ -21,6 +21,7 @@ class CommonRoomsModel : public QAbstractListModel
     Q_PROPERTY(NeoChatConnection *connection WRITE setConnection READ connection NOTIFY connectionChanged REQUIRED)
     Q_PROPERTY(QString userId WRITE setUserId READ userId NOTIFY userIdChanged REQUIRED)
     Q_PROPERTY(int count READ rowCount NOTIFY countChanged)
+    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
 
 public:
     enum Roles {
@@ -43,10 +44,13 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    bool loading() const;
+
 Q_SIGNALS:
     void connectionChanged();
     void userIdChanged();
     void countChanged();
+    void loadingChanged();
 
 private:
     void reload();
@@ -54,4 +58,5 @@ private:
     QPointer<NeoChatConnection> m_connection;
     QString m_userId;
     QList<QString> m_commonRooms;
+    bool m_loading = false;
 };

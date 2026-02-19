@@ -74,6 +74,11 @@ QHash<int, QByteArray> CommonRoomsModel::roleNames() const
     };
 }
 
+bool CommonRoomsModel::loading() const
+{
+    return m_loading;
+}
+
 void CommonRoomsModel::reload()
 {
     if (!m_connection || m_userId.isEmpty()) {
@@ -89,15 +94,26 @@ void CommonRoomsModel::reload()
         return;
     }
 
-    m_connection->callApi<NeochatGetCommonRoomsJob>(m_userId).then([this](const auto job) {
-        const auto &replyData = job->jsonData();
-        beginResetModel();
-        for (const auto &roomId : replyData[u"joined"_s].toArray()) {
-            m_commonRooms.push_back(roomId.toString());
-        }
-        endResetModel();
-        Q_EMIT countChanged();
-    });
+    m_loading = true;
+    Q_EMIT loadingChanged();
+
+    m_connection->callApi<NeochatGetCommonRoomsJob>(m_userId)
+        .then([this](const auto job) {
+            const auto &replyData = job->jsonData();
+            beginResetModel();
+            for (const auto &roomId : replyData[u"joined"_s].toArray()) {
+                m_commonRooms.push_back(roomId.toString());
+            }
+            endResetModel();
+            Q_EMIT countChanged();
+
+            m_loading = false;
+            Q_EMIT loadingChanged();
+        })
+        .onFailure([this] {
+            m_loading = false;
+            Q_EMIT loadingChanged();
+        });
 }
 
 #include "moc_commonroomsmodel.cpp"

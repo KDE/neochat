@@ -401,18 +401,36 @@ Kirigami.Dialog {
         Kirigami.Heading {
             text: i18nc("@title The set of common rooms between your current user and the one shown", "Mutual Rooms")
             level: 4
-            visible: !root.isSelf && root.hasMutualRooms
+            visible: !root.isSelf && root.connection.canCheckMutualRooms
 
             Layout.topMargin: Kirigami.Units.largeSpacing
         }
 
         RowLayout {
             spacing: Kirigami.Units.smallSpacing
-            visible: !root.isSelf && root.hasMutualRooms
+            visible: !root.isSelf && root.connection.canCheckMutualRooms
 
             Layout.topMargin: Kirigami.Units.smallSpacing
 
+            QQC2.BusyIndicator {
+                visible: roomRepeater.count === 0 && root.model.loading
+
+                Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+            }
+
+            QQC2.Label {
+                visible: roomRepeater.count === 0 && !root.model.loading
+                text: i18nc("@info:label", "No rooms in common")
+                verticalAlignment: Text.AlignVCenter
+
+                Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                Layout.fillHeight: true
+            }
+
             Repeater {
+                id: roomRepeater
+
                 model: root.limiterModel
 
                 delegate: KirigamiComponents.AvatarButton {
