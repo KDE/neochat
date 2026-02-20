@@ -66,8 +66,9 @@ Item {
         anchors.right: root.right
         anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
 
-        QQC2.Button {
+        z: 10
 
+        QQC2.Button {
             visible: !_private.hideImage && !root.editable
             icon.name: "view-hidden"
             text: i18nc("@action:button", "Hide Image")
@@ -119,6 +120,30 @@ Item {
         }
     }
 
+    Rectangle {
+        anchors.fill: parent
+
+        visible: (_private.imageItem?.status !== Image.Ready ?? true) || _private.hideImage
+
+        color: "#BB000000"
+
+        QQC2.ProgressBar {
+            anchors.centerIn: parent
+
+            width: parent.width * 0.8
+            visible: !_private.hideImage
+
+            from: 0
+            to: 1.0
+            value: _private.imageItem?.progress ?? 0.0
+        }
+
+        Image {
+            anchors.fill: parent
+            source: root?.componentAttributes.tempInfo?.source ?? ""
+        }
+    }
+
     Loader {
         id: imageLoader
 
@@ -151,38 +176,12 @@ Item {
         }
     }
 
-    Image {
-        anchors.fill: parent
-        source: visible ? (root?.componentAttributes.tempInfo?.source ?? "") : ""
-        visible: _private.imageItem && _private.imageItem.status !== Image.Ready && !_private.hideImage
-    }
-
     QQC2.ToolTip.text: root.display
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
     HoverHandler {
         id: hoverHandler
-    }
-
-    Rectangle {
-        anchors.fill: parent
-
-        visible: _private.imageItem.status !== Image.Ready || _private.hideImage
-
-        color: "#BB000000"
-
-        QQC2.ProgressBar {
-            anchors.centerIn: parent
-
-            width: parent.width * 0.8
-            visible: !_private.hideImage
-
-            from: 0
-            to: 1.0
-            value: _private.imageItem.progress
-        }
-
     }
 
     QQC2.Button {
@@ -206,7 +205,7 @@ Item {
             if (root.Message.timeline) {
                 root.Message.timeline.interactive = false;
             }
-            if (!root.componentAttributes.isSticker && !root.editable) {
+            if (!root.componentAttributes.isSticker && !root.editable && !_private.hideImage) {
                 RoomManager.maximizeMedia(root.eventId);
             }
         }
