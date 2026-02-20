@@ -105,6 +105,10 @@ QVariant TimelineBeginningModel::data(const QModelIndex &idx, int role) const
         }
         return DelegateType::Successor;
     }
+
+    if (role == MessageModel::RoomRole) {
+        return QVariant::fromValue(m_room.get());
+    }
     return {};
 }
 
@@ -119,7 +123,10 @@ int TimelineBeginningModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> TimelineBeginningModel::roleNames() const
 {
-    return {{DelegateTypeRole, "delegateType"}};
+    return {
+        {DelegateTypeRole, "delegateType"},
+        {MessageModel::RoomRole, "room"},
+    };
 }
 
 TimelineEndModel::TimelineEndModel(QObject *parent)
@@ -170,6 +177,10 @@ QVariant TimelineEndModel::data(const QModelIndex &idx, int role) const
             return DelegateType::Predecessor;
         }
     }
+
+    if (role == MessageModel::RoomRole) {
+        return QVariant::fromValue(m_room.get());
+    }
     return {};
 }
 
@@ -184,7 +195,10 @@ int TimelineEndModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> TimelineEndModel::roleNames() const
 {
-    return {{DelegateTypeRole, "delegateType"}};
+    return {
+        {DelegateTypeRole, "delegateType"},
+        {MessageModel::RoomRole, "room"},
+    };
 }
 
 #include "moc_timelinemodel.cpp"
