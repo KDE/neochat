@@ -3,7 +3,7 @@
 
 #include "timelinemessagemodel.h"
 #include "events/pollevent.h"
-#include "messagemodel_logging.h"
+#include "timelinelogging.h"
 
 #include <Quotient/events/reactionevent.h>
 #include <Quotient/thread.h>
@@ -146,7 +146,7 @@ void TimelineMessageModel::connectNewRoom()
             endResetModel();
         });
 
-        qCDebug(Message) << "Connected to room" << m_room->id() << "as" << m_room->localMember().id();
+        qCDebug(Timeline) << "Connected to room" << m_room->id() << "as" << m_room->localMember().id();
     }
 
     // After reset put a read marker in if required.

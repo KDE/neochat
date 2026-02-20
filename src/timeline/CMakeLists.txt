@@ -42,6 +42,13 @@ ecm_add_qml_module(Timeline GENERATE_PLUGIN_SOURCE
         org.kde.neochat.libneochat
 )
 
+ecm_qt_declare_logging_category(Timeline
+    HEADER "timelinelogging.h"
+    IDENTIFIER "Timeline"
+    CATEGORY_NAME "org.kde.neochat.timeline"
+    DEFAULT_SEVERITY Info
+)
+
 if(NOT TARGET Olm::Olm)
     target_compile_definitions(Timeline PRIVATE -DRUST_CRYPTO)
 endif()
