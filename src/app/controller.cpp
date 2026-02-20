@@ -29,10 +29,8 @@
 #include "proxycontroller.h"
 #include "roommanager.h"
 
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if !defined(Q_OS_ANDROID)
 #include "trayicon.h"
-#elif !defined(Q_OS_ANDROID)
-#include "trayicon_sni.h"
 #endif
 
 #ifdef HAVE_KUNIFIEDPUSH
