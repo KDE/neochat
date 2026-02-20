@@ -89,6 +89,8 @@ TimelineDelegate {
 
             text: i18n("This is the beginning of the chat. There are no historical messages beyond this point.")
             wrapMode: Text.Wrap
+            visible: !root.room.predecessorId
+
             onLinkActivated: link => UrlHelper.openUrl(link)
         }
     }
