@@ -81,6 +81,28 @@ KirigamiComponents.ConvergentContextMenu {
         separator: true
     }
 
+    Kirigami.Action {
+        text: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report…")
+        icon.name: "dialog-warning-symbolic"
+        visible: root.connection.supportsMatrixSpecVersion("v1.13")
+        onTriggered: {
+            let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                title: i18nc("@title:dialog", "Report Space"),
+                placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this space"),
+                icon: "dialog-warning-symbolic",
+                actionText: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report"),
+                reporting: true,
+                connection: root.connection,
+            }, {
+                title: i18nc("@title", "Report Space"),
+                width: Kirigami.Units.gridUnit * 25
+            }) as ReasonDialog;
+            dialog.accepted.connect(reason => {
+                root.room.report(reason);
+            });
+        }
+    }
+
     QQC2.Action {
         text: i18nc("'Space' is a matrix space", "Leave Space…")
         icon.name: "go-previous"

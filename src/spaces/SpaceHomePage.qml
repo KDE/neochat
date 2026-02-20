@@ -106,6 +106,27 @@ ColumnLayout {
                     Layout.fillWidth: true
                 }
                 QQC2.Button {
+                    text: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report…")
+                    icon.name: "dialog-warning-symbolic"
+                    visible: root.connection.supportsMatrixSpecVersion("v1.13")
+                    onClicked: {
+                        let dialog = (root.Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(Qt.createComponent('org.kde.neochat', 'ReasonDialog'), {
+                            title: i18nc("@title:dialog", "Report Space"),
+                            placeholder: i18nc("@info:placeholder", "Optionally give a reason for reporting this space"),
+                            icon: "dialog-warning-symbolic",
+                            actionText: i18nc("@action:button 'Report' as in 'Report this space to the administrators'", "Report"),
+                            reporting: true,
+                            connection: root.room.connection,
+                        }, {
+                            title: i18nc("@title", "Report Space"),
+                            width: Kirigami.Units.gridUnit * 25
+                        }) as ReasonDialog;
+                        dialog.accepted.connect(reason => {
+                            root.room.report(reason);
+                        });
+                    }
+                }
+                QQC2.Button {
                     id: settingsButton
 
                     display: QQC2.AbstractButton.IconOnly
