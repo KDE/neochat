@@ -125,7 +125,7 @@ Kirigami.Dialog {
                         text: root.shareUrl,
                         title: root.displayName,
                         subtitle: root.user.id,
-                        avatarColor: root.room?.member(root.user.id).color,
+                        avatarColor: root.room?.member(root.user.id).color ?? null,
                         avatarSource: avatar.source,
                     }) as QrCodeMaximizeComponent;
                     root.close();
