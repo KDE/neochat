@@ -537,13 +537,14 @@ void RoomManager::setCurrentSpace(const QString &spaceId, bool goToLastUsedRoom)
         LastRoomBlocker blocker(this);
 
         // We can't have empty keys in KConfig, so it's stored as "Home":
-        if (const auto &lastRoom = m_lastRoomConfig.readEntry(spaceId.isEmpty() ? u"Home"_s : spaceId, QString()); !lastRoom.isEmpty()) {
+        if (const auto &lastRoom = m_lastRoomConfig.readEntry(spaceId.isEmpty() ? u"Home"_s : spaceId, QString());
+            !lastRoom.isEmpty() && m_connection->room(lastRoom)) {
             resolveResource(lastRoom, "no_join"_L1);
             return;
         }
 
         // If no last room was opened, go to the space home:
-        if (!spaceId.isEmpty() && spaceId != u"DM"_s) {
+        if (!spaceId.isEmpty() && spaceId != u"DM"_s && m_connection->room(spaceId)) {
             resolveResource(spaceId, "no_join"_L1);
             return;
         }
