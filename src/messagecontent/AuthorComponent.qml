@@ -41,8 +41,8 @@ RowLayout {
     QQC2.Label {
         id: nameButton
 
-        text: root.author.disambiguatedName
-        color: root.author.color
+        text: root.author?.disambiguatedName ?? ""
+        color: root.author?.color ?? ""
         textFormat: Text.PlainText
         font.weight: Font.Bold
         elide: Text.ElideRight
