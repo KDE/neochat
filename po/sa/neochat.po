@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2024-12-29 23:07+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1270,20 +1270,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "गुप्तं बैकअपं उद्घाटयन्तु"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "The security phrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "सुरक्षावाक्यं सम्यक् नासीत् ।"
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1295,10 +1293,10 @@ msgstr ""
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, fuzzy, kde-format
 #| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Security Key इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
+msgid "Unlock using Recovery Key"
+msgstr "Passphrase इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
 #, fuzzy, kde-format
@@ -1308,22 +1306,26 @@ msgstr "Security Key इत्यस्य उपयोगेन अनलॉक
 #| "as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 "यदि भवतां समीपे अस्य खातेः सुरक्षाकुंजी अस्ति तर्हि अधः प्रविशतु अथवा सञ्चिकारूपेण अपलोड् "
 "कुर्वन्तु ।"
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgid "Recovery Key:"
+msgstr "सुरक्षाकुंजी :"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "सञ्चिकातः अपलोड् कुर्वन्तु"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1339,19 +1341,25 @@ msgid "Unlock from Cross-Signing"
 msgstr "क्रॉस्-साइनिंग् इत्यस्मात् अनलॉक् कुर्वन्तु"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "यदि भवान् पूर्वं एतत् यन्त्रं सत्यापितवान् तर्हि अधोलिखितं बटनं नुत्वा अन्येभ्यः उपकरणेभ्यः बैकअप "
 "कीलं लोड् कर्तुं प्रयतितुं शक्नोति ।"
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "अन्येभ्यः उपकरणेभ्यः अनुरोधः"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1574,7 +1582,14 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "कक्षे आमन्त्रयति"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "न कक्ष्याः प्राप्ताः"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1587,14 +1602,14 @@ msgid_plural "and %1 more…"
 msgstr[0] " तथा %1 अन्यः"
 msgstr[1] " तथा %1 अन्ये"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "New रचयतु"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1840,20 +1855,6 @@ msgstr "दर्शयतु"
 #, kde-format
 msgid "Quit"
 msgstr "परिजहातु"
-
-#: src/chatbar/AttachDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Choose local file"
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "स्थानीयसञ्चिकां चिनोतु"
-
-#: src/chatbar/AttachDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Clipboard image"
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "क्लिपबोर्ड इमेज"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -2139,7 +2140,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2149,49 +2150,49 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "चित्रं वा सञ्चिकां वा संलग्नं कुर्वन्तु"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, fuzzy, kde-format
 #| msgid "Send a Location"
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "एकं स्थानं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "एकं कक्षं रचयन्तु"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "सन्देशं प्रेषयन्तु..."
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5405,34 +5406,19 @@ msgstr "केवलं तदा एव सक्षमं यदा पार�
 msgid "Show your messages on the right"
 msgstr "दक्षिणतः स्वसन्देशान् दर्शयतु"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "पूर्वावलोकनं संकोचयतु"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Show Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "अवतारं दर्शयतु"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "चटपटे"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "पार्श्वपट्टिकायां"
@@ -5838,6 +5824,7 @@ msgid "Add keyword"
 msgstr "कीवर्ड योजयतु"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6438,38 +6425,33 @@ msgstr "सम्पादक"
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "स्वस्य अन्तिमसन्देशस्य सम्पादनार्थं s/text/replacement syntax इत्यस्य उपयोगं कुर्वन्तु"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "टङ्कनसूचनाः प्रेषयन्तु"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "विकासक सेटिंग्स्"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "विकासकसाधनं सक्षमं कुर्वन्तु"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "विकासकसाधनं उद्घाटयन्तु"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "विकासकसाधनम्"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "पूर्वनिर्धारित सेटिंग्स्"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Reset All Configuration Values to Their Default"
@@ -6477,7 +6459,7 @@ msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "सर्वाणि विन्यासमूल्यानि पूर्वनिर्धारितरूपेण पुनः सेट् कुर्वन्तु"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, fuzzy, kde-format
 #| msgctxt "@button"
 #| msgid "Re-send confirmation e-mail"
@@ -6485,7 +6467,7 @@ msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "पुष्टिकरण-ई-मेलं पुनः प्रेषयन्तु"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6503,13 +6485,42 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "उपेक्षिताः उपयोक्तारः"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "<सन्देशः>"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, fuzzy, kde-format
+#| msgid "Shrink preview"
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "पूर्वावलोकनं संकोचयतु"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "टङ्कनसूचनाः प्रेषयन्तु"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "पूर्वनिर्धारितरूपेण चित्राणि, विडियो च गोपयन्तु"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6519,13 +6530,13 @@ msgstr ""
 "यदा एषः विकल्पः सक्षमः भवति तदा चित्राणि, भिडियो च केवलं बटन् क्लिक् कृत्वा एव दर्शिताः "
 "भवन्ति ।"
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "अज्ञातप्रयोक्तृभ्यः आमन्त्रणं अङ्गीकुरुत"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6535,40 +6546,38 @@ msgstr ""
 "यदि सक्षमं भवति तर्हि NeoChat तेषां उपयोक्तृणां आमन्त्रणं अङ्गीकुर्वति येषां सह भवन्तः कक्षं न "
 "साझां कुर्वन्ति ।"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "भवतः सर्वरः एतत् सेटिङ्ग् समर्थयति न ।"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "एन्क्रिप्शन"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "एन्क्रिप्शन"
-
-#: src/settings/NeoChatSecurityPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "गुप्तं बैकअपं उद्घाटयन्तु"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6576,43 +6585,55 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "बैकअपतः एन्क्रिप्शन कीलानि आयातयन्तु ।"
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "गुप्तं बैकअपं उद्घाटयन्तु"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "आयात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "बैकअपतः एन्क्रिप्शन कीलानि आयातयन्तु ।"
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "आयात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "कीलानि सफलतया आयातानि"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "निर्यात कुञ्जी"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "अस्य यन्त्रस्य एन्क्रिप्शन-कुंजी निर्यातयन्तु ।"
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -8104,6 +8125,32 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 टङ्कयति"
 msgstr[1] "%2 टङ्कयन्ति"
 
+#, fuzzy
+#~| msgctxt "@title"
+#~| msgid "Unlock using Security Key"
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr "Security Key इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
+
+#, fuzzy
+#~| msgid "Choose local file"
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "स्थानीयसञ्चिकां चिनोतु"
+
+#, fuzzy
+#~| msgid "Clipboard image"
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "क्लिपबोर्ड इमेज"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "गुप्तं बैकअपं उद्घाटयन्तु"
+
 #~ msgid "OK"
 #~ msgstr "अस्तु"
 
@@ -8327,10 +8374,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "%1 कक्ष्यायाः बहिः स्थापितः अस्ति"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "Passphrase इत्यस्य उपयोगेन अनलॉक् कुर्वन्तु"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr "यदि भवतां समीपे अस्य खातेः कृते बैकअप पासफ्रेज् अस्ति तर्हि अधः प्रविशतु ।"
@@ -8338,10 +8381,6 @@ msgstr[1] "%2 टङ्कयन्ति"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "बैकअप गुप्तशब्दः :"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "सुरक्षाकुंजी :"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

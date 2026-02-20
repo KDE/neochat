@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2025-10-12 12:43+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1216,20 +1216,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "비밀 백업 열기"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt "@info:status"
 #| msgid "The security phrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "암구호가 잘못되었습니다."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1241,10 +1239,10 @@ msgstr "암호화 키를 복원했습니다."
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, fuzzy, kde-format
 #| msgctxt "@title"
-#| msgid "Unlock using Security Key"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "보안 키로 잠금 해제"
+msgid "Unlock using Recovery Key"
+msgstr "암구호로 잠금 해제"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
 #, fuzzy, kde-format
@@ -1254,20 +1252,24 @@ msgstr "보안 키로 잠금 해제"
 #| "as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr "이 계정의 보안 키가 있다면 아래에 입력하거나 파일로 업로드하십시오."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgid "Recovery Key:"
+msgstr "보안 키:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "파일에서 업로드"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1283,19 +1285,25 @@ msgid "Unlock from Cross-Signing"
 msgstr "교차 서명에서 잠금 해제"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "이전에 이 장치를 검증한 적이 있다면, 아래에 있는 단추를 클릭해서 다른 장치에"
 "서 백업 키를 불러올 수 있습니다."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "다른 장치에서 요청"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1515,7 +1523,15 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "모든 대화방"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "대화방을 찾을 수 없음"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1527,7 +1543,7 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] " 그리고 %1명 더"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, fuzzy, kde-format
 #| msgctxt "@info:label"
 #| msgid "Private"
@@ -1535,7 +1551,7 @@ msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "개인"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1774,18 +1790,6 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
-
-#: src/chatbar/AttachDialog.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "로컬 파일 선택"
-
-#: src/chatbar/AttachDialog.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "클립보드의 그림"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -2057,7 +2061,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2067,7 +2071,7 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send message"
@@ -2075,25 +2079,25 @@ msgctxt "@action:button"
 msgid "Add to message"
 msgstr "메시지 보내기"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "위치 보내기"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "투표 만들기"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Send a message…"
@@ -2101,13 +2105,13 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "메시지 보내기…"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5253,34 +5257,19 @@ msgstr "투명 대화 페이지가 활성화되어 있을 때에만 적용됩니
 msgid "Show your messages on the right"
 msgstr "오른쪽에 내 메시지 표시"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "미리 보기 축소"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Show Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "아바타 표시"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "대화에"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "사이드바에"
@@ -5685,6 +5674,7 @@ msgid "Add keyword"
 msgstr "키워드 추가"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6279,50 +6269,45 @@ msgstr "편집기"
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "s/text/replacement 문법으로 마지막 텍스트 메시지 편집"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "입력 알림 보내기"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "개발자 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "개발자 도구 활성화"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "개발자 도구 열기"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "개발자 도구"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "기본 설정"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "모든 설정값을 기본값으로 초기화…"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "설정 초기화"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6340,13 +6325,42 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "무시한 사용자"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgid "<message>"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "<메시지>"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, fuzzy, kde-format
+#| msgid "Shrink preview"
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "미리 보기 축소"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "입력 알림 보내기"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "기본값으로 사진과 동영상 숨기기"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6354,13 +6368,13 @@ msgid ""
 "is clicked."
 msgstr "이 옵션을 사용하면 단추를 클릭했을 때에만 사진과 동영상을 표시합니다."
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "알 수 없는 사용자의 초대 거절"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6370,19 +6384,25 @@ msgstr ""
 "이 옵션을 사용하면 NeoChat에서는 같은 대화방에 입장해 있지 않은 사용자의 초대"
 "를 거절합니다."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "서버에서 이 설정을 지원하지 않습니다."
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "암호화"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "새 대화에 암호화 활성화"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6391,21 +6411,13 @@ msgstr ""
 "이 옵션을 사용하면 NeoChat에서 새 다이렉트 메시지를 시작할 때 암호화를 시작합"
 "니다."
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "암호화"
-
-#: src/settings/NeoChatSecurityPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "비밀 백업 열기"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6413,43 +6425,55 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "백업에서 암호화 키를 가져옵니다."
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "비밀 백업 열기"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "키 가져오기"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "백업에서 암호화 키를 가져옵니다."
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "키 가져오기"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "키를 가져옴"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "키 내보내기"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "이 장치의 암호화 키를 내보냅니다."
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7866,6 +7890,28 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
+#, fuzzy
+#~| msgctxt "@title"
+#~| msgid "Unlock using Security Key"
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr "보안 키로 잠금 해제"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "로컬 파일 선택"
+
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "클립보드의 그림"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "비밀 백업 열기"
+
 #~ msgctxt "@action:button"
 #~ msgid "Leave Room"
 #~ msgstr "대화방 떠나기"
@@ -8076,10 +8122,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "님이 %1 님을 대화방에서 추방함"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "암구호로 잠금 해제"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr "이 계정의 백업 암구호가 있다면 아래에 입력하십시오."
@@ -8087,10 +8129,6 @@ msgstr[0] "%2 님이 메시지를 입력하는 중"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "백업 암호:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "보안 키:"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

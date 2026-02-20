@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 21:23+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -1198,16 +1198,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Contact par courriel (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Gérer l'archive secrète"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security key or backup passphrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "La clé de sécurité ou la phrase de passe d'archivage était incorrecte."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1217,33 +1219,41 @@ msgid "Encryption keys restored."
 msgstr "Les clés de chiffrement ont été restaurées."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr ""
-"Déverrouiller par utilisation de la clé de sécurité ou la phrase de passe "
-"d'archivage"
+msgid "Unlock using Recovery Key"
+msgstr "Déverrouiller à l'aide de la phrase secrète"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key or backup passphrase for this account, enter "
+#| "it below or upload it as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 "Si vous avez une clé de sécurité ou une phrase de passe d'archivage pour ce "
 "compte, veuillez la saisir ci-dessous ou l'envoyer sous forme de fichier."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr "Clé de sécurité ou phrase de passe d'archivage :"
+msgid "Recovery Key:"
+msgstr "Clé de sécurité :"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "Envoyer à partir du fichier"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1259,20 +1269,26 @@ msgid "Unlock from Cross-Signing"
 msgstr "Déverrouiller à partir de la signature croisée"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "Si vous avez déjà vérifié ce périphérique, vous pouvez essayer de charger la "
 "clé d'archive à partir d'autres périphériques en cliquant sur le bouton ci-"
 "dessous."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "Demande provenant d'autres périphériques"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1456,7 +1472,15 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Salons réciproques"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "Aucun salon n'a été trouvé."
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1466,13 +1490,13 @@ msgid_plural "and %1 more…"
 msgstr[0] "et 1 de plus..."
 msgstr[1] " et %1 de plus..."
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Remarque privée"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1738,18 +1762,6 @@ msgstr "Afficher"
 #, kde-format
 msgid "Quit"
 msgstr "Quitter"
-
-#: src/chatbar/AttachDialog.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "Sélectionner un fichier local"
-
-#: src/chatbar/AttachDialog.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "Image du presse-papier"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -2021,7 +2033,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2031,7 +2043,7 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send message"
@@ -2039,25 +2051,25 @@ msgctxt "@action:button"
 msgid "Add to message"
 msgstr "Envoyer le message"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Joindre une image ou un fichier"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Envoyer un emplacement"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Créer un sondage"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Send a message…"
@@ -2065,13 +2077,13 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Envoyer un message..."
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Envoyer le message"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5161,35 +5173,18 @@ msgstr ""
 msgid "Show your messages on the right"
 msgstr "Afficher vos messages sur la droite"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "Afficher les aperçus de liens"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-"Vous pouvez personnaliser cela, salon par salon, dans la configuration des "
-"salons. Si cette option n'est pas cochée, veuillez désactiver les aperçus de "
-"liens dans chaque salon."
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Afficher des avatars"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "Dans un salon"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "Dans la barre latérale"
@@ -5607,6 +5602,7 @@ msgid "Add keyword"
 msgstr "Ajouter un mot clé"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6162,38 +6158,33 @@ msgstr ""
 "Utiliser la syntaxe « s/texte/remplacement » pour modifier votre dernier "
 "message"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Envoyer des notifications de saisie"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "Configuration pour développeurs"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Activer les outils de développement"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Ouvrir les outils de développement"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "Outils de développement"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Configuration par défaut"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
@@ -6201,13 +6192,13 @@ msgstr ""
 "Réinitialiser toutes les valeurs de la configuration à leurs valeurs par "
 "défaut..."
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Réinitialiser la configuration"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6227,13 +6218,45 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Utilisateurs ignorés"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Messages"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "Messages"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "Afficher les aperçus de liens"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+"Vous pouvez personnaliser cela, salon par salon, dans la configuration des "
+"salons. Si cette option n'est pas cochée, veuillez désactiver les aperçus de "
+"liens dans chaque salon."
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "Envoyer des notifications de saisie"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Masquer par défaut les images et les vidéos"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6243,13 +6266,13 @@ msgstr ""
 "Lorsque cette option est activée, les images et les vidéos ne s'affichent "
 "qu'après avoir cliqué sur un bouton."
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "Refuser les invitations d'utilisateurs inconnus"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6259,19 +6282,25 @@ msgstr ""
 "Si cette option est activée, NeoChat rejettera les invitations des "
 "utilisateurs avec lesquels vous ne partagez aucun salon."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Votre serveur ne prend pas en charge cette configuration."
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "Chiffrement"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Activer le chiffrement dans les nouvelles discussions"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6280,62 +6309,66 @@ msgstr ""
 "Si cette option est activée, NeoChat utilisera le chiffrement lors du "
 "démarrage de nouveaux messages directs."
 
-#: src/settings/NeoChatSecurityPage.qml:87
-#, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "Chiffrement"
-
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "Gérer l'archive secrète"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Importer ou déverrouiller les clés de chiffrement à partir d'une archive."
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "Gérer l'archive secrète"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importer des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "Importer les clés de chiffrement à partir d'une archive."
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importer des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Clés importées avec succès."
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Exporter des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "Exporter les clés de chiffrement de ce périphérique."
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7750,6 +7783,28 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
 
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr ""
+#~ "Déverrouiller par utilisation de la clé de sécurité ou la phrase de passe "
+#~ "d'archivage"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key or Backup Passphrase:"
+#~ msgstr "Clé de sécurité ou phrase de passe d'archivage :"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "Sélectionner un fichier local"
+
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "Image du presse-papier"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Gérer l'archive secrète"
+
 #~ msgctxt "@action:button"
 #~ msgid "Leave Room"
 #~ msgstr "Quitter le salon"
@@ -7953,10 +8008,6 @@ msgstr[1] "%2 sont entrain d'écrire"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "a sorti %1 du salon"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "Déverrouiller à l'aide de la phrase secrète"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr ""
@@ -7966,10 +8017,6 @@ msgstr[1] "%2 sont entrain d'écrire"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "Mot de passe de l'archive :"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "Clé de sécurité :"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2024-11-10 11:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: KDE-SK\n"
@@ -1283,16 +1283,16 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
+msgid "Manage Key Storage"
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
 #, kde-format
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1305,27 +1305,28 @@ msgstr "aktivoval End-to-End šifrovanie"
 #: src/app/qml/UnlockSSSSDialog.qml:48
 #, kde-format
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
+msgid "Unlock using Recovery Key"
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
 #, kde-format
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Security"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr ""
+msgid "Recovery Key:"
+msgstr "Bezpečnosť"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
 #, kde-format
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1344,14 +1345,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
 #, kde-format
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr ""
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1558,7 +1559,14 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Prehliadať miestnosti"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "Žiadne miestnosti neboli nájdené"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, fuzzy, kde-format
 #| msgctxt "%1 is the number of other users"
 #| msgid " and %1 other"
@@ -1572,14 +1580,14 @@ msgstr[0] " a %1 ďalší"
 msgstr[1] " a %1 ďalší"
 msgstr[2] " a %1 ďalších"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Vytvoriť nový"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1820,20 +1828,6 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
-
-#: src/chatbar/AttachDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "Choose local file"
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "Vybrať miestny súbor"
-
-#: src/chatbar/AttachDialog.qml:45
-#, fuzzy, kde-format
-#| msgid "Clipboard image"
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "Obrázok schránky"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -2117,7 +2111,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2127,49 +2121,49 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "Odoslať správu"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, fuzzy, kde-format
 #| msgid "Attach an image or file"
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Pripojiť obrázok alebo súbor"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Odoslať pozvanie"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, fuzzy, kde-format
 #| msgid "Create a Room"
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Vytvoriť miestnosť"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Odoslať správu"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Odoslať správu"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5565,34 +5559,19 @@ msgstr ""
 msgid "Show your messages on the right"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "Odoslať správu"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, fuzzy, kde-format
 #| msgid "Show User Avatar"
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Zobraziť avatara používateľa"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr ""
@@ -6026,6 +6005,7 @@ msgid "Add keyword"
 msgstr ""
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, fuzzy, kde-format
 #| msgid "Invite"
 msgctxt "@title:group"
@@ -6660,35 +6640,29 @@ msgstr "Editor"
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Na úpravu svojej poslednej správy použite syntax s/text/náhrada"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Send typing notifications"
-msgstr "Zobraziť upozornenia"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, fuzzy, kde-format
 #| msgid "Developer Tools"
 msgid "Open Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "Nástroje pre vývojárov"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Default Settings"
@@ -6696,20 +6670,20 @@ msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Štandardné nastavenia"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr ""
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Informácie o miestnosti"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6729,13 +6703,42 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Ignorovať tohto používateľa"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "Odoslať správu"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "Odoslať správu"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "Zobraziť upozornenia"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6743,13 +6746,13 @@ msgid ""
 "is clicked."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6757,87 +6760,93 @@ msgid ""
 "room with."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:76
-#, kde-format
-msgctxt "@option:check"
-msgid "Turn on encryption in new chats"
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:77
-#, kde-format
-msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will use encryption when starting new direct messages."
-msgstr ""
-
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:103
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
-msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
+msgctxt "@option:check"
+msgid "Turn on encryption in new chats"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info"
+msgid ""
+"If enabled, NeoChat will use encryption when starting new direct messages."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:123
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Manage Key Storage"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:124
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:106
+#: src/settings/NeoChatSecurityPage.qml:137
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Heslo úspešne zmenené"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:129
+#: src/settings/NeoChatSecurityPage.qml:160
 #, fuzzy, kde-format
 #| msgid "activated End-to-End Encryption"
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -8354,6 +8363,18 @@ msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
+#, fuzzy
+#~| msgid "Choose local file"
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "Vybrať miestny súbor"
+
+#, fuzzy
+#~| msgid "Clipboard image"
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "Obrázok schránky"
+
 #~ msgctxt "@action:button"
 #~ msgid "Leave Room"
 #~ msgstr "Opustiť miestnosť"
@@ -8601,12 +8622,6 @@ msgstr[2] "%2 píšu"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "Heslo:"
-
-#, fuzzy
-#~| msgid "Security"
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "Bezpečnosť"
 
 #~ msgctxt "As in 'sort something based on last activity'"
 #~ msgid "Activity"

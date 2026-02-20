@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2026-01-15 01:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1204,18 +1204,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr ""
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
+#: src/app/qml/UnlockSSSSDialog.qml:16
+#, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "開啟秘密備份"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security key or backup passphrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "安全金鑰或備份密碼不正確。"
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1225,30 +1225,40 @@ msgid "Encryption keys restored."
 msgstr "已復原加密金鑰。"
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "使用安全金鑰或備份密碼解除鎖定"
+msgid "Unlock using Recovery Key"
+msgstr "使用密碼解鎖"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key or backup passphrase for this account, enter "
+#| "it below or upload it as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 "如果您有這個帳號的安全金鑰或備份密碼，請在下方輸入或是將它作為檔案上傳。"
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr "安全金鑰或備份密碼："
+msgid "Recovery Key:"
+msgstr "安全金鑰："
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "從檔案上傳"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1264,19 +1274,25 @@ msgid "Unlock from Cross-Signing"
 msgstr "從交叉簽署解鎖"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "如果您先前有驗證過此裝置，您可以試著點擊以下按鈕來載入從其他裝置來的備份金"
 "鑰。"
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "從其他裝置請求"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1464,7 +1480,15 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "互為成員的聊天室"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "找不到聊天室"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1473,13 +1497,13 @@ msgid "and 1 more…"
 msgid_plural "and %1 more…"
 msgstr[0] "和另外 %1 個聊天室…"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "私人備註"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1713,18 +1737,6 @@ msgstr "顯示"
 #, kde-format
 msgid "Quit"
 msgstr "離開"
-
-#: src/chatbar/AttachDialog.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "選擇本機檔案"
-
-#: src/chatbar/AttachDialog.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "剪貼簿影像"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -1994,7 +2006,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2004,7 +2016,7 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Send message"
@@ -2012,25 +2024,25 @@ msgctxt "@action:button"
 msgid "Add to message"
 msgstr "傳送訊息"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "附加影像或檔案"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "傳送位置"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "建立投票"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, fuzzy, kde-format
 #| msgctxt "@placeholder"
 #| msgid "Send a message…"
@@ -2038,13 +2050,13 @@ msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "傳送訊息…"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "傳送訊息"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5121,34 +5133,18 @@ msgstr "只在啟用透明聊天頁面時才啟用。"
 msgid "Show your messages on the right"
 msgstr "將您的訊息顯示於右邊"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "顯示連結預覽"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-"您可以在聊天室設定為每個聊天室調整這個設定。取消勾選時會在所有聊天室停用連結"
-"預覽。"
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "顯示大頭貼"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "在聊天畫面中"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "在側邊欄中"
@@ -5550,6 +5546,7 @@ msgid "Add keyword"
 msgstr "新增關鍵字"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6091,50 +6088,45 @@ msgstr "編輯器"
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "用 s/文字/替代 語法來編輯您上一個訊息"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "傳送輸入中通知"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "開發者設定"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "啟用開發者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "開啟開發者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "開發者工具"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "預設設定值"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "將所有設定值重設為預設值…"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "重設設定"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6152,13 +6144,44 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "已忽略的使用者"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Messages"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "訊息"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "顯示連結預覽"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+"您可以在聊天室設定為每個聊天室調整這個設定。取消勾選時會在所有聊天室停用連結"
+"預覽。"
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "傳送輸入中通知"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "預設隱藏影像和影片"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6166,13 +6189,13 @@ msgid ""
 "is clicked."
 msgstr "啟用此選項時，影像和影片只會在按下按鈕之後才會顯示。"
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "回絕來自未知使用者的邀請"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6180,40 +6203,38 @@ msgid ""
 "room with."
 msgstr "啟用時，NeoChat 會自動回絕來自與您沒有共同聊天室的使用者的邀請。"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "您的伺服器不支援這個設定。"
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "加密"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "在新的聊天室中開啟加密"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr "若啟用此選項，NeoChat 會在開始進行新私訊的時候使用加密。"
 
-#: src/settings/NeoChatSecurityPage.qml:87
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "加密"
-
-#: src/settings/NeoChatSecurityPage.qml:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Open Secret Backup"
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "開啟秘密備份"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6221,43 +6242,55 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "從備份檔匯入加密金鑰。"
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Open Secret Backup"
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "開啟秘密備份"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "匯入金鑰"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "從備份檔匯入加密金鑰。"
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "匯入金鑰"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "已成功匯入金鑰"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "匯出金鑰"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "匯出此裝置的加密金鑰。"
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7633,6 +7666,29 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 人正在輸入訊息"
 
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr "使用安全金鑰或備份密碼解除鎖定"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key or Backup Passphrase:"
+#~ msgstr "安全金鑰或備份密碼："
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "選擇本機檔案"
+
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "剪貼簿影像"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu"
+#~| msgid "Open Secret Backup"
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "開啟秘密備份"
+
 #~ msgid "OK"
 #~ msgstr "確定"
 
@@ -7829,10 +7885,6 @@ msgstr[0] "%2 人正在輸入訊息"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "已將 %1 移出聊天室"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "使用密碼解鎖"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr "如果您有這個帳號的備份密碼，請在下方輸入它。"
@@ -7840,10 +7892,6 @@ msgstr[0] "%2 人正在輸入訊息"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "備份密碼："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "安全金鑰："
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

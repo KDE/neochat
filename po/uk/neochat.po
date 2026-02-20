@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
 "PO-Revision-Date: 2026-02-17 08:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1188,16 +1188,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "Зв'язок за допомогою електронної пошти (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "Керування резервним копіюванням реєстраційних даних"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security key or backup passphrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "Пароль захисту або резервний пароль є неправильним."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1207,31 +1209,41 @@ msgid "Encryption keys restored."
 msgstr "Ключі шифрування відновлено."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "Розблокування за допомогою ключа захисту або резервного пароля"
+msgid "Unlock using Recovery Key"
+msgstr "Розблокування за допомогою пароля"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key or backup passphrase for this account, enter "
+#| "it below or upload it as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 "Якщо у вас є ключ захисту або резервний пароль від вашого облікового запису, "
 "введіть його нижче або вивантажте його як файл."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr "Ключ захисту або резервний пароль:"
+msgid "Recovery Key:"
+msgstr "Ключ захисту:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "Вивантаження з файла"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1247,20 +1259,26 @@ msgid "Unlock from Cross-Signing"
 msgstr "Розблокування перехресним входом"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "Якщо ви раніше засвідчили цей пристрій, ви можете спробувати завантажити "
 "резервну копію ключа з інших пристроїв, натиснувши кнопку, яку розташовано "
 "нижче."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "Запит з інших пристроїв"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1442,7 +1460,15 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "Взаємні кімнати"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "Не знайдено кімнат"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1454,13 +1480,13 @@ msgstr[1] "і ще %1…"
 msgstr[2] "і ще %1…"
 msgstr[3] "і ще %1…"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "Конфіденційна нотатка"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1719,18 +1745,6 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
-
-#: src/chatbar/AttachDialog.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "Виберіть локальний файл"
-
-#: src/chatbar/AttachDialog.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "Зображення з буфера"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
@@ -1995,7 +2009,7 @@ msgctxt "@action:button"
 msgid "List Style"
 msgstr "Стиль списку"
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2007,43 +2021,43 @@ msgstr ""
 "У долучень можуть бути лише прості текстові підписи, усі елементи "
 "форматування буде вилучено"
 
-#: src/chatbar/SendBar.qml:102
+#: src/chatbar/SendBar.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "Додати до повідомлення"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Долучити зображення або файл"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Надіслати дані місця"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Створити голосування"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Надіслати голосове повідомлення"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Надіслати повідомлення"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -5116,34 +5130,18 @@ msgstr "Увімкнено лише тоді, коли увімкнено про
 msgid "Show your messages on the right"
 msgstr "Показати ваші повідомлення праворуч"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "Показати попередній перегляд вмісту посилання"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-"Ви можете змінити цей параметр на рівні параметрів окремої кімнати. Якщо не "
-"позначено, вимикає усі попередні перегляди посилань в усіх кімнатах."
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "Показувати аватари"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "У спілкуванні"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "На бічній панелі"
@@ -5552,6 +5550,7 @@ msgid "Add keyword"
 msgstr "Додати ключове слово"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6103,50 +6102,45 @@ msgstr ""
 "Для редагування вашого останнього повідомлення скористайтеся синтаксисом s/"
 "текст/заміна"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "Надсилати сповіщення щодо введення"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "Параметри розробки"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Увімкнути інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "Типові параметри"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "Скинути усі значення налаштувань до типових…"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "Скидання налаштувань"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6164,13 +6158,44 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "Ігноровані користувачі"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Messages"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "Повідомлення"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "Показати попередній перегляд вмісту посилання"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+"Ви можете змінити цей параметр на рівні параметрів окремої кімнати. Якщо не "
+"позначено, вимикає усі попередні перегляди посилань в усіх кімнатах."
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "Надсилати сповіщення щодо введення"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "Типово ховати зображення і відео"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6180,13 +6205,13 @@ msgstr ""
 "Якщо позначено цей пункт, зображення і відео буде показано лише після "
 "натискання кнопки."
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "Відмовляти у запрошеннях від невідомих користувачів"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6196,19 +6221,25 @@ msgstr ""
 "Якщо увімкнено, NeoChat відмовлятиме у запрошеннях від користувачів, з якими "
 "кімната не є спільною."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "На вашому сервері не передбачено підтримки цього параметра."
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "Шифрування"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Вмикати шифрування у нових спілкуваннях"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6217,61 +6248,65 @@ msgstr ""
 "Якщо увімкнено, NeoChat використовуватиме шифрування при започаткуванні "
 "нових обмінів безпосередніми повідомленнями."
 
-#: src/settings/NeoChatSecurityPage.qml:87
-#, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "Шифрування"
-
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "Керування резервним копіюванням реєстраційних даних"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Імпортувати або розблокувати ключі шифрування з інших пристроїв."
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "Керування резервним копіюванням реєстраційних даних"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Імпортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "Імпортувати ключі шифрування з резервної копії."
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Імпортування ключів"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ключі успішно імпортовано"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Експортувати ключі"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "Експортувати ключі шифрування цього пристрою."
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7683,6 +7718,26 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr "Розблокування за допомогою ключа захисту або резервного пароля"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key or Backup Passphrase:"
+#~ msgstr "Ключ захисту або резервний пароль:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "Виберіть локальний файл"
+
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "Зображення з буфера"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "Керування резервним копіюванням реєстраційних даних"
+
 #~ msgctxt "@action:button"
 #~ msgid "Leave Room"
 #~ msgstr "Полишити кімнату"
@@ -7889,10 +7944,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "викинуто %1 з кімнати"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "Розблокування за допомогою пароля"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr ""
@@ -7902,10 +7953,6 @@ msgstr[3] "%2 вводить текст…"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "Пароль до резервних копій:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "Ключ захисту:"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"

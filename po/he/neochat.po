@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:45+0000\n"
-"PO-Revision-Date: 2026-02-13 09:48+0200\n"
+"POT-Creation-Date: 2026-02-20 00:45+0000\n"
+"PO-Revision-Date: 2026-02-19 10:01+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -372,12 +372,10 @@ msgid "Do you really want to leave %1?"
 msgstr "לעזוב את %1?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave Room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "עזיבת החדר"
+msgstr "עזיבה"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -748,9 +746,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "הקלט אינו מזהה או כינוי תקפים של חדר"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "הצטרפות"
@@ -777,9 +773,7 @@ msgid "The input is not a valid user ID"
 msgstr "הקלט אינו מזהה משתמש תקף."
 
 #: src/app/qml/ManualUserDialog.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ok"
+#, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
 msgstr "אישור"
@@ -1181,16 +1175,18 @@ msgctxt "@info:tooltip %1 is an e-mail address"
 msgid "Contact via e-mail (%1)"
 msgstr "יצירת קשר דרך דוא״ל (%1)"
 
-#: src/app/qml/UnlockSSSSDialog.qml:16 src/settings/NeoChatSecurityPage.qml:96
+#: src/app/qml/UnlockSSSSDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
-msgid "Manage Secret Backup"
-msgstr "ניהול גיבוי סודי"
+msgid "Manage Key Storage"
+msgstr ""
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "The security key or backup passphrase was not correct."
 msgctxt "@info:status"
-msgid "The security key or backup passphrase was not correct."
+msgid "The recovery key was not correct."
 msgstr "מפתח האבטחה או ביטוי הצופן לגיבוי היו שגויים."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
@@ -1200,31 +1196,41 @@ msgid "Encryption keys restored."
 msgstr "מפתחות ההצפנה שוחזרו."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Unlock using Passphrase"
 msgctxt "@title"
-msgid "Unlock using Security Key or Backup Passphrase"
-msgstr "אפשר לשחרר נעילה עם מפתח אבטחה או ביטוי צופן לגיבוי"
+msgid "Unlock using Recovery Key"
+msgstr "שחרור באמצעות מילת צופן"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have a security key or backup passphrase for this account, enter "
+#| "it below or upload it as a file."
 msgctxt "@info"
 msgid ""
-"If you have a security key or backup passphrase for this account, enter it "
-"below or upload it as a file."
+"If you have a recovery key (also known as a “security key” or “backup "
+"passphrase”), enter it below or upload it as a file."
 msgstr ""
 "אם יש לך מפתח אבטחה או ביטוי צופן לגיבוי לחשבון הזה, יש למלא אותו כאן או "
 "להעלות אותו כקובץ."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Security Key:"
 msgctxt "@label:textbox"
-msgid "Security Key or Backup Passphrase:"
-msgstr "מפתח אבטחה או ביטוי צופן לגיבוי:"
+msgid "Recovery Key:"
+msgstr "מפתח אבטחה:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Upload from File"
 msgctxt "@action:button"
-msgid "Upload from File"
+msgid "Upload From File"
 msgstr "העלאה מקובץ"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
@@ -1240,19 +1246,25 @@ msgid "Unlock from Cross-Signing"
 msgstr "שחרור נעילה מחתימה צולבת"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "If you have previously verified this device, you can try loading the "
+#| "backup key from other devices by clicking the button below."
 msgctxt "@info"
 msgid ""
-"If you have previously verified this device, you can try loading the backup "
-"key from other devices by clicking the button below."
+"If you have previously verified this device, you request encryption keys "
+"from other verified devices."
 msgstr ""
 "אם אימתת את המכשיר הזה בעבר, אפשר לנסות לטעון את מפתח הגיבוי ממכשירים אחרים "
 "בלחיצה על הכפתור שלהלן."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Request from other Devices"
 msgctxt "@action:button"
-msgid "Request from other Devices"
+msgid "Request From Other Devices"
 msgstr "בקשה מהתקנים אחרים"
 
 #: src/app/qml/UserDetailDialog.qml:51
@@ -1432,7 +1444,15 @@ msgctxt ""
 msgid "Mutual Rooms"
 msgstr "חדרים משותפים"
 
-#: src/app/qml/UserDetailDialog.qml:441
+#: src/app/qml/UserDetailDialog.qml:424
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms in common"
+msgstr "לא נמצאו חדרים"
+
+#: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
 msgctxt ""
 "@info:label And '%1' more rooms you have in common with this user, but are "
@@ -1444,13 +1464,13 @@ msgstr[1] "ועוד שניים…"
 msgstr[2] " ועוד %1…"
 msgstr[3] "ועוד %1…"
 
-#: src/app/qml/UserDetailDialog.qml:448
+#: src/app/qml/UserDetailDialog.qml:466
 #, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
 msgstr "הערה פרטית"
 
-#: src/app/qml/UserDetailDialog.qml:460
+#: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Only visible to you"
@@ -1685,29 +1705,17 @@ msgstr "הצגה"
 msgid "Quit"
 msgstr "יציאה"
 
-#: src/chatbar/AttachDialog.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose local file"
-msgstr "בחירת קובץ מקומי"
-
-#: src/chatbar/AttachDialog.qml:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Clipboard image"
-msgstr "תמונה מלוח הגזירים"
-
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter rich text mode"
-msgstr ""
+msgstr "מעבר למצב טקסט עשיר"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Exit rich text mode"
-msgstr ""
+msgstr "יציאה ממצב טקסט עשיר"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1790,9 +1798,7 @@ msgid "Mirror"
 msgstr "היפוך אופקי"
 
 #: src/chatbar/LinkDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
 msgstr "הוספת קישור"
@@ -1801,13 +1807,13 @@ msgstr "הוספת קישור"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "טקסט קישור:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "כתובת קישור:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1904,70 +1910,65 @@ msgid "Send"
 msgstr "שליחה"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "דחייה"
+msgstr "קו תחתון"
 
 #: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "עיצוב טקסט"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "סגנון טקסט"
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "אמוג׳ים ומדבקות"
 
 #: src/chatbar/RichEditBar.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr "עריכת מדבקה"
+msgstr "עריכת קישור"
 
 #: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "רשימה אקראית"
 
 #: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "רשימה מסודרת"
 
 #: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "הגדלת רמת הרשימה"
 
 #: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "הקטנת רמת הרשימה"
 
 #: src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "סגנון רשימה"
 
-#: src/chatbar/SendBar.qml:57
+#: src/chatbar/SendBar.qml:53
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -1975,103 +1976,91 @@ msgctxt ""
 msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
-msgstr ""
+msgstr "לצרופות יכולים להיות כיתובים בטקסט פשוט, כל העיצוב יוסר"
 
-#: src/chatbar/SendBar.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send message"
+#: src/chatbar/SendBar.qml:87
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr "שליחת הודעה"
+msgstr "הוספה להודעה"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:163
+#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "צירוף תמונה או קובץ"
 
-#: src/chatbar/SendBar.qml:137 src/chatbar/SendBar.qml:176
+#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "שליחת מקום"
 
-#: src/chatbar/SendBar.qml:142 src/chatbar/SendBar.qml:188
+#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "יצירת סקר"
 
-#: src/chatbar/SendBar.qml:147 src/chatbar/SendBar.qml:199
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr "שליחת הודעה…"
+msgstr "שליחת הודעה קולית"
 
-#: src/chatbar/SendBar.qml:209
+#: src/chatbar/SendBar.qml:194
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "שליחת הודעה"
 
-#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ביטול"
 
 #: src/chatbar/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "הוספת קישור"
+msgstr "הוספת טבלה"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "מספר שורות:"
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "מספר עמודות:"
 
 #: src/chatbar/VoiceMessageDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr "הסרת הודעה"
+msgstr "הקלטת הודעה קולית"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "עצירת ההקלטה"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Start Meeting"
+#, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr "התחלת פגישה"
+msgstr "התחלת הקלטה"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "As in first answer option to the poll"
-#| msgid "Option %1:"
+#, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr "אפשרות %1:"
+msgstr "משך: %1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2079,12 +2068,10 @@ msgctxt "@info"
 msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
-msgstr ""
+msgstr "הקלטת הודעה קולית דורש גרסה חדשה יותר של Qt מזו שמותקנת במערכת כרגע."
 
 #: src/chatbar/VoiceMessageDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
 msgstr "שליחה"
@@ -2410,67 +2397,59 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "סגנון פסקה"
 
 #: src/libneochat/enums/richformat.cpp:21
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr "בטעינה"
+msgstr "כותרת 1"
 
 #: src/libneochat/enums/richformat.cpp:24
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr "בטעינה"
+msgstr "כותרת 2"
 
 #: src/libneochat/enums/richformat.cpp:27
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr "בטעינה"
+msgstr "כותרת 3"
 
 #: src/libneochat/enums/richformat.cpp:30
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr "בטעינה"
+msgstr "כותרת 4"
 
 #: src/libneochat/enums/richformat.cpp:33
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr "בטעינה"
+msgstr "כותרת 5"
 
 #: src/libneochat/enums/richformat.cpp:36
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr "בטעינה"
+msgstr "כותרת 6"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "סגנון פסקת ציטוט"
 
 #: src/libneochat/enums/richformat.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Quote"
+#, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
 msgstr "ציטוט"
@@ -4063,12 +4042,10 @@ msgstr "עצירת הורדה"
 
 #: src/messagecontent/FileComponent.qml:173
 #: src/messagecontent/ImageComponent.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
-msgstr "הסרת קשר על"
+msgstr "הסרת צרופה"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -5093,34 +5070,18 @@ msgstr "פעיל רק אם עמוד השיחה השקוף פעיל."
 msgid "Show your messages on the right"
 msgstr "הצגת ההודעות שלך משמאל"
 
-#: src/settings/AppearanceSettingsPage.qml:344
-#, kde-format
-msgctxt "@label:checkbox"
-msgid "Show link previews"
-msgstr "הצגת תצוגות מקדימות של קישורים"
-
-#: src/settings/AppearanceSettingsPage.qml:345
-#, kde-format
-msgctxt "@info:label"
-msgid ""
-"You can customize this per-room under room settings. If unchecked, disables "
-"link previews in every room."
-msgstr ""
-"אפשר להתאים את זה לפי חדר תחת הגדרות החדר. אם האפשרות לא מסומנת, תצוגות "
-"הקישורים המקדימות יושבתו בכל החדרים."
-
-#: src/settings/AppearanceSettingsPage.qml:355
+#: src/settings/AppearanceSettingsPage.qml:339
 #, kde-format
 msgctxt "@title"
 msgid "Show Avatars"
 msgstr "הצגת תמונות ייצוגיות"
 
-#: src/settings/AppearanceSettingsPage.qml:359
+#: src/settings/AppearanceSettingsPage.qml:343
 #, kde-format
 msgid "In chat"
 msgstr "בשיחה"
 
-#: src/settings/AppearanceSettingsPage.qml:369
+#: src/settings/AppearanceSettingsPage.qml:353
 #, kde-format
 msgid "In sidebar"
 msgstr "בסרגל הצד"
@@ -5522,6 +5483,7 @@ msgid "Add keyword"
 msgstr "הוספת מילת מפתח"
 
 #: src/settings/GlobalNotificationsPage.qml:167
+#: src/settings/NeoChatSecurityPage.qml:87
 #, kde-format
 msgctxt "@title:group"
 msgid "Invites"
@@ -6063,50 +6025,45 @@ msgstr "עורך"
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "להשתמש בתחביר s/טקסט/החלפה כדי לערוך את ההודעה האחרונה שלך"
 
-#: src/settings/NeoChatGeneralPage.qml:283
-#, kde-format
-msgid "Send typing notifications"
-msgstr "לשלוח התראות הקלדה"
-
-#: src/settings/NeoChatGeneralPage.qml:293
+#: src/settings/NeoChatGeneralPage.qml:279
 #, kde-format
 msgid "Developer Settings"
 msgstr "הגדרות מפתחים"
 
-#: src/settings/NeoChatGeneralPage.qml:298
+#: src/settings/NeoChatGeneralPage.qml:284
 #, kde-format
 msgid "Enable developer tools"
 msgstr "הפעלת כלי מפתחים"
 
-#: src/settings/NeoChatGeneralPage.qml:314
+#: src/settings/NeoChatGeneralPage.qml:300
 #, kde-format
 msgid "Open Developer Tools"
 msgstr "פתיחת כלי מפתחים"
 
-#: src/settings/NeoChatGeneralPage.qml:318
+#: src/settings/NeoChatGeneralPage.qml:304
 #, kde-format
 msgid "Developer Tools"
 msgstr "כלי מפתחים"
 
-#: src/settings/NeoChatGeneralPage.qml:323
+#: src/settings/NeoChatGeneralPage.qml:309
 #, kde-format
 msgctxt "@title:group"
 msgid "Default Settings"
 msgstr "הגדרות ברירת מחדל"
 
-#: src/settings/NeoChatGeneralPage.qml:328
+#: src/settings/NeoChatGeneralPage.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset all configuration values to their default…"
 msgstr "איפוס כל ערכי ההגדרות לברירת המחדל שלהם…"
 
-#: src/settings/NeoChatGeneralPage.qml:334
+#: src/settings/NeoChatGeneralPage.qml:320
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Reset Configuration"
 msgstr "איפוס הגדרות"
 
-#: src/settings/NeoChatGeneralPage.qml:335
+#: src/settings/NeoChatGeneralPage.qml:321
 #, kde-format
 msgctxt "@info"
 msgid "Do you really want to reset all options to their default values?"
@@ -6124,13 +6081,44 @@ msgctxt "@action:button"
 msgid "Ignored Users"
 msgstr "משתמשים מוחרגים"
 
-#: src/settings/NeoChatSecurityPage.qml:46
+#: src/settings/NeoChatSecurityPage.qml:43
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Messages"
+msgctxt "@title:group"
+msgid "Messages"
+msgstr "הודעות"
+
+#: src/settings/NeoChatSecurityPage.qml:48
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Show link previews"
+msgstr "הצגת תצוגות מקדימות של קישורים"
+
+#: src/settings/NeoChatSecurityPage.qml:49
+#, kde-format
+msgctxt "@info:label"
+msgid ""
+"You can customize this per-room under room settings. If unchecked, disables "
+"link previews in every room."
+msgstr ""
+"אפשר להתאים את זה לפי חדר תחת הגדרות החדר. אם האפשרות לא מסומנת, תצוגות "
+"הקישורים המקדימות יושבתו בכל החדרים."
+
+#: src/settings/NeoChatSecurityPage.qml:62
+#, fuzzy, kde-format
+#| msgid "Send typing notifications"
+msgctxt "@label:checkbox"
+msgid "Send typing notifications"
+msgstr "לשלוח התראות הקלדה"
+
+#: src/settings/NeoChatSecurityPage.qml:76
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "Hide images and videos by default"
 msgstr "להסתיר תמונות וסרטונים כברירת מחדל"
 
-#: src/settings/NeoChatSecurityPage.qml:47
+#: src/settings/NeoChatSecurityPage.qml:77
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6138,13 +6126,13 @@ msgid ""
 "is clicked."
 msgstr "כשהאפשרות הזאת פעילות, תמונות וסרטונים מופיעים רק בלחיצה על הכפתור."
 
-#: src/settings/NeoChatSecurityPage.qml:61
+#: src/settings/NeoChatSecurityPage.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Reject invitations from unknown users"
 msgstr "סירוב להזמנות ממשתמשים לא מוכרים"
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6152,80 +6140,90 @@ msgid ""
 "room with."
 msgstr "אם האפשרות פעילה, NeoChat ידחה הזמנות ממשתמשים שלא חולקים איתך חדרים."
 
-#: src/settings/NeoChatSecurityPage.qml:62
+#: src/settings/NeoChatSecurityPage.qml:93
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "השרת שלך לא תומך בהגדרה הזאת."
 
-#: src/settings/NeoChatSecurityPage.qml:76
+#: src/settings/NeoChatSecurityPage.qml:103
+#, kde-format
+msgctxt "@title:group"
+msgid "Encryption"
+msgstr "הצפנה"
+
+#: src/settings/NeoChatSecurityPage.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "להפעיל הצפנה בשיחות חדשות"
 
-#: src/settings/NeoChatSecurityPage.qml:77
+#: src/settings/NeoChatSecurityPage.qml:109
 #, kde-format
 msgctxt "@info"
 msgid ""
 "If enabled, NeoChat will use encryption when starting new direct messages."
 msgstr "אם האפשרות פעילה, NeoChat ישתמש בהצפנה בעת פתיחת הודעות ישירות חדשות."
 
-#: src/settings/NeoChatSecurityPage.qml:87
-#, kde-format
-msgctxt "@title:group"
-msgid "Encryption"
-msgstr "הצפנה"
-
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Manage Secret Backup"
-msgstr "ניהול גיבוי סודי"
+msgid "Manage Key Storage"
+msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:124
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "ייבוא או שחרור נעילת מפתחות הצפנה ממכשירים אחרים."
 
-#: src/settings/NeoChatSecurityPage.qml:105
+#: src/settings/NeoChatSecurityPage.qml:127
+#, kde-format
+msgctxt "@title:window"
+msgid "Manage Secret Backup"
+msgstr "ניהול גיבוי סודי"
+
+#: src/settings/NeoChatSecurityPage.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "ייבוא מפתחות"
 
-#: src/settings/NeoChatSecurityPage.qml:106
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Import encryption keys from a backup."
 msgctxt "@info"
-msgid "Import encryption keys from a backup."
+msgid "Import encryption keys from a backup file."
 msgstr "ייבוא מפתחות הצפנה מגיבוי."
 
-#: src/settings/NeoChatSecurityPage.qml:112
+#: src/settings/NeoChatSecurityPage.qml:143
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "ייבוא מפתחות"
 
-#: src/settings/NeoChatSecurityPage.qml:115
+#: src/settings/NeoChatSecurityPage.qml:146
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "המפתחות יובאו בהצלחה"
 
-#: src/settings/NeoChatSecurityPage.qml:128
+#: src/settings/NeoChatSecurityPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "ייצוא מפתחות"
 
-#: src/settings/NeoChatSecurityPage.qml:129
-#, kde-format
+#: src/settings/NeoChatSecurityPage.qml:160
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Export this device's encryption keys."
 msgctxt "@info"
-msgid "Export this device's encryption keys."
+msgid "Export this device's encryption keys to a file."
 msgstr "ייצוא מפתחות ההצפנה של המכשיר הזה."
 
-#: src/settings/NeoChatSecurityPage.qml:135
+#: src/settings/NeoChatSecurityPage.qml:166
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7544,12 +7542,10 @@ msgid "Last read: %1"
 msgstr "נקרא לאחרונה: %1"
 
 #: src/timeline/ReadMarkerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
-msgstr "סימון כנקרא"
+msgstr "סימון כנקראה"
 
 #: src/timeline/SuccessorDelegate.qml:26
 #, kde-format
@@ -7607,6 +7603,26 @@ msgstr[0] "הקלדה מצד %2"
 msgstr[1] "הקלדה מצד %2"
 msgstr[2] "הקלדה מצד %2"
 msgstr[3] "הקלדה מצד %2"
+
+#~ msgctxt "@title"
+#~ msgid "Unlock using Security Key or Backup Passphrase"
+#~ msgstr "אפשר לשחרר נעילה עם מפתח אבטחה או ביטוי צופן לגיבוי"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Security Key or Backup Passphrase:"
+#~ msgstr "מפתח אבטחה או ביטוי צופן לגיבוי:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose local file"
+#~ msgstr "בחירת קובץ מקומי"
+
+#~ msgctxt "@action:button"
+#~ msgid "Clipboard image"
+#~ msgstr "תמונה מלוח הגזירים"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Manage Secret Backup"
+#~ msgstr "ניהול גיבוי סודי"
 
 #~ msgid "OK"
 #~ msgstr "אישור"
@@ -7799,10 +7815,6 @@ msgstr[3] "הקלדה מצד %2"
 #~ msgid "has put %1 out of the room"
 #~ msgstr "הוציא/ה את %1 מהחדר"
 
-#~ msgctxt "@title"
-#~ msgid "Unlock using Passphrase"
-#~ msgstr "שחרור באמצעות מילת צופן"
-
 #~ msgctxt "@info"
 #~ msgid "If you have a backup passphrase for this account, enter it below."
 #~ msgstr "אם יש לך מילת צופן כגיבוי לחשבון הזה, יש למלא אותה להלן."
@@ -7810,10 +7822,6 @@ msgstr[3] "הקלדה מצד %2"
 #~ msgctxt "@label:textbox"
 #~ msgid "Backup Password:"
 #~ msgstr "סיסמת גיבוי:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Security Key:"
-#~ msgstr "מפתח אבטחה:"
 
 #~ msgctxt "@option:check Enable the matrix 'secret backup' feature"
 #~ msgid "Secret Backup"
