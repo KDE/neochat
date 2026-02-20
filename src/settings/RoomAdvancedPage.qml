@@ -70,6 +70,21 @@ FormCard.FormCardPage {
             }
         }
     }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Room Creators")
+    }
+    FormCard.FormCard {
+        Repeater {
+            model: root.room.creatorIds
+
+            delegate: FormCard.FormTextDelegate {
+                id: creatorUserDelegate
+
+                text: modelData
+                textItem.textFormat: Text.PlainText
+            }
+        }
+    }
 
     property Kirigami.Dialog roomUpgradeDialog: Kirigami.Dialog {
         id: roomUpgradeDialog
