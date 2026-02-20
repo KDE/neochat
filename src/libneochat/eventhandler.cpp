@@ -169,7 +169,7 @@ bool EventHandler::isHidden(const NeoChatRoom *room, const Quotient::RoomEvent *
     }
 
     // hide ending live location beacons
-    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_L1 && !event->contentJson()["live"_L1].toBool()) {
+    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_L1 && !event->contentPart<bool>("live"_L1)) {
         return true;
     }
 
@@ -369,7 +369,7 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                 if (e.senderId() == e.userId()) {
                     return i18n("left the room");
                 }
-                if (const auto &reason = e.contentJson()["reason"_L1].toString().toHtmlEscaped(); !reason.isEmpty()) {
+                if (const auto &reason = e.contentPart<QString>("reason"_L1).toHtmlEscaped(); !reason.isEmpty()) {
                     return i18n("has removed %1 from the room: %2", subjectName, reason);
                 }
                 return i18n("has removed %1 from the room", subjectName);
@@ -384,7 +384,7 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
                     return i18n("self-banned from the room");
                 }
             case Membership::Knock: {
-                QString reason(e.contentJson()["reason"_L1].toString().toHtmlEscaped());
+                QString reason(e.contentPart<QString>("reason"_L1).toHtmlEscaped());
                 return reason.isEmpty() ? i18n("requested an invite") : i18n("requested an invite with reason: %1", reason);
             }
             default:;
@@ -419,19 +419,19 @@ QString EventHandler::getBody(const NeoChatRoom *room, const Quotient::RoomEvent
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
         [](const LocationBeaconEvent &e) {
-            return e.contentJson()["description"_L1].toString();
+            return e.contentPart<QString>("description"_L1);
         },
         [](const RoomServerAclEvent &) {
             return i18n("changed the server access control lists for this room");
         },
         [](const WidgetEvent &e) {
             if (e.fullJson()["unsigned"_L1]["prev_content"_L1].toObject().isEmpty()) {
-                return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_L1].toString());
+                return i18nc("[User] added <name> widget", "added %1 widget", e.contentPart<QString>("name"_L1));
             }
             if (e.contentJson().isEmpty()) {
                 return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_L1]["prev_content"_L1]["name"_L1].toString());
             }
-            return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_L1].toString());
+            return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentPart<QString>("name"_L1));
         },
         [prettyPrint](const StateEvent &e) {
             if (e.matrixType() == "org.matrix.msc3401.call.member"_L1) {
@@ -871,7 +871,7 @@ float EventHandler::latitude(const Quotient::RoomEvent *event)
         return -100.0;
     }
 
-    const auto geoUri = event->contentJson()["geo_uri"_L1].toString();
+    const auto geoUri = event->contentPart<QString>("geo_uri"_L1);
     if (geoUri.isEmpty()) {
         return -100.0; // latitude runs from -90deg to +90deg so -100 is out of range.
     }
@@ -886,7 +886,7 @@ float EventHandler::longitude(const Quotient::RoomEvent *event)
         return -200.0;
     }
 
-    const auto geoUri = event->contentJson()["geo_uri"_L1].toString();
+    const auto geoUri = event->contentPart<QString>("geo_uri"_L1);
     if (geoUri.isEmpty()) {
         return -200.0; // longitude runs from -180deg to +180deg so -200 is out of range.
     }
@@ -901,7 +901,7 @@ QString EventHandler::locationAssetType(const Quotient::RoomEvent *event)
         return {};
     }
 
-    const auto assetType = event->contentJson()["org.matrix.msc3488.asset"_L1].toObject()["type"_L1].toString();
+    const auto assetType = event->contentJson()["org.matrix.msc3488.asset"_L1]["type"_L1].toString();
     if (assetType.isEmpty()) {
         return {};
     }

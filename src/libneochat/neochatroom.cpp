@@ -641,7 +641,7 @@ bool NeoChatRoom::defaultUrlPreviewState() const
 
     // Some rooms will not have this state event set so check for a nullptr return.
     if (urlPreviewsDisabled != nullptr) {
-        return !urlPreviewsDisabled->contentJson()["disable"_L1].toBool();
+        return !urlPreviewsDisabled->contentPart<bool>("disable"_L1);
     } else {
         return false;
     }
@@ -692,7 +692,7 @@ bool NeoChatRoom::urlPreviewEnabled() const
         return false;
     }
     if (hasAccountData("org.matrix.room.preview_urls"_L1)) {
-        return !accountData("org.matrix.room.preview_urls"_L1)->contentJson()["disable"_L1].toBool();
+        return !accountData("org.matrix.room.preview_urls"_L1)->contentPart<bool>("disable"_L1);
     } else {
         return defaultUrlPreviewState();
     }

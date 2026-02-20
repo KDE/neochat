@@ -127,8 +127,8 @@ void ReactionModel::updateReactions()
         }
         if (const auto &e = eventCast<const Quotient::ReactionEvent>(a)) {
             reactions[e->key()].append(e->senderId());
-            if (e->contentJson()["shortcode"_L1].toString().length()) {
-                m_shortcodes[e->key()] = e->contentJson()["shortcode"_L1].toString().toHtmlEscaped();
+            if (e->contentPart<QString>("shortcode"_L1).length()) {
+                m_shortcodes[e->key()] = e->contentPart<QString>("shortcode"_L1).toHtmlEscaped();
             }
         }
     }
