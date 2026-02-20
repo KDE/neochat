@@ -14,20 +14,15 @@
 #include "neochatroom.h"
 #include "texthandler.h"
 
+#include "chatbarlogging.h"
+
 using namespace Qt::StringLiterals;
 
-ChatBarCache::ChatBarCache(QObject *parent)
-    : QObject(parent)
+ChatBarCache::ChatBarCache(NeoChatRoom *room)
+    : QObject(room)
+    , m_room(room)
 {
-    if (parent == nullptr) {
-        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
-        return;
-    }
-    auto room = dynamic_cast<NeoChatRoom *>(parent);
-    if (room == nullptr) {
-        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
-        return;
-    }
+    Q_ASSERT(room);
     connect(room, &NeoChatRoom::memberLeft, this, &ChatBarCache::relationAuthorIsPresentChanged);
     connect(room, &NeoChatRoom::memberJoined, this, &ChatBarCache::relationAuthorIsPresentChanged);
     connect(this, &ChatBarCache::relationIdChanged, this, &ChatBarCache::relationAuthorIsPresentChanged);
@@ -110,24 +105,19 @@ void ChatBarCache::setEditId(const QString &editId)
 
 Quotient::RoomMember ChatBarCache::relationAuthor() const
 {
-    if (parent() == nullptr) {
-        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
-        return {};
-    }
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
-        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+    if (!m_room) {
+        qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return {};
     }
     if (m_relationId.isEmpty()) {
-        return room->member(QString());
+        return m_room->member({});
     }
-    const auto [event, _] = room->getEvent(m_relationId);
+    const auto [event, _] = m_room->getEvent(m_relationId);
     if (event != nullptr) {
-        return room->member(event->senderId());
+        return m_room->member(event->senderId());
     }
-    qWarning() << "Failed to find relation" << m_relationId << "in timeline?";
-    return room->member(QString());
+    qCWarning(ChatBar) << "Failed to find relation" << m_relationId << "in timeline?";
+    return m_room->member(QString());
 }
 
 bool ChatBarCache::relationAuthorIsPresent() const
@@ -137,20 +127,14 @@ bool ChatBarCache::relationAuthorIsPresent() const
 
 QString ChatBarCache::relationMessage() const
 {
-    if (parent() == nullptr) {
-        qWarning() << "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.";
+    if (!m_room) {
+        qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return {};
     }
     if (m_relationId.isEmpty()) {
         return {};
     }
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
-        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
-        return {};
-    }
-
-    if (auto [event, _] = room->getEvent(m_relationId); event != nullptr) {
+    if (auto [event, _] = m_room->getEvent(m_relationId); event != nullptr) {
         return EventHandler::markdownBody(event);
     }
     return {};
@@ -216,9 +200,8 @@ void ChatBarCache::setSavedText(const QString &savedText)
 
 void ChatBarCache::postMessage()
 {
-    auto room = dynamic_cast<NeoChatRoom *>(parent());
-    if (room == nullptr) {
-        qWarning() << "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.";
+    if (!m_room) {
+        qCWarning(ChatBar) << "ChatBarCache:" << __FUNCTION__ << "called after room was deleted";
         return;
     }
 
@@ -234,12 +217,12 @@ void ChatBarCache::postMessage()
     }
 
     if (!attachmentPath().isEmpty()) {
-        room->uploadFile(QUrl(attachmentPath()), sendText(), relatesTo);
+        m_room->uploadFile(QUrl(attachmentPath()), sendText(), relatesTo);
         clearCache();
         return;
     }
 
-    const auto result = ActionsModel::handleAction(room, this);
+    const auto result = ActionsModel::handleAction(m_room, this);
     if (!result.second.has_value()) {
         return;
     }
@@ -254,7 +237,7 @@ void ChatBarCache::postMessage()
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
 
-    room->post<Quotient::RoomMessageEvent>(m_cache.toString(),
+    m_room->post<Quotient::RoomMessageEvent>(m_cache.toString(),
                                            *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result),
                                            std::move(content),
                                            relatesTo);

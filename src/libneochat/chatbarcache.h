@@ -15,6 +15,8 @@ namespace Quotient
 class RoomMember;
 }
 
+class NeoChatRoom;
+
 /**
  * @class ChatBarCache
  *
@@ -128,7 +130,7 @@ public:
     };
     Q_ENUM(RelationType)
 
-    explicit ChatBarCache(QObject *parent = nullptr);
+    explicit ChatBarCache(NeoChatRoom *room);
 
     Block::Cache &cache();
     QString sendText() const;
@@ -186,6 +188,7 @@ Q_SIGNALS:
 
 private:
     Block::Cache m_cache;
+    QPointer<NeoChatRoom> m_room;
 
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;

@@ -37,8 +37,6 @@ private Q_SLOTS:
     void initTestCase();
 
     void empty();
-    void noRoom();
-    void badParent();
     void reply();
     void replyMissingUser();
     void edit();
@@ -86,39 +84,6 @@ void ChatBarCacheTest::empty()
     QCOMPARE(chatBarCache->relationAuthor(), room->member(QString()));
     QCOMPARE(chatBarCache->relationMessage(), QString());
     QCOMPARE(chatBarCache->attachmentPath(), QString());
-}
-
-void ChatBarCacheTest::noRoom()
-{
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
-    QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache());
-    chatBarCache->setReplyId(eventId);
-
-    // These should return empty even though a reply ID has been set because the
-    // ChatBarCache has no parent.
-
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationAuthor(), Quotient::RoomMember());
-
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with no parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationMessage(), QString());
-}
-
-void ChatBarCacheTest::badParent()
-{
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
-    QScopedPointer<QObject> badParent(new QObject());
-    QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(badParent.get()));
-    chatBarCache->setReplyId(eventId);
-
-    // These should return empty even though a reply ID has been set because the
-    // ChatBarCache has no parent.
-
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationAuthor(), Quotient::RoomMember());
-
-    QTest::ignoreMessage(QtWarningMsg, "ChatBarCache created with incorrect parent, a NeoChatRoom must be set as the parent on creation.");
-    QCOMPARE(chatBarCache->relationMessage(), QString());
 }
 
 void ChatBarCacheTest::reply()

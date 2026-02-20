@@ -60,6 +60,13 @@ target_sources(LibNeoChat PRIVATE
     models/widgetmodel.h
 )
 
+ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "chatbarlogging.h"
+    IDENTIFIER "ChatBar"
+    CATEGORY_NAME "org.kde.neochat.chatbar"
+    DEFAULT_SEVERITY Info
+)
+
 if (TARGET KF6::KIOWidgets)
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KIO)
 endif()
