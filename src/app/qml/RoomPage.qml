@@ -178,7 +178,7 @@ Kirigami.Page {
 
         spacing: 0
 
-        readonly property bool shouldShowPins: root.currentRoom.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile
+        readonly property bool shouldShowPins: root.currentRoom?.pinnedMessage.length > 0 && !Kirigami.Settings.isMobile
 
         QQC2.Control {
             id: pinControl
