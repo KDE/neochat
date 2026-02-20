@@ -88,12 +88,10 @@ ecm_add_qml_module(MessageContent GENERATE_PLUGIN_SOURCE
 configure_file(config-neochat.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-neochat.h)
 
 ecm_qt_declare_logging_category(MessageContent
-    HEADER "messagemodel_logging.h"
-    IDENTIFIER "Message"
-    CATEGORY_NAME "org.kde.neochat.messagemodel"
-    DESCRIPTION "Neochat: messagemodel"
+    HEADER "messagecontentlogging.h"
+    IDENTIFIER "MessageContent"
+    CATEGORY_NAME "org.kde.neochat.messagecontent"
     DEFAULT_SEVERITY Info
-    EXPORT NEOCHAT
 )
 
 target_include_directories(MessageContent PRIVATE ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/models)

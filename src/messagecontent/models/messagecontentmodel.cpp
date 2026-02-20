@@ -9,6 +9,7 @@
 
 #include "chatbarcache.h"
 #include "contentprovider.h"
+#include "messagecontentlogging.h"
 #include "neochatconnection.h"
 #include "neochatdatetime.h"
 #include "texthandler.h"
@@ -139,13 +140,13 @@ QVariant MessageContentModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    if (index.row() >= rowCount()) {
-        qDebug() << "MessageContentModel, something's wrong: index.row() >= rowCount()";
+    if (index.row() < 0 || index.row() >= rowCount()) {
+        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid index" << index << rowCount();
         return {};
     }
 
     if (!m_room) {
-        qWarning() << "MessageContentModel::data called without room";
+        qCWarning(MessageContent) << __FUNCTION__ << "called without room";
         return {};
     }
 
@@ -357,7 +358,7 @@ MessageComponent MessageContentModel::linkPreviewComponent(const QUrl &link)
 void MessageContentModel::closeLinkPreview(int row)
 {
     if (row < 0 || row >= m_components.size()) {
-        qWarning() << "closeLinkPreview() called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
 
@@ -381,7 +382,7 @@ void MessageContentModel::updateSpoiler(const QModelIndex &index)
 {
     const auto row = index.row();
     if (row < 0 || row >= rowCount()) {
-        qWarning() << __FUNCTION__ << "called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid index" << index << rowCount();
         return;
     }
 
@@ -394,7 +395,7 @@ void MessageContentModel::toggleSpoiler(QModelIndex index)
 {
     const auto row = index.row();
     if (row < 0 || row >= rowCount()) {
-        qWarning() << __FUNCTION__ << "called with row" << row << "which does not exist. m_components.size() =" << m_components.size();
+        qCWarning(MessageContent) << __FUNCTION__ << "called with invalid row" << row << m_components.size();
         return;
     }
     if (m_components[row].type != MessageComponentType::Text) {

@@ -36,6 +36,7 @@ class MessageContentModel : public QAbstractListModel
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_UNCREATABLE("")
 
     /**
      * @brief The room the chat bar is for.
