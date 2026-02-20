@@ -805,8 +805,6 @@ QString TextHandler::customMarkdownToHtml(const QString &stringIn)
     // underline
     processSyntax(u"_"_s, u"<u>"_s, u"</u>"_s);
 
-    qWarning() << buffer;
-
     return buffer;
 }
 
