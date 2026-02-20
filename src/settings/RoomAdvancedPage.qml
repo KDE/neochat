@@ -70,6 +70,28 @@ FormCard.FormCardPage {
             }
         }
     }
+    FormCard.FormHeader {
+        title: i18nc("@title:group", "Room Creators")
+        visible: creatorModel.count > 0 // This shouldn't be possible, but this is meant for libQuotient <0.10
+
+        Layout.topMargin: Kirigami.Units.largeSpacing
+    }
+    FormCard.FormCard {
+        visible: creatorModel.count > 0
+
+        Repeater {
+            id: creatorModel
+
+            model: root.room.creatorIds
+
+            delegate: FormCard.FormTextDelegate {
+                id: creatorUserDelegate
+
+                text: modelData
+                textItem.textFormat: Text.PlainText
+            }
+        }
+    }
 
     property Kirigami.Dialog roomUpgradeDialog: Kirigami.Dialog {
         id: roomUpgradeDialog
