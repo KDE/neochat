@@ -67,6 +67,13 @@ ecm_qt_declare_logging_category(LibNeoChat
     DEFAULT_SEVERITY Info
 )
 
+ecm_qt_declare_logging_category(LibNeoChat
+    HEADER "roomlistlogging.h"
+    IDENTIFIER "RoomList"
+    CATEGORY_NAME "org.kde.neochat.roomlist"
+    DEFAULT_SEVERITY Info
+)
+
 if (TARGET KF6::KIOWidgets)
     target_compile_definitions(LibNeoChat PUBLIC -DHAVE_KIO)
 endif()

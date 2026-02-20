@@ -9,6 +9,7 @@
 #include "eventhandler.h"
 #include "neochatconnection.h"
 #include "neochatroom.h"
+#include "roomlistlogging.h"
 #include "spacehierarchycache.h"
 
 #include <KLocalizedString>
@@ -45,7 +46,7 @@ void RoomListModel::setConnection(NeoChatConnection *connection)
         m_connection->disconnect(this);
     }
     if (!connection) {
-        qDebug() << "Removing current connection...";
+        qCDebug(RoomList) << "Removing current connection";
         m_connection = nullptr;
         beginResetModel();
         m_rooms.clear();
@@ -103,14 +104,15 @@ NeoChatRoom *RoomListModel::roomAt(int row) const
 
 void RoomListModel::doAddRoom(Room *r)
 {
-    if (auto room = static_cast<NeoChatRoom *>(r)) {
-        m_rooms.append(room);
-        connectRoomSignals(room);
-        Q_EMIT roomAdded(room);
-    } else {
-        qCritical() << "Attempt to add nullptr to the room list";
-        Q_ASSERT(false);
+    Q_ASSERT(r);
+    if (!r) {
+        qCCritical(RoomList) << "Attempt to add nullptr to the room list";
+        return;
     }
+    const auto room = static_cast<NeoChatRoom *>(r);
+    m_rooms.append(room);
+    connectRoomSignals(room);
+    Q_EMIT roomAdded(room);
 }
 
 void RoomListModel::connectRoomSignals(NeoChatRoom *room)
@@ -153,12 +155,12 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     // 2. (prev != nullptr) accepting/rejecting an invitation or inviting to
     //    the previously left room (in both cases prev has the previous state).
     if (prev == room) {
-        qCritical() << "RoomListModel::updateRoom: room tried to replace itself";
+        qCCritical(RoomList) << "RoomListModel::updateRoom: room tried to replace itself";
         refresh(static_cast<NeoChatRoom *>(room));
         return;
     }
     if (prev && room->id() != prev->id()) {
-        qCritical() << "RoomListModel::updateRoom: attempt to update room" << room->id() << "to" << prev->id();
+        qCCritical(RoomList) << "RoomListModel::updateRoom: attempt to update room" << room->id() << "to" << prev->id();
         // That doesn't look right but technically we still can do it.
     }
     // Ok, we're through with pre-checks, now for the real thing.
@@ -184,12 +186,12 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
 
 void RoomListModel::deleteRoom(Room *room)
 {
-    qDebug() << "Deleting room" << room->id();
+    qCDebug(RoomList) << "Deleting room" << room->id();
     const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
     if (it == m_rooms.end()) {
         return; // Already deleted, nothing to do
     }
-    qDebug() << "Erasing room" << room->id();
+    qCDebug(RoomList) << "Erasing room" << room->id();
     const int row = it - m_rooms.begin();
     beginRemoveRows(QModelIndex(), row, row);
     m_rooms.erase(it);
@@ -211,7 +213,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() >= m_rooms.count()) {
-        qDebug() << "UserListModel: something wrong here...";
+        qCWarning(RoomList) << __FUNCTION__ << "called with invalid index" << index << m_rooms.count();
         return QVariant();
     }
     NeoChatRoom *room = m_rooms.at(index.row());
@@ -289,7 +291,7 @@ void RoomListModel::refresh(NeoChatRoom *room, const QList<int> &roles)
 {
     const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
     if (it == m_rooms.end()) {
-        qCritical() << "Room" << room->id() << "not found in the room list";
+        qCCritical(RoomList) << "Room" << room->id() << "not found in the room list";
         return;
     }
     const auto idx = index(it - m_rooms.begin());
