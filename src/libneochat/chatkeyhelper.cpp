@@ -190,6 +190,11 @@ bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
         return false;
     }
 
+    // If we are not a heading or are in a list just pass enter as normal.
+    if (cursor.blockFormat().headingLevel() <= 0 || cursor.currentList()) {
+        return false;
+    }
+
     // If there was a heading we always want to revert to Paragraph format.
     auto newBlockFormat = RichFormat::blockFormatForFormat(RichFormat::Paragraph);
     auto newCharFormat = cursor.charFormat();
