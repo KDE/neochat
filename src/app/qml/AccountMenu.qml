@@ -41,12 +41,6 @@ KirigamiComponents.ConvergentContextMenu {
     }
 
     Kirigami.Action {
-        text: i18nc("@action:inmenu", "Edit This Account")
-        icon.name: "document-edit"
-        onTriggered: NeoChatSettingsView.openWithInitialProperties("accounts", {initialAccount: root.connection});
-    }
-
-    Kirigami.Action {
         text: i18nc("@action:inmenu", "Notification Settings")
         icon.name: "notifications"
         onTriggered: {
