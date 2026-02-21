@@ -19,6 +19,107 @@ FormCard.FormCardPage {
 
     title: i18nc("@title:window", "Edit Account")
     property NeoChatConnection connection
+    readonly property bool hasUnsavedChanges: root.connection.localUser.displayName !== name.text
+        || avatar.source != avatar.findOriginalAvatarUrl()
+        || root.connection.profileField("m.tz") !== timezoneLabel.textValue;
+
+    function resetChanges(): void {
+        name.text = root.connection ? root.connection.localUser.displayName : "";
+        avatar.source = avatar.findOriginalAvatarUrl();
+        timezoneLabel.currentIndex = timezoneLabel.model.indexOfValue(root.connection.profileField("m.tz"));
+        timezoneLabel.updateTextValue(timezoneLabel.currentIndex);
+    }
+
+    function saveChanges(): void {
+        if (avatar.source != avatar.findOriginalAvatarUrl() && !root.connection.setAvatar(avatar.source)) {
+            (root.Window.window as Kirigami.ApplicationWindow).showPassiveNotification(i18nc("@info", "New avatar could not be set."));
+        }
+        if (root.connection.localUser.displayName !== name.text) {
+            root.connection.localUser.rename(name.text);
+        }
+        if (root.connection.profileField("m.tz") !== timezoneLabel.textValue) {
+            root.connection.setProfileField("m.tz", timezoneLabel.textValue);
+        }
+    }
+
+    function checkForUnsavedChanges(): bool {
+        if (root.hasUnsavedChanges) {
+            resetChangesDialog.open();
+            return true;
+        }
+        return false;
+    }
+
+    onBackRequested: event => {
+        if (checkForUnsavedChanges(event)) {
+            event.accepted = true; // Prevent the page from popping
+        }
+    }
+
+    Connections {
+        target: root.Window.window
+
+        function onClosing(event): void {
+            if (root.checkForUnsavedChanges(event)) {
+                event.accepted = false; // Prevent the window from closing
+            }
+        }
+    }
+
+    actions: [
+        Kirigami.Action {
+            text: i18nc("@action:button", "Reset Changes")
+            icon.name: "edit-reset-symbolic"
+            enabled: root.hasUnsavedChanges
+            onTriggered: root.resetChanges()
+        },
+        Kirigami.Action {
+            text: i18nc("@action:button Save changes to user", "Save")
+            icon.name: "document-save-symbolic"
+            enabled: root.hasUnsavedChanges
+            onTriggered: root.saveChanges()
+        }
+    ]
+
+    Kirigami.PromptDialog {
+        id: resetChangesDialog
+
+        parent: root.QQC2.Overlay.overlay
+        preferredWidth: Kirigami.Units.gridUnit * 24
+
+        title: i18nc("@title:dialog Apply unsaved settings", "Apply Settings")
+        subtitle: i18nc("@info", "There are unsaved changes to user information. Apply the changes or discard them?")
+
+        standardButtons: QQC2.Dialog.Cancel
+
+        footer: QQC2.DialogButtonBox {
+            QQC2.Button {
+                text: i18nc("@action:button As in 'Remove this device'", "Apply")
+                icon.name: "dialog-ok-apply"
+
+                onClicked: {
+                    root.saveChanges();
+                    resetChangesDialog.close();
+                }
+
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ApplyRole
+            }
+
+            QQC2.Button {
+                text: i18nc("@action:button As in 'Remove this device'", "Reset")
+                icon.name: "edit-reset-symbolic"
+
+                onClicked: {
+                    root.resetChanges();
+                    resetChangesDialog.close();
+                }
+
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.ResetRole
+            }
+        }
+    }
+
+    Component.onCompleted: resetChanges()
 
     KirigamiComponents.AvatarButton {
         id: avatar
@@ -34,8 +135,6 @@ FormCard.FormCardPage {
 
         padding: 0
 
-        // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-        source: findOriginalAvatarUrl()
         name: root.connection.localUser.displayName
 
         function findOriginalAvatarUrl(): string {
@@ -109,7 +208,6 @@ FormCard.FormCardPage {
         FormCard.FormTextFieldDelegate {
             id: name
             label: i18n("Display Name:")
-            text: root.connection ? root.connection.localUser.displayName : ""
         }
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextDelegate {
@@ -143,7 +241,9 @@ FormCard.FormCardPage {
             model: TimeZoneModel {}
             textRole: "display"
             valueRole: "display"
-            onActivated: index => {
+            onActivated: index => updateTextValue(index)
+
+            function updateTextValue(index: int): void {
                 // "Prefer not to say" choice clears it.
                 if (index === 0) {
                     textValue = "";
@@ -152,38 +252,6 @@ FormCard.FormCardPage {
 
                 // Otherwise, set it to the text value which is the IANA identifier
                 textValue = timezoneLabel.currentValue;
-            }
-            Component.onCompleted: currentIndex = model.indexOfValue(textValue)
-        }
-        FormCard.FormDelegateSeparator {}
-        FormCard.FormButtonDelegate {
-            text: i18nc("@action:button", "Show QR Code")
-            icon.name: "view-barcode-qr-symbolic"
-            onClicked: {
-                let qrMax = Qt.createComponent('org.kde.neochat', 'QrCodeMaximizeComponent').createObject(QQC2.Overlay.overlay, {
-                    text: "https://matrix.to/#/" + root.connection.localUser.id,
-                    title: root.connection.localUser.displayName,
-                    subtitle: root.connection.localUser.id,
-                    // Note: User::avatarUrl does not set user_id, and thus cannot be used directly here. Hence the makeMediaUrl.
-                    avatarSource: root.connection && (root.connection.localUser.avatarUrl.toString().length > 0 ? root.connection.makeMediaUrl(root.connection.localUser.avatarUrl) : "")
-                });
-                qrMax.open();
-            }
-        }
-        FormCard.FormDelegateSeparator {}
-        FormCard.FormButtonDelegate {
-            text: i18n("Save")
-            icon.name: "document-save-symbolic"
-            onClicked: {
-                if (avatar.source != avatar.findOriginalAvatarUrl() && !root.connection.setAvatar(avatar.source)) {
-                    (root.Window.window as Kirigami.ApplicationWindow).showPassiveNotification("The Avatar could not be set");
-                }
-                if (root.connection.localUser.displayName !== name.text) {
-                    root.connection.localUser.rename(name.text);
-                }
-                if (root.connection.profileField("m.tz") !== timezoneLabel.textValue) {
-                    root.connection.setProfileField("m.tz", timezoneLabel.textValue);
-                }
             }
         }
     }
@@ -217,7 +285,7 @@ FormCard.FormCardPage {
         FormCard.FormDelegateSeparator {}
         FormCard.FormTextFieldDelegate {
             id: confirmPassword
-            label: i18nc("@label:textbox", "Confirm new Password:")
+            label: i18nc("@label:textbox", "Confirm New Password:")
             enabled: root.connection !== undefined && root.connection.canChangePassword !== false
             echoMode: TextInput.Password
             onTextChanged: if (newPassword.text !== confirmPassword.text && confirmPassword.text.length > 0) {
