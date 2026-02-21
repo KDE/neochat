@@ -7,7 +7,6 @@
 
 #include <QQuickTextDocument>
 #include <QTextCursor>
-#include <QTextDocumentFragment>
 
 #include <Kirigami/Platform/PlatformTheme>
 #include <qtextdocument.h>

@@ -14,6 +14,7 @@
 #include <KLocalizedString>
 
 #include "accountmanager.h"
+#include "blockcache.h"
 #include "chatbarcache.h"
 #include "neochatroom.h"
 
@@ -77,7 +78,7 @@ void ChatBarCacheTest::empty()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
-    QCOMPARE(chatBarCache->text(), QString());
+    QCOMPARE(chatBarCache->cache().toString(), QString());
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);
@@ -123,11 +124,11 @@ void ChatBarCacheTest::badParent()
 void ChatBarCacheTest::reply()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->setText(u"some text"_s);
+    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
     chatBarCache->setAttachmentPath(u"some/path"_s);
     chatBarCache->setReplyId(eventId);
 
-    QCOMPARE(chatBarCache->text(), u"some text"_s);
+    QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), true);
     QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
@@ -141,11 +142,11 @@ void ChatBarCacheTest::reply()
 void ChatBarCacheTest::replyMissingUser()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->setText(u"some text"_s);
+    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
     chatBarCache->setAttachmentPath(u"some/path"_s);
     chatBarCache->setReplyId(eventId);
 
-    QCOMPARE(chatBarCache->text(), u"some text"_s);
+    QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), true);
     QCOMPARE(chatBarCache->replyId(), eventId);
     QCOMPARE(chatBarCache->isEditing(), false);
@@ -172,7 +173,7 @@ void ChatBarCacheTest::edit()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
 
-    chatBarCache->setText(u"some text"_s);
+    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
     chatBarCache->setAttachmentPath(u"some/path"_s);
     connect(chatBarCache.get(), &ChatBarCache::relationIdChanged, this, [this](const QString &oldEventId, const QString &newEventId) {
         QCOMPARE(oldEventId, QString());
@@ -180,7 +181,7 @@ void ChatBarCacheTest::edit()
     });
     chatBarCache->setEditId(eventId);
 
-    QCOMPARE(chatBarCache->text(), u"some text"_s);
+    QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), true);
@@ -193,11 +194,11 @@ void ChatBarCacheTest::edit()
 void ChatBarCacheTest::attachment()
 {
     QScopedPointer<ChatBarCache> chatBarCache(new ChatBarCache(room));
-    chatBarCache->setText(u"some text"_s);
+    chatBarCache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(u"some text"_s)};
     chatBarCache->setEditId(eventId);
     chatBarCache->setAttachmentPath(u"some/path"_s);
 
-    QCOMPARE(chatBarCache->text(), u"some text"_s);
+    QCOMPARE(chatBarCache->cache().toString(), u"some text"_s);
     QCOMPARE(chatBarCache->isReplying(), false);
     QCOMPARE(chatBarCache->replyId(), QString());
     QCOMPARE(chatBarCache->isEditing(), false);

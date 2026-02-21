@@ -14,6 +14,8 @@ namespace Block
 struct CacheItem {
     MessageComponentType::Type type = MessageComponentType::Other;
     QTextDocumentFragment content;
+
+    QString toString() const;
 };
 
 class Cache : private QList<CacheItem>
@@ -22,7 +24,10 @@ public:
     using QList<CacheItem>::constBegin, QList<CacheItem>::constEnd;
     using QList<CacheItem>::isEmpty;
     using QList<CacheItem>::clear;
+    using QList<CacheItem>::append, QList<CacheItem>::operator+=, QList<CacheItem>::operator<<;
 
     void fill(QList<MessageComponent> components);
+
+    QString toString() const;
 };
 }

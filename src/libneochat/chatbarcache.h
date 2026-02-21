@@ -40,14 +40,6 @@ class ChatBarCache : public QObject
     QML_UNCREATABLE("")
 
     /**
-     * @brief The text in the chat bar.
-     *
-     * Due to problems with QTextDocument, unlike the other properties here,
-     * text is *not* used to store the text when switching rooms.
-     */
-    Q_PROPERTY(QString text READ text WRITE setText NOTIFY textChanged)
-
-    /**
      * @brief Whether the chat bar is currently replying to a message.
      */
     Q_PROPERTY(bool isReplying READ isReplying NOTIFY relationIdChanged)
@@ -139,10 +131,7 @@ public:
     explicit ChatBarCache(QObject *parent = nullptr);
 
     Block::Cache &cache();
-
-    QString text() const;
     QString sendText() const;
-    void setText(const QString &text);
 
     bool isReplying() const;
     QString replyId() const;
@@ -189,7 +178,6 @@ public:
     Q_INVOKABLE void drop(QList<QUrl> urls, const QString &transferPortal);
 
 Q_SIGNALS:
-    void textChanged();
     void relationIdChanged(const QString &oldEventId, const QString &newEventId);
     void threadIdChanged(const QString &oldThreadId, const QString &newThreadId);
     void attachmentPathChanged();
@@ -198,8 +186,6 @@ Q_SIGNALS:
 
 private:
     Block::Cache m_cache;
-
-    QString m_text = QString();
 
     QString m_relationId = QString();
     RelationType m_relationType = RelationType::None;

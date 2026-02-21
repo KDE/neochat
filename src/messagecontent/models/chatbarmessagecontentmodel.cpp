@@ -596,59 +596,6 @@ void ChatBarMessageContentModel::updateCache() const
     m_room->cacheForType(m_type)->cache().fill(m_components);
 }
 
-inline QString formatQuote(const QString &input)
-{
-    QString stringOut;
-    auto splitString = input.split(u"\n\n"_s, Qt::SkipEmptyParts);
-    for (auto &string : splitString) {
-        if (string.startsWith(u'*')) {
-            string.removeFirst();
-        }
-        if (string.startsWith(u'\"')) {
-            string.removeFirst();
-        }
-        if (string.endsWith(u'*')) {
-            string.removeLast();
-        }
-        if (string.endsWith(u'\"')) {
-            string.removeLast();
-        }
-        if (!stringOut.isEmpty()) {
-            stringOut += u"\n"_s;
-        }
-        stringOut += u"> "_s + string;
-    }
-    return stringOut;
-}
-
-inline QString formatCode(const QString &input)
-{
-    return u"```\n%1\n```"_s.arg(input).replace(u"\n\n"_s, u"\n"_s);
-}
-
-QString ChatBarMessageContentModel::messageText() const
-{
-    QString text;
-    for (const auto &component : m_components) {
-        if (MessageComponentType::isTextType(component.type)) {
-            if (const auto textItem = textItemForComponent(component)) {
-                auto newText = textItem->markdownText();
-                newText.replace(QRegularExpression(u"(?<!\n)\n(?!\n)"_s), u" "_s);
-                if (component.type == MessageComponentType::Quote) {
-                    newText = formatQuote(newText);
-                } else if (component.type == MessageComponentType::Code) {
-                    newText = formatCode(newText);
-                }
-                if (!text.isEmpty()) {
-                    text += u"\n\n"_s;
-                }
-                text += newText;
-            }
-        }
-    }
-    return text;
-}
-
 void ChatBarMessageContentModel::postMessage()
 {
     if (m_type == ChatBarType::None || !m_room) {

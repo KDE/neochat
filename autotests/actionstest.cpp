@@ -7,7 +7,9 @@
 #include <QVariantList>
 
 #include "accountmanager.h"
+#include "blockcache.h"
 #include "chatbarcache.h"
+#include "enums/messagecomponenttype.h"
 #include "models/actionsmodel.h"
 
 #include "server.h"
@@ -89,8 +91,9 @@ void ActionsTest::testActions()
     QFETCH(std::optional<Quotient::RoomMessageEvent::MsgType>, type);
 
     auto cache = new ChatBarCache(this);
-    cache->setText(command);
+    cache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(command)};
     auto result = ActionsModel::handleAction(room, cache);
+    qWarning() << result << resultText;
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
     QCOMPARE(type, std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result));
 }

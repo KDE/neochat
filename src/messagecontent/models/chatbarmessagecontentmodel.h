@@ -150,7 +150,6 @@ private:
     void handleBlockTransition(bool up);
 
     void updateCache() const;
-    QString messageText() const;
 
     bool m_sendMessageWithEnter = true;
 

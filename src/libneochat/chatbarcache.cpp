@@ -38,29 +38,16 @@ Block::Cache &ChatBarCache::cache()
     return m_cache;
 }
 
-QString ChatBarCache::text() const
-{
-    return m_text;
-}
-
-void ChatBarCache::setText(const QString &text)
-{
-    if (text == m_text) {
-        return;
-    }
-    m_text = text;
-    Q_EMIT textChanged();
-}
-
 QString ChatBarCache::sendText() const
 {
+    const auto cacheText = m_cache.toString();
     if (!attachmentPath().isEmpty()) {
         QUrl url(attachmentPath());
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        return text().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : text();
+        return cacheText.isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : cacheText;
     }
 
-    return text();
+    return cacheText;
 }
 
 bool ChatBarCache::isReplying() const
@@ -267,13 +254,16 @@ void ChatBarCache::postMessage()
 
     auto content = std::make_unique<Quotient::EventContent::TextContent>(sendText, u"text/html"_s);
 
-    room->post<Quotient::RoomMessageEvent>(text(), *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result), std::move(content), relatesTo);
+    room->post<Quotient::RoomMessageEvent>(m_cache.toString(),
+                                           *std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result),
+                                           std::move(content),
+                                           relatesTo);
     clearCache();
 }
 
 void ChatBarCache::clearCache()
 {
-    setText({});
+    m_cache.clear();
     m_savedText = QString();
     clearRelations();
 }

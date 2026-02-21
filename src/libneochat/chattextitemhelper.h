@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QQuickItem>
 #include <QTextDocumentFragment>
-#include <qtextdocumentfragment.h>
 
 #include "enums/chatbartype.h"
 #include "enums/richformat.h"
