@@ -79,9 +79,10 @@ void TimelineBeginningModel::setRoom(NeoChatRoom *room)
     if (m_room != nullptr) {
         Quotient::connectUntil(m_room.get(), &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
             if (m_room && m_room->allHistoryLoaded()) {
-                Q_EMIT dataChanged(index(0, 0), index(0, 0), {DelegateTypeRole});
-                beginInsertRows({}, 1, 1);
-                endInsertRows();
+                if (!m_room->successorId().isEmpty()) {
+                    beginInsertRows({}, 1, 1);
+                    endInsertRows();
+                }
                 return true;
             }
             return false;
@@ -147,14 +148,16 @@ void TimelineEndModel::setRoom(NeoChatRoom *room)
     m_room = room;
 
     if (m_room != nullptr) {
-        connect(m_room, &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
-            if (m_room->allHistoryLoaded()) {
-                // HACK: We have to do it this way because DelegateChooser doesn't update dynamically.
-                beginRemoveRows({}, 0, 0);
-                endRemoveRows();
-                beginInsertRows({}, 0, 0);
-                endInsertRows();
+        Quotient::connectUntil(m_room.get(), &Quotient::Room::eventsHistoryJobChanged, this, [this]() {
+            if (m_room && m_room->allHistoryLoaded()) {
+                Q_EMIT dataChanged(index(0, 0), index(0, 0), {DelegateTypeRole});
+                if (!m_room->predecessorId().isEmpty()) {
+                    beginInsertRows({}, 1, 1);
+                    endInsertRows();
+                }
+                return true;
             }
+            return false;
         });
     }
 
@@ -171,9 +174,8 @@ QVariant TimelineEndModel::data(const QModelIndex &idx, int role) const
     if (role == DelegateTypeRole) {
         if (idx.row() == 1 || rowCount() == 1) {
             return m_room->allHistoryLoaded() ? DelegateType::TimelineEnd : DelegateType::Loading;
-        } else {
-            return DelegateType::Predecessor;
         }
+        return DelegateType::Predecessor;
     }
 
     if (role == MessageModel::RoomRole) {
