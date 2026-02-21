@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
-"PO-Revision-Date: 2026-02-18 16:50+0300\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
+"PO-Revision-Date: 2026-02-20 15:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -330,7 +330,7 @@ msgid "Attachment:"
 msgstr "İlişik:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -1184,15 +1184,13 @@ msgstr "E-posta ile iletişime geç (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Anahtar Depolamasını Yönet"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security key or backup passphrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr "Güvenlik anahtarı veya yedek ifadesi doğru değildi."
+msgstr "Kurtarma anahtarı doğru değildi."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1201,39 +1199,30 @@ msgid "Encryption keys restored."
 msgstr "Şifreleme anahtarları geri yüklendi."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "Anahtar Parolası ile Kilit Aç"
+msgstr "Kurtarma Anahtarı ile Kilit Aç"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"Bu hesap için bir güvenlik anahtarınız veya yedek ifadeniz varsa onu aşağıya "
-"girin veya bir dosya olarak yükleyin."
+"Bu hesap için bir kurtarma anahtarınız varsa (“güvenlik anahtarı” veya "
+"“yedek anahtar parolası” olarak da bilinir) onu aşağıya girin veya bir dosya "
+"olarak yükleyin."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "Güvenlik anahtarı:"
+msgstr "Kurtarma anahtarı:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Dosyadan Yükle"
@@ -1251,23 +1240,17 @@ msgid "Unlock from Cross-Signing"
 msgstr "Çapraz İmzalama ile Kilit Aç"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"Bu aygıtı daha önce doğruladıysanız aşağıdaki düğmeye tıklayarak başka "
-"aygıtlardan yedek anahtarı yüklemeyi deneyebilirsiniz."
+"Bu aygıtı daha önce doğruladıysanız başka doğrulanmış aygıtlardan şifreleme "
+"anahtarları isteyin."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Başka Aygıtlardan İste"
@@ -1452,12 +1435,10 @@ msgid "Mutual Rooms"
 msgstr "Ortak Odalar"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Bulunan oda yok"
+msgstr "Ortak oda yok"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -3527,7 +3508,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Oluşturan"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3536,18 +3517,18 @@ msgstr ""
 "Dosya indirmek için pek büyük.<br />Destek için Matrix sunucusu yöneticisine "
 "ulaşın."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Yapılandırılmış kimlik sunucusu yok"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Oda oluşturulamadı: %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Alan oluşturma başarısız: %1"
@@ -4080,7 +4061,7 @@ msgid "Stop Download"
 msgstr "İndirmeyi Durdur"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4108,14 +4089,14 @@ msgstr "Giriş zamanı: %1"
 msgid "Check-out time: %1"
 msgstr "Çıkış zamanı: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Görseli Gizle"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6116,9 +6097,7 @@ msgid "Ignored Users"
 msgstr "Yok Sayılan Kullanıcılar"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "İletiler"
@@ -6140,8 +6119,7 @@ msgstr ""
 "İşaretlenmediğinde, her odada bağlantı önizlemeleri devre dışı bırakılır."
 
 #: src/settings/NeoChatSecurityPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "“Yazıyor” bildirimlerini gönder"
@@ -6162,41 +6140,66 @@ msgstr ""
 "Bu seçenek etkinleştirildiğinde, görseller ve videolar yalnızca bir düğmeye "
 "tıklandıktan sonra gösterilirler."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "Bilinmeyen kullanıcılardan gelen davetleri reddet"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "Herkes bulabilir ve katılabilir."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "Kullanıcıları yasakla"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"Etkinleştirilirse NeoChat, birlikte bir oda paylaşmadığınız kullanıcılardan "
-"gelen davetleri reddeder."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Sunucunuz bu ayarı desteklemiyor."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Yeni sohbetlerde şifrelemeyi aç"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6205,66 +6208,62 @@ msgstr ""
 "Etkinleştirilmişse NeoChat, yeni doğrudan iletiler başlatırken şifreleme "
 "kullanır."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Anahtar Depolamasını Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Başka aygıtlardan şifreleme anahtarları içe aktarın veya kilitlerini açın."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Giz Yedeğini Yönet"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Anahtarlar İçe Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#: src/settings/NeoChatSecurityPage.qml:151
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
-msgstr "Bir yedekten şifreleme anahtarları içe aktarın."
+msgstr "Bir yedek dosyasından şifreleme anahtarları içe aktarın."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Anahtarlar İçe Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Anahtarlar başarıyla içe aktarıldı"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Anahtarları Dışa Aktar"
 
-#: src/settings/NeoChatSecurityPage.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export this device's encryption keys."
+#: src/settings/NeoChatSecurityPage.qml:174
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr "Bu aygıtın şifreleme anahtarlarını dışa aktarın."
+msgstr "Bu aygıtın şifreleme anahtarlarını bir dosyaya dışa aktarın."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7650,6 +7649,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "Bilinmeyen kullanıcılardan gelen davetleri reddet"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "Etkinleştirilirse NeoChat, birlikte bir oda paylaşmadığınız "
+#~ "kullanıcılardan gelen davetleri reddeder."
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Security Key or Backup Passphrase"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
 "PO-Revision-Date: 2025-10-22 20:19+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -332,7 +332,7 @@ msgid "Attachment:"
 msgstr "Bilaga:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -3632,7 +3632,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Skapare"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3641,18 +3641,18 @@ msgstr ""
 "Filen är för stor för att ladda ner.<br />Kontakta matrix-"
 "serveradministratören för support."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ingen identitetsserver inställd"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa utrymme: %1"
@@ -4191,7 +4191,7 @@ msgid "Stop Download"
 msgstr "Stoppa nerladdning"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove parent"
@@ -4221,14 +4221,14 @@ msgstr "Incheckningstid: %1"
 msgid "Check-out time: %1"
 msgstr "Utcheckningstid: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Dölj bild"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6388,41 +6388,66 @@ msgstr ""
 "När alternativet är aktiverat visas bara bilder och videor efter en knapp "
 "har klickats."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "Avslå inbjudningar från okända användare"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "Alla kan hitta och gå med."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "Bannlys användare"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"Om aktiverat, avslår NeoChat inbjudningar från användare som du inte delar "
-"något rum med."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Servern stöder inte inställningen."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Sätt på kryptering i nya chattar"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6430,13 +6455,13 @@ msgid ""
 msgstr ""
 "Om aktiverad, använder NeoChat kryptering när nya direktmeddelanden påbörjas."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6444,7 +6469,7 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Importera krypteringsnycklar från en säkerhetskopia."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Secret Backup"
@@ -6452,13 +6477,13 @@ msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Öppna hemlig säkerhetskopia"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importera nycklar"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6466,25 +6491,25 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Importera krypteringsnycklar från en säkerhetskopia."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importera nycklar"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Nycklar importerade med lyckat resultat"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Exportera nycklar"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:174
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Export this device's encryption keys."
@@ -6492,7 +6517,7 @@ msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Exportera enhetens krypteringsnycklar."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7930,6 +7955,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "Avslå inbjudningar från okända användare"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "Om aktiverat, avslår NeoChat inbjudningar från användare som du inte "
+#~ "delar något rum med."
 
 #, fuzzy
 #~| msgctxt "@title"

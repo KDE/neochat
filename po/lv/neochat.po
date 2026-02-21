@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
 "PO-Revision-Date: 2025-11-11 19:11+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -334,7 +334,7 @@ msgid "Attachment:"
 msgstr "Pielikums:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -3619,7 +3619,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Izveidotājs"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3628,18 +3628,18 @@ msgstr ""
 "Datne ir pārāk liela lejupielādei.<br />Atbalstam sazinieties ar sava "
 "„Matrix“ servera administratoru."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Identitātes serveris nav konfigurēts"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Istabas izveide neizdevās: %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Telpas izveide neizdevās: %1"
@@ -4172,7 +4172,7 @@ msgid "Stop Download"
 msgstr "Apturēt lejupielādi"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove parent"
@@ -4202,14 +4202,14 @@ msgstr "Reģistrācijas laiks: %1"
 msgid "Check-out time: %1"
 msgstr "Izrakstīšanās laiks: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Paslēpt attēlu"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6336,41 +6336,66 @@ msgid ""
 msgstr ""
 "Kad atzīmēts, attēli un video būs redzami tikai pēc pogas noklikšķināšanas."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "Noraidīt uzaicinājumus no nezināmiem lietotājiem"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "Atrast un pievienoties var ikviens."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "Aizliegt lietotājus"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"Ja ieslēgts, „NeoChat“ noraidīs uzaicinājumus no lietotājiem, ar kuriem jums "
-"nav kopīgas istabas."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Jūsu serveris šo iestatījumu neatbalsta."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifrēšana"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Ieslēgt šifrēšanu jaunās tērzētavās"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6378,13 +6403,13 @@ msgid ""
 msgstr ""
 "Ja ieslēgts, „NeoChat“ no jauna sāktiem privātām ziņām izmantos šifrēšanu."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6392,7 +6417,7 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Importēt šifrēšanas atslēgas no dublējuma."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Secret Backup"
@@ -6400,13 +6425,13 @@ msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Atvērt slepeno rezervi"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importēt atslēgas"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6414,25 +6439,25 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Importēt šifrēšanas atslēgas no dublējuma."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importēt atslēgas"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Atslēgas ir veiksmīgi importētas"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Eksportēt atslēgas"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:174
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Export this device's encryption keys."
@@ -6440,7 +6465,7 @@ msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Eksportēt šīs ierīces šifrēšanas atslēgas."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7873,6 +7898,18 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 raksta"
 msgstr[1] "%2 raksta"
 msgstr[2] "%2 raksta"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "Noraidīt uzaicinājumus no nezināmiem lietotājiem"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "Ja ieslēgts, „NeoChat“ noraidīs uzaicinājumus no lietotājiem, ar kuriem "
+#~ "jums nav kopīgas istabas."
 
 #, fuzzy
 #~| msgctxt "@title"

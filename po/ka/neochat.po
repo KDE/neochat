@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
-"PO-Revision-Date: 2026-02-17 04:12+0100\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
+"PO-Revision-Date: 2026-02-20 06:12+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -329,7 +329,7 @@ msgid "Attachment:"
 msgstr "მიმაგრება:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -1182,15 +1182,13 @@ msgstr "კონტაქტი ელფოსტით (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "გასაღებების საცავის მართვა"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security key or backup passphrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr "უსაფრთხოების გასაღები ან მარქაფი საკვანძო ფრაზა სწორი არ იყო."
+msgstr "აღდგენის გასაღები სწორი არ იყო."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1199,39 +1197,29 @@ msgid "Encryption keys restored."
 msgstr "დაშიფვრის გასაღებები აღდგენილია."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "განბლოკვა საკვანძო ფრაზით"
+msgstr "განბლოკვა აღდგენის გასაღებით"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"თუ გაქვთ გასაღები ან მარქაფი საკვანძო ფრაზა ამ ანგარიშისთვის, შეიყვანეთ ის "
-"ქვემოთ, ან ატვირთეთ ფაილის სახით."
+"თუ გაქვთ აღდგენის გასაღები (ასევე ცნობილია, როგორც 'უსაფრთხოების გასაღები', "
+"ან მარქაფი საკვანძო ფრაზა), შეიყვანეთ ის ქვემოთ, ან ატვირთეთ ფაილის სახით."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "უსაფრთხოების გასაღები:"
+msgstr "აღდგენის გასაღები:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "ატვირთვა ფაილიდან"
@@ -1249,23 +1237,17 @@ msgid "Unlock from Cross-Signing"
 msgstr "განბლოკვა ჯვარედინი ხელმოწერიდან"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"თუ ეს მოწყობილობა ადრე უკვე გადაამოწმეთ, შეგიძლიათ, მარქაფის გასაღების "
-"ჩატვირთვა სხვა მოწყობილობებიდანაც სცადოთ, ქვემოთ ღილაკის დაწკაპუნებით."
+"თუ ეს მოწყობილობა ადრე უკვე გადაამოწმეთ, თქვენ დაშიფვრის გასაღებები სხვა "
+"გადამოწმებული მოწყობილობებიდან გამოითხოვეთ."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "მოთხოვნა სხვა მოწყობილობებიდან"
@@ -1452,12 +1434,10 @@ msgid "Mutual Rooms"
 msgstr "საერთო ოთახები"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "ოთახები ვერ ვიპოვე"
+msgstr "საერთო ოთახების გარეშე"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -3516,7 +3496,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "შემქმნელი"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3525,18 +3505,18 @@ msgstr ""
 "გადმოსაწერად ფაილი მეტისმეტად დიდია.<br />მხარდაჭერისთვის დაუკავშირდით "
 "თქვენი Matrix-ის სერვერის ადმინისტრატორს."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "იდენტიფიკატორების სერვერი მორგებული არაა"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "სივრცის შექმნის შეცდომა: %1"
@@ -4071,7 +4051,7 @@ msgid "Stop Download"
 msgstr "გადმოწერის შეჩერება"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4099,14 +4079,14 @@ msgstr "ჩეკინის დრო: %1"
 msgid "Check-out time: %1"
 msgstr "ჩეკაუტის დრო: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "გამოსახულების დამალვა"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6115,9 +6095,7 @@ msgid "Ignored Users"
 msgstr "დაიგნორებული მომხმარებლები"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "შეტყობინებები"
@@ -6139,8 +6117,7 @@ msgstr ""
 "თუ გამორთულია, ბმულის მინიატურები ყველა ოთახისთვის გაითიშება."
 
 #: src/settings/NeoChatSecurityPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
@@ -6161,41 +6138,66 @@ msgstr ""
 "როცა ეს პარამეტრები ჩართულია, გამოსახულებების და ვიდეოს ჩვენება, მხოლოდ, "
 "ღილაკზე დაწკაპუნების შემდეგ მოხდება."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "მოსაწვევის უარყოფა უცნობი მომხმარებლებისგან"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "პოვნა და შემოსვლა ყველას შეუძლია."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "მომხმარებლების ბანი"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"თუ ჩართულია, NeoChat უარყოფს მოსაწვევებს მომხმარებლებისგან, რომელთანაც "
-"საერთო ოთახში არ იმყოფებით."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "თქვენს სერვერს ამ პარამეტრის მხარდაჭერა არ გააჩნია."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "დაშიფვრა"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "დაშიფვრის ჩართვა ახალ ჩატებში"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6204,65 +6206,61 @@ msgstr ""
 "თუ ჩართულია, NeoChat ახალი პირდაპირი შეტყობინების დაწყებისას დაშიფვრას "
 "გამოიყენებს."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "გასაღებების საცავის მართვა"
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "დაშიფვრის გასაღებების შემოტანა, ან განბლოკვა სხვა მოწყობილობებიდან."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "საიდუმლო მარქაფის მართვა"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#: src/settings/NeoChatSecurityPage.qml:151
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
-msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფიდან."
+msgstr "დაშიფვრის გასაღებების შემოტანა მარქაფი ფაილიდან."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "გასაღებების შემოტანა"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "გასაღებების შემოტანა წარმატებულია"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "გასაღებების გატანა"
 
-#: src/settings/NeoChatSecurityPage.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export this device's encryption keys."
+#: src/settings/NeoChatSecurityPage.qml:174
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr "ამ მოწყობილობის დაშიფვრის გასაღებების გატანა."
+msgstr "ამ მოწყობილობის დაშიფვრის გასაღებების ფაილში გატანა."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7648,6 +7646,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "მოსაწვევის უარყოფა უცნობი მომხმარებლებისგან"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "თუ ჩართულია, NeoChat უარყოფს მოსაწვევებს მომხმარებლებისგან, რომელთანაც "
+#~ "საერთო ოთახში არ იმყოფებით."
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Security Key or Backup Passphrase"

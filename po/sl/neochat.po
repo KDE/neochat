@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
-"PO-Revision-Date: 2026-02-17 05:50+0100\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
+"PO-Revision-Date: 2026-02-20 13:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -332,7 +332,7 @@ msgid "Attachment:"
 msgstr "Priloga:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -1186,15 +1186,13 @@ msgstr "Kontakt prek e-pošte (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Upravljanje shrambe ključev"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security key or backup passphrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr "Varnostni ključ ali varovalna kopija geselne fraze ni bila pravilna."
+msgstr "Ključ za obnovo ni bil pravilen."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1203,39 +1201,29 @@ msgid "Encryption keys restored."
 msgstr "Šifrirni ključi obnovljeni."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "Odkleni z uporabo varnostne fraze"
+msgstr "Odkleni s ključem za obnovo"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"Če imate varnostni ključ za ta račun ali varovalno kopijo geselne fraze, ga "
-"vnesite spodaj ali ga prenesite tja kot datoteko."
+"Če imate ključ za obnovo (znan tudi kot »varnostni ključ« ali »rezervno "
+"geslo«), ga vnesite spodaj ali ga prenesite tja kot datoteko."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "Varnostni ključ:"
+msgstr "Ključ za obnovo:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Prenesi iz datoteke"
@@ -1253,26 +1241,20 @@ msgid "Unlock from Cross-Signing"
 msgstr "Odkleni iz navskrižnega podpisovanja"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"Če ste že preverili to napravo, lahko poskusite naložiti varnostni ključ iz "
-"drugih naprav, tako da kliknete spodnji gumb."
+"Če ste to napravo že prej verificirali, zahtevate šifrirne ključe iz drugih "
+"verificiranih naprav."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
-msgstr "Zahtevek iz drugih naprav"
+msgstr "Zahtevaj iz drugih naprav"
 
 #: src/app/qml/UserDetailDialog.qml:51
 #, kde-format
@@ -1453,12 +1435,10 @@ msgid "Mutual Rooms"
 msgstr "Vzajemne sobe"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Ni najdene nobene sobe"
+msgstr "Ni nobene skupne sobe"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -3531,7 +3511,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Ustvarjalec"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3540,18 +3520,18 @@ msgstr ""
 "Datoteka je prevelika za prenos.<br />Za podporo se obrnite na skrbnika "
 "strežnika matrix."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Ni konfigurirana identiteta strežnika"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
@@ -4083,7 +4063,7 @@ msgid "Stop Download"
 msgstr "Ustavi prenos"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
@@ -4111,14 +4091,14 @@ msgstr "Čas prijave: %1"
 msgid "Check-out time: %1"
 msgstr "Check-out time: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Skrij sliko"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6135,9 +6115,7 @@ msgid "Ignored Users"
 msgstr "Prezrti uporabniki"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "Sporočila"
@@ -6159,8 +6137,7 @@ msgstr ""
 "označeno, so predogledi povezav v vsaki sobi onemogočeni."
 
 #: src/settings/NeoChatSecurityPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Pošlji obvestila tipkanja"
@@ -6181,41 +6158,66 @@ msgstr ""
 "Ko je ta možnost omogočena, se slike in videoposnetki prikažejo šele po "
 "kliku gumba."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "Zavračaj povabila neznanih uporabnikov"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "Kdorkoli lahko najde in se pridruži."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "Prepovej uporabnike"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"Če je omogočeno, bo NeoChat zavračal povabila uporabnikov s katerimi si ne "
-"delite sobe."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Vaš strežnik ne podpira te nastavitve."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Vklopi šifriranje pri novih klepetih"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6224,65 +6226,61 @@ msgstr ""
 "Če je omogočeno, bo NeoChat uporabljal šifriranje pri začenjanju novih "
 "neposrednih sporočil."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Upravljanje hrambe ključev"
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "Uvozi ali odkleni šifrirne ključe iz drugih naprav."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Upravljaj skrivno varovalno kopijo"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Uvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#: src/settings/NeoChatSecurityPage.qml:151
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Uvozi šifrirne ključe iz varnostne kopije."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Uvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Ključi uspešno uvoženi"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Izvozi ključe"
 
-#: src/settings/NeoChatSecurityPage.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export this device's encryption keys."
+#: src/settings/NeoChatSecurityPage.qml:174
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr "Izvozi šifrirne ključe te naprave."
+msgstr "Izvozi šifrirne ključe te naprave v datoteko."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7674,6 +7672,18 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipka"
 msgstr[2] "%2 tipkata"
 msgstr[3] "%2 tipkajo"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "Zavračaj povabila neznanih uporabnikov"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "Če je omogočeno, bo NeoChat zavračal povabila uporabnikov s katerimi si "
+#~ "ne delite sobe."
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Security Key or Backup Passphrase"

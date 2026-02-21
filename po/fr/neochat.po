@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
-"PO-Revision-Date: 2026-02-12 21:23+0100\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
+"PO-Revision-Date: 2026-02-13 17:47+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -330,7 +330,7 @@ msgid "Attachment:"
 msgstr "Pièces jointes :"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -1001,31 +1001,28 @@ msgid "Pinned Messages"
 msgstr "Messages épinglés"
 
 #: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
-msgstr "Afficher les messages supprimés"
+msgstr "Messages sélectionnés : %1"
 
 #: src/app/qml/RoomPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
-msgstr ""
+msgstr "Copier une conversation"
 
 #: src/app/qml/RoomPage.qml:257
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
-msgstr "Copier dans le presse-papier"
+msgstr "Conversation copiée dans le presse-papier"
 
 #: src/app/qml/RoomPage.qml:261
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr "Messages directs"
+msgstr "Supprimer des messages"
 
 #: src/app/qml/RoomPage.qml:267 src/app/qml/RoomPage.qml:274
 #: src/app/qml/UserDetailDialog.qml:331
@@ -1035,12 +1032,10 @@ msgid "Remove Messages"
 msgstr "Supprimer des messages"
 
 #: src/app/qml/RoomPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Optionally give a reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr "Donner accessoirement une raison pour la suppression de ce message"
+msgstr "Donner accessoirement une raison pour la suppression de ces messages"
 
 #: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
@@ -1989,9 +1984,7 @@ msgid "Text Style"
 msgstr ""
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "Émoticônes et étiquettes auto-collantes"
 
@@ -3589,7 +3582,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "Créateur"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3598,18 +3591,18 @@ msgstr ""
 "Fichier trop volumineux pour être téléchargé.<br />Veuillez contact votre "
 "administrateur du serveur « Matrix » pour de l'aide."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "Aucun serveur d'identité n'a été configuré."
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Impossible de créer l'espace : %1"
@@ -4145,7 +4138,7 @@ msgid "Stop Download"
 msgstr "Arrêter le téléchargement"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Remove parent"
@@ -4175,14 +4168,14 @@ msgstr "Heure d'arrivée : %1"
 msgid "Check-out time: %1"
 msgstr "Heure de départ : %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "Masquer l'image"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6266,41 +6259,66 @@ msgstr ""
 "Lorsque cette option est activée, les images et les vidéos ne s'affichent "
 "qu'après avoir cliqué sur un bouton."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "Refuser les invitations d'utilisateurs inconnus"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "N'importe quelle personne peut trouver et rejoindre le salon."
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "Bannir des utilisateurs"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"Si cette option est activée, NeoChat rejettera les invitations des "
-"utilisateurs avec lesquels vous ne partagez aucun salon."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "Votre serveur ne prend pas en charge cette configuration."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "Activer le chiffrement dans les nouvelles discussions"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6309,32 +6327,32 @@ msgstr ""
 "Si cette option est activée, NeoChat utilisera le chiffrement lors du "
 "démarrage de nouveaux messages directs."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
 msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr ""
 "Importer ou déverrouiller les clés de chiffrement à partir d'une archive."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "Gérer l'archive secrète"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "Importer des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6342,25 +6360,25 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Importer les clés de chiffrement à partir d'une archive."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "Importer des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "Clés importées avec succès."
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "Exporter des clés"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:174
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Export this device's encryption keys."
@@ -6368,7 +6386,7 @@ msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "Exporter les clés de chiffrement de ce périphérique."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7654,18 +7672,16 @@ msgid "Pin"
 msgstr "Épingler"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Messages directs"
+msgstr "Désélectionner un message"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Messages directs"
+msgstr "Sélectionner un message"
 
 #: src/timeline/DelegateContextMenu.qml:435
 #, kde-format
@@ -7782,6 +7798,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "Refuser les invitations d'utilisateurs inconnus"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "Si cette option est activée, NeoChat rejettera les invitations des "
+#~ "utilisateurs avec lesquels vous ne partagez aucun salon."
 
 #~ msgctxt "@title"
 #~ msgid "Unlock using Security Key or Backup Passphrase"

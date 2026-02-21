@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:45+0000\n"
+"POT-Creation-Date: 2026-02-21 00:44+0000\n"
 "PO-Revision-Date: 2025-11-29 21:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -332,7 +332,7 @@ msgid "Attachment:"
 msgstr "உடனிணைப்பு:"
 
 #: src/app/qml/AttachmentPane.qml:38 src/chatbar/ImageEditorPage.qml:19
-#: src/messagecontent/ImageComponent.qml:89
+#: src/messagecontent/ImageComponent.qml:90
 #: src/timeline/DelegateContextMenu.qml:199
 #, kde-format
 msgid "Edit"
@@ -3635,7 +3635,7 @@ msgctxt "@info the person that created this room"
 msgid "Creator"
 msgstr "உருவாக்கியவர்"
 
-#: src/libneochat/neochatconnection.cpp:73
+#: src/libneochat/neochatconnection.cpp:76
 #, kde-format
 msgid ""
 "File too large to download.<br />Contact your matrix server administrator "
@@ -3644,18 +3644,18 @@ msgstr ""
 "கோப்பு பதிவிறக்கக்கூடியதைவிட பெரிதாக உள்ளது.<br />உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக "
 "நிர்வாகியை தொடர்புகொள்ளவும்."
 
-#: src/libneochat/neochatconnection.cpp:336
+#: src/libneochat/neochatconnection.cpp:339
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr "எந்த அடையாளச் சேவையகமும் அமைக்கப்பட்டிருக்கவில்லை"
 
-#: src/libneochat/neochatconnection.cpp:367
+#: src/libneochat/neochatconnection.cpp:370
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/libneochat/neochatconnection.cpp:396
+#: src/libneochat/neochatconnection.cpp:399
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "இட உருவாக்கம் தோல்வியடைந்தது: %1"
@@ -4190,7 +4190,7 @@ msgid "Stop Download"
 msgstr "பதிவிறக்கத்தை நிறுத்து"
 
 #: src/messagecontent/FileComponent.qml:173
-#: src/messagecontent/ImageComponent.qml:113
+#: src/messagecontent/ImageComponent.qml:114
 #, fuzzy, kde-format
 #| msgid "Remove parent"
 msgctxt "@action:button"
@@ -4219,14 +4219,14 @@ msgstr "நுழைவுப்பதிவுக்கான நேரம்: 
 msgid "Check-out time: %1"
 msgstr "வெளியேற்றப்பதிவுக்கான நேரம்: %1"
 
-#: src/messagecontent/ImageComponent.qml:73
+#: src/messagecontent/ImageComponent.qml:74
 #: src/messagecontent/VideoComponent.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Hide Image"
 msgstr "படத்தை மறை"
 
-#: src/messagecontent/ImageComponent.qml:190
+#: src/messagecontent/ImageComponent.qml:189
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Image"
@@ -6380,41 +6380,66 @@ msgid ""
 msgstr ""
 "இத்தேர்வு இயக்கப்பட்டிருந்தால், ஓர் பட்டனை அழுத்தியபின்னே படங்களும் நிகழ்படங்களும் காட்டப்படும்."
 
-#: src/settings/NeoChatSecurityPage.qml:92
+#: src/settings/NeoChatSecurityPage.qml:91
 #, kde-format
-msgctxt "@option:check"
-msgid "Reject invitations from unknown users"
-msgstr "தெரியாத பயனர்களிடமிருந்தான் அழைப்பிதழ்களை நிராகரி"
+msgctxt "@info:label"
+msgid "Everyone"
+msgstr ""
 
 #: src/settings/NeoChatSecurityPage.qml:93
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Anyone can find and join."
+msgctxt "@info:description"
+msgid "Anyone can send you invites."
+msgstr "எவரேனும் இதில் சேரலாம்"
+
+#: src/settings/NeoChatSecurityPage.qml:98
+#, fuzzy, kde-format
+#| msgctxt "Room permission type"
+#| msgid "Ban users"
+msgctxt "@option:check"
+msgid "Known users"
+msgstr "பயனர்களைத் தடை செய்வது"
+
+#: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
-msgid ""
-"If enabled, NeoChat will reject invitations from users you don't share a "
-"room with."
+msgid "Only users you share a room with can send you invites."
 msgstr ""
-"இத்தேர்வு இயக்கப்பட்டிருந்தால், நீங்கள் இருக்கும் ஒரு அரங்கிலாவது இல்லாத பயனர்களிடமிருந்தான "
-"அழைப்பிதழ்கள் தானாக நிராகரிக்கப்படும்."
 
-#: src/settings/NeoChatSecurityPage.qml:93
+#: src/settings/NeoChatSecurityPage.qml:99
+#: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info"
 msgid "Your server does not support this setting."
 msgstr "உங்கள் சேவையகம் இந்த அமைப்பை ஆதரிக்கவில்லை."
 
-#: src/settings/NeoChatSecurityPage.qml:103
+#: src/settings/NeoChatSecurityPage.qml:109
+#, kde-format
+msgctxt "@info:label"
+msgid "No one"
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:112
+#, kde-format
+msgctxt "@info:description"
+msgid "No one can send you invites."
+msgstr ""
+
+#: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
 msgctxt "@title:group"
 msgid "Encryption"
 msgstr "மறையாக்கம்"
 
-#: src/settings/NeoChatSecurityPage.qml:108
+#: src/settings/NeoChatSecurityPage.qml:122
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
 msgstr "புதிய உரையாடல்களில் மறையாக்கத்தை இயக்கு"
 
-#: src/settings/NeoChatSecurityPage.qml:109
+#: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6423,13 +6448,13 @@ msgstr ""
 "இது இயக்கப்பட்டிருந்தால், புதிய நேரடி செய்திகளை அனுப்பும்போது நியோச்சாட் மறையாக்கத்தைப் "
 "பயன்படுத்தும்."
 
-#: src/settings/NeoChatSecurityPage.qml:123
+#: src/settings/NeoChatSecurityPage.qml:137
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
 msgstr ""
 
-#: src/settings/NeoChatSecurityPage.qml:124
+#: src/settings/NeoChatSecurityPage.qml:138
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6437,7 +6462,7 @@ msgctxt "@info"
 msgid "Import or unlock encryption keys from other devices."
 msgstr "மறையாக்க சாவிகளை இறக்குமதி செய்யும்."
 
-#: src/settings/NeoChatSecurityPage.qml:127
+#: src/settings/NeoChatSecurityPage.qml:141
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Open Secret Backup"
@@ -6445,13 +6470,13 @@ msgctxt "@title:window"
 msgid "Manage Secret Backup"
 msgstr "ரகசிய காப்புநகலைத் திற"
 
-#: src/settings/NeoChatSecurityPage.qml:136
+#: src/settings/NeoChatSecurityPage.qml:150
 #, kde-format
 msgctxt "@action:button"
 msgid "Import Keys"
 msgstr "சாவிகளை இறக்குமதி செய்"
 
-#: src/settings/NeoChatSecurityPage.qml:137
+#: src/settings/NeoChatSecurityPage.qml:151
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Import encryption keys from a backup."
@@ -6459,25 +6484,25 @@ msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "மறையாக்க சாவிகளை இறக்குமதி செய்யும்."
 
-#: src/settings/NeoChatSecurityPage.qml:143
+#: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
 msgctxt "@title"
 msgid "Import Keys"
 msgstr "சாவிகளை இறக்குமதி செய்வது"
 
-#: src/settings/NeoChatSecurityPage.qml:146
+#: src/settings/NeoChatSecurityPage.qml:160
 #, kde-format
 msgctxt "@info"
 msgid "Keys imported successfully"
 msgstr "சாவிகள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன"
 
-#: src/settings/NeoChatSecurityPage.qml:159
+#: src/settings/NeoChatSecurityPage.qml:173
 #, kde-format
 msgctxt "@action:button"
 msgid "Export Keys"
 msgstr "சாவிகளை ஏற்றுமதி செய்"
 
-#: src/settings/NeoChatSecurityPage.qml:160
+#: src/settings/NeoChatSecurityPage.qml:174
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Export this device's encryption keys."
@@ -6485,7 +6510,7 @@ msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
 msgstr "மறையாக்க சாவிகளை ஏற்றுமதி செய்யும்."
 
-#: src/settings/NeoChatSecurityPage.qml:166
+#: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
 msgctxt "@title"
 msgid "Export Keys"
@@ -7981,6 +8006,18 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
+
+#~ msgctxt "@option:check"
+#~ msgid "Reject invitations from unknown users"
+#~ msgstr "தெரியாத பயனர்களிடமிருந்தான் அழைப்பிதழ்களை நிராகரி"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "If enabled, NeoChat will reject invitations from users you don't share a "
+#~ "room with."
+#~ msgstr ""
+#~ "இத்தேர்வு இயக்கப்பட்டிருந்தால், நீங்கள் இருக்கும் ஒரு அரங்கிலாவது இல்லாத "
+#~ "பயனர்களிடமிருந்தான அழைப்பிதழ்கள் தானாக நிராகரிக்கப்படும்."
 
 #, fuzzy
 #~| msgctxt "@title"
