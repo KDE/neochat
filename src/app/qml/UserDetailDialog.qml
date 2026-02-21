@@ -149,6 +149,7 @@ Kirigami.Dialog {
                 Kirigami.Action {
                     text: i18nc("@action:intoolbar Message this user directly", "Message")
                     icon.name: "document-send-symbolic"
+                    visible: !root.isSelf
 
                     onTriggered: {
                         root.close();
@@ -156,8 +157,16 @@ Kirigami.Dialog {
                     }
                 },
                 Kirigami.Action {
+                    text: i18nc("@action:intoolbar Edit This Account", "Edit")
+                    icon.name: "document-edit"
+                    visible: root.isSelf
+
+                    onTriggered: NeoChatSettingsView.openWithInitialProperties("accounts", {initialAccount: root.connection});
+                },
+                Kirigami.Action {
                     icon.name: "im-invisible-user-symbolic"
                     text: root.connection.isIgnored(root.user.id) ? i18nc("@action:intoolbar Unignore or 'unblock' this user", "Unignore") : i18nc("@action:intoolbar Ignore or 'block' this user", "Ignore")
+                    visible: !root.isSelf
 
                     onTriggered: {
                         root.close();
