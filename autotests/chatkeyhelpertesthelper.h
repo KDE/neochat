@@ -30,14 +30,14 @@ public:
 
     ChatTextItemHelper *textItem() const
     {
-        return m_keyHelper->textItem;
+        return m_keyHelper->textItem();
     }
     void setTextItem(ChatTextItemHelper *textItem)
     {
-        if (textItem == m_keyHelper->textItem) {
+        if (textItem == m_keyHelper->textItem()) {
             return;
         }
-        m_keyHelper->textItem = textItem;
+        m_keyHelper->setTextItem(textItem);
         Q_EMIT textItemChanged();
     }
 

@@ -183,6 +183,16 @@ public:
     QRect cursorRectangle() const;
 
     /**
+     * @brief The start position of any text selection in the underlying text item.
+     */
+    int selectionStart() const;
+
+    /**
+     * @brief The end position of any text selection in the underlying text item.
+     */
+    int selectionEnd() const;
+
+    /**
      * @brief Set the cursor position of the underlying text item to the given value.
      */
     void setCursorPosition(int pos);
@@ -190,7 +200,7 @@ public:
     /**
      * @brief Set the selection of the underlying text item to the given cursor.
      */
-    void setSelection(const QTextCursor &cursor);
+    void setSelection(int selectionStart, int selectionEnd);
 
     /**
      * @brief Set the cursor visibility of the underlying text item to the given value.
@@ -312,11 +322,17 @@ Q_SIGNALS:
      */
     void cursorPositionChanged(bool fromContentsChange);
 
+    /**
+     * @brief Emitted when the selected text of the underlying text item is changed.
+     */
+    void selectedTextChanged();
+
 private:
     QPointer<QQuickItem> m_textItem;
     QPointer<ChatBarSyntaxHighlighter> m_highlighter;
 
     bool m_contentsJustChanged = false;
+    bool m_selectionJustChanged = false;
 
     QString m_fixedStartChars = {};
     QString m_fixedEndChars = {};
@@ -325,9 +341,6 @@ private:
     bool m_initializingChars = false;
 
     std::optional<int> lineLength(int lineNumber) const;
-
-    int selectionStart() const;
-    int selectionEnd() const;
 
     void mergeTextFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
     void mergeStyleFormatOnCursor(RichFormat::Format format, QTextCursor cursor);
@@ -339,4 +352,5 @@ private:
 private Q_SLOTS:
     void itemTextFormatChanged();
     void itemCursorPositionChanged();
+    void itemSelectedTextChanged();
 };

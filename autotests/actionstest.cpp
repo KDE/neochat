@@ -93,7 +93,6 @@ void ActionsTest::testActions()
     auto cache = new ChatBarCache(this);
     cache->cache() += Block::CacheItem{.type = MessageComponentType::Text, .content = QTextDocumentFragment::fromMarkdown(command)};
     auto result = ActionsModel::handleAction(room, cache);
-    qWarning() << result << resultText;
     QCOMPARE(resultText, std::get<std::optional<QString>>(result));
     QCOMPARE(type, std::get<std::optional<Quotient::RoomMessageEvent::MsgType>>(result));
 }

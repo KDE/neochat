@@ -82,6 +82,7 @@ void ChatTextItemHelper::setTextItem(QQuickItem *textItem)
 
     if (m_textItem) {
         connect(m_textItem, SIGNAL(cursorPositionChanged()), this, SLOT(itemCursorPositionChanged()));
+        connect(m_textItem, SIGNAL(selectedTextChanged()), this, SLOT(itemSelectedTextChanged()));
         connect(m_textItem, SIGNAL(textFormatChanged(QQuickTextEdit::TextFormat)), this, SLOT(itemTextFormatChanged()));
         if (const auto doc = document()) {
             connect(doc, &QTextDocument::contentsChanged, this, &ChatTextItemHelper::contentsChanged);
@@ -387,12 +388,13 @@ void ChatTextItemHelper::setCursorPosition(int pos)
     m_textItem->setProperty("cursorPosition", pos);
 }
 
-void ChatTextItemHelper::setSelection(const QTextCursor &cursor)
+void ChatTextItemHelper::setSelection(int selectionStart, int selectionEnd)
 {
     if (!m_textItem) {
         return;
     }
-    metaObject()->invokeMethod(m_textItem, "select", Qt::DirectConnection, cursor.selectionStart(), cursor.selectionEnd());
+    m_selectionJustChanged = true;
+    metaObject()->invokeMethod(m_textItem, "select", Qt::DirectConnection, selectionStart, selectionEnd);
 }
 
 void ChatTextItemHelper::setCursorVisible(bool visible)
@@ -446,6 +448,15 @@ void ChatTextItemHelper::itemCursorPositionChanged()
     Q_EMIT charFormatChanged();
     Q_EMIT styleChanged();
     Q_EMIT listChanged();
+}
+
+void ChatTextItemHelper::itemSelectedTextChanged()
+{
+    if (m_selectionJustChanged) {
+        m_selectionJustChanged = false;
+        return;
+    }
+    Q_EMIT selectedTextChanged();
 }
 
 void ChatTextItemHelper::mergeFormatOnCursor(RichFormat::Format format, QTextCursor cursor)

@@ -7,10 +7,32 @@
 #include "clipboard.h"
 #include "neochatroom.h"
 #include "richformat.h"
+#include <qtextcursor.h>
 
 ChatKeyHelper::ChatKeyHelper(QObject *parent)
     : QObject(parent)
 {
+}
+
+ChatTextItemHelper *ChatKeyHelper::textItem() const
+{
+    return m_textItem;
+}
+
+void ChatKeyHelper::setTextItem(ChatTextItemHelper *textItem)
+{
+    if (textItem == m_textItem) {
+        return;
+    }
+
+    if (m_textItem) {
+        m_textItem->disconnect(this);
+    }
+    m_textItem = textItem;
+    if (m_textItem) {
+        connect(m_textItem, &ChatTextItemHelper::contentsChange, this, &ChatKeyHelper::checkLinkFormat);
+        connect(m_textItem, &ChatTextItemHelper::selectedTextChanged, this, &ChatKeyHelper::checkMouseSelection);
+    }
 }
 
 bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
@@ -23,9 +45,9 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
     case Qt::Key_Down:
         return down();
     case Qt::Key_Left:
-        return left();
+        return left(modifiers);
     case Qt::Key_Right:
-        return right();
+        return right(modifiers);
     case Qt::Key_Tab:
         return tab();
     case Qt::Key_Delete:
@@ -45,10 +67,6 @@ bool ChatKeyHelper::handleKey(Qt::Key key, Qt::KeyboardModifiers modifiers)
 
 bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 {
-    if (!textItem) {
-        return false;
-    }
-
     if (modifiers.testFlag(Qt::ControlModifier)) {
         return pasteImage();
     }
@@ -57,12 +75,12 @@ bool ChatKeyHelper::vKey(Qt::KeyboardModifiers modifiers)
 
 bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
 
     if (modifiers.testFlag(Qt::ControlModifier)) {
-        const auto room = textItem->room();
+        const auto room = m_textItem->room();
         if (!room) {
             return false;
         }
@@ -70,12 +88,12 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
         return true;
     }
 
-    if (textItem->isCompleting) {
+    if (m_textItem->isCompleting) {
         Q_EMIT unhandledUp(true);
         return true;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
@@ -88,15 +106,15 @@ bool ChatKeyHelper::up(Qt::KeyboardModifiers modifiers)
 
 bool ChatKeyHelper::down()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
-    if (textItem->isCompleting) {
+    if (m_textItem->isCompleting) {
         Q_EMIT unhandledDown(true);
         return true;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
@@ -108,46 +126,54 @@ bool ChatKeyHelper::down()
     return false;
 }
 
-bool ChatKeyHelper::left()
+bool ChatKeyHelper::left(Qt::KeyboardModifiers modifiers)
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    return selectLink(cursor, true);
+    bool ctrlLeft = nextWordLeft(cursor, modifiers);
+    if (ctrlLeft) {
+        return true;
+    }
+    return selectLeft(cursor, modifiers);
 }
 
-bool ChatKeyHelper::right()
+bool ChatKeyHelper::right(Qt::KeyboardModifiers modifiers)
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    return selectLink(cursor, false);
+    bool ctrlRight = nextWordRight(cursor, modifiers);
+    if (ctrlRight) {
+        return true;
+    }
+    return selectRight(cursor, modifiers);
 }
 
 bool ChatKeyHelper::tab()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
-    if (textItem->isCompleting) {
+    if (m_textItem->isCompleting) {
         Q_EMIT unhandledTab(true);
         return true;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    if (cursor.currentList() && textItem->canIndentListMoreAtCursor()) {
-        textItem->indentListMoreAtCursor();
+    if (cursor.currentList() && m_textItem->canIndentListMoreAtCursor()) {
+        m_textItem->indentListMoreAtCursor();
         return true;
     }
     return false;
@@ -155,45 +181,45 @@ bool ChatKeyHelper::tab()
 
 bool ChatKeyHelper::deleteChar()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull() || cursor.hasSelection()) {
         return false;
     }
-    if (cursor.position() >= textItem->document()->characterCount() - textItem->fixedEndChars().length() - 1) {
+    if (cursor.position() >= m_textItem->document()->characterCount() - m_textItem->fixedEndChars().length() - 1) {
         Q_EMIT unhandledDelete();
         return true;
     }
-    return selectLink(cursor, false);
+    return selectRight(cursor);
 }
 
 bool ChatKeyHelper::backspace()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
-    if (cursor.position() <= textItem->fixedStartChars().length()) {
-        if (cursor.currentList() && textItem->canIndentListLessAtCursor()) {
-            textItem->indentListLessAtCursor();
+    if (cursor.position() <= m_textItem->fixedStartChars().length()) {
+        if (cursor.currentList() && m_textItem->canIndentListLessAtCursor()) {
+            m_textItem->indentListLessAtCursor();
             return true;
         }
         Q_EMIT unhandledBackspace();
         return true;
     }
-    return selectLink(cursor, true);
+    return selectLeft(cursor);
 }
 
 bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
 
@@ -203,7 +229,7 @@ bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
         return true;
     }
 
-    if (!shiftPressed && textItem->isCompleting) {
+    if (!shiftPressed && m_textItem->isCompleting) {
         Q_EMIT unhandledReturn(true);
         return true;
     }
@@ -213,7 +239,7 @@ bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
         return true;
     }
 
-    QTextCursor cursor = textItem->textCursor();
+    QTextCursor cursor = m_textItem->textCursor();
     if (cursor.isNull()) {
         return false;
     }
@@ -233,10 +259,10 @@ bool ChatKeyHelper::insertReturn(Qt::KeyboardModifiers modifiers)
 
 bool ChatKeyHelper::cancel()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
-    if (textItem->isCompleting) {
+    if (m_textItem->isCompleting) {
         Q_EMIT closeCompletion();
         return true;
     }
@@ -245,7 +271,7 @@ bool ChatKeyHelper::cancel()
 
 bool ChatKeyHelper::pasteImage()
 {
-    if (!textItem) {
+    if (!m_textItem) {
         return false;
     }
     const auto savePath = Clipboard().saveImage();
@@ -255,50 +281,47 @@ bool ChatKeyHelper::pasteImage()
     return false;
 }
 
-bool ChatKeyHelper::selectLink(QTextCursor &cursor, bool back)
+bool ChatKeyHelper::selectLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers)
 {
-    if (cursor.hasSelection() || (!cursor.charFormat().isAnchor() && back) || (!back && cursor.atBlockEnd())) {
+    if ((cursor.hasSelection() || !cursor.charFormat().isAnchor()) && !modifiers.testFlag(Qt::ShiftModifier)) {
         return false;
     }
 
-    // If we are on the very right and going right we need to exit.
-    if (!back) {
-        const auto startPos = cursor.position();
-        cursor.movePosition(QTextCursor::NextCharacter);
-        if (cursor.charFormat().isAnchor()) {
-            cursor.setPosition(startPos);
-        } else {
-            return false;
-        }
-    }
+    // We need to rearrange the selection from right to left.
+    const auto selectionStart = cursor.selectionStart();
+    cursor.setPosition(cursor.selectionEnd());
+    cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, cursor.position() - selectionStart);
 
-    // Figure out if we're on the left side of a link.
-    // note a cusor on the leftmost of a link will not have the anchor set in char format.
-    bool onLeft = false;
-    if (!cursor.charFormat().isAnchor() && !back) {
-        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
-        if (cursor.charFormat().isAnchor()) {
-            onLeft = true;
-        } else {
-            return false;
-        }
+    if (!cursor.charFormat().isAnchor()) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+        m_textItem->setSelection(cursor.selectionEnd(), cursor.selectionStart());
+        return true;
     }
 
     const auto hRef = cursor.charFormat().anchorHref();
     auto currentCharFormat = cursor.charFormat();
-
-    // If not on the left figure out where it is.
-    if (!onLeft) {
-        const auto startPos = cursor.position();
-        while (currentCharFormat.isAnchor() && currentCharFormat.anchorHref() == hRef && cursor.position() > 0) {
-            cursor.movePosition(QTextCursor::PreviousCharacter);
-            currentCharFormat = cursor.charFormat();
-        }
-        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, startPos - cursor.position());
+    while (currentCharFormat.isAnchor() && currentCharFormat.anchorHref() == hRef && cursor.position() > 0) {
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+        currentCharFormat = cursor.charFormat();
     }
-    // Then select everything to right.
-    // We do it this way so it works when you start in the middle.
-    currentCharFormat = cursor.charFormat();
+
+    m_textItem->setSelection(cursor.selectionEnd(), cursor.selectionStart());
+    return true;
+}
+
+bool ChatKeyHelper::selectRight(QTextCursor &cursor, Qt::KeyboardModifiers modifiers)
+{
+    if ((cursor.hasSelection() && !modifiers.testFlag(Qt::ShiftModifier)) || cursor.atBlockEnd()) {
+        return false;
+    }
+
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    if (!cursor.charFormat().isAnchor()) {
+        return false;
+    }
+
+    const auto hRef = cursor.charFormat().anchorHref();
+    auto currentCharFormat = cursor.charFormat();
     while (currentCharFormat.isAnchor() && currentCharFormat.anchorHref() == hRef && cursor.position() < cursor.block().length() - 1) {
         cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
         currentCharFormat = cursor.charFormat();
@@ -307,8 +330,133 @@ bool ChatKeyHelper::selectLink(QTextCursor &cursor, bool back)
         cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
     }
 
-    textItem->setSelection(cursor);
+    m_textItem->setSelection(cursor.selectionStart(), cursor.selectionEnd());
     return true;
+}
+
+bool ChatKeyHelper::nextWordLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers)
+{
+    if (!modifiers.testFlag(Qt::ControlModifier)) {
+        return false;
+    }
+
+    cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    // Cross any whitespace.
+    while (cursor.selectedText() == u' ') {
+        cursor.setPosition(cursor.selectionStart());
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+    if (!cursor.charFormat().isAnchor()) {
+        return false;
+    }
+    // Cross link.
+    while (cursor.charFormat().isAnchor()) {
+        cursor.setPosition(cursor.selectionStart());
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor);
+    }
+
+    m_textItem->setCursorPosition(cursor.selectionStart());
+    return true;
+}
+
+bool ChatKeyHelper::nextWordRight(QTextCursor &cursor, Qt::KeyboardModifiers modifiers)
+{
+    if (!modifiers.testFlag(Qt::ControlModifier)) {
+        return false;
+    }
+
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    // Cross any whitespace.
+    while (cursor.selectedText() == u' ') {
+        cursor.setPosition(cursor.selectionEnd());
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    }
+    if (!cursor.charFormat().isAnchor()) {
+        return false;
+    }
+    // Cross link.
+    while (cursor.charFormat().isAnchor()) {
+        cursor.setPosition(cursor.selectionEnd());
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    }
+    m_textItem->setCursorPosition(cursor.selectionEnd());
+    return true;
+}
+
+void ChatKeyHelper::checkMouseSelection()
+{
+    if (!m_textItem) {
+        return;
+    }
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+    if (!cursor.hasSelection()) {
+        return;
+    }
+    bool selectingLink = false;
+    cursor.beginEditBlock();
+    cursor.setPosition(m_textItem->selectionStart());
+    if (cursor.charFormat().isAnchor()) {
+        selectingLink = true;
+    }
+    if (!selectingLink) {
+        cursor.movePosition(QTextCursor::NextCharacter);
+        if (cursor.charFormat().isAnchor()) {
+            selectingLink = true;
+        }
+    }
+    if (!selectingLink) {
+        cursor.setPosition(m_textItem->selectionEnd());
+        if (cursor.charFormat().isAnchor()) {
+            selectingLink = true;
+        }
+    }
+    if (!selectingLink) {
+        return;
+    }
+    // Wind all the way to the left of the link.
+    cursor.setPosition(m_textItem->selectionStart());
+    const auto hRef = cursor.charFormat().anchorHref();
+    auto currentCharFormat = cursor.charFormat();
+    while (currentCharFormat.isAnchor() && currentCharFormat.anchorHref() == hRef && cursor.position() > 0) {
+        cursor.movePosition(QTextCursor::PreviousCharacter);
+        currentCharFormat = cursor.charFormat();
+    }
+    cursor.endEditBlock();
+    selectRight(cursor);
+}
+
+void ChatKeyHelper::checkLinkFormat(int position, int charsRemoved, int charsAdded)
+{
+    if (!m_textItem || charsRemoved > charsAdded || charsAdded - charsRemoved != 1) {
+        return;
+    }
+    QTextCursor cursor = m_textItem->textCursor();
+    if (cursor.isNull()) {
+        return;
+    }
+
+    bool nextToLink = false;
+    cursor.setPosition(position);
+    if (cursor.charFormat().isAnchor()) {
+        nextToLink = true;
+    }
+    // Note 2 because a cursor on the left of a link will not show it in the format.
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, 2);
+    if (cursor.charFormat().isAnchor()) {
+        nextToLink = true;
+    }
+    if (!nextToLink) {
+        return;
+    }
+
+    cursor.beginEditBlock();
+    cursor.setPosition(position);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor);
+    cursor.setCharFormat({});
+    cursor.endEditBlock();
 }
 
 #include "moc_chatkeyhelper.cpp"

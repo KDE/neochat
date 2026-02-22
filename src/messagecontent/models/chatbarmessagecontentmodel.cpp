@@ -38,7 +38,7 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     });
     connect(this, &ChatBarMessageContentModel::focusRowChanged, this, [this]() {
         m_markdownHelper->setTextItem(focusedTextItem());
-        m_keyHelper->textItem = focusedTextItem();
+        m_keyHelper->setTextItem(focusedTextItem());
     });
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
         for (const auto &component : m_components) {

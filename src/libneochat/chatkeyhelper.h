@@ -32,7 +32,14 @@ public:
      *
      * @sa ChatTextItemHelper
      */
-    QPointer<ChatTextItemHelper> textItem;
+    ChatTextItemHelper *textItem() const;
+
+    /**
+     * @brief Set the ChatTextItemHelper that ChatKeyHelper is handling key presses for.
+     *
+     * @sa ChatTextItemHelper
+     */
+    void setTextItem(ChatTextItemHelper *textItem);
 
     /**
      * @brief handle the given key and modifiers.
@@ -115,15 +122,17 @@ Q_SIGNALS:
     void imagePasted(const QString &filePath);
 
 private:
+    QPointer<ChatTextItemHelper> m_textItem;
+
     bool vKey(Qt::KeyboardModifiers modifiers);
 
     bool up(Qt::KeyboardModifiers modifiers);
 
     bool down();
 
-    bool left();
+    bool left(Qt::KeyboardModifiers modifiers);
 
-    bool right();
+    bool right(Qt::KeyboardModifiers modifiers);
 
     bool tab();
 
@@ -137,5 +146,15 @@ private:
 
     bool pasteImage();
 
-    bool selectLink(QTextCursor &cursor, bool back);
+    bool selectLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+
+    bool selectRight(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+
+    bool nextWordLeft(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+
+    bool nextWordRight(QTextCursor &cursor, Qt::KeyboardModifiers modifiers = Qt::NoModifier);
+
+    void checkMouseSelection();
+
+    void checkLinkFormat(int position, int charsRemoved, int charsAdded);
 };
