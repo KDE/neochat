@@ -337,7 +337,7 @@ QQC2.ScrollView {
             visible: _private.room && _private.room.otherMembersTyping.length > 0
             anchors {
                 left: parent.left
-                leftMargin: Kirigami.Units.largeSpacing
+                leftMargin: NeoChatConfig.compactLayout ? Kirigami.Units.largeSpacing * 2 : 0
                 right: parent.right
                 bottom: parent.bottom
                 bottomMargin: Kirigami.Units.smallSpacing
