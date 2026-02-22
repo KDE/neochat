@@ -44,6 +44,7 @@ QQC2.TextArea {
      * @brief Whether the component should be editable.
      */
     required property bool editable
+    onEditableChanged: manageDefaultMenus()
 
     /**
      * @brief The attributes of the component.
@@ -126,8 +127,7 @@ QQC2.TextArea {
         (QQC2.ApplicationWindow.window as Main).hoverLinkIndicator.text = "";
     }
 
-    // To prevent the dfault QQC2 desktop style menu inconjuction with https://invent.kde.org/frameworks/qqc2-desktop-style/-/merge_requests/507
-    onPressed: event => event.accepted = true;
+    Component.onCompleted: manageDefaultMenus()
 
     HoverHandler {
         cursorShape: root.hoveredLink || (!(root.componentAttributes?.spoilerRevealed ?? false) && root.hasSpoiler) ? Qt.PointingHandCursor : Qt.IBeamCursor
@@ -156,6 +156,18 @@ QQC2.TextArea {
     function requestMenu() {
         const event = root.Message.room.findEvent(root.eventId);
         RoomManager.viewEventMenu(root.QQC2.Overlay.overlay, event, root.Message.room, root.Message.selectedText, root.Message.hoveredLink);
+    }
+
+    // TODO - Remove this once the state of TextArea is sorted in QQC2
+    // This is horrible I know I hate it but currently seemingly the only way to stop the default
+    // menus in TextArea see https://invent.kde.org/frameworks/qqc2-desktop-style/-/issues/15
+    function manageDefaultMenus(): void {
+        for (let i = 0; i < resources.length; i++) {
+            if (resources[i] instanceof TapHandler) {
+                (resources[i] as TapHandler).enabled = root.editable;
+                return;
+            }
+        }
     }
 
     background: null
