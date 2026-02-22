@@ -88,8 +88,17 @@ QQC2.Control {
                         }
                         return;
                     }
-                    
-                    dialog = (emojiDialog.createObject(root) as EmojiDialog);
+                    dialog = Qt.createComponent('org.kde.neochat.chatbar', 'EmojiDialog').createObject(root, {
+                        modal: false,
+                        includeCustom: true,
+                        closeOnChosen: false,
+                        currentRoom: root.room,
+                    });
+                    dialog.y =  -dialog.implicitHeight - Kirigami.Units.smallSpacing;
+                    dialog.onChosen.connect((emoji) => {
+                        root.chatButtonHelper.insertText(emoji);
+                        close();
+                    });
                     dialog.onClosed.connect(() => {
                         dialog = null;
                     });
@@ -154,24 +163,4 @@ QQC2.Control {
             width: 1
         }
     }
-    
-    Component {
-        id: emojiDialog
-        EmojiDialog {
-            x: 0
-            y: -implicitHeight
-
-            modal: false
-            includeCustom: true
-            closeOnChosen: false
-
-            currentRoom: root.room
-
-            onChosen: emoji => {
-                root.chatButtonHelper.insertText(emoji);
-                close();
-            }
-
-        }
-    }   
 }
