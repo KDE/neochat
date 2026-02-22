@@ -188,6 +188,11 @@ public:
     void setCursorPosition(int pos);
 
     /**
+     * @brief Set the selection of the underlying text item to the given cursor.
+     */
+    void setSelection(const QTextCursor &cursor);
+
+    /**
      * @brief Set the cursor visibility of the underlying text item to the given value.
      */
     void setCursorVisible(bool visible);

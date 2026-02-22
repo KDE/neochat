@@ -387,6 +387,14 @@ void ChatTextItemHelper::setCursorPosition(int pos)
     m_textItem->setProperty("cursorPosition", pos);
 }
 
+void ChatTextItemHelper::setSelection(const QTextCursor &cursor)
+{
+    if (!m_textItem) {
+        return;
+    }
+    metaObject()->invokeMethod(m_textItem, "select", Qt::DirectConnection, cursor.selectionStart(), cursor.selectionEnd());
+}
+
 void ChatTextItemHelper::setCursorVisible(bool visible)
 {
     if (!m_textItem) {

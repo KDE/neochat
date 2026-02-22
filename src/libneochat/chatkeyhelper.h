@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QQmlEngine>
 
+class QTextCursor;
+
 class ChatTextItemHelper;
 
 /**
@@ -119,6 +121,10 @@ private:
 
     bool down();
 
+    bool left();
+
+    bool right();
+
     bool tab();
 
     bool deleteChar();
@@ -130,4 +136,6 @@ private:
     bool cancel();
 
     bool pasteImage();
+
+    bool selectLink(QTextCursor &cursor, bool back);
 };
