@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:44+0000\n"
-"PO-Revision-Date: 2026-02-21 00:49+0100\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"PO-Revision-Date: 2026-02-22 00:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: src/app/controller.cpp:172
+#: src/app/controller.cpp:170
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Recibir notificaciones de nuevos mensajes"
 
-#: src/app/controller.cpp:319
+#: src/app/controller.cpp:317
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Recepción de notificaciones push"
@@ -4823,13 +4823,57 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Copiar dirección del espacio"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Preferencias del espacio"
 
-#: src/rooms/SpaceListContextMenu.qml:85
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this user to the administrators'"
+#| msgid "Report…"
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report…"
+msgstr "Denunciar…"
+
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Report User"
+msgctxt "@title:dialog"
+msgid "Report Space"
+msgstr "Denunciar usuario"
+
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Optionally give a reason for reporting this user"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for reporting this space"
+msgstr "Proporcione un motivo para denunciar este usuario (opcional)"
+
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this user to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report"
+msgstr "Denunciar"
+
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report User"
+msgctxt "@title"
+msgid "Report Space"
+msgstr "Denunciar usuario"
+
+#: src/rooms/SpaceListContextMenu.qml:107
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -6173,29 +6217,26 @@ msgstr ""
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
-msgstr ""
+msgstr "Todos"
 
 #: src/settings/NeoChatSecurityPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Anyone can find and join."
+#, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
-msgstr "Cualquiera puede encontrarla y unirse."
+msgstr "Cualquiera puede enviarle invitaciones."
 
 #: src/settings/NeoChatSecurityPage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Ban users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Known users"
-msgstr "Inhabilitar usuarios"
+msgstr "Usuarios conocidos"
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
+"Solo los usuarios con los que comparte sala pueden enviarle invitaciones."
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #: src/settings/NeoChatSecurityPage.qml:112
@@ -6208,13 +6249,13 @@ msgstr "Su servidor no permite este ajuste."
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
-msgstr ""
+msgstr "Nadie"
 
 #: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Nadie puede enviarle invitaciones."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -7686,15 +7727,3 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está escribiendo"
 msgstr[1] "%2 están escribiendo"
-
-#~ msgctxt "@option:check"
-#~ msgid "Reject invitations from unknown users"
-#~ msgstr "Rechazar invitaciones de usuarios desconocidos"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "If enabled, NeoChat will reject invitations from users you don't share a "
-#~ "room with."
-#~ msgstr ""
-#~ "Si se activa, NeoChat rechazará las invitaciones de usuarios con los que "
-#~ "no comparta una sala."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:44+0000\n"
-"PO-Revision-Date: 2026-02-17 20:36+0200\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
+"PO-Revision-Date: 2026-02-21 14:17+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: src/app/controller.cpp:172
+#: src/app/controller.cpp:170
 #, kde-format
 msgctxt ""
 "The reason for using push notifications, as in: '[Push notifications are "
@@ -27,7 +27,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Получение уведомлений о новых сообщениях"
 
-#: src/app/controller.cpp:319
+#: src/app/controller.cpp:317
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Получение push-уведомлений"
@@ -1192,15 +1192,13 @@ msgstr "Связаться по электронной почте (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Управление хранилищем ключей"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security key or backup passphrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr "Неверный ключ безопасности или парольная фраза резервной копии."
+msgstr "Ключ восстановления был неверным."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1209,42 +1207,32 @@ msgid "Encryption keys restored."
 msgstr "Ключи шифрования восстановлены."
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "Разблокировка с помощью парольной фразы"
+msgstr "Разблокировка с помощью ключа восстановления"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"Если для этой учётной записи есть ключ безопасности или резервная кодовая "
-"фраза, введите её ниже или загрузите как файл."
+"Если у вас есть ключ восстановления (также известный как «ключ безопасности» "
+"или «резервная парольная фраза»), введите его ниже или загрузите файл."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "Ключ безопасности:"
+msgstr "Ключ восстановления:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
-msgstr "Отправить из файла"
+msgstr "Загрузить из файла"
 
 #: src/app/qml/UnlockSSSSDialog.qml:71
 #, kde-format
@@ -1259,23 +1247,17 @@ msgid "Unlock from Cross-Signing"
 msgstr "Разблокировка перекрёстным подтверждением"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"Если это устройство было проверено ранее, можно попробовать загрузить ключ "
-"для резервной копии с других устройств (нажмите расположенную ниже кнопку)."
+"Если это устройство было ранее проверено, ключи шифрования запрашиваются у "
+"других проверенных устройств."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Запросить с других устройств"
@@ -1459,12 +1441,10 @@ msgid "Mutual Rooms"
 msgstr "Общие комнаты"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Не найдено ни одной комнаты"
+msgstr "Нет общих комнат"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -4844,13 +4824,57 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "Скопировать адрес пространства"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Параметры пространств"
 
-#: src/rooms/SpaceListContextMenu.qml:85
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this user to the administrators'"
+#| msgid "Report…"
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report…"
+msgstr "Пожаловаться…"
+
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#, fuzzy, kde-format
+#| msgctxt "@title:dialog"
+#| msgid "Report User"
+msgctxt "@title:dialog"
+msgid "Report Space"
+msgstr "Жалоба на пользователя"
+
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Optionally give a reason for reporting this user"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for reporting this space"
+msgstr "Причина жалобы на пользователя (необязательно)"
+
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button 'Report' as in 'Report this user to the administrators'"
+#| msgid "Report"
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report"
+msgstr "Пожаловаться"
+
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report User"
+msgctxt "@title"
+msgid "Report Space"
+msgstr "Жалоба на пользователя"
+
+#: src/rooms/SpaceListContextMenu.qml:107
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space…"
@@ -6148,9 +6172,7 @@ msgid "Ignored Users"
 msgstr "Игнорируемые пользователи"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "Сообщения"
@@ -6172,8 +6194,7 @@ msgstr ""
 "предпросмотр ссылок будет отключён во всех комнатах."
 
 #: src/settings/NeoChatSecurityPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Отправлять уведомления о наборе текста"
@@ -6198,29 +6219,27 @@ msgstr ""
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
-msgstr ""
+msgstr "Все"
 
 #: src/settings/NeoChatSecurityPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Anyone can find and join."
+#, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
-msgstr "Любой желающий может найти и присоединиться."
+msgstr "Любой может отправить приглашение."
 
 #: src/settings/NeoChatSecurityPage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Ban users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Known users"
-msgstr "Блокировать пользователей"
+msgstr "Известные пользователи"
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
 msgstr ""
+"Только пользователи, с которыми вы находитесь в одной комнате, могут "
+"отправлять вам приглашения."
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #: src/settings/NeoChatSecurityPage.qml:112
@@ -6233,13 +6252,13 @@ msgstr "Сервер не поддерживает этот параметр."
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
-msgstr ""
+msgstr "Никто"
 
 #: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Никто не сможет отправить вам приглашение."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -6266,7 +6285,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Управление хранилищем ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
@@ -6287,12 +6306,10 @@ msgid "Import Keys"
 msgstr "Импорт ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
-msgstr "Импорт ключей шифрования из резервной копии."
+msgstr "Импорт ключей шифрования из файла резервной копии."
 
 #: src/settings/NeoChatSecurityPage.qml:157
 #, kde-format
@@ -6313,12 +6330,10 @@ msgid "Export Keys"
 msgstr "Экспорт ключей"
 
 #: src/settings/NeoChatSecurityPage.qml:174
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export this device's encryption keys."
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr "Экспорт ключей шифрования этого устройства."
+msgstr "Экспорт ключей шифрования этого устройства в файл."
 
 #: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-21 00:44+0000\n"
+"POT-Creation-Date: 2026-02-22 00:45+0000\n"
 "PO-Revision-Date: 2024-01-08 19:47-0500\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : 3;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/app/controller.cpp:172
+#: src/app/controller.cpp:170
 #, fuzzy, kde-format
 #| msgid "Receiving push notifications"
 msgctxt ""
@@ -28,7 +28,7 @@ msgctxt ""
 msgid "Receiving notifications for new messages"
 msgstr "Receiving push notifications"
 
-#: src/app/controller.cpp:319
+#: src/app/controller.cpp:317
 #, kde-format
 msgid "Receiving push notifications"
 msgstr "Receiving push notifications"
@@ -5057,13 +5057,49 @@ msgctxt "@action:inmenu"
 msgid "Copy Space Address"
 msgstr "o tu e lipu tawa lipu jo"
 
-#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:112
+#: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr ""
 
-#: src/rooms/SpaceListContextMenu.qml:85
+#: src/rooms/SpaceListContextMenu.qml:85 src/spaces/SpaceHomePage.qml:109
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report…"
+msgstr ""
+
+#: src/rooms/SpaceListContextMenu.qml:90 src/spaces/SpaceHomePage.qml:114
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title:dialog"
+msgid "Report Space"
+msgstr "o ante e toki"
+
+#: src/rooms/SpaceListContextMenu.qml:91 src/spaces/SpaceHomePage.qml:115
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgctxt "@info:placeholder"
+msgid "Optionally give a reason for reporting this space"
+msgstr "o weka e weka pi jan ni"
+
+#: src/rooms/SpaceListContextMenu.qml:93 src/spaces/SpaceHomePage.qml:117
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt ""
+"@action:button 'Report' as in 'Report this space to the administrators'"
+msgid "Report"
+msgstr "o ante e toki"
+
+#: src/rooms/SpaceListContextMenu.qml:97 src/spaces/SpaceHomePage.qml:121
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report Space"
+msgstr "o ante e toki"
+
+#: src/rooms/SpaceListContextMenu.qml:107
 #, fuzzy, kde-format
 #| msgctxt "menu"
 #| msgid "New Group…"
