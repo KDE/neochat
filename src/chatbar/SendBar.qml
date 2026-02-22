@@ -194,9 +194,8 @@ RowLayout {
         icon.name: "edit-select-text-symbolic"
         text: i18nc("@action:button", "Rich Text")
         display: QQC2.AbstractButton.IconOnly
-        onClicked: NeoChatConfig.sendMessageWith = NeoChatConfig.sendMessageWith === 0 ? 1 : 0
+        onClicked: NeoChatConfig.sendMessageWith = checked
         checkable: true
-        checked: NeoChatConfig === 1
         
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay

@@ -78,19 +78,6 @@ Item {
         room: root.currentRoom
         maxAvailableWidth: chatBarSizeHelper.availableWidth
     }
-    MouseArea {
-        id: hoverArea
-        anchors {
-            top: chatModeButton.top
-            left: root.left
-            right: root.right
-            bottom: core.top
-        }
-        propagateComposedEvents: true
-        hoverEnabled: true
-        acceptedButtons: Qt.NoButton
-    }
-
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper
         parentItem: root
