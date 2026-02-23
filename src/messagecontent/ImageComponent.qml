@@ -147,7 +147,9 @@ Item {
     Loader {
         id: imageLoader
 
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
 
         active: !root.componentAttributes.animated && !_private.hideImage
         sourceComponent: Image {
@@ -163,7 +165,9 @@ Item {
     Loader {
         id: animatedImageLoader
 
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
 
         active: (root?.componentAttributes.animated ?? false) && !_private.hideImage
         sourceComponent: AnimatedImage {
