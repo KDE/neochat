@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-22 00:45+0000\n"
-"PO-Revision-Date: 2026-02-07 08:52+0100\n"
+"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"PO-Revision-Date: 2026-02-21 08:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -372,11 +372,10 @@ msgid "Do you really want to leave %1?"
 msgstr "Vuoi davvero lasciare %1?"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:25
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "@action:button Leave this room/space"
 msgid "Leave"
-msgstr "Lascia la stanza"
+msgstr "Esci"
 
 #: src/app/qml/ConfirmLogoutDialog.qml:15
 #, kde-format
@@ -749,9 +748,7 @@ msgid "The input is not a valid room ID or alias"
 msgstr "Il testo digitato non è un ID stanza o alias valido"
 
 #: src/app/qml/ManualRoomDialog.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@action:button Join the Jitsi meeting"
-#| msgid "Join"
+#, kde-format
 msgctxt "@action:button Join this room/space"
 msgid "Join"
 msgstr "Entra"
@@ -778,9 +775,7 @@ msgid "The input is not a valid user ID"
 msgstr "Il testo digitato non è un ID utente valido"
 
 #: src/app/qml/ManualUserDialog.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ok"
+#, kde-format
 msgctxt "@action:button Perform an action with this user ID"
 msgid "Ok"
 msgstr "Ok"
@@ -992,31 +987,28 @@ msgid "Pinned Messages"
 msgstr "Messaggi appuntati"
 
 #: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
-msgstr "Mostra i messaggi eliminati"
+msgstr "Messaggi selezionati: %1"
 
 #: src/app/qml/RoomPage.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Conversation"
-msgstr ""
+msgstr "Copia conversazione"
 
 #: src/app/qml/RoomPage.qml:257
-#, fuzzy, kde-format
-#| msgid "Copy to clipboard"
+#, kde-format
 msgctxt "@info"
 msgid "Conversation copied to clipboard"
-msgstr "Copia negli appunti"
+msgstr "Conversazione copiata negli appunti"
 
 #: src/app/qml/RoomPage.qml:261
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:button"
 msgid "Delete Messages"
-msgstr "Messaggi diretti"
+msgstr "Elimina messaggi"
 
 #: src/app/qml/RoomPage.qml:267 src/app/qml/RoomPage.qml:274
 #: src/app/qml/UserDetailDialog.qml:331
@@ -1026,13 +1018,10 @@ msgid "Remove Messages"
 msgstr "Rimuovi i messaggi"
 
 #: src/app/qml/RoomPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Optionally give a reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr ""
-"Facoltativamente, indica un motivo per cui vuoi rimuovere questo messaggio"
+msgstr "Facoltativamente, indica un motivo per la rimozione di questi messaggi"
 
 #: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
@@ -1194,16 +1183,13 @@ msgstr "Contatta tramite posta elettronica (%1)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Gestisci l'archiviazione delle chiavi"
 
 #: src/app/qml/UnlockSSSSDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "The security key or backup passphrase was not correct."
+#, kde-format
 msgctxt "@info:status"
 msgid "The recovery key was not correct."
-msgstr ""
-"La chiave di sicurezza o la frase segreta di backup non erano corrette."
+msgstr "La chiave di ripristino non era corretta."
 
 #: src/app/qml/UnlockSSSSDialog.qml:41
 #, kde-format
@@ -1212,39 +1198,29 @@ msgid "Encryption keys restored."
 msgstr "Chiavi di cifratura ripristinate"
 
 #: src/app/qml/UnlockSSSSDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Unlock using Passphrase"
+#, kde-format
 msgctxt "@title"
 msgid "Unlock using Recovery Key"
-msgstr "Sblocca utilizzando la frase segreta"
+msgstr "Sblocca utilizzando la chiave di ripristino"
 
 #: src/app/qml/UnlockSSSSDialog.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have a security key or backup passphrase for this account, enter "
-#| "it below or upload it as a file."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have a recovery key (also known as a “security key” or “backup "
 "passphrase”), enter it below or upload it as a file."
 msgstr ""
-"Se disponi di una chiave di sicurezza o di una frase segreta di backup per "
-"questo account, inseriscila qui sotto o caricala come file."
+"Se disponi di una chiave di ripristino (nota anche come \"chiave di sicurezza"
+"\" o \"passphrase di backup\"), inseriscila qui sotto o caricala come file."
 
 #: src/app/qml/UnlockSSSSDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Security Key:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Recovery Key:"
-msgstr "Chiave di sicurezza:"
+msgstr "Chiave di ripristino:"
 
 #: src/app/qml/UnlockSSSSDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upload from File"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upload From File"
 msgstr "Carica da file"
@@ -1262,23 +1238,17 @@ msgid "Unlock from Cross-Signing"
 msgstr "Sblocca dalla firma incrociata"
 
 #: src/app/qml/UnlockSSSSDialog.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "If you have previously verified this device, you can try loading the "
-#| "backup key from other devices by clicking the button below."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "If you have previously verified this device, you request encryption keys "
 "from other verified devices."
 msgstr ""
-"Se hai già verificato questo dispositivo, puoi provare a caricare la chiave "
-"di backup da altri dispositivi facendo clic sul pulsante in basso."
+"Se hai già verificato questo dispositivo, richiedi le chiavi di cifratura da "
+"altri dispositivi verificati."
 
 #: src/app/qml/UnlockSSSSDialog.qml:91
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Request from other Devices"
+#, kde-format
 msgctxt "@action:button"
 msgid "Request From Other Devices"
 msgstr "Richiesta da altri dispositivi"
@@ -1464,12 +1434,10 @@ msgid "Mutual Rooms"
 msgstr "Stanze comuni"
 
 #: src/app/qml/UserDetailDialog.qml:424
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms in common"
-msgstr "Nessuna stanza trovata"
+msgstr "Nessuna stanza in comune"
 
 #: src/app/qml/UserDetailDialog.qml:459
 #, kde-format
@@ -1760,13 +1728,13 @@ msgstr "Esci"
 #, kde-format
 msgctxt "@action:button"
 msgid "Enter rich text mode"
-msgstr ""
+msgstr "Entra in modalità testo formattato"
 
 #: src/chatbar/ChatBar.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Exit rich text mode"
-msgstr ""
+msgstr "Esci dalla modalità testo formattato"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1849,9 +1817,7 @@ msgid "Mirror"
 msgstr "Rispecchia"
 
 #: src/chatbar/LinkDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Link"
 msgstr "Inserisci collegamento"
@@ -1860,13 +1826,13 @@ msgstr "Inserisci collegamento"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link Text:"
-msgstr ""
+msgstr "Testo del collegamento:"
 
 #: src/chatbar/LinkDialog.qml:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Link URL:"
-msgstr ""
+msgstr "URL del collegamento:"
 
 #: src/chatbar/LocationChooser.qml:20
 #, kde-format
@@ -1963,68 +1929,63 @@ msgid "Send"
 msgstr "Invia"
 
 #: src/chatbar/RichEditBar.qml:119 src/chatbar/RichEditBar.qml:173
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action:button"
 msgid "Underline"
-msgstr "In linea"
+msgstr "Sottolineato"
 
 #: src/chatbar/RichEditBar.qml:154
 #, kde-format
 msgctxt "@action:button"
 msgid "Format Text"
-msgstr ""
+msgstr "Formattazione del testo"
 
 #: src/chatbar/RichEditBar.qml:203
 #, kde-format
 msgctxt "@action:button"
 msgid "Text Style"
-msgstr ""
+msgstr "Stile del testo"
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji e adesivi"
 
 #: src/chatbar/RichEditBar.qml:252
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Sticker"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
-msgstr "Modifica adesivo"
+msgstr "Modifica il collegamento"
 
 #: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
-msgstr ""
+msgstr "Elenco non ordinato"
 
 #: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
-msgstr ""
+msgstr "Elenco ordinato"
 
 #: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
-msgstr ""
+msgstr "Aumenta livello dell'elenco"
 
 #: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
-msgstr ""
+msgstr "Riduci livello dell'elenco"
 
 #: src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
-msgstr ""
+msgstr "Stile degli elenchi"
 
 #: src/chatbar/SendBar.qml:53
 #, kde-format
@@ -2035,14 +1996,14 @@ msgid ""
 "Attachments can only have plain text captions, all rich formatting will be "
 "removed"
 msgstr ""
+"Gli allegati possono avere solo didascalie in testo normale, tutta la "
+"formattazione avanzata sarà rimossa"
 
 #: src/chatbar/SendBar.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send message"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
-msgstr "Invia messaggio"
+msgstr "Aggiungi a messaggio"
 
 #: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
 #, kde-format
@@ -2063,12 +2024,10 @@ msgid "Create a Poll"
 msgstr "Crea un sondaggio"
 
 #: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
-#, fuzzy, kde-format
-#| msgctxt "@placeholder"
-#| msgid "Send a message…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
-msgstr "Invia un messaggio…"
+msgstr "Invia un messaggio vocale"
 
 #: src/chatbar/SendBar.qml:194
 #, kde-format
@@ -2083,54 +2042,46 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: src/chatbar/TableDialog.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Insert link"
+#, kde-format
 msgctxt "@title:window"
 msgid "Insert Table"
-msgstr "Inserisci collegamento"
+msgstr "Inserisci tabella"
 
 #: src/chatbar/TableDialog.qml:23
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Rows:"
-msgstr ""
+msgstr "Numero di righe:"
 
 #: src/chatbar/TableDialog.qml:30
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Number of Columns:"
-msgstr ""
+msgstr "Numero di colonne:"
 
 #: src/chatbar/VoiceMessageDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Message"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Record Voice Message"
-msgstr "Rimuovi messaggio"
+msgstr "Registra messaggio vocale"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
 #, kde-format
 msgctxt "@action:button Stop audio recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Ferma la registrazione"
 
 #: src/chatbar/VoiceMessageDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Start Meeting"
+#, kde-format
 msgctxt "@action:button Start audio recording"
 msgid "Start Recording"
-msgstr "Avvia riunione"
+msgstr "Inizia a registrare"
 
 #: src/chatbar/VoiceMessageDialog.qml:48
-#, fuzzy, kde-format
-#| msgctxt "As in first answer option to the poll"
-#| msgid "Option %1:"
+#, kde-format
 msgctxt "@info Duration being the length of an audio recording"
 msgid "Duration: %1"
-msgstr "Opzione %1:"
+msgstr "Durata: %1"
 
 #: src/chatbar/VoiceMessageDialog.qml:54
 #, kde-format
@@ -2139,11 +2090,11 @@ msgid ""
 "Voice message recording requires a newer Qt version than is currently "
 "installed on this system."
 msgstr ""
+"Per registrare i messaggi vocali è necessaria una versione di Qt più recente "
+"di quella attualmente installata sul sistema."
 
 #: src/chatbar/VoiceMessageDialog.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Send"
+#, kde-format
 msgctxt "@action:button Send the voice message"
 msgid "Send"
 msgstr "Invia"
@@ -2471,67 +2422,59 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "As in the default paragraph text style in the chat bar"
 msgid "Paragraph Style"
-msgstr ""
+msgstr "Stile dei paragrafi"
 
 #: src/libneochat/enums/richformat.cpp:21
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 1 text style in the chat bar"
 msgid "Heading 1"
-msgstr "Caricamento"
+msgstr "Titolo 1"
 
 #: src/libneochat/enums/richformat.cpp:24
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 2 text style in the chat bar"
 msgid "Heading 2"
-msgstr "Caricamento"
+msgstr "Titolo 2"
 
 #: src/libneochat/enums/richformat.cpp:27
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 3 text style in the chat bar"
 msgid "Heading 3"
-msgstr "Caricamento"
+msgstr "Titolo 3"
 
 #: src/libneochat/enums/richformat.cpp:30
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 4 text style in the chat bar"
 msgid "Heading 4"
-msgstr "Caricamento"
+msgstr "Titolo 4"
 
 #: src/libneochat/enums/richformat.cpp:33
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 5 text style in the chat bar"
 msgid "Heading 5"
-msgstr "Caricamento"
+msgstr "Titolo 5"
 
 #: src/libneochat/enums/richformat.cpp:36
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgctxt "As in heading level 6 text style in the chat bar"
 msgid "Heading 6"
-msgstr "Caricamento"
+msgstr "Titolo 6"
 
 #: src/libneochat/enums/richformat.cpp:39
 #, kde-format
 msgctxt "As in code text style in the chat bar"
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #: src/libneochat/enums/richformat.cpp:43
 #, kde-format
 msgctxt ""
 "As in the default paragraph text style inside a quote block in the chat bar"
 msgid "Quote Paragraph Style"
-msgstr ""
+msgstr "Stile paragrafo delle citazioni"
 
 #: src/libneochat/enums/richformat.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Quote"
+#, kde-format
 msgctxt "As in quote text style in the chat bar"
 msgid "Quote"
 msgstr "Citazione"
@@ -4139,12 +4082,10 @@ msgstr "Ferma lo scaricamento"
 
 #: src/messagecontent/FileComponent.qml:173
 #: src/messagecontent/ImageComponent.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove attachment"
-msgstr "Rimuovi genitore"
+msgstr "Rimuovi allegato"
 
 #: src/messagecontent/FlightReservationComponent.qml:73
 #, kde-format
@@ -4329,19 +4270,19 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Annulla la risposta"
 
-#: src/messagecontent/TextComponent.qml:111
+#: src/messagecontent/TextComponent.qml:112
 #, kde-format
 msgctxt "@placeholder"
 msgid "Set an attachment caption…"
 msgstr "Imposta una didascalia per l'allegato..."
 
-#: src/messagecontent/TextComponent.qml:113
+#: src/messagecontent/TextComponent.qml:114
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send an encrypted message…"
 msgstr "Invia un messaggio cifrato…"
 
-#: src/messagecontent/TextComponent.qml:115
+#: src/messagecontent/TextComponent.qml:116
 #, kde-format
 msgctxt "@placeholder"
 msgid "Send a message…"
@@ -4992,20 +4933,16 @@ msgid "Work"
 msgstr "Lavoro"
 
 #: src/settings/AccountEditorPage.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "User ID"
+#, kde-format
 msgctxt "@info:label"
 msgid "User ID"
 msgstr "ID utente"
 
 #: src/settings/AccountEditorPage.qml:128
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Copy room ID to clipboard"
+#, kde-format
 msgctxt "@action:button"
 msgid "Copy user ID to clipboard"
-msgstr "Copia l'ID della stanza negli appunti"
+msgstr "Copia l'ID utente negli appunti"
 
 #: src/settings/AccountEditorPage.qml:143
 #, kde-format
@@ -6241,9 +6178,7 @@ msgid "Ignored Users"
 msgstr "Utenti ignorati"
 
 #: src/settings/NeoChatSecurityPage.qml:43
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@title:group"
 msgid "Messages"
 msgstr "Messaggi"
@@ -6266,8 +6201,7 @@ msgstr ""
 "viene disattivata in ogni stanza."
 
 #: src/settings/NeoChatSecurityPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Send typing notifications"
 msgstr "Invia le notifiche di digitazione"
@@ -6292,29 +6226,25 @@ msgstr ""
 #, kde-format
 msgctxt "@info:label"
 msgid "Everyone"
-msgstr ""
+msgstr "Tutti"
 
 #: src/settings/NeoChatSecurityPage.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Anyone can find and join."
+#, kde-format
 msgctxt "@info:description"
 msgid "Anyone can send you invites."
-msgstr "Chiunque può trovarla e partecipare."
+msgstr "Chiunque può inviarti inviti."
 
 #: src/settings/NeoChatSecurityPage.qml:98
-#, fuzzy, kde-format
-#| msgctxt "Room permission type"
-#| msgid "Ban users"
+#, kde-format
 msgctxt "@option:check"
 msgid "Known users"
-msgstr "Bandisci utenti"
+msgstr "Utenti conosciuti"
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #, kde-format
 msgctxt "@info"
 msgid "Only users you share a room with can send you invites."
-msgstr ""
+msgstr "Solo gli utenti con cui condividi una stanza possono inviarti inviti."
 
 #: src/settings/NeoChatSecurityPage.qml:99
 #: src/settings/NeoChatSecurityPage.qml:112
@@ -6327,13 +6257,13 @@ msgstr "Il tuo server non supporta questa impostazione."
 #, kde-format
 msgctxt "@info:label"
 msgid "No one"
-msgstr ""
+msgstr "Nessuno"
 
 #: src/settings/NeoChatSecurityPage.qml:112
 #, kde-format
 msgctxt "@info:description"
 msgid "No one can send you invites."
-msgstr ""
+msgstr "Nessuno può inviarti inviti."
 
 #: src/settings/NeoChatSecurityPage.qml:117
 #, kde-format
@@ -6360,7 +6290,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Manage Key Storage"
-msgstr ""
+msgstr "Gestisci l'archiviazione delle chiavi"
 
 #: src/settings/NeoChatSecurityPage.qml:138
 #, kde-format
@@ -6381,9 +6311,7 @@ msgid "Import Keys"
 msgstr "Importa chiavi"
 
 #: src/settings/NeoChatSecurityPage.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Import encryption keys from a backup."
+#, kde-format
 msgctxt "@info"
 msgid "Import encryption keys from a backup file."
 msgstr "Importa le chiavi di cifratura da un copia di sicurezza."
@@ -6407,12 +6335,10 @@ msgid "Export Keys"
 msgstr "Esporta chiavi"
 
 #: src/settings/NeoChatSecurityPage.qml:174
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Export this device's encryption keys."
+#, kde-format
 msgctxt "@info"
 msgid "Export this device's encryption keys to a file."
-msgstr "Esporta le chiavi di cifratura di questo dispositivo."
+msgstr "Esporta le chiavi di cifratura in un file."
 
 #: src/settings/NeoChatSecurityPage.qml:180
 #, kde-format
@@ -7692,18 +7618,16 @@ msgid "Pin"
 msgstr "Appunta"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Deselect Message"
-msgstr "Messaggi diretti"
+msgstr "Deseleziona messaggi"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Messaggi diretti"
+msgstr "Seleziona messaggio"
 
 #: src/timeline/DelegateContextMenu.qml:435
 #, kde-format
@@ -7757,9 +7681,7 @@ msgid "Last read: %1"
 msgstr "Ultima lettura: %1"
 
 #: src/timeline/ReadMarkerDelegate.qml:73
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:button Mark all messages up to now as read"
 msgid "Mark as Read"
 msgstr "Marca come letto"
