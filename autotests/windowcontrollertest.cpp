@@ -73,6 +73,16 @@ void WindowControllerTest::toggle()
     instance.toggleWindow();
     QCOMPARE(window.windowState(), Qt::WindowNoState);
     QCOMPARE(window.isVisible(), false);
+
+    // make sure we restore maximized state when toggling
+    instance.toggleWindow();
+    window.setVisibility(QWindow::Maximized);
+    QCOMPARE(window.windowState(), Qt::WindowMaximized);
+    instance.toggleWindow();
+    QCOMPARE(window.isVisible(), false);
+    instance.toggleWindow();
+    QCOMPARE(window.windowState(), Qt::WindowMaximized);
+    QCOMPARE(window.isVisible(), true);
 }
 
 QTEST_MAIN(WindowControllerTest)

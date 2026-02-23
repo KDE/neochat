@@ -67,5 +67,6 @@ Q_SIGNALS:
 private:
     WindowController() = default;
 
+    bool m_wasMaximized;
     QWindow *m_window = nullptr;
 };

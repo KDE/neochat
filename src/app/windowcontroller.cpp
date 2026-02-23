@@ -32,6 +32,16 @@ void WindowController::setWindow(QWindow *window)
 {
     m_window = window;
 
+    if (window != nullptr) {
+        // to restore maximized state after reopening from the system tray
+        connect(m_window, &QWindow::windowStateChanged, this, [this]() {
+            if (m_window->isVisible()) {
+                m_wasMaximized = m_window->windowStates() & Qt::WindowMaximized;
+            }
+        });
+        m_wasMaximized = m_window->windowStates() & Qt::WindowMaximized;
+    }
+
     Q_EMIT windowChanged();
 }
 
@@ -46,7 +56,11 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
         return;
     }
     if (!m_window->isVisible()) {
-        m_window->show();
+        if (m_wasMaximized) {
+            m_window->showMaximized();
+        } else {
+            m_window->show();
+        }
     }
 
 #ifdef HAVE_WINDOWSYSTEM
