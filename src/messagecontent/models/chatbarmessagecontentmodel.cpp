@@ -4,6 +4,7 @@
 #include "chatbarmessagecontentmodel.h"
 
 #include <QTextDocumentFragment>
+#include <QTimer>
 
 #include "chatbarcache.h"
 #include "chatkeyhelper.h"
@@ -24,8 +25,12 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
     : MessageContentModel(parent)
     , m_markdownHelper(new ChatMarkdownHelper(this))
     , m_keyHelper(new ChatKeyHelper(this))
+    , m_typingTimer(new QTimer(this))
 {
     m_editableActive = true;
+
+    m_typingTimer->setInterval(std::chrono::milliseconds(5000));
+    m_typingTimer->setSingleShot(true);
 
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this](NeoChatRoom *oldRoom) {
         if (m_type == ChatBarType::None || !m_room) {
@@ -298,6 +303,7 @@ void ChatBarMessageContentModel::connectTextItem(ChatTextItemHelper *chattextite
         removeComponent(helper);
     });
     connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::hasAnyContentChanged);
+    connect(chattextitemhelper, &ChatTextItemHelper::contentsChanged, this, &ChatBarMessageContentModel::handleTyping);
 }
 
 ChatTextItemHelper *ChatBarMessageContentModel::textItemForComponent(const MessageComponent &component) const
@@ -515,6 +521,15 @@ void ChatBarMessageContentModel::setSendMessageWithEnter(bool sendMessageWithEnt
     Q_EMIT sendMessageWithEnterChanged();
 }
 
+void ChatBarMessageContentModel::setSendTypingNotifications(bool sendTypingNotifications)
+{
+    m_sendTypingNotifications = sendTypingNotifications;
+    if (!m_sendTypingNotifications && m_typingTimer->isActive()) {
+        m_typingTimer->stop();
+        m_room->sendTypingNotification(false);
+    }
+}
+
 ChatBarMessageContentModel::ComponentIt ChatBarMessageContentModel::removeComponent(ComponentIt it)
 {
     if (it == m_components.end()) {
@@ -655,6 +670,21 @@ void ChatBarMessageContentModel::clearModel()
 
     if (hadAttachment) {
         Q_EMIT hasAttachmentChanged();
+    }
+}
+
+void ChatBarMessageContentModel::handleTyping()
+{
+    if (m_type == ChatBarType::None || !m_room || !m_sendTypingNotifications) {
+        return;
+    }
+
+    if (!m_typingTimer->isActive() && hasAnyContent()) {
+        m_typingTimer->start();
+        m_room->sendTypingNotification(true);
+    } else if (m_typingTimer->isActive() && !hasAnyContent()) {
+        m_typingTimer->stop();
+        m_room->sendTypingNotification(false);
     }
 }
 

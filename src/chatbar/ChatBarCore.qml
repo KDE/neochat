@@ -27,6 +27,7 @@ QQC2.Control {
         type: root.chatBarType
         room: root.room
         sendMessageWithEnter: NeoChatConfig.sendMessageWith === 0
+        sendTypingNotifications: NeoChatConfig.typingNotifications
     }
 
     readonly property LibNeoChat.CompletionModel completionModel: LibNeoChat.CompletionModel {
