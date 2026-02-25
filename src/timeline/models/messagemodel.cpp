@@ -448,40 +448,91 @@ QString MessageModel::getFormattedSelectedMessages() const
 
     for (const auto &[roomId, selectedMessageIds] : m_selectedMessageIds.asKeyValueRange()) {
         NeoChatRoom *eventRoom = m_room;
-        if (roomId != eventRoom->id()) {
-            if (auto room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId))) {
-                eventRoom = room;
-            } else {
+        if (roomId != m_room->id()) {
+            auto *room = dynamic_cast<NeoChatRoom *>(m_room->connection()->room(roomId));
+            if (!room) {
                 continue;
+            }
+            eventRoom = room;
+        }
+
+        // clang-format off
+        auto allEvents = selectedMessageIds
+            | std::views::transform(std::bind_front(&NeoChatRoom::findEvent, eventRoom))
+            | std::views::filter([](const RoomEvent *event) {
+                return event != nullptr;
+            });
+        // clang-format on
+
+        QVector<const RoomEvent *> rootEvents;
+        QHash<QString, QVector<const RoomEvent *>> threadReplies;
+        // rootEvents.contains is O(n) but we expect the number of selected messages to be small
+        // and this is simpler than trying to maintain a separate set of root event ids.
+        for (const auto &event : allEvents) {
+            if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event)) {
+                if (const auto rel = roomMessageEvent->relatesTo(); rel && rel->type == EventRelation::ThreadType) {
+                    const auto rootEvent = eventRoom->findEvent(rel->eventId);
+                    if (!rootEvent) {
+                        continue;
+                    }
+
+                    if (!rootEvents.contains(rootEvent)) {
+                        rootEvents.push_back(rootEvent);
+                    }
+                    threadReplies[rootEvent->id()].push_back(event);
+                } else if (!rootEvents.contains(event)) {
+                    rootEvents.push_back(event);
+                }
             }
         }
 
-        QVector<const RoomEvent *> events;
-        events.reserve(selectedMessageIds.size());
+        std::ranges::sort(rootEvents, {}, &RoomEvent::originTimestamp);
+        for (auto &replies : threadReplies.values()) {
+            std::ranges::sort(replies, {}, &RoomEvent::originTimestamp);
+        }
 
         if (m_selectedMessageIds.size() > 1) {
             formattedContent += u"["_s + eventRoom->displayName() + u"]\n"_s;
         }
 
         // clang-format off
-        std::ranges::copy(
-            selectedMessageIds
-                | std::views::transform(std::bind_front(&NeoChatRoom::findEvent, eventRoom))
-                | std::views::filter([](const RoomEvent *event) {
-                    return event != nullptr;
-                }),
-            std::back_inserter(events));
-        // clang-format on
-        std::ranges::sort(events, {}, &RoomEvent::originTimestamp);
+        for (const RoomEvent *event : rootEvents) {
+            formattedContent +=
+                EventHandler::authorDisplayName(eventRoom, event)
+                % u" — "_s
+                % EventHandler::dateTime(eventRoom, event).shortDateTime();
+            if (const auto roomMessageEvent = eventCast<const RoomMessageEvent>(event)) {
+                if (const auto rel = roomMessageEvent->relatesTo(); rel && rel->type == EventRelation::ReplyType) {
+                    if (const auto parentEvent = eventRoom->findEvent(rel->eventId)) {
+                        formattedContent +=
+                            u"\n> In reply to "_s
+                            % EventHandler::authorDisplayName(eventRoom, parentEvent)
+                            % u"\n"_s
+                            % EventHandler::plainBody(eventRoom, parentEvent)
+                            % u"\n"_s;
+                    }
+                }
+            }
 
-        for (const RoomEvent *event : events) {
-            formattedContent += EventHandler::authorDisplayName(eventRoom, event);
-            formattedContent += u" — "_s;
-            formattedContent += EventHandler::dateTime(eventRoom, event).shortDateTime();
-            formattedContent += u'\n';
-            formattedContent += EventHandler::plainBody(eventRoom, event);
-            formattedContent += u"\n\n"_s;
+            formattedContent +=
+                u'\n'
+                % EventHandler::plainBody(eventRoom, event)
+                % u"\n\n"_s;
+
+            if (const auto it = threadReplies.constFind(event->id()); it != threadReplies.constEnd()) {
+                for (const RoomEvent *threadReply : it.value()) {
+                    formattedContent +=
+                        u"\t"_s
+                        % EventHandler::authorDisplayName(eventRoom, threadReply)
+                        % u" — "_s
+                        % EventHandler::dateTime(eventRoom, threadReply).shortDateTime()
+                        % u"\n\t"_s
+                        % EventHandler::plainBody(eventRoom, threadReply)
+                        % u"\n\n"_s;
+                }
+            }
         }
+        // clang-format on
     }
 
     return formattedContent.trimmed();
