@@ -310,8 +310,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"ignore"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(text);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
@@ -332,8 +331,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"unignore"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(text);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
@@ -373,8 +371,7 @@ QList<ActionsModel::Action> actions{
         u"ban"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(u" "_s);
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(parts[0]);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
@@ -410,8 +407,7 @@ QList<ActionsModel::Action> actions{
     Action{
         u"unban"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(text);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
@@ -442,8 +438,7 @@ QList<ActionsModel::Action> actions{
         u"kick"_s,
         [](const QString &text, NeoChatRoom *room, ChatBarCache *) {
             auto parts = text.split(u" "_s);
-            static const QRegularExpression mxidRegex(uR"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"_s);
-            auto regexMatch = mxidRegex.match(parts[0]);
+            auto regexMatch = TextRegex::mxId.match(text);
             if (!regexMatch.hasMatch()) {
                 Q_EMIT room->showMessage(MessageType::Error,
                                          i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", parts[0]));
