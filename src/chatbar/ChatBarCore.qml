@@ -136,6 +136,8 @@ QQC2.Control {
 
                     Repeater {
                         id: chatContentView
+                        Layout.fillWidth: true
+
                         model: root.model
 
                         delegate: BaseMessageComponentChooser {
