@@ -57,7 +57,8 @@ bool SortFilterRoomTreeModel::lessThan(const QModelIndex &source_left, const QMo
         return false;
     }
 
-    for (auto sortRole : RoomSortParameter::currentParameterList()) {
+    const auto parameters = RoomSortParameter::currentParameterList();
+    for (const auto sortRole : parameters) {
         auto result = RoomSortParameter::compareParameter(sortRole, leftRoom, rightRoom);
 
         if (result != 0) {

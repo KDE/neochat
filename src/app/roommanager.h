@@ -190,7 +190,7 @@ public:
      *
      * @sa Quotient::UriResolverBase::visitResource()
      */
-    Q_INVOKABLE void resolveResource(Uri uri, const QString &action = {});
+    Q_INVOKABLE void resolveResource(Quotient::Uri uri, const QString &action = {});
 
     bool hasOpenRoom() const;
 
@@ -235,7 +235,7 @@ public:
      * @brief Show a context menu for the given event.
      */
     Q_INVOKABLE void
-    viewEventMenu(QObject *parent, const RoomEvent *event, NeoChatRoom *room, const QString &selectedText = {}, const QString &hoveredLink = {});
+    viewEventMenu(QObject *parent, const Quotient::RoomEvent *event, NeoChatRoom *room, const QString &selectedText = {}, const QString &hoveredLink = {});
 
     /**
      * @brief Set a URL to be loaded as the initial room.
@@ -316,7 +316,7 @@ Q_SIGNALS:
                           const QString &plainText,
                           const QString &richtText,
                           const QString &mimeType,
-                          const FileTransferInfo &progressInfo,
+                          const Quotient::FileTransferInfo &progressInfo,
                           const QString &selectedText,
                           const QString &hoveredLink);
 

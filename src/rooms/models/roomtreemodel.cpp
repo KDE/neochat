@@ -52,7 +52,8 @@ void RoomTreeModel::resetModel()
         m_rootItem->insertChild(std::make_unique<RoomTreeItem>(NeoChatRoomType::Types(i), m_rootItem.get()));
     }
 
-    for (const auto &r : m_connection->allRooms()) {
+    const auto rooms = m_connection->allRooms();
+    for (const auto &r : rooms) {
         const auto room = dynamic_cast<NeoChatRoom *>(r);
         const auto type = NeoChatRoomType::typeForRoom(room);
         const auto categoryItem = m_rootItem->child(type);

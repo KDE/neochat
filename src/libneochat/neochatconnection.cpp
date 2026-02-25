@@ -72,7 +72,7 @@ void NeoChatConnection::connectSignals()
         }
     });
     connect(this, &NeoChatConnection::requestFailed, this, [this](BaseJob *job) {
-        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"_L1].toString() == "M_TOO_LARGE"_L1) {
+        if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData().value("errcode"_L1).toString() == "M_TOO_LARGE"_L1) {
             Q_EMIT showMessage(MessageType::Warning, i18n("File too large to download.<br />Contact your matrix server administrator for support."));
         }
     });
@@ -168,7 +168,8 @@ int NeoChatConnection::badgeNotificationCount() const
 void NeoChatConnection::refreshBadgeNotificationCount()
 {
     int count = 0;
-    for (const auto &r : allRooms()) {
+    const auto rooms = allRooms();
+    for (const auto &r : rooms) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             count += room->contextAwareNotificationCount();
 
@@ -287,7 +288,7 @@ void NeoChatConnection::setLabel(const QString &label)
 
 QString NeoChatConnection::label() const
 {
-    return accountDataJson("org.kde.neochat.account_label"_L1)["account_label"_L1].toString();
+    return accountDataJson("org.kde.neochat.account_label"_L1).value("account_label"_L1).toString();
 }
 
 void NeoChatConnection::deactivateAccount(const QString &password, const bool erase)
@@ -416,7 +417,8 @@ qsizetype NeoChatConnection::directChatNotifications() const
 {
     qsizetype notifications = 0;
     QStringList added; // The same ID can be in the list multiple times.
-    for (const auto &chatId : directChats()) {
+    const auto roomIds = directChats();
+    for (const auto &chatId : roomIds) {
         if (!added.contains(chatId)) {
             if (const auto chat = room(chatId)) {
                 notifications += dynamic_cast<NeoChatRoom *>(chat)->contextAwareNotificationCount();
@@ -429,7 +431,8 @@ qsizetype NeoChatConnection::directChatNotifications() const
 
 bool NeoChatConnection::directChatsHaveHighlightNotifications() const
 {
-    for (const auto &childId : directChats()) {
+    const auto roomIds = directChats();
+    for (const auto &childId : roomIds) {
         if (const auto child = static_cast<NeoChatRoom *>(room(childId))) {
             if (child->highlightCount() > 0) {
                 return true;
@@ -444,7 +447,8 @@ qsizetype NeoChatConnection::homeNotifications() const
     qsizetype notifications = 0;
     QStringList added;
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    for (const auto &r : allRooms()) {
+    const auto rooms = allRooms();
+    for (const auto &r : rooms) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             if (!added.contains(room->id()) && !room->isDirectChat() && !spaceHierarchyCache.isChild(room->id())) {
                 notifications += dynamic_cast<NeoChatRoom *>(room)->contextAwareNotificationCount();
@@ -458,7 +462,8 @@ qsizetype NeoChatConnection::homeNotifications() const
 bool NeoChatConnection::homeHaveHighlightNotifications() const
 {
     const auto &spaceHierarchyCache = SpaceHierarchyCache::instance();
-    for (const auto &r : allRooms()) {
+    const auto rooms = allRooms();
+    for (const auto &r : rooms) {
         if (const auto room = static_cast<NeoChatRoom *>(r)) {
             if (!room->isDirectChat() && !spaceHierarchyCache.isChild(room->id()) && room->highlightCount() > 0) {
                 return true;
@@ -641,7 +646,7 @@ void NeoChatConnection::setNoteForUser(const QString &userId, const QString &not
 
 bool NeoChatConnection::blockAllInvites() const
 {
-    return accountDataJson("m.invite_permission_config"_L1)["default_action"_L1].toString() == "block"_L1;
+    return accountDataJson("m.invite_permission_config"_L1).value("default_action"_L1).toString() == "block"_L1;
 }
 
 void NeoChatConnection::setBlockAllInvites(bool block)

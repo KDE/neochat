@@ -39,7 +39,8 @@ Quotient::AccountRegistry *AccountManager::accounts()
 
 void AccountManager::loadAccountsFromCache()
 {
-    for (const auto &accountId : Quotient::SettingsGroup("Accounts"_L1).childGroups()) {
+    const auto accounts = Quotient::SettingsGroup("Accounts"_L1).childGroups();
+    for (const auto &accountId : accounts) {
         Quotient::AccountSettings account{accountId};
         m_accountsLoading += accountId;
         Q_EMIT accountsLoadingChanged();
@@ -57,14 +58,14 @@ void AccountManager::loadAccountsFromCache()
             m_connectionsLoading[accountId] = connection;
             connect(connection, &NeoChatConnection::connected, this, [this, connection, accountId] {
                 connection->loadState();
-                if (connection->allRooms().size() == 0 || connection->allRooms()[0]->currentState().get<Quotient::RoomCreateEvent>()) {
+                if (connection->allRooms().size() == 0 || connection->allRooms().at(0)->currentState().get<Quotient::RoomCreateEvent>()) {
                     addConnection(connection);
                     m_accountsLoading.removeAll(connection->userId());
                     m_connectionsLoading.remove(accountId);
                     Q_EMIT accountsLoadingChanged();
                 } else {
                     connect(
-                        connection->allRooms()[0],
+                        connection->allRooms().at(0),
                         &NeoChatRoom::baseStateLoaded,
                         this,
                         [this, connection, accountId]() {

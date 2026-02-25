@@ -146,7 +146,7 @@ NeoChatRoom::NeoChatRoom(Connection *c, QString roomId, JoinState joinState)
     connect(this, &Room::changed, this, [this]() {
         Q_EMIT defaultUrlPreviewStateChanged();
     });
-    connect(this, &Room::accountDataChanged, this, [this](QString type) {
+    connect(this, &Room::accountDataChanged, this, [this](const QString &type) {
         if (type == "org.matrix.room.preview_urls"_L1) {
             Q_EMIT urlPreviewEnabledChanged();
         }
@@ -348,7 +348,7 @@ void NeoChatRoom::forget()
     }
 
     const auto neochatConnection = dynamic_cast<NeoChatConnection *>(connection());
-    for (const auto &id : roomIds) {
+    for (const auto &id : std::as_const(roomIds)) {
         neochatConnection->forgetRoom(id);
     }
 }
@@ -499,7 +499,8 @@ QUrl NeoChatRoom::avatarMediaUrl() const
     }
 
     // Use the first (excluding self) user's avatar for direct chats
-    for (const auto &member : directChatMembers()) {
+    const auto members = directChatMembers();
+    for (const auto &member : members) {
         if (member != localMember()) {
             return member.avatarUrl();
         }
@@ -763,7 +764,7 @@ bool NeoChatRoom::hasParent() const
 
 QList<QString> NeoChatRoom::parentIds() const
 {
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
+    const auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     QList<QString> parentIds;
     for (const auto &parentEvent : parentEvents) {
         if (parentEvent->contentJson().contains("via"_L1) && !parentEvent->contentPart<QJsonArray>("via"_L1).isEmpty()) {
@@ -776,7 +777,7 @@ QList<QString> NeoChatRoom::parentIds() const
 QList<NeoChatRoom *> NeoChatRoom::parentObjects(bool multiLevel) const
 {
     QList<NeoChatRoom *> parentObjects;
-    QList<QString> parentIds = this->parentIds();
+    const auto parentIds = this->parentIds();
     for (const auto &parentId : parentIds) {
         if (auto parentObject = static_cast<NeoChatRoom *>(connection()->room(parentId))) {
             parentObjects += parentObject;
@@ -790,7 +791,7 @@ QList<NeoChatRoom *> NeoChatRoom::parentObjects(bool multiLevel) const
 
 QString NeoChatRoom::canonicalParent() const
 {
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
+    const auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     for (const auto &parentEvent : parentEvents) {
         if (parentEvent->contentJson().contains("via"_L1) && !parentEvent->contentPart<QJsonArray>("via"_L1).isEmpty()) {
             if (parentEvent->contentPart<bool>("canonical"_L1)) {
@@ -815,7 +816,7 @@ void NeoChatRoom::setCanonicalParent(const QString &parentId)
     }
 
     // Only one canonical parent can exist so make sure others are set false.
-    auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
+    const auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
     for (const auto &parentEvent : parentEvents) {
         if (parentEvent->contentPart<bool>("canonical"_L1) && parentEvent->stateKey() != parentId) {
             auto content = parentEvent->contentJson();
@@ -858,7 +859,7 @@ void NeoChatRoom::addParent(const QString &parentId, bool canonical, bool setPar
     }
     if (canonical) {
         // Only one canonical parent can exist so make sure others are set false.
-        auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
+        const auto parentEvents = currentState().eventsOfType("m.space.parent"_L1);
         for (const auto &parentEvent : parentEvents) {
             if (parentEvent->contentPart<bool>("canonical"_L1)) {
                 auto content = parentEvent->contentJson();
@@ -938,7 +939,7 @@ void NeoChatRoom::addChild(const QString &childId, bool setChildParent, bool can
             return;
         }
         // Only one canonical parent can exist so make sure others are set to false.
-        auto parentEvents = child->currentState().eventsOfType("m.space.parent"_L1);
+        const auto parentEvents = child->currentState().eventsOfType("m.space.parent"_L1);
         for (const auto &parentEvent : parentEvents) {
             if (!parentEvent->contentPart<bool>("canonical"_L1)) {
                 continue;
@@ -1048,7 +1049,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
     // For default and mute check for a room rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::Mute) {
-        QJsonArray roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
+        const auto roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
             if (roomRule["rule_id"_L1] == id()) {
@@ -1059,7 +1060,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
     // For default, all and @mentions and keywords check for an override rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::All || state == PushNotificationState::MentionKeyword) {
-        QJsonArray overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
+        const auto overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
             if (overrideRule["rule_id"_L1] == id()) {
@@ -1191,7 +1192,7 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     QJsonObject accountData = connection()->accountDataJson("m.push_rules"_L1);
 
     // First look for a room rule with the room id
-    QJsonArray roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
+    const auto roomRuleArray = accountData["global"_L1].toObject()["room"_L1].toArray();
     for (const auto &i : roomRuleArray) {
         QJsonObject roomRule = i.toObject();
         if (roomRule["rule_id"_L1] == id()) {
@@ -1214,7 +1215,7 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     }
 
     // Check for an override rule with the room id
-    QJsonArray overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
+    const auto overrideRuleArray = accountData["global"_L1].toObject()["override"_L1].toArray();
     for (const auto &i : overrideRuleArray) {
         QJsonObject overrideRule = i.toObject();
         if (overrideRule["rule_id"_L1] == id()) {
@@ -1577,7 +1578,8 @@ void NeoChatRoom::setCanonicalAlias(const QString &newAlias)
 int NeoChatRoom::maxRoomVersion() const
 {
     int maxVersion = 0;
-    for (auto roomVersion : connection()->availableRoomVersions()) {
+    const auto availableVersions = connection()->availableRoomVersions();
+    for (const auto &roomVersion : availableVersions) {
         if (roomVersion.id.toInt() > maxVersion) {
             maxVersion = roomVersion.id.toInt();
         }
@@ -1591,7 +1593,7 @@ NeochatRoomMember *NeoChatRoom::directChatRemoteMember()
         qWarning() << "No other member available in this room";
         return {};
     }
-    return new NeochatRoomMember(this, directChatMembers()[0].id());
+    return new NeochatRoomMember(this, directChatMembers().at(0).id());
 }
 
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
@@ -1898,7 +1900,7 @@ void NeoChatRoom::sortAllMembers()
     // Build up a temporary cache, because we may be checking the same member over and over while sorting.
     QHash<QString, int> effectivePowerLevels;
     effectivePowerLevels.reserve(m_sortedMemberIds.size());
-    for (const auto &member : m_sortedMemberIds) {
+    for (const auto &member : std::as_const(m_sortedMemberIds)) {
         effectivePowerLevels[member] = memberEffectivePowerLevel(member);
     }
 
@@ -2002,7 +2004,7 @@ QString NeoChatRoom::getFormattedSelectedMessages() const
     QString formattedContent;
     formattedContent.reserve(events.size() * 256); // estimate an average of 256 characters per message
 
-    for (const RoomEvent *event : events) {
+    for (const RoomEvent *event : std::as_const(events)) {
         formattedContent += EventHandler::authorDisplayName(this, event);
         formattedContent += u" — "_s;
         formattedContent += EventHandler::dateTime(this, event).shortDateTime();
@@ -2017,7 +2019,7 @@ QString NeoChatRoom::getFormattedSelectedMessages() const
 void NeoChatRoom::deleteSelectedMessages(const QString &reason)
 {
     QStringList events;
-    for (const auto &eventId : m_selectedMessageIds) {
+    for (const auto &eventId : std::as_const(m_selectedMessageIds)) {
         const auto eventIt = findInTimeline(eventId);
         if (eventIt == historyEdge()) {
             continue;

@@ -56,7 +56,7 @@ void CustomEmojiModel::fetchEmojis()
 
         const auto e = emoji.startsWith(":"_L1) ? emoji : (u":"_s + emoji + u":"_s);
 
-        m_emojis << CustomEmoji{e, data.toObject()["url"_L1].toString(), QRegularExpression(e)};
+        m_emojis << CustomEmoji{e, data.toObject().value("url"_L1).toString(), QRegularExpression(e)};
     }
 
     endResetModel();

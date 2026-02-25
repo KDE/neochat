@@ -46,14 +46,14 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
         m_keyHelper->setTextItem(focusedTextItem());
     });
     connect(this, &ChatBarMessageContentModel::roomChanged, this, [this]() {
-        for (const auto &component : m_components) {
+        for (const auto &component : std::as_const(m_components)) {
             if (const auto textItem = textItemForComponent(component)) {
                 textItem->setRoom(m_room);
             }
         }
     });
     connect(this, &ChatBarMessageContentModel::typeChanged, this, [this](ChatBarType::Type oldType) {
-        for (const auto &component : m_components) {
+        for (const auto &component : std::as_const(m_components)) {
             if (const auto textItem = textItemForComponent(component)) {
                 textItem->setType(m_type);
             }
@@ -361,7 +361,7 @@ void ChatBarMessageContentModel::addAttachment(const QUrl &path)
     }
 
     QString plainText;
-    for (const auto &component : m_components) {
+    for (const auto &component : std::as_const(m_components)) {
         if (const auto textItem = textItemForComponent(component)) {
             plainText += u"%1%2"_s.arg(plainText.isEmpty() ? u""_s : u"\n"_s, textItem->plainText());
         }

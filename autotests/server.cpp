@@ -121,7 +121,7 @@ void Server::start()
     QFile key(QStringLiteral(DATA_DIR) + u"/localhost.key"_s);
     void(key.open(QFile::ReadOnly));
     config.setPrivateKey(QSslKey(&key, QSsl::Rsa));
-    config.setLocalCertificate(QSslCertificate::fromPath(QStringLiteral(DATA_DIR) + u"/localhost.crt"_s).front());
+    config.setLocalCertificate(QSslCertificate::fromPath(QStringLiteral(DATA_DIR) + u"/localhost.crt"_s).constFirst());
     m_sslServer.setSslConfiguration(config);
     if (!m_sslServer.listen(QHostAddress::LocalHost, 1234) || !m_server.bind(&m_sslServer)) {
         qFatal() << "Server failed to listen on a port.";
@@ -227,7 +227,8 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
     QJsonObject joinRooms;
     auto token = request.query().queryItemValue(u"since"_s).toInt();
 
-    for (const auto &change : m_state.mid(token)) {
+    const auto changes = m_state.mid(token);
+    for (const auto &change : changes) {
         for (const auto &newRoom : change.newRooms) {
             QJsonArray stateEvents;
             stateEvents += QJsonObject{
@@ -272,7 +273,7 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         }
     }
 
-    for (const auto &change : m_state.mid(token)) {
+    for (const auto &change : changes) {
         for (const auto &invitation : change.invitations) {
             // TODO: The invitation could be for a room we haven't joined yet. Shouldn't be necessary for now, though.
             auto stateEvents = joinRooms[invitation.roomId][u"state"_s][u"events"_s].toArray();
@@ -299,7 +300,7 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         }
     }
 
-    for (const auto &change : m_state.mid(token)) {
+    for (const auto &change : changes) {
         for (const auto &ban : change.bans) {
             // TODO: The ban could be for a room we haven't joined yet. Shouldn't be necessary for now, though.
             auto stateEvents = joinRooms[ban.roomId][u"state"_s][u"events"_s].toArray();
@@ -326,7 +327,7 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         }
     }
 
-    for (const auto &change : m_state.mid(token)) {
+    for (const auto &change : changes) {
         for (const auto &join : change.joins) {
             // TODO: The join could be for a room we haven't joined yet. Shouldn't be necessary for now, though.
             auto stateEvents = joinRooms[join.roomId][u"state"_s][u"events"_s].toArray();
@@ -353,7 +354,7 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         }
     }
 
-    for (const auto &change : m_state.mid(token)) {
+    for (const auto &change : changes) {
         for (const auto &state : change.stateEvents) {
             const auto &roomId = state.fullJson[u"room_id"_s].toString();
             // TODO: The join could be for a room we haven't joined yet. Shouldn't be necessary for now, though.
@@ -365,7 +366,7 @@ void Server::sync(const QHttpServerRequest &request, QHttpServerResponder &respo
         }
     }
 
-    for (const auto &change : m_state.mid(token)) {
+    for (const auto &change : changes) {
         for (const auto &event : change.events) {
             // TODO the room might be in a different join state.
             auto timeline = joinRooms[event.fullJson[u"room_id"_s].toString()][u"timeline"_s][u"events"_s].toArray();

@@ -38,7 +38,7 @@ void ChatBarSyntaxHighlighter::highlightBlock(const QString &text)
             m_errors.clear();
             m_checker->setText(text);
         }
-        for (const auto &error : m_errors) {
+        for (const auto &error : std::as_const(m_errors)) {
             setFormat(error.first, error.second.size(), m_errorFormat);
         }
     }

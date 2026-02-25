@@ -151,7 +151,7 @@ public:
     /**
      * @brief Return a list of emojis for the given category.
      */
-    Q_INVOKABLE QVariantList emojis(Category category) const;
+    Q_INVOKABLE QVariantList emojis(EmojiModel::Category category) const;
 
     /**
      * @brief Return a list of emoji tones for the given base emoji.

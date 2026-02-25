@@ -70,7 +70,6 @@ public:
 
 Q_SIGNALS:
     void searchTextChanged();
-    void roomChanged();
     void searchingChanged();
     void senderIdChanged();
 

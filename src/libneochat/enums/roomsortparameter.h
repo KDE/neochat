@@ -46,7 +46,7 @@ public:
      *
      * @sa Parameter
      */
-    Q_INVOKABLE static QString parameterName(Parameter parameter)
+    Q_INVOKABLE static QString parameterName(RoomSortParameter::Parameter parameter)
     {
         switch (parameter) {
         case Parameter::AlphabeticalAscending:
@@ -73,7 +73,7 @@ public:
      *
      * @sa Parameter
      */
-    Q_INVOKABLE static QString parameterDescription(Parameter parameter)
+    Q_INVOKABLE static QString parameterDescription(RoomSortParameter::Parameter parameter)
     {
         switch (parameter) {
         case Parameter::AlphabeticalAscending:
