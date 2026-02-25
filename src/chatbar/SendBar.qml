@@ -28,7 +28,7 @@ RowLayout {
 
     required property real maxAvailableWidth
 
-    readonly property real overflowWidth: Kirigami.Units.gridUnit * 30
+    readonly property real overflowWidth: Kirigami.Units.gridUnit * 50
 
     function openLocationChooser(): void {
         Qt.createComponent('org.kde.neochat.chatbar', 'LocationChooser').createObject(QQC2.ApplicationWindow.overlay, {
@@ -194,9 +194,10 @@ RowLayout {
         icon.name: "edit-select-text-symbolic"
         text: i18nc("@action:button", "Rich Text")
         display: QQC2.AbstractButton.IconOnly
-        onClicked: NeoChatConfig.sendMessageWith = checked
         checkable: true
-        
+        checked: NeoChatConfig.sendMessageWith === 1
+        onClicked: NeoChatConfig.sendMessageWith = checked
+
         QQC2.ToolTip.visible: hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         QQC2.ToolTip.text: text
