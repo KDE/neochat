@@ -206,6 +206,10 @@ bool ChatKeyHelper::backspace()
     if (cursor.isNull()) {
         return false;
     }
+    if (cursor.blockFormat().headingLevel() > 0 && m_textItem->plainText().length() <= m_textItem->fixedStartChars().length() + 1) {
+        m_textItem->mergeFormatOnCursor(RichFormat::Paragraph);
+        return false;
+    }
     if (cursor.position() <= m_textItem->fixedStartChars().length()) {
         if (cursor.currentList() && m_textItem->canIndentListLessAtCursor()) {
             m_textItem->indentListLessAtCursor();
