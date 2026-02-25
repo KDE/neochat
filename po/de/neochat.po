@@ -6,20 +6,21 @@
 # SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2024, 2025 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-23 00:44+0000\n"
-"PO-Revision-Date: 2026-01-20 00:32+0100\n"
-"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
+"PO-Revision-Date: 2026-02-21 10:10+0100\n"
+"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/app/controller.cpp:170
 #, kde-format
@@ -360,12 +361,10 @@ msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Confirm Leaving Room"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Confirm Leaving Space"
-msgstr "Verlassen des Raumes bestätigen"
+msgstr "Verlassen der Umgebung bestätigen"
 
 #: src/app/qml/ConfirmLeaveDialog.qml:16
 #, kde-format
@@ -619,20 +618,16 @@ msgid "Reject Invite"
 msgstr "Einladung ablehnen"
 
 #: src/app/qml/InvitationView.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button View this user's profile"
 msgid "View %1's Profile"
-msgstr "Profil öffnen"
+msgstr "Profil von %1 ansehen"
 
 #: src/app/qml/InvitationView.qml:159
-#, fuzzy, kde-format
-#| msgctxt "@action:button Reject this invite"
-#| msgid "Reject Invite"
+#, kde-format
 msgctxt "@action:button Ignore the user"
 msgid "Ignore %1 and Reject Invite"
-msgstr "Einladung ablehnen"
+msgstr "%1 ignorieren und Einladung ablehnen"
 
 #: src/app/qml/InvitationView.qml:198
 #, fuzzy, kde-kuit-format
@@ -927,11 +922,10 @@ msgstr "Kein Raum gefunden"
 
 #: src/app/qml/QuickSwitcher.qml:33 src/rooms/RoomListPage.qml:238
 #: src/rooms/SpaceDrawer.qml:281
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@action:button Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Räume erkunden"
+msgstr "Erkunden"
 
 #: src/app/qml/ReasonDialog.qml:33
 #, kde-kuit-format
@@ -994,7 +988,7 @@ msgstr "Suchen"
 #, kde-format
 msgctxt "@info"
 msgid "This room contains official messages from your homeserver."
-msgstr ""
+msgstr "Dieser Raum enthält offizielle Nachrichten Ihres Heimservers."
 
 #: src/app/qml/RoomPage.qml:167
 #, kde-format
@@ -1010,11 +1004,10 @@ msgid "Pinned Messages"
 msgstr "Angepinnte Nachrichten"
 
 #: src/app/qml/RoomPage.qml:249
-#, fuzzy, kde-format
-#| msgid "Show deleted messages"
+#, kde-format
 msgctxt "@info"
 msgid "Selected Messages: %1"
-msgstr "Gelöschte Nachricht anzeigen"
+msgstr "Ausgewählte Nachrichten: %1"
 
 #: src/app/qml/RoomPage.qml:253
 #, kde-format
@@ -1041,21 +1034,19 @@ msgstr "Direktnachrichten"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Messages"
-msgstr "Nachrichten löschen"
+msgstr "Nachrichten entfernen"
 
 #: src/app/qml/RoomPage.qml:268
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing these messages"
-msgstr "Begründung für das Löschen dieser Nachricht"
+msgstr "Optionale Begründung für das Entfernen dieser Nachrichten"
 
 #: src/app/qml/RoomPage.qml:269 src/app/qml/UserDetailDialog.qml:333
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove these messages'"
 msgid "Remove"
-msgstr "Löschen"
+msgstr "Entfernen"
 
 #: src/app/qml/RoomPage.qml:351
 #, kde-format
@@ -1064,8 +1055,7 @@ msgid "Welcome to NeoChat"
 msgstr "Willkommen bei NeoChat"
 
 #: src/app/qml/RoomPage.qml:352
-#, fuzzy, kde-format
-#| msgid "Select or join a room to get started"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Select or join a room to get started"
 msgstr "Einen Raum auswählen oder betreten, um zu beginnen"
@@ -1161,13 +1151,10 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Geteilte URL für das Bild ist <a href='%1'>%1</a>"
 
 #: src/app/qml/SupportDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button 'Report' as in 'Report this user to the administrators'"
-#| msgid "Report"
+#, kde-format
 msgctxt "@title Support information"
 msgid "Support"
-msgstr "Melden"
+msgstr "Unterstützung"
 
 #: src/app/qml/SupportDialog.qml:35
 #, kde-format
@@ -1190,15 +1177,13 @@ msgid "Open Support"
 msgstr "Offene Abstimmung"
 
 #: src/app/qml/SupportDialog.qml:84
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgctxt "@info:label Adminstrator contact"
 msgid "Admin"
 msgstr "Administrator"
 
 #: src/app/qml/SupportDialog.qml:86
-#, fuzzy, kde-format
-#| msgid "Security"
+#, kde-format
 msgctxt "@info:label Security contact"
 msgid "Security"
 msgstr "Sicherheit"
@@ -1298,42 +1283,34 @@ msgid "Account Details"
 msgstr "Kontodetails"
 
 #: src/app/qml/UserDetailDialog.qml:150
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@action:intoolbar Message this user directly"
 msgid "Message"
-msgstr "<Nachricht>"
+msgstr "Nachricht"
 
 #: src/app/qml/UserDetailDialog.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Unignore or 'unblock' this user"
 msgid "Unignore"
-msgstr "Ignorieren"
+msgstr "Nicht mehr ignorieren"
 
 #: src/app/qml/UserDetailDialog.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Ignore"
+#, kde-format
 msgctxt "@action:intoolbar Ignore or 'block' this user"
 msgid "Ignore"
 msgstr "Ignorieren"
 
 #: src/app/qml/UserDetailDialog.qml:168
-#, fuzzy, kde-format
-#| msgid "Copy link"
+#, kde-format
 msgctxt "@action:intoolbar Copy shareable link for this user"
 msgid "Copy Link"
 msgstr "Verknüpfung kopieren"
 
 #: src/app/qml/UserDetailDialog.qml:174
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Search Messages"
+#, kde-format
 msgctxt "@action:intoolbar Search for this user's messages."
 msgid "Search Messages…"
-msgstr "Nachrichten suchen"
+msgstr "Nachrichten suchen …"
 
 #: src/app/qml/UserDetailDialog.qml:188
 #, kde-format
@@ -1349,12 +1326,10 @@ msgid "Report User"
 msgstr "Benutzer melden"
 
 #: src/app/qml/UserDetailDialog.qml:195
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this user"
-msgstr "Begründung für das Melden dieses Benutzers"
+msgstr "Optionale Begründung für das Melden dieses Benutzers"
 
 #: src/app/qml/UserDetailDialog.qml:197
 #, kde-format
@@ -1370,35 +1345,28 @@ msgid "Report User"
 msgstr "Benutzer melden"
 
 #: src/app/qml/UserDetailDialog.qml:212
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Main Profile"
-msgstr "Profil öffnen"
+msgstr "Hauptprofil ansehen"
 
 #: src/app/qml/UserDetailDialog.qml:222
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Profile"
+#, kde-format
 msgctxt "@action:button"
 msgid "View Room Profile"
-msgstr "Profil öffnen"
+msgstr "Raumprofil ansehen"
 
 #: src/app/qml/UserDetailDialog.qml:233
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title Moderation actions for this user"
 msgid "Moderation"
-msgstr "Moderator"
+msgstr "Moderation"
 
 #: src/app/qml/UserDetailDialog.qml:258
-#, fuzzy, kde-format
-#| msgctxt "@action:button 'Kick' as in 'Kick this user from the room'"
-#| msgid "Kick"
+#, kde-format
 msgctxt "@action:button Kick the user from the room"
 msgid "Kick…"
-msgstr "Rauswerfen"
+msgstr "Rauswerfen …"
 
 #: src/app/qml/UserDetailDialog.qml:262 src/app/qml/UserDetailDialog.qml:269
 #, kde-format
@@ -1407,12 +1375,10 @@ msgid "Kick User"
 msgstr "Benutzer rauswerfen"
 
 #: src/app/qml/UserDetailDialog.qml:263
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for kicking this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for kicking this user"
-msgstr "Begründung für das Rauswerfen dieses Benutzers"
+msgstr "Optionale Begründung für das Rauswerfen dieses Benutzers"
 
 #: src/app/qml/UserDetailDialog.qml:264
 #, kde-format
@@ -1433,12 +1399,10 @@ msgid "Ban User"
 msgstr "Benutzer verbannen"
 
 #: src/app/qml/UserDetailDialog.qml:292
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for banning this user"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for banning this user"
-msgstr "Begründung für das Verbannen dieses Benutzers"
+msgstr "Optionale Begründung für das Verbannen dieses Benutzers"
 
 #: src/app/qml/UserDetailDialog.qml:293
 #, kde-format
@@ -1453,42 +1417,36 @@ msgid "Unban"
 msgstr "Verbannung aufheben"
 
 #: src/app/qml/UserDetailDialog.qml:326
-#, fuzzy, kde-format
-#| msgctxt "@title:dialog"
-#| msgid "Remove Messages"
+#, kde-format
 msgctxt "@action:button Remove messages from the user in this room"
 msgid "Remove Messages…"
-msgstr "Nachrichten löschen"
+msgstr "Nachrichten entfernen …"
 
 #: src/app/qml/UserDetailDialog.qml:332
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this user's recent messages"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this user's recent messages"
-msgstr "Begründung für das Löschen der letzten Nachrichten dieses Benutzers"
+msgstr ""
+"Optionale Begründung für das Entfernen der letzten Nachrichten dieses "
+"Benutzers"
 
 #: src/app/qml/UserDetailDialog.qml:338
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "Nachrichten löschen"
+msgstr "Nachrichten entfernen"
 
 #: src/app/qml/UserDetailDialog.qml:351
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@title Role such as 'Admin' or 'Moderator' for this user"
 msgid "Power Level"
-msgstr "Berechtigungsstufe des Benutzers festlegen"
+msgstr "Berechtigungsstufe"
 
 #: src/app/qml/UserDetailDialog.qml:375
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@action:button Set the power level (such as 'Admin') for this user"
 msgid "Set Power Level"
-msgstr "Berechtigungsstufe des Benutzers festlegen"
+msgstr "Berechtigungsstufe festlegen"
 
 #: src/app/qml/UserDetailDialog.qml:402
 #, fuzzy, kde-format
@@ -1520,11 +1478,10 @@ msgstr[0] " und %1 weiterer"
 msgstr[1] " und %1 weitere"
 
 #: src/app/qml/UserDetailDialog.qml:466
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title Private note for this user"
 msgid "Private Note"
-msgstr "Neue erstellen"
+msgstr "Private Notiz"
 
 #: src/app/qml/UserDetailDialog.qml:478
 #, kde-format
@@ -1956,19 +1913,19 @@ msgctxt "@item:inlistbox"
 msgid "Closed poll"
 msgstr "Geschlossene Abstimmung"
 
+# Gekürzt, damit komplette Zeichenkette im Dialog sichtbar wird
 #: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Voters can see the result as soon as they have voted"
-msgstr ""
-"Die Ergebnisse können direkt nach erfolgter Teilnahme eingesehen werden"
+msgstr "Das Ergebnis ist direkt nach erfolgter Teilnahme einsehbar"
 
+# Gekürzt, damit komplette Zeichenkette im Dialog sichtbar wird
 #: src/chatbar/NewPollDialog.qml:46
 #, kde-format
 msgctxt "@info"
 msgid "Results are revealed only after the poll has closed"
-msgstr ""
-"Die Ergebnisse können erst nach Schließung der Abstimmung eingesehen werden"
+msgstr "Ergebnisse sind erst nach Ende der Abstimmung einsehbar"
 
 #: src/chatbar/NewPollDialog.qml:50
 #, kde-format
@@ -2026,9 +1983,7 @@ msgid "Text Style"
 msgstr ""
 
 #: src/chatbar/RichEditBar.qml:237
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Emojis & Stickers"
+#, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis & Sticker"
 
@@ -2216,14 +2171,14 @@ msgid ""
 "This should not be shared with anyone, even other users. This token gives "
 "full access to your account."
 msgstr ""
+"Dies sollte mit niemand anderem geteilt werden, nicht einmal mit anderen "
+"Benutzern. Dieses Token ermöglicht vollen Zugriff auf Ihr Konto."
 
 #: src/devtools/AccountData.qml:46
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access"
+#, kde-format
 msgctxt "@info"
 msgid "Access Token"
-msgstr "Zugang"
+msgstr "Zugangs-Token"
 
 #: src/devtools/AccountData.qml:51
 #, fuzzy, kde-format
@@ -2248,16 +2203,13 @@ msgid "Allow sending relations to any event in the timeline"
 msgstr "Ausgeblendete Ereignisse in der Zeitleiste anzeigen"
 
 #: src/devtools/DebugOptions.qml:25
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgctxt "@info"
 msgid "This includes state events"
-msgstr "Statusänderungen anzeigen"
+msgstr "Dies schließt Statusänderungen ein"
 
 #: src/devtools/DebugOptions.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@option:check Enable the matrix 'threads' feature"
-#| msgid "Always allow device verification"
+#, kde-format
 msgctxt "@option:check"
 msgid "Always allow device verification"
 msgstr "Geräteverifizierung immer zulassen"
@@ -2430,10 +2382,9 @@ msgstr ""
 "Schlüsselbund unter Linux"
 
 #: src/libneochat/accountmanager.cpp:133
-#, fuzzy, kde-format
-#| msgid "Unable to read access token"
+#, kde-format
 msgid "Unable to read access token: %1"
-msgstr "Das Zugangs-Token kann nicht gelesen werden"
+msgstr "Das Zugangs-Token kann nicht gelesen werden: %1"
 
 #: src/libneochat/enums/neochatroomtype.h:65
 #, kde-format
@@ -2783,16 +2734,14 @@ msgid "left the room"
 msgstr "hat den Raum verlassen"
 
 #: src/libneochat/eventhandler.cpp:373
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "has removed %1 from the room: %2"
-msgstr "hat %1 aus dem Raum verbannt: %2"
+msgstr "hat %1 aus dem Raum entfernt: %2"
 
 #: src/libneochat/eventhandler.cpp:375
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "has removed %1 from the room"
-msgstr "hat %1 aus dem Raum verbannt"
+msgstr "hat %1 aus dem Raum entfernt"
 
 #: src/libneochat/eventhandler.cpp:379
 #, kde-format
@@ -2916,11 +2865,10 @@ msgid "joined a call"
 msgstr "ist einem Anruf beigetreten"
 
 #: src/libneochat/eventhandler.cpp:445
-#, fuzzy, kde-format
-#| msgid "%1 configured a widget"
+#, kde-format
 msgctxt "[User] configured an extension"
 msgid "configured an extension"
-msgstr "%1 hat ein Element eingerichtet"
+msgstr "hat eine Erweiterung eingerichtet"
 
 #: src/libneochat/eventhandler.cpp:447
 #, kde-format
@@ -3207,7 +3155,7 @@ msgstr "%1 haben den Zustand aktualisiert"
 #: src/libneochat/eventhandler.cpp:666
 #, kde-format
 msgid "%1 started a poll"
-msgstr "%1 haben eine Abstimmung gestartet"
+msgstr "%1 hat eine Abstimmung gestartet"
 
 #: src/libneochat/filetransferpseudojob.cpp:58
 #, kde-format
@@ -4344,13 +4292,11 @@ msgstr[1] "%2 reagierten mit %3"
 msgctxt "@info"
 msgid "%1 Vote"
 msgid_plural "%1 Votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 Stimme"
+msgstr[1] "%1 Stimmen"
 
 #: src/messagecontent/PollComponent.qml:138
-#, fuzzy, kde-format
-#| msgid "Based on votes by %1 user"
-#| msgid_plural "Based on votes by %1 users"
+#, kde-format
 msgctxt "@info"
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
@@ -4367,7 +4313,7 @@ msgstr "(Beendet)"
 #, kde-format
 msgctxt "%1 is the poll answer that had the most votes"
 msgid "The poll has ended. Top answer: %1"
-msgstr ""
+msgstr "Die Abstimmung ist beendet. Antwort mit den meisten Stimmen: %1"
 
 #: src/messagecontent/ReactionComponent.qml:88
 #, kde-format
@@ -4435,11 +4381,10 @@ msgid "Locations"
 msgstr "Orte"
 
 #: src/roominfo/LocationsPage.qml:70
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "No shared locations"
-msgstr "Einen Standort senden"
+msgstr "Keine geteilten Standorte"
 
 #: src/roominfo/LocationsPage.qml:71
 #, kde-format
@@ -4447,6 +4392,8 @@ msgctxt ""
 "@info 'Send a Location' should share the same name as the chat bar button"
 msgid "Share a location by using 'Send a Location' in the chat bar."
 msgstr ""
+"Sie können mittels „Einen Standort senden“ in der Unterhaltungsleiste einen "
+"Standort teilen."
 
 #: src/roominfo/RoomDrawer.qml:122 src/roominfo/RoomDrawerPage.qml:51
 #, kde-format
@@ -4507,11 +4454,10 @@ msgid "Extensions"
 msgstr "Erweiterungen"
 
 #: src/roominfo/RoomInformation.qml:144
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgctxt "@action:button"
 msgid "Shared Locations"
-msgstr "Einen Standort senden"
+msgstr "Geteilte Standorte"
 
 #: src/roominfo/RoomInformation.qml:161
 #, kde-format
@@ -4520,12 +4466,10 @@ msgid "Pinned Messages"
 msgstr "Angepinnte Nachrichten"
 
 #: src/roominfo/RoomInformation.qml:176
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Room Data"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Inspect Room Data"
-msgstr "Raumdaten"
+msgstr "Raumdaten einsehen"
 
 #: src/roominfo/RoomInformation.qml:197
 #, kde-format
@@ -4608,12 +4552,10 @@ msgid "Extensions"
 msgstr "Erweiterungen"
 
 #: src/roominfo/WidgetsPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Extensions"
+#, kde-format
 msgctxt "@placeholder"
 msgid "No extensions"
-msgstr "Erweiterungen"
+msgstr "Keine Erweiterungen"
 
 #: src/roominfo/WidgetsPage.qml:67
 #, kde-format
@@ -4622,23 +4564,19 @@ msgid "Remove widget"
 msgstr "Element entfernen"
 
 #: src/rooms/ExploreComponent.qml:36
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "@title Home space"
 msgid "Home"
 msgstr "Start"
 
 #: src/rooms/ExploreComponent.qml:38
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Direct Messages"
 msgstr "Direktnachrichten"
 
 #: src/rooms/ExploreComponent.qml:42
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Rooms"
+#, kde-format
 msgctxt "@title List of rooms"
 msgid "Rooms"
 msgstr "Räume"
@@ -4656,22 +4594,19 @@ msgid "Open Settings"
 msgstr "Einstellungen öffnen"
 
 #: src/rooms/ExploreComponentMobile.qml:34
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "@action:button The 'normal' view of NeoChat including the room list"
 msgid "Home"
 msgstr "Start"
 
 #: src/rooms/ExploreComponentMobile.qml:41
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@action:button View all notifications for this account"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: src/rooms/ExploreComponentMobile.qml:57
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgctxt "@action:button Open the account menu"
 msgid "Account"
 msgstr "Konto"
@@ -4788,12 +4723,10 @@ msgid "Report Room"
 msgstr "Raum melden"
 
 #: src/rooms/RoomContextMenu.qml:160
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this room"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this room"
-msgstr "Begründung für das Melden dieses Raums"
+msgstr "Optionale Begründung für das Melden dieses Raums"
 
 #: src/rooms/RoomContextMenu.qml:162
 #, kde-format
@@ -4849,9 +4782,7 @@ msgid "No rooms found"
 msgstr "Keine Räume gefunden"
 
 #: src/rooms/RoomListPage.qml:231
-#, fuzzy, kde-format
-#| msgid ""
-#| "You haven't added any of your friends yet, click below to search for them."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "You haven't added any of your friends yet, click below to search for them."
@@ -4867,18 +4798,13 @@ msgid "Join some rooms to get started"
 msgstr "Einen Raum betreten, um zu beginnen"
 
 #: src/rooms/RoomListPage.qml:238
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:inmenu opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Search Rooms"
+#, kde-format
 msgctxt "@action:button Search public directory for this room"
 msgid "Search for Room"
-msgstr "Räume suchen"
+msgstr "Nach Raum suchen"
 
 #: src/rooms/RoomListPage.qml:253
-#, fuzzy, kde-format
-#| msgid "Search in friend directory"
+#, kde-format
 msgctxt "@action:button"
 msgid "Search in friend directory"
 msgstr "Freundesliste durchsuchen"
@@ -4896,17 +4822,15 @@ msgid "Expand %1"
 msgstr "%1 ausklappen"
 
 #: src/rooms/SpaceDrawer.qml:59
-#, fuzzy, kde-format
-#| msgid "Unmute notifications"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home (%1 notification)"
 msgid_plural "Home (%1 notifications)"
-msgstr[0] "Benachrichtigungen entstummen"
-msgstr[1] "Benachrichtigungen entstummen"
+msgstr[0] "Start (%1 Benachrichtigung)"
+msgstr[1] "Start (%1 Benachrichtigungen)"
 
 #: src/rooms/SpaceDrawer.qml:59
-#, fuzzy, kde-format
-#| msgid "Home"
+#, kde-format
 msgctxt "Home space for the uncategorized rooms"
 msgid "Home"
 msgstr "Start"
@@ -4932,50 +4856,40 @@ msgid "Join %1"
 msgstr "%1 betreten"
 
 #: src/rooms/SpaceDrawer.qml:239
-#, fuzzy, kde-format
-#| msgctxt "@action:button Create new room"
-#| msgid "Create"
+#, kde-format
 msgctxt "@action:button Create a new room or space"
 msgid "Create"
 msgstr "Erstellen"
 
 #: src/rooms/SpaceDrawer.qml:253
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Room…"
-msgstr "Neue Gruppe …"
+msgstr "Neuer Raum …"
 
 #: src/rooms/SpaceDrawer.qml:264
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:button Create a new room"
 msgid "New Space…"
-msgstr "Umgebung anzeigen"
+msgstr "Neue Umgebung …"
 
 #: src/rooms/SpaceListContextMenu.qml:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Mark as Read"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Mark Space as Read"
-msgstr "Als gelesen markieren"
+msgstr "Umgebung als gelesen markieren"
 
 #: src/rooms/SpaceListContextMenu.qml:57
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Umgebung anzeigen"
+msgstr "Umgebung ansehen"
 
 #: src/rooms/SpaceListContextMenu.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Link Address"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Space Address"
-msgstr "Verknüpfungsadresse kopieren"
+msgstr "Umgebungsadresse kopieren"
 
 #: src/rooms/SpaceListContextMenu.qml:73 src/spaces/SpaceHomePage.qml:133
 #, kde-format
@@ -5042,7 +4956,7 @@ msgstr "Konto verwalten"
 #: src/rooms/UserInfo.qml:95
 #, kde-format
 msgid "View notifications"
-msgstr "Benachrichtigungen anzeigen"
+msgstr "Benachrichtigungen ansehen"
 
 #: src/settings/AccountEditorPage.qml:20
 #, kde-format
@@ -5058,7 +4972,7 @@ msgstr "Neuen Avatar hochladen"
 #: src/settings/AccountEditorPage.qml:83
 #, kde-format
 msgid "Remove current avatar"
-msgstr "Aktuellen Avatar löschen"
+msgstr "Aktuellen Avatar entfernen"
 
 #: src/settings/AccountEditorPage.qml:106
 #, kde-format
@@ -5174,7 +5088,7 @@ msgstr "Serverinformationen"
 #: src/settings/AccountEditorPage.qml:250
 #, kde-format
 msgid "Homeserver url"
-msgstr "Adresse des Heimservers:"
+msgstr "Adresse des Heimservers"
 
 #: src/settings/AccountEditorPage.qml:271
 #, kde-format
@@ -5257,13 +5171,12 @@ msgid "Chat font scaling"
 msgstr "Schriftskalierung von Unterhaltungen"
 
 #: src/settings/AppearanceSettingsPage.qml:64
-#, fuzzy, kde-format
-#| msgid "%1: %2"
+#, kde-format
 msgctxt ""
 "@label:slider Current font scale percentage. %1 is the numeric percentage "
 "value, the second % is the symbol e.g. 120%"
 msgid "%1%"
-msgstr "%1: %2"
+msgstr "%1 %"
 
 #: src/settings/AppearanceSettingsPage.qml:83
 #, fuzzy, kde-format
@@ -5826,31 +5739,22 @@ msgid "Keyboard Shortcuts"
 msgstr ""
 
 #: src/settings/KeyboardShortcutsPage.qml:18
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Quick Switcher"
 msgstr "Schnellwechsler öffnen"
 
 #: src/settings/KeyboardShortcutsPage.qml:23
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "menu item that opens a UI element called the 'Quick Switcher', which "
-#| "offers a fast keyboard-based interface for switching in between chats."
-#| msgid "Open Quick Switcher"
+#, kde-format
 msgctxt "@info:label"
 msgid "Open Account Switcher"
-msgstr "Schnellwechsler öffnen"
+msgstr "Kontowechsler öffnen"
 
 #: src/settings/KeyboardShortcutsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Search user in room"
+#, kde-format
 msgctxt "@info:label"
 msgid "Search Messages in Current Room"
-msgstr "Benutzer in Raum suchen"
+msgstr "Nachrichten im aktuellen Raum suchen"
 
 #: src/settings/KeyboardShortcutsPage.qml:33
 #, kde-format
@@ -5879,27 +5783,22 @@ msgid "Go to Next Unread Room"
 msgstr ""
 
 #: src/settings/Members.qml:23
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title:window"
 msgid "Members"
 msgstr "Mitglieder"
 
 #: src/settings/Members.qml:32
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Privileged Users"
+#, kde-format
 msgctxt "@title"
 msgid "Privileged Members"
-msgstr "Privilegierte Benutzer"
+msgstr "Privilegierte Mitglieder"
 
 #: src/settings/Members.qml:169
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "No users found"
+#, kde-format
 msgctxt "@info"
 msgid "No users found."
-msgstr "Keine Benutzer gefunden"
+msgstr "Keine Benutzer gefunden."
 
 #: src/settings/Members.qml:244 src/settings/Permissions.qml:302
 #, kde-format
@@ -5908,11 +5807,9 @@ msgid "Loading…"
 msgstr "Wird geladen …"
 
 #: src/settings/models/permissionsmodel.cpp:61
-#, fuzzy
-#| msgid "New power level"
 msgctxt "Room permission type"
 msgid "Default power level"
-msgstr "Neu Berechtigungsstufe"
+msgstr "Standard-Berechtigungsstufe"
 
 #: src/settings/models/permissionsmodel.cpp:62
 #, fuzzy
@@ -5960,7 +5857,7 @@ msgstr "Reaktionen senden"
 #: src/settings/models/permissionsmodel.cpp:69
 msgctxt "Room permission type"
 msgid "Remove their own messages"
-msgstr "Eigene Nachrichten löschen"
+msgstr "Eigene Nachrichten entfernen"
 
 #: src/settings/models/permissionsmodel.cpp:70
 msgctxt "Room permission type"
@@ -5998,11 +5895,9 @@ msgid "Change the room history visibility"
 msgstr "Sichtbarkeit des Nachrichtenverlaufs ändern"
 
 #: src/settings/models/permissionsmodel.cpp:77
-#, fuzzy
-#| msgid "Find messages…"
 msgctxt "Room permission type"
 msgid "Pin and unpin messages"
-msgstr "Nachrichten suchen …"
+msgstr "Nachrichten anheften und loslösen"
 
 #: src/settings/models/permissionsmodel.cpp:78
 msgctxt "Room permission type"
@@ -6025,11 +5920,9 @@ msgid "Set the parent space of this room"
 msgstr "Die übergeordnete Umgebung dieses Raumes festlegen"
 
 #: src/settings/models/permissionsmodel.cpp:82
-#, fuzzy
-#| msgid "Send this location"
 msgctxt "Room permission type"
 msgid "Send live location updates"
-msgstr "Diesen Standort senden"
+msgstr "Aktualisierungen des Live-Standorts senden"
 
 #: src/settings/models/permissionsmodel.cpp:83
 #, fuzzy
@@ -6039,12 +5932,9 @@ msgid "Start polls"
 msgstr "%1 haben eine Abstimmung gestartet"
 
 #: src/settings/models/permissionsmodel.cpp:84
-#, fuzzy
-#| msgctxt "@item:inlistbox"
-#| msgid "Open poll"
 msgctxt "Room permission type"
 msgid "Vote in polls"
-msgstr "Offene Abstimmung"
+msgstr "An Abstimmungen teilnehmen"
 
 #: src/settings/models/permissionsmodel.cpp:85
 #, fuzzy
@@ -6097,8 +5987,6 @@ msgid "Messages in encrypted group chats"
 msgstr "Nachrichten in verschlüsselten Gruppenunterhaltungen"
 
 #: src/settings/models/pushrulemodel.cpp:22
-#, fuzzy
-#| msgid "Room upgrade messages"
 msgctxt "Notification type"
 msgid "Room upgrade messages"
 msgstr "Raum-Aktualisierungsnachrichten"
@@ -6174,7 +6062,7 @@ msgstr ""
 #: src/settings/NeoChatGeneralPage.qml:80
 #, kde-format
 msgid "Show all rooms in \"Home\" tab"
-msgstr "Alle Räume bei „Start“ anzeigen"
+msgstr "Alle Räume im „Start“-Unterfenster anzeigen"
 
 #: src/settings/NeoChatGeneralPage.qml:91
 #, kde-format
@@ -6195,12 +6083,10 @@ msgid "Importance"
 msgstr "Wichtigkeit"
 
 #: src/settings/NeoChatGeneralPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Rooms with unread notifications will be shown first"
+#, kde-format
 msgctxt "@info"
 msgid "Rooms with unread notifications will be shown first."
-msgstr "Räume mit ungelesenen Benachrichtigungen werden zuerst angezeigt"
+msgstr "Räume mit ungelesenen Benachrichtigungen werden zuerst angezeigt."
 
 #: src/settings/NeoChatGeneralPage.qml:112
 #, kde-format
@@ -6378,11 +6264,10 @@ msgid "Messages"
 msgstr "<Nachricht>"
 
 #: src/settings/NeoChatSecurityPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Shrink preview"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Show link previews"
-msgstr "Vorschau verkleinern"
+msgstr "Verknüpfungsvorschauen anzeigen"
 
 #: src/settings/NeoChatSecurityPage.qml:49
 #, kde-format
@@ -6472,7 +6357,7 @@ msgstr "Verschlüsselung"
 #, kde-format
 msgctxt "@option:check"
 msgid "Turn on encryption in new chats"
-msgstr ""
+msgstr "Verschlüsselung in neuen Unterhaltungen aktivieren"
 
 #: src/settings/NeoChatSecurityPage.qml:123
 #, kde-format
@@ -6717,26 +6602,22 @@ msgid "Password:"
 msgstr "Passwort:"
 
 #: src/settings/Permissions.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Set user power level"
+#, kde-format
 msgctxt "@title"
 msgid "Power Levels"
-msgstr "Berechtigungsstufe des Benutzers festlegen"
+msgstr "Berechtigungsstufen"
 
 #: src/settings/Permissions.qml:75
-#, fuzzy, kde-format
-#| msgid "<message>"
+#, kde-format
 msgctxt "@title"
 msgid "Messages"
-msgstr "<Nachricht>"
+msgstr "Nachrichten"
 
 #: src/settings/Permissions.qml:114
-#, fuzzy, kde-format
-#| msgid "Moderator"
+#, kde-format
 msgctxt "@title"
 msgid "Moderation"
-msgstr "Moderator"
+msgstr "Moderation"
 
 #: src/settings/Permissions.qml:153 src/settings/RoomGeneralPage.qml:24
 #: src/settings/RoomSettingsView.qml:37
@@ -6746,12 +6627,10 @@ msgid "General"
 msgstr "Allgemein"
 
 #: src/settings/Permissions.qml:192
-#, fuzzy, kde-format
-#| msgctxt "As in 'sort something based on the last event'"
-#| msgid "Newest Events"
+#, kde-format
 msgctxt "@title"
 msgid "Other Events"
-msgstr "Neueste Ereignisse"
+msgstr "Andere Ereignisse"
 
 #: src/settings/Permissions.qml:250
 #, kde-format
@@ -6819,12 +6698,10 @@ msgid "Room Version"
 msgstr "Raumversion"
 
 #: src/settings/RoomAdvancedPage.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Upgrade Room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Room…"
-msgstr "Raum aktualisieren"
+msgstr "Raum aktualisieren …"
 
 #: src/settings/RoomAdvancedPage.qml:81
 #, kde-format
@@ -6909,11 +6786,10 @@ msgid "Add new alias"
 msgstr "Neuen Klarkennung hinzufügen"
 
 #: src/settings/RoomGeneralPage.qml:194
-#, fuzzy, kde-format
-#| msgid "URL Previews"
+#, kde-format
 msgctxt "@title"
 msgid "Link Previews"
-msgstr "Adressvorschauen"
+msgstr "Verknüpfungsvorschauen"
 
 #: src/settings/RoomGeneralPage.qml:201
 #, fuzzy, kde-format
@@ -6953,11 +6829,10 @@ msgid "Link previews were disabled by default by the room admins."
 msgstr "Die Vorschau bei Adressen ist in diesem Raum standardmäßig deaktiviert"
 
 #: src/settings/RoomGeneralPage.qml:225
-#, fuzzy, kde-format
-#| msgid "Enable URL previews by default for room members"
+#, kde-format
 msgctxt "@label:checkbox"
 msgid "Enable link previews by default"
-msgstr "Adressvorschauen für Mitglieder des Raumes standardmäßig aktivieren"
+msgstr "Verknüpfungsvorschauen standardmäßig aktivieren"
 
 #: src/settings/RoomGeneralPage.qml:232
 #, fuzzy, kde-format
@@ -6981,15 +6856,13 @@ msgid "Make canonical parent"
 msgstr "Keine Hauptadresse gesetzt"
 
 #: src/settings/RoomGeneralPage.qml:281
-#, fuzzy, kde-format
-#| msgid "Remove parent"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove parent"
 msgstr "Übergeordnetes Element entfernen"
 
 #: src/settings/RoomGeneralPage.qml:294
-#, fuzzy, kde-format
-#| msgid "This room has no official parent spaces."
+#, kde-format
 msgctxt "@info"
 msgid "This room has no official parent spaces."
 msgstr "Dieser Raum hat keine offiziell übergeordneten Umgebungen."
@@ -7001,22 +6874,19 @@ msgid "Add new official parent"
 msgstr "Neues offiziell übergeordnetes Element hinzufügen"
 
 #: src/settings/RoomGeneralPage.qml:315
-#, fuzzy, kde-format
-#| msgid "This room continues another conversation."
+#, kde-format
 msgctxt "@info"
 msgid "This room continues another conversation."
 msgstr "Dieser Raum setzt eine andere Unterhaltung fort."
 
 #: src/settings/RoomGeneralPage.qml:319
-#, fuzzy, kde-format
-#| msgid "See older messages…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See older messages…"
-msgstr "Ältere Nachrichten ansehen …"
+msgstr "Ältere Nachrichten ansehen …"
 
 #: src/settings/RoomGeneralPage.qml:331
-#, fuzzy, kde-format
-#| msgid "This room has been replaced."
+#, kde-format
 msgctxt "@info"
 msgid "This room has been replaced."
 msgstr "Dieser Raum wurde ersetzt."
@@ -7118,16 +6988,14 @@ msgid "Space members"
 msgstr "Mitglieder der Umgebung"
 
 #: src/settings/RoomSecurityPage.qml:76
-#, fuzzy, kde-format
-#| msgid "Anyone in the selected spaces can find and join."
+#, kde-format
 msgctxt "@info"
 msgid "Anyone in the selected spaces can find and join."
 msgstr ""
 "Jeder in den ausgewählten Umgebungen kann den Raum finden und betreten."
 
 #: src/settings/RoomSecurityPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Select spaces"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select spaces"
 msgstr "Umgebungen auswählen"
@@ -7236,15 +7104,13 @@ msgid "Room Settings"
 msgstr "Raumeinstellungen"
 
 #: src/settings/RoomSettingsView.qml:60
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@title"
 msgid "Members"
 msgstr "Mitglieder"
 
 #: src/settings/RoomSettingsView.qml:71
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title"
 msgid "Permissions"
 msgstr "Berechtigungen"
@@ -7379,10 +7245,9 @@ msgid "We've sent you an email"
 msgstr ""
 
 #: src/settings/threepidbindhelper.cpp:179 src/settings/ThreePIdCard.qml:156
-#, fuzzy, kde-format
-#| msgid "sent a message"
+#, kde-format
 msgid "We've sent you a text message"
-msgstr "hat eine Nachricht gesendet"
+msgstr "Wir haben Ihnen eine Textnachricht gesendet"
 
 #: src/settings/threepidbindhelper.cpp:181 src/settings/ThreePIdCard.qml:158
 #, kde-format
@@ -7503,43 +7368,38 @@ msgstr ""
 "Soll diese Zuordnung aufgehoben werden?"
 
 #: src/spaces/SelectExistingRoomDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@title"
 msgid "Select Existing Room"
 msgstr "Vorhandenen Raum auswählen"
 
 #: src/spaces/SelectExistingRoomDialog.qml:39
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Pick room"
+#, kde-format
 msgctxt "@action:button"
 msgid "Pick Room"
 msgstr "Raum wählen"
 
 #: src/spaces/SelectExistingRoomDialog.qml:44
-#, fuzzy, kde-format
-#| msgid "Explore rooms"
+#, kde-format
 msgctxt "@title Explore public rooms and spaces"
 msgid "Explore"
-msgstr "Räume erkunden"
+msgstr "Erkunden"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
-#, fuzzy, kde-format
-#| msgid "You have the required privilege level in the child to set this state"
+#, kde-format
 msgctxt "@info:description"
 msgid "You have the required privilege level in the child to set this state"
 msgstr ""
-"Sie besitzen die notwendige Berechtigungsstufe zum Festlegen des Status beim "
-"nachgeordneten Element"
+"Sie besitzen die notwendige Berechtigungsstufe beim nachgeordneten Element "
+"zum Festlegen dieses Status"
 
 #: src/spaces/SelectExistingRoomDialog.qml:148
 #, kde-format
 msgid ""
 "You do not have a high enough privilege level in the child to set this state"
 msgstr ""
-"Sie besitzen nicht die notwendige Berechtigungsstufe zum Festlegen des "
-"Status beim nachgeordneten Element"
+"Sie besitzen nicht die notwendige Berechtigungsstufe beim nachgeordneten "
+"Element zum Festlegen dieses Status"
 
 #: src/spaces/SelectExistingRoomDialog.qml:171
 #, kde-format
@@ -7584,16 +7444,13 @@ msgid "Add new room"
 msgstr "Neuen Raum hinzufügen"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:123
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@button"
 msgid "Remove…"
-msgstr "Entfernen"
+msgstr "Entfernen …"
 
 #: src/spaces/SpaceHierarchyDelegate.qml:143
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Don't Make Suggested"
+#, kde-format
 msgctxt "@button"
 msgid "Don't Suggest"
 msgstr "Nicht vorschlagen"
@@ -7605,50 +7462,40 @@ msgid "Make Suggested"
 msgstr "Vorschlagen"
 
 #: src/spaces/SpaceHomePage.qml:34
-#, fuzzy, kde-format
-#| msgctxt "menu"
-#| msgid "New Group…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Room…"
-msgstr "Neue Gruppe …"
+msgstr "Neuer Raum …"
 
 #: src/spaces/SpaceHomePage.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "View Space"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "New Space…"
-msgstr "Umgebung anzeigen"
+msgstr "Neue Umgebung …"
 
 #: src/spaces/SpaceHomePage.qml:46
-#, fuzzy, kde-format
-#| msgid "Select Existing Room"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Existing Room…"
-msgstr "Vorhandenen Raum auswählen"
+msgstr "Vorhandener Raum …"
 
 #: src/spaces/SpaceHomePage.qml:80
-#, fuzzy, kde-format
-#| msgctxt "@button"
-#| msgid "Invite user to space"
+#, kde-format
 msgctxt "@button Invite user to this space"
 msgid "Invite to Space…"
-msgstr "Benutzer in die Umgebung einladen"
+msgstr "In die Umgebung einladen …"
 
 #: src/spaces/SpaceHomePage.qml:92
-#, fuzzy, kde-format
-#| msgid "Add to Favorites"
+#, kde-format
 msgctxt "@button"
 msgid "Add to Space…"
-msgstr "Zu Favoriten hinzufügen"
+msgstr "Zur Umgebung hinzufügen …"
 
 #: src/spaces/SpaceHomePage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Leave this space"
+#, kde-format
 msgctxt "@action:button"
 msgid "Leave this Space…"
-msgstr "Umgebung verlassen"
+msgstr "Diese Umgebung verlassen …"
 
 #: src/timeline/DelegateContextMenu.qml:163
 #, kde-format
@@ -7657,8 +7504,7 @@ msgid "Reply"
 msgstr "Antworten"
 
 #: src/timeline/DelegateContextMenu.qml:185
-#, fuzzy, kde-format
-#| msgid "Reply in Thread"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Reply in Thread"
 msgstr "Im Diskussionsfaden antworten"
@@ -7674,21 +7520,19 @@ msgstr "Entfernen …"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Remove Message"
-msgstr "Nachricht löschen"
+msgstr "Nachricht entfernen"
 
 #: src/timeline/DelegateContextMenu.qml:217
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for removing this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for removing this message"
-msgstr "Begründung für das Löschen dieser Nachricht"
+msgstr "Optionale Begründung für das Entfernen dieser Nachricht"
 
 #: src/timeline/DelegateContextMenu.qml:218
 #, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
-msgstr "Löschen"
+msgstr "Entfernen"
 
 #: src/timeline/DelegateContextMenu.qml:239
 #, kde-format
@@ -7806,12 +7650,10 @@ msgid "Report Message"
 msgstr "Nachricht melden"
 
 #: src/timeline/DelegateContextMenu.qml:343
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Optionally give a reason for reporting this message"
-msgstr "Begründung für das Melden dieser Nachricht"
+msgstr "Optionale Begründung für das Melden dieser Nachricht"
 
 #: src/timeline/DelegateContextMenu.qml:345
 #, kde-format
@@ -7870,18 +7712,16 @@ msgid "Deselect Message"
 msgstr "Direktnachrichten"
 
 #: src/timeline/DelegateContextMenu.qml:422
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Select Message"
-msgstr "Direktnachrichten"
+msgstr "Nachricht auswählen"
 
 #: src/timeline/DelegateContextMenu.qml:435
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "View Source"
-msgstr "Quelltext anzeigen"
+msgstr "Quelle ansehen"
 
 #: src/timeline/models/readmarkermodel.cpp:115
 #, kde-format
@@ -7983,11 +7823,10 @@ msgid "Jump to latest message"
 msgstr "Zur neuesten Nachricht springen"
 
 #: src/timeline/TimelineView.qml:331
-#, fuzzy, kde-format
-#| msgid "Drag items here to share them"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Drag items here to share them"
-msgstr "Einträge hier einfügen um sie zu teilen"
+msgstr "Elemente hierher ziehen, um sie zu teilen"
 
 #: src/timeline/TimelineView.qml:360
 #, kde-format
