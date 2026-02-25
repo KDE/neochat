@@ -53,7 +53,6 @@ inline QString trim(QString string)
 QString CacheItem::toString() const
 {
     auto newText = trim(content.toMarkdown(QTextDocument::MarkdownDialectGitHub));
-    newText.replace(QRegularExpression(u"(?<!\n)\n(?!\n)"_s), u" "_s);
     if (type == MessageComponentType::Quote) {
         newText = formatQuote(newText);
     } else if (type == MessageComponentType::Code) {
