@@ -74,13 +74,13 @@ QQC2.Control {
             QQC2.ToolButton {
                 id: emojiButton
                 property EmojiDialog dialog
-                
+
                 icon.name: "smiley"
                 text: i18n("Emojis & Stickers")
                 display: QQC2.AbstractButton.IconOnly
                 checkable: true
                 checked: dialog !== null
-        
+
                 onClicked: {
                     if(!checked){
                         if(dialog) {
@@ -108,7 +108,7 @@ QQC2.Control {
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 QQC2.ToolTip.text: text
             }
-            
+
             QQC2.ScrollView {
                 id: chatScrollView
                 Layout.fillWidth: true

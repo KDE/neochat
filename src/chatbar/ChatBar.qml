@@ -67,16 +67,25 @@ Item {
         }
     }
 
-    implicitHeight: core.implicitHeight + Kirigami.Units.largeSpacing
+    implicitHeight: column.implicitHeight + Kirigami.Units.largeSpacing
 
-    ChatBarCore {
-        id: core
+    ColumnLayout {
+        id: column
         anchors.top: root.top
         anchors.horizontalCenter: root.horizontalCenter
-
-        Message.room: root.currentRoom
-        room: root.currentRoom
-        maxAvailableWidth: chatBarSizeHelper.availableWidth
+        ChatBarCore {
+            id: core
+            Message.room: root.currentRoom
+            room: root.currentRoom
+            maxAvailableWidth: chatBarSizeHelper.availableWidth
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            visible: !Kirigami.Setting.isMobile
+            text: NeoChatConfig.sendMessageWith === 1 ? i18nc("As in enter starts a new line in the chat bar", "Enter starts a new line") : i18nc("As in enter starts send the chat message", "Enter sends the message")
+            horizontalAlignment: Text.AlignRight
+            font.pointSize: Kirigami.Theme.defaultFont.pointSize * NeoChatConfig.fontScale * 0.75
+        }
     }
     LibNeoChat.DelegateSizeHelper {
         id: chatBarSizeHelper

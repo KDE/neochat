@@ -192,7 +192,7 @@ RowLayout {
     
     QQC2.ToolButton {
         icon.name: "edit-select-text-symbolic"
-        text: i18nc("@action:button", "Rich Text")
+        text: NeoChatConfig.sendMessageWith === 1 ? i18nc("@action:button", "Hide Rich Text Controls") : i18nc("@action:button", "Show Rich Text Controls")
         display: QQC2.AbstractButton.IconOnly
         checkable: true
         checked: NeoChatConfig.sendMessageWith === 1
