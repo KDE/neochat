@@ -400,7 +400,6 @@ void ChatKeyHelper::checkMouseSelection()
         return;
     }
     bool selectingLink = false;
-    cursor.beginEditBlock();
     cursor.setPosition(m_textItem->selectionStart());
     if (cursor.charFormat().isAnchor()) {
         selectingLink = true;
@@ -428,7 +427,6 @@ void ChatKeyHelper::checkMouseSelection()
         cursor.movePosition(QTextCursor::PreviousCharacter);
         currentCharFormat = cursor.charFormat();
     }
-    cursor.endEditBlock();
     selectRight(cursor);
 }
 
