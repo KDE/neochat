@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"POT-Creation-Date: 2026-02-26 00:44+0000\n"
 "PO-Revision-Date: 2026-02-22 14:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -893,7 +893,7 @@ msgctxt "@action:button"
 msgid "Quote"
 msgstr "Citaat"
 
-#: src/app/qml/QuickFormatBar.qml:136 src/chatbar/RichEditBar.qml:252
+#: src/app/qml/QuickFormatBar.qml:136 src/chatbar/RichEditBar.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
@@ -1725,17 +1725,10 @@ msgstr "Tonen"
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBarCore.qml:79
 #, kde-format
-msgctxt "@action:button"
-msgid "Enter rich text mode"
-msgstr "Modus opgemaakte tekst ingaan"
-
-#: src/chatbar/ChatBar.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Exit rich text mode"
-msgstr "Modus opgemaakte tekst verlaten"
+msgid "Emojis & Stickers"
+msgstr "Emoji's & stickers"
 
 #: src/chatbar/EmojiGrid.qml:88
 #, kde-format
@@ -1947,48 +1940,43 @@ msgctxt "@action:button"
 msgid "Text Style"
 msgstr "Tekststijl"
 
-#: src/chatbar/RichEditBar.qml:237
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr "Emoji's & stickers"
-
-#: src/chatbar/RichEditBar.qml:252
+#: src/chatbar/RichEditBar.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
 msgstr "Koppeling bewerken"
 
-#: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
+#: src/chatbar/RichEditBar.qml:262 src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
 msgstr "Ongeordende lijst"
 
-#: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
+#: src/chatbar/RichEditBar.qml:278 src/chatbar/RichEditBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
 msgstr "Geordende lijst"
 
-#: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
+#: src/chatbar/RichEditBar.qml:295 src/chatbar/RichEditBar.qml:357
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr "Lijstniveau verhogen"
 
-#: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
+#: src/chatbar/RichEditBar.qml:310 src/chatbar/RichEditBar.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr "Lijstniveau verkleinen"
 
-#: src/chatbar/RichEditBar.qml:341
+#: src/chatbar/RichEditBar.qml:327
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
 msgstr "Lijststijl"
 
-#: src/chatbar/SendBar.qml:53
+#: src/chatbar/SendBar.qml:54
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -2000,43 +1988,51 @@ msgstr ""
 "Bijlagen mogen alleen bijschriften in platte tekst hebben; alle opmaak wordt "
 "verwijderd"
 
-#: src/chatbar/SendBar.qml:87
+#: src/chatbar/SendBar.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr "Aan bericht toevoegen"
 
-#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
+#: src/chatbar/SendBar.qml:118 src/chatbar/SendBar.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
+#: src/chatbar/SendBar.qml:123 src/chatbar/SendBar.qml:162
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
-#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
+#: src/chatbar/SendBar.qml:128 src/chatbar/SendBar.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr "Een opiniepeiling aanmaken"
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
+#: src/chatbar/SendBar.qml:133 src/chatbar/SendBar.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr "Een stembericht versturen"
 
-#: src/chatbar/SendBar.qml:194
+#: src/chatbar/SendBar.qml:195
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Link Text:"
+msgctxt "@action:button"
+msgid "Rich Text"
+msgstr "Koppelingstekst:"
+
+#: src/chatbar/SendBar.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
@@ -7715,6 +7711,14 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
+
+#~ msgctxt "@action:button"
+#~ msgid "Enter rich text mode"
+#~ msgstr "Modus opgemaakte tekst ingaan"
+
+#~ msgctxt "@action:button"
+#~ msgid "Exit rich text mode"
+#~ msgstr "Modus opgemaakte tekst verlaten"
 
 #~ msgctxt "@option:check"
 #~ msgid "Reject invitations from unknown users"

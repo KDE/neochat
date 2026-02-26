@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-23 00:44+0000\n"
+"POT-Creation-Date: 2026-02-26 00:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -883,7 +883,7 @@ msgctxt "@action:button"
 msgid "Quote"
 msgstr ""
 
-#: src/app/qml/QuickFormatBar.qml:136 src/chatbar/RichEditBar.qml:252
+#: src/app/qml/QuickFormatBar.qml:136 src/chatbar/RichEditBar.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Insert link"
@@ -1675,16 +1675,9 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: src/chatbar/ChatBar.qml:106
+#: src/chatbar/ChatBarCore.qml:79
 #, kde-format
-msgctxt "@action:button"
-msgid "Enter rich text mode"
-msgstr ""
-
-#: src/chatbar/ChatBar.qml:106
-#, kde-format
-msgctxt "@action:button"
-msgid "Exit rich text mode"
+msgid "Emojis & Stickers"
 msgstr ""
 
 #: src/chatbar/EmojiGrid.qml:88
@@ -1895,48 +1888,43 @@ msgctxt "@action:button"
 msgid "Text Style"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:237
-#, kde-format
-msgid "Emojis & Stickers"
-msgstr ""
-
-#: src/chatbar/RichEditBar.qml:252
+#: src/chatbar/RichEditBar.qml:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Edit link"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:276 src/chatbar/RichEditBar.qml:355
+#: src/chatbar/RichEditBar.qml:262 src/chatbar/RichEditBar.qml:341
 #, kde-format
 msgctxt "@action:button"
 msgid "Unordered List"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:292 src/chatbar/RichEditBar.qml:363
+#: src/chatbar/RichEditBar.qml:278 src/chatbar/RichEditBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Ordered List"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:309 src/chatbar/RichEditBar.qml:371
+#: src/chatbar/RichEditBar.qml:295 src/chatbar/RichEditBar.qml:357
 #, kde-format
 msgctxt "@action:button"
 msgid "Increase List Level"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:324 src/chatbar/RichEditBar.qml:380
+#: src/chatbar/RichEditBar.qml:310 src/chatbar/RichEditBar.qml:366
 #, kde-format
 msgctxt "@action:button"
 msgid "Decrease List Level"
 msgstr ""
 
-#: src/chatbar/RichEditBar.qml:341
+#: src/chatbar/RichEditBar.qml:327
 #, kde-format
 msgctxt "@action:button"
 msgid "List Style"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:53
+#: src/chatbar/SendBar.qml:54
 #, kde-format
 msgctxt ""
 "@Warning: that any rich text in the chat bar will be switched for the plain "
@@ -1946,43 +1934,49 @@ msgid ""
 "removed"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:87
+#: src/chatbar/SendBar.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "Add to message"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:117 src/chatbar/SendBar.qml:148
+#: src/chatbar/SendBar.qml:118 src/chatbar/SendBar.qml:149
 #, kde-format
 msgctxt "@action:button"
 msgid "Attach an image or file"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:122 src/chatbar/SendBar.qml:161
+#: src/chatbar/SendBar.qml:123 src/chatbar/SendBar.qml:162
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Location"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:127 src/chatbar/SendBar.qml:173
+#: src/chatbar/SendBar.qml:128 src/chatbar/SendBar.qml:174
 #, kde-format
 msgctxt "@action:button"
 msgid "Create a Poll"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:132 src/chatbar/SendBar.qml:184
+#: src/chatbar/SendBar.qml:133 src/chatbar/SendBar.qml:185
 #, kde-format
 msgctxt "@action:button"
 msgid "Send a Voice Message"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:194
+#: src/chatbar/SendBar.qml:195
+#, kde-format
+msgctxt "@action:button"
+msgid "Rich Text"
+msgstr ""
+
+#: src/chatbar/SendBar.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Send message"
 msgstr ""
 
-#: src/chatbar/SendBar.qml:207 src/settings/ThreePIdCard.qml:93
+#: src/chatbar/SendBar.qml:222 src/settings/ThreePIdCard.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
