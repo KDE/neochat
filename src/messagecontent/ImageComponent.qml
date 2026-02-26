@@ -57,126 +57,163 @@ Item {
     property int rightAnchorMargin: 0
 
     Layout.fillWidth: true
-    implicitWidth: mediaSizeHelper.currentSize.width
-    implicitHeight: mediaSizeHelper.currentSize.height
+    implicitWidth: container.implicitWidth
+    implicitHeight: container.implicitHeight
 
-    RowLayout {
-        anchors.top: root.top
-        anchors.topMargin: Kirigami.Units.smallSpacing
-        anchors.right: root.right
-        anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
+    Item {
+        id: container
+        implicitWidth: mediaSizeHelper.currentSize.width
+        implicitHeight: mediaSizeHelper.currentSize.height
 
-        z: 10
+        RowLayout {
+            anchors.top: parent.top
+            anchors.topMargin: Kirigami.Units.smallSpacing
+            anchors.right: parent.right
+            anchors.rightMargin: root.rightAnchorMargin + Kirigami.Units.smallSpacing
 
-        QQC2.Button {
-            visible: !_private.hideImage && !root.editable
-            icon.name: "view-hidden"
-            text: i18nc("@action:button", "Hide Image")
-            display: QQC2.Button.IconOnly
             z: 10
-            onClicked: {
-                _private.hideImage = true;
-                Controller.markImageHidden(root.eventId)
+
+            QQC2.Button {
+                visible: !_private.hideImage && !root.editable
+                icon.name: "view-hidden"
+                text: i18nc("@action:button", "Hide Image")
+                display: QQC2.Button.IconOnly
+                z: 10
+                onClicked: {
+                    _private.hideImage = true;
+                    Controller.markImageHidden(root.eventId)
+                }
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+            QQC2.Button {
+                id: editImageButton
+                visible: root.editable
+                icon.name: "document-edit"
+                text: i18n("Edit")
+                display: QQC2.AbstractButton.IconOnly
+
+                Component {
+                    id: imageEditorPage
+                    ImageEditorPage {
+                        imagePath: root.componentAttributes.source
+                    }
+                }
+
+                onClicked: {
+                    let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage);
+                    imageEditor.newPathChanged.connect(function (newPath) {
+                        imageEditor.closeDialog();
+                        Message.contentModel?.addAttachment(newPath);
+                    });
+                }
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+            }
+            QQC2.Button {
+                id: cancelButton
+                visible: root.editable
+                display: QQC2.AbstractButton.IconOnly
+                text: i18nc("@action:button", "Remove attachment")
+                icon.name: "dialog-close"
+                onClicked: root.Message.contentModel?.removeAttachment()
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+        }
+
+        Rectangle {
+            anchors.fill: parent
+
+            visible: (_private.imageItem?.status !== Image.Ready ?? true) || _private.hideImage
+
+            color: "#BB000000"
+
+            QQC2.ProgressBar {
+                anchors.centerIn: parent
+
+                width: parent.width * 0.8
+                visible: !_private.hideImage
+
+                from: 0
+                to: 1.0
+                value: _private.imageItem?.progress ?? 0.0
             }
 
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            Image {
+                anchors.fill: parent
+                source: root?.componentAttributes.tempInfo?.source ?? ""
+            }
         }
-        QQC2.Button {
-            id: editImageButton
-            visible: root.editable
-            icon.name: "document-edit"
-            text: i18n("Edit")
-            display: QQC2.AbstractButton.IconOnly
 
-            Component {
-                id: imageEditorPage
-                ImageEditorPage {
-                    imagePath: root.componentAttributes.source
+        Loader {
+            id: imageLoader
+
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            active: !root.componentAttributes.animated && !_private.hideImage
+            sourceComponent: Image {
+                source: root.componentAttributes.source
+                sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
+                sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
+
+                fillMode: Image.PreserveAspectFit
+                autoTransform: true
+            }
+        }
+
+        Loader {
+            id: animatedImageLoader
+
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            active: (root?.componentAttributes.animated ?? false) && !_private.hideImage
+            sourceComponent: AnimatedImage {
+                source: root.componentAttributes.source
+
+                fillMode: Image.PreserveAspectFit
+                autoTransform: true
+
+                paused: !QQC2.ApplicationWindow.window.active
+            }
+        }
+
+        HoverHandler {
+            id: hoverHandler
+        }
+
+        QQC2.Button {
+            anchors.centerIn: parent
+            text: i18nc("@action:button", "Show Image")
+            visible: _private.hideImage
+            onClicked: {
+                _private.hideImage = false;
+                Controller.markImageShown(root.eventId);
+            }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
+            onTapped: {
+                root.QQC2.ToolTip.hide();
+                if (root.componentAttributes.animated) {
+                    _private.imageItem.paused = true;
+                }
+                if (root.Message.timeline) {
+                    root.Message.timeline.interactive = false;
+                }
+                if (!root.componentAttributes.isSticker && !root.editable && !_private.hideImage) {
+                    RoomManager.maximizeMedia(root.eventId);
                 }
             }
-
-            onClicked: {
-                let imageEditor = (Kirigami.PageStack.pageStack as Kirigami.PageRow).pushDialogLayer(imageEditorPage);
-                imageEditor.newPathChanged.connect(function (newPath) {
-                    imageEditor.closeDialog();
-                    Message.contentModel?.addAttachment(newPath);
-                });
-            }
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-        }
-        QQC2.Button {
-            id: cancelButton
-            visible: root.editable
-            display: QQC2.AbstractButton.IconOnly
-            text: i18nc("@action:button", "Remove attachment")
-            icon.name: "dialog-close"
-            onClicked: root.Message.contentModel?.removeAttachment()
-            QQC2.ToolTip.text: text
-            QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-        }
-    }
-
-    Rectangle {
-        anchors.fill: parent
-
-        visible: (_private.imageItem?.status !== Image.Ready ?? true) || _private.hideImage
-
-        color: "#BB000000"
-
-        QQC2.ProgressBar {
-            anchors.centerIn: parent
-
-            width: parent.width * 0.8
-            visible: !_private.hideImage
-
-            from: 0
-            to: 1.0
-            value: _private.imageItem?.progress ?? 0.0
-        }
-
-        Image {
-            anchors.fill: parent
-            source: root?.componentAttributes.tempInfo?.source ?? ""
-        }
-    }
-
-    Loader {
-        id: imageLoader
-
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-
-        active: !root.componentAttributes.animated && !_private.hideImage
-        sourceComponent: Image {
-            source: root.componentAttributes.source
-            sourceSize.width: mediaSizeHelper.currentSize.width * Screen.devicePixelRatio
-            sourceSize.height: mediaSizeHelper.currentSize.height * Screen.devicePixelRatio
-
-            fillMode: Image.PreserveAspectFit
-            autoTransform: true
-        }
-    }
-
-    Loader {
-        id: animatedImageLoader
-
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-
-        active: (root?.componentAttributes.animated ?? false) && !_private.hideImage
-        sourceComponent: AnimatedImage {
-            source: root.componentAttributes.source
-
-            fillMode: Image.PreserveAspectFit
-            autoTransform: true
-
-            paused: !QQC2.ApplicationWindow.window.active
         }
     }
 
@@ -184,36 +221,7 @@ Item {
     QQC2.ToolTip.visible: hoverHandler.hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
-    HoverHandler {
-        id: hoverHandler
-    }
 
-    QQC2.Button {
-        anchors.centerIn: parent
-        text: i18nc("@action:button", "Show Image")
-        visible: _private.hideImage
-        onClicked: {
-            _private.hideImage = false;
-            Controller.markImageShown(root.eventId);
-        }
-    }
-
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        gesturePolicy: TapHandler.ReleaseWithinBounds | TapHandler.WithinBounds
-        onTapped: {
-            root.QQC2.ToolTip.hide();
-            if (root.componentAttributes.animated) {
-                _private.imageItem.paused = true;
-            }
-            if (root.Message.timeline) {
-                root.Message.timeline.interactive = false;
-            }
-            if (!root.componentAttributes.isSticker && !root.editable && !_private.hideImage) {
-                RoomManager.maximizeMedia(root.eventId);
-            }
-        }
-    }
 
     function downloadAndOpen() {
         if (_private.downloaded) {
