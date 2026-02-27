@@ -5,7 +5,6 @@
 
 #include <QTextCursor>
 #include <QTextDocument>
-#include <qnamespace.h>
 #include <qtextcursor.h>
 
 #include "chattextitemhelper.h"
