@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-26 00:44+0000\n"
+"POT-Creation-Date: 2026-02-27 00:43+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1903,6 +1903,19 @@ msgstr "Mostrar"
 msgid "Quit"
 msgstr "Sair"
 
+#: src/chatbar/ChatBar.qml:85
+#, kde-format
+msgctxt "As in enter starts a new line in the chat bar"
+msgid "Enter starts a new line"
+msgstr ""
+
+#: src/chatbar/ChatBar.qml:85
+#, fuzzy, kde-format
+#| msgid "sent a message"
+msgctxt "As in enter starts send the chat message"
+msgid "Enter sends the message"
+msgstr "enviou uma mensagem"
+
 #: src/chatbar/ChatBarCore.qml:79
 #, fuzzy, kde-format
 #| msgid "Emojis & Stickers"
@@ -2225,7 +2238,13 @@ msgstr "Enviar uma mensagem…"
 #: src/chatbar/SendBar.qml:195
 #, kde-format
 msgctxt "@action:button"
-msgid "Rich Text"
+msgid "Hide Rich Text Controls"
+msgstr ""
+
+#: src/chatbar/SendBar.qml:195
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Rich Text Controls"
 msgstr ""
 
 #: src/chatbar/SendBar.qml:209
@@ -2530,20 +2549,20 @@ msgctxt ""
 msgid "State Keys"
 msgstr ""
 
-#: src/libneochat/accountmanager.cpp:123
+#: src/libneochat/accountmanager.cpp:124
 #, fuzzy, kde-format
 #| msgid "Access token wasn't found"
 msgid "Access token wasn't found: Maybe it was deleted?"
 msgstr "O código de acesso não foi encontrado"
 
-#: src/libneochat/accountmanager.cpp:127
+#: src/libneochat/accountmanager.cpp:128
 #, fuzzy, kde-format
 #| msgid "Please allow NeoChat to read the access token"
 msgid ""
 "Access to keychain was denied: Please allow NeoChat to read the access token"
 msgstr "Por favor permita ao NeoChat ler o código de acesso"
 
-#: src/libneochat/accountmanager.cpp:130
+#: src/libneochat/accountmanager.cpp:131
 #, fuzzy, kde-format
 #| msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgid ""
@@ -2553,7 +2572,7 @@ msgstr ""
 "Instale por favor um sistema de chaves, p.ex. o KWallet ou o Gnome Keyring "
 "no Linux"
 
-#: src/libneochat/accountmanager.cpp:133
+#: src/libneochat/accountmanager.cpp:134
 #, fuzzy, kde-format
 #| msgid "Unable to read access token"
 msgid "Unable to read access token: %1"
@@ -3509,11 +3528,11 @@ msgid "Sends the given message as a notice"
 msgstr "Envia a mensagem indicada como um aviso"
 
 #: src/libneochat/models/actionsmodel.cpp:182
-#: src/libneochat/models/actionsmodel.cpp:316
-#: src/libneochat/models/actionsmodel.cpp:338
-#: src/libneochat/models/actionsmodel.cpp:379
-#: src/libneochat/models/actionsmodel.cpp:416
-#: src/libneochat/models/actionsmodel.cpp:449
+#: src/libneochat/models/actionsmodel.cpp:315
+#: src/libneochat/models/actionsmodel.cpp:336
+#: src/libneochat/models/actionsmodel.cpp:376
+#: src/libneochat/models/actionsmodel.cpp:412
+#: src/libneochat/models/actionsmodel.cpp:444
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -3551,9 +3570,9 @@ msgid "%1 was invited into this room."
 msgstr "O %1 foi convidado para esta sala"
 
 #: src/libneochat/models/actionsmodel.cpp:208
-#: src/libneochat/models/actionsmodel.cpp:329
-#: src/libneochat/models/actionsmodel.cpp:350
-#: src/libneochat/models/actionsmodel.cpp:438
+#: src/libneochat/models/actionsmodel.cpp:328
+#: src/libneochat/models/actionsmodel.cpp:348
+#: src/libneochat/models/actionsmodel.cpp:434
 msgid "<user id>"
 msgstr "<ID do utilizador>"
 
@@ -3623,128 +3642,128 @@ msgstr "Muda o seu nome visível global"
 msgid "Changes your display name in this room"
 msgstr "Muda o seu nome visível nesta sala"
 
-#: src/libneochat/models/actionsmodel.cpp:320
+#: src/libneochat/models/actionsmodel.cpp:319
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "O %1 já está a ser ignorado."
 
-#: src/libneochat/models/actionsmodel.cpp:324
+#: src/libneochat/models/actionsmodel.cpp:323
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "O %1 está agora ignorado."
 
-#: src/libneochat/models/actionsmodel.cpp:330
+#: src/libneochat/models/actionsmodel.cpp:329
 msgid "Ignores the given user"
 msgstr "Ignora o utilizador indicado"
 
-#: src/libneochat/models/actionsmodel.cpp:342
+#: src/libneochat/models/actionsmodel.cpp:340
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "O %1 não está ignorado."
 
-#: src/libneochat/models/actionsmodel.cpp:346
+#: src/libneochat/models/actionsmodel.cpp:344
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "O %1 já não é mais ignorado."
 
-#: src/libneochat/models/actionsmodel.cpp:351
+#: src/libneochat/models/actionsmodel.cpp:349
 msgid "Unignores the given user"
 msgstr "Reactiva o utilizador indicado"
 
-#: src/libneochat/models/actionsmodel.cpp:369
+#: src/libneochat/models/actionsmodel.cpp:367
 msgid "<reaction text>"
 msgstr "<texto da reacção>"
 
-#: src/libneochat/models/actionsmodel.cpp:370
+#: src/libneochat/models/actionsmodel.cpp:368
 msgid "React to the message with the given text"
 msgstr "Reagir a esta mensagem com o texto indicado"
 
-#: src/libneochat/models/actionsmodel.cpp:385
+#: src/libneochat/models/actionsmodel.cpp:382
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "O %1 já foi banido desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:393
+#: src/libneochat/models/actionsmodel.cpp:390
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Não tem permissão para banir os utilizadores desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:399
+#: src/libneochat/models/actionsmodel.cpp:396
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Não tem permissão para banir o %1 desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:403
+#: src/libneochat/models/actionsmodel.cpp:400
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "O %1 foi banido desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:407
-#: src/libneochat/models/actionsmodel.cpp:480
+#: src/libneochat/models/actionsmodel.cpp:404
+#: src/libneochat/models/actionsmodel.cpp:475
 msgid "<user id> [<reason>]"
 msgstr "<ID do utilizador> [<razão>]"
 
-#: src/libneochat/models/actionsmodel.cpp:408
+#: src/libneochat/models/actionsmodel.cpp:405
 msgid "Bans the given user"
 msgstr "Expulsa o utilizador indicado"
 
-#: src/libneochat/models/actionsmodel.cpp:424
+#: src/libneochat/models/actionsmodel.cpp:420
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "Não tem permissão para aceitar de volta utilizadores desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:429
+#: src/libneochat/models/actionsmodel.cpp:425
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "O %1 não está expulso desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:433
+#: src/libneochat/models/actionsmodel.cpp:429
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "O %1 já não está mais expulso desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:439
+#: src/libneochat/models/actionsmodel.cpp:435
 msgid "Removes the ban of the given user"
 msgstr "Remove a expulsão do utilizador indicado"
 
-#: src/libneochat/models/actionsmodel.cpp:453
+#: src/libneochat/models/actionsmodel.cpp:448
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Não se pode expulsar a si próprio da sala."
 
-#: src/libneochat/models/actionsmodel.cpp:457
+#: src/libneochat/models/actionsmodel.cpp:452
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "O %1 não se encontra nesta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:466
+#: src/libneochat/models/actionsmodel.cpp:461
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Não tem permissão para expulsar utilizadores desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:472
+#: src/libneochat/models/actionsmodel.cpp:467
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Não tem permissão para expulsar o %1 desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:476
+#: src/libneochat/models/actionsmodel.cpp:471
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/libneochat/models/actionsmodel.cpp:481
+#: src/libneochat/models/actionsmodel.cpp:476
 msgid "Removes the user from the room"
 msgstr "Remove o utilizador da sala"
 
@@ -3843,28 +3862,28 @@ msgid ""
 msgstr ""
 "Contacte o administrador do seu servidor de Matrix para obter algum suporte."
 
-#: src/libneochat/neochatconnection.cpp:339
+#: src/libneochat/neochatconnection.cpp:340
 #, kde-format
 msgctxt "@info"
 msgid "No identity server configured"
 msgstr ""
 
-#: src/libneochat/neochatconnection.cpp:370
+#: src/libneochat/neochatconnection.cpp:371
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Não foi possível criar a sala: %1"
 
-#: src/libneochat/neochatconnection.cpp:399
+#: src/libneochat/neochatconnection.cpp:400
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Não foi possível criar o espaço: %1"
 
-#: src/libneochat/neochatroom.cpp:1243
+#: src/libneochat/neochatroom.cpp:1244
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O relatório foi enviado com sucesso."
 
-#: src/libneochat/neochatroom.cpp:1608 src/libneochat/neochatroom.cpp:1616
+#: src/libneochat/neochatroom.cpp:1610 src/libneochat/neochatroom.cpp:1618
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -4560,14 +4579,14 @@ msgctxt "@info"
 msgid "Loading reply…"
 msgstr "A carregar…"
 
-#: src/messagecontent/models/messagecontentmodel.cpp:96
+#: src/messagecontent/models/messagecontentmodel.cpp:97
 #, fuzzy, kde-format
 #| msgid "File too large to download."
 msgctxt "@info"
 msgid "Failed to download file."
 msgstr "O ficheiro é demasiado grande para ser transferido."
 
-#: src/messagecontent/models/messagecontentmodel.cpp:99
+#: src/messagecontent/models/messagecontentmodel.cpp:100
 #, fuzzy, kde-format
 #| msgid "Failed to join room"
 msgctxt "@info Failed to download file: [error message]"
@@ -4979,14 +4998,14 @@ msgctxt "@action:button"
 msgid "Create a Space"
 msgstr "Criar um Espaço"
 
-#: src/rooms/models/roomtreemodel.cpp:369
+#: src/rooms/models/roomtreemodel.cpp:370
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgctxt "@info:label"
 msgid "Invited you to chat"
 msgstr "Abrir uma conversa privada"
 
-#: src/rooms/models/roomtreemodel.cpp:371
+#: src/rooms/models/roomtreemodel.cpp:372
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "@info:label"
