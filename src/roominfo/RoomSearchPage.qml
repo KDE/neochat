@@ -30,6 +30,9 @@ SearchPage {
      */
     property string senderId
 
+    // This requires client-side search we don't implement yet
+    readonly property bool canSearch: !room.usesEncryption
+
     title: i18nc("@action:title", "Search Messages")
 
     model: SearchModel {
@@ -45,6 +48,9 @@ SearchPage {
     searchFieldPlaceholder: i18n("Find messages…")
     noSearchPlaceholderMessage: i18n("Enter text to start searching")
     noResultPlaceholderMessage: i18n("No messages found")
+    customPlaceholderIcon: "lock-symbolic"
+    customPlaceholderText: !canSearch ? i18n("Cannot search in encrypted rooms") : ""
+    enableSearch: canSearch
 
     listVerticalLayoutDirection: ListView.BottomToTop
 
