@@ -13,8 +13,10 @@
 #include "enums/chatbartype.h"
 #include "enums/messagecomponenttype.h"
 #include "enums/richformat.h"
+#include "messagecomponent.h"
 #include "messagecontentmodel.h"
 #include "neochatroom.h"
+#include "texthandler.h"
 
 namespace
 {
@@ -51,6 +53,18 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
                 textItem->setRoom(m_room);
             }
         }
+        // We can't guarantee whether room or type is intialised first so we have to handle.
+        if (!m_room || !unhandledTypeChange) {
+            return;
+        }
+        connectCache(m_room->cacheForType(*unhandledTypeChange));
+        unhandledTypeChange = std::nullopt;
+        const auto newCache = m_room->cacheForType(m_type);
+        if (newCache && newCache->isEditing()) {
+            initializeEdit();
+            return;
+        }
+        initializeFromCache();
     });
     connect(this, &ChatBarMessageContentModel::typeChanged, this, [this](ChatBarType::Type oldType) {
         for (const auto &component : std::as_const(m_components)) {
@@ -59,9 +73,15 @@ ChatBarMessageContentModel::ChatBarMessageContentModel(QObject *parent)
             }
         }
         if (!m_room) {
+            unhandledTypeChange = oldType;
             return;
         }
         connectCache(m_room->cacheForType(oldType));
+        const auto newCache = m_room->cacheForType(m_type);
+        if (newCache && newCache->isEditing()) {
+            initializeEdit();
+            return;
+        }
         initializeFromCache();
     });
     connect(m_markdownHelper, &ChatMarkdownHelper::unhandledBlockFormat, this, &ChatBarMessageContentModel::insertStyleAtCursor);
@@ -91,7 +111,7 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
         const auto currentCache = m_room->cacheForType(m_type);
         updateReplyModel();
         if (currentCache->isEditing()) {
-            initializeFromCache();
+            initializeEdit();
         }
     });
     connect(m_room->cacheForType(m_type), &ChatBarCache::attachmentPathChanged, this, [this]() {
@@ -149,6 +169,38 @@ void ChatBarMessageContentModel::initializeFromCache()
 
     m_currentFocusComponent = QPersistentModelIndex(index(rowCount() - 1));
     Q_EMIT focusRowChanged();
+}
+
+void ChatBarMessageContentModel::initializeEdit()
+{
+    clearModel();
+
+    const auto currentCache = m_room->cacheForType(m_type);
+    auto components = currentCache->relationComponents();
+    if (components.isEmpty()) {
+        initializeModel();
+        return;
+    }
+
+    beginResetModel();
+    std::ranges::for_each(components, [this](MessageComponent component) {
+        if (MessageComponentType::isTextType(component.type)) {
+            const auto textItemWrapper = new ChatTextItemHelper(this);
+            const auto initialFragment = component.type == MessageComponentType::Code ? QTextDocumentFragment::fromPlainText(component.display)
+                                                                                      : QTextDocumentFragment::fromHtml(component.display);
+            textItemWrapper->setInitialFragment(initialFragment);
+            textItemWrapper->setRoom(m_room);
+            textItemWrapper->setType(m_type);
+            if (component.type == MessageComponentType::Quote) {
+                textItemWrapper->setFixedChars(u"\""_s, u"\""_s);
+            }
+
+            component.attributes.insert(TextItemKey, QVariant::fromValue<ChatTextItemHelper *>(textItemWrapper));
+            connectTextItem(textItemWrapper);
+        }
+        m_components += component;
+    });
+    endResetModel();
 }
 
 ChatBarType::Type ChatBarMessageContentModel::type() const

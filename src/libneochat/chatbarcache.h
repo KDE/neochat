@@ -15,6 +15,7 @@ namespace Quotient
 class RoomMember;
 }
 
+struct MessageComponent;
 class NeoChatRoom;
 
 /**
@@ -92,13 +93,6 @@ class ChatBarCache : public QObject
     Q_PROPERTY(bool relationAuthorIsPresent READ relationAuthorIsPresent NOTIFY relationAuthorIsPresentChanged)
 
     /**
-     * @brief The content of the related message.
-     *
-     * Will be QString() if no related message.
-     */
-    Q_PROPERTY(QString relationMessage READ relationMessage NOTIFY relationIdChanged)
-
-    /**
      * @brief Whether the chat bar is replying in a thread.
      */
     Q_PROPERTY(bool isThreaded READ isThreaded NOTIFY threadIdChanged)
@@ -147,6 +141,7 @@ public:
     bool relationAuthorIsPresent() const;
 
     QString relationMessage() const;
+    QList<MessageComponent> relationComponents() const;
 
     bool isThreaded() const;
     QString threadId() const;

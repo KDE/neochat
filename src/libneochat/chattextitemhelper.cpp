@@ -9,7 +9,6 @@
 #include <QTextCursor>
 
 #include <Kirigami/Platform/PlatformTheme>
-#include <qtextdocument.h>
 
 #include "chatbarsyntaxhighlighter.h"
 #include "neochatroom.h"
@@ -165,22 +164,51 @@ void ChatTextItemHelper::initialize()
     int finalCursorPos = cursor.position();
     if (doc->isEmpty() && !m_initialFragment.isEmpty()) {
         cursor.insertFragment(m_initialFragment);
+        if (cursor.blockFormat().bottomMargin() > 0) {
+            auto blockFormat = cursor.blockFormat();
+            blockFormat.setBottomMargin(0);
+            cursor.setBlockFormat(blockFormat);
+        }
         finalCursorPos = cursor.position();
     }
 
-    if (!m_fixedStartChars.isEmpty() && doc->characterAt(0) != m_fixedStartChars) {
+    if (!m_fixedStartChars.isEmpty()) {
         cursor.movePosition(QTextCursor::Start);
-        cursor.insertText(m_fixedStartChars);
-        finalCursorPos += m_fixedStartChars.length();
+        cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, m_fixedStartChars.length());
+        if (cursor.selectedText() != m_fixedStartChars) {
+            cursor.movePosition(QTextCursor::Start);
+            cursor.insertText(m_fixedStartChars);
+            finalCursorPos += m_fixedStartChars.length();
+        }
     }
 
-    if (!m_fixedStartChars.isEmpty() && doc->characterAt(doc->characterCount()) != m_fixedStartChars) {
+    if (!m_fixedStartChars.isEmpty()) {
         cursor.movePosition(QTextCursor::End);
-        cursor.keepPositionOnInsert();
-        cursor.insertText(m_fixedEndChars);
+        cursor.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor, m_fixedEndChars.length());
+        if (cursor.selectedText() != m_fixedEndChars) {
+            cursor.keepPositionOnInsert();
+            cursor.insertText(m_fixedEndChars);
+        }
     }
     setCursorPosition(finalCursorPos);
     cursor.endEditBlock();
+
+    qWarning() << doc->toRawText();
+    const auto blockProperties = cursor.blockFormat().properties();
+    for (const auto &property : blockProperties.keys()) {
+        qWarning() << static_cast<QTextFormat::Property>(property) << blockProperties[property];
+    }
+    const auto textProperties = cursor.charFormat().properties();
+    for (const auto &property : textProperties.keys()) {
+        qWarning() << static_cast<QTextFormat::Property>(property) << textProperties[property];
+    }
+    const auto currentList = cursor.currentList();
+    if (currentList) {
+        const auto listProperties = currentList->format().properties();
+        for (const auto &property : listProperties.keys()) {
+            qWarning() << static_cast<QTextFormat::Property>(property) << listProperties[property];
+        }
+    }
 
     m_initializingChars = false;
 }

@@ -130,10 +130,12 @@ Q_SIGNALS:
 
 private:
     ChatBarType::Type m_type = ChatBarType::None;
+    std::optional<ChatBarType::Type> unhandledTypeChange = std::nullopt;
     void connectCache(ChatBarCache *oldCache = nullptr);
 
     void initializeModel(const QString &initialText = {});
     void initializeFromCache();
+    void initializeEdit();
 
     std::optional<QString> getReplyEventId() override;
 

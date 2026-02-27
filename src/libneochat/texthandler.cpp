@@ -402,9 +402,9 @@ QString TextHandler::stripBlockTags(QString string, const QString &tagType) cons
         }
 
         // This is not a normal quotation mark but U+201C
-        string.insert(startQuotationIndex, u'“');
+        string.insert(startQuotationIndex, u"\""_s);
         // This is U+201D
-        string.insert(endQuotationIndex, u'”');
+        string.insert(endQuotationIndex, u"\""_s);
     }
 
     return string;
