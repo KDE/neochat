@@ -90,6 +90,7 @@ void ChatBarMessageContentModel::connectCache(ChatBarCache *oldCache)
         }
         const auto currentCache = m_room->cacheForType(m_type);
         updateReplyModel();
+        refocusCurrentComponent();
         if (currentCache->isEditing()) {
             initializeFromCache();
         }
